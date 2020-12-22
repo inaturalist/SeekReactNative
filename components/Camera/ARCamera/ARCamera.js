@@ -265,6 +265,10 @@ const ARCamera = () => {
     navigation.addListener( "blur", () => resetState() );
   }, [navigation, requestAndroidPermissions] );
 
+  const navHome = () => navigateToMainStack( navigation.navigate, "Home" );
+  const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
+  const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
+
   return (
     <View style={styles.container}>
       {error
@@ -282,7 +286,7 @@ const ARCamera = () => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
+        onPress={navHome}
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />
@@ -290,7 +294,7 @@ const ARCamera = () => {
       {isFocused && ( // this is necessary for camera to load properly in iOS
         <INatCamera
           ref={camera}
-          confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+          confidenceThreshold={confidenceThreshold}
           modelPath={dirModel}
           onCameraError={handleCameraError}
           onCameraPermissionMissing={handleCameraPermissionMissing}
@@ -299,7 +303,7 @@ const ARCamera = () => {
           onTaxaDetected={handleTaxaDetected}
           onLog={handleLog}
           style={styles.camera}
-          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+          taxaDetectionInterval={taxaDetectionInterval}
           taxonomyPath={dirTaxonomy}
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}

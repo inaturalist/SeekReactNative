@@ -54,6 +54,8 @@ const verticalConfig = {
   cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 };
 
+const screenOptions = { gestureEnabled: false };
+
 const Stack = createStackNavigator();
 
 const linking = { prefixes: ["app://"] };
@@ -63,7 +65,7 @@ const App = () => (
     <NavigationContainer theme={MyTheme} linking={linking}>
       <Stack.Navigator
         initialRouteName="Root"
-        screenOptions={{ gestureEnabled: false }}
+        screenOptions={screenOptions}
       >
         <Stack.Screen
           name="Splash"

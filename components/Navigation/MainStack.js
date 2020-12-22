@@ -10,8 +10,10 @@ import Notifications from "../Notifications/Notifications";
 
 const Tab = createBottomTabNavigator();
 
+const tabBar = props => <Footer {...props} />;
+
 const NotificationsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Notifications" component={Notifications} />
   </Tab.Navigator>
 );
@@ -27,10 +29,17 @@ const defaultConfig = {
   cardStyleInterpolator: forFade
 };
 
+const notificationsConfig = {
+  headerShown: false,
+  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+};
+
+const screenOptions = { gestureEnabled: false };
+
 const MainStack = () => (
   <Stack.Navigator
     initialRouteName="MainStack"
-    screenOptions={{ gestureEnabled: false }}
+    screenOptions={screenOptions}
   >
     {/* <Stack.Screen
       name="Social"
@@ -45,10 +54,7 @@ const MainStack = () => (
     <Stack.Screen
       name="Notifications"
       component={NotificationsFooter}
-      options={{
-        headerShown: false,
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-      }}
+      options={notificationsConfig}
     />
     <Stack.Screen
       name="Match"

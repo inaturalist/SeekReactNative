@@ -21,13 +21,14 @@ import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
 
-const SpeciesDetail = () => {
+const SpeciesDetail = ( ) => {
   const scrollView = useRef( null );
-  const navigation = useNavigation();
-  const { params } = useRoute();
+  const navigation = useNavigation( );
+  const { params } = useRoute( );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action.type, "action type" );
     switch ( action.type ) {
       case "ERROR":
         return { ...state, error: "internet" };
@@ -63,7 +64,7 @@ const SpeciesDetail = () => {
           seenTaxa: null
         };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     id: null,
@@ -83,12 +84,12 @@ const SpeciesDetail = () => {
     seenTaxa
   } = state;
 
-  const setId = useCallback( async () => {
-    const i = await getSpeciesId();
+  const setId = useCallback( async ( ) => {
+    const i = await getSpeciesId( );
     dispatch( { type: "SET_ID", id: i } );
   }, [] );
 
-  const checkIfSpeciesSeen = useCallback( () => {
+  const checkIfSpeciesSeen = useCallback( ( ) => {
     if ( id === null ) {
       return;
     }
@@ -101,16 +102,6 @@ const SpeciesDetail = () => {
       }
     } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
   }, [id] );
-
-  const checkInternetConnection = () => {
-    checkForInternet().then( ( internet ) => {
-      if ( internet === "none" || internet === "unknown" ) {
-        dispatch( { type: "ERROR" } );
-      } else {
-        dispatch( { type: "NO_ERROR" } );
-      }
-    } );
-  };
 
   const createTaxonomyList = ( ancestors, scientificName ) => {
     const taxonomyList = [];
@@ -129,9 +120,9 @@ const SpeciesDetail = () => {
     return taxonomyList;
   };
 
-  const fetchTaxonDetails = useCallback( () => {
-    const localeParams = { locale: i18n.currentLocale() };
-    const options = { user_agent: createUserAgent() };
+  const fetchTaxonDetails = useCallback( ( ) => {
+    const localeParams = { locale: i18n.currentLocale( ) };
+    const options = { user_agent: createUserAgent( ) };
 
     inatjs.taxa.fetch( id, localeParams, options ).then( ( response ) => {
       const taxa = response.results[0];
@@ -155,18 +146,18 @@ const SpeciesDetail = () => {
           }
         }
       } );
-    } ).catch( () => checkInternetConnection() );
-  }, [id] );
+    } ).catch( ( ) => checkInternetConnection( ) );
+  }, [id, checkInternetConnection] );
 
-  const fetchiNatData = useCallback( () => {
-    setId();
+  const fetchiNatData = useCallback( ( ) => {
+    setId( );
 
     // reset seenTaxa if refreshing screen from Similar Species
     if ( seenTaxa ) {
       dispatch( { type: "TAXA_NOT_SEEN" } );
     }
 
-    const scrollToTop = () => {
+    const scrollToTop = ( ) => {
       if ( scrollView.current ) {
         scrollView.current.scrollTo( {
           x: 0, y: 0, animated: Platform.OS === "android"
@@ -175,31 +166,47 @@ const SpeciesDetail = () => {
     };
 
     if ( Platform.OS === "android" ) {
-      setTimeout( () => scrollToTop(), 1 );
+      setTimeout( ( ) => scrollToTop( ), 1 );
       // hacky but this fixes scroll not getting to top of screen
     } else {
-      scrollToTop();
+      scrollToTop( );
     }
   }, [setId, seenTaxa] );
 
-  useEffect( () => {
+  const checkInternetConnection = useCallback( ( ) => {
+    checkForInternet( ).then( ( internet ) => {
+      if ( internet === "none" || internet === "unknown" ) {
+        dispatch( { type: "ERROR" } );
+      } else {
+        if ( error === "internet" ) {
+          // only fetch the data needed to fill in the rest of the screen
+          fetchTaxonDetails( );
+          checkIfSpeciesSeen( );
+        }
+        dispatch( { type: "NO_ERROR" } );
+      }
+    } );
+  }, [error, fetchTaxonDetails, checkIfSpeciesSeen] );
+
+  useEffect( ( ) => {
     if ( id !== null ) {
-      fetchTaxonDetails();
-      checkIfSpeciesSeen();
+      fetchTaxonDetails( );
+      checkIfSpeciesSeen( );
     }
   }, [id, fetchTaxonDetails, checkIfSpeciesSeen] );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     // would be nice to stop refetch when a user goes to range map and back
-    navigation.addListener( "focus", () => { fetchiNatData(); } );
-    navigation.addListener( "blur", () => { dispatch( { type: "RESET_SCREEN" } ); } );
+    // and also wikipedia and back or iNat obs and back
+    navigation.addListener( "focus", ( ) => { fetchiNatData( ); } );
+    navigation.addListener( "blur", ( ) => { dispatch( { type: "RESET_SCREEN" } ); } );
   }, [navigation, fetchiNatData] );
 
   if ( !id ) {
     return null;
   }
 
-  const predictions = params.image || null;
+  const predictions = params ? params.image : null;
 
   return (
     <SafeAreaView style={styles.greenBanner} edges={["top"]}>

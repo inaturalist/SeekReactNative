@@ -11,16 +11,28 @@ const Tab = createMaterialTopTabNavigator();
 
 const { width, length } = Dimensions.get( "window" );
 
+const tabBarOptions = {
+  labelStyle: styles.cameraTabLabel,
+  style: styles.cameraTab,
+  indicatorStyle: styles.indicator
+};
+
+const initialLayout = { width, length };
+
+const swipeEnabled = Platform.OS === "ios" || false;
+
+// this is only used for hot starting QuickActions
+const initialCameraParams = { showWarning: false };
+
+const cameraLabel = { tabBarLabel: i18n.t( "camera.label" ).toLocaleUpperCase() };
+const galleryLabel = { tabBarLabel: i18n.t( "gallery.label" ).toLocaleUpperCase() };
+
 const CameraNav = () => (
   <Tab.Navigator
     tabBarPosition="bottom"
-    swipeEnabled={Platform.OS === "ios"}
-    initialLayout={{ width, length }}
-    tabBarOptions={{
-      labelStyle: styles.cameraTabLabel,
-      style: styles.cameraTab,
-      indicatorStyle: styles.indicator
-    }}
+    swipeEnabled={swipeEnabled}
+    initialLayout={initialLayout}
+    tabBarOptions={tabBarOptions}
     // AR Camera is already a memory intensive screen
     // lazy means the gallery is not loading at the same time
     lazy
@@ -28,13 +40,13 @@ const CameraNav = () => (
     <Tab.Screen
       name="ARCamera"
       component={ARCamera}
-      initialParams={{ showWarning: false }} // this is only used for hot starting QuickActions
-      options={{ tabBarLabel: i18n.t( "camera.label" ).toLocaleUpperCase() }}
+      initialParams={initialCameraParams}
+      options={cameraLabel}
     />
     <Tab.Screen
       name="Gallery"
       component={Gallery}
-      options={{ tabBarLabel: i18n.t( "gallery.label" ).toLocaleUpperCase() }}
+      options={galleryLabel}
     />
   </Tab.Navigator>
 );

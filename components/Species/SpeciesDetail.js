@@ -28,7 +28,6 @@ const SpeciesDetail = ( ) => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action.type, "action type" );
     switch ( action.type ) {
       case "ERROR":
         return { ...state, error: "internet" };

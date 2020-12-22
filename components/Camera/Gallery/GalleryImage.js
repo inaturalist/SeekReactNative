@@ -67,6 +67,8 @@ const GalleryImage = ( { item }: Props ) => {
     }
   }, [getPredictions, navigateToResults, item] );
 
+  const imageSource = { uri: item.node.image.uri };
+
   return (
     <TouchableOpacity
       accessibilityLabel={item.node.image.filename}
@@ -75,7 +77,7 @@ const GalleryImage = ( { item }: Props ) => {
       style={styles.button}
     >
       <Image
-        source={{ uri: item.node.image.uri }}
+        source={imageSource}
         style={styles.image}
       />
     </TouchableOpacity>

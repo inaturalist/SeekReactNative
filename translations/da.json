@@ -4,13 +4,13 @@
     "location_error": "For at vise dig arter i nærheden, har vi brug for at kende din placering.",
     "location_device": "Seek har brug for din placering for at vise arter i nærheden og tilføje observationer. Sørg venligst for at din enheds placering er slået til.",
     "enable_location": "Aktiver placering i indstillinger",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Aktivér venligst placering i indstillinger",
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden. Tryk for at prøve igen.",
     "no_location": "Ingen placering",
     "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret.",
     "no_gps": "GPS-signal ikke fundet.",
     "location_timeout": "Din placeringsanmodning udløb. Prøv venligst igen.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "location_settings": "Placeringsfunktion er ikke aktiveret eller placeringstilstand er ikke egnet til den aktuelle forespørgsel"
   },
   "get_started": {
     "header": "Kom i gang",
@@ -300,7 +300,7 @@
     "error_permissions": "Vi har brug for adgang til kameraet for at hjælpe dig med at identificere arter!",
     "error_gallery": "Vi skal have adgang til dit billedbibliotek for at gemme de fotos du tager!",
     "permissions": "Giv tilladelse i indstillinger",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Giv tilladelse i indstillinger",
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_camera": "Beklager, vi kunne ikke starte kameraet",
     "error_device": "Beklager, den enhed du bruger er ikke understøttet",
@@ -312,7 +312,7 @@
     "error_photoError": "Beklager, fotoobjektet blev ikke fundet",
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
-    "filters_off": "Filters off"
+    "filters_off": "Filtre fra"
   },
   "gallery": {
     "label": "Fotos",

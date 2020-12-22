@@ -104,6 +104,16 @@ const LocationPicker = ( {
     } );
   };
 
+  const searchNearLocation = () => {
+    updateLatLng(
+      truncateCoordinates( region.latitude ),
+      truncateCoordinates( region.longitude )
+    );
+    closeLocationPicker();
+  };
+
+  const changeText = text => setCoordsByLocationName( text );
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={styles.header}>
@@ -119,7 +129,7 @@ const LocationPicker = ( {
             accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
-            onChangeText={text => setCoordsByLocationName( text )}
+            onChangeText={changeText}
             placeholder={inputLocation}
             placeholderTextColor={colors.placeholderGray}
             style={styles.inputField}
@@ -134,13 +144,7 @@ const LocationPicker = ( {
       />
       <View style={styles.footer}>
         <GreenButton
-          handlePress={() => {
-            updateLatLng(
-              truncateCoordinates( region.latitude ),
-              truncateCoordinates( region.longitude )
-            );
-            closeLocationPicker();
-          }}
+          handlePress={searchNearLocation}
           letterSpacing={0.68}
           text="location_picker.button"
         />

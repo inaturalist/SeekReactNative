@@ -310,7 +310,7 @@ const PrivacyPolicyScreen = () => {
     <ScrollWithHeader header="inat_signup.privacy">
       <HTML
         containerStyle={styles.textContainer}
-        html={html}
+        source={{ html }}
         tagsStyles={ { p: styles.text, h3: styles.headerText, a: styles.text, li: styles.list } }
       />
     </ScrollWithHeader>

@@ -172,7 +172,7 @@ const TermsOfServiceScreen = () => {
     <ScrollWithHeader header="inat_signup.terms">
       <HTML
         containerStyle={styles.textContainer}
-        html={html}
+        source={{ html }}
         tagsStyles={ {
           p: styles.text,
           a: styles.text,

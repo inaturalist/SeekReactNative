@@ -17,12 +17,12 @@ PODS:
     - Flipper-Folly (~> 2.2)
     - Flipper-RSocket (~> 1.1)
   - Flipper-DoubleConversion (1.1.7)
-  - Flipper-Folly (2.2.0):
+  - Flipper-Folly (2.3.0):
     - boost-for-react-native
     - CocoaLibEvent (~> 1.0)
     - Flipper-DoubleConversion
     - Flipper-Glog
-    - OpenSSL-Universal (= 1.0.2.19)
+    - OpenSSL-Universal (= 1.0.2.20)
   - Flipper-Glog (0.3.6)
   - Flipper-PeerTalk (0.0.4)
   - Flipper-RSocket (1.1.0):
@@ -81,9 +81,9 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
-  - OpenSSL-Universal (1.0.2.19):
-    - OpenSSL-Universal/Static (= 1.0.2.19)
-  - OpenSSL-Universal/Static (1.0.2.19)
+  - OpenSSL-Universal (1.0.2.20):
+    - OpenSSL-Universal/Static (= 1.0.2.20)
+  - OpenSSL-Universal/Static (1.0.2.20)
   - RCTRequired (0.63.3)
   - RCTTypeSafety (0.63.3):
     - FBLazyVector (= 0.63.3)
@@ -256,6 +256,9 @@ PODS:
     - React
   - react-native-geolocation-service (5.1.1):
     - React
+  - react-native-image-editor (2.3.0):
+    - React
+    - React-RCTImage
   - react-native-image-resizer (1.4.1):
     - React-Core
   - react-native-inat-camera (1.0.0):
@@ -272,7 +275,7 @@ PODS:
     - React-Core
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (10.10.0):
+  - react-native-webview (11.0.2):
     - React-Core
   - React-RCTActionSheet (0.63.3):
     - React-Core/RCTActionSheetHeaders (= 0.63.3)
@@ -337,46 +340,40 @@ PODS:
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
-  - RealmJS (3.6.5):
+  - RealmJS (10.1.2):
     - GCDWebServer
     - React
-  - RNCAsyncStorage (1.7.1):
+  - RNCAsyncStorage (1.13.2):
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPicker (1.9.4):
+  - RNCPicker (1.9.8):
     - React-Core
-  - RNDateTimePicker (3.0.3):
+  - RNDateTimePicker (3.0.9):
     - React-Core
   - RNDeviceInfo (7.3.1):
     - React-Core
   - RNFS (2.16.6):
     - React
-<<<<<<< HEAD
-  - RNGestureHandler (1.8.0):
-    - React
-  - RNImageMarker (0.6.1):
-    - React
-  - RNLocalize (1.4.2):
-=======
   - RNGestureHandler (1.9.0):
     - React-Core
+  - RNImageMarker (0.6.1):
+    - React
   - RNLocalize (2.0.1):
->>>>>>> a172f04b8e87d49348bef9ecb7561c357d1ab090
     - React-Core
   - RNQuickAction (0.3.13):
     - React
   - RNReanimated (1.13.2):
     - React-Core
-  - RNScreens (2.11.0):
-    - React
-  - RNShare (4.0.4):
+  - RNScreens (2.16.1):
+    - React-Core
+  - RNShare (5.1.0):
     - React-Core
   - RNStoreReview (0.1.5):
     - React
   - RNSVG (12.1.0):
     - React
-  - SDWebImage/Core (5.9.2)
+  - SDWebImage/Core (5.9.4)
   - SDWebImageWebPCoder (0.6.1):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.7)
@@ -425,6 +422,7 @@ DEPENDENCIES:
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
+  - "react-native-image-editor (from `../node_modules/@react-native-community/image-editor`)"
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
   - react-native-mail (from `../node_modules/react-native-mail`)
@@ -521,6 +519,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
+  react-native-image-editor:
+    :path: "../node_modules/@react-native-community/image-editor"
   react-native-image-resizer:
     :path: "../node_modules/react-native-image-resizer"
   react-native-inat-camera:
@@ -606,7 +606,7 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 7da9338acfb98d4ef9e5536805a0704572d33c2f
   Flipper: be611d4b742d8c87fbae2ca5f44603a02539e365
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
-  Flipper-Folly: c12092ea368353b58e992843a990a3225d4533c3
+  Flipper-Folly: e4493b013c02d9347d5e0cb4d128680239f6c78a
   Flipper-Glog: 1dfd6abf1e922806c52ceb8701a3599a79a200a6
   Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
   Flipper-RSocket: 64e7431a55835eb953b0bf984ef3b90ae9fdddd7
@@ -615,7 +615,7 @@ SPEC CHECKSUMS:
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
-  OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
+  OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab
   React: f36e90f3ceb976546e97df3403e37d226f79d0e3
@@ -629,6 +629,7 @@ SPEC CHECKSUMS:
   react-native-cameraroll: 9d2b7c1707204d2040d2812f960c6cebdbd9f670
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: f33626f1ae12381ca2ae60f98b2f5edd676bf95a
+  react-native-image-editor: bd67912f38a8e7a895bf6eb8f445acdcefd8fd0c
   react-native-image-resizer: af7fa48fe7913b7b96fa079d16dd97ada31d6833
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
   react-native-mail: a864fb211feaa5845c6c478a3266de725afdce89
@@ -637,7 +638,7 @@ SPEC CHECKSUMS:
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
   react-native-safe-area-context: 86612d2c9a9e94e288319262d10b5f93f0b395f5
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
-  react-native-webview: 2e330b109bfd610e9818bf7865d1979f898960a7
+  react-native-webview: b2542d6fd424bcc3e3b2ec5f854f0abb4ec86c87
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
   React-RCTAnimation: 1befece0b5183c22ae01b966f5583f42e69a83c2
   React-RCTBlob: 0b284339cbe4b15705a05e2313a51c6d8b51fa40
@@ -649,28 +650,23 @@ SPEC CHECKSUMS:
   React-RCTVibration: 8e9fb25724a0805107fc1acc9075e26f814df454
   ReactCommon: 4167844018c9ed375cc01a843e9ee564399e53c3
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
-  RealmJS: b103c28012b1abfe13396ac82e76b4f4d9d47c0d
-  RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
+  RealmJS: df43088c1afaab91567cd31bd36965e4100d5914
+  RNCAsyncStorage: bc2f81cc1df90c267ce9ed30bb2dbc93b945a8ee
   RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
-  RNCPicker: 2c31098349f499e7ab4da6c1ce26f7537d271062
-  RNDateTimePicker: e9fcd5ecdc0c5b018871e0d178d6040dca11973c
+  RNCPicker: cdeab10edac8f14ed6839fdf922a789f80c72ec1
+  RNDateTimePicker: 986d4794006e5caaebd089a724f54d35631a8dd4
   RNDeviceInfo: 57bb2806fb7bd982a1434e9f0b4e6a6ab1f6702e
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
-<<<<<<< HEAD
-  RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
-  RNImageMarker: 3d2ad96afe3db0965ecff23ca97d65b812d06b47
-  RNLocalize: 4071198b59b461f3b74eebc5fee8c50f13e39e79
-=======
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
+  RNImageMarker: 3d2ad96afe3db0965ecff23ca97d65b812d06b47
   RNLocalize: dcf0fdb332b37b0d24178e876a7ce4dbbc9c838d
->>>>>>> a172f04b8e87d49348bef9ecb7561c357d1ab090
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
-  RNScreens: 0e91da98ab26d5d04c7b59a9b6bd694124caf88c
-  RNShare: af2aeae0587bf3e40e5268f1ef96aa162f1a6ac9
+  RNScreens: 45c457af3d2ee9e08fc01e70da87e653d46b1198
+  RNShare: fed99fd743f80ca255903c1da46fc9a6430efab6
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
-  SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
+  SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

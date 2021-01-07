@@ -120,10 +120,10 @@ const GalleryScreen = () => {
   }, [album] );
 
   useEffect( () => {
-    if ( photos.length === 0 && !error ) {
+    if ( photos.length === 0 ) {
       setPhotoParams();
     }
-  }, [photos.length, error, setPhotoParams] );
+  }, [photos.length, setPhotoParams] );
 
   useEffect( () => {
     const requestAndroidPermissions = async () => {

@@ -13,10 +13,7 @@ type Props = {
   setPhotoParams: Function
 }
 
-const GalleryImageList = ( {
-  setPhotoParams,
-  photos
-}: Props ) => {
+const GalleryImageList = ( { setPhotoParams, photos }: Props ) => {
   const renderLoading = useCallback( () => <LoadingWheel color={colors.darkGray} />, [] );
 
   const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} />, [] );

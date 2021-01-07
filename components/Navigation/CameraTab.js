@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Platform, Dimensions } from "react-native";
+import { Platform, Dimensions, View } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import styles from "../../styles/navigation";
@@ -14,7 +14,15 @@ const { width, length } = Dimensions.get( "window" );
 const tabBarOptions = {
   labelStyle: styles.cameraTabLabel,
   style: styles.cameraTab,
-  indicatorStyle: styles.indicator
+  renderIndicator: props => {
+    const { index } = props.navigationState;
+
+    if ( index === 0 ) {
+      return <View style={styles.indicator} />;
+    } else {
+      return <View style={styles.galleryIndicator} />;
+    }
+  }
 };
 
 const initialLayout = { width, length };

@@ -1,11 +1,13 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
-import { Platform } from "react-native";
+import { Platform, Alert } from "react-native";
 import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
+import ImageEditor from "@react-native-community/image-editor";
 
+import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
-import { colors, fonts } from "../styles/global";
+import { colors, dimensions, fonts } from "../styles/global";
 
 const shareToFacebook = async ( url ) => {
   // this shares to newsfeed, story, or profile photo on Android
@@ -14,11 +16,20 @@ const shareToFacebook = async ( url ) => {
     social: Share.Social.FACEBOOK
   };
 
+  console.log( shareOptions, "share options" );
+
   try {
     const share = await Share.shareSingle( shareOptions );
+    console.log( share, "share in try" );
     return share;
   } catch ( e ) {
-    console.log( "couldn't share to FB: ", e );
+    if ( e.error.code === "ECOM.RNSHARE1" ) {
+      Alert.alert(
+        i18n.t( "social.error_title" ),
+        i18n.t( "social.error" )
+      );
+    }
+    console.log( "couldn't share to FB because: ", e );
   }
 };
 
@@ -84,8 +95,29 @@ const addWatermark = async( userImage, commonName, name ) => {
   }
 };
 
+const cropToSquare = async ( uri, yOffset = 0 ) => {
+  const cropData = {
+    offset: {
+      x: 0,
+      y: yOffset
+    },
+    size: {
+      width: dimensions.width,
+      height: dimensions.width
+    }
+  };
+
+  try {
+    const url = await ImageEditor.cropImage( uri, cropData );
+    console.log( "Cropped image uri", url );
+  } catch ( e ) {
+    console.log( e, "image couldn't be cropped" );
+  }
+};
+
 export {
   shareToFacebook,
   saveToCameraRoll,
-  addWatermark
+  addWatermark,
+  cropToSquare
 };

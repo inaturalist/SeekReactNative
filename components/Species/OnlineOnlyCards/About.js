@@ -14,7 +14,7 @@ type Props = {
   +about: ?string,
   +wikiUrl: ?string,
   +id: ?number,
-  +scientificName: string
+  +scientificName: ?string
 }
 
 const About = ( {

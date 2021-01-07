@@ -24,7 +24,7 @@ import {
 type Props = {
   +details: Object,
   +id: number,
-  +predictions: Array<Object>,
+  +predictions: ?Array<Object>,
   +scientificName: ?string
 }
 
@@ -65,9 +65,11 @@ const OnlineSpeciesContainer = ( {
     </>
   );
 
-  if ( !region.latitude || !stats ) {
-    return null;
-  }
+  // some of MyObservations don't show up with this code implemented on iOS
+
+  // if ( !region.latitude || !stats ) {
+  //   return null;
+  // }
 
   return (
     <>

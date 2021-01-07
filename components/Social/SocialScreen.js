@@ -8,7 +8,6 @@ import Checkbox from "react-native-check-box";
 import { colors } from "../../styles/global";
 import styles from "../../styles/social/social";
 import { dimensions } from "../../styles/global";
-import LoadingWheel from "../UIComponents/LoadingWheel";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
@@ -17,6 +16,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import { shareToFacebook, saveToCameraRoll, addWatermark } from "../../utility/socialHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
+import SquareImageCropper from "./SquareImageCropper";
 
 const SocialScreen = ( ) => {
   const navigation = useNavigation( );
@@ -25,7 +25,7 @@ const SocialScreen = ( ) => {
 
   const [tab, setTab] = useState( "square" );
   const [imageForSocial, setImageForSocial] = useState( null );
-  const [watermark, setWatermark] = useState( true );
+  const [showWatermark, setShowWatermark] = useState( true );
   const [saved, setSaved] = useState( false );
 
   const toggleTab = ( ) => {
@@ -36,7 +36,7 @@ const SocialScreen = ( ) => {
     }
   };
 
-  const toggleWatermark = ( ) => setWatermark( !watermark );
+  const toggleWatermark = ( ) => setShowWatermark( !showWatermark );
 
   const navigateBack = ( ) => navigation.goBack( );
 
@@ -80,10 +80,10 @@ const SocialScreen = ( ) => {
       setImageForSocial( watermarkedImage );
     };
 
-    if ( watermark ) {
+    if ( showWatermark ) {
       createWatermark( );
     }
-  }, [watermark, uri, taxon] );
+  }, [showWatermark, uri, taxon] );
 
   const setSaveToCameraText = ( ) => {
     let text = "social.save_to_camera_roll";
@@ -95,6 +95,13 @@ const SocialScreen = ( ) => {
 
   const cameraRollText = setSaveToCameraText( );
 
+  const showOriginalRatioImage = ( ) => {
+    if ( imageForSocial && showWatermark ) {
+      return <Image source={{ uri: imageForSocial }} style={styles.image} />;
+    }
+    return <Image source={{ uri }} style={styles.image} />;
+  };
+
   return (
     <ScrollNoHeader>
       <View style={styles.header}>
@@ -104,31 +111,23 @@ const SocialScreen = ( ) => {
         </View>
         <View />
       </View>
-      <View style={styles.imageContainer}>
-        <View style={styles.photoTabs}>
-          {renderTab( "square" )}
-          {renderTab( "original" )}
-        </View>
-        <View style={styles.photoTabs}>
-          {renderIndicator( "square" )}
-          {renderIndicator( "original" )}
-        </View>
-        {imageForSocial && watermark
-          ? <Image source={{ uri: imageForSocial }} style={styles.image} />
-          : <Image source={{ uri }} style={styles.image} />
-        }
-        {/* {clicked && (
-          <View style={styles.loadingWheel}>
-            <LoadingWheel color="white" />
-          </View>
-        )} */}
+      <View style={styles.photoTabs}>
+        {renderTab( "square" )}
+        {renderTab( "original" )}
       </View>
+      <View style={styles.photoTabs}>
+        {renderIndicator( "square" )}
+        {renderIndicator( "original" )}
+      </View>
+      {tab === "square"
+        ? <SquareImageCropper uri={uri} showWatermark={showWatermark} />
+        : showOriginalRatioImage( )}
       <View style={styles.textContainer}>
         <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
         <View style={styles.row}>
           <Checkbox
             checkBoxColor={colors.checkboxColor}
-            isChecked={watermark}
+            isChecked={showWatermark}
             onClick={toggleWatermark}
           />
           <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>

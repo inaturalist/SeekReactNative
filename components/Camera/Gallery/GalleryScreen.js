@@ -27,10 +27,6 @@ const GalleryScreen = () => {
           stillLoading: false,
           errorEvent: null
         };
-      case "SHOW_LOADING_WHEEL":
-        return { ...state, loading: true };
-      case "HIDE_LOADING_WHEEL":
-        return { ...state, loading: false };
       case "FETCH_PHOTOS":
         return { ...state, stillLoading: true };
       case "APPEND_PHOTOS":

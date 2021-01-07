@@ -119,6 +119,25 @@ const SpeciesDetail = ( ) => {
     return taxonomyList;
   };
 
+  const fetchDetails = useCallback( ( ) => {
+    fetchTaxonDetails( );
+    checkIfSpeciesSeen( );
+  }, [fetchTaxonDetails, checkIfSpeciesSeen] );
+
+  const checkInternetConnection = useCallback( ( ) => {
+    checkForInternet( ).then( ( internet ) => {
+      if ( internet === "none" || internet === "unknown" ) {
+        dispatch( { type: "ERROR" } );
+      } else {
+        if ( error === "internet" ) {
+          // only fetch the data needed to fill in the rest of the screen
+          fetchDetails( );
+        }
+        dispatch( { type: "NO_ERROR" } );
+      }
+    } );
+  }, [error, fetchDetails] );
+
   const fetchTaxonDetails = useCallback( ( ) => {
     const localeParams = { locale: i18n.currentLocale( ) };
     const options = { user_agent: createUserAgent( ) };
@@ -172,27 +191,11 @@ const SpeciesDetail = ( ) => {
     }
   }, [setId, seenTaxa] );
 
-  const checkInternetConnection = useCallback( ( ) => {
-    checkForInternet( ).then( ( internet ) => {
-      if ( internet === "none" || internet === "unknown" ) {
-        dispatch( { type: "ERROR" } );
-      } else {
-        if ( error === "internet" ) {
-          // only fetch the data needed to fill in the rest of the screen
-          fetchTaxonDetails( );
-          checkIfSpeciesSeen( );
-        }
-        dispatch( { type: "NO_ERROR" } );
-      }
-    } );
-  }, [error, fetchTaxonDetails, checkIfSpeciesSeen] );
-
   useEffect( ( ) => {
     if ( id !== null ) {
-      fetchTaxonDetails( );
-      checkIfSpeciesSeen( );
+      fetchDetails( );
     }
-  }, [id, fetchTaxonDetails, checkIfSpeciesSeen] );
+  }, [id, fetchDetails] );
 
   useEffect( ( ) => {
     // would be nice to stop refetch when a user goes to range map and back

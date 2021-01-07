@@ -12,7 +12,7 @@ import SpeciesError from "./SpeciesError";
 type Props = {
   +details: Object,
   +id: number,
-  +predictions: Array<Object>,
+  +predictions: ?Array<Object>,
   +checkForInternet: Function,
 }
 

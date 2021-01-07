@@ -45,7 +45,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12,
-    marginBottom: 15
+    marginBottom: 15,
+    marginTop: 18
   },
   speciesIdText: {
     marginLeft: 12,

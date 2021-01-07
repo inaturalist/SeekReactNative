@@ -10,12 +10,11 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 type Props = {
   photos: Array<Object>,
-  setPhotoParams: Function
+  fetchPhotos: Function
 }
 
-const GalleryImageList = ( { setPhotoParams, photos }: Props ) => {
+const GalleryImageList = ( { fetchPhotos, photos }: Props ) => {
   const renderLoading = useCallback( () => <LoadingWheel color={colors.darkGray} />, [] );
-
   const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} />, [] );
 
   // skips measurement of dynamic content for faster loading
@@ -36,7 +35,7 @@ const GalleryImageList = ( { setPhotoParams, photos }: Props ) => {
       keyExtractor={extractKey}
       numColumns={4}
       onEndReachedThreshold={1}
-      onEndReached={setPhotoParams}
+      onEndReached={fetchPhotos}
       ListEmptyComponent={renderLoading}
       renderItem={renderCameraRollPhoto}
     />

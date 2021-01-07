@@ -22,7 +22,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeExifData, writeToDebugLog } from "../../../utility/photoHelpers";
+import { writeExifData, writeToDebugLog, checkPhotoSize } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -110,23 +110,27 @@ const ARCamera = () => {
     }
   };
 
+  const handleCameraRollSaveError = useCallback( async ( uri, e ) => {
+    const iOSPermission = "Error: Access to photo library was denied";
+    const androidPermission = "Error: Permission denied";
+
+    if ( e.toString() === iOSPermission || e.toString() === androidPermission ) {
+      // check for camera roll permissions error
+      updateError( "gallery" );
+    } else {
+      const size = await checkPhotoSize( uri );
+      updateError( "save", `${e}. \nPhoto size is: ${size}` );
+    }
+  }, [updateError] );
+
   const savePhoto = useCallback( async ( photo ) => {
     if ( Platform.OS === "android" ) {
       await writeExifData( photo.uri );
     }
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
-      .catch( e => {
-        const gallery = "Error: Access to photo library was denied";
-
-        if ( e.toString() === gallery ) {
-          // check for camera roll permissions error
-          updateError( "gallery" );
-        } else {
-          updateError( "save", e );
-        }
-      } );
-  }, [updateError, navigateToResults] );
+      .catch( e => handleCameraRollSaveError( photo.uri, e ) );
+  }, [handleCameraRollSaveError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id, filter ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );

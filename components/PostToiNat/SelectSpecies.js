@@ -87,6 +87,35 @@ const SelectSpecies = ( {
     } ).catch( ( err ) => console.log( err, "couldn't find species" ) );
   };
 
+  const dismissKeyboard = ( ) => Keyboard.dismiss( );
+
+  const handleTextChange = text => searchForSpecies( text );
+
+  const renderSuggestions = suggestions.map( ( item ) => {
+    const handlePress = ( ) => {
+      updateTaxon( item.id, item.commonName, item.scientificName );
+      toggleSpeciesModal( );
+    };
+
+    const taxon = {
+      preferredCommonName: item.commonName,
+      name: item.scientificName,
+      iconicTaxonId: item.iconicTaxonId
+    };
+
+    const photo = item.image && { uri: item.image }; // account for null case
+
+    return (
+      <View key={`${item.scientificName}${item.id}`} style={styles.card}>
+        <SpeciesCard
+          taxon={taxon}
+          handlePress={handlePress}
+          photo={photo}
+        />
+      </View>
+    );
+  } );
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <StatusBar barStyle="light-content" />
@@ -94,7 +123,7 @@ const SelectSpecies = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
-          onPress={() => toggleSpeciesModal()}
+          onPress={toggleSpeciesModal}
           style={styles.backButton}
         >
           <Image source={icons.backButton} />
@@ -107,7 +136,7 @@ const SelectSpecies = ( {
         ref={scrollView}
         contentContainerStyle={styles.whiteContainer}
         keyboardDismissMode="on-drag"
-        onScroll={() => Keyboard.dismiss()}
+        onScroll={dismissKeyboard}
         scrollEventThrottle={1}
       >
         <View style={styles.photoContainer}>
@@ -121,7 +150,7 @@ const SelectSpecies = ( {
             style={styles.search}
           />
           <TextInput
-            onChangeText={text => searchForSpecies( text )}
+            onChangeText={handleTextChange}
             placeholder={i18n.t( "posting.look_up" )}
             placeholderTextColor={colors.placeholderGray}
             style={styles.inputField}
@@ -133,25 +162,7 @@ const SelectSpecies = ( {
               <GreenText text="posting.id" />
             </View>
           ) }
-          {suggestions.map( ( item ) => (
-            <View
-              key={`${item.scientificName}${item.id}`}
-              style={styles.card}
-            >
-              <SpeciesCard
-                taxon={{
-                  preferredCommonName: item.commonName,
-                  name: item.scientificName,
-                  iconicTaxonId: item.iconicTaxonId
-                }}
-                handlePress={() => {
-                  updateTaxon( item.id, item.commonName, item.scientificName );
-                  toggleSpeciesModal();
-                }}
-                photo={item.image && { uri: item.image }} // account for null case
-              />
-            </View>
-          ) )}
+          {renderSuggestions}
         </View>
         <Padding />
       </ScrollView>

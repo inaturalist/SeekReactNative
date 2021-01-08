@@ -1,11 +1,7 @@
 // @flow
 
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import styles from "../../styles/match/match";
@@ -13,81 +9,38 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 
 type Props = {
   params: Object,
-  match: boolean,
   setNavigationPath: Function,
-  gradientLight: string,
-  speciesText: ?string
+  speciesText: ?string,
+  screenType: string
 }
 
 const MatchContainer = ( {
+  screenType,
   params,
-  match,
   setNavigationPath,
-  gradientLight,
   speciesText
 }: Props ) => {
   const navigation = useNavigation();
   const { taxon, image, seenDate } = params;
-  const speciesIdentified = seenDate || match;
+  const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
-  const {
-    taxaName,
-    taxaId,
-    scientificName,
-    commonAncestor,
-    rank
-  } = taxon;
+  const { gradientLight } = setGradients( screenType );
+
+  const { taxaId, scientificName, rank } = taxon;
 
   const taxaInfo = {
-    preferredCommonName: taxaName || commonAncestor,
+    commonName: speciesText,
     taxaId,
     scientificName,
     image
   };
 
-  const renderHeaderText = () => {
-    let headerText;
-
-    if ( seenDate ) {
-      headerText = "results.resighted";
-    } else if ( taxaName && match ) {
-      headerText = "results.observed_species";
-    } else if ( commonAncestor ) {
-      if ( rank === 20 ) {
-        headerText = "results.genus";
-      } else if ( rank <= 30 ) {
-        headerText = "results.family";
-      } else if ( rank <= 40 ) {
-        headerText = "results.order";
-      } else if ( rank <= 50 ) {
-        headerText = "results.class";
-      } else {
-        headerText = "results.believe";
-      }
-    } else {
-      headerText = "results.no_identification";
-    }
-    return i18n.t( headerText ).toLocaleUpperCase();
-  };
-
-  const renderText = () => {
-    let text;
-
-    if ( seenDate ) {
-      text = i18n.t( "results.date_observed", { seenDate } );
-    } else if ( taxaName && match ) {
-      text = ( image.latitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
-    } else if ( commonAncestor ) {
-      text = i18n.t( "results.common_ancestor" );
-    } else {
-      text = i18n.t( "results.sorry" );
-    }
-
-    return text;
-  };
+  const headerText = renderHeaderText( screenType, rank );
+  const text = renderText( screenType, seenDate, image );
 
   const handleGreenButtonPress = () => {
     if ( speciesIdentified ) {
@@ -104,9 +57,9 @@ const MatchContainer = ( {
   return (
     <View style={styles.marginLarge}>
       <View style={styles.textContainer}>
-        <Text style={[styles.headerText, { color: gradientLight }]}>{renderHeaderText()}</Text>
+        <Text style={[styles.headerText, { color: gradientLight }]}>{headerText}</Text>
         {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
-        <Text style={styles.text}>{renderText()}</Text>
+        <Text style={styles.text}>{text}</Text>
         <View style={styles.marginMedium} />
         <GreenButton
           color={gradientLight}
@@ -115,7 +68,7 @@ const MatchContainer = ( {
         />
       </View>
       <View style={styles.marginMedium} />
-      {( commonAncestor && rank < 60 ) && (
+      {( screenType === "commonAncestor" && rank < 60 ) && (
         <>
           <SpeciesNearby ancestorId={taxaId} image={image} />
           <View style={styles.marginMedium} />

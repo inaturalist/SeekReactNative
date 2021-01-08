@@ -11,7 +11,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
-import { colors } from "../../styles/global";
+// import { colors } from "../../styles/global";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
@@ -20,6 +20,7 @@ import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
 import { CameraContext } from "../UserContext";
 import { useScrollToTop } from "../../utility/customHooks";
+import { renderSpeciesText, setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
@@ -65,32 +66,12 @@ const MatchScreen = () => {
 
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
-  const renderSpeciesText = () => {
-    const { taxaName, commonAncestor, scientificName } = taxon;
+  const screenType = setScreenType( seenDate, match, taxon.commonAncestor );
+  const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
+  console.log( screenType, "screen type match screen" );
 
-    if ( seenDate || ( taxaName && match ) ) {
-      return !scientificNames ? taxaName : scientificName;
-    } else if ( commonAncestor ) {
-      return !scientificNames ? commonAncestor : scientificName;
-    }
-  };
-
-  const { commonAncestor } = taxon;
-
-  let gradientDark;
-  let gradientLight;
-  const speciesText = renderSpeciesText();
-
-  if ( seenDate || match ) {
-    gradientDark = colors.greenGradientDark;
-    gradientLight = colors.seekForestGreen;
-  } else if ( commonAncestor ) {
-    gradientDark = colors.tealGradientDark;
-    gradientLight = colors.seekTeal;
-  } else {
-    gradientDark = colors.grayGradientDark;
-    gradientLight = colors.grayGradientLight;
-  }
+  const speciesText = renderSpeciesText( screenType, taxon, scientificNames );
+  const { gradientDark } = setGradients( screenType );
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top"]}>
@@ -106,23 +87,21 @@ const MatchScreen = () => {
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
         <Spacer backgroundColor={gradientDark} />
         <MatchHeader
-          gradientDark={gradientDark}
-          gradientLight={gradientLight}
+          screenType={screenType}
           setNavigationPath={setNavigationPath}
           params={params}
         />
         <MatchContainer
+          screenType={screenType}
           params={params}
-          match={match}
           speciesText={speciesText}
           setNavigationPath={setNavigationPath}
-          gradientLight={gradientLight}
         />
         <Padding />
       </ScrollView>
-      {( match || seenDate ) ? (
-        <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
-      ) : <Footer />}
+      {speciesIdentified
+        ? <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
+        : <Footer />}
     </SafeAreaView>
   );
 };

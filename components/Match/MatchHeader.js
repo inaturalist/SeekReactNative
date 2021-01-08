@@ -8,21 +8,23 @@ import { useFocusEffect } from "@react-navigation/native";
 import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import icons from "../../assets/icons";
+import { setGradients } from "../../utility/matchHelpers";
 
 type Props = {
-  gradientDark: string,
-  gradientLight: string,
+  screenType: string,
   setNavigationPath: Function,
   params: Object
 }
 
 const MatchHeader = ( {
-  gradientDark,
-  gradientLight,
+  screenType,
   setNavigationPath,
   params
 }: Props ) => {
   const { image, taxon } = params;
+  const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
+
+  const { gradientDark, gradientLight } = setGradients( screenType );
 
   useFocusEffect(
     useCallback( ( ) => {
@@ -47,16 +49,16 @@ const MatchHeader = ( {
       <View style={[styles.imageContainer, styles.buttonContainer]}>
         <Image source={{ uri: image.uri }} style={styles.imageCell} />
         {( taxon && taxon.speciesSeenImage ) && (
-          <>
-            {/* <TouchableOpacity onPress={showSocialSharing}>
-              <Image source={icons.iconShare} />
-            </TouchableOpacity> */}
-            <Image source={{ uri: taxon.speciesSeenImage }} style={[styles.imageCell, styles.marginLeft]} />
-          </>
+          <Image
+            source={{ uri: taxon.speciesSeenImage }}
+            style={[styles.imageCell, styles.marginLeft]}
+          />
         )}
-        <TouchableOpacity style={styles.socialIcon} onPress={showSocialSharing}>
-          <Image source={icons.iconShare} />
-        </TouchableOpacity>
+        {speciesIdentified && (
+          <TouchableOpacity style={styles.socialIcon} onPress={showSocialSharing}>
+            <Image source={icons.iconShare} />
+          </TouchableOpacity>
+          )}
       </View>
     </LinearGradient>
   );

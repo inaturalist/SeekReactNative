@@ -1,5 +1,6 @@
 import i18n from "../i18n";
 import { colors } from "../styles/global";
+import { useCommonName } from "./customHooks";
 
 const renderHeaderText = ( screenType, rank ) => {
   let headerText;
@@ -26,14 +27,16 @@ const renderHeaderText = ( screenType, rank ) => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderSpeciesText = ( screenType, taxon, scientificNames ) => {
-  const { taxaName, commonAncestor, scientificName } = taxon;
-
-  if ( screenType === "resighted" || screenType === "newSpecies" ) {
-    return !scientificNames ? taxaName : scientificName;
-  } else if ( screenType === "commonAncestor" ) {
-    return !scientificNames ? commonAncestor : scientificName;
+const renderSpeciesText = ( screenType, taxon, scientificNames, commonName ) => {
+  if ( screenType === "unidentified" ) {
+    return null;
   }
+
+  // not all online vision results have offline common names
+  if ( !commonName ) {
+    commonName = taxon.scientificName;
+  }
+  return !scientificNames ? commonName : taxon.scientificName;
 };
 
 const renderText = ( screenType, seenDate, image ) => {
@@ -70,14 +73,17 @@ const setGradients = ( screenType ) => {
   return { gradientDark, gradientLight };
 };
 
-const setScreenType = ( seenDate, match, commonAncestor ) => {
+const setScreenType = ( taxon, seenDate ) => {
+  if ( !taxon ) { return; }
+
+  const { taxaId, rank } = taxon;
   let screen;
 
   if ( seenDate ) {
     screen = "resighted";
-  } else if ( match ) {
+  } else if ( taxaId && !rank ) {
     screen = "newSpecies";
-  } else if ( commonAncestor ) {
+  } else if ( rank ) {
     screen = "commonAncestor";
   } else {
     screen = "unidentified";

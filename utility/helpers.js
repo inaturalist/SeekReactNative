@@ -9,7 +9,6 @@ import * as RNLocalize from "react-native-localize";
 import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
-import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import config from "../config";
 import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
@@ -188,22 +187,6 @@ const getRoute = async () => {
   }
 };
 
-const checkForIconicTaxonId = ( ancestorIds: Array<number> ) => {
-  const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
-  taxaIdList.pop();
-  taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
-
-  const newTaxaList = [];
-
-  taxaIdList.forEach( ( id ) => {
-    newTaxaList.push( Number( id ) );
-  } );
-
-  const iconicTaxonId = newTaxaList.filter( ( value ) => ancestorIds.indexOf( value ) !== -1 );
-
-  return iconicTaxonId[0] || 1;
-};
-
 const fetchNumberSpeciesSeen = () => (
   new Promise<any>( ( resolve ) => {
     Realm.open( realmConfig )
@@ -278,7 +261,6 @@ export {
   setRoute,
   getRoute,
   checkForInternet,
-  checkForIconicTaxonId,
   fetchNumberSpeciesSeen,
   createJwtToken,
   localizeNumber,

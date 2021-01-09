@@ -22,7 +22,7 @@ import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHel
 import RNModal from "../UIComponents/Modals/Modal";
 
 type Props = {
-  match: boolean,
+  screenType: string,
   closeFlagModal: Function,
   setNavigationPath: Function,
   params: Object,
@@ -32,7 +32,7 @@ type Props = {
 };
 
 const MatchModals = ( {
-  match,
+  screenType,
   closeFlagModal,
   params,
   setNavigationPath,
@@ -103,10 +103,10 @@ const MatchModals = ( {
   const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
 
   useEffect( () => {
-    if ( seenDate && isFocused ) {
+    if ( screenType === "resighted" && isFocused ) {
       dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
     }
-  }, [seenDate, isFocused] );
+  }, [screenType, isFocused] );
 
   useEffect( () => {
     if ( levelModal ) {
@@ -177,7 +177,7 @@ const MatchModals = ( {
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      if ( match && firstRender ) {
+      if ( screenType === "newSpecies" && firstRender ) {
         checkChallenges();
         checkBadges();
         checkLocationPermissions();
@@ -186,11 +186,11 @@ const MatchModals = ( {
 
     navigation.addListener( "blur", () => {
       dispatch( { type: "SET_FIRST_RENDER" } );
-      if ( match ) {
+      if ( screenType === "newSpecies" ) {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, match, firstRender, checkLocationPermissions] );
+  }, [navigation, screenType, firstRender, checkLocationPermissions] );
 
   return (
     <>

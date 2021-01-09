@@ -255,8 +255,6 @@ const useRegion = ( coords, seenTaxa ) => {
     }
   }, [coords, seenTaxa] );
 
-  console.log( region, seenTaxa, "region and seenTaxa in useRegion" );
-
   return region;
 };
 

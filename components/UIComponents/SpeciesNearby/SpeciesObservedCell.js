@@ -30,14 +30,16 @@ const SpeciesObservedCell = ( { item }: Props ) => {
 
   const { taxon } = item;
 
+  const navToSpeciesDetails = () => {
+    setRoute( "ChallengeDetails" );
+    setSpeciesId( item.taxon.id );
+    navigate( "Species" );
+  };
+
   return (
     <TouchableOpacity
       style={styles.gridCell}
-      onPress={() => {
-        setRoute( "ChallengeDetails" );
-        setSpeciesId( item.taxon.id );
-        navigate( "Species" );
-      }}
+      onPress={navToSpeciesDetails}
     >
       {currentUserPhoto && (
         <>

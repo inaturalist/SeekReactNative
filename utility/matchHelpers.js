@@ -1,6 +1,5 @@
 import i18n from "../i18n";
 import { colors } from "../styles/global";
-import { useCommonName } from "./customHooks";
 
 const renderHeaderText = ( screenType, rank ) => {
   let headerText;

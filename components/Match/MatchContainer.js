@@ -33,9 +33,11 @@ const MatchContainer = ( {
   const { taxaId, scientificName, rank } = taxon;
 
   const taxaInfo = {
-    commonName: speciesText,
+    // don't pass a common name in when user has flagged as misidentification
+    commonName: screenType === "unidentified" ? null : speciesText,
     taxaId,
-    scientificName,
+    // don't pass a scientific name in when user has flagged as misidentification
+    scientificName: screenType === "unidentified" ? null : scientificName,
     image
   };
 

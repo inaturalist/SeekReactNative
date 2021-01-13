@@ -1,108 +1,62 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 import ImageEditor from "@react-native-community/image-editor";
-import ImageCropper from "./ImageCropper";
+import ImageCropper from "./ImageCropper1";
 
 import styles from "../../styles/social/squareImageCropper";
+import { dimensions } from "../../styles/global";
 
+// const DEFAULT_IMAGE_HEIGHT = dimensions.width;
+// const DEFAULT_IMAGE_WIDTH = dimensions.width;
 const DEFAULT_IMAGE_HEIGHT = 720;
 const DEFAULT_IMAGE_WIDTH = 1080;
 
-export default class SquareImageCropper extends React.Component<
-  $FlowFixMeProps,
-  $FlowFixMeState,
-> {
-  state: any;
-  _isMounted: boolean;
-  _transformData: ImageCropData;
+type Props = {
+  uri: string,
+  showWatermark: boolean,
+  createSquareImage: Function
+}
 
-  /* $FlowFixMe(>=0.85.0 site=react_native_fb) This comment suppresses an error
-   * found when Flow v0.85 was deployed. To see the error, delete this comment
-   * and run Flow. */
-  constructor( props ) {
-    super( props );
-    this._isMounted = true;
-    this.state = {
-      photo: {
-        uri: props.uri,
-        // uri: `https://source.unsplash.com/2Ts5HnA67k8/${DEFAULT_IMAGE_WIDTH}x${DEFAULT_IMAGE_HEIGHT}`,
-        height: DEFAULT_IMAGE_HEIGHT,
-        width: DEFAULT_IMAGE_WIDTH,
-        showWatermark: props.showWatermark
-      },
-      measuredSize: null,
-      croppedImageURI: null,
-      cropError: null
-    };
-  }
+const SquareImageCropper = ( { uri, showWatermark, createSquareImage }: Props ) => {
+  const measuredSize = { width: dimensions.width, height: dimensions.width };
+  const photo = {
+    uri,
+    height: DEFAULT_IMAGE_HEIGHT,
+    width: DEFAULT_IMAGE_WIDTH,
+    showWatermark
+};
 
-  render() {
-    if ( !this.state.measuredSize ) {
-      return (
-        <View
-          style={styles.container}
-          onLayout={event => {
-            const measuredWidth = event.nativeEvent.layout.width;
-            if ( !measuredWidth ) {
-              return;
-            }
-            this.setState( {
-              measuredSize: {width: measuredWidth, height: measuredWidth}
-            } );
-          }}
-        />
-      );
+  const crop = async ( data ) => {
+    try {
+      const cropped = await ImageEditor.cropImage( photo.uri, data );
+
+      if ( cropped ) {
+        createSquareImage( cropped );
+      }
+    } catch ( e ) {
+      console.log( e, ": crop error" );
     }
+  };
 
-    if ( !this.state.croppedImageURI ) {
-      return this._renderImageCropper();
-    }
-    return this._renderCroppedImage();
-  }
+  const handleTransform = data => {
+    console.log( data, "data from handle transform" );
+    // crop( data );
+  };
 
-  _renderImageCropper() {
-    if ( !this.state.photo ) {
-      return <View style={styles.container} />;
-    }
+  const renderImageCropper = ( ) => {
     return (
       <View style={styles.container}>
         <ImageCropper
-          image={this.state.photo}
-          size={this.state.measuredSize}
-          style={[styles.imageCropper, this.state.measuredSize]}
-          onTransformDataChange={data => {
-            console.log( "transforming data" );
-            this._transformData = data;
-            this._crop.bind( this );
-          }}
+          image={photo}
+          size={measuredSize}
+          style={[styles.imageCropper, measuredSize]}
+          onTransformDataChange={handleTransform}
         />
       </View>
     );
-  }
+  };
 
-  _renderCroppedImage() {
-    return (
-      <View style={styles.container}>
-        <Image
-          source={{uri: this.state.croppedImageURI}}
-          style={[styles.imageCropper, this.state.measuredSize]}
-        />
-      </View>
-    );
-  }
+  return renderImageCropper( );
+};
 
-  async _crop() {
-    try {
-      const croppedImageURI = await ImageEditor.cropImage(
-        this.state.photo.uri,
-        this._transformData,
-      );
-
-      if ( croppedImageURI ) {
-        this.setState( {croppedImageURI} );
-      }
-    } catch ( cropError ) {
-      this.setState( {cropError} );
-    }
-  }
-}
+export default SquareImageCropper;

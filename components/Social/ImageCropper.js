@@ -25,6 +25,7 @@ class ImageCropper extends React.Component<$FlowFixMeProps, $FlowFixMeState> {
         height: this.props.image.height / widthRatio
       };
       if ( Platform.OS === "android" ) {
+        console.log( "dealing with vertical scroll" );
         // hack to work around Android ScrollView a) not supporting zoom, and
         // b) not supporting vertical scrolling when nested inside another
         // vertical ScrollView (which it is, when displayed inside UIExplorer)
@@ -83,7 +84,7 @@ class ImageCropper extends React.Component<$FlowFixMeProps, $FlowFixMeState> {
   render() {
     return (
       <ScrollView
-        alwaysBounceVertical={true}
+        alwaysBounceVertical
         automaticallyAdjustContentInsets={false}
         contentOffset={this._contentOffset}
         decelerationRate="fast"
@@ -95,7 +96,8 @@ class ImageCropper extends React.Component<$FlowFixMeProps, $FlowFixMeState> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         style={this.props.style}
-        scrollEventThrottle={16}>
+        scrollEventThrottle={16}
+        nestedScrollEnabled>
         <Image
           source={this.props.image}
           style={this._scaledImageSize}

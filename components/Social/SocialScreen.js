@@ -1,105 +1,128 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { View, Image, Text } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
 
-import { colors } from "../../styles/global";
+import { colors, dimensions } from "../../styles/global";
 import styles from "../../styles/social/social";
-import { dimensions } from "../../styles/global";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
 import i18n from "../../i18n";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
-import { shareToFacebook, saveToCameraRoll, addWatermark } from "../../utility/socialHelpers";
+import { addWatermark } from "../../utility/socialHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
-import SquareImageCropper from "./SquareImageCropper";
+// import SquareImageCropper from "./SquareImageCropper";
+// import SquareImageCropper from "./ExampleCropper";
+import SocialButtons from "./SocialButtons";
+// import SocialTabs from "./SocialTabs";
+import { useCommonName } from "../../utility/customHooks";
 
 const SocialScreen = ( ) => {
-  const navigation = useNavigation( );
   const { params } = useRoute( );
   const { uri, taxon } = params;
 
-  const [tab, setTab] = useState( "square" );
+  const [tab, setTab] = useState( "original" );
+  // const [tab, setTab] = useState( "square" );
   const [imageForSocial, setImageForSocial] = useState( null );
+  // const [squareImageForSocial, setSquareImageForSocial] = useState( null );
   const [showWatermark, setShowWatermark] = useState( true );
-  const [saved, setSaved] = useState( false );
+  const [height, setHeight] = useState( 0 );
+  // const [croppedImageURI, setCroppedImageURI] = useState( null );
 
-  const toggleTab = ( ) => {
-    if ( tab === "square" ) {
-      setTab( "original" );
-    } else {
-      setTab( "square" );
-    }
-  };
+  const commonName = useCommonName( taxon.taxaId || null );
+  const { scientificName } = taxon;
+  const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
+
+  Image.getSize( uri, ( w, h ) => {
+    // this is the new height to display for original ratio photos
+    // taking into account the aspect ratio and the screen width
+    // it prevents react native from showing top and bottom padding when resizeMode = contain
+    setHeight( h / w * dimensions.width );
+  } );
+
+  Image.getSize( uri, ( w, h ) => {
+    console.log( w, h, "square image for social" );
+  } );
+
+  // const toggleTab = ( ) => {
+  //   if ( tab === "square" ) {
+  //     setTab( "original" );
+  //   } else {
+  //     setTab( "square" );
+  //   }
+  // };
 
   const toggleWatermark = ( ) => setShowWatermark( !showWatermark );
 
-  const navigateBack = ( ) => navigation.goBack( );
+  const createWatermark = useCallback( async ( uriToWatermark ) => {
+    const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
+    // if ( tab === "original" ) {
+      setImageForSocial( watermarkedImage );
+    // } else {
+    //   setSquareImageForSocial( watermarkedImage );
+    // }
+  }, [preferredCommonName, scientificName] );
 
-  const renderTab = selectedTab => (
-    <TouchableOpacity onPress={toggleTab}>
-      <Text style={[styles.photoSizeText, tab === selectedTab && styles.selectedPhotoSizeText]}>
-        {i18n.t( `social.${selectedTab}` ).toLocaleUpperCase( )}
-      </Text>
-    </TouchableOpacity>
-  );
-
-  const renderIndicator = selectedTab => {
-    if ( tab === selectedTab ) {
-      return <View style={styles.roundedIndicator} />;
-    } else {
-      return <View style={styles.hiddenIndicator} />;
-    }
-  };
-
-  const shareToSocial = ( ) => shareToFacebook( imageForSocial );
-
-  const saveWatermarkedImage = async ( ) => {
-    const completedSave = await saveToCameraRoll( imageForSocial );
-    if ( completedSave ) {
-      setSaved( true );
-    }
-  };
+  // const createSquareImage = croppedUri => setCroppedImageURI( croppedUri );
 
   useEffect( ( ) => {
-    const { taxaName, scientificName } = taxon;
-
-    let commonName = scientificName.toLocaleUpperCase( );
-
-    if ( taxaName ) {
-      commonName = taxaName.toLocaleUpperCase( );
-    }
-
-    const createWatermark = async ( ) => {
+    // create a resized original image when user first lands on screen
+    const resize = async ( ) => {
       const resizedUri = await resizeImage( uri, 2048 );
-      const watermarkedImage = await addWatermark( resizedUri, commonName, scientificName );
-      setImageForSocial( watermarkedImage );
+      createWatermark( resizedUri );
     };
 
-    if ( showWatermark ) {
-      createWatermark( );
-    }
-  }, [showWatermark, uri, taxon] );
+    resize( );
+  }, [createWatermark, uri] );
 
-  const setSaveToCameraText = ( ) => {
-    let text = "social.save_to_camera_roll";
-    if ( saved ) {
-      text = "social.saved_to_camera_roll";
-    }
-    return text;
-  };
-
-  const cameraRollText = setSaveToCameraText( );
+  // useEffect( ( ) => {
+  //   if ( showWatermark && croppedImageURI ) {
+  //     createWatermark( croppedImageURI );
+  //   }
+  // }, [croppedImageURI, showWatermark, createWatermark] );
 
   const showOriginalRatioImage = ( ) => {
-    if ( imageForSocial && showWatermark ) {
-      return <Image source={{ uri: imageForSocial }} style={styles.image} />;
+    if ( showWatermark ) {
+      return <Image source={{ uri: imageForSocial }} style={[styles.image, { height }]} />;
+    } else {
+      return <Image source={{ uri }} style={[styles.image, { height }]} />;
     }
-    return <Image source={{ uri }} style={styles.image} />;
+  };
+
+  // const showSquareImage = ( ) => {
+  //   if ( squareImageForSocial && showWatermark ) {
+  //     return (
+  //       <Image
+  //         source={{ uri: squareImageForSocial }}
+  //         style={[styles.image, { height: dimensions.width }]}
+  //       />
+  //     );
+  //   }
+
+  //   return (
+  //     <SquareImageCropper
+  //       uri={uri}
+  //       showWatermark={showWatermark}
+  //       createSquareImage={createSquareImage}
+  //     />
+  //   );
+  // };
+
+  const showSocialButtons = ( ) => {
+    let image;
+
+    if ( tab === "original" && showWatermark ) {
+      image = imageForSocial;
+    } else {
+      image = uri;
+    }
+
+    // if ( tab === "square" && squareImageForSocial ) {
+    //   image = squareImageForSocial;
+    // }
+    return <SocialButtons image={image} />;
   };
 
   return (
@@ -111,17 +134,9 @@ const SocialScreen = ( ) => {
         </View>
         <View />
       </View>
-      <View style={styles.photoTabs}>
-        {renderTab( "square" )}
-        {renderTab( "original" )}
-      </View>
-      <View style={styles.photoTabs}>
-        {renderIndicator( "square" )}
-        {renderIndicator( "original" )}
-      </View>
-      {tab === "square"
-        ? <SquareImageCropper uri={uri} showWatermark={showWatermark} />
-        : showOriginalRatioImage( )}
+      {/* <SocialTabs tab={tab} toggleTab={toggleTab} /> */}
+      {showOriginalRatioImage( )}
+      {/* {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )} */}
       <View style={styles.textContainer}>
         <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
         <View style={styles.row}>
@@ -133,22 +148,7 @@ const SocialScreen = ( ) => {
           <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
         </View>
       </View>
-      <View style={styles.spaceBeforeButtons} />
-      <GreenButton
-        width={dimensions.width}
-        handlePress={shareToSocial}
-        text="social.share"
-      />
-      <View style={styles.spaceBetweenButtons} />
-      <GreenButton
-        width={dimensions.width}
-        handlePress={saveWatermarkedImage}
-        text={cameraRollText}
-      />
-      <View style={styles.spaceAfterButtons} />
-      <TouchableOpacity onPress={navigateBack}>
-        <Text style={styles.linkText}>{i18n.t( "social.back_to_id" )}</Text>
-      </TouchableOpacity>
+      {showSocialButtons( )}
     </ScrollNoHeader>
   );
 };

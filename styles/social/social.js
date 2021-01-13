@@ -72,23 +72,9 @@ export default StyleSheet.create( {
   image: {
     backgroundColor: colors.black,
     width: dimensions.width,
-    height: dimensions.height,
-    resizeMode: "contain"
+    // containing the image shows an accurate watermark on the social screen
+    resizeMode: "contain",
+    height: dimensions.height
   },
   row
-  // image: {
-  //   height: ( height / 3 ) * 2,
-  //   resizeMode: "contain",
-  //   width
-  // },
-  // imageContainer: {
-  //   alignItems: "center",
-  //   backgroundColor: colors.black,
-  //   justifyContent: "center"
-  // },
-  // loadingWheel: {
-  //   position: "absolute",
-  //   top: "50%",
-  //   zIndex: 1
-  // }
 } );

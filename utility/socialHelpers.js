@@ -16,11 +16,8 @@ const shareToFacebook = async ( url ) => {
     social: Share.Social.FACEBOOK
   };
 
-  console.log( shareOptions, "share options" );
-
   try {
     const share = await Share.shareSingle( shareOptions );
-    console.log( share, "share in try" );
     return share;
   } catch ( e ) {
     if ( e.error.code === "ECOM.RNSHARE1" ) {

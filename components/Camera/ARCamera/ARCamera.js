@@ -90,8 +90,12 @@ const ARCamera = () => {
   const rankToRender = Object.keys( ranks )[0] || null;
 
   const updateError = useCallback( ( err, errEvent ) => {
+    // don't update error on first camera load
+    if ( err === null && error === null ) {
+      return;
+    }
     dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
-  }, [] );
+  }, [error] );
 
   const navigateToResults = useCallback( ( uri, predictions ) => {
     const image = {

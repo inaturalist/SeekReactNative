@@ -20,6 +20,7 @@ import Toasts from "../Toasts/Toasts";
 import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/helpers";
 import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
+import { useCommonName } from "../../utility/customHooks";
 
 type Props = {
   screenType: string,
@@ -49,6 +50,8 @@ const MatchModals = ( {
     taxon,
     image
   } = params;
+
+  const commonName = useCommonName( taxon.taxaId || null );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -126,7 +129,7 @@ const MatchModals = ( {
   const navigateTo = useCallback( () => {
     if ( navPath === "Camera" || navPath === "Social" ) {
       setNavigationPath( null );
-      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri, taxon } );
+      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri, taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
       setSpeciesId( taxon.taxaId );
@@ -138,7 +141,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, params, taxon, setNavigationPath, image.uri] );
+  }, [navPath, navigation, params, taxon, setNavigationPath, image.uri, commonName] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

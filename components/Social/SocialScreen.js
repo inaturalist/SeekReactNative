@@ -17,11 +17,12 @@ import { resizeImage } from "../../utility/photoHelpers";
 // import SquareImageCropper from "./ExampleCropper";
 import SocialButtons from "./SocialButtons";
 // import SocialTabs from "./SocialTabs";
-import { useCommonName } from "../../utility/customHooks";
 
 const SocialScreen = ( ) => {
   const { params } = useRoute( );
-  const { uri, taxon } = params;
+  const { uri, taxon, commonName } = params;
+  // const commonName = useCommonName( taxon.taxaId || null );
+  const { scientificName } = taxon;
 
   const [tab, setTab] = useState( "original" );
   // const [tab, setTab] = useState( "square" );
@@ -31,10 +32,6 @@ const SocialScreen = ( ) => {
   const [height, setHeight] = useState( 0 );
   // const [croppedImageURI, setCroppedImageURI] = useState( null );
 
-  const commonName = useCommonName( taxon.taxaId || null );
-  const { scientificName } = taxon;
-  const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
-
   Image.getSize( uri, ( w, h ) => {
     // this is the new height to display for original ratio photos
     // taking into account the aspect ratio and the screen width
@@ -42,9 +39,9 @@ const SocialScreen = ( ) => {
     setHeight( h / w * dimensions.width );
   } );
 
-  Image.getSize( uri, ( w, h ) => {
-    console.log( w, h, "square image for social" );
-  } );
+  // Image.getSize( uri, ( w, h ) => {
+  //   console.log( w, h, "square image for social" );
+  // } );
 
   // const toggleTab = ( ) => {
   //   if ( tab === "square" ) {
@@ -57,13 +54,14 @@ const SocialScreen = ( ) => {
   const toggleWatermark = ( ) => setShowWatermark( !showWatermark );
 
   const createWatermark = useCallback( async ( uriToWatermark ) => {
+    const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
     const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
     // if ( tab === "original" ) {
       setImageForSocial( watermarkedImage );
     // } else {
     //   setSquareImageForSocial( watermarkedImage );
     // }
-  }, [preferredCommonName, scientificName] );
+  }, [scientificName, commonName] );
 
   // const createSquareImage = croppedUri => setCroppedImageURI( croppedUri );
 

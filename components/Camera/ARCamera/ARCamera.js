@@ -267,10 +267,12 @@ const ARCamera = () => {
     }
   }, [updateError] );
 
-  useEffect( () => {
-    navigation.addListener( "focus", () => requestAndroidPermissions() );
-
-    navigation.addListener( "blur", () => resetState() );
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
+      // reset when camera loads, not when leaving page, for quicker transition
+      resetState( );
+      requestAndroidPermissions( );
+    } );
   }, [navigation, requestAndroidPermissions] );
 
   const navHome = () => navigateToMainStack( navigation.navigate, "Home" );

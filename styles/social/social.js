@@ -12,14 +12,8 @@ export default StyleSheet.create( {
     paddingTop: 18,
     position: "absolute"
   },
-  textContainer: {
-    marginHorizontal: 24
-  },
-  spaceAfterButtons: {
-    marginTop: 27
-  },
   spaceBeforeButtons: {
-    marginTop: 35
+    marginTop: 23
   },
   spaceBetweenButtons: {
     marginTop: 23
@@ -38,18 +32,18 @@ export default StyleSheet.create( {
     color: colors.linkText,
     fontFamily: fonts.book,
     fontSize: 18,
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+    paddingVertical: 27
   },
   optionsText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12,
-    marginBottom: 15,
-    marginTop: 18
+    marginTop: 18,
+    marginLeft: 24
   },
   speciesIdText: {
-    marginLeft: 12,
     fontFamily: fonts.book,
     fontSize: 16
   },
@@ -76,5 +70,12 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     height: dimensions.height
   },
-  row
+  row,
+  checkboxRow: {
+    marginLeft: 12
+  },
+  checkbox: {
+    paddingHorizontal: 12,
+    paddingVertical: 17
+  }
 } );

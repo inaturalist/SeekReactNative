@@ -58,7 +58,6 @@ const SocialButtons = ( { image }: Props ) => {
         handlePress={saveWatermarkedImage}
         text={cameraRollText}
       />
-      <View style={styles.spaceAfterButtons} />
       <TouchableOpacity onPress={navigateBack}>
         <Text style={styles.linkText}>{i18n.t( "social.back_to_id" )}</Text>
       </TouchableOpacity>

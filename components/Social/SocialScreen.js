@@ -160,16 +160,15 @@ const SocialScreen = ( ) => {
       {/* <SocialTabs tab={tab} toggleTab={toggleTab} /> */}
       {showOriginalRatioImage( )}
       {/* {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )} */}
-      <View style={styles.textContainer}>
-        <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
-        <View style={styles.row}>
-          <Checkbox
-            checkBoxColor={colors.checkboxColor}
-            isChecked={showWatermark}
-            onClick={toggleWatermark}
-          />
-          <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
-        </View>
+      <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
+      <View style={[styles.row, styles.checkboxRow]}>
+        <Checkbox
+          checkBoxColor={colors.checkboxColor}
+          isChecked={showWatermark}
+          onClick={toggleWatermark}
+          style={styles.checkbox}
+        />
+        <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
       </View>
       <SocialButtons image={imageForSharing} />
     </ScrollNoHeader>

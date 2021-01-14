@@ -46,6 +46,11 @@ const MatchHeader = ( {
     // $FlowFixMe
     <LinearGradient colors={[gradientDark, gradientLight]} style={styles.header}>
       <CustomBackArrow handlePress={setCameraPath} style={styles.backButton} />
+      {speciesIdentified && (
+        <TouchableOpacity style={styles.socialIcon} onPress={showSocialSharing}>
+          <Image source={icons.iconShare} />
+        </TouchableOpacity>
+        )}
       <View style={[styles.imageContainer, styles.buttonContainer]}>
         <Image source={{ uri: image.uri }} style={styles.imageCell} />
         {( taxon && taxon.speciesSeenImage ) && (
@@ -54,11 +59,6 @@ const MatchHeader = ( {
             style={[styles.imageCell, styles.marginLeft]}
           />
         )}
-        {speciesIdentified && (
-          <TouchableOpacity style={styles.socialIcon} onPress={showSocialSharing}>
-            <Image source={icons.iconShare} />
-          </TouchableOpacity>
-          )}
       </View>
     </LinearGradient>
   );

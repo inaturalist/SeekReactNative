@@ -70,9 +70,10 @@ export default StyleSheet.create( {
     marginBottom: 28
   },
   socialIcon: {
-    position: "absolute",
-    top: -13,
-    right: 23
+    right: 0,
+    paddingVertical: 28,
+    paddingHorizontal: 23,
+    position: "absolute"
   },
   speciesText: {
     color: colors.black,

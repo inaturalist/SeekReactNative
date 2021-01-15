@@ -1,12 +1,13 @@
 // @flow
 
 import React, { useReducer, useEffect, useCallback } from "react";
-import { View, Image, Text } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { View, Image, Text, ImageBackground } from "react-native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
 
 import { colors, dimensions } from "../../styles/global";
 import styles from "../../styles/social/social";
+import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
 import i18n from "../../i18n";
@@ -14,11 +15,13 @@ import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import { addWatermark } from "../../utility/socialHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 // import SquareImageCropper from "./SquareImageCropper";
-// import SquareImageCropper from "./ExampleCropper";
+import SquareImageCropper from "./ExampleCropper";
 import SocialButtons from "./SocialButtons";
-// import SocialTabs from "./SocialTabs";
+import SocialTabs from "./SocialTabs";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const SocialScreen = ( ) => {
+  const { navigate } = useNavigation( );
   const { params } = useRoute( );
   const { uri, taxon, commonName } = params;
   const { scientificName } = taxon;
@@ -28,6 +31,8 @@ const SocialScreen = ( ) => {
     switch ( action.type ) {
       case "SET_HEIGHT":
         return { ...state, height: action.height };
+      case "SET_TAB":
+        return { ...state, tab: action.tab };
       case "TOGGLE_WATERMARK":
         return { ...state, showWatermark: action.showWatermark };
       case "SET_RESIZED_IMAGE":
@@ -41,9 +46,10 @@ const SocialScreen = ( ) => {
     }
   }, {
     imageForSharing: uri,
-    tab: "original", // vs square
+    tab: "square",
     resizedOriginalImage: null,
     watermarkedOriginalImage: null,
+    squareResizedImage: uri,
     showWatermark: true,
     height: 0
   } );
@@ -53,6 +59,7 @@ const SocialScreen = ( ) => {
     tab,
     resizedOriginalImage,
     watermarkedOriginalImage,
+    squareResizedImage,
     showWatermark,
     height
   } = state;
@@ -69,31 +76,21 @@ const SocialScreen = ( ) => {
     } );
   } , [uri] );
 
-  // Image.getSize( uri, ( w, h ) => {
-  //   console.log( w, h, "square image for social" );
-  // } );
-
-  // const toggleTab = ( ) => {
-  //   if ( tab === "square" ) {
-  //     setTab( "original" );
-  //   } else {
-  //     setTab( "square" );
-  //   }
-  // };
+  const toggleTab = ( ) => {
+    if ( tab === "square" ) {
+      dispatch( { type: "SET_TAB", tab: "original" } );
+    } else {
+      dispatch( { type: "SET_TAB", tab: "square" } );
+    }
+  };
 
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
   const createWatermark = useCallback( async ( uriToWatermark ) => {
     const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
     const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
-    // if ( tab === "original" ) {
-      dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
-    // } else {
-    //   setSquareImageForSocial( watermarkedImage );
-    // }
+    dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
   }, [scientificName, commonName] );
-
-  // const createSquareImage = croppedUri => setCroppedImageURI( croppedUri );
 
   useEffect( ( ) => {
     // create a resized original image when user first lands on screen
@@ -106,12 +103,6 @@ const SocialScreen = ( ) => {
     resize( );
   }, [createWatermark, uri] );
 
-  // useEffect( ( ) => {
-  //   if ( showWatermark && croppedImageURI ) {
-  //     createWatermark( croppedImageURI );
-  //   }
-  // }, [croppedImageURI, showWatermark, createWatermark] );
-
   const showOriginalRatioImage = ( ) => {
     let photo = { uri: resizedOriginalImage };
 
@@ -121,24 +112,19 @@ const SocialScreen = ( ) => {
     return <Image source={photo} style={[styles.image, { height }]} />;
   };
 
-  // const showSquareImage = ( ) => {
-  //   if ( squareImageForSocial && showWatermark ) {
-  //     return (
-  //       <Image
-  //         source={{ uri: squareImageForSocial }}
-  //         style={[styles.image, { height: dimensions.width }]}
-  //       />
-  //     );
-  //   }
+  const showSquareImage = ( ) => {
+    let photo = { uri };
 
-  //   return (
-  //     <SquareImageCropper
-  //       uri={uri}
-  //       showWatermark={showWatermark}
-  //       createSquareImage={createSquareImage}
-  //     />
-  //   );
-  // };
+    return (
+      <View style={styles.imageCropContainer}>
+        <ImageBackground source={photo} style={styles.squareImage}>
+          <TouchableOpacity onPress={openCropScreen} style={styles.cropButton}>
+            <Image source={icons.cropIcon} />
+          </TouchableOpacity>
+        </ImageBackground>
+      </View>
+    );
+  };
 
   useEffect( ( ) => {
     if ( tab === "original" && showWatermark ) {
@@ -147,6 +133,8 @@ const SocialScreen = ( ) => {
       dispatch( { type: "SET_IMAGE_FOR_SHARING", imageForSharing: resizedOriginalImage } );
     }
   }, [tab, showWatermark, resizedOriginalImage, watermarkedOriginalImage] );
+
+  const openCropScreen = ( ) => navigate( "Crop", { uri, height } );
 
   return (
     <ScrollNoHeader>
@@ -157,9 +145,8 @@ const SocialScreen = ( ) => {
         </View>
         <View />
       </View>
-      {/* <SocialTabs tab={tab} toggleTab={toggleTab} /> */}
-      {showOriginalRatioImage( )}
-      {/* {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )} */}
+      <SocialTabs tab={tab} toggleTab={toggleTab} />
+      {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
       <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
       <View style={[styles.row, styles.checkboxRow]}>
         <Checkbox

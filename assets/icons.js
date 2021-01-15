@@ -53,7 +53,8 @@ const icons = {
   nonPlantsFilter: require( "./icons/plantfilter-nonplantsonly.webp" ),
   plantsFilter: require( "./icons/plantfilter-plantsonly.webp" ),
   plantFilterOff: require( "./icons/plantfilter-off.webp" ),
-  iconShare: require( "./icons/icon-share.webp" )
+  iconShare: require( "./icons/icon-share.webp" ),
+  cropIcon: require( "./icons/button-crop.webp" )
 };
 
 export default icons;

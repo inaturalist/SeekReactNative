@@ -690,6 +690,8 @@
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
     "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed."
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

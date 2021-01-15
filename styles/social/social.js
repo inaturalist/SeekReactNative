@@ -70,6 +70,12 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     height: dimensions.height
   },
+  squareImage: {
+    width: dimensions.width,
+    // containing the image shows an accurate watermark on the social screen
+    resizeMode: "stretch",
+    height: dimensions.width
+  },
   row,
   checkboxRow: {
     marginLeft: 12
@@ -77,5 +83,20 @@ export default StyleSheet.create( {
   checkbox: {
     paddingHorizontal: 12,
     paddingVertical: 17
+  },
+  cropScreenContainer: {
+    flex: 1
+  },
+  cropFooter: {
+    height: 91,
+    justifyContent: "center"
+  },
+  imageCropContainer: {
+    flex: 1
+  },
+  cropButton: {
+    paddingVertical: 11,
+    paddingHorizontal: 10,
+    alignItems: "flex-end"
   }
 } );

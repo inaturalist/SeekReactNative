@@ -4,14 +4,12 @@ import { Image, ScrollView, Platform } from "react-native";
 type Props = {
   image: String,
   size: Object,
-  style: Array<Object>,
   onTransformDataChange: Function
 }
 
 const ImageCropper = ( {
   image,
   size,
-  style,
   onTransformDataChange
 }: Props ) => {
   const scaledImageSize = useMemo( ( ) => {
@@ -98,7 +96,7 @@ const ImageCropper = ( {
       onScrollEndDrag={onScroll}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
-      style={style}
+      // style={style}
       scrollEventThrottle={16}>
       <Image
         source={image}

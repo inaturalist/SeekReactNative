@@ -100,9 +100,9 @@ const SocialScreen = ( ) => {
 
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
-  const createWatermark = useCallback( async ( uriToWatermark, type ) => {
+  const createWatermark = useCallback( async ( uriToWatermark, type, width ) => {
     const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
-    const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName, type );
+    const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName, type, width );
 
     if ( type !== "square" ) {
       dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
@@ -152,8 +152,17 @@ const SocialScreen = ( ) => {
     console.log( res, "handling crop" );
     const correctAndroidFilePath = "file:///" + res.uri.split( "file:/" )[1];
 
+    // const resize = async ( ) => {
+    //   const resizedUri = await resizeImage( correctAndroidFilePath, 2048 );
+
+    //   console.log( resizedUri, "resized" );
+    //   dispatch( { type: "SET_SQUARE_IMAGE", squareImage: resizedUri } );
+    //   createWatermark( resizedUri, "square" );
+    // };
+
+    // resize( );
     dispatch( { type: "SET_SQUARE_IMAGE", squareImage: correctAndroidFilePath } ); // height and width also available
-    createWatermark( correctAndroidFilePath, "square" );
+    createWatermark( correctAndroidFilePath, "square", res.width );
     closeModal( );
   };
 

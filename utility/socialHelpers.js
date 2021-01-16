@@ -48,12 +48,12 @@ const getAndroidCameraRollPath = async ( uri ) => {
   return "file://" + originalFilepath;
 };
 
-const addTextToWatermark = async( userImage, text, position, type ) => {
+const addTextToWatermark = async( userImage, text, position, type, width ) => {
   const yPosition = ( ) => {
     if ( type === "original" ) {
       return position === 1 ? 1853 : 1933;
     } else {
-      return position === 1 ? ( 959 + 60 ) : ( 959 + 140 );
+      return position === 1 ? ( width / 2.5 + 60 ) : ( width / 2.5 + 140 );
     }
   };
 
@@ -78,7 +78,7 @@ const addTextToWatermark = async( userImage, text, position, type ) => {
   }
 };
 
-const addWatermark = async( userImage, commonName, name, type ) => {
+const addWatermark = async( userImage, commonName, name, type, width ) => {
   // resized photo to 2048 * 2048 to be able to align watermark
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
 
@@ -86,7 +86,7 @@ const addWatermark = async( userImage, commonName, name, type ) => {
     src: originalPath,
     markerSrc: backgrounds.sharing,
     X: 0, // left
-    Y: type === "square" ? 959 : 1793, // 255 from bottom on original
+    Y: type === "square" ? width / 2.5 : 1793,
     scale: 1, // scale of bg
     markerScale: 1.39, // scale of icon
     quality: 100, // quality of image
@@ -96,8 +96,8 @@ const addWatermark = async( userImage, commonName, name, type ) => {
   try {
     const path = await Marker.markImage( imageOptions );
     const watermarkedImageUri = Platform.OS === "android" ? "file://" + path : path;
-    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1, type );
-    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, type );
+    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1, type, width );
+    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, type, width );
     return uriWithBothNames;
   } catch ( e ) {
     return e;

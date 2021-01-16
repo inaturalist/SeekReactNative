@@ -6,7 +6,6 @@ import Footer from "../UIComponents/Footer";
 import FooterTabNav from "./FooterTabs";
 import Match from "../Match/MatchScreen";
 import Social from "../Social/SocialScreen";
-import Crop from "../Social/CropScreen";
 import Notifications from "../Notifications/Notifications";
 
 const Tab = createBottomTabNavigator();
@@ -60,11 +59,6 @@ const MainStack = () => (
     <Stack.Screen
       name="Social"
       component={Social}
-      options={defaultConfig}
-    />
-    <Stack.Screen
-      name="Crop"
-      component={Crop}
       options={defaultConfig}
     />
   </Stack.Navigator>

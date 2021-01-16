@@ -48,12 +48,20 @@ const getAndroidCameraRollPath = async ( uri ) => {
   return "file://" + originalFilepath;
 };
 
-const addTextToWatermark = async( userImage, text, position ) => {
+const addTextToWatermark = async( userImage, text, position, type ) => {
+  const yPosition = ( ) => {
+    if ( type === "original" ) {
+      return position === 1 ? 1853 : 1933;
+    } else {
+      return position === 1 ? ( 959 + 60 ) : ( 959 + 140 );
+    }
+  };
+
   const imageOptions = {
     src: userImage,
     text,
     X: 290, // left
-    Y: position === 1 ? 1853 : 1933, // top
+    Y: yPosition( ), // top
     color: colors.white,
     fontName: position === 1 ? fonts.semibold : fonts.bookItalic,
     fontSize: 62,
@@ -70,7 +78,7 @@ const addTextToWatermark = async( userImage, text, position ) => {
   }
 };
 
-const addWatermark = async( userImage, commonName, name ) => {
+const addWatermark = async( userImage, commonName, name, type ) => {
   // resized photo to 2048 * 2048 to be able to align watermark
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
 
@@ -78,7 +86,7 @@ const addWatermark = async( userImage, commonName, name ) => {
     src: originalPath,
     markerSrc: backgrounds.sharing,
     X: 0, // left
-    Y: 1793, // top
+    Y: type === "square" ? 959 : 1793, // 255 from bottom on original
     scale: 1, // scale of bg
     markerScale: 1.39, // scale of icon
     quality: 100, // quality of image
@@ -88,37 +96,16 @@ const addWatermark = async( userImage, commonName, name ) => {
   try {
     const path = await Marker.markImage( imageOptions );
     const watermarkedImageUri = Platform.OS === "android" ? "file://" + path : path;
-    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1 );
-    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2 );
+    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1, type );
+    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, type );
     return uriWithBothNames;
   } catch ( e ) {
     return e;
   }
 };
 
-const cropToSquare = async ( uri, yOffset = 0 ) => {
-  const cropData = {
-    offset: {
-      x: 0,
-      y: yOffset
-    },
-    size: {
-      width: dimensions.width,
-      height: dimensions.width
-    }
-  };
-
-  try {
-    const url = await ImageEditor.cropImage( uri, cropData );
-    console.log( "Cropped image uri", url );
-  } catch ( e ) {
-    console.log( e, "image couldn't be cropped" );
-  }
-};
-
 export {
   shareToFacebook,
   saveToCameraRoll,
-  addWatermark,
-  cropToSquare
+  addWatermark
 };

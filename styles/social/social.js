@@ -73,8 +73,9 @@ export default StyleSheet.create( {
   squareImage: {
     width: dimensions.width,
     // containing the image shows an accurate watermark on the social screen
-    resizeMode: "stretch",
-    height: dimensions.width
+    resizeMode: "contain",
+    height: dimensions.width,
+    backgroundColor: colors.black
   },
   row,
   checkboxRow: {
@@ -98,5 +99,12 @@ export default StyleSheet.create( {
     paddingVertical: 11,
     paddingHorizontal: 10,
     alignItems: "flex-end"
+  },
+  cropView: {
+    height: dimensions.height - 55 - 91 - 46,
+    backgroundColor: colors.black
+  },
+  hiddenCropView: {
+    height: 1
   }
 } );

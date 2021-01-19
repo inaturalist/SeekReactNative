@@ -3,11 +3,10 @@ import Share from "react-native-share";
 import { Platform, Alert } from "react-native";
 import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
-import ImageEditor from "@react-native-community/image-editor";
 
 import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
-import { colors, dimensions, fonts } from "../styles/global";
+import { colors, fonts } from "../styles/global";
 
 const shareToFacebook = async ( url ) => {
   // this shares to newsfeed, story, or profile photo on Android
@@ -104,8 +103,22 @@ const addWatermark = async( userImage, commonName, name, type, width ) => {
   }
 };
 
+// adapted from https://stackoverflow.com/questions/50909390/react-native-how-to-get-file-asset-image-absolute-path
+const getAssetFileAbsolutePath = async ( assetPath ) => {
+  if ( Platform.OS === "android" ) { return assetPath; }
+  const dest = `${RNFS.TemporaryDirectoryPath}${Math.random().toString( 36 ).substring( 7 )}.jpg`;
+
+  try {
+    let absolutePath = await RNFS.copyAssetsFileIOS( assetPath, dest, 0, 0 );
+    return "file://" + absolutePath;
+  } catch ( err ) {
+    console.log( err );
+  }
+};
+
 export {
   shareToFacebook,
   saveToCameraRoll,
-  addWatermark
+  addWatermark,
+  getAssetFileAbsolutePath
 };

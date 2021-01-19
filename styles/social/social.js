@@ -105,6 +105,6 @@ export default StyleSheet.create( {
     backgroundColor: colors.black
   },
   hiddenCropView: {
-    height: 1
+    flex: 1
   }
 } );

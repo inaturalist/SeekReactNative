@@ -3,8 +3,8 @@
 import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { View, Image, Text, ImageBackground, Modal, TouchableOpacity } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import { CropView } from "react-native-image-crop-tools";
 import Checkbox from "react-native-check-box";
+// import ImageEditor from "@react-native-community/image-editor";
 
 import { colors, dimensions } from "../../styles/global";
 import styles from "../../styles/social/social";
@@ -13,7 +13,7 @@ import GreenText from "../UIComponents/GreenText";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
 import i18n from "../../i18n";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
-import { addWatermark } from "../../utility/socialHelpers";
+import { addWatermark, getAssetFileAbsolutePath } from "../../utility/socialHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
@@ -21,13 +21,12 @@ import CropScreen from "./CropScreen";
 
 const SocialScreen = ( ) => {
   const cropViewRef = useRef( );
-
-  // this one is needed to show the initial square image before a user taps the crop screen
-  const hiddenCropViewRef = useRef( );
   // const { navigate } = useNavigation( );
   const { params } = useRoute( );
   const { uri, taxon, commonName } = params;
   const { scientificName } = taxon;
+
+  console.log( uri, "uri in params" );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -39,6 +38,8 @@ const SocialScreen = ( ) => {
         return { ...state, tab: action.tab };
       case "TOGGLE_WATERMARK":
         return { ...state, showWatermark: action.showWatermark };
+      case "SET_ABSOLUTE_FILEPATH":
+        return { ...state, absoluteFilePath: action.absoluteFilePath };
       case "SET_RESIZED_IMAGE":
         return { ...state, resizedOriginalImage: action.resizedOriginalImage };
       case "SET_WATERMARKED_ORIGINAL_IMAGE":
@@ -63,7 +64,8 @@ const SocialScreen = ( ) => {
     squareImage: null,
     showWatermark: true,
     height: 0,
-    showModal: false
+    showModal: false,
+    absoluteFilePath: null
   } );
 
   const {
@@ -75,7 +77,8 @@ const SocialScreen = ( ) => {
     squareImage,
     showWatermark,
     height,
-    showModal
+    showModal,
+    absoluteFilePath
   } = state;
 
   const openModal = ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } );
@@ -131,36 +134,16 @@ const SocialScreen = ( ) => {
     return <Image source={photo} style={[styles.image, { height }]} />;
   };
 
-  const saveCrop = async ( ) => {
+  const saveCrop = ( ) => {
     if ( cropViewRef.current ) {
       cropViewRef.current.saveImage( true, 90 );
     }
   };
 
-  // const saveInitialCrop = async ( ) => {
-  //   if ( hiddenCropViewRef.current ) {
-  //     console.log( "creating initial crop" );
-  //     hiddenCropViewRef.current.saveImage( true, 90 );
-  //   }
-  // };
-
-  // useEffect( ( ) => {
-  //   saveInitialCrop( );
-  // }, [] );
-
   const handleImageCrop = async ( res ) => {
-    console.log( res, "handling crop" );
+    console.log( res, "res in ios" );
     const correctAndroidFilePath = "file:///" + res.uri.split( "file:/" )[1];
 
-    // const resize = async ( ) => {
-    //   const resizedUri = await resizeImage( correctAndroidFilePath, 2048 );
-
-    //   console.log( resizedUri, "resized" );
-    //   dispatch( { type: "SET_SQUARE_IMAGE", squareImage: resizedUri } );
-    //   createWatermark( resizedUri, "square" );
-    // };
-
-    // resize( );
     dispatch( { type: "SET_SQUARE_IMAGE", squareImage: correctAndroidFilePath } ); // height and width also available
     createWatermark( correctAndroidFilePath, "square", res.width );
     closeModal( );
@@ -184,8 +167,6 @@ const SocialScreen = ( ) => {
     );
   };
 
-  // console.log( imageForSharing, squareImage, watermarkedSquareImage, "state: social screen" );
-
   const selectSquareImage = ( showWatermark && watermarkedSquareImage ) ? watermarkedSquareImage : squareImage;
   const selectOriginalImage = showWatermark ? watermarkedOriginalImage : resizedOriginalImage;
 
@@ -205,7 +186,28 @@ const SocialScreen = ( ) => {
     dispatch( { type: "SET_IMAGE_FOR_SHARING", imageForSharing: sharing } );
   }, [tab, selectOriginalImage, selectSquareImage, imageForSharing] );
 
-  const aspectRatio = { width: 16, height: 16 };
+  // useEffect( ( ) => {
+  //   const cropData = {
+  //     offset: {x: height / 2, y: 1000 },
+  //     size: {width: 10000, height: 10000 }
+  //   };
+
+  //   ImageEditor.cropImage( uri, cropData ).then( url => {
+  //     dispatch( { type: "SET_SQUARE_IMAGE", squareImage: url } ); // height and width also available
+  //     Image.getSize( url, ( w, h ) => {
+  //       createWatermark( url, "square", w );
+  //     } );
+  //   } );
+  // }, [height, uri, createWatermark] );
+
+  useEffect( ( ) => {
+    const fetchIOSFilePath = async ( ) => {
+      const path = await getAssetFileAbsolutePath( uri );
+      dispatch( { type: "SET_ABSOLUTE_FILEPATH", absoluteFilePath: path } );
+    };
+
+    fetchIOSFilePath( );
+  }, [uri] );
 
   return (
     <ScrollNoHeader>
@@ -215,7 +217,7 @@ const SocialScreen = ( ) => {
       >
         <CropScreen
           saveCrop={saveCrop}
-          uri={uri}
+          uri={absoluteFilePath}
           cropViewRef={cropViewRef}
           handleImageCrop={handleImageCrop}
         />
@@ -240,16 +242,6 @@ const SocialScreen = ( ) => {
         <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
       </View>
       <SocialButtons image={imageForSharing} />
-      {/* <View style={styles.hidden}>
-        <CropView
-          sourceUrl={uri}
-          style={styles.hiddenCropView}
-          ref={hiddenCropViewRef}
-          onImageCrop={handleImageCrop}
-          keepAspectRatio
-          aspectRatio={aspectRatio}
-        />
-      </View> */}
     </ScrollNoHeader>
   );
 };

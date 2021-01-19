@@ -256,6 +256,9 @@ PODS:
     - React
   - react-native-geolocation-service (5.1.1):
     - React
+  - react-native-image-crop-tools (1.3.6):
+    - React
+    - TOCropViewController (= 2.5.3)
   - react-native-image-editor (2.3.0):
     - React
     - React-RCTImage
@@ -377,6 +380,7 @@ PODS:
   - SDWebImageWebPCoder (0.6.1):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.7)
+  - TOCropViewController (2.5.3)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -422,6 +426,7 @@ DEPENDENCIES:
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
+  - react-native-image-crop-tools (from `../node_modules/react-native-image-crop-tools`)
   - "react-native-image-editor (from `../node_modules/@react-native-community/image-editor`)"
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
@@ -478,6 +483,7 @@ SPEC REPOS:
     - OpenSSL-Universal
     - SDWebImage
     - SDWebImageWebPCoder
+    - TOCropViewController
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -519,6 +525,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
+  react-native-image-crop-tools:
+    :path: "../node_modules/react-native-image-crop-tools"
   react-native-image-editor:
     :path: "../node_modules/@react-native-community/image-editor"
   react-native-image-resizer:
@@ -629,6 +637,7 @@ SPEC CHECKSUMS:
   react-native-cameraroll: 9d2b7c1707204d2040d2812f960c6cebdbd9f670
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: f33626f1ae12381ca2ae60f98b2f5edd676bf95a
+  react-native-image-crop-tools: 5d254e217773e75bfc09b2c372a8b6a027f0628b
   react-native-image-editor: bd67912f38a8e7a895bf6eb8f445acdcefd8fd0c
   react-native-image-resizer: 00e7112ccb46f4dd27e2f0822e65e4389ac39573
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
@@ -668,9 +677,10 @@ SPEC CHECKSUMS:
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
+  TOCropViewController: 20a14b6a7a098308bf369e7c8d700dc983a974e6
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: c0c9063191266c214e2fc8b811215919469bc68a
+PODFILE CHECKSUM: 6a43740567af4c452f3eb4c03a47b9f2f9dbb5cd
 
 COCOAPODS: 1.9.3

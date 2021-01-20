@@ -4,9 +4,8 @@ import React, { useCallback } from "react";
 import { FlatList } from "react-native";
 
 import styles from "../../../styles/camera/gallery";
-import { dimensions, colors } from "../../../styles/global";
+import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 type Props = {
   photos: Array<Object>,
@@ -14,7 +13,6 @@ type Props = {
 }
 
 const GalleryImageList = ( { fetchPhotos, photos }: Props ) => {
-  const renderLoading = useCallback( () => <LoadingWheel color={colors.darkGray} />, [] );
   const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} />, [] );
 
   // skips measurement of dynamic content for faster loading
@@ -36,7 +34,6 @@ const GalleryImageList = ( { fetchPhotos, photos }: Props ) => {
       numColumns={4}
       onEndReachedThreshold={1}
       onEndReached={fetchPhotos}
-      ListEmptyComponent={renderLoading}
       renderItem={renderCameraRollPhoto}
     />
   );

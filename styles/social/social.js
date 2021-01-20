@@ -106,5 +106,12 @@ export default StyleSheet.create( {
   },
   hiddenCropView: {
     flex: 1
+  },
+  backButton: {
+    left: 0,
+    paddingVertical: 18,
+    paddingHorizontal: 23,
+    position: "absolute",
+    zIndex: 1
   }
 } );

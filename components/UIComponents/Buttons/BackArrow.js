@@ -21,17 +21,19 @@ const BackArrow = ( { green, route }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
 
+  const handlePress = ( ) => {
+    if ( route ) {
+      navigation.navigate( route );
+    } else {
+      navigation.goBack();
+    }
+  };
+
   return (
     <TouchableOpacity
       accessibilityLabel={i18n.t( "accessibility.back" )}
       accessible
-      onPress={() => {
-        if ( route ) {
-          navigation.navigate( route );
-        } else {
-          navigation.goBack();
-        }
-      }}
+      onPress={handlePress}
       style={[styles.backButton, name === "ChallengeDetails" && styles.challengeDetails]}
     >
       {/* $FlowFixMe */}

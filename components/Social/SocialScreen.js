@@ -4,7 +4,6 @@ import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { View, Image, Text, ImageBackground, Modal, TouchableOpacity } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
-// import ImageEditor from "@react-native-community/image-editor";
 
 import { colors, dimensions } from "../../styles/global";
 import styles from "../../styles/social/social";
@@ -220,6 +219,7 @@ const SocialScreen = ( ) => {
           uri={absoluteFilePath}
           cropViewRef={cropViewRef}
           handleImageCrop={handleImageCrop}
+          closeModal={closeModal}
         />
       </Modal>
       <View style={styles.header}>

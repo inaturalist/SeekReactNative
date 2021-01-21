@@ -153,13 +153,7 @@ const SocialScreen = ( ) => {
       createWatermark( resizedUri, "square", 2048 );
     };
 
-    if ( Platform.OS === "android" ) {
-      resize( );
-    } else {
-      // leaving this because it seems to work
-      dispatch( { type: "SET_SQUARE_IMAGE", squareImage: filePath } ); // height and width also available
-      createWatermark( filePath, "square", res.width );
-    }
+    resize( );
     closeModal( );
   };
 

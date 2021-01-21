@@ -47,47 +47,33 @@ const getAndroidCameraRollPath = async ( uri ) => {
   return "file://" + originalFilepath;
 };
 
-const getScaleNumber = ( width ) => {
-  if ( Platform.OS === "ios" ) {
-    // working on iPhone XS
-    return ( width / 150 + width / 150 ) / 15;
-  }
-  // this is working for all crops on Pixel XL after resizing photo to 2048 * 2048
-  return 1.85;
-};
+const placeCommonNameText = ( width, scale ) => width - scale * 145;
 
-const placeCommonNameText = ( width ) => width - getScaleNumber( width ) * 145;
+const placeScientificNameText = ( width, scale ) => width - scale * 90;
 
-const placeScientificNameText = ( width ) => width - getScaleNumber( width ) * 90;
+const xPosition = ( scale ) => scale * 208;
 
-const xPosition = ( width ) => {
-  return getScaleNumber( width ) * 190;
-  // return getScaleNumber( width ) * 200;
-};
+const setFontSize = ( scale ) => scale * 45;
 
-const setFontSize = ( width ) => getScaleNumber( width ) * 45;
-
-const alignToBottom = ( width ) => {
-  return width - getScaleNumber( width ) * 138;
-};
-
-const addTextToWatermark = async( userImage, text, position, type, width ) => {
+const addTextToWatermark = async( userImage, text, position, type, width = 2048, scale ) => {
   const yPosition = ( ) => {
     if ( type === "original" ) {
       return position === 1 ? 1853 : 1933;
     } else {
-      return position === 1 ? placeCommonNameText( width ) : placeScientificNameText( width );
+      return position === 1 ? placeCommonNameText( width, scale ) : placeScientificNameText( width, scale );
     }
   };
+
+  console.log( width, scale, "width and scale ios" );
 
   const imageOptions = {
     src: userImage,
     text,
-    X: type === "square" ? xPosition( width ) : 290, // left
+    X: xPosition( scale ), // left
     Y: yPosition( ), // top
     color: colors.white,
     fontName: position === 1 ? fonts.semibold : fonts.bookItalic,
-    fontSize: type === "square" ? setFontSize( width ) : 62,
+    fontSize: type === "square" ? setFontSize( scale ) : 62,
     scale: 1,
     quality: 100
   };
@@ -101,22 +87,25 @@ const addTextToWatermark = async( userImage, text, position, type, width ) => {
   }
 };
 
-const addWatermark = async( userImage, commonName, name, type, width ) => {
+const addWatermark = async( userImage, commonName, name, type, width = 2048 ) => {
   // resized original photo to 2048 * 2048 to be able to align watermark
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
+  const scale = type === "square" ? 1.85 : 1.39;
 
   const imageOptions = {
     src: originalPath,
     markerSrc: backgrounds.sharing,
     scale: 1, // scale of bg
-    markerScale: type === "square" ? getScaleNumber( width ) : 1.39, // scale of icon
+    markerScale: scale, // scale of icon
     quality: 100, // quality of image
     saveFormat: "jpeg"
   };
 
   if ( type === "square" ) {
+    imageOptions.X = 0;
+    imageOptions.Y = 1709;
     // this doesn't quite align to bottom but it's close
-    imageOptions.position = "bottomCenter";
+    // imageOptions.position = "bottomCenter";
   } else {
     imageOptions.X = 0;
     imageOptions.Y = 1793;
@@ -125,8 +114,8 @@ const addWatermark = async( userImage, commonName, name, type, width ) => {
   try {
     const path = await Marker.markImage( imageOptions );
     const watermarkedImageUri = Platform.OS === "android" ? "file://" + path : path;
-    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1, type, width );
-    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, type, width );
+    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1, type, width, scale );
+    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, type, width, scale );
     return uriWithBothNames;
   } catch ( e ) {
     return e;

@@ -1,7 +1,15 @@
 // @flow
 
 import React, { useReducer, useEffect, useCallback, useRef } from "react";
-import { View, Image, Text, ImageBackground, Modal, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  ImageBackground,
+  Modal,
+  TouchableOpacity,
+  Platform
+} from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
 
@@ -25,11 +33,8 @@ const SocialScreen = ( ) => {
   const { uri, taxon, commonName } = params;
   const { scientificName } = taxon;
 
-  console.log( uri, "uri in params" );
-
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action.type, "action" );
     switch ( action.type ) {
       case "SET_HEIGHT":
         return { ...state, height: action.height };
@@ -140,11 +145,21 @@ const SocialScreen = ( ) => {
   };
 
   const handleImageCrop = async ( res ) => {
-    console.log( res, "res in ios" );
-    const correctAndroidFilePath = "file:///" + res.uri.split( "file:/" )[1];
+    const filePath = Platform.OS === "android" ? "file:///" + res.uri.split( "file:/" )[1] : res.uri;
 
-    dispatch( { type: "SET_SQUARE_IMAGE", squareImage: correctAndroidFilePath } ); // height and width also available
-    createWatermark( correctAndroidFilePath, "square", res.width );
+    const resize = async ( ) => {
+      const resizedUri = await resizeImage( filePath, 2048 );
+      dispatch( { type: "SET_SQUARE_IMAGE", squareImage: resizedUri } ); // height and width also available
+      createWatermark( resizedUri, "square", 2048 );
+    };
+
+    if ( Platform.OS === "android" ) {
+      resize( );
+    } else {
+      // leaving this because it seems to work
+      dispatch( { type: "SET_SQUARE_IMAGE", squareImage: filePath } ); // height and width also available
+      createWatermark( filePath, "square", res.width );
+    }
     closeModal( );
   };
 
@@ -184,20 +199,6 @@ const SocialScreen = ( ) => {
 
     dispatch( { type: "SET_IMAGE_FOR_SHARING", imageForSharing: sharing } );
   }, [tab, selectOriginalImage, selectSquareImage, imageForSharing] );
-
-  // useEffect( ( ) => {
-  //   const cropData = {
-  //     offset: {x: height / 2, y: 1000 },
-  //     size: {width: 10000, height: 10000 }
-  //   };
-
-  //   ImageEditor.cropImage( uri, cropData ).then( url => {
-  //     dispatch( { type: "SET_SQUARE_IMAGE", squareImage: url } ); // height and width also available
-  //     Image.getSize( url, ( w, h ) => {
-  //       createWatermark( url, "square", w );
-  //     } );
-  //   } );
-  // }, [height, uri, createWatermark] );
 
   useEffect( ( ) => {
     const fetchIOSFilePath = async ( ) => {

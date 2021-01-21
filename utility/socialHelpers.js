@@ -47,23 +47,47 @@ const getAndroidCameraRollPath = async ( uri ) => {
   return "file://" + originalFilepath;
 };
 
+const getScaleNumber = ( width ) => {
+  if ( Platform.OS === "ios" ) {
+    // working on iPhone XS
+    return ( width / 150 + width / 150 ) / 15;
+  }
+  // this is working for all crops on Pixel XL after resizing photo to 2048 * 2048
+  return 1.85;
+};
+
+const placeCommonNameText = ( width ) => width - getScaleNumber( width ) * 145;
+
+const placeScientificNameText = ( width ) => width - getScaleNumber( width ) * 90;
+
+const xPosition = ( width ) => {
+  return getScaleNumber( width ) * 190;
+  // return getScaleNumber( width ) * 200;
+};
+
+const setFontSize = ( width ) => getScaleNumber( width ) * 45;
+
+const alignToBottom = ( width ) => {
+  return width - getScaleNumber( width ) * 138;
+};
+
 const addTextToWatermark = async( userImage, text, position, type, width ) => {
   const yPosition = ( ) => {
     if ( type === "original" ) {
       return position === 1 ? 1853 : 1933;
     } else {
-      return position === 1 ? ( width / 2.5 + 60 ) : ( width / 2.5 + 140 );
+      return position === 1 ? placeCommonNameText( width ) : placeScientificNameText( width );
     }
   };
 
   const imageOptions = {
     src: userImage,
     text,
-    X: 290, // left
+    X: type === "square" ? xPosition( width ) : 290, // left
     Y: yPosition( ), // top
     color: colors.white,
     fontName: position === 1 ? fonts.semibold : fonts.bookItalic,
-    fontSize: 62,
+    fontSize: type === "square" ? setFontSize( width ) : 62,
     scale: 1,
     quality: 100
   };
@@ -78,19 +102,25 @@ const addTextToWatermark = async( userImage, text, position, type, width ) => {
 };
 
 const addWatermark = async( userImage, commonName, name, type, width ) => {
-  // resized photo to 2048 * 2048 to be able to align watermark
+  // resized original photo to 2048 * 2048 to be able to align watermark
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
 
   const imageOptions = {
     src: originalPath,
     markerSrc: backgrounds.sharing,
-    X: 0, // left
-    Y: type === "square" ? width / 2.5 : 1793,
     scale: 1, // scale of bg
-    markerScale: 1.39, // scale of icon
+    markerScale: type === "square" ? getScaleNumber( width ) : 1.39, // scale of icon
     quality: 100, // quality of image
     saveFormat: "jpeg"
   };
+
+  if ( type === "square" ) {
+    // this doesn't quite align to bottom but it's close
+    imageOptions.position = "bottomCenter";
+  } else {
+    imageOptions.X = 0;
+    imageOptions.Y = 1793;
+  }
 
   try {
     const path = await Marker.markImage( imageOptions );

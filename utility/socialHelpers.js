@@ -47,9 +47,9 @@ const getAndroidCameraRollPath = async ( uri ) => {
   return "file://" + originalFilepath;
 };
 
-const placeCommonNameText = ( width, scale ) => width - scale * 145;
+const placeCommonNameText = ( width, scale ) => width - scale * 142;
 
-const placeScientificNameText = ( width, scale ) => width - scale * 90;
+const placeScientificNameText = ( width, scale ) => width - scale * 85;
 
 const xPosition = ( scale ) => scale * 208;
 
@@ -57,14 +57,8 @@ const setFontSize = ( scale ) => scale * 45;
 
 const addTextToWatermark = async( userImage, text, position, type, width = 2048, scale ) => {
   const yPosition = ( ) => {
-    if ( type === "original" ) {
-      return position === 1 ? 1853 : 1933;
-    } else {
-      return position === 1 ? placeCommonNameText( width, scale ) : placeScientificNameText( width, scale );
-    }
+    return position === 1 ? placeCommonNameText( width, scale ) : placeScientificNameText( width, scale );
   };
-
-  console.log( width, scale, "width and scale ios" );
 
   const imageOptions = {
     src: userImage,
@@ -73,7 +67,7 @@ const addTextToWatermark = async( userImage, text, position, type, width = 2048,
     Y: yPosition( ), // top
     color: colors.white,
     fontName: position === 1 ? fonts.semibold : fonts.bookItalic,
-    fontSize: type === "square" ? setFontSize( scale ) : 62,
+    fontSize: setFontSize( scale ),
     scale: 1,
     quality: 100
   };

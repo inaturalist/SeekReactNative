@@ -1,12 +1,12 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
-import { Platform, Alert } from "react-native";
+import { Platform, Alert, Image } from "react-native";
 import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
 
 import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
-import { colors, fonts } from "../styles/global";
+import { colors, fonts, dimensions } from "../styles/global";
 
 const shareToFacebook = async ( url ) => {
   // this shares to newsfeed, story, or profile photo on Android
@@ -82,15 +82,25 @@ const addTextToWatermark = async( userImage, text, position, type, width = 2048,
 };
 
 const addWatermark = async( userImage, commonName, name, type, width = 2048 ) => {
-  // resized original photo to 2048 * 2048 to be able to align watermark
+  // resized photos to 2048 * 2048 to be able to align watermark
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
   const scale = type === "square" ? 1.85 : 1.39;
+
+  Image.getSize( userImage, ( w, h ) => {
+    console.log( w, h, "width and height of image to watermark" );
+  } );
+  // vertical photos
+  // iPad - how to scale marker
+  // need to reset "saved" text
+
+  console.log( scale, "scale", dimensions.width );
 
   const imageOptions = {
     src: originalPath,
     markerSrc: backgrounds.sharing,
     scale: 1, // scale of bg
-    markerScale: scale, // scale of icon
+    // works for square image iPad
+    markerScale: dimensions.width > 500 ? scale * 1.5 : scale, // scale of icon
     quality: 100, // quality of image
     saveFormat: "jpeg"
   };
@@ -102,7 +112,8 @@ const addWatermark = async( userImage, commonName, name, type, width = 2048 ) =>
     // imageOptions.position = "bottomCenter";
   } else {
     imageOptions.X = 0;
-    imageOptions.Y = 1793;
+    imageOptions.Y = 1360 - 255;
+    // imageOptions.Y = 1793;
   }
 
   try {

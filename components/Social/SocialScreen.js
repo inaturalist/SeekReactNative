@@ -90,6 +90,7 @@ const SocialScreen = ( ) => {
 
   useEffect( ( ) => {
     Image.getSize( uri, ( w, h ) => {
+      console.log( h, "height of new image" );
       // this is the new height to display for original ratio photos
       // taking into account the aspect ratio and the screen width
       // it prevents react native from showing top and bottom padding when resizeMode = contain

@@ -1,6 +1,6 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
-import { Platform, Alert, Image, PixelRatio } from "react-native";
+import { Platform, Alert, Image } from "react-native";
 import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
 

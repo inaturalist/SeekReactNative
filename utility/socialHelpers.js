@@ -100,12 +100,12 @@ const setMarkerScale = ( scale, width, height ) => {
   // }
 
   // iPad and larger screens
-  if ( dimensions.width > 500 ) {
+  if ( dimensions.height > 1000 ) {
     return scale * 1.5;
   }
 
   // iPhone SE and smaller screens
-  if ( dimensions.width < 376 ) {
+  if ( dimensions.height < 668 ) {
     return scale * 1.5;
   }
 

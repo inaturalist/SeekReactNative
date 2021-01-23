@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
-import { colors, center, fonts, dimensions, row } from "../global";
+import { StyleSheet, PixelRatio } from "react-native";
+import { colors, center, fonts, dimensions, row, padding } from "../global";
+
+const { getFontScale } = PixelRatio;
 
 export default StyleSheet.create( {
   center,
@@ -113,5 +115,31 @@ export default StyleSheet.create( {
     paddingHorizontal: 23,
     position: "absolute",
     zIndex: 1
+  },
+  overlay: {
+    opacity: 0.25
+  },
+  centerCropButton: {
+    justifyContent: "center"
+  },
+  greenButton: {
+    alignSelf: "center",
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 34,
+    height: getFontScale() > 1 ? 79 : 46,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    maxWidth: 317,
+    width: dimensions.width < 500 ? 293 : 317
+  },
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSButtonPadding,
+    textAlign: "center",
+    marginLeft: 10
   }
 } );

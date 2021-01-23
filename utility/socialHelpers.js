@@ -1,6 +1,6 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
-import { Platform, Alert, Image } from "react-native";
+import { Platform, Alert, Image, PixelRatio } from "react-native";
 import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
 
@@ -55,9 +55,13 @@ const xPosition = ( scale ) => scale * 208;
 
 const setFontSize = ( scale ) => scale * 45;
 
-const addTextToWatermark = async( userImage, text, position, type, width = 2048, scale ) => {
+const addTextToWatermark = async( userImage, text, position, width, height, scale ) => {
   const yPosition = ( ) => {
-    return position === 1 ? placeCommonNameText( width, scale ) : placeScientificNameText( width, scale );
+    if ( height !== width ) {
+      return position === 1 ? height - 195 : height - 115;
+    } else {
+      return position === 1 ? placeCommonNameText( width, scale ) : placeScientificNameText( width, scale );
+    }
   };
 
   const imageOptions = {
@@ -81,14 +85,35 @@ const addTextToWatermark = async( userImage, text, position, type, width = 2048,
   }
 };
 
-const addWatermark = async( userImage, commonName, name, type, width = 2048 ) => {
-  // resized photos to 2048 * 2048 to be able to align watermark
-  const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
-  const scale = type === "square" ? 1.85 : 1.39;
+const getImageSize = ( uri ) => (
+  new Promise( ( resolve, reject ) => {
+    Image.getSize( uri, ( w, h ) => {
+      resolve( { width: w, height: h } );
+    }, ( ) => reject( null ) );
+  } )
+);
 
-  Image.getSize( userImage, ( w, h ) => {
-    console.log( w, h, "width and height of image to watermark" );
-  } );
+const setMarkerScale = ( scale, width, height ) => {
+  // horizontal photos
+  if ( height < width ) {
+    return scale * 2;
+  }
+
+  // iPad and larger screens
+  if ( dimensions.width > 500 ) {
+    return scale * 1.5;
+  }
+
+  return scale;
+};
+
+const addWatermark = async( userImage, commonName, name ) => {
+  // resized photos to 2048 * 2048 to be able to align watermark
+  const { width, height } = await getImageSize( userImage );
+  const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
+  const scale = height === width ? 1.85 : 1.39;
+
+  console.log( width, height, "height" );
   // vertical photos
   // iPad - how to scale marker
   // need to reset "saved" text
@@ -99,28 +124,23 @@ const addWatermark = async( userImage, commonName, name, type, width = 2048 ) =>
     src: originalPath,
     markerSrc: backgrounds.sharing,
     scale: 1, // scale of bg
-    // works for square image iPad
-    markerScale: dimensions.width > 500 ? scale * 1.5 : scale, // scale of icon
+    X: 0,
+    markerScale: setMarkerScale( scale, width, height ), // scale of icon
     quality: 100, // quality of image
     saveFormat: "jpeg"
   };
 
-  if ( type === "square" ) {
-    imageOptions.X = 0;
-    imageOptions.Y = 1709;
-    // this doesn't quite align to bottom but it's close
-    // imageOptions.position = "bottomCenter";
+  if ( height > width ) {
+    imageOptions.Y = height - 255;
   } else {
-    imageOptions.X = 0;
-    imageOptions.Y = 1360 - 255;
-    // imageOptions.Y = 1793;
+    imageOptions.Y = height - 339;
   }
 
   try {
     const path = await Marker.markImage( imageOptions );
-    const watermarkedImageUri = Platform.OS === "android" ? "file://" + path : path;
-    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1, type, width, scale );
-    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, type, width, scale );
+    const watermarkedImage = Platform.OS === "android" ? "file://" + path : path;
+    const uriWithCommonName = await addTextToWatermark( watermarkedImage, commonName, 1, width, height, scale );
+    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, width, height, scale );
     return uriWithBothNames;
   } catch ( e ) {
     return e;
@@ -144,5 +164,6 @@ export {
   shareToFacebook,
   saveToCameraRoll,
   addWatermark,
-  getAssetFileAbsolutePath
+  getAssetFileAbsolutePath,
+  getImageSize
 };

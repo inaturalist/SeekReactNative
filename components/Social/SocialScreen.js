@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   Platform
 } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
 
 import { colors, dimensions } from "../../styles/global";
@@ -56,6 +56,10 @@ const SocialScreen = ( ) => {
         return { ...state, squareImage: action.squareImage };
       case "SHOW_MODAL":
         return { ...state, showModal: action.showModal };
+      case "DISABLE_BUTTONS":
+        return { ...state, disabled: action.disabled };
+      case "DISABLE_WATERMARK_HORIZONTAL_IMAGES":
+        return { ...state, disableWatermark: true };
       default:
         throw new Error();
     }
@@ -69,7 +73,9 @@ const SocialScreen = ( ) => {
     showWatermark: true,
     height: 0,
     showModal: false,
-    absoluteFilePath: null
+    absoluteFilePath: null,
+    disabled: true,
+    disableWatermark: false
   } );
 
   const {
@@ -82,18 +88,24 @@ const SocialScreen = ( ) => {
     showWatermark,
     height,
     showModal,
-    absoluteFilePath
+    absoluteFilePath,
+    disabled,
+    disableWatermark
   } = state;
+
+  const horizontalNoWatermark = tab === "original" && disableWatermark;
 
   const openModal = ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } );
   const closeModal = ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } );
 
   useEffect( ( ) => {
     Image.getSize( uri, ( w, h ) => {
-      console.log( h, "height of new image" );
-      // this is the new height to display for original ratio photos
-      // taking into account the aspect ratio and the screen width
-      // it prevents react native from showing top and bottom padding when resizeMode = contain
+      if ( w > h ) {
+        dispatch( { type: "DISABLE_WATERMARK_HORIZONTAL_IMAGES" } );
+        // this is the new height to display for original ratio photos
+        // taking into account the aspect ratio and the screen width
+        // it prevents react native from showing top and bottom padding when resizeMode = contain
+      }
       dispatch( { type: "SET_HEIGHT", height: h / w * dimensions.width } );
     } );
   } , [uri] );
@@ -108,16 +120,19 @@ const SocialScreen = ( ) => {
 
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
-  const createWatermark = useCallback( async ( uriToWatermark, type, width ) => {
+  const createWatermark = useCallback( async ( uriToWatermark, type ) => {
+    if ( horizontalNoWatermark ) {
+      return;
+    }
     const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
-    const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName, type, width );
+    const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
 
     if ( type !== "square" ) {
       dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
     } else {
       dispatch( { type: "SET_WATERMARKED_SQUARE_IMAGE", watermarkedSquareImage: watermarkedImage } );
     }
-  }, [scientificName, commonName] );
+  }, [scientificName, commonName, horizontalNoWatermark] );
 
   useEffect( ( ) => {
     // create a resized original image when user first lands on screen
@@ -133,7 +148,7 @@ const SocialScreen = ( ) => {
   const showOriginalRatioImage = ( ) => {
     let photo = { uri: resizedOriginalImage };
 
-    if ( showWatermark ) {
+    if ( showWatermark && !disableWatermark ) {
       photo = { uri: watermarkedOriginalImage };
     }
     return <Image source={photo} style={[styles.image, { height }]} />;
@@ -151,26 +166,59 @@ const SocialScreen = ( ) => {
     const resize = async ( ) => {
       const resizedUri = await resizeImage( filePath, 2048 );
       dispatch( { type: "SET_SQUARE_IMAGE", squareImage: resizedUri } ); // height and width also available
-      createWatermark( resizedUri, "square", 2048 );
+      createWatermark( resizedUri, "square" );
     };
 
     resize( );
     closeModal( );
   };
 
-  const showSquareImage = ( ) => {
-    let photo = { uri: squareImage };
+  const setSquarePhoto = ( ) => {
+    let photo;
 
-    if ( showWatermark ) {
+    if ( !watermarkedSquareImage ) {
+      photo = { uri };
+    } else if ( showWatermark ) {
       photo = { uri: watermarkedSquareImage };
+    } else {
+      photo = { uri: squareImage };
     }
+    return photo;
+  };
+
+  const showCropButton = ( ) => {
+    if ( watermarkedSquareImage ) {
+      return (
+        <TouchableOpacity onPress={openModal} style={styles.cropButton}>
+          <Image source={icons.cropIcon} />
+        </TouchableOpacity>
+      );
+    } else {
+      return (
+        <TouchableOpacity
+          onPress={openModal}
+          style={styles.greenButton}
+        >
+          <Image source={icons.cropIconWhite} style={styles.cropImage} />
+          <Text style={styles.buttonText}>
+            {i18n.t( "social.crop_image" ).toLocaleUpperCase( )}
+          </Text>
+        </TouchableOpacity>
+      );
+    }
+  };
+
+  const showSquareImage = ( ) => {
+    const photo = setSquarePhoto( );
 
     return (
       <View style={styles.imageCropContainer}>
-        <ImageBackground source={photo} style={styles.squareImage}>
-          <TouchableOpacity onPress={openModal} style={styles.cropButton}>
-            <Image source={icons.cropIcon} />
-          </TouchableOpacity>
+        <ImageBackground
+          source={photo}
+          style={[styles.squareImage, !watermarkedSquareImage && styles.centerCropButton]}
+          imageStyle={!watermarkedSquareImage && styles.overlay}
+        >
+          {showCropButton( )}
         </ImageBackground>
       </View>
     );
@@ -204,6 +252,14 @@ const SocialScreen = ( ) => {
     fetchIOSFilePath( );
   }, [uri] );
 
+  useEffect( ( ) => {
+    if ( tab === "square" && ( !watermarkedSquareImage || !squareImage ) ) {
+      dispatch( { type: "DISABLE_BUTTONS", disabled: true } );
+    } else {
+      dispatch( { type: "DISABLE_BUTTONS", disabled: false } );
+    }
+  }, [watermarkedSquareImage, squareImage, tab] );
+
   return (
     <ScrollNoHeader>
       <Modal
@@ -227,17 +283,21 @@ const SocialScreen = ( ) => {
       </View>
       <SocialTabs tab={tab} toggleTab={toggleTab} />
       {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
-      <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
-      <View style={[styles.row, styles.checkboxRow]}>
-        <Checkbox
-          checkBoxColor={colors.checkboxColor}
-          isChecked={showWatermark}
-          onClick={toggleWatermark}
-          style={styles.checkbox}
-        />
-        <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
-      </View>
-      <SocialButtons image={imageForSharing} />
+      {!horizontalNoWatermark && (
+        <>
+          <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
+          <View style={[styles.row, styles.checkboxRow]}>
+            <Checkbox
+              checkBoxColor={colors.checkboxColor}
+              isChecked={showWatermark}
+              onClick={toggleWatermark}
+              style={styles.checkbox}
+            />
+            <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
+          </View>
+        </>
+      )}
+      <SocialButtons image={imageForSharing} tab={tab} disabled={disabled} />
     </ScrollNoHeader>
   );
 };

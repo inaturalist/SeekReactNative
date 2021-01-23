@@ -95,12 +95,17 @@ const getImageSize = ( uri ) => (
 
 const setMarkerScale = ( scale, width, height ) => {
   // horizontal photos
-  if ( height < width ) {
-    return scale * 2;
-  }
+  // if ( height < width ) {
+  //   return scale * 2;
+  // }
 
   // iPad and larger screens
   if ( dimensions.width > 500 ) {
+    return scale * 1.5;
+  }
+
+  // iPhone SE and smaller screens
+  if ( dimensions.width < 376 ) {
     return scale * 1.5;
   }
 
@@ -112,13 +117,6 @@ const addWatermark = async( userImage, commonName, name ) => {
   const { width, height } = await getImageSize( userImage );
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
   const scale = height === width ? 1.85 : 1.39;
-
-  console.log( width, height, "height" );
-  // vertical photos
-  // iPad - how to scale marker
-  // need to reset "saved" text
-
-  console.log( scale, "scale", dimensions.width );
 
   const imageOptions = {
     src: originalPath,

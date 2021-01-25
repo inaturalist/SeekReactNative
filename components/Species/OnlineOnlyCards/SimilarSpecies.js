@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useReducer } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
@@ -15,14 +15,38 @@ type Props = {
 }
 
 const SimilarSpecies = ( { id }: Props ) => {
-  const [similarSpecies, setSimilarSpecies] = useState( [] );
-  const [loading, setLoading] = useState( true );
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "SHOW_SIMILAR_SPECIES":
+        return {
+          similarSpecies: action.similarSpecies,
+          loading: false
+        };
+      case "RESET_STATE":
+        return {
+          similarSpecies: [],
+          loading: true
+        };
+      default:
+        throw new Error();
+    }
+  }, {
+    similarSpecies: [],
+    loading: true
+  } );
+
+  const {
+    similarSpecies,
+    loading
+  } = state;
+
   const { length } = similarSpecies;
 
   useEffect( ( ) => {
     let isActive = true;
     if ( id !== null ) {
-      const resetState = ( ) => setSimilarSpecies( [] );
+      const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 
       const fetchSimilarSpecies = ( ) => {
         const params = {
@@ -38,8 +62,7 @@ const SimilarSpecies = ( { id }: Props ) => {
           const species = results.map( r => r.taxon );
 
           if ( isActive ) {
-            setSimilarSpecies( species );
-            setLoading( false );
+            dispatch( { type: "SHOW_SIMILAR_SPECIES", similarSpecies: species } );
           }
         } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
       };

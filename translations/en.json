@@ -677,5 +677,20 @@
     "text_2": "be part of a community that’s as curious about nature as you",
     "text_3": "share observations with the community, and even share observations through Seek!",
     "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

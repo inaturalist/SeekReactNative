@@ -42,6 +42,8 @@ const MatchHeader = ( {
   const setCameraPath = ( ) => setNavigationPath( "Camera" );
   const showSocialSharing = ( ) => setNavigationPath( "Social" );
 
+  const showSpeciesImage = ( taxon && taxon.speciesSeenImage ) && screenType !== "unidentified";
+
   return (
     // $FlowFixMe
     <LinearGradient colors={[gradientDark, gradientLight]} style={styles.header}>
@@ -53,7 +55,7 @@ const MatchHeader = ( {
         )}
       <View style={[styles.imageContainer, styles.buttonContainer]}>
         <Image source={{ uri: image.uri }} style={styles.imageCell} />
-        {( taxon && taxon.speciesSeenImage ) && (
+        {showSpeciesImage && (
           <Image
             source={{ uri: taxon.speciesSeenImage }}
             style={[styles.imageCell, styles.marginLeft]}

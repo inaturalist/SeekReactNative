@@ -70,7 +70,7 @@ const OfflineARResults = () => {
     observation
   } = state;
 
-  const newObs = observation && !seenDate;
+  const newObs: ?boolean = observation && !seenDate;
 
   const setSpeciesInfo = ( species, taxa ) => {
     const obs = createObservationForRealm( species, taxa );

@@ -1,3 +1,5 @@
+// @flow
+
 import { Alert, Platform } from "react-native";
 import Geocoder from "react-native-geocoder";
 import OpenSettings from "react-native-open-settings";
@@ -12,7 +14,7 @@ const requestiOSPermissions = async () => {
   }
 };
 
-const fetchUserLocation = ( enableHighAccuracy ) => (
+const fetchUserLocation = ( enableHighAccuracy: ?boolean ) => (
   new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
@@ -28,7 +30,7 @@ const fetchUserLocation = ( enableHighAccuracy ) => (
   } )
 );
 
-const truncateCoordinates = ( coordinate ) => {
+const truncateCoordinates = ( coordinate: number ) => {
   if ( !coordinate ) {
     return null;
   }
@@ -53,7 +55,7 @@ const fetchTruncatedUserLocation = () => (
   } )
 );
 
-const fetchLocationName = ( lat, lng ) => (
+const fetchLocationName = ( lat: number, lng: number ) => (
   new Promise( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {
@@ -67,7 +69,7 @@ const fetchLocationName = ( lat, lng ) => (
   } )
 );
 
-const createLocationAlert = ( errorCode ) => {
+const createLocationAlert = ( errorCode: number ) => {
   let body;
   const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
 
@@ -88,7 +90,7 @@ const createLocationAlert = ( errorCode ) => {
   Alert.alert( i18n.t( "results.enable_location" ), body, button );
 };
 
-const checkForTruncatedCoordinates = ( latitude ) => {
+const checkForTruncatedCoordinates = ( latitude: number ) => {
   if ( latitude ) {
     const string = latitude.toString();
     const split = string.split( "." );

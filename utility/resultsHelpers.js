@@ -1,6 +1,8 @@
+// @flow
+
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 
-const setAncestorIdsiOS = ( predictions ) => {
+const setAncestorIdsiOS = ( predictions: Array<Object> ) => {
   // adding ancestor ids to take iOS camera experience offline
   const ancestorIds = predictions.map( ( p ) => Number( p.taxon_id ) );
   return ancestorIds.sort( );
@@ -27,13 +29,13 @@ const createSpecies = ( species, taxa ) => {
   };
 };
 
-const checkForSpecies = ( predictions, threshold ) => {
+const checkForSpecies = ( predictions: Array<Object>, threshold: number ) => {
   return predictions.find( leaf => (
     leaf.rank === 10 && leaf.score > threshold
   ) );
 };
 
-const checkForAncestor = ( predictions, threshold ) => {
+const checkForAncestor = ( predictions: Array<Object>, threshold: number ) => {
   const reversePredictions = predictions.reverse();
   const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
@@ -72,7 +74,7 @@ const createObservationForRealm = ( species, taxa ) => {
 };
 
 // online results helpers
-const findNearestPrimaryRankTaxon = ( ancestors, rank ) => {
+const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ) => {
   let nearestTaxon = {};
 
   if ( rank <= 20 ) {
@@ -88,7 +90,7 @@ const findNearestPrimaryRankTaxon = ( ancestors, rank ) => {
   return nearestTaxon;
 };
 
-const checkCommonAncestorRank = ( rank ) => {
+const checkCommonAncestorRank = ( rank: number ) => {
   const primaryRanks = [20, 30, 40, 50];
 
   if ( primaryRanks.includes( rank ) ) {

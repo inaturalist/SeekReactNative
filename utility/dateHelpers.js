@@ -1,3 +1,5 @@
+// @flow
+
 import Realm from "realm";
 import {
   subYears,
@@ -99,7 +101,7 @@ const isWithin7Days = ( date ) => {
 
 const formatShortMonthDayYear = ( date ) => format( date, "PP", { locale: setLocale() } );
 
-const fetchSpeciesSeenDate = ( taxaId ) => (
+const fetchSpeciesSeenDate = ( taxaId: number ) => (
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {

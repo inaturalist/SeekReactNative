@@ -117,11 +117,11 @@ const SocialScreen = ( ) => {
     const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
     const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
 
-    if ( type !== "square" ) {
-      dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
-    } else {
+    // if ( type !== "square" ) {
+    //   dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
+    // } else {
       dispatch( { type: "SET_WATERMARKED_SQUARE_IMAGE", watermarkedSquareImage: watermarkedImage } );
-    }
+    // }
   }, [scientificName, commonName, noWatermark] );
 
   useEffect( ( ) => {
@@ -212,7 +212,7 @@ const SocialScreen = ( ) => {
   };
 
   const selectSquareImage = ( showWatermark && watermarkedSquareImage ) ? watermarkedSquareImage : squareImage;
-  const selectOriginalImage = showWatermark ? watermarkedOriginalImage : resizedOriginalImage;
+  const selectOriginalImage = resizedOriginalImage;
 
   useEffect( ( ) => {
     let sharing;

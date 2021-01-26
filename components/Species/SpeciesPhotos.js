@@ -24,6 +24,7 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
   const [photoList, setPhotoList] = useState( [] );
+  const [error, setError] = useState( false );
 
   const renderPhoto = photo => {
     const showLicense = ( ) => Alert.alert(
@@ -73,15 +74,38 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
     setPhotoList( list );
   }, [photos, userPhoto] );
 
-  return (
-    <>
-      {photoList.length === 0 ? (
+  useEffect( ( ) => {
+    let errorState = setTimeout( ( ) => setError( true ), 1500 );
+
+    if ( userPhoto || photos.length > 0 ) {
+      // custom userPhoto hook takes a bit of time to fetch, so wrapping this in timeout
+      clearTimeout( errorState );
+    }
+
+    return ( ) => {
+      clearTimeout( errorState );
+    };
+  }, [photos, userPhoto] );
+
+  const renderPhotoList = ( ) => {
+    if ( error ) {
+      return (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
+        </View>
+      );
+    } else if ( photoList.length === 0 ) {
+      return (
         <View style={[styles.photoContainer, styles.fullWidth]}>
           <LoadingWheel color="white" />
         </View>
-      ) : <HorizontalScroll photoList={photoList} screen="SpeciesPhotos" />}
-    </>
-  );
+      );
+    } else {
+      return <HorizontalScroll photoList={photoList} screen="SpeciesPhotos" />;
+    }
+  };
+
+  return renderPhotoList( );
 };
 
 export default SpeciesPhotos;

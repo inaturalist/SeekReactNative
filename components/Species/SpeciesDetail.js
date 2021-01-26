@@ -138,13 +138,15 @@ const SpeciesDetail = ( ) => {
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
 
+      const photosWithLicense = taxa.taxon_photos.map( ( p ) => p.photo ).filter( p => p.license_code );
+
       dispatch( {
         type: "SET_TAXON_DETAILS",
         taxon: {
           scientificName,
           iconicTaxonId: taxa.iconic_taxon_id
         },
-        photos: taxa.taxon_photos.map( ( p ) => p.photo ),
+        photos: photosWithLicense,
         details: {
           wikiUrl: taxa.wikipedia_url,
           about: taxa.wikipedia_summary && taxa.wikipedia_summary,

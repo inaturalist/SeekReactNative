@@ -1,6 +1,6 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
-import { Platform, Alert, Image } from "react-native";
+import { Platform, Alert, Image, Linking } from "react-native";
 import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
 
@@ -15,17 +15,25 @@ const shareToFacebook = async ( url ) => {
     social: Share.Social.FACEBOOK
   };
 
+  const fbInstalled = await Linking.canOpenURL( "fb://profile" );
+
+  const showAppNotInstalledError = ( ) => Alert.alert(
+    i18n.t( "social.error_title" ),
+    i18n.t( "social.error" )
+  );
+
+  if ( !fbInstalled ) {
+    showAppNotInstalledError( );
+    return;
+  }
+
   try {
     const share = await Share.shareSingle( shareOptions );
     return share;
   } catch ( e ) {
     if ( e.error.code === "ECOM.RNSHARE1" ) {
-      Alert.alert(
-        i18n.t( "social.error_title" ),
-        i18n.t( "social.error" )
-      );
+      showAppNotInstalledError( );
     }
-    console.log( "couldn't share to FB because: ", e );
   }
 };
 

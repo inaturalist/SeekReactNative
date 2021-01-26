@@ -32,6 +32,8 @@ const SpeciesStats = ( { stats, region, id, seenDate }: Props ) => {
   };
 
   useEffect( () => {
+    let isFocused = true;
+
     const checkStats = () => {
       const params = {
         per_page: 1,
@@ -59,7 +61,9 @@ const SpeciesStats = ( { stats, region, id, seenDate }: Props ) => {
 
             const show = Object.keys( tags ).filter( t => tags[t] === true );
 
-            setTagsToShow( show );
+            if ( isFocused ) {
+              setTagsToShow( show );
+            }
           }
         }
       } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
@@ -68,6 +72,7 @@ const SpeciesStats = ( { stats, region, id, seenDate }: Props ) => {
     if ( region.latitude && id && stats ) {
       checkStats();
     }
+    return () => { isFocused = false; };
   }, [region, id, stats] );
 
   if ( tagsToShow.length === 0 ) {

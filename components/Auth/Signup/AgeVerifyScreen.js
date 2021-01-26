@@ -10,7 +10,7 @@ import styles from "../../../styles/auth/signup";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
-import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
+// import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 const AgeVerifyScreen = () => {
   const { navigate } = useNavigation();
@@ -46,7 +46,7 @@ const AgeVerifyScreen = () => {
         </Text>
         <View style={styles.marginLarge} />
         <TouchableOpacity
-          onPress={() => openPicker()}
+          onPress={openPicker}
           style={[styles.dateButton, styles.center]}
         >
           <Text style={styles.buttonText}>{date}</Text>
@@ -60,11 +60,11 @@ const AgeVerifyScreen = () => {
         )}
         <View style={styles.marginExtraLarge} />
         <GreenButton
-          handlePress={() => submit()}
+          handlePress={submit}
           login
           text="inat_signup.next"
         />
-        <PrivacyAndTerms />
+        {/* <PrivacyAndTerms /> */}
       </View>
     </ViewWithHeader>
   );

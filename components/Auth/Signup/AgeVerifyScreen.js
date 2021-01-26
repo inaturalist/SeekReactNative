@@ -10,7 +10,7 @@ import styles from "../../../styles/auth/signup";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
-// import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
+import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 const AgeVerifyScreen = () => {
   const { navigate } = useNavigation();
@@ -64,7 +64,7 @@ const AgeVerifyScreen = () => {
           login
           text="inat_signup.next"
         />
-        {/* <PrivacyAndTerms /> */}
+        <PrivacyAndTerms />
       </View>
     </ViewWithHeader>
   );

@@ -306,9 +306,16 @@ const PrivacyPolicyScreen = () => {
     © Copyright 2020 California Academy of Sciences. All Rights Reserved.
   </p>`;
 
+  const DEFAULT_PROPS = {
+    onLinkPress( evt, href ) {
+      return;
+    }
+  };
+
   return (
     <ScrollWithHeader header="inat_signup.privacy">
       <HTML
+        {...DEFAULT_PROPS}
         containerStyle={styles.textContainer}
         source={{ html }}
         tagsStyles={ { p: styles.text, h3: styles.headerText, a: styles.text, li: styles.list } }

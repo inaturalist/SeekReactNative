@@ -168,9 +168,16 @@ const TermsOfServiceScreen = () => {
     &copy; Copyright 2019 California Academy of Sciences. All rights reserved.
   </p>`;
 
+  const DEFAULT_PROPS = {
+    onLinkPress( evt, href ) {
+      return;
+    }
+  };
+
   return (
     <ScrollWithHeader header="inat_signup.terms">
       <HTML
+        {...DEFAULT_PROPS}
         containerStyle={styles.textContainer}
         source={{ html }}
         tagsStyles={ {

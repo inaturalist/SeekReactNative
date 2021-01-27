@@ -58,8 +58,6 @@ const SocialScreen = ( ) => {
         return { ...state, showModal: action.showModal };
       case "DISABLE_BUTTONS":
         return { ...state, disabled: action.disabled };
-      case "DISABLE_WATERMARK_HORIZONTAL_IMAGES":
-        return { ...state, disableWatermark: true };
       default:
         throw new Error();
     }
@@ -74,8 +72,7 @@ const SocialScreen = ( ) => {
     height: 0,
     showModal: false,
     absoluteFilePath: null,
-    disabled: true,
-    disableWatermark: false
+    disabled: true
   } );
 
   const {
@@ -89,23 +86,16 @@ const SocialScreen = ( ) => {
     height,
     showModal,
     absoluteFilePath,
-    disabled,
-    disableWatermark
+    disabled
   } = state;
 
-  const horizontalNoWatermark = tab === "original" && disableWatermark;
+  const noWatermark = tab === "original";
 
   const openModal = ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } );
   const closeModal = ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } );
 
   useEffect( ( ) => {
     Image.getSize( uri, ( w, h ) => {
-      if ( w > h ) {
-        dispatch( { type: "DISABLE_WATERMARK_HORIZONTAL_IMAGES" } );
-        // this is the new height to display for original ratio photos
-        // taking into account the aspect ratio and the screen width
-        // it prevents react native from showing top and bottom padding when resizeMode = contain
-      }
       dispatch( { type: "SET_HEIGHT", height: h / w * dimensions.width } );
     } );
   } , [uri] );
@@ -121,36 +111,33 @@ const SocialScreen = ( ) => {
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
   const createWatermark = useCallback( async ( uriToWatermark, type ) => {
-    if ( horizontalNoWatermark ) {
+    if ( noWatermark ) {
       return;
     }
     const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
     const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
 
-    if ( type !== "square" ) {
-      dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
-    } else {
+    // if ( type !== "square" ) {
+    //   dispatch( { type: "SET_WATERMARKED_ORIGINAL_IMAGE", watermarkedOriginalImage: watermarkedImage } );
+    // } else {
       dispatch( { type: "SET_WATERMARKED_SQUARE_IMAGE", watermarkedSquareImage: watermarkedImage } );
-    }
-  }, [scientificName, commonName, horizontalNoWatermark] );
+    // }
+  }, [scientificName, commonName, noWatermark] );
 
   useEffect( ( ) => {
     // create a resized original image when user first lands on screen
     const resize = async ( ) => {
       const resizedUri = await resizeImage( uri, 2048 );
       dispatch( { type: "SET_RESIZED_IMAGE", resizedOriginalImage: resizedUri } );
-      createWatermark( resizedUri, "original" );
+      // createWatermark( resizedUri, "original" );
     };
 
     resize( );
-  }, [createWatermark, uri] );
+  }, [uri] );
 
   const showOriginalRatioImage = ( ) => {
-    let photo = { uri: resizedOriginalImage };
+    const photo = { uri: resizedOriginalImage };
 
-    if ( showWatermark && !disableWatermark ) {
-      photo = { uri: watermarkedOriginalImage };
-    }
     return <Image source={photo} style={[styles.image, { height }]} />;
   };
 
@@ -225,7 +212,7 @@ const SocialScreen = ( ) => {
   };
 
   const selectSquareImage = ( showWatermark && watermarkedSquareImage ) ? watermarkedSquareImage : squareImage;
-  const selectOriginalImage = showWatermark ? watermarkedOriginalImage : resizedOriginalImage;
+  const selectOriginalImage = resizedOriginalImage;
 
   useEffect( ( ) => {
     let sharing;
@@ -283,7 +270,7 @@ const SocialScreen = ( ) => {
       </View>
       <SocialTabs tab={tab} toggleTab={toggleTab} />
       {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
-      {!horizontalNoWatermark && (
+      {!noWatermark && (
         <>
           <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
           <View style={[styles.row, styles.checkboxRow]}>

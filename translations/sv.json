@@ -265,7 +265,8 @@
     "error_timeout": "Vi kunde inte spara din observation på grund av en plats-timeout. Försök igen senare.",
     "nearby": "Arter i närheten som tillhör detta taxon",
     "nothing_nearby": "Det verkar inte som att många arter tillhörande detta taxon har observerats i närheten! Testa att ta en annan bild eller publicera det till iNaturalist.",
-    "tap": "Tryck för att ladda arter i närheten"
+    "tap": "Tryck för att ladda arter i närheten",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Visa märke",
@@ -677,5 +678,20 @@
     "text_2": "vara en del av en gemenskap som är lika nyfiken på naturen som du",
     "text_3": "dela observationer med gemenskapen, och t.o.m. dela observationer via Seek!",
     "download": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.org.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

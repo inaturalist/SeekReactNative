@@ -101,7 +101,7 @@ const GalleryScreen = () => {
     }
   }, [album, lastCursor, appendPhotos, hasNextPage, stillFetching ] );
 
-  const updateAlbum = useCallback( ( newAlbum: string ) => {
+  const updateAlbum = useCallback( ( newAlbum: ?string ) => {
     // prevent user from reloading the same album twice
     if ( album === newAlbum ) { return; }
     dispatch( { type: "SET_ALBUM", album: newAlbum } );

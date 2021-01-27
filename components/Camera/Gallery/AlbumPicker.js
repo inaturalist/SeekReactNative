@@ -7,7 +7,7 @@ import RNPickerSelect from "react-native-picker-select";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/galleryHeader";
 type Props = {
-  +updateAlbum: Function,
+  +updateAlbum: ( ?string ) => mixed,
   +albumNames: Array<Object>
 }
 

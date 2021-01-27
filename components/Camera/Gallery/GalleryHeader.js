@@ -18,7 +18,7 @@ import AlbumPicker from "./AlbumPicker";
 import { navigateToMainStack } from "../../../utility/helpers";
 
 type Props = {
-  updateAlbum: Function
+  updateAlbum: ( ?string ) => mixed
 }
 
 const GalleryHeader = ( { updateAlbum }: Props ) => {

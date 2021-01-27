@@ -13,7 +13,7 @@ import styles from "../../styles/social/social";
 
 type Props = {
   saveCrop: Function,
-  uri: String,
+  uri: string,
   cropViewRef: any,
   handleImageCrop: Function,
   closeModal: Function

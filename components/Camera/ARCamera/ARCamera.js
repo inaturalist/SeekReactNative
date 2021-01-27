@@ -89,7 +89,7 @@ const ARCamera = () => {
 
   const rankToRender = Object.keys( ranks )[0] || null;
 
-  const updateError = useCallback( ( err, errEvent ) => {
+  const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
     if ( err === null && error === null ) {
       return;
@@ -127,7 +127,7 @@ const ARCamera = () => {
     }
   }, [updateError] );
 
-  const savePhoto = useCallback( async ( photo ) => {
+  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
     if ( Platform.OS === "android" ) {
       await writeExifData( photo.uri );
     }
@@ -136,11 +136,11 @@ const ARCamera = () => {
       .catch( e => handleCameraRollSaveError( photo.uri, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
-  const filterByTaxonId = useCallback( ( id, filter ) => {
+  const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event ) => {
+  const handleTaxaDetected = ( event: { nativeEvent: { predictions?: Array<Object> } } ) => {
     const predictions = { ...event.nativeEvent };
 
     if ( pictureTaken ) { return; }
@@ -155,7 +155,7 @@ const ARCamera = () => {
       // this block keeps the last species seen displayed for 2.5 seconds
       setTimeout( () => resetPredictions(), 2500 );
     } else {
-      ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
+      ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
         // skip this block if a prediction state has already been set
         if ( predictionSet ) { return; }
         if ( predictions[rank] ) {
@@ -172,7 +172,7 @@ const ARCamera = () => {
     }
   };
 
-  const handleCameraError = ( event ) => {
+  const handleCameraError = ( event: { nativeEvent?: { error?: string } } ) => {
     const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
@@ -192,7 +192,7 @@ const ARCamera = () => {
   // ignoring this callback since we're checking all permissions in React Native
   const handleCameraPermissionMissing = () => {};
 
-  const handleClassifierError = ( event ) => {
+  const handleClassifierError = ( event: { nativeEvent?: { error: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
       updateError( "classifier", event.nativeEvent.error );
     } else {
@@ -200,8 +200,8 @@ const ARCamera = () => {
     }
   };
 
-  const handleDeviceNotSupported = ( event ) => {
-    let textOS;
+  const handleDeviceNotSupported = ( event: { nativeEvent?: { reason: string } } ) => {
+    let textOS: string = "";
 
     if ( Platform.OS === "ios" ) {
       const OS = getSystemVersion();
@@ -216,7 +216,7 @@ const ARCamera = () => {
     }
   };
 
-  const handleLog = ( event ) => {
+  const handleLog = ( event: { nativeEvent: { log: string } } ) => {
     if ( Platform.OS === "android" ) {
       writeToDebugLog( event.nativeEvent.log );
     }

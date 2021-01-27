@@ -265,7 +265,8 @@
     "error_timeout": "Konum zaman aşımı nedeniyle gözlemlerinizi kaydedemedik. Lütfen daha sonra tekrar deneyin.",
     "nearby": "Bu sınıflandırmaya yakındaki türler",
     "nothing_nearby": "Görünüşe göre bu sınıflandırmada çok fazla tür gözlemlenmemiş! Başka bir fotoğraf çekmeyi ya da iNaturalist'e göndermeyi deneyin.",
-    "tap": "Yakındaki türleri yüklemek için dokunun"
+    "tap": "Yakındaki türleri yüklemek için dokunun",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Rozeti göster",
@@ -677,5 +678,20 @@
     "text_2": "sizin kadar doğayı merak eden bir topluluğun parçası olun",
     "text_3": "gözlemlerinizi toplulukla paylaşın ve hatta Seek aracılığıyla gözlemlerinizi paylaşın!",
     "download": "iNaturalist uygulamasını indirerek ya da inaturalist.org adresini ziyaret ederek başlayın.\n\nZaten bir iNaturalist hesabınız var mı? Arama yapmak için mevcut hesabınızla oturum açın!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

@@ -265,7 +265,8 @@
     "error_timeout": "לא אתרנו מיקום GPS. התצפית נשמר, אך ללא מיקום, לא ניתן יהיה לראות פרטים נוספים. אנא נסה שוב מאוחר יותר.",
     "nearby": "מינים קרובים בזן הזה",
     "nothing_nearby": "נראה שלא נצפו מינים רבים באזור שלך מזן זה! נסו לקחת תמונה נוספת והעלו אותה ל iNaturalist.",
-    "tap": "לחץ כדי להעלות זנים בסביבה"
+    "tap": "לחץ כדי להעלות זנים בסביבה",
+    "social": "Share on social"
   },
   "banner": {
     "view": "הצג תג",
@@ -677,5 +678,20 @@
     "text_2": "היו חלק מקהילה סקרנית לטבע כמוכם",
     "text_3": "שתפו תצפיות עם הקהילה, ואפילו תשתפו תצפיות דרך Seek!",
     "download": "התחילו על ידי הורדת האפליקציה iNaturalist ובקרו באתר inaturalist.org .\n\nיש לכם כבר משתמש iNaturalist? התחברו ל Seek עם החשבון הקיים שלכם!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

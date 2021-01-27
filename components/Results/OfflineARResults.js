@@ -79,7 +79,7 @@ const OfflineARResults = () => {
     dispatch( { type: "SET_SPECIES", obs, newTaxon } );
   };
 
-  const fetchSpeciesPhoto = useCallback( ( species ) => {
+  const fetchSpeciesPhoto = useCallback( ( species: { taxon_id: number } ) => {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( species.taxon_id, options ).then( ( { results } ) => {
@@ -95,7 +95,7 @@ const OfflineARResults = () => {
     dispatch( { type: "SET_ANCESTOR", newTaxon } );
   };
 
-  const fetchAncestorPhoto = useCallback( ( ancestor ) => {
+  const fetchAncestorPhoto = useCallback( ( ancestor: { taxon_id: number }  ) => {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( ancestor.taxon_id, options ).then( ( { results } ) => {
@@ -108,7 +108,7 @@ const OfflineARResults = () => {
   }, [] );
 
   const checkSpeciesSeen = ( taxaId ) => {
-    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
+    fetchSpeciesSeenDate( taxaId ).then( ( date: ?string ) => {
       if ( date !== null ) {
         dispatch( { type: "SPECIES_SEEN", date } );
       }

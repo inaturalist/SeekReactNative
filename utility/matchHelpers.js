@@ -28,7 +28,7 @@ const renderHeaderText = ( screenType: string, rank: number ) => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderSpeciesText = ( screenType: string, taxon, scientificNames: boolean, commonName: string ) => {
+const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: string ) => {
   if ( screenType === "unidentified" ) {
     return null;
   }
@@ -40,8 +40,8 @@ const renderSpeciesText = ( screenType: string, taxon, scientificNames: boolean,
   return !scientificNames ? commonName : taxon.scientificName;
 };
 
-const renderText = ( screenType: string, seenDate, image ) => {
-  let text;
+const renderText = ( screenType: string, seenDate: ?string, image: { latitude: number } ) => {
+  let text: string;
 
   if ( screenType === "resighted" ) {
     text = i18n.t( "results.date_observed", { seenDate } );
@@ -74,7 +74,7 @@ const setGradients = ( screenType: string ) => {
   return { gradientDark, gradientLight };
 };
 
-const setScreenType = ( taxon, seenDate ) => {
+const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?string ) => {
   if ( !taxon ) { return; }
 
   const { taxaId, rank } = taxon;

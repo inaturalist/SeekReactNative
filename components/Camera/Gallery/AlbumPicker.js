@@ -8,7 +8,7 @@ import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/galleryHeader";
 type Props = {
   +updateAlbum: Function,
-  +albumNames: Array
+  +albumNames: Array<Object>
 }
 
 const placeholder = {};

@@ -1,9 +1,10 @@
 // @flow
 
 import CameraRoll from "@react-native-community/cameraroll";
+import type { GetPhotosParams } from "@react-native-community/cameraroll";
 
-const setGalleryFetchOptions = ( album, lastCursor ) => {
-  const options = {
+const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
+  const options: GetPhotosParams = {
     first: 28,
     assetType: "Photos",
     groupTypes: ( album === null ) ? "All" : "Album",
@@ -21,7 +22,7 @@ const setGalleryFetchOptions = ( album, lastCursor ) => {
   return options;
 };
 
-const fetchGalleryPhotos = async ( album, lastCursor ) => {
+const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ) => {
   const options = setGalleryFetchOptions( album, lastCursor );
 
   const photos = await CameraRoll.getPhotos( options );

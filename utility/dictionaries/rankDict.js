@@ -1,3 +1,5 @@
+// @flow
+
 const ranks = {
   kingdom: "camera.kingdom",
   phylum: "camera.phylum",

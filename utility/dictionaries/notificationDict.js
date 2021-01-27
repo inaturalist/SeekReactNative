@@ -1,3 +1,5 @@
+// @flow
+
 const notifications = {
   challengeProgress: {
     title: "notifications.almost_finished",

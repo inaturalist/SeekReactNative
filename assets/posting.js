@@ -1,3 +1,5 @@
+// @flow
+
 const posting = {
   captive: require( "./posting/icon-captive.webp" ),
   crosshair: require( "./posting/icon-crosshair.webp" ),

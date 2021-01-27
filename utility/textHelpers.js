@@ -1,3 +1,5 @@
+// @flow
+
 import { PixelRatio } from "react-native";
 
 import i18n from "../i18n";
@@ -18,7 +20,7 @@ const setChallengeDetailsButtonText = ( challenge, challengeStarted ) => {
   return buttonText;
 };
 
-const setCameraHelpText = ( rankToRender ) => {
+const setCameraHelpText = ( rankToRender: string ) => {
   let helpText;
 
   if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {

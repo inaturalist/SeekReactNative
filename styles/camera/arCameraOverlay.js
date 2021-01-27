@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet, PixelRatio } from "react-native";
 import { colors, fonts } from "../global";
 

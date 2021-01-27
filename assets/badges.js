@@ -1,3 +1,5 @@
+// @flow
+
 const badges = {
   badge_empty: require( "./badges/Badge_Empty.webp" ),
   badge_empty_small: require( "./badges/observations/Badge_Empty.webp" ),

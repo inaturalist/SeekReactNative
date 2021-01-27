@@ -1,3 +1,5 @@
+// @flow
+
 const badges = {
   tadpole: {
     infoText: "",

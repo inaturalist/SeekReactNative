@@ -16,7 +16,7 @@ const pickerText = {
   color: colors.seekForestGreen,
   fontFamily: fonts.semibold,
   fontSize: enabledLargeFonts() ? 13 : 18,
-  letterSpacing: Platform.OS === "ios" ? 1.0 : null
+  letterSpacing: Platform.OS === "ios" ? 1.0 : 0
 };
 
 export default StyleSheet.create( {

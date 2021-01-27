@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useCallback } from "react";
 import { Image } from "react-native";
 import RNPickerSelect from "react-native-picker-select";

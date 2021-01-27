@@ -14,7 +14,7 @@ const greenButton = {
   fontFamily: fonts.semibold,
   fontSize: 20,
   // removed because letters getting cut off on left side, android
-  letterSpacing: Platform.OS === "ios" ? 1.11 : null,
+  letterSpacing: Platform.OS === "ios" ? 1.11 : 0,
   backgroundColor: colors.seekForestGreen,
   borderRadius: 6,
   paddingBottom: 11,

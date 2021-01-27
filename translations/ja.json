@@ -265,7 +265,8 @@
     "error_timeout": "位置情報がタイムアウトした為に、観察を保存できませんでした。後で再試行してください。",
     "nearby": "この分類群に入る近くの生き物",
     "nothing_nearby": "この分類群に入る生き物があまり観察されていないようです！もう一回写真を撮る又はiNaturalistに投稿してください。",
-    "tap": "タップして近くの生き物をロードしてください。"
+    "tap": "タップして近くの生き物をロードしてください。",
+    "social": "Share on social"
   },
   "banner": {
     "view": "バッジを表示",
@@ -677,5 +678,20 @@
     "text_2": "be part of a community that’s as curious about nature as you",
     "text_3": "share observations with the community, and even share observations through Seek!",
     "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

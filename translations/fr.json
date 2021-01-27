@@ -265,7 +265,8 @@
     "error_timeout": "Nous n’avons pas réussi à enregistrer vos observations en raison d’un délai de localisation trop long. Merci de réessayer plus tard.",
     "nearby": "Espèces proches au sein de ce taxon",
     "nothing_nearby": "Il semblerait que peu d’espèces de ce taxon aient été observées à proximité. Essayez de prendre une autre photo ou de la poster sur iNaturalist.",
-    "tap": "Appuyez afin de charger les espèces proches"
+    "tap": "Appuyez afin de charger les espèces proches",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Afficher le badge",
@@ -677,5 +678,20 @@
     "text_2": "rejoignez une communauté aussi fascinée par la nature que vous",
     "text_3": "partagez vos observations avec la communauté, et partagez même vos observations via Seek !",
     "download": "Commencez par télécharger l'application iNaturalist ou visiter inaturalist.org.\n\nVous avez déjà un compte iNaturalist ? Connectez-vous à Seek avec votre compte existant !"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

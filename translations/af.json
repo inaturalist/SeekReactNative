@@ -265,7 +265,8 @@
     "error_timeout": "Weens ’n ligginguittelling kon ons nie u waarneming bewaar nie. Probeer later weer.",
     "nearby": "Spesies naby hierdie takson",
     "nothing_nearby": "Daar blyk nog nie baie spesies naby hierdie takson waargeneem te wees nie! Probeer ’n ander foto neem of plaas dit op iNaturalist.",
-    "tap": "Tik om nabygeleë spesies te laai"
+    "tap": "Tik om nabygeleë spesies te laai",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Bekyk kenteken",
@@ -677,5 +678,20 @@
     "text_2": "Wees deel van ’n gemeenskap wat so nuuskierig soos u oor die natuur is",
     "text_3": "deel waarnemings met die gemeenskap en deel selfs u waarnemings via Seek!",
     "download": "Val weg deur die iNaturalist-toep af te laai of inaturalist.org te besoek.\n\nHet u reeds ’n iNaturalist-rekening? Teken met u bestaande rekening op Seek aan!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

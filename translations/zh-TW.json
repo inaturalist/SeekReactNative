@@ -265,7 +265,8 @@
     "error_timeout": "您的位置資訊花了太久的時間來存取。您的觀察記錄已儲存，但沒有位置資訊，您無法閱覽詳細的資訊像是範圍地圖。請稍後再試試看。",
     "nearby": "在此分類群中附近的物種",
     "nothing_nearby": "看起來此分類群中附近還沒有觀察到許多物種！試著拍其他張不同角度的照片，或是上傳至 iNaturalist 上讓其他人協助辨識。",
-    "tap": "點選以載入附近的物種"
+    "tap": "點選以載入附近的物種",
+    "social": "Share on social"
   },
   "banner": {
     "view": "檢視徽章",
@@ -677,5 +678,20 @@
     "text_2": "be part of a community that’s as curious about nature as you",
     "text_3": "share observations with the community, and even share observations through Seek!",
     "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

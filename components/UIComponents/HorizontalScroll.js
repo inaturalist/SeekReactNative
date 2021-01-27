@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useRef, useState, useCallback, useMemo } from "react";
 import { Image, FlatList, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";

@@ -1,3 +1,5 @@
+// @flow
+
 import * as StoreReview from "react-native-store-review";
 import Realm from "realm";
 import { Platform, Alert, Linking } from "react-native";

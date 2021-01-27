@@ -1,3 +1,5 @@
+// @flow
+
 import CameraRoll from "@react-native-community/cameraroll";
 
 const setGalleryFetchOptions = ( album, lastCursor ) => {

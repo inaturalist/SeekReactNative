@@ -1,3 +1,5 @@
+// @flow
+
 const logos = {
   seek: require( "./logos/logo-seek-splash-2020.webp" ),
   bird: require( "./logos/iNatStatsSpeciesDetail-Bird.webp" ),

@@ -1,3 +1,5 @@
+// @flow
+
 import Realm from "realm";
 
 import UUIDGenerator from "react-native-uuid-generator";

@@ -1,3 +1,5 @@
+// @flow
+
 import * as RNLocalize from "react-native-localize";
 import { I18nManager, Platform } from "react-native";
 

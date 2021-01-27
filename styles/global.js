@@ -1,6 +1,13 @@
+// @flow
+
 import { Platform, Dimensions } from "react-native";
 
-const { width, height } = Dimensions.get( "window" );
+type ScreenDimensions = {
+  width: number,
+  height: number
+}
+
+const { width, height }: ScreenDimensions = Dimensions.get( "window" );
 
 export const colors = {
   white: "#ffffff",

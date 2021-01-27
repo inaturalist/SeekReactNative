@@ -1,3 +1,5 @@
+// @flow
+
 import { useState, useEffect, useCallback } from "react";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";

@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import inatjs from "inaturalistjs";

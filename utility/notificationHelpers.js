@@ -1,3 +1,5 @@
+// @flow
+
 import Realm from "realm";
 
 import realmConfig from "../models/index";

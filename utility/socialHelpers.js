@@ -1,3 +1,5 @@
+// @flow
+
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
 import { Platform, Alert, Image } from "react-native";
@@ -7,8 +9,12 @@ import RNFS from "react-native-fs";
 import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
 import { colors, fonts, dimensions } from "../styles/global";
+type ImageSize = {
+  width: number,
+  height: number
+}
 
-const shareToFacebook = async ( url ) => {
+const shareToFacebook = async ( url: string ) => {
   // this shares to newsfeed, story, or profile photo on Android
   const shareOptions = {
     url,
@@ -29,7 +35,7 @@ const shareToFacebook = async ( url ) => {
   }
 };
 
-const saveToCameraRoll = async ( uri ) => {
+const saveToCameraRoll = async ( uri: string ) => {
   try {
     const savedPhotoUri = CameraRoll.save( uri, { type: "photo", album: "Seek" } );
     return savedPhotoUri;
@@ -42,20 +48,20 @@ const saveToCameraRoll = async ( uri ) => {
   }
 };
 
-const getAndroidCameraRollPath = async ( uri ) => {
+const getAndroidCameraRollPath = async ( uri: string ) => {
   const { originalFilepath } = await RNFS.stat( uri );
   return "file://" + originalFilepath;
 };
 
-const placeCommonNameText = ( width, scale ) => width - scale * 142;
+const placeCommonNameText = ( width: number, scale ) => width - scale * 142;
 
-const placeScientificNameText = ( width, scale ) => width - scale * 85;
+const placeScientificNameText = ( width: number, scale ) => width - scale * 85;
 
 const xPosition = ( scale ) => scale * 208;
 
 const setFontSize = ( scale ) => scale * 45;
 
-const addTextToWatermark = async( userImage, text, position, width, height, scale ) => {
+const addTextToWatermark = async( userImage: string, text, position: number, width: number, height: number, scale ) => {
   const yPosition = ( ) => {
     if ( height !== width ) {
       return position === 1 ? height - 195 : height - 115;
@@ -77,7 +83,7 @@ const addTextToWatermark = async( userImage, text, position, width, height, scal
   };
 
   try {
-    const path = await Marker.markText( imageOptions );
+    const path: string = await Marker.markText( imageOptions );
     const uri = Platform.OS === "android" ? "file://" + path : path;
     return uri;
   } catch ( e ) {
@@ -85,15 +91,15 @@ const addTextToWatermark = async( userImage, text, position, width, height, scal
   }
 };
 
-const getImageSize = ( uri ) => (
-  new Promise( ( resolve, reject ) => {
+const getImageSize = ( uri: string ) => (
+  new Promise<ImageSize>( ( resolve, reject ) => {
     Image.getSize( uri, ( w, h ) => {
       resolve( { width: w, height: h } );
     }, ( ) => reject( null ) );
   } )
 );
 
-const setMarkerScale = ( scale, width, height ) => {
+const setMarkerScale = ( scale, width: number, height: number ) => {
   // horizontal photos
   // if ( height < width ) {
   //   return scale * 2;
@@ -112,7 +118,7 @@ const setMarkerScale = ( scale, width, height ) => {
   return scale;
 };
 
-const addWatermark = async( userImage, commonName, name ) => {
+const addWatermark = async( userImage: string, commonName: string, name: string ) => {
   // resized photos to 2048 * 2048 to be able to align watermark
   const { width, height } = await getImageSize( userImage );
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
@@ -146,7 +152,7 @@ const addWatermark = async( userImage, commonName, name ) => {
 };
 
 // adapted from https://stackoverflow.com/questions/50909390/react-native-how-to-get-file-asset-image-absolute-path
-const getAssetFileAbsolutePath = async ( assetPath ) => {
+const getAssetFileAbsolutePath = async ( assetPath: string ) => {
   if ( Platform.OS === "android" ) { return assetPath; }
   const dest = `${RNFS.TemporaryDirectoryPath}${Math.random().toString( 36 ).substring( 7 )}.jpg`;
 

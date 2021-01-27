@@ -265,7 +265,8 @@
     "error_timeout": "Es hat zu lange gedauert, deinen Standort abzurufen. Deine Beobachtung wurde gespeichert, aber ohne Standort können keine detaillierten Informationen wie z.B. Verbreitungskarten angezeigt werden. Bitte versuche es später nochmal.",
     "nearby": "Beobachtungen dieser Art in der Umgebung",
     "nothing_nearby": "Sieht so aus, als ob diese Art in der Umgebung noch nicht oft beobachtet wurde! Versuche ein anderes Foto zu machen oder veröffentliche diese Beobachtung auf iNaturalist.",
-    "tap": "Tippe, um Arten in der Umgebung zu laden"
+    "tap": "Tippe, um Arten in der Umgebung zu laden",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Abzeichen ansehen",
@@ -677,5 +678,20 @@
     "text_2": "werde Teil einer Gemeinschaft, die ebenso neugierig auf die Natur ist wie du",
     "text_3": "Teile deine Beobachtungen mit der Gemeinschaft - du kannst sie sogar über Seek teilen!",
     "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

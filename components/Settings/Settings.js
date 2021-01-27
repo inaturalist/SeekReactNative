@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useContext } from "react";
 import { View, Platform } from "react-native";
 

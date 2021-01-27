@@ -124,7 +124,18 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
   const scale = height === width ? 1.85 : 1.39;
 
-  const imageOptions = {
+  type Options = {
+    X: number,
+    Y?: number,
+    markerScale: number,
+    markerSrc: number,
+    quality: number,
+    saveFormat: string,
+    scale: number,
+    src: string
+  };
+
+  const imageOptions: Options = {
     src: originalPath,
     markerSrc: backgrounds.sharing,
     scale: 1, // scale of bg
@@ -141,8 +152,8 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
   }
 
   try {
-    const path = await Marker.markImage( imageOptions );
-    const watermarkedImage = Platform.OS === "android" ? "file://" + path : path;
+    const path: string = await Marker.markImage( imageOptions );
+    const watermarkedImage: string = Platform.OS === "android" ? "file://" + path : path;
     const uriWithCommonName = await addTextToWatermark( watermarkedImage, commonName, 1, width, height, scale );
     const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, width, height, scale );
     return uriWithBothNames;

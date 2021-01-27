@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { View } from "react-native";
 import { CropView } from "react-native-image-crop-tools";

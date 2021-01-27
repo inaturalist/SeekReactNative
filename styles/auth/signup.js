@@ -1,4 +1,6 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+// @flow
+
+import { StyleSheet, Platform } from "react-native";
 
 import {
   fonts,
@@ -8,8 +10,6 @@ import {
   row,
   dimensions
 } from "../global";
-
-const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   buttonText: {
@@ -70,8 +70,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   keyboardText: {
-    marginHorizontal: ( Platform.OS === "android" || height < 570 ) ? 24 : 28,
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 20
+    marginHorizontal: ( Platform.OS === "android" || dimensions.height < 570 ) ? 24 : 28,
+    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 20
   },
   leftTextMargins: {
     alignSelf: "flex-start",
@@ -89,7 +89,7 @@ export default StyleSheet.create( {
     maxWidth: dimensions.width / 2 + 80
   },
   margin: {
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 17
+    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 17
   },
   marginExtraLarge: {
     marginBottom: 98

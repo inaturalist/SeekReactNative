@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { colors, fonts } from "../global";
 
 import { enabledLargeFonts } from "../../utility/textHelpers";
@@ -14,7 +14,7 @@ const pickerText = {
   color: colors.seekForestGreen,
   fontFamily: fonts.semibold,
   fontSize: enabledLargeFonts() ? 13 : 18,
-  letterSpacing: 1.0
+  letterSpacing: Platform.OS === "ios" ? 1.0 : null
 };
 
 export default StyleSheet.create( {

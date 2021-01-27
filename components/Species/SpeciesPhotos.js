@@ -25,8 +25,32 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
   const userPhoto = useUserPhoto( seenTaxa );
   const [photoList, setPhotoList] = useState( [] );
 
-  useEffect( () => {
-    if ( photos.length === 0 ) {
+  const renderPhoto = photo => {
+    const showLicense = ( ) => Alert.alert(
+      i18n.t( "species_detail.license" ),
+      localizeAttributions( photo.attribution, photo.license_code, "SpeciesDetail" )
+    );
+
+    return (
+      <View key={`image${photo.medium_url}`}>
+        <Image source={{ uri: photo.medium_url }} style={styles.image} />
+        <TouchableOpacity
+          onPress={showLicense}
+          style={styles.ccButton}
+        >
+          <View style={styles.ccView}>
+            <Text style={styles.ccButtonText}>
+              {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  useEffect( ( ) => {
+    // show user photo instead of loading wheel when internet down
+    if ( photos.length === 0 && !userPhoto ) {
       return;
     }
 
@@ -35,38 +59,14 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
     if ( userPhoto ) {
       list.push(
         <View key="user-image">
-          <Image
-            source={userPhoto}
-            style={styles.image}
-          />
+          <Image source={userPhoto} style={styles.image} />
         </View>
       );
     }
 
     photos.forEach( ( photo ) => {
       if ( photo.license_code && list.length < 9 ) {
-        const image = (
-          <View key={`image${photo.medium_url}`}>
-            <Image
-              source={{ uri: photo.medium_url }}
-              style={styles.image}
-            />
-            <TouchableOpacity
-              onPress={() => Alert.alert(
-                i18n.t( "species_detail.license" ),
-                localizeAttributions( photo.attribution, photo.license_code, "SpeciesDetail" )
-              )}
-              style={styles.ccButton}
-            >
-              <View style={styles.ccView}>
-                <Text style={styles.ccButtonText}>
-                  {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        );
-        list.push( image );
+        list.push( renderPhoto( photo ) );
       }
     } );
 
@@ -74,13 +74,13 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
   }, [photos, userPhoto] );
 
   return (
-    <View>
+    <>
       {photoList.length === 0 ? (
         <View style={[styles.photoContainer, styles.fullWidth]}>
           <LoadingWheel color="white" />
         </View>
       ) : <HorizontalScroll photoList={photoList} screen="SpeciesPhotos" />}
-    </View>
+    </>
   );
 };
 

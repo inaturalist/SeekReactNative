@@ -8,8 +8,10 @@ import DebugAndroid from "../UIComponents/DebugAndroid";
 
 const Tab = createBottomTabNavigator();
 
+const tabBar = props => <Footer {...props} />;
+
 const FooterTabNav = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Home" component={HomeScreen} />
     <Tab.Screen name="DebugAndroid" component={DebugAndroid} />
     <Tab.Screen name="Species" component={SpeciesDetail} />

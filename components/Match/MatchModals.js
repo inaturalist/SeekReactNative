@@ -20,9 +20,10 @@ import Toasts from "../Toasts/Toasts";
 import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/helpers";
 import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
+import { useCommonName } from "../../utility/customHooks";
 
 type Props = {
-  match: boolean,
+  screenType: string,
   closeFlagModal: Function,
   setNavigationPath: Function,
   params: Object,
@@ -32,7 +33,7 @@ type Props = {
 };
 
 const MatchModals = ( {
-  match,
+  screenType,
   closeFlagModal,
   params,
   setNavigationPath,
@@ -49,6 +50,8 @@ const MatchModals = ( {
     taxon,
     image
   } = params;
+
+  const commonName = useCommonName( taxon.taxaId || null );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -103,10 +106,10 @@ const MatchModals = ( {
   const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
 
   useEffect( () => {
-    if ( seenDate && isFocused ) {
+    if ( screenType === "resighted" && isFocused ) {
       dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
     }
-  }, [seenDate, isFocused] );
+  }, [screenType, isFocused] );
 
   useEffect( () => {
     if ( levelModal ) {
@@ -124,14 +127,12 @@ const MatchModals = ( {
   }, [levelModal] );
 
   const navigateTo = useCallback( () => {
-    const { taxaId } = taxon;
-
-    if ( navPath === "Camera" ) {
+    if ( navPath === "Camera" || navPath === "Social" ) {
       setNavigationPath( null );
-      navigation.navigate( "Camera" );
+      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri, taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
-      setSpeciesId( taxaId );
+      setSpeciesId( taxon.taxaId );
       // return user to match screen
       setRoute( "Match" );
       // full nav path for QuickActions
@@ -140,7 +141,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, params, taxon, setNavigationPath] );
+  }, [navPath, navigation, params, taxon, setNavigationPath, image.uri, commonName] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
@@ -179,7 +180,7 @@ const MatchModals = ( {
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      if ( match && firstRender ) {
+      if ( screenType === "newSpecies" && firstRender ) {
         checkChallenges();
         checkBadges();
         checkLocationPermissions();
@@ -188,11 +189,11 @@ const MatchModals = ( {
 
     navigation.addListener( "blur", () => {
       dispatch( { type: "SET_FIRST_RENDER" } );
-      if ( match ) {
+      if ( screenType === "newSpecies" ) {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, match, firstRender, checkLocationPermissions] );
+  }, [navigation, screenType, firstRender, checkLocationPermissions] );
 
   return (
     <>

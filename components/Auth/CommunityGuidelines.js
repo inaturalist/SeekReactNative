@@ -189,7 +189,7 @@ const CommunityGuidelines = () => {
     <ScrollWithHeader header="inat_signup.guidelines">
       <HTML
         containerStyle={styles.textContainer}
-        html={html}
+        source={{ html }}
         tagsStyles={ { p: styles.text, strong: styles.headerText, h3: styles.headerText, a: styles.text } }
       />
     </ScrollWithHeader>

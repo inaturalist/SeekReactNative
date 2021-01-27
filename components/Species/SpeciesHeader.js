@@ -21,8 +21,7 @@ const SpeciesHeader = ( {
   taxon,
   id
 }: Props ) => {
-  const navigation = useNavigation();
-  const { navigate } = navigation;
+  const { navigate } = useNavigation();
   const { params } = useRoute();
   const [routeName, setRouteName] = useState( null );
   const commonName = useCommonName( id );
@@ -58,11 +57,8 @@ const SpeciesHeader = ( {
   );
 
   return (
-    <View style={styles.background}>
-      <CustomBackArrow
-        handlePress={backAction}
-        style={styles.backButton}
-      />
+    <>
+      <CustomBackArrow handlePress={backAction} style={styles.backButton} />
       <SpeciesPhotos photos={photos} id={id} />
       <View style={styles.greenBanner}>
         {iconicTaxonId && (
@@ -75,7 +71,7 @@ const SpeciesHeader = ( {
         <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
         <Text style={styles.scientificNameText}>{scientificName}</Text>
       </View>
-    </View>
+    </>
   );
 };
 

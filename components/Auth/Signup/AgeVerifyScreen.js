@@ -46,7 +46,7 @@ const AgeVerifyScreen = () => {
         </Text>
         <View style={styles.marginLarge} />
         <TouchableOpacity
-          onPress={() => openPicker()}
+          onPress={openPicker}
           style={[styles.dateButton, styles.center]}
         >
           <Text style={styles.buttonText}>{date}</Text>
@@ -60,7 +60,7 @@ const AgeVerifyScreen = () => {
         )}
         <View style={styles.marginExtraLarge} />
         <GreenButton
-          handlePress={() => submit()}
+          handlePress={submit}
           login
           text="inat_signup.next"
         />

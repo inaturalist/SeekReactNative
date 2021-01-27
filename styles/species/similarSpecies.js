@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     height: 231
   },
-  similarSpeciesMargins: {
+  similarSpeciesHeader: {
     marginBottom: 11,
     marginLeft: 28,
     marginTop: 45

@@ -26,13 +26,13 @@ const PostingHeader = ( {
 }: Props ) => {
   const [showModal, setShowModal] = useState( false );
 
-  const openModal = () => setShowModal( true );
-  const closeModal = () => setShowModal( false );
+  const openModal = ( ) => setShowModal( true );
+  const closeModal = ( ) => setShowModal( false );
 
   return (
     <>
       <Modal
-        onRequestClose={() => setShowModal( false )}
+        onRequestClose={closeModal}
         visible={showModal}
       >
         <SelectSpecies
@@ -43,12 +43,12 @@ const PostingHeader = ( {
         />
       </Modal>
       <TouchableOpacity
-        onPress={() => openModal()}
+        onPress={openModal}
         style={styles.card}
       >
         <SpeciesCard
           taxon={taxon}
-          handlePress={() => openModal()}
+          handlePress={openModal}
           photo={{ uri: image.uri }}
         />
         {/* $FlowFixMe */}

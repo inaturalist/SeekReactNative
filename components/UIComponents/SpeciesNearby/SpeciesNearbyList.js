@@ -10,11 +10,10 @@ import EmptyList from "./EmptyList";
 import SpeciesObservedCell from "./SpeciesObservedCell";
 
 type Props = {
-  +taxa: Array<Object>,
-  +fetchiNatData?: Function
+  +taxa: Array<Object>
 }
 
-const SpeciesNearbyList = ( { taxa, fetchiNatData }: Props ) => {
+const SpeciesNearbyList = ( { taxa }: Props ) => {
   const { name } = useRoute();
 
   const getItemLayout = useCallback( ( data, index ) => (
@@ -34,8 +33,8 @@ const SpeciesNearbyList = ( { taxa, fetchiNatData }: Props ) => {
     if ( name === "ChallengeDetails" ) {
       return <SpeciesObservedCell item={item} />;
     }
-    return <SpeciesImageCell item={item} fetchiNatData={fetchiNatData} />;
-  }, [fetchiNatData, name] );
+    return <SpeciesImageCell item={item} />;
+  }, [name] );
 
   return (
     <FlatList

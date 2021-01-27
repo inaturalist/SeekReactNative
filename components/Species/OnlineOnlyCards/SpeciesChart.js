@@ -1,6 +1,6 @@
 // @flow
-import React, { useState, useCallback, useEffect, useContext } from "react";
-import { View, Platform } from "react-native";
+import React, { useState, useCallback, useEffect, useContext, useMemo } from "react";
+import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import inatjs from "inaturalistjs";
@@ -12,24 +12,14 @@ import { capitalizeNames } from "../../../utility/helpers";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
 import createUserAgent from "../../../utility/userAgent";
 import { SpeciesDetailContext } from "../../UserContext";
-import { useLocationPermission } from "../../../utility/customHooks";
-import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 
 type Props = {
-  +id: ?number
+  +id: number,
+  +region: Object
 };
 
-const xAxisSvg = {
-  fontSize: 18,
-  fill: colors.seekTeal
-};
-
-const allMonths = createShortMonthsList();
-
-const SpeciesChart = ( { id }: Props ) => {
+const SpeciesChart = ( { id, region }: Props ) => {
   const { localSeasonality } = useContext( SpeciesDetailContext );
-  const granted = useLocationPermission();
-
   const [data, setData] = useState( [] );
 
   const createHistogram = ( results ) => {
@@ -42,57 +32,37 @@ const SpeciesChart = ( { id }: Props ) => {
     setData( obsByMonth );
   };
 
-  const fetchHistogram = useCallback( ( latLng ) => {
-    const params = {
-      date_field: "observed",
-      interval: "month_of_year",
-      taxon_id: id
-    };
-
-    if ( latLng !== undefined && latLng.latitude ) {
-      // $FlowFixMe
-      params.lat = latLng.latitude;
-      // $FlowFixMe
-      params.lng = latLng.longitude;
-      // $FlowFixMe
-      params.radius = 50;
-    }
-
-    const options = { user_agent: createUserAgent() };
+  const fetchHistogram = useCallback( ( params ) => {
+    const options = { user_agent: createUserAgent( ) };
 
     inatjs.observations.histogram( params, options ).then( ( { results } ) => {
       createHistogram( results );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
     } );
-  }, [id] );
+  }, [] );
 
-  const getGeolocation = useCallback( () => {
-    fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
-      fetchHistogram( { latitude, longitude } );
-    } ).catch( ( error ) => fetchHistogram() );
-  }, [fetchHistogram] );
-
-  useEffect( () => {
-    if ( id === null ) {
-      return;
-    }
-
-    const checkAndroidLocationPermissions = () => {
-      if ( Platform.OS === "android" && granted === false ) {
-        fetchHistogram();
-      }
-      getGeolocation();
+  const setParams = useCallback( ( ) => {
+    const params = {
+      date_field: "observed",
+      interval: "month_of_year",
+      taxon_id: id
     };
 
     if ( localSeasonality ) {
-      checkAndroidLocationPermissions();
-    } else {
-      fetchHistogram();
+      if ( region.latitude ) {
+        // $FlowFixMe
+        params.lat = region.latitude;
+        // $FlowFixMe
+        params.lng = region.longitude;
+        // $FlowFixMe
+        params.radius = 50;
+      }
     }
-  }, [id, fetchHistogram, localSeasonality, getGeolocation, granted] );
+    fetchHistogram( params );
+  }, [id, region, localSeasonality, fetchHistogram] );
 
-  const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
+  useEffect( ( ) => setParams( ), [setParams] );
 
   // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( ( value ) => (
@@ -107,35 +77,46 @@ const SpeciesChart = ( { id }: Props ) => {
 
   const xAccessor = ( { item } ) => item.month;
   const yAccessor = ( { item } ) => item.count;
+  const lineChartSvg = { stroke: colors.seekForestGreen };
 
-  const formatLabel = ( value ) => formatXAxis( value - 1 );
+  const xAxis = useMemo( ( ) => {
+    const xAxisSvg = {
+      fontSize: 18,
+      fill: colors.seekTeal
+    };
+
+    const allMonths = createShortMonthsList();
+    const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
+    const formatLabel = ( value ) => formatXAxis( value - 1 );
+    return (
+      <XAxis
+        contentInset={styles.xAxisWidth}
+        data={data}
+        formatLabel={formatLabel}
+        style={styles.xAxis}
+        svg={xAxisSvg}
+        xAccessor={xAccessor}
+      />
+    );
+  }, [data] );
 
   return (
     <SpeciesDetailCard text="species_detail.monthly_obs" hide={data.length === 0}>
-      {data.length > 0 && (
-        <View style={styles.container}>
-          <View style={styles.chartRow}>
-            <LineChart
-              contentInset={styles.chartInset}
-              data={data}
-              style={styles.chart}
-              svg={{ stroke: colors.seekForestGreen }}
-              xAccessor={xAccessor}
-              yAccessor={yAccessor}
-            >
-              <Decorator />
-            </LineChart>
-            <XAxis
-              contentInset={styles.xAxisWidth}
-              data={data}
-              formatLabel={formatLabel}
-              style={styles.xAxis}
-              svg={xAxisSvg}
-              xAccessor={xAccessor}
-            />
-          </View>
+      <View style={styles.container}>
+        <View style={styles.chartRow}>
+          <LineChart
+            contentInset={styles.chartInset}
+            data={data}
+            style={styles.chart}
+            svg={lineChartSvg}
+            xAccessor={xAccessor}
+            yAccessor={yAccessor}
+          >
+            <Decorator />
+          </LineChart>
+          {xAxis}
         </View>
-      )}
+      </View>
     </SpeciesDetailCard>
   );
 };

@@ -22,7 +22,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeExifData, writeToDebugLog } from "../../../utility/photoHelpers";
+import { writeExifData, writeToDebugLog, checkPhotoSize } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -90,8 +90,12 @@ const ARCamera = () => {
   const rankToRender = Object.keys( ranks )[0] || null;
 
   const updateError = useCallback( ( err, errEvent ) => {
+    // don't update error on first camera load
+    if ( err === null && error === null ) {
+      return;
+    }
     dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
-  }, [] );
+  }, [error] );
 
   const navigateToResults = useCallback( ( uri, predictions ) => {
     const image = {
@@ -110,23 +114,27 @@ const ARCamera = () => {
     }
   };
 
+  const handleCameraRollSaveError = useCallback( async ( uri, e ) => {
+    const iOSPermission = "Error: Access to photo library was denied";
+    const androidPermission = "Error: Permission denied";
+
+    if ( e.toString() === iOSPermission || e.toString() === androidPermission ) {
+      // check for camera roll permissions error
+      updateError( "gallery" );
+    } else {
+      const size = await checkPhotoSize( uri );
+      updateError( "save", `${e}. \nPhoto size is: ${size}` );
+    }
+  }, [updateError] );
+
   const savePhoto = useCallback( async ( photo ) => {
     if ( Platform.OS === "android" ) {
       await writeExifData( photo.uri );
     }
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
-      .catch( e => {
-        const gallery = "Error: Access to photo library was denied";
-
-        if ( e.toString() === gallery ) {
-          // check for camera roll permissions error
-          updateError( "gallery" );
-        } else {
-          updateError( "save", e );
-        }
-      } );
-  }, [updateError, navigateToResults] );
+      .catch( e => handleCameraRollSaveError( photo.uri, e ) );
+  }, [handleCameraRollSaveError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id, filter ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
@@ -259,11 +267,17 @@ const ARCamera = () => {
     }
   }, [updateError] );
 
-  useEffect( () => {
-    navigation.addListener( "focus", () => requestAndroidPermissions() );
-
-    navigation.addListener( "blur", () => resetState() );
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
+      // reset when camera loads, not when leaving page, for quicker transition
+      resetState( );
+      requestAndroidPermissions( );
+    } );
   }, [navigation, requestAndroidPermissions] );
+
+  const navHome = () => navigateToMainStack( navigation.navigate, "Home" );
+  const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
+  const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
   return (
     <View style={styles.container}>
@@ -282,7 +296,7 @@ const ARCamera = () => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
+        onPress={navHome}
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />
@@ -290,7 +304,7 @@ const ARCamera = () => {
       {isFocused && ( // this is necessary for camera to load properly in iOS
         <INatCamera
           ref={camera}
-          confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+          confidenceThreshold={confidenceThreshold}
           modelPath={dirModel}
           onCameraError={handleCameraError}
           onCameraPermissionMissing={handleCameraPermissionMissing}
@@ -299,7 +313,7 @@ const ARCamera = () => {
           onTaxaDetected={handleTaxaDetected}
           onLog={handleLog}
           style={styles.camera}
-          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+          taxaDetectionInterval={taxaDetectionInterval}
           taxonomyPath={dirTaxonomy}
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}

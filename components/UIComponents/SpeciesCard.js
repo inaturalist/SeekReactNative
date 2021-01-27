@@ -30,11 +30,7 @@ const SpeciesCard = ( {
 
   return (
     <TouchableOpacity
-      onPress={() => {
-        if ( handlePress ) {
-          handlePress();
-        }
-      }}
+      onPress={handlePress}
       style={[!handlePress ? styles.notTouchable : styles.touchableArea, styles.row]}
       disabled={!handlePress}
     >

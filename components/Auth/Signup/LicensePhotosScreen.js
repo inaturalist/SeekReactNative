@@ -73,7 +73,7 @@ const LicensePhotosScreen = () => {
         toggleCheckbox={toggleAgreeTerms}
         children={(
           <HTML
-            html={html}
+            source={{ html }}
             tagsStyles={{ p: styles.licenseText }}
             renderers={{
               terms: { renderer: () => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },

@@ -11,11 +11,13 @@ const greenButton = {
   color: colors.white,
   fontFamily: fonts.semibold,
   fontSize: 20,
-  letterSpacing: 1.11,
+  // removed because letters getting cut off on left side, android
+  letterSpacing: Platform.OS === "ios" ? 1.11 : null,
   backgroundColor: colors.seekForestGreen,
   borderRadius: 6,
   paddingBottom: 11,
   paddingHorizontal: 18,
+  textAlign: "center",
   paddingTop: 12
 };
 

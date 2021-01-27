@@ -7,18 +7,11 @@ import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 
 type Props = {
-  +seenDate: ?string,
-  +showGreenButtons: boolean
+  +seenDate: ?string
 }
 
-const SeenDate = ( { showGreenButtons, seenDate }: Props ) => (
-  <View style={[
-    styles.row,
-    styles.rowMargin,
-    showGreenButtons && styles.marginSmall,
-    styles.textContainer
-  ]}
-  >
+const SeenDate = ( { seenDate }: Props ) => (
+  <View style={[styles.row, styles.seenDateContainer]}>
     <Image source={icons.checklist} style={styles.checkmark} />
     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
   </View>

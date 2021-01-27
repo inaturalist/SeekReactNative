@@ -15,54 +15,58 @@ import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
 
 const Tab = createBottomTabNavigator();
 
+const tabBar = props => <Footer {...props} />;
+
 const AchievementsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Achievements" component={Achievements} />
   </Tab.Navigator>
 );
 
 const ChallengesFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Challenges" component={Challenges} />
   </Tab.Navigator>
 );
 
 const ChallengeDetailsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
   </Tab.Navigator>
 );
 
 const ObservationsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Observations" component={Observations} />
   </Tab.Navigator>
 );
 
 const iNatStatsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="iNatStats" component={iNatStats} />
   </Tab.Navigator>
 );
 
 const AboutFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="About" component={About} />
   </Tab.Navigator>
 );
 
 const SettingsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+  <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Settings" component={Settings} />
   </Tab.Navigator>
 );
 
 const Drawer = createDrawerNavigator();
 
+const drawerContent = props => <SideMenu {...props} />;
+
 const SideMenuDrawer = () => (
   <Drawer.Navigator
     initialRouteName="Drawer"
-    drawerContent={props => <SideMenu {...props} />}
+    drawerContent={drawerContent}
   >
     <Drawer.Screen name="Main" component={MainStack} />
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />

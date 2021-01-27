@@ -1,10 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text
-} from "react-native";
+import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";

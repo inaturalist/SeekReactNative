@@ -1,5 +1,5 @@
 // @flow
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const checkIsEmailValid = ( email: string ) => {
   if ( email && email.length > 5 ) {

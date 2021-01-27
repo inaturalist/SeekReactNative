@@ -21,7 +21,6 @@ import {
   da,
   de,
   es,
-  esMX,
   eu,
   fi,
   fr,
@@ -36,7 +35,7 @@ import {
   ru,
   sv,
   tr,
-  zh
+  zhTW
 } from "date-fns/locale";
 
 import realmConfig from "../models/index";
@@ -50,7 +49,7 @@ const locales = {
   da,
   de,
   es,
-  "es-MX": esMX,
+  "es-MX": es,
   eu,
   fi,
   fr,
@@ -65,7 +64,7 @@ const locales = {
   ru,
   sv,
   tr,
-  zh
+  zh: zhTW
 };
 
 const setLocale = () => {

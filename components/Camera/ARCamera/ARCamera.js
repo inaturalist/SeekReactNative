@@ -31,7 +31,7 @@ import ARCameraOverlay from "./ARCameraOverlay";
 import { navigateToMainStack } from "../../../utility/helpers";
 
 const ARCamera = () => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
 
@@ -104,8 +104,8 @@ const ARCamera = () => {
       predictions
     };
 
-    navigation.navigate( "OfflineARResults", { image } );
-  }, [navigation] );
+    navigate( "OfflineARResults", { image } );
+  }, [navigate] );
 
   const resetPredictions = () => {
     // only rerender if state has different values than before
@@ -268,16 +268,18 @@ const ARCamera = () => {
   }, [updateError] );
 
   useEffect( ( ) => {
-    navigation.addListener( "focus", ( ) => {
-      // reset when camera loads, not when leaving page, for quicker transition
-      resetState( );
-      requestAndroidPermissions( );
-    } );
-  }, [navigation, requestAndroidPermissions] );
+    // reset when camera loads, not when leaving page, for quicker transition
+    resetState( );
+    requestAndroidPermissions( );
+  }, [requestAndroidPermissions] );
 
-  const navHome = () => navigateToMainStack( navigation.navigate, "Home" );
+  const navHome = () => navigateToMainStack( navigate, "Home" );
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
+
+  if ( !isFocused ) { // this is necessary for camera to load properly in iOS
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -301,24 +303,22 @@ const ARCamera = () => {
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
-      {isFocused && ( // this is necessary for camera to load properly in iOS
-        <INatCamera
-          ref={camera}
-          confidenceThreshold={confidenceThreshold}
-          modelPath={dirModel}
-          onCameraError={handleCameraError}
-          onCameraPermissionMissing={handleCameraPermissionMissing}
-          onClassifierError={handleClassifierError}
-          onDeviceNotSupported={handleDeviceNotSupported}
-          onTaxaDetected={handleTaxaDetected}
-          onLog={handleLog}
-          style={styles.camera}
-          taxaDetectionInterval={taxaDetectionInterval}
-          taxonomyPath={dirTaxonomy}
-          filterByTaxonId={taxonId}
-          negativeFilter={negativeFilter}
-        />
-      )}
+      <INatCamera
+        ref={camera}
+        confidenceThreshold={confidenceThreshold}
+        modelPath={dirModel}
+        onCameraError={handleCameraError}
+        onCameraPermissionMissing={handleCameraPermissionMissing}
+        onClassifierError={handleClassifierError}
+        onDeviceNotSupported={handleDeviceNotSupported}
+        onTaxaDetected={handleTaxaDetected}
+        onLog={handleLog}
+        style={styles.camera}
+        taxaDetectionInterval={taxaDetectionInterval}
+        taxonomyPath={dirTaxonomy}
+        filterByTaxonId={taxonId}
+        negativeFilter={negativeFilter}
+      />
     </View>
   );
 };

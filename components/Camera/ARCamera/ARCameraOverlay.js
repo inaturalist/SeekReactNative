@@ -153,6 +153,8 @@ const ARCameraOverlay = ( {
     </Animated.View>
   );
 
+  const showCameraHelp = () => navigate( "CameraHelp" );
+
   return (
     <>
       <Modal
@@ -178,7 +180,7 @@ const ARCameraOverlay = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.take_photo" )}
           accessible
-          onPress={() => takePicture()}
+          onPress={takePicture}
           style={styles.shutter}
           disabled={pictureTaken}
         >
@@ -187,7 +189,7 @@ const ARCameraOverlay = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.help" )}
           accessible
-          onPress={() => navigate( "CameraHelp" )}
+          onPress={showCameraHelp}
           style={styles.help}
         >
           <Image source={icons.cameraHelp} />

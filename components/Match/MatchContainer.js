@@ -80,10 +80,7 @@ const MatchContainer = ( {
       )}
       <View style={styles.textContainer}>
         {speciesIdentified && (
-          <TouchableOpacity
-            onPress={setCameraPath}
-            style={styles.link}
-          >
+          <TouchableOpacity onPress={setCameraPath}>
             <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
           </TouchableOpacity>
         )}

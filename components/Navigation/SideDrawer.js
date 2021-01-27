@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";

@@ -20,7 +20,7 @@ const setChallengeDetailsButtonText = ( challenge, challengeStarted ) => {
   return buttonText;
 };
 
-const setCameraHelpText = ( rankToRender: string ) => {
+const setCameraHelpText = ( rankToRender: ?string ) => {
   let helpText;
 
   if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {

@@ -265,7 +265,8 @@
     "error_timeout": "ඔබගේ ස්ථානය ලබා ගැනීමට බොහෝ කාලයක් ගත විය. ඔබගේ නිරීක්ෂණය සුරකින ලදි, නමුත් ස්ථානයක් නොමැතිව ඔබට පරාස සිතියම් වැනි සවිස්තරාත්මක තොරතුරු බැලීමට නොහැකි වනු ඇත. කරුණාකර පසුව නැවත උත්සාහ කරන්න.",
     "nearby": "මෙම තක්සෝනයේ අසල ඇති විශේෂ",
     "nothing_nearby": "අසලින් මෙම තක්සෝනයේ එතරම් විශේෂයන් මේ වන විට නිරීක්ෂණය කර නොමැති බව පෙනේ! වෙනත් ඡායාරූපයක් ගැනීමෙන් හෝ එය iNaturalist වෙත පළ කිරීමෙන් උත්සාහ කරන්න.",
-    "tap": "අසල ඇති විශේෂයන් ප්‍රවේශනය කිරීමට තට්ටු කරන්න"
+    "tap": "අසල ඇති විශේෂයන් ප්‍රවේශනය කිරීමට තට්ටු කරන්න",
+    "social": "Share on social"
   },
   "banner": {
     "view": "ලාංඡනය බලන්න",
@@ -677,5 +678,20 @@
     "text_2": "ඔබ තරම්ම සොබාදහම ගැන කුතුහලයෙන් සිටින ප්‍රජාවක කොටසක් වන්න",
     "text_3": "ප්‍රජාව සමඟ නිරීක්ෂණ බෙදා ගන්න, සහ Seek හරහාත් නිරීක්ෂණ බෙදා ගන්න!",
     "download": "iNaturalist යෙදුම බාගත කිරීමෙන් හෝ inaturalist.org වෙබ් අඩවියට පිවිසීමෙන් ආරම්භ කරන්න.\n\nදැනටමත් iNaturalist ගිණුමක් තිබේද? ඔබගේ පවතින ගිණුම සමඟ Seek වෙත ඇතුල් වෙන්න!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

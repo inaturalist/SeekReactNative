@@ -16,11 +16,10 @@ const Notes = ( { description, updateDescription }: Props ) => (
   <TextInput
     keyboardType="default"
     multiline
-    onChangeText={value => updateDescription( value )}
+    onChangeText={updateDescription}
     placeholder={i18n.t( "posting.notes" )}
     placeholderTextColor={colors.placeholderGray}
     style={styles.inputField}
-    value={description}
   />
 );
 

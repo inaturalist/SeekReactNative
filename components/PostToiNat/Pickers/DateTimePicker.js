@@ -41,7 +41,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
         onPress={() => openModal()}
         style={styles.thinCard}
       >
-        <Image source={posting.date} style={styles.icon} />
+        <Image source={posting.date} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
             {i18n.t( "posting.date" ).toLocaleUpperCase()}

@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import {
   Text,
@@ -33,7 +35,7 @@ const CameraHelpScreen = () => {
         <Text style={styles.headerText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
         <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
         <Text style={styles.headerText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
-        {tips.map( ( tip ) => (
+        {tips.map( ( tip: string ) => (
           <View key={`${tip}`} style={styles.tips}>
             <Text style={styles.bullets}>&#8226;</Text>
             <Text style={[styles.text, styles.tipContainer]}>{tip}</Text>

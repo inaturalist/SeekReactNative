@@ -12,7 +12,11 @@ const setSpeciesSeenImage = ( taxa ) => {
   return taxa && taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
 };
 
-const createAncestor = ( ancestor, taxa ) => {
+const createAncestor = ( ancestor: {
+  taxon_id: number,
+  name: string,
+  rank: number
+}, taxa ) => {
   return {
     taxaId: ancestor.taxon_id,
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -21,7 +25,10 @@ const createAncestor = ( ancestor, taxa ) => {
   };
 };
 
-const createSpecies = ( species, taxa ) => {
+const createSpecies = ( species: {
+  taxon_id: number,
+  name: string
+}, taxa ) => {
   return {
     taxaId: Number( species.taxon_id ),
     speciesSeenImage: setSpeciesSeenImage( taxa ),

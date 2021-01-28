@@ -5,7 +5,7 @@ import Realm from "realm";
 import realmConfig from "../models/index";
 import notificationDict from "./dictionaries/notificationDict";
 
-const createNotification = ( type, challengeIndex ) => {
+const createNotification = ( type: string, challengeIndex: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const notifications = realm.objects( "NotificationRealm" );
 
@@ -27,7 +27,7 @@ const createNotification = ( type, challengeIndex ) => {
   } );
 };
 
-const markNotificationAsSeen = ( index ) => {
+const markNotificationAsSeen = ( index: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const notification = realm.objects( "NotificationRealm" ).filtered( `index == ${index}` )[0];
     realm.write( () => {

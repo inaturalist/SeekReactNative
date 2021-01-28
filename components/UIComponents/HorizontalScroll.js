@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef, useState, useCallback, useMemo } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { Image, FlatList, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
@@ -74,7 +74,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
           accessible
-          onPress={() => scrollLeft()}
+          onPress={scrollLeft}
           style={[styles.leftArrow, name === "Species" && styles.speciesLeftArrow]}
         >
           <Image source={icons.swipeRight} style={styles.rotate} />
@@ -84,7 +84,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
           accessible
-          onPress={() => scrollRight()}
+          onPress={scrollRight}
           style={[styles.rightArrow, name === "Species" && styles.speciesRightArrow]}
         >
           <Image source={icons.swipeRight} style={styles.rotateRTL} />

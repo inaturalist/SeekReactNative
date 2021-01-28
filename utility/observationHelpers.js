@@ -77,7 +77,7 @@ const addToCollection = async ( observation, image ) => {
   } );
 };
 
-const removeFromCollection = ( id ) => {
+const removeFromCollection = ( id: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
     realm.write( () => {
       const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );

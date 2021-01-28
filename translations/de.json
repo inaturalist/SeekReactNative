@@ -680,18 +680,18 @@
     "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
   },
   "social": {
-    "share_observation": "Share observation",
+    "share_observation": "Beobachtung teilen",
     "square": "Square",
     "original": "Original",
-    "options": "Options",
-    "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
+    "options": "Auswahl",
+    "show_species_id": "Artbestimmung anzeigen",
+    "share": "Auf Facebook teilen",
+    "save_to_camera_roll": "In Fotogalerie der Kamera speichern",
+    "saved_to_camera_roll": "In Fotogalerie der Kamera gespeichert",
+    "back_to_id": "Zurück zur Bestimmung",
+    "error_title": "Anfrage konnte nicht abgeschlossen werden",
+    "error": "Bitte überprüfe, ob die Facebook-App installiert ist.",
     "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "crop_image": "Bild zuschneiden"
   }
 }

@@ -266,7 +266,7 @@
     "nearby": "Arter i närheten som tillhör detta taxon",
     "nothing_nearby": "Det verkar inte som att många arter tillhörande detta taxon har observerats i närheten! Testa att ta en annan bild eller publicera det till iNaturalist.",
     "tap": "Tryck för att ladda arter i närheten",
-    "social": "Share on social"
+    "social": "Dela på sociala medier"
   },
   "banner": {
     "view": "Visa märke",
@@ -680,18 +680,18 @@
     "download": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.org.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
+    "share_observation": "Dela observation",
+    "square": "Fyrkant",
     "original": "Original",
-    "options": "Options",
-    "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "options": "Alternativ",
+    "show_species_id": "Visa artbestämning",
+    "share": "Dela på Facebook",
+    "save_to_camera_roll": "Spara i kamerarullen",
+    "saved_to_camera_roll": "Sparad i kamerarullen",
+    "back_to_id": "Tillbaka till bestämning",
+    "error_title": "Kunde inte slutföra begäran",
+    "error": "Vänligen dubbelkolla att du har Facebook-appen installerad.",
+    "adjust_square_crop": "Justera fyrkantig beskärning",
+    "crop_image": "Beskär bild"
   }
 }

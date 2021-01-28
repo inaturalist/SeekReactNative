@@ -22,7 +22,8 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeExifData, writeToDebugLog, checkPhotoSize } from "../../../utility/photoHelpers";
+import { writeExifData, checkPhotoSize } from "../../../utility/photoHelpers";
+import { handleLog } from "../../../utility/cameraHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -213,12 +214,6 @@ const ARCamera = () => {
       updateError( "device", event.nativeEvent.reason );
     } else {
       updateError( "device", textOS );
-    }
-  };
-
-  const handleLog = ( event: { nativeEvent: { log: string } } ) => {
-    if ( Platform.OS === "android" ) {
-      writeToDebugLog( event.nativeEvent.log );
     }
   };
 

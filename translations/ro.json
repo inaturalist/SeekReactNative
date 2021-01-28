@@ -266,7 +266,7 @@
     "nearby": "Specii din apropiere în acest taxon",
     "nothing_nearby": "Se pare că nu au fost observate multe specii în apropiere în acest taxon! Încearcă să faci o altă fotografie sau să o postezi pe iNaturalist.",
     "tap": "Atinge ca să încarci specii din apropiere",
-    "social": "Share on social"
+    "social": "Partajează pe social"
   },
   "banner": {
     "view": "Vezi insigna",
@@ -680,18 +680,18 @@
     "download": "Începe prin descărcarea aplicației iNaturalist sau vizitând inaturalist.org.\n\nAi deja un cont iNaturalist? Conectează-te pe Seek cu contul tău existent!"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
+    "share_observation": "Partajează observația",
+    "square": "Încadrare",
     "original": "Original",
-    "options": "Options",
-    "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "options": "Opţiuni",
+    "show_species_id": "Afișare identificare specii",
+    "share": "Partajează pe Facebook",
+    "save_to_camera_roll": "Salvează în album cameră",
+    "saved_to_camera_roll": "Salvat în album cameră",
+    "back_to_id": "Înapoi la identificare",
+    "error_title": "Nu s-a putut finaliza cererea",
+    "error": "Te rugăm să verifici de două ori dacă ai instalată aplicația Facebook.",
+    "adjust_square_crop": "Ajustare decupaj imagine",
+    "crop_image": "Decupare imagine"
   }
 }

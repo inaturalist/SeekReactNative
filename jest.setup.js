@@ -9,11 +9,17 @@ NativeModules.RNCNetInfo = {
 };
 
 jest.mock( "@react-navigation/native", () => ( {
+  ...jest.requireActual( "@react-navigation/native" ),
   useNavigation: jest.fn( () => ( {
     addListener: jest.fn(),
     navigate: jest.fn()
   } ) ),
-  useRoute: jest.fn().mockReturnValue( { name: "About" } )
+  useRoute: () => ( {
+    params: {
+      showWarning: "true"
+    }
+  } )
+  // useRoute: jest.fn().mockReturnValue( { name: "About" } )
 } ) );
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );

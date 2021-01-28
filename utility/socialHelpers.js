@@ -9,6 +9,8 @@ import RNFS from "react-native-fs";
 import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
 import { colors, fonts, dimensions } from "../styles/global";
+import { showCameraSaveFailureAlert } from "./cameraHelpers";
+
 type ImageSize = {
   width: number,
   height: number
@@ -48,10 +50,7 @@ const saveToCameraRoll = async ( uri: string ) => {
     const savedPhotoUri = CameraRoll.save( uri, { type: "photo", album: "Seek" } );
     return savedPhotoUri;
   } catch ( e ) {
-    Alert.alert(
-      i18n.t( "social.error_title" ),
-      `${i18n.t( "camera.error_save" )} ${e}`
-    );
+    showCameraSaveFailureAlert( e );
     console.log( "couldn't save photo because", e );
   }
 };

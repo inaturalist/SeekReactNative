@@ -1,5 +1,4 @@
 import { getLanguage, toggleLanguage } from "../settingsHelpers";
-import i18n from "../../i18n";
 
 describe( "getLanguage", () => {
   it( "defaults to device locale when toggleLanguage has not been called", async () => {
@@ -13,7 +12,7 @@ describe( "getLanguage", () => {
     toggleLanguage( "en-US" );
 
     const result = await getLanguage();
-    const expected = i18n.locale;
+    const expected = "en-US";
 
     expect( result ).toEqual( expected );
   } );

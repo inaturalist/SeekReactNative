@@ -162,7 +162,7 @@ const ARCameraOverlay = ( {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
+        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" testID="cameraLoading" />}
         <ARCameraHeader ranks={ranks} />
         {isAndroid && showFilterText()}
         {( isAndroid && filterIndex === 0 ) && showAnimation()}
@@ -180,6 +180,7 @@ const ARCameraOverlay = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.take_photo" )}
           accessible
+          testID="takePhotoButton"
           onPress={takePicture}
           style={styles.shutter}
           disabled={pictureTaken}

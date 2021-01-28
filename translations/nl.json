@@ -266,7 +266,7 @@
     "nearby": "Soorten in dit taxon in de buurt",
     "nothing_nearby": "Zo te zien zijn er nog niet veel soorten in dit taxon in de buurt waargenomen! Probeer nog een foto te nemen of het op iNaturalist te plaatsen.",
     "tap": "Tik om soorten in de buurt te laden",
-    "social": "Share on social"
+    "social": "Delen op sociale media"
   },
   "banner": {
     "view": "Bekijk badge",
@@ -680,18 +680,18 @@
     "download": "Aan de slag door de iNaturalist app te downloaden of door het bezoeken van inaturalist.org.\n\nHeb je al een iNaturalist account? Log in op Seek met jouw bestaande account!"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
-    "original": "Original",
-    "options": "Options",
-    "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "share_observation": "Waarneming delen",
+    "square": "Vierkant",
+    "original": "Origineel",
+    "options": "Instellingen",
+    "show_species_id": "Toon soortdeterminatie",
+    "share": "Delen op Facebook",
+    "save_to_camera_roll": "Opslaan in filmrol",
+    "saved_to_camera_roll": "Opgeslagen op filmrol",
+    "back_to_id": "Terug naar Determinatie",
+    "error_title": "Kon aanvraag niet voltooien",
+    "error": "Controleer nogmaals of de Facebook app is geïnstalleerd.",
+    "adjust_square_crop": "Uitsnijding aanpassen",
+    "crop_image": "Afbeelding bijsnijden"
   }
 }

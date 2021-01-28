@@ -266,7 +266,7 @@
     "nearby": "Виды поблизости от этого таксона",
     "nothing_nearby": "Похоже, рядом с этим таксоном было немного видов! Попробуйте сделать другое фото или отправить его в iNaturalist.",
     "tap": "Нажмите, чтобы загрузить виды поблизости",
-    "social": "Share on social"
+    "social": "Поделиться в соцсетях"
   },
   "banner": {
     "view": "Посмотреть значок",
@@ -680,18 +680,18 @@
     "download": "Начните, загрузив приложение iNaturalist или посетив inaturalist.org.\n\nУ вас уже есть учетная запись iNaturalist? Войдите в Seek с существующей учетной записью!"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
-    "original": "Original",
-    "options": "Options",
-    "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "share_observation": "Поделиться наблюдением",
+    "square": "Квадрат",
+    "original": "Оригинал",
+    "options": "Опции",
+    "show_species_id": "Показать идентификацию вида",
+    "share": "Поделиться в Facebook",
+    "save_to_camera_roll": "Cохранить в галерее",
+    "saved_to_camera_roll": "Cохранено в галерее",
+    "back_to_id": "Вернуться к идентификации",
+    "error_title": "Не удалось выполнить запрос",
+    "error": "Проверьте, установлен ли Facebook",
+    "adjust_square_crop": "Настроить квадратную обрезку",
+    "crop_image": "Обрезать изображение"
   }
 }

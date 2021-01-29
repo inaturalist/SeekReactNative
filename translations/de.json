@@ -681,17 +681,17 @@
   },
   "social": {
     "share_observation": "Beobachtung teilen",
-    "square": "Square",
+    "square": "Quadrat",
     "original": "Original",
-    "options": "Auswahl",
+    "options": "Einstellungen",
     "show_species_id": "Artbestimmung anzeigen",
     "share": "Auf Facebook teilen",
-    "save_to_camera_roll": "In Fotogalerie der Kamera speichern",
-    "saved_to_camera_roll": "In Fotogalerie der Kamera gespeichert",
+    "save_to_camera_roll": "In der Kamera-App speichern",
+    "saved_to_camera_roll": "In Kamera-App gespeichert",
     "back_to_id": "Zurück zur Bestimmung",
     "error_title": "Anfrage konnte nicht abgeschlossen werden",
-    "error": "Bitte überprüfe, ob die Facebook-App installiert ist.",
-    "adjust_square_crop": "Adjust square crop",
+    "error": "Bitte vergewissere dich, ob die Facebook-App installiert ist.",
+    "adjust_square_crop": "Quadratische Auswahl anpassen",
     "crop_image": "Bild zuschneiden"
   }
 }

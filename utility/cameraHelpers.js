@@ -11,7 +11,7 @@ const handleLog = ( event: { nativeEvent: { log: string } } ) => {
   }
 };
 
-const showCameraSaveFailureAlert = async ( e: string ) => {
+const showCameraSaveFailureAlert = async ( e: string, uri: string ) => {
   const size = await checkPhotoSize( uri );
   Alert.alert(
     i18n.t( "social.error_title" ),

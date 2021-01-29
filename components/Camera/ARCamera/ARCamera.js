@@ -120,7 +120,7 @@ const ARCamera = () => {
     if ( permissionsError.error !== null ) {
       updateError( permissionsError.error );
     } else {
-      await showCameraSaveFailureAlert( e );
+      await showCameraSaveFailureAlert( e, uri );
       navigateToResults( uri, predictions );
     }
   }, [updateError, navigateToResults] );

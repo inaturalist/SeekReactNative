@@ -50,7 +50,7 @@ const saveToCameraRoll = async ( uri: string ) => {
     const savedPhotoUri = CameraRoll.save( uri, { type: "photo", album: "Seek" } );
     return savedPhotoUri;
   } catch ( e ) {
-    showCameraSaveFailureAlert( e );
+    showCameraSaveFailureAlert( e, uri );
     console.log( "couldn't save photo because", e );
   }
 };

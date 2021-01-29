@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",
     "username": "Username",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Password",
     "forgot_password_header": "Forgot password",
     "forgot_password": "Forgot your password?",

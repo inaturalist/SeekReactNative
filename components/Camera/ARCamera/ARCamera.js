@@ -32,7 +32,8 @@ import ARCameraOverlay from "./ARCameraOverlay";
 import { navigateToMainStack } from "../../../utility/helpers";
 
 const ARCamera = () => {
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
+  const { navigate } = navigation;
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
 
@@ -264,10 +265,12 @@ const ARCamera = () => {
   }, [updateError] );
 
   useEffect( ( ) => {
-    // reset when camera loads, not when leaving page, for quicker transition
-    resetState( );
-    requestAndroidPermissions( );
-  }, [requestAndroidPermissions] );
+    navigation.addListener( "focus", ( ) => {
+      // reset when camera loads, not when leaving page, for quicker transition
+      resetState( );
+      requestAndroidPermissions( );
+    } );
+  }, [navigation, requestAndroidPermissions] );
 
   const navHome = () => navigateToMainStack( navigate, "Home" );
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";

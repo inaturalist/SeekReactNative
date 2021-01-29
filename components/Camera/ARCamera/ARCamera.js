@@ -16,14 +16,13 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
-import { getSystemVersion } from "react-native-device-info";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeExifData, checkPhotoSize } from "../../../utility/photoHelpers";
-import { handleLog, showCameraSaveFailureAlert } from "../../../utility/cameraHelpers";
+import { writeExifData } from "../../../utility/photoHelpers";
+import { checkForCameraPermissionsError, checkForSystemVersion, handleLog, showCameraSaveFailureAlert } from "../../../utility/cameraHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -117,15 +116,11 @@ const ARCamera = () => {
   };
 
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
-    const iOSPermission = "Error: Access to photo library was denied";
-    const androidPermission = "Error: Permission denied";
-
-    if ( e.toString() === iOSPermission || e.toString() === androidPermission ) {
-      // check for camera roll permissions error
-      updateError( "gallery" );
+    const permissionsError = checkForCameraPermissionsError( e );
+    if ( permissionsError.error !== null ) {
+      updateError( permissionsError.error );
     } else {
-      const size = await checkPhotoSize( uri );
-      showCameraSaveFailureAlert( `${e}. \nPhoto size is: ${size}` );
+      await showCameraSaveFailureAlert( e );
       navigateToResults( uri, predictions );
     }
   }, [updateError, navigateToResults] );
@@ -204,18 +199,10 @@ const ARCamera = () => {
   };
 
   const handleDeviceNotSupported = ( event: { nativeEvent?: { reason: string } } ) => {
-    let textOS: string = "";
-
-    if ( Platform.OS === "ios" ) {
-      const OS = getSystemVersion();
-      textOS = i18n.t( "camera.error_version", { OS } );
-    }
-
-    // this uses event.nativeEvent.reason, not .error
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "device", event.nativeEvent.reason );
     } else {
-      updateError( "device", textOS );
+      updateError( "device", checkForSystemVersion( ) );
     }
   };
 

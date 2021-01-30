@@ -266,7 +266,7 @@
     "nearby": "Espècies properes d'aquest tàxon",
     "nothing_nearby": "Sembla que no hi ha moltes espècies d'aquest tàxon observades al voltant teu! Prova prendre una nova fotografia o enviar-la a iNaturalist.",
     "tap": "Prem per carregar espècies properes",
-    "social": "Share on social"
+    "social": "Compartir a les xarxes socials"
   },
   "banner": {
     "view": "Veure insignia",
@@ -680,18 +680,18 @@
     "download": "Comença descarregant l'aplicació d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
+    "share_observation": "Compartir observació",
+    "square": "Quadrat",
     "original": "Original",
-    "options": "Options",
-    "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "options": "Opcions",
+    "show_species_id": "Mostra la identificació de l'espècie",
+    "share": "Comparteix a Facebook",
+    "save_to_camera_roll": "Desar a la galeria d'imatges",
+    "saved_to_camera_roll": "Desat a la galeria",
+    "back_to_id": "Torna a la identificació",
+    "error_title": "No es pot completar la consulta",
+    "error": "Si us plau, comprova que tens l'App de Facebook instal·lada.",
+    "adjust_square_crop": "Ajusta el quadrat del retall",
+    "crop_image": "Retalla imatge"
   }
 }

@@ -29,6 +29,7 @@ import LocationPickerCard from "./Pickers/LocationPickerCard";
 import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import { saveIdAndUploadStatus, saveUploadSucceeded } from "../../utility/uploadHelpers";
 
 const PostScreen = () => {
   const navigation = useNavigation();
@@ -186,6 +187,7 @@ const PostScreen = () => {
     const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.observation_photos.create( photoParams, options ).then( () => {
+      saveUploadSucceeded( obsId );
       setPostSucceeded();
     } ).catch( ( e ) => {
       setPostFailed( e, "duringPhotoUpload" );
@@ -224,6 +226,7 @@ const PostScreen = () => {
 
     inatjs.observations.create( obsParams, options ).then( ( response ) => {
       const { id } = response[0];
+      saveIdAndUploadStatus( id, image.uri );
       addPhotoToObservation( id, token ); // get the obs id, then add photo
     } ).catch( ( e ) => {
       setPostFailed( e, "beforePhotoAdded" );

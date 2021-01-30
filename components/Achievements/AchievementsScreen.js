@@ -35,6 +35,7 @@ const AchievementsScreen = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
+        console.log( badges, "badges in achievements" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
 
         const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );

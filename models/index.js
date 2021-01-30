@@ -6,6 +6,7 @@ import ObservationRealm from "./ObservationRealm";
 import PhotoRealm from "./PhotoRealm";
 import TaxonRealm from "./TaxonRealm";
 import ReviewRealm from "./ReviewRealm";
+import UploadPhotoRealm from "./UploadPhotoRealm";
 
 export default {
   schema: [
@@ -16,8 +17,9 @@ export default {
     ObservationRealm,
     PhotoRealm,
     ReviewRealm,
-    TaxonRealm
+    TaxonRealm,
+    UploadPhotoRealm
   ],
-  schemaVersion: 17,
+  schemaVersion: 20,
   path: "db.realm"
 };

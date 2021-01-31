@@ -680,16 +680,16 @@
     "download": "התחילו על ידי הורדת האפליקציה iNaturalist ובקרו באתר inaturalist.org .\n\nיש לכם כבר משתמש iNaturalist? התחברו ל Seek עם החשבון הקיים שלכם!"
   },
   "social": {
-    "share_observation": "Share observation",
+    "share_observation": "שתף תצפית",
     "square": "Square",
-    "original": "Original",
-    "options": "Options",
+    "original": "מקורי",
+    "options": "אפשרויות",
     "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
+    "share": "שיתוף ב-Facebook",
+    "save_to_camera_roll": "שמור לתמונות",
+    "saved_to_camera_roll": "נשמר לתמונות",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "לא ניתן להשלים את הבקשה",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

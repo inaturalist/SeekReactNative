@@ -9,7 +9,6 @@ import { View, BackHandler } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 import { getRoute } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
@@ -19,8 +18,8 @@ import { createSectionList, removeFromCollection } from "../../utility/observati
 import DeleteModal from "../Modals/DeleteModal";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
-import GreenHeader from "../UIComponents/GreenHeader";
 import ObsList from "./ObsList";
+import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 
 const Observations = () => {
   const navigation = useNavigation();
@@ -157,8 +156,7 @@ const Observations = () => {
   const updateObs = useCallback( ( obs ) => setObservations( obs ), [] );
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
-      <GreenHeader header="observations.header" route="Home" />
+    <ViewWithHeader header="observations.header">
       <Modal isVisible={showModal}>
         <DeleteModal
           deleteObservation={deleteObservation}
@@ -180,7 +178,7 @@ const Observations = () => {
             />
           )}
       </View>
-    </SafeAreaView>
+    </ViewWithHeader>
   );
 };
 

@@ -90,8 +90,8 @@ export default StyleSheet.create( {
   },
   markerPin: {
     height: 33,
-    position: "absolute",
-    width: 23
+    width: 23,
+    marginLeft: 14
   },
   pinFixed: {
     alignItems: "center",

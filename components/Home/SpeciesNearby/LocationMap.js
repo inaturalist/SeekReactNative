@@ -13,14 +13,16 @@ type Props = {
   +region: Object,
   +onRegionChange: Function,
   +returnToUserLocation: Function,
-  +posting?: boolean
+  +posting?: boolean,
+  +handleMapReady: Function
 }
 
 const LocationMap = ( {
   region,
   onRegionChange,
   returnToUserLocation,
-  posting
+  posting,
+  handleMapReady
 }: Props ) => (
   <View style={styles.container}>
     {region.latitude && (
@@ -30,6 +32,7 @@ const LocationMap = ( {
         region={region} // need region instead of initial region for return to user location
         style={styles.map}
         loadingEnabled
+        onMapReady={handleMapReady}
       />
     )}
     <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>
@@ -41,7 +44,7 @@ const LocationMap = ( {
       <TouchableHighlight
         accessibilityLabel={i18n.t( "accessibility.user_location" )}
         accessible
-        onPress={() => returnToUserLocation()}
+        onPress={returnToUserLocation}
         style={styles.locationIcon}
       >
         <Image source={icons.indicator} />

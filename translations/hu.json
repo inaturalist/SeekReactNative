@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Közelben lévő fajok",
     "button": "Keresés indítása",
-    "undefined": "Ismeretlen helyszín"
+    "undefined": "Ismeretlen helyszín",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Minden faj",

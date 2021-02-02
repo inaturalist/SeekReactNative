@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Виды поблизости",
     "button": "Поиск вблизи местоположения",
-    "undefined": "Местоположение не найдено"
+    "undefined": "Местоположение не найдено",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Все виды",

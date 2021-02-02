@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Yakındaki türler",
     "button": "Yakındaki konumu tara",
-    "undefined": "Tanımlanmamış konum"
+    "undefined": "Tanımlanmamış konum",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Tüm türler",

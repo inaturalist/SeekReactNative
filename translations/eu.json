@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Gertu dauden espezieak",
     "button": "Kokapenetik gertu bilatu",
-    "undefined": "Kokapen ezezaguna"
+    "undefined": "Kokapen ezezaguna",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Espezie guztiak",

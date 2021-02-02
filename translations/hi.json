@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Species nearby",
     "button": "अपने स्थान के आस-पास खोजें",
-    "undefined": "अनिश्चित स्थान"
+    "undefined": "अनिश्चित स्थान",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "सभी प्रजातियाँ",

@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Soorten in de buurt",
     "button": "Zoek locatie in de buurt",
-    "undefined": "Niet-gedefinieerde locatie"
+    "undefined": "Niet-gedefinieerde locatie",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Alle soorten",

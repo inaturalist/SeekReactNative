@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Species nearby",
     "button": "Hae lähellä sijaintia",
-    "undefined": "Määrittämätön sijainti"
+    "undefined": "Määrittämätön sijainti",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Kaikki lajit",

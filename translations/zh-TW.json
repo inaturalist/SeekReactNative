@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "附近物種",
     "button": "搜尋附近位置",
-    "undefined": "未定義的位置"
+    "undefined": "未定義的位置",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "所有物種",

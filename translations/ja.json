@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "近くの生き物",
     "button": "場所の周辺を検索",
-    "undefined": "位置情報なし"
+    "undefined": "位置情報なし",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "すべての種",

@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "අසල ඇති විශේෂ",
     "button": "ස්ථානය අසල සොයන්න",
-    "undefined": "ස්ථානය නිර්වචනය කළ නොහැක"
+    "undefined": "ස්ථානය නිර්වචනය කළ නොහැක",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "සියලුම විශේෂ",

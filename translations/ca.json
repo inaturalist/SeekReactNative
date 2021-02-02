@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Espècies poperes",
     "button": "Cerca prop de la ubicació",
-    "undefined": "Localització no definida"
+    "undefined": "Localització no definida",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Totes les espècies",

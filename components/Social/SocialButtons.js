@@ -24,9 +24,13 @@ const SocialButtons = ( { image, tab, disabled }: Props ) => {
   const navigation = useNavigation( );
   const navigateBack = ( ) => navigation.goBack( );
 
-  const shareToSocial = ( ) => shareToFacebook( image );
+  const shareToSocial = ( ) => {
+    if ( !image ) { return; }
+    shareToFacebook( image );
+  };
 
   const saveWatermarkedImage = async ( ) => {
+    if ( !image ) { return; }
     const completedSave = await saveToCameraRoll( image );
     if ( completedSave ) {
       setSaved( true );

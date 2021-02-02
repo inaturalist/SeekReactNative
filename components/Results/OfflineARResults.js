@@ -79,7 +79,10 @@ const OfflineARResults = () => {
     dispatch( { type: "SET_SPECIES", obs, newTaxon } );
   };
 
-  const fetchSpeciesPhoto = useCallback( ( species: { taxon_id: number } ) => {
+  const fetchSpeciesPhoto = useCallback( ( species: {
+    taxon_id: number,
+    name: string
+  } ) => {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( species.taxon_id, options ).then( ( { results } ) => {
@@ -95,7 +98,11 @@ const OfflineARResults = () => {
     dispatch( { type: "SET_ANCESTOR", newTaxon } );
   };
 
-  const fetchAncestorPhoto = useCallback( ( ancestor: { taxon_id: number }  ) => {
+  const fetchAncestorPhoto = useCallback( ( ancestor: {
+    taxon_id: number,
+    name: string,
+    rank: number
+  }  ) => {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( ancestor.taxon_id, options ).then( ( { results } ) => {

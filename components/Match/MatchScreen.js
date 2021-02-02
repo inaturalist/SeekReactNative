@@ -23,7 +23,7 @@ import { renderSpeciesText, setGradients, setScreenType } from "../../utility/ma
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
-  const scrollView = useRef( null );
+  const scrollView = useRef<any>( null );
   const navigation = useNavigation();
   const { params } = useRoute();
   const { scientificNames } = useContext( CameraContext );

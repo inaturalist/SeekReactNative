@@ -63,8 +63,8 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     return (
       <>
         {missionDetails[missionIndex] && missionDetails[missionIndex].number === item.observations
-          ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
-          : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
+          ? <Image source={icons.checklist} style={styles.checklist} />
+          : <Text allowFontScaling={false} style={styles.bullets}>&#8226;</Text>}
         <View style={styles.textContainer}>
           <Text style={styles.text}>{missionNoSubBullets || header}</Text>
           {header.length > 0 && <View style={styles.marginTop} />}

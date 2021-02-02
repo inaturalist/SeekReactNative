@@ -106,10 +106,12 @@ const LocationPicker = ( {
   };
 
   const searchNearLocation = () => {
-    updateLatLng(
-      truncateCoordinates( region.latitude ),
-      truncateCoordinates( region.longitude )
-    );
+    const lat = region.latitude ? truncateCoordinates( region.latitude ) : null;
+    const lng = region.longitude ? truncateCoordinates( region.longitude ) : null;
+
+    if ( lat && lng ) {
+      updateLatLng( lat, lng );
+    }
     closeLocationPicker();
   };
 

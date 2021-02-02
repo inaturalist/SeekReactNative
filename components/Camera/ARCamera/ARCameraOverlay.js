@@ -72,7 +72,7 @@ const ARCameraOverlay = ( {
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
   const { autoCapture } = useContext( CameraContext );
-  const [filterIndex, setFilterIndex] = useState( null );
+  const [filterIndex, setFilterIndex] = useState( 0 );
 
   const toggleFilterIndex = () => {
     if ( filterIndex < 2 ) {

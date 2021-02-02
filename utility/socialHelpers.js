@@ -36,6 +36,7 @@ const shareToFacebook = async ( url: string ) => {
   }
 
   try {
+    // $FlowFixMe
     const share = await Share.shareSingle( shareOptions );
     return share;
   } catch ( e ) {

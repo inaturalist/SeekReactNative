@@ -28,7 +28,22 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = async ( observation, image ) => {
+const addToCollection = async ( observation: {
+  taxon: {
+    default_photo: {
+      medium_url: string
+    },
+    id: number,
+    name: string,
+    iconic_taxon_id: number,
+    ancestor_ids: Array<number>
+  }
+}, image: {
+  latitude: number,
+  longitude: number,
+  uri: string,
+  time: Date
+} ) => {
   const {
     latitude,
     longitude,

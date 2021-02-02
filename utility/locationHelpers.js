@@ -31,9 +31,7 @@ const fetchUserLocation = ( enableHighAccuracy: ?boolean ) => (
 );
 
 const truncateCoordinates = ( coordinate: number ) => {
-  if ( !coordinate ) {
-    return null;
-  }
+  if ( !coordinate ) { return null; }
   return Number( coordinate.toFixed( 2 ) );
 };
 
@@ -103,7 +101,7 @@ const checkForTruncatedCoordinates = ( latitude: number ) => {
   return false;
 };
 
-const createRegion = ( region ) => {
+const createRegion = ( region: { latitude: number, longitude: number } ) => {
   const latitudeDelta = 0.2;
   const longitudeDelta = 0.2;
 

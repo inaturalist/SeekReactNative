@@ -16,7 +16,9 @@ const createAncestor = ( ancestor: {
   taxon_id: number,
   name: string,
   rank: number
-}, taxa ) => {
+}, taxa: {
+  taxon_photos: Array<Object>
+} ) => {
   return {
     taxaId: ancestor.taxon_id,
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -28,7 +30,9 @@ const createAncestor = ( ancestor: {
 const createSpecies = ( species: {
   taxon_id: number,
   name: string
-}, taxa ) => {
+}, taxa: {
+  taxon_photos: Array<Object>
+} ) => {
   return {
     taxaId: Number( species.taxon_id ),
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -68,7 +72,13 @@ const checkForIconicTaxonId = ( ancestorIds: Array<number> ) => {
   return iconicTaxonId[0] || 1;
 };
 
-const createObservationForRealm = ( species, taxa ) => {
+const createObservationForRealm = ( species: {
+  taxon_id: number,
+  name: string,
+  ancestor_ids: Array<number>
+}, taxa: {
+  default_photo: Object
+} ) => {
   return {
     taxon: {
       default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
@@ -106,7 +116,12 @@ const checkCommonAncestorRank = ( rank: number ) => {
   return false;
 };
 
-const createOnlineAncestor = ( ancestor ) => {
+const createOnlineAncestor = ( ancestor: {
+  id: number,
+  name: string,
+  default_photo: Object,
+  rank_level: number
+} ) => {
   const photo = ancestor.default_photo;
 
   return {
@@ -117,7 +132,11 @@ const createOnlineAncestor = ( ancestor ) => {
   };
 };
 
-const createOnlineSpecies = ( species ) => {
+const createOnlineSpecies = ( species: {
+  id: number,
+  name: string,
+  default_photo: Object
+} ) => {
   const photo = species.default_photo;
 
   return {
@@ -143,7 +162,11 @@ const navToMatch = async ( navigation, taxon, image, seenDate, errorCode ) => {
   } );
 };
 
-const setImageCoords = ( coords, image ) => {
+const setImageCoords = ( coords?: {
+  latitude: number,
+  longitude: number,
+  accuracy: number
+}, image: Object ) => {
   if ( coords )  {
     const { latitude, longitude, accuracy } = coords;
 

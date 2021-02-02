@@ -14,7 +14,15 @@ import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 import { createRegion } from "./locationHelpers";
 
-const useScrollToTop = ( scrollView, navigation, route ) => {
+const useScrollToTop = ( scrollView: {
+  current: {
+    scrollTo: ( {
+      x: number,
+      y: number,
+      animated: boolean
+    } ) => void
+  }
+}, navigation, route ) => {
   const scrollToTop = useCallback( () => {
     if ( scrollView && scrollView.current !== null ) {
       scrollView.current.scrollTo( {
@@ -220,13 +228,11 @@ const useTruncatedUserCoords = ( granted: ?boolean ) => {
   return coords;
 };
 
-const useSeenTaxa = ( id: ?number ) => {
+const useSeenTaxa = ( id: number ) => {
   const [seenTaxa, setSeenTaxa] = useState( null );
 
   useEffect( () => {
     let isCurrent = true;
-
-    if ( id === null ) { return; }
 
     Realm.open( realmConfig ).then( ( realm ) => {
       const observations = realm.objects( "ObservationRealm" );
@@ -246,7 +252,7 @@ const useSeenTaxa = ( id: ?number ) => {
   return seenTaxa;
 };
 
-const useRegion = ( coords?: { latitude?: number }, seenTaxa?: { latitude?: number } ) => {
+const useRegion = ( coords?: { latitude: number, longitude: number }, seenTaxa?: { latitude: number, longitude: number } ) => {
   const [region, setRegion] = useState( {} );
 
   const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );

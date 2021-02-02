@@ -37,7 +37,6 @@ export default StyleSheet.create( {
   progress: {
     height: 59,
     marginRight: 24,
-    resizeMode: "contain",
     width: 59
   },
   row: {

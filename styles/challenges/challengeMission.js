@@ -6,14 +6,18 @@ import { colors, fonts } from "../global";
 export default StyleSheet.create( {
   bullets: {
     fontSize: 29,
-    marginTop: 7
+    marginTop: 7,
+    alignItems: "center",
+    marginRight: 22
   },
   subBullets: {
     marginTop: 15,
     marginRight: 10
   },
   checklist: {
-    marginTop: 19
+    marginTop: 19,
+    alignItems: "center",
+    marginRight: 22
   },
   circleStyle: {
     height: 59,
@@ -27,10 +31,6 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.medium,
     marginTop: 9
-  },
-  leftItem: {
-    alignItems: "center",
-    marginRight: 22
   },
   marginTop: {
     marginTop: 6

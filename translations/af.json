@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Spesies naby",
     "button": "Soek naby ligging",
-    "undefined": "Ongedefinieerde ligging"
+    "undefined": "Ongedefinieerde ligging",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Alle Spesies",

@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Arter i nærheden",
     "button": "Søg nær placering",
-    "undefined": "Udefineret placering"
+    "undefined": "Udefineret placering",
+    "map_error_android": "Google Maps kan ikke indlæses på nuværende tidspunkt."
   },
   "taxon_picker": {
     "all": "Alle arter",

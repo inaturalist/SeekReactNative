@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Arter i nærheten",
     "button": "Søk i nærheten av posisjon",
-    "undefined": "Udefinert posisjon"
+    "undefined": "Udefinert posisjon",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Alle arter",

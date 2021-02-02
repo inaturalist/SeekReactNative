@@ -51,6 +51,7 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
   try {
     const r = await fetch( `${site}/users/api_token`, { headers } );
     const parsedResponse = await r.json( );
+    console.log( r, parsedResponse, "r and p" );
     return parsedResponse.api_token;
   } catch ( e ) {
     console.log( e, "couldn't create json web token" );
@@ -110,5 +111,6 @@ export {
   saveIdAndUploadStatus,
   saveUploadSucceeded,
   checkForIncompleteUploads,
-  resizeImageForUpload
+  resizeImageForUpload,
+  fetchJSONWebToken
 };

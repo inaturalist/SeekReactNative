@@ -25,7 +25,7 @@ const LocationMap = ( {
   <View style={styles.container}>
     {region.latitude && (
       <MapView
-        onRegionChangeComplete={r => onRegionChange( r )}
+        onRegionChangeComplete={onRegionChange}
         provider={PROVIDER_DEFAULT}
         region={region} // need region instead of initial region for return to user location
         style={styles.map}
@@ -41,7 +41,7 @@ const LocationMap = ( {
       <TouchableHighlight
         accessibilityLabel={i18n.t( "accessibility.user_location" )}
         accessible
-        onPress={() => returnToUserLocation()}
+        onPress={returnToUserLocation}
         style={styles.locationIcon}
       >
         <Image source={icons.indicator} />

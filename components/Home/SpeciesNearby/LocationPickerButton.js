@@ -47,7 +47,7 @@ const LocationPickerButton = ( {
         />
       </Modal>
       <TouchableOpacity
-        onPress={() => openLocationPicker()}
+        onPress={openLocationPicker}
         style={[styles.row, styles.marginLeft, styles.paddingBottom]}
         disabled={error !== null}
       >

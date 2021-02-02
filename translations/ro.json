@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Specii din apropiere",
     "button": "Caută în apropierea locației",
-    "undefined": "Locație nedefinită"
+    "undefined": "Locație nedefinită",
+    "map_error_android": "Google Maps nu se poate încărca în acest moment."
   },
   "taxon_picker": {
     "all": "Toate speciile",
@@ -683,7 +684,7 @@
     "share_observation": "Partajează observația",
     "square": "Încadrare",
     "original": "Original",
-    "options": "Opţiuni",
+    "options": "Opțiuni",
     "show_species_id": "Afișare identificare specii",
     "share": "Partajează pe Facebook",
     "save_to_camera_roll": "Salvează în album cameră",

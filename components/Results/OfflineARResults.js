@@ -81,7 +81,8 @@ const OfflineARResults = () => {
 
   const fetchSpeciesPhoto = useCallback( ( species: {
     taxon_id: number,
-    name: string
+    name: string,
+    ancestor_ids: Array<number>
   } ) => {
     const options = { user_agent: createUserAgent() };
 

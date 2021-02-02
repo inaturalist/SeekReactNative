@@ -16,7 +16,7 @@ const createAncestor = ( ancestor: {
   taxon_id: number,
   name: string,
   rank: number
-}, taxa: {
+}, taxa: ?{
   taxon_photos: Array<Object>
 } ) => {
   return {
@@ -30,7 +30,7 @@ const createAncestor = ( ancestor: {
 const createSpecies = ( species: {
   taxon_id: number,
   name: string
-}, taxa: {
+}, taxa: ?{
   taxon_photos: Array<Object>
 } ) => {
   return {
@@ -76,7 +76,7 @@ const createObservationForRealm = ( species: {
   taxon_id: number,
   name: string,
   ancestor_ids: Array<number>
-}, taxa: {
+}, taxa: ?{
   default_photo: Object
 } ) => {
   return {
@@ -92,19 +92,15 @@ const createObservationForRealm = ( species: {
 
 // online results helpers
 const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ) => {
-  let nearestTaxon = {};
-
   if ( rank <= 20 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 20 );
+    return ancestors.find( r => r.rank_level === 20 );
   } else if ( rank <= 30 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 30 );
+    return ancestors.find( r => r.rank_level === 30 );
   } else if ( rank <= 40 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 40 );
+    return ancestors.find( r => r.rank_level === 40 );
   } else if ( rank <= 50 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 50 );
+    return ancestors.find( r => r.rank_level === 50 );
   }
-
-  return nearestTaxon;
 };
 
 const checkCommonAncestorRank = ( rank: number ) => {
@@ -147,7 +143,7 @@ const createOnlineSpecies = ( species: {
 };
 
 // shared online and offline
-const navToMatch = async ( navigation, taxon, image, seenDate, errorCode ) => {
+const navToMatch = async ( navigation, taxon, image, seenDate, errorCode: ?number ) => {
   navigation.push( "Drawer", {
     screen: "Main",
     params: {

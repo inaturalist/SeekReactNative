@@ -104,7 +104,8 @@ export default StyleSheet.create( {
   row,
   switch: {
     paddingHorizontal: 10.3 / 2,
-    paddingVertical: 19 / 2
+    paddingVertical: 19 / 2,
+    marginRight: 10
   },
   text: {
     color: colors.black,

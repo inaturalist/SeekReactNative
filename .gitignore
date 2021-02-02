@@ -76,8 +76,5 @@ small_export_tax.json
 utility/common-names.json
 utility/commonNames/*
 
-#realm files that sporadically show up in Seek workspace
-db.realm
-db.realm.lock
-db.realm.note
-db.realm.management
+#realm
+db.realm*

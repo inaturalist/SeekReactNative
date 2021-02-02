@@ -1,6 +1,6 @@
 // @flow
 import React, { useState, useEffect } from "react";
-import { Image, TouchableOpacity, Text } from "react-native";
+import { Image, TouchableOpacity, Text, Platform } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
@@ -11,6 +11,7 @@ import icons from "../../../assets/icons";
 import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
+import AndroidMapError from "../../UIComponents/AndroidMapError";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -24,6 +25,7 @@ const RangeMap = () => {
   const [showModal, setModal] = useState( false );
   const [user, setUser] = useState( {} );
   const [mapRegion, setMapRegion] = useState( region );
+  const [error, setError] = useState( null );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -68,6 +70,12 @@ const RangeMap = () => {
     } );
   }, [navigation] );
 
+  const handleMapReady = ( e ) => {
+    if ( e === undefined ) {
+      setError( true );
+    }
+  };
+
   return (
     <ViewWithHeader header="species_detail.range_map">
       <Modal
@@ -75,27 +83,32 @@ const RangeMap = () => {
         closeModal={closeModal}
         modal={<Legend closeModal={closeModal} />}
       />
-      <MapView
-        provider={PROVIDER_DEFAULT}
-        region={mapRegion}
-        style={styles.map}
-        zoomEnabled
-      >
-        <UrlTile
-          tileSize={512}
-          urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
-        />
-        {seenDate && (
-          <Marker coordinate={{ latitude: region.latitude, longitude: region.longitude }}>
-            <Image source={icons.cameraOnMap} />
-          </Marker>
-        )}
-        {user.latitude && (
-          <Marker coordinate={{ latitude: user.latitude, longitude: user.longitude }}>
-            <Image source={icons.locationPin} style={styles.margin} />
-          </Marker>
-        )}
-      </MapView>
+      {error && Platform.OS === "android" ? (
+        <AndroidMapError />
+      ) : (
+        <MapView
+          provider={PROVIDER_DEFAULT}
+          region={mapRegion}
+          style={styles.map}
+          zoomEnabled
+          onMapReady={handleMapReady}
+        >
+          <UrlTile
+            tileSize={512}
+            urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
+          />
+          {seenDate && (
+            <Marker coordinate={{ latitude: region.latitude, longitude: region.longitude }}>
+              <Image source={icons.cameraOnMap} />
+            </Marker>
+          )}
+          {user.latitude && (
+            <Marker coordinate={{ latitude: user.latitude, longitude: user.longitude }}>
+              <Image source={icons.locationPin} style={styles.margin} />
+            </Marker>
+          )}
+        </MapView>
+      )}
       <TouchableOpacity
         onPress={openModal}
         style={[styles.legend, styles.legendPosition]}

@@ -73,17 +73,19 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string 
     await inatjs.observation_photos.create( photoParams, options );
     return true;
   } catch ( e ) {
-    console.log( e, "photo could not be added to image" );
+    return false;
   }
 };
 
-const tryUpload = async ( uri: string, id: number, token: string ) => {
+const uploadPhoto = async ( uri: string, id: number, token: string ) => {
   const resizedPhoto = await resizeImageForUpload( uri );
   const reUpload = await appendPhotoToObservation( id, token, resizedPhoto );
 
   if ( reUpload === true ) {
     saveUploadSucceeded( id );
+    return true;
   }
+  return false;
 };
 
 const checkForIncompleteUploads = async ( login: string ) => {
@@ -97,7 +99,7 @@ const checkForIncompleteUploads = async ( login: string ) => {
     const token = await fetchJSONWebToken( login );
 
     unsuccessfulUploads.forEach( ( photo ) => {
-      tryUpload( photo.uri, photo.id, token );
+      uploadPhoto( photo.uri, photo.id, token );
     } );
   } catch ( e ) {
     console.log( e, " : couldn't check for incomplete uploads" );
@@ -107,5 +109,6 @@ const checkForIncompleteUploads = async ( login: string ) => {
 export {
   saveIdAndUploadStatus,
   saveUploadSucceeded,
-  checkForIncompleteUploads
+  checkForIncompleteUploads,
+  resizeImageForUpload
 };

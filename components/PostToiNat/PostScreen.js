@@ -14,7 +14,6 @@ import { formatISO, isAfter } from "date-fns";
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
 import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/locationHelpers";
-import { resizeImage } from "../../utility/photoHelpers";
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
 import CaptivePicker from "./Pickers/CaptivePicker";
@@ -29,7 +28,7 @@ import LocationPickerCard from "./Pickers/LocationPickerCard";
 import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { saveIdAndUploadStatus, saveUploadSucceeded } from "../../utility/uploadHelpers";
+import { saveIdAndUploadStatus, saveUploadSucceeded, resizeImageForUpload } from "../../utility/uploadHelpers";
 
 const PostScreen = () => {
   const navigation = useNavigation();
@@ -160,13 +159,11 @@ const PostScreen = () => {
     }
   };
 
-  const resizeImageForUploading = useCallback( () => {
+  const resizeImageForUploading = useCallback( async ( ) => {
     if ( resizedImage ) { return; }
-    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
-      if ( userImage ) {
-        dispatch( { type: "RESIZED_IMAGE", userImage } );
-      }
-    } ).catch( () => console.log( "couldn't resize image for uploading" ) );
+    const userImage = await resizeImageForUpload( image.uri );
+
+    dispatch( { type: "RESIZED_IMAGE", userImage } );
   }, [image.uri, resizedImage] );
 
   const updateLocation = ( latitude, longitude, newAccuracy ) => {

@@ -47,6 +47,11 @@ const App = () => {
     loadUserLanguagePreference( preferredLanguage );
   }, [preferredLanguage] );
 
+  useEffect( ( ) => {
+    if ( !login ) { return; }
+    checkForIncompleteUploads( login );
+  }, [login] );
+
   useEffect( () => {
     hideLogs();
     setQuickActions();
@@ -57,8 +62,6 @@ const App = () => {
     getLanguagePreference();
     fetchAutoCapture();
     fetchLocalSeasonality();
-
-    checkForIncompleteUploads( );
 
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );

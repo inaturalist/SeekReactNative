@@ -35,24 +35,11 @@ const saveUploadSucceeded = async ( id: number ) => {
   }
 };
 
-const checkForIncompleteUploads = async ( ) => {
-  const realm = await Realm.open( realmConfig );
-  try {
-    const uploads = realm.objects( "UploadPhotoRealm" );
-    const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
-    console.log( Array.from( unsuccessfulUploads ), "unsuccessful uploads" );
-    saveUploadSucceeded( 3 );
-    console.log( Array.from( uploads.filtered( "id == 3" ) ) );
-  } catch ( e ) {
-    console.log( e, " : couldn't check for incomplete uploads" );
-  }
-};
-
 const resizeImageForUpload = async ( uri: string ) => {
   return await resizeImage( uri, 2048 );
 };
 
-const fetchJSONWebToken = ( loginToken: string ) => {
+const fetchJSONWebToken = async ( loginToken: string ) => {
   const headers = {
     "Content-Type": "application/json",
     "User-Agent": createUserAgent( ),
@@ -61,14 +48,13 @@ const fetchJSONWebToken = ( loginToken: string ) => {
 
   const site = "https://www.inaturalist.org";
 
-  fetch( `${site}/users/api_token`, { headers } )
-    .then( r => r.json( ) )
-    .then( ( parsedResponse ) => {
-      const token = parsedResponse.api_token;
-      // next step - resize image for uploading
-    } ).catch( ( e ) => {
-      console.log( e, "couldn't create json web token" );
-  } );
+  try {
+    const r = await fetch( `${site}/users/api_token`, { headers } );
+    const parsedResponse = await r.json( );
+    return parsedResponse.api_token;
+  } catch ( e ) {
+    console.log( e, "couldn't create json web token" );
+  }
 };
 
 const appendPhotoToObservation = async ( id: number, token: string, uri: string ) => {
@@ -88,6 +74,33 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string 
     return true;
   } catch ( e ) {
     console.log( e, "photo could not be added to image" );
+  }
+};
+
+const tryUpload = async ( uri: string, id: number, token: string ) => {
+  const resizedPhoto = await resizeImageForUpload( uri );
+  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto );
+
+  if ( reUpload === true ) {
+    saveUploadSucceeded( id );
+  }
+};
+
+const checkForIncompleteUploads = async ( login: string ) => {
+  const realm = await Realm.open( realmConfig );
+  try {
+    const uploads = realm.objects( "UploadPhotoRealm" );
+    const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
+
+    if ( unsuccessfulUploads.length === 0 ) { return; }
+
+    const token = await fetchJSONWebToken( login );
+
+    unsuccessfulUploads.forEach( ( photo ) => {
+      tryUpload( photo.uri, photo.id, token );
+    } );
+  } catch ( e ) {
+    console.log( e, " : couldn't check for incomplete uploads" );
   }
 };
 

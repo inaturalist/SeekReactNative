@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Specie nelle vicinanze",
     "button": "Cerca località nelle vicinanze",
-    "undefined": "Posizione non definita"
+    "undefined": "Posizione non definita",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Tutte le Specie",

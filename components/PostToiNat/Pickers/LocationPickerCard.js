@@ -31,7 +31,7 @@ const LocationPickerCard = ( { location, updateLocation, image }: Props ) => {
   return (
     <>
       <Modal
-        onRequestClose={() => closeModal()}
+        onRequestClose={closeModal}
         visible={showModal}
       >
         <LocationPicker
@@ -42,10 +42,10 @@ const LocationPickerCard = ( { location, updateLocation, image }: Props ) => {
         />
       </Modal>
       <TouchableOpacity
-        onPress={() => openModal()}
+        onPress={openModal}
         style={styles.thinCard}
       >
-        <Image source={posting.location} style={[styles.icon, styles.extraMargin]} />
+        <Image source={posting.location} style={styles.extraMargin} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
             {i18n.t( "posting.location" ).toLocaleUpperCase()}

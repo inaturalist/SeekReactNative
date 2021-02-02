@@ -41,6 +41,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
 
   const onViewRef = useRef( ( { changed } ) => {
     const { index } = changed[0];
+    if ( !index ) { return; }
     setScrollIndex( index );
   } );
 

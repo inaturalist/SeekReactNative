@@ -6,18 +6,14 @@ import i18n from "../i18n";
 
 const { getFontScale } = PixelRatio;
 
-const setChallengeDetailsButtonText = ( challenge, challengeStarted ) => {
-  let buttonText;
-
+const setChallengeDetailsButtonText = ( challenge: { percentComplete: number }, challengeStarted?: Date ) => {
   if ( !challengeStarted ) {
-    buttonText = "challenges.start_challenge";
-  } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-    buttonText = "challenges.open_camera";
+    return "challenges.start_challenge";
   } else if ( challengeStarted && challenge.percentComplete === 100 ) {
-    buttonText = "challenges.view_badge";
+    return "challenges.view_badge";
+  } else {
+    return "challenges.open_camera";
   }
-
-  return buttonText;
 };
 
 const setCameraHelpText = ( rankToRender: ?string ) => {

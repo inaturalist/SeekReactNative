@@ -23,7 +23,7 @@ const Legend = ( { closeModal }: Props ) => (
         {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
       </Text>
     </View>
-    <View style={styles.innerContainer}>
+    <View>
       <View style={styles.marginSmall} />
       <View style={styles.row}>
         <Image source={icons.legendLocation} style={styles.marginHorizontal} />

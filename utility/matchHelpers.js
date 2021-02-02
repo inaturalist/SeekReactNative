@@ -28,7 +28,7 @@ const renderHeaderText = ( screenType: string, rank: number ) => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: string ) => {
+const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: ?string ) => {
   if ( screenType === "unidentified" ) {
     return null;
   }
@@ -75,21 +75,19 @@ const setGradients = ( screenType: string ) => {
 };
 
 const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?string ) => {
-  if ( !taxon ) { return; }
+  if ( !taxon ) { return "unidentified"; }
 
   const { taxaId, rank } = taxon;
-  let screen;
 
   if ( seenDate ) {
-    screen = "resighted";
+    return "resighted";
   } else if ( taxaId && !rank ) {
-    screen = "newSpecies";
+    return "newSpecies";
   } else if ( rank ) {
-    screen = "commonAncestor";
+    return "commonAncestor";
   } else {
-    screen = "unidentified";
+    return "unidentified";
   }
-  return screen;
 };
 
 export {

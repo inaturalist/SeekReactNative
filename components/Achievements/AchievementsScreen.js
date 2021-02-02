@@ -35,7 +35,6 @@ const AchievementsScreen = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
-        console.log( badges, "badges in achievements" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
 
         const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
@@ -43,6 +42,7 @@ const AchievementsScreen = () => {
         const speciesBadges = [];
 
         iconicTaxonIds.forEach( ( id ) => {
+          if ( id === null ) { return; }
           const highestEarned = badges.filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
             .sorted( "earnedDate", true );
           speciesBadges.push( highestEarned[0] );

@@ -1,3 +1,5 @@
+// @flow
+
 import BadgeRealm from "./BadgeRealm";
 import ChallengeRealm from "./ChallengeRealm";
 import CommonNamesRealm from "./CommonNamesRealm";

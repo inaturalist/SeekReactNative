@@ -17,7 +17,7 @@ import AndroidMapError from "../../UIComponents/AndroidMapError";
 
 type Props = {
   +region: Object,
-  +id: ?number,
+  +id: number,
   +seenDate: ?string
 }
 

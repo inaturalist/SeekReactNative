@@ -15,7 +15,6 @@ const saveIdAndUploadStatus = async ( id: number, uri: string ) => {
         uri,
         uploadSucceeded: false
       }, true );
-      checkForIncompleteUploads( );
     } );
   } catch ( e ) {
     console.log( "couldn't save id and upload status to UploadPhotoRealm", e );
@@ -51,10 +50,9 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
   try {
     const r = await fetch( `${site}/users/api_token`, { headers } );
     const parsedResponse = await r.json( );
-    console.log( r, parsedResponse, "r and p" );
     return parsedResponse.api_token;
   } catch ( e ) {
-    console.log( e, "couldn't create json web token" );
+    return null;
   }
 };
 
@@ -98,6 +96,7 @@ const checkForIncompleteUploads = async ( login: string ) => {
     if ( unsuccessfulUploads.length === 0 ) { return; }
 
     const token = await fetchJSONWebToken( login );
+    if ( token === null ) { return; }
 
     unsuccessfulUploads.forEach( ( photo ) => {
       uploadPhoto( photo.uri, photo.id, token );

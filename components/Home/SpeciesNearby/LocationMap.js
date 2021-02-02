@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View, Image, TouchableHighlight } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
 import styles from "../../../styles/home/locationPicker";
@@ -38,14 +38,14 @@ const LocationMap = ( {
         : <Image source={icons.locationPin} style={styles.markerPin} />}
     </View>
     <View style={styles.userLocation}>
-      <TouchableHighlight
+      <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.user_location" )}
         accessible
         onPress={returnToUserLocation}
         style={styles.locationIcon}
       >
         <Image source={icons.indicator} />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   </View>
 );

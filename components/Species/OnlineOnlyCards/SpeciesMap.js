@@ -34,7 +34,7 @@ const SpeciesMap = ( {
         {( ( region.latitude && region.longitude ) && id ) && (
           <MapView
             maxZoomLevel={7}
-            onPress={() => navToRangeMap()}
+            onPress={navToRangeMap}
             provider={PROVIDER_DEFAULT}
             region={region}
             rotateEnabled={false}
@@ -56,7 +56,7 @@ const SpeciesMap = ( {
       </View>
       <View style={styles.margin} />
       <GreenButton
-        handlePress={() => navToRangeMap()}
+        handlePress={navToRangeMap}
         text="species_detail.view_map"
       />
     </SpeciesDetailCard>

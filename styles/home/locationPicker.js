@@ -75,9 +75,6 @@ export default StyleSheet.create( {
     right: 0,
     top: 0
   },
-  mapContainer: {
-    flexGrow: 1
-  },
   margin: {
     marginTop: 15
   },

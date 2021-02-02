@@ -104,13 +104,18 @@ const LocationPicker = ( {
     }
   }, [latitude, longitude, returnToUserLocation] );
 
+  const handleLocationChange = ( ) => {
+    updateLocation( region.latitude, region.longitude, accuracy );
+    closeLocationPicker( );
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={[headerStyles.container, headerStyles.center]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
-          onPress={() => closeLocationPicker()}
+          onPress={closeLocationPicker}
           style={backStyles.backButton}
         >
           <Image source={icons.backButton} />
@@ -127,10 +132,7 @@ const LocationPicker = ( {
       )}
       <View style={styles.footer}>
         <GreenButton
-          handlePress={() => {
-            updateLocation( region.latitude, region.longitude, accuracy );
-            closeLocationPicker();
-          }}
+          handlePress={handleLocationChange}
           text="posting.save_location"
         />
       </View>

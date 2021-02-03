@@ -5,7 +5,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image
+  Image,
+  Platform
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -18,6 +19,7 @@ import backStyles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { dimensions } from "../../../styles/global";
+import AndroidMapError from "../../UIComponents/AndroidMapError";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = 0.005;
@@ -37,6 +39,7 @@ const LocationPicker = ( {
 }: Props ) => {
   const [accuracy, setAccuracy] = useState( 90 );
   const [region, setRegion] = useState( {} );
+  const [error, setError] = useState( null );
 
   const handleRegionChange = ( newRegion ) => {
     const sizeOfCrossHairIcon = 127;
@@ -104,6 +107,27 @@ const LocationPicker = ( {
     }
   }, [latitude, longitude, returnToUserLocation] );
 
+  const handleMapReady = ( e ) => {
+    if ( e === undefined ) {
+      setError( true );
+    }
+  };
+
+  const displayMap = ( ) => {
+    if ( error && Platform.OS === "android" ) {
+      return <AndroidMapError />;
+    }
+    return (
+      <LocationMap
+        onRegionChange={handleRegionChange}
+        posting
+        region={region}
+        returnToUserLocation={returnToUserLocation}
+        handleMapReady={handleMapReady}
+      />
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={[headerStyles.container, headerStyles.center]}>
@@ -117,14 +141,7 @@ const LocationPicker = ( {
         </TouchableOpacity>
         <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
       </View>
-      {region.latitude && (
-        <LocationMap
-          onRegionChange={handleRegionChange}
-          posting
-          region={region}
-          returnToUserLocation={returnToUserLocation}
-        />
-      )}
+      {region.latitude && displayMap( )}
       <View style={styles.footer}>
         <GreenButton
           handlePress={() => {

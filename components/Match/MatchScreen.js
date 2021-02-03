@@ -11,7 +11,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
-import { colors } from "../../styles/global";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
@@ -19,7 +18,8 @@ import Spacer from "../UIComponents/TopSpacer";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
 import { CameraContext } from "../UserContext";
-import { useScrollToTop } from "../../utility/customHooks";
+import { useCommonName, useScrollToTop } from "../../utility/customHooks";
+import { renderSpeciesText, setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
@@ -29,6 +29,8 @@ const MatchScreen = () => {
   const { scientificNames } = useContext( CameraContext );
   const { taxon, seenDate } = params;
 
+  const commonName = useCommonName( taxon.taxaId || null );
+
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -37,17 +39,17 @@ const MatchScreen = () => {
       case "OPEN_FLAG_MODAL":
         return { ...state, flagModal: true };
       case "CLOSE_FLAG":
-        return { ...state, flagModal: false, match: action.match };
+        return { ...state, flagModal: false, screenType: action.screenType };
       default:
         throw new Error();
     }
   }, {
     navPath: null,
     flagModal: false,
-    match: ( taxon && taxon.taxaName ) && !seenDate
+    screenType: setScreenType( taxon, seenDate )
   } );
 
-  const { navPath, flagModal, match } = state;
+  const { navPath, flagModal, screenType } = state;
 
   useScrollToTop( scrollView, navigation );
 
@@ -55,47 +57,23 @@ const MatchScreen = () => {
 
   const closeFlagModal = useCallback( ( showFailure ) => {
     if ( showFailure ) {
-      params.taxon = {};
-      params.seenDate = null;
-      dispatch( { type: "CLOSE_FLAG", match: false } );
+      dispatch( { type: "CLOSE_FLAG", screenType: "unidentified" } );
     } else {
-      dispatch( { type: "CLOSE_FLAG", match } );
+      dispatch( { type: "CLOSE_FLAG", screenType } );
     }
-  }, [params, match] );
+  }, [screenType] );
 
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
-  const renderSpeciesText = () => {
-    const { taxaName, commonAncestor, scientificName } = taxon;
+  const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
-    if ( seenDate || ( taxaName && match ) ) {
-      return !scientificNames ? taxaName : scientificName;
-    } else if ( commonAncestor ) {
-      return !scientificNames ? commonAncestor : scientificName;
-    }
-  };
-
-  const { commonAncestor } = taxon;
-
-  let gradientDark;
-  let gradientLight;
-  const speciesText = renderSpeciesText();
-
-  if ( seenDate || match ) {
-    gradientDark = colors.greenGradientDark;
-    gradientLight = colors.seekForestGreen;
-  } else if ( commonAncestor ) {
-    gradientDark = colors.tealGradientDark;
-    gradientLight = colors.seekTeal;
-  } else {
-    gradientDark = colors.grayGradientDark;
-    gradientLight = colors.grayGradientLight;
-  }
+  const speciesText = renderSpeciesText( screenType, taxon, scientificNames, commonName );
+  const { gradientDark } = setGradients( screenType );
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top"]}>
       <MatchModals
-        match={match}
+        screenType={screenType}
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
         params={params}
@@ -106,23 +84,21 @@ const MatchScreen = () => {
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
         <Spacer backgroundColor={gradientDark} />
         <MatchHeader
-          gradientDark={gradientDark}
-          gradientLight={gradientLight}
+          screenType={screenType}
           setNavigationPath={setNavigationPath}
           params={params}
         />
         <MatchContainer
+          screenType={screenType}
           params={params}
-          match={match}
           speciesText={speciesText}
           setNavigationPath={setNavigationPath}
-          gradientLight={gradientLight}
         />
         <Padding />
       </ScrollView>
-      {( match || seenDate ) ? (
-        <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
-      ) : <Footer />}
+      {speciesIdentified
+        ? <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
+        : <Footer />}
     </SafeAreaView>
   );
 };

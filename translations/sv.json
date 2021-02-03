@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Arter i närheten",
     "button": "Sök i närheten",
-    "undefined": "Odefinierad plats"
+    "undefined": "Odefinierad plats",
+    "map_error_android": "Google Maps kan inte laddas just nu."
   },
   "taxon_picker": {
     "all": "Alla arter",
@@ -265,7 +266,8 @@
     "error_timeout": "Vi kunde inte spara din observation på grund av en plats-timeout. Försök igen senare.",
     "nearby": "Arter i närheten som tillhör detta taxon",
     "nothing_nearby": "Det verkar inte som att många arter tillhörande detta taxon har observerats i närheten! Testa att ta en annan bild eller publicera det till iNaturalist.",
-    "tap": "Tryck för att ladda arter i närheten"
+    "tap": "Tryck för att ladda arter i närheten",
+    "social": "Dela på sociala medier"
   },
   "banner": {
     "view": "Visa märke",
@@ -677,5 +679,20 @@
     "text_2": "vara en del av en gemenskap som är lika nyfiken på naturen som du",
     "text_3": "dela observationer med gemenskapen, och t.o.m. dela observationer via Seek!",
     "download": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.org.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!"
+  },
+  "social": {
+    "share_observation": "Dela observation",
+    "square": "Fyrkant",
+    "original": "Original",
+    "options": "Alternativ",
+    "show_species_id": "Visa artbestämning",
+    "share": "Dela på Facebook",
+    "save_to_camera_roll": "Spara i kamerarullen",
+    "saved_to_camera_roll": "Sparad i kamerarullen",
+    "back_to_id": "Tillbaka till bestämning",
+    "error_title": "Kunde inte slutföra begäran",
+    "error": "Vänligen dubbelkolla att du har Facebook-appen installerad.",
+    "adjust_square_crop": "Justera fyrkantig beskärning",
+    "crop_image": "Beskär bild"
   }
 }

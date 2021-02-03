@@ -41,6 +41,11 @@ const ReplacePhotoModal = ( {
     ? formatShortMonthDayYear( defaultPhoto.lastUpdated )
     : seenDate;
 
+  const setNewPhoto = ( ) => {
+    replacePhoto( taxaId, image );
+    closeModal( true );
+  };
+
   return (
     <ModalWithGradient
       color="green"
@@ -53,16 +58,13 @@ const ReplacePhotoModal = ( {
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "replace_photo.description" )}</Text>
       <View style={styles.marginMedium} />
       <Button
-        handlePress={() => {
-          replacePhoto( taxaId, image );
-          closeModal( true );
-        }}
+        handlePress={setNewPhoto}
         text="replace_photo.new"
         color={colors.seekForestGreen}
       />
       <View style={styles.marginSmall} />
       <Button
-        handlePress={() => closeModal()}
+        handlePress={closeModal}
         text="replace_photo.old"
         color={colors.grayGradientLight}
       />

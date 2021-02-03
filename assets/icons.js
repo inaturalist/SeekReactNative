@@ -52,7 +52,10 @@ const icons = {
   closeGray: require( "./icons/icon-close-small-gray.webp" ),
   nonPlantsFilter: require( "./icons/plantfilter-nonplantsonly.webp" ),
   plantsFilter: require( "./icons/plantfilter-plantsonly.webp" ),
-  plantFilterOff: require( "./icons/plantfilter-off.webp" )
+  plantFilterOff: require( "./icons/plantfilter-off.webp" ),
+  iconShare: require( "./icons/icon-share.webp" ),
+  cropIcon: require( "./icons/button-crop.webp" ),
+  cropIconWhite: require( "./icons/icon-crop.webp" )
 };
 
 export default icons;

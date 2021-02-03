@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Species nearby",
     "button": "Search near location",
-    "undefined": "Undefined location"
+    "undefined": "Undefined location",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "All Species",
@@ -265,7 +266,8 @@
     "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Species nearby in this taxon",
     "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "tap": "Tap to load species nearby",
+    "social": "Share on social"
   },
   "banner": {
     "view": "View badge",
@@ -684,7 +686,7 @@
     "original": "Original",
     "options": "Options",
     "show_species_id": "Show species identification",
-    "share": "Share",
+    "share": "Share to Facebook",
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
@@ -692,5 +694,12 @@
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"
+  },
+  "natgeo_challenges": {
+    "mar_2021_mission_1": "Find any ten species",
+    "mar_2021_challenge_name": "NatGeo Nature Challenge",
+    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place—such as a local park, protected area, or your yard—that you visit every month as part of your explorations with Seek. For this month’s mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
+    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Are there any particular plants or animals that you would really like to observe?",
+    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic"
   }
 }

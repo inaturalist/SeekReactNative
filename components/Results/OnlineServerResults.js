@@ -1,138 +1,148 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import inatjs from "inaturalistjs";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
-import { capitalizeNames, createJwtToken } from "../../utility/helpers";
+import { createJwtToken } from "../../utility/helpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
-import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
+import {
+  findNearestPrimaryRankTaxon,
+  checkCommonAncestorRank,
+  createOnlineSpecies,
+  createOnlineAncestor,
+  navToMatch,
+  setImageCoords
+} from "../../utility/resultsHelpers";
 
 const OnlineServerResults = () => {
   const navigation = useNavigation();
   const { params } = useRoute();
 
-  const [taxon, setTaxon] = useState( {} );
-  const [image, setImage] = useState( params.image );
-  const [observation, setObservation] = useState( null );
-  const [seenDate, setSeenDate] = useState( null );
-  const [match, setMatch] = useState( null );
-  const [errorCode, setLocationErrorCode] = useState( null );
-  const [error, setError] = useState( null );
-  const [clicked, setClicked] = useState( false );
-  const [numberOfHours, setNumberOfHours] = useState( null );
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "SET_SPECIES":
+        return {
+          ...state,
+          observation: action.obs,
+          taxon: action.newTaxon,
+          loading: false
+        };
+      case "SET_ANCESTOR":
+        return { ...state, taxon: action.newTaxon, loading: false };
+      case "SPECIES_SEEN":
+        return { ...state, seenDate: action.date };
+      case "NO_MATCH":
+        return { ...state, loading: false };
+      case "ADD_LOCATION_TO_NEW_OBS":
+        return { ...state, image: action.image };
+      case "SET_LOCATION_ERROR":
+        return { ...state, errorCode: action.code };
+      case "ERROR":
+        return { ...state, error: action.error, numberOfHours: action.numberOfHours || null };
+      case "CLICKED":
+        return { ...state, clicked: true };
+      default:
+        throw new Error();
+    }
+  }, {
+    taxon: {},
+    image: params.image,
+    loading: true,
+    errorCode: null,
+    seenDate: null,
+    observation: null,
+    error: null,
+    clicked: false,
+    numberOfHours: null
+  } );
+
+  const {
+    taxon,
+    image,
+    loading,
+    errorCode,
+    seenDate,
+    observation,
+    error,
+    clicked,
+    numberOfHours
+  } = state;
+
+  const newObs = observation && !seenDate;
 
   const getUserLocation = useCallback( () => {
+    // this should only apply to iOS photos with no metadata
+    // once metadata is fixed, should be able to remove this check for user location
+    if ( image.latitude ) {
+      return;
+    }
+
     fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords ) {
-        const { latitude, longitude, accuracy } = coords;
-
-        image.latitude = latitude;
-        image.longitude = longitude;
-        image.accuracy = accuracy;
-
-        setImage( image );
-      }
+      dispatch( { type: "ADD_LOCATION_TO_NEW_OBS", image: setImageCoords( coords, image ) } );
     } ).catch( ( code ) => {
-      setLocationErrorCode( code );
+      dispatch( { type: "SET_LOCATION_ERROR", code } );
     } );
   }, [image] );
 
-  const checkSpeciesSeen = ( taxaId ) => {
-    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
-      setSeenDate( date );
-    } );
-  };
+  const checkSpeciesSeen = useCallback( async ( species ) => {
+    const date = await fetchSpeciesSeenDate( species.taxon.id );
+    if ( date !== null ) {
+      dispatch( { type: "SPECIES_SEEN", date } );
+    }
+    setOnlineVisionSpeciesResults( species );
+  }, [] );
 
   const setOnlineVisionSpeciesResults = ( species ) => {
     const taxa = species.taxon;
-    const photo = taxa.default_photo;
+    const obs = species;
 
-    setObservation( species );
-
-    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
-      const newTaxon = {
-        taxaId: taxa.id,
-        taxaName: capitalizeNames( commonName || taxa.name ),
-        scientificName: taxa.name,
-        speciesSeenImage: photo ? photo.medium_url : null
-      };
-
-      setTaxon( newTaxon );
-      setMatch( true );
-    } );
+    const newTaxon = createOnlineSpecies( taxa );
+    dispatch( { type: "SET_SPECIES", obs, newTaxon } );
   };
 
-  const setNearestPrimaryRankAncestor = ( ancestor ) => {
-    const photo = ancestor.default_photo;
-
-    getTaxonCommonName( ancestor.id ).then( ( commonName ) => {
-      const newTaxon = {
-        commonAncestor: ancestor
-          ? capitalizeNames( commonName || ancestor.name )
-          : null,
-        taxaId: ancestor.id,
-        speciesSeenImage: photo ? photo.medium_url : null,
-        scientificName: ancestor.name,
-        rank: ancestor.rank_level
-      };
-
-      setTaxon( newTaxon );
-      setMatch( false );
-    } );
+  const setAncestor = ( ancestor ) => {
+    const newTaxon = createOnlineAncestor( ancestor );
+    dispatch( { type: "SET_ANCESTOR", newTaxon } );
   };
 
-  const setOnlineVisionAncestorResults = ( commonAncestor ) => {
-    const taxa = commonAncestor.taxon;
-    const photo = taxa.default_photo;
-
-    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
-      const newTaxon = {
-        commonAncestor: commonAncestor
-          ? capitalizeNames( commonName || taxa.name )
-          : null,
-        taxaId: taxa.id,
-        speciesSeenImage: photo ? photo.medium_url : null,
-        scientificName: taxa.name,
-        rank: taxa.rank_level
-      };
-
-      setTaxon( newTaxon );
-      setMatch( false );
-    } );
-  };
-
-  const findNearestPrimaryRankTaxon = ( ancestors, rank ) => {
-    let nearestTaxon = {};
-
-    if ( rank <= 20 ) {
-      nearestTaxon = ancestors.find( r => r.rank_level === 20 );
-    } else if ( rank <= 30 ) {
-      nearestTaxon = ancestors.find( r => r.rank_level === 30 );
-    } else if ( rank <= 40 ) {
-      nearestTaxon = ancestors.find( r => r.rank_level === 40 );
-    } else if ( rank <= 50 ) {
-      nearestTaxon = ancestors.find( r => r.rank_level === 50 );
+  const handleServerError = useCallback( ( response ) => {
+    if ( !response ) {
+      dispatch( { type: "ERROR", error: "onlineVision" } );
     }
+    if ( response.status && response.status === 503 ) {
+      const gmtTime = response.headers.map["retry-after"];
+      const hours = serverBackOnlineTime( gmtTime );
 
-    return nearestTaxon;
-
-  };
-
-  const checkCommonAncestorRank = useCallback( ( rank ) => {
-    const primaryRanks = [20, 30, 40, 50];
-
-    if ( primaryRanks.includes( rank ) ) {
-      return true;
+      dispatch( { type: "ERROR", error: "downtime", numberOfHours: hours } );
     }
-    return false;
   }, [] );
+
+  const addObservation = useCallback( async () => {
+    await addToCollection( observation, image );
+  }, [observation, image] );
+
+  const checkForMatches = () => dispatch( { type: "CLICKED" } );
+
+  const navToResults = useCallback( () => {
+    navToMatch( navigation, taxon, image, seenDate, errorCode );
+  }, [navigation, taxon, image, seenDate, errorCode] );
+
+  const showResults = useCallback( async () => {
+    if ( newObs ) {
+      await addObservation();
+      navToResults();
+    } else {
+      navToResults();
+    }
+  }, [navToResults, newObs, addObservation] );
 
   const fetchScore = useCallback( ( parameters ) => {
     const token = createJwtToken();
@@ -143,113 +153,61 @@ const OnlineServerResults = () => {
       const commonAncestor = response.common_ancestor;
 
       if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
-        checkSpeciesSeen( species.taxon.id );
-        setOnlineVisionSpeciesResults( species );
+        checkSpeciesSeen( species );
       } else if ( commonAncestor ) {
         const rankLevel = commonAncestor.taxon.rank_level;
         const primaryRank = checkCommonAncestorRank( rankLevel );
 
         if ( primaryRank ) {
-          setOnlineVisionAncestorResults( commonAncestor );
+          setAncestor( commonAncestor.taxon );
         } else {
           // roll up to the nearest primary rank instead of showing sub-ranks
           // this better matches what we do on the AR camera
           const { ancestorTaxa } = species.taxon;
           const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
-          setNearestPrimaryRankAncestor( nearestTaxon );
+          setAncestor( nearestTaxon );
         }
       } else {
-        setMatch( false );
+        dispatch( { type: "NO_MATCH" } );
       }
     } ).catch( ( { response } ) => {
-      if ( !response ) {
-        setError( "onlineVision" );
-      }
-      if ( response.status && response.status === 503 ) {
-        const gmtTime = response.headers.map["retry-after"];
-        const hours = serverBackOnlineTime( gmtTime );
-
-        if ( hours ) {
-          setNumberOfHours( hours );
-        }
-        setError( "downtime" );
-      }
+      handleServerError( response );
     } );
-  }, [checkCommonAncestorRank] );
-
-  const addObservation = useCallback( async () => {
-    await addToCollection( observation, image );
-  }, [observation, image] );
+  }, [handleServerError, checkSpeciesSeen] );
 
   const getParamsForOnlineVision = useCallback( async () => {
     const uploadParams = await flattenUploadParameters( image );
     fetchScore( uploadParams );
   }, [fetchScore, image] );
 
-  const checkForMatches = () => setClicked( true );
-
-  const checkMetaData = useCallback( () => {
-    // this should only apply to iOS photos with no metadata
-    // once metadata is fixed, should be able to remove this check for user location
-    if ( !image.latitude ) {
-      getUserLocation();
-      getParamsForOnlineVision();
-    } else {
-      getParamsForOnlineVision();
-    }
-  }, [image.latitude, getParamsForOnlineVision, getUserLocation] );
-
-  const navigateToMatch = useCallback( () => {
-    navigation.push( "Drawer", {
-      screen: "Main",
-      params: {
-        screen: "Match",
-        params: {
-          taxon,
-          image,
-          seenDate,
-          errorCode
-        }
-      }
-    } );
-  }, [taxon, image, seenDate, errorCode, navigation] );
-
-  const showMatch = useCallback( async () => {
-    if ( !seenDate && match ) {
-      await addObservation();
-      navigateToMatch();
-    } else {
-      navigateToMatch();
-    }
-  }, [navigateToMatch, seenDate, match, addObservation] );
-
   useEffect( () => {
-    if ( match !== null && clicked ) {
-      showMatch();
+    if ( !loading && clicked ) {
+      showResults();
     }
-  }, [match, showMatch, clicked] );
+  }, [loading, showResults, clicked] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      checkMetaData();
+      getUserLocation(); // need this for Species Nearby This Taxon on Match Screen
+      getParamsForOnlineVision();
     } );
-  }, [navigation, checkMetaData] );
+  }, [navigation, getUserLocation, getParamsForOnlineVision] );
+
+  if ( error ) {
+    return (
+      <ErrorScreen
+        error={error}
+        number={numberOfHours}
+      />
+    );
+  }
 
   return (
-    <>
-      {error ? (
-        <ErrorScreen
-          error={error}
-          number={numberOfHours}
-        />
-      ) : (
-         <ConfirmScreen
-           updateClicked={checkForMatches}
-           clicked={clicked}
-           image={image.uri}
-         />
-      )}
-    </>
+    <ConfirmScreen
+      updateClicked={checkForMatches}
+      clicked={clicked}
+      image={image.uri}
+    />
   );
 };
 

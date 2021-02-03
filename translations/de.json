@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Arten in der Nähe",
     "button": "Neuen Standort suchen",
-    "undefined": "Unbestimmter Standort\n"
+    "undefined": "Unbestimmter Standort\n",
+    "map_error_android": "Google Maps kann derzeit nicht geladen werden."
   },
   "taxon_picker": {
     "all": "Alle Arten",
@@ -265,7 +266,8 @@
     "error_timeout": "Es hat zu lange gedauert, deinen Standort abzurufen. Deine Beobachtung wurde gespeichert, aber ohne Standort können keine detaillierten Informationen wie z.B. Verbreitungskarten angezeigt werden. Bitte versuche es später nochmal.",
     "nearby": "Beobachtungen dieser Art in der Umgebung",
     "nothing_nearby": "Sieht so aus, als ob diese Art in der Umgebung noch nicht oft beobachtet wurde! Versuche ein anderes Foto zu machen oder veröffentliche diese Beobachtung auf iNaturalist.",
-    "tap": "Tippe, um Arten in der Umgebung zu laden"
+    "tap": "Tippe, um Arten in der Umgebung zu laden",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Abzeichen ansehen",
@@ -677,5 +679,20 @@
     "text_2": "werde Teil einer Gemeinschaft, die ebenso neugierig auf die Natur ist wie du",
     "text_3": "Teile deine Beobachtungen mit der Gemeinschaft - du kannst sie sogar über Seek teilen!",
     "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
+  },
+  "social": {
+    "share_observation": "Beobachtung teilen",
+    "square": "Quadrat",
+    "original": "Original",
+    "options": "Einstellungen",
+    "show_species_id": "Artbestimmung anzeigen",
+    "share": "Auf Facebook teilen",
+    "save_to_camera_roll": "In der Kamera-App speichern",
+    "saved_to_camera_roll": "In Kamera-App gespeichert",
+    "back_to_id": "Zurück zur Bestimmung",
+    "error_title": "Anfrage konnte nicht abgeschlossen werden",
+    "error": "Bitte vergewissere dich, ob die Facebook-App installiert ist.",
+    "adjust_square_crop": "Quadratische Auswahl anpassen",
+    "crop_image": "Bild zuschneiden"
   }
 }

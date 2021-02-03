@@ -14,7 +14,7 @@ type Props = {
   +about: ?string,
   +wikiUrl: ?string,
   +id: ?number,
-  +scientificName: string
+  +scientificName: ?string
 }
 
 const About = ( {
@@ -40,7 +40,7 @@ const About = ( {
         <>
           <HTML
             baseFontStyle={styles.text}
-            html={html}
+            source={{ html }}
           />
           <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
         </>

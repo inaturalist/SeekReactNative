@@ -24,9 +24,6 @@ export default StyleSheet.create( {
     lineHeight: 31,
     marginTop: 23
   },
-  footerMargin: {
-    marginBottom: 74
-  },
   greenBanner: {
     backgroundColor: colors.seekForestGreen
   },
@@ -86,6 +83,9 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   textContainer: {
+    marginHorizontal: 28
+  },
+  seenDateContainer: {
     marginHorizontal: 28
   }
 } );

@@ -10,6 +10,7 @@ import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
+import { createRegion } from "./locationHelpers";
 
 const useScrollToTop = ( scrollView, navigation, route ) => {
   const scrollToTop = useCallback( () => {
@@ -175,27 +176,36 @@ const useCommonName = ( id ) => {
 const useTruncatedUserCoords = ( granted ) => {
   const [coords, setCoords] = useState( null );
 
-  const fetchCoords = useCallback( async () => {
-    try {
-      const userCoords = await fetchTruncatedUserLocation();
+  useEffect( ( ) => {
+    let isCurrent = true;
 
-      if ( !coords || ( userCoords.latitude !== coords.latitude ) ) {
-        setCoords( userCoords );
+    const fetchCoords = async ( ) => {
+      try {
+        const userCoords = await fetchTruncatedUserLocation( );
+
+        // this stops this hook from rerunning a bunch of times
+        if ( !coords || ( userCoords.latitude !== coords.latitude ) ) {
+          if ( isCurrent ) {
+            setCoords( userCoords );
+          }
+        }
+      } catch ( e ) {
+        setCoords( null );
       }
-    } catch ( e ) {
-      setCoords( null );
-    }
-  }, [coords] );
+    };
 
-  useEffect( () => {
     if ( Platform.OS === "android" && !granted ) {
-      if ( coords ) {
+      if ( coords && isCurrent ) {
         setCoords( null );
       }
     } else {
-      fetchCoords();
+      fetchCoords( );
     }
-  }, [granted, fetchCoords, coords] );
+
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [granted, coords] );
 
   return coords;
 };
@@ -226,6 +236,28 @@ const useSeenTaxa = ( id ) => {
   return seenTaxa;
 };
 
+const useRegion = ( coords, seenTaxa ) => {
+  const [region, setRegion] = useState( {} );
+
+  const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );
+
+  useEffect( () => {
+    // if user has seen observation, fetch data based on obs location
+    if ( seenTaxa && seenTaxa.latitude ) {
+      setNewRegion( seenTaxa );
+    }
+  }, [seenTaxa] );
+
+  useEffect( () => {
+      // otherwise, fetch data based on user location
+    if ( !seenTaxa && ( coords && coords.latitude ) ) {
+      setNewRegion( coords );
+    }
+  }, [coords, seenTaxa] );
+
+  return region;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -233,5 +265,6 @@ export {
   useLocationPermission,
   useCommonName,
   useTruncatedUserCoords,
-  useSeenTaxa
+  useSeenTaxa,
+  useRegion
 };

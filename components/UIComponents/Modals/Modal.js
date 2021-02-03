@@ -11,8 +11,8 @@ type Props = {
 const Modal = ( { showModal, closeModal, modal }: Props ) => (
   <RNModal
     isVisible={showModal}
-    onBackdropPress={() => closeModal()}
-    onSwipeComplete={() => closeModal()}
+    onBackdropPress={closeModal}
+    onSwipeComplete={closeModal}
     swipeDirection="down"
   >
     {modal}

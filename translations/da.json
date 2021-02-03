@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Arter i nærheden",
     "button": "Søg nær placering",
-    "undefined": "Udefineret placering"
+    "undefined": "Udefineret placering",
+    "map_error_android": "Google Maps kan ikke indlæses på nuværende tidspunkt."
   },
   "taxon_picker": {
     "all": "Alle arter",
@@ -265,7 +266,8 @@
     "error_timeout": "Vi kunne ikke gemme din observation på grund af en placerings-timeout. Prøv venligst igen senere.",
     "nearby": "Arter i nærheden fra dette takson",
     "nothing_nearby": "Det ser ud til, at der ikke er observeret ret mange arter fra dette takson i nærheden! Prøv at tage endnu et billede og slå det op på iNaturalist.",
-    "tap": "Tryk for at hente arter i nærheden"
+    "tap": "Tryk for at hente arter i nærheden",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Se duelighedsmærke",
@@ -677,5 +679,20 @@
     "text_2": "vær en del af et fællesskab, der er lige så interesseret i naturen som dig",
     "text_3": "del observationer med fællesskabet, og del observationer gennem Seek!",
     "download": "Kom i gang ved at downloade iNaturalist-appen eller besøge inaturalist.org.\n\nHar du allerede en iNaturalist-konto? Log ind på Seek med din eksisterende konto!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

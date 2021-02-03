@@ -46,6 +46,7 @@ const LocationPicker = ( {
   } );
 
   const [inputLocation, setInputLocation] = useState( location );
+  const [error, setError] = useState( null );
 
   const setCoordsByLocationName = ( newLocation ) => {
     Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
@@ -104,6 +105,22 @@ const LocationPicker = ( {
     } );
   };
 
+  const searchNearLocation = () => {
+    updateLatLng(
+      truncateCoordinates( region.latitude ),
+      truncateCoordinates( region.longitude )
+    );
+    closeLocationPicker();
+  };
+
+  const changeText = text => setCoordsByLocationName( text );
+
+  const handleMapReady = ( e ) => {
+    if ( e === undefined ) {
+      setError( true );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={styles.header}>
@@ -119,7 +136,7 @@ const LocationPicker = ( {
             accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
-            onChangeText={text => setCoordsByLocationName( text )}
+            onChangeText={changeText}
             placeholder={inputLocation}
             placeholderTextColor={colors.placeholderGray}
             style={styles.inputField}
@@ -127,20 +144,21 @@ const LocationPicker = ( {
           />
         </View>
       </View>
-      <LocationMap
-        onRegionChange={handleRegionChange}
-        region={region}
-        returnToUserLocation={returnToUserLocation}
-      />
+      {error && Platform.OS === "android" ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{i18n.t( "location_picker.map_error_android" ).toLocaleUpperCase( )}</Text>
+        </View>
+      ) : (
+        <LocationMap
+          onRegionChange={handleRegionChange}
+          region={region}
+          returnToUserLocation={returnToUserLocation}
+          handleMapReady={handleMapReady}
+        />
+      )}
       <View style={styles.footer}>
         <GreenButton
-          handlePress={() => {
-            updateLatLng(
-              truncateCoordinates( region.latitude ),
-              truncateCoordinates( region.longitude )
-            );
-            closeLocationPicker();
-          }}
+          handlePress={searchNearLocation}
           letterSpacing={0.68}
           text="location_picker.button"
         />

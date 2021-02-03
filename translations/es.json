@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Especies próximas",
     "button": "Buscar cerca de la ubicación",
-    "undefined": "Ubicación indefinida"
+    "undefined": "Ubicación indefinida",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Todas las especies",
@@ -265,7 +266,8 @@
     "error_timeout": "Tu ubicación ha tardado mucho en obtenerse. Tu observación se ha guardado, pero sin la ubicación, no podrás ver información detallada como la de los mapas de distribución. Por favor, inténtalo de nuevo más tarde.",
     "nearby": "Especies cercanas a este taxón",
     "nothing_nearby": "¡Parece que no se han observado muchas especies de este taxón cerca! Intenta tomar otra foto o publicarla en iNaturalist.",
-    "tap": "Toca para cargar las especies próximas"
+    "tap": "Toca para cargar las especies próximas",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Ver insignia",
@@ -677,5 +679,20 @@
     "text_2": "be part of a community that’s as curious about nature as you",
     "text_3": "share observations with the community, and even share observations through Seek!",
     "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

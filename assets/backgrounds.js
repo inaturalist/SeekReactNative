@@ -4,6 +4,7 @@ const backgrounds = {
   noSpeciesNearby: require( "./backgrounds/img-speciesnearby-error.webp" ),
   navBar: require( "./backgrounds/img-navbar.webp" ),
   heatMap: require( "./backgrounds/img-inatheatmap.webp" ),
+  sharing: require( "./backgrounds/bg-sharing.webp" ),
   "img-challengedetail-april": require( "./backgrounds/challenges/img-challengedetail-april.webp" ),
   "img-challengedetail-may": require( "./backgrounds/challenges/img-challengedetail-may.webp" ),
   "img-challengedetail-june": require( "./backgrounds/challenges/img-challengedetail-june.webp" ),

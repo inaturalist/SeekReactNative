@@ -35,11 +35,7 @@ const PostScreen = () => {
   const { params } = useRoute();
   const { login } = useContext( UserContext );
 
-  const {
-    preferredCommonName,
-    taxaId,
-    scientificName
-  } = params;
+  const { taxaId, scientificName, commonName } = params;
 
   const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
   // eslint-disable-next-line no-shadow
@@ -51,7 +47,7 @@ const PostScreen = () => {
           taxon: {
             name: action.selectedSpecies.name,
             taxaId: action.selectedSpecies.id,
-            preferredCommonName: action.selectedSpecies.commonName
+            preferredCommonName: action.selectedSpecies.updatedCommonName
           }
         };
       case "UPDATE_DESCRIPTION":
@@ -96,7 +92,7 @@ const PostScreen = () => {
     captive: null,
     geoprivacy: null,
     taxon: {
-      preferredCommonName,
+      preferredCommonName: commonName,
       name: scientificName,
       taxaId
     },
@@ -261,8 +257,8 @@ const PostScreen = () => {
       } );
   };
 
-  const updateTaxon = ( id, commonName, name ) => {
-    const selectedSpecies = { id, commonName, name };
+  const updateTaxon = ( id, updatedCommonName, name ) => {
+    const selectedSpecies = { id, updatedCommonName, name };
     dispatch( { type: "SELECT_SPECIES", selectedSpecies } );
   };
 
@@ -282,10 +278,15 @@ const PostScreen = () => {
 
   const dateToDisplay = date && formatYearMonthDay( date );
 
+  const postObservation = ( ) => {
+    fetchJSONWebToken( );
+    showPostStatus( );
+  };
+
   return (
     <ScrollWithHeader header="posting.header">
       <Modal
-        onRequestClose={() => closePostModal()}
+        onRequestClose={closePostModal}
         visible={showPostingStatus}
       >
         <PostStatus
@@ -312,10 +313,7 @@ const PostScreen = () => {
       <View style={styles.divider} />
       <View style={styles.textContainer}>
         <GreenButton
-          handlePress={() => {
-            fetchJSONWebToken();
-            showPostStatus();
-          }}
+          handlePress={postObservation}
           text="posting.header"
         />
       </View>

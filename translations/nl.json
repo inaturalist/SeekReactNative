@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Soorten in de buurt",
     "button": "Zoek locatie in de buurt",
-    "undefined": "Niet-gedefinieerde locatie"
+    "undefined": "Niet-gedefinieerde locatie",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Alle soorten",
@@ -265,7 +266,8 @@
     "error_timeout": "Het duurde te lang voordat je toestel een gps-fix had. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals de verspreidingskaart niet bekijken. Probeer het later nog eens.",
     "nearby": "Soorten in dit taxon in de buurt",
     "nothing_nearby": "Zo te zien zijn er nog niet veel soorten in dit taxon in de buurt waargenomen! Probeer nog een foto te nemen of het op iNaturalist te plaatsen.",
-    "tap": "Tik om soorten in de buurt te laden"
+    "tap": "Tik om soorten in de buurt te laden",
+    "social": "Delen op sociale media"
   },
   "banner": {
     "view": "Bekijk badge",
@@ -677,5 +679,20 @@
     "text_2": "maak deel uit van een gemeenschap die even nieuwsgierig is naar de natuur als jij",
     "text_3": "deel waarnemingen met de gemeenschap en deel zelfs waarnemingen via Seek!",
     "download": "Aan de slag door de iNaturalist app te downloaden of door het bezoeken van inaturalist.org.\n\nHeb je al een iNaturalist account? Log in op Seek met jouw bestaande account!"
+  },
+  "social": {
+    "share_observation": "Waarneming delen",
+    "square": "Vierkant",
+    "original": "Origineel",
+    "options": "Instellingen",
+    "show_species_id": "Toon soortdeterminatie",
+    "share": "Delen op Facebook",
+    "save_to_camera_roll": "Opslaan in filmrol",
+    "saved_to_camera_roll": "Opgeslagen op filmrol",
+    "back_to_id": "Terug naar Determinatie",
+    "error_title": "Kon aanvraag niet voltooien",
+    "error": "Controleer nogmaals of de Facebook app is geïnstalleerd.",
+    "adjust_square_crop": "Uitsnijding aanpassen",
+    "crop_image": "Afbeelding bijsnijden"
   }
 }

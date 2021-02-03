@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Specii din apropiere",
     "button": "Caută în apropierea locației",
-    "undefined": "Locație nedefinită"
+    "undefined": "Locație nedefinită",
+    "map_error_android": "Google Maps nu se poate încărca în acest moment."
   },
   "taxon_picker": {
     "all": "Toate speciile",
@@ -265,7 +266,8 @@
     "error_timeout": "Preluarea locației tale a durat prea mult. Observația ta a fost salvată, dar fără locație, nu vei putea vedea informații detaliate, cum ar fi coordonatele geografice. Te rugăm încearcă mai târziu.",
     "nearby": "Specii din apropiere în acest taxon",
     "nothing_nearby": "Se pare că nu au fost observate multe specii în apropiere în acest taxon! Încearcă să faci o altă fotografie sau să o postezi pe iNaturalist.",
-    "tap": "Atinge ca să încarci specii din apropiere"
+    "tap": "Atinge ca să încarci specii din apropiere",
+    "social": "Partajează pe social"
   },
   "banner": {
     "view": "Vezi insigna",
@@ -677,5 +679,20 @@
     "text_2": "fă parte dintr-o comunitate la fel de curioasă despre natură ca tine",
     "text_3": "împărtășește observații cu comunitatea și chiar împărtășește observații prin Seek!",
     "download": "Începe prin descărcarea aplicației iNaturalist sau vizitând inaturalist.org.\n\nAi deja un cont iNaturalist? Conectează-te pe Seek cu contul tău existent!"
+  },
+  "social": {
+    "share_observation": "Partajează observația",
+    "square": "Încadrare",
+    "original": "Original",
+    "options": "Opțiuni",
+    "show_species_id": "Afișare identificare specii",
+    "share": "Partajează pe Facebook",
+    "save_to_camera_roll": "Salvează în album cameră",
+    "saved_to_camera_roll": "Salvat în album cameră",
+    "back_to_id": "Înapoi la identificare",
+    "error_title": "Nu s-a putut finaliza cererea",
+    "error": "Te rugăm să verifici de două ori dacă ai instalată aplicația Facebook.",
+    "adjust_square_crop": "Ajustare decupaj imagine",
+    "crop_image": "Decupare imagine"
   }
 }

@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Espècies poperes",
     "button": "Cerca prop de la ubicació",
-    "undefined": "Localització no definida"
+    "undefined": "Localització no definida",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Totes les espècies",
@@ -265,7 +266,8 @@
     "error_timeout": "No hem pogut desar la teva observació a causa d'un error d'ubicació (location timeout). Si us plau, intenta-ho més tard.",
     "nearby": "Espècies properes d'aquest tàxon",
     "nothing_nearby": "Sembla que no hi ha moltes espècies d'aquest tàxon observades al voltant teu! Prova prendre una nova fotografia o enviar-la a iNaturalist.",
-    "tap": "Prem per carregar espècies properes"
+    "tap": "Prem per carregar espècies properes",
+    "social": "Compartir a les xarxes socials"
   },
   "banner": {
     "view": "Veure insignia",
@@ -677,5 +679,20 @@
     "text_2": "forma part d'una comunitat que és tan curiosa sobre la natura com tu",
     "text_3": "comparteix observacions amb la comunitat, i fins i tot comparteix les observacions a través de Seek!",
     "download": "Comença descarregant l'aplicació d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!"
+  },
+  "social": {
+    "share_observation": "Compartir observació",
+    "square": "Quadrat",
+    "original": "Original",
+    "options": "Opcions",
+    "show_species_id": "Mostra la identificació de l'espècie",
+    "share": "Comparteix a Facebook",
+    "save_to_camera_roll": "Desar a la galeria d'imatges",
+    "saved_to_camera_roll": "Desat a la galeria",
+    "back_to_id": "Torna a la identificació",
+    "error_title": "No es pot completar la consulta",
+    "error": "Si us plau, comprova que tens l'App de Facebook instal·lada.",
+    "adjust_square_crop": "Ajusta el quadrat del retall",
+    "crop_image": "Retalla imatge"
   }
 }

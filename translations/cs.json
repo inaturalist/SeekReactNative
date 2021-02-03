@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Druhy poblíž",
     "button": "Hledat blízko lokace",
-    "undefined": "Nedefinovaná poloha"
+    "undefined": "Nedefinovaná poloha",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Všechny druhy",
@@ -265,7 +266,8 @@
     "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Druhy poblíž z tohoto taxonu",
     "nothing_nearby": "Vypadá to, že poblíž nebylo pozorováno mnoho druhů z tohoto taxonu! Zkus pořídit jinou fotografii, nebo ji odeslat na iNaturalist.",
-    "tap": "Klepnutím načtete druhy poblíž"
+    "tap": "Klepnutím načtete druhy poblíž",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Zobrazit odznak",
@@ -677,5 +679,20 @@
     "text_2": "buďte součástí komunity, která je stejně nadšená přírodou jako vy",
     "text_3": "sdílejte pozorování s komunitou, nebo dokonce sdílejte pozorování přes Seek!",
     "download": "Začněte stažením aplikace iNaturalist nebo navštívením inaturalist.org.\n\nJiž máte účet iNaturalist? Přihlaste se do Seeku svým stávajícím účtem!"
+  },
+  "social": {
+    "share_observation": "Share observation",
+    "square": "Square",
+    "original": "Original",
+    "options": "Options",
+    "show_species_id": "Show species identification",
+    "share": "Share to Facebook",
+    "save_to_camera_roll": "Save to camera roll",
+    "saved_to_camera_roll": "Saved to camera roll",
+    "back_to_id": "Back to Identification",
+    "error_title": "Couldn't complete request",
+    "error": "Please double check that you have the Facebook app installed.",
+    "adjust_square_crop": "Adjust square crop",
+    "crop_image": "Crop image"
   }
 }

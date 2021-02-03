@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Specie nelle vicinanze",
     "button": "Cerca località nelle vicinanze",
-    "undefined": "Posizione non definita"
+    "undefined": "Posizione non definita",
+    "map_error_android": "Google Maps cannot load at this time."
   },
   "taxon_picker": {
     "all": "Tutte le Specie",
@@ -265,7 +266,8 @@
     "error_timeout": "La tua posizione ha impiegato troppo tempo per essere acquisita. La tua osservazione è stata salvata, ma senza posizione, non sarai in grado di visualizzare informazioni dettagliate come gli areali. Riprova più tardi.",
     "nearby": "Specie nelle vicinanze in questo taxon",
     "nothing_nearby": "Sembra che non ci siano state molte specie osservate nelle vicinanze in questo taxon! Prova a scattare un'altra foto o a postarla su iNaturalist.",
-    "tap": "Tocca per caricare le specie nelle vicinanze"
+    "tap": "Tocca per caricare le specie nelle vicinanze",
+    "social": "Condividi sui social"
   },
   "banner": {
     "view": "Mostra Distintivo",
@@ -677,5 +679,20 @@
     "text_2": "diventa parte di una comunità che è curiosa come te verso la natura",
     "text_3": "condividi le osservazioni con la comunità, e condividi anche le osservazioni attraverso Seek!",
     "download": "Inizia scaricando l'app iNaturalist o visitando inaturalist.org.\n\nHai già un account iNaturalist? Accedi in Seek con il tuo account esistente!"
+  },
+  "social": {
+    "share_observation": "Condividi osservazione",
+    "square": "Quadrato",
+    "original": "Originale",
+    "options": "Opzioni",
+    "show_species_id": "Mostra identificazione specie",
+    "share": "Condividi su Facebook",
+    "save_to_camera_roll": "Salva nel rullino della fotocamera",
+    "saved_to_camera_roll": "Salvato nel rullino della fotocamera",
+    "back_to_id": "Torna a Identificazione",
+    "error_title": "Impossibile completare la richiesta",
+    "error": "Per favore controlla di avere installato l'app di Facebook.",
+    "adjust_square_crop": "Regola ritaglio quadrato",
+    "crop_image": "Ritaglia immagine"
   }
 }

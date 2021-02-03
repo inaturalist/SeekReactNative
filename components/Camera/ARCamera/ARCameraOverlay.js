@@ -72,10 +72,10 @@ const ARCameraOverlay = ( {
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
   const { autoCapture } = useContext( CameraContext );
-  const [filterIndex, setFilterIndex] = useState( 0 );
+  const [filterIndex, setFilterIndex] = useState( null );
 
   const toggleFilterIndex = () => {
-    if ( filterIndex < 2 ) {
+    if ( filterIndex !== null && filterIndex < 2 ) {
       setFilterIndex( filterIndex + 1 );
     } else {
       setFilterIndex( 0 );
@@ -147,11 +147,15 @@ const ARCameraOverlay = ( {
     );
   };
 
-  const showAnimation = () => (
-    <Animated.View style={[styles.plantFilter, { opacity: fadeOut }]}>
-      <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
-    </Animated.View>
-  );
+  const showAnimation = () => {
+    if ( !filterIndex ) { return; }
+
+    return (
+      <Animated.View style={[styles.plantFilter, { opacity: fadeOut }]}>
+        <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
+      </Animated.View>
+    );
+  };
 
   const showCameraHelp = () => navigate( "CameraHelp" );
 

@@ -36,6 +36,11 @@ const DeleteModal = ( {
     iconicTaxonId
   } = itemToDelete;
 
+  const deleteObs = ( ) => {
+    deleteObservation( id );
+    closeModal( true );
+  };
+
   return (
     <WhiteModal noButton>
       {/* $FlowFixMe */}
@@ -48,7 +53,7 @@ const DeleteModal = ( {
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
-            onPress={() => closeModal()}
+            onPress={closeModal}
             style={styles.flagBackButton}
           >
             <Image source={icons.closeWhite} />
@@ -69,16 +74,13 @@ const DeleteModal = ( {
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "delete.description" )}</Text>
       <View style={styles.marginSmall} />
       <Button
-        handlePress={() => {
-          deleteObservation( id );
-          closeModal( true );
-        }}
+        handlePress={deleteObs}
         text="delete.yes"
         large
       />
       <View style={styles.marginSmall} />
       <Button
-        handlePress={() => closeModal()}
+        handlePress={closeModal}
         text="delete.no"
         color={colors.grayGradientLight}
       />

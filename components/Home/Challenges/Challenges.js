@@ -18,11 +18,28 @@ import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
 type Props = {
-  +challenge: Object
+  +challenge: {
+    index: number,
+    startedDate: Date,
+    backgroundName: string,
+    availableDate: Date,
+    name: string
+  }
 }
 
 const Challenges = ( { challenge }: Props ) => {
   const navigation = useNavigation();
+
+  const navToChallengeDetails = () => {
+    setChallengeIndex( challenge.index );
+    navigation.navigate( "ChallengeDetails" );
+  };
+
+  const navToAllChallenges = () => navigation.navigate( "Challenges" );
+
+  const buttonText = challenge.startedDate
+    ? "challenges_card.continue_challenge"
+    : "challenges_card.take_challenge";
 
   return (
     <ImageBackground
@@ -36,16 +53,11 @@ const Challenges = ( { challenge }: Props ) => {
       <View style={styles.marginMedium} />
       <GreenButton
         color={colors.seekGreen}
-        handlePress={() => {
-          setChallengeIndex( challenge.index );
-          navigation.navigate( "ChallengeDetails" );
-        }}
-        text={challenge.startedDate
-          ? "challenges_card.continue_challenge"
-          : "challenges_card.take_challenge"}
+        handlePress={navToChallengeDetails}
+        text={buttonText}
       />
       <Text
-        onPress={() => navigation.navigate( "Challenges" )}
+        onPress={navToAllChallenges}
         style={styles.viewText}
       >
         {i18n.t( "challenges_card.view_all" )}

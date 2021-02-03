@@ -3,8 +3,7 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
-  ImageBackground
+  Image
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
@@ -28,21 +27,22 @@ const SpeciesImageCell = ( { item }: Props ) => {
   const seenTaxa = useSeenTaxa( item.id );
   const commonName = useCommonName( item.id );
 
+  const photo = item.default_photo;
+
   const renderSpeciesImage = ( ) => {
-    const photo = item.default_photo;
     const extraPhotos = item.taxonPhotos || item.taxon_photos;
-    let uri;
+    let source = iconicTaxa[item.iconic_taxon_id];
 
     if ( photo.medium_url && photo.license_code ) {
-      uri = photo.medium_url;
+      source = { uri: photo.medium_url };
     } else if ( extraPhotos ) {
       const licensed = extraPhotos.find( p => p.photo.license_code );
       if ( licensed ) {
-        uri = licensed.photo.medium_url;
+        source = { uri: licensed.photo.medium_url };
       }
     }
 
-    return <Image source={{ uri }} style={styles.cellImage} />;
+    return <Image source={source} style={styles.cellImage} />;
   };
 
   const navToNextScreen = ( ) => {
@@ -62,14 +62,10 @@ const SpeciesImageCell = ( { item }: Props ) => {
 
   return (
     <TouchableOpacity onPress={navToNextScreen} style={styles.gridCell}>
-      <ImageBackground
-        source={iconicTaxa[item.iconic_taxon_id]}
-        style={styles.cellImage}
-        imageStyle={styles.cellImage}
-      >
-        {item.default_photo && renderSpeciesImage( )}
+      <View style={styles.cellImage}>
+        {photo && renderSpeciesImage( )}
         {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
-      </ImageBackground>
+      </View>
       <View style={styles.cellTitle}>
         <Text numberOfLines={3} style={styles.cellTitleText}>
           {i18n.locale === "de"

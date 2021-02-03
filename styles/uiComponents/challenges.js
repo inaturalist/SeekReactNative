@@ -30,7 +30,8 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.light,
     fontSize: ( fontScale > 1 ) ? 16 : 18,
-    letterSpacing: 0.78
+    letterSpacing: 0.78,
+    marginHorizontal: 31
   },
   challengeName: {
     color: colors.white,
@@ -38,7 +39,8 @@ export default StyleSheet.create( {
     fontSize: ( fontScale > 1 ) ? 20 : 23,
     letterSpacing: 1.0,
     marginTop: 5,
-    maxWidth: 318
+    // maxWidth: 318,
+    marginHorizontal: 31
   },
   image: {
     marginRight: 27

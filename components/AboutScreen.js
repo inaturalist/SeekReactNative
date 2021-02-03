@@ -24,6 +24,9 @@ const AboutScreen = () => {
   const buildVersion = getBuildNumber();
   const { login } = useContext( UserContext );
 
+  const navToDebug = () => navigation.navigate( "DebugAndroid" );
+  const disabled = Platform.OS === "ios" || !login;
+
   return (
     <ScrollWithHeader header="about.header">
       <View style={styles.textContainer}>
@@ -48,9 +51,9 @@ const AboutScreen = () => {
         <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
         {login && <PrivacyAndTerms />}
         <TouchableOpacity
-          onPress={() => navigation.navigate( "DebugAndroid" )}
+          onPress={navToDebug}
           style={styles.debug}
-          disabled={Platform.OS === "ios" || !login}
+          disabled={disabled}
           testID="debug"
         >
           <Text style={styles.greenText}>

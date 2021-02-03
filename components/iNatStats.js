@@ -24,9 +24,13 @@ import HorizontalScroll from "./UIComponents/HorizontalScroll";
 import ScrollNoHeader from "./UIComponents/Screens/ScrollNoHeader";
 
 const INatStatsScreen = () => {
-  const [observations, setObservations] = useState( null );
-  const [observers, setObservers] = useState( null );
+  const [stats, setStats] = useState( {
+    observations: null,
+    observers: null
+  } );
   const [photos, setPhotos] = useState( [] );
+
+  const { observations, observers } = stats;
 
   const fetchProjectPhotos = ( ) => {
     const params = {
@@ -35,7 +39,7 @@ const INatStatsScreen = () => {
       quality_grade: "research",
       lrank: "species",
       hrank: "species",
-      locale: i18n.currentLocale()
+      locale: i18n.locale
     };
 
     const options = { user_agent: createUserAgent() };
@@ -86,8 +90,10 @@ const INatStatsScreen = () => {
         const roundedObservations = Math.round( totalObservations / 1000000 ) * 1000000;
         const roundedObservers = Math.round( totalObservers / 10000 ) * 10000;
 
-        setObservations( `${localizeNumber( roundedObservations )}+` );
-        setObservers( `${localizeNumber( roundedObservers )}+` );
+        setStats( {
+          observations: `${localizeNumber( roundedObservations )}+`,
+          observers: `${localizeNumber( roundedObservers )}+`
+        } );
       } ).catch( ( e ) => console.log( e ) );
   };
 

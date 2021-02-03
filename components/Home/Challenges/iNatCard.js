@@ -11,6 +11,8 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 const INatCard = () => {
   const navigation = useNavigation();
 
+  const navToLogin = ( ) => navigation.navigate( "LoginOrSignup" );
+
   return (
     <View style={styles.container}>
       <GreenText text="inat_card.header" />
@@ -35,7 +37,7 @@ const INatCard = () => {
       <Text style={[styles.text, styles.bullets]}>{i18n.t( "inat_card.download" )}</Text>
       <View style={styles.marginSmall} />
       <GreenButton
-        handlePress={() => navigation.navigate( "LoginOrSignup" )}
+        handlePress={navToLogin}
         text="inat_stats.join"
       />
     </View>

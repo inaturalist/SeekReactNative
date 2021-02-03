@@ -67,38 +67,38 @@ const locales = {
   zh: zhTW
 };
 
-const setLocale = () => {
-  if ( locales[i18n.currentLocale()] ) {
-    return locales[i18n.currentLocale()];
+const setLocale = ( ) => {
+  if ( locales[i18n.locale] ) {
+    return { locale: locales[i18n.locale] };
   }
 
-  return null;
+  return { };
 };
 
-const requiresParent = ( birthday ) => {
+const requiresParent = ( birthday: string ) => {
   const thirteen = subYears( new Date(), 13 );
   const formattedBirthday = parseISO( birthday );
 
   return isAfter( formattedBirthday, thirteen );
 };
 
-const checkIfChallengeAvailable = ( date ) => date <= new Date();
+const checkIfChallengeAvailable = ( date: Date ) => date <= new Date();
 
-const isWithinPastYear = ( reviewShownDate ) => {
+const isWithinPastYear = ( reviewShownDate: Date ) => {
   const lastYear = subYears( new Date(), 1 );
 
   return isAfter( reviewShownDate, lastYear );
 };
 
-const isWithinCurrentMonth = ( date ) => isSameMonth( date, new Date() );
+const isWithinCurrentMonth = ( date: Date ) => isSameMonth( date, new Date() );
 
-const isWithin7Days = ( date ) => {
+const isWithin7Days = ( date: Date ) => {
   const sevenDaysAgo = subDays( new Date(), 7 );
 
   return isAfter( date, sevenDaysAgo );
 };
 
-const formatShortMonthDayYear = ( date ) => format( date, "PP", { locale: setLocale() } );
+const formatShortMonthDayYear = ( date: Date ) => format( date, "PP", setLocale( ) );
 
 const fetchSpeciesSeenDate = ( taxaId: number ) => (
   new Promise( ( resolve ) => {
@@ -120,13 +120,13 @@ const fetchSpeciesSeenDate = ( taxaId: number ) => (
 
 const createTimestamp = () => getUnixTime( new Date() );
 
-const serverBackOnlineTime = ( gmtTime ) => differenceInHours( new Date( gmtTime ), new Date() );
+const serverBackOnlineTime = ( gmtTime: string ) => differenceInHours( new Date( gmtTime ), new Date() );
 
 const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSSS" );
 
-const setISOTime = ( time ) => formatISO( fromUnixTime( time ) );
+const setISOTime = ( time: number ) => formatISO( fromUnixTime( time ) );
 
-const formatYearMonthDay = ( date ) => {
+const formatYearMonthDay = ( date: any ) => {
   if ( date && typeof date === "string" ) {
     return format( parseISO( date ), "yyyy-MM-dd" );
   }
@@ -142,7 +142,7 @@ const createShortMonthsList = () => {
   const months = [];
 
   for ( let i = 0; i <= 11; i += 1 ) {
-    const month = format( new Date( 2020, i, 1 ), "MMMMM", { locale: setLocale() } );
+    const month = format( new Date( 2020, i, 1 ), "MMMMM", setLocale( ) );
 
     months.push( month );
   }
@@ -150,9 +150,9 @@ const createShortMonthsList = () => {
   return months;
 };
 
-const formatMonthYear = ( date ) => format( date, "MMMM yyyy", { locale: setLocale() } );
+const formatMonthYear = ( date: Date ) => format( date, "MMMM yyyy", setLocale( ) );
 
-const formatMonth = ( date ) => format( date, "MMMM", { locale: setLocale() } );
+const formatMonth = ( date: Date ) => format( date, "MMMM", setLocale( ) );
 
 export {
   checkIfChallengeAvailable,

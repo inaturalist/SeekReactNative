@@ -13,16 +13,14 @@ type Props = {
   +region: Object,
   +onRegionChange: Function,
   +returnToUserLocation: Function,
-  +posting?: boolean,
-  +handleMapReady: Function
+  +posting?: boolean
 }
 
 const LocationMap = ( {
   region,
   onRegionChange,
   returnToUserLocation,
-  posting,
-  handleMapReady
+  posting
 }: Props ) => (
   <View style={styles.container}>
     {region.latitude && (
@@ -32,7 +30,6 @@ const LocationMap = ( {
         region={region} // need region instead of initial region for return to user location
         style={styles.map}
         loadingEnabled
-        onMapReady={handleMapReady}
       />
     )}
     <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>

@@ -14,7 +14,7 @@ import { setISOTime } from "./dateHelpers";
 const createUUID = async () => {
   try {
     const uuidGen = await UUIDGenerator.getRandomUUID();
-    return uuidGen;
+    return uuidGen.toLocaleLowerCase( );
   } catch ( e ) {
     return null;
   }
@@ -165,5 +165,6 @@ const createSectionList = ( realm, species, hideSections ) => {
 export {
   addToCollection,
   removeFromCollection,
-  createSectionList
+  createSectionList,
+  createUUID
 };

@@ -6,14 +6,15 @@ import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
 
-const saveIdAndUploadStatus = async ( id: number, uri: string ) => {
+const saveIdAndUploadStatus = async ( id: number, uri: string, uuid: string ) => {
   const realm = await Realm.open( realmConfig );
   try {
     realm.write( ( ) => {
       realm.create( "UploadPhotoRealm", {
         id,
         uri,
-        uploadSucceeded: false
+        uploadSucceeded: false,
+        uuid
       }, true );
     } );
   } catch ( e ) {
@@ -56,9 +57,10 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
   }
 };
 
-const appendPhotoToObservation = async ( id: number, token: string, uri: string ) => {
+const appendPhotoToObservation = async ( id: number, token: string, uri: string, uuid: string ) => {
   const photoParams = {
     "observation_photo[observation_id]": id,
+    "observation_photo[uuid]": uuid,
     file: new FileUpload( {
       uri,
       name: "photo.jpeg",
@@ -76,32 +78,9 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string 
   }
 };
 
-const checkForObservationPhoto = async ( id: number ) => {
-  try {
-    const { results } = await inatjs.observations.fetch( id );
-
-    // results is empty if obs has been deleted
-    if ( results.length === 0 ) {
-      return true;
-    }
-
-    if ( results[0].observation_photos.length > 0 ) {
-      return true;
-    }
-    return false;
-  } catch ( e ) {
-    console.log( "couldn't check for obs photo: ", e );
-  }
-
-};
-
-const uploadPhoto = async ( uri: string, id: number, token: string ) => {
-  // this should prevent duplicate photo uploads
-  const hasPhoto = await checkForObservationPhoto( id );
-  if ( hasPhoto ) { return; }
-
+const uploadPhoto = async ( uri: string, id: number, token: string, uuid: string ) => {
   const resizedPhoto = await resizeImageForUpload( uri );
-  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto );
+  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto, uuid );
 
   if ( reUpload === true ) {
     saveUploadSucceeded( id );
@@ -116,13 +95,15 @@ const checkForIncompleteUploads = async ( login: string ) => {
     const uploads = realm.objects( "UploadPhotoRealm" );
     const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
 
+    console.log( unsuccessfulUploads, "unsuccessful" );
+
     if ( unsuccessfulUploads.length === 0 ) { return; }
 
     const token = await fetchJSONWebToken( login );
     if ( token === null ) { return; }
 
     unsuccessfulUploads.forEach( ( photo ) => {
-      uploadPhoto( photo.uri, photo.id, token );
+      uploadPhoto( photo.uri, photo.id, token, photo.uuid );
     } );
   } catch ( e ) {
     console.log( e, " : couldn't check for incomplete uploads" );

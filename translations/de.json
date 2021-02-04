@@ -115,7 +115,8 @@
   "location_picker": {
     "species_nearby": "Arten in der Nähe",
     "button": "Neuen Standort suchen",
-    "undefined": "Unbestimmter Standort\n"
+    "undefined": "Unbestimmter Standort\n",
+    "map_error_android": "Google Maps kann derzeit nicht geladen werden."
   },
   "taxon_picker": {
     "all": "Alle Arten",
@@ -265,7 +266,8 @@
     "error_timeout": "Es hat zu lange gedauert, deinen Standort abzurufen. Deine Beobachtung wurde gespeichert, aber ohne Standort können keine detaillierten Informationen wie z.B. Verbreitungskarten angezeigt werden. Bitte versuche es später nochmal.",
     "nearby": "Beobachtungen dieser Art in der Umgebung",
     "nothing_nearby": "Sieht so aus, als ob diese Art in der Umgebung noch nicht oft beobachtet wurde! Versuche ein anderes Foto zu machen oder veröffentliche diese Beobachtung auf iNaturalist.",
-    "tap": "Tippe, um Arten in der Umgebung zu laden"
+    "tap": "Tippe, um Arten in der Umgebung zu laden",
+    "social": "Share on social"
   },
   "banner": {
     "view": "Abzeichen ansehen",
@@ -677,5 +679,48 @@
     "text_2": "werde Teil einer Gemeinschaft, die ebenso neugierig auf die Natur ist wie du",
     "text_3": "Teile deine Beobachtungen mit der Gemeinschaft - du kannst sie sogar über Seek teilen!",
     "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
+  },
+  "social": {
+    "share_observation": "Beobachtung teilen",
+    "square": "Quadrat",
+    "original": "Original",
+    "options": "Einstellungen",
+    "show_species_id": "Artbestimmung anzeigen",
+    "share": "Auf Facebook teilen",
+    "save_to_camera_roll": "In der Kamera-App speichern",
+    "saved_to_camera_roll": "In Kamera-App gespeichert",
+    "back_to_id": "Zurück zur Bestimmung",
+    "error_title": "Anfrage konnte nicht abgeschlossen werden",
+    "error": "Bitte vergewissere dich, ob die Facebook-App installiert ist.",
+    "adjust_square_crop": "Quadratische Auswahl anpassen",
+    "crop_image": "Bild zuschneiden"
+  },
+  "natgeo_challenges": {
+    "mar_2021_mission_1": "Find any ten species",
+    "mar_2021_challenge_name": "NatGeo Nature Challenge",
+    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
+    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Are there any particular plants or animals that you would really like to observe?",
+    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
+    "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
+    "apr_2021_mission_2": "Find 6 plants",
+    "apr_2021_mission_3": "Find 2 fungi",
+    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
+    "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
+    "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family.",
+    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
+    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
+    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
+    "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
+    "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
+    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
+    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
+    "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
+    "june_2021_mission_4": "Find 1 fungus",
+    "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
+    "june_2021_mission_6": "Find 1 insect",
+    "june_2021_mission_7": "Find 1 arachnid",
+    "june_2021_challenge_name": "Conservation Challenge",
+    "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
+    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it."
   }
 }

@@ -33,6 +33,8 @@ const PostToiNat = ( { color, taxaInfo }: Props ) => {
     } );
   }, [navigation] );
 
+  const navToPostingScreen = () => navigation.navigate( "Post", taxaInfo );
+
   return (
     <UserContext.Consumer>
       {user => (
@@ -45,7 +47,7 @@ const PostToiNat = ( { color, taxaInfo }: Props ) => {
               <View style={styles.marginMedium} />
               <GreenButton
                 color={color}
-                handlePress={() => navigation.navigate( "Post", taxaInfo )}
+                handlePress={navToPostingScreen}
                 text="results.post"
               />
             </>

@@ -76,7 +76,30 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string 
   }
 };
 
+const checkForObservationPhoto = async ( id: number ) => {
+  try {
+    const { results } = await inatjs.observations.fetch( id );
+
+    // results is empty if obs has been deleted
+    if ( results.length === 0 ) {
+      return true;
+    }
+
+    if ( results[0].observation_photos.length > 0 ) {
+      return true;
+    }
+    return false;
+  } catch ( e ) {
+    console.log( "couldn't check for obs photo: ", e );
+  }
+
+};
+
 const uploadPhoto = async ( uri: string, id: number, token: string ) => {
+  // this should prevent duplicate photo uploads
+  const hasPhoto = await checkForObservationPhoto( id );
+  if ( hasPhoto ) { return; }
+
   const resizedPhoto = await resizeImageForUpload( uri );
   const reUpload = await appendPhotoToObservation( id, token, resizedPhoto );
 

@@ -51,7 +51,9 @@ const MatchModals = ( {
     image
   } = params;
 
-  const commonName = useCommonName( taxon.taxaId || null );
+  const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
+
+  const commonName = useCommonName( id );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {

@@ -95,8 +95,6 @@ const checkForIncompleteUploads = async ( login: string ) => {
     const uploads = realm.objects( "UploadPhotoRealm" );
     const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
 
-    console.log( unsuccessfulUploads, "unsuccessful" );
-
     if ( unsuccessfulUploads.length === 0 ) { return; }
 
     const token = await fetchJSONWebToken( login );

@@ -38,8 +38,6 @@ const PostScreen = () => {
 
   const { taxaId, scientificName, commonName } = params;
 
-  console.log( params, "params iso" );
-
   const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {

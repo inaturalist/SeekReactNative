@@ -177,6 +177,8 @@ const useCommonName = ( id: number ) => {
   useEffect( () => {
     let isCurrent = true;
 
+    console.log( id, 0, "zero common name" );
+
     getTaxonCommonName( id ).then( ( name ) => {
       if ( isCurrent ) {
         setCommonName( name );

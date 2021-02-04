@@ -92,7 +92,7 @@ const isWithinPastYear = ( reviewShownDate: Date ) => {
 
 const isWithinCurrentMonth = ( date: Date ) => isSameMonth( date, new Date() );
 
-const isWithin7Days = ( date: Date ) => {
+const isWithin7Days = ( date: number ) => {
   const sevenDaysAgo = subDays( new Date(), 7 );
 
   return isAfter( date, sevenDaysAgo );
@@ -101,7 +101,7 @@ const isWithin7Days = ( date: Date ) => {
 const formatShortMonthDayYear = ( date: Date ) => format( date, "PP", setLocale( ) );
 
 const fetchSpeciesSeenDate = ( taxaId: number ) => (
-  new Promise( ( resolve ) => {
+  new Promise<?string>( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( ( t ) => t.id );

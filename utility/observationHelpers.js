@@ -42,7 +42,7 @@ const addToCollection = async ( observation: {
   latitude: number,
   longitude: number,
   uri: string,
-  time: Date
+  time: number
 } ) => {
   const {
     latitude,

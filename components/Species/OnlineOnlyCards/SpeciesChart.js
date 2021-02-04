@@ -62,7 +62,15 @@ const SpeciesChart = ( { id, region }: Props ) => {
     fetchHistogram( params );
   }, [id, region, localSeasonality, fetchHistogram] );
 
-  useEffect( ( ) => setParams( ), [setParams] );
+  useEffect( ( ) => {
+    let isCurrent = true;
+    if ( isCurrent ) {
+      setParams( );
+    }
+    return ( ) => {
+      isCurrent = false;
+    };
+  } , [setParams] );
 
   // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( ( value ) => (

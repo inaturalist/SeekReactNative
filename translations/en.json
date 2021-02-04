@@ -77,7 +77,12 @@
     "observations_3": "Seek does not sync your observations to other devices.",
     "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
+    "learn_more": "Learn more",
+    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "about_personal_information": "About Personal Information",
+    "about_licenses": "About Licenses"
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",

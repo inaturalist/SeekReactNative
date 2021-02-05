@@ -75,7 +75,7 @@ const ARCameraOverlay = ( {
   const [filterIndex, setFilterIndex] = useState( null );
 
   const toggleFilterIndex = () => {
-    if ( filterIndex < 2 ) {
+    if ( filterIndex !== null && filterIndex < 2 ) {
       setFilterIndex( filterIndex + 1 );
     } else {
       setFilterIndex( 0 );
@@ -147,11 +147,17 @@ const ARCameraOverlay = ( {
     );
   };
 
-  const showAnimation = () => (
-    <Animated.View style={[styles.plantFilter, { opacity: fadeOut }]}>
-      <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
-    </Animated.View>
-  );
+  const showAnimation = () => {
+    if ( !filterIndex ) { return; }
+
+    return (
+      <Animated.View style={[styles.plantFilter, { opacity: fadeOut }]}>
+        <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
+      </Animated.View>
+    );
+  };
+
+  const showCameraHelp = () => navigate( "CameraHelp" );
 
   return (
     <>
@@ -160,7 +166,7 @@ const ARCameraOverlay = ( {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
+        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" testID="cameraLoading" />}
         <ARCameraHeader ranks={ranks} />
         {isAndroid && showFilterText()}
         {( isAndroid && filterIndex === 0 ) && showAnimation()}
@@ -178,7 +184,8 @@ const ARCameraOverlay = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.take_photo" )}
           accessible
-          onPress={() => takePicture()}
+          testID="takePhotoButton"
+          onPress={takePicture}
           style={styles.shutter}
           disabled={pictureTaken}
         >
@@ -187,7 +194,7 @@ const ARCameraOverlay = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.help" )}
           accessible
-          onPress={() => navigate( "CameraHelp" )}
+          onPress={showCameraHelp}
           style={styles.help}
         >
           <Image source={icons.cameraHelp} />

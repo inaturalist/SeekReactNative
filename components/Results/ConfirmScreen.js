@@ -36,17 +36,15 @@ const ConfirmScreen = ( {
           <LoadingWheel color="white" />
         </View>
       )}
-      {image && (
-        <Image
-          source={{ uri: image }}
-          style={styles.image}
-        />
-      )}
+      <Image
+        source={{ uri: image }}
+        style={styles.image}
+      />
     </View>
     <View style={styles.footer}>
       <GreenButton
         color={clicked && colors.seekTransparent}
-        handlePress={() => updateClicked()}
+        handlePress={updateClicked}
         text="confirm.button"
       />
     </View>

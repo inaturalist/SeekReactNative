@@ -1,18 +1,19 @@
-import { StyleSheet, Dimensions } from "react-native";
+// @flow
+
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
   center,
-  row
+  row,
+  dimensions
 } from "../global";
-
-const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   badgeIcon: {
-    height: width < 455 ? ( width / 4 ) : ( 455 / 4 ),
+    height: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 ),
     resizeMode: "contain",
-    width: width < 455 ? ( width / 4 ) : ( 455 / 4 )
+    width: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 )
   },
   center,
   container: {
@@ -23,9 +24,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   gridCell: {
-    height: width < 455 ? ( width / 4 ) : ( 455 / 4 ),
+    height: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 ),
     marginHorizontal: 6,
-    width: width < 455 ? ( width / 4 ) : ( 455 / 4 )
+    width: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 )
   },
   gridRowWrap: {
     flexDirection: "row",

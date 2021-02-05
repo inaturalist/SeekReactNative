@@ -20,7 +20,7 @@ import badges from "../../assets/badges";
 
 type Props = {
   +challenge: Object,
-  +fetchChallenges?: Function
+  +fetchChallenges: Function
 }
 
 const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
@@ -45,6 +45,14 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
     leftIcon = badges.badge_empty;
   }
 
+  const beginChallenge = () => {
+    setChallengeIndex( index );
+    startChallenge( index );
+    fetchChallenges();
+    recalculateChallenges();
+    navigation.navigate( "ChallengeDetails" );
+  };
+
   if ( percentComplete === 100 ) {
     rightIcon = <Image source={icons.completed} />;
   } else if ( startedDate && percentComplete !== 100 ) {
@@ -55,13 +63,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
         accessibilityLabel={`${i18n.t( "challenges.start_now" )}${name}`}
         accessible
         allowFontScaling={false}
-        onPress={() => {
-          setChallengeIndex( index );
-          startChallenge( index );
-          fetchChallenges();
-          recalculateChallenges();
-          navigation.navigate( "ChallengeDetails" );
-        }}
+        onPress={beginChallenge}
         style={styles.startText}
       >
         {i18n.t( "challenges.start_now" ).toLocaleUpperCase()}
@@ -69,12 +71,14 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
     );
   }
 
+  const navToChallengeDetails = () => {
+    setChallengeIndex( index );
+    navigation.navigate( "ChallengeDetails" );
+  };
+
   return (
     <TouchableOpacity
-      onPress={() => {
-        setChallengeIndex( index );
-        navigation.navigate( "ChallengeDetails" );
-      }}
+      onPress={navToChallengeDetails}
       style={[styles.card, styles.row]}
     >
       <View style={styles.row}>

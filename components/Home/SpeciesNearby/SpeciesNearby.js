@@ -101,6 +101,9 @@ const SpeciesNearby = () => {
 
   useEffect( () => requestAndroidPermissions(), [requestAndroidPermissions] );
 
+  const disabled = error !== null;
+  const locationText = location ? location : i18n.t( "species_nearby.no_location" );
+
   return (
     <>
       <View style={styles.container}>
@@ -108,11 +111,10 @@ const SpeciesNearby = () => {
           {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
         </Text>
         <LocationPickerButton
-          latitude={latLng.latitude}
-          longitude={latLng.longitude}
+          latLng={latLng}
           updateLatLng={updateLatLng}
-          error={error}
-          location={location}
+          disabled={disabled}
+          location={locationText}
         />
         <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
         <View style={styles.marginBottom} />

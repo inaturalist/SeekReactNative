@@ -1,3 +1,5 @@
+// @flow
+
 const challenges = {
   april: {
     name: "challenges.connectivity",

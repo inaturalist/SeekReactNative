@@ -46,25 +46,31 @@ const ObservationCard = ( {
     }
   }, [updateItemScrolledId, id, itemScrolledId] );
 
+  const handleDeletePress = () => openModal( photo, taxon );
+
+  const handleSpeciesCardPress = () => {
+    setSpeciesId( id );
+    setRoute( "Observations" );
+    navigate( "Species" );
+  };
+
+  const handleHorizontalScroll = () => updateItemScrolledId( id );
+
   return (
     <ScrollView
       ref={scrollView}
       contentContainerStyle={styles.card}
       horizontal
-      onScrollBeginDrag={() => updateItemScrolledId( id )}
+      onScrollBeginDrag={handleHorizontalScroll}
       showsHorizontalScrollIndicator={false}
     >
       <SpeciesCard
         taxon={taxon}
-        handlePress={() => {
-          setSpeciesId( id );
-          setRoute( "Observations" );
-          navigate( "Species" );
-        }}
+        handlePress={handleSpeciesCardPress}
         photo={photo}
       />
       <TouchableOpacity
-        onPress={() => openModal( photo, taxon )}
+        onPress={handleDeletePress}
         style={styles.deleteButton}
       >
         <Image source={icons.delete} />

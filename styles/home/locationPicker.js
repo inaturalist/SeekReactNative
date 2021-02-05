@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet } from "react-native";
 import {
   colors,
@@ -72,9 +74,6 @@ export default StyleSheet.create( {
     position: "absolute",
     right: 0,
     top: 0
-  },
-  mapContainer: {
-    flexGrow: 1
   },
   margin: {
     marginTop: 15

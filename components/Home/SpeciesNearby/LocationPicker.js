@@ -46,7 +46,6 @@ const LocationPicker = ( {
   } );
 
   const [inputLocation, setInputLocation] = useState( location );
-  const [error, setError] = useState( null );
 
   const setCoordsByLocationName = ( newLocation ) => {
     Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
@@ -106,20 +105,16 @@ const LocationPicker = ( {
   };
 
   const searchNearLocation = () => {
-    updateLatLng(
-      truncateCoordinates( region.latitude ),
-      truncateCoordinates( region.longitude )
-    );
+    const lat = region.latitude ? truncateCoordinates( region.latitude ) : null;
+    const lng = region.longitude ? truncateCoordinates( region.longitude ) : null;
+
+    if ( lat && lng ) {
+      updateLatLng( lat, lng );
+    }
     closeLocationPicker();
   };
 
   const changeText = text => setCoordsByLocationName( text );
-
-  const handleMapReady = ( e ) => {
-    if ( e === undefined ) {
-      setError( true );
-    }
-  };
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -144,18 +139,11 @@ const LocationPicker = ( {
           />
         </View>
       </View>
-      {error && Platform.OS === "android" ? (
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{i18n.t( "location_picker.map_error_android" ).toLocaleUpperCase( )}</Text>
-        </View>
-      ) : (
-        <LocationMap
-          onRegionChange={handleRegionChange}
-          region={region}
-          returnToUserLocation={returnToUserLocation}
-          handleMapReady={handleMapReady}
-        />
-      )}
+      <LocationMap
+        onRegionChange={handleRegionChange}
+        region={region}
+        returnToUserLocation={returnToUserLocation}
+      />
       <View style={styles.footer}>
         <GreenButton
           handlePress={searchNearLocation}

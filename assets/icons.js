@@ -1,3 +1,5 @@
+// @flow
+
 const icons = {
   completed: require( "./icons/icon-completed.webp" ),
   checklist: require( "./icons/icon-checklist.webp" ),

@@ -1,6 +1,8 @@
+// @flow
+
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 
-const setAncestorIdsiOS = ( predictions ) => {
+const setAncestorIdsiOS = ( predictions: Array<Object> ) => {
   // adding ancestor ids to take iOS camera experience offline
   const ancestorIds = predictions.map( ( p ) => Number( p.taxon_id ) );
   return ancestorIds.sort( );
@@ -10,7 +12,13 @@ const setSpeciesSeenImage = ( taxa ) => {
   return taxa && taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
 };
 
-const createAncestor = ( ancestor, taxa ) => {
+const createAncestor = ( ancestor: {
+  taxon_id: number,
+  name: string,
+  rank: number
+}, taxa: ?{
+  taxon_photos: Array<Object>
+} ) => {
   return {
     taxaId: ancestor.taxon_id,
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -19,7 +27,12 @@ const createAncestor = ( ancestor, taxa ) => {
   };
 };
 
-const createSpecies = ( species, taxa ) => {
+const createSpecies = ( species: {
+  taxon_id: number,
+  name: string
+}, taxa: ?{
+  taxon_photos: Array<Object>
+} ) => {
   return {
     taxaId: Number( species.taxon_id ),
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -27,13 +40,13 @@ const createSpecies = ( species, taxa ) => {
   };
 };
 
-const checkForSpecies = ( predictions, threshold ) => {
+const checkForSpecies = ( predictions: Array<Object>, threshold: number ) => {
   return predictions.find( leaf => (
     leaf.rank === 10 && leaf.score > threshold
   ) );
 };
 
-const checkForAncestor = ( predictions, threshold ) => {
+const checkForAncestor = ( predictions: Array<Object>, threshold: number ) => {
   const reversePredictions = predictions.reverse();
   const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
@@ -59,7 +72,13 @@ const checkForIconicTaxonId = ( ancestorIds: Array<number> ) => {
   return iconicTaxonId[0] || 1;
 };
 
-const createObservationForRealm = ( species, taxa ) => {
+const createObservationForRealm = ( species: {
+  taxon_id: number,
+  name: string,
+  ancestor_ids: Array<number>
+}, taxa: ?{
+  default_photo: Object
+} ) => {
   return {
     taxon: {
       default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
@@ -72,23 +91,19 @@ const createObservationForRealm = ( species, taxa ) => {
 };
 
 // online results helpers
-const findNearestPrimaryRankTaxon = ( ancestors, rank ) => {
-  let nearestTaxon = {};
-
+const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ) => {
   if ( rank <= 20 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 20 );
+    return ancestors.find( r => r.rank_level === 20 );
   } else if ( rank <= 30 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 30 );
+    return ancestors.find( r => r.rank_level === 30 );
   } else if ( rank <= 40 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 40 );
+    return ancestors.find( r => r.rank_level === 40 );
   } else if ( rank <= 50 ) {
-    nearestTaxon = ancestors.find( r => r.rank_level === 50 );
+    return ancestors.find( r => r.rank_level === 50 );
   }
-
-  return nearestTaxon;
 };
 
-const checkCommonAncestorRank = ( rank ) => {
+const checkCommonAncestorRank = ( rank: number ) => {
   const primaryRanks = [20, 30, 40, 50];
 
   if ( primaryRanks.includes( rank ) ) {
@@ -97,7 +112,12 @@ const checkCommonAncestorRank = ( rank ) => {
   return false;
 };
 
-const createOnlineAncestor = ( ancestor ) => {
+const createOnlineAncestor = ( ancestor: {
+  id: number,
+  name: string,
+  default_photo: Object,
+  rank_level: number
+} ) => {
   const photo = ancestor.default_photo;
 
   return {
@@ -108,7 +128,11 @@ const createOnlineAncestor = ( ancestor ) => {
   };
 };
 
-const createOnlineSpecies = ( species ) => {
+const createOnlineSpecies = ( species: {
+  id: number,
+  name: string,
+  default_photo: Object
+} ) => {
   const photo = species.default_photo;
 
   return {
@@ -119,7 +143,7 @@ const createOnlineSpecies = ( species ) => {
 };
 
 // shared online and offline
-const navToMatch = async ( navigation, taxon, image, seenDate, errorCode ) => {
+const navToMatch = async ( navigation, taxon, image, seenDate, errorCode: ?number ) => {
   navigation.push( "Drawer", {
     screen: "Main",
     params: {
@@ -134,7 +158,11 @@ const navToMatch = async ( navigation, taxon, image, seenDate, errorCode ) => {
   } );
 };
 
-const setImageCoords = ( coords, image ) => {
+const setImageCoords = ( coords?: {
+  latitude: number,
+  longitude: number,
+  accuracy: number
+}, image: Object ) => {
   if ( coords )  {
     const { latitude, longitude, accuracy } = coords;
 

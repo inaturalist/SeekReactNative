@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 import { Platform, Dimensions, View } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";

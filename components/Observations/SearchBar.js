@@ -34,7 +34,7 @@ const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props 
       placeholder={i18n.t( "observations.search" )}
       placeholderTextColor={colors.placeholderGray}
       style={styles.inputField}
-      value={searchText}
+      defaultValue={searchText}
     />
   </View>
 );

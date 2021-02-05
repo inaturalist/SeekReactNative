@@ -23,13 +23,15 @@ import { renderSpeciesText, setGradients, setScreenType } from "../../utility/ma
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
-  const scrollView = useRef( null );
+  const scrollView = useRef<any>( null );
   const navigation = useNavigation();
   const { params } = useRoute();
   const { scientificNames } = useContext( CameraContext );
   const { taxon, seenDate } = params;
 
-  const commonName = useCommonName( taxon.taxaId || null );
+  const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
+
+  const commonName = useCommonName( id );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {

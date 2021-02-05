@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useContext, useCallback, useMemo } from "react";
 import { Text, View } from "react-native";
 import Checkbox from "react-native-check-box";

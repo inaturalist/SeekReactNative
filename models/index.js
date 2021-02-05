@@ -1,3 +1,5 @@
+// @flow
+
 import BadgeRealm from "./BadgeRealm";
 import ChallengeRealm from "./ChallengeRealm";
 import CommonNamesRealm from "./CommonNamesRealm";
@@ -6,6 +8,7 @@ import ObservationRealm from "./ObservationRealm";
 import PhotoRealm from "./PhotoRealm";
 import TaxonRealm from "./TaxonRealm";
 import ReviewRealm from "./ReviewRealm";
+import UploadPhotoRealm from "./UploadPhotoRealm";
 
 export default {
   schema: [
@@ -16,8 +19,9 @@ export default {
     ObservationRealm,
     PhotoRealm,
     ReviewRealm,
-    TaxonRealm
+    TaxonRealm,
+    UploadPhotoRealm
   ],
-  schemaVersion: 17,
+  schemaVersion: 21,
   path: "db.realm"
 };

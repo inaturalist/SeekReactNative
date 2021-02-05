@@ -1,3 +1,5 @@
+// @flow
+
 import { useState, useEffect, useCallback } from "react";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
@@ -12,7 +14,15 @@ import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 import { createRegion } from "./locationHelpers";
 
-const useScrollToTop = ( scrollView, navigation, route ) => {
+const useScrollToTop = ( scrollView: {
+  current: {
+    scrollTo: ( {
+      x: number,
+      y: number,
+      animated: boolean
+    } ) => void
+  }
+}, navigation, route ) => {
   const scrollToTop = useCallback( () => {
     if ( scrollView && scrollView.current !== null ) {
       scrollView.current.scrollTo( {
@@ -30,14 +40,14 @@ const useScrollToTop = ( scrollView, navigation, route ) => {
   }, [route, navigation, scrollToTop] );
 };
 
-const useLocationName = ( latitude, longitude ) => {
+const useLocationName = ( latitude: number, longitude: number ) => {
   const [location, setLocation] = useState( null );
 
   useEffect( () => {
     let isCurrent = true;
 
     // reverseGeocodeLocation
-    fetchLocationName( latitude, longitude ).then( ( locationName ) => {
+    fetchLocationName( latitude, longitude ).then( ( locationName: ?string ) => {
       if ( isCurrent ) {
         if ( locationName === null ) {
           setLocation( i18n.t( "location_picker.undefined" ) ); // for oceans
@@ -59,7 +69,15 @@ const useLocationName = ( latitude, longitude ) => {
   return location;
 };
 
-const useUserPhoto = ( item ) => {
+const useUserPhoto = ( item: {
+ taxon: {
+   defaultPhoto?: {
+     backupUri: ?string,
+     mediumUrl: ?string
+   }
+ },
+ uuidString: string
+} ) => {
   const [photo, setPhoto] = useState( null );
 
   const checkForSeekV2Photos = useCallback( ( isCurrent ) => {
@@ -92,7 +110,7 @@ const useUserPhoto = ( item ) => {
     }
   }, [item] );
 
-  const checkV1 = useCallback( async ( uuidString, isCurrent ) => {
+  const checkV1 = useCallback( async ( uuidString: string, isCurrent ) => {
     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
     const photoPath = `${seekv1Photos}/${uuidString}`;
 
@@ -153,7 +171,7 @@ const useLocationPermission = () => {
   return granted;
 };
 
-const useCommonName = ( id ) => {
+const useCommonName = ( id: number ) => {
   const [commonName, setCommonName] = useState( null );
 
   useEffect( () => {
@@ -173,7 +191,7 @@ const useCommonName = ( id ) => {
   return commonName;
 };
 
-const useTruncatedUserCoords = ( granted ) => {
+const useTruncatedUserCoords = ( granted: ?boolean ) => {
   const [coords, setCoords] = useState( null );
 
   useEffect( ( ) => {
@@ -210,13 +228,11 @@ const useTruncatedUserCoords = ( granted ) => {
   return coords;
 };
 
-const useSeenTaxa = ( id ) => {
+const useSeenTaxa = ( id: number ) => {
   const [seenTaxa, setSeenTaxa] = useState( null );
 
   useEffect( () => {
     let isCurrent = true;
-
-    if ( id === null ) { return; }
 
     Realm.open( realmConfig ).then( ( realm ) => {
       const observations = realm.objects( "ObservationRealm" );
@@ -236,7 +252,7 @@ const useSeenTaxa = ( id ) => {
   return seenTaxa;
 };
 
-const useRegion = ( coords, seenTaxa ) => {
+const useRegion = ( coords?: { latitude: number, longitude: number }, seenTaxa?: { latitude: number, longitude: number } ) => {
   const [region, setRegion] = useState( {} );
 
   const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );

@@ -2,10 +2,7 @@
 // @flow
 
 import React from "react";
-import {
-  Text,
-  TouchableOpacity
-} from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/buttons/greenButton";
@@ -41,7 +38,7 @@ const GreenButton = ( {
 
   return (
     <TouchableOpacity
-      onPress={() => handlePress()}
+      onPress={handlePress}
       style={[
         styles.greenButton, color
         && { backgroundColor: color },

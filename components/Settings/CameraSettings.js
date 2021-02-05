@@ -37,6 +37,10 @@ const CameraSettings = () => {
     toggleAutoCapture( boolean );
   };
 
+  const handleSwitchValueChange = ( ) => setAutoCapture( !autoCapture );
+
+  const switchTrackColor = { true: colors.seekForestGreen };
+
   return (
     <>
       <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
@@ -77,8 +81,8 @@ const CameraSettings = () => {
         <Switch
           style={styles.switch}
           value={autoCapture}
-          trackColor={colors.seekForestGreen}
-          onValueChange={() => setAutoCapture( !autoCapture )}
+          trackColor={switchTrackColor}
+          onValueChange={handleSwitchValueChange}
           accessible
           accessibilityLabel={i18n.t( "settings.auto_capture" )}
         />

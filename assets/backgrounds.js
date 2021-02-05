@@ -1,3 +1,5 @@
+// @flow
+
 const backgrounds = {
   splash: require( "./backgrounds/bg-splash-2020.webp" ),
   login: require( "./backgrounds/bg-login-2020.webp" ),

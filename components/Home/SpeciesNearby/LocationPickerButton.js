@@ -11,53 +11,53 @@ import {
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/home/speciesNearby";
-import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
 import LocationPicker from "./LocationPicker";
 
 type Props = {
-  latitude: ?number,
-  longitude: ?number,
+  latLng: { latitude: ?number, longitude: ?number },
   updateLatLng: Function,
-  error?: ?string,
-  location: ?string
+  disabled: boolean,
+  location: string
 }
 
 const LocationPickerButton = ( {
-  latitude,
-  longitude,
+  latLng,
   updateLatLng,
-  error,
+  disabled,
   location
 }: Props ) => {
+  const { latitude, longitude } = latLng;
   const [showModal, setModal] = useState( false );
 
-  const openLocationPicker = () => setModal( true );
-  const closeLocationPicker = () => setModal( false );
+  const openLocationPicker = ( ) => setModal( true );
+  const closeLocationPicker = ( ) => setModal( false );
+
+  const renderModal = ( ) => (
+    <Modal visible={showModal}>
+      <LocationPicker
+        latitude={latitude}
+        location={location}
+        longitude={longitude}
+        closeLocationPicker={closeLocationPicker}
+        updateLatLng={updateLatLng}
+      />
+    </Modal>
+  );
 
   return (
     <>
-      <Modal visible={showModal}>
-        <LocationPicker
-          latitude={latitude}
-          location={location}
-          longitude={longitude}
-          closeLocationPicker={closeLocationPicker}
-          updateLatLng={updateLatLng}
-        />
-      </Modal>
+      {showModal && renderModal( )}
       <TouchableOpacity
-        onPress={() => openLocationPicker()}
-        style={[styles.row, styles.marginLeft, styles.paddingBottom]}
-        disabled={error !== null}
+        onPress={openLocationPicker}
+        style={[styles.row, styles.locationPickerButton]}
+        disabled={disabled}
       >
         {/* $FlowFixMe */}
         <Image source={posting.location} tintColor={colors.white} style={styles.image} />
         <View style={styles.whiteButton}>
           <Text style={styles.buttonText}>
-            {location
-              ? location.toLocaleUpperCase()
-              : i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}
+            {location.toLocaleUpperCase( )}
           </Text>
         </View>
       </TouchableOpacity>

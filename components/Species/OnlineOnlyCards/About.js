@@ -13,7 +13,7 @@ import { useCommonName } from "../../../utility/customHooks";
 type Props = {
   +about: ?string,
   +wikiUrl: ?string,
-  +id: ?number,
+  +id: number,
   +scientificName: ?string
 }
 

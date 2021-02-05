@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
@@ -12,7 +14,7 @@ const greenButton = {
   fontFamily: fonts.semibold,
   fontSize: 20,
   // removed because letters getting cut off on left side, android
-  letterSpacing: Platform.OS === "ios" ? 1.11 : null,
+  letterSpacing: Platform.OS === "ios" ? 1.11 : 0,
   backgroundColor: colors.seekForestGreen,
   borderRadius: 6,
   paddingBottom: 11,
@@ -102,7 +104,8 @@ export default StyleSheet.create( {
   row,
   switch: {
     paddingHorizontal: 10.3 / 2,
-    paddingVertical: 19 / 2
+    paddingVertical: 19 / 2,
+    marginRight: 10
   },
   text: {
     color: colors.black,

@@ -28,10 +28,11 @@ const CustomBackArrow = ( {
     onPress={handlePress}
     style={[style, styles.rotateRTL]}
   >
+    {/* $FlowFixMe */}
     <Image
       source={icons.backButton}
       tintColor={green && colors.seekForestGreen}
-        style={green && styles.green}
+      style={green && styles.green}
     />
   </TouchableOpacity>
 );

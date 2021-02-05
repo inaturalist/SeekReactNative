@@ -10,7 +10,7 @@ import styles from "../../styles/results/error";
 
 type Props = {
   +error: string,
-  +number: ?string
+  +number?: ?number
 }
 
 const ErrorScreen = ( { error, number }: Props ) => {

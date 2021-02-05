@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { View } from "react-native";
 import { CropView } from "react-native-image-crop-tools";
@@ -11,7 +13,7 @@ import styles from "../../styles/social/social";
 
 type Props = {
   saveCrop: Function,
-  uri: String,
+  uri: string,
   cropViewRef: any,
   handleImageCrop: Function,
   closeModal: Function

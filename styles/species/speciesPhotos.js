@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
@@ -37,5 +39,17 @@ export default StyleSheet.create( {
   photoContainer: {
     backgroundColor: colors.black,
     height: 250
+  },
+  errorContainer: {
+    justifyContent: "center",
+    backgroundColor: colors.black,
+    height: 250
+  },
+  errorText: {
+    color: colors.white,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 24,
+    textAlign: "center"
   }
 } );

@@ -59,14 +59,18 @@ const LoginScreen = () => {
       } );
   };
 
+  const navToForgotPassword = () => navigate( "Forgot" );
+  const updateUsername = value => setUsername( value );
+  const updatePassword = value => setPassword( value );
+
   return (
     <ScrollWithHeader header="login.log_in">
       <View style={styles.leftTextMargins}>
-        <GreenText allowFontScaling={false} smaller text="inat_login.username" />
+        <GreenText allowFontScaling={false} smaller text="inat_login.username_email" />
       </View>
       <InputField
-        handleTextChange={value => setUsername( value )}
-        placeholder={i18n.t( "inat_login.username" )}
+        handleTextChange={updateUsername}
+        placeholder={i18n.t( "inat_login.username_or_email" )}
         text={username}
         type="username"
       />
@@ -74,14 +78,14 @@ const LoginScreen = () => {
         <GreenText allowFontScaling={false} smaller text="inat_login.password" />
       </View>
       <InputField
-        handleTextChange={value => setPassword( value )}
+        handleTextChange={updatePassword}
         placeholder="*********"
         secureTextEntry
         text={password}
         type="password"
       />
       <TouchableOpacity
-        onPress={() => navigate( "Forgot" )}
+        onPress={navToForgotPassword}
         style={styles.rightTextContainer}
       >
         <Text allowFontScaling={false} style={styles.forgotPasswordText}>
@@ -90,7 +94,7 @@ const LoginScreen = () => {
       </TouchableOpacity>
       {error ? <ErrorMessage error="credentials" /> : <View style={styles.greenButtonMargin} />}
       <GreenButton
-        handlePress={() => retrieveOAuthToken()}
+        handlePress={retrieveOAuthToken}
         login
         text="inat_login.log_in"
       />

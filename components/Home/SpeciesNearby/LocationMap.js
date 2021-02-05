@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View, Image, TouchableHighlight } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
 import styles from "../../../styles/home/locationPicker";
@@ -13,26 +13,23 @@ type Props = {
   +region: Object,
   +onRegionChange: Function,
   +returnToUserLocation: Function,
-  +posting?: boolean,
-  +handleMapReady: Function
+  +posting?: boolean
 }
 
 const LocationMap = ( {
   region,
   onRegionChange,
   returnToUserLocation,
-  posting,
-  handleMapReady
+  posting
 }: Props ) => (
   <View style={styles.container}>
     {region.latitude && (
       <MapView
-        onRegionChangeComplete={r => onRegionChange( r )}
+        onRegionChangeComplete={onRegionChange}
         provider={PROVIDER_DEFAULT}
         region={region} // need region instead of initial region for return to user location
         style={styles.map}
         loadingEnabled
-        onMapReady={handleMapReady}
       />
     )}
     <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>
@@ -41,14 +38,14 @@ const LocationMap = ( {
         : <Image source={icons.locationPin} style={styles.markerPin} />}
     </View>
     <View style={styles.userLocation}>
-      <TouchableHighlight
+      <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.user_location" )}
         accessible
         onPress={returnToUserLocation}
         style={styles.locationIcon}
       >
         <Image source={icons.indicator} />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   </View>
 );

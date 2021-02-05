@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet, Dimensions } from "react-native";
 import { colors } from "../global";
 

@@ -21,7 +21,8 @@ const SpeciesHeader = ( {
   taxon,
   id
 }: Props ) => {
-  const { navigate } = useNavigation();
+  const navigation = useNavigation( );
+  const { navigate } = navigation;
   const { params } = useRoute();
   const [routeName, setRouteName] = useState( null );
   const commonName = useCommonName( id );
@@ -34,12 +35,17 @@ const SpeciesHeader = ( {
   const { scientificName, iconicTaxonId } = taxon;
 
   const backAction = useCallback( () => {
+    // would like to remove these so we're not duplicating the work of the navigator here
+    // originally this was for similar species
+    if ( routeName === "ChallengeDetails" || routeName === "Observations" || routeName === "Match" ) {
+      navigation.goBack( );
+    }
     if ( routeName ) {
       navigate( routeName, { ...params } );
     } else {
       navigate( "Home" );
     }
-  }, [navigate, routeName, params] );
+  }, [navigate, routeName, params, navigation] );
 
   useFocusEffect(
     useCallback( () => {

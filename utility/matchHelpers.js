@@ -1,7 +1,9 @@
+// @flow
+
 import i18n from "../i18n";
 import { colors } from "../styles/global";
 
-const renderHeaderText = ( screenType, rank ) => {
+const renderHeaderText = ( screenType: string, rank: number ) => {
   let headerText;
 
   if ( screenType === "resighted" ) {
@@ -26,7 +28,7 @@ const renderHeaderText = ( screenType, rank ) => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderSpeciesText = ( screenType, taxon, scientificNames, commonName ) => {
+const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: ?string ) => {
   if ( screenType === "unidentified" ) {
     return null;
   }
@@ -38,8 +40,8 @@ const renderSpeciesText = ( screenType, taxon, scientificNames, commonName ) => 
   return !scientificNames ? commonName : taxon.scientificName;
 };
 
-const renderText = ( screenType, seenDate, image ) => {
-  let text;
+const renderText = ( screenType: string, seenDate: ?string, image: { latitude: number } ) => {
+  let text: string;
 
   if ( screenType === "resighted" ) {
     text = i18n.t( "results.date_observed", { seenDate } );
@@ -54,7 +56,7 @@ const renderText = ( screenType, seenDate, image ) => {
   return text;
 };
 
-const setGradients = ( screenType ) => {
+const setGradients = ( screenType: string ) => {
   let gradientDark;
   let gradientLight;
 
@@ -72,22 +74,20 @@ const setGradients = ( screenType ) => {
   return { gradientDark, gradientLight };
 };
 
-const setScreenType = ( taxon, seenDate ) => {
-  if ( !taxon ) { return; }
+const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?string ) => {
+  if ( !taxon ) { return "unidentified"; }
 
   const { taxaId, rank } = taxon;
-  let screen;
 
   if ( seenDate ) {
-    screen = "resighted";
+    return "resighted";
   } else if ( taxaId && !rank ) {
-    screen = "newSpecies";
+    return "newSpecies";
   } else if ( rank ) {
-    screen = "commonAncestor";
+    return "commonAncestor";
   } else {
-    screen = "unidentified";
+    return "unidentified";
   }
-  return screen;
 };
 
 export {

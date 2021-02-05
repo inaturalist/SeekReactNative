@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet } from "react-native";
 import {
   colors,
@@ -66,5 +68,9 @@ export default StyleSheet.create( {
     paddingBottom: 4,
     paddingHorizontal: 9,
     paddingTop: 4
+  },
+  locationPickerButton: {
+    paddingBottom: 15,
+    marginLeft: 22
   }
 } );

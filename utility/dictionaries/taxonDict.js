@@ -1,3 +1,5 @@
+// @flow
+
 const taxonIds = {
   birds: 3,
   amphibians: 20978,

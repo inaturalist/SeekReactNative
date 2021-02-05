@@ -40,7 +40,7 @@ const SelectSpecies = ( {
   updateTaxon,
   seekId
 }: Props ) => {
-  const scrollView = useRef( null );
+  const scrollView = useRef<any>( null );
   const navigation = useNavigation();
   const [suggestions, setSuggestions] = useState( [{
     image,

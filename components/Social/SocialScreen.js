@@ -65,7 +65,7 @@ const SocialScreen = ( ) => {
     imageForSharing: uri,
     tab: "square",
     resizedOriginalImage: null,
-    watermarkedOriginalImage: null,
+    // watermarkedOriginalImage: null,
     watermarkedSquareImage: null,
     squareImage: null,
     showWatermark: true,
@@ -79,7 +79,7 @@ const SocialScreen = ( ) => {
     imageForSharing,
     tab,
     resizedOriginalImage,
-    watermarkedOriginalImage,
+    // watermarkedOriginalImage,
     watermarkedSquareImage,
     squareImage,
     showWatermark,
@@ -186,7 +186,7 @@ const SocialScreen = ( ) => {
           onPress={openModal}
           style={styles.greenButton}
         >
-          <Image source={icons.cropIconWhite} style={styles.cropImage} />
+          <Image source={icons.cropIconWhite} />
           <Text style={styles.buttonText}>
             {i18n.t( "social.crop_image" ).toLocaleUpperCase( )}
           </Text>

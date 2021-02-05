@@ -16,13 +16,13 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
-import { getSystemVersion } from "react-native-device-info";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeExifData, writeToDebugLog, checkPhotoSize } from "../../../utility/photoHelpers";
+import { writeExifData } from "../../../utility/photoHelpers";
+import { checkForCameraPermissionsError, checkForSystemVersion, handleLog, showCameraSaveFailureAlert } from "../../../utility/cameraHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -32,6 +32,7 @@ import { navigateToMainStack } from "../../../utility/helpers";
 
 const ARCamera = () => {
   const navigation = useNavigation();
+  const { navigate } = navigation;
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
 
@@ -89,7 +90,7 @@ const ARCamera = () => {
 
   const rankToRender = Object.keys( ranks )[0] || null;
 
-  const updateError = useCallback( ( err, errEvent ) => {
+  const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
     if ( err === null && error === null ) {
       return;
@@ -104,8 +105,8 @@ const ARCamera = () => {
       predictions
     };
 
-    navigation.navigate( "OfflineARResults", { image } );
-  }, [navigation] );
+    navigate( "OfflineARResults", { image } );
+  }, [navigate] );
 
   const resetPredictions = () => {
     // only rerender if state has different values than before
@@ -114,33 +115,30 @@ const ARCamera = () => {
     }
   };
 
-  const handleCameraRollSaveError = useCallback( async ( uri, e ) => {
-    const iOSPermission = "Error: Access to photo library was denied";
-    const androidPermission = "Error: Permission denied";
-
-    if ( e.toString() === iOSPermission || e.toString() === androidPermission ) {
-      // check for camera roll permissions error
-      updateError( "gallery" );
+  const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
+    const permissionsError = checkForCameraPermissionsError( e );
+    if ( permissionsError.error !== null ) {
+      updateError( permissionsError.error );
     } else {
-      const size = await checkPhotoSize( uri );
-      updateError( "save", `${e}. \nPhoto size is: ${size}` );
+      await showCameraSaveFailureAlert( e, uri );
+      navigateToResults( uri, predictions );
     }
-  }, [updateError] );
+  }, [updateError, navigateToResults] );
 
-  const savePhoto = useCallback( async ( photo ) => {
+  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
     if ( Platform.OS === "android" ) {
       await writeExifData( photo.uri );
     }
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
-      .catch( e => handleCameraRollSaveError( photo.uri, e ) );
+      .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
-  const filterByTaxonId = useCallback( ( id, filter ) => {
+  const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event ) => {
+  const handleTaxaDetected = ( event: { nativeEvent: { predictions?: Array<Object> } } ) => {
     const predictions = { ...event.nativeEvent };
 
     if ( pictureTaken ) { return; }
@@ -155,7 +153,7 @@ const ARCamera = () => {
       // this block keeps the last species seen displayed for 2.5 seconds
       setTimeout( () => resetPredictions(), 2500 );
     } else {
-      ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
+      ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
         // skip this block if a prediction state has already been set
         if ( predictionSet ) { return; }
         if ( predictions[rank] ) {
@@ -172,7 +170,7 @@ const ARCamera = () => {
     }
   };
 
-  const handleCameraError = ( event ) => {
+  const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
     const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
@@ -192,7 +190,7 @@ const ARCamera = () => {
   // ignoring this callback since we're checking all permissions in React Native
   const handleCameraPermissionMissing = () => {};
 
-  const handleClassifierError = ( event ) => {
+  const handleClassifierError = ( event: { nativeEvent?: { error: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
       updateError( "classifier", event.nativeEvent.error );
     } else {
@@ -200,25 +198,11 @@ const ARCamera = () => {
     }
   };
 
-  const handleDeviceNotSupported = ( event ) => {
-    let textOS;
-
-    if ( Platform.OS === "ios" ) {
-      const OS = getSystemVersion();
-      textOS = i18n.t( "camera.error_version", { OS } );
-    }
-
-    // this uses event.nativeEvent.reason, not .error
+  const handleDeviceNotSupported = ( event: { nativeEvent?: { reason: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "device", event.nativeEvent.reason );
     } else {
-      updateError( "device", textOS );
-    }
-  };
-
-  const handleLog = ( event ) => {
-    if ( Platform.OS === "android" ) {
-      writeToDebugLog( event.nativeEvent.log );
+      updateError( "device", checkForSystemVersion( ) );
     }
   };
 
@@ -275,9 +259,13 @@ const ARCamera = () => {
     } );
   }, [navigation, requestAndroidPermissions] );
 
-  const navHome = () => navigateToMainStack( navigation.navigate, "Home" );
+  const navHome = () => navigateToMainStack( navigate, "Home" );
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
+
+  if ( !isFocused ) { // this is necessary for camera to load properly in iOS
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -301,24 +289,22 @@ const ARCamera = () => {
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
-      {isFocused && ( // this is necessary for camera to load properly in iOS
-        <INatCamera
-          ref={camera}
-          confidenceThreshold={confidenceThreshold}
-          modelPath={dirModel}
-          onCameraError={handleCameraError}
-          onCameraPermissionMissing={handleCameraPermissionMissing}
-          onClassifierError={handleClassifierError}
-          onDeviceNotSupported={handleDeviceNotSupported}
-          onTaxaDetected={handleTaxaDetected}
-          onLog={handleLog}
-          style={styles.camera}
-          taxaDetectionInterval={taxaDetectionInterval}
-          taxonomyPath={dirTaxonomy}
-          filterByTaxonId={taxonId}
-          negativeFilter={negativeFilter}
-        />
-      )}
+      <INatCamera
+        ref={camera}
+        confidenceThreshold={confidenceThreshold}
+        modelPath={dirModel}
+        onCameraError={handleCameraError}
+        onCameraPermissionMissing={handleCameraPermissionMissing}
+        onClassifierError={handleClassifierError}
+        onDeviceNotSupported={handleDeviceNotSupported}
+        onTaxaDetected={handleTaxaDetected}
+        onLog={handleLog}
+        style={styles.camera}
+        taxaDetectionInterval={taxaDetectionInterval}
+        taxonomyPath={dirTaxonomy}
+        filterByTaxonId={taxonId}
+        negativeFilter={negativeFilter}
+      />
     </View>
   );
 };

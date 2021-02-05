@@ -1,5 +1,9 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import inatjs from "inaturalistjs";
+import { Alert } from "react-native";
+
+import { fetchJSONWebToken } from "./uploadHelpers";
 
 const checkIsEmailValid = ( email: string ) => {
   if ( email && email.length > 5 ) {
@@ -61,6 +65,39 @@ const formatError = ( error: string ) => {
   return newError || error;
 };
 
+// const showPromptToSwitchPhotoLicense = ( ) => {
+  // call users.update
+  // params = { id, user[make_photo_licenses_same] === true }
+  // Alert.alert(
+    // title,
+    // message,
+    // [
+    //   {
+    //     text: "Cancel",
+    //     onPress: () => console.log("Cancel Pressed"),
+    //     style: "cancel"
+    //   },
+    //   { text: "Update license", onPress: () => updateLicense( ) }
+    // ],
+    // { cancelable: false }
+//   );
+// };
+
+// const fetchUserId = async ( login: string ) => {
+//   try {
+//     const apiToken = await fetchJSONWebToken( login );
+//     console.log( apiToken, "token " );
+//     const options = { api_token: apiToken };
+//     const { results } = await inatjs.users.me( options );
+//     if ( results.preferred_observation_license === null ) {
+//       showPromptToSwitchPhotoLicense( );
+//     }
+//     console.log( results, "fetch user id" );
+//   } catch ( e ) {
+//     console.log( e.message, "error fetching user id" );
+//   }
+// };
+
 export {
   saveAccessToken,
   fetchAccessToken,
@@ -70,4 +107,5 @@ export {
   savePostingSuccess,
   fetchPostingSuccess,
   formatError
+  // fetchUserId
 };

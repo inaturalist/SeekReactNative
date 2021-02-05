@@ -118,17 +118,21 @@ const ObsList = ( {
     />
   ), [fetchFilteredObservations, searchText, clearText] );
 
+  const dismissKeyboard = ( ) => Keyboard.dismiss( );
+
+  const extractKey = ( item, index ) => item + index;
+
   return (
     <SectionList
       ref={sectionList}
       keyboardDismissMode="on-drag"
-      onScroll={() => Keyboard.dismiss()}
+      onScroll={dismissKeyboard}
       scrollEventThrottle={1}
       contentContainerStyle={styles.flexGrow}
       sections={observations}
       initialNumToRender={5}
       stickySectionHeadersEnabled={false}
-      keyExtractor={( item, index ) => item + index}
+      keyExtractor={extractKey}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}

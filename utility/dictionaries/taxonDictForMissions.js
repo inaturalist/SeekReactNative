@@ -1,3 +1,5 @@
+// @flow
+
 const taxonIds = {
   Accipitriformes: 71261,
   Actinopterygii: 47178,

@@ -17,7 +17,7 @@ type Props = {
 const ScrollNoHeader = ( { children }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
-  const scrollView = useRef( null );
+  const scrollView = useRef<any>( null );
 
   useScrollToTop( scrollView, navigation );
 

@@ -1,4 +1,6 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+// @flow
+
+import { StyleSheet, Platform } from "react-native";
 
 import {
   fonts,
@@ -7,8 +9,6 @@ import {
   center,
   dimensions
 } from "../global";
-
-const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   center,
@@ -71,15 +71,15 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   image: {
-    height: height < 570 ? 150 : 264,
+    height: dimensions.height < 570 ? 150 : 264,
     marginBottom: 44,
     marginTop: 36,
     resizeMode: "contain",
-    width: height < 570 ? 150 : 264
+    width: dimensions.height < 570 ? 150 : 264
   },
   leftTextMargins: {
     marginBottom: 8,
-    marginLeft: height > 570 ? 39 : 25,
+    marginLeft: dimensions.height > 570 ? 39 : 25,
     marginTop: 16
   },
   linkedAccountHeader: {
@@ -99,7 +99,7 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   margin: {
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 22
+    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 22
   },
   marginExtraLarge: {
     marginTop: 31
@@ -110,9 +110,6 @@ export default StyleSheet.create( {
   marginLarge: {
     marginTop: 29
   },
-  // marginLeft: {
-  //   marginLeft: 14
-  // },
   marginMedium: {
     marginTop: 25
   },

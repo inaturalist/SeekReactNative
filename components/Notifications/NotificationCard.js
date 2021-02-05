@@ -32,17 +32,19 @@ const NotificationCard = ( { item }: Props ) => {
     image = badges[completed.earnedIconName];
   }
 
+  const goToNotification = () => {
+    if ( item.nextScreen === "ChallengeDetails" ) {
+      setChallengeIndex( item.challengeIndex );
+    }
+    if ( item.seen === false ) {
+      markNotificationAsSeen( item.index );
+    }
+    navigation.navigate( item.nextScreen );
+  };
+
   return (
     <TouchableOpacity
-      onPress={() => {
-        if ( item.nextScreen === "ChallengeDetails" ) {
-          setChallengeIndex( item.challengeIndex );
-        }
-        if ( item.seen === false ) {
-          markNotificationAsSeen( item.index );
-        }
-        navigation.navigate( item.nextScreen );
-      }}
+      onPress={goToNotification}
       style={[styles.card, styles.row]}
     >
       <Image source={image} style={styles.image} />

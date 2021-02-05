@@ -56,6 +56,8 @@ const MatchContainer = ( {
 
   const greenButtonText = speciesIdentified ? "results.view_species" : "results.take_photo";
 
+  const showSpeciesNearby = ( screenType === "commonAncestor" && rank < 60 ) && image.latitude;
+
   return (
     <View style={styles.marginLarge}>
       <View style={styles.textContainer}>
@@ -70,7 +72,7 @@ const MatchContainer = ( {
         />
       </View>
       <View style={styles.marginMedium} />
-      {( screenType === "commonAncestor" && rank < 60 ) && (
+      {showSpeciesNearby && (
         <>
           <SpeciesNearby ancestorId={taxaId} image={image} />
           <View style={styles.marginMedium} />
@@ -78,10 +80,7 @@ const MatchContainer = ( {
       )}
       <View style={styles.textContainer}>
         {speciesIdentified && (
-          <TouchableOpacity
-            onPress={setCameraPath}
-            style={styles.link}
-          >
+          <TouchableOpacity onPress={setCameraPath}>
             <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
           </TouchableOpacity>
         )}

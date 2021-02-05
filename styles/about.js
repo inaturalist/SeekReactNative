@@ -1,3 +1,5 @@
+// @flow
+
 import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "./global";
 

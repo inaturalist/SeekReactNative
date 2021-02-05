@@ -1,3 +1,5 @@
+// @flow
+
 const notifications = {
   bird: require( "./logos/iNatStatsSpeciesDetail-Bird.webp" ),
   badge_empty: require( "./badges/Badge_Empty.webp" ),

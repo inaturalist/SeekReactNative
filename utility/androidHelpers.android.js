@@ -1,3 +1,5 @@
+// @flow
+
 import { PermissionsAndroid } from "react-native";
 
 const checkLocationPermissions = async () => {

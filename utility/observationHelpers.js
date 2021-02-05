@@ -1,3 +1,5 @@
+// @flow
+
 import Realm from "realm";
 
 import UUIDGenerator from "react-native-uuid-generator";
@@ -12,7 +14,7 @@ import { setISOTime } from "./dateHelpers";
 const createUUID = async () => {
   try {
     const uuidGen = await UUIDGenerator.getRandomUUID();
-    return uuidGen;
+    return uuidGen.toLocaleLowerCase( );
   } catch ( e ) {
     return null;
   }
@@ -26,7 +28,22 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = async ( observation, image ) => {
+const addToCollection = async ( observation: {
+  taxon: {
+    default_photo: {
+      medium_url: string
+    },
+    id: number,
+    name: string,
+    iconic_taxon_id: number,
+    ancestor_ids: Array<number>
+  }
+}, image: {
+  latitude: number,
+  longitude: number,
+  uri: string,
+  time: Date
+} ) => {
   const {
     latitude,
     longitude,
@@ -75,7 +92,7 @@ const addToCollection = async ( observation, image ) => {
   } );
 };
 
-const removeFromCollection = ( id ) => {
+const removeFromCollection = ( id: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
     realm.write( () => {
       const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
@@ -148,5 +165,6 @@ const createSectionList = ( realm, species, hideSections ) => {
 export {
   addToCollection,
   removeFromCollection,
-  createSectionList
+  createSectionList,
+  createUUID
 };

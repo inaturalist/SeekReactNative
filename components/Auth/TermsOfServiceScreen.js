@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import HTML from "react-native-render-html";
 

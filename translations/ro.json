@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Conectează-te cu contul tău iNaturalist",
     "username": "Nume utilizator",
+    "username_email": "Nume de utilizator / e-mail",
+    "username_or_email": "Nume de utilizator sau e-mail",
     "password": "Parola",
     "forgot_password_header": "Am uitat parola",
     "forgot_password": "Ai uitat parola?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Specii din apropiere",
     "button": "Caută în apropierea locației",
-    "undefined": "Locație nedefinită",
-    "map_error_android": "Google Maps nu se poate încărca în acest moment."
+    "undefined": "Locație nedefinită"
   },
   "taxon_picker": {
     "all": "Toate speciile",
@@ -489,7 +490,8 @@
     "mammal": "mamifer",
     "species_saved": "Această specie este salvată în observațiile tale.",
     "you": "Hei, uite, tu ești! Ieși afara și găsește unele specii sălbatice pentru a afla mai multe despre ele.",
-    "internet_error": "Avem nevoie de internet ca să generăm ecranul de detaliu al speciei. Tapează pentru a încerca din nou."
+    "internet_error": "Avem nevoie de internet ca să generăm ecranul de detaliu al speciei. Tapează pentru a încerca din nou.",
+    "no_photos_found": "Nu s-au găsit fotografii pentru această specie."
   },
   "about": {
     "header": "Despre",
@@ -707,13 +709,13 @@
     "apr_2021_challenge_name": "Provocarea Restaurării & Recuperării",
     "apr_2021_description": "Schimbările climatice, pierderea speciilor și poluarea cu plastic sunt trei dintre cele mai mari provocări cu care se confruntă în prezent planeta noastră și toate sunt determinate de activitatea umană. Tema din acest an pentru Ziua Planetei Pământ (22 aprilie) este \"Regenerarea Pământului nostru.\" Cu toții trebuie să colaborăm pentru a construi un viitor mai durabil atât pentru comunități, cât și pentru fauna sălbatică — acțiunile tale individuale pot contribui la realizarea unei schimbări!",
     "apr_2021_action": "Unul dintre cele mai răspândite efecte umane asupra ecosistemelor este gunoiul. Pe măsură ce explorezi natura luna aceasta, acordă atenție gunoiului pe care îl vezi și gândește-te de unde ar fi putut proveni. Fă o listă cu lucrurile pe care le-ai putea face acasă pentru a reduce deșeurile generate de familia ta și împărtășește această listă cu restul familiei.",
-    "may_2021_mission_1": "Găsește 5 plante din oricare dintre următoarele familii:\n\nAsteraceae (Floarea-Soarelui, Margarete, Asteri și similare);\nFabaceae (leguminoase) - Salcâm, Trifoi, Lucernă;\nLamiaceae (Familia Mint) - Mentă;\nAcanthaceae (Familia Acanthus - spinoase și Honeysuckle) - Talpa Ursului și Caprifoi);\nMalvaceae (Familia Mallow și Hibiscus) - Zămoșită și Nalbă;\nBignoniaceae (Familia Bignonia) - Trâmbița piticilor, Trompetă;\nPassifloraceae (Familia Passiflora) - Fructul pasiunii, Floarea patimilor",
+    "may_2021_mission_1": "Găsește 5 plante din oricare dintre următoarele familii:\n\nAsteraceae (Floarea-Soarelui, Margarete, Asteri și similare);\nFabaceae (leguminoase);\nLamiaceae (Familia Mint);\nAcanthaceae (Familia Acanthus și Honeysuckle);\nMalvaceae (Familia Mallow și Hibiscus);\nBignoniaceae (Familia Bignonia);\nPassifloraceae (Familia Passiflora)",
     "may_2021_mission_2": "Găsește 2 artropode (insecte, arahnide, crustacee)",
     "may_2021_challenge_name": "Provocarea Ecosistemelor Sănătoase",
     "may_2021_description": "Ecosistemele sănătoase ne oferă multe beneficii diferite, inclusiv curățarea apei și a aerului, stocarea carbonului și furnizarea habitatului pentru susținerea biodiversității. Se știe că unele specii — cum ar fi lichenii, mușchii și odonatele (libelule și zigoptere) sunt indicatori ai sănătății ecologice. Când vezi aceste specii, este un semn bun că ecosistemul tău este sănătos!",
     "may_2021_action": "Ecosistemele sănătoase au beneficii importante pentru propria noastră sănătate și bunăstare. Timpul petrecut în natură poate ajuta oamenii să se refacă după stres, să-și îmbunătățească starea de spirit și să gândească mai clar. Găsește un loc liniștit în natură și petrece o oră concentrându-te la peisajele, sunetele, mirosurile și texturile din jurul tău. Notează câteva dintre observațiile tale. Cum te face să te simți acest timp petrecut în natură?",
     "june_2021_mission_1": "Găsește 1 plantă din următoarele clase:\n\nLycopodiopsida (Brădișor, Pedicuță, Cornișor, Stuțișoară);\nPolypodiopsida (Ferigi)",
-    "june_2021_mission_2": "Găsește 1 plantă în clasa Pinopsida (Conifere) - Pin, Brad, Molid, Ienupăr",
+    "june_2021_mission_2": "Găsește 1 plantă în clasa Pinopsida (Conifere)",
     "june_2021_mission_3": "Găsește 1 plantă din subfilum Angiospermae (Plante cu Flori, Magnolii)",
     "june_2021_mission_4": "Găsește 1 fungus",
     "june_2021_mission_5": "Găsește 2 vertebrate (păsări, mamifere, amfibieni, reptile, pești)",

@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "התחברו עם חשבון ה iNaturalist",
     "username": "שם משתמש",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "סיסמא",
     "forgot_password_header": "שכחתי סיסמה",
     "forgot_password": "? שכחת את הסיסמא שלך?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "מינים בסביבה",
     "button": "חפשו סביב מיקום",
-    "undefined": "אזור לא מוגדר",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "אזור לא מוגדר"
   },
   "taxon_picker": {
     "all": "כל הזנים",
@@ -489,7 +490,8 @@
     "mammal": "יונק",
     "species_saved": "מין זה נשמר בתצפיות שלך.",
     "you": "היי ראו, זה אתם! צאו החוצה ומצאו קצת בעלי חיים בטבע כדי ללמוד עליהם יותר.",
-    "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר את עמוד פרטי המין. הקישו לנסת שוב."
+    "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר את עמוד פרטי המין. הקישו לנסת שוב.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "אודות",

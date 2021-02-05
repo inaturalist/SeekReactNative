@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Mit deinem iNaturalist-Konto anmelden",
     "username": "Benutzername",
+    "username_email": "Benutzername / E-Mail",
+    "username_or_email": "Benutzername oder E-Mail",
     "password": "Kennwort",
     "forgot_password_header": "Kennwort vergessen",
     "forgot_password": "Passwort vergessen?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Arten in der Nähe",
     "button": "Neuen Standort suchen",
-    "undefined": "Unbestimmter Standort\n",
-    "map_error_android": "Google Maps kann derzeit nicht geladen werden."
+    "undefined": "Unbestimmter Standort\n"
   },
   "taxon_picker": {
     "all": "Alle Arten",
@@ -489,7 +490,8 @@
     "mammal": "Säugetier",
     "species_saved": "Diese Art wird in deinen Beobachtungen gespeichert.",
     "you": "Hey, sieh mal - das bist Du! Geh hinaus und finde einige wilde Arten, um noch mehr über sie zu erfahren.",
-    "internet_error": "Eine Internetverbindung wird benötigt, um Details zu dieser Art zu zeigen. Tippe, um es erneut zu versuchen."
+    "internet_error": "Eine Internetverbindung wird benötigt, um Details zu dieser Art zu zeigen. Tippe, um es erneut zu versuchen.",
+    "no_photos_found": "Keine Fotos für diese Art gefunden."
   },
   "about": {
     "header": "Über",

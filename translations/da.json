@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Log ind med din iNaturalist-konto",
     "username": "Brugernavn",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Adgangskode",
     "forgot_password_header": "Glemt adgangskode",
     "forgot_password": "Glemt din adgangskode?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Arter i nærheden",
     "button": "Søg nær placering",
-    "undefined": "Udefineret placering",
-    "map_error_android": "Google Maps kan ikke indlæses på nuværende tidspunkt."
+    "undefined": "Udefineret placering"
   },
   "taxon_picker": {
     "all": "Alle arter",
@@ -489,7 +490,8 @@
     "mammal": "pattedyr",
     "species_saved": "Denne art er gemt under dine observationer.",
     "you": "Hej igen! Gå udenfor og find nogle vilde arter for at lære endnu mere om dem.",
-    "internet_error": "Vi har brug for internetforbindelse for at kunne vise siden med artsdetaljer. Tryk for at prøve igen."
+    "internet_error": "Vi har brug for internetforbindelse for at kunne vise siden med artsdetaljer. Tryk for at prøve igen.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Om",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

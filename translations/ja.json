@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "iNaturalistアカウントでログインする",
     "username": "ユーザー名",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "パスワード",
     "forgot_password_header": "パスワードをお忘れの場合",
     "forgot_password": "パスワードをお忘れですか?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "近くの生き物",
     "button": "場所の周辺を検索",
-    "undefined": "位置情報なし",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "位置情報なし"
   },
   "taxon_picker": {
     "all": "すべての種",
@@ -489,7 +490,8 @@
     "mammal": "哺乳類",
     "species_saved": "この種はあなたの観察記録に保存されています。",
     "you": "ヤッホー！外に出て、野生の生き物を見つけよう。",
-    "internet_error": "種の詳細画面を画面を読み込むには、インターネットへの接続が必要です。再試行するにはタップしてください。"
+    "internet_error": "種の詳細画面を画面を読み込むには、インターネットへの接続が必要です。再試行するにはタップしてください。",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Seekについて",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

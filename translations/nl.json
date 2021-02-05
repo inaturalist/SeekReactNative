@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",
     "username": "Gebruikersnaam",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Wachtwoord",
     "forgot_password_header": "Wachtwoord vergeten",
     "forgot_password": "Je wachtwoord vergeten?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Soorten in de buurt",
     "button": "Zoek locatie in de buurt",
-    "undefined": "Niet-gedefinieerde locatie",
-    "map_error_android": "Google Maps kan momenteel niet worden geladen."
+    "undefined": "Niet-gedefinieerde locatie"
   },
   "taxon_picker": {
     "all": "Alle soorten",
@@ -489,7 +490,8 @@
     "mammal": "zoogdier",
     "species_saved": "Deze soort wordt opgeslagen in jouw waarnemingen.",
     "you": "Hey look, jij bent het! Ga naar buiten en vind wat wilde soorten om nog meer over hen te leren.",
-    "internet_error": "Internet is nodig om het detailscherm te tonen. Tik om het opnieuw te proberen."
+    "internet_error": "Internet is nodig om het detailscherm te tonen. Tik om het opnieuw te proberen.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Over",
@@ -698,20 +700,20 @@
   "natgeo_challenges": {
     "mar_2021_mission_1": "Vind tien soorten",
     "mar_2021_challenge_name": "NatGeo Natuur Uitdaging",
-    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
+    "mar_2021_description": "We beginnen met vier maanden door National Geographic Society gesponsorde uitdagingen die zijn gericht op het begrijpen van de afhankelijkheid van en de invloed op de natuur.\n\nDe natuur is overal om ons heen en de tijd die in de natuur wordt besteed verbetert je gezondheid en verhoogt je geluk. Kies een plaats zoals een lokaal park, beschermd gebied of jouw erf die je elke maand bezoekt als onderdeel van je verkenning met Seek. De missie van deze maand: vind tien soorten die je gelukkig maken!\n\nOm hulpmiddelen te vinden die je helpen Seek te gebruiken en meer te leren over biodiversiteit, bezoek NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Spendeer tijd om Seek te leren gebruiken of te leren kennen. Bezoek het startscherm om te zien welke soorten in de buurt leven. Zijn er bepaalde planten of dieren die jij echt zou willen waarnemen?",
     "mar_2021_photographer": "Foto door: Tom Matthews / National Geographic",
     "apr_2021_mission_1": "Vind 2 weekdieren (tweekleppigen, naaktslakken, huisjesslakken of keverslakken) of kreeftachtigen (zeepokken, krabben, kreeften, krill, pissebedden)",
     "apr_2021_mission_2": "Vind 6 plantensoorten",
     "apr_2021_mission_3": "Vind 2 schimmels",
-    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
+    "apr_2021_challenge_name": "Restauratie & Herstel Uitdaging",
     "apr_2021_description": "Klimaatverandering, verlies van soorten en plastic verontreiniging zijn drie van de grootste uitdagingen waar onze planeet op dit moment voor staat en die allemaal worden veroorzaakt door menselijke activiteiten. Het thema van dit jaar op de \"Dag van de Aarde\" (22 april)  is \"Herstel onze aarde\". We moeten allemaal samenwerken om een duurzamere toekomst voor zowel gemeenschappen als in het wild levende dieren te bouwen — jouw individuele acties kunnen helpen een verschil te maken!",
     "apr_2021_action": "Een van de meest verspreide menselijke effecten op ecosystemen is afval. Als je de natuur deze maand verkent, let dan op het afval dat je ziet en bedenk waar dat vandaan komt. Maak een lijst van dingen die je thuis zou kunnen doen om het afval dat je gezin produceert te verminderen en deel deze lijst met de rest van je familie.",
     "may_2021_mission_1": "Vind 5 planten uit elk van de volgende families:\n\nAsteraceae (Composietenfamilie of Samengesteldbloemigen met zonnebloemen, madeliefjes, asters en verwanten);\nFabaceae (Vlinderbloemigen);\nLamiaceae (Lipbloemigen);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Kaasjeskruidfamilie);\nBignoniaceae (Trompetboomfamilie);\nPassifloraceae (Passiebloemfamilie)",
     "may_2021_mission_2": "Vind 2 anthropoda (insecten, spinachtigen, kreeftachtigen)",
     "may_2021_challenge_name": "Gezonde ecosystemen Uitdaging",
     "may_2021_description": "Gezonde ecosystemen bieden ons veel verschillende voordelen, zoals het schoonmaken van ons water en de lucht, het opslaan van koolstof en het verschaffen van een habitat ter ondersteuning van de biodiversiteit. Sommige soorten, zoals korstmossen, mossen, libellen en waterjuffers (Odonata) zijn bekend als ecologische gezondheidsindicatoren. Als je deze soorten ziet is het een goed teken dat je ecosysteem gezond is!",
-    "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
+    "may_2021_action": "Gezonde ecosystemen hebben belangrijke voordelen voor onze eigen gezondheid en welzijn. De tijd die in de natuur wordt doorgebracht kan mensen helpen zich te herstellen van stress, hun stemming te verbeteren en helderder te denken. Vind een rustige plek in de natuur en besteed een uur lang aandacht aan het uitzicht, geluiden, geuren en texturen om je heen. Schrijf een aantal van je waarnemingen op. Hoe voel je je tijdens dit verblijf in de natuur?",
     "june_2021_mission_1": "Vind 1 plant uit de volgende klassen:\n\nLycopodiopsida (Wolfsklauwen,  Engels mos en Dennewolfsklauwachtigen);\nPolypodiopsida (Eptosporangiate varens)",
     "june_2021_mission_2": "Vind 1 plant in de klasse Pinopsida (Coniferen)",
     "june_2021_mission_3": "Vind 1 plant uit de onderstam Angiospermae (bloemplanten)",
@@ -721,6 +723,6 @@
     "june_2021_mission_7": "Vind 1 spinachtige",
     "june_2021_challenge_name": "Behoud Uitdaging",
     "june_2021_description": "Wij allen kunnen, ongeacht onze leeftijd of ervaring, een positief effect hebben op het behoud van de biodiversiteit. We kunnen bijvoorbeeld helpen om te zorgen voor een bepaalde plaats zoals ons eigen erf, een beschermd gebied of een lokaal park. Het beschermen van de natuur begint met het leren over planten, schimmels en dieren op de plaatsen waar je om geeft. Je uitdaging deze maand is om in je tuin of een lokaal park te kijken en zo veel mogelijk biodiversiteit te inventariseren.",
-    "june_2021_action": "Deze maand richt jij je op het leren over elk soort die je documenteert, waaronder welke soorten inheems zijn en welke geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Determineer iets wat je kunt doen om te helpen een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van."
+    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van."
   }
 }

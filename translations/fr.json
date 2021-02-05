@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Se connecter avec votre compte iNaturalist",
     "username": " Nom d'utilisateur",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": " Mot de passe",
     "forgot_password_header": "Mot de passe oublié",
     "forgot_password": "Vous avez oublié votre mot de passe ?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Espèces à proximité",
     "button": "Rechercher à proximité",
-    "undefined": "Localisation inconnue",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "Localisation inconnue"
   },
   "taxon_picker": {
     "all": " Toutes les espèces",
@@ -489,7 +490,8 @@
     "mammal": "mammifère",
     "species_saved": "Cette espèce est enregistrée dans vos observations.",
     "you": "Regardez, c'est vous ! Sortez et trouvez des espèces sauvages pour en savoir plus sur elles.",
-    "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer."
+    "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "À propos",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

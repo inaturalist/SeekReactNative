@@ -12,13 +12,11 @@ const { height, width } = dimensions;
 
 export default StyleSheet.create( {
   card: {
-    justifyContent: "space-between",
-    marginHorizontal: height > 570 ? 25 : 10,
     paddingVertical: 12
   },
-  image: {
+  challengeBadgeIcon: {
     height: 60,
-    marginRight: height > 570 ? 25 : 10,
+    marginHorizontal: height > 570 ? 25 : 10,
     resizeMode: "contain",
     width: 60
   },
@@ -30,7 +28,8 @@ export default StyleSheet.create( {
   row,
   startButton: {
     alignItems: "center",
-    width: 59
+    width: 59,
+    marginHorizontal: height > 570 ? 25 : 10
   },
   startText: {
     color: colors.seekForestGreen,
@@ -40,7 +39,7 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    width: height > 570 ? width - 226 : 170
+    width: height > 570 ? width - ( 110 * 2 ) : 170
   },
   titleText: {
     color: colors.seekForestGreen,

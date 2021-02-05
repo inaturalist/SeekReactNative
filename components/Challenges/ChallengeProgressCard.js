@@ -81,18 +81,16 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
       onPress={navToChallengeDetails}
       style={[styles.card, styles.row]}
     >
-      <View style={styles.row}>
-        <Image source={leftIcon} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.titleText}>
-            {i18n.t( name ).toLocaleUpperCase().replace( /(- |-)/g, "-\n" )}
-          </Text>
-          <Text style={styles.messageText}>
-            {is2020Challenge ? i18n.t( "seek_challenges.badge" ).split( " " )[0] : i18n.t( "challenges.op" )}
-            {" - "}
-            {formatMonthYear( availableDate )}
-          </Text>
-        </View>
+      <Image source={leftIcon} style={styles.challengeBadgeIcon} />
+      <View style={styles.textContainer}>
+        <Text style={styles.titleText}>
+          {i18n.t( name ).toLocaleUpperCase().replace( /(- |-)/g, "-\n" )}
+        </Text>
+        <Text style={styles.messageText}>
+          {is2020Challenge ? i18n.t( "seek_challenges.badge" ).split( " " )[0] : i18n.t( "challenges.op" )}
+          {" - "}
+          {formatMonthYear( availableDate )}
+        </Text>
       </View>
       <View style={styles.startButton}>
         {rightIcon}

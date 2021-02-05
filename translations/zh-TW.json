@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",
     "username": "使用者名稱",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "密碼",
     "forgot_password_header": "忘記密碼？",
     "forgot_password": "忘記你的密碼了嗎？",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "附近物種",
     "button": "搜尋附近位置",
-    "undefined": "未定義的位置",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "未定義的位置"
   },
   "taxon_picker": {
     "all": "所有物種",
@@ -489,7 +490,8 @@
     "mammal": "哺乳動物",
     "species_saved": "此物种已存儲至您的觀察結果。",
     "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
-    "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。"
+    "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "關於",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

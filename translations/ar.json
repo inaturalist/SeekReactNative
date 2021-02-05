@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "تسجيل الدخول لحسابك باستخدام iNaturalist",
     "username": "اسم المستخدم",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "كلمة المرور",
     "forgot_password_header": "نسيت كلمة المرور",
     "forgot_password": "هل نسيت كلمة المرور؟",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "الأنواع القريبة",
     "button": "البحث عن موقع قريب",
-    "undefined": "موقع غير محدد",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "موقع غير محدد"
   },
   "taxon_picker": {
     "all": "جميع الأنواع",
@@ -489,7 +490,8 @@
     "mammal": "ثديِيَات",
     "species_saved": "تم حفظ هذه الأنواع في ملاحظاتك.",
     "you": "هي!! أنت! اخرج وابحث عن بعض الأنواع البرية لتعرف المزيد عنها.",
-    "internet_error": "نحتاج إلى الإنترنيت لإنشاء شاشة تخصّ تفاصيل الأنواع. انقر لإعادة المحاولة"
+    "internet_error": "نحتاج إلى الإنترنيت لإنشاء شاشة تخصّ تفاصيل الأنواع. انقر لإعادة المحاولة",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "حول",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

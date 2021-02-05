@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "ඔබගේ iNaturalist ගිණුම සමඟ ඇතුල් වන්න",
     "username": "පරිශීලක නාමය",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "මුරපදය",
     "forgot_password_header": "මුරපදය අමතක වුණා",
     "forgot_password": "ඔබේ මුරපදය අමතක වුණාද?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "අසල ඇති විශේෂ",
     "button": "ස්ථානය අසල සොයන්න",
-    "undefined": "ස්ථානය නිර්වචනය කළ නොහැක",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "ස්ථානය නිර්වචනය කළ නොහැක"
   },
   "taxon_picker": {
     "all": "සියලුම විශේෂ",
@@ -489,7 +490,8 @@
     "mammal": "ක්ෂීරපායී",
     "species_saved": "මෙම විශේෂය ඔබගේ නිරීක්ෂණ වෙත සුරකින ලදි.",
     "you": "ඒයි බලන්න, ඒ ඔබයි! පිටතට ගොස් ඒවා ගැන ඊටත් වඩා ඉගෙන ගැනීමට වන විශේෂයන් කීපයක් සොයා ගන්න.",
-    "internet_error": "විශේෂයේ විස්තර තිරය ජනනය කිරීමට අපට අන්තර්ජාලය අවශ්‍යයි. නැවත උත්සාහ කිරීමට තට්ටු කරන්න."
+    "internet_error": "විශේෂයේ විස්තර තිරය ජනනය කිරීමට අපට අන්තර්ජාලය අවශ්‍යයි. නැවත උත්සාහ කිරීමට තට්ටු කරන්න.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "පිළිබඳව",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

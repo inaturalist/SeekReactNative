@@ -12,6 +12,7 @@ import i18n from "../i18n";
 import config from "../config";
 import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
+import { serverBackOnlineTime } from "./dateHelpers";
 
 const checkForInternet = () => (
   new Promise<any>( ( resolve ) => {
@@ -248,6 +249,29 @@ const setQuickActions = () => {
   }
 };
 
+const handleServerError = ( error: {
+  response: {
+    status: number,
+    headers: {
+      map: {
+        "retry-after": string
+      }
+    }
+  }
+} ) => {
+  const { response } = error;
+
+  if ( !response ) { return "error"; }
+
+  if ( response.status && response.status === 503 ) {
+    const gmtTime = response.headers.map["retry-after"];
+    const hours = serverBackOnlineTime( gmtTime );
+    console.log( hours, "hours" );
+    return hours;
+  }
+  return "error";
+};
+
 export {
   addARCameraFiles,
   capitalizeNames,
@@ -267,5 +291,6 @@ export {
   localizePercentage,
   navigateToMainStack,
   hideLogs,
-  setQuickActions
+  setQuickActions,
+  handleServerError
 };

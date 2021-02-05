@@ -9,6 +9,7 @@ import styles from "../../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
 import createUserAgent from "../../../utility/userAgent";
+import { handleServerError } from "../../../utility/helpers";
 
 type Props = {
   +id: ?Number
@@ -64,7 +65,11 @@ const SimilarSpecies = ( { id }: Props ) => {
           if ( isActive ) {
             dispatch( { type: "SHOW_SIMILAR_SPECIES", similarSpecies: species } );
           }
-        } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
+        } ).catch( ( error ) => {
+          const err = handleServerError( error );
+          // returns 3 or error
+          console.log( err, "error in similar species" );
+         } );
       };
       resetState( );
       fetchSimilarSpecies( );

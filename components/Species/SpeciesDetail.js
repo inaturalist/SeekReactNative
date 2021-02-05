@@ -15,7 +15,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import styles from "../../styles/species/species";
-import { getSpeciesId, checkForInternet } from "../../utility/helpers";
+import { getSpeciesId, checkForInternet, handleServerError } from "../../utility/helpers";
 import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
@@ -157,7 +157,11 @@ const SpeciesDetail = ( ) => {
           }
         }
       } );
-    } ).catch( ( ) => checkInternetConnection( ) );
+    } ).catch( ( err ) => {
+      const errorType = handleServerError( err );
+      console.log( errorType, "error type" );
+      checkInternetConnection( );
+     } );
   }, [id, checkInternetConnection] );
 
   const fetchDetails = useCallback( ( ) => {

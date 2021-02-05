@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Inicieu sessió al vostre compte d'iNaturalist",
     "username": "Nom d’usuari",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Contrasenya",
     "forgot_password_header": "Contrasenya oblidada",
     "forgot_password": "Has oblidat la teva contrasenya?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Espècies poperes",
     "button": "Cerca prop de la ubicació",
-    "undefined": "Localització no definida",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "Localització no definida"
   },
   "taxon_picker": {
     "all": "Totes les espècies",
@@ -489,7 +490,8 @@
     "mammal": "mamífer",
     "species_saved": "Aquesta espècie està guardada a les teves observacions.",
     "you": "Ei, mira, tu! Surt a l'exterior i troba algunes espècies salvatges per aprendre encara més sobre elles.",
-    "internet_error": "Necessitem accés a internet per mostrar informació detallada de l'espècie. Toca per intentar-ho de nou."
+    "internet_error": "Necessitem accés a internet per mostrar informació detallada de l'espècie. Toca per intentar-ho de nou.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Quant a",

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { View, Text, BackHandler } from "react-native";
+import { Text, BackHandler } from "react-native";
 import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
@@ -66,17 +66,13 @@ const SpeciesHeader = ( {
     <>
       <CustomBackArrow handlePress={backAction} style={styles.backButton} />
       <SpeciesPhotos photos={photos} id={id} />
-      <View style={styles.greenBanner}>
-        {iconicTaxonId && (
-          <Text style={styles.iconicTaxaText}>
-            {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
-          </Text>
-        )}
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
-        <Text style={styles.scientificNameText}>{scientificName}</Text>
-      </View>
+      {iconicTaxonId && (
+        <Text style={styles.iconicTaxaText}>
+          {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
+        </Text>
+      )}
+      <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
+      <Text style={styles.scientificNameText}>{scientificName}</Text>
     </>
   );
 };

@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",
     "username": "Username",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Password",
     "forgot_password_header": "Forgot password",
     "forgot_password": "Forgot your password?",
@@ -488,7 +490,8 @@
     "mammal": "mammal",
     "species_saved": "This species is saved to your observations.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "About",
@@ -689,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

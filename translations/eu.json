@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Hasi saioa zure iNaturalist kontuarekin",
     "username": "Erabiltzaile izena",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Pasahitza",
     "forgot_password_header": "Pasahitza ahaztu duzu?",
     "forgot_password": "Zure pasahitza ahaztu duzu?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Gertu dauden espezieak",
     "button": "Kokapenetik gertu bilatu",
-    "undefined": "Kokapen ezezaguna",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "Kokapen ezezaguna"
   },
   "taxon_picker": {
     "all": "Espezie guztiak",
@@ -489,7 +490,8 @@
     "mammal": "ugaztuna",
     "species_saved": "Espezie hau zure behaketetan gorde da.",
     "you": "Aizu, begira, zu zara! Atera zaitez kalera eta aurkitu hainbat espezie basati euren inguruan gehiago jakiteko.",
-    "internet_error": "Interneterako sarrera behar dugu xehetasunen pantaila sortu ahal izateko. Ukitu berriro saiatzeko."
+    "internet_error": "Interneterako sarrera behar dugu xehetasunen pantaila sortu ahal izateko. Ukitu berriro saiatzeko.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Honi buruz",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

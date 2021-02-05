@@ -2,7 +2,7 @@
 
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 
-const setAncestorIdsiOS = ( predictions: Array<Object> ) => {
+const setAncestorIdsiOS = ( predictions: Array<Object> ): Array<number> => {
   // adding ancestor ids to take iOS camera experience offline
   const ancestorIds = predictions.map( ( p ) => Number( p.taxon_id ) );
   return ancestorIds.sort( );

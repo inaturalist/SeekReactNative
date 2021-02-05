@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "अपने iNaturalist अकाउंट से लॉग-इन करें",
     "username": "यूज़र नेम",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "पासवर्ड",
     "forgot_password_header": "Forgot password",
     "forgot_password": "Forgot your password?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Species nearby",
     "button": "अपने स्थान के आस-पास खोजें",
-    "undefined": "अनिश्चित स्थान",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "अनिश्चित स्थान"
   },
   "taxon_picker": {
     "all": "सभी प्रजातियाँ",
@@ -489,7 +490,8 @@
     "mammal": "स्तनपायी",
     "species_saved": "यह प्रजाति आपके पर्यवेक्षणों में सहेजी गई है.",
     "you": "अरे देखिए- यह आप हैं! बाहर निकलिए और कुछ जंगली प्रजातियों के बारे में और अधिक जानने के लिए खोजें।",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "About",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

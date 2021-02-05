@@ -7,7 +7,6 @@ import { XAxis, LineChart } from "react-native-svg-charts";
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/speciesChart";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
-import { capitalizeNames } from "../../../utility/helpers";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
 import { SpeciesDetailContext } from "../../UserContext";
 import { fetchHistogram } from "../../../utility/speciesDetailHelpers";
@@ -68,14 +67,13 @@ const SpeciesChart = ( { id, region }: Props ) => {
     };
 
     const allMonths = createShortMonthsList();
-    const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
+    const formatXAxis = ( index ) => allMonths[index];
     const formatLabel = ( value ) => formatXAxis( value - 1 );
     return (
       <XAxis
         contentInset={styles.xAxisWidth}
         data={data}
         formatLabel={formatLabel}
-        style={styles.xAxis}
         svg={xAxisSvg}
         xAccessor={xAccessor}
       />
@@ -84,20 +82,18 @@ const SpeciesChart = ( { id, region }: Props ) => {
 
   return (
     <SpeciesDetailCard text="species_detail.monthly_obs" hide={data.length === 0}>
-      <View style={styles.container}>
-        <View style={styles.chartRow}>
-          <LineChart
-            contentInset={styles.chartInset}
-            data={data}
-            style={styles.chart}
-            svg={lineChartSvg}
-            xAccessor={xAccessor}
-            yAccessor={yAccessor}
-          >
-            <Decorator />
-          </LineChart>
-          {xAxis}
-        </View>
+      <View style={styles.chartContainer}>
+        <LineChart
+          contentInset={styles.chartInset}
+          data={data}
+          style={styles.chart}
+          svg={lineChartSvg}
+          xAccessor={xAccessor}
+          yAccessor={yAccessor}
+        >
+          <Decorator />
+        </LineChart>
+        {xAxis}
       </View>
     </SpeciesDetailCard>
   );

@@ -138,16 +138,12 @@ const formatYearMonthDay = ( date: any ) => {
 
 const formatHourMonthSecond = () => format( new Date(), "H:mm:ss" );
 
-const createShortMonthsList = () => {
-  const months = [];
+const createShortMonthsList = ( ): Array<string> => {
+  const months = Array.from( { length: 12 }, ( v, i ) => i + 1 );
 
-  for ( let i = 0; i <= 11; i += 1 ) {
-    const month = format( new Date( 2020, i, 1 ), "MMMMM", setLocale( ) );
-
-    months.push( month );
-  }
-
-  return months;
+  return months.map( i => {
+    return format( new Date( 2020, i, 0 ), "MMMMM", setLocale( ) );
+  } );
 };
 
 const formatMonthYear = ( date: Date ) => format( date, "MMMM yyyy", setLocale( ) );

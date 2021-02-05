@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Войти с помощью вашей учетной записи iNaturalist",
     "username": "Имя пользователя",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Пароль",
     "forgot_password_header": "Забыли пароль",
     "forgot_password": "Забыли пароль?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Виды поблизости",
     "button": "Поиск вблизи местоположения",
-    "undefined": "Местоположение не найдено",
-    "map_error_android": "В настоящее время карты Google не могут быть загружены."
+    "undefined": "Местоположение не найдено"
   },
   "taxon_picker": {
     "all": "Все виды",
@@ -489,7 +490,8 @@
     "mammal": "млекопитающее",
     "species_saved": "Эти виды сохранены в ваших наблюдениях.",
     "you": "Посмотри, это ты! Выйди на улицу и найди некоторые дикие виды, чтобы узнать о них еще больше.",
-    "internet_error": "Нам нужен интернет, чтобы создать экран детализации видов. Нажмите, чтобы повторить попытку."
+    "internet_error": "Нам нужен интернет, чтобы создать экран детализации видов. Нажмите, чтобы повторить попытку.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Подробно",

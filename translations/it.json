@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Accedi con il tuo account iNaturalist",
     "username": "Nome utente",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Password",
     "forgot_password_header": "Password dimenticata",
     "forgot_password": "Hai dimenticato la password?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Specie nelle vicinanze",
     "button": "Cerca località nelle vicinanze",
-    "undefined": "Posizione non definita",
-    "map_error_android": "Google Maps non può caricarsi in questo momento."
+    "undefined": "Posizione non definita"
   },
   "taxon_picker": {
     "all": "Tutte le Specie",
@@ -489,7 +490,8 @@
     "mammal": "mammifero",
     "species_saved": "Questa specie è salvata nelle tue osservazioni.",
     "you": "Ehi, sei tu! Vai fuori e trova alcune specie selvatiche per saperne di più.",
-    "internet_error": "Abbiamo bisogno di internet per generare la schermata di dettaglio delle specie. Tocca per riprovare."
+    "internet_error": "Abbiamo bisogno di internet per generare la schermata di dettaglio delle specie. Tocca per riprovare.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Info su",
@@ -696,31 +698,31 @@
     "crop_image": "Ritaglia immagine"
   },
   "natgeo_challenges": {
-    "mar_2021_mission_1": "Find any ten species",
-    "mar_2021_challenge_name": "NatGeo Nature Challenge",
-    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Are there any particular plants or animals that you would really like to observe?",
-    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
-    "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
-    "apr_2021_mission_2": "Find 6 plants",
-    "apr_2021_mission_3": "Find 2 fungi",
-    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
-    "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
-    "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family.",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
-    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
-    "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
-    "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
-    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
-    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
-    "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
-    "june_2021_mission_4": "Find 1 fungus",
-    "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
-    "june_2021_mission_6": "Find 1 insect",
-    "june_2021_mission_7": "Find 1 arachnid",
-    "june_2021_challenge_name": "Conservation Challenge",
-    "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it."
+    "mar_2021_mission_1": "Trova 10 specie qualsiasi",
+    "mar_2021_challenge_name": "Sfida Natura NatGeo",
+    "mar_2021_description": "Stiamo lanciando quattro mesi di sfide sponsorizzate dalla National Geographic Society, incentrate sulla comprensione di come dipendiamo e influenziamo il mondo naturale.\n\nLa natura è tutto intorno a noi, e il tempo trascorso nella natura aiuta a costruire salute e felicità. Se possibile, ti invitiamo a scegliere un luogo, come un parco locale, un'area protetta, o il tuo cortile, che visiti ogni mese ed includerlo nelle tue esplorazioni con Seek. Per la missione di questo mese: trova dieci specie che ti fanno sentire felice!\n\nPer trovare aiuto nell'utilizzo di Seek e saperne di più sulla biodiversità, visita NatGeoEd.org/BioBlitz.",
+    "mar_2021_action": "Trascorri del tempo per riprendere contatto, od imparare a usare, Seek. Visita la schermata iniziale per vedere quali specie vivono nelle tuevicinanze. Ci sono piante o animali particolari che vorresti davvero osservare?",
+    "mar_2021_photographer": "Foto di: Tom Matthews / National Geographic",
+    "apr_2021_mission_1": "Trova 2 molluschi (bivalvi, lumache, chitoni) o crostacei (cirripedi, granchi, aragoste, porcellini di terra)",
+    "apr_2021_mission_2": "Trova 6 piante",
+    "apr_2021_mission_3": "Trova 2 funghi",
+    "apr_2021_challenge_name": "Sfida Ripristino & Recupero",
+    "apr_2021_description": "Il cambiamento climatico, la perdita di specie e l'inquinamento da plastica sono tre delle maggiori sfide che il nostro pianeta si trova ad affrontare e sono tutte determinate dall'attività umana. Il tema di quest'anno per la Giornata della Terra (22 aprile) è \"Ripristinare la nostra Terra. Abbiamo tutti bisogno di lavorare insieme per costruire un futuro più sostenibile sia per le comunità che per la fauna selvatica: le tue azioni individuali possono contribuire a fare la differenza!",
+    "apr_2021_action": "Uno degli impatti umani più diffusi sugli ecosistemi è la spazzatura. Mentre esplori la natura questo mese, presta attenzione alla spazzatura e rifletti sula sua origine. Fai un elenco di cose che potresti fare a casa per ridurre lo spreco nella tua famiglia, e condividi questa lista con il resto della tua famiglia.",
+    "may_2021_mission_1": "Trova 5 piante provenienti da una delle seguenti famiglie:\n\nAsteraceae (Girasoli, Gigli, Astri e simili);\nFabaceae (Legumi);\nLamiaceae (Famiglia della Menta);\nAcanthaceae (Famiglia dell'Acanto e del Caprifoglio);\nMalvaceae (Famiglia dell'Ibisco e della Malva);\nBignoniaceae (Famiglia della Bignonia);\nPassifloraceae (Famiglia del Frutto della Passione)",
+    "may_2021_mission_2": "Trova 2 artropodi (insetti, aracnidi, crostacei)",
+    "may_2021_challenge_name": "Sfida Ecosistemi Sani",
+    "may_2021_description": "Gli ecosistemi sani ci offrono molti vantaggi diversi, tra cui la pulizia dell'acqua e dell'aria, lo stoccaggio del carbonio e la fornitura di habitat per la biodiversità. Alcune specie, come i licheni, il muschio e gli odonati (libellule e damigelle) sono note per essere indicatori di salute ecologica. Quando vedi queste specie è un buon segno di salute del tuo ecosistema!",
+    "may_2021_action": "Gli ecosistemi sani apportano importanti benefici alla nostra salute e al nostro benessere. Il tempo trascorso in natura può aiutare le persone a riprendersi dallo stress, migliorare il loro umore e pensare più chiaramente. Trova un posto tranquillo nella natura e trascorri un'ora concentrandoti su ciò che vedi, sui suoni, sugli odori e sulle trame intorno a te. Scrivi alcune delle tue osservazioni. Come ti fa sentire questo tempo trascorso nella natura?",
+    "june_2021_mission_1": "Trova 1 pianta dalle seguenti classi:\n\nLycopodiopsida (Selaginella, Licopodi e Huperzia);\nPolypodiopsida (Felci)",
+    "june_2021_mission_2": "Trova 1 pianta nella classe Pinopsida (Conifere)",
+    "june_2021_mission_3": "Trova 1 pianta dal subphylum Angiosperme (piante con fiore)",
+    "june_2021_mission_4": "Trova 1 fungo",
+    "june_2021_mission_5": "Trova 2 vertebrati (uccelli, mammiferi, anfibi, rettili, pesci)",
+    "june_2021_mission_6": "Trova 1 insetto",
+    "june_2021_mission_7": "Trova 1 aracnide",
+    "june_2021_challenge_name": "Sfida Conservazione",
+    "june_2021_description": "Tutti noi, indipendentemente dalla nostra età o esperienza, possiamo avere un impatto positivo sulla conservazione della biodiversità. Ad esempio, possiamo aiutare a prenderci cura di un luogo particolare come il nostro cortile, un'area protetta o un parco locale. Proteggere la natura inizia imparando a conoscere le piante, i funghi e gli animali che si trovano nei luoghi che ti interessano. La vostra sfida di questo mese è quella di guardare nel vostro cortile o un in parco locale e fare un inventario della biodiversità il più completo possibile.",
+    "june_2021_action": "Questo mese, concentrati sull'imparare qualcosa su ogni specie che documenti, incluso se sono native e che sono introdotte. Pensa a tutte le tue osservazioni negli ultimi quattro mesi: quali differenze hai notato nella biodiversità e nell'impatto dell'uomo in questo periodo e nei diversi luoghi che hai esplorato? Trova qualcosa che ti puoi impegnare a fare per contribuire a rendere un luogo vicino a te (come il tuo cortile o un parco) più idoneo per le specie autoctone. Annota il tuo obiettivo e scattane una foto."
   }
 }

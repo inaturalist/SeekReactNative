@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image
-} from "react-native";
+import { Text, TouchableOpacity, Image } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesImageCell";
@@ -62,17 +57,13 @@ const SpeciesImageCell = ( { item }: Props ) => {
 
   return (
     <TouchableOpacity onPress={navToNextScreen} style={styles.gridCell}>
-      <View style={styles.cellImage}>
-        {photo && renderSpeciesImage( )}
-        {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
-      </View>
-      <View style={styles.cellTitle}>
-        <Text numberOfLines={3} style={styles.cellTitleText}>
-          {i18n.locale === "de"
-            ? capitalizeNames( commonName || item.name ).replace( /(- |-)/g, "-\n" )
-            : capitalizeNames( commonName || item.name )}
-        </Text>
-      </View>
+      {photo && renderSpeciesImage( )}
+      {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
+      <Text numberOfLines={3} style={styles.speciesNameText}>
+        {i18n.locale === "de"
+          ? capitalizeNames( commonName || item.name ).replace( /(- |-)/g, "-\n" )
+          : capitalizeNames( commonName || item.name )}
+      </Text>
     </TouchableOpacity>
   );
 };

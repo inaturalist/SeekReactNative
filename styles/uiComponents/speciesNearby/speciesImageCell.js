@@ -9,14 +9,9 @@ export default StyleSheet.create( {
     height: 108,
     width: 108
   },
-  cellTitle: {
-    flexDirection: "row",
-    height: 92,
-    justifyContent: "center",
+  speciesNameText: {
     paddingTop: 13,
-    width: 108
-  },
-  cellTitleText: {
+    width: 108,
     color: colors.white,
     fontFamily: fonts.medium,
     fontSize: 16,
@@ -29,7 +24,7 @@ export default StyleSheet.create( {
   checkbox: {
     position: "absolute",
     right: 0,
-    bottom: 0,
+    bottom: 91,
     zIndex: 1,
     height: 24,
     width: 24

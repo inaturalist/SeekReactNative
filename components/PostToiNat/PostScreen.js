@@ -29,6 +29,7 @@ import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveIdAndUploadStatus, saveUploadSucceeded, resizeImageForUpload } from "../../utility/uploadHelpers";
+import { createUUID } from "../../utility/observationHelpers";
 
 const PostScreen = () => {
   const navigation = useNavigation();
@@ -171,9 +172,10 @@ const PostScreen = () => {
     dispatch( { type: "UPDATE_LOCATION", coords } );
   };
 
-  const addPhotoToObservation = ( obsId, token ) => {
+  const addPhotoToObservation = ( obsId, token, uuid ) => {
     const photoParams = {
       "observation_photo[observation_id]": obsId,
+      "observation_photo[uuid]": uuid,
       file: new FileUpload( {
         uri: resizedImage,
         name: "photo.jpeg",
@@ -191,7 +193,7 @@ const PostScreen = () => {
     } );
   };
 
-  const createObservation = ( token ) => {
+  const createObservation = ( token, uuid ) => {
     const { latitude, longitude, accuracy } = image;
     let geoprivacyState;
 
@@ -223,14 +225,14 @@ const PostScreen = () => {
 
     inatjs.observations.create( obsParams, options ).then( ( response ) => {
       const { id } = response[0];
-      saveIdAndUploadStatus( id, image.uri );
-      addPhotoToObservation( id, token ); // get the obs id, then add photo
+      saveIdAndUploadStatus( id, image.uri, uuid );
+      addPhotoToObservation( id, token, uuid ); // get the obs id, then add photo
     } ).catch( ( e ) => {
       setPostFailed( e, "beforePhotoAdded" );
     } );
   };
 
-  const fetchJSONWebToken = () => {
+  const fetchJSONWebToken = ( uuid: string ) => {
     const headers = {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent()
@@ -247,7 +249,7 @@ const PostScreen = () => {
       .then( response => response.json() )
       .then( ( responseJson ) => {
         const apiToken = responseJson.api_token;
-        createObservation( apiToken );
+        createObservation( apiToken, uuid );
       } ).catch( ( e ) => {
         if ( e instanceof SyntaxError ) { // this is from the iNat server being down
           setPostFailed( "", "beforeObservation" ); // HTML not parsed correctly, so skip showing error text
@@ -278,8 +280,9 @@ const PostScreen = () => {
 
   const dateToDisplay = date && formatYearMonthDay( date );
 
-  const postObservation = ( ) => {
-    fetchJSONWebToken( );
+  const postObservation = async ( ) => {
+    const uuid = await createUUID( );
+    fetchJSONWebToken( uuid );
     showPostStatus( );
   };
 

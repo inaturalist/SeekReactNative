@@ -6,14 +6,15 @@ import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
 
-const saveIdAndUploadStatus = async ( id: number, uri: string ) => {
+const saveIdAndUploadStatus = async ( id: number, uri: string, uuid: string ) => {
   const realm = await Realm.open( realmConfig );
   try {
     realm.write( ( ) => {
       realm.create( "UploadPhotoRealm", {
         id,
         uri,
-        uploadSucceeded: false
+        uploadSucceeded: false,
+        uuid
       }, true );
     } );
   } catch ( e ) {
@@ -56,9 +57,10 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
   }
 };
 
-const appendPhotoToObservation = async ( id: number, token: string, uri: string ) => {
+const appendPhotoToObservation = async ( id: number, token: string, uri: string, uuid: string ) => {
   const photoParams = {
     "observation_photo[observation_id]": id,
+    "observation_photo[uuid]": uuid,
     file: new FileUpload( {
       uri,
       name: "photo.jpeg",
@@ -76,9 +78,9 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string 
   }
 };
 
-const uploadPhoto = async ( uri: string, id: number, token: string ) => {
+const uploadPhoto = async ( uri: string, id: number, token: string, uuid: string ) => {
   const resizedPhoto = await resizeImageForUpload( uri );
-  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto );
+  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto, uuid );
 
   if ( reUpload === true ) {
     saveUploadSucceeded( id );
@@ -99,7 +101,7 @@ const checkForIncompleteUploads = async ( login: string ) => {
     if ( token === null ) { return; }
 
     unsuccessfulUploads.forEach( ( photo ) => {
-      uploadPhoto( photo.uri, photo.id, token );
+      uploadPhoto( photo.uri, photo.id, token, photo.uuid );
     } );
   } catch ( e ) {
     console.log( e, " : couldn't check for incomplete uploads" );

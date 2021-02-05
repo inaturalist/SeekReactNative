@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",
     "username": "Användarnamn",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Lösenord",
     "forgot_password_header": "Glömt lösenord",
     "forgot_password": "Glömt ditt lösenord?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Arter i närheten",
     "button": "Sök i närheten",
-    "undefined": "Odefinierad plats",
-    "map_error_android": "Google Maps kan inte laddas just nu."
+    "undefined": "Odefinierad plats"
   },
   "taxon_picker": {
     "all": "Alla arter",
@@ -489,7 +490,8 @@
     "mammal": "däggdjur",
     "species_saved": "Denna art är sparad till dina observationer.",
     "you": "Ser man på, det är ju du! Ge dig ut och hitta några vilda arter att lära dig ännu mer om.",
-    "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen."
+    "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Om",

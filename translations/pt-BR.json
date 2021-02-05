@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Entrar com a sua conta no iNaturalist",
     "username": "Nome de usuário",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Senha",
     "forgot_password_header": "Esqueci a senha",
     "forgot_password": "Esqueceu a senha?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Espécies nas proximidades",
     "button": "Pesquisar nas proximidades",
-    "undefined": "Localização indefinida",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "Localização indefinida"
   },
   "taxon_picker": {
     "all": "Todas as espécies",
@@ -489,7 +490,8 @@
     "mammal": "mamífero",
     "species_saved": "Esta espécie foi salva nas suas observações.",
     "you": "Ei, você! Saia e encontre algumas espécies silvestres para saber ainda mais sobre elas.",
-    "internet_error": "Precisamos da internet para gerar a tela de detalhes de espécies. Toque para tentar novamente."
+    "internet_error": "Precisamos da internet para gerar a tela de detalhes de espécies. Toque para tentar novamente.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "Sobre",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

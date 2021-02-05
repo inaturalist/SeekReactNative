@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Přihlaste se pomocí svého účtu iNaturalist",
     "username": "Uživatelské jméno",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Heslo",
     "forgot_password_header": "Zapomenuté heslo",
     "forgot_password": "Zapomněli jste heslo?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Druhy poblíž",
     "button": "Hledat blízko lokace",
-    "undefined": "Nedefinovaná poloha",
-    "map_error_android": "Mapy Google nelze v tuto chvíli načíst."
+    "undefined": "Nedefinovaná poloha"
   },
   "taxon_picker": {
     "all": "Všechny druhy",
@@ -489,7 +490,8 @@
     "mammal": "savec",
     "species_saved": "Tento druh je uložen do vašich pozorování.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "O aplikaci",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

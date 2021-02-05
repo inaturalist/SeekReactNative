@@ -82,6 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Bejelentkezés iNaturalist fiókkal",
     "username": "Felhasználónév",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "Jelszó",
     "forgot_password_header": "Elfelejtett jelszó",
     "forgot_password": "Elfelejtetted a jelszavad?",
@@ -115,8 +117,7 @@
   "location_picker": {
     "species_nearby": "Közelben lévő fajok",
     "button": "Keresés indítása",
-    "undefined": "Ismeretlen helyszín",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "Ismeretlen helyszín"
   },
   "taxon_picker": {
     "all": "Minden faj",
@@ -489,7 +490,8 @@
     "mammal": "mammal",
     "species_saved": "This species is saved to your observations.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "About",
@@ -690,7 +692,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"

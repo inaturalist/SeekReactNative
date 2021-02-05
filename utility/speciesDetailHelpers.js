@@ -3,7 +3,7 @@ import inatjs from "inaturalistjs";
 
 import createUserAgent from "./userAgent";
 
-const createHistogramChartData = ( results ) => {
+const createHistogramChartData = ( results ): Array<{ month: number, count: number }> => {
   const countsByMonth = results.month_of_year;
   const months = Array.from( { length: 12 }, ( v, i ) => i + 1 );
 
@@ -12,7 +12,7 @@ const createHistogramChartData = ( results ) => {
   } );
 };
 
-const fetchHistogram = async ( id: number, region?: {
+const fetchHistogram = async ( id: number, region?: ?{
   latitude: number,
   longitude: number
 } ) => {
@@ -22,7 +22,7 @@ const fetchHistogram = async ( id: number, region?: {
     taxon_id: id
   };
 
-  if ( region.latitude ) {
+  if ( region ) {
     // $FlowFixMe
     params.lat = region.latitude;
     // $FlowFixMe
@@ -30,8 +30,6 @@ const fetchHistogram = async ( id: number, region?: {
     // $FlowFixMe
     params.radius = 50;
   }
-
-  console.log( params, "params" );
 
   const options = { user_agent: createUserAgent( ) };
 

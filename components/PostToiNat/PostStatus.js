@@ -30,9 +30,15 @@ const PostStatus = ( {
   const [loading, setLoading] = useState( true );
 
   useEffect( () => {
+    let isCurrent = true;
     if ( postingSuccess !== null ) {
-      setLoading( false );
+      if ( isCurrent ) {
+        setLoading( false );
+      }
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [postingSuccess] );
 
   let headerText;
@@ -60,6 +66,15 @@ const PostStatus = ( {
     extraText = `${i18n.t( "posting.error_token" )} \n\n${errorText}`;
   }
 
+  const handleNav = ( ) => {
+    if ( postingSuccess ) {
+      setRoute( "PostStatus" );
+      navigation.goBack( );
+    } else {
+      togglePostModal( );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <StatusBar barStyle="dark-content" />
@@ -80,14 +95,7 @@ const PostStatus = ( {
         <View style={styles.bottom}>
           <GreenButton
             color={!loading && !postingSuccess ? colors.seekTeal : null}
-            handlePress={() => {
-              if ( postingSuccess ) {
-                setRoute( "PostStatus" );
-                navigation.goBack();
-              } else {
-                togglePostModal();
-              }
-            }}
+            handlePress={handleNav}
             text="posting.ok"
           />
         </View>

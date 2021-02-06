@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Inicia sesión con tu cuenta de iNaturalist",
     "username": "Nombre de usuario",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Nombre de usuario o email",
+    "username_or_email": "Nombre de usuario o email",
     "password": "ContraseÒa",
     "forgot_password_header": "Contraseña olvidada",
     "forgot_password": "¿Olvidaste tu contraseña?",
@@ -491,7 +491,7 @@
     "species_saved": "Esta especie se guarda en tus observaciones.",
     "you": "Mira - ¡eres tú! Sal y encuentra algunas especies silvestres para aprender aún más sobre ellas.",
     "internet_error": "Necesitamos Internet para generar la pantalla de información de la especie. Pulsa para intentarlo de nuevo.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "No hay fotos para esta especie."
   },
   "about": {
     "header": "Acerca de",

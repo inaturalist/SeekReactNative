@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Войти с помощью вашей учетной записи iNaturalist",
     "username": "Имя пользователя",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Имя пользователя / адрес электронной почты",
+    "username_or_email": "Имя пользователя или адрес электронной почты",
     "password": "Пароль",
     "forgot_password_header": "Забыли пароль",
     "forgot_password": "Забыли пароль?",
@@ -491,7 +491,7 @@
     "species_saved": "Эти виды сохранены в ваших наблюдениях.",
     "you": "Посмотри, это ты! Выйди на улицу и найди некоторые дикие виды, чтобы узнать о них еще больше.",
     "internet_error": "Нам нужен интернет, чтобы создать экран детализации видов. Нажмите, чтобы повторить попытку.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Фото этого вида не найдены"
   },
   "about": {
     "header": "Подробно",

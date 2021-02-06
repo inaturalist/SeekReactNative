@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Accedi con il tuo account iNaturalist",
     "username": "Nome utente",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Nome utente / email",
+    "username_or_email": "Nome utente o email",
     "password": "Password",
     "forgot_password_header": "Password dimenticata",
     "forgot_password": "Hai dimenticato la password?",
@@ -491,7 +491,7 @@
     "species_saved": "Questa specie è salvata nelle tue osservazioni.",
     "you": "Ehi, sei tu! Vai fuori e trova alcune specie selvatiche per saperne di più.",
     "internet_error": "Abbiamo bisogno di internet per generare la schermata di dettaglio delle specie. Tocca per riprovare.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Nessuna foto trovata per questa specie."
   },
   "about": {
     "header": "Info su",
@@ -692,7 +692,7 @@
     "save_to_camera_roll": "Salva nel rullino della fotocamera",
     "saved_to_camera_roll": "Salvato nel rullino della fotocamera",
     "back_to_id": "Torna a Identificazione",
-    "error_title": "Impossibile completare la richiesta",
+    "error_title": "Impossibile salvare la foto",
     "error": "Per favore controlla di avere installato l'app di Facebook.",
     "adjust_square_crop": "Regola ritaglio quadrato",
     "crop_image": "Ritaglia immagine"

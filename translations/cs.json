@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Přihlaste se pomocí svého účtu iNaturalist",
     "username": "Uživatelské jméno",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Uživatelské jméno / e-mail",
+    "username_or_email": "Uživatelské jméno nebo e-mail",
     "password": "Heslo",
     "forgot_password_header": "Zapomenuté heslo",
     "forgot_password": "Zapomněli jste heslo?",
@@ -491,7 +491,7 @@
     "species_saved": "Tento druh je uložen do vašich pozorování.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Pro tento druh nebyly nalezeny žádné fotografie."
   },
   "about": {
     "header": "O aplikaci",

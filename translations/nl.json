@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",
     "username": "Gebruikersnaam",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Gebruikersnaam / e-mail",
+    "username_or_email": "Gebruikersnaam of e-mail",
     "password": "Wachtwoord",
     "forgot_password_header": "Wachtwoord vergeten",
     "forgot_password": "Je wachtwoord vergeten?",
@@ -491,7 +491,7 @@
     "species_saved": "Deze soort wordt opgeslagen in jouw waarnemingen.",
     "you": "Hey look, jij bent het! Ga naar buiten en vind wat wilde soorten om nog meer over hen te leren.",
     "internet_error": "Internet is nodig om het detailscherm te tonen. Tik om het opnieuw te proberen.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Geen foto's gevonden voor deze soort."
   },
   "about": {
     "header": "Over",

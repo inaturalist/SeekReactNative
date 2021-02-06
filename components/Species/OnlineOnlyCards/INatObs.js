@@ -56,6 +56,8 @@ const INatObs = ( { id, timesSeen, region }: Props ) => {
     return () => { isFocused = false; };
   }, [region, id] );
 
+  const navToINatStats = () => navigation.navigate( "iNatStats" );
+
   const renderObs = () => {
     let obs = null;
 
@@ -63,7 +65,7 @@ const INatObs = ( { id, timesSeen, region }: Props ) => {
       obs = (
         <SpeciesDetailCard text="species_detail.inat_obs">
           <View style={[styles.center, styles.row]}>
-            <TouchableOpacity onPress={() => navigation.navigate( "iNatStats" )}>
+            <TouchableOpacity onPress={navToINatStats}>
               <Image source={logos.bird} style={styles.bird} />
             </TouchableOpacity>
             <View style={styles.textContainer}>

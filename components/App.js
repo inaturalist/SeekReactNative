@@ -11,6 +11,7 @@ import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
 import { checkForIncompleteUploads } from "../utility/uploadHelpers";
+import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = () => {
   const [login, setLogin] = useState( null );
@@ -54,6 +55,7 @@ const App = () => {
 
   useEffect( () => {
     hideLogs();
+    setQuickActions();
 
     // Context
     getLoggedIn();

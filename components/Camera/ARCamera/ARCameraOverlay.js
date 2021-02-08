@@ -86,34 +86,51 @@ const ARCameraOverlay = ( {
   const closeModal = () => setModal( false );
 
   useEffect( () => {
-    if ( filterIndex ) {
+    let isCurrent = true;
+    if ( filterIndex && isCurrent ) {
       filterByTaxonId( settings[filterIndex].taxonId, settings[filterIndex].negativeFilter );
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [filterIndex, filterByTaxonId] );
 
   useEffect( () => {
-    if ( params.showWarning === "true" ) {
+    let isCurrent = true;
+    if ( params.showWarning === "true" && isCurrent ) {
       openModal();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [params] );
 
   useEffect( () => {
+    let isCurrent = true;
     const checkForFirstCameraLaunch = async () => {
       const isFirstLaunch = await checkIfCameraLaunched();
-      if ( isFirstLaunch ) {
+      if ( isFirstLaunch && isCurrent ) {
         openModal();
       }
     };
     checkForFirstCameraLaunch();
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [] );
 
   useEffect( () => {
-    if ( rankToRender === "species" && autoCapture ) {
+    let isCurrent = true;
+    if ( rankToRender === "species" && autoCapture && isCurrent ) {
       takePicture();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [rankToRender, takePicture, autoCapture] );
 
   useEffect( () => {
+    let isCurrent = true;
     const entrance = {
       toValue: 1,
       duration: 0,
@@ -127,12 +144,15 @@ const ARCameraOverlay = ( {
       useNativeDriver: true
     };
 
-    if ( filterIndex === 0 ) {
+    if ( filterIndex === 0 && isCurrent ) {
       Animated.sequence( [
         Animated.timing( fadeOut, entrance ),
         Animated.timing( fadeOut, exit )
       ] ).start();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [fadeOut, filterIndex] );
 
   const showFilterText = () => {

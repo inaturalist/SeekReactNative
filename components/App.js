@@ -6,7 +6,7 @@ import * as RNLocalize from "react-native-localize";
 import RootStack from "./Navigation/RootStack";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
-import { addARCameraFiles, hideLogs, setQuickActions } from "../utility/helpers";
+import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
@@ -54,7 +54,6 @@ const App = () => {
 
   useEffect( () => {
     hideLogs();
-    setQuickActions();
 
     // Context
     getLoggedIn();

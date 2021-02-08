@@ -6,7 +6,6 @@ import Realm from "realm";
 import { Platform, LogBox } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
-import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
 import config from "../config";
@@ -233,22 +232,6 @@ const hideLogs = () => {
   ] );
 };
 
-const setQuickActions = () => {
-  if ( Platform.OS === "android" ) {
-    QuickActions.setShortcutItems( [
-      {
-        type: "Seek AR Camera", // Required
-        title: "Seek AR Camera", // Optional, if empty, `type` will be used instead
-        subtitle: "For quick identifications",
-        icon: "camerabutton", // Icons instructions below
-        userInfo: {
-          url: "app://Drawer/Main/Camera" // Provide any custom data like deep linking URL
-        }
-      }
-    ] );
-  }
-};
-
 const handleServerError = ( error: {
   response: {
     status: number,
@@ -291,6 +274,5 @@ export {
   localizePercentage,
   navigateToMainStack,
   hideLogs,
-  setQuickActions,
   handleServerError
 };

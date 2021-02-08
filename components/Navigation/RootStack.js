@@ -58,11 +58,9 @@ const screenOptions = { gestureEnabled: false };
 
 const Stack = createStackNavigator();
 
-const linking = { prefixes: ["app://"] };
-
 const App = () => (
   <SafeAreaProvider>
-    <NavigationContainer theme={MyTheme} linking={linking}>
+    <NavigationContainer theme={MyTheme}>
       <Stack.Navigator
         initialRouteName="Root"
         screenOptions={screenOptions}

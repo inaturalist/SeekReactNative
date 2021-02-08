@@ -9,7 +9,7 @@ import {
   Platform,
   Animated
 } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCameraOverlay";
@@ -67,7 +67,6 @@ const ARCameraOverlay = ( {
 }: Props ) => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
   const { navigate } = useNavigation();
-  const { params } = useRoute();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
@@ -94,16 +93,6 @@ const ARCameraOverlay = ( {
       isCurrent = false;
     };
   }, [filterIndex, filterByTaxonId] );
-
-  useEffect( () => {
-    let isCurrent = true;
-    if ( params.showWarning === "true" && isCurrent ) {
-      openModal();
-    }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [params] );
 
   useEffect( () => {
     let isCurrent = true;

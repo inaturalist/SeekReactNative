@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Teken aan met u iNaturalist-rekening",
     "username": "Gebruikersnaam",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Gebruikersnaam / e-pos",
+    "username_or_email": "Gebruikersnaam of e-pos",
     "password": "Wagwoord",
     "forgot_password_header": "Wagwoord vergeet",
     "forgot_password": "U wagwoord vergeet?",
@@ -491,7 +491,7 @@
     "species_saved": "Hierdie spesie is in u waarnemings bewaar.",
     "you": "Kyk net, dit is u! Gaan buitentoe en vind wilde spesies om nog meer oor hulle te leer.",
     "internet_error": "Ons benodig die Internet om die spesiesdetailskerm te genereer. Tik om weer te probeer.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Geen foto’s gevind vir hierdie spesie."
   },
   "about": {
     "header": "Aangaande",
@@ -709,9 +709,9 @@
     "apr_2021_challenge_name": "Restoureer- en-herstel-uitdaging",
     "apr_2021_description": "Klimaatsverandering, verlies aan spesies en plastiekbesoedeling is drie van die grootste uitdagings wat ons planeet tans in die gesig staar en is almal mensgedrewe. Hierdie jaar se tema vir Aarddag (22 April) is “Herstel ons Aarde”. Ons moet almal saamwerk om ’n meer volhoubare toekoms vir ons gemeenskappe en wildlewe te bou – u individuele aksies kan ’n verskil maak!",
     "apr_2021_action": "Een van die algemeenste menslike ompakte op ekostelsels is rommel. Soos u die natuur vandeesmaand ontdek, moet u aandag skenk aan die rommel wat u sien en dink oor waar dit vandaan kom. Maak ’n lys van dinge wat u tuis kan doen om u gesin se rommel te verminder, en deel die lys met die res van u gesin.",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
+    "may_2021_mission_1": "Vind 5 plante uit elk van die volgende families:\n\nAsteraceae (sonneblomme, madeliefies, asters en verwante);\nFabaceae (Vlinderblommiges);\nLamiaceae (Lipblommiges);\nAcanthaceae (acanthus- en kanferfoeliefamily);\nMalvaceae (tavla- en hibiskusfamilie);\nBignoniaceae (trompetblomfamilie);\nPassifloraceae (Passieblomfamilie)",
     "may_2021_mission_2": "Vind 2 arthropoda (insekte, aragniede, kreefagtiges)",
-    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
+    "may_2021_challenge_name": "Gesonde Ekostelsels-uitdaging",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
     "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",

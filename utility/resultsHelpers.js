@@ -165,17 +165,10 @@ const navToMatch = async ( navigation, taxon, image, seenDate, errorCode: ?numbe
   } );
 };
 
-const setImageCoords = ( coords?: {
-  latitude: number,
-  longitude: number,
-  accuracy: number
-}, image: Object ) => {
+const setImageCoords = ( coords?: { latitude: number, longitude: number }, image: Object ) => {
   if ( coords )  {
-    const { latitude, longitude, accuracy } = coords;
-
-    image.latitude = latitude;
-    image.longitude = longitude;
-    image.accuracy = accuracy;
+    image.latitude = coords.latitude;
+    image.longitude = coords.longitude;
   }
 
   return image;
@@ -194,7 +187,7 @@ const fetchPhoto = async ( id: number ) => {
 };
 
 const fetchImageLocationOrErrorCode = async ( image: {
-  latitude?: number
+  latitude?: ?number
 } ): Promise<{ image: Object, errorCode: ?number }> => {
   const permissionAndroid = await checkLocationPermissions( );
   // need to specify permission check only for android

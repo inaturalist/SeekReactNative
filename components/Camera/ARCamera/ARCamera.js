@@ -107,8 +107,6 @@ const ARCamera = () => {
     };
 
     fetchOfflineResults( image, navigation );
-
-    // navigate( "OfflineARResults", { image } );
   }, [navigation] );
 
   const resetPredictions = () => {

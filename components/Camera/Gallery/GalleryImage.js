@@ -8,15 +8,19 @@ import { useNavigation } from "@react-navigation/native";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
+import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 
 type Props = {
-  item: Object
+  item: Object,
+  setLoading: ( ) => void
 }
 
-const GalleryImage = ( { item }: Props ) => {
-  const { navigate } = useNavigation();
+const GalleryImage = ( { item, setLoading }: Props ) => {
+  const navigation = useNavigation();
 
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
+    const { navigate } = navigation;
+
     let latitude = null;
     let longitude = null;
 
@@ -29,18 +33,19 @@ const GalleryImage = ( { item }: Props ) => {
       time,
       uri,
       latitude,
-      longitude
+      longitude,
+      predictions: []
     };
 
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
       image.predictions = predictions;
 
-      navigate( "OfflineARResults", { image } );
+      fetchOfflineResults( image, navigation );
     } else {
       navigate( "OnlineServerResults", { image } );
     }
-  }, [navigate] );
+  }, [navigation] );
 
   const getPredictions = useCallback( ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );
@@ -58,6 +63,7 @@ const GalleryImage = ( { item }: Props ) => {
   }, [navigateToResults] );
 
   const selectImage = useCallback( () => {
+    setLoading( );
     const { timestamp, location, image } = item.node;
 
     if ( Platform.OS === "android" ) {
@@ -65,7 +71,7 @@ const GalleryImage = ( { item }: Props ) => {
     } else {
       navigateToResults( image.uri, timestamp, location );
     }
-  }, [getPredictions, navigateToResults, item] );
+  }, [getPredictions, navigateToResults, item, setLoading] );
 
   const imageSource = { uri: item.node.image.uri };
 

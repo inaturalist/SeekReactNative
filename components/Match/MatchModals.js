@@ -175,9 +175,13 @@ const MatchModals = ( {
   }, [challenge, challengeShown, latestLevel, levelShown, navigateTo] );
 
   useEffect( () => {
-    if ( navPath ) {
+    let isCurrent = true;
+    if ( navPath && isCurrent ) {
       checkModals();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [navPath, checkModals] );
 
   useEffect( () => {

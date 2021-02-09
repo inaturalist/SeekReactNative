@@ -216,7 +216,8 @@ const fetchOfflineResults = async ( userImage: {
   time: number,
   uri: string,
   predictions: Array<Object>,
-  latitude?: number
+  latitude?: ?number,
+  longitude?: ?number
 }, navigation: any ) => {
   const threshold = 0.7;
 

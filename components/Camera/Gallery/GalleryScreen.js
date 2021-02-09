@@ -28,7 +28,8 @@ const GalleryScreen = () => {
           lastCursor: null,
           stillFetching: false,
           errorEvent: null,
-          loading: true
+          loading: true,
+          photoSelectedLoading: false
         };
       case "FETCH_PHOTOS":
         return { ...state, stillFetching: true };

@@ -84,7 +84,7 @@ const createObservationForRealm = ( species: {
   name: string,
   ancestor_ids: Array<number>
 }, taxa: ?{
-  default_photo: Object
+  default_photo?: ?Object
 } ) => {
   return {
     taxon: {
@@ -150,7 +150,24 @@ const createOnlineSpecies = ( species: {
 };
 
 // shared online and offline
-const navToMatch = async ( navigation, taxon, image, seenDate, errorCode: ?number ) => {
+const navToMatch = async (
+  navigation: any,
+  taxon: {
+    taxaId: number,
+    speciesSeenImage: ?string,
+    scientificName: string,
+    rank?: number
+  },
+  image: {
+    time: number,
+    uri: string,
+    predictions: Array<Object>,
+    latitude?: ?number,
+    longitude?: ?number
+  },
+  seenDate: ?string,
+  errorCode: ?number
+) => {
   navigation.push( "Drawer", {
     screen: "Main",
     params: {
@@ -189,17 +206,24 @@ const fetchPhoto = async ( id: number ) => {
 const fetchImageLocationOrErrorCode = async ( image: {
   latitude?: ?number
 } ): Promise<{ image: Object, errorCode: ?number }> => {
-  const permissionAndroid = await checkLocationPermissions( );
-  // need to specify permission check only for android
-
   if ( image.latitude ) { return { image, errorCode: null }; }
 
-  if ( permissionAndroid && Platform.OS === "android" || Platform.OS === "ios" ) {
+  const fetchLocation = async ( ) => {
     try {
       const coords = await fetchTruncatedUserLocation( );
       return { image: setImageCoords( coords, image ), errorCode: null };
     } catch ( code ) {
       return { image, errorCode: code };
+    }
+  };
+
+  if ( Platform.OS === "ios" ) {
+    fetchLocation( );
+  } else {
+    const permissionAndroid = await checkLocationPermissions( );
+    // need to specify permission check only for android
+    if ( permissionAndroid === true ) {
+      fetchLocation( );
     }
   }
   return { image, errorCode: 1 };

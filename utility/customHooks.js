@@ -14,15 +14,19 @@ import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 import { createRegion } from "./locationHelpers";
 
-const useScrollToTop = ( scrollView: {
-  current: {
-    scrollTo: ( {
-      x: number,
-      y: number,
-      animated: boolean
-    } ) => void
-  }
-}, navigation, route ) => {
+const useScrollToTop = (
+  scrollView: {
+    current: {
+      scrollTo: ( {
+        x: number,
+        y: number,
+        animated: boolean
+      } ) => void
+    }
+  },
+  navigation: any,
+  route: any
+) => {
   const scrollToTop = useCallback( () => {
     if ( scrollView && scrollView.current !== null ) {
       scrollView.current.scrollTo( {

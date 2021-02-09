@@ -1,6 +1,13 @@
 // @flow
+import { Platform } from "react-native";
+import inatjs from "inaturalistjs";
 
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
+import createUserAgent from "./userAgent";
+import { fetchSpeciesSeenDate } from "./dateHelpers";
+import { addToCollection } from "./observationHelpers";
+import { fetchTruncatedUserLocation } from "./locationHelpers";
+import { checkLocationPermissions } from "./androidHelpers.android";
 
 const setAncestorIdsiOS = ( predictions: Array<Object> ): Array<number> => {
   // adding ancestor ids to take iOS camera experience offline
@@ -174,6 +181,79 @@ const setImageCoords = ( coords?: {
   return image;
 };
 
+const fetchPhoto = async ( id: number ) => {
+  const options = { user_agent: createUserAgent( ) };
+
+  try {
+    const { results } = await inatjs.taxa.fetch( id, options );
+    const taxa = results[0];
+    return taxa;
+  } catch ( e ) {
+    return null;
+  }
+};
+
+const fetchImageLocationOrErrorCode = async ( image: {
+  latitude?: number
+} ): Promise<{ image: Object, errorCode: ?number }> => {
+  const permissionAndroid = await checkLocationPermissions( );
+  // need to specify permission check only for android
+
+  if ( image.latitude ) { return { image, errorCode: null }; }
+
+  if ( permissionAndroid && Platform.OS === "android" || Platform.OS === "ios" ) {
+    try {
+      const coords = await fetchTruncatedUserLocation( );
+      return { image: setImageCoords( coords, image ), errorCode: null };
+    } catch ( code ) {
+      return { image, errorCode: code };
+    }
+  }
+  return { image, errorCode: 1 };
+};
+
+const fetchOfflineResults = async ( userImage: {
+  time: number,
+  uri: string,
+  predictions: Array<Object>,
+  latitude?: number
+}, navigation: any ) => {
+  const threshold = 0.7;
+
+  // AR camera photos don't come with a location
+  // especially when user has location permissions off
+  // this is also needed for ancestor screen, species nearby
+  const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage );
+
+  // get user location (for species nearby on match screen) || obs for realm
+  const species = checkForSpecies( userImage.predictions, threshold );
+  const ancestor = checkForAncestor( userImage.predictions, threshold );
+
+  if ( species ) {
+    if ( Platform.OS === "ios" ) {
+      species.ancestor_ids = setAncestorIdsiOS( image.predictions );
+    }
+
+    const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
+    const taxa = await fetchPhoto( species.taxon_id );
+
+    if ( !seenDate ) {
+      const newObs = createObservationForRealm( species, taxa );
+      await addToCollection( newObs, image );
+    }
+    const taxon = createSpecies( species, taxa );
+    navToMatch( navigation, taxon, image, seenDate, errorCode );
+
+  } else if ( ancestor ) {
+    const taxa = await fetchPhoto( ancestor.taxon_id );
+    const taxon = createAncestor( ancestor, taxa );
+    navToMatch( navigation, taxon, image, null, errorCode );
+  } else {
+    // no match
+    navToMatch( navigation, { }, userImage, null, null );
+  }
+};
+
 export {
   setAncestorIdsiOS,
   createSpecies,
@@ -186,5 +266,6 @@ export {
   createOnlineSpecies,
   createOnlineAncestor,
   navToMatch,
-  setImageCoords
+  setImageCoords,
+  fetchOfflineResults
 };

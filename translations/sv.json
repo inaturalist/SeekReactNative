@@ -82,8 +82,8 @@
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",
     "username": "Användarnamn",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Användarnamn / e-post",
+    "username_or_email": "Användarnamn eller e-post",
     "password": "Lösenord",
     "forgot_password_header": "Glömt lösenord",
     "forgot_password": "Glömt ditt lösenord?",
@@ -491,7 +491,7 @@
     "species_saved": "Denna art är sparad till dina observationer.",
     "you": "Ser man på, det är ju du! Ge dig ut och hitta några vilda arter att lära dig ännu mer om.",
     "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Inga bilder hittades för denna art."
   },
   "about": {
     "header": "Om",
@@ -692,7 +692,7 @@
     "save_to_camera_roll": "Spara i kamerarullen",
     "saved_to_camera_roll": "Sparad i kamerarullen",
     "back_to_id": "Tillbaka till bestämning",
-    "error_title": "Kunde inte slutföra begäran",
+    "error_title": "Kunde inte spara bilden",
     "error": "Vänligen dubbelkolla att du har Facebook-appen installerad.",
     "adjust_square_crop": "Justera fyrkantig beskärning",
     "crop_image": "Beskär bild"

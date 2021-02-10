@@ -163,25 +163,42 @@ const startChallenge = ( index: number ) => {
   } );
 };
 
-const setChallengeLogo = ( date: Date ) => {
+const setChallengeDetails = ( date: Date ) => {
   const year = getYear( date );
 
   if ( year === 2019 ) {
-    return "op";
+    return {
+      logo: "op",
+      secondLogo: "wwfop",
+      sponsorName: "Our Planet"
+    };
   } else if ( year === 2020 ) {
-    return "iNatWhite";
+    return {
+      logo: "iNatWhite",
+      secondLogo: "iNat",
+      sponsorName: "Seek"
+    };
   } else {
-    return "natGeo";
+    return {
+      logo: "natGeo",
+      // this doesn't exist yet
+      secondLogo: "",
+      sponsorName: "NatGeo"
+    };
   }
 };
 
-const addLogosToExistingChallenges = ( realm: any ) => {
+const addDetailsToExistingChallenges = ( realm: any ) => {
   realm.write( ( ) => {
     const challenges = realm.objects( "ChallengeRealm" );
 
     challenges.forEach( challenge => {
+      const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+
       // $FlowFixMe
-      challenge.logo = setChallengeLogo( challenge.availableDate );
+      challenge.logo = logo;
+      challenge.secondLogo = secondLogo;
+      challenge.sponsorName = sponsorName;
     } );
   } );
 };
@@ -191,7 +208,7 @@ const setupChallenges = () => {
     const numChallenges = realm.objects( "ChallengeRealm" ).length;
     const dict = Object.keys( challengesDict );
 
-    addLogosToExistingChallenges( realm );
+    addDetailsToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
     // this should help Seek startup faster since realm.writes are slow
     if ( numChallenges === dict.length ) {
@@ -209,6 +226,8 @@ const setupChallenges = () => {
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
           if ( isAvailable ) {
+            const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+
             realm.create( "ChallengeRealm", {
               name: challenge.name,
               description: challenge.description,
@@ -219,7 +238,9 @@ const setupChallenges = () => {
               availableDate: challenge.availableDate,
               photographer: challenge.photographer || null,
               action: challenge.action,
-              logo: setChallengeLogo( challenge.availableDate ),
+              logo,
+              secondLogo,
+              sponsorName,
               index: i
             }, true );
 

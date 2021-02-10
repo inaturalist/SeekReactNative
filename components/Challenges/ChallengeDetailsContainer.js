@@ -27,7 +27,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ) => {
 
   const navToChallenges = ( ) => navigate( "Challenges" );
 
-  // not sure how to handle natgeo here
+  // not sure how to handle natgeo
   const photographerLogo = challenge.logo === "op" ? logos.wwfop : null;
 
   return (

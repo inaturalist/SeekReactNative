@@ -200,7 +200,7 @@ const MatchModals = ( {
           <RNModal
             showModal={challengeModal}
             closeModal={closeChallengeModal}
-            modal={<ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
+            modal={challenge && <ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
           />
           <RNModal
             showModal={levelModal}

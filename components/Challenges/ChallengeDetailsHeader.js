@@ -25,15 +25,15 @@ type Props = {
     availableDate: Date,
     backgroundName: string,
     name: string,
-    logo: string
+    logo: string,
+    sponsorName: string,
+    secondLogo: string,
+    earnedIconName: string
   },
   showMission: ( number ) => void
 }
 
-const ChallengeDetailsHeader = ( {
-  challenge,
-  showMission
-}: Props ) => {
+const ChallengeDetailsHeader = ( { challenge, showMission }: Props ) => {
   const navigation = useNavigation();
   const [showModal, setModal] = useState( false );
 

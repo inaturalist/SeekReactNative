@@ -22,6 +22,6 @@ export default {
     TaxonRealm,
     UploadPhotoRealm
   ],
-  schemaVersion: 22,
+  schemaVersion: 23,
   path: "db.realm"
 };

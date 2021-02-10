@@ -17,6 +17,9 @@ ChallengeRealm.schema = {
     photographer: { type: "string?" },
     action: { type: "string" },
     logo: { type: "string" },
+    sponsorName: { type: "string" },
+    // this is the dark version of the logo
+    secondLogo: { type: "string" },
     index: { type: "int", default: 0 }
   }
 };

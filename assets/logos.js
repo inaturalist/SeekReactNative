@@ -10,7 +10,8 @@ const logos = {
   hhmi: require( "./logos/logo-hhmi.webp" ),
   wordmark: require( "./logos/iNatStats-Wordmark.webp" ),
   iNatWhite: require( "./logos/iNaturalist-Identity-white.webp" ),
-  iNatAppIcon: require( "./logos/appicon-iNaturalist.webp" )
+  iNatAppIcon: require( "./logos/appicon-iNaturalist.webp" ),
+  natGeo: require( "./logos/logo-NatGeo.webp" )
 };
 
 export default logos;

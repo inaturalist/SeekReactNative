@@ -122,7 +122,6 @@ const INatStatsScreen = () => {
       <View style={styles.logoContainer}>
         <Image source={logos.wordmark} style={styles.logo} />
       </View>
-      <View style={styles.headerMargin} />
       <Image source={backgrounds.heatMap} style={styles.heatMap} />
       <View style={styles.missionContainer}>
         <GreenText smaller text="inat_stats.global_observations" />

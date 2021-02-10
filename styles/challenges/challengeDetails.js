@@ -48,7 +48,7 @@ export default StyleSheet.create( {
     marginTop: 21
   },
   opContainer: {
-    alignItems: "center",
+    alignSelf: "center",
     marginBottom: 29,
     marginTop: 23
   },

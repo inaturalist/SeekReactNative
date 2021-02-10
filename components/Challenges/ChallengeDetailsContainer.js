@@ -17,7 +17,8 @@ type Props = {
     startedDate: Date,
     description: string,
     photographer: ?string,
-    action: string
+    action: string,
+    logo: string
   }
 }
 
@@ -25,6 +26,9 @@ const ChallengeDetailsContainer = ( { challenge }: Props ) => {
   const { navigate } = useNavigation();
 
   const navToChallenges = ( ) => navigate( "Challenges" );
+
+  // not sure how to handle natgeo here
+  const photographerLogo = challenge.logo === "op" ? logos.wwfop : null;
 
   return (
     <View style={styles.whiteContainer}>
@@ -43,7 +47,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ) => {
         </Text>
         {challenge.photographer && (
           <>
-            <Image source={logos.wwfop} style={styles.opContainer} />
+            {photographerLogo && <Image source={photographerLogo} style={styles.opContainer} />}
             <Text style={[styles.descriptionText, styles.photographerText]}>
               {i18n.t( challenge.photographer )}
             </Text>

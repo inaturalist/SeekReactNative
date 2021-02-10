@@ -16,6 +16,7 @@ ChallengeRealm.schema = {
     completedDate: { type: "date?" },
     photographer: { type: "string?" },
     action: { type: "string" },
+    logo: { type: "string" },
     index: { type: "int", default: 0 }
   }
 };

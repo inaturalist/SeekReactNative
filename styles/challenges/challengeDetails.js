@@ -11,7 +11,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   challengeBackground: {
-    flex: 1
+    flex: 1,
+    paddingTop: 99
   },
   descriptionText: {
     color: colors.black,
@@ -24,9 +25,6 @@ export default StyleSheet.create( {
     top: 32,
     width: 191
   },
-  iNatMargin: {
-    marginTop: 99
-  },
   logo: {
     alignSelf: "center",
     height: 58,
@@ -34,9 +32,6 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     top: 20,
     width: 116
-  },
-  margin: {
-    marginTop: 99
   },
   marginLarge: {
     marginTop: 37

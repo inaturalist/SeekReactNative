@@ -1,13 +1,8 @@
 // @flow
 
 import React, { useState } from "react";
-import {
-  View,
-  Image,
-  ImageBackground
-} from "react-native";
+import { View, Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
@@ -23,8 +18,16 @@ import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../UIComponents/Challenges/ChallengeBadgeRow";
 
 type Props = {
-  challenge: Object,
-  showMission: Function
+  challenge: {
+    index: number,
+    percentComplete: number,
+    startedDate: Date,
+    availableDate: Date,
+    backgroundName: string,
+    name: string,
+    logo: string
+  },
+  showMission: ( number ) => void
 }
 
 const ChallengeDetailsHeader = ( {
@@ -33,7 +36,6 @@ const ChallengeDetailsHeader = ( {
 }: Props ) => {
   const navigation = useNavigation();
   const [showModal, setModal] = useState( false );
-  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -76,14 +78,11 @@ const ChallengeDetailsHeader = ( {
         )}
       />
       <ImageBackground
-        source={challenge ? backgrounds[challenge.backgroundName] : null}
+        source={backgrounds[challenge.backgroundName]}
         style={styles.challengeBackground}
       >
         <BackArrow />
-        <View style={is2020Challenge ? styles.iNatMargin : styles.margin} />
-        {is2020Challenge
-          ? <Image source={logos.iNatWhite} style={[styles.logo, styles.iNatLogo]} />
-          : <Image source={logos.op} style={styles.logo} />}
+        <Image source={logos[challenge.logo]} style={[styles.logo, challenge.logo === "iNatWhite" && styles.iNatLogo]} />
         {challenge && <ChallengeTitle challenge={challenge} />}
         <View style={styles.marginSmall} />
         <ChallengeBadgeRow challenge={challenge} large />

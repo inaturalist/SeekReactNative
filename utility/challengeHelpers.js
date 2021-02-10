@@ -1,6 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
+import { getYear } from "date-fns";
 
 import { createNotification } from "./notificationHelpers";
 import taxonDict from "./dictionaries/taxonDictForMissions";
@@ -162,11 +163,35 @@ const startChallenge = ( index: number ) => {
   } );
 };
 
+const setChallengeLogo = ( date: Date ) => {
+  const year = getYear( date );
+
+  if ( year === 2019 ) {
+    return "op";
+  } else if ( year === 2020 ) {
+    return "iNatWhite";
+  } else {
+    return "natGeo";
+  }
+};
+
+const addLogosToExistingChallenges = ( realm: any ) => {
+  realm.write( ( ) => {
+    const challenges = realm.objects( "ChallengeRealm" );
+
+    challenges.forEach( challenge => {
+      // $FlowFixMe
+      challenge.logo = setChallengeLogo( challenge.availableDate );
+    } );
+  } );
+};
+
 const setupChallenges = () => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const numChallenges = realm.objects( "ChallengeRealm" ).length;
     const dict = Object.keys( challengesDict );
 
+    addLogosToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
     // this should help Seek startup faster since realm.writes are slow
     if ( numChallenges === dict.length ) {
@@ -194,6 +219,7 @@ const setupChallenges = () => {
               availableDate: challenge.availableDate,
               photographer: challenge.photographer || null,
               action: challenge.action,
+              logo: setChallengeLogo( challenge.availableDate ),
               index: i
             }, true );
 

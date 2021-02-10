@@ -6,7 +6,7 @@ import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import createUserAgent from "./userAgent";
 import { fetchSpeciesSeenDate } from "./dateHelpers";
 import { addToCollection } from "./observationHelpers";
-import { fetchTruncatedUserLocation } from "./locationHelpers";
+import { fetchTruncatedUserLocation, createLocationAlert } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 
 const setAncestorIdsiOS = ( predictions: Array<Object> ): Array<number> => {
@@ -165,8 +165,7 @@ const navToMatch = async (
     latitude?: ?number,
     longitude?: ?number
   },
-  seenDate: ?string,
-  errorCode: ?number
+  seenDate: ?string
 ) => {
   navigation.push( "Drawer", {
     screen: "Main",
@@ -175,8 +174,7 @@ const navToMatch = async (
       params: {
         taxon,
         image,
-        seenDate,
-        errorCode
+        seenDate
       }
     }
   } );
@@ -205,28 +203,29 @@ const fetchPhoto = async ( id: number ) => {
 
 const fetchImageLocationOrErrorCode = async ( image: {
   latitude?: ?number
-} ): Promise<{ image: Object, errorCode: ?number }> => {
-  if ( image.latitude ) { return { image, errorCode: null }; }
+} ): Promise<{ image: Object, errorCode: number }> => {
+  if ( image.latitude ) { return { image, errorCode: 0 }; }
 
   const fetchLocation = async ( ) => {
     try {
       const coords = await fetchTruncatedUserLocation( );
-      return { image: setImageCoords( coords, image ), errorCode: null };
+      return { image: setImageCoords( coords, image ), errorCode: 0 };
     } catch ( code ) {
       return { image, errorCode: code };
     }
   };
 
   if ( Platform.OS === "ios" ) {
-    fetchLocation( );
+    return await fetchLocation( );
   } else {
     const permissionAndroid = await checkLocationPermissions( );
     // need to specify permission check only for android
     if ( permissionAndroid === true ) {
-      fetchLocation( );
+      return await fetchLocation( );
+    } else {
+      return { image, errorCode: 1 };
     }
   }
-  return { image, errorCode: 1 };
 };
 
 const fetchOfflineResults = async ( userImage: {
@@ -258,17 +257,22 @@ const fetchOfflineResults = async ( userImage: {
     if ( !seenDate ) {
       const newObs = createObservationForRealm( species, taxa );
       await addToCollection( newObs, image );
+
+      // also added to online server results
+      if ( !image.latitude && errorCode !== 0 ) {
+        createLocationAlert( errorCode );
+      }
     }
     const taxon = createSpecies( species, taxa );
-    navToMatch( navigation, taxon, image, seenDate, errorCode );
+    navToMatch( navigation, taxon, image, seenDate );
 
   } else if ( ancestor ) {
     const taxa = await fetchPhoto( ancestor.taxon_id );
     const taxon = createAncestor( ancestor, taxa );
-    navToMatch( navigation, taxon, image, null, errorCode );
+    navToMatch( navigation, taxon, image, null );
   } else {
     // no match
-    navToMatch( navigation, { }, userImage, null, null );
+    navToMatch( navigation, { }, userImage, null );
   }
 };
 

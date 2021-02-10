@@ -11,7 +11,6 @@ import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import { createLocationAlert } from "../../utility/locationHelpers";
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
@@ -45,7 +44,6 @@ const MatchModals = ( {
   const isFocused = useIsFocused();
 
   const {
-    errorCode,
     seenDate,
     taxon,
     image
@@ -158,12 +156,6 @@ const MatchModals = ( {
     } ).catch( () => console.log( "could not check for challenges" ) );
   };
 
-  const checkLocationPermissions = useCallback( () => {
-    if ( !image.latitude ) {
-      createLocationAlert( errorCode );
-    }
-  }, [image.latitude, errorCode] );
-
   const checkModals = useCallback( () => {
     if ( challenge && !challengeShown ) {
       dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
@@ -189,7 +181,6 @@ const MatchModals = ( {
       if ( screenType === "newSpecies" && firstRender ) {
         checkChallenges();
         checkBadges();
-        checkLocationPermissions();
       }
     } );
 
@@ -199,7 +190,7 @@ const MatchModals = ( {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, screenType, firstRender, checkLocationPermissions] );
+  }, [navigation, screenType, firstRender] );
 
   return (
     <>

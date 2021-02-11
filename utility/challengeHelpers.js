@@ -1,7 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
-import { getYear } from "date-fns";
+import { getYear, isEqual } from "date-fns";
 
 import { createNotification } from "./notificationHelpers";
 import taxonDict from "./dictionaries/taxonDictForMissions";
@@ -188,6 +188,25 @@ const setChallengeDetails = ( date: Date ) => {
   }
 };
 
+const addExistingBadgeNames = ( date: Date ) => {
+  const year = getYear( date );
+
+  if ( year === 2019 ) {
+    const badgeMonth = Object.keys( challengesDict ).filter( month => {
+      if ( isEqual( challengesDict[month].availableDate, date ) ) {
+        return month;
+      }
+     } );
+
+     const month = badgeMonth[0];
+
+    // $FlowFixMe badgeName exists for all dict items in 2019
+    return challengesDict[month].badgeName;
+  } else {
+    return "seek_challenges.badge";
+  }
+};
+
 const addDetailsToExistingChallenges = ( realm: any ) => {
   realm.write( ( ) => {
     const challenges = realm.objects( "ChallengeRealm" );
@@ -199,6 +218,7 @@ const addDetailsToExistingChallenges = ( realm: any ) => {
       challenge.logo = logo;
       challenge.secondLogo = secondLogo;
       challenge.sponsorName = sponsorName;
+      challenge.badgeName = addExistingBadgeNames( challenge.availableDate );
     } );
   } );
 };
@@ -241,6 +261,7 @@ const setupChallenges = () => {
               logo,
               secondLogo,
               sponsorName,
+              badgeName: challenge.badgeName || "seek_challenges.badge",
               index: i
             }, true );
 

@@ -18,7 +18,8 @@ type Props = {
     description: string,
     photographer: ?string,
     action: string,
-    logo: string
+    logo: string,
+    secondLogo: string
   }
 }
 
@@ -27,8 +28,8 @@ const ChallengeDetailsContainer = ( { challenge }: Props ) => {
 
   const navToChallenges = ( ) => navigate( "Challenges" );
 
-  // not sure how to handle natgeo
-  const photographerLogo = challenge.logo === "op" ? logos.wwfop : null;
+  // only show for WWFOP, not NatGeo or future sponsors
+  const photographerLogo = challenge.logo === "op" ? logos[challenge.secondLogo] : null;
 
   return (
     <View style={styles.whiteContainer}>

@@ -20,6 +20,7 @@ ChallengeRealm.schema = {
     sponsorName: { type: "string" },
     // this is the dark version of the logo
     secondLogo: { type: "string" },
+    badgeName: { type: "string" },
     index: { type: "int", default: 0 }
   }
 };

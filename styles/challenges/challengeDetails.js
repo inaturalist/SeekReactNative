@@ -44,12 +44,12 @@ export default StyleSheet.create( {
   },
   opContainer: {
     alignSelf: "center",
-    marginBottom: 29,
     marginTop: 23
   },
   photographerText: {
     fontSize: 14,
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 29
   },
   viewText: {
     color: colors.seekTeal,

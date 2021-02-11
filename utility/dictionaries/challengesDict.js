@@ -257,7 +257,7 @@ const challenges = {
     availableDate: new Date( 2021, 2, 1 ),
     action: "natgeo_challenges.mar_2021_action",
     badgeName: "natgeo_challenges.mar_2021_badge_name",
-    photographer: "challenges.mar_2021_photographer"
+    photographer: "natgeo_challenges.mar_2021_photographer"
   }
 };
 

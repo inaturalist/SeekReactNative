@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Platform } from "react-native";
 import Modal from "react-native-modal";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
@@ -41,7 +41,6 @@ const MatchModals = ( {
   navPath
 }: Props ) => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
 
   const {
     seenDate,
@@ -104,12 +103,6 @@ const MatchModals = ( {
   const closeChallengeModal = () => dispatch( { type: "SET_CHALLENGE_MODAL", status: false, challengeShown: true } );
   const closeReplacePhotoModal = () => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
   const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
-
-  useEffect( () => {
-    if ( screenType === "resighted" && isFocused ) {
-      dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
-    }
-  }, [screenType, isFocused] );
 
   useEffect( () => {
     if ( levelModal ) {
@@ -182,6 +175,9 @@ const MatchModals = ( {
         checkChallenges();
         checkBadges();
       }
+      if ( screenType === "resighted" && firstRender ) {
+        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
+      }
     } );
 
     navigation.addListener( "blur", () => {
@@ -197,11 +193,11 @@ const MatchModals = ( {
       {firstRender && (
         <>
           <Toasts badge={badge} challenge={challengeInProgress} />
-          <RNModal
+          {challenge && <RNModal
             showModal={challengeModal}
             closeModal={closeChallengeModal}
-            modal={challenge && <ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
-          />
+            modal={<ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
+          />}
           <RNModal
             showModal={levelModal}
             closeModal={closeLevelModal}

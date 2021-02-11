@@ -28,7 +28,8 @@ type Props = {
     logo: string,
     sponsorName: string,
     secondLogo: string,
-    earnedIconName: string
+    earnedIconName: string,
+    badgeName: string
   },
   showMission: ( number ) => void
 }

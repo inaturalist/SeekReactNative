@@ -244,20 +244,21 @@ const challenges = {
     ],
     availableDate: new Date( 2020, 11, 1 ),
     action: "seek_challenges.action_dec_2020"
+  },
+  mar2021: {
+    name: "natgeo_challenges.mar_2021_challenge_name",
+    description: "natgeo_challenges.mar_2021_description",
+    totalSpecies: 10,
+    backgroundName: "img-challengedetail-december2020",
+    earnedIconName: "badge_inaturalist_december2020",
+    missions: [
+      "natgeo_challenges.mar_2021_mission_1"
+    ],
+    availableDate: new Date( 2021, 2, 1 ),
+    action: "natgeo_challenges.mar_2021_action",
+    badgeName: "natgeo_challenges.mar_2021_badge_name",
+    photographer: "challenges.mar_2021_photographer"
   }
-  // mar2021: {
-  //   name: "natgeo_challenges.mar_2021_challenge_name",
-  //   description: "natgeo_challenges.mar_2021_description",
-  //   totalSpecies: 10,
-  //   backgroundName: "img-challengedetail-december2020",
-  //   earnedIconName: "badge_inaturalist_december2020",
-  //   missions: [
-  //     "natgeo_challenges.mar_2021_mission_1"
-  //   ],
-  //   availableDate: new Date( 2021, 2, 1 ),
-  //   action: "natgeo_challenges.mar_2021_action",
-  //   badgeName: "natgeo_challenges.mar_2021_badge_name"
-  // }
 };
 
 export default challenges;

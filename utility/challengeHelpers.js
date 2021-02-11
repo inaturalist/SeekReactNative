@@ -245,7 +245,7 @@ const setupChallenges = () => {
           const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
-          if ( isAvailable ) {
+          // if ( isAvailable ) {
             const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
             realm.create( "ChallengeRealm", {
@@ -270,7 +270,7 @@ const setupChallenges = () => {
             if ( isCurrent ) {
               createNotification( "newChallenge", i );
             }
-          }
+          // }
         }
       } );
     } );

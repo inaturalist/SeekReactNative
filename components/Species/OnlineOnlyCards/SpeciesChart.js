@@ -14,8 +14,8 @@ import { fetchHistogram } from "../../../utility/speciesDetailHelpers";
 type Props = {
   +id: number,
   +region: {
-    latitude?: number,
-    longitude?: number
+    latitude: number,
+    longitude: number
   }
 };
 

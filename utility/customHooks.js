@@ -73,7 +73,7 @@ const useLocationName = ( latitude: number, longitude: number ) => {
   return location;
 };
 
-const useUserPhoto = ( item: {
+const useUserPhoto = ( item: ?{
  taxon: {
    defaultPhoto?: {
      backupUri: ?string,
@@ -85,6 +85,9 @@ const useUserPhoto = ( item: {
   const [photo, setPhoto] = useState( null );
 
   const checkForSeekV2Photos = useCallback( ( isCurrent ) => {
+    if ( !item ) {
+      return;
+    }
     const { taxon } = item;
     const { defaultPhoto } = taxon;
     if ( !defaultPhoto ) {
@@ -256,7 +259,7 @@ const useSeenTaxa = ( id: number ) => {
   return seenTaxa;
 };
 
-const useRegion = ( coords?: { latitude: number, longitude: number }, seenTaxa?: { latitude: number, longitude: number } ) => {
+const useRegion = ( coords: ?{ latitude: number, longitude: number }, seenTaxa: ?{ latitude: number, longitude: number } ) => {
   const [region, setRegion] = useState( {} );
 
   const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );

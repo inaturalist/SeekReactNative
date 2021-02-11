@@ -191,7 +191,8 @@ const setChallengeDetails = ( date: Date ) => {
 const addExistingBadgeNames = ( date: Date ) => {
   const year = getYear( date );
 
-  if ( year === 2019 ) {
+  // this covers Our Planet and all future, non-Seek challenges
+  if ( year !== 2020 ) {
     const badgeMonth = Object.keys( challengesDict ).filter( month => {
       if ( isEqual( challengesDict[month].availableDate, date ) ) {
         return month;
@@ -214,7 +215,8 @@ const addDetailsToExistingChallenges = ( realm: any ) => {
     challenges.forEach( challenge => {
       const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
-      // $FlowFixMe
+      // probably don't need to rewrite these every time
+      // once the user has them stored in realm once
       challenge.logo = logo;
       challenge.secondLogo = secondLogo;
       challenge.sponsorName = sponsorName;

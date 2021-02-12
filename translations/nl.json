@@ -77,7 +77,12 @@
     "observations_3": "Seek synchroniseert je waarnemingen niet met andere apparaten.",
     "agree_to_terms": "Ik ga akkoord met de <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ik heb de <guidelines>{{guidelines}}</guidelines> bekeken.",
     "guidelines": "Gemeenschapsrichtlijnen",
-    "store_data": "Ik stem ermee in dat iNaturalist persoonlijke informatie over mij kan opslaan en verwerken om mijn account te beheren"
+    "store_data": "Ik stem ermee in dat iNaturalist persoonlijke informatie over mij kan opslaan en verwerken om mijn account te beheren",
+    "learn_more": "Lees meer",
+    "learn_more_about_data_storage": "Wij slaan persoonlijke informatie zoals gebruikersnamen en e-mailadressen op om accounts op deze site te beheren. Om te voldoen aan de privacywetgeving moet jij dit selectievakje aanvinken om aan te geven dat je akkoord gaat met dit gebruik jouw persoonlijke gegevens. Voor meer informatie over welke informatie we verzamelen en hoe we deze gebruiken, zie ons Privacybeleid en onze Gebruiksvoorwaarden.",
+    "learn_more_about_licensing": "Vink dit selectievakje aan als jij een Creative Commons Naamsvermelding-NietCommerciële licentie wilt toepassen op geüploade inhoud. Dit betekent dat iedereen je foto's en waarnemingen kan kopiëren en hergebruiken zonder toestemming te vragen zolang ze je naam vermelden en het werk niet commercieel gebruiken. Je kunt een andere licentie kiezen of de licentie later verwijderen maar deze licentie is de beste licentie voor het delen met onderzoekers.",
+    "about_personal_information": "Over persoonlijke gegevens",
+    "about_licenses": "Over licenties"
   },
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",
@@ -211,7 +216,15 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Waargenomen soorten"
+    "species_observed": "Waargenomen soorten",
+    "badge_name_april": "Connectiviteit Badge",
+    "badge_name_may": "Biodiversiteit Badge",
+    "badge_name_june": "Gemeenschap Badge",
+    "badge_name_august": "Bossen Badge",
+    "badge_name_september": "Graslanden Badge",
+    "badge_name_october": "Zoetwater Badge",
+    "badge_name_november": "Open Zee Badge",
+    "badge_name_december": "Klimaat Badge"
   },
   "inat_stats": {
     "global_observations": "Algemene Waarnemingen",
@@ -703,17 +716,20 @@
     "mar_2021_description": "We beginnen met vier maanden door National Geographic Society gesponsorde uitdagingen die zijn gericht op het begrijpen van de afhankelijkheid van en de invloed op de natuur.\n\nDe natuur is overal om ons heen en de tijd die in de natuur wordt besteed verbetert je gezondheid en verhoogt je geluk. Kies een plaats zoals een lokaal park, beschermd gebied of jouw erf die je elke maand bezoekt als onderdeel van je verkenning met Seek. De missie van deze maand: vind tien soorten die je gelukkig maken!\n\nOm hulpmiddelen te vinden die je helpen Seek te gebruiken en meer te leren over biodiversiteit, bezoek NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Maak tijd vrij om Seek te leren gebruiken of te leren kennen. Bezoek het startscherm om te zien welke soorten in de buurt leven. Zijn er bepaalde planten of dieren die jij echt zou willen zien?",
     "mar_2021_photographer": "Foto door: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Natuur Badge",
     "apr_2021_mission_1": "Vind 2 weekdieren (tweekleppigen, naaktslakken, huisjesslakken of keverslakken) of kreeftachtigen (zeepokken, krabben, kreeften, krill, pissebedden)",
     "apr_2021_mission_2": "Vind 6 plantensoorten",
     "apr_2021_mission_3": "Vind 2 schimmels",
     "apr_2021_challenge_name": "Restauratie & Herstel Uitdaging",
     "apr_2021_description": "Klimaatverandering, verlies van soorten en plastic verontreiniging zijn drie van de grootste uitdagingen waar onze planeet op dit moment voor staat en die allemaal worden veroorzaakt door menselijke activiteiten. Het thema van dit jaar op de \"Dag van de Aarde\" (22 april)  is \"Herstel onze aarde\". We moeten allemaal samenwerken om een duurzamere toekomst voor zowel gemeenschappen als in het wild levende dieren te bouwen — jouw individuele acties kunnen helpen een verschil te maken!",
     "apr_2021_action": "Een van de meest verspreide menselijke effecten op ecosystemen is afval. Als je de natuur deze maand verkent, let dan op het afval dat je ziet en bedenk waar dat vandaan komt. Maak een lijst van dingen die je thuis zou kunnen doen om het afval dat je gezin produceert te verminderen en deel deze lijst met de rest van je familie.",
+    "apr_2021_badge_name": "Herstel Badge",
     "may_2021_mission_1": "Vind 5 planten uit elk van de volgende families:\n\nAsteraceae (Composietenfamilie of Samengesteldbloemigen met zonnebloemen, madeliefjes, asters en verwanten);\nFabaceae (Vlinderbloemigen);\nLamiaceae (Lipbloemigen);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Kaasjeskruidfamilie);\nBignoniaceae (Trompetboomfamilie);\nPassifloraceae (Passiebloemfamilie)",
     "may_2021_mission_2": "Vind 2 anthropoda (insecten, spinachtigen, kreeftachtigen)",
     "may_2021_challenge_name": "Gezonde ecosystemen Uitdaging",
     "may_2021_description": "Gezonde ecosystemen bieden ons veel verschillende voordelen, zoals het schoonmaken van ons water en de lucht, het opslaan van koolstof en het verschaffen van een habitat ter ondersteuning van de biodiversiteit. Sommige soorten, zoals korstmossen, mossen, libellen en waterjuffers (Odonata) zijn bekend als ecologische gezondheidsindicatoren. Als je deze soorten ziet is het een goed teken dat je ecosysteem gezond is!",
     "may_2021_action": "Gezonde ecosystemen hebben belangrijke voordelen voor onze eigen gezondheid en welzijn. De tijd die in de natuur wordt doorgebracht kan mensen helpen zich te herstellen van stress, hun stemming te verbeteren en helderder te denken. Vind een rustige plek in de natuur en besteed een uur lang aandacht aan het uitzicht, geluiden, geuren en texturen om je heen. Schrijf een aantal van je waarnemingen op. Hoe voel je je tijdens dit verblijf in de natuur?",
+    "may_2021_badge_name": "EcoHealth Badge",
     "june_2021_mission_1": "Vind 1 plant uit de volgende klassen:\n\nLycopodiopsida (Wolfsklauwen,  Engels mos en Dennewolfsklauwachtigen);\nPolypodiopsida (Eptosporangiate varens)",
     "june_2021_mission_2": "Vind 1 plant in de klasse Pinopsida (Coniferen)",
     "june_2021_mission_3": "Vind 1 plant uit de onderstam Angiospermae (bloemplanten)",
@@ -723,6 +739,10 @@
     "june_2021_mission_7": "Vind 1 spinachtige",
     "june_2021_challenge_name": "Behoud Uitdaging",
     "june_2021_description": "Wij allen kunnen, ongeacht onze leeftijd of ervaring, een positief effect hebben op het behoud van de biodiversiteit. We kunnen bijvoorbeeld helpen om te zorgen voor een bepaalde plaats zoals ons eigen erf, een beschermd gebied of een lokaal park. Het beschermen van de natuur begint met het leren over planten, schimmels en dieren op de plaatsen waar je om geeft. Je uitdaging deze maand is om in je tuin of een lokaal park te kijken en zo veel mogelijk biodiversiteit te inventariseren.",
-    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van."
+    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van.",
+    "june_2021_badge_name": "Behoud Badge"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "JE VOLTOOIDE DE {{sponsorName}} UITDAGING VOOR {{date}}!"
   }
 }

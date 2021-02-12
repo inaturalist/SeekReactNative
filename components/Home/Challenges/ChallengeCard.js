@@ -15,11 +15,12 @@ const ChallengeCard = () => {
 
   const fetchLatestChallenge = useCallback( ( ) => {
     Realm.open( realmConfig ).then( ( realm ) => {
-      const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
-      if ( incompleteChallenges.length > 0 ) {
-        const latest = incompleteChallenges.sorted( "availableDate", true );
-        setChallenge( latest[0] );
-      }
+      const incompleteChallenges = realm.objects( "ChallengeRealm" )
+        .filtered( "percentComplete != 100" )
+        .sorted( "availableDate", true );
+
+      if ( incompleteChallenges.length === 0 ) { return; }
+      setChallenge( incompleteChallenges[0] );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to open realm, error: ", err );
     } );

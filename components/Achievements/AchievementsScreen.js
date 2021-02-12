@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import taxonIds from "../../utility/dictionaries/taxonDict";
-import realmConfig from "../../models";
+import realm from "../../models/realm";
 import styles from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
 import LevelHeader from "./LevelHeader";
@@ -27,50 +26,44 @@ const AchievementsScreen = () => {
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
-    nextLevelCount: 0,
-    badgesEarned: null
+    nextLevelCount: 0
   } );
 
-  const fetchBadges = () => {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const badges = realm.objects( "BadgeRealm" );
-        const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
+  const badges = realm.objects( "BadgeRealm" );
+  const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
 
-        const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
+  const fetchBadges = useCallback( ( ) => {
+    const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 
-        const speciesBadges = [];
+    const speciesBadges = [];
 
-        iconicTaxonIds.forEach( ( id ) => {
-          if ( id === null ) { return; }
-          const highestEarned = badges.filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
-            .sorted( "earnedDate", true );
-          speciesBadges.push( highestEarned[0] );
-        } );
+    iconicTaxonIds.forEach( ( id ) => {
+      if ( id === null ) { return; }
+      const highestEarned = badges
+        .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
+        .sorted( "earnedDate", true );
+      speciesBadges.push( highestEarned[0] );
+    } );
 
-        const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
-        const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
+    const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
+    const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
+    const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
 
-        speciesBadges.sort( ( a, b ) => {
-          if ( a.index < b.index && a.earned > b.earned ) {
-            return -1;
-          }
-          return 1;
-        } );
+    speciesBadges.sort( ( a: { index: number, earned: boolean }, b: { index: number, earned: boolean } ) => {
+      // $FlowFixMe sorting by booleans isn't great, but it works here
+      if ( a.index < b.index && a.earned > b.earned ) {
+        return -1;
+      }
+      return 1;
+    } );
 
-        setState( {
-          speciesBadges,
-          level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
-          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-          badgesEarned,
-          loading: false
-        } );
-        setLoading( false );
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
-  };
+    setState( {
+      speciesBadges,
+      level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
+      nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0
+    } );
+    setLoading( false );
+  }, [badges] );
 
   const fetchSpeciesCount = () => {
     fetchNumberSpeciesSeen().then( ( species ) => {
@@ -83,7 +76,7 @@ const AchievementsScreen = () => {
       fetchBadges();
       fetchSpeciesCount();
     } );
-  }, [navigation] );
+  }, [navigation, fetchBadges] );
 
   const navToObservations = useCallback( () => {
     setRoute( "Achievements" );
@@ -116,7 +109,7 @@ const AchievementsScreen = () => {
         </TouchableOpacity>
         <View style={styles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />
-          <Text style={styles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
+          <Text style={styles.number}>{badgesEarned && localizeNumber( badgesEarned )}</Text>
         </View>
       </View>
       <View style={styles.center}>

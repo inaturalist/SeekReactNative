@@ -77,7 +77,12 @@
     "observations_3": "Seek-ek ez ditu zure behaketak beste gailu batzuekin sinkronizatzen.",
     "agree_to_terms": "<terms>{{terms}}</terms> eta <privacy>{{privacy}}</privacy> ados nago, eta <guidelines>{{guidelines}}</guidelines> irakurri ditut.",
     "guidelines": "Komunitatearen gidalerroak",
-    "store_data": "Baimentzen dut iNaturalist niri buruzko oso informazio mugatua gorde eta prozesatzera nire kontua kudeatu ahal izateko."
+    "store_data": "Baimentzen dut iNaturalist niri buruzko oso informazio mugatua gorde eta prozesatzera nire kontua kudeatu ahal izateko.",
+    "learn_more": "Learn more",
+    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "about_personal_information": "About Personal Information",
+    "about_licenses": "About Licenses"
   },
   "inat_login": {
     "log_in_with_inat": "Hasi saioa zure iNaturalist kontuarekin",
@@ -211,7 +216,15 @@
     "photographer_september": "Argazkia © Netflix / Silverback Films",
     "photographer_october": "Argazkia © Netflix / Silverback Films",
     "photographer_december": "Argazkia © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Behatutako espezieak"
+    "species_observed": "Behatutako espezieak",
+    "badge_name_april": "Connectivity Badge",
+    "badge_name_may": "Biodiversity Badge",
+    "badge_name_june": "Community Badge",
+    "badge_name_august": "Forests Badge",
+    "badge_name_september": "Grasslands Badge",
+    "badge_name_october": "Freshwater Badge",
+    "badge_name_november": "High Seas Badge",
+    "badge_name_december": "Climate Badge"
   },
   "inat_stats": {
     "global_observations": "Mundo osoko behaketak",
@@ -703,17 +716,20 @@
     "mar_2021_description": "National Geographic Society-ko lau hilabeteko erronkak abiatu ditugu, naturan nola bizi garen eta zer nolako harremana dugun ulertzeko erronkak.\n\nNatura gure inguruan dago, eta naturan emandako denborak osasuna eta zoriona eraikitzen laguntzen du. Ahal izanez gero, animatzen zaitugu leku bat aukeratzera, hala nola parke bat, eremu babestu bat, edo zure lorategia, hilero bisitatzen duzuna, Seek eta zure esplorazioen zati gisa. Hilabete honetarako, aurkitu zoriontsu egiten zaituzten hamar espezie!\n\nSeek erabiltzeko baliabideak lortzeko edo biodibertsitateari buruz gehiago ikasteko, bisitatu NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Erabili ezazu denbora tarte bat Seek nola dabilen ondo ikasteko. Bisita ezazu sarrerako orrialdea ikusteko zein espezie dauden zuregandik gertu. Ba al dago zure inguruan behatu nahi duzun landare edo animalia zehatzik?",
     "mar_2021_photographer": "Argazkia: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Nature Badge",
     "apr_2021_mission_1": "Aurkitu 2 molusku (bibalbioak, barraskiloak, bareak, txibiak) edo krustazeo (izkirak, karramarroak, kukurutxak)",
     "apr_2021_mission_2": "Aurkitu 6 landare",
     "apr_2021_mission_3": "Aurkitu 2 onddo",
     "apr_2021_challenge_name": "Berreskurapen eta Bergaitze Erronka",
     "apr_2021_description": "Klima aldaketa, espezieen iraungitzea, eta plastikoen poluzioa dira gure planetak gaur egun aurrean dituen hiru erronkarik handienak, eta guztietan eragiten dugu gizakiok. Aurtengo Lurraren Egunaren leloa (apirilaren 22a) \"Lurra Berreskuratu\" izango da. Guztiok lan egin behar dugu elkarrekin etorkizun hobea eraikitzeko gure komunitateentzat eta basa-bizitzarentzat. Zure ekarpenarekin ere diferentzia handia egin dezakezu!",
     "apr_2021_action": "Gizakiok ekosisteman eragiteko dugun modurik handienetako bat zaborra da. Hilabete honetan natura esploratzen ari zarela, kontura zaitez inguruan ikusten duzun zaborrarekin eta pentsatu ea nondik etorri den. Egin ezazu etxean zerrenda bat zure familiak sortzen duen zaborra gutxitzeko ideiekin, eta zure familiarekin partekatu ideia horiek.",
+    "apr_2021_badge_name": "Restoration Badge",
     "may_2021_mission_1": "Aurkitu familia hauetako 5 landare:\n\nAsteraceae (eguzki-loreak, txiribitak);\nFabaceae (lekaleak);\nLamiaceae (menda);\nAcanthaceae (Acanthus);\nMalvaceae (Hibiscusak);\nBignoniaceae (Bignonia);\nPassifloraceae (Pasioaren fruitua)\n",
     "may_2021_mission_2": "Aurkitu 2 artropodo (intsektuak, araknidoak, krustazeoak)",
     "may_2021_challenge_name": "Ekosistema Osasuntsuaren Erronka",
     "may_2021_description": "Ekosistema osasuntsuek onura asko ematen dizkigute, besteak beste, ura eta airea garbitzea, karbonoa biltegiratzea eta bioaniztasuna babesteko habitatak ematea. Espezie batzuk, hala nola likenak, goroldioa eta odonatuak (marisorginak), osasun ekologikoaren adierazle dira. Espezie hauek ikusita, seinale ona da zure ekosistema osasungarria izateko!",
     "may_2021_action": "Ekosistema osasuntsuek onura handiak dituzte gure osasunean eta ongizatean. Naturan emandako denborak lagundu dezake jendea estresetik suspertzen, aldartea hobetzen eta argiago pentsatzen. Aurkitu leku baketsu bat naturan eta ordubete eman zure inguruko ikuskizun, soinu, usain eta ehundurei begira. Idatzi ohar batzuk. Nola sentiarazten zaitu naturan emandako denbora honek?",
+    "may_2021_badge_name": "EcoHealth Badge",
     "june_2021_mission_1": "Aurkitu klase hauetako landare bat:\nLycopodiopsida (goroldioak);\nPolypodiopsida (iratzeak)",
     "june_2021_mission_2": "Aurkitu klase honetako landare 1: Pinopsida (koniferoak, pinuak)",
     "june_2021_mission_3": "Aurkitu Angiosperame azpifilumeko landare 1 (landare loredun bat)",
@@ -723,6 +739,10 @@
     "june_2021_mission_7": "Aurkitu araknido 1",
     "june_2021_challenge_name": "Kontserbazio Erronka",
     "june_2021_description": "Denok, gure adina edo esperientzia gorabehera, eragin positiboa izan dezakegu bioaniztasunaren kontserbazioan. Adibidez, gure patioa bezalako leku jakin bat zaindu dezakegu, eremu babestu bat, edo parke lokal bat. Natura babestuz gero, axola zaizkizun lekuetan dauden landare, onddo eta animaliei buruz ikasten da. Zure erronka da zure lorategian edo parke lokal batean begiratzea... eta ahalik eta bioaniztasunaren inbentarioa egitea.",
-    "june_2021_action": "Hilabete honetan, zuk dokumentatutako espezie bakoitzaz zerbait jakitean zentratu, besteak beste, zeintzuk diren bertakoak eta zeintzuk inbaditzaileak. Gogoeta egin azken lau hilabeteotan egin dituzun behaketez — zer alde antzeman dituzu bioaniztasunean eta giza aztarnan aldi honetan eta aztertu dituzun leku ezberdinetan zehar? Identifikatu zerbait bertako leku bat egiten laguntzeko (hala nola zure patioa edo parkea) bertako espezieentzat osasuntsuagoa. Idatzi zure helburua eta atera argazki bat."
+    "june_2021_action": "Hilabete honetan, zuk dokumentatutako espezie bakoitzaz zerbait jakitean zentratu, besteak beste, zeintzuk diren bertakoak eta zeintzuk inbaditzaileak. Gogoeta egin azken lau hilabeteotan egin dituzun behaketez — zer alde antzeman dituzu bioaniztasunean eta giza aztarnan aldi honetan eta aztertu dituzun leku ezberdinetan zehar? Identifikatu zerbait bertako leku bat egiten laguntzeko (hala nola zure patioa edo parkea) bertako espezieentzat osasuntsuagoa. Idatzi zure helburua eta atera argazki bat.",
+    "june_2021_badge_name": "Conservation Badge"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
   }
 }

@@ -77,7 +77,12 @@
     "observations_3": "Seek sinchroniseer nie u waarnemings met ander toestelle nie.",
     "agree_to_terms": "Ek stem in tot die <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ek het die <guidelines>{{guidelines}}</guidelines> nagegaan.",
     "guidelines": "Gemeenskapsriglyne",
-    "store_data": "Ek stem daarrmee in dat iNaturalist persoonlike inligting oor my kan bewaar en verwerk om my rekening te beheer."
+    "store_data": "Ek stem daarrmee in dat iNaturalist persoonlike inligting oor my kan bewaar en verwerk om my rekening te beheer.",
+    "learn_more": "Learn more",
+    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "about_personal_information": "About Personal Information",
+    "about_licenses": "About Licenses"
   },
   "inat_login": {
     "log_in_with_inat": "Teken aan met u iNaturalist-rekening",
@@ -211,7 +216,15 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Spesies waargeneem"
+    "species_observed": "Spesies waargeneem",
+    "badge_name_april": "Connectivity Badge",
+    "badge_name_may": "Biodiversity Badge",
+    "badge_name_june": "Community Badge",
+    "badge_name_august": "Forests Badge",
+    "badge_name_september": "Grasslands Badge",
+    "badge_name_october": "Freshwater Badge",
+    "badge_name_november": "High Seas Badge",
+    "badge_name_december": "Climate Badge"
   },
   "inat_stats": {
     "global_observations": "Globale Waarnemings",
@@ -703,17 +716,20 @@
     "mar_2021_description": "Ons skop vier maande se uitgagings af wat deur National Geographic geborg word en is gerig op die begryp van ons afhanklikheid van en invloed op die natuurlike wêreld.\n\nDie natuur is oral om ons, en tyd in die natuur gespandeer bou gesondheid en geluk. Ons moedig u om, indien moontlik, ’n plek soos ’n plaaslike park, bewarea of u erf te kies way u elke maand kan besoek as deel van u ontdekkings met Seek. Vandeesmaand se doel: vind tien spesies wat u gelukkig laat voel!\n\nVir hulpbronne om u met Seek te help en meer oor biodiversiteit te leer, gaan na NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Spandeer ’n bietjie tyd om weer met Seek bekend te raak, of leer hoe om dit te gebruik. Besoek die tuisskerm om te sien welke spesies naby woon. Is daar spesifieke plante of diere wat u graag wil waarneem?",
     "mar_2021_photographer": "Foto deur: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Nature Badge",
     "apr_2021_mission_1": "Vind 2 weekdiere (tweekleppiges, naakslakke, slakke, kewerslakke) of kreefagtiges (seepokke, krappe, krewe, krill, pissebedde)",
     "apr_2021_mission_2": "Vind 6 plante",
     "apr_2021_mission_3": "Vinf 2 swamme",
     "apr_2021_challenge_name": "Restoureer- en-herstel-uitdaging",
     "apr_2021_description": "Klimaatsverandering, verlies aan spesies en plastiekbesoedeling is drie van die grootste uitdagings wat ons planeet tans in die gesig staar en is almal mensgedrewe. Hierdie jaar se tema vir Aarddag (22 April) is “Herstel ons Aarde”. Ons moet almal saamwerk om ’n meer volhoubare toekoms vir ons gemeenskappe en wildlewe te bou – u individuele aksies kan ’n verskil maak!",
     "apr_2021_action": "Een van die algemeenste menslike ompakte op ekostelsels is rommel. Soos u die natuur vandeesmaand ontdek, moet u aandag skenk aan die rommel wat u sien en dink oor waar dit vandaan kom. Maak ’n lys van dinge wat u tuis kan doen om u gesin se rommel te verminder, en deel die lys met die res van u gesin.",
+    "apr_2021_badge_name": "Restoration Badge",
     "may_2021_mission_1": "Vind 5 plante uit elk van die volgende families:\n\nAsteraceae (sonneblomme, madeliefies, asters en verwante);\nFabaceae (Vlinderblommiges);\nLamiaceae (Lipblommiges);\nAcanthaceae (acanthus- en kanferfoeliefamily);\nMalvaceae (tavla- en hibiskusfamilie);\nBignoniaceae (trompetblomfamilie);\nPassifloraceae (Passieblomfamilie)",
     "may_2021_mission_2": "Vind 2 arthropoda (insekte, aragniede, kreefagtiges)",
     "may_2021_challenge_name": "Gesonde Ekostelsels-uitdaging",
     "may_2021_description": "Gesonde ekostelsels bied talle voordele, insluitend die skoonmaak van water en lug, en habitatverskaffing om biodiversiteit te ondersteun. Sommige spesies – soos korsmosse, mosse, odonata (naaldekokers en waterjuffers) is aanduidend van ekologiese gesondheid. Wanneer u hierdie spesies sien is dit ’n goeie teken dat u ekostelsel gesond is!",
     "may_2021_action": "Gesonde ekostelsels bied belangrike voordele vir ons eie gesondheid en welstand. Tyd wat in die natuur spandeer word kan mense help om van spanning ontslae te raak, hul gemoed te verbeter en om helderder te dink. Vir ’n vreedsame plek in die natuur en neem ’n uur om op die uitsig, geluide, reuke en teksture om u te konsentreer. Skryf van u waarnemings neer. Hoe laat die tyd in die natuur u voel?",
+    "may_2021_badge_name": "EcoHealth Badge",
     "june_2021_mission_1": "Vind 1 plant uit die volgende klasse:\n\nLycopodiopsida (wolfskloue,  engelse mos en dennewolfsklouagtiges);\nPolypodiopsida (varings)",
     "june_2021_mission_2": "Vind 1 plant in die klas Pinopsida (konifere)",
     "june_2021_mission_3": "Vind 1 plant uit die onderstam Angiospermae (blomplante)",
@@ -723,6 +739,10 @@
     "june_2021_mission_7": "Vind 1 aragnied",
     "june_2021_challenge_name": "Bewaring-uitdaging",
     "june_2021_description": "Ons almal, ongeag ons ouderdom of ervaring, kan ’n positiewe impak op biodiversiteitsbewaring hê. Ons kan byvoorbeeld help om na ’n spesifieke plek, soos ons tuin, ’n bewarea of plaaslike park, om te sien. Natuurbeskerming begin by die leer oor die plante, swamme en diere wat woon in die plekke waarvoor ons omgee. U uitdaging vandeesmaand is om in u erf of plaaslike park te kyk en ’n inventaris te maak van soveel biodiversiteit soos u kan.",
-    "june_2021_action": "Vandeesmaand gaan u iets leer oor elke spesie wat u dokumenteer, insluitend of dit inheems of bekendgestel is. Gaan weer oor al u waarnemings van die afgelope vier maande – welke verskil in biodiversiteit en die menslike voetspoor kon u oor hierdie tydperk en oor die verskillende verkenningsareas waarneem? Identifiseer iets wat u kan doen om te help om u lokale plek (soos u erf of ’n park) gesonder kan maak vir inheemsie spesies. Skryf u doel neer en neem ’n foto daarvan."
+    "june_2021_action": "Vandeesmaand gaan u iets leer oor elke spesie wat u dokumenteer, insluitend of dit inheems of bekendgestel is. Gaan weer oor al u waarnemings van die afgelope vier maande – welke verskil in biodiversiteit en die menslike voetspoor kon u oor hierdie tydperk en oor die verskillende verkenningsareas waarneem? Identifiseer iets wat u kan doen om te help om u lokale plek (soos u erf of ’n park) gesonder kan maak vir inheemsie spesies. Skryf u doel neer en neem ’n foto daarvan.",
+    "june_2021_badge_name": "Conservation Badge"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
   }
 }

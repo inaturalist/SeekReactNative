@@ -78,11 +78,11 @@
     "agree_to_terms": "Accetto i <terms>{{terms}}</terms> e la <privacy>{{privacy}}</privacy>, e ho visto le <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Linee Guida della Comunità",
     "store_data": "Io acconsento che iNaturalist conservi e processi un limitato tipo di mie informazioni personali al fine di gestire il mio account.",
-    "learn_more": "Learn more",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "learn_more": "Scopri di più",
+    "learn_more_about_data_storage": "Noi conserviamo informazioni personali come nome utente ed email per gestire gli account su questo sito, e per rispettare le leggi sulla privacy, devi selezionare questa casella per indicare che tu acconsenti all'utilizzo delle informazioni personali. Per saperne di più su quali informazioni personali raccogliamo e su come le usiamo, per favore visita le nostre Politiche della Privacy e i nostri Termini di Servizio.",
+    "learn_more_about_licensing": "Seleziona questa casella se vuoi applicare una licenza Creative Commons Attribuzione-NonCommerciale al tuo contenuto caricato. Ciò significa che ognuno potrà copiare o riutilizzare le tue foto e/o le tue osservazioni senza chiederti permesso purché che ti accrediti e non le utilizzi a scopi commerciali. Puoi scegliere un'altra licenza o rimuoverla successivamente, ma questa è la miglior licenza per la condivisione con gli altri ricercatori.",
+    "about_personal_information": "Riguardo le Informazioni Personali",
+    "about_licenses": "A proposito delle Licenze"
   },
   "inat_login": {
     "log_in_with_inat": "Accedi con il tuo account iNaturalist",
@@ -217,14 +217,14 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Specie Osservate",
-    "badge_name_april": "Connectivity Badge",
-    "badge_name_may": "Biodiversity Badge",
-    "badge_name_june": "Community Badge",
-    "badge_name_august": "Forests Badge",
-    "badge_name_september": "Grasslands Badge",
-    "badge_name_october": "Freshwater Badge",
-    "badge_name_november": "High Seas Badge",
-    "badge_name_december": "Climate Badge"
+    "badge_name_april": "Distintivo Connettività",
+    "badge_name_may": "Distintivo Biodiversità",
+    "badge_name_june": "Distintivo Comunità",
+    "badge_name_august": "Distintivo Foreste",
+    "badge_name_september": "Distintivo Praterie",
+    "badge_name_october": "Distintivo Acque Dolci",
+    "badge_name_november": "Distintivo Alto Mare",
+    "badge_name_december": "Distintivo Clima"
   },
   "inat_stats": {
     "global_observations": "Osservazioni Totali",
@@ -716,20 +716,20 @@
     "mar_2021_description": "Stiamo lanciando quattro mesi di sfide sponsorizzate dalla National Geographic Society, incentrate sulla comprensione di come dipendiamo e influenziamo il mondo naturale.\n\nLa natura è tutto intorno a noi, e il tempo trascorso nella natura aiuta a costruire salute e felicità. Se possibile, ti invitiamo a scegliere un luogo, come un parco locale, un'area protetta, o il tuo cortile, che visiti ogni mese ed includerlo nelle tue esplorazioni con Seek. Per la missione di questo mese: trova dieci specie che ti fanno sentire felice!\n\nPer trovare aiuto nell'utilizzo di Seek e saperne di più sulla biodiversità, visita NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Trascorri del tempo per riprendere contatto, od imparare a usare, Seek. Visita la schermata iniziale per vedere quali specie vivono nelle tuevicinanze. Ci sono piante o animali particolari che vorresti davvero osservare?",
     "mar_2021_photographer": "Foto di: Tom Matthews / National Geographic",
-    "mar_2021_badge_name": "Nature Badge",
+    "mar_2021_badge_name": "Distintivo Natura",
     "apr_2021_mission_1": "Trova 2 molluschi (bivalvi, lumache, chitoni) o crostacei (cirripedi, granchi, aragoste, porcellini di terra)",
     "apr_2021_mission_2": "Trova 6 piante",
     "apr_2021_mission_3": "Trova 2 funghi",
     "apr_2021_challenge_name": "Sfida Ripristino & Recupero",
     "apr_2021_description": "Il cambiamento climatico, la perdita di specie e l'inquinamento da plastica sono tre delle maggiori sfide che il nostro pianeta si trova ad affrontare e sono tutte determinate dall'attività umana. Il tema di quest'anno per la Giornata della Terra (22 aprile) è \"Ripristinare la nostra Terra. Abbiamo tutti bisogno di lavorare insieme per costruire un futuro più sostenibile sia per le comunità che per la fauna selvatica: le tue azioni individuali possono contribuire a fare la differenza!",
     "apr_2021_action": "Uno degli impatti umani più diffusi sugli ecosistemi è la spazzatura. Mentre esplori la natura questo mese, presta attenzione alla spazzatura e rifletti sula sua origine. Fai un elenco di cose che potresti fare a casa per ridurre lo spreco nella tua famiglia, e condividi questa lista con il resto della tua famiglia.",
-    "apr_2021_badge_name": "Restoration Badge",
+    "apr_2021_badge_name": "Distintivo Ripristino",
     "may_2021_mission_1": "Trova 5 piante provenienti da una delle seguenti famiglie:\n\nAsteraceae (Girasoli, Gigli, Astri e simili);\nFabaceae (Legumi);\nLamiaceae (Famiglia della Menta);\nAcanthaceae (Famiglia dell'Acanto e del Caprifoglio);\nMalvaceae (Famiglia dell'Ibisco e della Malva);\nBignoniaceae (Famiglia della Bignonia);\nPassifloraceae (Famiglia del Frutto della Passione)",
     "may_2021_mission_2": "Trova 2 artropodi (insetti, aracnidi, crostacei)",
     "may_2021_challenge_name": "Sfida Ecosistemi Sani",
     "may_2021_description": "Gli ecosistemi sani ci offrono molti vantaggi diversi, tra cui la pulizia dell'acqua e dell'aria, lo stoccaggio del carbonio e la fornitura di habitat per la biodiversità. Alcune specie, come i licheni, il muschio e gli odonati (libellule e damigelle) sono note per essere indicatori di salute ecologica. Quando vedi queste specie è un buon segno di salute del tuo ecosistema!",
     "may_2021_action": "Gli ecosistemi sani apportano importanti benefici alla nostra salute e al nostro benessere. Il tempo trascorso in natura può aiutare le persone a riprendersi dallo stress, migliorare il loro umore e pensare più chiaramente. Trova un posto tranquillo nella natura e trascorri un'ora concentrandoti su ciò che vedi, sui suoni, sugli odori e sulle trame intorno a te. Scrivi alcune delle tue osservazioni. Come ti fa sentire questo tempo trascorso nella natura?",
-    "may_2021_badge_name": "EcoHealth Badge",
+    "may_2021_badge_name": "Distintivo EcosistemiSani",
     "june_2021_mission_1": "Trova 1 pianta dalle seguenti classi:\n\nLycopodiopsida (Selaginella, Licopodi e Huperzia);\nPolypodiopsida (Felci)",
     "june_2021_mission_2": "Trova 1 pianta nella classe Pinopsida (Conifere)",
     "june_2021_mission_3": "Trova 1 pianta dal subphylum Angiosperme (piante con fiore)",
@@ -740,9 +740,9 @@
     "june_2021_challenge_name": "Sfida Conservazione",
     "june_2021_description": "Tutti noi, indipendentemente dalla nostra età o esperienza, possiamo avere un impatto positivo sulla conservazione della biodiversità. Ad esempio, possiamo aiutare a prenderci cura di un luogo particolare come il nostro cortile, un'area protetta o un parco locale. Proteggere la natura inizia imparando a conoscere le piante, i funghi e gli animali che si trovano nei luoghi che ti interessano. La vostra sfida di questo mese è quella di guardare nel vostro cortile o un in parco locale e fare un inventario della biodiversità il più completo possibile.",
     "june_2021_action": "Questo mese, concentrati sull'imparare qualcosa su ogni specie che documenti, incluso se sono native e che sono introdotte. Pensa a tutte le tue osservazioni negli ultimi quattro mesi: quali differenze hai notato nella biodiversità e nell'impatto dell'uomo in questo periodo e nei diversi luoghi che hai esplorato? Trova qualcosa che ti puoi impegnare a fare per contribuire a rendere un luogo vicino a te (come il tuo cortile o un parco) più idoneo per le specie autoctone. Annota il tuo obiettivo e scattane una foto.",
-    "june_2021_badge_name": "Conservation Badge"
+    "june_2021_badge_name": "Distintivo Conservazione"
   },
   "challenges_all": {
-    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
+    "you_completed_sponsor_challenge": "Hai COMPLETATO LA SFIDA {{sponsorName}} PER {{date}}!"
   }
 }

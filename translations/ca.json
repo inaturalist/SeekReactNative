@@ -78,7 +78,7 @@
     "agree_to_terms": "Estic d'acord amb les  <terms>{{terms}}</terms> i <privacy>{{privacy}}</privacy>, i he revisat les <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Directrius de la comunitat",
     "store_data": "Autoritzo a iNaturalist a guardar i processar determinades informacions de caràcter personal sobre mi per gestionar el meu compte",
-    "learn_more": "Learn more",
+    "learn_more": "Aprendre més",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "About Personal Information",
@@ -87,8 +87,8 @@
   "inat_login": {
     "log_in_with_inat": "Inicieu sessió al vostre compte d'iNaturalist",
     "username": "Nom d’usuari",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Nom d'usuari / adreça electrònica",
+    "username_or_email": "Nom d’usuari o adreça electrònica",
     "password": "Contrasenya",
     "forgot_password_header": "Contrasenya oblidada",
     "forgot_password": "Has oblidat la teva contrasenya?",
@@ -504,7 +504,7 @@
     "species_saved": "Aquesta espècie està guardada a les teves observacions.",
     "you": "Ei, mira, tu! Surt a l'exterior i troba algunes espècies salvatges per aprendre encara més sobre elles.",
     "internet_error": "Necessitem accés a internet per mostrar informació detallada de l'espècie. Toca per intentar-ho de nou.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "No hem trobat fotos d'aquesta espècie."
   },
   "about": {
     "header": "Quant a",

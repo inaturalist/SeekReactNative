@@ -77,11 +77,18 @@
     "observations_3": "Seek nu vă sincronizează observațiile cu alte aparate.",
     "agree_to_terms": "Sunt de acord cu <terms>{{terms}}</terms> și <privacy>{{privacy}}</privacy>, și am revizuit <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Orientările Comunității",
-    "store_data": "Sunt de acord să permit iNaturalist să stocheze și să prelucreze informații personale limitate despre mine pentru a-mi gestiona contul."
+    "store_data": "Sunt de acord să permit iNaturalist să stocheze și să prelucreze informații personale limitate despre mine pentru a-mi gestiona contul.",
+    "learn_more": "Afla mai multe",
+    "learn_more_about_data_storage": "Stocăm informații personale precum nume de utilizator și adrese de e-mail pentru a gestiona conturile de pe acest site, și pentru a respecta legile de confidențialitate, trebuie să bifezi această casetă pentru a indica faptul că dai acordul acestei utilizări a informațiilor personale. Pentru a afla mai multe despre ce informații colectăm și cum le folosim, te rugăm să consulți Politica noastră de confidențialitate și Termenii și condițiile noastre.",
+    "learn_more_about_licensing": "Bifează această casetă dacă dorești să aplici o licență \"Creative Commons Attribution-NonCommercial\" pentru conținutul încărcat. Acest lucru înseamnă că oricine poate copia și reutiliza fotografiile și/sau observațiile fără a cere permisiunea, atâta timp cât îți acordă credit și nu utilizează lucrările în scopuri comerciale. Poți alege o altă licență sau poți elimina licența mai târziu, dar aceasta este cea mai bună licență pentru partajarea cu cercetătorii.",
+    "about_personal_information": "Despre Informații Personale",
+    "about_licenses": "Despre Licențe"
   },
   "inat_login": {
     "log_in_with_inat": "Conectează-te cu contul tău iNaturalist",
     "username": "Nume utilizator",
+    "username_email": "Nume de utilizator / e-mail",
+    "username_or_email": "Nume de utilizator sau e-mail",
     "password": "Parola",
     "forgot_password_header": "Am uitat parola",
     "forgot_password": "Ai uitat parola?",
@@ -115,8 +122,7 @@
   "location_picker": {
     "species_nearby": "Specii din apropiere",
     "button": "Caută în apropierea locației",
-    "undefined": "Locație nedefinită",
-    "map_error_android": "Google Maps nu se poate încărca în acest moment."
+    "undefined": "Locație nedefinită"
   },
   "taxon_picker": {
     "all": "Toate speciile",
@@ -210,7 +216,15 @@
     "photographer_september": "Fotografia © Netflix / Silverback Films",
     "photographer_october": "Fotografia © Netflix / Silverback Films",
     "photographer_december": "Fotografia © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Specii Observate"
+    "species_observed": "Specii Observate",
+    "badge_name_april": "Insigna Conectivității",
+    "badge_name_may": "Insigna Biodiversității",
+    "badge_name_june": "Insigna Comunității",
+    "badge_name_august": "Insigna Pădurilor",
+    "badge_name_september": "Insigna Pășunilor",
+    "badge_name_october": "Insigna Apelor Dulci",
+    "badge_name_november": "Insigna Mării Libere",
+    "badge_name_december": "Insigna Climatului"
   },
   "inat_stats": {
     "global_observations": "Observații Globale",
@@ -489,7 +503,8 @@
     "mammal": "mamifer",
     "species_saved": "Această specie este salvată în observațiile tale.",
     "you": "Hei, uite, tu ești! Ieși afara și găsește unele specii sălbatice pentru a afla mai multe despre ele.",
-    "internet_error": "Avem nevoie de internet ca să generăm ecranul de detaliu al speciei. Tapează pentru a încerca din nou."
+    "internet_error": "Avem nevoie de internet ca să generăm ecranul de detaliu al speciei. Tapează pentru a încerca din nou.",
+    "no_photos_found": "Nu s-au găsit fotografii pentru această specie."
   },
   "about": {
     "header": "Despre",
@@ -690,7 +705,7 @@
     "save_to_camera_roll": "Salvează în album cameră",
     "saved_to_camera_roll": "Salvat în album cameră",
     "back_to_id": "Înapoi la identificare",
-    "error_title": "Nu s-a putut finaliza cererea",
+    "error_title": "Fotografia nu a putut fi salvată",
     "error": "Te rugăm să verifici de două ori dacă ai instalată aplicația Facebook.",
     "adjust_square_crop": "Ajustare decupaj imagine",
     "crop_image": "Decupare imagine"
@@ -698,22 +713,25 @@
   "natgeo_challenges": {
     "mar_2021_mission_1": "Găsește orice zece specii",
     "mar_2021_challenge_name": "Provocarea Naturii NatGeo",
-    "mar_2021_description": "Lansăm patru luni de provocări sponsorizate de National Geographic Society, axate pe înțelegerea modului în care depindem și afectăm lumea naturală.\n\nNatura este peste tot în jurul nostru, iar timpul petrecut în natură ajută la construirea sănătății și a fericirii. Dacă este posibil, te încurajăm să alegi un loc — cum ar fi un parc local, o zonă protejată sau curtea ta — pe care îl vizitezi în fiecare lună ca parte a explorărilor tale cu Seek. Ca misiune pentru această lună: găsește orice zece specii care te fac să te simți fericiți!\n\nPentru a găsi resurse care să te ajute să utilizezi Seek și să afli mai multe despre biodiversitate, vizitează NatGeoEd.org/BioBlitz.",
+    "mar_2021_description": "Lansăm patru luni de provocări sponsorizate de National Geographic Society, axate pe înțelegerea modului în care depindem și afectăm lumea naturală.\n\nNatura este peste tot în jurul nostru, iar timpul petrecut în natură ajută la construirea sănătății și a fericirii. Dacă este posibil, te încurajăm să alegi un loc cum ar fi un parc local, o zonă protejată sau curtea ta pe care îl vizitezi în fiecare lună ca parte a explorărilor tale cu Seek. Ca misiune pentru această lună: găsește orice zece specii care te fac să te simți fericiți!\n\nPentru a găsi resurse care să te ajute să utilizezi Seek și să afli mai multe despre biodiversitate, vizitează NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Petrece ceva timp pentru a te familiariza cu, sau a învăța cum să folosești Seek. Vizitează ecranul de pornire pentru a vedea ce specii trăiesc în apropiere. Există anumite plante sau animale pe care ai dori cu adevărat să le observi?",
     "mar_2021_photographer": "Fotografie de: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Insigna Naturii",
     "apr_2021_mission_1": "Găsește orice 2 moluște (bivalve, limacși, melci, poliplacofore) sau crustacee (scoici, crabi, homari, oniscidee)",
     "apr_2021_mission_2": "Găsește 6 plante",
     "apr_2021_mission_3": "Găsește 2 ciuperci",
     "apr_2021_challenge_name": "Provocarea Restaurării & Recuperării",
     "apr_2021_description": "Schimbările climatice, pierderea speciilor și poluarea cu plastic sunt trei dintre cele mai mari provocări cu care se confruntă în prezent planeta noastră și toate sunt determinate de activitatea umană. Tema din acest an pentru Ziua Planetei Pământ (22 aprilie) este \"Regenerarea Pământului nostru.\" Cu toții trebuie să colaborăm pentru a construi un viitor mai durabil atât pentru comunități, cât și pentru fauna sălbatică — acțiunile tale individuale pot contribui la realizarea unei schimbări!",
     "apr_2021_action": "Unul dintre cele mai răspândite efecte umane asupra ecosistemelor este gunoiul. Pe măsură ce explorezi natura luna aceasta, acordă atenție gunoiului pe care îl vezi și gândește-te de unde ar fi putut proveni. Fă o listă cu lucrurile pe care le-ai putea face acasă pentru a reduce deșeurile generate de familia ta și împărtășește această listă cu restul familiei.",
-    "may_2021_mission_1": "Găsește 5 plante din oricare dintre următoarele familii:\n\nAsteraceae (Floarea-Soarelui, Margarete, Asteri și similare);\nFabaceae (leguminoase) - Salcâm, Trifoi, Lucernă;\nLamiaceae (Familia Mint) - Mentă;\nAcanthaceae (Familia Acanthus - spinoase și Honeysuckle) - Talpa Ursului și Caprifoi);\nMalvaceae (Familia Mallow și Hibiscus) - Zămoșită și Nalbă;\nBignoniaceae (Familia Bignonia) - Trâmbița piticilor, Trompetă;\nPassifloraceae (Familia Passiflora) - Fructul pasiunii, Floarea patimilor",
+    "apr_2021_badge_name": "Insigna Restaurării",
+    "may_2021_mission_1": "Găsește 5 plante din oricare dintre următoarele familii:\n\nAsteraceae (Floarea-Soarelui, Margarete, Asteri și similare);\nFabaceae (leguminoase);\nLamiaceae (Familia Mint);\nAcanthaceae (Familia Acanthus și Honeysuckle);\nMalvaceae (Familia Mallow și Hibiscus);\nBignoniaceae (Familia Bignonia);\nPassifloraceae (Familia Passiflora)",
     "may_2021_mission_2": "Găsește 2 artropode (insecte, arahnide, crustacee)",
     "may_2021_challenge_name": "Provocarea Ecosistemelor Sănătoase",
     "may_2021_description": "Ecosistemele sănătoase ne oferă multe beneficii diferite, inclusiv curățarea apei și a aerului, stocarea carbonului și furnizarea habitatului pentru susținerea biodiversității. Se știe că unele specii — cum ar fi lichenii, mușchii și odonatele (libelule și zigoptere) sunt indicatori ai sănătății ecologice. Când vezi aceste specii, este un semn bun că ecosistemul tău este sănătos!",
     "may_2021_action": "Ecosistemele sănătoase au beneficii importante pentru propria noastră sănătate și bunăstare. Timpul petrecut în natură poate ajuta oamenii să se refacă după stres, să-și îmbunătățească starea de spirit și să gândească mai clar. Găsește un loc liniștit în natură și petrece o oră concentrându-te la peisajele, sunetele, mirosurile și texturile din jurul tău. Notează câteva dintre observațiile tale. Cum te face să te simți acest timp petrecut în natură?",
+    "may_2021_badge_name": "Insigna EcoSănătății",
     "june_2021_mission_1": "Găsește 1 plantă din următoarele clase:\n\nLycopodiopsida (Brădișor, Pedicuță, Cornișor, Stuțișoară);\nPolypodiopsida (Ferigi)",
-    "june_2021_mission_2": "Găsește 1 plantă în clasa Pinopsida (Conifere) - Pin, Brad, Molid, Ienupăr",
+    "june_2021_mission_2": "Găsește 1 plantă în clasa Pinopsida (Conifere)",
     "june_2021_mission_3": "Găsește 1 plantă din subfilum Angiospermae (Plante cu Flori, Magnolii)",
     "june_2021_mission_4": "Găsește 1 fungus",
     "june_2021_mission_5": "Găsește 2 vertebrate (păsări, mamifere, amfibieni, reptile, pești)",
@@ -721,6 +739,10 @@
     "june_2021_mission_7": "Găsește 1 arahnidă",
     "june_2021_challenge_name": "Provocarea Conservării",
     "june_2021_description": "Noi toți, indiferent de vârsta sau experiența noastră, putem avea un impact pozitiv asupra conservării biodiversității. De exemplu, putem ajuta să avem grijă de un anumit loc, cum ar fi curtea noastră, o zonă protejată, sau un parc local. Protejarea naturii începe prin a învăța despre plantele, ciupercile și animalele care se află în locurile la care ții. Provocarea ta luna aceasta este să te uiți în curtea ta sau într-un parc local și să faci un inventar cu cât mai multă biodiversitate poți.",
-    "june_2021_action": "Luna aceasta, concentrează-te pe învățarea a ceva despre fiecare specie pe care o documentezi, inclusiv care sunt native și care sunt introduse. Reflectează la toate observațiile tale din ultimele patru luni — ce diferențe ai observat în ceea ce privește biodiversitatea și amprenta umană în această perioadă și în diferitele locuri pe care le-ai explorat? Identifică ceva ce te poți angaja să faci pentru a ajuta la crearea unei zone locale (cum ar fi curtea ta sau un parc) mai sănătoase pentru speciile native."
+    "june_2021_action": "Luna aceasta, concentrează-te pe învățarea a ceva despre fiecare specie pe care o documentezi, inclusiv care sunt native și care sunt introduse. Reflectează la toate observațiile tale din ultimele patru luni — ce diferențe ai observat în ceea ce privește biodiversitatea și amprenta umană în această perioadă și în diferitele locuri pe care le-ai explorat? Identifică ceva ce te poți angaja să faci pentru a ajuta la crearea unei zone locale (cum ar fi curtea ta sau un parc) mai sănătoase pentru speciile native.",
+    "june_2021_badge_name": "Insigna Conservării"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "AI FINALIZAT PROVOCAREA {{sponsorName}} PENTRU {{date}}!"
   }
 }

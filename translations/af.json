@@ -77,11 +77,18 @@
     "observations_3": "Seek sinchroniseer nie u waarnemings met ander toestelle nie.",
     "agree_to_terms": "Ek stem in tot die <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ek het die <guidelines>{{guidelines}}</guidelines> nagegaan.",
     "guidelines": "Gemeenskapsriglyne",
-    "store_data": "Ek stem daarrmee in dat iNaturalist persoonlike inligting oor my kan bewaar en verwerk om my rekening te beheer."
+    "store_data": "Ek stem daarrmee in dat iNaturalist persoonlike inligting oor my kan bewaar en verwerk om my rekening te beheer.",
+    "learn_more": "Leer meer",
+    "learn_more_about_data_storage": "Ons bewaar persoonlike inligting soos gebruikersname en e-posadresse om rekeninge op hierdie werf te bestuur en, om aan privaatheidswetgewing te voldoen moet u die kassie afmerk om aan te dui dat u instem tot die gebruik van persoonlike inligting. Sien ons privaatheidsbeleid en gebruiksvoorwaardes om meer te leer oor watter inligting ons versamel en hoe dit gebruik word.",
+    "learn_more_about_licensing": "Merk die kassie indien u ’n Creative Commons Naamvermelding-NieKommersiële lisensie op opgelaaide inhoud wil toepas. Dit beteken dat enigeen u foto’s en/of waarnemings kan kopieer en hergebruik sonder om toestemming te vra mits u erkenning kry en dit nie kommersieel gebruik word nie. U kan ’n ander lisensie kies of die lisensie later verwyder, maar dit is die beste lisensie om met navorsers te deel.",
+    "about_personal_information": "Oor persoonlike lingting",
+    "about_licenses": "Oor lisensies"
   },
   "inat_login": {
     "log_in_with_inat": "Teken aan met u iNaturalist-rekening",
     "username": "Gebruikersnaam",
+    "username_email": "Gebruikersnaam / e-pos",
+    "username_or_email": "Gebruikersnaam of e-pos",
     "password": "Wagwoord",
     "forgot_password_header": "Wagwoord vergeet",
     "forgot_password": "U wagwoord vergeet?",
@@ -115,8 +122,7 @@
   "location_picker": {
     "species_nearby": "Spesies naby",
     "button": "Soek naby ligging",
-    "undefined": "Ongedefinieerde ligging",
-    "map_error_android": "Google Maps kan nie nou laai nie."
+    "undefined": "Ongedefinieerde ligging"
   },
   "taxon_picker": {
     "all": "Alle Spesies",
@@ -210,7 +216,15 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Spesies waargeneem"
+    "species_observed": "Spesies waargeneem",
+    "badge_name_april": "Samehangendheidskenteken",
+    "badge_name_may": "Biodiversiteitskenteken",
+    "badge_name_june": "Gemeenskapskenteken",
+    "badge_name_august": "Woude-kenteken",
+    "badge_name_september": "Grasveldkenteken",
+    "badge_name_october": "Varswaterkenteken",
+    "badge_name_november": "Oop See-kenteken",
+    "badge_name_december": "Klimaatkenteken"
   },
   "inat_stats": {
     "global_observations": "Globale Waarnemings",
@@ -489,7 +503,8 @@
     "mammal": "soogdier",
     "species_saved": "Hierdie spesie is in u waarnemings bewaar.",
     "you": "Kyk net, dit is u! Gaan buitentoe en vind wilde spesies om nog meer oor hulle te leer.",
-    "internet_error": "Ons benodig die Internet om die spesiesdetailskerm te genereer. Tik om weer te probeer."
+    "internet_error": "Ons benodig die Internet om die spesiesdetailskerm te genereer. Tik om weer te probeer.",
+    "no_photos_found": "Geen foto’s gevind vir hierdie spesie."
   },
   "about": {
     "header": "Aangaande",
@@ -656,15 +671,15 @@
     "mission_2_nov_2020": "Vind 1 plant in die orde Fabales (vlinderblomme, melkkruid en surianaceae)",
     "mission_3_nov_2020": "Vind 1 aragnied",
     "mission_4_nov_2020": "Vind 2 insekte",
-    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
-    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here.",
+    "nov_2020_description": "Talle spesies het ontwikkel om by menslike omgewings aan te pas soos ons oor die wêreld versprei het. Selfs in digbevolkte stedelike gebiede vind ons voëls, plante en insekte om ons.",
+    "action_nov_2020": "Wat is algemene wildspesies wat u in u omgewing sien? Is die spesies inheems, indringer of bekendgestel? Indien dit bekendgestel is, kyk of u kan vasstel hoe die spesies daar beland het.",
     "ecosystem": "Ekostelseluitdaging",
     "mission_1_dec_2020": "Vind enige 3 gewerweldes (voëls, soogdiere, reptiele, amfibieë en visse)",
     "mission_2_dec_2020": "Vind 3 plante",
     "mission_3_dec_2020": "Vind 3 insekte",
     "mission_4_dec_2020": "Vind 1 aragnied",
-    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
-    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
+    "dec_2020_description": "Ekostelsels funksioneer met organismes van allerlei verskillende tipes en nisse. Vervaardigers, verbruikers en ontbinders werk saam om die ekostelsel te balanseer.",
+    "action_dec_2020": "Ontdek hoe verskillende tipes ekostelsels funksioneer met organismes wat oor die voedselketting versprei is. Hoe verskil hulle in verskillende wêrelddele en in verskillende biome?"
   },
   "replace_photo": {
     "header": "Vervang foto?",
@@ -690,37 +705,44 @@
     "save_to_camera_roll": "Bewaar in filmrol",
     "saved_to_camera_roll": "In filmrol bewaar",
     "back_to_id": "Terug na identifikasie",
-    "error_title": "Couldn't complete request",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "error_title": "Kon nie versoek voltooi nie",
+    "error": "Maak dubbelseker die Facebook-toep is by u geïnstalleer.",
+    "adjust_square_crop": "Pas vierkantsnoei aan",
+    "crop_image": "Snoei beeld"
   },
   "natgeo_challenges": {
-    "mar_2021_mission_1": "Find any ten species",
-    "mar_2021_challenge_name": "NatGeo Nature Challenge",
-    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Are there any particular plants or animals that you would really like to observe?",
-    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
-    "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
-    "apr_2021_mission_2": "Find 6 plants",
-    "apr_2021_mission_3": "Find 2 fungi",
-    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
-    "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
-    "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family.",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
-    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
-    "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
-    "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
-    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
-    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
-    "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
-    "june_2021_mission_4": "Find 1 fungus",
-    "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
-    "june_2021_mission_6": "Find 1 insect",
-    "june_2021_mission_7": "Find 1 arachnid",
-    "june_2021_challenge_name": "Conservation Challenge",
-    "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it."
+    "mar_2021_mission_1": "Vind enige tien spesies",
+    "mar_2021_challenge_name": "NatGeo-natuuruitdaging",
+    "mar_2021_description": "Ons skop vier maande se uitgagings af wat deur National Geographic geborg word en is gerig op die begryp van ons afhanklikheid van en invloed op die natuurlike wêreld.\n\nDie natuur is oral om ons, en tyd in die natuur gespandeer bou gesondheid en geluk. Ons moedig u om, indien moontlik, ’n plek soos ’n plaaslike park, bewarea of u erf te kies way u elke maand kan besoek as deel van u ontdekkings met Seek. Vandeesmaand se doel: vind tien spesies wat u gelukkig laat voel!\n\nVir hulpbronne om u met Seek te help en meer oor biodiversiteit te leer, gaan na NatGeoEd.org/BioBlitz.",
+    "mar_2021_action": "Spandeer ’n bietjie tyd om weer met Seek bekend te raak, of leer hoe om dit te gebruik. Besoek die tuisskerm om te sien welke spesies naby woon. Is daar spesifieke plante of diere wat u graag wil waarneem?",
+    "mar_2021_photographer": "Foto deur: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Natuurkenteken",
+    "apr_2021_mission_1": "Vind 2 weekdiere (tweekleppiges, naakslakke, slakke, kewerslakke) of kreefagtiges (seepokke, krappe, krewe, krill, pissebedde)",
+    "apr_2021_mission_2": "Vind 6 plante",
+    "apr_2021_mission_3": "Vinf 2 swamme",
+    "apr_2021_challenge_name": "Restoureer- en-herstel-uitdaging",
+    "apr_2021_description": "Klimaatsverandering, verlies aan spesies en plastiekbesoedeling is drie van die grootste uitdagings wat ons planeet tans in die gesig staar en is almal mensgedrewe. Hierdie jaar se tema vir Aarddag (22 April) is “Herstel ons Aarde”. Ons moet almal saamwerk om ’n meer volhoubare toekoms vir ons gemeenskappe en wildlewe te bou – u individuele aksies kan ’n verskil maak!",
+    "apr_2021_action": "Een van die algemeenste menslike ompakte op ekostelsels is rommel. Soos u die natuur vandeesmaand ontdek, moet u aandag skenk aan die rommel wat u sien en dink oor waar dit vandaan kom. Maak ’n lys van dinge wat u tuis kan doen om u gesin se rommel te verminder, en deel die lys met die res van u gesin.",
+    "apr_2021_badge_name": "Herstelkenteken",
+    "may_2021_mission_1": "Vind 5 plante uit elk van die volgende families:\n\nAsteraceae (sonneblomme, madeliefies, asters en verwante);\nFabaceae (Vlinderblommiges);\nLamiaceae (Lipblommiges);\nAcanthaceae (acanthus- en kanferfoeliefamily);\nMalvaceae (tavla- en hibiskusfamilie);\nBignoniaceae (trompetblomfamilie);\nPassifloraceae (Passieblomfamilie)",
+    "may_2021_mission_2": "Vind 2 arthropoda (insekte, aragniede, kreefagtiges)",
+    "may_2021_challenge_name": "Gesonde Ekostelsels-uitdaging",
+    "may_2021_description": "Gesonde ekostelsels bied talle voordele, insluitend die skoonmaak van water en lug, en habitatverskaffing om biodiversiteit te ondersteun. Sommige spesies – soos korsmosse, mosse, odonata (naaldekokers en waterjuffers) is aanduidend van ekologiese gesondheid. Wanneer u hierdie spesies sien is dit ’n goeie teken dat u ekostelsel gesond is!",
+    "may_2021_action": "Gesonde ekostelsels bied belangrike voordele vir ons eie gesondheid en welstand. Tyd wat in die natuur spandeer word kan mense help om van spanning ontslae te raak, hul gemoed te verbeter en om helderder te dink. Vir ’n vreedsame plek in die natuur en neem ’n uur om op die uitsig, geluide, reuke en teksture om u te konsentreer. Skryf van u waarnemings neer. Hoe laat die tyd in die natuur u voel?",
+    "may_2021_badge_name": "Ekogesondheidkenteken",
+    "june_2021_mission_1": "Vind 1 plant uit die volgende klasse:\n\nLycopodiopsida (wolfskloue,  engelse mos en dennewolfsklouagtiges);\nPolypodiopsida (varings)",
+    "june_2021_mission_2": "Vind 1 plant in die klas Pinopsida (konifere)",
+    "june_2021_mission_3": "Vind 1 plant uit die onderstam Angiospermae (blomplante)",
+    "june_2021_mission_4": "Vind 1 swam",
+    "june_2021_mission_5": "Vind enige 2 gewerweldes (voëls, soogdiere, reptiele, amfibieë, visse)",
+    "june_2021_mission_6": "Vind 1 insek",
+    "june_2021_mission_7": "Vind 1 aragnied",
+    "june_2021_challenge_name": "Bewaring-uitdaging",
+    "june_2021_description": "Ons almal, ongeag ons ouderdom of ervaring, kan ’n positiewe impak op biodiversiteitsbewaring hê. Ons kan byvoorbeeld help om na ’n spesifieke plek, soos ons tuin, ’n bewarea of plaaslike park, om te sien. Natuurbeskerming begin by die leer oor die plante, swamme en diere wat woon in die plekke waarvoor ons omgee. U uitdaging vandeesmaand is om in u erf of plaaslike park te kyk en ’n inventaris te maak van soveel biodiversiteit soos u kan.",
+    "june_2021_action": "Vandeesmaand gaan u iets leer oor elke spesie wat u dokumenteer, insluitend of dit inheems of bekendgestel is. Gaan weer oor al u waarnemings van die afgelope vier maande – welke verskil in biodiversiteit en die menslike voetspoor kon u oor hierdie tydperk en oor die verskillende verkenningsareas waarneem? Identifiseer iets wat u kan doen om te help om u lokale plek (soos u erf of ’n park) gesonder kan maak vir inheemsie spesies. Skryf u doel neer en neem ’n foto daarvan.",
+    "june_2021_badge_name": "Bewaringkenteken"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "U HET DIE {{sponsorName}}-UITDAGING VIR {{date}} VOLTOOI!"
   }
 }

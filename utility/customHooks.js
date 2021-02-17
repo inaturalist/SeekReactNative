@@ -143,6 +143,7 @@ const useUserPhoto = ( item: ?{
     let isCurrent = true;
     if ( item !== null ) {
       if ( Platform.OS === "ios" ) {
+        // $FlowFixMe
         checkV1( item.uuidString, isCurrent );
       } else {
         checkForSeekV2Photos( isCurrent );

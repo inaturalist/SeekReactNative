@@ -88,13 +88,13 @@ const setupBadges = () => {
             realm.create( "BadgeRealm", {
               name: badges.name,
               intlName: badges.intlName,
-              iconicTaxonName: badges.iconicTaxonName,
-              iconicTaxonId: badges.iconicTaxonId,
+              iconicTaxonName: badges.iconicTaxonName || null,
+              iconicTaxonId: badges.iconicTaxonId || 0,
               count: badges.count,
               earnedIconName: badges.earnedIconName,
               infoText: badges.infoText,
               index: badges.index,
-              earned: badges.earned
+              earned: badges.earned || false
             }, true );
           } catch ( e ) {
             console.log( "error creating data", e );

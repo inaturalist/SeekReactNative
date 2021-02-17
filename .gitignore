@@ -78,3 +78,6 @@ utility/commonNames/*
 
 #realm
 db.realm*
+
+#flow-coverage
+flow-coverage

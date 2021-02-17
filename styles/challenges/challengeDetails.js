@@ -33,6 +33,10 @@ export default StyleSheet.create( {
     top: 20,
     width: 116
   },
+  natGeoLogo: {
+    width: 142,
+    height: 41
+  },
   marginLarge: {
     marginTop: 37
   },

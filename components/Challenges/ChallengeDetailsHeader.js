@@ -83,7 +83,14 @@ const ChallengeDetailsHeader = ( { challenge, showMission }: Props ) => {
         style={styles.challengeBackground}
       >
         <BackArrow />
-        <Image source={logos[challenge.logo]} style={[styles.logo, challenge.logo === "iNatWhite" && styles.iNatLogo]} />
+        <Image
+          source={logos[challenge.logo]}
+          style={[
+            styles.logo,
+            challenge.logo === "iNatWhite" && styles.iNatLogo,
+            challenge.logo === "natGeo" && styles.natGeoLogo
+          ]}
+        />
         {challenge && <ChallengeTitle challenge={challenge} />}
         <View style={styles.marginSmall} />
         <ChallengeBadgeRow challenge={challenge} large />

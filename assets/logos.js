@@ -11,7 +11,8 @@ const logos = {
   wordmark: require( "./logos/iNatStats-Wordmark.webp" ),
   iNatWhite: require( "./logos/iNaturalist-Identity-white.webp" ),
   iNatAppIcon: require( "./logos/appicon-iNaturalist.webp" ),
-  natGeo: require( "./logos/logo-NatGeo.webp" )
+  natGeo: require( "./logos/logo-NatGeo.webp" ),
+  natGeoBlack: require( "./logos/logo-badgemodal-natgeo.webp" )
 };
 
 export default logos;

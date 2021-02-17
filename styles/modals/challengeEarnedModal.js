@@ -58,13 +58,16 @@ export default StyleSheet.create( {
   },
   iNatLogo: {
     height: 45,
-    resizeMode: "contain",
     width: 246
   },
   logo: {
     height: 70,
     resizeMode: "contain",
     width: 209
+  },
+  natGeoLogo: {
+    height: 45,
+    width: 153
   },
   marginBottom: {
     marginBottom: dimensions.width < 350 ? 15 : 39

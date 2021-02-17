@@ -48,7 +48,6 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
         <ImageBackground
           source={icons.badgeBanner}
           style={styles.seekBanner}
-          // style={is2020OrAfterChallenge ? styles.seekBanner : styles.banner}
         >
           <Text style={[styles.bannerText, is2020OrAfterChallenge && styles.seekBannerText]}>
             {i18n.t( challenge.badgeName ).toLocaleUpperCase( )}
@@ -72,7 +71,11 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
       <View style={styles.marginTop} />
       <Image
         source={logos[challenge.secondLogo]}
-        style={[styles.logo, challenge.secondLogo === "iNat" && styles.iNatLogo]}
+        style={[
+          styles.logo,
+          challenge.secondLogo === "iNat" && styles.iNatLogo,
+          challenge.secondLogo === "natGeoBlack" && styles.natGeoLogo
+        ]}
       />
       <View style={styles.marginBottom} />
     </WhiteModal>

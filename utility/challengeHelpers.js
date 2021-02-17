@@ -181,8 +181,7 @@ const setChallengeDetails = ( date: Date ) => {
   } else {
     return {
       logo: "natGeo",
-      // this doesn't exist yet
-      secondLogo: "",
+      secondLogo: "natGeoBlack",
       sponsorName: "NatGeo"
     };
   }

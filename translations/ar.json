@@ -77,11 +77,18 @@
     "observations_3": "لا يقوم Seek بمزامنة ملاحظاتك مع الأجهزة الأخرى.",
     "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
+    "learn_more": "Learn more",
+    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "about_personal_information": "About Personal Information",
+    "about_licenses": "About Licenses"
   },
   "inat_login": {
     "log_in_with_inat": "تسجيل الدخول لحسابك باستخدام iNaturalist",
     "username": "اسم المستخدم",
+    "username_email": "Username / email",
+    "username_or_email": "Username or email",
     "password": "كلمة المرور",
     "forgot_password_header": "نسيت كلمة المرور",
     "forgot_password": "هل نسيت كلمة المرور؟",
@@ -115,8 +122,7 @@
   "location_picker": {
     "species_nearby": "الأنواع القريبة",
     "button": "البحث عن موقع قريب",
-    "undefined": "موقع غير محدد",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "موقع غير محدد"
   },
   "taxon_picker": {
     "all": "جميع الأنواع",
@@ -210,7 +216,15 @@
     "photographer_september": "صورة © Netflix / Silverback Films",
     "photographer_october": "صورة © Netflix / Silverback Films",
     "photographer_december": "صورة © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Species Observed",
+    "badge_name_april": "Connectivity Badge",
+    "badge_name_may": "Biodiversity Badge",
+    "badge_name_june": "Community Badge",
+    "badge_name_august": "Forests Badge",
+    "badge_name_september": "Grasslands Badge",
+    "badge_name_october": "Freshwater Badge",
+    "badge_name_november": "High Seas Badge",
+    "badge_name_december": "Climate Badge"
   },
   "inat_stats": {
     "global_observations": "ملاحظات عالمية",
@@ -489,7 +503,8 @@
     "mammal": "ثديِيَات",
     "species_saved": "تم حفظ هذه الأنواع في ملاحظاتك.",
     "you": "هي!! أنت! اخرج وابحث عن بعض الأنواع البرية لتعرف المزيد عنها.",
-    "internet_error": "نحتاج إلى الإنترنيت لإنشاء شاشة تخصّ تفاصيل الأنواع. انقر لإعادة المحاولة"
+    "internet_error": "نحتاج إلى الإنترنيت لإنشاء شاشة تخصّ تفاصيل الأنواع. انقر لإعادة المحاولة",
+    "no_photos_found": "No photos found for this species."
   },
   "about": {
     "header": "حول",
@@ -690,7 +705,7 @@
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Crop image"
@@ -701,17 +716,20 @@
     "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Are there any particular plants or animals that you would really like to observe?",
     "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Nature Badge",
     "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
     "apr_2021_mission_2": "Find 6 plants",
     "apr_2021_mission_3": "Find 2 fungi",
     "apr_2021_challenge_name": "Restoration & Recovery Challenge",
     "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
     "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family.",
+    "apr_2021_badge_name": "Restoration Badge",
     "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
     "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
     "may_2021_challenge_name": "Healthy Ecosystems Challenge",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
+    "may_2021_badge_name": "EcoHealth Badge",
     "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
     "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
     "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
@@ -721,6 +739,10 @@
     "june_2021_mission_7": "Find 1 arachnid",
     "june_2021_challenge_name": "Conservation Challenge",
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it."
+    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it.",
+    "june_2021_badge_name": "Conservation Badge"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
   }
 }

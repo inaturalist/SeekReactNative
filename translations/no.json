@@ -4,7 +4,7 @@
     "location_error": "For å vise arter i nærheten trenger vi å vite din posisjon.",
     "location_device": "Seek trenger din posisjon for å kunne vise arter og observasjoner i nærheten. Vennligst sjekk at posisjonen til din enhet er slått på.",
     "enable_location": "Slå på posisjon i innstillinger",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Vennligst slå på posisjon i innstillinger",
     "internet_error": "Vi trenger internettet for å generere arter i nærheten. Trykk for å prøve igjen.",
     "no_location": "Ingen posisjon",
     "no_species": "Det ser ut som det ikke har blitt observert mange arter i nærheten! Prøv å endre din posisjon eller utvide artsfilteret.",
@@ -77,11 +77,18 @@
     "observations_3": "Seek synkroniserer ikke dine observasjoner til andre enheter.",
     "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Fellesskapets rettningslinjer",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
+    "learn_more": "Learn more",
+    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "about_personal_information": "About Personal Information",
+    "about_licenses": "About Licenses"
   },
   "inat_login": {
     "log_in_with_inat": "Logg på med din iNaturalist-konto",
     "username": "Brukernavn",
+    "username_email": "Brukernavn / e-post",
+    "username_or_email": "Brukernavn eller e-post",
     "password": "Passord",
     "forgot_password_header": "Glemt passord",
     "forgot_password": "Glemt passordet ditt?",
@@ -115,8 +122,7 @@
   "location_picker": {
     "species_nearby": "Arter i nærheten",
     "button": "Søk i nærheten av posisjon",
-    "undefined": "Udefinert posisjon",
-    "map_error_android": "Google Maps cannot load at this time."
+    "undefined": "Udefinert posisjon"
   },
   "taxon_picker": {
     "all": "Alle arter",
@@ -210,7 +216,15 @@
     "photographer_september": "Bilde © Netflix / Silverback Films",
     "photographer_october": "Bilde © Netflix / Silverback Films",
     "photographer_december": "Bilde © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Arter observert"
+    "species_observed": "Arter observert",
+    "badge_name_april": "Connectivity Badge",
+    "badge_name_may": "Biodiversity Badge",
+    "badge_name_june": "Community Badge",
+    "badge_name_august": "Forests Badge",
+    "badge_name_september": "Grasslands Badge",
+    "badge_name_october": "Freshwater Badge",
+    "badge_name_november": "High Seas Badge",
+    "badge_name_december": "Climate Badge"
   },
   "inat_stats": {
     "global_observations": "Observasjoner fra hele verden",
@@ -267,7 +281,7 @@
     "nearby": "Arter i nærheten i dette taksonet",
     "nothing_nearby": "Det ser ut som det ikke har blitt observert så mange arter i nærheten i dette taksonet! Prøv å ta enda et bilde eller rapportere det til iNaturalist.",
     "tap": "Trykk for å laste inn arter i nærheten",
-    "social": "Share on social"
+    "social": "Del på sosiale medier"
   },
   "banner": {
     "view": "Vis merke",
@@ -353,7 +367,7 @@
   "badges": {
     "your_level": "Ditt nivå",
     "login": "Logg på med iNaturalist for å poste observasjoner til det online fellesskapet!",
-    "achievements": "Achievements",
+    "achievements": "Oppnåelser",
     "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
@@ -479,7 +493,7 @@
     "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "plante",
     "amphibian": "amfibie",
-    "fungi": "fungi",
+    "fungi": "sopp",
     "fish": "fisk",
     "reptile": "reptil",
     "arachnid": "edderkoppdyr",
@@ -489,7 +503,8 @@
     "mammal": "pattedyr",
     "species_saved": "Denne arten er lagret i dine observasjoner.",
     "you": "Se der, det er deg! Kom deg ut og finn noen ville arter for å lære enda mer om de.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
+    "no_photos_found": "Ingen bilder funnet for denne arten."
   },
   "about": {
     "header": "Om",
@@ -504,7 +519,7 @@
     "join_crowdin": "For å bli med i oversettelsesteamet til Seek, vennligst gå til https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "Publiser på iNaturalist",
     "notes": "Legg til notater her",
     "date": "dato",
     "location": "posisjon",
@@ -559,7 +574,7 @@
   "warning": {
     "remember": "Husk",
     "tip_1": "Vær alltid obs på dine omgivelser, vær trygg, og ikke gå på andres eiendom.",
-    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_2": "Ikke spis noe du finner i naturen.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
@@ -600,13 +615,13 @@
     "device_settings": "Bruk enhetens språkinnstillinger",
     "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten.",
     "species_detail": "Species detail",
-    "seasonality": "Seasonality",
+    "seasonality": "Sesongavhengighet",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek merke",
-    "header": "You completed the Seek Challenge for {{date}}!",
+    "header": "Du har fullført Seek-utfordringen for {{date}}!",
     "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
     "citizen_science": "Citizen Science Challenge",
     "completed": "You completed the challenge and earned the challenge badge!",
@@ -617,18 +632,18 @@
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
     "mission_1_may_2020": "Finn 5 planter",
     "mission_2_may_2020": "Finn 2 insekter",
-    "mission_3_may_2020": "Find 1 arachnid",
+    "mission_3_may_2020": "Finn 1 edderkoppdyr",
     "mission_4_may_2020": "Finn 2 fugler",
     "resilience": "Resilience Challenge",
     "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "mission_3_june_2020": "Finn 1 insekt i ordren Coleoptera (biller)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
     "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
     "river": "River Challenge",
     "mission_1_july_2020": "Find any 2 fish or amphibians",
     "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
-    "mission_3_july_2020": "Find 1 mollusk",
+    "mission_3_july_2020": "Finn 1 bløtdyr",
     "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
     "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?",
     "pollinator": "Pollinator Challenge",
@@ -639,7 +654,7 @@
     "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
     "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?",
     "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
+    "mission_1_sept_2020": "Finn 10 planter",
     "mission_2_sept_2020": "Finn 1 pattedyr",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
@@ -647,15 +662,15 @@
     "scavenger": "Scavenger Challenge",
     "mission_1_oct_2020": "Find 4 fungi",
     "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_3_oct_2020": "Finn 1 bløtdyr",
     "mission_4_oct_2020": "Find 1 Arthropod",
     "oct_2020_description": "Scavengers and decomposers are essential to life on our planet. Fungi are decomposers that can break down dead tissue such as wood and leaves. Many types of animals such as vultures, isopods, and some snails can eat dead plants or animals. They help to recycle nutrients so they are available for new growth.",
     "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?",
     "adaptation": "Adaptation Challenge",
     "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
     "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
-    "mission_3_nov_2020": "Find 1 arachnid",
-    "mission_4_nov_2020": "Find 2 insects",
+    "mission_3_nov_2020": "Finn 1 edderkoppdyr",
+    "mission_4_nov_2020": "Finn 2 insekter",
     "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
     "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here.",
     "ecosystem": "Ecosystem Challenge",
@@ -681,46 +696,53 @@
     "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
+    "share_observation": "Del observasjon",
+    "square": "Firkant",
     "original": "Original",
-    "options": "Options",
+    "options": "Alternativer",
     "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
+    "share": "Del på Facebook",
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't complete request",
+    "back_to_id": "Tilbake til identifikasjon",
+    "error_title": "Kunne ikke lagre bilde",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "crop_image": "Beskjær bilde"
   },
   "natgeo_challenges": {
-    "mar_2021_mission_1": "Find any ten species",
+    "mar_2021_mission_1": "Finn ti arter",
     "mar_2021_challenge_name": "NatGeo Nature Challenge",
     "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Are there any particular plants or animals that you would really like to observe?",
-    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
+    "mar_2021_photographer": "Bilde av: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Nature Badge",
     "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
-    "apr_2021_mission_2": "Find 6 plants",
+    "apr_2021_mission_2": "Finn 6 planter",
     "apr_2021_mission_3": "Find 2 fungi",
     "apr_2021_challenge_name": "Restoration & Recovery Challenge",
     "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
     "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family.",
+    "apr_2021_badge_name": "Restoration Badge",
     "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
     "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
     "may_2021_challenge_name": "Healthy Ecosystems Challenge",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel?",
+    "may_2021_badge_name": "EcoHealth Badge",
     "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
     "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
     "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
     "june_2021_mission_4": "Find 1 fungus",
     "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
-    "june_2021_mission_6": "Find 1 insect",
-    "june_2021_mission_7": "Find 1 arachnid",
+    "june_2021_mission_6": "Finn 1 insekt",
+    "june_2021_mission_7": "Finn 1 edderkoppdyr",
     "june_2021_challenge_name": "Conservation Challenge",
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it."
+    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal and take a photo of it.",
+    "june_2021_badge_name": "Conservation Badge"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
   }
 }

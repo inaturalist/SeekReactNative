@@ -77,11 +77,18 @@
     "observations_3": "Seek synkroniserar inte dina observationer med andra enheter.",
     "agree_to_terms": "Jag godkänner <terms>{{terms}}</terms> och <privacy>{{privacy}}</privacy>, och jag har granskat <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Gemenskapens riktlinjer",
-    "store_data": "Jag samtycker till att låta iNaturalist lagra och bearbeta begränsade typer av personuppgifter om mig för att kunna hantera mitt konto."
+    "store_data": "Jag samtycker till att låta iNaturalist lagra och bearbeta begränsade typer av personuppgifter om mig för att kunna hantera mitt konto.",
+    "learn_more": "Learn more",
+    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "about_personal_information": "About Personal Information",
+    "about_licenses": "About Licenses"
   },
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",
     "username": "Användarnamn",
+    "username_email": "Användarnamn / e-post",
+    "username_or_email": "Användarnamn eller e-post",
     "password": "Lösenord",
     "forgot_password_header": "Glömt lösenord",
     "forgot_password": "Glömt ditt lösenord?",
@@ -115,8 +122,7 @@
   "location_picker": {
     "species_nearby": "Arter i närheten",
     "button": "Sök i närheten",
-    "undefined": "Odefinierad plats",
-    "map_error_android": "Google Maps kan inte laddas just nu."
+    "undefined": "Odefinierad plats"
   },
   "taxon_picker": {
     "all": "Alla arter",
@@ -210,7 +216,15 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Observerade arter"
+    "species_observed": "Observerade arter",
+    "badge_name_april": "Connectivity Badge",
+    "badge_name_may": "Biodiversity Badge",
+    "badge_name_june": "Community Badge",
+    "badge_name_august": "Forests Badge",
+    "badge_name_september": "Grasslands Badge",
+    "badge_name_october": "Freshwater Badge",
+    "badge_name_november": "High Seas Badge",
+    "badge_name_december": "Climate Badge"
   },
   "inat_stats": {
     "global_observations": "Globala observationer",
@@ -489,7 +503,8 @@
     "mammal": "däggdjur",
     "species_saved": "Denna art är sparad till dina observationer.",
     "you": "Ser man på, det är ju du! Ge dig ut och hitta några vilda arter att lära dig ännu mer om.",
-    "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen."
+    "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen.",
+    "no_photos_found": "Inga bilder hittades för denna art."
   },
   "about": {
     "header": "Om",
@@ -690,7 +705,7 @@
     "save_to_camera_roll": "Spara i kamerarullen",
     "saved_to_camera_roll": "Sparad i kamerarullen",
     "back_to_id": "Tillbaka till bestämning",
-    "error_title": "Kunde inte slutföra begäran",
+    "error_title": "Kunde inte spara bilden",
     "error": "Vänligen dubbelkolla att du har Facebook-appen installerad.",
     "adjust_square_crop": "Justera fyrkantig beskärning",
     "crop_image": "Beskär bild"
@@ -701,17 +716,20 @@
     "mar_2021_description": "Vi drar igång fyra månader med utmaningar sponsrade av National Geographic Society, fokuserade på att förstå hur vi är beroende av och påverkar naturen.\n\nNaturen finns runt omkring oss, och tid i naturen bidrar till hälsa och välbefinnande. Om möjligt uppmuntrar vi dig att välja en plats som en lokal park, ett skyddat område eller din trädgård som du sedan besöker varje månad som en del av dina utforskningar med Seek. I denna månads uppdrag: hitta tio olika arter som gör dig glad!\n\nFör att hitta sådant som hjälper dig att använda Seek och lära dig mer om biologisk mångfald, besök NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Ta lite tid för att friska upp minnet eller lära dig hur man använder Seek. Gå till startsidan för att se vilka arter som bor i närheten. Finns det några särskilda växter eller djur som du verkligen skulle vilja se?",
     "mar_2021_photographer": "Foto: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Nature Badge",
     "apr_2021_mission_1": "Hitta 2 blötdjur (musslor, sniglar, snäckor) eller kräftdjur (havstulpaner, krabbor, humrar, gråsuggor)",
     "apr_2021_mission_2": "Hitta 6 växter",
     "apr_2021_mission_3": "Hitta 2 svampar",
     "apr_2021_challenge_name": "Restaurerings- & återhämtningsutmaning",
     "apr_2021_description": "Klimatförändring, förlust av arter och plastnedskräpning är tre av de största utmaningar vår planet står inför och alla drivs av mänsklig aktivitet. Årets tema för Jordens dag (Earth Day, 22 april) är \"Återställ vår jord.\" Vi behöver alla arbeta tillsammans för att bygga en mer hållbar framtid för både samhällen och djurliv – dina individuella handlingar kan bidra till att göra skillnad!",
     "apr_2021_action": "En av de mest utbredda mänskliga effekterna på ekosystemen är skräp. När du utforskar naturen denna månad, uppmärksamma skräpet du ser och tänk på var det kan ha kommit ifrån. Gör en lista över saker du kan göra hemma för att minska det avfall som din familj genererar, och dela denna lista med resten av din familj.",
+    "apr_2021_badge_name": "Restoration Badge",
     "may_2021_mission_1": "Hitta 5 olika växter från någon av följande familjer:\n\nAsteraceae (korgblommiga);\nFabaceae (ärtväxter);\nLamiaceae (kransblommiga);\nAcanthaceae (akantusväxter);\nMalvaceae (malvaväxter);\nBignoniaceae (katalpaväxter);\nPassifloraceae (passionsblomsväxter)",
     "may_2021_mission_2": "Hitta 2 leddjur (insekter, spindeldjur, kräftdjur)",
     "may_2021_challenge_name": "Friska ekosystem-utmaning",
     "may_2021_description": "Hälsosamma ekosystem ger oss många olika fördelar, inklusive renande av vatten och luft, inlagring av kol, och tillhandahållande av livsmiljöer som grunden för biologisk mångfald. Vissa arter—såsom lavar, mossor och trollsländor är kända för att vara indikatorer på ekologisk hälsa. När du ser dessa arter är det ett gott tecken på att ditt ekosystem mår bra!",
     "may_2021_action": "Hälsosamma ekosystem har viktiga fördelar för vår egen hälsa och välbefinnande. Tid i naturen kan hjälpa människor att återhämta sig från stress, förbättra sitt humör och tänka klarare. Hitta en fridfull plats i naturen och tillbringa en timme med fokus på det du ser, ljud, dofter och texturer runt omkring dig. Skriv ner några av dina iakttagelser. Hur känner du dig efter den här stunden i naturen?",
+    "may_2021_badge_name": "EcoHealth Badge",
     "june_2021_mission_1": "Hitta 1 växt från följande klasser:\n\nLycopodiopsida (lummerväxter);\nPolypodiopsida (ormbunksväxter)",
     "june_2021_mission_2": "Hitta 1 växt i klassen Pinopsida (barrväxter)",
     "june_2021_mission_3": "Hitta 1 växt från understammen Angiospermae (blomväxter)",
@@ -721,6 +739,10 @@
     "june_2021_mission_7": "Hitta 1 spindeldjur",
     "june_2021_challenge_name": "Naturvårdsutmaning",
     "june_2021_description": "Vi kan alla, oavsett ålder eller erfarenhet, ha en positiv inverkan på bevarandet av den biologiska mångfalden. Till exempel kan vi hjälpa till att ta hand om en viss plats som vår egen trädgård, ett skyddat område eller en lokal park. Att skydda naturen börjar med att lära sig om växter, svampar och djur som finns på de platser som man bryr sig om. Din utmaning denna månad är att titta i din trädgård eller en lokal park och göra en inventering av så mycket biologisk mångfald som möjligt.",
-    "june_2021_action": "Denna månad fokuserar du på att lära dig något om varje art du dokumenterar, inklusive vilka som är inhemska och vilka som är införda. Reflektera över alla dina observationer under de senaste fyra månaderna – vilka skillnader har du märkt i biologisk mångfald och det mänskliga fotavtrycket under denna period och de olika platser du har utforskat? Hitta något du kan åta dig för att göra en lokal plats (som din trädgård eller en park) hälsosammare för inhemska arter. Skriv ner ditt mål och ta en bild av det."
+    "june_2021_action": "Denna månad fokuserar du på att lära dig något om varje art du dokumenterar, inklusive vilka som är inhemska och vilka som är införda. Reflektera över alla dina observationer under de senaste fyra månaderna – vilka skillnader har du märkt i biologisk mångfald och det mänskliga fotavtrycket under denna period och de olika platser du har utforskat? Hitta något du kan åta dig för att göra en lokal plats (som din trädgård eller en park) hälsosammare för inhemska arter. Skriv ner ditt mål och ta en bild av det.",
+    "june_2021_badge_name": "Conservation Badge"
+  },
+  "challenges_all": {
+    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
   }
 }

@@ -657,8 +657,8 @@
     "mission_1_sept_2020": "Encuentra 10 plantas",
     "mission_2_sept_2020": "Encuentra 1 mamífero",
     "mission_3_sept_2020": "Encuentra 2 insectos de los órdenes:\n\nLepidoptera (mariposas y palomillas/polillas);\nHemiptera (Chinches, cigarras, chicharritas, pulgones y parientes)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
+    "sept_2020_description": "Los herbívoros son animales adaptados a alimentarse únicamente de plantas. Los mamíferos herbívoros suelen tener sistemas digestivos complejos que les permiten descomponer grandes cantidades de materia vegetal. Por ejemplo, las vacas en realidad tienen 4 estómagos para digerir las plantas que consumen. Otros mamíferos se especializan en alimentarse de frutas (algunos murciélagos) o de semillas (ardillas). Muchos insectos también están adaptados para alimentarse de diferentes partes de las plantas, como las orugas que se alimentan de las hojas o las cigarras que succionan de la savia de los tallos.",
+    "action_sept_2020": "Investiga sobre cómo el consumo de carne afecta el medio ambiente. ¿Qué medidas puedes tomar para reducir tu propio impacto?\n\nAlternativa: ¿Qué tipo de plantas consumes? ¿De qué partes de la planta proceden? ¿Puedes averiguar qué tipo de animales también les gusta comer esas plantas?",
     "scavenger": "Desafío de Carroñero",
     "mission_1_oct_2020": "Encuentra 4 hongos",
     "mission_2_oct_2020": "Encuentra un organismo de las órdenes:\n\nAccipitriformes (Halcones, Gavilanes y Águilas);\nCatartiformes (Zopilotes);\nCarnívora (Carnívoros)",
@@ -679,7 +679,7 @@
     "mission_3_dec_2020": "Encuentra 3 insectos",
     "mission_4_dec_2020": "Encuentra 1 arácnido",
     "dec_2020_description": "Los ecosistemas funcionan con organismos de todos los tipos y nichos, y  el trabajo de los productores, consumidores y descomponedores equilibra el ecosistema.",
-    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
+    "action_dec_2020": "Explora cómo funcionan diversos tipos de ecosistemas con los organismos distribuidos a través de la cadena alimenticia. ¿Cómo son diferentes en otras partes del mundo y en diferentes biomas?"
   },
   "replace_photo": {
     "header": "¿Substituir la foto?",

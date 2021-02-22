@@ -6,6 +6,8 @@ labels: bug
 assignees: ''
 
 ---
+**Is this a camera bug?**
+If so, please head to [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) library and fill out a bug report there.
 
 **Describe the bug**
 A clear and concise description of what the bug is.

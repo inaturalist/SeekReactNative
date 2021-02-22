@@ -249,8 +249,8 @@ const challenges = {
     name: "natgeo_challenges.mar_2021_challenge_name",
     description: "natgeo_challenges.mar_2021_description",
     totalSpecies: 10,
-    backgroundName: "img-challengedetail-december2020",
-    earnedIconName: "badge_inaturalist_december2020",
+    backgroundName: "img-challengedetail-march2021",
+    earnedIconName: "badge_natgeo_march2021",
     missions: [
       "natgeo_challenges.mar_2021_mission_1"
     ],

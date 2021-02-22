@@ -23,7 +23,8 @@ const backgrounds = {
   "img-challengedetail-september2020": require( "./backgrounds/challenges/img-challengedetail-september2020.webp" ),
   "img-challengedetail-october2020": require( "./backgrounds/challenges/img-challengedetail-october2020.webp" ),
   "img-challengedetail-november2020": require( "./backgrounds/challenges/img-challengedetail-november2020.webp" ),
-  "img-challengedetail-december2020": require( "./backgrounds/challenges/img-challengedetail-december2020.webp" )
+  "img-challengedetail-december2020": require( "./backgrounds/challenges/img-challengedetail-december2020.webp" ),
+  "img-challengedetail-march2021": require( "./backgrounds/challenges/img-challengedetail-march2021.webp" )
 };
 
 export default backgrounds;

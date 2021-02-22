@@ -246,7 +246,8 @@ const setupChallenges = () => {
           const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
-          if ( isAvailable ) {
+          // start showing the latest challenge in developer mode for testing
+          if ( isAvailable || process.env.NODE_ENV === "development" ) {
             const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
             realm.create( "ChallengeRealm", {

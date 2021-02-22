@@ -6,6 +6,8 @@ labels: ''
 assignees: ''
 
 ---
+**Is this an AR camera feature?**
+If so, please head to [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) library and fill out a feature request there.
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]

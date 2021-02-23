@@ -61,7 +61,7 @@ const checkForPhotoMetaData = ( location: Object ) => {
   return false;
 };
 
-const resizeImage = async ( path: string, width: number, height?: number ) => {
+const resizeImage = async ( path: string, width: number, height?: number ): Promise<string> => {
   try {
     const { uri } = await ImageResizer.createResizedImage(
       path,
@@ -77,7 +77,7 @@ const resizeImage = async ( path: string, width: number, height?: number ) => {
 
     return uri;
   } catch ( e ) {
-    console.log( e, "couldn't resize image" );
+    return "";
   }
 };
 

@@ -3,10 +3,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Realm from "realm";
 
 import i18n from "../../i18n";
 import taxonIds from "../../utility/dictionaries/taxonDict";
-import realm from "../../models/realm";
+import realmConfig from "../../models";
 import styles from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
 import LevelHeader from "./LevelHeader";
@@ -26,13 +27,14 @@ const AchievementsScreen = () => {
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
-    nextLevelCount: 0
+    nextLevelCount: 0,
+    badgesEarned: null
   } );
 
-  const badges = realm.objects( "BadgeRealm" );
-  const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
-
-  const fetchBadges = useCallback( ( ) => {
+  const fetchBadges = useCallback( async ( ) => {
+    const realm = await Realm.open( realmConfig );
+    const badges = realm.objects( "BadgeRealm" );
+    const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
     const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 
     const speciesBadges = [];
@@ -60,10 +62,11 @@ const AchievementsScreen = () => {
     setState( {
       speciesBadges,
       level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
-      nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0
+      nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
+      badgesEarned
     } );
     setLoading( false );
-  }, [badges] );
+  }, [] );
 
   const fetchSpeciesCount = () => {
     fetchNumberSpeciesSeen().then( ( species ) => {
@@ -109,7 +112,7 @@ const AchievementsScreen = () => {
         </TouchableOpacity>
         <View style={styles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />
-          <Text style={styles.number}>{badgesEarned && localizeNumber( badgesEarned )}</Text>
+          <Text style={styles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
         </View>
       </View>
       <View style={styles.center}>

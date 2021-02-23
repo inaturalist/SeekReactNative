@@ -177,10 +177,10 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
             manifestPlaceholders = [usesCleartextTraffic:"false"]
-        }
-        ndk {
-            // attempt to get rid of warning in Play Console
-            debugSymbolLevel = "FULL"
+            ndk {
+                // attempt to get rid of warning in Play Console
+                debugSymbolLevel = "FULL"
+            }
         }
     }
     // packagingOptions {

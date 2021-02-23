@@ -153,9 +153,9 @@ const createOnlineSpecies = ( species: {
 const navToMatch = async (
   navigation: any,
   taxon: {
-    taxaId: number,
-    speciesSeenImage: ?string,
-    scientificName: string,
+    taxaId?: number,
+    speciesSeenImage?: ?string,
+    scientificName?: string,
     rank?: number
   },
   image: {

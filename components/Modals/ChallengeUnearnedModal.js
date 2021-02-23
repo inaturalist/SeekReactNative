@@ -21,12 +21,23 @@ import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
-  +closeModal: Function,
-  +challenge: Object
+  +closeModal: ( ) => void,
+  +challenge: {
+    index: number,
+    percentComplete: number,
+    startedDate: Date,
+    availableDate: Date
+  }
 };
 
 const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
   const navigation = useNavigation();
+
+  const navToChallengeDetails = ( ) => {
+    setChallengeIndex( challenge.index );
+    navigation.navigate( "ChallengeDetails" );
+    closeModal();
+  };
 
   return (
     <WhiteModal closeModal={closeModal}>
@@ -63,11 +74,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
       {checkIfChallengeAvailable( challenge.availableDate ) ? (
         <View style={styles.container}>
           <GreenButton
-            handlePress={() => {
-              setChallengeIndex( challenge.index );
-              navigation.navigate( "ChallengeDetails" );
-              closeModal();
-            }}
+            handlePress={navToChallengeDetails}
             text="notifications.view_challenges"
             allowFontScaling={false}
           />

@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View, Image } from "react-native";
+import { Image } from "react-native";
 import MapView, {
   PROVIDER_DEFAULT,
   UrlTile,
@@ -54,10 +54,7 @@ const SpeciesMap = ( {
 
   return (
     <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude || !region.longitude}>
-      <View style={styles.mapContainer}>
-        {( ( region.latitude && region.longitude ) && id ) && displayMap( )}
-      </View>
-      <View style={styles.margin} />
+      {( ( region.latitude && region.longitude ) && id ) && displayMap( )}
       <GreenButton
         handlePress={navToRangeMap}
         text="species_detail.view_map"

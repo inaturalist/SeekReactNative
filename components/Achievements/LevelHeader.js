@@ -26,13 +26,8 @@ type Props = {
 const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
   const [showModal, setModal] = useState( false );
 
-  const openModal = () => {
-    setModal( true );
-  };
-
-  const closeModal = () => {
-    setModal( false );
-  };
+  const openModal = () => setModal( true );
+  const closeModal = () => setModal( false );
 
   const renderModalContent = () => (
     <LevelModal
@@ -44,7 +39,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
   );
 
   return (
-    <TouchableOpacity onPress={() => openModal()}>
+    <TouchableOpacity onPress={openModal}>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -53,10 +48,10 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
       {/* $FlowFixMe */}
       <LinearGradient
         colors={[colors.greenGradientDark, colors.greenGradientLight]}
-        style={[styles.header, styles.center]}
+        style={[styles.header, styles.center, styles.row]}
       >
         {level && (
-          <View style={styles.row}>
+          <>
             <Image source={badgeImages[level.earnedIconName]} style={styles.levelImage} />
             <View style={styles.textContainer}>
               <Text style={styles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</Text>
@@ -67,7 +62,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
                   : i18n.t( "badges.observe_plural", { count: localizeNumber( nextLevelCount ) } )}
               </Text>
             </View>
-          </View>
+          </>
         )}
       </LinearGradient>
     </TouchableOpacity>

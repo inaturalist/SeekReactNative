@@ -6,12 +6,12 @@ import Realm from "realm";
 import { Platform, LogBox } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
-import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
 import config from "../config";
 import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
+import { serverBackOnlineTime } from "./dateHelpers";
 
 const checkForInternet = () => (
   new Promise<any>( ( resolve ) => {
@@ -232,20 +232,27 @@ const hideLogs = () => {
   ] );
 };
 
-const setQuickActions = () => {
-  if ( Platform.OS === "android" ) {
-    QuickActions.setShortcutItems( [
-      {
-        type: "Seek AR Camera", // Required
-        title: "Seek AR Camera", // Optional, if empty, `type` will be used instead
-        subtitle: "For quick identifications",
-        icon: "camerabutton", // Icons instructions below
-        userInfo: {
-          url: "app://Drawer/Main/Camera" // Provide any custom data like deep linking URL
-        }
+const handleServerError = ( error: {
+  response: {
+    status: number,
+    headers: {
+      map: {
+        "retry-after": string
       }
-    ] );
+    }
   }
+} ) => {
+  const { response } = error;
+
+  if ( !response ) { return "error"; }
+
+  if ( response.status && response.status === 503 ) {
+    const gmtTime = response.headers.map["retry-after"];
+    const hours = serverBackOnlineTime( gmtTime );
+    console.log( hours, "hours" );
+    return hours;
+  }
+  return "error";
 };
 
 export {
@@ -267,5 +274,5 @@ export {
   localizePercentage,
   navigateToMainStack,
   hideLogs,
-  setQuickActions
+  handleServerError
 };

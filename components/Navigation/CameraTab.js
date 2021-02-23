@@ -31,9 +31,6 @@ const initialLayout = { width, length };
 
 const swipeEnabled = Platform.OS === "ios" || false;
 
-// this is only used for hot starting QuickActions
-const initialCameraParams = { showWarning: false };
-
 const CameraNav = () => (
   <Tab.Navigator
     tabBarPosition="bottom"
@@ -47,7 +44,6 @@ const CameraNav = () => (
     <Tab.Screen
       name="ARCamera"
       component={ARCamera}
-      initialParams={initialCameraParams}
       // moving these to a constant means that language doesn't switch correctly
       options={{ tabBarLabel: i18n.t( "camera.label" ).toLocaleUpperCase() }}
     />

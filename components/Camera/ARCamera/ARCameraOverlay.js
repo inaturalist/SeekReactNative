@@ -9,7 +9,7 @@ import {
   Platform,
   Animated
 } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCameraOverlay";
@@ -67,7 +67,6 @@ const ARCameraOverlay = ( {
 }: Props ) => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
   const { navigate } = useNavigation();
-  const { params } = useRoute();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
@@ -86,34 +85,41 @@ const ARCameraOverlay = ( {
   const closeModal = () => setModal( false );
 
   useEffect( () => {
-    if ( filterIndex ) {
+    let isCurrent = true;
+    if ( filterIndex && isCurrent ) {
       filterByTaxonId( settings[filterIndex].taxonId, settings[filterIndex].negativeFilter );
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [filterIndex, filterByTaxonId] );
 
   useEffect( () => {
-    if ( params.showWarning === "true" ) {
-      openModal();
-    }
-  }, [params] );
-
-  useEffect( () => {
+    let isCurrent = true;
     const checkForFirstCameraLaunch = async () => {
       const isFirstLaunch = await checkIfCameraLaunched();
-      if ( isFirstLaunch ) {
+      if ( isFirstLaunch && isCurrent ) {
         openModal();
       }
     };
     checkForFirstCameraLaunch();
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [] );
 
   useEffect( () => {
-    if ( rankToRender === "species" && autoCapture ) {
+    let isCurrent = true;
+    if ( rankToRender === "species" && autoCapture && isCurrent ) {
       takePicture();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [rankToRender, takePicture, autoCapture] );
 
   useEffect( () => {
+    let isCurrent = true;
     const entrance = {
       toValue: 1,
       duration: 0,
@@ -127,12 +133,15 @@ const ARCameraOverlay = ( {
       useNativeDriver: true
     };
 
-    if ( filterIndex === 0 ) {
+    if ( filterIndex === 0 && isCurrent ) {
       Animated.sequence( [
         Animated.timing( fadeOut, entrance ),
         Animated.timing( fadeOut, exit )
       ] ).start();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [fadeOut, filterIndex] );
 
   const showFilterText = () => {

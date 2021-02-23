@@ -11,7 +11,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   challengeBackground: {
-    flex: 1
+    flex: 1,
+    paddingTop: 99
   },
   descriptionText: {
     color: colors.black,
@@ -24,9 +25,6 @@ export default StyleSheet.create( {
     top: 32,
     width: 191
   },
-  iNatMargin: {
-    marginTop: 99
-  },
   logo: {
     alignSelf: "center",
     height: 58,
@@ -35,8 +33,9 @@ export default StyleSheet.create( {
     top: 20,
     width: 116
   },
-  margin: {
-    marginTop: 99
+  natGeoLogo: {
+    width: 142,
+    height: 41
   },
   marginLarge: {
     marginTop: 37
@@ -48,13 +47,13 @@ export default StyleSheet.create( {
     marginTop: 21
   },
   opContainer: {
-    alignItems: "center",
-    marginBottom: 29,
+    alignSelf: "center",
     marginTop: 23
   },
   photographerText: {
     fontSize: 14,
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 29
   },
   viewText: {
     color: colors.seekTeal,

@@ -1,14 +1,8 @@
 // @flow
 
 import React, { useEffect, useCallback } from "react";
-import {
-  Image,
-  ImageBackground,
-  Platform,
-  DeviceEventEmitter
-} from "react-native";
-import { useNavigation, useLinkTo } from "@react-navigation/native";
-import QuickActions from "react-native-quick-actions";
+import { Image, ImageBackground, Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { colors } from "../styles/global";
 import styles from "../styles/splash";
@@ -17,32 +11,21 @@ import backgrounds from "../assets/backgrounds";
 import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { deleteDebugLogAfter7Days } from "../utility/photoHelpers";
 import { setupBadges } from "../utility/badgeHelpers";
+import { checkForHotStarts, checkForColdStarts } from "../utility/navigationHelpers";
 
 const SplashScreen = () => {
-  const linkTo = useLinkTo();
   const navigation = useNavigation();
+
+  const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );
 
   const resetRouter = useCallback( ( name ) => {
     setTimeout( () => navigation.reset( { routes: [{ name }] } ), 2000 );
   }, [navigation] );
 
   const checkForQuickAction = useCallback( () => {
-    // this addresses hot starts (i.e. app is already open)
-    DeviceEventEmitter.addListener( "quickActionShortcut", ( { title } ) => {
-      if ( title === "Seek AR Camera" ) {
-        linkTo( "/Camera/ARCamera?showWarning=true" );
-      }
-    } );
-
-    // this addresses cold starts (i.e. before the app launches)
-    QuickActions.popInitialAction().then( ( { title } ) => {
-      if ( title === "Seek AR Camera" ) {
-        navigation.navigate( "Camera" );
-      } else {
-        resetRouter( "Drawer" );
-      }
-    } ).catch( () => resetRouter( "Drawer" ) );
-  }, [resetRouter, navigation, linkTo] );
+    checkForHotStarts( navToCamera );
+    checkForColdStarts( navToCamera, resetRouter );
+  }, [resetRouter, navToCamera] );
 
   useEffect( () => {
     const checkForNewUser = async () => {

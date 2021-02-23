@@ -9,7 +9,7 @@ import ErrorScreen from "./Error";
 import { createJwtToken } from "../../utility/helpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
-import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, createLocationAlert } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import {
@@ -127,13 +127,16 @@ const OnlineServerResults = () => {
 
   const addObservation = useCallback( async () => {
     await addToCollection( observation, image );
-  }, [observation, image] );
+    if ( !image.latitude && errorCode !== null ) {
+      createLocationAlert( errorCode );
+    }
+  }, [observation, image, errorCode] );
 
   const checkForMatches = () => dispatch( { type: "CLICKED" } );
 
   const navToResults = useCallback( () => {
-    navToMatch( navigation, taxon, image, seenDate, errorCode );
-  }, [navigation, taxon, image, seenDate, errorCode] );
+    navToMatch( navigation, taxon, image, seenDate );
+  }, [navigation, taxon, image, seenDate] );
 
   const showResults = useCallback( async () => {
     if ( newObs ) {

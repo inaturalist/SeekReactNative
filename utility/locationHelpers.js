@@ -14,8 +14,19 @@ const requestiOSPermissions = async () => {
   }
 };
 
+type TruncatedCoords = {
+  latitude: number,
+  longitude: number
+}
+
+type Coords = {
+  latitude: number,
+  longitude: number,
+  accuracy: number
+}
+
 const fetchUserLocation = ( enableHighAccuracy: ?boolean ) => (
-  new Promise( ( resolve, reject ) => {
+  new Promise<Coords>( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
@@ -30,13 +41,10 @@ const fetchUserLocation = ( enableHighAccuracy: ?boolean ) => (
   } )
 );
 
-const truncateCoordinates = ( coordinate: number ) => {
-  if ( !coordinate ) { return null; }
-  return Number( coordinate.toFixed( 2 ) );
-};
+const truncateCoordinates = ( coordinate: number ) => Number( coordinate.toFixed( 2 ) );
 
 const fetchTruncatedUserLocation = () => (
-  new Promise( ( resolve, reject ) => {
+  new Promise<TruncatedCoords>( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const latitude = truncateCoordinates( coords.latitude );
@@ -54,7 +62,7 @@ const fetchTruncatedUserLocation = () => (
 );
 
 const fetchLocationName = ( lat: number, lng: number ) => (
-  new Promise( ( resolve, reject ) => {
+  new Promise<?string>( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {
         resolve( null );

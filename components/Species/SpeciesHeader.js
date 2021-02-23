@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from "react";
-import { View, Text, BackHandler } from "react-native";
+import React, { useCallback } from "react";
+import { Text, BackHandler } from "react-native";
 import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
@@ -16,25 +16,16 @@ type Props = {
   id: number
 }
 
-const SpeciesHeader = ( {
-  photos,
-  taxon,
-  id
-}: Props ) => {
+const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
   const navigation = useNavigation( );
-  const { navigate } = navigation;
   const { params } = useRoute();
-  const [routeName, setRouteName] = useState( null );
   const commonName = useCommonName( id );
-
-  const fetchRoute = async () => {
-    const route = await getRoute();
-    setRouteName( route );
-  };
 
   const { scientificName, iconicTaxonId } = taxon;
 
-  const backAction = useCallback( () => {
+  const backAction = useCallback( async () => {
+    const { navigate } = navigation;
+    const routeName = await getRoute();
     // would like to remove these so we're not duplicating the work of the navigator here
     // originally this was for similar species
     if ( routeName === "ChallengeDetails" || routeName === "Observations" || routeName === "Match" ) {
@@ -45,12 +36,10 @@ const SpeciesHeader = ( {
     } else {
       navigate( "Home" );
     }
-  }, [navigate, routeName, params, navigation] );
+  }, [params, navigation] );
 
   useFocusEffect(
     useCallback( () => {
-      fetchRoute();
-
       const onBackPress = () => {
         backAction();
         return true; // following custom Android back behavior template in React Navigation
@@ -66,17 +55,13 @@ const SpeciesHeader = ( {
     <>
       <CustomBackArrow handlePress={backAction} style={styles.backButton} />
       <SpeciesPhotos photos={photos} id={id} />
-      <View style={styles.greenBanner}>
-        {iconicTaxonId && (
-          <Text style={styles.iconicTaxaText}>
-            {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
-          </Text>
-        )}
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
-        <Text style={styles.scientificNameText}>{scientificName}</Text>
-      </View>
+      {iconicTaxonId && (
+        <Text style={styles.iconicTaxaText}>
+          {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
+        </Text>
+      )}
+      <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
+      <Text style={styles.scientificNameText}>{scientificName}</Text>
     </>
   );
 };

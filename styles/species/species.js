@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "../global";
 
 export default StyleSheet.create( {
@@ -24,7 +24,8 @@ export default StyleSheet.create( {
     fontSize: 30,
     letterSpacing: 0.3,
     lineHeight: 31,
-    marginTop: 23
+    marginTop: 23,
+    marginHorizontal: 28
   },
   greenBanner: {
     backgroundColor: colors.seekForestGreen
@@ -52,9 +53,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12,
-    marginLeft: 28,
-    paddingBottom: Platform.OS === "android" ? 11 : 8,
-    paddingTop: 12
+    paddingLeft: 28,
+    paddingVertical: 12,
+    backgroundColor: colors.seekForestGreen
   },
   linkText: {
     color: colors.seekForestGreen,
@@ -76,7 +77,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.bookItalic,
     fontSize: 19,
     lineHeight: 21,
-    marginTop: 10
+    marginTop: 10,
+    marginHorizontal: 28
   },
   text: {
     color: colors.black,

@@ -1,6 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
+import { getYear, isEqual } from "date-fns";
 
 import { createNotification } from "./notificationHelpers";
 import taxonDict from "./dictionaries/taxonDictForMissions";
@@ -162,11 +163,73 @@ const startChallenge = ( index: number ) => {
   } );
 };
 
+const setChallengeDetails = ( date: Date ) => {
+  const year = getYear( date );
+
+  if ( year === 2019 ) {
+    return {
+      logo: "op",
+      secondLogo: "wwfop",
+      sponsorName: "Our Planet"
+    };
+  } else if ( year === 2020 ) {
+    return {
+      logo: "iNatWhite",
+      secondLogo: "iNat",
+      sponsorName: "Seek"
+    };
+  } else {
+    return {
+      logo: "natGeo",
+      secondLogo: "natGeoBlack",
+      sponsorName: "NatGeo"
+    };
+  }
+};
+
+const addExistingBadgeNames = ( date: Date ) => {
+  const year = getYear( date );
+
+  // this covers Our Planet and all future, non-Seek challenges
+  if ( year !== 2020 ) {
+    const badgeMonth = Object.keys( challengesDict ).filter( month => {
+      if ( isEqual( challengesDict[month].availableDate, date ) ) {
+        return month;
+      }
+     } );
+
+     const month = badgeMonth[0];
+
+    // $FlowFixMe badgeName exists for all dict items in 2019
+    return challengesDict[month].badgeName;
+  } else {
+    return "seek_challenges.badge";
+  }
+};
+
+const addDetailsToExistingChallenges = ( realm: any ) => {
+  realm.write( ( ) => {
+    const challenges = realm.objects( "ChallengeRealm" );
+
+    challenges.forEach( challenge => {
+      const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+
+      // probably don't need to rewrite these every time
+      // once the user has them stored in realm once
+      challenge.logo = logo;
+      challenge.secondLogo = secondLogo;
+      challenge.sponsorName = sponsorName;
+      challenge.badgeName = addExistingBadgeNames( challenge.availableDate );
+    } );
+  } );
+};
+
 const setupChallenges = () => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const numChallenges = realm.objects( "ChallengeRealm" ).length;
     const dict = Object.keys( challengesDict );
 
+    addDetailsToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
     // this should help Seek startup faster since realm.writes are slow
     if ( numChallenges === dict.length ) {
@@ -183,7 +246,10 @@ const setupChallenges = () => {
           const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
-          if ( isAvailable ) {
+          // start showing the latest challenge in developer mode for testing
+          if ( isAvailable || process.env.NODE_ENV === "development" ) {
+            const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+
             realm.create( "ChallengeRealm", {
               name: challenge.name,
               description: challenge.description,
@@ -194,6 +260,10 @@ const setupChallenges = () => {
               availableDate: challenge.availableDate,
               photographer: challenge.photographer || null,
               action: challenge.action,
+              logo,
+              secondLogo,
+              sponsorName,
+              badgeName: challenge.badgeName || "seek_challenges.badge",
               index: i
             }, true );
 

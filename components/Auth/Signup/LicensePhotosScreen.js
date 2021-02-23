@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Alert } from "react-native";
 import HTML from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 
@@ -52,13 +52,29 @@ const LicensePhotosScreen = () => {
 
   const html = `<p>${i18n.t( "inat_signup.agree_to_terms" )}</p>`;
 
+  const handleEmailInput = value => setEmail( value );
+
+  const showLicensingAlert = ( ) => (
+    Alert.alert(
+      i18n.t( "inat_signup.about_licenses" ),
+      i18n.t( "inat_signup.learn_more_about_licensing" )
+    )
+  );
+
+  const showDataStorageAlert = ( ) => (
+    Alert.alert(
+      i18n.t( "inat_signup.about_personal_information" ),
+      i18n.t( "inat_signup.learn_more_about_data_storage" )
+    )
+  );
+
   return (
     <ScrollWithHeader header="login.sign_up">
       <View style={styles.leftTextMargins}>
         <GreenText allowFontScaling={false} smaller text="inat_signup.email" />
       </View>
       <InputField
-        handleTextChange={value => setEmail( value )}
+        handleTextChange={handleEmailInput}
         placeholder={i18n.t( "inat_signup.email" )}
         text={email}
         type="emailAddress"
@@ -66,7 +82,14 @@ const LicensePhotosScreen = () => {
       <CheckboxRow
         isChecked={licensePhotos}
         toggleCheckbox={toggleLicensePhotos}
-        text={i18n.t( "inat_signup.release_photos" )}
+        children={(
+          <Text style={styles.licenseText}>
+            {`${i18n.t( "inat_signup.release_photos" )} `}
+            <Text style={styles.linkText} onPress={showLicensingAlert}>
+              {i18n.t( "inat_signup.learn_more" )}
+            </Text>
+          </Text>
+        )}
       />
       <CheckboxRow
         isChecked={agreeTerms}
@@ -86,12 +109,19 @@ const LicensePhotosScreen = () => {
       <CheckboxRow
         isChecked={storeData}
         toggleCheckbox={toggleStoreData}
-        text={i18n.t( "inat_signup.store_data" )}
+        children={(
+          <Text style={styles.licenseText}>
+            {`${i18n.t( "inat_signup.store_data" )} `}
+            <Text style={styles.linkText} onPress={showDataStorageAlert}>
+              {i18n.t( "inat_signup.learn_more" )}
+            </Text>
+          </Text>
+        )}
       />
       {error ? <ErrorMessage error="email" /> : <View style={styles.marginTopSmall} />}
       <GreenButton
         color={( !agreeTerms || !storeData ) && colors.seekTransparent}
-        handlePress={() => submit()}
+        handlePress={submit}
         login
         text="inat_signup.next"
         disabled={!agreeTerms || !storeData}

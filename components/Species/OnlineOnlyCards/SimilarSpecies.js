@@ -11,7 +11,7 @@ import GreenText from "../../UIComponents/GreenText";
 import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
-  +id: ?Number
+  +id: ?number
 }
 
 const SimilarSpecies = ( { id }: Props ) => {

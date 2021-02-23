@@ -28,7 +28,8 @@ const GalleryScreen = () => {
           lastCursor: null,
           stillFetching: false,
           errorEvent: null,
-          loading: true
+          loading: true,
+          photoSelectedLoading: false
         };
       case "FETCH_PHOTOS":
         return { ...state, stillFetching: true };
@@ -49,6 +50,10 @@ const GalleryScreen = () => {
           errorEvent: action.errorEvent,
           loading: false
         };
+      case "SET_LOADING":
+        return { ...state, photoSelectedLoading: true };
+      case "RESET_LOADING":
+        return { ...state, photoSelectedLoading: false };
       default:
         throw new Error();
     }
@@ -60,7 +65,8 @@ const GalleryScreen = () => {
     lastCursor: null,
     stillFetching: false,
     errorEvent: null,
-    loading: true
+    loading: true,
+    photoSelectedLoading: false
   } );
 
   const {
@@ -71,8 +77,11 @@ const GalleryScreen = () => {
     lastCursor,
     stillFetching,
     errorEvent,
-    loading
+    loading,
+    photoSelectedLoading
   } = state;
+
+  const setLoading = useCallback( ( ) => dispatch( { type: "SET_LOADING" } ), [] );
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( photos.length === 0 && data.length === 0 ) {
@@ -124,7 +133,8 @@ const GalleryScreen = () => {
       }
     };
 
-    navigation.addListener( "focus", () => { requestAndroidPermissions(); } );
+    navigation.addListener( "focus", ( ) => { requestAndroidPermissions( ); } );
+    navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
   }, [navigation] );
 
   const renderImageList = ( ) => {
@@ -136,7 +146,7 @@ const GalleryScreen = () => {
       return <CameraError error={error} errorEvent={errorEvent} />;
     }
 
-    return <GalleryImageList fetchPhotos={fetchPhotos} photos={photos} />;
+    return <GalleryImageList fetchPhotos={fetchPhotos} photos={photos} setLoading={setLoading} />;
   };
 
   return (
@@ -144,6 +154,7 @@ const GalleryScreen = () => {
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
       {renderImageList( )}
+      {photoSelectedLoading && <LoadingWheel color={colors.white} />}
     </SafeAreaView>
   );
 };

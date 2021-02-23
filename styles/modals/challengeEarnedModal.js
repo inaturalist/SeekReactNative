@@ -1,34 +1,40 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import {
-  colors,
-  fonts,
-  dimensions
-} from "../global";
+import { colors, fonts, dimensions } from "../global";
 
 export default StyleSheet.create( {
   badge: {
     height: dimensions.width < 350 ? 140 : 158,
-    marginBottom: 35,
     marginTop: 25,
-    width: 140
+    width: dimensions.width < 350 ? 140 : 158
   },
-  banner: {
-    bottom: 20,
-    height: 48,
-    paddingTop: 10,
-    position: "absolute",
-    width: 284,
-    zIndex: 1
-  },
+  // banner: {
+  //   bottom: 20,
+  //   height: 48,
+  //   paddingTop: 10,
+  //   position: "absolute",
+  //   width: 284,
+  //   zIndex: 1
+  // },
   bannerText: {
+    paddingTop: 10,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 15,
     letterSpacing: 0.42,
     lineHeight: 34,
     textAlign: "center"
+  },
+  seekBanner: {
+    bottom: dimensions.width < 350 ? 12 : 29,
+    height: 48,
+    position: "absolute",
+    width: 300
+  },
+  seekBannerText: {
+    fontSize: 19,
+    letterSpacing: 1.12
   },
   header: {
     alignItems: "center",
@@ -52,7 +58,6 @@ export default StyleSheet.create( {
   },
   iNatLogo: {
     height: 45,
-    resizeMode: "contain",
     width: 246
   },
   logo: {
@@ -60,27 +65,15 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 209
   },
+  natGeoLogo: {
+    height: 45,
+    width: 153
+  },
   marginBottom: {
     marginBottom: dimensions.width < 350 ? 15 : 39
   },
   marginTop: {
     marginTop: dimensions.width < 350 ? 10 : 24
-  },
-  seekBadge: {
-    marginTop: 26,
-    resizeMode: "contain",
-    width: dimensions.width < 350 ? 140 : 158
-  },
-  seekBanner: {
-    bottom: dimensions.width < 350 ? 12 : 29,
-    height: 48,
-    position: "absolute",
-    width: 300
-  },
-  seekBannerText: {
-    fontSize: 19,
-    letterSpacing: 1.12,
-    paddingTop: 10
   },
   text: {
     color: colors.black,

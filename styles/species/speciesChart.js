@@ -7,7 +7,8 @@ export default StyleSheet.create( {
   chart: {
     borderBottomColor: colors.seekTeal,
     borderBottomWidth: 2,
-    flex: 1
+    flex: 1,
+    marginBottom: 10
   },
   chartInset: {
     bottom: 10,
@@ -15,15 +16,9 @@ export default StyleSheet.create( {
     right: 10,
     top: 10
   },
-  chartRow: {
-    flex: 1
-  },
-  container: {
-    flexDirection: "row",
+  chartContainer: {
+    flex: 1,
     height: 150
-  },
-  xAxis: {
-    marginTop: 10
   },
   xAxisWidth: {
     left: 10,

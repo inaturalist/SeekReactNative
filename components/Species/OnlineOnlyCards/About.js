@@ -29,6 +29,8 @@ const About = ( {
 
   const html = about ? `${about}`.replace( /<b>/g, "" ) : null;
 
+  const navToWikipediaView = () => navigation.navigate( "Wikipedia", { wikiUrl, scientificName } );
+
   // hide empty About section
   if ( !about && !login ) {
     return null;
@@ -47,7 +49,7 @@ const About = ( {
       )}
       {( login && id !== 43584 ) && (
         <Text
-          onPress={() => navigation.navigate( "Wikipedia", { wikiUrl, scientificName } )}
+          onPress={navToWikipediaView}
           style={styles.linkText}
         >
           {commonName || scientificName}

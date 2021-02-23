@@ -24,37 +24,42 @@ const FlagModal = ( {
   userImage,
   speciesText,
   seenDate
-}: Props ) => (
-  <ModalWithGradient
-    color="gray"
-    closeModal={closeModal}
-    userImage={userImage}
-    originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
-  >
-    <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
-    <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
-    <View style={styles.marginSmall} />
-    <Button
-      handlePress={() => {
-        if ( seenDate ) {
-          closeModal( true );
-        } else {
-          removeFromCollection( taxon.taxaId );
-          closeModal( true );
-        }
-      }}
-      text={seenDate
-        ? "results.yes_resighted"
-        : "results.yes"}
-      large
-    />
-    <View style={styles.marginSmall} />
-    <Button
-      handlePress={() => closeModal()}
-      text="results.no"
-      color={colors.grayGradientLight}
-    />
-  </ModalWithGradient>
-);
+}: Props ) => {
+
+  const handlePress = () => {
+    if ( seenDate ) {
+      closeModal( true );
+    } else {
+      removeFromCollection( taxon.taxaId );
+      closeModal( true );
+    }
+  };
+
+  return (
+    <ModalWithGradient
+      color="gray"
+      closeModal={closeModal}
+      userImage={userImage}
+      originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
+    >
+      <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
+      <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
+      <View style={styles.marginSmall} />
+      <Button
+        handlePress={handlePress}
+        text={seenDate
+          ? "results.yes_resighted"
+          : "results.yes"}
+        large
+      />
+      <View style={styles.marginSmall} />
+      <Button
+        handlePress={closeModal}
+        text="results.no"
+        color={colors.grayGradientLight}
+      />
+    </ModalWithGradient>
+  );
+};
 
 export default FlagModal;

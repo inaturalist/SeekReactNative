@@ -46,7 +46,7 @@ const ModalWithGradient = ( {
             : i18n.t( "results.flag" ).toLocaleUpperCase()}
         </Text>
         <TouchableOpacity
-          onPress={() => closeModal()}
+          onPress={closeModal}
           style={styles.backButton}
         >
           <Image source={icons.closeWhite} />

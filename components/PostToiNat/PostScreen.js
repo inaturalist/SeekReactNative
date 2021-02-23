@@ -73,6 +73,8 @@ const PostScreen = () => {
         return { ...state, showPostingStatus: !state.showPostingStatus };
       case "SHOW_POST_STATUS":
         return { ...state, showPostingStatus: true };
+      case "CLOSE_POST_STATUS":
+        return { ...state, showPostingStatus: false };
       case "RESIZED_IMAGE":
         return { ...state, resizedImage: action.userImage };
       case "POSTING_SUCCEEDED":
@@ -264,7 +266,7 @@ const PostScreen = () => {
     dispatch( { type: "SELECT_SPECIES", selectedSpecies } );
   };
 
-  const closePostModal = () => dispatch( { type: "CLOSE_POST_STATUS" } );
+  const closePostModal = useCallback( ( ) => dispatch( { type: "CLOSE_POST_STATUS" } ), [] );
   const updateDescription = ( value ) => dispatch( { type: "UPDATE_DESCRIPTION", value } );
   const updateGeoprivacy = ( newGeoprivacy ) => dispatch( { type: "UPDATE_GEOPRIVACY", geoprivacy: newGeoprivacy } );
   const updateCaptive = ( newCaptive ) => dispatch( { type: "UPDATE_CAPTIVE", captive: newCaptive } );

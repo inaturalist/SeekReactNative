@@ -6,11 +6,12 @@ import * as RNLocalize from "react-native-localize";
 import RootStack from "./Navigation/RootStack";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
-import { addARCameraFiles, hideLogs, setQuickActions } from "../utility/helpers";
+import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
 import { checkForIncompleteUploads } from "../utility/uploadHelpers";
+import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = () => {
   const [login, setLogin] = useState( null );

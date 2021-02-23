@@ -41,6 +41,10 @@ const ChallengeDetailsScreen = () => {
     }
   }, [setupScreen, isFocused] );
 
+  if ( !challenge ) {
+    return null;
+  }
+
   return (
     <ScrollNoHeader>
       <ChallengeDetailsHeader challenge={challenge} showMission={fetchChallenge} />

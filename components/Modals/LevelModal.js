@@ -46,9 +46,7 @@ const LevelModal = ( {
       />
       <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
     </LinearGradient>
-    <View>
-      <Text style={styles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</Text>
-    </View>
+    <Text style={styles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</Text>
   </WhiteModal>
 );
 

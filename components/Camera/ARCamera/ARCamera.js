@@ -29,6 +29,7 @@ import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { navigateToMainStack } from "../../../utility/helpers";
+import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 
 const ARCamera = () => {
   const navigation = useNavigation();
@@ -105,8 +106,8 @@ const ARCamera = () => {
       predictions
     };
 
-    navigate( "OfflineARResults", { image } );
-  }, [navigate] );
+    fetchOfflineResults( image, navigation );
+  }, [navigation] );
 
   const resetPredictions = () => {
     // only rerender if state has different values than before

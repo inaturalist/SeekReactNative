@@ -197,6 +197,62 @@ const missions = [{
     number: 1,
     types: ["arachnids"]
   }
+}, { // natgeo challenges 2021
+  0: { // mar 2021
+    number: 10,
+    types: ["all"]
+  }
+}, { // apr 2021
+  0: {
+    number: 2,
+    types: ["mollusks", "crustaceans"]
+  },
+  1: {
+    number: 6,
+    types: ["plants"]
+  },
+  2: {
+    number: 2,
+    types: ["fungi"]
+  }
+}, { // may 2021
+  0: {
+    number: 5,
+    types: ["Asteraceae", "Fabaceae", "Lamiaceae", "Acanthaceae", "Malvaceae", "Bignoniaceae", "Passifloraceae"]
+  },
+  1: {
+    number: 2,
+    types: ["Arthropoda"]
+  }
+}, { // june 2021
+  0: {
+    number: 1,
+    types: ["Lycopodiopsida", "Polypodiopsida"]
+  },
+  1: {
+    number: 1,
+    types: ["Pinopsida"]
+  },
+  2: {
+    number: 1,
+    types: ["Angiospermae"]
+  },
+  3: {
+    number: 1,
+    types: ["fungi"]
+  },
+  4: {
+    number: 2,
+    types: ["Vertebrata"]
+  },
+  5: {
+    number: 1,
+    types: ["insects"]
+  },
+  6: {
+    number: 1,
+    types: ["Araneae"]
+  }
 }];
 
 export default missions;

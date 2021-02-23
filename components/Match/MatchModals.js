@@ -7,11 +7,10 @@ import React, {
 } from "react";
 import { Platform } from "react-native";
 import Modal from "react-native-modal";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import { createLocationAlert } from "../../utility/locationHelpers";
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
@@ -42,10 +41,8 @@ const MatchModals = ( {
   navPath
 }: Props ) => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
 
   const {
-    errorCode,
     seenDate,
     taxon,
     image
@@ -108,12 +105,6 @@ const MatchModals = ( {
   const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
 
   useEffect( () => {
-    if ( screenType === "resighted" && isFocused ) {
-      dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
-    }
-  }, [screenType, isFocused] );
-
-  useEffect( () => {
     if ( levelModal ) {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
@@ -158,12 +149,6 @@ const MatchModals = ( {
     } ).catch( () => console.log( "could not check for challenges" ) );
   };
 
-  const checkLocationPermissions = useCallback( () => {
-    if ( !image.latitude ) {
-      createLocationAlert( errorCode );
-    }
-  }, [image.latitude, errorCode] );
-
   const checkModals = useCallback( () => {
     if ( challenge && !challengeShown ) {
       dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
@@ -175,9 +160,13 @@ const MatchModals = ( {
   }, [challenge, challengeShown, latestLevel, levelShown, navigateTo] );
 
   useEffect( () => {
-    if ( navPath ) {
+    let isCurrent = true;
+    if ( navPath && isCurrent ) {
       checkModals();
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [navPath, checkModals] );
 
   useEffect( () => {
@@ -185,7 +174,9 @@ const MatchModals = ( {
       if ( screenType === "newSpecies" && firstRender ) {
         checkChallenges();
         checkBadges();
-        checkLocationPermissions();
+      }
+      if ( screenType === "resighted" && firstRender ) {
+        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
       }
     } );
 
@@ -195,18 +186,18 @@ const MatchModals = ( {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, screenType, firstRender, checkLocationPermissions] );
+  }, [navigation, screenType, firstRender] );
 
   return (
     <>
       {firstRender && (
         <>
           <Toasts badge={badge} challenge={challengeInProgress} />
-          <RNModal
+          {challenge && <RNModal
             showModal={challengeModal}
             closeModal={closeChallengeModal}
             modal={<ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
-          />
+          />}
           <RNModal
             showModal={levelModal}
             closeModal={closeLevelModal}

@@ -27,6 +27,13 @@ node_modules/warning/.*
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*
 
+; https://github.com/react-native-linear-gradient/react-native-linear-gradient/issues/510
+<PROJECT_ROOT>/node_modules/react-native-linear-gradient/common.js
+
+<PROJECT_ROOT>/node_modules/react-native-check-box/*
+
+<PROJECT_ROOT>/node_modules/react-native-fs/FS.common.js
+
 [include]
 
 [libs]

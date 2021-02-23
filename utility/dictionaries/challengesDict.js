@@ -10,7 +10,8 @@ const challenges = {
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2019, 3, 1 ),
     photographer: "challenges.photographer_april",
-    action: "challenges.action_april"
+    action: "challenges.action_april",
+    badgeName: "challenges.badge_name_april"
   },
   may: {
     name: "challenges.biodiversity",
@@ -27,7 +28,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 4, 1 ),
     photographer: "challenges.photographer_may",
-    action: "challenges.action_may"
+    action: "challenges.action_may",
+    badgeName: "challenges.badge_name_may"
   },
   june: {
     name: "challenges.productivity",
@@ -43,7 +45,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 5, 1 ),
     photographer: "challenges.photographer_june",
-    action: "challenges.action_june"
+    action: "challenges.action_june",
+    badgeName: "challenges.badge_name_june"
   },
   august: {
     name: "challenges.farming",
@@ -56,7 +59,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 7, 1 ),
     photographer: "challenges.photographer_august",
-    action: "challenges.action_august"
+    action: "challenges.action_august",
+    badgeName: "challenges.badge_name_august"
   },
   september: {
     name: "challenges.flow",
@@ -69,7 +73,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 8, 1 ),
     photographer: "challenges.photographer_september",
-    action: "challenges.action_september"
+    action: "challenges.action_september",
+    badgeName: "challenges.badge_name_september"
   },
   october: {
     name: "challenges.hotspots",
@@ -82,7 +87,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 9, 1 ),
     photographer: "challenges.photographer_october",
-    action: "challenges.action_october"
+    action: "challenges.action_october",
+    badgeName: "challenges.badge_name_october"
   },
   november: {
     name: "challenges.resilience",
@@ -95,7 +101,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 10, 1 ),
     photographer: "challenges.photographer_november",
-    action: "challenges.action_november"
+    action: "challenges.action_november",
+    badgeName: "challenges.badge_name_november"
   },
   december: {
     name: "challenges.ice",
@@ -108,7 +115,8 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 11, 1 ),
     photographer: "challenges.photographer_december",
-    action: "challenges.action_december"
+    action: "challenges.action_december",
+    badgeName: "challenges.badge_name_december"
   },
   april2020: {
     name: "seek_challenges.citizen_science",
@@ -236,6 +244,20 @@ const challenges = {
     ],
     availableDate: new Date( 2020, 11, 1 ),
     action: "seek_challenges.action_dec_2020"
+  },
+  mar2021: {
+    name: "natgeo_challenges.mar_2021_challenge_name",
+    description: "natgeo_challenges.mar_2021_description",
+    totalSpecies: 10,
+    backgroundName: "img-challengedetail-march2021",
+    earnedIconName: "badge_natgeo_march2021",
+    missions: [
+      "natgeo_challenges.mar_2021_mission_1"
+    ],
+    availableDate: new Date( 2021, 2, 1 ),
+    action: "natgeo_challenges.mar_2021_action",
+    badgeName: "natgeo_challenges.mar_2021_badge_name",
+    photographer: "natgeo_challenges.mar_2021_photographer"
   }
 };
 

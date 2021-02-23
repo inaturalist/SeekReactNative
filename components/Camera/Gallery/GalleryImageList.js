@@ -9,11 +9,12 @@ import GalleryImage from "./GalleryImage";
 
 type Props = {
   photos: Array<Object>,
-  fetchPhotos: Function
+  fetchPhotos: Function,
+  setLoading: ( ) => void
 }
 
-const GalleryImageList = ( { fetchPhotos, photos }: Props ) => {
-  const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} />, [] );
+const GalleryImageList = ( { fetchPhotos, photos, setLoading }: Props ) => {
+  const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} setLoading={setLoading} />, [] );
 
   // skips measurement of dynamic content for faster loading
   const getItemLayout = useCallback( ( data, index ) => ( {

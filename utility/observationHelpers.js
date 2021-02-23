@@ -11,13 +11,9 @@ import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
 import { setISOTime } from "./dateHelpers";
 
-const createUUID = async () => {
-  try {
-    const uuidGen = await UUIDGenerator.getRandomUUID();
-    return uuidGen.toLocaleLowerCase( );
-  } catch ( e ) {
-    return null;
-  }
+const createUUID = async ( ): Promise<string> => {
+  const uuidGen = await UUIDGenerator.getRandomUUID();
+  return uuidGen.toLocaleLowerCase( );
 };
 
 const checkForPowerUsers = ( length, newLength ) => {
@@ -30,7 +26,7 @@ const checkForPowerUsers = ( length, newLength ) => {
 
 const addToCollection = async ( observation: {
   taxon: {
-    default_photo: {
+    default_photo: ?{
       medium_url: string
     },
     id: number,
@@ -42,7 +38,7 @@ const addToCollection = async ( observation: {
   latitude: number,
   longitude: number,
   uri: string,
-  time: Date
+  time: number
 } ) => {
   const {
     latitude,
@@ -127,7 +123,7 @@ const sortNewestToOldest = ( observations ) => {
   } );
 };
 
-const createSectionList = ( realm, species, hideSections ) => {
+const createSectionList = ( realm: any, species: any, hideSections: boolean ) => {
   const obs = [];
 
   const taxaList = [47126, 20978, 47170, 47178, 26036, 47119, 3, 47158, 47115, 40151];

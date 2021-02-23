@@ -29,10 +29,8 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: dimensions.width - 54
   },
-  headerMargin: {
-    marginBottom: 77
-  },
   heatMap: {
+    marginTop: 77,
     height: 227,
     width: dimensions.width
   },

@@ -11,10 +11,6 @@ export default StyleSheet.create( {
   empty: {
     backgroundColor: colors.white
   },
-  loading: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
   similarSpeciesContainer: {
     backgroundColor: colors.seekForestGreen,
     height: 231

@@ -32,11 +32,13 @@ const WikipediaView = ( { navigation, route }: Props ) => {
     uri = `http://${wikiLocale}.wikipedia.org/wiki/${scientificName}`;
   }
 
+  const navBack = () => navigation.goBack();
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={styles.header}>
         <Text style={styles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</Text>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}>
+        <TouchableOpacity onPress={navBack} style={styles.back}>
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
       </View>

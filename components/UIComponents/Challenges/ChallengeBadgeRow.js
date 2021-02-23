@@ -15,9 +15,10 @@ type Props = {
 }
 
 const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
-  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
+  const is2020OrAfterChallenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
-  const text = is2020Challenge ? i18n.t( "challenges_card.new_join" ) : i18n.t( "challenges_card.join" );
+  // we created generic seek challenge text after the Our Planet challenges
+  const text = is2020OrAfterChallenge ? i18n.t( "challenges_card.new_join" ) : i18n.t( "challenges_card.join" );
   const longText = text.length > 70;
 
   const showBadge = ( ) => {

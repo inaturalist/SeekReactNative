@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  NativeModules
+  NativeModules,
+  Pressable
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
@@ -64,6 +65,8 @@ const ARCamera = () => {
           error: null,
           ranks: {}
         };
+      case "TOGGLE_CAMERA":
+        return { ...state, cameraType: action.cameraType };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
       default:
@@ -76,7 +79,8 @@ const ARCamera = () => {
     pictureTaken: false,
     cameraLoaded: false,
     negativeFilter: false,
-    taxonId: null
+    taxonId: null,
+    cameraType: "back"
   } );
 
   const {
@@ -86,10 +90,21 @@ const ARCamera = () => {
     pictureTaken,
     cameraLoaded,
     negativeFilter,
-    taxonId
+    taxonId,
+    cameraType
   } = state;
 
   const rankToRender = Object.keys( ranks )[0] || null;
+  const isAndroid = Platform.OS === "android";
+
+  const toggleCameraType = ( ) => {
+    console.log( "toggling camera" );
+    if ( cameraType === "front" ) {
+      dispatch( { type: "TOGGLE_CAMERA", cameraType: "back" } );
+    } else {
+      dispatch( { type: "TOGGLE_CAMERA", cameraType: "front" } );
+    }
+  };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -290,6 +305,14 @@ const ARCamera = () => {
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
+      {/* {isAndroid && (
+        <Pressable
+          onPress={toggleCameraType}
+          style={styles.cameraType}
+        >
+          <Image source={icons.cameraGreen} />
+        </Pressable>
+      )} */}
       <INatCamera
         ref={camera}
         confidenceThreshold={confidenceThreshold}
@@ -305,6 +328,7 @@ const ARCamera = () => {
         taxonomyPath={dirTaxonomy}
         filterByTaxonId={taxonId}
         negativeFilter={negativeFilter}
+        type={cameraType}
       />
     </View>
   );

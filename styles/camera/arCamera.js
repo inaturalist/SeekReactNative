@@ -18,6 +18,13 @@ export default StyleSheet.create( {
     width: Platform.OS === "android" ? width + 100 : width, // this should account for offcenter photos on android
     zIndex: -1
   },
+  cameraType: {
+    right: 0,
+    paddingHorizontal: 23,
+    paddingVertical: 19,
+    position: "absolute",
+    top: height > 700 ? 31 : 0
+  },
   container: {
     alignItems: "center",
     backgroundColor: colors.black,

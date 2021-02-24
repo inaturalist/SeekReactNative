@@ -179,7 +179,7 @@ android {
             manifestPlaceholders = [usesCleartextTraffic:"false"]
             ndk {
                 // attempt to get rid of warning in Play Console
-                debugSymbolLevel = "FULL"
+                debugSymbolLevel "FULL"
             }
         }
     }

@@ -136,15 +136,14 @@ const GalleryScreen = () => {
       }
     };
 
-    navigation.addListener( "focus", ( ) => { requestAndroidPermissions( ); } );
+    navigation.addListener( "focus", ( ) => requestAndroidPermissions( ) );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation, fetchPhotos, photos.length] );
+  }, [navigation] );
 
   const renderImageList = ( ) => {
     if ( error ) {
       return <CameraError error={error} errorEvent={errorEvent} />;
     }
-
     return <GalleryImageList fetchPhotos={onEndReached} photos={photos} setLoading={setLoading} />;
   };
 

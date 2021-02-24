@@ -14,7 +14,7 @@ type Props = {
 }
 
 const GalleryImageList = ( { fetchPhotos, photos, setLoading }: Props ) => {
-  const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} setLoading={setLoading} />, [] );
+  const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} setLoading={setLoading} />, [setLoading] );
 
   // skips measurement of dynamic content for faster loading
   const getItemLayout = useCallback( ( data, index ) => ( {
@@ -30,12 +30,12 @@ const GalleryImageList = ( { fetchPhotos, photos, setLoading }: Props ) => {
       data={photos}
       contentContainerStyle={styles.grayContainer}
       getItemLayout={getItemLayout}
-      initialNumToRender={20}
+      initialNumToRender={4}
       keyExtractor={extractKey}
       numColumns={4}
-      onEndReachedThreshold={1}
+      onEndReachedThreshold={0.2}
       onEndReached={fetchPhotos}
-      renderItem={renderCameraRollPhoto}
+      renderItem={renderImage}
     />
   );
 };

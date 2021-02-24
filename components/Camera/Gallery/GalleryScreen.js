@@ -28,7 +28,6 @@ const GalleryScreen = () => {
           lastCursor: null,
           stillFetching: false,
           errorEvent: null,
-          loading: true,
           photoSelectedLoading: false
         };
       case "FETCH_PHOTOS":
@@ -39,16 +38,14 @@ const GalleryScreen = () => {
           photos: action.photos,
           stillFetching: false,
           hasNextPage: action.pageInfo.has_next_page,
-          lastCursor: action.pageInfo.end_cursor,
-          loading: false
+          lastCursor: action.pageInfo.end_cursor
         };
       case "ERROR":
         return {
           ...state,
           error:
           action.error,
-          errorEvent: action.errorEvent,
-          loading: false
+          errorEvent: action.errorEvent
         };
       case "SET_LOADING":
         return { ...state, photoSelectedLoading: true };
@@ -60,24 +57,22 @@ const GalleryScreen = () => {
   }, {
     album: null,
     photos: [],
-    error: null,
     hasNextPage: true,
     lastCursor: null,
     stillFetching: false,
+    error: null,
     errorEvent: null,
-    loading: true,
     photoSelectedLoading: false
   } );
 
   const {
     album,
     photos,
-    error,
     hasNextPage,
     lastCursor,
     stillFetching,
+    error,
     errorEvent,
-    loading,
     photoSelectedLoading
   } = state;
 
@@ -94,21 +89,24 @@ const GalleryScreen = () => {
     }
   }, [photos] );
 
+  const handleFetchError = useCallback( ( e ) => {
+    if ( e.message === "Access to photo library was denied" ) {
+      dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
+    } else {
+      dispatch( { type: "ERROR", error: "photos", errorEvent: e.message } );
+    }
+  }, [] );
+
   const fetchPhotos = useCallback( async ( ) => {
-    if ( !hasNextPage || stillFetching ) { return; }
     dispatch( { type: "FETCH_PHOTOS" } );
 
     try {
       const results = await fetchGalleryPhotos( album, lastCursor );
       appendPhotos( results.edges, results.page_info );
     } catch ( e ) {
-      if ( e.message === "Access to photo library was denied" ) {
-        dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
-      } else {
-        dispatch( { type: "ERROR", error: "photos", errorEvent: e.message } );
-      }
+      handleFetchError( e );
     }
-  }, [album, lastCursor, appendPhotos, hasNextPage, stillFetching ] );
+  }, [album, lastCursor, appendPhotos, handleFetchError] );
 
   const updateAlbum = useCallback( ( newAlbum: ?string ) => {
     // prevent user from reloading the same album twice
@@ -116,17 +114,22 @@ const GalleryScreen = () => {
     dispatch( { type: "SET_ALBUM", album: newAlbum } );
   }, [album] );
 
-  useEffect( () => {
-    // this triggers on first load and when a user switches to a new album
+  const onEndReached = useCallback( ( ) => {
+    if ( hasNextPage && !stillFetching ) {
+      fetchPhotos( );
+    }
+  }, [hasNextPage, fetchPhotos, stillFetching] );
+
+  useEffect( ( ) => {
     if ( photos.length === 0 ) {
-      fetchPhotos();
+      fetchPhotos( );
     }
   }, [photos.length, fetchPhotos] );
 
-  useEffect( () => {
-    const requestAndroidPermissions = async () => {
+  useEffect( ( ) => {
+    const requestAndroidPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
-        const permission = await checkCameraRollPermissions();
+        const permission = await checkCameraRollPermissions( );
         if ( permission !== true ) {
           dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
         }
@@ -135,18 +138,14 @@ const GalleryScreen = () => {
 
     navigation.addListener( "focus", ( ) => { requestAndroidPermissions( ); } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation] );
+  }, [navigation, fetchPhotos, photos.length] );
 
   const renderImageList = ( ) => {
-    if ( loading ) {
-      return <LoadingWheel color={colors.darkGray} />;
-    }
-
     if ( error ) {
       return <CameraError error={error} errorEvent={errorEvent} />;
     }
 
-    return <GalleryImageList fetchPhotos={fetchPhotos} photos={photos} setLoading={setLoading} />;
+    return <GalleryImageList fetchPhotos={onEndReached} photos={photos} setLoading={setLoading} />;
   };
 
   return (

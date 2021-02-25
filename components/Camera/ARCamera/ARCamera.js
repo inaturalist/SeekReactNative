@@ -23,7 +23,13 @@ import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import { writeExifData } from "../../../utility/photoHelpers";
-import { checkForCameraPermissionsError, checkForSystemVersion, handleLog, showCameraSaveFailureAlert } from "../../../utility/cameraHelpers";
+import {
+  checkForCameraPermissionsError,
+  checkForSystemVersion,
+  handleLog,
+  showCameraSaveFailureAlert,
+  checkForCameraAPIAndroid
+} from "../../../utility/cameraHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -65,7 +71,7 @@ const ARCamera = () => {
           error: null,
           ranks: {}
         };
-      case "TOGGLE_CAMERA":
+      case "SHOW_FRONT_CAMERA":
         return { ...state, cameraType: action.cameraType };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
@@ -95,16 +101,6 @@ const ARCamera = () => {
   } = state;
 
   const rankToRender = Object.keys( ranks )[0] || null;
-  const isAndroid = Platform.OS === "android";
-
-  const toggleCameraType = ( ) => {
-    console.log( "toggling camera" );
-    if ( cameraType === "front" ) {
-      dispatch( { type: "TOGGLE_CAMERA", cameraType: "back" } );
-    } else {
-      dispatch( { type: "TOGGLE_CAMERA", cameraType: "front" } );
-    }
-  };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -267,11 +263,22 @@ const ARCamera = () => {
     }
   }, [updateError] );
 
+  const checkCameraHardware = async ( ) => {
+    // the goal of this is to make Seek usable for Android devices
+    // which lack a back camera, like most Chromebooks
+    const cameraHardware = await checkForCameraAPIAndroid( );
+
+    if ( cameraHardware === "front" ) {
+      dispatch( { type: "SHOW_FRONT_CAMERA", cameraType: "front" } );
+    }
+  };
+
   useEffect( ( ) => {
     navigation.addListener( "focus", ( ) => {
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       requestAndroidPermissions( );
+      checkCameraHardware( );
     } );
   }, [navigation, requestAndroidPermissions] );
 
@@ -305,14 +312,6 @@ const ARCamera = () => {
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
-      {/* {isAndroid && (
-        <Pressable
-          onPress={toggleCameraType}
-          style={styles.cameraType}
-        >
-          <Image source={icons.cameraGreen} />
-        </Pressable>
-      )} */}
       <INatCamera
         ref={camera}
         confidenceThreshold={confidenceThreshold}

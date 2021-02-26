@@ -209,8 +209,10 @@ const SpeciesDetail = ( ) => {
   useEffect( ( ) => {
     // would be nice to stop refetch when a user goes to range map and back
     // and also wikipedia and back or iNat obs and back
-    navigation.addListener( "focus", ( ) => { fetchiNatData( ); } );
-    navigation.addListener( "blur", ( ) => { dispatch( { type: "RESET_SCREEN" } ); } );
+    navigation.addListener( "focus", ( ) => {
+      dispatch( { type: "RESET_SCREEN" } );
+      fetchiNatData( );
+    } );
   }, [navigation, fetchiNatData] );
 
   if ( !id ) {

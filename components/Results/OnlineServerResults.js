@@ -20,7 +20,6 @@ import {
   navToMatch,
   setImageCoords
 } from "../../utility/resultsHelpers";
-import { is } from "date-fns/locale";
 
 const OnlineServerResults = () => {
   const navigation = useNavigation();
@@ -187,14 +186,9 @@ const OnlineServerResults = () => {
   }, [fetchScore, image] );
 
   useEffect( () => {
-    let isCurrent;
-
-    if ( !loading && clicked && isCurrent ) {
-      showResults();
+    if ( !loading && clicked ) {
+      showResults( );
     }
-    return ( ) => {
-      isCurrent = false;
-    };
   }, [loading, showResults, clicked] );
 
   useEffect( () => {

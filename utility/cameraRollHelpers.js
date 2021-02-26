@@ -3,6 +3,8 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import type { GetPhotosParams } from "@react-native-community/cameraroll";
 
+import i18n from "../i18n";
+
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   const options: GetPhotosParams = {
     first: 28,
@@ -42,7 +44,26 @@ const checkForUniquePhotos = ( seen, assets ) => {
   return uniqAssets;
 };
 
+const fetchAlbums = async ( cameraRoll ) => {
+  try {
+    const names = cameraRoll;
+    const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
+
+    if ( albums && albums.length > 0 ) { // attempt to fix error on android
+      albums.forEach( ( { count, title } ) => {
+        if ( count > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
+          names.push( { label: title.toLocaleUpperCase( ), value: title } );
+        }
+      } );
+    }
+    return names;
+  } catch ( e ) {
+    return cameraRoll;
+  }
+};
+
 export {
   fetchGalleryPhotos,
-  checkForUniquePhotos
+  checkForUniquePhotos,
+  fetchAlbums
 };

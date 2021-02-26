@@ -9,11 +9,11 @@ import GalleryImage from "./GalleryImage";
 
 type Props = {
   photos: Array<Object>,
-  fetchPhotos: Function,
+  onEndReached: Function,
   setLoading: ( ) => void
 }
 
-const GalleryImageList = ( { fetchPhotos, photos, setLoading }: Props ) => {
+const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ) => {
   const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} setLoading={setLoading} />, [setLoading] );
 
   // skips measurement of dynamic content for faster loading
@@ -34,7 +34,7 @@ const GalleryImageList = ( { fetchPhotos, photos, setLoading }: Props ) => {
       keyExtractor={extractKey}
       numColumns={4}
       onEndReachedThreshold={0.2}
-      onEndReached={fetchPhotos}
+      onEndReached={onEndReached}
       renderItem={renderImage}
     />
   );

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { Platform, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -79,10 +79,13 @@ const GalleryScreen = () => {
     seen
   } = state;
 
+  const photoCount = useRef( photos.length );
+  photoCount.current = photos.length;
+
   const setLoading = useCallback( ( ) => dispatch( { type: "SET_LOADING" } ), [] );
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
-    if ( photos.length === 0 && data.length === 0 ) {
+    if ( data.length === 0 ) {
       // this is triggered in certain edge cases, like when iOS user has "selected albums"
       // permission but has not given Seek access to a single photo
       dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
@@ -129,6 +132,21 @@ const GalleryScreen = () => {
     }
   }, [photos.length, fetchPhotos] );
 
+  const initialFetch = useCallback( ( ) => {
+    // attempting to fix issue on some iOS devices where photos never appear
+    // assuming the above useEffect hook does not get called for some reason
+    const timer = setTimeout( ( ) => {
+      if ( photoCount.current === 0 ) {
+        fetchPhotos( );
+      }
+    }, 3000 );
+
+    if ( photoCount.current > 0 ) {
+      clearTimeout( timer );
+    }
+    return ( ) => clearTimeout( timer );
+  }, [fetchPhotos] );
+
   useEffect( ( ) => {
     const requestAndroidPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
@@ -139,15 +157,18 @@ const GalleryScreen = () => {
       }
     };
 
-    navigation.addListener( "focus", ( ) => requestAndroidPermissions( ) );
+    navigation.addListener( "focus", ( ) => {
+      requestAndroidPermissions( );
+      initialFetch( );
+    } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation] );
+  }, [navigation, initialFetch] );
 
   const renderImageList = ( ) => {
     if ( error ) {
       return <CameraError error={error} errorEvent={errorEvent} />;
     }
-    return <GalleryImageList fetchPhotos={onEndReached} photos={photos} setLoading={setLoading} />;
+    return <GalleryImageList onEndReached={onEndReached} photos={photos} setLoading={setLoading} />;
   };
 
   return (

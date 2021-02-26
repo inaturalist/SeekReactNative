@@ -10,7 +10,7 @@ import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
-import { fetchGalleryPhotos } from "../../../utility/cameraRollHelpers";
+import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 
@@ -28,7 +28,8 @@ const GalleryScreen = () => {
           lastCursor: null,
           stillFetching: false,
           errorEvent: null,
-          photoSelectedLoading: false
+          photoSelectedLoading: false,
+          seen: new Set( )
         };
       case "FETCH_PHOTOS":
         return { ...state, stillFetching: true };
@@ -62,7 +63,8 @@ const GalleryScreen = () => {
     stillFetching: false,
     error: null,
     errorEvent: null,
-    photoSelectedLoading: false
+    photoSelectedLoading: false,
+    seen: new Set( )
   } );
 
   const {
@@ -73,7 +75,8 @@ const GalleryScreen = () => {
     stillFetching,
     error,
     errorEvent,
-    photoSelectedLoading
+    photoSelectedLoading,
+    seen
   } = state;
 
   const setLoading = useCallback( ( ) => dispatch( { type: "SET_LOADING" } ), [] );
@@ -84,10 +87,10 @@ const GalleryScreen = () => {
       // permission but has not given Seek access to a single photo
       dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
     } else {
-      const updatedPhotos = photos.concat( data );
-      dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
+      const uniquePhotos = checkForUniquePhotos( seen, data );
+      dispatch( { type: "APPEND_PHOTOS", photos: photos.concat( uniquePhotos ), pageInfo } );
     }
-  }, [photos] );
+  }, [photos, seen] );
 
   const handleFetchError = useCallback( ( e ) => {
     if ( e.message === "Access to photo library was denied" ) {

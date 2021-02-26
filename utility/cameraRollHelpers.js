@@ -29,6 +29,20 @@ const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ) => {
   return photos;
 };
 
+const checkForUniquePhotos = ( seen, assets ) => {
+  // from cameraroll example: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/7fa9b7c062c166cd94e62b4ab5d1f7b5f663c9a0/example/js/CameraRollView.js#L177
+  const uniqAssets = assets.map( asset => {
+    let value = asset.node.image.uri;
+    if ( seen.has( value ) ) {
+      return;
+    }
+    seen.add( value );
+    return asset;
+  } );
+  return uniqAssets;
+};
+
 export {
-  fetchGalleryPhotos
+  fetchGalleryPhotos,
+  checkForUniquePhotos
 };

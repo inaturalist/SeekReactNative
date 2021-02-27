@@ -22,63 +22,59 @@ import BannerHeader from "./BannerHeader";
 
 const AchievementsScreen = () => {
   const navigation = useNavigation();
-  const [speciesCount, setSpeciesCount] = useState( null );
-  const [loading, setLoading] = useState( true );
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
     nextLevelCount: 0,
-    badgesEarned: null
+    badgesEarned: null,
+    speciesCount: null
   } );
 
   const fetchBadges = useCallback( async ( ) => {
-    const realm = await Realm.open( realmConfig );
-    const badges = realm.objects( "BadgeRealm" );
-    const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
-    const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
+    try {
+      const realm = await Realm.open( realmConfig );
+      const badges = realm.objects( "BadgeRealm" );
+      const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
+      const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 
-    const speciesBadges = [];
+      const speciesBadges = [];
 
-    iconicTaxonIds.forEach( ( id ) => {
-      if ( id === null ) { return; }
-      const highestEarned = badges
-        .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
-        .sorted( "earnedDate", true );
-      speciesBadges.push( highestEarned[0] );
-    } );
+      iconicTaxonIds.forEach( ( id ) => {
+        if ( id === null ) { return; }
+        const highestEarned = badges
+          .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
+          .sorted( "earnedDate", true );
+        speciesBadges.push( highestEarned[0] );
+      } );
 
-    const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
-    const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-    const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
+      const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
+      const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
+      const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
 
-    speciesBadges.sort( ( a: { index: number, earned: boolean }, b: { index: number, earned: boolean } ) => {
-      // $FlowFixMe sorting by booleans isn't great, but it works here
-      if ( a.index < b.index && a.earned > b.earned ) {
-        return -1;
-      }
-      return 1;
-    } );
+      speciesBadges.sort( ( a: { index: number, earned: boolean }, b: { index: number, earned: boolean } ) => {
+        // $FlowFixMe sorting by booleans isn't great, but it works here
+        if ( a.index < b.index && a.earned > b.earned ) {
+          return -1;
+        }
+        return 1;
+      } );
 
-    setState( {
-      speciesBadges,
-      level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
-      nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-      badgesEarned
-    } );
-    setLoading( false );
+      fetchNumberSpeciesSeen( ).then( ( species ) => {
+        setState( {
+          speciesBadges,
+          level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
+          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
+          badgesEarned,
+          speciesCount: species
+        } );
+      } );
+    } catch ( e ) {
+      console.log( e, "couldn't open realm: achievements" );
+    }
   }, [] );
 
-  const fetchSpeciesCount = () => {
-    fetchNumberSpeciesSeen().then( ( species ) => {
-      setSpeciesCount( species );
-    } );
-  };
-
   useEffect( () => {
-    navigation.addListener( "focus", () => {
-      fetchBadges();
-      fetchSpeciesCount();
-    } );
+    navigation.addListener( "focus", () => { fetchBadges(); } );
   }, [navigation, fetchBadges] );
 
   const navToObservations = useCallback( () => {
@@ -86,14 +82,18 @@ const AchievementsScreen = () => {
     navigation.navigate( "Observations" );
   }, [navigation] );
 
+  if ( state.level === null ) {
+    return null;
+  }
+
   return (
-    <ScrollWithHeader header="badges.achievements" loading={loading}>
+    <ScrollWithHeader header="badges.achievements">
       <Spacer backgroundColor={colors.greenGradientDark} />
       {state.level && (
         <LevelHeader
           level={state.level}
           nextLevelCount={state.nextLevelCount}
-          speciesCount={speciesCount}
+          speciesCount={state.speciesCount}
         />
       )}
       <View style={styles.center}>
@@ -108,7 +108,7 @@ const AchievementsScreen = () => {
           style={styles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />
-          <Text style={styles.number}>{speciesCount && localizeNumber( speciesCount )}</Text>
+          <Text style={styles.number}>{state.speciesCount && localizeNumber( state.speciesCount )}</Text>
         </TouchableOpacity>
         <View style={styles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />

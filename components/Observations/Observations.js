@@ -157,7 +157,11 @@ const Observations = () => {
 
   return (
     <ViewWithHeader header="observations.header">
-      <Modal isVisible={showModal}>
+      <Modal
+        isVisible={showModal}
+        useNativeDriverForBackdrop
+        useNativeDriver
+      >
         <DeleteModal
           deleteObservation={deleteObservation}
           itemToDelete={itemToDelete}

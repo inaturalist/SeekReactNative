@@ -194,16 +194,24 @@ const SpeciesDetail = ( ) => {
   }, [setId, seenTaxa] );
 
   useEffect( ( ) => {
-    if ( id !== null ) {
+    let isCurrent = true;
+    if ( id !== null && isCurrent ) {
       fetchDetails( );
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [id, fetchDetails] );
 
   useEffect( ( ) => {
-    if ( error === "internet" ) {
+    let isCurrent = true;
+    if ( error === "internet" && isCurrent ) {
       // only fetch the data needed to fill in the rest of the screen
       fetchDetails( );
     }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [error, fetchDetails] );
 
   useEffect( ( ) => {

@@ -64,7 +64,7 @@ const App = () => {
     fetchAutoCapture();
     fetchLocalSeasonality();
 
-    setTimeout( setupChallenges, 3000 );
+    setupChallenges( );
     setTimeout( addARCameraFiles, 3000 );
 
     RNLocalize.addEventListener( "change", handleLocalizationChange );

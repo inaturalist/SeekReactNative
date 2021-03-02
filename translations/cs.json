@@ -281,7 +281,7 @@
     "nearby": "Druhy poblíž z tohoto taxonu",
     "nothing_nearby": "Vypadá to, že poblíž nebylo pozorováno mnoho druhů z tohoto taxonu! Zkus pořídit jinou fotografii, nebo ji odeslat na iNaturalist.",
     "tap": "Klepnutím načtete druhy poblíž",
-    "social": "Share on social"
+    "social": "Sdílet na sociálních sítích"
   },
   "banner": {
     "view": "Zobrazit odznak",
@@ -302,9 +302,9 @@
     "label": "Fotoaparát",
     "on": "zapnuto",
     "off": "vypnuto",
-    "scan": "Keep scanning the environment for organisms to identify!",
-    "scan_class": "Try different angles till you can get the identification to species!",
-    "scan_genus": "Almost at species!",
+    "scan": "Skenujte organismy pro jejich identifikaci!",
+    "scan_class": "Zkoušejte různé úhly, dokud nedosáhnete identifikace druhu.",
+    "scan_genus": "Jsme téměř u druhů!",
     "scan_species": "To je ono! Teď pořiďte fotografii a přidejte tak tento druh k vašim pozorováním.",
     "kingdom": "říše",
     "phylum": "kmen",

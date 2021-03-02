@@ -56,8 +56,18 @@ const markNotificationsAsViewed = () => {
   } );
 };
 
+const isDuplicateNotification = ( realm, i ) => {
+  const notification = realm.objects( "NotificationRealm" )
+    .filtered( `title == "notifications.new_challenge" AND challengeIndex == ${i}` );
+  if ( notification.length > 0 ) {
+    return true;
+  }
+  return false;
+};
+
 export {
   createNotification,
   markNotificationAsSeen,
-  markNotificationsAsViewed
+  markNotificationsAsViewed,
+  isDuplicateNotification
 };

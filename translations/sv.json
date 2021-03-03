@@ -7,16 +7,16 @@
     "please_enable_location": "Vänligen aktivera platstjänster i inställningar ",
     "internet_error": "Vi behöver internet för att generera arter i närheten. Tryck för att försöka igen.",
     "no_location": "Ingen plats",
-    "no_species": "Det ser ut som att väldigt få arter har observeras i närheten! Försök att ändra din lokal eller utöka artfiltret.",
+    "no_species": "Det ser ut som att väldigt få arter har observeras i närheten! Försök att ändra din fyndplats eller utöka artfiltret.",
     "no_gps": "GPS-signalen hittades inte.",
     "location_timeout": "Din platsbegäran tog för lång tid. Försök igen.",
     "location_settings": "Platstjänsten är inte aktiverad eller platsläget är inte lämpligt för den aktuella begäran"
   },
   "get_started": {
     "header": "Kom igång",
-    "tip_1": "Ta bilder med Seeks kamera för att bestämma levande saker omkring dig.",
+    "tip_1": "Ta bilder med Seeks kamera för att artbestämma levande saker omkring dig.",
     "tip_2": "Lär dig om arterna som har observerats omkring dig med Arter i närheten.",
-    "tip_3": "Förtjäna utmärkelser och levla upp genom att bestämma olika typer av arter och delta i utmaningar."
+    "tip_3": "Förtjäna utmärkelser och levla upp genom att artbestämma olika typer av arter och delta i utmaningar."
   },
   "challenges_card": {
     "header": "Utmaningar",
@@ -41,7 +41,7 @@
   "login": {
     "log_in": "Logga in med iNaturalist",
     "sign_up": "Registrera dig för iNaturalist",
-    "about": " Genom att logga in med iNaturalist kan du lägga upp observationer till online-gemenskapen via Seek.",
+    "about": " Genom att logga in med iNaturalist kan du lägga upp observationer till online-communityn via Seek.",
     "skip_login": "Fortsätt utan att logga in",
     "error_email": "Ange en giltig e-postadress",
     "error_credentials": "Felaktigt användarnamn eller lösenord",
@@ -76,7 +76,7 @@
     "observations_2": "Raderar du appen kommer alla dina observationer som gjorts i Seek att raderas.",
     "observations_3": "Seek synkroniserar inte dina observationer med andra enheter.",
     "agree_to_terms": "Jag godkänner <terms>{{terms}}</terms> och <privacy>{{privacy}}</privacy>, och jag har granskat <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Gemenskapens riktlinjer",
+    "guidelines": "Communityns riktlinjer",
     "store_data": "Jag samtycker till att låta iNaturalist lagra och bearbeta begränsade typer av personuppgifter om mig för att kunna hantera mitt konto.",
     "learn_more": "Lär dig mer",
     "learn_more_about_data_storage": "Vi sparar personlig information som användarnamn och e-postadresser för att hantera konton på denna webbplats, och för att vi ska kunna följa sekretesslagstiftningen behöver du markera denna ruta för att ange att du samtycker till denna användning av personuppgifter. För att läsa mer om vilken information vi samlar in och hur vi använder den, vänligen se vår Integritetspolicy och våra Användarvillkor.",
@@ -113,7 +113,7 @@
     "settings": "Inställningar"
   },
   "onboarding": {
-    "onboarding_1": "Använd Seeks kamera för att bestämma växter, djur och svampar",
+    "onboarding_1": "Använd Seeks kamera för att artbestämma växter, djur och svampar",
     "onboarding_2": "Lär dig om organismerna runt omkring dig",
     "onboarding_3": "Förtjäna utmärkelser genom att observera olika sorters arter",
     "skip": "Hoppa över för tillfället",
@@ -147,7 +147,7 @@
     "badge": "Utmärkelse",
     "connectivity": "Anslutningsutmaning",
     "biodiversity": "Biologisk mångfalds-utmaning",
-    "productivity": "Gemenskapsutmaning",
+    "productivity": "Community-utmaning",
     "resilience": "Skogsutmaning",
     "farming": "Gräsmarksutmaning",
     "flow": "Sötvattensutmaning",
@@ -219,7 +219,7 @@
     "species_observed": "Observerade arter",
     "badge_name_april": "Anslutningsutmärkelse",
     "badge_name_may": "Biologisk mångfalds-utmärkelse",
-    "badge_name_june": "Gemenskapsutmärkelse",
+    "badge_name_june": "Community-utmärkelse",
     "badge_name_august": "Skogsutmärkelse",
     "badge_name_september": "Gräsmarksutmärkelse",
     "badge_name_october": "Sötvattensutmärkelse",
@@ -230,12 +230,12 @@
     "global_observations": "Globala observationer",
     "naturalists_worldwide": "Naturforskare i världen",
     "seek_data": "Sök hämtar data från iNaturalist.",
-    "about_inat": "iNaturalist är den största gemenskapen för naturforskare i världen. Användare ladda upp bilder av organismer från hela världen, och vår gemenskap jobbar tillsammans för att bestämma dem. Dessa observationer är de vi använder för att träna vår bestämningsmodell, visa kartor och generera observationer i närheten i Seek.",
-    "contribute": "Intresserad av att bidra till medborgarvetenskap i en global gemenskap av naturforskare?",
+    "about_inat": "iNaturalist är den största communityn för naturforskare i världen. Användare laddar upp bilder av organismer från hela världen, och vår community jobbar tillsammans för att artbestämma dem. Dessa observationer är de vi använder för att träna vår artbestämningsmodell, visa kartor och generera observationer i närheten i Seek.",
+    "contribute": "Intresserad av att bidra till medborgarvetenskap i en global community av naturforskare?",
     "join": "Logga in med iNaturalist",
     "by": "av",
-    "thanks": "iNaturalist-gemenskapen utgörs av människor som du! Gå med i gemenskapen och lägg till dina egna observationer på inaturalist.org!",
-    "logged_in": "Du är inloggad på Seek med ditt iNaturalist-konto. Tack för att du är en del av denna gemenskap!",
+    "thanks": "iNaturalist-communityn utgörs av människor som du! Gå med i communityn och lägg till dina egna observationer på inaturalist.org!",
+    "logged_in": "Du är inloggad på Seek med ditt iNaturalist-konto. Tack för att du är en del av denna community!",
     "sign_out": "Logga ut från iNaturalist"
   },
   "results": {
@@ -255,7 +255,7 @@
     "class": "Vi tror att denna tillhör klassen",
     "resighted": "Du har sett en art igen!",
     "date_observed": "Du observerade den första gången:\n{{seenDate}}",
-    "post_inat": "Om du tog originalbilden av organismen, kan du hjälpa till att träna Seek på denna art genom att skicka in till iNaturalist, där gemenskapen kommer att hjälpa till med bestämning och förbättra framtida versioner.",
+    "post_inat": "Om du tog originalbilden av organismen, kan du hjälpa till att träna Seek på denna art genom att skicka in till iNaturalist, där communityn kommer att hjälpa till med artbestämning och förbättra framtida versioner.",
     "post": "Posta på iNaturalist",
     "flag": "Felbestämning",
     "incorrect": "Var denna art felbestämd?",
@@ -366,7 +366,7 @@
   },
   "badges": {
     "your_level": "Din nivå",
-    "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
+    "login": "Logga in med iNaturalist för att lägga upp observationer till online communityn!",
     "achievements": "Prestationer",
     "observe_plural": {
       "zero": "Observera {{count}} arter för att komma till nästa nivå!",
@@ -512,7 +512,7 @@
     "joint_initiative": "iNaturalist är ett gemensamt initiativ av California Academy of Sciences och National Geographic Society.",
     "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Designad & utvecklad av iNaturalist-teamet:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-gemenskapen.",
+    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-communityn.",
     "version": "Version",
     "help": "För hjälp med Seek, vänligen mejla help+seek@inaturalist.org.",
     "translations": "Vi är tacksamma för översättningshjälpen från crowdin.com-gruppen, i synnerhet: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, och Yulia Lygina.",
@@ -548,7 +548,7 @@
   "posting_help": {
     "header": "Hjälp att publicera",
     "identification": "Artbestämning",
-    "id_description": "När du laddar upp din observation, kan du bestämma arten till det taxon du är mest säker på - från en klass som reptiler, ner till en art som blåhake. När din observation är publicerad på iNaturalist, kommer vår gemenskap att hjälpa till att bestämma arten.\n\nDu kan också välja att lägga till valfria anteckningar till din observation här.",
+    "id_description": "När du laddar upp din observation, kan du bestämma arten till det taxon du är mest säker på - från en klass som reptiler, ner till en art som blåhake. När din observation är publicerad på iNaturalist, kommer vår community att hjälpa till att bestämma arten.\n\nDu kan också välja att lägga till valfria anteckningar till din observation här.",
     "date": "Datum & Plats",
     "date_description": "Varje observation på iNaturalist förknippas med ett visst datum och en viss plats. På så sätt kan vi tydligt få en global bild av hur det går för en art i hela världen med tiden.",
     "geoprivacy": "Geosekretess",
@@ -626,7 +626,7 @@
     "citizen_science": "Medborgarforskningsutmaning",
     "completed": "Du klarade utmaningen och fick utmaningsutmärkelsen!",
     "april_2020_description": "April 2020 innebär ettårsjubileum sedan iNaturalists nya Seek släpptes! Under det senaste året har vi växt mycket och hjälpt över en miljon människor att känna sig mer i kontakt med världen omkring dem. Naturen finns runt omkring dig, det är bara att söka upp den!\n\nVi sätter igång vår nästa omgång av utmaningar med att se om du kan hitta 10 arter du ännu inte har observerat.",
-    "action_april_2020": "April är medborgarforskningens månad! Du kan bidra till vetenskaplig förståelse av biologisk mångfald som medborgarforskare genom att lägga upp dina Seek-observationer på iNaturalist.\n\nOm du är 13 eller äldre (eller med förälders tillåtelse), kan du skapa ett iNaturalist-konto och lägga upp observationer på iNaturalist för att dela observationerna med en bredare gemenskap, inklusive forskare!",
+    "action_april_2020": "April är medborgarforskningens månad! Du kan bidra till vetenskaplig förståelse av biologisk mångfald som medborgarforskare genom att lägga upp dina Seek-observationer på iNaturalist.\n\nOm du är 13 eller äldre (eller med förälders tillåtelse), kan du skapa ett iNaturalist-konto och lägga upp observationer på iNaturalist för att dela observationerna med en bredare community, inklusive forskare!",
     "backyard": "Bakgårdsutmaning",
     "may_2020_description": "Du behöver inte gå långt för att hitta natur runt omkring dig. Till och med på din bakgård eller i ditt grannskap hittar du växter, fåglar och insekter som som du samsas med.",
     "action_may_2020": "Använd Seeks Arter i Närheten på startskärmen för att lära dig om alla fåglar, växter, och insekter som har setts omkring dig och kolla in deras artsidor. Vilken tid på året är de mest observerade? Försök sedan utforska ett nytt ställe: vilka arter kan du hitta nära Kairo, Paris eller Jakarta?",
@@ -691,8 +691,8 @@
     "header": "iNaturalist",
     "header_1": "Vi tror att du kommer att gilla iNaturalist.",
     "text_1": "gör en djupdykning och lär dig om organismerna omkring dig",
-    "text_2": "vara en del av en gemenskap som är lika nyfiken på naturen som du",
-    "text_3": "dela observationer med gemenskapen, och t.o.m. dela observationer via Seek!",
+    "text_2": "vara en del av en community som är lika nyfiken på naturen som du",
+    "text_3": "dela observationer med communityn, och t.o.m. dela observationer via Seek!",
     "download": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.org.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!"
   },
   "social": {

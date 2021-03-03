@@ -183,6 +183,7 @@ android {
             }
         }
     }
+    ndkVersion "23.0.7123448"
     // packagingOptions {
     //     pickFirst "lib/armeabi-v7a/libc++_shared.so"
     //     pickFirst "lib/arm64-v8a/libc++_shared.so"

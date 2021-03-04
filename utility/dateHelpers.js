@@ -1,6 +1,7 @@
 // @flow
 
 import Realm from "realm";
+import { Platform } from "react-native";
 import {
   subYears,
   isAfter,
@@ -150,6 +151,13 @@ const formatMonthYear = ( date: Date ) => format( date, "MMMM yyyy", setLocale( 
 
 const formatMonth = ( date: Date ) => format( date, "MMMM", setLocale( ) );
 
+const isAndroidDateInFuture = ( selectedDate ) => {
+  if ( Platform.OS === "android" && isAfter( selectedDate, new Date() ) ) {
+    return true;
+  }
+  return false;
+};
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
@@ -166,5 +174,6 @@ export {
   formatMonthYear,
   formatMonth,
   serverBackOnlineTime,
-  isWithinCurrentMonth
+  isWithinCurrentMonth,
+  isAndroidDateInFuture
 };

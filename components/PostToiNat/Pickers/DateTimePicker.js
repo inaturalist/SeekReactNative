@@ -14,6 +14,7 @@ import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
+import { formatYearMonthDay } from "../../../utility/dateHelpers";
 
 type Props = {
   dateToDisplay: ?string,
@@ -26,19 +27,24 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
   const openModal = () => setShowModal( true );
   const closeModal = () => setShowModal( false );
 
+  const date = dateToDisplay && formatYearMonthDay( dateToDisplay );
+  console.log( date, "date in date time picker" );
+
+  const handlePicked = ( value ) => {
+    handleDatePicked( value );
+    closeModal();
+  };
+
   return (
     <>
       <DateTimePicker
         datetime
         isDateTimePickerVisible={showModal}
-        onDatePicked={( value ) => {
-          handleDatePicked( value );
-          closeModal();
-        }}
+        onDatePicked={handlePicked}
         toggleDateTimePicker={closeModal}
       />
       <TouchableOpacity
-        onPress={() => openModal()}
+        onPress={openModal}
         style={styles.thinCard}
       >
         <Image source={posting.date} />
@@ -46,7 +52,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
           <Text style={styles.greenText}>
             {i18n.t( "posting.date" ).toLocaleUpperCase()}
           </Text>
-          <Text style={styles.text}>{dateToDisplay}</Text>
+          <Text style={styles.text}>{date}</Text>
         </View>
         {/* $FlowFixMe */}
         <Image

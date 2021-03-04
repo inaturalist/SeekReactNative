@@ -26,6 +26,12 @@
     "view_all": "View all challenges",
     "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_will_be_uploaded": "{{count}} observations will be uploaded once Seek is restarted and connected to internet"
+  },
   "notifications": {
     "header": "Notifications",
     "learn_more": "Learn more about iNaturalist",
@@ -544,6 +550,13 @@
     "ok": "Ok",
     "wait": "This may take up to a minute",
     "look_up": "Look up a species by name"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "NO INTERNET!",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet.",
+    "ok": "OK"
   },
   "posting_help": {
     "header": "Posting Help",

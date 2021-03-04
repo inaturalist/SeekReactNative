@@ -14,7 +14,7 @@ import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 
 type Props = {
-  +updateGeoprivacy: Function
+  +updateObservation: Function
 }
 
 class GeoprivacyPicker extends Component<Props> {
@@ -43,10 +43,10 @@ class GeoprivacyPicker extends Component<Props> {
   }
 
   setGeoprivacy( geoprivacy ) {
-    const { updateGeoprivacy } = this.props;
+    const { updateObservation } = this.props;
 
     this.setState( { geoprivacy } );
-    updateGeoprivacy( geoprivacy );
+    updateObservation( "geoprivacy", geoprivacy );
   }
 
   render() {

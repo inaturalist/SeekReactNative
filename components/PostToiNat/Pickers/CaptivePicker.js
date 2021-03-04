@@ -14,7 +14,7 @@ import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 
 type Props = {
-  +updateCaptive: Function
+  +updateObservation: Function
 }
 
 class CaptivePicker extends Component<Props> {
@@ -39,10 +39,10 @@ class CaptivePicker extends Component<Props> {
   }
 
   setCaptive( captive ) {
-    const { updateCaptive } = this.props;
+    const { updateObservation } = this.props;
 
     this.setState( { captive } );
-    updateCaptive( captive );
+    updateObservation( "captive", captive );
   }
 
   render() {
@@ -55,9 +55,7 @@ class CaptivePicker extends Component<Props> {
         }}
         hideIcon
         items={types}
-        onValueChange={( value ) => {
-          this.setCaptive( value );
-        }}
+        onValueChange={this.setCaptive}
         placeholder={{}}
         useNativeAndroidPickerStyle={false}
         value={captive}

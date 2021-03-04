@@ -5,6 +5,7 @@ import inatjs, { FileUpload } from "inaturalistjs";
 import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
+import { createUUID } from "./observationHelpers";
 
 const saveIdAndUploadStatus = async ( id: number, uri: string, uuid: string ) => {
   const realm = await Realm.open( realmConfig );
@@ -106,6 +107,57 @@ const checkForIncompleteUploads = async ( login: string ) => {
   } catch ( e ) {
     console.log( e, " : couldn't check for incomplete uploads" );
   }
+};
+
+const saveObservationToRealm = async ( observation: {
+  observed_on_string: string,
+  taxon_id: number,
+  geoprivacy: string,
+  captive: boolean,
+  place_guess: ?string,
+  latitude: number,
+  longitude: number,
+  positional_accuracy: number,
+  description: ?string
+} ) => {
+  const realm = await Realm.open( realmConfig );
+  const uuid = await createUUID( );
+
+  // const {
+  //   observed_on_string,
+  //   taxon_id,
+  //   geoprivacy,
+  //   captive,
+  //   place_guess,
+  //   latitude,
+  //   longitude,
+  //   positional_accuracy,
+  //   description
+  // } = observation;
+
+  try {
+    realm.write( ( ) => {
+      realm.create( "UploadObservationRealm", {
+        ...observation,
+        observation_uuid: uuid,
+        uploadSucceeded: false
+        // observed_on_string,
+        // taxon_id,
+        // geoprivacy,
+        // captive,
+        // place_guess,
+        // latitude,
+        // longitude,
+        // positional_accuracy,
+        // description
+      }, true );
+    } );
+  } catch ( e ) {
+    console.log( "couldn't save observation to UploadObservationRealm", e );
+  }
+  // right now, create uuid for photo
+  // fetch JSON web token
+  // show posting status
 };
 
 export {

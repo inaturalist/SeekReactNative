@@ -16,6 +16,7 @@ const saveIdAndUploadStatus = async ( id: number, uri: string, uuid: string ) =>
         uri,
         uploadSucceeded: false,
         uuid
+        // viewed: false -> to determine count to show on home screen
       }, true );
     } );
   } catch ( e ) {
@@ -109,17 +110,43 @@ const checkForIncompleteUploads = async ( login: string ) => {
   }
 };
 
+const uploadObservation = async ( observation: {} ) => {
+  const login = null; // fetch login
+  const params = {
+    ...observation,
+    // this shows that the id is recommended by computer vision
+    owners_identification_from_vision_requested: true
+  };
+  delete params.uri;
+
+  const token = await fetchJSONWebToken( login );
+
+  const options = { api_token: token, user_agent: createUserAgent( ) };
+
+  const response = await inatjs.observations.create( params, options );
+  const { id } = response[0];
+
+  const photoUUID = await createUUID( );
+  const addPhoto = await uploadPhoto( observation.uri, id, token, photoUUID );
+
+  if ( addPhoto === true ) {
+    saveUploadSucceeded( id );
+    return true;
+  }
+  return false;
+};
+
 const saveObservationToRealm = async ( observation: {
   observed_on_string: string,
   taxon_id: number,
   geoprivacy: string,
-  captive: boolean,
+  captive_flag: boolean,
   place_guess: ?string,
   latitude: number,
   longitude: number,
   positional_accuracy: number,
   description: ?string
-} ) => {
+}, uri: string ) => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
 
@@ -127,7 +154,7 @@ const saveObservationToRealm = async ( observation: {
   //   observed_on_string,
   //   taxon_id,
   //   geoprivacy,
-  //   captive,
+  //   captive_flag,
   //   place_guess,
   //   latitude,
   //   longitude,
@@ -139,19 +166,14 @@ const saveObservationToRealm = async ( observation: {
     realm.write( ( ) => {
       realm.create( "UploadObservationRealm", {
         ...observation,
-        observation_uuid: uuid,
-        uploadSucceeded: false
-        // observed_on_string,
-        // taxon_id,
-        // geoprivacy,
-        // captive,
-        // place_guess,
-        // latitude,
-        // longitude,
-        // positional_accuracy,
-        // description
+        uuid,
+        uri
       }, true );
     } );
+
+    // const latestObservation = realm.objects( "UploadObservationRealm" );
+
+    // attempt to upload
   } catch ( e ) {
     console.log( "couldn't save observation to UploadObservationRealm", e );
   }

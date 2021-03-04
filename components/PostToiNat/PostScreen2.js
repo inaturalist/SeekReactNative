@@ -62,14 +62,16 @@ const PostScreen = () => {
     }
   }, {
     observation: {
-      observed_on_string: initialDate,
+      captive_flag: false,
       description: null,
+      geoprivacy: "open",
       latitude: params.image.latitude,
       longitude: params.image.longitude,
-      uri: params.image.uri,
-      taxon_id: taxaId,
+      observed_on_string: initialDate,
       place_guess: null,
-      positional_accuracy: 90
+      positional_accuracy: 90,
+      taxon_id: taxaId,
+      uri: params.image.uri
     },
     taxon: {
       preferredCommonName: commonName,
@@ -85,11 +87,7 @@ const PostScreen = () => {
 
   console.log( state, "state of post screen" );
 
-  // const dateToDisplay = observation.observed_on_string && formatYearMonthDay( observation.observed_on_string );
-
   const location = useLocationName( observation.latitude, observation.longitude );
-
-  console.log( initialDate, "date" );
 
   // const createObservation = ( token, uuid ) => {
   //   const { latitude, longitude, accuracy } = image;
@@ -238,7 +236,7 @@ const PostScreen = () => {
       <View style={styles.divider} />
       <DatePicker dateToDisplay={observation.observed_on_string} handleDatePicked={handleDatePicked} />
       <View style={styles.divider} />
-      <LocationPickerCard updateLocation={updateLocation} location={location} image={image} />
+      <LocationPickerCard updateLocation={updateLocation} location={location} image={observation} />
       <View style={styles.divider} />
       <GeoprivacyPicker updateObservation={updateObservation} />
       <View style={styles.divider} />

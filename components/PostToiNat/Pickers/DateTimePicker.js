@@ -18,7 +18,7 @@ import { formatYearMonthDay } from "../../../utility/dateHelpers";
 
 type Props = {
   dateToDisplay: ?string,
-  handleDatePicked: Function
+  handleDatePicked: ( ) => void
 }
 
 const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
@@ -28,7 +28,6 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
   const closeModal = () => setShowModal( false );
 
   const date = dateToDisplay && formatYearMonthDay( dateToDisplay );
-  console.log( date, "date in date time picker" );
 
   const handlePicked = ( value ) => {
     handleDatePicked( value );

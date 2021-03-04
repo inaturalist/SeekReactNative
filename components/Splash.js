@@ -35,9 +35,8 @@ const SplashScreen = () => {
       }
       const isFirstLaunch = await checkIfFirstLaunch();
 
-      // skip onboarding screens in dev mode
-      if ( isFirstLaunch && process.env.NODE_ENV !== "development" ) {
-        setTimeout( setupBadges, 3000 );
+      setTimeout( setupBadges, 3000 );
+      if ( isFirstLaunch ) {
         resetRouter( "Onboarding" );
       } else {
         checkForQuickAction();

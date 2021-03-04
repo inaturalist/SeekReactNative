@@ -22,14 +22,13 @@ import BannerHeader from "./BannerHeader";
 
 const AchievementsScreen = () => {
   const navigation = useNavigation();
-  const [speciesCount, setSpeciesCount] = useState( null );
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
     nextLevelCount: 0,
-    badgesEarned: null
+    badgesEarned: null,
+    speciesCount: null
   } );
-  const [loading, setLoading] = useState( true );
 
   const fetchBadges = useCallback( async ( ) => {
     try {
@@ -60,29 +59,22 @@ const AchievementsScreen = () => {
         return 1;
       } );
 
-      setState( {
-        speciesBadges,
-        level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
-        nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-        badgesEarned
+      fetchNumberSpeciesSeen( ).then( ( species ) => {
+        setState( {
+          speciesBadges,
+          level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
+          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
+          badgesEarned,
+          speciesCount: species
+        } );
       } );
-      setLoading( false );
     } catch ( e ) {
       console.log( e, "couldn't open realm: achievements" );
     }
   }, [] );
 
-  const fetchSpeciesCount = () => {
-    fetchNumberSpeciesSeen().then( ( species ) => {
-      setSpeciesCount( species );
-    } );
-  };
-
   useEffect( () => {
-    navigation.addListener( "focus", () => {
-      fetchBadges();
-      fetchSpeciesCount( );
-    } );
+    navigation.addListener( "focus", () => { fetchBadges(); } );
   }, [navigation, fetchBadges] );
 
   const navToObservations = useCallback( () => {
@@ -90,14 +82,18 @@ const AchievementsScreen = () => {
     navigation.navigate( "Observations" );
   }, [navigation] );
 
+  if ( state.level === null ) {
+    return null;
+  }
+
   return (
-    <ScrollWithHeader header="badges.achievements" loading={loading}>
+    <ScrollWithHeader header="badges.achievements">
       <Spacer backgroundColor={colors.greenGradientDark} />
       {state.level && (
         <LevelHeader
           level={state.level}
           nextLevelCount={state.nextLevelCount}
-          speciesCount={speciesCount}
+          speciesCount={state.speciesCount}
         />
       )}
       <View style={styles.center}>
@@ -112,7 +108,7 @@ const AchievementsScreen = () => {
           style={styles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />
-          <Text style={styles.number}>{speciesCount && localizeNumber( speciesCount )}</Text>
+          <Text style={styles.number}>{state.speciesCount && localizeNumber( state.speciesCount )}</Text>
         </TouchableOpacity>
         <View style={styles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />

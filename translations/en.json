@@ -555,8 +555,7 @@
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
     "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet.",
-    "ok": "OK"
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "Posting Help",

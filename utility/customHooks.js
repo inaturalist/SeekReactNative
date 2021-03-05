@@ -1,9 +1,10 @@
 // @flow
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import Realm from "realm";
+import NetInfo from "@react-native-community/netinfo";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -282,6 +283,53 @@ const useRegion = ( coords: ?{ latitude: number, longitude: number }, seenTaxa: 
   return region;
 };
 
+const useInternetStatus = ( ) => {
+  const [internet, setInternet] = useState( true );
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    const checkForInternet = async ( ) => {
+      const { type } = await NetInfo.fetch( );
+
+      if ( isCurrent ) {
+        if ( type === "none" || type === "unknown" ) {
+          setInternet( false );
+        }
+        setInternet( true );
+      }
+    };
+      // otherwise, fetch data based on user location
+
+    checkForInternet( );
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [] );
+
+  return internet;
+};
+
+const useInterval = ( callback, delay ) => {
+  // for progress bar on UploadStatus
+  // makes hooks & setInterval play well together
+  // from: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+  const savedCallback = useRef( );
+
+  useEffect( ( ) => {
+    savedCallback.current = callback;
+  }, [callback] );
+  // Set up the interval.
+  useEffect( ( ) => {
+    const tick = ( ) => savedCallback.current( );
+
+    if ( delay !== null ) {
+      let id = setInterval( tick, delay );
+      return ( ) => clearInterval( id );
+    }
+  }, [delay] );
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -290,5 +338,7 @@ export {
   useCommonName,
   useTruncatedUserCoords,
   useSeenTaxa,
-  useRegion
+  useRegion,
+  useInternetStatus,
+  useInterval
 };

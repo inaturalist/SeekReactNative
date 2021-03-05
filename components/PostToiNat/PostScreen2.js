@@ -6,7 +6,7 @@ import React, {
   useCallback,
   useContext
 } from "react";
-import { View } from "react-native";
+import { View, Modal } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { formatISO } from "date-fns";
 
@@ -16,7 +16,7 @@ import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/l
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
 import CaptivePicker from "./Pickers/CaptivePicker";
-// import PostStatus from "./PostStatus";
+import PostModal from "./PostModal";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { setISOTime, isAndroidDateInFuture } from "../../utility/dateHelpers";
 import { useLocationName } from "../../utility/customHooks";
@@ -27,7 +27,6 @@ import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
-import { update } from "inaturalistjs/lib/endpoints/comments";
 
 const PostScreen = () => {
   const navigation = useNavigation( );
@@ -51,10 +50,10 @@ const PostScreen = () => {
           },
           observation: action.observation
         };
-      // case "SHOW_POST_STATUS":
-      //   return { ...state, showPostingStatus: true };
-      // case "CLOSE_POST_STATUS":
-      //   return { ...state, showPostingStatus: false };
+      case "SHOW_MODAL":
+        return { ...state, show: true };
+      case "CLOSE_MODAL":
+        return { ...state, show: false };
       case "UPDATE_OBSERVATION":
         return { ...state, observation: action.observation };
       default:
@@ -77,10 +76,11 @@ const PostScreen = () => {
       preferredCommonName: commonName,
       name: scientificName,
       taxaId
-    }
+    },
+    show: false
   } );
 
-  const { observation, taxon } = state;
+  const { observation, taxon, show } = state;
 
   const location = useLocationName( observation.latitude, observation.longitude );
 
@@ -186,7 +186,8 @@ const PostScreen = () => {
 
   }, [observation] );
 
-  // const closePostModal = useCallback( ( ) => dispatch( { type: "CLOSE_POST_STATUS" } ), [] );
+  const closeModal = useCallback( ( ) => dispatch( { type: "CLOSE_MODAL" } ), [] );
+
   const updateObservation = useCallback( ( key, value ) => dispatch( {
     type: "UPDATE_OBSERVATION",
     observation: {
@@ -217,7 +218,8 @@ const PostScreen = () => {
   }, [navigation, getLocation] );
 
   const saveObservation = async ( ) => {
-    saveObservationToRealm( observation );
+    // saveObservationToRealm( observation );
+    dispatch( { type: "SHOW_MODAL" } );
     // const uuid = await createUUID( );
     // fetchJSONWebToken( uuid );
     // showPostStatus( );
@@ -225,17 +227,12 @@ const PostScreen = () => {
 
   return (
     <ScrollWithHeader header="posting.header">
-      {/* <Modal
-        onRequestClose={closePostModal}
-        visible={showPostingStatus}
+      <Modal
+        onRequestClose={closeModal}
+        visible={show}
       >
-        <PostStatus
-          errorText={errorText}
-          postingSuccess={postingSuccess}
-          status={status}
-          togglePostModal={closePostModal}
-        />
-      </Modal> */}
+        <PostModal closeModal={closeModal} />
+      </Modal>
       <PostingHeader
         taxon={taxon}
         image={params.image}

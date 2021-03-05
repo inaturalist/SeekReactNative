@@ -14,6 +14,7 @@ import ChallengeCard from "./Challenges/ChallengeCard";
 import { checkIfCardShown } from "../../utility/helpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
+import UploadStatus from "./UploadStatus";
 
 const HomeScreen = () => {
   const [showModal, setModal] = useState( false );
@@ -50,6 +51,7 @@ const HomeScreen = () => {
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
+        <UploadStatus />
         <SpeciesNearby />
         <ChallengeCard />
     </ScrollNoHeader>

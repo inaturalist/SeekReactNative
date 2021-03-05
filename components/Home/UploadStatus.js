@@ -1,15 +1,38 @@
 // @flow
 
-import React, { useEffect } from "react";
-import { View, Text } from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import { View, Text, Image, Animated } from "react-native";
 
 import i18n from "../../i18n";
+import styles from "../../styles/home/uploadStatus";
+import logos from "../../assets/logos";
+import { useInterval } from "../../utility/customHooks";
 
 const UploadStatus = ( ) => {
+  // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
+  let animation = useRef( new Animated.Value( 0 ) );
+  const [progress, setProgress] = useState( 0 );
+
+  useInterval( ( ) => {
+    if ( progress < 100 ) {
+      setProgress( progress + 5 );
+    }
+  }, 1000 );
 
   useEffect( ( ) => {
-   // do stuff
-  }, [] );
+    Animated.timing( animation.current, {
+      toValue: progress,
+      duration: 100,
+      // width is not supported by native driver
+      useNativeDriver: false
+    } ).start( );
+  },[progress] );
+
+  const width = animation.current.interpolate( {
+    inputRange: [0, 100],
+    outputRange: ["0%", "100%"],
+    extrapolate: "clamp"
+  } );
 
   const setUploadText = ( ) => {
     // if uploading, return i18n.t( "post_to_inat_card.uploading_x_observations", { count: 0 } )
@@ -18,15 +41,18 @@ const UploadStatus = ( ) => {
   };
 
   return (
-    <>
-      {/* <Image source={inatIcon} /> */}
-      <View>
-        <Text>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
-        <Text>{setUploadText( )}</Text>
+    <View style={styles.container}>
+      <View style={styles.row}>
+        <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />
+        <View>
+          <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
+          <Text style={styles.text}>{setUploadText( )}</Text>
+        </View>
       </View>
-      {/* https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/ */}
-      {/* <LoadingBar /> */}
-    </>
+      <View style={styles.progressBar}>
+        <Animated.View style={[styles.absoluteFill, { width }]} />
+      </View>
+    </View>
   );
 };
 

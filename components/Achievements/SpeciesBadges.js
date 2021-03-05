@@ -77,6 +77,8 @@ const SpeciesBadges = ( { speciesBadges }: Props ) => {
     <Modal
       isVisible={showModal}
       onBackdropPress={closeModal}
+      useNativeDriverForBackdrop
+      useNativeDriver
     >
       <BadgeModal
         badges={iconicTaxonBadges}

@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  NativeModules
+  NativeModules,
+  Pressable
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
@@ -22,7 +23,13 @@ import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import { writeExifData } from "../../../utility/photoHelpers";
-import { checkForCameraPermissionsError, checkForSystemVersion, handleLog, showCameraSaveFailureAlert } from "../../../utility/cameraHelpers";
+import {
+  checkForCameraPermissionsError,
+  checkForSystemVersion,
+  handleLog,
+  showCameraSaveFailureAlert,
+  checkForCameraAPIAndroid
+} from "../../../utility/cameraHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -64,6 +71,8 @@ const ARCamera = () => {
           error: null,
           ranks: {}
         };
+      case "SHOW_FRONT_CAMERA":
+        return { ...state, cameraType: action.cameraType };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
       default:
@@ -76,7 +85,8 @@ const ARCamera = () => {
     pictureTaken: false,
     cameraLoaded: false,
     negativeFilter: false,
-    taxonId: null
+    taxonId: null,
+    cameraType: "back"
   } );
 
   const {
@@ -86,7 +96,8 @@ const ARCamera = () => {
     pictureTaken,
     cameraLoaded,
     negativeFilter,
-    taxonId
+    taxonId,
+    cameraType
   } = state;
 
   const rankToRender = Object.keys( ranks )[0] || null;
@@ -252,11 +263,22 @@ const ARCamera = () => {
     }
   }, [updateError] );
 
+  const checkCameraHardware = async ( ) => {
+    // the goal of this is to make Seek usable for Android devices
+    // which lack a back camera, like most Chromebooks
+    const cameraHardware = await checkForCameraAPIAndroid( );
+
+    if ( cameraHardware === "front" ) {
+      dispatch( { type: "SHOW_FRONT_CAMERA", cameraType: "front" } );
+    }
+  };
+
   useEffect( ( ) => {
     navigation.addListener( "focus", ( ) => {
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       requestAndroidPermissions( );
+      checkCameraHardware( );
     } );
   }, [navigation, requestAndroidPermissions] );
 
@@ -305,6 +327,7 @@ const ARCamera = () => {
         taxonomyPath={dirTaxonomy}
         filterByTaxonId={taxonId}
         negativeFilter={negativeFilter}
+        type={cameraType}
       />
     </View>
   );

@@ -1,6 +1,6 @@
 // @flow
 import { Platform, Alert } from "react-native";
-import { getSystemVersion } from "react-native-device-info";
+import { getSystemVersion, getSystemAvailableFeatures } from "react-native-device-info";
 
 import { writeToDebugLog, checkPhotoSize } from "./photoHelpers";
 import i18n from "../i18n";
@@ -38,9 +38,23 @@ const checkForSystemVersion = ( ) => {
   return "";
 };
 
+const checkForCameraAPIAndroid = async ( ) => {
+  if ( Platform.OS === "android" ) {
+    const features = await getSystemAvailableFeatures( );
+    if ( features.includes( "android.hardware.camera" ) ) {
+      return "back";
+    } else if ( features.includes( "android.hardware.camera.front" ) ) {
+      return "front";
+    } else {
+      return null;
+    }
+  }
+};
+
 export {
   handleLog,
   showCameraSaveFailureAlert,
   checkForCameraPermissionsError,
-  checkForSystemVersion
+  checkForSystemVersion,
+  checkForCameraAPIAndroid
 };

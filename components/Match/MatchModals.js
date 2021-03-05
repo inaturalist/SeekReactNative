@@ -209,7 +209,11 @@ const MatchModals = ( {
               />
             )}
           />
-          <Modal isVisible={replacePhotoModal}>
+          <Modal
+            isVisible={replacePhotoModal}
+            useNativeDriverForBackdrop
+            useNativeDriver
+          >
             <ReplacePhotoModal
               seenDate={seenDate}
               speciesText={speciesText}
@@ -220,7 +224,11 @@ const MatchModals = ( {
           </Modal>
         </>
       )}
-      <Modal isVisible={flagModal}>
+      <Modal
+        isVisible={flagModal}
+        useNativeDriverForBackdrop
+        useNativeDriver
+      >
         <FlagModal
           taxon={taxon}
           seenDate={seenDate}

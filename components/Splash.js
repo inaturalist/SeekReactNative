@@ -35,8 +35,8 @@ const SplashScreen = () => {
       }
       const isFirstLaunch = await checkIfFirstLaunch();
 
+      setTimeout( setupBadges, 3000 );
       if ( isFirstLaunch ) {
-        setTimeout( setupBadges, 3000 );
         resetRouter( "Onboarding" );
       } else {
         checkForQuickAction();

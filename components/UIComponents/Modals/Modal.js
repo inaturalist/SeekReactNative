@@ -14,6 +14,8 @@ const Modal = ( { showModal, closeModal, modal }: Props ) => (
     onBackdropPress={closeModal}
     onSwipeComplete={closeModal}
     swipeDirection="down"
+    useNativeDriverForBackdrop
+    useNativeDriver
   >
     {modal}
   </RNModal>

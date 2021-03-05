@@ -19,9 +19,9 @@ type Props = {
 }
 
 class Toasts extends Component<Props> {
-  animatedBadge: ?any
+  animatedBadge: any
 
-  animatedChallenge: ?any
+  animatedChallenge: any
 
   constructor() {
     super();

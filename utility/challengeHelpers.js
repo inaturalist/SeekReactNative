@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
 import { getYear, isEqual } from "date-fns";
 
-import { createNotification } from "./notificationHelpers";
+import { createNotification, isDuplicateNotification } from "./notificationHelpers";
 import taxonDict from "./dictionaries/taxonDictForMissions";
 import missionsDict from "./dictionaries/missionsDict";
 import realmConfig from "../models/index";
@@ -232,7 +232,8 @@ const setupChallenges = () => {
     addDetailsToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
     // this should help Seek startup faster since realm.writes are slow
-    if ( numChallenges === dict.length ) {
+    if ( numChallenges === dict.length - 1 ) { // temporarily rewrite march challenge to fix bug for beta users
+    // if ( numChallenges === dict.length ) {
       return;
     }
 
@@ -241,7 +242,7 @@ const setupChallenges = () => {
         const existingChallenge = realm.objects( "ChallengeRealm" ).filtered( `index == ${i}` ).length;
 
         // only create new challenges
-        if ( existingChallenge === 0 ) {
+        if ( existingChallenge === 0 || i === 17 ) { // temporarily rewrite march challenge to fix bug for beta users
           const challenge = challengesDict[challengesType];
           const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
@@ -269,7 +270,10 @@ const setupChallenges = () => {
 
             // need to check if challenge is available within this month,
             // otherwise new users will get notifications for all past challenges
-            if ( isCurrent ) {
+
+            // also checking for existing notification with the same title and challenge index
+            // so we can overwrite the march challenge without duplicating this notification
+            if ( isCurrent && !isDuplicateNotification( realm, i ) ) {
               createNotification( "newChallenge", i );
             }
           }

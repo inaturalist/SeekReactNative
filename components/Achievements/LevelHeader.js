@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   View,
   Image,
@@ -26,10 +26,10 @@ type Props = {
 const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
   const [showModal, setModal] = useState( false );
 
-  const openModal = () => setModal( true );
-  const closeModal = () => setModal( false );
+  const openModal = useCallback( ( ) => setModal( true ), [] );
+  const closeModal = useCallback( ( ) => setModal( false ), [] );
 
-  const renderModalContent = () => (
+  const renderModalContent = (
     <LevelModal
       level={level}
       screen="achievements"
@@ -43,7 +43,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
       <Modal
         showModal={showModal}
         closeModal={closeModal}
-        modal={renderModalContent()}
+        modal={renderModalContent}
       />
       {/* $FlowFixMe */}
       <LinearGradient

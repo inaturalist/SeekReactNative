@@ -101,6 +101,7 @@ const setupBadges = () => {
           }
         } );
       } );
+      recalculateBadges( );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
     } );

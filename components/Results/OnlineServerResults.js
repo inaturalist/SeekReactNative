@@ -109,6 +109,7 @@ const OnlineServerResults = () => {
   };
 
   const setAncestor = ( ancestor ) => {
+    if ( !ancestor ) { return; }
     const newTaxon = createOnlineAncestor( ancestor );
     dispatch( { type: "SET_ANCESTOR", newTaxon } );
   };
@@ -126,6 +127,7 @@ const OnlineServerResults = () => {
   }, [] );
 
   const addObservation = useCallback( async () => {
+    if ( !observation ) { return; }
     await addToCollection( observation, image );
     if ( !image.latitude && errorCode !== null ) {
       createLocationAlert( errorCode );
@@ -185,7 +187,7 @@ const OnlineServerResults = () => {
 
   useEffect( () => {
     if ( !loading && clicked ) {
-      showResults();
+      showResults( );
     }
   }, [loading, showResults, clicked] );
 

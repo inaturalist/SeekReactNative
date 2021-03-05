@@ -147,8 +147,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 167
-        versionName "2.11.3"
+        versionCode 170
+        versionName "2.11.4"
         // for creating ic_seek_adaptiveappicon.xml
         vectorDrawables.useSupportLibrary = true
     }
@@ -177,8 +177,13 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
             manifestPlaceholders = [usesCleartextTraffic:"false"]
+            ndk {
+                // attempt to get rid of warning in Play Console
+                debugSymbolLevel "FULL"
+            }
         }
     }
+    ndkVersion "23.0.7123448"
     // packagingOptions {
     //     pickFirst "lib/armeabi-v7a/libc++_shared.so"
     //     pickFirst "lib/arm64-v8a/libc++_shared.so"

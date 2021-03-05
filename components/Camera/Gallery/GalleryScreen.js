@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { Platform, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,7 +10,7 @@ import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
-import { fetchGalleryPhotos } from "../../../utility/cameraRollHelpers";
+import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 
@@ -28,8 +28,8 @@ const GalleryScreen = () => {
           lastCursor: null,
           stillFetching: false,
           errorEvent: null,
-          loading: true,
-          photoSelectedLoading: false
+          photoSelectedLoading: false,
+          seen: new Set( )
         };
       case "FETCH_PHOTOS":
         return { ...state, stillFetching: true };
@@ -39,16 +39,14 @@ const GalleryScreen = () => {
           photos: action.photos,
           stillFetching: false,
           hasNextPage: action.pageInfo.has_next_page,
-          lastCursor: action.pageInfo.end_cursor,
-          loading: false
+          lastCursor: action.pageInfo.end_cursor
         };
       case "ERROR":
         return {
           ...state,
           error:
           action.error,
-          errorEvent: action.errorEvent,
-          loading: false
+          errorEvent: action.errorEvent
         };
       case "SET_LOADING":
         return { ...state, photoSelectedLoading: true };
@@ -60,55 +58,61 @@ const GalleryScreen = () => {
   }, {
     album: null,
     photos: [],
-    error: null,
     hasNextPage: true,
     lastCursor: null,
     stillFetching: false,
+    error: null,
     errorEvent: null,
-    loading: true,
-    photoSelectedLoading: false
+    photoSelectedLoading: false,
+    seen: new Set( )
   } );
 
   const {
     album,
     photos,
-    error,
     hasNextPage,
     lastCursor,
     stillFetching,
+    error,
     errorEvent,
-    loading,
-    photoSelectedLoading
+    photoSelectedLoading,
+    seen
   } = state;
+
+  const photoCount = useRef( photos.length );
+  photoCount.current = photos.length;
 
   const setLoading = useCallback( ( ) => dispatch( { type: "SET_LOADING" } ), [] );
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
-    if ( photos.length === 0 && data.length === 0 ) {
+    if ( data.length === 0 ) {
       // this is triggered in certain edge cases, like when iOS user has "selected albums"
       // permission but has not given Seek access to a single photo
       dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
     } else {
-      const updatedPhotos = photos.concat( data );
-      dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
+      const uniquePhotos = checkForUniquePhotos( seen, data );
+      dispatch( { type: "APPEND_PHOTOS", photos: photos.concat( uniquePhotos ), pageInfo } );
     }
-  }, [photos] );
+  }, [photos, seen] );
+
+  const handleFetchError = useCallback( ( e ) => {
+    if ( e.message === "Access to photo library was denied" ) {
+      dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
+    } else {
+      dispatch( { type: "ERROR", error: "photos", errorEvent: e.message } );
+    }
+  }, [] );
 
   const fetchPhotos = useCallback( async ( ) => {
-    if ( !hasNextPage || stillFetching ) { return; }
     dispatch( { type: "FETCH_PHOTOS" } );
 
     try {
       const results = await fetchGalleryPhotos( album, lastCursor );
       appendPhotos( results.edges, results.page_info );
     } catch ( e ) {
-      if ( e.message === "Access to photo library was denied" ) {
-        dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
-      } else {
-        dispatch( { type: "ERROR", error: "photos", errorEvent: e.message } );
-      }
+      handleFetchError( e );
     }
-  }, [album, lastCursor, appendPhotos, hasNextPage, stillFetching ] );
+  }, [album, lastCursor, appendPhotos, handleFetchError] );
 
   const updateAlbum = useCallback( ( newAlbum: ?string ) => {
     // prevent user from reloading the same album twice
@@ -116,37 +120,55 @@ const GalleryScreen = () => {
     dispatch( { type: "SET_ALBUM", album: newAlbum } );
   }, [album] );
 
-  useEffect( () => {
-    // this triggers on first load and when a user switches to a new album
+  const onEndReached = useCallback( ( ) => {
+    if ( hasNextPage && !stillFetching ) {
+      fetchPhotos( );
+    }
+  }, [hasNextPage, fetchPhotos, stillFetching] );
+
+  useEffect( ( ) => {
     if ( photos.length === 0 ) {
-      fetchPhotos();
+      fetchPhotos( );
     }
   }, [photos.length, fetchPhotos] );
 
-  useEffect( () => {
-    const requestAndroidPermissions = async () => {
+  const initialFetch = useCallback( ( ) => {
+    // attempting to fix issue on some iOS devices where photos never appear
+    // assuming the above useEffect hook does not get called for some reason
+    const timer = setTimeout( ( ) => {
+      if ( photoCount.current === 0 ) {
+        fetchPhotos( );
+      }
+    }, 3000 );
+
+    if ( photoCount.current > 0 ) {
+      clearTimeout( timer );
+    }
+    return ( ) => clearTimeout( timer );
+  }, [fetchPhotos] );
+
+  useEffect( ( ) => {
+    const requestAndroidPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
-        const permission = await checkCameraRollPermissions();
+        const permission = await checkCameraRollPermissions( );
         if ( permission !== true ) {
           dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
         }
       }
     };
 
-    navigation.addListener( "focus", ( ) => { requestAndroidPermissions( ); } );
+    navigation.addListener( "focus", ( ) => {
+      requestAndroidPermissions( );
+      initialFetch( );
+    } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation] );
+  }, [navigation, initialFetch] );
 
   const renderImageList = ( ) => {
-    if ( loading ) {
-      return <LoadingWheel color={colors.darkGray} />;
-    }
-
     if ( error ) {
       return <CameraError error={error} errorEvent={errorEvent} />;
     }
-
-    return <GalleryImageList fetchPhotos={fetchPhotos} photos={photos} setLoading={setLoading} />;
+    return <GalleryImageList onEndReached={onEndReached} photos={photos} setLoading={setLoading} />;
   };
 
   return (

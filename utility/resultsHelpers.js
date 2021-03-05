@@ -153,9 +153,9 @@ const createOnlineSpecies = ( species: {
 const navToMatch = async (
   navigation: any,
   taxon: {
-    taxaId: number,
-    speciesSeenImage: ?string,
-    scientificName: string,
+    taxaId?: number,
+    speciesSeenImage?: ?string,
+    scientificName?: string,
     rank?: number
   },
   image: {
@@ -276,6 +276,71 @@ const fetchOfflineResults = async ( userImage: {
   }
 };
 
+// const fetchOnlineResults = async ( userImage: {
+//   time: number,
+//   uri: string,
+//   predictions: Array<Object>,
+//   latitude?: ?number,
+//   longitude?: ?number
+// },
+//   navigation: any,
+//   response: {
+//     results: Array<Object>,
+//     common_ancestor?: {
+//       id: number,
+//       name: string,
+//       default_photo: Object,
+//       rank_level: number,
+//       taxon: Object
+//     }
+//   }
+// ) => {
+//   // iOS camera roll photos don't come with a location
+//   // this is also needed for ancestor screen, species nearby
+//   const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage );
+
+//   const species = response.results[0];
+//   const ancestor = response.common_ancestor;
+
+//   const isSpecies = species.combined_score > 85 && species.taxon.rank === "species";
+
+//   if ( isSpecies ) {
+//     const seenDate = await fetchSpeciesSeenDate( species.taxon.id );
+//     const taxon = createOnlineSpecies( species.taxon );
+
+//     if ( !seenDate ) {
+//       const obs = species;
+//       await addToCollection( obs, image );
+
+//       // also added to online server results
+//       if ( !image.latitude && errorCode !== 0 ) {
+//         createLocationAlert( errorCode );
+//       }
+//     }
+//     console.log( isSpecies, "is species" );
+//     // navToMatch( navigation, taxon, image, seenDate );
+//   } else if ( ancestor ) {
+//     const rankLevel = ancestor.taxon.rank_level;
+//     const primaryRank = checkCommonAncestorRank( rankLevel );
+
+//     if ( primaryRank ) {
+//       const taxon = createOnlineAncestor( ancestor );
+//       // navToMatch( navigation, taxon, image, null );
+//     } else {
+//       // roll up to the nearest primary rank instead of showing sub-ranks
+//       // this better matches what we do on the AR camera
+//       const { ancestorTaxa } = species.taxon;
+//       const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
+//       // navToMatch( navigation, nearestTaxon || { }, image, null );
+//     }
+//     console.log( ancestor, "is ancestor" );
+//   } else {
+//     console.log( "is nothing" );
+//     // no match
+//     navToMatch( navigation, { }, userImage, null );
+//   }
+// };
+
 export {
   setAncestorIdsiOS,
   createSpecies,
@@ -289,5 +354,7 @@ export {
   createOnlineAncestor,
   navToMatch,
   setImageCoords,
-  fetchOfflineResults
+  fetchOfflineResults,
+  // fetchOnlineResults,
+  fetchImageLocationOrErrorCode
 };

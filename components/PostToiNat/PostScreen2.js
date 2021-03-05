@@ -27,6 +27,7 @@ import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
+import { update } from "inaturalistjs/lib/endpoints/comments";
 
 const PostScreen = () => {
   const navigation = useNavigation( );
@@ -47,10 +48,9 @@ const PostScreen = () => {
             name: action.selectedSpecies.name,
             taxaId: action.selectedSpecies.id,
             preferredCommonName: action.selectedSpecies.updatedCommonName
-          }
+          },
+          observation: action.observation
         };
-      // case "TOGGLE_POST_STATUS":
-      //   return { ...state, showPostingStatus: !state.showPostingStatus };
       // case "SHOW_POST_STATUS":
       //   return { ...state, showPostingStatus: true };
       // case "CLOSE_POST_STATUS":
@@ -80,12 +80,7 @@ const PostScreen = () => {
     }
   } );
 
-  const {
-    observation,
-    taxon
-  } = state;
-
-  console.log( state, "state of post screen" );
+  const { observation, taxon } = state;
 
   const location = useLocationName( observation.latitude, observation.longitude );
 
@@ -178,10 +173,18 @@ const PostScreen = () => {
     setLocation( coords );
   };
 
-  const updateTaxon = ( id, updatedCommonName, name ) => {
+  const updateTaxon = useCallback( ( id, updatedCommonName, name ) => {
     const selectedSpecies = { id, updatedCommonName, name };
-    dispatch( { type: "SELECT_SPECIES", selectedSpecies } );
-  };
+    dispatch( {
+      type: "SELECT_SPECIES",
+      selectedSpecies,
+      observation: {
+        ...observation,
+        taxon_id: id
+      }
+    } );
+
+  }, [observation] );
 
   // const closePostModal = useCallback( ( ) => dispatch( { type: "CLOSE_POST_STATUS" } ), [] );
   const updateObservation = useCallback( ( key, value ) => dispatch( {
@@ -191,6 +194,12 @@ const PostScreen = () => {
       [key]: value
     }
   } ), [observation] );
+
+  useEffect( ( ) => {
+    if ( location !== observation.place_guess && location !== i18n.t( "location_picker.undefined" ) ) {
+      updateObservation( "place_guess", location );
+    }
+  }, [location, observation, updateObservation] );
 
   const handleDatePicked = ( selectedDate ) => {
     if ( selectedDate ) {
@@ -236,11 +245,11 @@ const PostScreen = () => {
       <View style={styles.divider} />
       <DatePicker dateToDisplay={observation.observed_on_string} handleDatePicked={handleDatePicked} />
       <View style={styles.divider} />
-      <LocationPickerCard updateLocation={updateLocation} location={location} image={observation} />
+      <LocationPickerCard updateLocation={updateLocation} location={location} observation={observation} />
       <View style={styles.divider} />
-      <GeoprivacyPicker updateObservation={updateObservation} />
+      <GeoprivacyPicker updateObservation={updateObservation} geoprivacy={observation.geoprivacy} />
       <View style={styles.divider} />
-      <CaptivePicker updateObservation={updateObservation} />
+      <CaptivePicker updateObservation={updateObservation} captive={observation.captive_flag} />
       <View style={styles.divider} />
       <View style={styles.textContainer}>
         <GreenButton

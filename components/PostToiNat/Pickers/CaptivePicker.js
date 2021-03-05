@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// @flow
+import React from "react";
 import { Image, Text, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
@@ -9,12 +10,11 @@ import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 
 type Props = {
-  +updateObservation: ( ) => void
+  updateObservation: ( string, any ) => void,
+  captive: boolean
 }
 
-const CaptivePicker = ( updateObservation: Props ) => {
-  const [captive, setCaptive] = useState( false );
-
+const CaptivePicker = ( { updateObservation, captive }: Props ) => {
   const captiveTypes = [{
     label: i18n.t( "posting.no" ),
     value: false
@@ -24,11 +24,7 @@ const CaptivePicker = ( updateObservation: Props ) => {
     value: true
   }];
 
-  const handleChange = ( value ) => {
-    setCaptive( value );
-    updateObservation( "captive", value );
-  };
-
+  const handleChange = ( value ) => updateObservation( "captive_flag", value );
 
   return (
     <RNPickerSelect
@@ -45,7 +41,7 @@ const CaptivePicker = ( updateObservation: Props ) => {
             {i18n.t( "posting.captive" ).toLocaleUpperCase()}
           </Text>
           <Text style={styles.text}>
-            {captive}
+            {captive ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
           </Text>
         </View>
         <Image

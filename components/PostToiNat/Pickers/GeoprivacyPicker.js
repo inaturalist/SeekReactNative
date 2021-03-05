@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from "react";
 import {
   Image,
@@ -14,79 +15,55 @@ import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 
 type Props = {
-  +updateObservation: Function
+  updateObservation: ( string, any ) => void,
+  geoprivacy: string
 }
 
-class GeoprivacyPicker extends Component<Props> {
-  constructor() {
-    super();
+const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ) => {
+  const geoprivacyTypes = [{
+    label: i18n.t( "posting.open" ),
+    value: "open"
+  },
+  {
+    label: i18n.t( "posting.obscured" ),
+    value: "obscured"
+  },
+  {
+    label: i18n.t( "posting.private" ),
+    value: "private"
+  }];
 
-    this.inputRefs = {};
+  const setGeoprivacy = ( value ) => updateObservation( "geoprivacy", value );
 
-    this.state = {
-      geoprivacy: i18n.t( "posting.open" ),
-      types: [
-        {
-          label: i18n.t( "posting.open" ),
-          value: i18n.t( "posting.open" )
-        },
-        {
-          label: i18n.t( "posting.obscured" ),
-          value: i18n.t( "posting.obscured" )
-        },
-        {
-          label: i18n.t( "posting.private" ),
-          value: i18n.t( "posting.private" )
-        }
-      ]
-    };
-  }
 
-  setGeoprivacy( geoprivacy ) {
-    const { updateObservation } = this.props;
+  const geoprivacyText = geoprivacyTypes.filter( type => type.value === geoprivacy )[0].label;
 
-    this.setState( { geoprivacy } );
-    updateObservation( "geoprivacy", geoprivacy );
-  }
-
-  render() {
-    const { types, geoprivacy } = this.state;
-
-    return (
-      <RNPickerSelect
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
-        hideIcon
-        items={types}
-        onValueChange={( value ) => {
-          this.setGeoprivacy( value );
-        }}
-        placeholder={{}}
-        useNativeAndroidPickerStyle={false}
-        value={geoprivacy}
-      >
-        <TouchableOpacity
-          style={styles.thinCard}
-        >
-          <Image source={posting.geoprivacy} style={styles.icon} />
-          <View style={styles.row}>
-            <Text style={styles.greenText}>
-              {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
-            </Text>
-            <Text style={styles.text}>
-              {geoprivacy}
-            </Text>
-          </View>
-          <Image
-            source={icons.backButton}
-            tintColor={colors.seekForestGreen}
-            style={[styles.buttonIcon, styles.rotate]}
-          />
-        </TouchableOpacity>
-      </RNPickerSelect>
-    );
-  }
-}
+  return (
+    <RNPickerSelect
+      hideIcon
+      items={geoprivacyTypes}
+      onValueChange={setGeoprivacy}
+      placeholder={{}}
+      useNativeAndroidPickerStyle={false}
+    >
+      <View style={styles.thinCard}>
+        <Image source={posting.geoprivacy} style={styles.icon} />
+        <View style={styles.row}>
+          <Text style={styles.greenText}>
+            {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
+          </Text>
+          <Text style={styles.text}>
+            {geoprivacyText}
+          </Text>
+        </View>
+        <Image
+          source={icons.backButton}
+          tintColor={colors.seekForestGreen}
+          style={[styles.buttonIcon, styles.rotate]}
+        />
+      </View>
+    </RNPickerSelect>
+  );
+};
 
 export default GeoprivacyPicker;

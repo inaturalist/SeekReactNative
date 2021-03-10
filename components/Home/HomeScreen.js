@@ -18,6 +18,7 @@ import UploadStatus from "./UploadStatus";
 
 const HomeScreen = () => {
   const [showModal, setModal] = useState( false );
+  const [showUploadCard, setShowUploadCard] = useState( true );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -44,14 +45,19 @@ const HomeScreen = () => {
     }, [] )
   );
 
+  useEffect( ( ) => {
+    // check for observations to upload || unviewed observations
+    // if either, setShowUploadCard( true )
+  }, [] );
+
   return (
-    <ScrollNoHeader uploading>
+    <ScrollNoHeader showUploadCard={showUploadCard}>
       <RNModal
         showModal={showModal}
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
-        <UploadStatus />
+        {showUploadCard && <UploadStatus />}
         <SpeciesNearby />
         <ChallengeCard />
     </ScrollNoHeader>

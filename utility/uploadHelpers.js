@@ -110,70 +110,73 @@ const checkForIncompleteUploads = async ( login: string ) => {
   }
 };
 
-const uploadObservation = async ( observation: {} ) => {
+const uploadObservation = async ( observation ) => {
   const login = null; // fetch login
   const params = {
-    ...observation,
-    // this shows that the id is recommended by computer vision
-    owners_identification_from_vision_requested: true
+    // realm doesn't let you use spread operator, apparently
+    observation: {
+      observed_on_string: observation.observed_on_string,
+      taxon_id: observation.taxon_id,
+      geoprivacy: observation.geoprivacy,
+      captive_flag: observation.captive_flag,
+      place_guess: observation.place_guess,
+      latitude: observation.latitude,
+      longitude: observation.longitude,
+      positional_accuracy: observation.positional_accuracy,
+      description: observation.description,
+      // this shows that the id is recommended by computer vision
+      owners_identification_from_vision_requested: true
+    }
   };
-  delete params.uri;
 
-  const token = await fetchJSONWebToken( login );
+  console.log( params, "upload observation params" );
 
-  const options = { api_token: token, user_agent: createUserAgent( ) };
+  // const token = await fetchJSONWebToken( login );
 
-  const response = await inatjs.observations.create( params, options );
-  const { id } = response[0];
+  // const options = { api_token: token, user_agent: createUserAgent( ) };
 
-  const photoUUID = await createUUID( );
-  const addPhoto = await uploadPhoto( observation.uri, id, token, photoUUID );
+  // const response = await inatjs.observations.create( params, options );
+  // const { id } = response[0];
 
-  if ( addPhoto === true ) {
-    saveUploadSucceeded( id );
-    return true;
-  }
-  return false;
+  // const photoUUID = await createUUID( );
+  // const addPhoto = await uploadPhoto( observation.uri, id, token, photoUUID );
+
+  // if ( addPhoto === true ) {
+  //   saveUploadSucceeded( id );
+  //   return true;
+  // }
+  // return false;
 };
 
 const saveObservationToRealm = async ( observation: {
   observed_on_string: string,
-  taxon_id: number,
+  taxon_id: ?number,
   geoprivacy: string,
   captive_flag: boolean,
   place_guess: ?string,
-  latitude: number,
-  longitude: number,
-  positional_accuracy: number,
+  latitude: ?number,
+  longitude: ?number,
+  positional_accuracy: ?number,
   description: ?string
 }, uri: string ) => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
 
-  // const {
-  //   observed_on_string,
-  //   taxon_id,
-  //   geoprivacy,
-  //   captive_flag,
-  //   place_guess,
-  //   latitude,
-  //   longitude,
-  //   positional_accuracy,
-  //   description
-  // } = observation;
-
   try {
     realm.write( ( ) => {
+      const photo = realm.create( "UploadPhotoRealm", {
+        uri,
+        uploadSucceeded: false
+      } );
       realm.create( "UploadObservationRealm", {
         ...observation,
         uuid,
-        uri
+        photo
       }, true );
     } );
 
-    // const latestObservation = realm.objects( "UploadObservationRealm" );
-
-    // attempt to upload
+    const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${uuid}'` )[0];
+    uploadObservation( latestObs );
   } catch ( e ) {
     console.log( "couldn't save observation to UploadObservationRealm", e );
   }
@@ -187,5 +190,6 @@ export {
   saveUploadSucceeded,
   checkForIncompleteUploads,
   resizeImageForUpload,
-  fetchJSONWebToken
+  fetchJSONWebToken,
+  saveObservationToRealm
 };

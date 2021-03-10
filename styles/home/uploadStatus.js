@@ -13,16 +13,20 @@ export default StyleSheet.create( {
     borderRadius: 40,
     backgroundColor: colors.seekiNatGreen
   },
+  center: {
+    alignItems: "center"
+  },
   checkmark: {
-    marginTop: 7,
+    width: 15.8,
+    height: 11,
     tintColor: colors.white
   },
   container: {
     flex: 1,
     justifyContent: "center",
     backgroundColor: colors.speciesNearbyGreen,
-    height: 160,
-    paddingLeft: 23
+    paddingHorizontal: 20,
+    paddingVertical: 24
   },
   headerText: {
     color: colors.white,
@@ -31,24 +35,24 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   iNatIcon: {
-    height: 90,
-    width: 90,
-    marginRight: 10
+    height: 69,
+    width: 69,
+    marginRight: 15
   },
   progressBar: {
-    marginTop: 15,
+    marginTop: 21,
     height: 6,
-    width: dimensions.width - 46,
+    marginHorizontal: 7,
     backgroundColor: "white",
     borderRadius: 40
   },
   row,
   text: {
-    paddingTop: 10,
+    paddingTop: 5,
     color: colors.white,
     fontFamily: fonts.medium,
     fontSize: 16,
-    lineHeight: 21,
+    lineHeight: 24,
     paddingRight: 15
   }
 } );

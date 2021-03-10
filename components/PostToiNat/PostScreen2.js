@@ -68,7 +68,7 @@ const PostScreen = () => {
       longitude: params.image.longitude,
       observed_on_string: initialDate,
       place_guess: null,
-      positional_accuracy: 90,
+      positional_accuracy: params.image.latitude ? 90 : null,
       taxon_id: taxaId,
       uri: params.image.uri
     },
@@ -218,11 +218,8 @@ const PostScreen = () => {
   }, [navigation, getLocation] );
 
   const saveObservation = async ( ) => {
-    // saveObservationToRealm( observation );
+    saveObservationToRealm( observation, params.image.uri );
     dispatch( { type: "SHOW_MODAL" } );
-    // const uuid = await createUUID( );
-    // fetchJSONWebToken( uuid );
-    // showPostStatus( );
   };
 
   return (

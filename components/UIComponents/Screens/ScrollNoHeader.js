@@ -12,10 +12,10 @@ import Padding from "../Padding";
 
 type Props = {
   +children: any,
-  uploading: boolean
+  showUploadCard: boolean
 };
 
-const ScrollNoHeader = ( { children, uploading }: Props ) => {
+const ScrollNoHeader = ( { children, showUploadCard }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef<any>( null );
@@ -25,7 +25,7 @@ const ScrollNoHeader = ( { children, uploading }: Props ) => {
   let backgroundColor;
 
   if ( name === "Home" ) {
-    backgroundColor = uploading ? styles.darkGreen : styles.green;
+    backgroundColor = showUploadCard ? styles.darkGreen : styles.green;
   } else if ( name === "ChallengeDetails" ) {
     backgroundColor = styles.black;
   } else {
@@ -35,7 +35,7 @@ const ScrollNoHeader = ( { children, uploading }: Props ) => {
   return (
     <SafeAreaView style={[styles.container, backgroundColor]} edges={["top"]}>
       <StatusBar barStyle={name === "iNatStats" ? "dark-content" : "light-content"} />
-      <ScrollView ref={scrollView} contentContainerStyle={uploading ? styles.darkGreen : styles.containerWhite}>
+      <ScrollView ref={scrollView} contentContainerStyle={showUploadCard ? styles.darkGreen : styles.green}>
         {children}
         <Padding />
         {Platform.OS === "ios" && <BottomSpacer />}

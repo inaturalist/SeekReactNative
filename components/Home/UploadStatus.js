@@ -47,7 +47,7 @@ const UploadStatus = ( ) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.row}>
+      <View style={[styles.row, styles.center]}>
         <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />
         <View>
           <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>

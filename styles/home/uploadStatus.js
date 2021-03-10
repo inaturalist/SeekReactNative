@@ -13,6 +13,10 @@ export default StyleSheet.create( {
     borderRadius: 40,
     backgroundColor: colors.seekiNatGreen
   },
+  checkmark: {
+    marginTop: 7,
+    tintColor: colors.white
+  },
   container: {
     flex: 1,
     justifyContent: "center",
@@ -44,6 +48,7 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.medium,
     fontSize: 16,
-    lineHeight: 21
+    lineHeight: 21,
+    paddingRight: 15
   }
 } );

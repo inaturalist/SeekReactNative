@@ -45,7 +45,7 @@ const HomeScreen = () => {
   );
 
   return (
-    <ScrollNoHeader>
+    <ScrollNoHeader uploading>
       <RNModal
         showModal={showModal}
         closeModal={closeModal}

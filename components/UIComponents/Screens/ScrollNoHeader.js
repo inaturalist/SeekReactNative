@@ -11,10 +11,11 @@ import BottomSpacer from "../BottomSpacer";
 import Padding from "../Padding";
 
 type Props = {
-  +children: any
+  +children: any,
+  uploading: boolean
 };
 
-const ScrollNoHeader = ( { children }: Props ) => {
+const ScrollNoHeader = ( { children, uploading }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef<any>( null );
@@ -24,7 +25,7 @@ const ScrollNoHeader = ( { children }: Props ) => {
   let backgroundColor;
 
   if ( name === "Home" ) {
-    backgroundColor = styles.green;
+    backgroundColor = uploading ? styles.darkGreen : styles.green;
   } else if ( name === "ChallengeDetails" ) {
     backgroundColor = styles.black;
   } else {
@@ -34,7 +35,7 @@ const ScrollNoHeader = ( { children }: Props ) => {
   return (
     <SafeAreaView style={[styles.container, backgroundColor]} edges={["top"]}>
       <StatusBar barStyle={name === "iNatStats" ? "dark-content" : "light-content"} />
-      <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
+      <ScrollView ref={scrollView} contentContainerStyle={uploading ? styles.darkGreen : styles.containerWhite}>
         {children}
         <Padding />
         {Platform.OS === "ios" && <BottomSpacer />}

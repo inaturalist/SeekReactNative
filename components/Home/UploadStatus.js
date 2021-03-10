@@ -6,12 +6,14 @@ import { View, Text, Image, Animated } from "react-native";
 import i18n from "../../i18n";
 import styles from "../../styles/home/uploadStatus";
 import logos from "../../assets/logos";
-import { useInterval } from "../../utility/customHooks";
+import { useInterval, useInternetStatus } from "../../utility/customHooks";
+import icons from "../../assets/icons";
 
 const UploadStatus = ( ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   let animation = useRef( new Animated.Value( 0 ) );
   const [progress, setProgress] = useState( 0 );
+  const internet = useInternetStatus( );
 
   useInterval( ( ) => {
     if ( progress < 100 ) {
@@ -35,6 +37,9 @@ const UploadStatus = ( ) => {
   } );
 
   const setUploadText = ( ) => {
+    if ( !internet ) {
+      return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: 0 } );
+    }
     // if uploading, return i18n.t( "post_to_inat_card.uploading_x_observations", { count: 0 } )
     // else if no internet, return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: 0 } )
     return i18n.t( "post_to_inat_card.x_observations_uploaded", { count: 0 } );
@@ -46,7 +51,10 @@ const UploadStatus = ( ) => {
         <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />
         <View>
           <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
-          <Text style={styles.text}>{setUploadText( )}</Text>
+          <View style={styles.row}>
+            <Text style={styles.text}>{setUploadText( )}</Text>
+            <Image source={icons.checklist} style={styles.checkmark} />
+          </View>
         </View>
       </View>
       <View style={styles.progressBar}>

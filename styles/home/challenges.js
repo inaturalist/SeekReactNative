@@ -14,7 +14,7 @@ export default StyleSheet.create( {
   header: {
     paddingBottom: 21,
     paddingHorizontal: 22,
-    paddingTop: Platform.OS === "ios" ? 10 : 0
+    paddingTop: Platform.OS === "ios" ? 25 : 5
   },
   marginMedium: {
     marginTop: 28

@@ -1,9 +1,9 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import inatjs from "inaturalistjs";
-import { Alert } from "react-native";
+// import inatjs from "inaturalistjs";
+// import { Alert } from "react-native";
 
-import { fetchJSONWebToken } from "./uploadHelpers";
+// import { fetchJSONWebToken } from "./uploadHelpers";
 
 const checkIsEmailValid = ( email: string ) => {
   if ( email && email.length > 5 ) {

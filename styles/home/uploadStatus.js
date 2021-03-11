@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { colors, fonts, row, dimensions } from "../global";
+import { colors, fonts, row } from "../global";
 
 export default StyleSheet.create( {
   absoluteFill: {
@@ -27,6 +27,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.speciesNearbyGreen,
     paddingHorizontal: 20,
     paddingVertical: 24
+  },
+  fullWidth: {
+    width: "100%"
   },
   headerText: {
     color: colors.white,

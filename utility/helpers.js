@@ -220,10 +220,6 @@ const localizeNumber = ( number: number ) => {
 
 const localizePercentage = ( number: number ) => i18n.toPercentage( number, { precision: 0 } );
 
-const navigateToMainStack = ( navigate: Function, screen: string, params: Object ) => {
-  navigate( "Drawer", { screen: "Main", params: { screen, params } } );
-};
-
 const hideLogs = () => {
   LogBox.ignoreLogs( [
     "Picker has been extracted",
@@ -272,7 +268,6 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  navigateToMainStack,
   hideLogs,
   handleServerError
 };

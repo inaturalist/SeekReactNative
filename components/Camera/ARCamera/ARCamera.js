@@ -11,8 +11,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  NativeModules,
-  Pressable
+  NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
@@ -35,12 +34,11 @@ import { requestAllCameraPermissions } from "../../../utility/androidHelpers.and
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
-import { navigateToMainStack } from "../../../utility/helpers";
+import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 
 const ARCamera = () => {
   const navigation = useNavigation();
-  const { navigate } = navigation;
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
 
@@ -282,7 +280,7 @@ const ARCamera = () => {
     } );
   }, [navigation, requestAndroidPermissions] );
 
-  const navHome = () => navigateToMainStack( navigate, "Home" );
+  const navHome = ( ) => resetRouter( navigation );
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 

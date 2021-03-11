@@ -9,10 +9,15 @@ import logos from "../../assets/logos";
 import { useInterval, useInternetStatus } from "../../utility/customHooks";
 import icons from "../../assets/icons";
 
-const UploadStatus = ( ) => {
+type Props = {
+  uploads: Array<Object>
+}
+
+const UploadStatus = ( { uploads }: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   let animation = useRef( new Animated.Value( 0 ) );
-  const [progress, setProgress] = useState( 0 );
+  const successfulUploads = uploads.length;
+  const [progress, setProgress] = useState( successfulUploads > 0 ? 100 : 0 );
   const internet = useInternetStatus( );
 
   useInterval( ( ) => {
@@ -41,8 +46,7 @@ const UploadStatus = ( ) => {
       return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: 0 } );
     }
     // if uploading, return i18n.t( "post_to_inat_card.uploading_x_observations", { count: 0 } )
-    // else if no internet, return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: 0 } )
-    return i18n.t( "post_to_inat_card.x_observations_uploaded", { count: 0 } );
+    return i18n.t( "post_to_inat_card.x_observations_uploaded", { count: successfulUploads } );
   };
 
   return (
@@ -58,7 +62,9 @@ const UploadStatus = ( ) => {
         </View>
       </View>
       <View style={styles.progressBar}>
-        <Animated.View style={[styles.absoluteFill, { width }]} />
+        {successfulUploads > 0
+          ? <View style={[styles.absoluteFill, styles.fullWidth]} />
+          : <Animated.View style={[styles.absoluteFill, { width }]} />}
       </View>
     </View>
   );

@@ -1,17 +1,12 @@
 // @flow
 
-import React, {
-  useReducer,
-  useEffect,
-  useCallback,
-  useContext
-} from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import { View, Modal } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { formatISO } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
-// import { savePostingSuccess } from "../../utility/loginHelpers";
+import { savePostingSuccess } from "../../utility/loginHelpers";
 import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/locationHelpers";
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
@@ -20,7 +15,6 @@ import PostModal from "./PostModal";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { setISOTime, isAndroidDateInFuture } from "../../utility/dateHelpers";
 import { useLocationName } from "../../utility/customHooks";
-import { UserContext } from "../UserContext";
 import Notes from "./Notes";
 import LocationPickerCard from "./Pickers/LocationPickerCard";
 import DatePicker from "./Pickers/DateTimePicker";
@@ -31,14 +25,12 @@ import { saveObservationToRealm } from "../../utility/uploadHelpers";
 const PostScreen = () => {
   const navigation = useNavigation( );
   const { params } = useRoute( );
-  const { login } = useContext( UserContext );
 
   const { taxaId, scientificName, commonName } = params;
 
   const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action );
     switch ( action.type ) {
       case "SELECT_SPECIES":
         return {
@@ -84,71 +76,6 @@ const PostScreen = () => {
 
   const location = useLocationName( observation.latitude, observation.longitude );
 
-  // const createObservation = ( token, uuid ) => {
-  //   const { latitude, longitude, accuracy } = image;
-  //   let geoprivacyState;
-
-  //   if ( geoprivacy === i18n.t( "posting.private" ) ) {
-  //     geoprivacyState = "private";
-  //   } else if ( geoprivacy === i18n.t( "posting.obscured" ) ) {
-  //     geoprivacyState = "obscured";
-  //   } else {
-  //     geoprivacyState = "open";
-  //   }
-
-  //   const obsParams = {
-  //     observation: {
-  //       observed_on_string: date,
-  //       taxon_id: taxon.taxaId,
-  //       geoprivacy: geoprivacyState,
-  //       captive_flag: ( captive === i18n.t( "posting.yes" ) ) || false,
-  //       place_guess: location,
-  //       latitude, // use the non-truncated version
-  //       longitude, // use the non-truncated version
-  //       positional_accuracy: accuracy,
-  //       owners_identification_from_vision_requested: true,
-  //       // this shows that the id is recommended by computer vision
-  //       description
-  //     }
-  //   };
-
-  //   const options = { api_token: token, user_agent: createUserAgent() };
-
-  //   inatjs.observations.create( obsParams, options ).then( ( response ) => {
-  //     const { id } = response[0];
-  //     saveIdAndUploadStatus( id, image.uri, uuid );
-  //     addPhotoToObservation( id, token, uuid ); // get the obs id, then add photo
-  //   } ).catch( ( e ) => {
-  //     setPostFailed( e, "beforePhotoAdded" );
-  //   } );
-  // };
-
-  // const fetchJSONWebToken = ( uuid: string ) => {
-  //   const headers = {
-  //     "Content-Type": "application/json",
-  //     "User-Agent": createUserAgent()
-  //   };
-
-  //   const site = "https://www.inaturalist.org";
-
-  //   if ( login ) {
-  //     // $FlowFixMe
-  //     headers.Authorization = `Bearer ${login}`;
-  //   }
-
-  //   fetch( `${site}/users/api_token`, { headers } )
-  //     .then( response => response.json() )
-  //     .then( ( responseJson ) => {
-  //       const apiToken = responseJson.api_token;
-  //       createObservation( apiToken, uuid );
-  //     } ).catch( ( e ) => {
-  //       if ( e instanceof SyntaxError ) { // this is from the iNat server being down
-  //         setPostFailed( "", "beforeObservation" ); // HTML not parsed correctly, so skip showing error text
-  //       } else {
-  //         setPostFailed( e, "beforeObservation" );
-  //       }
-  //     } );
-  // };
   const setLocation = useCallback( ( coords ) => {
     dispatch( { type: "UPDATE_OBSERVATION", observation: {
       ...observation,
@@ -219,6 +146,7 @@ const PostScreen = () => {
 
   const saveObservation = async ( ) => {
     saveObservationToRealm( observation, params.image.uri );
+    savePostingSuccess( true );
     dispatch( { type: "SHOW_MODAL" } );
   };
 

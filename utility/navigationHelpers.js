@@ -1,6 +1,7 @@
 // @flow
 import { Platform, DeviceEventEmitter } from "react-native";
 import QuickActions from "react-native-quick-actions";
+import { CommonActions } from "@react-navigation/native";
 
 const setQuickActions = () => {
   // this creates the quick action button on Android
@@ -41,8 +42,18 @@ const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( stri
   }
 };
 
+const resetRouter = ( navigation: { reset: ( ) => void } ) => navigation.dispatch(
+  CommonActions.reset( {
+    index: 1,
+    routes: [{ name: "Drawer" }]
+  } )
+);
+
+// navigation.reset( { routes: [{ name: "Drawer" }] } );
+
 export {
   setQuickActions,
   checkForHotStarts,
-  checkForColdStarts
+  checkForColdStarts,
+  resetRouter
 };

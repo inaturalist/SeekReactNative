@@ -53,11 +53,17 @@ const verticalConfig = {
   cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 };
 
+const drawerConfig = {
+  headerShown: false,
+  // this is off for resetting screen from AR Camera
+  animationEnabled: false
+};
+
 const screenOptions = { gestureEnabled: false };
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator( );
 
-const App = () => (
+const App = ( ) => (
   <SafeAreaProvider>
     <NavigationContainer theme={MyTheme}>
       <Stack.Navigator
@@ -77,7 +83,7 @@ const App = () => (
         <Stack.Screen
           name="Drawer"
           component={Drawer}
-          options={defaultConfig}
+          options={drawerConfig}
         />
         <Stack.Screen
           name="Camera"

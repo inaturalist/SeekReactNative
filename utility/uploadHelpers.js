@@ -6,31 +6,15 @@ import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
-
-const saveIdAndUploadStatus = async ( id: number, uri: string, uuid: string ) => {
-  const realm = await Realm.open( realmConfig );
-  try {
-    realm.write( ( ) => {
-      realm.create( "UploadPhotoRealm", {
-        id,
-        uri,
-        uploadSucceeded: false,
-        uuid
-        // viewed: false -> to determine count to show on home screen
-      }, true );
-    } );
-  } catch ( e ) {
-    console.log( "couldn't save id and upload status to UploadPhotoRealm", e );
-  }
-};
+import { fetchAccessToken } from "./loginHelpers";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
-  const observation = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
+  const photo = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
 
   try {
     realm.write( ( ) => {
-      observation.uploadSucceeded = true;
+      photo.uploadSucceeded = true;
     } );
   } catch ( e ) {
     console.log( "couldn't set succeeded status: ", e );
@@ -59,7 +43,8 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
   }
 };
 
-const appendPhotoToObservation = async ( id: number, token: string, uri: string, uuid: string ) => {
+const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, token: string, uri: string ) => {
+  const { id, uuid } = photo;
   const photoParams = {
     "observation_photo[observation_id]": id,
     "observation_photo[uuid]": uuid,
@@ -80,11 +65,12 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string,
   }
 };
 
-const uploadPhoto = async ( uri: string, id: number, token: string, uuid: string ) => {
+const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ) => {
+  const { uri, id } = photo;
   const resizedPhoto = await resizeImageForUpload( uri );
-  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto, uuid );
+  const photoUpload = await appendPhotoToObservation( photo, token, resizedPhoto );
 
-  if ( reUpload === true ) {
+  if ( photoUpload === true ) {
     saveUploadSucceeded( id );
     return true;
   }
@@ -103,15 +89,27 @@ const checkForIncompleteUploads = async ( login: string ) => {
     if ( token === null ) { return; }
 
     unsuccessfulUploads.forEach( ( photo ) => {
-      uploadPhoto( photo.uri, photo.id, token, photo.uuid );
+      uploadPhoto( photo, token );
     } );
   } catch ( e ) {
     console.log( e, " : couldn't check for incomplete uploads" );
   }
 };
 
+const saveObservationId = async ( id: number, photo: Object ) => {
+  const realm = await Realm.open( realmConfig );
+  try {
+    realm.write( ( ) => {
+      photo.id = id;
+    } );
+    return photo;
+  } catch ( e ) {
+    console.log( "couldn't save id to UploadPhotoRealm", e );
+  }
+};
+
 const uploadObservation = async ( observation ) => {
-  const login = null; // fetch login
+  const login = await fetchAccessToken( );
   const params = {
     // realm doesn't let you use spread operator, apparently
     observation: {
@@ -129,23 +127,14 @@ const uploadObservation = async ( observation ) => {
     }
   };
 
-  console.log( params, "upload observation params" );
+  const token = await fetchJSONWebToken( login );
+  const options = { api_token: token, user_agent: createUserAgent( ) };
 
-  // const token = await fetchJSONWebToken( login );
+  const response = await inatjs.observations.create( params, options );
+  const { id } = response[0];
 
-  // const options = { api_token: token, user_agent: createUserAgent( ) };
-
-  // const response = await inatjs.observations.create( params, options );
-  // const { id } = response[0];
-
-  // const photoUUID = await createUUID( );
-  // const addPhoto = await uploadPhoto( observation.uri, id, token, photoUUID );
-
-  // if ( addPhoto === true ) {
-  //   saveUploadSucceeded( id );
-  //   return true;
-  // }
-  // return false;
+  const photo = await saveObservationId( id, observation.photo );
+  await uploadPhoto( photo, token );
 };
 
 const saveObservationToRealm = async ( observation: {
@@ -161,12 +150,14 @@ const saveObservationToRealm = async ( observation: {
 }, uri: string ) => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
+  const photoUUID = await createUUID( );
 
   try {
     realm.write( ( ) => {
       const photo = realm.create( "UploadPhotoRealm", {
         uri,
-        uploadSucceeded: false
+        uploadSucceeded: false,
+        uuid: photoUUID
       } );
       realm.create( "UploadObservationRealm", {
         ...observation,
@@ -180,16 +171,36 @@ const saveObservationToRealm = async ( observation: {
   } catch ( e ) {
     console.log( "couldn't save observation to UploadObservationRealm", e );
   }
-  // right now, create uuid for photo
-  // fetch JSON web token
-  // show posting status
+};
+
+const checkForNewUploads = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+
+  return realm.objects( "UploadPhotoRealm" )
+    .filtered( "uploadSucceeded == true AND notificationShown == false" );
+
+};
+
+const markUploadsAsSeen = async ( uploads ) => {
+  const realm = await Realm.open( realmConfig );
+  uploads.forEach( upload => {
+    console.log( upload, "marking upload as shown" );
+    try {
+      realm.write( ( ) => {
+        upload.notificationShown = true;
+      } );
+    } catch ( e ) {
+      console.log( "couldn't mark uploads as seen in UploadPhotoRealm", e );
+    }
+  } );
 };
 
 export {
-  saveIdAndUploadStatus,
   saveUploadSucceeded,
   checkForIncompleteUploads,
   resizeImageForUpload,
   fetchJSONWebToken,
-  saveObservationToRealm
+  saveObservationToRealm,
+  checkForNewUploads,
+  markUploadsAsSeen
 };

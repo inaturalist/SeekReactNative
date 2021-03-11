@@ -21,7 +21,7 @@ const HomeScreen = () => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
   const [showUploadCard, setShowUploadCard] = useState( false );
-  const [uploads, setUploads] = useState( [] );
+  const [uploads, setUploads] = useState( 0 );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -52,11 +52,10 @@ const HomeScreen = () => {
     // need to do this on home screen since it changes the styling of SpeciesNearby and status bar
     const checkUploads = async ( ) => {
       const newUploads = await checkForNewUploads( );
-      console.log( newUploads.length, "new uploads" );
 
       if ( newUploads.length > 0 ) {
         setShowUploadCard( true );
-        setUploads( newUploads );
+        setUploads( newUploads.length );
       }
       // check for observations to upload || unviewed observations
       // if either, setShowUploadCard( true )
@@ -68,10 +67,10 @@ const HomeScreen = () => {
   } );
 
   useEffect( ( ) => {
-    if ( uploads.length > 0 ) {
-      markUploadsAsSeen( uploads );
+    if ( uploads > 0 ) {
+      markUploadsAsSeen( );
     }
-  }, [uploads] );
+  }, [uploads] )
 
   return (
     <ScrollNoHeader showUploadCard={showUploadCard}>

@@ -10,13 +10,13 @@ import { useInterval, useInternetStatus } from "../../utility/customHooks";
 import icons from "../../assets/icons";
 
 type Props = {
-  uploads: Array<Object>
+  uploads: number
 }
 
 const UploadStatus = ( { uploads }: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   let animation = useRef( new Animated.Value( 0 ) );
-  const successfulUploads = uploads.length;
+  const successfulUploads = uploads;
   const [progress, setProgress] = useState( successfulUploads > 0 ? 100 : 0 );
   const internet = useInternetStatus( );
 

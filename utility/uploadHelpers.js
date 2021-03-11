@@ -1,6 +1,7 @@
 // @flow
 import Realm from "realm";
 import inatjs, { FileUpload } from "inaturalistjs";
+import faker from "faker";
 
 import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
@@ -39,7 +40,7 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
-    return null;
+    return "";
   }
 };
 
@@ -58,7 +59,7 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
-    await inatjs.observation_photos.create( photoParams, options );
+    // await inatjs.observation_photos.create( photoParams, options );
     return true;
   } catch ( e ) {
     return false;
@@ -130,10 +131,12 @@ const uploadObservation = async ( observation ) => {
   const token = await fetchJSONWebToken( login );
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
-  const response = await inatjs.observations.create( params, options );
-  const { id } = response[0];
+  // const response = await inatjs.observations.create( params, options );
+  // const { id } = response[0];
+  const id = faker.random.number( );
+  console.log( id, "fake id" );
 
-  const photo = await saveObservationId( id, observation.photo );
+  const photo: Object = await saveObservationId( id, observation.photo );
   await uploadPhoto( photo, token );
 };
 
@@ -157,7 +160,8 @@ const saveObservationToRealm = async ( observation: {
       const photo = realm.create( "UploadPhotoRealm", {
         uri,
         uploadSucceeded: false,
-        uuid: photoUUID
+        uuid: photoUUID,
+        notificationShown: false
       } );
       realm.create( "UploadObservationRealm", {
         ...observation,
@@ -181,18 +185,35 @@ const checkForNewUploads = async ( ) => {
 
 };
 
-const markUploadsAsSeen = async ( uploads ) => {
+const markUploadsAsSeen = async ( ) => {
   const realm = await Realm.open( realmConfig );
-  uploads.forEach( upload => {
-    console.log( upload, "marking upload as shown" );
-    try {
-      realm.write( ( ) => {
-        upload.notificationShown = true;
-      } );
-    } catch ( e ) {
-      console.log( "couldn't mark uploads as seen in UploadPhotoRealm", e );
-    }
-  } );
+  const uploads = realm.objects( "UploadPhotoRealm" ).filtered( "uploadSucceeded == true" );
+
+  try {
+    uploads.forEach( upload => {
+      if ( upload.notificationShown === false ) {
+        realm.write( ( ) => {
+          upload.notificationShown = true;
+        } );
+      }
+    } );
+  } catch ( e ) {
+    console.log( "couldn't mark uploads as seen in UploadPhotoRealm", e );
+  }
+};
+
+const createFakeUploadData = ( ) => {
+  return {
+    "captive_flag": false,
+    "description": null,
+    "geoprivacy": "open",
+    "latitude": 37.838835309609536,
+    "longitude": -122.30571209495892,
+    "observed_on_string": "2021-03-11T10:26:38-08:00",
+    "place_guess": "Emeryville",
+    "positional_accuracy": 65,
+    "taxon_id": 366346
+  };
 };
 
 export {
@@ -202,5 +223,6 @@ export {
   fetchJSONWebToken,
   saveObservationToRealm,
   checkForNewUploads,
-  markUploadsAsSeen
+  markUploadsAsSeen,
+  createFakeUploadData
 };

@@ -45,7 +45,7 @@ const useScrollToTop = (
   }, [route, navigation, scrollToTop] );
 };
 
-const useLocationName = ( latitude: number, longitude: number ) => {
+const useLocationName = ( latitude: ?number, longitude: ?number ) => {
   const [location, setLocation] = useState( null );
 
   useEffect( () => {
@@ -310,11 +310,11 @@ const useInternetStatus = ( ) => {
   return internet;
 };
 
-const useInterval = ( callback, delay ) => {
+const useInterval = ( callback: any, delay: number ) => {
   // for progress bar on UploadStatus
   // makes hooks & setInterval play well together
   // from: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
-  const savedCallback = useRef( );
+  const savedCallback = useRef<any>( );
 
   useEffect( ( ) => {
     savedCallback.current = callback;

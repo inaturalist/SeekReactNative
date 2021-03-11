@@ -61,7 +61,7 @@ const fetchTruncatedUserLocation = () => (
   } )
 );
 
-const fetchLocationName = ( lat: number, lng: number ) => (
+const fetchLocationName = ( lat: ?number, lng: ?number ) => (
   new Promise<?string>( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {

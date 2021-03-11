@@ -9,7 +9,7 @@ import i18n from "../../i18n";
 
 type Props = {
   description: ?string,
-  updateObservation: ( ) => void
+  updateObservation: ( string, string ) => void
 }
 
 const Notes = ( { description, updateObservation }: Props ) => (

@@ -47,7 +47,7 @@ const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ) => {
       useNativeAndroidPickerStyle={false}
     >
       <View style={styles.thinCard}>
-        <Image source={posting.geoprivacy} style={styles.icon} />
+        <Image source={posting.geoprivacy} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
             {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
@@ -56,6 +56,7 @@ const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ) => {
             {geoprivacyText}
           </Text>
         </View>
+        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
           tintColor={colors.seekForestGreen}

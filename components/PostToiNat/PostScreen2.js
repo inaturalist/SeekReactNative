@@ -20,7 +20,7 @@ import LocationPickerCard from "./Pickers/LocationPickerCard";
 import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { saveObservationToRealm } from "../../utility/uploadHelpers";
+import { createFakeUploadData, saveObservationToRealm } from "../../utility/uploadHelpers";
 
 const PostScreen = () => {
   const navigation = useNavigation( );
@@ -73,6 +73,8 @@ const PostScreen = () => {
   } );
 
   const { observation, taxon, show } = state;
+
+  saveObservationToRealm( createFakeUploadData( ), "ph://BC41B488-6663-4E79-B9D6-DEAB4CBF7E37/L0/001" );
 
   const location = useLocationName( observation.latitude, observation.longitude );
 

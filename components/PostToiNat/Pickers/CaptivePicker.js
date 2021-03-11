@@ -35,7 +35,7 @@ const CaptivePicker = ( { updateObservation, captive }: Props ) => {
       useNativeAndroidPickerStyle={false}
     >
       <View style={styles.thinCard}>
-        <Image source={posting.captive} style={styles.icon} />
+        <Image source={posting.captive} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
             {i18n.t( "posting.captive" ).toLocaleUpperCase()}
@@ -44,6 +44,7 @@ const CaptivePicker = ( { updateObservation, captive }: Props ) => {
             {captive ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
           </Text>
         </View>
+        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
           tintColor={colors.seekForestGreen}

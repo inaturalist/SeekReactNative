@@ -151,7 +151,7 @@ const formatMonthYear = ( date: Date ) => format( date, "MMMM yyyy", setLocale( 
 
 const formatMonth = ( date: Date ) => format( date, "MMMM", setLocale( ) );
 
-const isAndroidDateInFuture = ( selectedDate ) => {
+const isAndroidDateInFuture = ( selectedDate: Date ) => {
   if ( Platform.OS === "android" && isAfter( selectedDate, new Date() ) ) {
     return true;
   }

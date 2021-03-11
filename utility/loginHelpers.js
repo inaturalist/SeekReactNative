@@ -30,7 +30,7 @@ const fetchAccessToken = async () => {
     const token = await AsyncStorage.getItem( "access_token" );
     return token;
   } catch ( error ) {
-    return false;
+    return "";
   }
 };
 

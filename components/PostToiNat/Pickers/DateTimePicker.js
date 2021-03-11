@@ -18,7 +18,7 @@ import { formatYearMonthDay } from "../../../utility/dateHelpers";
 
 type Props = {
   dateToDisplay: ?string,
-  handleDatePicked: ( ) => void
+  handleDatePicked: ( Date ) => void
 }
 
 const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {

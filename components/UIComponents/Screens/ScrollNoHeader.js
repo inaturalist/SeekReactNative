@@ -12,7 +12,7 @@ import Padding from "../Padding";
 
 type Props = {
   +children: any,
-  showUploadCard: boolean
+  showUploadCard?: boolean
 };
 
 const ScrollNoHeader = ( { children, showUploadCard }: Props ) => {

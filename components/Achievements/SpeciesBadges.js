@@ -27,6 +27,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` ).sorted( "index" );
+        console.log( badges, "badges in iconic id" );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
 

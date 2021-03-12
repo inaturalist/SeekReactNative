@@ -59,6 +59,7 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
+    // return false;
     // await inatjs.observation_photos.create( photoParams, options );
     return true;
   } catch ( e ) {
@@ -78,24 +79,24 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   return false;
 };
 
-const checkForIncompleteUploads = async ( login: string ) => {
-  const realm = await Realm.open( realmConfig );
-  try {
-    const uploads = realm.objects( "UploadPhotoRealm" );
-    const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
+// const checkForIncompleteUploads = async ( login: string ) => {
+//   const realm = await Realm.open( realmConfig );
+//   try {
+//     const uploads = realm.objects( "UploadPhotoRealm" );
+//     const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
 
-    if ( unsuccessfulUploads.length === 0 ) { return; }
+//     if ( unsuccessfulUploads.length === 0 ) { return; }
 
-    const token = await fetchJSONWebToken( login );
-    if ( token === null ) { return; }
+//     const token = await fetchJSONWebToken( login );
+//     if ( token === null ) { return; }
 
-    unsuccessfulUploads.forEach( ( photo ) => {
-      uploadPhoto( photo, token );
-    } );
-  } catch ( e ) {
-    console.log( e, " : couldn't check for incomplete uploads" );
-  }
-};
+//     unsuccessfulUploads.forEach( ( photo ) => {
+//       uploadPhoto( photo, token );
+//     } );
+//   } catch ( e ) {
+//     console.log( e, " : couldn't check for incomplete uploads" );
+//   }
+// };
 
 const saveObservationId = async ( id: number, photo: Object ) => {
   const realm = await Realm.open( realmConfig );
@@ -109,7 +110,18 @@ const saveObservationId = async ( id: number, photo: Object ) => {
   }
 };
 
-const uploadObservation = async ( observation ) => {
+const uploadObservation = async ( observation: {
+  observed_on_string: ?string,
+  taxon_id: ?number,
+  geoprivacy: string,
+  captive_flag: boolean,
+  place_guess: ?string,
+  latitude: ?number,
+  longitude: ?number,
+  positional_accuracy: ?number,
+  description: ?string,
+  photo: Object
+} ) => {
   const login = await fetchAccessToken( );
   const params = {
     // realm doesn't let you use spread operator, apparently
@@ -137,11 +149,11 @@ const uploadObservation = async ( observation ) => {
   console.log( id, "fake id" );
 
   const photo: Object = await saveObservationId( id, observation.photo );
-  await uploadPhoto( photo, token );
+  return await uploadPhoto( photo, token );
 };
 
 const saveObservationToRealm = async ( observation: {
-  observed_on_string: string,
+  observed_on_string: ?string,
   taxon_id: ?number,
   geoprivacy: string,
   captive_flag: boolean,
@@ -177,12 +189,11 @@ const saveObservationToRealm = async ( observation: {
   }
 };
 
-const checkForNewUploads = async ( ) => {
+const checkForSuccessfulUploads = async ( ) => {
   const realm = await Realm.open( realmConfig );
 
   return realm.objects( "UploadPhotoRealm" )
     .filtered( "uploadSucceeded == true AND notificationShown == false" );
-
 };
 
 const markUploadsAsSeen = async ( ) => {
@@ -202,6 +213,25 @@ const markUploadsAsSeen = async ( ) => {
   }
 };
 
+const markCurrentUploadAsSeen = async ( upload ) => {
+  const realm = await Realm.open( realmConfig );
+
+  try {
+    if ( upload.photo.notificationShown === false ) {
+      realm.write( ( ) => {
+        upload.photo.notificationShown = true;
+      } );
+    }
+  } catch ( e ) {
+    console.log( "couldn't mark current upload as seen", e );
+  }
+};
+
+const checkForPendingUploads = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+  return realm.objects( "UploadObservationRealm" ).filtered( "photo.uploadSucceeded == false" );
+};
+
 const createFakeUploadData = ( ) => {
   return {
     "captive_flag": false,
@@ -218,11 +248,14 @@ const createFakeUploadData = ( ) => {
 
 export {
   saveUploadSucceeded,
-  checkForIncompleteUploads,
+  // checkForIncompleteUploads,
   resizeImageForUpload,
   fetchJSONWebToken,
   saveObservationToRealm,
-  checkForNewUploads,
+  checkForSuccessfulUploads,
   markUploadsAsSeen,
-  createFakeUploadData
+  createFakeUploadData,
+  checkForPendingUploads,
+  uploadObservation,
+  markCurrentUploadAsSeen
 };

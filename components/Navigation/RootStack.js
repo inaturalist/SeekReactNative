@@ -12,7 +12,7 @@ import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import CameraHelp from "../Camera/CameraHelpScreen";
-import Post from "../PostToiNat/PostScreen2";
+import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";

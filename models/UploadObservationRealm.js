@@ -4,7 +4,7 @@ UploadObservationRealm.schema = {
   primaryKey: "uuid",
   properties: {
     uuid: "string",
-    observed_on_string: "string",
+    observed_on_string: "string?",
     taxon_id: "int?",
     geoprivacy: "string",
     captive_flag: "bool",

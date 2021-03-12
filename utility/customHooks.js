@@ -310,26 +310,6 @@ const useInternetStatus = ( ) => {
   return internet;
 };
 
-const useInterval = ( callback: any, delay: number ) => {
-  // for progress bar on UploadStatus
-  // makes hooks & setInterval play well together
-  // from: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
-  const savedCallback = useRef<any>( );
-
-  useEffect( ( ) => {
-    savedCallback.current = callback;
-  }, [callback] );
-  // Set up the interval.
-  useEffect( ( ) => {
-    const tick = ( ) => savedCallback.current( );
-
-    if ( delay !== null ) {
-      let id = setInterval( tick, delay );
-      return ( ) => clearInterval( id );
-    }
-  }, [delay] );
-};
-
 export {
   useScrollToTop,
   useLocationName,
@@ -339,6 +319,5 @@ export {
   useTruncatedUserCoords,
   useSeenTaxa,
   useRegion,
-  useInternetStatus,
-  useInterval
+  useInternetStatus
 };

@@ -6,25 +6,27 @@ import { View, Text, Image, Animated } from "react-native";
 import i18n from "../../i18n";
 import styles from "../../styles/home/uploadStatus";
 import logos from "../../assets/logos";
-import { useInterval, useInternetStatus } from "../../utility/customHooks";
+import { useInternetStatus } from "../../utility/customHooks";
 import icons from "../../assets/icons";
+import { createFakeUploadData, uploadObservation, markCurrentUploadAsSeen } from "../../utility/uploadHelpers";
 
 type Props = {
-  uploads: number
+  uploads: number,
+  pendingUploads: Array<Object>,
+  numPendingUploads: number
 }
 
-const UploadStatus = ( { uploads }: Props ) => {
+const UploadStatus = ( { uploads, pendingUploads, numPendingUploads }: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   let animation = useRef( new Animated.Value( 0 ) );
   const successfulUploads = uploads;
   const [progress, setProgress] = useState( successfulUploads > 0 ? 100 : 0 );
   const internet = useInternetStatus( );
 
-  useInterval( ( ) => {
-    if ( progress < 100 ) {
-      setProgress( progress + 5 );
-    }
-  }, 1000 );
+  const tick = 100 / numPendingUploads;
+
+  console.log( progress, tick, "progress" );
+  console.log( successfulUploads, "successful uploads" );
 
   useEffect( ( ) => {
     Animated.timing( animation.current, {
@@ -37,17 +39,44 @@ const UploadStatus = ( { uploads }: Props ) => {
 
   const width = animation.current.interpolate( {
     inputRange: [0, 100],
+    // $FlowFixMe
     outputRange: ["0%", "100%"],
     extrapolate: "clamp"
   } );
 
+  console.log( pendingUploads.length, ": pending uploads" );
+
   const setUploadText = ( ) => {
-    if ( !internet ) {
-      return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: 0 } );
+    if ( successfulUploads > 0 ) {
+      return i18n.t( "post_to_inat_card.x_observations_uploaded", { count: successfulUploads } );
+    } else if ( pendingUploads.length > 0 ) {
+      if ( !internet ) {
+        return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: numPendingUploads } );
+      }
+      return i18n.t( "post_to_inat_card.uploading_x_observations", { count: numPendingUploads } )
     }
-    // if uploading, return i18n.t( "post_to_inat_card.uploading_x_observations", { count: 0 } )
-    return i18n.t( "post_to_inat_card.x_observations_uploaded", { count: successfulUploads } );
   };
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+    const beginUploads = async ( observation ) => {
+      const upload = await uploadObservation( observation );
+  
+      if ( upload === true ) {
+        if ( isCurrent ) {
+          setProgress( progress + tick );
+          markCurrentUploadAsSeen( observation );
+        }
+      }
+      console.log( upload, "upload" );
+    };
+  
+    pendingUploads.forEach( observation => beginUploads( observation ) );
+
+    return ( ) => {
+      isCurrent = false;
+    }
+  }, [pendingUploads, progress, tick] );
 
   return (
     <View style={styles.container}>
@@ -57,7 +86,7 @@ const UploadStatus = ( { uploads }: Props ) => {
           <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
           <View style={styles.row}>
             <Text style={styles.text}>{setUploadText( )}</Text>
-            <Image source={icons.checklist} style={styles.checkmark} />
+            {progress === 100 && <Image source={icons.checklist} style={styles.checkmark} />}
           </View>
         </View>
       </View>

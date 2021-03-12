@@ -15,13 +15,15 @@ import { checkIfCardShown } from "../../utility/helpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
-import { checkForNewUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
+import { checkForPendingUploads, checkForSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 
 const HomeScreen = () => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
   const [showUploadCard, setShowUploadCard] = useState( false );
   const [uploads, setUploads] = useState( 0 );
+  const [pendingUploads, setPendingUploads] = useState( [] );
+  const [numPendingUploads, setNumPendingUploads] = useState( 0 );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -51,14 +53,19 @@ const HomeScreen = () => {
   useEffect( ( ) => {
     // need to do this on home screen since it changes the styling of SpeciesNearby and status bar
     const checkUploads = async ( ) => {
-      const newUploads = await checkForNewUploads( );
+      const newUploads = await checkForSuccessfulUploads( );
 
       if ( newUploads.length > 0 ) {
         setShowUploadCard( true );
         setUploads( newUploads.length );
+      } else {
+        const pendingUploads = await checkForPendingUploads( );
+        if ( pendingUploads.length > 0 ) {
+          setShowUploadCard( true );
+          setPendingUploads( pendingUploads );
+          setNumPendingUploads( pendingUploads.length );
+        }
       }
-      // check for observations to upload || unviewed observations
-      // if either, setShowUploadCard( true )
     };
 
     navigation.addListener( "focus", ( ) => {
@@ -70,7 +77,7 @@ const HomeScreen = () => {
     if ( uploads > 0 ) {
       markUploadsAsSeen( );
     }
-  }, [uploads] )
+  }, [uploads] );
 
   return (
     <ScrollNoHeader showUploadCard={showUploadCard}>
@@ -79,7 +86,7 @@ const HomeScreen = () => {
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
-        {showUploadCard && <UploadStatus uploads={uploads} />}
+        {showUploadCard && <UploadStatus uploads={uploads} pendingUploads={pendingUploads} numPendingUploads={numPendingUploads} />}
         <SpeciesNearby />
         <ChallengeCard />
     </ScrollNoHeader>

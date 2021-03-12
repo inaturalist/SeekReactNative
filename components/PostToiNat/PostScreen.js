@@ -117,7 +117,7 @@ const PostScreen = () => {
 
   const closeModal = useCallback( ( ) => dispatch( { type: "CLOSE_MODAL" } ), [] );
 
-  const updateObservation = useCallback( ( key, value ) => dispatch( {
+  const updateObservation = useCallback( ( key: string, value: any ) => dispatch( {
     type: "UPDATE_OBSERVATION",
     observation: {
       ...observation,

@@ -10,7 +10,7 @@ import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
-import { checkForIncompleteUploads } from "../utility/uploadHelpers";
+// import { checkForIncompleteUploads } from "../utility/uploadHelpers";
 import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = () => {
@@ -48,10 +48,10 @@ const App = () => {
     loadUserLanguagePreference( preferredLanguage );
   }, [preferredLanguage] );
 
-  useEffect( ( ) => {
-    if ( !login ) { return; }
-    checkForIncompleteUploads( login );
-  }, [login] );
+  // useEffect( ( ) => {
+  //   if ( !login ) { return; }
+  //   checkForIncompleteUploads( login );
+  // }, [login] );
 
   useEffect( () => {
     hideLogs();

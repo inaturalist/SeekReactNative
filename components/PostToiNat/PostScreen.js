@@ -43,7 +43,7 @@ const PostScreen = () => {
           observation: action.observation
         };
       case "SHOW_MODAL":
-        return { ...state, show: true };
+        return { ...state, show: true, uploadStatus: action.uploadStatus };
       case "CLOSE_MODAL":
         return { ...state, show: false };
       case "UPDATE_OBSERVATION":
@@ -69,10 +69,11 @@ const PostScreen = () => {
       name: scientificName,
       taxaId
     },
-    show: false
+    show: false,
+    uploadStatus: null
   } );
 
-  const { observation, taxon, show } = state;
+  const { observation, taxon, show, uploadStatus } = state;
 
   saveObservationToRealm( createFakeUploadData( ), "ph://BC41B488-6663-4E79-B9D6-DEAB4CBF7E37/L0/001" );
 
@@ -147,9 +148,10 @@ const PostScreen = () => {
   }, [navigation, getLocation] );
 
   const saveObservation = async ( ) => {
-    saveObservationToRealm( observation, params.image.uri );
+    const uploadStatus = await saveObservationToRealm( observation, params.image.uri );
+    // saveObservationToRealm( observation, params.image.uri );
     savePostingSuccess( true );
-    dispatch( { type: "SHOW_MODAL" } );
+    dispatch( { type: "SHOW_MODAL", uploadStatus } );
   };
 
   return (
@@ -158,7 +160,7 @@ const PostScreen = () => {
         onRequestClose={closeModal}
         visible={show}
       >
-        <PostModal closeModal={closeModal} />
+        <PostModal closeModal={closeModal} uploadStatus={uploadStatus} />
       </Modal>
       <PostingHeader
         taxon={taxon}

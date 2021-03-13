@@ -86,7 +86,13 @@ const HomeScreen = () => {
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
-        {showUploadCard && <UploadStatus uploads={uploads} pendingUploads={pendingUploads} numPendingUploads={numPendingUploads} />}
+        {showUploadCard && (
+          <UploadStatus
+            uploads={uploads}
+            pendingUploads={pendingUploads}
+            numPendingUploads={numPendingUploads}
+          />
+        )}
         <SpeciesNearby />
         <ChallengeCard />
     </ScrollNoHeader>

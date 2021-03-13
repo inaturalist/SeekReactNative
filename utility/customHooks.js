@@ -295,11 +295,11 @@ const useInternetStatus = ( ) => {
       if ( isCurrent ) {
         if ( type === "none" || type === "unknown" ) {
           setInternet( false );
+        } else {
+          setInternet( true );
         }
-        setInternet( true );
       }
     };
-      // otherwise, fetch data based on user location
 
     checkForInternet( );
     return ( ) => {

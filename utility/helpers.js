@@ -245,7 +245,6 @@ const handleServerError = ( error: {
   if ( response.status && response.status === 503 ) {
     const gmtTime = response.headers.map["retry-after"];
     const hours = serverBackOnlineTime( gmtTime );
-    console.log( hours, "hours" );
     return hours;
   }
   return "error";

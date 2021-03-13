@@ -56,6 +56,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.medium,
     fontSize: 16,
     lineHeight: 24,
-    paddingRight: 15
+    paddingRight: 15,
+    maxWidth: 236
   }
 } );

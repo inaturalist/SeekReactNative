@@ -1,14 +1,14 @@
 // @flow
 
 import React, { useEffect, useState, useRef } from "react";
-import { View, Text, Image, Animated } from "react-native";
+import { View, Text, Image, Animated, Alert } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/uploadStatus";
 import logos from "../../assets/logos";
-import { useInternetStatus } from "../../utility/customHooks";
 import icons from "../../assets/icons";
 import { createFakeUploadData, uploadObservation, markCurrentUploadAsSeen } from "../../utility/uploadHelpers";
+import { useInternetStatus } from "../../utility/customHooks";
 
 type Props = {
   uploads: number,
@@ -24,9 +24,6 @@ const UploadStatus = ( { uploads, pendingUploads, numPendingUploads }: Props ) =
   const internet = useInternetStatus( );
 
   const tick = 100 / numPendingUploads;
-
-  console.log( progress, tick, "progress" );
-  console.log( successfulUploads, "successful uploads" );
 
   useEffect( ( ) => {
     Animated.timing( animation.current, {
@@ -44,16 +41,15 @@ const UploadStatus = ( { uploads, pendingUploads, numPendingUploads }: Props ) =
     extrapolate: "clamp"
   } );
 
-  console.log( pendingUploads.length, ": pending uploads" );
-
   const setUploadText = ( ) => {
     if ( successfulUploads > 0 ) {
       return i18n.t( "post_to_inat_card.x_observations_uploaded", { count: successfulUploads } );
     } else if ( pendingUploads.length > 0 ) {
-      if ( !internet ) {
+      if ( internet === true ) {
+        return i18n.t( "post_to_inat_card.uploading_x_observations", { count: numPendingUploads } )
+      } else {
         return i18n.t( "post_to_inat_card.x_observations_will_be_uploaded", { count: numPendingUploads } );
       }
-      return i18n.t( "post_to_inat_card.uploading_x_observations", { count: numPendingUploads } )
     }
   };
 
@@ -68,7 +64,6 @@ const UploadStatus = ( { uploads, pendingUploads, numPendingUploads }: Props ) =
           markCurrentUploadAsSeen( observation );
         }
       }
-      console.log( upload, "upload" );
     };
   
     pendingUploads.forEach( observation => beginUploads( observation ) );
@@ -85,16 +80,18 @@ const UploadStatus = ( { uploads, pendingUploads, numPendingUploads }: Props ) =
         <View>
           <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
           <View style={styles.row}>
-            <Text style={styles.text}>{setUploadText( )}</Text>
+            {internet !== null && <Text style={styles.text}>{setUploadText( )}</Text>}
             {progress === 100 && <Image source={icons.checklist} style={styles.checkmark} />}
           </View>
         </View>
       </View>
-      <View style={styles.progressBar}>
-        {successfulUploads > 0
-          ? <View style={[styles.absoluteFill, styles.fullWidth]} />
-          : <Animated.View style={[styles.absoluteFill, { width }]} />}
-      </View>
+      {internet === true && (
+        <View style={styles.progressBar}>
+          {successfulUploads > 0
+            ? <View style={[styles.absoluteFill, styles.fullWidth]} />
+            : <Animated.View style={[styles.absoluteFill, { width }]} />}
+        </View>
+      )}
     </View>
   );
 };

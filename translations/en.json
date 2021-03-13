@@ -30,7 +30,7 @@
     "post_to_inaturalist": "POST TO INATURALIST",
     "uploading_x_observations": "Uploading {{count}} observations...",
     "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_will_be_uploaded": "{{count}} observations will be uploaded once Seek is restarted and connected to internet"
+    "x_observations_will_be_uploaded": "Restart the Seek app while connected to the internet to upload {{count}} observations."
   },
   "notifications": {
     "header": "Notifications",
@@ -555,7 +555,9 @@
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
     "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet.",
+    "server_downtime": "INATURALIST TEMPORARILY UNAVAILABLE",
+    "server_downtime_description": "Your observation has not been uploaded to iNaturalist because iNaturalist is undergoing maintenance.\n\nYour observation will be uploaded the next time you restart Seek, are connected to the internet, and iNaturalist is available.\n\nPlease try again in {{count}} hours."
   },
   "posting_help": {
     "header": "Posting Help",

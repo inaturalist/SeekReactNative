@@ -8,6 +8,7 @@ import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
+import { handleServerError } from "./helpers";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -40,7 +41,9 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
-    return "";
+    return {
+      error: handleServerError( e )
+    };
   }
 };
 
@@ -59,9 +62,9 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
-    // return false;
+    return false;
     // await inatjs.observation_photos.create( photoParams, options );
-    return true;
+    // return true;
   } catch ( e ) {
     return false;
   }
@@ -141,12 +144,16 @@ const uploadObservation = async ( observation: {
   };
 
   const token = await fetchJSONWebToken( login );
+
+  // catch server downtime error
+  if ( typeof token === "object" ) {
+    return token;
+  }
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   // const response = await inatjs.observations.create( params, options );
   // const { id } = response[0];
   const id = faker.random.number( );
-  console.log( id, "fake id" );
 
   const photo: Object = await saveObservationId( id, observation.photo );
   return await uploadPhoto( photo, token );
@@ -183,7 +190,7 @@ const saveObservationToRealm = async ( observation: {
     } );
 
     const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${uuid}'` )[0];
-    uploadObservation( latestObs );
+    return uploadObservation( latestObs );
   } catch ( e ) {
     console.log( "couldn't save observation to UploadObservationRealm", e );
   }
@@ -213,7 +220,11 @@ const markUploadsAsSeen = async ( ) => {
   }
 };
 
-const markCurrentUploadAsSeen = async ( upload ) => {
+const markCurrentUploadAsSeen = async ( upload: {
+  photo: {
+    notificationShown: boolean
+  }
+} ) => {
   const realm = await Realm.open( realmConfig );
 
   try {

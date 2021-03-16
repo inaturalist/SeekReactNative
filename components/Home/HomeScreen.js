@@ -27,6 +27,8 @@ const HomeScreen = () => {
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
 
+  const updateSuccessfulUploads = num => setSuccessfulUploads( num );
+
   useEffect( () => {
     const checkForFirstLaunch = async () => {
       const isFirstLaunch = await checkIfCardShown();
@@ -89,6 +91,7 @@ const HomeScreen = () => {
           <UploadStatus
             successfulUploads={successfulUploads}
             numPendingUploads={numPendingUploads}
+            updateSuccessfulUploads={updateSuccessfulUploads}
           />
         )}
         <SpeciesNearby />

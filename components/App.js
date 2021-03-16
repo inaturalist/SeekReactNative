@@ -7,7 +7,7 @@ import RootStack from "./Navigation/RootStack";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
 import { addARCameraFiles, hideLogs } from "../utility/helpers";
-import { fetchAccessToken } from "../utility/loginHelpers";
+import { fetchAccessToken, savePostingSuccess } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
 // import { checkForIncompleteUploads } from "../utility/uploadHelpers";
@@ -63,6 +63,9 @@ const App = () => {
     getLanguagePreference();
     fetchAutoCapture();
     fetchLocalSeasonality();
+
+    // reset posting to iNat
+    savePostingSuccess( false );
 
     setupChallenges( );
     setTimeout( addARCameraFiles, 3000 );

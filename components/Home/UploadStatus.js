@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { View, Text, Image, Animated } from "react-native";
 
 import i18n from "../../i18n";
@@ -12,10 +12,11 @@ import { useInternetStatus } from "../../utility/customHooks";
 
 type Props = {
   successfulUploads: number,
-  numPendingUploads: number
+  numPendingUploads: number,
+  updateSuccessfulUploads: number => void
 }
 
-const UploadStatus = ( { successfulUploads, numPendingUploads }: Props ) => {
+const UploadStatus = ( { successfulUploads, numPendingUploads, updateSuccessfulUploads }: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   let animation = useRef( new Animated.Value( 0 ) );
   const [progress, setProgress] = useState( 0 );
@@ -51,6 +52,7 @@ const UploadStatus = ( { successfulUploads, numPendingUploads }: Props ) => {
   useEffect( ( ) => {
     let isCurrent = true;
     let completedProgress = 0;
+    let currentUploads = 0;
     const tick = 100 / numPendingUploads;
 
     const beginUpload = async ( observation ) => {
@@ -58,8 +60,13 @@ const UploadStatus = ( { successfulUploads, numPendingUploads }: Props ) => {
 
       if ( upload === true ) {
         completedProgress += tick;
+        currentUploads += 1;
         setProgress( completedProgress );
         markCurrentUploadAsSeen( observation );
+
+        if ( currentUploads === numPendingUploads ) {
+          updateSuccessfulUploads( currentUploads );
+        }
       }
     };
 
@@ -76,10 +83,11 @@ const UploadStatus = ( { successfulUploads, numPendingUploads }: Props ) => {
         checkUploads( );
       }
     }
+
     return ( ) => {
       isCurrent = false;
     };
-  }, [numPendingUploads, isUploading] );
+  }, [numPendingUploads, isUploading, updateSuccessfulUploads] );
 
   return (
     <View style={styles.container}>

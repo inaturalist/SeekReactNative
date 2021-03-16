@@ -6,48 +6,40 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postModal";
-import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import GreenText from "../UIComponents/GreenText";
 import { useInternetStatus } from "../../utility/customHooks";
 
 type Props = {
-  closeModal: ( ) => void,
-  uploadStatus: any
+  closeModal: ( ) => void
 };
 
-const PostModal = ( { closeModal, uploadStatus }: Props ) => {
+const PostModal = ( { closeModal }: Props ) => {
   const internet = useInternetStatus( );
 
-  const serverDowntime = typeof uploadStatus === "object" ? uploadStatus.error : null;
-
   const setHeaderText = ( ) => {
-    if ( serverDowntime ) {
-      return "posting_status.server_downtime";
-    } else if ( internet ) {
+    if ( internet ) {
       return "posting_status.posting_to_inat_background";
-    } else 
-    return "posting_status.no_internet";
+    } else {
+      return "posting_status.no_internet";
+    }
   };
 
   const setText = ( ) => {
-    if ( serverDowntime ) {
-      return i18n.t( "posting_status.server_downtime_description", { count: serverDowntime } );
-    } else if ( internet ) {
+    if ( internet ) {
       return i18n.t( "posting_status.posting_to_inat_background_description" );
-    } else 
-    return i18n.t( "posting_status.no_internet_description" );
+    } else {
+      return i18n.t( "posting_status.no_internet_description" );
+    }
   };
 
   const setImage = ( ) => {
-    if ( serverDowntime ) {
-      return posting.postingServerDowntime;
-    } else if ( internet ) {
+    if ( internet ) {
       return posting.postingSuccess;
+    } else {
+      return posting.postingNoInternet;
     }
-    return posting.postingNoInternet
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>

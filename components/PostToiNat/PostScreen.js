@@ -43,13 +43,13 @@ const PostScreen = () => {
           observation: action.observation
         };
       case "SHOW_MODAL":
-        return { ...state, show: true, uploadStatus: action.uploadStatus };
+        return { ...state, show: true };
       case "CLOSE_MODAL":
         return { ...state, show: false };
       case "UPDATE_OBSERVATION":
         return { ...state, observation: action.observation };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     observation: {
@@ -69,11 +69,10 @@ const PostScreen = () => {
       name: scientificName,
       taxaId
     },
-    show: false,
-    uploadStatus: null
+    show: false
   } );
 
-  const { observation, taxon, show, uploadStatus } = state;
+  const { observation, taxon, show } = state;
 
   const location = useLocationName( observation.latitude, observation.longitude );
 
@@ -138,18 +137,17 @@ const PostScreen = () => {
     }
   };
 
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
       // make sure these only happen on first page load, not when a user taps posting help
-      getLocation();
+      getLocation( );
     } );
   }, [navigation, getLocation] );
 
-  const saveObservation = async ( ) => {
-    const status = await saveObservationToRealm( observation, params.image.uri );
-    // saveObservationToRealm( observation, params.image.uri );
+  const saveObservation = ( ) => {
+    saveObservationToRealm( observation, params.image.uri );
     savePostingSuccess( true );
-    dispatch( { type: "SHOW_MODAL", uploadStatus: status } );
+    dispatch( { type: "SHOW_MODAL" } );
   };
 
   return (
@@ -158,7 +156,7 @@ const PostScreen = () => {
         onRequestClose={closeModal}
         visible={show}
       >
-        <PostModal closeModal={closeModal} uploadStatus={uploadStatus} />
+        <PostModal closeModal={closeModal} />
       </Modal>
       <PostingHeader
         taxon={taxon}

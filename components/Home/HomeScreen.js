@@ -15,14 +15,13 @@ import { checkIfCardShown } from "../../utility/helpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
-import { checkForPendingUploads, checkForSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
+import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 
 const HomeScreen = () => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
   const [showUploadCard, setShowUploadCard] = useState( false );
-  const [uploads, setUploads] = useState( 0 );
-  const [pendingUploads, setPendingUploads] = useState( [] );
+  const [successfulUploads, setSuccessfulUploads] = useState( 0 );
   const [numPendingUploads, setNumPendingUploads] = useState( 0 );
 
   const openModal = () => setModal( true );
@@ -53,17 +52,17 @@ const HomeScreen = () => {
   useEffect( ( ) => {
     // need to do this on home screen since it changes the styling of SpeciesNearby and status bar
     const checkUploads = async ( ) => {
-      const newUploads = await checkForSuccessfulUploads( );
+      const numUnseenUploads = await checkForNumSuccessfulUploads( );
 
-      if ( newUploads.length > 0 ) {
+      if ( numUnseenUploads > 0 ) {
         setShowUploadCard( true );
-        setUploads( newUploads.length );
+        setSuccessfulUploads( numUnseenUploads );
       } else {
-        const pendingUploads = await checkForPendingUploads( );
-        if ( pendingUploads.length > 0 ) {
+        const allUploads = await checkForUploads( );
+        const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false" ).length;
+        if ( pendingUploads > 0 ) {
           setShowUploadCard( true );
-          setPendingUploads( pendingUploads );
-          setNumPendingUploads( pendingUploads.length );
+          setNumPendingUploads( pendingUploads );
         }
       }
     };
@@ -74,10 +73,10 @@ const HomeScreen = () => {
   } );
 
   useEffect( ( ) => {
-    if ( uploads > 0 ) {
+    if ( successfulUploads > 0 ) {
       markUploadsAsSeen( );
     }
-  }, [uploads] );
+  }, [successfulUploads] );
 
   return (
     <ScrollNoHeader showUploadCard={showUploadCard}>
@@ -88,8 +87,7 @@ const HomeScreen = () => {
       />
         {showUploadCard && (
           <UploadStatus
-            uploads={uploads}
-            pendingUploads={pendingUploads}
+            successfulUploads={successfulUploads}
             numPendingUploads={numPendingUploads}
           />
         )}

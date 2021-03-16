@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -16,46 +16,42 @@ type Props = {
 }
 
 const PostToiNat = ( { color, taxaInfo }: Props ) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
+  const { login } = useContext( UserContext );
   const [postingSuccess, setPostingSuccess] = useState( false );
 
-  const fetchPostingStatus = async () => {
-    const success = await fetchPostingSuccess();
+  const fetchPostingStatus = async ( ) => {
+    const success = await fetchPostingSuccess( );
     if ( success && success === "true" ) {
-      setPostingSuccess( true );
       savePostingSuccess( false );
+      setPostingSuccess( true );
     }
   };
 
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
-      fetchPostingStatus();
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
+      fetchPostingStatus( );
     } );
   }, [navigation] );
 
-  const navToPostingScreen = () => navigation.navigate( "Post", taxaInfo );
+  const navToPostingScreen = ( ) => navigation.navigate( "Post", taxaInfo );
 
-  return (
-    <UserContext.Consumer>
-      {user => (
-        <>
-          {( user.login && !postingSuccess ) && (
-            <>
-              <Text style={styles.text}>
-                {i18n.t( "results.post_inat" )}
-              </Text>
-              <View style={styles.marginMedium} />
-              <GreenButton
-                color={color}
-                handlePress={navToPostingScreen}
-                text="results.post"
-              />
-            </>
-          ) }
-        </>
-      ) }
-    </UserContext.Consumer>
-  );
+  if ( login && !postingSuccess ) {
+    return (
+      <>
+        <Text style={styles.text}>
+          {i18n.t( "results.post_inat" )}
+        </Text>
+        <View style={styles.marginMedium} />
+        <GreenButton
+          color={color}
+          handlePress={navToPostingScreen}
+          text="results.post"
+        />
+      </>
+    );
+  }
+  return null;
 };
 
 export default PostToiNat;

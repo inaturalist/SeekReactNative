@@ -1,7 +1,6 @@
 // @flow
 import Realm from "realm";
 import inatjs, { FileUpload } from "inaturalistjs";
-import faker from "faker";
 
 import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
@@ -62,9 +61,8 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
-    return false;
-    // await inatjs.observation_photos.create( photoParams, options );
-    // return true;
+    await inatjs.observation_photos.create( photoParams, options );
+    return true;
   } catch ( e ) {
     return false;
   }
@@ -151,9 +149,8 @@ const uploadObservation = async ( observation: {
   }
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
-  // const response = await inatjs.observations.create( params, options );
-  // const { id } = response[0];
-  const id = faker.random.number( );
+  const response = await inatjs.observations.create( params, options );
+  const { id } = response[0];
 
   const photo: Object = await saveObservationId( id, observation.photo );
   return await uploadPhoto( photo, token );
@@ -196,20 +193,20 @@ const saveObservationToRealm = async ( observation: {
   }
 };
 
-const checkForSuccessfulUploads = async ( ) => {
+const checkForNumSuccessfulUploads = async ( ) => {
   const realm = await Realm.open( realmConfig );
 
   return realm.objects( "UploadPhotoRealm" )
-    .filtered( "uploadSucceeded == true AND notificationShown == false" );
+    .filtered( "uploadSucceeded == true AND notificationShown == false" ).length;
 };
 
 const markUploadsAsSeen = async ( ) => {
   const realm = await Realm.open( realmConfig );
-  const uploads = realm.objects( "UploadPhotoRealm" ).filtered( "uploadSucceeded == true" );
+  const uploads = realm.objects( "UploadPhotoRealm" );
 
   try {
     uploads.forEach( upload => {
-      if ( upload.notificationShown === false ) {
+      if ( upload.uploadSucceeded === true && upload.notificationShown === false ) {
         realm.write( ( ) => {
           upload.notificationShown = true;
         } );
@@ -238,9 +235,9 @@ const markCurrentUploadAsSeen = async ( upload: {
   }
 };
 
-const checkForPendingUploads = async ( ) => {
+const checkForUploads = async ( ) => {
   const realm = await Realm.open( realmConfig );
-  return realm.objects( "UploadObservationRealm" ).filtered( "photo.uploadSucceeded == false" );
+  return realm.objects( "UploadObservationRealm" );
 };
 
 const createFakeUploadData = ( ) => {
@@ -258,15 +255,14 @@ const createFakeUploadData = ( ) => {
 };
 
 export {
-  saveUploadSucceeded,
   // checkForIncompleteUploads,
   resizeImageForUpload,
   fetchJSONWebToken,
   saveObservationToRealm,
-  checkForSuccessfulUploads,
+  checkForNumSuccessfulUploads,
   markUploadsAsSeen,
   createFakeUploadData,
-  checkForPendingUploads,
+  checkForUploads,
   uploadObservation,
   markCurrentUploadAsSeen
 };

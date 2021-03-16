@@ -20,7 +20,7 @@ import LocationPickerCard from "./Pickers/LocationPickerCard";
 import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { createFakeUploadData, saveObservationToRealm } from "../../utility/uploadHelpers";
+import { saveObservationToRealm } from "../../utility/uploadHelpers";
 
 const PostScreen = () => {
   const navigation = useNavigation( );
@@ -74,8 +74,6 @@ const PostScreen = () => {
   } );
 
   const { observation, taxon, show, uploadStatus } = state;
-
-  saveObservationToRealm( createFakeUploadData( ), "ph://BC41B488-6663-4E79-B9D6-DEAB4CBF7E37/L0/001" );
 
   const location = useLocationName( observation.latitude, observation.longitude );
 
@@ -148,10 +146,10 @@ const PostScreen = () => {
   }, [navigation, getLocation] );
 
   const saveObservation = async ( ) => {
-    const uploadStatus = await saveObservationToRealm( observation, params.image.uri );
+    const status = await saveObservationToRealm( observation, params.image.uri );
     // saveObservationToRealm( observation, params.image.uri );
     savePostingSuccess( true );
-    dispatch( { type: "SHOW_MODAL", uploadStatus } );
+    dispatch( { type: "SHOW_MODAL", uploadStatus: status } );
   };
 
   return (

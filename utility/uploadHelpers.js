@@ -112,6 +112,7 @@ const saveObservationId = async ( id: number, photo: Object ) => {
 };
 
 const uploadObservation = async ( observation: {
+  uuid: string,
   observed_on_string: ?string,
   taxon_id: ?number,
   geoprivacy: string,
@@ -127,6 +128,7 @@ const uploadObservation = async ( observation: {
   const params = {
     // realm doesn't let you use spread operator, apparently
     observation: {
+      uuid: observation.uuid,
       observed_on_string: observation.observed_on_string,
       taxon_id: observation.taxon_id,
       geoprivacy: observation.geoprivacy,

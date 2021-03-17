@@ -143,5 +143,8 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSButtonPadding,
     textAlign: "center",
     marginLeft: 10
+  },
+  whiteContainer: {
+    backgroundColor: colors.white
   }
 } );

@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
@@ -14,7 +14,7 @@ export default StyleSheet.create( {
   header: {
     paddingBottom: 21,
     paddingHorizontal: 22,
-    paddingTop: Platform.OS === "ios" ? 25 : 5
+    paddingTop: 25
   },
   marginMedium: {
     marginTop: 28

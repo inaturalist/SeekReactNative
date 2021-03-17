@@ -118,30 +118,32 @@ const INatStatsScreen = () => {
 
   return (
     <ScrollNoHeader>
-      <BackArrow green />
-      <View style={styles.logoContainer}>
-        <Image source={logos.wordmark} style={styles.logo} />
-      </View>
-      <Image source={backgrounds.heatMap} style={styles.heatMap} />
-      <View style={styles.missionContainer}>
-        <GreenText smaller text="inat_stats.global_observations" />
-        <Image source={logos.bird} style={styles.bird} />
-        <Text style={styles.numberText}>{observations}</Text>
-        <GreenText smaller text="inat_stats.naturalists_worldwide" />
-        <Text style={styles.numberText}>{observers}</Text>
-        <Image
-          source={icons.iNatExplanation}
-          style={styles.explainImage}
-        />
-        <Text style={styles.missionHeaderText}>{i18n.t( "inat_stats.seek_data" )}</Text>
-        <Text style={styles.missionText}>{i18n.t( "inat_stats.about_inat" )}</Text>
-      </View>
-      {photoList.length !== 8 ? (
-        <View style={styles.photoContainer}>
-          <LoadingWheel color="black" />
+      <View style={styles.whiteContainer}>
+        <BackArrow green />
+        <View style={styles.logoContainer}>
+          <Image source={logos.wordmark} style={styles.logo} />
         </View>
-      ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}
-      <LoginCard />
+        <Image source={backgrounds.heatMap} style={styles.heatMap} />
+        <View style={styles.missionContainer}>
+          <GreenText smaller text="inat_stats.global_observations" />
+          <Image source={logos.bird} style={styles.bird} />
+          <Text style={styles.numberText}>{observations}</Text>
+          <GreenText smaller text="inat_stats.naturalists_worldwide" />
+          <Text style={styles.numberText}>{observers}</Text>
+          <Image
+            source={icons.iNatExplanation}
+            style={styles.explainImage}
+          />
+          <Text style={styles.missionHeaderText}>{i18n.t( "inat_stats.seek_data" )}</Text>
+          <Text style={styles.missionText}>{i18n.t( "inat_stats.about_inat" )}</Text>
+        </View>
+        {photoList.length !== 8 ? (
+          <View style={styles.photoContainer}>
+            <LoadingWheel color="black" />
+          </View>
+        ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}
+        <LoginCard />
+      </View>
     </ScrollNoHeader>
   );
 };

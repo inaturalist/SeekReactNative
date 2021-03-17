@@ -3,8 +3,6 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import type { GetPhotosParams } from "@react-native-community/cameraroll";
 
-import i18n from "../i18n";
-
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   const options: GetPhotosParams = {
     first: 28,

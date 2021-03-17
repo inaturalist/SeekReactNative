@@ -23,7 +23,7 @@ const checkBadgeEarned = ( realm, badge, observationsSeen ) => {
   if ( observationsSeen >= badge.count ) {
     createNewBadge( realm, badge );
   }
-}
+};
 
 const recalculateBadges = async ( ) => {
   const realm = await Realm.open( realmConfig );
@@ -52,9 +52,9 @@ const recalculateBadges = async ( ) => {
         checkBadgeEarned( realm, badge, collectedTaxa.length );
       }
     } );
-  } catch( e ) {
+  } catch ( e ) {
     console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", e );
-  };
+  }
 };
 
 const deleteBadges = () => {

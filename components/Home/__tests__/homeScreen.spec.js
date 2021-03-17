@@ -1,7 +1,7 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 
-import { UserContext } from "../../UserContext";
+// import { UserContext } from "../../UserContext";
 import HomeScreen from "../HomeScreen";
 
 jest.mock( "@react-navigation/native", ( ) => ( {

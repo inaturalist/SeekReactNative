@@ -14,6 +14,8 @@ import {
   differenceInHours,
   isSameMonth
 } from "date-fns";
+import TimeZone from "date-fns-tz";
+import * as RNLocalize from "react-native-localize";
 import {
   af,
   ar,
@@ -22,6 +24,7 @@ import {
   da,
   de,
   es,
+  enUS,
   eu,
   fi,
   fr,
@@ -102,7 +105,8 @@ const isWithin7Days = ( date: number ) => {
 const formatShortMonthDayYear = ( date: Date ) => format( date, "PP", setLocale( ) );
 
 const fetchSpeciesSeenDate = ( taxaId: number ) => (
-  new Promise<?string>( ( resolve ) => {
+  // $FlowFixMe
+  new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( ( t ) => t.id );
@@ -126,6 +130,17 @@ const serverBackOnlineTime = ( gmtTime: string ) => differenceInHours( new Date(
 const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSSS" );
 
 const setISOTime = ( time: number ) => formatISO( fromUnixTime( time ) );
+
+// format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
+// Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
+const formatGMTTimeWithTimeZone = ( date: any ) => {
+  const { utcToZonedTime } = TimeZone;
+
+  const timeZone = RNLocalize.getTimeZone( );
+  const zonedDate = utcToZonedTime( date, timeZone );
+  const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
+  return TimeZone.format( zonedDate, pattern, { timeZone, locale: enUS } );
+};
 
 const formatYearMonthDay = ( date: any ) => {
   if ( date && typeof date === "string" ) {
@@ -175,5 +190,6 @@ export {
   formatMonth,
   serverBackOnlineTime,
   isWithinCurrentMonth,
-  isAndroidDateInFuture
+  isAndroidDateInFuture,
+  formatGMTTimeWithTimeZone
 };

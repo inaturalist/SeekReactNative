@@ -3,7 +3,6 @@
 import React, { useReducer, useEffect, useCallback } from "react";
 import { View, Modal } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { formatISO } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
@@ -13,7 +12,7 @@ import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
 import CaptivePicker from "./Pickers/CaptivePicker";
 import PostModal from "./PostModal";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { setISOTime, isAndroidDateInFuture } from "../../utility/dateHelpers";
+import { setISOTime, isAndroidDateInFuture, formatGMTTimeWithTimeZone } from "../../utility/dateHelpers";
 import { useLocationName } from "../../utility/customHooks";
 import Notes from "./Notes";
 import LocationPickerCard from "./Pickers/LocationPickerCard";
@@ -28,7 +27,9 @@ const PostScreen = () => {
 
   const { taxaId, scientificName, commonName } = params;
 
-  const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
+  const initialDate = params.image.time
+    ? formatGMTTimeWithTimeZone( setISOTime( params.image.time ) )
+    : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -132,8 +133,10 @@ const PostScreen = () => {
   const handleDatePicked = ( selectedDate ) => {
     if ( selectedDate ) {
       const isFuture = isAndroidDateInFuture( selectedDate );
-      const newDate = isFuture ? formatISO( new Date( ) ) : formatISO( selectedDate );
-      updateObservation( "observed_on_string", newDate.toString( ) );
+      const newDate = isFuture
+        ? formatGMTTimeWithTimeZone( new Date( ) )
+        : formatGMTTimeWithTimeZone( selectedDate );
+      updateObservation( "observed_on_string", newDate );
     }
   };
 

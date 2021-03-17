@@ -27,7 +27,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
   const openModal = () => setShowModal( true );
   const closeModal = () => setShowModal( false );
 
-  const date = dateToDisplay && formatYearMonthDay( dateToDisplay );
+  // const date = dateToDisplay && formatYearMonthDay( dateToDisplay );
 
   const handlePicked = ( value ) => {
     handleDatePicked( value );
@@ -51,7 +51,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
           <Text style={styles.greenText}>
             {i18n.t( "posting.date" ).toLocaleUpperCase()}
           </Text>
-          <Text style={styles.text}>{date}</Text>
+          <Text style={styles.text}>{dateToDisplay}</Text>
         </View>
         {/* $FlowFixMe */}
         <Image

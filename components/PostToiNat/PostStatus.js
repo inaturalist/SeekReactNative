@@ -3,6 +3,7 @@
 import React from "react";
 import { Text, Image, StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postModal";
@@ -10,11 +11,8 @@ import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { useInternetStatus } from "../../utility/customHooks";
 
-type Props = {
-  closeModal: ( ) => void
-};
-
-const PostModal = ( { closeModal }: Props ) => {
+const PostStatus = ( ) => {
+  const navigation = useNavigation( );
   const internet = useInternetStatus( );
 
   const setHeaderText = ( ) => {
@@ -41,6 +39,8 @@ const PostModal = ( { closeModal }: Props ) => {
     }
   };
 
+  const navToMatch = ( ) => navigation.navigate( "Match" );
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -52,7 +52,7 @@ const PostModal = ( { closeModal }: Props ) => {
       </View>
       <View style={styles.greenButton}>
         <GreenButton
-          handlePress={closeModal}
+          handlePress={navToMatch}
           text="posting.ok"
         />
       </View>
@@ -60,4 +60,4 @@ const PostModal = ( { closeModal }: Props ) => {
   );
 };
 
-export default PostModal;
+export default PostStatus;

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useReducer, useEffect, useCallback } from "react";
-import { View, Modal } from "react-native";
+import { View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import styles from "../../styles/posting/postToiNat";
@@ -10,7 +10,6 @@ import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/l
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
 import CaptivePicker from "./Pickers/CaptivePicker";
-import PostModal from "./PostModal";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { setISOTime, isAndroidDateInFuture, formatGMTTimeWithTimeZone } from "../../utility/dateHelpers";
 import { useLocationName } from "../../utility/customHooks";
@@ -43,12 +42,10 @@ const PostScreen = () => {
           },
           observation: action.observation
         };
-      case "SHOW_MODAL":
-        return { ...state, show: true };
-      case "CLOSE_MODAL":
-        return { ...state, show: false };
       case "UPDATE_OBSERVATION":
         return { ...state, observation: action.observation };
+      case "BUTTON_DISABLED":
+        return { ...state, disabled: true };
       default:
         throw new Error( );
     }
@@ -70,10 +67,10 @@ const PostScreen = () => {
       name: scientificName,
       taxaId
     },
-    show: false
+    disabled: false
   } );
 
-  const { observation, taxon, show } = state;
+  const { observation, taxon, disabled } = state;
 
   const location = useLocationName( observation.latitude, observation.longitude );
 
@@ -114,8 +111,6 @@ const PostScreen = () => {
 
   }, [observation] );
 
-  const closeModal = useCallback( ( ) => dispatch( { type: "CLOSE_MODAL" } ), [] );
-
   const updateObservation = useCallback( ( key: string, value: any ) => dispatch( {
     type: "UPDATE_OBSERVATION",
     observation: {
@@ -148,19 +143,14 @@ const PostScreen = () => {
   }, [navigation, getLocation] );
 
   const saveObservation = ( ) => {
+    dispatch( { type: "BUTTON_DISABLED" } );
     saveObservationToRealm( observation, params.image.uri );
     savePostingSuccess( true );
-    dispatch( { type: "SHOW_MODAL" } );
+    navigation.navigate( "PostStatus" );
   };
 
   return (
     <ScrollWithHeader header="posting.header">
-      <Modal
-        onRequestClose={closeModal}
-        visible={show}
-      >
-        <PostModal closeModal={closeModal} />
-      </Modal>
       <PostingHeader
         taxon={taxon}
         image={params.image}
@@ -180,6 +170,7 @@ const PostScreen = () => {
         <GreenButton
           handlePress={saveObservation}
           text="posting.header"
+          disabled={disabled}
         />
       </View>
     </ScrollWithHeader>

@@ -44,7 +44,6 @@ const SpeciesBadges = ( { speciesBadges }: Props ) => {
     return (
       <TouchableOpacity
         onPress={() => fetchBadgesByIconicId( item.iconicTaxonId )}
-        style={styles.gridCell}
         accessible
         accessibilityLabel={i18n.t( item.infoText )}
         key={item.iconicTaxonId}

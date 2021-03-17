@@ -11,9 +11,10 @@ import {
 
 export default StyleSheet.create( {
   badgeIcon: {
-    height: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 ),
+    height: dimensions.width / 4,
     resizeMode: "contain",
-    width: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 )
+    width: dimensions.width / 4,
+    marginHorizontal: 6
   },
   center,
   container: {
@@ -22,11 +23,6 @@ export default StyleSheet.create( {
   },
   containerWhite: {
     backgroundColor: colors.white
-  },
-  gridCell: {
-    height: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 ),
-    marginHorizontal: 6,
-    width: dimensions.width < 455 ? ( dimensions.width / 4 ) : ( 455 / 4 )
   },
   gridRowWrap: {
     flexDirection: "row",

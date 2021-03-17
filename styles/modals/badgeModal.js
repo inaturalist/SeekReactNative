@@ -1,12 +1,18 @@
 // @flow
 
-import { StyleSheet, Dimensions, I18nManager } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  dimensions
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width } = dimensions;
+
+// from whiteModal.js styling
+const modalWidth = Math.min(
+  width > 350 ? width - width * 0.1 : width,
+  366 );
 
 const setImageWidth = () => {
   if ( width < 366 ) {
@@ -15,14 +21,8 @@ const setImageWidth = () => {
   return 366 / 2;
 };
 
-const setCarouselWidth = () => {
-  if ( width < 325 ) {
-    return width;
-  }
-  // Android Pixel XL has 411.5 width
-  // iPhone XS has 375 width
-  // iPhone SE has 320 width
-  return width - ( width * 0.1 );
+const setCarouselHorizontalMargins = ( ) => {
+  return ( modalWidth - setImageWidth( ) ) / 2;
 };
 
 export default StyleSheet.create( {
@@ -40,15 +40,14 @@ export default StyleSheet.create( {
     marginHorizontal: 41
   },
   carousel: {
-    alignItems: "center",
-    maxWidth: 366,
-    width: setCarouselWidth()
+    alignItems: "center"
   },
   image: {
-    height: setImageWidth(),
+    height: setImageWidth( ),
     justifyContent: "center",
     marginBottom: 25,
-    width: setImageWidth()
+    width: setImageWidth( ),
+    marginHorizontal: setCarouselHorizontalMargins( )
   },
   imageStyle: {
     resizeMode: "contain"

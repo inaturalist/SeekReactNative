@@ -79,7 +79,6 @@ const ChallengeBadges = () => {
     return (
       <TouchableOpacity
         onPress={openChallengeBadgeModal}
-        style={styles.gridCell}
         key={item.name}
       >
         <Image

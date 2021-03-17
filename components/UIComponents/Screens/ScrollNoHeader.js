@@ -23,7 +23,6 @@ const ScrollNoHeader = ( { children, showUploadCard }: Props ) => {
   useScrollToTop( scrollView, navigation );
 
   let backgroundColor;
-  console.log( name, "name of route" );
 
   if ( name === "Home" ) {
     backgroundColor = showUploadCard ? styles.darkGreen : styles.green;

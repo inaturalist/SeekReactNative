@@ -34,7 +34,7 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
     "@welldone-software/why-did-you-render": "^6.0.5",
-    "date-fns": "^2.17.0",
+    "date-fns": "^2.19.0",
     "i18n-js": "^3.8.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "piexifjs": "^1.0.6",

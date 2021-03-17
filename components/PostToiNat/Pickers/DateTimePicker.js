@@ -14,7 +14,6 @@ import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
-import { formatYearMonthDay } from "../../../utility/dateHelpers";
 
 type Props = {
   dateToDisplay: ?string,
@@ -27,7 +26,12 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
   const openModal = () => setShowModal( true );
   const closeModal = () => setShowModal( false );
 
-  // const date = dateToDisplay && formatYearMonthDay( dateToDisplay );
+  const displayDate = ( ) => {
+    if ( !dateToDisplay ) { return ""; }
+
+    const dayAndTime = dateToDisplay.split( ":" ).splice( 0, 2 ).join( ":" );
+    return dayAndTime;
+  };
 
   const handlePicked = ( value ) => {
     handleDatePicked( value );
@@ -51,7 +55,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
           <Text style={styles.greenText}>
             {i18n.t( "posting.date" ).toLocaleUpperCase()}
           </Text>
-          <Text style={styles.text}>{dateToDisplay}</Text>
+          <Text style={styles.text}>{displayDate( )}</Text>
         </View>
         {/* $FlowFixMe */}
         <Image

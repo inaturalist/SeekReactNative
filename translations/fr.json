@@ -26,6 +26,17 @@
     "view_all": " Afficher tous les défis",
     "new_join": "Ajoutez des observations à l'aide de la caméra de Seek pour gagner les badges de récompense !"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_to_upload": "{{count}} observations to upload",
+    "upload_now": "UPLOAD NOW",
+    "error_internet": "No internet detected. Please try again later.",
+    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+  },
   "notifications": {
     "header": " Notifications",
     "learn_more": " En savoir plus sur iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "Modifier l’emplacement",
     "save_location": "Enregistrer la localisation",
     "unknown": "Inconnu",
-    "posting": "Publier vos observations",
-    "posting_success": "Publié sur iNaturalist !",
-    "posting_failure": "La publication sur iNaturalist a échoué",
-    "error_photo_upload": "Votre observation a été publiée sur iNaturalist mais votre photo n'a malheureusement pas pu être téléchargée.\n\nEssayez de vous connecter sur le web ou l'application mobile iNaturalist pour consulter votre observation et ajouter une photo.",
-    "error_observation": "Votre observation n'a pas été postée sur iNaturalist. Vérifiez votre connexion internet et réessayez.",
-    "error_token": "Nous n'avons pas pu établir de connexion authentifiée au serveur d'iNaturalist. Veuillez réessayer plus tard.",
     "ok": "Ok",
-    "wait": "Cela peut prendre jusqu’à 60 secondes",
     "look_up": "Rechercher des espèces par nom"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "NO INTERNET!",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "Aide à la publication",

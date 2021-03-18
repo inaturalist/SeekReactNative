@@ -10,14 +10,17 @@ import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
+import { resetRouter } from "../../utility/navigationHelpers";
 import { colors } from "../../styles/global";
 
 const SideMenu = ( ) => {
-  const { navigate } = useNavigation();
+  const navigation = useNavigation( );
+  const { navigate } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
   // need the long version of this for QuickActions to Seek AR Camera
-  const navHome = ( ) => navigate( "MainTab", { screen: "Home" } );
+  // const navHome = ( ) => navigate( "MainTab", { screen: "Home" } );
+  const navHome = ( ) => resetRouter( navigation );
 
   const navToPath = ( path ) => {
     if ( path === "Home" ) {

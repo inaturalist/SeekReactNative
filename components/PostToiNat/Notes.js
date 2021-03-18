@@ -9,14 +9,14 @@ import i18n from "../../i18n";
 
 type Props = {
   description: ?string,
-  updateDescription: Function
+  updateObservation: ( string, string ) => void
 }
 
-const Notes = ( { description, updateDescription }: Props ) => (
+const Notes = ( { description, updateObservation }: Props ) => (
   <TextInput
     keyboardType="default"
     multiline
-    onChangeText={updateDescription}
+    onChangeText={text => updateObservation( "description", text )}
     placeholder={i18n.t( "posting.notes" )}
     placeholderTextColor={colors.placeholderGray}
     style={styles.inputField}

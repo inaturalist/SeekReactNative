@@ -11,6 +11,9 @@ export default StyleSheet.create( {
   containerWhite: {
     backgroundColor: colors.white
   },
+  darkGreen: {
+    backgroundColor: colors.speciesNearbyGreen
+  },
   green: {
     backgroundColor: colors.seekForestGreen
   },

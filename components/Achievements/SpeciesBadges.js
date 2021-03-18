@@ -27,6 +27,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` ).sorted( "index" );
+        console.log( badges, "badges in iconic id" );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
 
@@ -43,7 +44,6 @@ const SpeciesBadges = ( { speciesBadges }: Props ) => {
     return (
       <TouchableOpacity
         onPress={() => fetchBadgesByIconicId( item.iconicTaxonId )}
-        style={styles.gridCell}
         accessible
         accessibilityLabel={i18n.t( item.infoText )}
         key={item.iconicTaxonId}

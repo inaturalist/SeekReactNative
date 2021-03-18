@@ -56,7 +56,7 @@ const markNotificationsAsViewed = () => {
   } );
 };
 
-const isDuplicateNotification = ( realm, i ) => {
+const isDuplicateNotification = ( realm: any, i: number ) => {
   const notification = realm.objects( "NotificationRealm" )
     .filtered( `title == "notifications.new_challenge" AND challengeIndex == ${i}` );
   if ( notification.length > 0 ) {

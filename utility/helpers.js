@@ -220,10 +220,6 @@ const localizeNumber = ( number: number ) => {
 
 const localizePercentage = ( number: number ) => i18n.toPercentage( number, { precision: 0 } );
 
-const navigateToMainStack = ( navigate: Function, screen: string, params: Object ) => {
-  navigate( "Drawer", { screen: "Main", params: { screen, params } } );
-};
-
 const hideLogs = () => {
   LogBox.ignoreLogs( [
     "Picker has been extracted",
@@ -249,7 +245,6 @@ const handleServerError = ( error: {
   if ( response.status && response.status === 503 ) {
     const gmtTime = response.headers.map["retry-after"];
     const hours = serverBackOnlineTime( gmtTime );
-    console.log( hours, "hours" );
     return hours;
   }
   return "error";
@@ -272,7 +267,6 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  navigateToMainStack,
   hideLogs,
   handleServerError
 };

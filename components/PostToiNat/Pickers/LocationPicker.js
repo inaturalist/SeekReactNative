@@ -23,8 +23,8 @@ const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = 0.005;
 
 type Props = {
-  +latitude: number,
-  +longitude: number,
+  +latitude: ?number,
+  +longitude: ?number,
   +updateLocation: Function,
   +closeLocationPicker: Function
 }

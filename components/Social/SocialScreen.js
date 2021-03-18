@@ -249,42 +249,44 @@ const SocialScreen = ( ) => {
 
   return (
     <ScrollNoHeader>
-      <Modal
-        onRequestClose={closeModal}
-        visible={showModal}
-      >
-        <CropScreen
-          saveCrop={saveCrop}
-          uri={absoluteFilePath}
-          cropViewRef={cropViewRef}
-          handleImageCrop={handleImageCrop}
-          closeModal={closeModal}
-        />
-      </Modal>
-      <View style={styles.header}>
-        <BackArrow green />
-        <View style={styles.headerText}>
-          <GreenText allowFontScaling={false} smaller text="social.share_observation" />
-        </View>
-        <View />
-      </View>
-      <SocialTabs tab={tab} toggleTab={toggleTab} />
-      {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
-      {!noWatermark && (
-        <>
-          <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
-          <View style={[styles.row, styles.checkboxRow]}>
-            <Checkbox
-              checkBoxColor={colors.checkboxColor}
-              isChecked={showWatermark}
-              onClick={toggleWatermark}
-              style={styles.checkbox}
-            />
-            <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
+      <View style={styles.whiteContainer}>
+        <Modal
+          onRequestClose={closeModal}
+          visible={showModal}
+        >
+          <CropScreen
+            saveCrop={saveCrop}
+            uri={absoluteFilePath}
+            cropViewRef={cropViewRef}
+            handleImageCrop={handleImageCrop}
+            closeModal={closeModal}
+          />
+        </Modal>
+        <View style={styles.header}>
+          <BackArrow green />
+          <View style={styles.headerText}>
+            <GreenText allowFontScaling={false} smaller text="social.share_observation" />
           </View>
-        </>
-      )}
-      <SocialButtons image={imageForSharing} tab={tab} disabled={disabled} />
+          <View />
+        </View>
+        <SocialTabs tab={tab} toggleTab={toggleTab} />
+        {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
+        {!noWatermark && (
+          <>
+            <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
+            <View style={[styles.row, styles.checkboxRow]}>
+              <Checkbox
+                checkBoxColor={colors.checkboxColor}
+                isChecked={showWatermark}
+                onClick={toggleWatermark}
+                style={styles.checkbox}
+              />
+              <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
+            </View>
+          </>
+        )}
+        <SocialButtons image={imageForSharing} tab={tab} disabled={disabled} />
+      </View>
     </ScrollNoHeader>
   );
 };

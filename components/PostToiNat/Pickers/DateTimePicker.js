@@ -17,7 +17,7 @@ import DateTimePicker from "../../UIComponents/DateTimePicker";
 
 type Props = {
   dateToDisplay: ?string,
-  handleDatePicked: Function
+  handleDatePicked: ( Date ) => void
 }
 
 const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
@@ -26,19 +26,28 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
   const openModal = () => setShowModal( true );
   const closeModal = () => setShowModal( false );
 
+  const displayDate = ( ) => {
+    if ( !dateToDisplay ) { return ""; }
+
+    const dayAndTime = dateToDisplay.split( ":" ).splice( 0, 2 ).join( ":" );
+    return dayAndTime;
+  };
+
+  const handlePicked = ( value ) => {
+    handleDatePicked( value );
+    closeModal();
+  };
+
   return (
     <>
       <DateTimePicker
         datetime
         isDateTimePickerVisible={showModal}
-        onDatePicked={( value ) => {
-          handleDatePicked( value );
-          closeModal();
-        }}
+        onDatePicked={handlePicked}
         toggleDateTimePicker={closeModal}
       />
       <TouchableOpacity
-        onPress={() => openModal()}
+        onPress={openModal}
         style={styles.thinCard}
       >
         <Image source={posting.date} />
@@ -46,7 +55,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
           <Text style={styles.greenText}>
             {i18n.t( "posting.date" ).toLocaleUpperCase()}
           </Text>
-          <Text style={styles.text}>{dateToDisplay}</Text>
+          <Text style={styles.text}>{displayDate( )}</Text>
         </View>
         {/* $FlowFixMe */}
         <Image

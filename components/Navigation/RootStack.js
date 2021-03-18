@@ -13,6 +13,7 @@ import Wikipedia from "../Species/WikipediaView";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
+import PostStatus from "../PostToiNat/PostStatus";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";
@@ -61,6 +62,12 @@ const notificationsConfig = {
   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
 };
 
+const drawerConfig = {
+  headerShown: false,
+  // this is off for resetting screen from AR Camera
+  animationEnabled: false
+};
+
 const screenOptions = { gestureEnabled: false };
 
 const Stack = createStackNavigator( );
@@ -82,7 +89,7 @@ const App = ( ) => (
         <Stack.Screen
           name="Drawer"
           component={Drawer}
-          options={defaultConfig}
+          options={drawerConfig}
         />
         <Stack.Screen
           name="Camera"
@@ -107,6 +114,11 @@ const App = ( ) => (
         <Stack.Screen
           name="Post"
           component={Post}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="PostStatus"
+          component={PostStatus}
           options={defaultConfig}
         />
         <Stack.Screen

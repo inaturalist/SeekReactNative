@@ -3,7 +3,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import FooterTabNav from "./FooterTabs";
-// import Match from "../Match/MatchScreen";
 
 const Stack = createStackNavigator();
 

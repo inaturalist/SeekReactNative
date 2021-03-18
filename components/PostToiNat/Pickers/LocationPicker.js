@@ -46,6 +46,7 @@ const LocationPicker = ( {
       ( sizeOfCrossHairIcon / width / 2 ) * 100
     );
 
+    // $FlowFixMe
     setRegion( newRegion );
     setAccuracy( estimatedAccuracy );
   };

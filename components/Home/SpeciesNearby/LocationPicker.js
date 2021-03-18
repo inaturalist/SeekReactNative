@@ -84,6 +84,7 @@ const LocationPicker = ( {
       reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
     }
 
+    // $FlowFixMe
     setRegion( newRegion );
   };
 

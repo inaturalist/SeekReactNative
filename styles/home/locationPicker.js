@@ -91,19 +91,5 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     tintColor: colors.white,
     width: 14
-  },
-  errorContainer: {
-    backgroundColor: colors.black,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  errorText: { // same as camera error text
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
-    marginHorizontal: 41,
-    textAlign: "center"
   }
 } );

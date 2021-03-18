@@ -13,6 +13,7 @@ import iNatStats from "../iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings/Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
+import Match from "../Match/MatchScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -77,6 +78,9 @@ const SideMenuDrawer = () => (
     <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
     <Drawer.Screen name="About" component={AboutFooter} />
     <Drawer.Screen name="Settings" component={SettingsFooter} />
+    {/* MatchScreen needs to be nested inside Drawer because it has
+    a footer with navigation.openDrawer( ) that won't work otherwise */}
+    <Drawer.Screen name="Match" component={Match} />
   </Drawer.Navigator>
 );
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import MapView, { PROVIDER_DEFAULT, Marker } from "react-native-maps";
+import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
 import styles from "../../../styles/home/locationPicker";
 import icons from "../../../assets/icons";
@@ -11,10 +11,14 @@ import i18n from "../../../i18n";
 
 type Props = {
   region: {
-    latitude?: number,
-    longitude?: number
+    latitude?: ?number,
+    longitude?: ?number
   },
-  onRegionChange: ( ) => void,
+  onRegionChange: ( {
+    latitude: number,
+    longitude: number,
+    longitudeDelta: number
+  } ) => void,
   returnToUserLocation: ( ) => void,
   posting?: boolean
 }

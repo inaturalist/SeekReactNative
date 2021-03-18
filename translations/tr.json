@@ -26,6 +26,17 @@
     "view_all": "Tüm mücadeleleri gör",
     "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_to_upload": "{{count}} observations to upload",
+    "upload_now": "UPLOAD NOW",
+    "error_internet": "No internet detected. Please try again later.",
+    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+  },
   "notifications": {
     "header": "Bildirimler",
     "learn_more": "iNaturalist hakkında daha fazlasını öğren",
@@ -535,15 +546,14 @@
     "edit_location": "Konumu düzenle",
     "save_location": "Konumu kaydet",
     "unknown": "Bilinmiyor",
-    "posting": "Gözlemini gönder",
-    "posting_success": "iNaturalist'e gönderildi!",
-    "posting_failure": "iNaturalist'e gönderme başarısız",
-    "error_photo_upload": "Gözleminiz iNaturalist'e gönderildi, ancak fotoğrafınız maalesef karşıya yüklenemedi.\n\nGözleminizi görüntülemek ve bir fotoğraf eklemek için iNaturalist web veya mobil uygulamasına giriş yapmayı deneyin.",
-    "error_observation": "Gözleminiz iNaturalist'e gönderilmedi. İnternet bağlantınızı kontrol edin ve tekrar deneyin.",
-    "error_token": "iNaturalist sunucusuyla kimliği doğrulanmış bir bağlantı kuramadık. Lütfen daha sonra tekrar deneyin.",
     "ok": "Tamam",
-    "wait": "Bu birkaç dakika sürebilir",
     "look_up": "Adına göre bir türe bak"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "NO INTERNET!",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "Gönderi Yardımı",

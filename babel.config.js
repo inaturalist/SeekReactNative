@@ -5,8 +5,7 @@ module.exports = ( api ) => {
   ];
   const plugins = [
     "transform-remove-console",
-    "@babel/plugin-transform-flow-strip-types",
-    "plugin:react-native-a11y/all"
+    "@babel/plugin-transform-flow-strip-types"
   ];
 
   if ( api.env( "production" ) ) {

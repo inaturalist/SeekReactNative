@@ -92,13 +92,13 @@ const RangeMap = () => {
         )}
         {user.latitude && (
           <Marker coordinate={{ latitude: user.latitude, longitude: user.longitude }}>
-            <Image source={icons.locationPin} style={styles.margin} />
+            <Image source={icons.locationPin} />
           </Marker>
         )}
       </MapView>
       <TouchableOpacity
         onPress={openModal}
-        style={[styles.legend, styles.legendPosition]}
+        style={styles.legend}
       >
         <Text style={styles.whiteText}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
@@ -106,8 +106,10 @@ const RangeMap = () => {
       </TouchableOpacity>
       {user.latitude && (
         <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.user_location" )}
+          accessible
           onPress={updateMap}
-          style={[styles.locationIcon, styles.userLocation]}
+          style={styles.locationIcon}
         >
           <Image source={icons.indicator} />
         </TouchableOpacity>

@@ -1,12 +1,8 @@
 // @flow
 
-import React, {
-  useState,
-  useEffect,
-  useCallback
-} from "react";
-import { View, BackHandler } from "react-native";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import React, { useState, useEffect, useCallback } from "react";
+import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
@@ -28,19 +24,6 @@ const Observations = () => {
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
   const [searchText, setSearchText] = useState( "" );
-
-  useFocusEffect(
-    useCallback( () => {
-      const onBackPress = () => {
-        navigation.navigate( "Home" );
-        return true; // following custom Android back behavior template in React Navigation
-      };
-
-      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
-
-      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
-    }, [navigation] )
-  );
 
   const openModal = useCallback( ( photo, taxon ) => {
     const { id, preferredCommonName, name, iconicTaxonId } = taxon;

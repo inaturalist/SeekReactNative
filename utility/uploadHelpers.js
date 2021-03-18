@@ -40,8 +40,20 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
+    if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+      return {
+        error: {
+          type: "downtime",
+          errorText: e,
+          numOfHours: handleServerError( e )
+        }
+      };
+    }
     return {
-      error: handleServerError( e )
+      error: {
+        type: "login",
+        errorText: e
+      }
     };
   }
 };
@@ -64,7 +76,12 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
     await inatjs.observation_photos.create( photoParams, options );
     return true;
   } catch ( e ) {
-    return false;
+    return {
+      error: {
+        type: "photo",
+        errorText: e
+      }
+    };
   }
 };
 
@@ -77,7 +94,7 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
     saveUploadSucceeded( id );
     return true;
   }
-  return false;
+  return photoUpload;
 };
 
 // const checkForIncompleteUploads = async ( login: string ) => {
@@ -151,11 +168,20 @@ const uploadObservation = async ( observation: {
   }
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
-  const response = await inatjs.observations.create( params, options );
-  const { id } = response[0];
+  try {
+    const response = await inatjs.observations.create( params, options );
+    const { id } = response[0];
 
-  const photo: Object = await saveObservationId( id, observation.photo );
-  return await uploadPhoto( photo, token );
+    const photo: Object = await saveObservationId( id, observation.photo );
+    return await uploadPhoto( photo, token );
+  } catch ( e ) {
+    return {
+      error: {
+        type: "observation",
+        errorText: e
+      }
+    };
+  }
 };
 
 const saveObservationToRealm = async ( observation: {

@@ -124,7 +124,9 @@ def pass = getPassword("iNaturalist.org","inaturalist-android")
  * give correct results when using with locales other than en-US.  Note that
  * this variant is about 6MiB larger per architecture than default.
  */
-def jscFlavor = 'org.webkit:android-jsc:+'
+// def jscFlavor = 'org.webkit:android-jsc:+'
+// adding international version for timezone support with date-fns-tz in posting to iNat
+def jscFlavor = 'org.webkit:android-jsc-intl:+'
 
 /**
  * Whether to enable the Hermes VM.
@@ -147,7 +149,7 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 172
+        versionCode 173
         versionName "2.12.0"
         // for creating ic_seek_adaptiveappicon.xml
         vectorDrawables.useSupportLibrary = true

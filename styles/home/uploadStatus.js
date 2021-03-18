@@ -58,5 +58,16 @@ export default StyleSheet.create( {
     lineHeight: 24,
     paddingRight: 15,
     maxWidth: 236
+  },
+  greenButton: {
+    marginTop: 20
+  },
+  errorText: {
+    marginTop: 20,
+    textAlign: "center",
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 16,
+    lineHeight: 24
   }
 } );

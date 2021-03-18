@@ -41,6 +41,8 @@ const CameraSettings = () => {
 
   const switchTrackColor = { true: colors.seekForestGreen };
 
+  const handleRadioButtonPress = ( value ) => updateIndex( value );
+
   return (
     <>
       <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
@@ -49,8 +51,6 @@ const CameraSettings = () => {
           <RadioButton
             key={`${obj.label}${i}`}
             style={styles.radioMargin}
-            accessible
-            accessibilityLabel={`${radioButtons[i].label},${i}`}
           >
             <RadioButtonInput
               obj={obj}
@@ -58,21 +58,23 @@ const CameraSettings = () => {
               isSelected={
                 ( i === 0 && !scientificNames ) || ( i === 1 && scientificNames )
               }
-              onPress={( value ) => updateIndex( value )}
+              onPress={handleRadioButtonPress}
               borderWidth={1}
               buttonInnerColor={colors.seekForestGreen}
               buttonOuterColor={colors.seekForestGreen}
               buttonSize={12}
               buttonOuterSize={20}
+              accessible
+              accessibilityLabel={radioButtons[i].value.toString( )}
             />
             <RadioButtonLabel
               obj={obj}
               index={i}
-              onPress={( value ) => updateIndex( value )}
+              onPress={handleRadioButtonPress}
               labelHorizontal
               labelStyle={styles.text}
               accessible
-              accessibilityLabel={`${radioButtons[i].label}`}
+              accessibilityLabel={radioButtons[i].label}
             />
           </RadioButton>
         ) )}

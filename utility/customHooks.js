@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import Realm from "realm";
+import NetInfo from "@react-native-community/netinfo";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -44,7 +45,7 @@ const useScrollToTop = (
   }, [route, navigation, scrollToTop] );
 };
 
-const useLocationName = ( latitude: number, longitude: number ) => {
+const useLocationName = ( latitude: ?number, longitude: ?number ) => {
   const [location, setLocation] = useState( null );
 
   useEffect( () => {
@@ -282,6 +283,33 @@ const useRegion = ( coords: ?{ latitude: number, longitude: number }, seenTaxa: 
   return region;
 };
 
+const useInternetStatus = ( ) => {
+  const [internet, setInternet] = useState( true );
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    const checkForInternet = async ( ) => {
+      const { type } = await NetInfo.fetch( );
+
+      if ( isCurrent ) {
+        if ( type === "none" || type === "unknown" ) {
+          setInternet( false );
+        } else {
+          setInternet( true );
+        }
+      }
+    };
+
+    checkForInternet( );
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [] );
+
+  return internet;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -290,5 +318,6 @@ export {
   useCommonName,
   useTruncatedUserCoords,
   useSeenTaxa,
-  useRegion
+  useRegion,
+  useInternetStatus
 };

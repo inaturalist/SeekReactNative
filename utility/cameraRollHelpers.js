@@ -3,8 +3,6 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import type { GetPhotosParams } from "@react-native-community/cameraroll";
 
-import i18n from "../i18n";
-
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   const options: GetPhotosParams = {
     first: 28,
@@ -31,9 +29,9 @@ const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ) => {
   return photos;
 };
 
-const checkForUniquePhotos = ( seen, assets ) => {
+const checkForUniquePhotos = ( seen: Set<Object>, assets: Array<Object> ) => {
   // from cameraroll example: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/7fa9b7c062c166cd94e62b4ab5d1f7b5f663c9a0/example/js/CameraRollView.js#L177
-  const uniqAssets = assets.map( asset => {
+  const uniqAssets: Array<Object> = assets.map( asset => {
     let value = asset.node.image.uri;
     if ( seen.has( value ) ) {
       return;
@@ -44,7 +42,7 @@ const checkForUniquePhotos = ( seen, assets ) => {
   return uniqAssets;
 };
 
-const fetchAlbums = async ( cameraRoll ) => {
+const fetchAlbums = async ( cameraRoll: Array<Object> ) => {
   try {
     const names = cameraRoll;
     const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );

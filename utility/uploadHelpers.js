@@ -5,30 +5,17 @@ import inatjs, { FileUpload } from "inaturalistjs";
 import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
-
-const saveIdAndUploadStatus = async ( id: number, uri: string, uuid: string ) => {
-  const realm = await Realm.open( realmConfig );
-  try {
-    realm.write( ( ) => {
-      realm.create( "UploadPhotoRealm", {
-        id,
-        uri,
-        uploadSucceeded: false,
-        uuid
-      }, true );
-    } );
-  } catch ( e ) {
-    console.log( "couldn't save id and upload status to UploadPhotoRealm", e );
-  }
-};
+import { createUUID } from "./observationHelpers";
+import { fetchAccessToken } from "./loginHelpers";
+import { handleServerError } from "./helpers";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
-  const observation = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
+  const photo = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
 
   try {
     realm.write( ( ) => {
-      observation.uploadSucceeded = true;
+      photo.uploadSucceeded = true;
     } );
   } catch ( e ) {
     console.log( "couldn't set succeeded status: ", e );
@@ -53,11 +40,26 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
-    return null;
+    if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+      return {
+        error: {
+          type: "downtime",
+          errorText: e,
+          numOfHours: handleServerError( e )
+        }
+      };
+    }
+    return {
+      error: {
+        type: "login",
+        errorText: e
+      }
+    };
   }
 };
 
-const appendPhotoToObservation = async ( id: number, token: string, uri: string, uuid: string ) => {
+const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, token: string, uri: string ) => {
+  const { id, uuid } = photo;
   const photoParams = {
     "observation_photo[observation_id]": id,
     "observation_photo[uuid]": uuid,
@@ -74,44 +76,221 @@ const appendPhotoToObservation = async ( id: number, token: string, uri: string,
     await inatjs.observation_photos.create( photoParams, options );
     return true;
   } catch ( e ) {
-    return false;
+    return {
+      error: {
+        type: "photo",
+        errorText: e
+      }
+    };
   }
 };
 
-const uploadPhoto = async ( uri: string, id: number, token: string, uuid: string ) => {
+const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ) => {
+  const { uri, id } = photo;
   const resizedPhoto = await resizeImageForUpload( uri );
-  const reUpload = await appendPhotoToObservation( id, token, resizedPhoto, uuid );
+  const photoUpload = await appendPhotoToObservation( photo, token, resizedPhoto );
 
-  if ( reUpload === true ) {
+  if ( photoUpload === true ) {
     saveUploadSucceeded( id );
     return true;
   }
-  return false;
+  return photoUpload;
 };
 
-const checkForIncompleteUploads = async ( login: string ) => {
+// const checkForIncompleteUploads = async ( login: string ) => {
+//   const realm = await Realm.open( realmConfig );
+//   try {
+//     const uploads = realm.objects( "UploadPhotoRealm" );
+//     const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
+
+//     if ( unsuccessfulUploads.length === 0 ) { return; }
+
+//     const token = await fetchJSONWebToken( login );
+//     if ( token === null ) { return; }
+
+//     unsuccessfulUploads.forEach( ( photo ) => {
+//       uploadPhoto( photo, token );
+//     } );
+//   } catch ( e ) {
+//     console.log( e, " : couldn't check for incomplete uploads" );
+//   }
+// };
+
+const saveObservationId = async ( id: number, photo: Object ) => {
   const realm = await Realm.open( realmConfig );
   try {
-    const uploads = realm.objects( "UploadPhotoRealm" );
-    const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
-
-    if ( unsuccessfulUploads.length === 0 ) { return; }
-
-    const token = await fetchJSONWebToken( login );
-    if ( token === null ) { return; }
-
-    unsuccessfulUploads.forEach( ( photo ) => {
-      uploadPhoto( photo.uri, photo.id, token, photo.uuid );
+    realm.write( ( ) => {
+      photo.id = id;
     } );
+    return photo;
   } catch ( e ) {
-    console.log( e, " : couldn't check for incomplete uploads" );
+    console.log( "couldn't save id to UploadPhotoRealm", e );
   }
 };
 
+const uploadObservation = async ( observation: {
+  uuid: string,
+  observed_on_string: ?string,
+  taxon_id: ?number,
+  geoprivacy: string,
+  captive_flag: boolean,
+  place_guess: ?string,
+  latitude: ?number,
+  longitude: ?number,
+  positional_accuracy: ?number,
+  description: ?string,
+  photo: Object
+} ) => {
+  const login = await fetchAccessToken( );
+  const params = {
+    // realm doesn't let you use spread operator, apparently
+    observation: {
+      uuid: observation.uuid,
+      observed_on_string: observation.observed_on_string,
+      taxon_id: observation.taxon_id,
+      geoprivacy: observation.geoprivacy,
+      captive_flag: observation.captive_flag,
+      place_guess: observation.place_guess,
+      latitude: observation.latitude,
+      longitude: observation.longitude,
+      positional_accuracy: observation.positional_accuracy,
+      description: observation.description,
+      // this shows that the id is recommended by computer vision
+      owners_identification_from_vision_requested: true
+    }
+  };
+
+  const token = await fetchJSONWebToken( login );
+
+  // catch server downtime error
+  if ( typeof token === "object" ) {
+    return token;
+  }
+  const options = { api_token: token, user_agent: createUserAgent( ) };
+
+  try {
+    const response = await inatjs.observations.create( params, options );
+    const { id } = response[0];
+
+    const photo: Object = await saveObservationId( id, observation.photo );
+    return await uploadPhoto( photo, token );
+  } catch ( e ) {
+    return {
+      error: {
+        type: "observation",
+        errorText: e
+      }
+    };
+  }
+};
+
+const saveObservationToRealm = async ( observation: {
+  observed_on_string: ?string,
+  taxon_id: ?number,
+  geoprivacy: string,
+  captive_flag: boolean,
+  place_guess: ?string,
+  latitude: ?number,
+  longitude: ?number,
+  positional_accuracy: ?number,
+  description: ?string
+}, uri: string ) => {
+  const realm = await Realm.open( realmConfig );
+  const uuid = await createUUID( );
+  const photoUUID = await createUUID( );
+
+  try {
+    realm.write( ( ) => {
+      const photo = realm.create( "UploadPhotoRealm", {
+        uri,
+        uploadSucceeded: false,
+        uuid: photoUUID,
+        notificationShown: false
+      } );
+      realm.create( "UploadObservationRealm", {
+        ...observation,
+        uuid,
+        photo
+      }, true );
+    } );
+
+    const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${uuid}'` )[0];
+    return uploadObservation( latestObs );
+  } catch ( e ) {
+    console.log( "couldn't save observation to UploadObservationRealm", e );
+  }
+};
+
+const checkForNumSuccessfulUploads = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+
+  return realm.objects( "UploadPhotoRealm" )
+    .filtered( "uploadSucceeded == true AND notificationShown == false" ).length;
+};
+
+const markUploadsAsSeen = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+  const uploads = realm.objects( "UploadPhotoRealm" );
+
+  try {
+    uploads.forEach( upload => {
+      if ( upload.uploadSucceeded === true && upload.notificationShown === false ) {
+        realm.write( ( ) => {
+          upload.notificationShown = true;
+        } );
+      }
+    } );
+  } catch ( e ) {
+    console.log( "couldn't mark uploads as seen in UploadPhotoRealm", e );
+  }
+};
+
+const markCurrentUploadAsSeen = async ( upload: {
+  photo: {
+    notificationShown: boolean
+  }
+} ) => {
+  const realm = await Realm.open( realmConfig );
+
+  try {
+    if ( upload.photo.notificationShown === false ) {
+      realm.write( ( ) => {
+        upload.photo.notificationShown = true;
+      } );
+    }
+  } catch ( e ) {
+    console.log( "couldn't mark current upload as seen", e );
+  }
+};
+
+const checkForUploads = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+  return realm.objects( "UploadObservationRealm" );
+};
+
+const createFakeUploadData = ( ) => {
+  return {
+    "captive_flag": false,
+    "description": null,
+    "geoprivacy": "open",
+    "latitude": 37.838835309609536,
+    "longitude": -122.30571209495892,
+    "observed_on_string": "2021-03-11T10:26:38-08:00",
+    "place_guess": "Emeryville",
+    "positional_accuracy": 65,
+    "taxon_id": 366346
+  };
+};
+
 export {
-  saveIdAndUploadStatus,
-  saveUploadSucceeded,
-  checkForIncompleteUploads,
+  // checkForIncompleteUploads,
   resizeImageForUpload,
-  fetchJSONWebToken
+  fetchJSONWebToken,
+  saveObservationToRealm,
+  checkForNumSuccessfulUploads,
+  markUploadsAsSeen,
+  createFakeUploadData,
+  checkForUploads,
+  uploadObservation,
+  markCurrentUploadAsSeen
 };

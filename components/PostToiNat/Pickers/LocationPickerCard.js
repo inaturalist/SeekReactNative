@@ -18,11 +18,14 @@ import LocationPicker from "./LocationPicker";
 
 type Props = {
   location: ?string,
-  updateLocation: Function,
-  image: Object
+  updateLocation: ( ) => void,
+  observation: {
+    latitude: ?number,
+    longitude: ?number
+  }
 }
 
-const LocationPickerCard = ( { location, updateLocation, image }: Props ) => {
+const LocationPickerCard = ( { location, updateLocation, observation }: Props ) => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = () => setShowModal( true );
@@ -35,8 +38,8 @@ const LocationPickerCard = ( { location, updateLocation, image }: Props ) => {
         visible={showModal}
       >
         <LocationPicker
-          latitude={image.latitude}
-          longitude={image.longitude}
+          latitude={observation.latitude}
+          longitude={observation.longitude}
           closeLocationPicker={closeModal}
           updateLocation={updateLocation}
         />

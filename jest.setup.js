@@ -13,8 +13,8 @@ jest.mock( "@react-navigation/native", () => ( {
   useNavigation: jest.fn( () => ( {
     addListener: jest.fn(),
     navigate: jest.fn()
-  } ) )
-  // useRoute: jest.fn().mockReturnValue( { name: "About" } )
+  } ) ),
+  useFocusEffect: jest.fn()
 } ) );
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );

@@ -9,6 +9,14 @@ beforeEach( () => {
   fetch.resetMocks();
 } );
 
+jest.mock( "@react-navigation/native", ( ) => ( {
+  useNavigation: jest.fn( () => ( {
+    addListener: jest.fn(),
+    navigate: jest.fn()
+  } ) ),
+  useRoute: jest.fn( ).mockReturnValue( { name: "Login" } )
+} ) );
+
 describe( "ForgotPassword", () => {
   describe( "clicking submit for valid email", () => {
     const testEmail = "123@me.com";

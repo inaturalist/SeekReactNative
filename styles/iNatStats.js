@@ -78,5 +78,8 @@ export default StyleSheet.create( {
   },
   photoContainer: {
     height: 375
+  },
+  whiteContainer: {
+    backgroundColor: colors.white
   }
 } );

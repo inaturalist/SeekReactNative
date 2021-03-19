@@ -17,10 +17,9 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSButtonPadding
   },
   container: {
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     backgroundColor: colors.seekForestGreen
-  },
-  greenMargin: {
-    marginBottom: 20
   },
   header: {
     marginBottom: 22,

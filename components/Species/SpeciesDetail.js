@@ -159,7 +159,6 @@ const SpeciesDetail = ( ) => {
       } );
     } ).catch( ( err ) => {
       const errorType = handleServerError( err );
-      console.log( errorType, "error type" );
       checkInternetConnection( );
      } );
   }, [id, checkInternetConnection] );

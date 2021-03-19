@@ -105,20 +105,18 @@ const SpeciesNearby = () => {
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );
 
   return (
-    <>
-      <View style={styles.container}>
-        <Text style={[styles.headerText, styles.header]}>
-          {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
-        </Text>
-        <LocationPickerButton
-          latLng={latLng}
-          updateLatLng={updateLatLng}
-          disabled={disabled}
-          location={locationText}
-        />
-        <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
-        <View style={styles.marginBottom} />
-      </View>
+    <View style={styles.container}>
+      <Text style={[styles.headerText, styles.header]}>
+        {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+      </Text>
+      <LocationPickerButton
+        latLng={latLng}
+        updateLatLng={updateLatLng}
+        disabled={disabled}
+        location={locationText}
+      />
+      <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
+      <View style={styles.marginBottom} />
       {error ? (
         <Error
           error={error}
@@ -134,8 +132,7 @@ const SpeciesNearby = () => {
           updateDowntimeError={updateDowntimeError}
         />
       )}
-      <View style={styles.greenMargin} />
-    </>
+    </View>
   );
 };
 

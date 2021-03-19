@@ -9,8 +9,8 @@ import { colors } from "../../../styles/global";
 import styles from "../../../styles/camera/gallery";
 import icons from "../../../assets/icons";
 import AlbumPicker from "./AlbumPicker";
-import { navigateToMainStack } from "../../../utility/helpers";
 import { fetchAlbums } from "../../../utility/cameraRollHelpers";
+import { resetRouter } from "../../../utility/navigationHelpers";
 
 type Props = {
   updateAlbum: ( ?string ) => mixed
@@ -22,7 +22,7 @@ const cameraRoll = [{
 }];
 
 const GalleryHeader = ( { updateAlbum }: Props ) => {
-  const { navigate } = useNavigation( );
+  const navigation = useNavigation( );
 
   const [albumNames, setAlbumNames] = useState( cameraRoll );
 
@@ -34,7 +34,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
     }
   }, [albumNames] );
 
-  const handleBackNav = useCallback( ( ) => navigateToMainStack( navigate, "Home" ), [navigate] );
+  const handleBackNav = useCallback( ( ) => resetRouter( navigation ), [navigation] );
 
   return (
     <View style={[styles.header, styles.center]}>

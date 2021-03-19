@@ -34,12 +34,12 @@ languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE',
 
 # bug fix
 release_notes({
-  'en-US' => "Bug fixes and translation updates",
-  'fi' => "Bug fixes and translation updates",
-  'ja' => "Bug fixes and translation updates",
-  'no' => "Bug fixes and translation updates",
-  'tr' => "Bug fixes and translation updates",
-  'zh-Hant' => "Bug fixes and translation updates",
+  'en-US' => "Bug fixes and improved posting to iNaturalist upload flow",
+  'fi' => "Bug fixes and improved posting to iNaturalist upload flow",
+  'ja' => "Bug fixes and improved posting to iNaturalist upload flow",
+  'no' => "Bug fixes and improved posting to iNaturalist upload flow",
+  'tr' => "Bug fixes and improved posting to iNaturalist upload flow",
+  'zh-Hant' => "Bug fixes and improved posting to iNaturalist upload flow",
   'ar-SA' => "إصلاح الأخطاء",
   'ca' => "Errades corregides",
   'cs' => "Opravy chyb",

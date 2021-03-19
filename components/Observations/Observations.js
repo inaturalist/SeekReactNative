@@ -20,6 +20,7 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import ObsList from "./ObsList";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
+import { resetRouter } from "../../utility/navigationHelpers";
 
 const Observations = () => {
   const navigation = useNavigation();
@@ -32,7 +33,7 @@ const Observations = () => {
   useFocusEffect(
     useCallback( () => {
       const onBackPress = () => {
-        navigation.navigate( "Home" );
+        resetRouter( navigation );
         return true; // following custom Android back behavior template in React Navigation
       };
 

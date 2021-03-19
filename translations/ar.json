@@ -26,6 +26,17 @@
     "view_all": "تصفح جميع التحديات",
     "new_join": "فم بإضافة الملاحظات لكاميرا Seek للحصول على شارة التحدي!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_to_upload": "{{count}} observations to upload",
+    "upload_now": "UPLOAD NOW",
+    "error_internet": "No internet detected. Please try again later.",
+    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+  },
   "notifications": {
     "header": "الإشعارات",
     "learn_more": "تعرف على المزيد حول iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "تعديل الموقع",
     "save_location": "حفظ الموقع",
     "unknown": "غير معروف",
-    "posting": "نشر ملاحظتك",
-    "posting_success": "النشر في iNaturalist!",
-    "posting_failure": "فشل النشر في iNaturalist",
-    "error_photo_upload": "تم نشر ملاحظتك على iNaturalist، ولكن لم يتم للأسف تحميل صورتك.\n\nحاول تسجيل الدخول إلى موقع iNaturalist أو التطبيق الخاص بالهاتف لعرض ملاحظتك و إضافة صورة.",
-    "error_observation": "لم يتم نشر ملاحظتك على iNaturalist. حاول التحقق من اتصالك بالإنترنيت و حاول مجددًا.",
-    "error_token": "لم نتمكن من إجراء اتصال مصادق عليه على خادم iNaturalist. المرجو المحاولة مرة أخرى لاحقًا.",
     "ok": "حسنًا",
-    "wait": "قد يستغرق هذا ما يصل إلى دقيقة",
     "look_up": "البحث عن الأنواع حسب الاسم"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "NO INTERNET!",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "نشر المساعدة",

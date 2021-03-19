@@ -26,6 +26,17 @@
     "view_all": "Ver todos los desafíos",
     "new_join": "Únete al desafío de observación global y síguelo con Our Planet en Netflix!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "Publicar en iNaturalist",
+    "uploading_x_observations": "Subiendo {{count}} observaciones...",
+    "x_observations_uploaded": "¡{{count}} observaciones subidas!",
+    "x_observations_to_upload": "{{count}} observaciones por subir",
+    "upload_now": "SUBIR AHORA",
+    "error_internet": "No se ha detectado Internet. Inténtalo de nuevo más tarde.",
+    "error_downtime": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+    "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
+    "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist en Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo."
+  },
   "notifications": {
     "header": "Notificaciones",
     "learn_more": "Conocer ms sobre iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "Editar la ubicación",
     "save_location": "Guardar ubicación",
     "unknown": "Desconocido",
-    "posting": "Publicando tu observación",
-    "posting_success": "Publicado en iNaturalist!",
-    "posting_failure": "Envio a iNaturalist ha fallado",
-    "error_photo_upload": "Tu observación se ha publicado en iNaturalist, pero tu foto no se ha podido cargar.\n\nIntenta iniciar sesión en la web de iNaturalist o en la aplicación móvil para ver tu observación y añadir una foto.",
-    "error_observation": "Tu observación no se ha publicado en iNaturalist. Comprueba tu conexión a internet e inténtalo de nuevo.",
-    "error_token": "No se ha podido hacer una conexión autentificada con el servidor de iNaturalist. Inténtalo de nuevo más tarde.",
     "ok": "Aceptar",
-    "wait": "Esto puede tardar hasta un minuto",
     "look_up": "Buscar una especie por el nombre"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "PUBLICAR EN INATURALIST EN SEGUNDO PLANO",
+    "posting_to_inat_background_description": "Publicar en iNaturalist continuará en segundo plano mientras Seek esté abierto.\n\nPuedes comprobar el estado de las subidas en la pantalla de inicio.",
+    "no_internet": "NO HAY INTERNET",
+    "no_internet_description": "Tu observación no se ha subido a iNaturalist porque no estás conectado a Internet.\n\nTu observación se cargará cuando reinicies Buscar y estés conectado a Internet."
   },
   "posting_help": {
     "header": "Publicando ayuda",

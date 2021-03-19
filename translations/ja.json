@@ -26,6 +26,17 @@
     "view_all": "すべてのチャレンジを表示",
     "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_to_upload": "{{count}} observations to upload",
+    "upload_now": "UPLOAD NOW",
+    "error_internet": "No internet detected. Please try again later.",
+    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+  },
   "notifications": {
     "header": "通知",
     "learn_more": "iNaturalistについてはこちら",
@@ -535,15 +546,14 @@
     "edit_location": "位置情報を編集",
     "save_location": "位置情報を保存",
     "unknown": "不明",
-    "posting": "観察の投稿について",
-    "posting_success": "iNaturalistに投稿されました！",
-    "posting_failure": "iNaturalistに投稿できませんでした。",
-    "error_photo_upload": "iNaturalistに観察は投稿できましたが、写真はアップロードできませんでした。\n\niNaturalistのウェブサイト及びモバイルアプリにログインして、観察記録から写真を追加してください。",
-    "error_observation": "iNaturalistに観察を投稿できませんでした。インターネットの接続を確認してからもう一度お試しください。",
-    "error_token": "iNaturalistのサーバーへの接続が認証できませんでした。後で再試行してください。",
     "ok": "OK",
-    "wait": "この処理は最大1分かかることがあります。",
     "look_up": "名前で種を検索"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "NO INTERNET!",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "投稿のヘルプ",

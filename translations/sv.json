@@ -26,6 +26,17 @@
     "view_all": "Visa alla utmaningar",
     "new_join": "Lägg till observationer med Seek-kameran för att förtjäna Utmaningsutmärkelsen!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "PUBLICERA PÅ INATURALIST",
+    "uploading_x_observations": "Laddar upp {{count}} observationer...",
+    "x_observations_uploaded": "{{count}} observationer uppladdade!",
+    "x_observations_to_upload": "{{count}} observationer att ladda upp",
+    "upload_now": "LADDA UPP NU",
+    "error_internet": "Inget internet hittat. Försök igen senare.",
+    "error_downtime": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+    "error_unknown": "Uppladdning misslyckades. Feldetaljer: {{errorText}}",
+    "error_login": "Inloggningstoken misslyckades. Logga in på ditt iNaturalist-konto i Seek från iNaturalist- eller Prestationssidan innan du försöker igen."
+  },
   "notifications": {
     "header": "Aviseringar",
     "learn_more": "Lär dig mer om iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "Redigera plats",
     "save_location": "Spara plats",
     "unknown": "Okänd",
-    "posting": "Publicerar din observation",
-    "posting_success": "Publicerad på iNaturalist!",
-    "posting_failure": "Lyckades inte publicera på iNaturalist",
-    "error_photo_upload": "Din observation publicerades på iNaturalist, men din bild kunde tyvärr inte laddas upp.\n\nProva att logga in på iNaturalist-webben eller mobilappen för att se din observation och lägga till en bild.",
-    "error_observation": "Din observation publicerades inte på iNaturalist. Kontrollera din internetanslutning och försök igen.",
-    "error_token": "Vi kunde inte göra en autentiserad anslutning till iNaturalist-servern. Försök igen senare.",
     "ok": "Okej",
-    "wait": "Detta kan ta upp till en minut",
     "look_up": "Sök en art via namn"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "PUBLICERAR PÅ INATURALIST I BAKGRUNDEN",
+    "posting_to_inat_background_description": "Publicering på iNaturalist kommer att fortsätta i bakgrunden medan Seek är öppet.",
+    "no_internet": "INGET INTERNET!",
+    "no_internet_description": "Din observation har inte laddats upp till iNaturalist eftersom du inte är ansluten till internet.\n\nDin observation kommer att laddas upp när du startat om Sök och är ansluten till internet."
   },
   "posting_help": {
     "header": "Hjälp att publicera",

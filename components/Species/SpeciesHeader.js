@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Text, BackHandler } from "react-native";
-import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
@@ -19,26 +19,22 @@ type Props = {
 
 const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
   const navigation = useNavigation( );
-  const { params } = useRoute( );
   const commonName = useCommonName( id );
 
   const { scientificName, iconicTaxonId } = taxon;
 
   const backAction = useCallback( async ( ) => {
-    const { navigate } = navigation;
     const routeName = await getRoute( );
-    // would like to remove these so we're not duplicating the work of the navigator here
-    // originally this was for similar species
-    if ( routeName === "ChallengeDetails" || routeName === "Observations" || routeName === "Match" ) {
-      navigation.goBack( );
-    }
+    // odd behavior at the moment -> if a user clicks through 4 species screens
+    // and the last one was Great Egret, they will reload the Great Egret Species Details 4x before getting back
+    // to the previous screen
     if ( routeName ) {
-      navigate( routeName, { ...params } );
+      // ChallengeDetails, Observations, Home, or Match
+      navigation.goBack( );
     } else {
       resetRouter( navigation );
-      // navigate( "Home" );
     }
-  }, [params, navigation] );
+  }, [navigation] );
 
   useFocusEffect(
     useCallback( ( ) => {

@@ -27,15 +27,15 @@
     "new_join": "Únete al desafío de observación global y síguelo con Our Planet en Netflix!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
-    "uploading_x_observations": "Uploading {{count}} observations...",
-    "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_to_upload": "{{count}} observations to upload",
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
-    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "post_to_inaturalist": "Publicar en iNaturalist",
+    "uploading_x_observations": "Subiendo {{count}} observaciones...",
+    "x_observations_uploaded": "¡{{count}} observaciones subidas!",
+    "x_observations_to_upload": "{{count}} observaciones por subir",
+    "upload_now": "SUBIR AHORA",
+    "error_internet": "No se ha detectado Internet. Inténtalo de nuevo más tarde.",
+    "error_downtime": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+    "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
+    "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist en Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo."
   },
   "notifications": {
     "header": "Notificaciones",
@@ -550,10 +550,10 @@
     "look_up": "Buscar una especie por el nombre"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "posting_to_inat_background": "PUBLICAR EN INATURALIST EN SEGUNDO PLANO",
+    "posting_to_inat_background_description": "Publicar en iNaturalist continuará en segundo plano mientras Seek esté abierto.\n\nPuedes comprobar el estado de las subidas en la pantalla de inicio.",
+    "no_internet": "NO HAY INTERNET",
+    "no_internet_description": "Tu observación no se ha subido a iNaturalist porque no estás conectado a Internet.\n\nTu observación se cargará cuando reinicies Buscar y estés conectado a Internet."
   },
   "posting_help": {
     "header": "Publicando ayuda",

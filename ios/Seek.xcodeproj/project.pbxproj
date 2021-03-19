@@ -242,8 +242,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				370DC8E5216FC4C9000A29BA /* Embed Frameworks */,
-				8FAC0C9966925D0F7E397367 /* [CP] Embed Pods Frameworks */,
 				72C61C3BC8F12A7E7713AC8A /* [CP] Copy Pods Resources */,
+				14ECBD8A886475D4629A87F9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,6 +366,24 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
+		14ECBD8A886475D4629A87F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		72C61C3BC8F12A7E7713AC8A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,24 +402,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8FAC0C9966925D0F7E397367 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		931CF5238718612919B5E770 /* [CP] Check Pods Manifest.lock */ = {

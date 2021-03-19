@@ -27,15 +27,15 @@
     "new_join": "Добавьте наблюдения с помощью камеры Seek, чтобы получить значок Испытания!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
-    "uploading_x_observations": "Uploading {{count}} observations...",
-    "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_to_upload": "{{count}} observations to upload",
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
-    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "post_to_inaturalist": "РАЗМЕСТИТЬ В INATURALIST",
+    "uploading_x_observations": "Выгрузка {{count}} наблюдений...",
+    "x_observations_uploaded": "{{count}} наблюдений выгружено!",
+    "x_observations_to_upload": "{{count}} наблюдений для выгрузки",
+    "upload_now": "ВЫГРУЗИТЬ СЕЙЧАС",
+    "error_internet": "Нет подключения к интернету. Повторите попытку позже.",
+    "error_downtime": "Серверы iNaturalist на техническом обслуживании. Пожалуйста, попробуйте через  {{count}} часов.",
+    "error_unknown": "Выгрузка неуспешна. Ошибка: {{errorText}}",
+    "error_login": "Сбой токена входа в систему. При повторной попытке либо войдите в свою учетную запись  Seek через  iNaturalis, либо войдите через раздел меню «Достижения»"
   },
   "notifications": {
     "header": "Уведомления",
@@ -550,10 +550,10 @@
     "look_up": "Поиск вида по названию"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "posting_to_inat_background": "ВЫГРУЖАТЬ В INATURALIST В ФОНОВОМ РЕЖИМЕ",
+    "posting_to_inat_background_description": "Выгрузка в iNaturalist будет продолжаться в фоновом режиме, пока открыт Seek.\n\nВы можете проверить состояние выгрузок на главном экране.",
+    "no_internet": "НЕТ ПОДКЛЮЧЕНИЯ К ИНТЕРНЕТУ!",
+    "no_internet_description": "Ваше наблюдение не было выгружено в iNaturalist, поскольку вы не подключены к Интернету.\n\nВаше наблюдение будет загружено после перезапуска Seek и подключения к Интернету."
   },
   "posting_help": {
     "header": "Справка по публикации",

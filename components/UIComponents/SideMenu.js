@@ -18,8 +18,6 @@ const SideMenu = ( ) => {
   const { navigate } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
-  // need the long version of this for QuickActions to Seek AR Camera
-  // const navHome = ( ) => navigate( "MainTab", { screen: "Home" } );
   const navHome = ( ) => resetRouter( navigation );
 
   const navToPath = ( path ) => {

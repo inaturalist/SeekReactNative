@@ -4,7 +4,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Footer from "../UIComponents/Footer";
-import MainStack from "./MainStack";
 import SideMenu from "../UIComponents/SideMenu";
 import Achievements from "../Achievements/AchievementsScreen";
 import Challenges from "../Challenges/ChallengeScreen";
@@ -16,6 +15,7 @@ import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
 import Match from "../Match/MatchScreen";
 import DebugAndroid from "../UIComponents/DebugAndroid";
 import Home from "../Home/HomeScreen";
+import Species from "../Species/SpeciesDetail";
 
 const Tab = createBottomTabNavigator();
 
@@ -75,6 +75,13 @@ const HomeFooter = () => (
   </Tab.Navigator>
 );
 
+
+const SpeciesFooter = () => (
+  <Tab.Navigator tabBar={tabBar}>
+    <Tab.Screen name="Species" component={Species} />
+  </Tab.Navigator>
+);
+
 const Drawer = createDrawerNavigator();
 
 const drawerContent = props => <SideMenu {...props} />;
@@ -85,7 +92,6 @@ const SideMenuDrawer = () => (
     drawerContent={drawerContent}
   >
     <Drawer.Screen name="Home" component={HomeFooter} />
-    <Drawer.Screen name="Main" component={MainStack} />
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />
     <Drawer.Screen name="Challenges" component={ChallengesFooter} />
     <Drawer.Screen name="ChallengeDetails" component={ChallengeDetailsFooter} />
@@ -96,6 +102,7 @@ const SideMenuDrawer = () => (
     {/* MatchScreen needs to be nested inside Drawer because it has
     a footer with navigation.openDrawer( ) that won't work otherwise */}
     <Drawer.Screen name="Match" component={Match} />
+    <Drawer.Screen name="Species" component={SpeciesFooter} />
     <Drawer.Screen name="DebugAndroid" component={DebugAndroidFooter} />
   </Drawer.Navigator>
 );

@@ -49,8 +49,6 @@ const resetRouter = ( navigation: { dispatch: Object } ) => navigation.dispatch(
   } )
 );
 
-// navigation.reset( { routes: [{ name: "Drawer" }] } );
-
 export {
   setQuickActions,
   checkForHotStarts,

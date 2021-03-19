@@ -26,6 +26,17 @@
     "view_all": "Se alle udfordringer",
     "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_to_upload": "{{count}} observations to upload",
+    "upload_now": "UPLOAD NOW",
+    "error_internet": "No internet detected. Please try again later.",
+    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+  },
   "notifications": {
     "header": "Meddelelser",
     "learn_more": "Lær mere om iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "Rediger placering",
     "save_location": "Gem placering",
     "unknown": "Ukendt",
-    "posting": "Tilføjer din observation",
-    "posting_success": "Tilføjet til iNaturalist!",
-    "posting_failure": "Tilføjelse til iNaturalist mislykkedes",
-    "error_photo_upload": "Din observation blev oprettet på iNaturalist, men dit foto kunne desværre ikke uploades.\n\nPrøv at logge ind iNaturalist-hjemmesiden eller i appen for at se din observation og tilføje et foto.",
-    "error_observation": "Din observation blev ikke oprettet på iNaturalist. Prøv at tjekke din internetforbindelse og forsøg igen.",
-    "error_token": "Vi kunne ikke oprette en godkendt forbindelse til iNaturalist-serveren. Prøv venligst igen senere.",
     "ok": "Ok",
-    "wait": "Dette kan tage op til et minut",
     "look_up": "Slå en art op efter navn"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "NO INTERNET!",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "Opretter Hjælp",

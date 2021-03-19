@@ -26,6 +26,17 @@
     "view_all": "Bekijk alle uitdagingen",
     "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "STUUR NAAR  INATURALIST",
+    "uploading_x_observations": "Uploaden van {{count}} waarnemingen...",
+    "x_observations_uploaded": "{{count}} zijn geupload!",
+    "x_observations_to_upload": "{{count}} waarnemingen om te uploaden",
+    "upload_now": "NU UPLOADEN",
+    "error_internet": "Geen internetverbinding gedetecteerd. Probeer het later opnieuw.",
+    "error_downtime": "iNaturalist's server ondergaat onderhoud. Probeer het over {{count}} uur opnieuw.",
+    "error_unknown": "Upload mislukt. Foutdetails: {{errorText}}",
+    "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert."
+  },
   "notifications": {
     "header": "Meldingen",
     "learn_more": "Leer meer over iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "Bewerk locatie",
     "save_location": "Sla locatie op",
     "unknown": "Onbekend",
-    "posting": "Jouw waarneming aan het verzenden",
-    "posting_success": "Verzonden naar iNaturalist!",
-    "posting_failure": "Invoeren op iNaturalist mislukt",
-    "error_photo_upload": "Je waarneming is op iNaturalist geplaatst maar je foto kon helaas niet worden geüpload.\n\nProbeer in te loggen op het iNaturalist.org of op de mobiele app om je waarneming te bekijken en de foto toe te voegen.",
-    "error_observation": "Je waarneming is niet op iNaturalist geplaatst. Controleer je internetverbinding en probeer het opnieuw.",
-    "error_token": "Er kon geen geverifieerde verbinding gemaakt worden met de server van iNaturalist. Probeer het later nog eens.",
     "ok": "Ok",
-    "wait": "Dit kan een paar minuten duren",
     "look_up": "Opzoeken van een soort op basis van de naam"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",
+    "posting_to_inat_background_description": "Het versturen naar iNaturalist gaat verder op de achtergrond wanneer Seek geopend is.\n\nJij kan de status van de uploads bekijken op het startscherm.",
+    "no_internet": "GEEN INTERNET!",
+    "no_internet_description": "Je waarneming is niet geüpload naar iNaturalist omdat je niet verbonden bent met het internet.\n\nJe waarneming zal worden geüpload zodra jij Seek herstart en verbonden is met het internet."
   },
   "posting_help": {
     "header": "Help plaatsen",

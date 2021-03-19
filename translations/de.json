@@ -26,6 +26,17 @@
     "view_all": "Alle Missionen anzeigen",
     "new_join": "Füge Beobachtungen mit der Kamera von Seek hinzu, um an Missionen teilzunehmen und Abzeichen zu erhalten!"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "AUF INATURALIST POSTEN",
+    "uploading_x_observations": "Lade {{count}} Beobachtungen hoch...",
+    "x_observations_uploaded": "{{count}} Beobachtungen hochgeladen!",
+    "x_observations_to_upload": "{{count}} Beobachtungen zum Hochladen",
+    "upload_now": "JETZT HOCHLADEN",
+    "error_internet": "Keine Netzwerkverbindung erkannt, bitte versuche es später noch einmal.",
+    "error_downtime": "Der iNaturalist-Server wird gewartet. Bitte versuche es in {{count}} Stunden erneut.",
+    "error_unknown": "Upload fehlgeschlagen. Fehlerdetails: {{errorText}}",
+    "error_login": "Login-Token fehlgeschlagen. Bitte melde dich in Seek über den iNaturalist- oder 'Erreichte Ziele'-Bildschirm auf deinem iNaturalist-Account an, bevor du es erneut versuchst."
+  },
   "notifications": {
     "header": "Benachrichtigungen",
     "learn_more": "Mehr erfahren über iNaturalist",
@@ -535,15 +546,14 @@
     "edit_location": "Standort bearbeiten",
     "save_location": "Standort speichern",
     "unknown": "Unbekannt",
-    "posting": "Beobachtung veröffentlichen",
-    "posting_success": "An iNaturalist gesendet!",
-    "posting_failure": "Senden an iNaturalist fehlgeschlagen",
-    "error_photo_upload": "Deine Beobachtung wurde auf iNaturalist gepostet, aber dein Foto konnte leider nicht hochgeladen werden.\n\nVersuche dich auf der iNaturalist-Webseite oder in der mobilen App anzumelden, um deine Beobachtung anzusehen und ein Foto hinzuzufügen.",
-    "error_observation": "Deine Beobachtung wurde nicht auf iNaturalist gepostet. Überprüfe deine Internetverbindung und versuche es erneut.",
-    "error_token": "Wir konnten keine authentifizierte Verbindung zum iNaturalist-Server herstellen. Bitte versuche es später erneut.",
     "ok": "Ok",
-    "wait": "Dies kann einen Moment dauern",
     "look_up": "Eine Art nach Namen suchen"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",
+    "posting_to_inat_background_description": "Das Senden an iNaturalist wird im Hintergrund fortgesetzt, während Seek geöffnet ist.\n\nDu kannst den Status der Uploads auf dem Startbildschirm überprüfen.",
+    "no_internet": "KEIN INTERNET!",
+    "no_internet_description": "Deine Beobachtung wurde nicht auf iNaturalist hochgeladen, da keine Internetverbindung besteht.\n\nDie Beobachtung wird hochgeladen, sobald Seek neu gestartet wird und mit dem Internet verbunden ist."
   },
   "posting_help": {
     "header": "Hilfe posten",

@@ -26,6 +26,17 @@
     "view_all": " Afficher tous les défis",
     "new_join": "Ajoutez des observations à l'aide de la caméra de Seek pour gagner les badges de récompense !"
   },
+  "post_to_inat_card": {
+    "post_to_inaturalist": "POST TO INATURALIST",
+    "uploading_x_observations": "Uploading {{count}} observations...",
+    "x_observations_uploaded": "{{count}} observations uploaded!",
+    "x_observations_to_upload": "{{count}} observations to upload",
+    "upload_now": "UPLOAD NOW",
+    "error_internet": "No internet detected. Please try again later.",
+    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+  },
   "notifications": {
     "header": " Notifications",
     "learn_more": " En savoir plus sur iNaturalist",
@@ -78,7 +89,7 @@
     "agree_to_terms": "J’accepte les <terms>{{terms}}</terms> et la <privacy>{{privacy}}</privacy>, j’ai également pris connaissance des <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Règles de la communauté",
     "store_data": "Dans le cadre de la gestion de mon compte, j’autorise iNaturalist à stocker et utiliser certaines informations personnelles limitées me concernant.",
-    "learn_more": "Learn more",
+    "learn_more": "En savoir plus",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "About Personal Information",
@@ -87,8 +98,8 @@
   "inat_login": {
     "log_in_with_inat": "Se connecter avec votre compte iNaturalist",
     "username": " Nom d'utilisateur",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Nom d'utilisateur / email",
+    "username_or_email": "Nom d'utilisateur ou mail",
     "password": " Mot de passe",
     "forgot_password_header": "Mot de passe oublié",
     "forgot_password": "Vous avez oublié votre mot de passe ?",
@@ -535,15 +546,14 @@
     "edit_location": "Modifier l’emplacement",
     "save_location": "Enregistrer la localisation",
     "unknown": "Inconnu",
-    "posting": "Publier vos observations",
-    "posting_success": "Publié sur iNaturalist !",
-    "posting_failure": "La publication sur iNaturalist a échoué",
-    "error_photo_upload": "Votre observation a été publiée sur iNaturalist mais votre photo n'a malheureusement pas pu être téléchargée.\n\nEssayez de vous connecter sur le web ou l'application mobile iNaturalist pour consulter votre observation et ajouter une photo.",
-    "error_observation": "Votre observation n'a pas été postée sur iNaturalist. Vérifiez votre connexion internet et réessayez.",
-    "error_token": "Nous n'avons pas pu établir de connexion authentifiée au serveur d'iNaturalist. Veuillez réessayer plus tard.",
     "ok": "Ok",
-    "wait": "Cela peut prendre jusqu’à 60 secondes",
     "look_up": "Rechercher des espèces par nom"
+  },
+  "posting_status": {
+    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "no_internet": "PAS DE CONNEXION !",
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
   },
   "posting_help": {
     "header": "Aide à la publication",

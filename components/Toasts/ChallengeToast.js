@@ -18,14 +18,16 @@ type Props = {
 }
 
 const ChallengeToast = ( { challenge }: Props ) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
+
+  const navToChallenge = ( ) => {
+    setChallengeIndex( challenge.index );
+    navigation.navigate( "ChallengeDetails" );
+  };
 
   return (
     <TouchableOpacity
-      onPress={() => {
-        setChallengeIndex( challenge.index );
-        navigation.navigate( "ChallengeDetails" );
-      }}
+      onPress={navToChallenge}
       style={styles.row}
     >
       <View>

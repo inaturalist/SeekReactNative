@@ -266,7 +266,9 @@ const challenges = {
     backgroundName: "img-challengedetail-april2021",
     earnedIconName: "badge_natgeo_april2021",
     missions: [
-      "natgeo_challenges.apr_2021_mission_1"
+      "natgeo_challenges.apr_2021_mission_1",
+      "natgeo_challenges.apr_2021_mission_2",
+      "natgeo_challenges.apr_2021_mission_3"
     ],
     availableDate: new Date( 2021, 3, 1 ),
     action: "natgeo_challenges.apr_2021_action",

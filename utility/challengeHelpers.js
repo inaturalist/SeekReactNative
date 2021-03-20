@@ -232,8 +232,7 @@ const setupChallenges = () => {
     addDetailsToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
     // this should help Seek startup faster since realm.writes are slow
-    if ( numChallenges === dict.length - 1 ) { // temporarily rewrite march challenge to fix bug for beta users
-    // if ( numChallenges === dict.length ) {
+    if ( numChallenges === dict.length ) {
       return;
     }
 

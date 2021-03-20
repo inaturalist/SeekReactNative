@@ -1,13 +1,10 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { fonts, colors } from "../global";
+import { fonts, colors, dimensions } from "../global";
 
 export default StyleSheet.create( {
   animatedStyle: {
-    backgroundColor: colors.white,
-    height: 112,
-    justifyContent: "center",
     left: 0,
     position: "absolute",
     right: 0,
@@ -26,26 +23,28 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    marginTop: 10
+    marginTop: 16,
+    lineHeight: 24,
+    maxWidth: dimensions.width - 59 - ( 24 * 2 )
   },
   image: {
     height: 75,
-    marginRight: 17,
+    width: 75,
     resizeMode: "contain",
-    width: 75
+    position: "absolute",
+    right: 17
   },
   progress: {
     height: 59,
-    marginRight: 24,
+    position: "absolute",
+    right: 24,
     width: 59
   },
   row: {
     alignItems: "center",
     flexDirection: "row",
-    flexWrap: "nowrap",
-    height: 112,
-    justifyContent: "space-between",
-    marginLeft: 22
+    paddingLeft: 21,
+    backgroundColor: colors.white
   },
   topContainer: {
     zIndex: 1
@@ -54,6 +53,8 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 14,
-    marginTop: 8
+    lineHeight: 21,
+    marginTop: 8,
+    marginBottom: 21
   }
 } );

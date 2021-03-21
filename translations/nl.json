@@ -29,7 +29,7 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "STUUR NAAR  INATURALIST",
     "uploading_x_observations": "Uploaden van {{count}} waarnemingen...",
-    "x_observations_uploaded": "{{count}} zijn geupload!",
+    "x_observations_uploaded": "{{count}} waarnemingen zijn geupload!",
     "x_observations_to_upload": "{{count}} waarnemingen om te uploaden",
     "upload_now": "NU UPLOADEN",
     "error_internet": "Geen internetverbinding gedetecteerd. Probeer het later opnieuw.",

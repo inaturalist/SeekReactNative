@@ -27,15 +27,15 @@
     "new_join": "Afegeix observacions amb la Càmera de Seek per guanyar la insígnia del Repte!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
-    "uploading_x_observations": "Uploading {{count}} observations...",
-    "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_to_upload": "{{count}} observations to upload",
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
-    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "post_to_inaturalist": "PUBLICAR A INATURALIST",
+    "uploading_x_observations": "Pujant {{count}} observacions...",
+    "x_observations_uploaded": "{{count}} observacions pujades!",
+    "x_observations_to_upload": "{{count}} observacions per pujar",
+    "upload_now": "PUJAR ARA",
+    "error_internet": "No es detecta internet. Prova-ho més tard de nou.",
+    "error_downtime": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+    "error_unknown": "Errada en la pujada. Detalls de l'errada: {{errorText}}",
+    "error_login": "Errada en iniciar la sessió. Inicia la en sessió en el teu compte a Seek per a iNaturalist o des de la pantalla Objectius aconseguits abans de provar-ho de nou."
   },
   "notifications": {
     "header": "Notificacions",
@@ -90,10 +90,10 @@
     "guidelines": "Directrius de la comunitat",
     "store_data": "Autoritzo a iNaturalist a guardar i processar determinades informacions de caràcter personal sobre mi per gestionar el meu compte",
     "learn_more": "Aprendre més",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "learn_more_about_data_storage": "Guardem informació personal com el nom d'usuari i l'adreça de correu electrònic per gestionar els comptes d'aquest lloc i per complir amb la legislació sobre privacitat, necessitem que confirmeu el vostre consentiment per utilitzar aquesta informació personal. Per conèixer més sobre la informació que guardem i com la utilitzem, si us plau, llegiu la nostra Política de Privacitat i les Condicions del Servei.",
+    "learn_more_about_licensing": "Seleccioneu aquest botó si voleu aplicar una Llicència de Reconeixement No Comercial de Creative Commons al contingut que heu penjat. Això significa que qualsevol pot copiar i reutilitzar les teves fotos o observacions sense demanar-te permís, indicant només la vostra autoria i sempre que no l'utilitzi per explotar-la comercialment. Podeu escollir una llicència diferent o retirar la llicència més tard, però aquesta és la millor llicència per compartir amb investigadors.",
+    "about_personal_information": "Quant a la informació personal",
+    "about_licenses": "Sobre les llicències"
   },
   "inat_login": {
     "log_in_with_inat": "Inicieu sessió al vostre compte d'iNaturalist",
@@ -228,14 +228,14 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Espècies Observades",
-    "badge_name_april": "Connectivity Badge",
-    "badge_name_may": "Biodiversity Badge",
-    "badge_name_june": "Community Badge",
-    "badge_name_august": "Forests Badge",
-    "badge_name_september": "Grasslands Badge",
-    "badge_name_october": "Freshwater Badge",
-    "badge_name_november": "High Seas Badge",
-    "badge_name_december": "Climate Badge"
+    "badge_name_april": "Insígnia de Connectivitat",
+    "badge_name_may": "Insígnia de Biodiversitat",
+    "badge_name_june": "Insígnia de la Comunitat",
+    "badge_name_august": "Insígnia Forestal",
+    "badge_name_september": "Insígnia d'Herbassars",
+    "badge_name_october": "Insígnia d'Aigües Continentals",
+    "badge_name_november": "Insígnia d'Alta Mar",
+    "badge_name_december": "Insígnia Climàtica"
   },
   "inat_stats": {
     "global_observations": "Observacions globals",
@@ -550,10 +550,10 @@
     "look_up": "Cerca una espècie pel seu nom"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "posting_to_inat_background": "PUBLICAR A INATURALIST EN SEGON TERME",
+    "posting_to_inat_background_description": "La publicació a iNaturalist continuarà en segon pla mentre Seek estigui obert.",
+    "no_internet": "NO HI HA INTERNET!",
+    "no_internet_description": "La teva observació no s'ha pujat a iNaturalist perquè no estàs connectat a Internet.\n\nLa teva observació es pujarà quan tornis a obrir Seek i estiguis connectat a Internet."
   },
   "posting_help": {
     "header": "Ajut per publicar",
@@ -721,38 +721,39 @@
     "crop_image": "Retalla imatge"
   },
   "natgeo_challenges": {
-    "mar_2021_mission_1": "Find any ten species",
-    "mar_2021_challenge_name": "NatGeo Nature Challenge",
-    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
-    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
-    "mar_2021_badge_name": "Nature Badge",
-    "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
-    "apr_2021_mission_2": "Find 6 plants",
-    "apr_2021_mission_3": "Find 2 fungi",
-    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
-    "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
-    "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family - and with us using #NatGeoSeekChallenge on Twitter!",
-    "apr_2021_badge_name": "Restoration Badge",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
-    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
-    "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
-    "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
-    "may_2021_badge_name": "EcoHealth Badge",
-    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
-    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
-    "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
-    "june_2021_mission_4": "Find 1 fungus",
-    "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
-    "june_2021_mission_6": "Find 1 insect",
-    "june_2021_mission_7": "Find 1 arachnid",
-    "june_2021_challenge_name": "Conservation Challenge",
-    "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
-    "june_2021_badge_name": "Conservation Badge"
+    "mar_2021_mission_1": "Troba 10 espècies qualssevol",
+    "mar_2021_challenge_name": "Repte NatGeo Natura",
+    "mar_2021_description": "Ja fa quatre mesos de reptes patrocinats per la National Geographic Society enfocats a entendre com depenem i com afectem el món natural.\n\nLa natura ens envolta, i el temps que passem a la natura ajuda a la nostra salut i felicitat. Si és possible, us animem a escollir un lloc com un parc local, una àrea protegida o el jardí que visiteu cada mes com a part de les vostres exploracions amb Seek. Per a la missió d’aquest mes: trobeu deu espècies que us facin sentir feliços.\n\nPer trobar recursos que us ajudin a cercar i obtenir més informació sobre la biodiversitat, visiteu NatGeoEd.org/BioBlitz",
+    "mar_2021_action": "Dediqueu una estona a conèixer o aprendre a fer servir Seek. Visiteu la pantalla d'inici per veure quines espècies viuen a prop. Feu-nos saber la vostra planta o animal local preferit o un que realment voldríeu observar utilitzant el hashtag #NatGeoSeekChallenge a Twitter.",
+    "mar_2021_photographer": "Foto de: Tom Matthews / National Geographic",
+    "mar_2021_badge_name": "Insígnia de Natura",
+    "apr_2021_mission_1": "Troba 2 mol·luscs (bivalves, caragols, llimacs, poliplacòfors) o crustacis (percebes, crancs, llagostes, cotxinilles)",
+    "apr_2021_mission_2": "Troba 6 plantes",
+    "apr_2021_mission_3": "Troba 2 fongs",
+    "apr_2021_challenge_name": "Repte de Restauració i Recuperació",
+    "apr_2021_description": "El canvi climàtic, la pèrdua d’espècies i la contaminació per plàstics són tres dels majors desafiaments als quals s’enfronta actualment el nostre planeta i tots estan impulsats per l’activitat humana. El tema d’aquest any per al Dia de la Terra (22 d’abril) és \"Restaurar la nostra Terra\". Tots hem de treballar junts per construir un futur més sostenible tant per a les comunitats com per a la vida salvatge; les vostres accions individuals poden ajudar a marcar la diferència!",
+    "apr_2021_action": "Un dels impactes més estesos dels humans sobre els ecosistemes és la brossa. Mentre exploreu la natura aquest mes, fixeu-vos en la brossa que veieu i penseu d’on pot haver vingut. Feu una llista de les coses que podríeu fer a casa per reduir els residus que genera la vostra família i compartiu-la amb la resta de la vostra família i amb nosaltres mitjançant el hashtag #NatGeoSeekChallenge a Twitter.",
+    "apr_2021_badge_name": "Insígnia de Restauració",
+    "apr_2021_photographer": "Foto: Enric Sala / National Geographic",
+    "may_2021_mission_1": "Trobeu 5 plantes de qualsevol de les famílies següents:\n\nAsteraceae (Gira-sols, margarides, compostes i altres);\nFabàcies (Llegums);\nLamiaceae (Família de la menta);\nAcanthaceae (Família dels acants i dels lligaboscs);\nMalvaceae (Família de les malves i dels hibiscos);\nBignoniaceae (Família Bignonia);\nPassifloraceae (Família de la Fruita de la passió)",
+    "may_2021_mission_2": "Troba 2 artròpodes (insectes, aràcnids, crustacis)",
+    "may_2021_challenge_name": "Repte dels Ecosistemes Saludables",
+    "may_2021_description": "Els ecosistemes saludables ens proporcionen molts beneficis, com ara netejar l’aigua i l’aire, emmagatzemar carboni i proporcionar hàbitat per donar suport a la biodiversitat. Se sap que algunes espècies, com ara líquens, molses i odonats (libèl·lules i espiadimonis), són indicadors de salut de l'ecosistema. Quan veieu aquestes espècies, és un senyal que el vostre ecosistema és sa.",
+    "may_2021_action": "Els ecosistemes saludables ofereixen importants beneficis per a la nostra pròpia salut i benestar. El temps que es passa a la natura pot ajudar les persones a recuperar-se de l’estrès, millorar l’estat d’ànim i pensar amb més claredat. Trobeu un lloc tranquil a la natura i passeu una hora centrant-vos en les vistes, els sons, les olors i les textures que us envolten. Escriviu algunes de les vostres observacions. Com et fa sentir aquest temps passat a la natura? Comparteix una foto del teu lloc mitjançant el hashtag #NatGeoSeekChallenge a Twitter.",
+    "may_2021_badge_name": "Insígnia d'EcoSalut",
+    "june_2021_mission_1": "Cerqueu 1 planta de les classes següents:\n\nLycopodiopsida (Selaginel·la, Licopodis i Licòfits);\nPolypodiopsida (Falgueres)",
+    "june_2021_mission_2": "Troba 1 planta de la classe Pinòpsida (Coníferes)",
+    "june_2021_mission_3": "Troba una planta del subfilum Angiospermae (Plantes amb Flors)",
+    "june_2021_mission_4": "Troba 1 fong",
+    "june_2021_mission_5": "Troba 2 vertebrats (aus, mamífers, rèptils, amfibis o peixos)",
+    "june_2021_mission_6": "Troba 1 insecte",
+    "june_2021_mission_7": "Troba un aràcnid",
+    "june_2021_challenge_name": "Repte de Conservació",
+    "june_2021_description": "Tots, independentment de la nostra edat o experiència, podem tenir un impacte positiu en la conservació de la biodiversitat. Per exemple, podem ajudar a cuidar un lloc concret com el nostre propi jardí, una àrea protegida o un parc local. La protecció de la natura comença aprenent sobre les plantes, els fongs i els animals que es troben als llocs que ens interessen. El teu repte d’aquest mes és mirar al jardí o al parc local i fer un inventari de tota la biodiversitat que puguis.",
+    "june_2021_action": "Aquest mes, centra't a aprendre alguna cosa sobre cada espècie que documentes, incloses quines són natives i quines són introduïdes. Reflexiona sobre totes les teves observacions durant els darrers quatre mesos: quines diferències has notat en la biodiversitat i la petjada humana en aquest període i en els diferents llocs que has explorat? Identifica alguna cosa que et puguis comprometre a fer perquè un lloc local (com el teu jardí o un parc) sigui més saludable per a les espècies autòctones. Escriu el teu objectiu, fes-ne una foto i comparteix-lo amb nosaltres amb el hashtag #NatGeoSeekChallenge a Twitter.",
+    "june_2021_badge_name": "Insígnia de Conservació"
   },
   "challenges_all": {
-    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
+    "you_completed_sponsor_challenge": "HAS COMPLETAT EL REPTE DE {{sponsorName}} PER {{date}}!"
   }
 }

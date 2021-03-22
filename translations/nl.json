@@ -29,7 +29,7 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "STUUR NAAR  INATURALIST",
     "uploading_x_observations": "Uploaden van {{count}} waarnemingen...",
-    "x_observations_uploaded": "{{count}} zijn geupload!",
+    "x_observations_uploaded": "{{count}} waarnemingen zijn geupload!",
     "x_observations_to_upload": "{{count}} waarnemingen om te uploaden",
     "upload_now": "NU UPLOADEN",
     "error_internet": "Geen internetverbinding gedetecteerd. Probeer het later opnieuw.",
@@ -553,7 +553,7 @@
     "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",
     "posting_to_inat_background_description": "Het versturen naar iNaturalist gaat verder op de achtergrond wanneer Seek geopend is.\n\nJij kan de status van de uploads bekijken op het startscherm.",
     "no_internet": "GEEN INTERNET!",
-    "no_internet_description": "Je waarneming is niet geüpload naar iNaturalist omdat je niet verbonden bent met het internet.\n\nJe waarneming zal worden geüpload zodra jij Seek herstart en verbonden is met het internet."
+    "no_internet_description": "Je waarneming is niet geüpload naar iNaturalist omdat je niet verbonden bent met het internet.\n\nJe waarneming zal worden geüpload zodra jij Seek herstart en weer verbonden bent met het internet."
   },
   "posting_help": {
     "header": "Help plaatsen",
@@ -734,6 +734,7 @@
     "apr_2021_description": "Klimaatverandering, verlies van soorten en plastic verontreiniging zijn drie van de grootste uitdagingen waar onze planeet op dit moment voor staat en die allemaal worden veroorzaakt door menselijke activiteiten. Het thema van dit jaar op de \"Dag van de Aarde\" (22 april)  is \"Herstel onze aarde\". We moeten allemaal samenwerken om een duurzamere toekomst voor zowel gemeenschappen als in het wild levende dieren te bouwen — jouw individuele acties kunnen helpen een verschil te maken!",
     "apr_2021_action": "Een van de meest verspreide menselijke effecten op ecosystemen is afval. Als je de natuur deze maand verkent, let dan op het afval dat je ziet en bedenk waar dat vandaan komt. Maak een lijst van dingen die je thuis zou kunnen doen om het afval dat je gezin produceert te verminderen en deel deze lijst met de rest van je familie  - en met ons door #NatGeoSeekChallenge te gebruiken op Twitter!",
     "apr_2021_badge_name": "Herstel Badge",
+    "apr_2021_photographer": "Foto door: Enric Sala / National Geographic",
     "may_2021_mission_1": "Vind 5 planten uit elk van de volgende families:\n\nAsteraceae (Composietenfamilie of Samengesteldbloemigen met zonnebloemen, madeliefjes, asters en verwanten);\nFabaceae (Vlinderbloemigen);\nLamiaceae (Lipbloemigen);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Kaasjeskruidfamilie);\nBignoniaceae (Trompetboomfamilie);\nPassifloraceae (Passiebloemfamilie)",
     "may_2021_mission_2": "Vind 2 anthropoda (insecten, spinachtigen, kreeftachtigen)",
     "may_2021_challenge_name": "Gezonde ecosystemen Uitdaging",

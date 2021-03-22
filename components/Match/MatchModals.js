@@ -5,7 +5,6 @@ import React, {
   useCallback,
   useReducer
 } from "react";
-import { Platform } from "react-native";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
 
@@ -17,7 +16,7 @@ import FlagModal from "../Modals/FlagModal";
 import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import Toasts from "../Toasts/Toasts";
 import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/helpers";
-import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHelpers";
+import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
 
@@ -104,16 +103,12 @@ const MatchModals = ( {
   const closeReplacePhotoModal = () => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
   const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     if ( levelModal ) {
-      fetchNumberSpeciesSeen().then( ( speciesCount ) => {
+      fetchNumberSpeciesSeen( ).then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
-          if ( Platform.OS === "ios" ) {
-            showAppStoreReview();
-          } else {
-            showPlayStoreReview();
-          }
+          showStoreReview( );
         }
       } );
     }

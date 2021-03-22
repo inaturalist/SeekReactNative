@@ -22,11 +22,11 @@ const saveUploadSucceeded = async ( id: number ) => {
   }
 };
 
-const resizeImageForUpload = async ( uri: string ) => {
+const resizeImageForUpload = async ( uri: string ): Promise<string> => {
   return await resizeImage( uri, 2048 );
 };
 
-const fetchJSONWebToken = async ( loginToken: string ) => {
+const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   const headers = {
     "Content-Type": "application/json",
     "User-Agent": createUserAgent( ),
@@ -58,7 +58,7 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
   }
 };
 
-const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, token: string, uri: string ) => {
+const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri: string }, token: string, uri: string ) => {
   const { id, uuid } = photo;
   const photoParams = {
     "observation_photo[observation_id]": id,
@@ -140,7 +140,7 @@ const uploadObservation = async ( observation: {
   positional_accuracy: ?number,
   description: ?string,
   photo: Object
-} ) => {
+} ): Promise<any> => {
   const login = await fetchAccessToken( );
   const params = {
     // realm doesn't let you use spread operator, apparently
@@ -194,7 +194,7 @@ const saveObservationToRealm = async ( observation: {
   longitude: ?number,
   positional_accuracy: ?number,
   description: ?string
-}, uri: string ) => {
+}, uri: string ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
   const photoUUID = await createUUID( );
@@ -221,7 +221,7 @@ const saveObservationToRealm = async ( observation: {
   }
 };
 
-const checkForNumSuccessfulUploads = async ( ) => {
+const checkForNumSuccessfulUploads = async ( ): Promise<Array<Object>> => {
   const realm = await Realm.open( realmConfig );
 
   return realm.objects( "UploadPhotoRealm" )
@@ -263,12 +263,12 @@ const markCurrentUploadAsSeen = async ( upload: {
   }
 };
 
-const checkForUploads = async ( ) => {
+const checkForUploads = async ( ): Promise<Array<Object>> => {
   const realm = await Realm.open( realmConfig );
   return realm.objects( "UploadObservationRealm" );
 };
 
-const createFakeUploadData = ( ) => {
+const createFakeUploadData = ( ): Object => {
   return {
     "captive_flag": false,
     "description": null,

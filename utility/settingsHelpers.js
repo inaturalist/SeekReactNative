@@ -6,7 +6,7 @@ const toggleScientificNames = ( boolean: boolean ) => {
   AsyncStorage.setItem( "scientific_names", boolean.toString() );
 };
 
-const getScientificNames = async () => {
+const getScientificNames = async ( ): Promise<boolean> => {
   try {
     const scientificNames = await AsyncStorage.getItem( "scientific_names" );
     if ( scientificNames === null || scientificNames === "false" ) {
@@ -22,7 +22,7 @@ const toggleLanguage = ( language: string ) => {
   AsyncStorage.setItem( "language", language );
 };
 
-const getLanguage = async () => {
+const getLanguage = async ( ): Promise<any> => {
   try {
     const language = await AsyncStorage.getItem( "language" );
     return language || setDeviceLanguageOrFallback( );
@@ -35,7 +35,7 @@ const toggleCameraCapture = ( boolean: boolean ) => {
   AsyncStorage.setItem( "camera", boolean.toString() );
 };
 
-const getAutoCapture = async () => {
+const getAutoCapture = async ( ): Promise<boolean> => {
   try {
     const camera = await AsyncStorage.getItem( "camera" );
     if ( camera === null || camera === "false" ) {
@@ -51,7 +51,7 @@ const toggleSeasonality = ( boolean: boolean ) => {
   AsyncStorage.setItem( "seasonality", boolean.toString() );
 };
 
-const getSeasonality = async () => {
+const getSeasonality = async ( ): Promise<boolean> => {
   try {
     const seasonality = await AsyncStorage.getItem( "seasonality" );
     if ( seasonality === null || seasonality === "false" ) {

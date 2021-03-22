@@ -6,7 +6,7 @@ import i18n from "../i18n";
 
 const { getFontScale } = PixelRatio;
 
-const setChallengeDetailsButtonText = ( challenge: { percentComplete: number }, challengeStarted?: Date ) => {
+const setChallengeDetailsButtonText = ( challenge: { percentComplete: number }, challengeStarted?: Date ): string => {
   if ( !challengeStarted ) {
     return "challenges.start_challenge";
   } else if ( challengeStarted && challenge.percentComplete === 100 ) {
@@ -16,7 +16,7 @@ const setChallengeDetailsButtonText = ( challenge: { percentComplete: number }, 
   }
 };
 
-const setCameraHelpText = ( rankToRender: ?string ) => {
+const setCameraHelpText = ( rankToRender: ?string ): string => {
   let helpText;
 
   if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
@@ -32,7 +32,7 @@ const setCameraHelpText = ( rankToRender: ?string ) => {
   return i18n.t( helpText );
 };
 
-const enabledLargeFonts = () => getFontScale() > 1;
+const enabledLargeFonts = ( ): boolean => getFontScale( ) > 1;
 
 export {
   setChallengeDetailsButtonText,

@@ -46,9 +46,9 @@ const shareToFacebook = async ( url: string ) => {
   }
 };
 
-const saveToCameraRoll = async ( uri: string ) => {
+const saveToCameraRoll = async ( uri: string ): Promise<?string> => {
   try {
-    const savedPhotoUri = CameraRoll.save( uri, { type: "photo", album: "Seek" } );
+    const savedPhotoUri = await CameraRoll.save( uri, { type: "photo", album: "Seek" } );
     return savedPhotoUri;
   } catch ( e ) {
     showCameraSaveFailureAlert( e, uri );
@@ -99,8 +99,8 @@ const addTextToWatermark = async( userImage: string, text, position: number, wid
   }
 };
 
-const getImageSize = ( uri: string ) => (
-  new Promise<ImageSize>( ( resolve, reject ) => {
+const getImageSize = ( uri: string ): Promise<ImageSize> => (
+  new Promise( ( resolve, reject ) => {
     Image.getSize( uri, ( w, h ) => {
       resolve( { width: w, height: h } );
     }, ( ) => reject( null ) );
@@ -126,7 +126,7 @@ const setMarkerScale = ( scale, width: number, height: number ) => {
   return scale;
 };
 
-const addWatermark = async( userImage: string, commonName: string, name: string ) => {
+const addWatermark = async( userImage: string, commonName: string, name: string ): Promise<?string> => {
   // resized photos to 2048 * 2048 to be able to align watermark
   const { width, height } = await getImageSize( userImage );
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
@@ -171,7 +171,7 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
 };
 
 // adapted from https://stackoverflow.com/questions/50909390/react-native-how-to-get-file-asset-image-absolute-path
-const getAssetFileAbsolutePath = async ( assetPath: string ) => {
+const getAssetFileAbsolutePath = async ( assetPath: string ): Promise<?string> => {
   if ( Platform.OS === "android" ) { return assetPath; }
   const dest = `${RNFS.TemporaryDirectoryPath}${Math.random().toString( 36 ).substring( 7 )}.jpg`;
 

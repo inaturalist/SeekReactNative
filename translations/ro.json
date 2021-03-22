@@ -27,15 +27,15 @@
     "new_join": "Adăugați observații cu Camera Seek pentru a câștiga insigna Provocării!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
-    "uploading_x_observations": "Uploading {{count}} observations...",
-    "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_to_upload": "{{count}} observations to upload",
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
-    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "post_to_inaturalist": "POSTAȚI PE INATURALIST",
+    "uploading_x_observations": "Se încarcă {{count}} observații...",
+    "x_observations_uploaded": "{{count}} observații încărcate!",
+    "x_observations_to_upload": "{{count}} observații de încărcat",
+    "upload_now": "ÎNCĂRCAȚI ACUM",
+    "error_internet": "Nu sunteți conectat la Internet. Încerci din nou mai târziu.",
+    "error_downtime": "Serverul iNaturalist este în curs de întreținere. Încercați din nou în {{count}} ore.",
+    "error_unknown": "Încărcare eșuată. Detalii eroare: {{errorText}}",
+    "error_login": "Token de conectare a eșuat. Conectați-vă la contul dvs. iNaturalist pe Seek din ecranul iNaturalist sau Realizări înainte de a încerca din nou."
   },
   "notifications": {
     "header": "Notificări",
@@ -550,10 +550,10 @@
     "look_up": "Caută o specie după nume"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "posting_to_inat_background": "POSTARE PE INATURALIST ÎN FUNDAL",
+    "posting_to_inat_background_description": "Postarea la iNaturalist va continua în fundal în timp ce Seek este deschis.\n\nPuteți verifica starea încărcărilor de pe ecranul Acasă.",
+    "no_internet": "FARA INTERNET!",
+    "no_internet_description": "Observația dvs. nu a fost încărcată pe iNaturalist, deoarece nu sunteți conectat la Internet.\n\nObservația dvs. va fi încărcată odată ce reporniți Seek și sunteți conectat la internet."
   },
   "posting_help": {
     "header": "Ajutor cu Postarea",
@@ -734,6 +734,7 @@
     "apr_2021_description": "Schimbările climatice, pierderea speciilor și poluarea cu plastic sunt trei dintre cele mai mari provocări cu care se confruntă în prezent planeta noastră și toate sunt determinate de activitatea umană. Tema din acest an pentru Ziua Planetei Pământ (22 aprilie) este \"Regenerarea Pământului nostru.\" Cu toții trebuie să colaborăm pentru a construi un viitor mai durabil atât pentru comunități, cât și pentru fauna sălbatică — acțiunile tale individuale pot contribui la realizarea unei schimbări!",
     "apr_2021_action": "Unul dintre cele mai răspândite efecte umane asupra ecosistemelor este gunoiul. Pe măsură ce explorezi natura luna aceasta, acordă atenție gunoiului pe care îl vezi și gândește-te de unde ar fi putut proveni. Fă o listă cu lucrurile pe care le-ai putea face acasă pentru a reduce deșeurile generate de familia ta și împărtășește această listă cu restul familiei.",
     "apr_2021_badge_name": "Insigna Restaurării",
+    "apr_2021_photographer": "Foto de: Enric Sala / National Geographic",
     "may_2021_mission_1": "Găsește 5 plante din oricare dintre următoarele familii:\n\nAsteraceae (Floarea-Soarelui, Margarete, Asteri și Similare);\nFabaceae (leguminoase);\nLamiaceae (Familia Mint);\nAcanthaceae (Familia Acanthus și Honeysuckle);\nMalvaceae (Familia Mallow și Hibiscus);\nBignoniaceae (Familia Bignonia);\nPassifloraceae (Familia Passiflora)",
     "may_2021_mission_2": "Găsește 2 artropode (insecte, arahnide, crustacee)",
     "may_2021_challenge_name": "Provocarea Ecosistemelor Sănătoase",

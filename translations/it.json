@@ -27,15 +27,15 @@
     "new_join": "Aggiungi osservazioni con la Fotocamera di Seek per guadagnare il distintivo Sfida!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "CARICA SU INATURALIST",
+    "post_to_inaturalist": "PUBBLICA SU INATURALIST",
     "uploading_x_observations": "Caricamento di {{count}} osservazioni...",
     "x_observations_uploaded": "{{count}} osservazioni caricate!",
     "x_observations_to_upload": "{{count}} osservazioni da caricare",
     "upload_now": "CARICA ORA",
     "error_internet": "Nessuna connessione a internet. Riprova più tardi.",
-    "error_downtime": "il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
+    "error_downtime": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
     "error_unknown": "Caricamento non riuscito. Dettagli errore: {{errorText}}",
-    "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalla schermata iNaturalist o Achievements prima di riprovare."
+    "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalle schermate iNaturalist o Progressi prima di riprovare."
   },
   "notifications": {
     "header": "Notifiche",
@@ -550,8 +550,8 @@
     "look_up": "Cerca una specie per nome"
   },
   "posting_status": {
-    "posting_to_inat_background": "CARICAMENTO SU INATURALIST IN BACKGROUND",
-    "posting_to_inat_background_description": "Il caricamento su iNaturalist continuerà in background mentre Seek è aperto.\n\nPuoi controllare lo stato dei caricamenti nella schermata iniziale.",
+    "posting_to_inat_background": "PUBBLICAZIONE SU INATURALIST IN BACKGROUND",
+    "posting_to_inat_background_description": "La pubblicazione su iNaturalist continuerà in background mentre Seek è aperto.\n\nPuoi controllare lo stato dei caricamenti nella schermata iniziale.",
     "no_internet": "NESSUNA CONNESSIONE!",
     "no_internet_description": "La tua osservazione non è stata caricata su iNaturalist perché non sei connesso a internet.\n\nLa tua osservazione verrà caricata una volta riavviato Seek e connesso a internet."
   },

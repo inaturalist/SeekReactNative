@@ -4,7 +4,6 @@ import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { Platform, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
@@ -15,7 +14,7 @@ import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/camer
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 
-const GalleryScreen = ( ): Node => {
+const GalleryScreen = () => {
   const navigation = useNavigation();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -40,8 +39,7 @@ const GalleryScreen = ( ): Node => {
           photos: action.photos,
           stillFetching: false,
           hasNextPage: action.pageInfo.has_next_page,
-          lastCursor: action.pageInfo.end_cursor,
-          error: null
+          lastCursor: action.pageInfo.end_cursor
         };
       case "ERROR":
         return {
@@ -92,6 +90,7 @@ const GalleryScreen = ( ): Node => {
     }
   }, [error] );
 
+
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( data.length === 0 ) {
       // this is triggered in certain edge cases, like when iOS user has "selected albums"
@@ -135,27 +134,25 @@ const GalleryScreen = ( ): Node => {
   }, [hasNextPage, fetchPhotos, stillFetching] );
 
   useEffect( ( ) => {
-    console.log( photos.length, "use effect" );
     if ( photos.length === 0 ) {
       fetchPhotos( );
     }
   }, [photos.length, fetchPhotos] );
 
-  // const initialFetch = useCallback( ( ) => {
-  //   // attempting to fix issue on some iOS devices where photos never appear
-  //   // assuming the above useEffect hook does not get called for some reason
-  //   const timer = setTimeout( ( ) => {
-  //     console.log( photoCount.current, "initial fetch" );
-  //     if ( photoCount.current === 0 ) {
-  //       fetchPhotos( );
-  //     }
-  //   }, 3000 );
+  const initialFetch = useCallback( ( ) => {
+    // attempting to fix issue on some iOS devices where photos never appear
+    // assuming the above useEffect hook does not get called for some reason
+    const timer = setTimeout( ( ) => {
+      if ( photoCount.current === 0 ) {
+        fetchPhotos( );
+      }
+    }, 3000 );
 
-  //   if ( photoCount.current > 0 ) {
-  //     clearTimeout( timer );
-  //   }
-  //   return ( ) => clearTimeout( timer );
-  // }, [fetchPhotos] );
+    if ( photoCount.current > 0 ) {
+      clearTimeout( timer );
+    }
+    return ( ) => clearTimeout( timer );
+  }, [fetchPhotos] );
 
   useEffect( ( ) => {
     const requestAndroidPermissions = async ( ) => {
@@ -163,19 +160,16 @@ const GalleryScreen = ( ): Node => {
         const permission = await checkCameraRollPermissions( );
         if ( permission !== true ) {
           setError( "gallery", null );
-        } else {
-          fetchPhotos( );
         }
-      } else {
-        fetchPhotos( );
       }
     };
 
     navigation.addListener( "focus", ( ) => {
       requestAndroidPermissions( );
+      initialFetch( );
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation, fetchPhotos, setError] );
+  }, [navigation, initialFetch, setError] );
 
   const renderImageList = ( ) => {
     if ( error ) {

@@ -18,7 +18,7 @@ type Props = {
   +closeModal: Function
 }
 
-const WarningModal = ( { closeModal }: Props ) => (
+const WarningModal = ( { closeModal }: Props ): React.Node => (
   <WhiteModal
     closeModal={closeModal}
     noButton

@@ -3,11 +3,19 @@
 import * as React from "react";
 import { Platform, Dimensions, View } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import type { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
 
 import styles from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
+
+type TabParamList = {
+  ARCamera: void;
+  Gallery: void;
+};
+
+type Props = MaterialTopTabBarProps<TabParamList>;
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -31,7 +39,7 @@ const initialLayout = { width, length };
 
 const swipeEnabled = Platform.OS === "ios" || false;
 
-const CameraNav = () => (
+const CameraNav = ( ): Props => (
   <Tab.Navigator
     tabBarPosition="bottom"
     swipeEnabled={swipeEnabled}

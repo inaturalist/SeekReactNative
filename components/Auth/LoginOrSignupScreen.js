@@ -21,7 +21,7 @@ type Props = {
   +navigation: any
 }
 
-const LoginOrSignupScreen = ( { navigation }: Props ) => (
+const LoginOrSignupScreen = ( { navigation }: Props ): React.Node => (
   <ImageBackground
     source={backgrounds.login}
     style={styles.container}

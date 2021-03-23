@@ -26,7 +26,7 @@ const ReplacePhotoModal = ( {
   speciesText,
   seenDate,
   taxaId
-}: Props ) => {
+}: Props ): React.Node => {
   const seenTaxa = useSeenTaxa( taxaId );
   const currentUserPhoto = useUserPhoto( seenTaxa );
 

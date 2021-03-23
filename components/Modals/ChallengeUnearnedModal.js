@@ -30,7 +30,7 @@ type Props = {
   }
 };
 
-const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
+const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node => {
   const navigation = useNavigation();
 
   const navToChallengeDetails = ( ) => {

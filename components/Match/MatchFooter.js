@@ -18,7 +18,7 @@ type Props = {
   +setNavigationPath: Function
 }
 
-const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
+const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ): React.Node => (
   <SafeAreaView style={styles.safeArea} edges={["right", "bottom", "left"]}>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>

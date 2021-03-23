@@ -17,7 +17,7 @@ type Props = {
   +badge: Object
 }
 
-const BadgeToast = ( { badge }: Props ) => {
+const BadgeToast = ( { badge }: Props ): React.Node => {
   const navigation = useNavigation();
 
   return (

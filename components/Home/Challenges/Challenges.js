@@ -27,7 +27,7 @@ type Props = {
   }
 }
 
-const Challenges = ( { challenge }: Props ) => {
+const Challenges = ( { challenge }: Props ): React.Node => {
   const navigation = useNavigation();
 
   const navToChallengeDetails = () => {

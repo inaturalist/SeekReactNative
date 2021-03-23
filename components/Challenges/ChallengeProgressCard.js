@@ -30,7 +30,7 @@ type Props = {
   +fetchChallenges: ( ) => void
 }
 
-const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
+const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {
   const navigation = useNavigation();
   const {
     name,

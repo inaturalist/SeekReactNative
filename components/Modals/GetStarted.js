@@ -17,7 +17,7 @@ type Props = {
   +closeModal: Function
 }
 
-const GetStarted = ( { closeModal }: Props ) => (
+const GetStarted = ( { closeModal }: Props ): React.Node => (
   <View style={styles.container}>
     <View style={styles.headerMargin}>
       <GreenText allowFontScaling={false} text="get_started.header" />

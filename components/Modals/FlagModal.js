@@ -24,7 +24,7 @@ const FlagModal = ( {
   userImage,
   speciesText,
   seenDate
-}: Props ) => {
+}: Props ): React.Node => {
 
   const handlePress = () => {
     if ( seenDate ) {

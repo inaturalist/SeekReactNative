@@ -16,7 +16,7 @@ type Props = {
   +error: string
 }
 
-const ErrorMessage = ( { error }: Props ) => {
+const ErrorMessage = ( { error }: Props ): React.Node => {
   let message;
   if ( error === "email" ) {
     message = i18n.t( "login.error_email" );

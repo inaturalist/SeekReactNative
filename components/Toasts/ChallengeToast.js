@@ -17,7 +17,7 @@ type Props = {
   +challenge: Object
 }
 
-const ChallengeToast = ( { challenge }: Props ) => {
+const ChallengeToast = ( { challenge }: Props ): React.Node => {
   const navigation = useNavigation( );
 
   const navToChallenge = ( ) => {

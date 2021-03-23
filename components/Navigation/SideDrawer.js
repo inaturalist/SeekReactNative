@@ -2,6 +2,7 @@
 import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import type { DrawerScreenProps } from "@react-navigation/drawer";
 
 import Footer from "../UIComponents/Footer";
 import SideMenu from "../UIComponents/SideMenu";
@@ -16,6 +17,22 @@ import Match from "../Match/MatchScreen";
 import DebugAndroid from "../UIComponents/DebugAndroid";
 import Home from "../Home/HomeScreen";
 import Species from "../Species/SpeciesDetail";
+
+type DrawerParamList = {
+  Home: void;
+  Achievements: void;
+  Challenges: void;
+  ChallengeDetails: void;
+  Observations: void;
+  iNatStats: void;
+  About: void;
+  Settings: void;
+  Match: void;
+  Species: void;
+  DebugAndroid: void;
+};
+
+type Props = DrawerScreenProps<DrawerParamList>;
 
 const Tab = createBottomTabNavigator();
 
@@ -86,7 +103,7 @@ const Drawer = createDrawerNavigator();
 
 const drawerContent = props => <SideMenu {...props} />;
 
-const SideMenuDrawer = () => (
+const SideMenuDrawer = ( ): Props => (
   <Drawer.Navigator
     initialRouteName="Drawer"
     drawerContent={drawerContent}

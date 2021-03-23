@@ -10,7 +10,7 @@ import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
-import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
+import { fetchGalleryPhotos, checkForUniquePhotos, checkForLimitedIOSPermission } from "../../../utility/cameraRollHelpers";
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 
@@ -39,7 +39,8 @@ const GalleryScreen = () => {
           photos: action.photos,
           stillFetching: false,
           hasNextPage: action.pageInfo.has_next_page,
-          lastCursor: action.pageInfo.end_cursor
+          lastCursor: action.pageInfo.end_cursor,
+          error: null
         };
       case "ERROR":
         return {
@@ -90,17 +91,30 @@ const GalleryScreen = () => {
     }
   }, [error] );
 
+  const checkIOSPermission = useCallback( async ( ) => {
+    const permission = await checkForLimitedIOSPermission( );
+    if ( permission === true ) {
+      // console.log( "here is where I want to fetch more photos" );
+      // fetchPhotos( );
+    } else {
+      setError( "photos", null );
+    }
+  }, [setError, fetchPhotos] );
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( data.length === 0 ) {
-      // this is triggered in certain edge cases, like when iOS user has "selected albums"
-      // permission but has not given Seek access to a single photo
-      setError( "photos", null );
+      if ( photos.length === 0 ) {
+        checkIOSPermission( );
+      } else {
+        // this is triggered in certain edge cases, like when iOS user has "selected albums"
+        // permission but has not given Seek access to a single photo
+        setError( "photos", null );
+      }
     } else {
       const uniquePhotos = checkForUniquePhotos( seen, data );
       dispatch( { type: "APPEND_PHOTOS", photos: photos.concat( uniquePhotos ), pageInfo } );
     }
-  }, [photos, seen, setError] );
+  }, [photos, seen, setError, checkIOSPermission] );
 
   const handleFetchError = useCallback( ( e ) => {
     if ( e.message === "Access to photo library was denied" ) {
@@ -155,7 +169,7 @@ const GalleryScreen = () => {
   }, [fetchPhotos] );
 
   useEffect( ( ) => {
-    const requestAndroidPermissions = async ( ) => {
+    const requestPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
         const permission = await checkCameraRollPermissions( );
         if ( permission !== true ) {
@@ -165,7 +179,7 @@ const GalleryScreen = () => {
     };
 
     navigation.addListener( "focus", ( ) => {
-      requestAndroidPermissions( );
+      requestPermissions( );
       initialFetch( );
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );

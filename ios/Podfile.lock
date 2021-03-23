@@ -248,7 +248,7 @@ PODS:
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
   - React-jsinspector (0.63.3)
-  - react-native-cameraroll (4.0.2):
+  - react-native-cameraroll (4.0.3):
     - React-Core
   - react-native-geocoder (0.5.1):
     - React
@@ -626,7 +626,7 @@ SPEC CHECKSUMS:
   React-jsi: df07aa95b39c5be3e41199921509bfa929ed2b9d
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
-  react-native-cameraroll: 717193a0427fd0db78d3f10385a008fcc102213c
+  react-native-cameraroll: cd22dd359f16c3801d0cea7e3bf366b5aa638ef3
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
   react-native-image-crop-tools: 5d254e217773e75bfc09b2c372a8b6a027f0628b

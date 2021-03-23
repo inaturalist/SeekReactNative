@@ -23,13 +23,12 @@ import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import { writeExifData } from "../../../utility/photoHelpers";
 import {
-  checkForCameraPermissionsError,
   checkForSystemVersion,
   handleLog,
   showCameraSaveFailureAlert,
   checkForCameraAPIAndroid
 } from "../../../utility/cameraHelpers";
-import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
+import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
@@ -126,17 +125,16 @@ const ARCamera = () => {
   };
 
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
-    const permissionsError = checkForCameraPermissionsError( e );
-    if ( permissionsError.error !== null ) {
-      updateError( permissionsError.error );
-    } else {
-      await showCameraSaveFailureAlert( e, uri );
-      navigateToResults( uri, predictions );
-    }
-  }, [updateError, navigateToResults] );
+    // react-native-cameraroll does not yet have granular detail about read vs. write permissions
+    // but there's a pull request for it as of March 2021
 
-  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
-    if ( Platform.OS === "android" ) {
+    await showCameraSaveFailureAlert( e, uri );
+    navigateToResults( uri, predictions );
+  }, [navigateToResults] );
+
+  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> }, skipExif ) => {
+    // don't bother writing exif if camera roll permissions are off
+    if ( Platform.OS === "android" && !skipExif ) {
       await writeExifData( photo.uri );
     }
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
@@ -216,6 +214,20 @@ const ARCamera = () => {
     }
   };
 
+  const requestAndroidSavePermissions = useCallback( ( photo ) => {
+    const checkPermissions = async ( ) => {
+      const result = await checkSavePermissions( );
+
+      if ( result === "gallery" ) {
+        savePhoto( photo, true );
+      } else {
+        savePhoto( photo, false );
+      }
+    };
+    // on Android, this permission check will pop up every time; on iOS it only pops up first time a user opens camera
+    checkPermissions( );
+  }, [savePhoto] );
+
   const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
@@ -240,20 +252,18 @@ const ARCamera = () => {
         camera.current.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          savePhoto( photo );
+          requestAndroidSavePermissions( photo );
         } ).catch( e => updateError( "take", e ) );
       }
     }
-  }, [savePhoto, updateError] );
+  }, [savePhoto, updateError, requestAndroidSavePermissions] );
 
   const resetState = () => dispatch( { type: "RESET_STATE" } );
 
-  const requestAndroidPermissions = useCallback( () => {
+  const requestAndroidPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" ) {
-      requestAllCameraPermissions().then( ( result ) => {
-        if ( result === "gallery" ) {
-          updateError( "gallery" );
-        } else if ( result === "permissions" ) {
+      checkCameraPermissions( ).then( ( result ) => {
+        if ( result === "permissions" ) {
           updateError( "permissions" );
         }
         updateError( null );

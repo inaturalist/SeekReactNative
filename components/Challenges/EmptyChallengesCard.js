@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text } from "react-native";
 
 import styles from "../../styles/challenges/emptyChallenges";
@@ -10,7 +10,7 @@ type Props = {
   type: string
 }
 
-const EmptyChallengesCard = ( { type }: Props ) => (
+const EmptyChallengesCard = ( { type }: Props ): React.Node => (
   <View style={[styles.noChallengeContainer, styles.center]}>
     <Text style={styles.noChallengeText}>{i18n.t( `challenges.${type}` )}</Text>
     {type === "no_new_challenges_header" && (

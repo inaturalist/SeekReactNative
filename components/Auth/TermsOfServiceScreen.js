@@ -1,12 +1,12 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import HTML from "react-native-render-html";
 
 import styles from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
-const TermsOfServiceScreen = () => {
+const TermsOfServiceScreen = ( ): React.Node => {
   const html = `<p><strong><em>Revised November 26, 2019</em></strong></p>
 
   <p>

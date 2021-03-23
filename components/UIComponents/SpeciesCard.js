@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text,
   Image,
@@ -17,7 +17,11 @@ type Props = {
   +handlePress?: Function,
   +photo: Object,
   +allowFontScaling?: boolean,
-  +taxon: Object
+  +taxon: {
+    iconicTaxonId: number,
+    preferredCommonName: string,
+    name: string
+  }
 }
 
 const SpeciesCard = ( {
@@ -25,7 +29,7 @@ const SpeciesCard = ( {
   photo,
   allowFontScaling,
   taxon
-}: Props ) => {
+}: Props ): React.Node => {
   const { preferredCommonName, name, iconicTaxonId } = taxon;
 
   return (

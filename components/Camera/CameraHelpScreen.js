@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text,
   View,
@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
-const CameraHelpScreen = () => {
+const CameraHelpScreen = ( ): React.Node => {
   const tips = [
     i18n.t( "camera_help.tip_1" ),
     i18n.t( "camera_help.tip_2" ),

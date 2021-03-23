@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -23,7 +23,7 @@ type Props = {
   }
 }
 
-const ChallengeDetailsContainer = ( { challenge }: Props ) => {
+const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
   const { navigate } = useNavigation();
 
   const navToChallenges = ( ) => navigate( "Challenges" );

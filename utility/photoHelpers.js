@@ -18,7 +18,7 @@ import {
   formatHourMonthSecond,
   setISOTime
 } from "./dateHelpers";
-import { checkCameraRollPermissions } from "./androidHelpers.android";
+import { checkSavePermissions } from "./androidHelpers.android";
 
 const writeToDebugLog = ( newLine: string ) => {
   let line = newLine;
@@ -252,7 +252,7 @@ const moveAndroidFilesToInternalStorage = async () => {
   writeToDebugLog( `${dirExists.toString()}: does /Seek/Pictures still exist` );
 
   if ( dirExists ) {
-    const permission = await checkCameraRollPermissions();
+    const permission = await checkSavePermissions();
     if ( permission === true ) {
       updateRealmThumbnails();
     }

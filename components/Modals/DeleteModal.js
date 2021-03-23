@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -27,7 +27,7 @@ const DeleteModal = ( {
   closeModal,
   deleteObservation,
   itemToDelete
-}: Props ) => {
+}: Props ): React.Node => {
   const {
     id,
     photo,

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -11,7 +11,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
-const LoginSuccessScreen = () => {
+const LoginSuccessScreen = ( ): React.Node => {
   const { navigate } = useNavigation();
 
   return (

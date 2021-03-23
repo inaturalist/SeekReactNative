@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Platform, Text, View } from "react-native";
 import OpenSettings from "react-native-open-settings";
 import { useRoute } from "@react-navigation/native";
@@ -14,7 +14,7 @@ type Props = {
   +errorEvent: ?string
 }
 
-const CameraError = ( { error, errorEvent }: Props ) => {
+const CameraError = ( { error, errorEvent }: Props ): React.Node => {
   const { name } = useRoute();
 
   const setCameraErrorText = ( err, event ) => {

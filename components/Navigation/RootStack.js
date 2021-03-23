@@ -82,7 +82,7 @@ type RootStackParamList = {
   Social: void;
 };
 
-type Props = StackScreenProps<RootStackParamList, 'Profile'>;
+type Props = StackScreenProps<RootStackParamList>;
 
 const Tab = createBottomTabNavigator( );
 const tabBar = props => <Footer {...props} />;

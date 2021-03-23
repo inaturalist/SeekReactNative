@@ -14,10 +14,10 @@ import iconicTaxa from "../../assets/iconicTaxa";
 import i18n from "../../i18n";
 
 type Props = {
-  +handlePress?: Function,
-  +photo: Object,
-  +allowFontScaling?: boolean,
-  +taxon: {
+  handlePress?: Function,
+  photo: Object,
+  allowFontScaling?: boolean,
+  taxon: {
     iconicTaxonId: number,
     preferredCommonName: string,
     name: string

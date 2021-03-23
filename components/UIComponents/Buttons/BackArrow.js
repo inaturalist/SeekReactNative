@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   TouchableOpacity,
   Image
@@ -17,7 +17,7 @@ type Props = {
   +route?: ?string
 }
 
-const BackArrow = ( { green, route }: Props ) => {
+const BackArrow = ( { green, route }: Props ): React.Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
 

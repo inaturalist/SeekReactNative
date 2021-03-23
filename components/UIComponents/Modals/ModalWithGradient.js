@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -32,7 +32,7 @@ const ModalWithGradient = ( {
   userImage,
   originalImage,
   displayDate
-}: Props ) => (
+}: Props ): React.Node => (
   <View style={styles.container}>
     {/* $FlowFixMe */}
     <LinearGradient

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text } from "react-native";
 
 import i18n from "../../../i18n";
@@ -8,10 +8,22 @@ import styles from "../../../styles/uiComponents/challenges";
 import { formatMonthYear } from "../../../utility/dateHelpers";
 
 type Props = {
-  challenge: { availableDate: Date, name: string }
+  challenge: {
+    index: number,
+    percentComplete: number,
+    startedDate: Date,
+    availableDate: Date,
+    backgroundName: string,
+    name: string,
+    logo: string,
+    sponsorName: string,
+    secondLogo: string,
+    earnedIconName: string,
+    badgeName: string
+  },
 }
 
-const ChallengeTitle = ( { challenge }: Props ) => (
+const ChallengeTitle = ( { challenge }: Props ): React.Node => (
   <>
     <Text style={styles.challengeHeader}>
       {formatMonthYear( challenge.availableDate ).toLocaleUpperCase()}

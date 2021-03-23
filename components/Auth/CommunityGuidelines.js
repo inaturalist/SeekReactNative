@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import HTML from "react-native-render-html";
 
 import styles from "../../styles/auth/privacy";

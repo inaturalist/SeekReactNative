@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { TouchableOpacity, Image } from "react-native";
 
 import i18n from "../../../i18n";
@@ -11,7 +11,7 @@ type Props = {
   +handlePress: Function
 }
 
-const BackArrowModal = ( { handlePress }: Props ) => (
+const BackArrowModal = ( { handlePress }: Props ): React.Node => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible

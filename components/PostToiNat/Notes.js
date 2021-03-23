@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { TextInput } from "react-native";
 
 import styles from "../../styles/posting/postToiNat";
@@ -12,7 +12,7 @@ type Props = {
   updateObservation: ( string, string ) => void
 }
 
-const Notes = ( { description, updateObservation }: Props ) => (
+const Notes = ( { description, updateObservation }: Props ): React.Node => (
   <TextInput
     keyboardType="default"
     multiline

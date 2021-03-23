@@ -1,7 +1,7 @@
 
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text,
   TouchableOpacity
@@ -26,7 +26,7 @@ const Button = ( {
   text,
   greenText,
   login
-}: Props ) => (
+}: Props ): React.Node => (
   <TouchableOpacity
     onPress={() => handlePress()}
     style={[

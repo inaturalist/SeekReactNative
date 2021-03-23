@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   TouchableOpacity,
   Image
@@ -14,7 +14,7 @@ type Props = {
   +closeModal: Function
 }
 
-const ModalBackButton = ( { closeModal }: Props ) => (
+const ModalBackButton = ( { closeModal }: Props ): React.Node => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible

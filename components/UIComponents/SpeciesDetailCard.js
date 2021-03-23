@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View } from "react-native";
 
 import styles from "../../styles/species/species";
@@ -12,7 +12,7 @@ type Props = {
   +hide?: boolean
 };
 
-const SpeciesDetailCard = ( { children, text, hide }: Props ) => {
+const SpeciesDetailCard = ( { children, text, hide }: Props ): React.Node => {
   if ( hide ) {
     return null;
   }

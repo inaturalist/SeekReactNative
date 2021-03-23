@@ -1,10 +1,7 @@
 // @flow
 
-import React from "react";
-import {
-  ImageBackground,
-  Text
-} from "react-native";
+import * as React from "react";
+import { ImageBackground, Text } from "react-native";
 
 import styles from "../../styles/badges/banner";
 import icons from "../../assets/icons";
@@ -14,7 +11,7 @@ type Props = {
   +modal?: boolean
 }
 
-const BannerHeader = ( { text, modal }: Props ) => (
+const BannerHeader = ( { text, modal }: Props ): React.Node => (
   <ImageBackground
     source={icons.titleBanner}
     style={[styles.banner, modal && styles.modal]}

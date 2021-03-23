@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -21,7 +21,7 @@ const ConfirmScreen = ( {
   image,
   updateClicked,
   clicked
-}: Props ) => (
+}: Props ): React.Node => (
   <SafeAreaView edges={["top"]}>
     <View style={styles.header}>
       <BackArrow green />

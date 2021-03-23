@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -13,7 +13,7 @@ type Props = {
   +number?: ?number
 }
 
-const ErrorScreen = ( { error, number }: Props ) => {
+const ErrorScreen = ( { error, number }: Props ): React.Node => {
   let errorText;
 
   if ( error === "onlineVision" ) {

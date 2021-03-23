@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import RNModal from "react-native-modal";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
   +modal: any
 }
 
-const Modal = ( { showModal, closeModal, modal }: Props ) => (
+const Modal = ( { showModal, closeModal, modal }: Props ): React.Node => (
   <RNModal
     isVisible={showModal}
     onBackdropPress={closeModal}

@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import { View } from "react-native";
 
 import styles from "../../styles/onboarding";
@@ -8,7 +8,7 @@ type Props = {
   index: number
 }
 
-const Dots = ( { index }: Props ) => {
+const Dots = ( { index }: Props ): React.Node => {
   const ActiveDot = <View style={[styles.dot, styles.activeDot]} />;
   const Dot = <View style={styles.dot} />;
 

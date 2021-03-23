@@ -1,6 +1,6 @@
 
 // @flow
-import React from "react";
+import * as React from "react";
 import { View, TextInput, Image, TouchableOpacity } from "react-native";
 
 import i18n from "../../i18n";
@@ -15,7 +15,7 @@ type Props = {
   clearText: Function
 }
 
-const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props ) => (
+const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props ): React.Node => (
   <View style={[styles.row, styles.margins]}>
     <Image source={posting.searchGreen} style={styles.search} />
     {searchText.length > 0 && (

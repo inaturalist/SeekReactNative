@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import {
   Image,
   Text,
@@ -18,7 +18,7 @@ type Props = {
   geoprivacy: string
 }
 
-const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ) => {
+const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ): React.Node => {
   const geoprivacyTypes = [{
     label: i18n.t( "posting.open" ),
     value: "open"

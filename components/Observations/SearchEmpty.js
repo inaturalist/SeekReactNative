@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text, View } from "react-native";
 
 import i18n from "../../i18n";
@@ -11,7 +11,7 @@ type Props = {
   clearText: Function
 };
 
-const SearchEmpty = ( { clearText }: Props ) => (
+const SearchEmpty = ( { clearText }: Props ): React.Node => (
   <View style={styles.container}>
     <Text style={styles.headerText}>
       {i18n.t( "observations.search_empty" )}

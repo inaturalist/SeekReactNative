@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   TouchableOpacity,
   Image
@@ -21,7 +21,7 @@ const CustomBackArrow = ( {
   handlePress,
   style,
   green
-}: Props ) => (
+}: Props ): React.Node => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible

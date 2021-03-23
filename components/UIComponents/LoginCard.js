@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text
@@ -13,7 +13,7 @@ import { removeAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "./Buttons/GreenButton";
 import { UserContext } from "../UserContext";
 
-const LoginCard = () => {
+const LoginCard = (): React.Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
 

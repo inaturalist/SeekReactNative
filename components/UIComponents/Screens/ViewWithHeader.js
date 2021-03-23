@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -12,7 +12,7 @@ type Props = {
   +header: string
 };
 
-const ViewWithHeader = ( { children, header }: Props ) => (
+const ViewWithHeader = ( { children, header }: Props ): React.Node => (
   <SafeAreaView style={styles.container} edges={["top"]}>
     <StatusBar barStyle="light-content" />
     <GreenHeader header={header} />

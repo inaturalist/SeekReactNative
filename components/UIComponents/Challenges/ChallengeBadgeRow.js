@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { isAfter } from "date-fns";
 
@@ -14,7 +14,7 @@ type Props = {
   large?: boolean
 }
 
-const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
+const ChallengeBadgeRow = ( { challenge, large }: Props ): React.Node => {
   const is2020OrAfterChallenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   // we created generic seek challenge text after the Our Planet challenges

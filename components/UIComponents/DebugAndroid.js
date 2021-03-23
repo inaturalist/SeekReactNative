@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Alert } from "react-native";
 import Mailer from "react-native-mail";
 import { getVersion, getBuildNumber } from "react-native-device-info";
@@ -9,7 +9,7 @@ import GreenButton from "./Buttons/GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
 import { dirDebugLogs } from "../../utility/dirStorage";
 
-const DebugAndroid = () => {
+const DebugAndroid = ( ): React.Node => {
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
 

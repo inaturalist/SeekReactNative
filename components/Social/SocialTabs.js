@@ -1,6 +1,6 @@
 // @flow
 
-import React, { } from "react";
+import * as React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 
 import styles from "../../styles/social/social";
@@ -11,7 +11,7 @@ type Props = {
   toggleTab: Function
 }
 
-const SocialTabs = ( { tab, toggleTab }: Props ) => {
+const SocialTabs = ( { tab, toggleTab }: Props ): React.Node => {
   const renderTab = selectedTab => (
     <TouchableOpacity onPress={toggleTab}>
       <Text style={[styles.photoSizeText, tab === selectedTab && styles.selectedPhotoSizeText]}>

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Image, Text, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
@@ -13,7 +13,7 @@ import { capitalizeNames, setRoute } from "../../utility/helpers";
 import { resetRouter } from "../../utility/navigationHelpers";
 import { colors } from "../../styles/global";
 
-const SideMenu = ( ) => {
+const SideMenu = ( ): React.Node => {
   const navigation = useNavigation( );
   const { navigate } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];

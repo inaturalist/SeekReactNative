@@ -596,10 +596,10 @@
     "flag": "Flag this observation incorrect",
     "back": "Go back to previous screen",
     "user_location": "Return to your current location",
-    "help": "Tap for help screen",
-    "take_photo": "Tap to take photo",
-    "scroll_left": "Tap to scroll left",
-    "scroll_right": "Tap to scroll right"
+    "help": "Camera help",
+    "take_photo": "Take photo",
+    "scroll_left": "Scroll left",
+    "scroll_right": "Scroll right"
   },
   "review": {
     "title": "Értékeld az appot!",

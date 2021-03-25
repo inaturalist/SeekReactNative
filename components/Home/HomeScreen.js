@@ -15,7 +15,7 @@ import { checkIfCardShown } from "../../utility/helpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
-import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
+import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen, fetchJSONWebToken } from "../../utility/uploadHelpers";
 
 const HomeScreen = () => {
   const navigation = useNavigation( );

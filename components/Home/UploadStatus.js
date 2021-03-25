@@ -59,6 +59,8 @@ const UploadStatus = ( { successfulUploads, numPendingUploads, updateSuccessfulU
     if ( error !== null ) {
       const { numOfHours, errorText } = error;
 
+      const errorMessage = errorText.includes( ":" ) ? errorText.split( ":" )[1] : errorText;
+
       if ( internet === false ) {
         return i18n.t( "post_to_inat_card.error_internet" );
       } else if ( error.type === "downtime" ) {
@@ -66,7 +68,7 @@ const UploadStatus = ( { successfulUploads, numPendingUploads, updateSuccessfulU
       } else if ( error.type === "login" ) {
         return i18n.t( "post_to_inat_card.error_login" );
       } else {
-        return i18n.t( "post_to_inat_card.error_unknown", { errorText } );
+        return i18n.t( "post_to_inat_card.error_unknown", { errorText: errorMessage } );
       }
     }
   };

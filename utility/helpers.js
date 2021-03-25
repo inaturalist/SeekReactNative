@@ -240,14 +240,14 @@ const handleServerError = ( error: {
 } ) => {
   const { response } = error;
 
-  if ( !response ) { return "error"; }
+  if ( !response ) { return null; }
 
   if ( response.status && response.status === 503 ) {
     const gmtTime = response.headers.map["retry-after"];
     const hours = serverBackOnlineTime( gmtTime );
     return hours;
   }
-  return "error";
+  return i18n.t( "post_to_inat_card.a few" );
 };
 
 export {

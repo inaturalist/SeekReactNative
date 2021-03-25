@@ -40,7 +40,8 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
-    if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+    if ( e.response && e.response.status && e.response.status === 503 ) {
+      // not 100% sure if this is working
       return {
         error: {
           type: "downtime",

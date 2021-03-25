@@ -168,14 +168,11 @@ const navToMatch = async (
   seenDate: ?string
 ) => {
   navigation.push( "Drawer", {
-    screen: "Main",
+    screen: "Match",
     params: {
-      screen: "Match",
-      params: {
-        taxon,
-        image,
-        seenDate
-      }
+      taxon,
+      image,
+      seenDate
     }
   } );
 };

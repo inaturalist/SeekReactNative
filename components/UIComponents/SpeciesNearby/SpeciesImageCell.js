@@ -41,16 +41,12 @@ const SpeciesImageCell = ( { item }: Props ) => {
   };
 
   const navToNextScreen = ( ) => {
-    const speciesScreen = { screen: "Species", params: { ...route.params } };
     setSpeciesId( item.id );
-    if ( name === "Match" ) {
-      setRoute( "Match" );
-      // full nav path for QuickActions
-      navigate( "MainTab", speciesScreen );
-    } else if ( name === "Species" ) {
-      navigation.push( "MainTab", speciesScreen );
+    if ( name === "Species" ) {
+      navigation.push( "Drawer", { screen: "Species", params: { ...route.params } } );
     } else {
-      setRoute( "Home" );
+      // Match is for common ancestor match screen with species nearby card
+      setRoute( name === "Match" ? "Match" : "Home" );
       navigate( "Species", { ...route.params } );
     }
   };

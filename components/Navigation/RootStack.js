@@ -1,10 +1,10 @@
 // @flow
 import React from "react";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { colors } from "../../styles/global";
 import Drawer from "./SideDrawer";
 import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
@@ -30,15 +30,18 @@ import ParentalConsentScreen from "../Auth/Signup/ParentalConsentScreen";
 import ParentCheckEmailScreen from "../Auth/Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
+import Notifications from "../Notifications/Notifications";
+import Footer from "../UIComponents/Footer";
+import Social from "../Social/SocialScreen";
 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: colors.white,
-    text: colors.black
-  }
-};
+const Tab = createBottomTabNavigator( );
+const tabBar = props => <Footer {...props} />;
+
+const NotificationsFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar}>
+    <Tab.Screen name="Notifications" component={Notifications} />
+  </Tab.Navigator>
+);
 
 const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
@@ -54,6 +57,11 @@ const verticalConfig = {
   cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 };
 
+const notificationsConfig = {
+  headerShown: false,
+  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+};
+
 const drawerConfig = {
   headerShown: false,
   // this is off for resetting screen from AR Camera
@@ -66,11 +74,8 @@ const Stack = createStackNavigator( );
 
 const App = ( ) => (
   <SafeAreaProvider>
-    <NavigationContainer theme={MyTheme}>
-      <Stack.Navigator
-        initialRouteName="Root"
-        screenOptions={screenOptions}
-      >
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -194,6 +199,16 @@ const App = ( ) => (
         <Stack.Screen
           name="Signup"
           component={SignUpScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Notifications"
+          component={NotificationsFooter}
+          options={notificationsConfig}
+        />
+        <Stack.Screen
+          name="Social"
+          component={Social}
           options={defaultConfig}
         />
       </Stack.Navigator>

@@ -10,7 +10,7 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    backgroundColor: colors.seekForestGreen,
+    backgroundColor: colors.white,
     flex: 1
   },
   footer: {
@@ -58,15 +58,9 @@ export default StyleSheet.create( {
     marginTop: 20
   },
   locationIcon: {
-    alignItems: "center",
-    backgroundColor: colors.white,
-    borderColor: colors.white,
-    borderRadius: 50 / 2,
-    height: 50,
-    justifyContent: "center",
-    marginBottom: 19,
-    marginRight: 19,
-    width: 50
+    bottom: 19,
+    position: "absolute",
+    right: 19
   },
   map: {
     bottom: 0,
@@ -81,12 +75,6 @@ export default StyleSheet.create( {
   marginLarge: {
     marginTop: 20
   },
-  markerFixed: {
-    alignItems: "center",
-    flex: 1,
-    justifyContent: "center",
-    marginTop: 64
-  },
   markerPin: {
     height: 33,
     width: 23,
@@ -95,33 +83,13 @@ export default StyleSheet.create( {
   pinFixed: {
     alignItems: "center",
     flex: 1,
-    justifyContent: "center",
-    marginRight: 15,
-    marginTop: 55
+    justifyContent: "center"
   },
   row,
-  userLocation: {
-    alignItems: "flex-end",
-    justifyContent: "flex-end"
-  },
   white: {
     height: 19,
     resizeMode: "contain",
     tintColor: colors.white,
     width: 14
-  },
-  errorContainer: {
-    backgroundColor: colors.black,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  errorText: { // same as camera error text
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
-    marginHorizontal: 41,
-    textAlign: "center"
   }
 } );

@@ -45,7 +45,7 @@ const GetStarted = ( { closeModal }: Props ) => (
     </View>
     <View style={styles.button}>
       <GreenButton
-        handlePress={() => closeModal()}
+        handlePress={closeModal}
         text="onboarding.continue"
         allowFontScaling={false}
       />

@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.12.0",
+  "version": "2.12.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
-    "@react-native-community/cameraroll": "^4.0.2",
+    "@react-native-community/cameraroll": "^4.0.3",
     "@react-native-community/datetimepicker": "^3.0.9",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/netinfo": "^3.2.0",
@@ -98,7 +98,6 @@
     "jest-fetch-mock": "^3.0.3",
     "lint-staged": "^10.5.4",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-native-console-time-polyfill": "^1.2.1",
     "react-test-renderer": "^17.0.1"
   }
 }

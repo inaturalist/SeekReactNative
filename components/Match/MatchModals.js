@@ -128,8 +128,7 @@ const MatchModals = ( {
       setSpeciesId( taxon.taxaId );
       // return user to match screen
       setRoute( "Match" );
-      // full nav path for QuickActions
-      navigation.navigate( "MainTab", { screen: "Species", params: { ...params } } );
+      navigation.navigate( "Species", { ...params } );
     } else if ( navPath === "Drawer" ) {
       setNavigationPath( null );
       navigation.openDrawer();

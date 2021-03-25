@@ -1,7 +1,6 @@
 // @flow
 
 import CameraRoll from "@react-native-community/cameraroll";
-import { check, PERMISSIONS, RESULTS } from "react-native-permissions";
 import type { GetPhotosParams } from "@react-native-community/cameraroll";
 
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
@@ -61,14 +60,8 @@ const fetchAlbums = async ( cameraRoll: Array<Object> ) => {
   }
 };
 
-const checkForLimitedIOSPermission = async ( ) => {
-  const result = await check( PERMISSIONS.IOS.PHOTO_LIBRARY );
-  return result === RESULTS.LIMITED;
-};
-
 export {
   fetchGalleryPhotos,
   checkForUniquePhotos,
-  fetchAlbums,
-  checkForLimitedIOSPermission
+  fetchAlbums
 };

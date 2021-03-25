@@ -10,7 +10,7 @@ import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
-import { fetchGalleryPhotos, checkForUniquePhotos, checkForLimitedIOSPermission } from "../../../utility/cameraRollHelpers";
+import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 
@@ -39,8 +39,7 @@ const GalleryScreen = () => {
           photos: action.photos,
           stillFetching: false,
           hasNextPage: action.pageInfo.has_next_page,
-          lastCursor: action.pageInfo.end_cursor,
-          error: null
+          lastCursor: action.pageInfo.end_cursor
         };
       case "ERROR":
         return {
@@ -85,44 +84,24 @@ const GalleryScreen = () => {
 
   const setLoading = useCallback( ( ) => dispatch( { type: "SET_LOADING" } ), [] );
 
-  const setError = useCallback( ( newError, newErrorEvent ) => {
-    if ( !error ) {
-      dispatch( { type: "ERROR", error: newError, errorEvent: newErrorEvent } );
-    }
-  }, [error] );
-
-  const checkIOSPermission = useCallback( async ( ) => {
-    const permission = await checkForLimitedIOSPermission( );
-    if ( permission === true ) {
-      // console.log( "here is where I want to fetch more photos" );
-      // fetchPhotos( );
-    } else {
-      setError( "photos", null );
-    }
-  }, [setError, fetchPhotos] );
-
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( data.length === 0 ) {
-      if ( photos.length === 0 ) {
-        checkIOSPermission( );
-      } else {
-        // this is triggered in certain edge cases, like when iOS user has "selected albums"
-        // permission but has not given Seek access to a single photo
-        setError( "photos", null );
-      }
+      // this is triggered in certain edge cases, like when iOS user has "selected albums"
+      // permission but has not given Seek access to a single photo
+      dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
     } else {
       const uniquePhotos = checkForUniquePhotos( seen, data );
       dispatch( { type: "APPEND_PHOTOS", photos: photos.concat( uniquePhotos ), pageInfo } );
     }
-  }, [photos, seen, setError, checkIOSPermission] );
+  }, [photos, seen] );
 
   const handleFetchError = useCallback( ( e ) => {
     if ( e.message === "Access to photo library was denied" ) {
-      setError( "gallery", null );
+      dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
     } else {
-      setError( "photos", e.message );
+      dispatch( { type: "ERROR", error: "photos", errorEvent: e.message } );
     }
-  }, [setError] );
+  }, [] );
 
   const fetchPhotos = useCallback( async ( ) => {
     dispatch( { type: "FETCH_PHOTOS" } );
@@ -169,21 +148,21 @@ const GalleryScreen = () => {
   }, [fetchPhotos] );
 
   useEffect( ( ) => {
-    const requestPermissions = async ( ) => {
+    const requestAndroidPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
         const permission = await checkCameraRollPermissions( );
         if ( permission !== true ) {
-          setError( "gallery", null );
+          dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
         }
       }
     };
 
     navigation.addListener( "focus", ( ) => {
-      requestPermissions( );
+      requestAndroidPermissions( );
       initialFetch( );
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation, initialFetch, setError] );
+  }, [navigation, initialFetch] );
 
   const renderImageList = ( ) => {
     if ( error ) {

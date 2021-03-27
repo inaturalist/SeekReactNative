@@ -596,10 +596,10 @@
     "flag": "Marcar aquesta observació com incorrecta",
     "back": "Tornar a la pantalla anterior",
     "user_location": "Torna a la teva ubicació actual",
-    "help": "Toca per anar a la pantalla d'ajuda",
-    "take_photo": "Prem per prendre una foto",
-    "scroll_left": "Prem per desplaçar-te a l'esquerra",
-    "scroll_right": "Prem per desplaçar-te a la dreta"
+    "help": "Ajuda per a la Càmera",
+    "take_photo": "Prendre una foto",
+    "scroll_left": "Desplaçament a l'esquerra",
+    "scroll_right": "Desplaçament a la dreta"
   },
   "review": {
     "title": "Valora aquesta aplicació",

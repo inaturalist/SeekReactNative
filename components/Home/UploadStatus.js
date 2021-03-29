@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useState, useRef } from "react";
-import { View, Text, Image, Animated } from "react-native";
+import { View, Text, Image, Animated, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
@@ -17,10 +17,16 @@ import { resetRouter } from "../../utility/navigationHelpers";
 type Props = {
   successfulUploads: number,
   numPendingUploads: number,
-  updateSuccessfulUploads: number => void
+  updateSuccessfulUploads: number => void,
+  closeCard: ( ) => void
 }
 
-const UploadStatus = ( { successfulUploads, numPendingUploads, updateSuccessfulUploads }: Props ) => {
+const UploadStatus = ( {
+  successfulUploads,
+  numPendingUploads,
+  updateSuccessfulUploads,
+  closeCard
+}: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   const navigation = useNavigation();
   let animation = useRef( new Animated.Value( 0 ) );
@@ -120,33 +126,44 @@ const UploadStatus = ( { successfulUploads, numPendingUploads, updateSuccessfulU
 
   return (
     <View style={styles.container}>
-      <View style={[styles.row, styles.center]}>
-        <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />
-        <View>
-          <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
-          <View style={styles.row}>
-            {internet !== null && <Text style={styles.text}>{setUploadText( )}</Text>}
-            {successfulUploads > 0 && <Image source={icons.checklist} style={styles.checkmark} />}
+      <Pressable
+        onPress={closeCard}
+        style={styles.closeButton}
+      >
+        <Image
+          style={styles.closeIcon}
+          source={icons.closeWhite}
+        />
+      </Pressable>
+      <View style={styles.containerPadding}>
+        <View style={[styles.row, styles.center]}>
+          <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />
+          <View>
+            <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
+            <View style={styles.row}>
+              {internet !== null && <Text style={styles.text}>{setUploadText( )}</Text>}
+              {successfulUploads > 0 && <Image source={icons.checklist} style={styles.checkmark} />}
+            </View>
           </View>
         </View>
+        {error && (
+          <View style={styles.greenButton}>
+            <GreenButton
+              color={colors.seekiNatGreen}
+              handlePress={retryUploads}
+              text="post_to_inat_card.upload_now"
+            />
+            <Text style={styles.errorText}>{setErrorText( )}</Text>
+          </View>
+        )}
+        {( internet === true && !error ) && (
+          <View style={styles.progressBar}>
+            {successfulUploads > 0
+              ? <View style={[styles.absoluteFill, styles.fullWidth]} />
+              : <Animated.View style={[styles.absoluteFill, { width }]} />}
+          </View>
+        )}
       </View>
-      {error && (
-        <View style={styles.greenButton}>
-          <GreenButton
-            color={colors.seekiNatGreen}
-            handlePress={retryUploads}
-            text="post_to_inat_card.upload_now"
-          />
-          <Text style={styles.errorText}>{setErrorText( )}</Text>
-        </View>
-      )}
-      {( internet === true && !error ) && (
-        <View style={styles.progressBar}>
-          {successfulUploads > 0
-            ? <View style={[styles.absoluteFill, styles.fullWidth]} />
-            : <Animated.View style={[styles.absoluteFill, { width }]} />}
-        </View>
-      )}
     </View>
   );
 };

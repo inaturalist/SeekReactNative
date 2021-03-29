@@ -15,7 +15,7 @@ import { checkIfCardShown } from "../../utility/helpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
-import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen, fetchJSONWebToken } from "../../utility/uploadHelpers";
+import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 
 const HomeScreen = () => {
   const navigation = useNavigation( );
@@ -24,8 +24,9 @@ const HomeScreen = () => {
   const [successfulUploads, setSuccessfulUploads] = useState( 0 );
   const [numPendingUploads, setNumPendingUploads] = useState( 0 );
 
-  const openModal = () => setModal( true );
-  const closeModal = () => setModal( false );
+  const openModal = ( ) => setModal( true );
+  const closeModal = ( ) => setModal( false );
+  const closeCard = useCallback( ( ) => setShowUploadCard( false ), [] );
 
   const updateSuccessfulUploads = num => setSuccessfulUploads( num );
 
@@ -92,6 +93,7 @@ const HomeScreen = () => {
             successfulUploads={successfulUploads}
             numPendingUploads={numPendingUploads}
             updateSuccessfulUploads={updateSuccessfulUploads}
+            closeCard={closeCard}
           />
         )}
         <SpeciesNearby />

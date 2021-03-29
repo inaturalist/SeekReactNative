@@ -36,6 +36,7 @@ import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 import { useEmulator } from "../../../utility/customHooks";
+import { colors } from "../../../styles/global";
 
 const ARCamera = () => {
   const navigation = useNavigation();
@@ -293,6 +294,8 @@ const ARCamera = () => {
   }, [navigation, requestAndroidPermissions] );
 
   const navHome = ( ) => resetRouter( navigation );
+  const navToSettings = ( ) => navigation.navigate( "Settings" );
+
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
@@ -321,6 +324,19 @@ const ARCamera = () => {
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        accessibilityLabel={i18n.t( "menu.settings" )}
+        accessible
+        onPress={navToSettings}
+        style={styles.settingsButton}
+      >
+        {/* $FlowFixMe */}
+        <Image
+          tintColor={colors.white}
+          style={styles.settingsIcon}
+          source={icons.menuSettings}
+        />
       </TouchableOpacity>
       <INatCamera
         ref={camera}

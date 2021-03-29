@@ -13,6 +13,18 @@ export default StyleSheet.create( {
     position: "absolute",
     top: height > 700 ? 31 : 0
   },
+  settingsButton: {
+    right: 0,
+    paddingHorizontal: 23,
+    paddingVertical: 19,
+    position: "absolute",
+    top: height > 700 ? 31 : 0
+  },
+  settingsIcon: {
+    tintColor: colors.white,
+    height: 20,
+    width: 20
+  },
   camera: {
     height,
     width: Platform.OS === "android" ? width + 100 : width, // this should account for offcenter photos on android

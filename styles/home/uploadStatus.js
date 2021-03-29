@@ -28,7 +28,6 @@ export default StyleSheet.create( {
     paddingHorizontal: 15,
     paddingVertical: 19,
     zIndex: 1
-    // paddingVertical: 15
   },
   closeIcon: {
     height: 13,

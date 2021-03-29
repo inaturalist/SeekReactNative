@@ -126,15 +126,17 @@ const UploadStatus = ( {
 
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={closeCard}
-        style={styles.closeButton}
-      >
-        <Image
-          style={styles.closeIcon}
-          source={icons.closeWhite}
-        />
-      </Pressable>
+      {progress === 100 && (
+        <Pressable
+          onPress={closeCard}
+          style={styles.closeButton}
+        >
+          <Image
+            style={styles.closeIcon}
+            source={icons.closeWhite}
+          />
+        </Pressable>
+      )}
       <View style={styles.containerPadding}>
         <View style={[styles.row, styles.center]}>
           <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />

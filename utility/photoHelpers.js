@@ -51,7 +51,7 @@ const deleteDebugLogAfter7Days = () => {
   }
 };
 
-const checkForPhotoMetaData = ( location: Object ) => {
+const checkForPhotoMetaData = ( location: Object ): boolean => {
   if ( location ) {
     if ( Object.keys( location ).length !== 0 && location.latitude ) {
       return true;
@@ -81,7 +81,7 @@ const resizeImage = async ( path: string, width: number, height?: number ): Prom
   }
 };
 
-const flattenUploadParameters = async ( image: Object ) => {
+const flattenUploadParameters = async ( image: Object ): Object => {
   const {
     latitude,
     longitude,
@@ -103,7 +103,7 @@ const flattenUploadParameters = async ( image: Object ) => {
   return params;
 };
 
-const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ) => (
+const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ): Promise<any> => (
   new Promise( ( resolve ) => {
     RNFS.mkdir( dirPictures ) // doesn't throw error if directory already exists
       .then( () => {
@@ -117,7 +117,7 @@ const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ) =>
   } )
 );
 
-const localizeAttributions = ( attribution: string, licenseCode: string, screen: string ) => {
+const localizeAttributions = ( attribution: string, licenseCode: string, screen: string ): string => {
   const userName = attribution.split( "," )[0];
   const name = userName.split( ") " )[1];
 
@@ -136,7 +136,7 @@ const localizeAttributions = ( attribution: string, licenseCode: string, screen:
   return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
-const createBackupUri = async ( uri: string, uuid?: ?string ) => {
+const createBackupUri = async ( uri: string, uuid?: ?string ): Promise<?string> => {
   let newImageName;
 
   const timestamp = namePhotoByTime();
@@ -233,7 +233,7 @@ const updateRealmThumbnails = () => {
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 
-const checkForDirectory = async ( dir: string ) => {
+const checkForDirectory = async ( dir: string ): Promise<boolean> => {
   try {
     const exists = await RNFS.stat( dir );
     if ( exists ) {
@@ -361,7 +361,7 @@ const replacePhoto = async ( id: number, image: Object ) => {
 //   return srcexifs;
 // };
 
-const writeExifData = async ( file: string ) => {
+const writeExifData = async ( file: string ): Promise<string> => {
   const prefixe = "data:image/jpeg;base64,";
   const srcdata = await RNFS.readFile( file, "base64" );
 
@@ -397,7 +397,7 @@ const formatBytes = ( bytes: number, decimals: number = 2 ) => {
   return parseFloat( ( bytes / Math.pow( k, i ) ).toFixed( dm ) ) + " " + sizes[i];
 };
 
-const checkPhotoSize = async ( file: string ) => {
+const checkPhotoSize = async ( file: string ): Promise<string> => {
   // this returns size in bytes
   const stats = await RNFS.stat( file );
   return formatBytes( Number( stats.size ) );

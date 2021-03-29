@@ -45,21 +45,11 @@ const AchievementsScreen = () => {
           .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id} AND earned == true` )
           .sorted( "index", true );
         speciesBadges.push( highestEarned[0] );
-        console.log( highestEarned[0].index, "highest earned" );
       } );
 
       const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
       const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
       const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
-
-      // speciesBadges.sort( ( a: { index: number, earned: boolean }, b: { index: number, earned: boolean } ) => {
-      //   // $FlowFixMe sorting by booleans isn't great, but it works here
-      //   console.log( a.index, b.index, a.earned, b.earned );
-      //   if ( a.index < b.index && a.earned > b.earned ) {
-      //     return -1;
-      //   }
-      //   return 1;
-      // } );
 
       fetchNumberSpeciesSeen( ).then( ( species ) => {
         setState( {

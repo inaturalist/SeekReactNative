@@ -16,7 +16,7 @@ type ImageSize = {
   height: number
 }
 
-const shareToFacebook = async ( url: string ) => {
+const shareToFacebook = async ( url: string ): Promise<any> => {
   // this shares to newsfeed, story, or profile photo on Android
   const shareOptions = {
     url,

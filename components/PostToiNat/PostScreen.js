@@ -59,8 +59,7 @@ const PostScreen = () => {
       observed_on_string: initialDate,
       place_guess: null,
       positional_accuracy: params.image.latitude ? 90 : null,
-      taxon_id: taxaId,
-      uri: params.image.uri
+      taxon_id: taxaId
     },
     taxon: {
       preferredCommonName: commonName,

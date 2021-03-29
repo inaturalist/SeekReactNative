@@ -20,8 +20,15 @@ type Props = {
   location: ?string,
   updateLocation: ( ) => void,
   observation: {
+    observed_on_string: ?string,
+    taxon_id: ?number,
+    geoprivacy: string,
+    captive_flag: boolean,
+    place_guess: ?string,
     latitude: ?number,
-    longitude: ?number
+    longitude: ?number,
+    positional_accuracy: ?number,
+    description: ?string
   }
 }
 

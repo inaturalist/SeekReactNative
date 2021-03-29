@@ -123,7 +123,7 @@ const sortNewestToOldest = ( observations ) => {
   } );
 };
 
-const createSectionList = ( realm: any, species: any, hideSections: boolean ) => {
+const createSectionList = ( realm: any, species: any, hideSections: boolean ): Array<{id: number, data: Array<Object>}> => {
   const obs = [];
 
   const taxaList = [47126, 20978, 47170, 47178, 26036, 47119, 3, 47158, 47115, 40151];

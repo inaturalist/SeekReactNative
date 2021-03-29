@@ -228,14 +228,14 @@ const addDetailsToExistingChallenges = ( realm: any ) => {
   } );
 };
 
-// const showAdminAlert = ( ) => {
-//   // this lets admins know that they should expect to see the
-//   // newest challenge before the start of the month
-//   Alert.alert(
-//     null,
-//     i18n.t( "challenges_card.inat_admin" )
-//   );
-// };
+const showAdminAlert = ( ) => {
+  // this lets admins know that they should expect to see the
+  // newest challenge before the start of the month
+  Alert.alert(
+    null,
+    i18n.t( "challenges_card.inat_admin" )
+  );
+};
 
 const setupChallenges = ( isAdmin: boolean ): void => {
   Realm.open( realmConfig ).then( ( realm ) => {
@@ -263,9 +263,9 @@ const setupChallenges = ( isAdmin: boolean ): void => {
           if ( isAvailable || process.env.NODE_ENV === "development" || isAdmin ) {
             const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
-            // if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {
-            //   showAdminAlert( );
-            // }
+            if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {
+              showAdminAlert( );
+            }
 
             realm.create( "ChallengeRealm", {
               name: challenge.name,

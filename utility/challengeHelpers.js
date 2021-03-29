@@ -1,18 +1,22 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
+import inatjs from "inaturalistjs";
 import { getYear, isEqual } from "date-fns";
+import { Alert } from "react-native";
 
 import { createNotification, isDuplicateNotification } from "./notificationHelpers";
 import taxonDict from "./dictionaries/taxonDictForMissions";
 import missionsDict from "./dictionaries/missionsDict";
 import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
-import { checkIfChallengeAvailable, isWithinCurrentMonth } from "./dateHelpers";
+import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
+import { fetchJSONWebToken } from "./uploadHelpers";
+import i18n from "../i18n";
 
-const calculatePercent = ( seen: number, total: number ) => Math.round( ( seen / total ) * 100 );
+const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 
-const setChallengeProgress = async ( index: any ) => AsyncStorage.setItem( "challengeProgress", index.toString() );
+const setChallengeProgress = async ( index: any ): any => AsyncStorage.setItem( "challengeProgress", index.toString() );
 
 const fetchIncompleteChallenges = ( realm ) => {
   const incomplete = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND startedDate != null" );
@@ -77,7 +81,7 @@ const updateNumberObservedPerMission = ( challenge, count, number ) => {
   return totalSeen;
 };
 
-const checkForAncestors = ( seenTaxa: Array<Object>, taxaId: number ) => {
+const checkForAncestors = ( seenTaxa: Array<Object>, taxaId: number ): Array<number> => {
   const taxaWithAncestors = seenTaxa.filter( ( t ) => (
     t.taxon && t.taxon.ancestorIds.length > 0
   ) );
@@ -224,7 +228,16 @@ const addDetailsToExistingChallenges = ( realm: any ) => {
   } );
 };
 
-const setupChallenges = () => {
+// const showAdminAlert = ( ) => {
+//   // this lets admins know that they should expect to see the
+//   // newest challenge before the start of the month
+//   Alert.alert(
+//     null,
+//     i18n.t( "challenges_card.inat_admin" )
+//   );
+// };
+
+const setupChallenges = ( isAdmin: boolean ): void => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const numChallenges = realm.objects( "ChallengeRealm" ).length;
     const dict = Object.keys( challengesDict );
@@ -241,14 +254,18 @@ const setupChallenges = () => {
         const existingChallenge = realm.objects( "ChallengeRealm" ).filtered( `index == ${i}` ).length;
 
         // only create new challenges
-        if ( existingChallenge === 0 || i === 17 ) { // temporarily rewrite march challenge to fix bug for beta users
+        if ( existingChallenge === 0 ) {
           const challenge = challengesDict[challengesType];
           const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
           // start showing the latest challenge in developer mode for testing
-          if ( isAvailable || process.env.NODE_ENV === "development" ) {
+          if ( isAvailable || process.env.NODE_ENV === "development" || isAdmin ) {
             const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+
+            // if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {
+            //   showAdminAlert( );
+            // }
 
             realm.create( "ChallengeRealm", {
               name: challenge.name,
@@ -337,7 +354,7 @@ const getChallengeProgress = async () => {
   }
 };
 
-const checkForChallengesCompleted = async () => {
+const checkForChallengesCompleted = async ( ): Promise<Object> => {
   const prevChallengesCompleted = await getChallengesCompleted();
   const challengeProgressIndex = await getChallengeProgress();
 
@@ -376,6 +393,21 @@ const checkForChallengesCompleted = async () => {
   );
 };
 
+const checkINatAdminStatus = async ( login: string ): Promise<boolean> => {
+  try {
+    const apiToken = await fetchJSONWebToken( login );
+    const options = { api_token: apiToken };
+    const { results } = await inatjs.users.me( options );
+    if ( results[0].roles.includes( "admin" ) ) {
+      return true;
+    }
+    return false;
+  } catch ( e ) {
+    console.log( e.message, "error checking for admin" );
+    return false;
+  }
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
@@ -387,5 +419,6 @@ export {
   setChallengeProgress,
   checkForChallengesCompleted,
   fetchObservationsAfterChallengeStarted,
-  checkForAncestors
+  checkForAncestors,
+  checkINatAdminStatus
 };

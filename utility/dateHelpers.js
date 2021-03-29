@@ -166,12 +166,14 @@ const formatMonthYear = ( date: Date ) => format( date, "MMMM yyyy", setLocale( 
 
 const formatMonth = ( date: Date ) => format( date, "MMMM", setLocale( ) );
 
-const isAndroidDateInFuture = ( selectedDate: Date ) => {
+const isAndroidDateInFuture = ( selectedDate: Date ): boolean => {
   if ( Platform.OS === "android" && isAfter( selectedDate, new Date() ) ) {
     return true;
   }
   return false;
 };
+
+const isDateInFuture = ( selectedDate: Date ): boolean => isAfter( selectedDate, new Date( ) );
 
 export {
   checkIfChallengeAvailable,
@@ -191,5 +193,6 @@ export {
   serverBackOnlineTime,
   isWithinCurrentMonth,
   isAndroidDateInFuture,
-  formatGMTTimeWithTimeZone
+  formatGMTTimeWithTimeZone,
+  isDateInFuture
 };

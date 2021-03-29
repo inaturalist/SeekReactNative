@@ -24,7 +24,8 @@
     "take_challenge": "Take the challenge",
     "continue_challenge": "Continue challenge",
     "view_all": "View all challenges",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POST TO INATURALIST",

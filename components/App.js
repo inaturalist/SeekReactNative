@@ -4,13 +4,12 @@ import React, { useState, useEffect } from "react";
 import * as RNLocalize from "react-native-localize";
 
 import RootStack from "./Navigation/RootStack";
-import { setupChallenges } from "../utility/challengeHelpers";
+import { checkINatAdminStatus, setupChallenges } from "../utility/challengeHelpers";
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
 import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken, savePostingSuccess } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
-// import { checkForIncompleteUploads } from "../utility/uploadHelpers";
 import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = () => {
@@ -48,10 +47,15 @@ const App = () => {
     loadUserLanguagePreference( preferredLanguage );
   }, [preferredLanguage] );
 
-  // useEffect( ( ) => {
-  //   if ( !login ) { return; }
-  //   checkForIncompleteUploads( login );
-  // }, [login] );
+  useEffect( ( ) => {
+    const checkForAdmin = async ( ) => {
+      if ( !login ) { return; }
+      const isAdmin = await checkINatAdminStatus( login );
+      setupChallenges( isAdmin );
+    };
+
+    checkForAdmin( );
+  }, [login] );
 
   useEffect( () => {
     hideLogs();
@@ -67,7 +71,6 @@ const App = () => {
     // reset posting to iNat
     savePostingSuccess( false );
 
-    setupChallenges( );
     setTimeout( addARCameraFiles, 3000 );
 
     RNLocalize.addEventListener( "change", handleLocalizationChange );

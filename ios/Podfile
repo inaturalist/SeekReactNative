@@ -5,9 +5,7 @@ platform :ios, '10.0'
 
 target 'Seek' do
   config = use_native_modules!
-  permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools'
-  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
 
   use_react_native!(:path => config["reactNativePath"])
   

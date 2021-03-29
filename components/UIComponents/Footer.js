@@ -47,6 +47,16 @@ const Footer = () => {
     } );
   }, [navigation] );
 
+  const navToDrawer = ( ) => {
+    // notifications is different because it needs to be in a stack nav
+    // to enable animation in from the right
+    if ( route.name === "Notifications" ) {
+      navigation.navigate( "Drawer" );
+    } else {
+      navigation.openDrawer( );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.safeArea} edges={["right", "bottom", "left"]}>
       <ImageBackground source={backgrounds.navBar} style={styles.container}>
@@ -54,7 +64,7 @@ const Footer = () => {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.menu" )}
             accessible
-            onPress={() => navigation.openDrawer()}
+            onPress={navToDrawer}
             style={styles.leftIcon}
           >
             <Image source={icons.hamburger} />

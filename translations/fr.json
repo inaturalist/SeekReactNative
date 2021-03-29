@@ -754,6 +754,6 @@
     "june_2021_badge_name": "Conservation Badge"
   },
   "challenges_all": {
-    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
+    "you_completed_sponsor_challenge": "VOUS AVEZ COMPLÉTÉ LE DÉFI {{sponsorName}} POUR {{date}}!"
   }
 }

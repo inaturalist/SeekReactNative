@@ -11,7 +11,8 @@ const posting = {
   postingHelp: require( "./posting/icon-help.webp" ),
   postingSuccess: require( "./posting/img-PostingtoiNat-success.webp" ),
   postingNoInternet: require( "./posting/img-PostingtoiNat-NoInternet.webp" ),
-  internet: require( "./posting/icon-internet-green.webp" )
+  internet: require( "./posting/icon-internet-green.webp" ),
+  edit: require( "./posting/icon-edit.webp" )
 };
 
 export default posting;

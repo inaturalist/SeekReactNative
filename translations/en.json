@@ -360,6 +360,7 @@
     "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
     "error_photoError": "Sorry, the photo object was not found",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Plants only",
     "non_plant_filter": "Non-plants only",
     "filters_off": "Filters off"

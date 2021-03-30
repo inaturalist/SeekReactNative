@@ -166,7 +166,7 @@ const GalleryScreen = () => {
 
   const renderImageList = ( ) => {
     if ( error ) {
-      return <CameraError error={error} errorEvent={errorEvent} />;
+      return <CameraError error={error} errorEvent={errorEvent} album={album} />;
     }
     return <GalleryImageList onEndReached={onEndReached} photos={photos} setLoading={setLoading} />;
   };

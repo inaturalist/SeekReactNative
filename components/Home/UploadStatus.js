@@ -13,7 +13,6 @@ import { useInternetStatus } from "../../utility/customHooks";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 import { resetRouter } from "../../utility/navigationHelpers";
-import { checkForInternet } from "../../utility/helpers";
 
 type Props = {
   successfulUploads: number,

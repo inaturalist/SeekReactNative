@@ -27,15 +27,15 @@
     "new_join": "Voeg waarnemings met die Seek Kamera toe om die Uitdaging-kenteken te verdien!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
-    "uploading_x_observations": "Uploading {{count}} observations...",
-    "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_to_upload": "{{count}} observations to upload",
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
-    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "post_to_inaturalist": "PLAAS OP INATURALIST",
+    "uploading_x_observations": "Laai tans {{count}} waarnemings op…",
+    "x_observations_uploaded": "{{count}} waarnemings opgelaai!",
+    "x_observations_to_upload": "{{count}} waarnemings om op te laai",
+    "upload_now": "LAAI NOU OP",
+    "error_internet": "Geen internet bespeur nie. Probeer later weer.",
+    "error_downtime": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+    "error_unknown": "Oplaai het misluk. Foutdetails: {{errorText}}",
+    "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer."
   },
   "notifications": {
     "header": "Kennisgewings",
@@ -550,10 +550,10 @@
     "look_up": "Soek spesies volgens naam"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "posting_to_inat_background": "PLAAS OP DIE AGTERGROND OP INATURALIST",
+    "posting_to_inat_background_description": "Plasing op iNaturalist sal in die agtergrond voortgaan terwyl Seek oop is.\n\nU kan die status van die oplaaie op die tuisskerm sien.",
+    "no_internet": "GEEN INTERNET!",
+    "no_internet_description": "U waarneming is nie na iNaturalist opgelaai nie omdat u nie aan die internet gekoppel is nie.\n\nU waarneming sal opgelaai word sodra u Seek herbegin en u aan die internet gekoppel is."
   },
   "posting_help": {
     "header": "Plaas hulp",
@@ -734,7 +734,7 @@
     "apr_2021_description": "Klimaatsverandering, verlies aan spesies en plastiekbesoedeling is drie van die grootste uitdagings wat ons planeet tans in die gesig staar en is almal mensgedrewe. Hierdie jaar se tema vir Aarddag (22 April) is “Herstel ons Aarde”. Ons moet almal saamwerk om ’n meer volhoubare toekoms vir ons gemeenskappe en wildlewe te bou – u individuele aksies kan ’n verskil maak!",
     "apr_2021_action": "Een van die algemeenste menslike ompakte op ekostelsels is rommel. Soos u die natuur vandeesmaand ontdek, moet u aandag skenk aan die rommel wat u sien en dink oor waar dit vandaan kom. Maak ’n lys van dinge wat u tuis kan doen om u gesin se rommel te verminder, en deel die lys met die res van u gesin.",
     "apr_2021_badge_name": "Herstelkenteken",
-    "apr_2021_photographer": "Photo by: Enric Sala / National Geographic",
+    "apr_2021_photographer": "Foto deur: Enric Sala / National Geographic",
     "may_2021_mission_1": "Vind 5 plante uit elk van die volgende families:\n\nAsteraceae (sonneblomme, madeliefies, asters en verwante);\nFabaceae (Vlinderblommiges);\nLamiaceae (Lipblommiges);\nAcanthaceae (acanthus- en kanferfoeliefamily);\nMalvaceae (tavla- en hibiskusfamilie);\nBignoniaceae (trompetblomfamilie);\nPassifloraceae (Passieblomfamilie)",
     "may_2021_mission_2": "Vind 2 arthropoda (insekte, aragniede, kreefagtiges)",
     "may_2021_challenge_name": "Gesonde Ekostelsels-uitdaging",

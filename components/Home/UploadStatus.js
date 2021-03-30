@@ -102,9 +102,7 @@ const UploadStatus = ( {
         completedProgress += tick;
         currentUploads += 1;
 
-        if ( isCurrent ) {
-          setProgress( completedProgress );
-        }
+        setProgress( completedProgress );
         markCurrentUploadAsSeen( observation );
 
         if ( currentUploads === numPendingUploads ) {

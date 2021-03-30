@@ -92,8 +92,8 @@
     "learn_more": "En savoir plus",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "about_personal_information": "À propos des informations personnelles",
+    "about_licenses": "À propos des licences"
   },
   "inat_login": {
     "log_in_with_inat": "Se connecter avec votre compte iNaturalist",
@@ -708,10 +708,10 @@
   "social": {
     "share_observation": "Share observation",
     "square": "Square",
-    "original": "Original",
+    "original": "Originale",
     "options": "Options",
     "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
+    "share": "Partager sur Facebook",
     "save_to_camera_roll": "Save to camera roll",
     "saved_to_camera_roll": "Saved to camera roll",
     "back_to_id": "Back to Identification",
@@ -754,6 +754,6 @@
     "june_2021_badge_name": "Conservation Badge"
   },
   "challenges_all": {
-    "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
+    "you_completed_sponsor_challenge": "VOUS AVEZ COMPLÉTÉ LE DÉFI {{sponsorName}} POUR {{date}}!"
   }
 }

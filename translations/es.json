@@ -596,10 +596,10 @@
     "flag": "Marcar esta observación como incorrecta",
     "back": "Regresar a pantalla anterior",
     "user_location": "Volver a tu ubicación actual",
-    "help": "Toca para ir a la pantalla de ayuda",
-    "take_photo": "Toca para tomar una foto",
-    "scroll_left": "Toca para desplazar hacia la izquierda",
-    "scroll_right": "Toca para desplazar a la derecha"
+    "help": "Ayuda de la Cámara",
+    "take_photo": "Tomar una foto",
+    "scroll_left": "Desplazarse a la izquierda",
+    "scroll_right": "Desplazarse a la derecha"
   },
   "review": {
     "title": "Valorar esta aplicación",

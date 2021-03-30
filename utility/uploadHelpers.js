@@ -8,6 +8,7 @@ import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { handleServerError } from "./helpers";
+import i18n from "../i18n";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -19,6 +20,19 @@ const saveUploadSucceeded = async ( id: number ) => {
     } );
   } catch ( e ) {
     console.log( "couldn't set succeeded status: ", e );
+  }
+};
+
+const saveUploadFailed = async ( id: number ) => {
+  const realm = await Realm.open( realmConfig );
+  const photo = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
+
+  try {
+    realm.write( ( ) => {
+      photo.uploadFailed = true;
+    } );
+  } catch ( e ) {
+    console.log( "couldn't set failed status: ", e );
   }
 };
 
@@ -89,6 +103,18 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri:
 const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ) => {
   const { uri, id } = photo;
   const resizedPhoto = await resizeImageForUpload( uri );
+
+  if ( !resizedPhoto ) {
+    // if upload cannot complete because there is no longer a photo to upload
+    // save this setting so Seek does not keep trying to upload it (and crashing each time)
+    saveUploadFailed( id );
+    return {
+      error: {
+        type: "photo",
+        errorText: i18n.t( "post_to_inat_card.error_photo" )
+      }
+    };
+  }
   const photoUpload = await appendPhotoToObservation( photo, token, resizedPhoto );
 
   if ( photoUpload === true ) {

@@ -62,7 +62,7 @@ const HomeScreen = () => {
         setSuccessfulUploads( numUnseenUploads );
       } else {
         const allUploads = await checkForUploads( );
-        const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false" ).length;
+        const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false AND photo.uploadFailed == false" ).length;
         if ( pendingUploads > 0 ) {
           setShowUploadCard( true );
           setNumPendingUploads( pendingUploads );

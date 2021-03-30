@@ -65,11 +65,6 @@ const UploadStatus = ( {
     if ( error !== null ) {
       const { numOfHours, errorText } = error;
 
-      Alert.alert(
-        null,
-        errorText + "1" + typeof errorText + "2" + JSON.stringify( error )
-      );
-
       if ( internet === false ) {
         return i18n.t( "post_to_inat_card.error_internet" );
       } else if ( error.type === "downtime" ) {
@@ -115,7 +110,8 @@ const UploadStatus = ( {
 
     const checkUploads = async ( ) => {
       const allUploads = await checkForUploads( );
-      const pendingUploads = allUploads.filter( observation => observation.photo.uploadSucceeded === false );
+      const pendingUploads = allUploads.filter( observation => observation.photo.uploadSucceeded === false
+        && observation.photo.uploadFailed === false );
       pendingUploads.forEach( observation => beginUpload( observation ) );
     };
 

@@ -596,10 +596,10 @@
     "flag": "Segnala questa osservazione come non corretta",
     "back": "Torna alla visualizzazione precedente",
     "user_location": "Ritorna alla tua posizione corrente",
-    "help": "Tocca per la schermata di aiuto",
-    "take_photo": "Tocca per scattare una foto",
-    "scroll_left": "Tocca per scorrere a sinistra",
-    "scroll_right": "Tocca per scorrere a destra"
+    "help": "Aiuto per la Fotocamera",
+    "take_photo": "Scatta una foto",
+    "scroll_left": "Scorri a sinistra",
+    "scroll_right": "Scorri a destra"
   },
   "review": {
     "title": "Valuta questa applicazione",

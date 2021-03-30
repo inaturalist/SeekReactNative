@@ -12,14 +12,24 @@ import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } fro
 import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
 import { setQuickActions } from "../utility/navigationHelpers";
 
-const App = () => {
+const App = ( ) => {
   const [login, setLogin] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
   const [preferredLanguage, setLanguage] = useState( null );
   const [autoCapture, setAutoCapture] = useState( false );
   const [localSeasonality, setLocalSeasonality] = useState( false );
 
-  const getLoggedIn = async () => setLogin( await fetchAccessToken() );
+  const getLoggedIn = async ( ) => {
+    const token = await fetchAccessToken( );
+
+    if ( !token ) {
+      setupChallenges( false );
+    } else {
+      const isAdmin = await checkINatAdminStatus( token );
+      setupChallenges( isAdmin );
+    }
+    setLogin( token );
+  };
   const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
   const getLanguagePreference = async () => setLanguage( await getLanguage() );
   const fetchAutoCapture = async () => setAutoCapture( await getAutoCapture() );
@@ -46,16 +56,6 @@ const App = () => {
     if ( !preferredLanguage ) { return; }
     loadUserLanguagePreference( preferredLanguage );
   }, [preferredLanguage] );
-
-  useEffect( ( ) => {
-    const checkForAdmin = async ( ) => {
-      if ( !login ) { return; }
-      const isAdmin = await checkINatAdminStatus( login );
-      setupChallenges( isAdmin );
-    };
-
-    checkForAdmin( );
-  }, [login] );
 
   useEffect( () => {
     hideLogs();

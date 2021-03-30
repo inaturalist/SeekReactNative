@@ -31,7 +31,7 @@
     "post_to_inaturalist": "POST TO INATURALIST",
     "uploading_x_observations": {
       "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
       "two": "Uploading {{count}} observations",
       "few": "Uploading {{count}} observations",
       "many": "Uploading {{count}} observations",
@@ -39,7 +39,7 @@
     },
     "x_observations_uploaded": {
       "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
       "two": "{{count}} observations uploaded!",
       "few": "{{count}} observations uploaded!",
       "many": "{{count}} observations uploaded!",
@@ -47,7 +47,7 @@
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
-      "one": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
       "two": "{{count}} observations to upload",
       "few": "{{count}} observations to upload",
       "many": "{{count}} observations to upload",

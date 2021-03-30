@@ -45,7 +45,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
       return {
         error: {
           type: "downtime",
-          errorText: e,
+          errorText: e.message,
           numOfHours: handleServerError( e )
         }
       };
@@ -53,7 +53,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
     return {
       error: {
         type: "login",
-        errorText: e
+        errorText: e.message
       }
     };
   }
@@ -80,7 +80,7 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri:
     return {
       error: {
         type: "photo",
-        errorText: e
+        errorText: e.message
       }
     };
   }
@@ -97,25 +97,6 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   }
   return photoUpload;
 };
-
-// const checkForIncompleteUploads = async ( login: string ) => {
-//   const realm = await Realm.open( realmConfig );
-//   try {
-//     const uploads = realm.objects( "UploadPhotoRealm" );
-//     const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
-
-//     if ( unsuccessfulUploads.length === 0 ) { return; }
-
-//     const token = await fetchJSONWebToken( login );
-//     if ( token === null ) { return; }
-
-//     unsuccessfulUploads.forEach( ( photo ) => {
-//       uploadPhoto( photo, token );
-//     } );
-//   } catch ( e ) {
-//     console.log( e, " : couldn't check for incomplete uploads" );
-//   }
-// };
 
 const saveObservationId = async ( id: number, photo: Object ) => {
   const realm = await Realm.open( realmConfig );
@@ -163,7 +144,7 @@ const uploadObservation = async ( observation: {
 
   const token = await fetchJSONWebToken( login );
 
-  // catch server downtime error
+  // catch server downtime or login token error
   if ( typeof token === "object" ) {
     return token;
   }
@@ -179,7 +160,7 @@ const uploadObservation = async ( observation: {
     return {
       error: {
         type: "observation",
-        errorText: e
+        errorText: e.message
       }
     };
   }
@@ -284,7 +265,6 @@ const createFakeUploadData = ( ): Object => {
 };
 
 export {
-  // checkForIncompleteUploads,
   resizeImageForUpload,
   fetchJSONWebToken,
   saveObservationToRealm,

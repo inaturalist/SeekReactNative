@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useState, useRef } from "react";
-import { View, Text, Image, Animated, Pressable } from "react-native";
+import { View, Text, Image, Animated, Pressable, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
@@ -13,6 +13,7 @@ import { useInternetStatus } from "../../utility/customHooks";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 import { resetRouter } from "../../utility/navigationHelpers";
+import { checkForInternet } from "../../utility/helpers";
 
 type Props = {
   successfulUploads: number,
@@ -65,7 +66,10 @@ const UploadStatus = ( {
     if ( error !== null ) {
       const { numOfHours, errorText } = error;
 
-      const errorMessage = errorText.includes( ":" ) ? errorText.split( ":" )[1] : errorText;
+      Alert.alert(
+        null,
+        errorText + "1" + typeof errorText + "2" + JSON.stringify( error )
+      );
 
       if ( internet === false ) {
         return i18n.t( "post_to_inat_card.error_internet" );
@@ -74,7 +78,13 @@ const UploadStatus = ( {
       } else if ( error.type === "login" ) {
         return i18n.t( "post_to_inat_card.error_login" );
       } else {
-        return i18n.t( "post_to_inat_card.error_unknown", { errorText: errorMessage } );
+        if ( errorText === "Network request failed" ) {
+          // this covers the case where a user loses internet after landing on home screen
+          // when uploads have already started
+          return i18n.t( "post_to_inat_card.error_internet" );
+        } else {
+          return i18n.t( "post_to_inat_card.error_unknown", { errorText } );
+        }
       }
     }
   };
@@ -91,7 +101,10 @@ const UploadStatus = ( {
       if ( upload === true ) {
         completedProgress += tick;
         currentUploads += 1;
-        setProgress( completedProgress );
+
+        if ( isCurrent ) {
+          setProgress( completedProgress );
+        }
         markCurrentUploadAsSeen( observation );
 
         if ( currentUploads === numPendingUploads ) {
@@ -126,7 +139,7 @@ const UploadStatus = ( {
 
   return (
     <View style={styles.container}>
-      {progress === 100 && (
+      {successfulUploads > 0 && (
         <Pressable
           onPress={closeCard}
           style={styles.closeButton}

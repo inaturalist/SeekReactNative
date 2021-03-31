@@ -596,10 +596,10 @@
     "flag": "Flagga denna observation som felaktig",
     "back": "Tillbaka till föregående sida",
     "user_location": "Återgå till din nuvarande plats",
-    "help": "Tryck för hjälpsidan",
-    "take_photo": "Tryck för att ta bild",
-    "scroll_left": "Tryck för att skrolla vänster",
-    "scroll_right": "Tryck för att skrolla höger"
+    "help": "Kamerahjälp",
+    "take_photo": "Ta en bild",
+    "scroll_left": "Skrolla vänster",
+    "scroll_right": "Skrolla höger"
   },
   "review": {
     "title": "Betygsätt appen",

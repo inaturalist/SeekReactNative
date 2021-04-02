@@ -24,18 +24,42 @@
     "take_challenge": "Neem de uitdaging aan",
     "continue_challenge": "Ga door met de uitdaging",
     "view_all": "Bekijk alle uitdagingen",
-    "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!"
+    "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "STUUR NAAR  INATURALIST",
-    "uploading_x_observations": "Uploaden van {{count}} waarnemingen...",
-    "x_observations_uploaded": "{{count}} waarnemingen zijn geupload!",
-    "x_observations_to_upload": "{{count}} waarnemingen om te uploaden",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "NU UPLOADEN",
     "error_internet": "Geen internetverbinding gedetecteerd. Probeer het later opnieuw.",
     "error_downtime": "iNaturalist's server ondergaat onderhoud. Probeer het over {{count}} uur opnieuw.",
     "error_unknown": "Upload mislukt. Foutdetails: {{errorText}}",
-    "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert."
+    "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert.",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Meldingen",
@@ -337,6 +361,7 @@
     "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
     "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
     "error_photoError": "Sorry, het foto-object is niet gevonden",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Alleen planten",
     "non_plant_filter": "Alleen niet-planten",
     "filters_off": "Filters uit"
@@ -380,15 +405,15 @@
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
     "observe_plural": {
-      "zero": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
-      "one": "Nog {{count}} soort waarnemen om het volgende niveau te halen!",
-      "two": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "zero": "Neem {{count}} soorten waar om het volgende niveau te bereiken!",
+      "one": "Neem {{count}} soorten waar om het volgende niveau te bereiken!",
+      "two": "Neem {{count}} soorten waar om het volgende niveau te bereiken!",
       "few": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
       "many": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
-      "other": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!"
+      "other": "Neem {{count}} soorten waar om het volgende niveau te bereiken!"
     },
     "observe_max": "Je hebt het maximale level bereikt op Seek!",
-    "observe_species": "Waarnemen",
+    "observe_species": "Vind",
     "species_badges": "Soort Badges",
     "challenge_badges": "Uitdaging Badges",
     "observed": "Soorten\nwaargenomen",
@@ -750,7 +775,7 @@
     "june_2021_mission_7": "Vind 1 spinachtige",
     "june_2021_challenge_name": "Behoud Uitdaging",
     "june_2021_description": "Wij allen kunnen, ongeacht onze leeftijd of ervaring, een positief effect hebben op het behoud van de biodiversiteit. We kunnen bijvoorbeeld helpen om te zorgen voor een bepaalde plaats zoals ons eigen erf, een beschermd gebied of een lokaal park. Het beschermen van de natuur begint met het leren over planten, schimmels en dieren op de plaatsen waar je om geeft. Je uitdaging deze maand is om in je tuin of een lokaal park te kijken en zo veel mogelijk biodiversiteit te inventariseren.",
-    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van.",
+    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van en deel het met ons door #NatGeoSeekChallenge op Twitter te gebruiken!",
     "june_2021_badge_name": "Behoud Badge"
   },
   "challenges_all": {

@@ -24,18 +24,42 @@
     "take_challenge": "Mücadeleyi kabul et",
     "continue_challenge": "Mücadeleye devam et",
     "view_all": "Tüm mücadeleleri gör",
-    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!"
+    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALİST'TE GÖNDER",
-    "uploading_x_observations": "{{count}} gözlem yükleniyor...",
-    "x_observations_uploaded": "{{count}} gözlem yüklendi!",
-    "x_observations_to_upload": "{{count}} observations to upload",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "HEMEN YÜKLE",
     "error_internet": "Ağ bağlantısı bulunamadı. Lütfen daha sonra tekrar deneyin.",
     "error_downtime": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Bildirimler",
@@ -337,6 +361,7 @@
     "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor.",
     "error_cameraManager": "Üzgünüz, Kamera Yöneticisi yüklenemedi",
     "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Yalnızca bitkiler",
     "non_plant_filter": "Yalnızca bitki olmayanlar",
     "filters_off": "Filtreler kapalı"

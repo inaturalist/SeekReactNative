@@ -24,18 +24,42 @@
     "take_challenge": "Aanvaar die uitdaging",
     "continue_challenge": "Sit uitdaging voort",
     "view_all": "Bekyk alle uitdagings",
-    "new_join": "Voeg waarnemings met die Seek Kamera toe om die Uitdaging-kenteken te verdien!"
+    "new_join": "Voeg waarnemings met die Seek Kamera toe om die Uitdaging-kenteken te verdien!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PLAAS OP INATURALIST",
-    "uploading_x_observations": "Laai tans {{count}} waarnemings op…",
-    "x_observations_uploaded": "{{count}} waarnemings opgelaai!",
-    "x_observations_to_upload": "{{count}} waarnemings om op te laai",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "LAAI NOU OP",
     "error_internet": "Geen internet bespeur nie. Probeer later weer.",
     "error_downtime": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
     "error_unknown": "Oplaai het misluk. Foutdetails: {{errorText}}",
-    "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer."
+    "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer.",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Kennisgewings",
@@ -337,6 +361,7 @@
     "error_version": "Seek se UR-kamera vereis iOS 11.0+. U toestel loop op iOS-weergawe {{OS}}.",
     "error_cameraManager": "Jammer, die Kamerabestuurder kon nie laai nie",
     "error_photoError": "Jammer, die foto-voorwerp is nie gevind nie",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Slegs plante",
     "non_plant_filter": "Slegs nie-plante",
     "filters_off": "Filters af"

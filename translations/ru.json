@@ -24,18 +24,42 @@
     "take_challenge": "Участвовать в испытании",
     "continue_challenge": "Продолжить испытание",
     "view_all": "Все испытания",
-    "new_join": "Добавьте наблюдения с помощью камеры Seek, чтобы получить значок Испытания!"
+    "new_join": "Добавьте наблюдения с помощью камеры Seek, чтобы получить значок Испытания!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "РАЗМЕСТИТЬ В INATURALIST",
-    "uploading_x_observations": "Выгрузка {{count}} наблюдений...",
-    "x_observations_uploaded": "{{count}} наблюдений выгружено!",
-    "x_observations_to_upload": "{{count}} наблюдений для выгрузки",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "ВЫГРУЗИТЬ СЕЙЧАС",
     "error_internet": "Нет подключения к интернету. Повторите попытку позже.",
     "error_downtime": "Серверы iNaturalist на техническом обслуживании. Пожалуйста, попробуйте через  {{count}} часов.",
     "error_unknown": "Выгрузка неуспешна. Ошибка: {{errorText}}",
-    "error_login": "Сбой токена входа в систему. При повторной попытке либо войдите в свою учетную запись  Seek через  iNaturalis, либо войдите через раздел меню «Достижения»"
+    "error_login": "Сбой токена входа в систему. При повторной попытке либо войдите в свою учетную запись  Seek через  iNaturalis, либо войдите через раздел меню «Достижения»",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Уведомления",
@@ -337,6 +361,7 @@
     "error_version": "Для работы с AR камерой Seek требуется iOS 11.0+. Ваше устройство работает с ОС версии {{OS}}.",
     "error_cameraManager": "К сожалению, не удалось загрузить менеджер камеры",
     "error_photoError": "К сожалению, объект для фото не найден",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Только растения",
     "non_plant_filter": "Только не растения",
     "filters_off": "Фильтры выкл"

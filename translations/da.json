@@ -24,18 +24,42 @@
     "take_challenge": "Tag imod udfordringen",
     "continue_challenge": "Fortsæt udfordring",
     "view_all": "Se alle udfordringer",
-    "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!"
+    "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICÉR PÅ INATURELIST",
-    "uploading_x_observations": "Uploader {{count}} observationer...",
-    "x_observations_uploaded": "{{count}} observationer uploadet!",
-    "x_observations_to_upload": "{{count}} observationer at uploade",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "UPLOAD NU",
     "error_internet": "Intet internet fundet. Prøv igen senere.",
     "error_downtime": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer.",
     "error_unknown": "Upload mislykkedes. Fejldetaljer: {{errorText}}",
-    "error_login": "Login-token mislykkedes. Log ind på din iNaturalist-konto i Seek fra iNaturalist eller Præstationer-siden før du prøver igen."
+    "error_login": "Login-token mislykkedes. Log ind på din iNaturalist-konto i Seek fra iNaturalist eller Præstationer-siden før du prøver igen.",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Meddelelser",
@@ -337,6 +361,7 @@
     "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}.",
     "error_cameraManager": "Beklager, kamera-manageren kunne ikke starte.",
     "error_photoError": "Beklager, fotoobjektet blev ikke fundet",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre fra"

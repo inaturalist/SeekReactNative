@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -28,7 +28,7 @@ const Error = ( {
   error,
   checkInternet,
   checkLocation
-}: Props ) => {
+}: Props ): React.Node => {
   const handlePress = () => {
     if ( error === "internet_error" ) {
       checkInternet();

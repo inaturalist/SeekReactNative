@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import { View, Image, Text } from "react-native";
 
 import styles from "../../../styles/species/species";
@@ -10,7 +10,7 @@ type Props = {
   +seenDate: ?string
 }
 
-const SeenDate = ( { seenDate }: Props ) => (
+const SeenDate = ( { seenDate }: Props ): React.Node => (
   <View style={[styles.row, styles.seenDateContainer]}>
     <Image source={icons.checklist} style={styles.checkmark} />
     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>

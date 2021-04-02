@@ -1,9 +1,10 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Platform, Text, View } from "react-native";
 import OpenSettings from "react-native-open-settings";
 import { useRoute } from "@react-navigation/native";
+import { getSystemVersion } from "react-native-device-info";
 
 import i18n from "../../i18n";
 import styles from "../../styles/camera/error";
@@ -11,10 +12,11 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
   +error: string,
-  +errorEvent: ?string
+  +errorEvent: ?string,
+  album?: ?string
 }
 
-const CameraError = ( { error, errorEvent }: Props ) => {
+const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
   const { name } = useRoute();
 
   const setCameraErrorText = ( err, event ) => {
@@ -22,6 +24,13 @@ const CameraError = ( { error, errorEvent }: Props ) => {
 
     if ( event ) {
       errorText += `\n\n${event.toString()}`;
+    } else if ( Platform.OS === "ios" && album === null ) {
+      const OS = getSystemVersion( );
+      const majorVersionNumber = Number( OS.split( "." )[0] );
+
+      if ( majorVersionNumber >= 14 ) {
+        errorText += `\n\n${i18n.t( "camera.error_selected_photos" )}`;
+      }
     }
     return errorText;
   };

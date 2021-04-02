@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -31,7 +31,7 @@ type Props = {
   }
 };
 
-const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
+const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node => {
   const is2020OrAfterChallenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   return (

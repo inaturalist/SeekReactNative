@@ -1,7 +1,7 @@
 
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
@@ -29,7 +29,7 @@ const GreenButton = ( {
   width,
   allowFontScaling,
   disabled
-}: Props ) => {
+}: Props ): React.Node => {
   let widthStyle = null;
 
   if ( width ) {

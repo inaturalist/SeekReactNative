@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text } from "react-native";
 
 import i18n from "../../../i18n";
@@ -12,7 +12,7 @@ type Props = {
   +navigation: any
 }
 
-const PasswordEmailScreen = ( { navigation }: Props ) => (
+const PasswordEmailScreen = ( { navigation }: Props ): React.Node => (
   <ScrollWithHeader header="inat_login.forgot_password_header">
     <View style={styles.flexCenter}>
       <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>

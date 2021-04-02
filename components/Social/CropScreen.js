@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View } from "react-native";
 import { CropView } from "react-native-image-crop-tools";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,7 +27,7 @@ const CropScreen = ( {
   cropViewRef,
   handleImageCrop,
   closeModal
-}: Props ) => (
+}: Props ): React.Node => (
   <SafeAreaView style={styles.cropScreenContainer} edges={["top"]}>
     <View style={styles.header}>
       <CustomBackArrow handlePress={closeModal} style={styles.backButton} green />

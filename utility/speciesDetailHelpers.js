@@ -15,7 +15,7 @@ const createHistogramChartData = ( results ): Array<{ month: number, count: numb
 const fetchHistogram = async ( id: number, region?: ?{
   latitude: number,
   longitude: number
-} ) => {
+} ): Promise<Array<Object>> => {
   const params = {
     date_field: "observed",
     interval: "month_of_year",

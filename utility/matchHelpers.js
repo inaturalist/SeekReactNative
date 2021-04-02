@@ -3,7 +3,7 @@
 import i18n from "../i18n";
 import { colors } from "../styles/global";
 
-const renderHeaderText = ( screenType: string, rank: number ) => {
+const renderHeaderText = ( screenType: string, rank: number ): string => {
   let headerText;
 
   if ( screenType === "resighted" ) {
@@ -28,7 +28,7 @@ const renderHeaderText = ( screenType: string, rank: number ) => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: ?string ) => {
+const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: ?string ): ?string => {
   if ( screenType === "unidentified" ) {
     return null;
   }
@@ -40,7 +40,7 @@ const renderSpeciesText = ( screenType: string, taxon: { scientificName: string 
   return !scientificNames ? commonName : taxon.scientificName;
 };
 
-const renderText = ( screenType: string, seenDate: ?string, image: { latitude: number } ) => {
+const renderText = ( screenType: string, seenDate: ?string, image: { latitude: number } ): string => {
   let text: string;
 
   if ( screenType === "resighted" ) {
@@ -56,7 +56,7 @@ const renderText = ( screenType: string, seenDate: ?string, image: { latitude: n
   return text;
 };
 
-const setGradients = ( screenType: string ) => {
+const setGradients = ( screenType: string ): { gradientDark: string, gradientLight: string } => {
   let gradientDark;
   let gradientLight;
 
@@ -74,7 +74,7 @@ const setGradients = ( screenType: string ) => {
   return { gradientDark, gradientLight };
 };
 
-const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?string ) => {
+const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?string ): string => {
   if ( !taxon ) { return "unidentified"; }
 
   const { taxaId, rank } = taxon;

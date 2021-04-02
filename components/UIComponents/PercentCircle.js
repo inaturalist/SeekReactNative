@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text
 } from "react-native";
@@ -15,7 +15,7 @@ type Props = {
   +large?: boolean
 }
 
-const PercentCircle = ( { challenge, large }: Props ) => (
+const PercentCircle = ( { challenge, large }: Props ): React.Node => (
   <ProgressCircle
     bgColor={colors.white}
     borderWidth={3}

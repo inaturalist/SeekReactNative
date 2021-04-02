@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Image,
@@ -17,7 +17,7 @@ type Props = {
   +badge: Object
 }
 
-const BadgeToast = ( { badge }: Props ) => {
+const BadgeToast = ( { badge }: Props ): React.Node => {
   const navigation = useNavigation();
 
   return (

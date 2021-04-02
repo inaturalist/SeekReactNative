@@ -7,9 +7,8 @@ import {
   Modal
 } from "react-native";
 
-import { colors } from "../../styles/global";
 import styles from "../../styles/posting/postToiNat";
-import icons from "../../assets/icons";
+import posting from "../../assets/posting";
 import SelectSpecies from "./SelectSpecies";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 
@@ -53,9 +52,8 @@ const PostingHeader = ( {
         />
         {/* $FlowFixMe */}
         <Image
-          source={icons.backButton}
-          tintColor={colors.seekForestGreen}
-          style={[styles.buttonIcon, styles.rotate]}
+          source={posting.edit}
+          style={styles.editIcon}
         />
       </TouchableOpacity>
     </>

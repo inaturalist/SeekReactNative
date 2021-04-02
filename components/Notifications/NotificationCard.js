@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text,
   Image,
@@ -21,7 +21,7 @@ type Props = {
   +item: Object
 }
 
-const NotificationCard = ( { item }: Props ) => {
+const NotificationCard = ( { item }: Props ): React.Node => {
   const navigation = useNavigation();
 
   let image = notifications[item.iconName];

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ type Props = {
   +closeModal: Function
 }
 
-const Legend = ( { closeModal }: Props ) => (
+const Legend = ( { closeModal }: Props ): React.Node => (
   <WhiteModal closeModal={closeModal}>
     <View style={styles.legendHeader}>
       <Text style={styles.whiteText}>

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View } from "react-native";
 
 import styles from "../../../styles/uiComponents/modals/whiteModal";
@@ -18,7 +18,7 @@ const WhiteModal = ( {
   closeModal,
   noButton,
   width
-}: Props ) => {
+}: Props ): React.Node => {
   let widthStyle = null;
 
   if ( width ) {

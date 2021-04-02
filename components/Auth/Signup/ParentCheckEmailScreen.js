@@ -1,10 +1,7 @@
 // @flow
 
-import React from "react";
-import {
-  View,
-  Text
-} from "react-native";
+import * as React from "react";
+import { View, Text } from "react-native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
@@ -15,7 +12,7 @@ type Props = {
   +navigation: any
 }
 
-const ParentCheckEmailScreen = ( { navigation }: Props ) => (
+const ParentCheckEmailScreen = ( { navigation }: Props ): React.Node => (
   <ScrollWithHeader header="login.sign_up">
     <View style={styles.flexCenter}>
       <Text style={styles.headerText}>{i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}</Text>

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text } from "react-native";
 
 import styles from "../../styles/uiComponents/descriptionText";
@@ -10,7 +10,7 @@ type Props = {
   +allowFontScaling?: boolean
 }
 
-const DescriptionText = ( { text, allowFontScaling }: Props ) => (
+const DescriptionText = ( { text, allowFontScaling }: Props ): React.Node => (
   <Text allowFontScaling={allowFontScaling} style={styles.text}>
     {text}
   </Text>

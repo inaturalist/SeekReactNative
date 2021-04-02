@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ type Props = {
   +closeModal: Function
 }
 
-const WarningModal = ( { closeModal }: Props ) => (
+const WarningModal = ( { closeModal }: Props ): React.Node => (
   <WhiteModal
     closeModal={closeModal}
     noButton

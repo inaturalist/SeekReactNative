@@ -21,10 +21,24 @@ export default StyleSheet.create( {
     height: 11,
     tintColor: colors.white
   },
+  closeButton: {
+    right: 0,
+    top: 0,
+    position: "absolute",
+    paddingHorizontal: 15,
+    paddingVertical: 19,
+    zIndex: 1
+  },
+  closeIcon: {
+    height: 13,
+    width: 13
+  },
   container: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: colors.speciesNearbyGreen,
+    backgroundColor: colors.speciesNearbyGreen
+  },
+  containerPadding: {
     paddingHorizontal: 20,
     paddingVertical: 24
   },

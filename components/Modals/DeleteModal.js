@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -18,16 +18,22 @@ import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import Button from "../UIComponents/Buttons/Button";
 
 type Props = {
-  +closeModal: Function,
-  +deleteObservation: Function,
-  +itemToDelete: Object
+  closeModal: Function,
+  deleteObservation: Function,
+  itemToDelete: {
+    iconicTaxonId: number,
+    preferredCommonName: string,
+    name: string,
+    photo: Object,
+    id: number
+  }
 };
 
 const DeleteModal = ( {
   closeModal,
   deleteObservation,
   itemToDelete
-}: Props ) => {
+}: Props ): React.Node => {
   const {
     id,
     photo,

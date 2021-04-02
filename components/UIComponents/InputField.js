@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { TextInput, Platform } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
@@ -18,7 +18,7 @@ const InputField = ( {
   placeholder,
   text,
   type
-}: Props ) => {
+}: Props ): React.Node => {
   let keyboardType = "default";
 
   if ( type === "emailAddress" ) {

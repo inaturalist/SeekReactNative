@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -23,7 +23,7 @@ const MatchContainer = ( {
   params,
   setNavigationPath,
   speciesText
-}: Props ) => {
+}: Props ): React.Node => {
   const navigation = useNavigation();
   const { taxon, image, seenDate } = params;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";

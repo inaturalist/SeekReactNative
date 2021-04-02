@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import { Appearance } from "react-native";
 
@@ -16,7 +16,7 @@ const DatePicker = ( {
   isDateTimePickerVisible,
   onDatePicked,
   toggleDateTimePicker
-}: Props ) => {
+}: Props ): React.Node => {
   const colorScheme = Appearance.getColorScheme();
 
   return (

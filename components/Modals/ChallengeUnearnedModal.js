@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -30,7 +30,7 @@ type Props = {
   }
 };
 
-const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
+const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node => {
   const navigation = useNavigation();
 
   const navToChallengeDetails = ( ) => {

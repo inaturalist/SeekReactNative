@@ -14,6 +14,11 @@ export default StyleSheet.create( {
     right: 27,
     zIndex: 1
   },
+  editIcon: {
+    position: "absolute",
+    right: 23,
+    zIndex: 1
+  },
   card: {
     alignItems: "center",
     flexDirection: "row",

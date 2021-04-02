@@ -16,51 +16,53 @@ const checkLocationPermissions = async () => {
   }
 };
 
-const checkCameraRollPermissions = async () => {
-  const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+const checkCameraRollPermissions = async ( ): Promise<boolean> => {
   const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
 
   try {
-    const granted = await PermissionsAndroid.requestMultiple( [
-      save,
-      retrieve
-    ] );
-    if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
+    const granted = await PermissionsAndroid.request( retrieve );
+    if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
       return true;
     }
-    return JSON.stringify( granted );
+    return false;
   } catch ( err ) {
     return err;
   }
 };
 
-const requestAllCameraPermissions = async () => {
+const checkCameraPermissions = async ( ): Promise<any> => {
   const { PERMISSIONS, RESULTS } = PermissionsAndroid;
 
-  const camera = PERMISSIONS.CAMERA;
-  const cameraRollSave = PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-  const cameraRollRetrieve = PERMISSIONS.READ_EXTERNAL_STORAGE;
+  try {
+    const granted = await PermissionsAndroid.request( PERMISSIONS.CAMERA );
+
+    if ( granted === RESULTS.GRANTED ) {
+      return true;
+    }
+    return "permissions";
+  } catch ( e ) {
+    return e;
+  }
+};
+
+const checkSavePermissions = async ( ): Promise<any> => {
+  const { PERMISSIONS, RESULTS } = PermissionsAndroid;
 
   try {
-    const granted = await PermissionsAndroid.requestMultiple( [
-      camera,
-      cameraRollSave,
-      cameraRollRetrieve
-    ] );
+    const granted = await PermissionsAndroid.request( PERMISSIONS.WRITE_EXTERNAL_STORAGE );
 
-    if ( granted[camera] !== RESULTS.GRANTED ) {
-      return "permissions";
-    } else if ( ( granted[cameraRollRetrieve] || granted[cameraRollSave] ) !== RESULTS.GRANTED ) {
-      return "gallery";
+    if ( granted === RESULTS.GRANTED ) {
+      return true;
     }
-    return true;
+    return "gallery";
   } catch ( e ) {
     return e;
   }
 };
 
 export {
+  checkCameraPermissions,
   checkLocationPermissions,
-  checkCameraRollPermissions,
-  requestAllCameraPermissions
+  checkSavePermissions,
+  checkCameraRollPermissions
 };

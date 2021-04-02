@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
@@ -24,7 +24,7 @@ const FlagModal = ( {
   userImage,
   speciesText,
   seenDate
-}: Props ) => {
+}: Props ): React.Node => {
 
   const handlePress = () => {
     if ( seenDate ) {

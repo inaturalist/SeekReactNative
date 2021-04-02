@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -27,7 +27,7 @@ const LevelModal = ( {
   speciesCount,
   closeModal,
   screen
-}: Props ) => (
+}: Props ): React.Node => (
   <WhiteModal closeModal={closeModal}>
     <View style={styles.headerMargins}>
       <GreenText text={screen === "achievements"

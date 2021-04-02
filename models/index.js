@@ -24,6 +24,6 @@ export default {
     UploadObservationRealm,
     UploadPhotoRealm
   ],
-  schemaVersion: 30,
+  schemaVersion: 31,
   path: "db.realm"
 };

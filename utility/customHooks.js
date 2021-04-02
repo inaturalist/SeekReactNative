@@ -5,6 +5,7 @@ import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
+import DeviceInfo from "react-native-device-info";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -310,6 +311,28 @@ const useInternetStatus = ( ) => {
   return internet;
 };
 
+const useEmulator = ( ) => {
+  const [emulator, setEmulator] = useState( false );
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    const checkForEmulator = async ( ) => {
+      const isEmulator = DeviceInfo.isEmulator( );
+      if ( isCurrent ) {
+        setEmulator( isEmulator );
+      }
+    };
+
+    checkForEmulator( );
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [] );
+
+  return emulator;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -319,5 +342,6 @@ export {
   useTruncatedUserCoords,
   useSeenTaxa,
   useRegion,
-  useInternetStatus
+  useInternetStatus,
+  useEmulator
 };

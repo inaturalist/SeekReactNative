@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text, View } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
@@ -13,7 +13,7 @@ type Props = {
   +iconicSpeciesCount: number
 }
 
-const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (
+const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ): React.Node => (
   <View style={styles.center}>
     <ProgressCircle
       bgColor={colors.white}

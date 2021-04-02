@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -10,7 +10,7 @@ type Props = {
   index: number
 }
 
-const Button = ( { index }: Props ) => {
+const Button = ( { index }: Props ): React.Node => {
   const navigation = useNavigation();
 
   return (

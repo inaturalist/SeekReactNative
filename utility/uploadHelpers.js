@@ -8,6 +8,7 @@ import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { handleServerError } from "./helpers";
+import i18n from "../i18n";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -22,11 +23,24 @@ const saveUploadSucceeded = async ( id: number ) => {
   }
 };
 
-const resizeImageForUpload = async ( uri: string ) => {
+const saveUploadFailed = async ( id: number ) => {
+  const realm = await Realm.open( realmConfig );
+  const photo = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
+
+  try {
+    realm.write( ( ) => {
+      photo.uploadFailed = true;
+    } );
+  } catch ( e ) {
+    console.log( "couldn't set failed status: ", e );
+  }
+};
+
+const resizeImageForUpload = async ( uri: string ): Promise<string> => {
   return await resizeImage( uri, 2048 );
 };
 
-const fetchJSONWebToken = async ( loginToken: string ) => {
+const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   const headers = {
     "Content-Type": "application/json",
     "User-Agent": createUserAgent( ),
@@ -40,11 +54,12 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
-    if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+    if ( e.response && e.response.status && e.response.status === 503 ) {
+      // not 100% sure if this is working
       return {
         error: {
           type: "downtime",
-          errorText: e,
+          errorText: e.message,
           numOfHours: handleServerError( e )
         }
       };
@@ -52,13 +67,13 @@ const fetchJSONWebToken = async ( loginToken: string ) => {
     return {
       error: {
         type: "login",
-        errorText: e
+        errorText: e.message
       }
     };
   }
 };
 
-const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, token: string, uri: string ) => {
+const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri: string }, token: string, uri: string ) => {
   const { id, uuid } = photo;
   const photoParams = {
     "observation_photo[observation_id]": id,
@@ -79,7 +94,7 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
     return {
       error: {
         type: "photo",
-        errorText: e
+        errorText: e.message
       }
     };
   }
@@ -88,6 +103,18 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string }, to
 const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ) => {
   const { uri, id } = photo;
   const resizedPhoto = await resizeImageForUpload( uri );
+
+  if ( !resizedPhoto ) {
+    // if upload cannot complete because there is no longer a photo to upload
+    // save this setting so Seek does not keep trying to upload it (and crashing each time)
+    saveUploadFailed( id );
+    return {
+      error: {
+        type: "photo",
+        errorText: i18n.t( "post_to_inat_card.error_photo" )
+      }
+    };
+  }
   const photoUpload = await appendPhotoToObservation( photo, token, resizedPhoto );
 
   if ( photoUpload === true ) {
@@ -96,25 +123,6 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   }
   return photoUpload;
 };
-
-// const checkForIncompleteUploads = async ( login: string ) => {
-//   const realm = await Realm.open( realmConfig );
-//   try {
-//     const uploads = realm.objects( "UploadPhotoRealm" );
-//     const unsuccessfulUploads = uploads.filtered( "uploadSucceeded == false" );
-
-//     if ( unsuccessfulUploads.length === 0 ) { return; }
-
-//     const token = await fetchJSONWebToken( login );
-//     if ( token === null ) { return; }
-
-//     unsuccessfulUploads.forEach( ( photo ) => {
-//       uploadPhoto( photo, token );
-//     } );
-//   } catch ( e ) {
-//     console.log( e, " : couldn't check for incomplete uploads" );
-//   }
-// };
 
 const saveObservationId = async ( id: number, photo: Object ) => {
   const realm = await Realm.open( realmConfig );
@@ -140,7 +148,7 @@ const uploadObservation = async ( observation: {
   positional_accuracy: ?number,
   description: ?string,
   photo: Object
-} ) => {
+} ): Promise<any> => {
   const login = await fetchAccessToken( );
   const params = {
     // realm doesn't let you use spread operator, apparently
@@ -162,7 +170,7 @@ const uploadObservation = async ( observation: {
 
   const token = await fetchJSONWebToken( login );
 
-  // catch server downtime error
+  // catch server downtime or login token error
   if ( typeof token === "object" ) {
     return token;
   }
@@ -178,7 +186,7 @@ const uploadObservation = async ( observation: {
     return {
       error: {
         type: "observation",
-        errorText: e
+        errorText: e.message
       }
     };
   }
@@ -194,7 +202,7 @@ const saveObservationToRealm = async ( observation: {
   longitude: ?number,
   positional_accuracy: ?number,
   description: ?string
-}, uri: string ) => {
+}, uri: string ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
   const photoUUID = await createUUID( );
@@ -221,7 +229,7 @@ const saveObservationToRealm = async ( observation: {
   }
 };
 
-const checkForNumSuccessfulUploads = async ( ) => {
+const checkForNumSuccessfulUploads = async ( ): Promise<Array<Object>> => {
   const realm = await Realm.open( realmConfig );
 
   return realm.objects( "UploadPhotoRealm" )
@@ -263,12 +271,12 @@ const markCurrentUploadAsSeen = async ( upload: {
   }
 };
 
-const checkForUploads = async ( ) => {
+const checkForUploads = async ( ): Promise<Array<Object>> => {
   const realm = await Realm.open( realmConfig );
   return realm.objects( "UploadObservationRealm" );
 };
 
-const createFakeUploadData = ( ) => {
+const createFakeUploadData = ( ): Object => {
   return {
     "captive_flag": false,
     "description": null,
@@ -283,7 +291,6 @@ const createFakeUploadData = ( ) => {
 };
 
 export {
-  // checkForIncompleteUploads,
   resizeImageForUpload,
   fetchJSONWebToken,
   saveObservationToRealm,

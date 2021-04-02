@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text,
   View
@@ -11,7 +11,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/emptyState";
 import GreenButton from "./Buttons/GreenButton";
 
-const EmptyState = () => {
+const EmptyState = (): React.Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
   const obsScreen = name === "Observations";

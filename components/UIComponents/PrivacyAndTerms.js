@@ -1,13 +1,13 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/privacyAndTerms";
 
-const PrivacyAndTerms = () => {
+const PrivacyAndTerms = (): React.Node => {
   const { navigate } = useNavigation();
   const { name } = useRoute();
 

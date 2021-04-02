@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   Text,
   Image,
@@ -14,10 +14,14 @@ import iconicTaxa from "../../assets/iconicTaxa";
 import i18n from "../../i18n";
 
 type Props = {
-  +handlePress?: Function,
-  +photo: Object,
-  +allowFontScaling?: boolean,
-  +taxon: Object
+  handlePress?: Function,
+  photo: Object,
+  allowFontScaling?: boolean,
+  taxon: {
+    iconicTaxonId: number,
+    preferredCommonName: string,
+    name: string
+  }
 }
 
 const SpeciesCard = ( {
@@ -25,7 +29,7 @@ const SpeciesCard = ( {
   photo,
   allowFontScaling,
   taxon
-}: Props ) => {
+}: Props ): React.Node => {
   const { preferredCommonName, name, iconicTaxonId } = taxon;
 
   return (

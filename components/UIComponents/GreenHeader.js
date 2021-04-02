@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import {
   View,
   Text,
@@ -19,7 +19,7 @@ type Props = {
   +route?: ?string
 }
 
-const GreenHeader = ( { header, route }: Props ) => {
+const GreenHeader = ( { header, route }: Props ): React.Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
 

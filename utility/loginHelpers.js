@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // import { fetchJSONWebToken } from "./uploadHelpers";
 
-const checkIsEmailValid = ( email: string ) => {
+const checkIsEmailValid = ( email: string ): boolean => {
   if ( email && email.length > 5 ) {
     if ( email.includes( "@" ) && email.includes( "." ) ) {
       return true;
@@ -14,7 +14,7 @@ const checkIsEmailValid = ( email: string ) => {
   return false;
 };
 
-const checkIsUsernameValid = ( username: string ) => {
+const checkIsUsernameValid = ( username: string ): boolean => {
   if ( username && ( username.length >= 3 && username.length <= 40 ) ) {
     if ( typeof ( username.charAt( 0 ) ) !== "number" ) {
       return true;
@@ -23,9 +23,9 @@ const checkIsUsernameValid = ( username: string ) => {
   return false;
 };
 
-const saveAccessToken = ( token: string ) => AsyncStorage.setItem( "access_token", token );
+const saveAccessToken = ( token: string ): any => AsyncStorage.setItem( "access_token", token );
 
-const fetchAccessToken = async () => {
+const fetchAccessToken = async (): Promise<string> => {
   try {
     const token = await AsyncStorage.getItem( "access_token" );
     return token;
@@ -34,7 +34,7 @@ const fetchAccessToken = async () => {
   }
 };
 
-const removeAccessToken = async () => {
+const removeAccessToken = async (): Promise<any> => {
   try {
     const token = await AsyncStorage.removeItem( "access_token" );
     return token;
@@ -47,7 +47,7 @@ const savePostingSuccess = ( success: boolean ) => {
   AsyncStorage.setItem( "posting_success", success.toString() );
 };
 
-const fetchPostingSuccess = async () => {
+const fetchPostingSuccess = async (): Promise<any> => {
   try {
     const success = await AsyncStorage.getItem( "posting_success" );
     return success;
@@ -56,7 +56,7 @@ const fetchPostingSuccess = async () => {
   }
 };
 
-const formatError = ( error: string ) => {
+const formatError = ( error: string ): string => {
   let newError;
 
   if ( error.includes( "\n" ) ) {

@@ -33,5 +33,12 @@ export default StyleSheet.create( {
     paddingBottom: 31,
     paddingTop: 15,
     textDecorationLine: "underline"
+  },
+  adminText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    paddingHorizontal: 22,
+    paddingBottom: 10
   }
 } );

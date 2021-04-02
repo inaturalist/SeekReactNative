@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { Text, Image, StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
@@ -11,7 +11,7 @@ import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { useInternetStatus } from "../../utility/customHooks";
 
-const PostStatus = ( ) => {
+const PostStatus = ( ): React.Node => {
   const navigation = useNavigation( );
   const internet = useInternetStatus( );
 

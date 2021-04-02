@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import * as React from "react";
 import { View, Text } from "react-native";
 import Checkbox from "react-native-check-box";
 
@@ -19,7 +19,7 @@ const CheckboxRow = ( {
   toggleCheckbox,
   text,
   children
-}: Props ) => (
+}: Props ): React.Node => (
   <View style={[styles.row, styles.margin]}>
     <Checkbox
       checkBoxColor={colors.checkboxColor}

@@ -24,8 +24,9 @@ const HomeScreen = () => {
   const [successfulUploads, setSuccessfulUploads] = useState( 0 );
   const [numPendingUploads, setNumPendingUploads] = useState( 0 );
 
-  const openModal = () => setModal( true );
-  const closeModal = () => setModal( false );
+  const openModal = ( ) => setModal( true );
+  const closeModal = ( ) => setModal( false );
+  const closeCard = useCallback( ( ) => setShowUploadCard( false ), [] );
 
   const updateSuccessfulUploads = num => setSuccessfulUploads( num );
 
@@ -61,7 +62,7 @@ const HomeScreen = () => {
         setSuccessfulUploads( numUnseenUploads );
       } else {
         const allUploads = await checkForUploads( );
-        const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false" ).length;
+        const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false AND photo.uploadFailed == false" ).length;
         if ( pendingUploads > 0 ) {
           setShowUploadCard( true );
           setNumPendingUploads( pendingUploads );
@@ -92,6 +93,7 @@ const HomeScreen = () => {
             successfulUploads={successfulUploads}
             numPendingUploads={numPendingUploads}
             updateSuccessfulUploads={updateSuccessfulUploads}
+            closeCard={closeCard}
           />
         )}
         <SpeciesNearby />

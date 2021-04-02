@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092B0C5804DE5489F5BE384B /* libPods-Seek.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5C87402C0C40BD6EB65447 /* libPods-Seek.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2288039D2570D5EC954AF3BB /* libPods-Seek.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DB5F8919469A0FC0BE1C00 /* libPods-Seek.a */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
 		379EB0DE25101F630059D835 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 379EB0DD25101F630059D835 /* taxonomy.json */; };
 		379EB0E025101F6A0059D835 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */; };
@@ -89,18 +89,18 @@
 		37EE91AA2384C32E001B7415 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = ../tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37EE91AB2384C357001B7415 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = ../it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
+		5F5C87402C0C40BD6EB65447 /* libPods-Seek.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Book-Pro.otf"; path = "../assets/fonts/Whitney-Book-Pro.otf"; sourceTree = "<group>"; };
 		684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Medium-Pro.otf"; path = "../assets/fonts/Whitney-Medium-Pro.otf"; sourceTree = "<group>"; };
-		69DB5F8919469A0FC0BE1C00 /* libPods-Seek.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2C8A94B0E2403CA2681E78 /* libRNCNetInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCNetInfo.a; sourceTree = "<group>"; };
 		8C5D7E526C224A39878D5385 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
 		9212388F3CCB4F7BAE13DCC7 /* libRNCGeolocation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCGeolocation.a; sourceTree = "<group>"; };
 		A137AD88526A4B3F959EFA73 /* RNGL.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGL.xcodeproj; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; };
 		A3D8FEFD0BF24BCCB6D91C75 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
-		A50AC301F7B3907F1D08F52F /* Pods-Seek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.debug.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.debug.xcconfig"; sourceTree = "<group>"; };
-		C6F514D33AC4E2549B734CB4 /* Pods-Seek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.release.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.release.xcconfig"; sourceTree = "<group>"; };
+		CB770B0C17062B553A4A99F2 /* Pods-Seek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.debug.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.debug.xcconfig"; sourceTree = "<group>"; };
 		D1E957E622264476A8A27E50 /* libRNCCameraRoll.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCCameraRoll.a; sourceTree = "<group>"; };
 		E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-BookItalic-Pro.otf"; path = "../assets/fonts/Whitney-BookItalic-Pro.otf"; sourceTree = "<group>"; };
+		F5DC3E78FEC936A451048700 /* Pods-Seek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.release.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.release.xcconfig"; sourceTree = "<group>"; };
 		FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Light-Pro.otf"; path = "../assets/fonts/Whitney-Light-Pro.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +111,7 @@
 			files = (
 				37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */,
 				37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */,
-				2288039D2570D5EC954AF3BB /* libPods-Seek.a in Frameworks */,
+				092B0C5804DE5489F5BE384B /* libPods-Seek.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 			children = (
 				37D71CD3233BE712003423F8 /* CloudKit.framework */,
 				37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */,
-				69DB5F8919469A0FC0BE1C00 /* libPods-Seek.a */,
+				5F5C87402C0C40BD6EB65447 /* libPods-Seek.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,8 +178,8 @@
 		484772E5A9A576A6A2B57980 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A50AC301F7B3907F1D08F52F /* Pods-Seek.debug.xcconfig */,
-				C6F514D33AC4E2549B734CB4 /* Pods-Seek.release.xcconfig */,
+				CB770B0C17062B553A4A99F2 /* Pods-Seek.debug.xcconfig */,
+				F5DC3E78FEC936A451048700 /* Pods-Seek.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -236,14 +236,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Seek" */;
 			buildPhases = (
-				2BBFC1CD43B2085E176C808D /* [CP] Check Pods Manifest.lock */,
+				DD269269853B9D74B5F7C57C /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				370DC8E5216FC4C9000A29BA /* Embed Frameworks */,
-				50F22E803419954E0C75AC03 /* [CP] Embed Pods Frameworks */,
-				49CEC9539F7EF0505FDCC5D1 /* [CP] Copy Pods Resources */,
+				33933F59C5FEF3990DF13496 /* [CP] Embed Pods Frameworks */,
+				ECF58B7597DB25DCB09ADD1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,7 +366,25 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		2BBFC1CD43B2085E176C808D /* [CP] Check Pods Manifest.lock */ = {
+		33933F59C5FEF3990DF13496 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD269269853B9D74B5F7C57C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,7 +406,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49CEC9539F7EF0505FDCC5D1 /* [CP] Copy Pods Resources */ = {
+		ECF58B7597DB25DCB09ADD1D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,24 +424,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		50F22E803419954E0C75AC03 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seek/Pods-Seek-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -480,7 +480,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A50AC301F7B3907F1D08F52F /* Pods-Seek.debug.xcconfig */;
+			baseConfigurationReference = CB770B0C17062B553A4A99F2 /* Pods-Seek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -522,7 +522,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6F514D33AC4E2549B734CB4 /* Pods-Seek.release.xcconfig */;
+			baseConfigurationReference = F5DC3E78FEC936A451048700 /* Pods-Seek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

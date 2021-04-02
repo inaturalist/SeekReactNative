@@ -23,24 +23,26 @@ import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import { writeExifData } from "../../../utility/photoHelpers";
 import {
-  checkForCameraPermissionsError,
   checkForSystemVersion,
   handleLog,
   showCameraSaveFailureAlert,
   checkForCameraAPIAndroid
 } from "../../../utility/cameraHelpers";
-import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
+import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
+import { useEmulator } from "../../../utility/customHooks";
+import { colors } from "../../../styles/global";
 
 const ARCamera = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
+  const emulator = useEmulator( );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -126,17 +128,16 @@ const ARCamera = () => {
   };
 
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
-    const permissionsError = checkForCameraPermissionsError( e );
-    if ( permissionsError.error !== null ) {
-      updateError( permissionsError.error );
-    } else {
-      await showCameraSaveFailureAlert( e, uri );
-      navigateToResults( uri, predictions );
-    }
-  }, [updateError, navigateToResults] );
+    // react-native-cameraroll does not yet have granular detail about read vs. write permissions
+    // but there's a pull request for it as of March 2021
 
-  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
-    if ( Platform.OS === "android" ) {
+    await showCameraSaveFailureAlert( e, uri );
+    navigateToResults( uri, predictions );
+  }, [navigateToResults] );
+
+  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> }, skipExif ) => {
+    // don't bother writing exif if camera roll permissions are off
+    if ( Platform.OS === "android" && !skipExif ) {
       await writeExifData( photo.uri );
     }
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
@@ -216,6 +217,20 @@ const ARCamera = () => {
     }
   };
 
+  const requestAndroidSavePermissions = useCallback( ( photo ) => {
+    const checkPermissions = async ( ) => {
+      const result = await checkSavePermissions( );
+
+      if ( result === "gallery" ) {
+        savePhoto( photo, true );
+      } else {
+        savePhoto( photo, false );
+      }
+    };
+    // on Android, this permission check will pop up every time; on iOS it only pops up first time a user opens camera
+    checkPermissions( );
+  }, [savePhoto] );
+
   const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
@@ -240,20 +255,18 @@ const ARCamera = () => {
         camera.current.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          savePhoto( photo );
+          requestAndroidSavePermissions( photo );
         } ).catch( e => updateError( "take", e ) );
       }
     }
-  }, [savePhoto, updateError] );
+  }, [savePhoto, updateError, requestAndroidSavePermissions] );
 
   const resetState = () => dispatch( { type: "RESET_STATE" } );
 
-  const requestAndroidPermissions = useCallback( () => {
+  const requestAndroidPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" ) {
-      requestAllCameraPermissions().then( ( result ) => {
-        if ( result === "gallery" ) {
-          updateError( "gallery" );
-        } else if ( result === "permissions" ) {
+      checkCameraPermissions( ).then( ( result ) => {
+        if ( result === "permissions" ) {
           updateError( "permissions" );
         }
         updateError( null );
@@ -281,6 +294,8 @@ const ARCamera = () => {
   }, [navigation, requestAndroidPermissions] );
 
   const navHome = ( ) => resetRouter( navigation );
+  const navToSettings = ( ) => navigation.navigate( "Settings" );
+
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
@@ -290,14 +305,14 @@ const ARCamera = () => {
 
   return (
     <View style={styles.container}>
-      {error
+      {error && !emulator
         ? <CameraError error={error} errorEvent={errorEvent} />
         : (
           <ARCameraOverlay
             ranks={ranks}
             pictureTaken={pictureTaken}
             takePicture={takePicture}
-            cameraLoaded={cameraLoaded}
+            cameraLoaded={emulator ? true : cameraLoaded}
             filterByTaxonId={filterByTaxonId}
           />
         )
@@ -309,6 +324,19 @@ const ARCamera = () => {
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        accessibilityLabel={i18n.t( "menu.settings" )}
+        accessible
+        onPress={navToSettings}
+        style={styles.settingsButton}
+      >
+        {/* $FlowFixMe */}
+        <Image
+          tintColor={colors.white}
+          style={styles.settingsIcon}
+          source={icons.menuSettings}
+        />
       </TouchableOpacity>
       <INatCamera
         ref={camera}

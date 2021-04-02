@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import { Image, Text, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
@@ -14,7 +14,7 @@ type Props = {
   captive: boolean
 }
 
-const CaptivePicker = ( { updateObservation, captive }: Props ) => {
+const CaptivePicker = ( { updateObservation, captive }: Props ): React.Node => {
   const captiveTypes = [{
     label: i18n.t( "posting.no" ),
     value: false

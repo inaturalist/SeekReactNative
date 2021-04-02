@@ -24,18 +24,42 @@
     "take_challenge": "අභියෝගය ගන්න",
     "continue_challenge": "අභියෝගය දිගටම කරගෙන යන්න",
     "view_all": "සියලු අභියෝග බලන්න",
-    "new_join": "අභියෝග ලාංඡනය උපයා ගැනීමට Seek කැමරාව සමඟ නිරීක්ෂණ එක් කරන්න!"
+    "new_join": "අභියෝග ලාංඡනය උපයා ගැනීමට Seek කැමරාව සමඟ නිරීක්ෂණ එක් කරන්න!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POST TO INATURALIST",
-    "uploading_x_observations": "Uploading {{count}} observations...",
-    "x_observations_uploaded": "{{count}} observations uploaded!",
-    "x_observations_to_upload": "{{count}} observations to upload",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "UPLOAD NOW",
     "error_internet": "No internet detected. Please try again later.",
     "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
     "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "දැනුම්දීම්",
@@ -337,6 +361,7 @@
     "error_version": "Seek හි AR කැමරාවට iOS 11.0+ අවශ්‍ය වේ. ඔබගේ උපාංගය {{OS}} යන OS අනුවාදය ධාවනය කරයි.",
     "error_cameraManager": "කණගාටුයි, කැමරා කළමනාකරු ප්‍රවේශනය කිරීමට අපොහොසත් විය",
     "error_photoError": "කණගාටුයි, ඡායාරූප වස්තුව හමු නොවීය",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "ශාක පමණි",
     "non_plant_filter": "ශාක නොවන දෑ පමණි",
     "filters_off": "පෙරහන් අක්‍රියයි"
@@ -553,7 +578,7 @@
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
     "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
   "posting_help": {
     "header": "පළකිරීමේ උදව්",

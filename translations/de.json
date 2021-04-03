@@ -25,41 +25,48 @@
     "continue_challenge": "Mission fortsetzen",
     "view_all": "Alle Missionen anzeigen",
     "new_join": "Füge Beobachtungen mit der Kamera von Seek hinzu, um an Missionen teilzunehmen und Abzeichen zu erhalten!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat-Admins: Vielen Dank dafür, Seek zu testen! Du siehst zu Testzwecken die neueste iNat-Mission bereits vor Monatsbeginn."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "AUF INATURALIST POSTEN",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Lade {{count}} Beobachtungen hoch",
+      "one": "Lade {{count}} Beobachtung hoch",
+      "two": "Lade {{count}} Beobachtungen hoch",
+      "few": "Lade {{count}} Beobachtungen hoch",
+      "many": "Lade {{count}} Beobachtungen hoch",
+      "other": "Lade {{count}} Beobachtungen hoch"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} Beobachtungen hochgeladen!",
+      "one": "{{count}} Beobachtung hochgeladen!",
+      "two": "{{count}} Beobachtungen hochgeladen!",
+      "few": "{{count}} Beobachtungen hochgeladen!",
+      "many": "{{count}} Beobachtungen hochgeladen!",
+      "other": "{{count}} Beobachtungen hochgeladen!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} Beobachtungen zum Hochladen",
+      "one": "{{count}} Beobachtung zum Hochladen",
+      "two": "{{count}} Beobachtungen zum Hochladen",
+      "few": "{{count}} Beobachtungen zum Hochladen",
+      "many": "{{count}} Beobachtungen zum Hochladen",
+      "other": "{{count}} Beobachtungen zum Hochladen"
     },
     "upload_now": "JETZT HOCHLADEN",
     "error_internet": "Keine Netzwerkverbindung erkannt, bitte versuche es später noch einmal.",
-    "error_downtime": "Der iNaturalist-Server wird gewartet. Bitte versuche es in {{count}} Stunden erneut.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "Upload fehlgeschlagen. Fehlerdetails: {{errorText}}",
     "error_login": "Login-Token fehlgeschlagen. Bitte melde dich in Seek über den iNaturalist- oder 'Erreichte Ziele'-Bildschirm auf deinem iNaturalist-Account an, bevor du es erneut versuchst.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_photo": "Das Gerät kann auf das Foto nicht mehr zugreifen.",
+    "a_few": "ein paar"
   },
   "notifications": {
     "header": "Benachrichtigungen",
@@ -361,7 +368,7 @@
     "error_version": "Die AR Kamera von Seek benötigt iOS 11.0+. Dein Gerät benutzt OS-Version {{OS}}.",
     "error_cameraManager": "Der Kamera-Manager konnte nicht geladen werden",
     "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "Wenn deine Berechtigungen auf 'Ausgewählte Fotos' gesetzt sind, musst du Seek vielleicht neu starten oder unter iOS-Einstellungen > Seek > Fotos > Ausgewählte Fotos entscheiden, welche Fotos hier angezeigt werden sollen.",
     "plant_filter": "Nur Pflanzen",
     "non_plant_filter": "Nur Nicht-Pflanzen",
     "filters_off": "Filter aus"

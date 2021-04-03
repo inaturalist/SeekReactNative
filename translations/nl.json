@@ -25,41 +25,48 @@
     "continue_challenge": "Ga door met de uitdaging",
     "view_all": "Bekijk alle uitdagingen",
     "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat admins: bedankt voor het testen van Seek! Je ziet de nieuwste iNat uitdaging vóór het begin van de maand, voor testdoeleinden."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "STUUR NAAR  INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Uploaden van {{count}} waarnemingen",
+      "one": "Uploaden van {{count}} waarneming",
+      "two": "Uploaden van {{count}} waarnemingen",
+      "few": "Uploaden van {{count}} waarnemingen",
+      "many": "Uploaden van {{count}} waarnemingen",
+      "other": "Uploaden van {{count}} waarnemingen"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} waarnemingen geupload!",
+      "one": "{{count}} waarneming geupload!",
+      "two": "{{count}} waarnemingen geupload!",
+      "few": "{{count}} waarnemingen geupload!",
+      "many": "{{count}} waarnemingen geupload!",
+      "other": "{{count}} waarnemingen geupload!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} waarnemingen om te uploaden",
+      "one": "{{count}} waarneming om te uploaden",
+      "two": "{{count}} waarnemingen om te uploaden",
+      "few": "{{count}} waarnemingen om te uploaden",
+      "many": "{{count}} waarnemingen om te uploaden",
+      "other": "{{count}} waarnemingen om te uploaden"
     },
     "upload_now": "NU UPLOADEN",
     "error_internet": "Geen internetverbinding gedetecteerd. Probeer het later opnieuw.",
-    "error_downtime": "iNaturalist's server ondergaat onderhoud. Probeer het over {{count}} uur opnieuw.",
+    "error_downtime": {
+      "zero": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "one": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "two": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "few": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "many": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "other": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur."
+    },
     "error_unknown": "Upload mislukt. Foutdetails: {{errorText}}",
     "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_photo": "Geen toegang meer tot foto op het apparaat.",
+    "a_few": "een paar"
   },
   "notifications": {
     "header": "Meldingen",
@@ -361,7 +368,7 @@
     "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
     "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
     "error_photoError": "Sorry, het foto-object is niet gevonden",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "Als je toestemmingen zijn ingesteld op \"Geselecteerd foto's\" moet je mogelijk Seek herstarten of naar iOS  Instellingen > Seek > Foto's > Geselecteerde foto's gaan om te kiezen welke foto's hier moeten worden getoond.",
     "plant_filter": "Alleen planten",
     "non_plant_filter": "Alleen niet-planten",
     "filters_off": "Filters uit"

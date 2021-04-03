@@ -55,7 +55,14 @@
     },
     "upload_now": "LAAI NOU OP",
     "error_internet": "Geen internet bespeur nie. Probeer later weer.",
-    "error_downtime": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "Oplaai het misluk. Foutdetails: {{errorText}}",
     "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer.",
     "error_photo": "Photo can no longer be accessed on device.",

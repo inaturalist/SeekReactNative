@@ -55,7 +55,14 @@
     },
     "upload_now": "UPLOAD NOW",
     "error_internet": "No internet detected. Please try again later.",
-    "error_downtime": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "Upload failed. Error details: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",

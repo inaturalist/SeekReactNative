@@ -55,7 +55,14 @@
     },
     "upload_now": "LADDA UPP NU",
     "error_internet": "Inget internet hittat. Försök igen senare.",
-    "error_downtime": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "Uppladdning misslyckades. Feldetaljer: {{errorText}}",
     "error_login": "Inloggningstoken misslyckades. Logga in på ditt iNaturalist-konto i Seek från iNaturalist- eller Prestationssidan innan du försöker igen.",
     "error_photo": "Photo can no longer be accessed on device.",

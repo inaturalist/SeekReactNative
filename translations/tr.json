@@ -30,16 +30,16 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALİST'TE GÖNDER",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "{{count}} gözlem yükleniyor",
+      "one": "{{count}} gözlem yükleniyor",
+      "two": "{{count}} gözlem yükleniyor",
+      "few": "{{count}} gözlem yükleniyor",
+      "many": "{{count}} gözlem yükleniyor",
+      "other": "{{count}} gözlem yükleniyor"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
+      "zero": "{{count}} gözlem yüklendi!",
+      "one": "{{count}} gözlem yüklendi!",
       "two": "{{count}} observations uploaded!",
       "few": "{{count}} observations uploaded!",
       "many": "{{count}} observations uploaded!",
@@ -55,7 +55,14 @@
     },
     "upload_now": "HEMEN YÜKLE",
     "error_internet": "Ağ bağlantısı bulunamadı. Lütfen daha sonra tekrar deneyin.",
-    "error_downtime": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",

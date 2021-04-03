@@ -25,41 +25,48 @@
     "continue_challenge": "Pokračovat ve výzvě",
     "view_all": "Zobrazit všechny výzvy",
     "new_join": "Přidejte pozorování pomocí Seek fotoaparátu a získejte Odznak výzvy!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "Správci iNat: děkujeme za testování Seeku! Pro testovací účely vidíte nejnovější výzvu iNat ještě před začátkem měsíce."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "NAHRÁT DO INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Nahrávám {{count}} pozorování",
+      "one": "Nahrávám {{count}} pozorování",
+      "two": "Nahrávám {{count}} pozorování",
+      "few": "Nahrávám {{count}} pozorování",
+      "many": "Nahrávám {{count}} pozorování",
+      "other": "Nahrávám {{count}} pozorování"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} pozorování nahráno!",
+      "one": "{{count}} pozorování nahráno!",
+      "two": "{{count}} pozorování nahrána!",
+      "few": "{{count}} pozorování nahráno!",
+      "many": "{{count}} pozorování nahráno!",
+      "other": "{{count}} pozorování nahráno!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} pozorování k nahrání",
+      "one": "{{count}} pozorování k nahrání",
+      "two": "{{count}} pozorování k nahrání",
+      "few": "{{count}} pozorování k nahrání",
+      "many": "{{count}} pozorování k nahrání",
+      "other": "{{count}} pozorování k nahrání"
     },
     "upload_now": "NAHRÁT NYNÍ",
     "error_internet": "Nebyl zjištěn žádný internet. Opakujte akci později.",
-    "error_downtime": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodin.",
+    "error_downtime": {
+      "zero": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodin.",
+      "one": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodinu.",
+      "two": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodiny.",
+      "few": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodin.",
+      "many": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodin.",
+      "other": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za {{count}} hodin."
+    },
     "error_unknown": "Nahrání se nezdařilo. Podrobnosti o chybě: {{errorText}}",
     "error_login": "Přihlašovací token selhal. Před dalším pokusem se prosím přihlaste ke svému účtu v nabídce iNaturalist nebo Úspěchy (tlačítko na konci stránky). ",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_photo": "K fotografii na vašem zařízení již není přístup.",
+    "a_few": "několik"
   },
   "notifications": {
     "header": "Upozornění",
@@ -361,7 +368,7 @@
     "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}.",
     "error_cameraManager": "Omlouváme se, ale nepodařilo se načíst správce fotoaparátu",
     "error_photoError": "Omlouváme se, foto-objekt nebyl nalezen",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "Pokud jsou vaše oprávnění nastavena na 'Vybrané fotografie', možná budete muset restartovat Seek nebo navštívit nastavení iOS > Seek > Fotky > Vybrané fotky, abyste si mohli vybrat, které fotky se zobrazí zde.",
     "plant_filter": "Pouze rostliny",
     "non_plant_filter": "Bez rostlin",
     "filters_off": "Filtry vypnuty"

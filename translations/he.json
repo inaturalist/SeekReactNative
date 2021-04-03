@@ -55,7 +55,14 @@
     },
     "upload_now": "העלו עכשיו",
     "error_internet": "לא זוהה חיבור רשת. אנא נסה שוב מאוחר יותר.",
-    "error_downtime": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "העלאה נכשלה. הודעת שגיאה: {{errorText}}",
     "error_login": "אימות חיבור נכשל. נא להתחבר לחשבון iNaturalist מתוך Seek ממסך iNaturalist או השגים, לפני שמנסים שוב.",
     "error_photo": "Photo can no longer be accessed on device.",

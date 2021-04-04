@@ -25,7 +25,7 @@
     "continue_challenge": "Poursuivre le défi",
     "view_all": " Afficher tous les défis",
     "new_join": "Ajoutez des observations à l'aide de la caméra de Seek pour gagner les badges de récompense !",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "Admins d'iNat : Merci de tester Seek ! Vous voyez le dernier défi d'iNat avant le début du mois dans le but de le tester."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTER SUR INATURALIST",
@@ -63,10 +63,10 @@
       "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_unknown": "Envoi raté. Détails: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "a_few": "un peu"
   },
   "notifications": {
     "header": " Notifications",
@@ -259,14 +259,14 @@
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Photo © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Espèces Observées",
-    "badge_name_april": "Connectivity Badge",
-    "badge_name_may": "Biodiversity Badge",
-    "badge_name_june": "Community Badge",
-    "badge_name_august": "Forests Badge",
-    "badge_name_september": "Grasslands Badge",
-    "badge_name_october": "Freshwater Badge",
-    "badge_name_november": "High Seas Badge",
-    "badge_name_december": "Climate Badge"
+    "badge_name_april": "Badge de la Connectivité",
+    "badge_name_may": "Badge de la Biodiversité",
+    "badge_name_june": "Badge de la Communauté",
+    "badge_name_august": "Badge des Forêts",
+    "badge_name_september": "Badge des Plaines",
+    "badge_name_october": "Badge des Eaux Douces",
+    "badge_name_november": "Badge des Hautes Mers",
+    "badge_name_december": "Badge du Climat"
   },
   "inat_stats": {
     "global_observations": "Observations modiales",
@@ -323,7 +323,7 @@
     "nearby": "Espèces proches au sein de ce taxon",
     "nothing_nearby": "Il semblerait que peu d’espèces de ce taxon aient été observées à proximité. Essayez de prendre une autre photo ou de la poster sur iNaturalist.",
     "tap": "Appuyez afin de charger les espèces proches",
-    "social": "Share on social"
+    "social": "Partager sur les réseaux"
   },
   "banner": {
     "view": "Afficher le badge",
@@ -547,7 +547,7 @@
     "species_saved": "Cette espèce est enregistrée dans vos observations.",
     "you": "Regardez, c'est vous ! Sortez et trouvez des espèces sauvages pour en savoir plus sur elles.",
     "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Pas de photos trouvées pour cette espèce."
   },
   "about": {
     "header": "À propos",
@@ -582,7 +582,7 @@
     "look_up": "Rechercher des espèces par nom"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background": "POSTER SUR INATURALIST EN ARRIERE-PLAN",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
     "no_internet": "PAS DE CONNEXION !",
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."

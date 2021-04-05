@@ -34,9 +34,9 @@ const getLanguage = async ( ): Promise<any> => {
   }
 };
 
-const toggleCameraCapture = ( boolean: boolean ) => {
-  AsyncStorage.setItem( "camera", boolean.toString() );
-};
+// const toggleCameraCapture = ( boolean: boolean ) => {
+//   AsyncStorage.setItem( "camera", boolean.toString() );
+// };
 
 const getAutoCapture = async ( ): Promise<boolean> => {
   try {
@@ -70,6 +70,8 @@ const setupUserSettings = async ( ) => {
   const realm = await Realm.open( realmConfig );
 
   try {
+    // still keeping these stored in async storage
+    // but they'll only be used once to set up this realm
     const autoCapture = await getAutoCapture( );
     const localSeasonality = await getSeasonality( );
     const scientificNames = await getScientificNames( );
@@ -77,6 +79,7 @@ const setupUserSettings = async ( ) => {
 
     realm.write( ( ) => {
       if ( realm.objects( "UserSettingsRealm" ).length > 0 ) {
+        // don't overwrite user settings during setup
         return;
       }
       realm.create( "UserSettingsRealm", {
@@ -109,7 +112,7 @@ export {
   getScientificNames,
   toggleLanguage,
   getLanguage,
-  toggleCameraCapture,
+  // toggleCameraCapture,
   getAutoCapture,
   // toggleSeasonality,
   getSeasonality,

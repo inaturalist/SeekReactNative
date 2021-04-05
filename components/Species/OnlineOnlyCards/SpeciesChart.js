@@ -22,7 +22,6 @@ type Props = {
 
 const SpeciesChart = ( { id, region }: Props ): Node => {
   const { localSeasonality } = useFetchUserSettings( );
-  console.log( localSeasonality, "local seasonality" );
   const [data, setData] = useState( [] );
   const [loading, setLoading] = useState( false );
 

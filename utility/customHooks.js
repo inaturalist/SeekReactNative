@@ -333,7 +333,7 @@ const useEmulator = ( ) => {
   return emulator;
 };
 
-const useFetchUserSettings = ( ) => {
+const useFetchUserSettings = ( ): Object => {
   const [settings, setSettings] = useState( { } );
 
   useEffect( ( ) => {

@@ -1,22 +1,21 @@
 // @flow
 
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { View, Text, Switch } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
+import Realm from "realm";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
-import { toggleScientificNames, toggleCameraCapture } from "../../utility/settingsHelpers";
+import { toggleScientificNames, updateUserSetting } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
 import { CameraContext } from "../UserContext";
+import realmConfig from "../../models";
 
-const CameraSettings = () => {
-  const {
-    scientificNames,
-    toggleNames,
-    autoCapture,
-    toggleAutoCapture
-  } = useContext( CameraContext );
+const CameraSettings = ( ): Node => {
+  const { scientificNames, toggleNames } = useContext( CameraContext );
+  const [settings, setSettings] = useState( {} );
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
     { label: i18n.t( "settings.scientific_names" ), value: 1 }
@@ -32,16 +31,33 @@ const CameraSettings = () => {
     }
   };
 
-  const setAutoCapture = ( boolean ) => {
-    toggleCameraCapture( boolean );
-    toggleAutoCapture( boolean );
+  const setAutoCapture = async ( ) => {
+    const value = await updateUserSetting( "autoCapture", !settings.autoCapture );
+    setSettings( {
+      ...settings,
+      autoCapture: value
+    } );
   };
-
-  const handleSwitchValueChange = ( ) => setAutoCapture( !autoCapture );
 
   const switchTrackColor = { true: colors.seekForestGreen };
 
   const handleRadioButtonPress = ( value ) => updateIndex( value );
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    const fetchUserSettings = async ( ) => {
+      const realm = await Realm.open( realmConfig );
+      const userSettings = realm.objects( "UserSettingsRealm" );
+      if ( isCurrent ) {
+        setSettings( userSettings[0] );
+      }
+    };
+    fetchUserSettings( );
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [] );
 
   return (
     <>
@@ -82,9 +98,9 @@ const CameraSettings = () => {
       <View style={[styles.row, styles.radioButtonSmallMargin]}>
         <Switch
           style={styles.switch}
-          value={autoCapture}
+          value={settings.autoCapture}
           trackColor={switchTrackColor}
-          onValueChange={handleSwitchValueChange}
+          onValueChange={setAutoCapture}
           accessible
           accessibilityLabel={i18n.t( "settings.auto_capture" )}
         />

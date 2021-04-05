@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
   Animated
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCameraOverlay";
@@ -20,9 +21,9 @@ import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import ARCameraHeader from "./ARCameraHeader";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
-import { CameraContext } from "../../UserContext";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
+import { useFetchUserSettings } from "../../../utility/customHooks";
 
 type Props = {
   takePicture: Function,
@@ -64,13 +65,13 @@ const ARCameraOverlay = ( {
   pictureTaken,
   cameraLoaded,
   filterByTaxonId
-}: Props ) => {
+}: Props ): Node => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
   const { navigate } = useNavigation();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
-  const { autoCapture } = useContext( CameraContext );
+  const { autoCapture } = useFetchUserSettings( );
   const [filterIndex, setFilterIndex] = useState( null );
 
   const toggleFilterIndex = () => {

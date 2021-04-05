@@ -55,10 +55,10 @@ const SpeciesImageCell = ( { item }: Props ) => {
     <TouchableOpacity onPress={navToNextScreen} style={styles.gridCell}>
       {photo && renderSpeciesImage( )}
       {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
-      <Text numberOfLines={3} style={styles.speciesNameText}>
-        {i18n.locale === "de"
-          ? capitalizeNames( commonName || item.name ).replace( /(- |-)/g, "-\n" )
-          : capitalizeNames( commonName || item.name )}
+      <Text numberOfLines={3} style={[styles.speciesNameText, !commonName && styles.scientificName]}>
+      {commonName
+          ? i18n.locale === "de" ? capitalizeNames( commonName ).replace( /(- |-)/g, "-\n" ) : capitalizeNames( commonName )
+          : item.name}
       </Text>
     </TouchableOpacity>
   );

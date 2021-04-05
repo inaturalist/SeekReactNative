@@ -33,5 +33,8 @@ export default StyleSheet.create( {
   },
   gridCell: {
     marginRight: 23
+  },
+  scientificName: {
+    fontFamily: fonts.bookItalic
   }
 } );

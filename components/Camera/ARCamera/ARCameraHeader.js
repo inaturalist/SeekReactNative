@@ -20,6 +20,7 @@ const ARCameraHeader = ( { ranks }: Props ) => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
   const { scientificNames } = useContext( CameraContext );
+  const showScientificName = scientificNames || !commonName;
 
   let id = null;
 
@@ -46,10 +47,8 @@ const ARCameraHeader = ( { ranks }: Props ) => {
           <View style={styles.greenButton}>
             <GreenRectangle text={i18n.t( rankDict[rankToRender] )} letterSpacing={0.94} color={colors.seekGreen} />
           </View>
-          <Text style={styles.predictions}>
-            {( scientificNames || !commonName )
-              ? ranks[rankToRender][0].name
-              : commonName}
+          <Text style={[styles.predictions, showScientificName && styles.scientificName]}>
+            {showScientificName ? ranks[rankToRender][0].name : commonName}
           </Text>
           <View style={styles.row}>
             {rankList.map( ( rank, index ) => (

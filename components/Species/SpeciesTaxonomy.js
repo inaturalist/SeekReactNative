@@ -93,8 +93,10 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
                 {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank ) || ""} `}
                 {ancestor.name}
               </Text>
-              <Text style={[styles.taxonomyHeader, styles.taxonomyText]}>
-                {showCapitalizedName( ancestor.preferred_common_name || ancestor.name, ancestor.rank )}
+              <Text style={[styles.taxonomyText, !ancestor.preferred_common_name && styles.scientificName]}>
+                {( ancestor.rank !== "species" && ancestor.preferred_common_name )
+                  ? capitalizeNames( ancestor.preferred_common_name )
+                  : ancestor.name}
               </Text>
             </View>
           </View>

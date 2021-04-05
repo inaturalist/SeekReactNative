@@ -3,6 +3,7 @@ import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
+import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/speciesChart";
@@ -19,8 +20,9 @@ type Props = {
   }
 };
 
-const SpeciesChart = ( { id, region }: Props ) => {
+const SpeciesChart = ( { id, region }: Props ): Node => {
   const { localSeasonality } = useFetchUserSettings( );
+  console.log( localSeasonality, "local seasonality" );
   const [data, setData] = useState( [] );
   const [loading, setLoading] = useState( false );
 

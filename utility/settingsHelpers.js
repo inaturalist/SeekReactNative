@@ -50,9 +50,9 @@ const getAutoCapture = async ( ): Promise<boolean> => {
   }
 };
 
-const toggleSeasonality = ( boolean: boolean ) => {
-  AsyncStorage.setItem( "seasonality", boolean.toString() );
-};
+// const toggleSeasonality = ( boolean: boolean ) => {
+//   AsyncStorage.setItem( "seasonality", boolean.toString() );
+// };
 
 const getSeasonality = async ( ): Promise<boolean> => {
   try {
@@ -76,6 +76,9 @@ const setupUserSettings = async ( ) => {
     console.log( autoCapture, localSeasonality, scientificNames, "user-settings" );
 
     realm.write( ( ) => {
+      if ( realm.objects( "UserSettingsRealm" ).length > 0 ) {
+        return;
+      }
       realm.create( "UserSettingsRealm", {
         autoCapture,
         localSeasonality,
@@ -87,14 +90,15 @@ const setupUserSettings = async ( ) => {
   }
 };
 
-const updateUserSetting = async ( key, value ) => {
+const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolean> => {
   const realm = await Realm.open( realmConfig );
   const userSettings = realm.objects( "UserSettingsRealm" );
 
   try {
     realm.write( ( ) => {
-      userSettings[key] = value;
+      userSettings[0][key] = value;
     } );
+    return value;
   } catch ( e ) {
     console.log( e, "couldn't update User Settings Realm" );
   }
@@ -107,7 +111,7 @@ export {
   getLanguage,
   toggleCameraCapture,
   getAutoCapture,
-  toggleSeasonality,
+  // toggleSeasonality,
   getSeasonality,
   setupUserSettings,
   updateUserSetting

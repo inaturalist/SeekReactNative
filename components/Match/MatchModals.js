@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
@@ -26,7 +27,6 @@ type Props = {
   setNavigationPath: Function,
   params: Object,
   flagModal: boolean,
-  speciesText: ?string,
   navPath: ?string,
   scientificNames: boolean
 };
@@ -37,10 +37,9 @@ const MatchModals = ( {
   params,
   setNavigationPath,
   flagModal,
-  speciesText,
   navPath,
   scientificNames
-}: Props ) => {
+}: Props ): Node => {
   const navigation = useNavigation();
 
   const { seenDate, taxon, image } = params;

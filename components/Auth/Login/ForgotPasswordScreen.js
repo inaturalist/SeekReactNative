@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
@@ -15,7 +16,7 @@ import createUserAgent from "../../../utility/userAgent";
 import { createJwtToken } from "../../../utility/helpers";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
-const ForgotPasswordScreen = () => {
+const ForgotPasswordScreen = (): Node => {
   const { navigate } = useNavigation();
   const [email, setEmail] = useState( "" );
   const [error, setError] = useState( false );

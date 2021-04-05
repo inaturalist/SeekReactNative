@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Image, TouchableOpacity, Text } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/species/rangeMap";
@@ -15,7 +16,7 @@ import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-const RangeMap = () => {
+const RangeMap = (): Node => {
   const navigation = useNavigation();
   const { params } = useRoute();
   // region can be the obs region or the user location, depending on nav

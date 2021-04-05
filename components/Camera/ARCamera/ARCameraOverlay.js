@@ -176,7 +176,7 @@ const ARCameraOverlay = ( {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" testID="cameraLoading" />}
+        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
         <ARCameraHeader ranks={ranks} />
         {isAndroid && showFilterText()}
         {( isAndroid && filterIndex === 0 ) && showAnimation()}

@@ -5,6 +5,7 @@ import { Text, View } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
@@ -24,7 +25,7 @@ const showIcon = () => <></>;
 
 const { languageCode } = RNLocalize.getLocales()[0];
 
-const LanguagePicker = () => {
+const LanguagePicker = (): Node => {
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
 
   const displayLanguage = setDisplayLanguage( preferredLanguage );

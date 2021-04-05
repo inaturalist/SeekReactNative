@@ -64,7 +64,6 @@ const SpeciesCard = ( {
 };
 
 SpeciesCard.defaultProps = {
-  iconicTaxonId: null,
   handlePress: null,
   allowFontScaling: true
 };

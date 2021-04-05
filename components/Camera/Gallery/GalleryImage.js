@@ -4,6 +4,7 @@ import React, { useCallback } from "react";
 import { Platform, Image, TouchableOpacity } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";
@@ -15,7 +16,7 @@ type Props = {
   setLoading: ( ) => void
 }
 
-const GalleryImage = ( { item, setLoading }: Props ) => {
+const GalleryImage = ( { item, setLoading }: Props ): Node => {
   const navigation = useNavigation();
 
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {

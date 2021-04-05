@@ -1,8 +1,9 @@
 // @flow
 
 import React, { useEffect, useState, useRef } from "react";
-import { View, Text, Image, Animated, Pressable, Alert } from "react-native";
+import { View, Text, Image, Animated, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/uploadStatus";
@@ -26,7 +27,7 @@ const UploadStatus = ( {
   numPendingUploads,
   updateSuccessfulUploads,
   closeCard
-}: Props ) => {
+}: Props ): Node => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   const navigation = useNavigation();
   let animation = useRef( new Animated.Value( 0 ) );

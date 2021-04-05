@@ -3,6 +3,7 @@
 import React, { useEffect, useCallback } from "react";
 import { Image, ImageBackground, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { colors } from "../styles/global";
 import styles from "../styles/splash";
@@ -13,7 +14,7 @@ import { deleteDebugLogAfter7Days } from "../utility/photoHelpers";
 import { setupBadges } from "../utility/badgeHelpers";
 import { checkForHotStarts, checkForColdStarts } from "../utility/navigationHelpers";
 
-const SplashScreen = () => {
+const SplashScreen = (): Node => {
   const navigation = useNavigation();
 
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );

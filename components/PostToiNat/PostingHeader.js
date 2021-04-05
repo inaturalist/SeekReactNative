@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Modal
 } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../styles/posting/postToiNat";
 import posting from "../../assets/posting";
@@ -22,7 +23,7 @@ const PostingHeader = ( {
   taxon,
   image,
   updateTaxon
-}: Props ) => {
+}: Props ): Node => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = ( ) => setShowModal( true );

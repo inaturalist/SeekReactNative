@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
+import type { Node } from "react";
 
 import { capitalizeNames } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
@@ -15,7 +16,7 @@ type Props = {
   +id: number
 };
 
-const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
+const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
   const commonName = useCommonName( id );
   const [taxonomyList, setTaxonomyList] = useState( [] );
 

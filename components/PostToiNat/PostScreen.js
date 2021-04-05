@@ -3,6 +3,7 @@
 import React, { useReducer, useEffect, useCallback } from "react";
 import { View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
@@ -20,7 +21,7 @@ import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 
-const PostScreen = () => {
+const PostScreen = (): Node => {
   const navigation = useNavigation( );
   const { params } = useRoute( );
 

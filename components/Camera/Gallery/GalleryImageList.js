@@ -2,6 +2,7 @@
 
 import React, { useCallback } from "react";
 import { FlatList } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../../styles/camera/gallery";
 import { dimensions } from "../../../styles/global";
@@ -13,7 +14,7 @@ type Props = {
   setLoading: ( ) => void
 }
 
-const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ) => {
+const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node => {
   const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} setLoading={setLoading} />, [setLoading] );
 
   // skips measurement of dynamic content for faster loading

@@ -8,6 +8,7 @@ import {
   Image
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
@@ -34,7 +35,7 @@ const LocationPicker = ( {
   longitude,
   updateLocation,
   closeLocationPicker
-}: Props ) => {
+}: Props ): Node => {
   const [accuracy, setAccuracy] = useState( 90 );
   const [region, setRegion] = useState( {} );
 

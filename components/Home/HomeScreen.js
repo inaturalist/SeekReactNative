@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { BackHandler } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
 import GetStarted from "../Modals/GetStarted";
@@ -17,7 +18,7 @@ import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
 import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 
-const HomeScreen = () => {
+const HomeScreen = (): Node => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
   const [showUploadCard, setShowUploadCard] = useState( false );

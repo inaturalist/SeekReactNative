@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { View, Text } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
@@ -86,7 +87,7 @@ class ParentalConsentScreen extends Component<Props, State> {
     navigation.navigate( "ParentCheck" );
   }
 
-  render() {
+  render(): Node {
     const { email, error, loading } = this.state;
 
     return (

@@ -7,6 +7,7 @@ import {
   Image,
   View
 } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
@@ -18,7 +19,7 @@ type Props = {
   +error: ?string
 }
 
-const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
+const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
   const [taxonType, setTaxonType] = useState( "all" );
 
   const types = useMemo( () => {

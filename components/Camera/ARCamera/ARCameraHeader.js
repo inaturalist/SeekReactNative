@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useContext } from "react";
 import { View, Text, Image } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
@@ -16,7 +17,7 @@ type Props = {
   +ranks: Object
 }
 
-const ARCameraHeader = ( { ranks }: Props ) => {
+const ARCameraHeader = ( { ranks }: Props ): Node => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
   const { scientificNames } = useContext( CameraContext );

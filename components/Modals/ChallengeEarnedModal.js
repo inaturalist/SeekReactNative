@@ -19,14 +19,18 @@ import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
-  +closeModal: ( ) => void,
-  +challenge: {
-    name: string,
-    backgroundName: string,
+  closeModal: ( ) => void,
+  challenge: {
+    index: number,
+    percentComplete: number,
+    startedDate: Date,
     availableDate: Date,
+    backgroundName: string,
+    name: string,
+    logo: string,
+    sponsorName: string,
     secondLogo: string,
     earnedIconName: string,
-    sponsorName: string,
     badgeName: string
   }
 };

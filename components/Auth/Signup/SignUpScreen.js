@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import * as RNLocalize from "react-native-localize";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import config from "../../../config";
@@ -161,7 +162,7 @@ class SignUpScreen extends Component<Props, State> {
     }
   }
 
-  render() {
+  render(): Node {
     const { username, password, error } = this.state;
 
     return (
@@ -183,7 +184,6 @@ class SignUpScreen extends Component<Props, State> {
             <InputField
               handleTextChange={value => this.setState( { password: value } )}
               placeholder="*********"
-              secureTextEntry
               text={password}
               type="password"
             />

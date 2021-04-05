@@ -3,6 +3,7 @@
 import React, { useRef, useState, useCallback } from "react";
 import { Image, FlatList, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
@@ -13,7 +14,7 @@ type Props = {
   photoList: Array<Object>
 }
 
-const HorizontalScroll = ( { photoList }: Props ) => {
+const HorizontalScroll = ( { photoList }: Props ): Node => {
   const { name } = useRoute();
   const flatList = useRef( null );
   const viewConfigRef = useRef( {

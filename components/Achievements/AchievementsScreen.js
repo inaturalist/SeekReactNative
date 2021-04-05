@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Realm from "realm";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import taxonIds from "../../utility/dictionaries/taxonDict";
@@ -20,7 +21,7 @@ import { fetchNumberSpeciesSeen, localizeNumber, setRoute } from "../../utility/
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import BannerHeader from "./BannerHeader";
 
-const AchievementsScreen = () => {
+const AchievementsScreen = (): Node => {
   const navigation = useNavigation();
   const [state, setState] = useState( {
     speciesBadges: [],

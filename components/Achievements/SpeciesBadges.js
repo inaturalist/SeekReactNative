@@ -4,6 +4,7 @@ import React, { useState, useCallback } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
@@ -15,7 +16,7 @@ type Props = {
   +speciesBadges: Array<Object>
 }
 
-const SpeciesBadges = ( { speciesBadges }: Props ) => {
+const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
   const [showModal, setModal] = useState( false );
   const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
   const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );

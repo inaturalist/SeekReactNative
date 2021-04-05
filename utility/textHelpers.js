@@ -6,7 +6,19 @@ import i18n from "../i18n";
 
 const { getFontScale } = PixelRatio;
 
-const setChallengeDetailsButtonText = ( challenge: { percentComplete: number }, challengeStarted?: Date ): string => {
+const setChallengeDetailsButtonText = ( challenge: {
+  index: number,
+  percentComplete: number,
+  startedDate: Date,
+  availableDate: Date,
+  backgroundName: string,
+  name: string,
+  logo: string,
+  sponsorName: string,
+  secondLogo: string,
+  earnedIconName: string,
+  badgeName: string
+}, challengeStarted?: Date ): string => {
   if ( !challengeStarted ) {
     return "challenges.start_challenge";
   } else if ( challengeStarted && challenge.percentComplete === 100 ) {

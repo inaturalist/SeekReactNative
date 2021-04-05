@@ -8,6 +8,7 @@ import {
   Image,
   Modal
 } from "react-native";
+import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/home/speciesNearby";
@@ -26,7 +27,7 @@ const LocationPickerButton = ( {
   updateLatLng,
   disabled,
   location
-}: Props ) => {
+}: Props ): Node => {
   const { latitude, longitude } = latLng;
   const [showModal, setModal] = useState( false );
 

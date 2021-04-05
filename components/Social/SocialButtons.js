@@ -3,6 +3,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/social/social";
 import { dimensions, colors } from "../../styles/global";
@@ -17,7 +18,7 @@ type Props = {
   disabled: boolean
 };
 
-const SocialButtons = ( { image, tab, disabled }: Props ) => {
+const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
   const { login } = useContext( UserContext );
 
   const [saved, setSaved] = useState( false );

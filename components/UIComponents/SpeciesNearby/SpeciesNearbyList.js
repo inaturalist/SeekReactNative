@@ -3,6 +3,7 @@
 import React, { useCallback } from "react";
 import { FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesNearbyList";
 import SpeciesImageCell from "./SpeciesImageCell";
@@ -13,7 +14,7 @@ type Props = {
   +taxa: Array<Object>
 }
 
-const SpeciesNearbyList = ( { taxa }: Props ) => {
+const SpeciesNearbyList = ( { taxa }: Props ): Node => {
   const { name } = useRoute();
 
   const getItemLayout = useCallback( ( data, index ) => (

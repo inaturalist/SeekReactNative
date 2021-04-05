@@ -24,7 +24,7 @@ const SpeciesMap = ( {
   region,
   id,
   seenDate
-}: Props ) => {
+}: Props ): React.Node => {
   const navigation = useNavigation();
 
   const navToRangeMap = () => navigation.navigate( "RangeMap", { region, id, seenDate } );

@@ -3,6 +3,7 @@
 import React, { useCallback } from "react";
 import { Image } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
+import type { Node } from "react";
 
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/galleryHeader";
@@ -14,7 +15,7 @@ type Props = {
 const placeholder = {};
 const pickerStyles = { ...styles };
 
-const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
+const AlbumPicker = ( { updateAlbum, albumNames }: Props ): Node => {
   const handleValueChange = useCallback( ( newAlbum ) => {
     updateAlbum( newAlbum !== "All" ? newAlbum : null );
   }, [updateAlbum] );

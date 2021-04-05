@@ -14,6 +14,7 @@ import {
 import inatjs from "inaturalistjs";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import { colors } from "../../styles/global";
 import styles from "../../styles/posting/selectSpecies";
@@ -28,10 +29,10 @@ import Padding from "../UIComponents/Padding";
 import { useScrollToTop } from "../../utility/customHooks";
 
 type Props = {
-  +toggleSpeciesModal: Function,
-  +image: string,
-  +updateTaxon: Function,
-  +seekId: Object
+  toggleSpeciesModal: Function,
+  image: string,
+  updateTaxon: Function,
+  seekId: Object
 }
 
 const SelectSpecies = ( {
@@ -39,7 +40,7 @@ const SelectSpecies = ( {
   image,
   updateTaxon,
   seekId
-}: Props ) => {
+}: Props ): Node => {
   const scrollView = useRef<any>( null );
   const navigation = useNavigation();
   const [suggestions, setSuggestions] = useState( [{

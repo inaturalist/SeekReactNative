@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import inatjs from "inaturalistjs";
+import type { Node } from "react";
 
 import styles from "../styles/iNatStats";
 import i18n from "../i18n";
@@ -23,7 +24,7 @@ import createUserAgent from "../utility/userAgent";
 import HorizontalScroll from "./UIComponents/HorizontalScroll";
 import ScrollNoHeader from "./UIComponents/Screens/ScrollNoHeader";
 
-const INatStatsScreen = () => {
+const INatStatsScreen = (): Node => {
   const [stats, setStats] = useState( {
     observations: null,
     observers: null
@@ -141,7 +142,7 @@ const INatStatsScreen = () => {
           <View style={styles.photoContainer}>
             <LoadingWheel color="black" />
           </View>
-        ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}
+        ) : <HorizontalScroll photoList={photoList} />}
         <LoginCard />
       </View>
     </ScrollNoHeader>

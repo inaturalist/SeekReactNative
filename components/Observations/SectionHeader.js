@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import Realm from "realm";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
@@ -23,7 +24,7 @@ type Props = {
   toggleSection: Function
 };
 
-const SectionHeader = ( { section, open, toggleSection }: Props ) => {
+const SectionHeader = ( { section, open, toggleSection }: Props ): Node => {
   const [badgeCount, setBadgeCount] = useState( 0 );
   const { id, data } = section;
 

@@ -24,7 +24,6 @@ type Props = {
 const ReplacePhotoModal = ( {
   closeModal,
   image,
-  speciesText,
   seenDate,
   taxon,
   scientificNames,
@@ -76,10 +75,6 @@ const ReplacePhotoModal = ( {
       />
     </ModalWithGradient>
   );
-};
-
-ReplacePhotoModal.defaultProps = {
-  speciesText: null
 };
 
 export default ReplacePhotoModal;

@@ -2,6 +2,7 @@
 
 import React, { useContext } from "react";
 import { View, Platform } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../styles/settings";
 import { UserContext } from "../UserContext";
@@ -11,7 +12,7 @@ import DonateButton from "./DonateButton";
 import CameraSettings from "./CameraSettings";
 import SpeciesDetail from "./SpeciesDetail";
 
-const SettingsScreen = () => {
+const SettingsScreen = (): Node => {
   const { login } = useContext( UserContext );
 
   return (

@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
@@ -20,7 +21,7 @@ type Props = {
   +id: number
 };
 
-const SpeciesPhotos = ( { photos, id }: Props ) => {
+const SpeciesPhotos = ( { photos, id }: Props ): Node => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
   const [photoList, setPhotoList] = useState( [] );
@@ -101,7 +102,7 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
         </View>
       );
     } else {
-      return <HorizontalScroll photoList={photoList} screen="SpeciesPhotos" />;
+      return <HorizontalScroll photoList={photoList} />;
     }
   };
 

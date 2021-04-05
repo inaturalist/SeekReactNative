@@ -33,7 +33,7 @@ const OnlineSpeciesContainer = ( {
   details,
   predictions,
   scientificName
-}: Props ) => {
+}: Props ): React.Node => {
   const {
     stats,
     about,

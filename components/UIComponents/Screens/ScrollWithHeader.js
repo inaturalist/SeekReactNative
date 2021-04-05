@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
@@ -31,7 +32,7 @@ const ScrollWithHeader = ( {
   header,
   route,
   loading
-}: Props ) => {
+}: Props ): Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef<any>( null );

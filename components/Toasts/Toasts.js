@@ -6,6 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
+import type { Node } from "react";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
@@ -84,7 +85,7 @@ class Toasts extends Component<Props> {
     }
   }
 
-  render() {
+  render(): Node {
     const { badge, challenge } = this.props;
 
     return (

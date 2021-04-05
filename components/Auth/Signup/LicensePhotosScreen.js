@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { View, Text, Alert } from "react-native";
 import HTML from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
@@ -16,7 +17,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
 
-const LicensePhotosScreen = () => {
+const LicensePhotosScreen = (): Node => {
   const { navigate } = useNavigation();
   const [email, setEmail] = useState( "" );
   const [licensePhotos, setLicensePhotos] = useState( true );

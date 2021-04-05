@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import type { Node } from "react";
 
 import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
@@ -23,7 +24,7 @@ type Props = {
   +speciesCount: ?number
 }
 
-const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
+const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ): Node => {
   const [showModal, setModal] = useState( false );
 
   const openModal = useCallback( ( ) => setModal( true ), [] );

@@ -9,6 +9,7 @@ import React, {
 import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import styles from "../../styles/match/match";
 import Footer from "../UIComponents/Footer";
@@ -22,7 +23,7 @@ import { useScrollToTop } from "../../utility/customHooks";
 import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
 
-const MatchScreen = ( ) => {
+const MatchScreen = ( ): Node => {
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );

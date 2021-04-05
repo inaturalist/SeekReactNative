@@ -16,6 +16,7 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
@@ -38,7 +39,7 @@ import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 
-const ARCamera = () => {
+const ARCamera = (): Node => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );

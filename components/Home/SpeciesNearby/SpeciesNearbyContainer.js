@@ -2,6 +2,7 @@
 
 import React, { useEffect, useCallback, useReducer } from "react";
 import { View } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../../styles/home/speciesNearby";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -25,7 +26,7 @@ const SpeciesNearbyContainer = ( {
   longitude,
   checkInternet,
   updateDowntimeError
-}: Props ) => {
+}: Props ): Node => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {

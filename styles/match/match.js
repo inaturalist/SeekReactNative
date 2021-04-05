@@ -85,6 +85,9 @@ export default StyleSheet.create( {
     marginBottom: 22,
     textAlign: "center"
   },
+  scientificName: {
+    fontFamily: fonts.bookItalic
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,

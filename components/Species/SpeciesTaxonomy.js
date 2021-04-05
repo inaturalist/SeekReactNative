@@ -70,13 +70,6 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
     }
   }, [ancestors, commonName] );
 
-  const showCapitalizedName = ( name, rank ) => {
-    if ( rank !== "species" ) {
-      return capitalizeNames( name );
-    }
-    return name;
-  };
-
   return (
     <SpeciesDetailCard text="species_detail.taxonomy" hide={taxonomyList.length === 0}>
       {taxonomyList.length > 0 && taxonomyList.map( ( ancestor, index ) => {

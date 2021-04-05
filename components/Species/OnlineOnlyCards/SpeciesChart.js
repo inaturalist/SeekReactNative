@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useCallback, useEffect, useContext, useMemo } from "react";
+import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
@@ -8,8 +8,8 @@ import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/speciesChart";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
-import { SpeciesDetailContext } from "../../UserContext";
 import { fetchHistogram } from "../../../utility/speciesDetailHelpers";
+import { useFetchUserSettings } from "../../../utility/customHooks";
 
 type Props = {
   +id: number,
@@ -20,8 +20,9 @@ type Props = {
 };
 
 const SpeciesChart = ( { id, region }: Props ) => {
-  const { localSeasonality } = useContext( SpeciesDetailContext );
+  const { localSeasonality } = useFetchUserSettings( );
   const [data, setData] = useState( [] );
+  const [loading, setLoading] = useState( false );
 
   const createHistogram = useCallback( async ( ) => {
     // not showing chart at all if user prefers local seasonality
@@ -30,9 +31,15 @@ const SpeciesChart = ( { id, region }: Props ) => {
     if ( localSeasonality && !region.latitude ) {
       return;
     }
-    const chartData = await fetchHistogram( id, localSeasonality ? region : null );
-    setData( chartData );
-  }, [id, localSeasonality, region] );
+    if ( localSeasonality === undefined ) {
+      return;
+    }
+    setLoading( true );
+    if ( !loading ) {
+      const chartData = await fetchHistogram( id, localSeasonality ? region : null );
+      setData( chartData );
+    }
+  }, [id, localSeasonality, region, loading] );
 
   useEffect( ( ) => {
     let isCurrent = true;

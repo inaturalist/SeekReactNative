@@ -9,7 +9,7 @@ import { handleLocalizationChange, loadUserLanguagePreference } from "../utility
 import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken, savePostingSuccess } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
-import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
+import { getScientificNames, getLanguage, getAutoCapture, getSeasonality, setupUserSettings } from "../utility/settingsHelpers";
 import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = ( ) => {
@@ -60,6 +60,8 @@ const App = ( ) => {
   useEffect( () => {
     hideLogs();
     setQuickActions();
+    // testing
+    setupUserSettings( );
 
     // Context
     getLoggedIn();

@@ -1,5 +1,8 @@
 // @flow
+import Realm from "realm";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import realmConfig from "../models/index";
 import { setDeviceLanguageOrFallback } from "./languageHelpers";
 
 const toggleScientificNames = ( boolean: boolean ) => {
@@ -63,6 +66,40 @@ const getSeasonality = async ( ): Promise<boolean> => {
   }
 };
 
+const setupUserSettings = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+
+  try {
+    const autoCapture = await getAutoCapture( );
+    const localSeasonality = await getSeasonality( );
+    const scientificNames = await getScientificNames( );
+    console.log( autoCapture, localSeasonality, scientificNames, "user-settings" );
+
+    realm.write( ( ) => {
+      realm.create( "UserSettingsRealm", {
+        autoCapture,
+        localSeasonality,
+        scientificNames
+      }, true );
+    } );
+  } catch ( e ) {
+    console.log( e, "couldn't set up User Settings Realm" );
+  }
+};
+
+const updateUserSetting = async ( key, value ) => {
+  const realm = await Realm.open( realmConfig );
+  const userSettings = realm.objects( "UserSettingsRealm" );
+
+  try {
+    realm.write( ( ) => {
+      userSettings[key] = value;
+    } );
+  } catch ( e ) {
+    console.log( e, "couldn't update User Settings Realm" );
+  }
+};
+
 export {
   toggleScientificNames,
   getScientificNames,
@@ -71,5 +108,7 @@ export {
   toggleCameraCapture,
   getAutoCapture,
   toggleSeasonality,
-  getSeasonality
+  getSeasonality,
+  setupUserSettings,
+  updateUserSetting
 };

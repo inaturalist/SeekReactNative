@@ -333,6 +333,29 @@ const useEmulator = ( ) => {
   return emulator;
 };
 
+const useFetchUserSettings = ( ) => {
+  const [settings, setSettings] = useState( { } );
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    const fetchUserSettings = async ( ) => {
+      const realm = await Realm.open( realmConfig );
+      const userSettings = realm.objects( "UserSettingsRealm" );
+      if ( isCurrent ) {
+        setSettings( userSettings[0] );
+      }
+    };
+
+    fetchUserSettings( );
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [] );
+
+  return settings;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -343,5 +366,6 @@ export {
   useSeenTaxa,
   useRegion,
   useInternetStatus,
-  useEmulator
+  useEmulator,
+  useFetchUserSettings
 };

@@ -40,10 +40,10 @@
     "x_observations_uploaded": {
       "zero": "{{count}} gözlem yüklendi!",
       "one": "{{count}} gözlem yüklendi!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "two": "{{count}} gözlem yüklendi!",
+      "few": "{{count}} gözlem yüklendi!",
+      "many": "{{count}} gözlem yüklendi!",
+      "other": "{{count}} gözlem yüklendi!"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",

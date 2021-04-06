@@ -13,6 +13,7 @@ import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
 import { fetchJSONWebToken } from "./uploadHelpers";
 import i18n from "../i18n";
+import { LOG } from "./debugHelpers";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 
@@ -23,7 +24,7 @@ const fetchIncompleteChallenges = ( realm ) => {
   return incomplete;
 };
 
-const fetchObservationsAfterChallengeStarted = ( realm: any, challenge: Object ) => {
+const fetchObservationsAfterChallengeStarted = ( realm: any, challenge: Object ): Array<Object> => {
   const { startedDate } = challenge;
 
   const seenTaxa = [];
@@ -217,6 +218,24 @@ const addDetailsToExistingChallenges = ( realm: any ) => {
 
     challenges.forEach( challenge => {
       const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+      if ( challenge.index === 18 ) {
+        LOG.info(
+          `${challenge.name}\n
+          ${challenge.description}\n
+          ${challenge.totalSpecies}\n
+          ${challenge.backgroundName}\n
+          ${challenge.earnedIconName}\n
+          ${challenge.missions}\n
+          ${challenge.availableDate}\n
+          ${challenge.photographer}\n
+          ${challenge.action}\n
+          ${challenge.logo}\n
+          ${challenge.secondLogo}\n
+          ${challenge.sponsorName}\n
+          ${challenge.badgeName}\n
+          ${addExistingBadgeNames( challenge.availableDate )}`,
+          ": March challenge" );
+      }
 
       // probably don't need to rewrite these every time
       // once the user has them stored in realm once
@@ -239,8 +258,10 @@ const showAdminAlert = ( ) => {
 
 const setupChallenges = ( isAdmin: boolean ): void => {
   Realm.open( realmConfig ).then( ( realm ) => {
+    LOG.info( "setting up challenges" );
     const numChallenges = realm.objects( "ChallengeRealm" ).length;
     const dict = Object.keys( challengesDict );
+    LOG.info( numChallenges, ": number of challenges in realm" );
 
     addDetailsToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
@@ -255,6 +276,7 @@ const setupChallenges = ( isAdmin: boolean ): void => {
 
         // only create new challenges
         if ( existingChallenge === 0 ) {
+          LOG.info( i, ": creating new challenge" );
           const challenge = challengesDict[challengesType];
           const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
           const isCurrent = isWithinCurrentMonth( challenge.availableDate );
@@ -290,6 +312,7 @@ const setupChallenges = ( isAdmin: boolean ): void => {
             // also checking for existing notification with the same title and challenge index
             // so we can overwrite the march challenge without duplicating this notification
             if ( isCurrent && !isDuplicateNotification( realm, i ) ) {
+              LOG.info( "creating new challenge notification" );
               createNotification( "newChallenge", i );
             }
           }
@@ -297,6 +320,7 @@ const setupChallenges = ( isAdmin: boolean ): void => {
       } );
     } );
   } ).catch( ( err ) => {
+    LOG.error( err, ": error setting up challenges" );
     console.log( "[DEBUG] Failed to setup challenges: ", err );
   } );
 };
@@ -330,7 +354,7 @@ const setChallengeIndex = ( index: number ) => {
   AsyncStorage.setItem( "index", index.toString() );
 };
 
-const getChallengeIndex = async () => {
+const getChallengeIndex = async (): any => {
   try {
     const index = await AsyncStorage.getItem( "index" );
     if ( index !== "none" ) {

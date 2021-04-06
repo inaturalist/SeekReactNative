@@ -9,8 +9,8 @@ import { checkINatAdminStatus, setupChallenges } from "../utility/challengeHelpe
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
 import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken, savePostingSuccess } from "../utility/loginHelpers";
-import { UserContext, CameraContext, LanguageContext } from "./UserContext";
-import { getScientificNames, getLanguage, setupUserSettings } from "../utility/settingsHelpers";
+import { UserContext, LanguageContext } from "./UserContext";
+import { getLanguage, setupUserSettings } from "../utility/settingsHelpers";
 import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = ( ): Node => {

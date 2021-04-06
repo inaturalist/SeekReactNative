@@ -25,8 +25,8 @@ type Coords = {
   accuracy: number
 }
 
-const fetchUserLocation = ( enableHighAccuracy: ?boolean ) => (
-  new Promise<Coords>( ( resolve, reject ) => {
+const fetchUserLocation = ( enableHighAccuracy: ?boolean ): Promise<Coords> => (
+  new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
@@ -41,10 +41,10 @@ const fetchUserLocation = ( enableHighAccuracy: ?boolean ) => (
   } )
 );
 
-const truncateCoordinates = ( coordinate: number ) => Number( coordinate.toFixed( 2 ) );
+const truncateCoordinates = ( coordinate: number ): number => Number( coordinate.toFixed( 2 ) );
 
-const fetchTruncatedUserLocation = () => (
-  new Promise<TruncatedCoords>( ( resolve, reject ) => {
+const fetchTruncatedUserLocation = (): Promise<TruncatedCoords> => (
+  new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const latitude = truncateCoordinates( coords.latitude );
@@ -61,8 +61,8 @@ const fetchTruncatedUserLocation = () => (
   } )
 );
 
-const fetchLocationName = ( lat: ?number, lng: ?number ) => (
-  new Promise<?string>( ( resolve, reject ) => {
+const fetchLocationName = ( lat: ?number, lng: ?number ): Promise<?string> => (
+  new Promise( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {
         resolve( null );
@@ -96,7 +96,7 @@ const createLocationAlert = ( errorCode: number ) => {
   Alert.alert( i18n.t( "results.enable_location" ), body, button );
 };
 
-const checkForTruncatedCoordinates = ( latitude: number ) => {
+const checkForTruncatedCoordinates = ( latitude: number ): boolean => {
   if ( latitude ) {
     const string = latitude.toString();
     const split = string.split( "." );
@@ -109,7 +109,7 @@ const checkForTruncatedCoordinates = ( latitude: number ) => {
   return false;
 };
 
-const createRegion = ( region: { latitude: number, longitude: number } ) => {
+const createRegion = ( region: { latitude: number, longitude: number } ): Object => {
   const latitudeDelta = 0.2;
   const longitudeDelta = 0.2;
 

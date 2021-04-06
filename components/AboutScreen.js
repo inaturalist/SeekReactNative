@@ -5,7 +5,6 @@ import {
   Image,
   Text,
   View,
-  Platform,
   TouchableOpacity
 } from "react-native";
 import { getVersion, getBuildNumber } from "react-native-device-info";
@@ -25,8 +24,8 @@ const AboutScreen = (): Node => {
   const buildVersion = getBuildNumber();
   const { login } = useContext( UserContext );
 
-  const navToDebug = () => navigation.navigate( "DebugAndroid" );
-  const disabled = Platform.OS === "ios" || !login;
+  const navToDebug = () => navigation.navigate( "DebugEmailScreen" );
+  const disabled = !login;
 
   return (
     <ScrollWithHeader header="about.header">

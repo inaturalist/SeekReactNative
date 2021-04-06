@@ -42,7 +42,7 @@ const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( stri
   }
 };
 
-const resetRouter = ( navigation: { dispatch: Object } ) => navigation.dispatch(
+const resetRouter = ( navigation: { dispatch: Object } ): any => navigation.dispatch(
   CommonActions.reset( {
     index: 1,
     routes: [{ name: "Drawer" }]

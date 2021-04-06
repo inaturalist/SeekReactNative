@@ -45,7 +45,7 @@ type DrawerParamList = {
   Settings: void;
   Match: void;
   Species: void;
-  DebugAndroid: void;
+  DebugEmailScreen: void;
 };
 type TabParamList = {
   ARCamera: void;

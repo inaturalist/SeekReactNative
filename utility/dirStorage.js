@@ -19,6 +19,7 @@ export const dirTaxonomy: string = Platform.select( {
 } );
 
 export const dirDebugLogs: string = Platform.select( {
+  ios: `${RNFS.DocumentDirectoryPath}`,
   android: `${RNFS.ExternalCachesDirectoryPath}/debug-seek.log`
 } );
 

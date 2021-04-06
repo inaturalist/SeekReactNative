@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image } from "react-native";
 import type { Node } from "react";
 
@@ -9,9 +9,9 @@ import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import rankDict from "../../../utility/dictionaries/rankDict";
 import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
-import { CameraContext } from "../../UserContext";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
+import { useFetchUserSettings } from "../../../utility/customHooks";
 
 type Props = {
   +ranks: Object
@@ -20,7 +20,7 @@ type Props = {
 const ARCameraHeader = ( { ranks }: Props ): Node => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
-  const { scientificNames } = useContext( CameraContext );
+  const { scientificNames } = useFetchUserSettings( );
   const showScientificName = scientificNames || !commonName;
 
   let id = null;

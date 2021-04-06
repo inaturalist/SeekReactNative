@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Switch } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
@@ -8,35 +8,37 @@ import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
-import { toggleScientificNames, updateUserSetting } from "../../utility/settingsHelpers";
+import { updateUserSetting } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
-import { CameraContext } from "../UserContext";
 import realmConfig from "../../models";
 
 const CameraSettings = ( ): Node => {
-  const { scientificNames, toggleNames } = useContext( CameraContext );
   const [settings, setSettings] = useState( {} );
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
     { label: i18n.t( "settings.scientific_names" ), value: 1 }
   ];
 
-  const updateIndex = ( i ) => {
-    if ( i === 0 ) {
-      toggleScientificNames( false );
-      toggleNames( false );
-    } else {
-      toggleScientificNames( true );
-      toggleNames( true );
+  const updateIndex = async(  i ) => {
+    const newValue = i !== 0;
+    if ( newValue === settings.scientificNames ) {
+      return;
     }
+    const value = await updateUserSetting( "scientificNames", newValue );
+    const newSettings: Object = {
+      autoCapture: settings.autoCapture,
+      scientificNames: value
+    };
+    setSettings( newSettings );
   };
 
   const setAutoCapture = async ( ) => {
     const value = await updateUserSetting( "autoCapture", !settings.autoCapture );
-    setSettings( {
-      ...settings,
+    const newSettings: Object = {
+      scientificNames: settings.scientificNames,
       autoCapture: value
-    } );
+    };
+    setSettings( newSettings );
   };
 
   const switchTrackColor = { true: colors.seekForestGreen };
@@ -72,7 +74,7 @@ const CameraSettings = ( ): Node => {
               obj={obj}
               index={i}
               isSelected={
-                ( i === 0 && !scientificNames ) || ( i === 1 && scientificNames )
+                ( i === 0 && !settings.scientificNames ) || ( i === 1 && settings.scientificNames )
               }
               onPress={handleRadioButtonPress}
               borderWidth={1}

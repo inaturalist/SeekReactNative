@@ -15,7 +15,6 @@ import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = ( ): Node => {
   const [login, setLogin] = useState( null );
-  const [scientificNames, setScientificNames] = useState( false );
   const [preferredLanguage, setLanguage] = useState( null );
 
   const getLoggedIn = async ( ) => {
@@ -29,18 +28,12 @@ const App = ( ): Node => {
     }
     setLogin( token );
   };
-  const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
   const getLanguagePreference = async () => setLanguage( await getLanguage() );
 
   const toggleLogin = () => getLoggedIn();
-  const toggleNames = () => fetchScientificNames();
   const toggleLanguagePreference = () => getLanguagePreference();
 
   const userContextValue = { login, toggleLogin };
-  const CameraContextValue = {
-    scientificNames,
-    toggleNames
-  };
   const languageValue = { preferredLanguage, toggleLanguagePreference };
 
   useEffect( () => {
@@ -57,7 +50,6 @@ const App = ( ): Node => {
 
     // Context
     getLoggedIn();
-    fetchScientificNames();
     getLanguagePreference();
 
     // reset posting to iNat
@@ -72,11 +64,9 @@ const App = ( ): Node => {
 
   return (
     <UserContext.Provider value={userContextValue}>
-      <CameraContext.Provider value={CameraContextValue}>
-        <LanguageContext.Provider value={languageValue}>
-          <RootStack />
-        </LanguageContext.Provider>
-      </CameraContext.Provider>
+      <LanguageContext.Provider value={languageValue}>
+        <RootStack />
+      </LanguageContext.Provider>
     </UserContext.Provider>
   );
 };

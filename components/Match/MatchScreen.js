@@ -1,11 +1,6 @@
 // @flow
 
-import React, {
-  useReducer,
-  useCallback,
-  useRef,
-  useContext
-} from "react";
+import React, { useReducer, useCallback, useRef } from "react";
 import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -18,8 +13,7 @@ import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/TopSpacer";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
-import { CameraContext } from "../UserContext";
-import { useScrollToTop } from "../../utility/customHooks";
+import { useFetchUserSettings, useScrollToTop } from "../../utility/customHooks";
 import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
 
@@ -27,7 +21,7 @@ const MatchScreen = ( ): Node => {
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );
-  const { scientificNames } = useContext( CameraContext );
+  const { scientificNames } = useFetchUserSettings( );
   const { taxon, seenDate } = params;
 
   // eslint-disable-next-line no-shadow

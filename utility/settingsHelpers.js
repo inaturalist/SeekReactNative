@@ -5,10 +5,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import realmConfig from "../models/index";
 import { setDeviceLanguageOrFallback } from "./languageHelpers";
 
-const toggleScientificNames = ( boolean: boolean ) => {
-  AsyncStorage.setItem( "scientific_names", boolean.toString() );
-};
-
 const getScientificNames = async ( ): Promise<boolean> => {
   try {
     const scientificNames = await AsyncStorage.getItem( "scientific_names" );
@@ -34,10 +30,6 @@ const getLanguage = async ( ): Promise<any> => {
   }
 };
 
-// const toggleCameraCapture = ( boolean: boolean ) => {
-//   AsyncStorage.setItem( "camera", boolean.toString() );
-// };
-
 const getAutoCapture = async ( ): Promise<boolean> => {
   try {
     const camera = await AsyncStorage.getItem( "camera" );
@@ -49,10 +41,6 @@ const getAutoCapture = async ( ): Promise<boolean> => {
     return false;
   }
 };
-
-// const toggleSeasonality = ( boolean: boolean ) => {
-//   AsyncStorage.setItem( "seasonality", boolean.toString() );
-// };
 
 const getSeasonality = async ( ): Promise<boolean> => {
   try {
@@ -75,7 +63,6 @@ const setupUserSettings = async ( ) => {
     const autoCapture = await getAutoCapture( );
     const localSeasonality = await getSeasonality( );
     const scientificNames = await getScientificNames( );
-    console.log( autoCapture, localSeasonality, scientificNames, "user-settings" );
 
     realm.write( ( ) => {
       if ( realm.objects( "UserSettingsRealm" ).length > 0 ) {
@@ -108,13 +95,10 @@ const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolea
 };
 
 export {
-  toggleScientificNames,
   getScientificNames,
   toggleLanguage,
   getLanguage,
-  // toggleCameraCapture,
   getAutoCapture,
-  // toggleSeasonality,
   getSeasonality,
   setupUserSettings,
   updateUserSetting

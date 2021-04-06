@@ -8,7 +8,7 @@ const challenges = {
     backgroundName: "img-challengedetail-april",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
-    availableDate: new Date( 2019, 3, 1 ),
+    availableDate: ( new Date( 2019, 3, 1 ): Date ),
     photographer: "challenges.photographer_april",
     action: "challenges.action_april",
     badgeName: "challenges.badge_name_april"
@@ -26,7 +26,7 @@ const challenges = {
       "challenges.mission_4_may",
       "challenges.mission_5_may"
     ],
-    availableDate: new Date( 2019, 4, 1 ),
+    availableDate: ( new Date( 2019, 4, 1 ): Date ),
     photographer: "challenges.photographer_may",
     action: "challenges.action_may",
     badgeName: "challenges.badge_name_may"
@@ -43,7 +43,7 @@ const challenges = {
       "challenges.mission_3_june",
       "challenges.mission_4_june"
     ],
-    availableDate: new Date( 2019, 5, 1 ),
+    availableDate: ( new Date( 2019, 5, 1 ): Date ),
     photographer: "challenges.photographer_june",
     action: "challenges.action_june",
     badgeName: "challenges.badge_name_june"
@@ -57,7 +57,7 @@ const challenges = {
     missions: [
       "challenges.mission_1_august"
     ],
-    availableDate: new Date( 2019, 7, 1 ),
+    availableDate: ( new Date( 2019, 7, 1 ): Date ),
     photographer: "challenges.photographer_august",
     action: "challenges.action_august",
     badgeName: "challenges.badge_name_august"
@@ -71,7 +71,7 @@ const challenges = {
     missions: [
       "challenges.mission_1_september"
     ],
-    availableDate: new Date( 2019, 8, 1 ),
+    availableDate: ( new Date( 2019, 8, 1 ): Date ),
     photographer: "challenges.photographer_september",
     action: "challenges.action_september",
     badgeName: "challenges.badge_name_september"
@@ -85,7 +85,7 @@ const challenges = {
     missions: [
       "challenges.mission_1_october"
     ],
-    availableDate: new Date( 2019, 9, 1 ),
+    availableDate: ( new Date( 2019, 9, 1 ): Date ),
     photographer: "challenges.photographer_october",
     action: "challenges.action_october",
     badgeName: "challenges.badge_name_october"
@@ -99,7 +99,7 @@ const challenges = {
     missions: [
       "challenges.mission_1_november"
     ],
-    availableDate: new Date( 2019, 10, 1 ),
+    availableDate: ( new Date( 2019, 10, 1 ): Date ),
     photographer: "challenges.photographer_november",
     action: "challenges.action_november",
     badgeName: "challenges.badge_name_november"
@@ -113,7 +113,7 @@ const challenges = {
     missions: [
       "challenges.mission_1_december"
     ],
-    availableDate: new Date( 2019, 11, 1 ),
+    availableDate: ( new Date( 2019, 11, 1 ): Date ),
     photographer: "challenges.photographer_december",
     action: "challenges.action_december",
     badgeName: "challenges.badge_name_december"
@@ -125,7 +125,7 @@ const challenges = {
     backgroundName: "img-challengedetail-april2020",
     earnedIconName: "badge_inaturalist_april2020",
     missions: ["challenges.mission_1_april"],
-    availableDate: new Date( 2020, 3, 1 ),
+    availableDate: ( new Date( 2020, 3, 1 ): Date ),
     action: "seek_challenges.action_april_2020"
   },
   may2020: {
@@ -140,7 +140,7 @@ const challenges = {
       "seek_challenges.mission_3_may_2020",
       "seek_challenges.mission_4_may_2020"
     ],
-    availableDate: new Date( 2020, 4, 1 ),
+    availableDate: ( new Date( 2020, 4, 1 ): Date ),
     action: "seek_challenges.action_may_2020"
   },
   june2020: {
@@ -154,7 +154,7 @@ const challenges = {
       "seek_challenges.mission_2_june_2020",
       "seek_challenges.mission_3_june_2020"
     ],
-    availableDate: new Date( 2020, 5, 1 ),
+    availableDate: ( new Date( 2020, 5, 1 ): Date ),
     action: "seek_challenges.action_june_2020"
   },
   july2020: {
@@ -168,7 +168,7 @@ const challenges = {
       "seek_challenges.mission_2_july_2020",
       "seek_challenges.mission_3_july_2020"
     ],
-    availableDate: new Date( 2020, 6, 1 ),
+    availableDate: ( new Date( 2020, 6, 1 ): Date ),
     action: "seek_challenges.action_july_2020"
   },
   aug2020: {
@@ -183,7 +183,7 @@ const challenges = {
       "seek_challenges.mission_3_aug_2020",
       "seek_challenges.mission_4_aug_2020"
     ],
-    availableDate: new Date( 2020, 7, 1 ),
+    availableDate: ( new Date( 2020, 7, 1 ): Date ),
     action: "seek_challenges.action_aug_2020"
   },
   sept2020: {
@@ -197,7 +197,7 @@ const challenges = {
       "seek_challenges.mission_2_sept_2020",
       "seek_challenges.mission_3_sept_2020"
     ],
-    availableDate: new Date( 2020, 8, 1 ),
+    availableDate: ( new Date( 2020, 8, 1 ): Date ),
     action: "seek_challenges.action_sept_2020"
   },
   oct2020: {
@@ -212,7 +212,7 @@ const challenges = {
       "seek_challenges.mission_3_oct_2020",
       "seek_challenges.mission_4_oct_2020"
     ],
-    availableDate: new Date( 2020, 9, 1 ),
+    availableDate: ( new Date( 2020, 9, 1 ): Date ),
     action: "seek_challenges.action_oct_2020"
   },
   nov2020: {
@@ -227,7 +227,7 @@ const challenges = {
       "seek_challenges.mission_3_nov_2020",
       "seek_challenges.mission_4_nov_2020"
     ],
-    availableDate: new Date( 2020, 10, 1 ),
+    availableDate: ( new Date( 2020, 10, 1 ): Date ),
     action: "seek_challenges.action_nov_2020"
   },
   dec2020: {
@@ -242,7 +242,7 @@ const challenges = {
       "seek_challenges.mission_3_dec_2020",
       "seek_challenges.mission_4_dec_2020"
     ],
-    availableDate: new Date( 2020, 11, 1 ),
+    availableDate: ( new Date( 2020, 11, 1 ): Date ),
     action: "seek_challenges.action_dec_2020"
   },
   mar2021: {
@@ -254,7 +254,7 @@ const challenges = {
     missions: [
       "natgeo_challenges.mar_2021_mission_1"
     ],
-    availableDate: new Date( 2021, 2, 1 ),
+    availableDate: ( new Date( 2021, 2, 1 ): Date ),
     action: "natgeo_challenges.mar_2021_action",
     badgeName: "natgeo_challenges.mar_2021_badge_name",
     photographer: "natgeo_challenges.mar_2021_photographer"
@@ -270,7 +270,7 @@ const challenges = {
       "natgeo_challenges.apr_2021_mission_2",
       "natgeo_challenges.apr_2021_mission_3"
     ],
-    availableDate: new Date( 2021, 3, 1 ),
+    availableDate: ( new Date( 2021, 3, 1 ): Date ),
     action: "natgeo_challenges.apr_2021_action",
     badgeName: "natgeo_challenges.apr_2021_badge_name",
     photographer: "natgeo_challenges.apr_2021_photographer"

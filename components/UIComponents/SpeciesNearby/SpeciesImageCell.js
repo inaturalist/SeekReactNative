@@ -5,7 +5,7 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import styles from "../../../styles/uiComponents/speciesNearby/speciesImageCell";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { capitalizeNames, setSpeciesId, setRoute } from "../../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
 
@@ -57,7 +57,7 @@ const SpeciesImageCell = ( { item }: Props ) => {
       {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
       <Text numberOfLines={3} style={[styles.speciesNameText, !commonName && styles.scientificName]}>
       {commonName
-          ? i18n.locale === "de" ? capitalizeNames( commonName ).replace( /(- |-)/g, "-\n" ) : capitalizeNames( commonName )
+          ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
           : item.name}
       </Text>
     </TouchableOpacity>

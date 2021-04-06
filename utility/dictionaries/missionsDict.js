@@ -205,7 +205,7 @@ const missions = [{
 }, { // apr 2021
   0: {
     number: 2,
-    types: ["mollusks", "crustaceans"]
+    types: ["mollusks", "Crustacea"]
   },
   1: {
     number: 6,

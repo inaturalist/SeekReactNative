@@ -10,14 +10,13 @@ import { handleLocalizationChange, loadUserLanguagePreference } from "../utility
 import { addARCameraFiles, hideLogs } from "../utility/helpers";
 import { fetchAccessToken, savePostingSuccess } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext } from "./UserContext";
-import { getScientificNames, getLanguage, getAutoCapture, setupUserSettings } from "../utility/settingsHelpers";
+import { getScientificNames, getLanguage, setupUserSettings } from "../utility/settingsHelpers";
 import { setQuickActions } from "../utility/navigationHelpers";
 
 const App = ( ): Node => {
   const [login, setLogin] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
   const [preferredLanguage, setLanguage] = useState( null );
-  const [autoCapture, setAutoCapture] = useState( false );
 
   const getLoggedIn = async ( ) => {
     const token = await fetchAccessToken( );
@@ -32,19 +31,15 @@ const App = ( ): Node => {
   };
   const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
   const getLanguagePreference = async () => setLanguage( await getLanguage() );
-  const fetchAutoCapture = async () => setAutoCapture( await getAutoCapture() );
 
   const toggleLogin = () => getLoggedIn();
   const toggleNames = () => fetchScientificNames();
   const toggleLanguagePreference = () => getLanguagePreference();
-  const toggleAutoCapture = () => fetchAutoCapture();
 
   const userContextValue = { login, toggleLogin };
   const CameraContextValue = {
     scientificNames,
-    toggleNames,
-    autoCapture,
-    toggleAutoCapture
+    toggleNames
   };
   const languageValue = { preferredLanguage, toggleLanguagePreference };
 
@@ -64,7 +59,6 @@ const App = ( ): Node => {
     getLoggedIn();
     fetchScientificNames();
     getLanguagePreference();
-    fetchAutoCapture();
 
     // reset posting to iNat
     savePostingSuccess( false );

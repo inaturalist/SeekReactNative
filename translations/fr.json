@@ -30,28 +30,28 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTER SUR INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Téléchargement de {{count}} observations...",
+      "one": "Téléchargement de {{count}} observation...",
+      "two": "Téléchargement de {{count}} observations...",
+      "few": "Téléchargement de {{count}} observations...",
+      "many": "Téléchargement de {{count}} observations...",
+      "other": "Téléchargement de {{count}} observations..."
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} observations téléchargées !",
+      "one": "{{count}} observation téléchargée !",
+      "two": "{{count}} observations téléchargées !",
+      "few": "{{count}} observations téléchargées !",
+      "many": "{{count}} observations téléchargées !",
+      "other": "{{count}} observations téléchargées !"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} observations à télécharger",
+      "one": "{{count}} observation à télécharger",
+      "two": "{{count}} observations à télécharger",
+      "few": "{{count}} observations à télécharger",
+      "many": "{{count}} observations à télécharger",
+      "other": "{{count}} observations à télécharger"
     },
     "upload_now": "UPLOADER MAINTENANT",
     "error_internet": "Pas d'internet détecté. Réessayez plus tard.",
@@ -64,8 +64,8 @@
       "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
     },
     "error_unknown": "Envoi raté. Détails: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
+    "error_login": "Le jeton de connexion a échoué. Veuillez vous connecter à votre compte iNaturalist dans Seek à partir de l'écran iNaturalist ou Progression avant de réessayer.",
+    "error_photo": "La photo n'est plus accessible sur l'appareil.",
     "a_few": "un peu"
   },
   "notifications": {
@@ -121,7 +121,7 @@
     "guidelines": "Règles de la communauté",
     "store_data": "Dans le cadre de la gestion de mon compte, j’autorise iNaturalist à stocker et utiliser certaines informations personnelles limitées me concernant.",
     "learn_more": "En savoir plus",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_data_storage": "Nous stockons des informations personnelles telles que les noms d'utilisateur et les adresses de messagerie afin de gérer les comptes sur ce site et, pour nous conformer aux lois sur la protection des renseignements personnels, nous vous demandons de cocher cette case pour indiquer que vous consentez à cette utilisation d'informations personnelles. Pour en savoir plus sur les informations que nous recueillons et la façon dont nous les utilisons, veuillez consulter notre politique de confidentialité et nos conditions d'utilisation.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "À propos des informations personnelles",
     "about_licenses": "À propos des licences"
@@ -762,28 +762,28 @@
     "apr_2021_mission_1": "Trouvez 2 mollusques (bivalves, limaces, escargots, chitons) ou crustacés (barnacles, crabes, homards, cloportes)",
     "apr_2021_mission_2": "Trouvez 6 plantes",
     "apr_2021_mission_3": "Trouvez 2 champignons",
-    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
+    "apr_2021_challenge_name": "Défi de la restauration et du rétablissement",
     "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
     "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family - and with us using #NatGeoSeekChallenge on Twitter!",
-    "apr_2021_badge_name": "Restoration Badge",
-    "apr_2021_photographer": "Photo by: Enric Sala / National Geographic",
+    "apr_2021_badge_name": "Badge Restauration",
+    "apr_2021_photographer": "Photo : Enric Sala / National Geographic",
     "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
+    "may_2021_mission_2": "Trouvez 2 arthropodes (insectes, arachnides, crustacés)",
     "may_2021_challenge_name": "Healthy Ecosystems Challenge",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
-    "may_2021_badge_name": "EcoHealth Badge",
-    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
-    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
-    "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
-    "june_2021_mission_4": "Find 1 fungus",
-    "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
-    "june_2021_mission_6": "Find 1 insect",
-    "june_2021_mission_7": "Find 1 arachnid",
-    "june_2021_challenge_name": "Conservation Challenge",
+    "may_2021_badge_name": "Badge Écosanté",
+    "june_2021_mission_1": "Trouvez 1 plante des classes suivantes :\n\nLycopodiopsides (sélaginelles, lycopodes et Huperzia);\nPolypodiopsides (fougères)",
+    "june_2021_mission_2": "Trouvez 1 plante de la classe des Pinopsida (conifères)",
+    "june_2021_mission_3": "Trouvez 1 plante du sous-embranchement des angiospermes (plantes à fleurs)",
+    "june_2021_mission_4": "Trouvez 1 champignon",
+    "june_2021_mission_5": "Trouvez 2 vertébrés (oiseaux, mammifères, amphibiens, reptiles ou poissons)",
+    "june_2021_mission_6": "Trouvez 1 insecte",
+    "june_2021_mission_7": "Trouvez 1 arachnide",
+    "june_2021_challenge_name": "Défi de la conservation",
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
     "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
-    "june_2021_badge_name": "Conservation Badge"
+    "june_2021_badge_name": "Badge Conservation"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "VOUS AVEZ COMPLÉTÉ LE DÉFI {{sponsorName}} POUR {{date}}!"

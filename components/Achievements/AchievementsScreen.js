@@ -43,8 +43,9 @@ const AchievementsScreen = (): Node => {
       iconicTaxonIds.forEach( ( id ) => {
         if ( id === null ) { return; }
         const highestEarned = badges
-          .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id} AND earned == true` )
-          .sorted( "index", true );
+          .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
+          .sorted( "index", true )
+          .sorted( "earned", true );
         speciesBadges.push( highestEarned[0] );
       } );
 

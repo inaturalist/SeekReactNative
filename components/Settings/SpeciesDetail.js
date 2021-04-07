@@ -64,7 +64,7 @@ const SpeciesDetail = ( ): Node => {
               index={i}
               onPress={updateIndex}
               labelHorizontal
-              labelStyle={[styles.text, styles.radioButtonWidth]}
+              labelStyle={styles.seasonalityRadioButtonText}
               accessible
               accessibilityLabel={`${radioButtons[i].label}`}
             />

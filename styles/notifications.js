@@ -1,9 +1,14 @@
+// @flow
+
 import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  row
+  row,
+  dimensions
 } from "./global";
+
+const { width } = dimensions;
 
 export default StyleSheet.create( {
   card: {
@@ -48,7 +53,7 @@ export default StyleSheet.create( {
   },
   row,
   textContainer: {
-    width: 214
+    width: width - 161
   },
   titleText: {
     fontFamily: fonts.medium,

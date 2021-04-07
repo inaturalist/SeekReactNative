@@ -6,8 +6,11 @@ import {
   fonts,
   row,
   center,
-  padding
+  padding,
+  dimensions
 } from "./global";
+
+const { width } = dimensions;
 
 const greenButton = {
   color: colors.white,
@@ -113,12 +116,21 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  radioButtonWidth: {
-    maxWidth: 295,
+  seasonalityRadioButtonText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    maxWidth: width - ( 28 * 2 ) - 30 - 10.3,
     marginTop: -3
   },
-  textWidth: {
-    maxWidth: 239
+  autoCaptureText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    paddingTop: padding.iOSPaddingSmall,
+    maxWidth: width - ( 28 * 2 ) - 30 - 10.3
   },
   inputIOS: greenButton,
   inputIOSContainer: buttonContainer,

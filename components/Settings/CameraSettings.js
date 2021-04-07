@@ -106,7 +106,7 @@ const CameraSettings = ( ): Node => {
           accessible
           accessibilityLabel={i18n.t( "settings.auto_capture" )}
         />
-        <Text style={[styles.text, styles.padding, styles.textWidth]}>
+        <Text style={styles.autoCaptureText}>
           {i18n.t( "settings.auto_capture" )}
         </Text>
       </View>

@@ -364,6 +364,7 @@ const replacePhoto = async ( id: number, image: Object ) => {
 const writeExifData = async ( file: string ): Promise<string> => {
   const prefixe = "data:image/jpeg;base64,";
   const srcdata = await RNFS.readFile( file, "base64" );
+  console.log( srcdata, "source data android exif" );
 
   const srcexifs = piexif.load( prefixe + srcdata );
 

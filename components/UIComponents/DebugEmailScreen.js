@@ -27,8 +27,8 @@ const DebugEmailScreen = ( ): React.Node => {
       };
     } else {
       return {
-        path: `${dirDebugLogs}/log`, // The absolute path of the file from which to read data.
-        type: "txt" // Mime Type: jpg, png, doc, ppt, html, pdf, csv
+        path: `${dirDebugLogs}/log.txt`, // The absolute path of the file from which to read data.
+        mimeType: "txt" // Mime Type: jpg, png, doc, ppt, html, pdf, csv
       };
     }
   };
@@ -39,7 +39,7 @@ const DebugEmailScreen = ( ): React.Node => {
       recipients: [emailParams.helpEmail],
       bccRecipients: [],
       isHTML: true,
-      attachment: setAttachment( )
+      attachments: [setAttachment( )]
     }, ( error, event ) => {
       Alert.alert(
         error,

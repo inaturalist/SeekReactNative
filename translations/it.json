@@ -368,7 +368,7 @@
     "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}.",
     "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
     "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato",
-    "error_selected_photos": "Se i tuoi permessi sono impostati su \"Fotografie selezionate\", potrebbe essere necessario riavviare Seek o visitare impostazioni di iOS > Seek > Foto > Foto selezionate per scegliere quali foto visualizzare qui.",
+    "error_selected_photos": "Se i tuoi permessi sono impostati su \"Fotografie selezionate\", potrebbe essere necessario riavviare Seek o visitare impostazioni di iOS > Seek > Foto > Foto Selezionate per scegliere quali foto visualizzare qui.",
     "plant_filter": "Solo piante",
     "non_plant_filter": "Unicamente non vegetali",
     "filters_off": "Filtri disattivati"

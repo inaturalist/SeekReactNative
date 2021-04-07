@@ -22,7 +22,6 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeExifData } from "../../../utility/photoHelpers";
 import {
   checkForSystemVersion,
   handleLog,
@@ -136,11 +135,7 @@ const ARCamera = (): Node => {
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
-  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> }, skipExif ) => {
-    // don't bother writing exif if camera roll permissions are off
-    if ( Platform.OS === "android" && !skipExif ) {
-      await writeExifData( photo.uri );
-    }
+  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
@@ -223,9 +218,9 @@ const ARCamera = (): Node => {
       const result = await checkSavePermissions( );
 
       if ( result === "gallery" ) {
-        savePhoto( photo, true );
+        savePhoto( photo );
       } else {
-        savePhoto( photo, false );
+        savePhoto( photo );
       }
     };
     // on Android, this permission check will pop up every time; on iOS it only pops up first time a user opens camera

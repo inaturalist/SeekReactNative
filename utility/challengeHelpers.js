@@ -203,10 +203,11 @@ const addExistingBadgeNames = ( date: Date ) => {
       }
      } );
 
-     const month = badgeMonth[0];
+    const challenge = badgeMonth[0];
 
-    // $FlowFixMe badgeName exists for all dict items in 2019
-    return challengesDict[month].badgeName;
+    // avoid undefined object error here
+    LOG.info( "trying to add badge for challenge:", challengesDict[challenge], );
+    return ( challengesDict[challenge] && challengesDict[challenge].badgeName ) ? challengesDict[challenge].badgeName : "";
   } else {
     return "seek_challenges.badge";
   }
@@ -214,9 +215,16 @@ const addExistingBadgeNames = ( date: Date ) => {
 
 const addDetailsToExistingChallenges = ( realm: any ) => {
   realm.write( ( ) => {
-    const challenges = realm.objects( "ChallengeRealm" );
+    // these are in no particular order unless we sort by index
+    const challenges = realm.objects( "ChallengeRealm" ).sorted( "index" );
 
     challenges.forEach( challenge => {
+      LOG.info( "attempting to add details to this challenge", challenge.index );
+      if ( challenge.sponsorName ) {
+        LOG.info( "not adding details because they already exist" );
+        // no need to keep re-writing these if they already exist in realm
+        return;
+      }
       const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
       if ( challenge.index === 18 ) {
         LOG.info(
@@ -236,9 +244,6 @@ const addDetailsToExistingChallenges = ( realm: any ) => {
           ${addExistingBadgeNames( challenge.availableDate )}`,
           ": March challenge" );
       }
-
-      // probably don't need to rewrite these every time
-      // once the user has them stored in realm once
       challenge.logo = logo;
       challenge.secondLogo = secondLogo;
       challenge.sponsorName = sponsorName;
@@ -261,7 +266,7 @@ const setupChallenges = ( isAdmin: boolean ): void => {
     LOG.info( "setting up challenges" );
     const numChallenges = realm.objects( "ChallengeRealm" ).length;
     const dict = Object.keys( challengesDict );
-    LOG.info( numChallenges, ": number of challenges in realm" );
+    LOG.info( numChallenges, ": number of challenges in realm", "| dictionary length: ", dict.length );
 
     addDetailsToExistingChallenges( realm );
     // don't write to realm unless there are actually new challenges available
@@ -272,6 +277,10 @@ const setupChallenges = ( isAdmin: boolean ): void => {
 
     realm.write( () => {
       dict.forEach( ( challengesType, i ) => {
+        if ( i <= 18 ) {
+          return;
+        }
+        LOG.info( i, ": challenge index from dictionary" );
         const existingChallenge = realm.objects( "ChallengeRealm" ).filtered( `index == ${i}` ).length;
 
         // only create new challenges
@@ -283,6 +292,7 @@ const setupChallenges = ( isAdmin: boolean ): void => {
 
           // start showing the latest challenge in developer mode for testing
           if ( isAvailable || process.env.NODE_ENV === "development" || isAdmin ) {
+            LOG.info( isAvailable, ": new challenge available" );
             const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
             if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {

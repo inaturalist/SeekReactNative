@@ -20,8 +20,9 @@ import { dirDebugLogs } from "./dirStorage";
 
 const config = {
   severity: "debug",
-  transport: fileAsyncTransport,
+  transport: __DEV__ ? consoleTransport : fileAsyncTransport,
   transportOptions: {
+    colors: "ansi",
     FS: RNFS,
     filePath: dirDebugLogs,
     fileName: "log.txt"

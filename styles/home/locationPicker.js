@@ -10,7 +10,7 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.seekForestGreen,
     flex: 1
   },
   footer: {

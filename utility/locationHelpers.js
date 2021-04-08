@@ -67,8 +67,26 @@ const fetchLocationName = ( lat: ?number, lng: ?number ): Promise<?string> => (
       if ( result.length === 0 ) {
         resolve( null );
       }
-      const { locality, subAdminArea } = result[0];
-      resolve( locality || subAdminArea );
+      let placeName = null;
+
+      const { locality, subAdminArea, adminArea, country, feature } = result[0];
+
+      // we could get as specific as sublocality here, but a lot of the results are
+      // too specific to be helpful in the U.S. at least. neighborhoods, parks, etc.
+      if ( locality ) {
+        placeName = locality;
+      } else if ( subAdminArea ) {
+        placeName = subAdminArea;
+      } else if ( adminArea ) {
+        placeName = adminArea;
+      } else if ( country ) {
+        placeName = country;
+      } else if ( feature ) {
+        // this one shows non-land areas like Channels, Seas, Oceans
+        placeName = feature;
+      }
+
+      resolve( placeName );
     } ).catch( ( e ) => {
       reject( e );
     } );

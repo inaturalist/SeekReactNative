@@ -277,9 +277,6 @@ const setupChallenges = ( isAdmin: boolean ): void => {
 
     realm.write( () => {
       dict.forEach( ( challengesType, i ) => {
-        if ( i <= 18 ) {
-          return;
-        }
         LOG.info( i, ": challenge index from dictionary" );
         const existingChallenge = realm.objects( "ChallengeRealm" ).filtered( `index == ${i}` ).length;
 

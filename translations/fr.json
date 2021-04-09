@@ -24,18 +24,49 @@
     "take_challenge": " Relever le défi",
     "continue_challenge": "Poursuivre le défi",
     "view_all": " Afficher tous les défis",
-    "new_join": "Ajoutez des observations à l'aide de la caméra de Seek pour gagner les badges de récompense !"
+    "new_join": "Ajoutez des observations à l'aide de la caméra de Seek pour gagner les badges de récompense !",
+    "inat_admin": "Admins d'iNat : Merci de tester Seek ! Vous voyez le dernier défi d'iNat avant le début du mois dans le but de le tester."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTER SUR INATURALIST",
-    "uploading_x_observations": "Enregistrement de {{count}} observations ...",
-    "x_observations_uploaded": "{{count}} observations enregistrées !",
-    "x_observations_to_upload": "{{count}} observations à enregistrer",
+    "uploading_x_observations": {
+      "zero": "Téléchargement de {{count}} observations...",
+      "one": "Téléchargement de {{count}} observation...",
+      "two": "Téléchargement de {{count}} observations...",
+      "few": "Téléchargement de {{count}} observations...",
+      "many": "Téléchargement de {{count}} observations...",
+      "other": "Téléchargement de {{count}} observations..."
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations téléchargées !",
+      "one": "{{count}} observation téléchargée !",
+      "two": "{{count}} observations téléchargées !",
+      "few": "{{count}} observations téléchargées !",
+      "many": "{{count}} observations téléchargées !",
+      "other": "{{count}} observations téléchargées !"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations à télécharger",
+      "one": "{{count}} observation à télécharger",
+      "two": "{{count}} observations à télécharger",
+      "few": "{{count}} observations à télécharger",
+      "many": "{{count}} observations à télécharger",
+      "other": "{{count}} observations à télécharger"
+    },
     "upload_now": "UPLOADER MAINTENANT",
     "error_internet": "Pas d'internet détecté. Réessayez plus tard.",
-    "error_downtime": "Le serveur d'Inaturalist est en maintenance. Réessayez dans {{count}} heure(s).",
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
+    "error_unknown": "Envoi raté. Détails: {{errorText}}",
+    "error_login": "Le jeton de connexion a échoué. Veuillez vous connecter à votre compte iNaturalist dans Seek à partir de l'écran iNaturalist ou Progression avant de réessayer.",
+    "error_photo": "La photo n'est plus accessible sur l'appareil.",
+    "a_few": "un peu"
   },
   "notifications": {
     "header": " Notifications",
@@ -90,8 +121,8 @@
     "guidelines": "Règles de la communauté",
     "store_data": "Dans le cadre de la gestion de mon compte, j’autorise iNaturalist à stocker et utiliser certaines informations personnelles limitées me concernant.",
     "learn_more": "En savoir plus",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "learn_more_about_data_storage": "Nous stockons des informations personnelles telles que les noms d'utilisateur et les adresses de messagerie afin de gérer les comptes sur ce site et, pour nous conformer aux lois sur la protection des renseignements personnels, nous vous demandons de cocher cette case pour indiquer que vous consentez à cette utilisation d'informations personnelles. Pour en savoir plus sur les informations que nous recueillons et la façon dont nous les utilisons, veuillez consulter notre politique de confidentialité et nos conditions d'utilisation.",
+    "learn_more_about_licensing": "Cochez cette case si vous voulez mettre le contenu téléchargé sous licence Creative Commons Attribution - Utilisation non commerciale. Cela veut dire que quiconque peut copier et réutiliser vos photos ou vos observations sans vous en demander l'autorisation, à condition d'indiquer que vous en êtes l'auteur et de ne pas utiliser votre travail à des fins commerciales. Vous pouvez choisir une autre licence ou supprimer la licence plus tard, mais cette licence est la meilleure pour mettre votre travail à la disposition des chercheurs.",
     "about_personal_information": "À propos des informations personnelles",
     "about_licenses": "À propos des licences"
   },
@@ -228,14 +259,14 @@
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Photo © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Espèces Observées",
-    "badge_name_april": "Connectivity Badge",
-    "badge_name_may": "Biodiversity Badge",
-    "badge_name_june": "Community Badge",
-    "badge_name_august": "Forests Badge",
-    "badge_name_september": "Grasslands Badge",
-    "badge_name_october": "Freshwater Badge",
-    "badge_name_november": "High Seas Badge",
-    "badge_name_december": "Climate Badge"
+    "badge_name_april": "Badge de la Connectivité",
+    "badge_name_may": "Badge de la Biodiversité",
+    "badge_name_june": "Badge de la Communauté",
+    "badge_name_august": "Badge des Forêts",
+    "badge_name_september": "Badge des Plaines",
+    "badge_name_october": "Badge des Eaux Douces",
+    "badge_name_november": "Badge des Hautes Mers",
+    "badge_name_december": "Badge du Climat"
   },
   "inat_stats": {
     "global_observations": "Observations modiales",
@@ -292,7 +323,7 @@
     "nearby": "Espèces proches au sein de ce taxon",
     "nothing_nearby": "Il semblerait que peu d’espèces de ce taxon aient été observées à proximité. Essayez de prendre une autre photo ou de la poster sur iNaturalist.",
     "tap": "Appuyez afin de charger les espèces proches",
-    "social": "Share on social"
+    "social": "Partager sur les réseaux"
   },
   "banner": {
     "view": "Afficher le badge",
@@ -337,6 +368,7 @@
     "error_version": "La caméra de réalité augmentée de Seek nécessite iOS 11.0+. Votre appareil utilise la version OS {{OS}}.",
     "error_cameraManager": "Désolé, le gestionnaire de caméra n'a pas réussi à charger.",
     "error_photoError": "Désolé, l'objet photo n'a pas été trouvé",
+    "error_selected_photos": "Si vos permissions sont définies à 'Photos sélectionnées', vous devrez peut-être redémarrer Seek ou aller à Réglages iOS > Seek > Photos > Photos sélectionnées pour choisir quelles photos afficher ici.",
     "plant_filter": "Plantes uniquement",
     "non_plant_filter": "Non-plante seulement",
     "filters_off": "Filtres désactivés"
@@ -515,7 +547,7 @@
     "species_saved": "Cette espèce est enregistrée dans vos observations.",
     "you": "Regardez, c'est vous ! Sortez et trouvez des espèces sauvages pour en savoir plus sur elles.",
     "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Pas de photos trouvées pour cette espèce."
   },
   "about": {
     "header": "À propos",
@@ -550,10 +582,10 @@
     "look_up": "Rechercher des espèces par nom"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "posting_to_inat_background": "POSTER SUR INATURALIST EN ARRIERE-PLAN",
+    "posting_to_inat_background_description": "La publication sur iNaturalist se poursuivra en arrière-plan pendant que Seek est ouvert.\n\nVous pouvez vérifier l'état des téléchargements sur l'écran d'accueil.",
     "no_internet": "PAS DE CONNEXION !",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYour observation will be uploaded once you restart Seek and are connected to the internet."
+    "no_internet_description": "Votre observation n'a pas été téléchargée sur iNaturalist parce que vous n'êtes pas connecté à Internet.\n\nVous pourrez télécharger votre observation à partir de l'écran d'accueil quand vous aurez Internet."
   },
   "posting_help": {
     "header": "Aide à la publication",
@@ -706,52 +738,52 @@
     "download": "Commencez par télécharger l'application iNaturalist ou visiter inaturalist.org.\n\nVous avez déjà un compte iNaturalist ? Connectez-vous à Seek avec votre compte existant !"
   },
   "social": {
-    "share_observation": "Share observation",
-    "square": "Square",
+    "share_observation": "Partager l’observation",
+    "square": "Carré",
     "original": "Originale",
     "options": "Options",
-    "show_species_id": "Show species identification",
+    "show_species_id": "Afficher l'identification de l'espèce",
     "share": "Partager sur Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
-    "back_to_id": "Back to Identification",
-    "error_title": "Couldn't save photo",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "save_to_camera_roll": "Enregistrer dans Toutes les photos",
+    "saved_to_camera_roll": "Enregistré dans Toutes les photos",
+    "back_to_id": "Retour à l'Identification",
+    "error_title": "Impossible d'enregistrer la photo",
+    "error": "Veuillez vérifier que l'application Facebook est installée.",
+    "adjust_square_crop": "Ajuster le rognage carré",
+    "crop_image": "Rogner l'image"
   },
   "natgeo_challenges": {
-    "mar_2021_mission_1": "Find any ten species",
-    "mar_2021_challenge_name": "NatGeo Nature Challenge",
-    "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
+    "mar_2021_mission_1": "Trouvez dix espèces.",
+    "mar_2021_challenge_name": "Défi NatGeo Nature",
+    "mar_2021_description": "Nous lançons quatre mois de défis parrainés par la National Geographic Society pour comprendre notre dépendance à l'égard du monde naturel et l'effet que nous avons sur lui.\n\nLa nature est tout autour de nous et le temps passé dans la nature est bon pour la santé et le bonheur. Si possible, nous vous encourageons à choisir un lieu, comme un parc près de chez vous, une aire protégée ou votre jardin, et à vous y rendre chaque mois en explorant avec Seek. La mission de ce mois-ci : trouvez dix espèces, quelles qu'elles soient, qui vous apportent du bonheur!\n\nPour trouver des ressources pour vous aider à utiliser Seek et découvrir la biodiversité, consultez NatGeoEd.org/BioBlitz (site en anglais).",
+    "mar_2021_action": "Prenez le temps de redécouvrir ou d'apprendre à utiliser Seek. Consultez l'écran d'accueil pour voir quelles espèces vivent à proximité. Dites-nous sur Twitter quelle plante ou quel animal vous préférez dans la région, ou quelle espèce vous avez vraiment envie d'observer ! #NatGeoSeekChallenge",
     "mar_2021_photographer": "Photo par : Tom Matthews / National Geographic",
     "mar_2021_badge_name": "Badge Nature",
     "apr_2021_mission_1": "Trouvez 2 mollusques (bivalves, limaces, escargots, chitons) ou crustacés (barnacles, crabes, homards, cloportes)",
     "apr_2021_mission_2": "Trouvez 6 plantes",
     "apr_2021_mission_3": "Trouvez 2 champignons",
-    "apr_2021_challenge_name": "Restoration & Recovery Challenge",
-    "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
-    "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family - and with us using #NatGeoSeekChallenge on Twitter!",
-    "apr_2021_badge_name": "Restoration Badge",
-    "apr_2021_photographer": "Photo by: Enric Sala / National Geographic",
+    "apr_2021_challenge_name": "Défi de la restauration et du rétablissement",
+    "apr_2021_description": "Les changements climatiques, la disparition d'espèces et la pollution par le plastique sont les trois principaux défis auxquels notre planète est confrontée. Tous trouvent leur origine dans les activités humaines. Le thème de cette année pour le Jour de la Terre, le 22 avril, est « Restore our Earth » (restaurer notre terre). Nous devons travailler tous ensemble pour bâtir un avenir plus durable pour les communautés et les espèces sauvages. Vos actions individuelles peuvent changer la donne!",
+    "apr_2021_action": "Les déchets sont un des impacts humains les plus répandus sur les écosystèmes. En explorant la nature ce mois-ci, prêtez attention aux détritus que vous voyez et réfléchissez à leur origine. Dressez une liste de choses que vous pouvez faire à la maison pour réduire les déchets produits par votre famille. Montrez cette liste au reste de votre famille et montrez-la-nous en utilisant le hashtag #NatGeoSeekChallenge sur Twitter !",
+    "apr_2021_badge_name": "Badge Restauration",
+    "apr_2021_photographer": "Photo : Enric Sala / National Geographic",
     "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
-    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
+    "may_2021_mission_2": "Trouvez 2 arthropodes (insectes, arachnides, crustacés)",
+    "may_2021_challenge_name": "Défi Écosystèmes sains",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
-    "may_2021_badge_name": "EcoHealth Badge",
-    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
-    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
-    "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
-    "june_2021_mission_4": "Find 1 fungus",
-    "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
-    "june_2021_mission_6": "Find 1 insect",
-    "june_2021_mission_7": "Find 1 arachnid",
-    "june_2021_challenge_name": "Conservation Challenge",
+    "may_2021_badge_name": "Badge Écosanté",
+    "june_2021_mission_1": "Trouvez 1 plante des classes suivantes :\n\nLycopodiopsides (sélaginelles, lycopodes et Huperzia);\nPolypodiopsides (fougères)",
+    "june_2021_mission_2": "Trouvez 1 plante de la classe des Pinopsida (conifères)",
+    "june_2021_mission_3": "Trouvez 1 plante du sous-embranchement des angiospermes (plantes à fleurs)",
+    "june_2021_mission_4": "Trouvez 1 champignon",
+    "june_2021_mission_5": "Trouvez 2 vertébrés (oiseaux, mammifères, amphibiens, reptiles ou poissons)",
+    "june_2021_mission_6": "Trouvez 1 insecte",
+    "june_2021_mission_7": "Trouvez 1 arachnide",
+    "june_2021_challenge_name": "Défi de la conservation",
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
-    "june_2021_badge_name": "Conservation Badge"
+    "june_2021_action": "Ce mois-ci, essayez d'apprendre quelque chose sur chaque espèce que vous observez. Par exemple, l'espèce est-elle indigène ou introduite ? Réfléchissez à toutes vos observations des quatre derniers mois. Quelles différences avez-vous remarquées dans la biodiversité et dans l'emprise humaine au cours de cette période et dans les lieux que vous avez explorés ? Que pouvez-vous vous engager à faire pour rendre un lieu à proximité (comme une cour ou un parc) plus accueillant pour les espèces indigènes ? Notez votre objectif, prenez une photo et transmettez-le nous sur Twitter ! #NatGeoSeekChallenge ",
+    "june_2021_badge_name": "Badge Conservation"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "VOUS AVEZ COMPLÉTÉ LE DÉFI {{sponsorName}} POUR {{date}}!"

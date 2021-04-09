@@ -24,18 +24,49 @@
     "take_challenge": "Anta utmaningen",
     "continue_challenge": "Fortsätt utmaningen",
     "view_all": "Visa alla utmaningar",
-    "new_join": "Lägg till observationer med Seek-kameran för att förtjäna Utmaningsutmärkelsen!"
+    "new_join": "Lägg till observationer med Seek-kameran för att förtjäna Utmaningsutmärkelsen!",
+    "inat_admin": "iNat-admins: Tack för att ni testar Seek! Ni ser den senaste iNat-utmaningen innan månadens början i testsyfte."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICERA PÅ INATURALIST",
-    "uploading_x_observations": "Laddar upp {{count}} observationer...",
-    "x_observations_uploaded": "{{count}} observationer uppladdade!",
-    "x_observations_to_upload": "{{count}} observationer att ladda upp",
+    "uploading_x_observations": {
+      "zero": "Laddar upp {{count}} observationer",
+      "one": "Laddar upp {{count}} observation",
+      "two": "Laddar upp {{count}} observationer",
+      "few": "Laddar upp {{count}} observationer",
+      "many": "Laddar upp {{count}} observationer",
+      "other": "Laddar upp {{count}} observationer"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observationer uppladdade!",
+      "one": "{{count}} observation uppladdad!",
+      "two": "{{count}} observationer uppladdade!",
+      "few": "{{count}} observationer uppladdade!",
+      "many": "{{count}} observationer uppladdade!",
+      "other": "{{count}} observationer uppladdade!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observationer att ladda upp",
+      "one": "{{count}} observation att ladda upp",
+      "two": "{{count}} observationer att ladda upp",
+      "few": "{{count}} observationer att ladda upp",
+      "many": "{{count}} observationer att ladda upp",
+      "other": "{{count}} observationer att ladda upp"
+    },
     "upload_now": "LADDA UPP NU",
     "error_internet": "Inget internet hittat. Försök igen senare.",
-    "error_downtime": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+    "error_downtime": {
+      "zero": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+      "one": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timme.",
+      "two": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+      "few": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+      "many": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar.",
+      "other": "iNaturalists server genomgår underhåll. Försök igen om {{count}} timmar."
+    },
     "error_unknown": "Uppladdning misslyckades. Feldetaljer: {{errorText}}",
-    "error_login": "Inloggningstoken misslyckades. Logga in på ditt iNaturalist-konto i Seek från iNaturalist- eller Prestationssidan innan du försöker igen."
+    "error_login": "Inloggningstoken misslyckades. Logga in på ditt iNaturalist-konto i Seek från iNaturalist- eller Prestationssidan innan du försöker igen.",
+    "error_photo": "Bilden kan inte längre nås på enheten.",
+    "a_few": "några"
   },
   "notifications": {
     "header": "Aviseringar",
@@ -337,6 +368,7 @@
     "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}.",
     "error_cameraManager": "Tyvärr kunde inte kamerahanteraren laddas",
     "error_photoError": "Tyvärr kunde inte bildobjektet hittas",
+    "error_selected_photos": "Om dina behörigheter är inställda på 'Valda bilder', kan du behöva starta om Seek eller gå till iOS-inställningar > Seek > Bilder > Valda bilder för att välja vilka bilder som ska visas här.",
     "plant_filter": "Endast växter",
     "non_plant_filter": "Endast icke-växter",
     "filters_off": "Filter av"
@@ -596,10 +628,10 @@
     "flag": "Flagga denna observation som felaktig",
     "back": "Tillbaka till föregående sida",
     "user_location": "Återgå till din nuvarande plats",
-    "help": "Tryck för hjälpsidan",
-    "take_photo": "Tryck för att ta bild",
-    "scroll_left": "Tryck för att skrolla vänster",
-    "scroll_right": "Tryck för att skrolla höger"
+    "help": "Kamerahjälp",
+    "take_photo": "Ta en bild",
+    "scroll_left": "Skrolla vänster",
+    "scroll_right": "Skrolla höger"
   },
   "review": {
     "title": "Betygsätt appen",

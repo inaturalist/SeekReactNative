@@ -24,18 +24,49 @@
     "take_challenge": "Acceptă provocarea",
     "continue_challenge": "Continuă provocarea",
     "view_all": "Vezi toate provocările",
-    "new_join": "Adăugați observații cu Camera Seek pentru a câștiga insigna Provocării!"
+    "new_join": "Adăugați observații cu Camera Seek pentru a câștiga insigna Provocării!",
+    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTAȚI PE INATURALIST",
-    "uploading_x_observations": "Se încarcă {{count}} observații...",
-    "x_observations_uploaded": "{{count}} observații încărcate!",
-    "x_observations_to_upload": "{{count}} observații de încărcat",
+    "uploading_x_observations": {
+      "zero": "Uploading {{count}} observations",
+      "one": "Uploading {{count}} observation",
+      "two": "Uploading {{count}} observations",
+      "few": "Uploading {{count}} observations",
+      "many": "Uploading {{count}} observations",
+      "other": "Uploading {{count}} observations"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observations uploaded!",
+      "one": "{{count}} observation uploaded!",
+      "two": "{{count}} observations uploaded!",
+      "few": "{{count}} observations uploaded!",
+      "many": "{{count}} observations uploaded!",
+      "other": "{{count}} observations uploaded!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "ÎNCĂRCAȚI ACUM",
     "error_internet": "Nu sunteți conectat la Internet. Încerci din nou mai târziu.",
-    "error_downtime": "Serverul iNaturalist este în curs de întreținere. Încercați din nou în {{count}} ore.",
+    "error_downtime": {
+      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
+      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
+      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+    },
     "error_unknown": "Încărcare eșuată. Detalii eroare: {{errorText}}",
-    "error_login": "Token de conectare a eșuat. Conectați-vă la contul dvs. iNaturalist pe Seek din ecranul iNaturalist sau Realizări înainte de a încerca din nou."
+    "error_login": "Token de conectare a eșuat. Conectați-vă la contul dvs. iNaturalist pe Seek din ecranul iNaturalist sau Realizări înainte de a încerca din nou.",
+    "error_photo": "Photo can no longer be accessed on device.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Notificări",
@@ -337,6 +368,7 @@
     "error_version": "Camera Seek AR necesită iOS 11.0+. Aparatul tău rulează versiunea OS {{OS}}.",
     "error_cameraManager": "Ne pare rău, Managerul Camerei n-a putut fi încărcat",
     "error_photoError": "Ne pare rău, obiectul foto nu a fost găsit",
+    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Numai plante",
     "non_plant_filter": "Numai non-plante",
     "filters_off": "Filtre dezactivate"

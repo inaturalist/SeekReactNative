@@ -24,18 +24,49 @@
     "take_challenge": "Tag imod udfordringen",
     "continue_challenge": "Fortsæt udfordring",
     "view_all": "Se alle udfordringer",
-    "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!"
+    "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!",
+    "inat_admin": "iNat administratorer: Tak for at teste Seek! Du ser den nyeste iNat udfordring inden månedens begyndelse for at kunne teste."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICÉR PÅ INATURELIST",
-    "uploading_x_observations": "Uploader {{count}} observationer...",
-    "x_observations_uploaded": "{{count}} observationer uploadet!",
-    "x_observations_to_upload": "{{count}} observationer at uploade",
+    "uploading_x_observations": {
+      "zero": "Uploader {{count}} observationer",
+      "one": "Uploader {{count}} observation",
+      "two": "Uploader {{count}} observationer",
+      "few": "Uploader {{count}} observationer",
+      "many": "Uploader {{count}} observationer",
+      "other": "Uploader {{count}} observationer"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observationer uploadet!",
+      "one": "{{count}} observation uploadet!",
+      "two": "{{count}} observationer uploadet!",
+      "few": "{{count}} observationer uploadet!",
+      "many": "{{count}} observationer uploadet!",
+      "other": "{{count}} observationer uploadet!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observationer at uploade",
+      "one": "{{count}} observation at uploade",
+      "two": "{{count}} observationer at uploade",
+      "few": "{{count}} observationer at uploade",
+      "many": "{{count}} observationer at uploade",
+      "other": "{{count}} observationer at uploade"
+    },
     "upload_now": "UPLOAD NU",
     "error_internet": "Intet internet fundet. Prøv igen senere.",
-    "error_downtime": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer.",
+    "error_downtime": {
+      "zero": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer.",
+      "one": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} time.",
+      "two": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer.",
+      "few": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer.",
+      "many": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer.",
+      "other": "iNaturalist's server er under vedligeholdelse. Prøv igen om {{count}} timer."
+    },
     "error_unknown": "Upload mislykkedes. Fejldetaljer: {{errorText}}",
-    "error_login": "Login-token mislykkedes. Log ind på din iNaturalist-konto i Seek fra iNaturalist eller Præstationer-siden før du prøver igen."
+    "error_login": "Login-token mislykkedes. Log ind på din iNaturalist-konto i Seek fra iNaturalist eller Præstationer-siden før du prøver igen.",
+    "error_photo": "Der er ikke længere adgang til foto på enheden.",
+    "a_few": "nogle få"
   },
   "notifications": {
     "header": "Meddelelser",
@@ -337,6 +368,7 @@
     "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}.",
     "error_cameraManager": "Beklager, kamera-manageren kunne ikke starte.",
     "error_photoError": "Beklager, fotoobjektet blev ikke fundet",
+    "error_selected_photos": "Hvis dine tilladelser er sat til 'Valgte billeder', skal du muligvis genstarte Seek eller gå til iOS-indstillinger > Seek > Billeder > Valgte Billeder for at vælge, hvilke billeder der skal vises her.",
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre fra"

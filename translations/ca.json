@@ -24,18 +24,49 @@
     "take_challenge": "Accepta el desafiament",
     "continue_challenge": "Continua el repte",
     "view_all": "Mostra tots els reptes",
-    "new_join": "Afegeix observacions amb la Càmera de Seek per guanyar la insígnia del Repte!"
+    "new_join": "Afegeix observacions amb la Càmera de Seek per guanyar la insígnia del Repte!",
+    "inat_admin": "Administradors d'iNat: Gràcies per posar a prova Seek! Esteu veient el darrer repte abans de començament de més amb la finalitat de provar-lo."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICAR A INATURALIST",
-    "uploading_x_observations": "Pujant {{count}} observacions...",
-    "x_observations_uploaded": "{{count}} observacions pujades!",
-    "x_observations_to_upload": "{{count}} observacions per pujar",
+    "uploading_x_observations": {
+      "zero": "Pujant {{count}} observacions",
+      "one": "Pujant {{count}} observació",
+      "two": "Pujant {{count}} observacions",
+      "few": "Pujant {{count}} observacions",
+      "many": "Pujant {{count}} observacions",
+      "other": "Pujant {{count}} observacions"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} observacions pujada!",
+      "one": "{{count}} observació pujada!",
+      "two": "{{count}} observacions pujades!",
+      "few": "{{count}} observacions pujades!",
+      "many": "{{count}} observacions pujades!",
+      "other": "{{count}} observacions pujades!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observació per pujar",
+      "one": "{{count}} observació per pujar",
+      "two": "{{count}} observacions per pujar",
+      "few": "{{count}} observacions per pujar",
+      "many": "{{count}} observacions per pujar",
+      "other": "{{count}} observacions per pujar"
+    },
     "upload_now": "PUJAR ARA",
     "error_internet": "No es detecta internet. Prova-ho més tard de nou.",
-    "error_downtime": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+    "error_downtime": {
+      "zero": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+      "one": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+      "two": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+      "few": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+      "many": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores.",
+      "other": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores."
+    },
     "error_unknown": "Errada en la pujada. Detalls de l'errada: {{errorText}}",
-    "error_login": "Errada en iniciar la sessió. Inicia la en sessió en el teu compte a Seek per a iNaturalist o des de la pantalla Objectius aconseguits abans de provar-ho de nou."
+    "error_login": "Errada en iniciar la sessió. Inicia la en sessió en el teu compte a Seek per a iNaturalist o des de la pantalla Objectius aconseguits abans de provar-ho de nou.",
+    "error_photo": "La foto ja no és accessible des del dispositiu.",
+    "a_few": "algunes"
   },
   "notifications": {
     "header": "Notificacions",
@@ -337,6 +368,7 @@
     "error_version": "La Càmera AR necessita iOS 11.0+. El teu dispositiu de la versió {{OS}} de OS.",
     "error_cameraManager": "Ho sentim, no s'ha pogut carregar el Gestor de la Càmera",
     "error_photoError": "Ho sentim, no s'ha trobat l'objecte de la fotografia",
+    "error_selected_photos": "Si els teus permisos s'han configurat com a 'Fotos Seleccionades', pots necessitar reiniciar Seek o visitar la Configuració d'iOS > Seek > Fotos > Fotos Seleccionades per seleccionar quines fotos s'han de mostrar aquí.",
     "plant_filter": "Únicament plantes",
     "non_plant_filter": "Únicament No plantes",
     "filters_off": "Filtres apagats"

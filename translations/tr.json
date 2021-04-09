@@ -24,18 +24,49 @@
     "take_challenge": "Mücadeleyi kabul et",
     "continue_challenge": "Mücadeleye devam et",
     "view_all": "Tüm mücadeleleri gör",
-    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!"
+    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!",
+    "inat_admin": "iNat yöneticileri: Seek'i test ettiğiniz için teşekkürler! Test amacıyla, iNat mücadelesini ay başlamadan önce görüyorsunuz."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALİST'TE GÖNDER",
-    "uploading_x_observations": "{{count}} gözlem yükleniyor...",
-    "x_observations_uploaded": "{{count}} gözlem yüklendi!",
-    "x_observations_to_upload": "{{count}} observations to upload",
+    "uploading_x_observations": {
+      "zero": "{{count}} gözlem yükleniyor",
+      "one": "{{count}} gözlem yükleniyor",
+      "two": "{{count}} gözlem yükleniyor",
+      "few": "{{count}} gözlem yükleniyor",
+      "many": "{{count}} gözlem yükleniyor",
+      "other": "{{count}} gözlem yükleniyor"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} gözlem yüklendi!",
+      "one": "{{count}} gözlem yüklendi!",
+      "two": "{{count}} gözlem yüklendi!",
+      "few": "{{count}} gözlem yüklendi!",
+      "many": "{{count}} gözlem yüklendi!",
+      "other": "{{count}} gözlem yüklendi!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} observations to upload",
+      "one": "{{count}} observation to upload",
+      "two": "{{count}} observations to upload",
+      "few": "{{count}} observations to upload",
+      "many": "{{count}} observations to upload",
+      "other": "{{count}} observations to upload"
+    },
     "upload_now": "HEMEN YÜKLE",
     "error_internet": "Ağ bağlantısı bulunamadı. Lütfen daha sonra tekrar deneyin.",
-    "error_downtime": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+    "error_downtime": {
+      "zero": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+      "one": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+      "two": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+      "few": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+      "many": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
+      "other": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene."
+    },
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again."
+    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
+    "error_photo": "Artık cihazda fotoğrafa erişilemez.",
+    "a_few": "a few"
   },
   "notifications": {
     "header": "Bildirimler",
@@ -90,7 +121,7 @@
     "guidelines": "Topluluk İlkeleri",
     "store_data": "iNaturalist'in hesabımı yönetmek için benimle ilgili sınırlı türde kişisel bilgileri saklamasına ve işlemesine izin veriyorum.",
     "learn_more": "Daha fazla bilgi edin",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_data_storage": "Bu sitedeki hesapları yönetmek ve gizlilik yasalarına uymak için kullanıcı adları ve e-posta adresleri gibi kişisel bilgileri saklıyoruz, kişisel bilgilerin bu şekilde kullanılmasına izin verdiğini belirtmek için bu kutuyu işaretlemen gerekiyor. Hangi bilgileri topladığımız ve bunları nasıl kullandığımızla ilgili daha çok bilgi edinmek için lütfen Gizlilik Politikamıza ve Hizmet Şartlarımıza gözat.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "Kişisel Bilgiler Hakkında",
     "about_licenses": "Lisanslar Hakkında"
@@ -292,7 +323,7 @@
     "nearby": "Bu sınıflandırmaya yakındaki türler",
     "nothing_nearby": "Görünüşe göre bu sınıflandırmada çok fazla tür gözlemlenmemiş! Başka bir fotoğraf çekmeyi ya da iNaturalist'e göndermeyi deneyin.",
     "tap": "Yakındaki türleri yüklemek için dokunun",
-    "social": "Share on social"
+    "social": "Sosyal medyada paylaş"
   },
   "banner": {
     "view": "Rozeti göster",
@@ -337,6 +368,7 @@
     "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor.",
     "error_cameraManager": "Üzgünüz, Kamera Yöneticisi yüklenemedi",
     "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı",
+    "error_selected_photos": "Eğer izinlerin 'Seçilen Fotoğraflar' olarak ayarlandıysa, Seek'i yeniden başlatman gerekebilir veya burada gösterilecek fotoğrafları seçmek için iOS Ayarları > Seek > Fotoğraflar > Seçilen Fotoğraflar kısmından düzenleyebilirsin.",
     "plant_filter": "Yalnızca bitkiler",
     "non_plant_filter": "Yalnızca bitki olmayanlar",
     "filters_off": "Filtreler kapalı"
@@ -550,7 +582,7 @@
     "look_up": "Adına göre bir türe bak"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
+    "posting_to_inat_background": "ARKA PLANDA INATURALIST'E GÖNDERİLİYOR",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
     "no_internet": "AĞ BAĞLANTISI YOK!",
     "no_internet_description": "Ağ bağlantısı bulunamadığından gözlemin iNaturalist'e yüklenemedi.\n\nAğa bağlandığında ve Seek'i yeniden başlattığında gözlemin yüklenecek."
@@ -707,7 +739,7 @@
   },
   "social": {
     "share_observation": "Gözlem paylaş",
-    "square": "Square",
+    "square": "Kare",
     "original": "Orjinal",
     "options": "Seçenekler",
     "show_species_id": "Tür tanımlaması göster",
@@ -725,7 +757,7 @@
     "mar_2021_challenge_name": "NatGeo Doğa Mücadelesi",
     "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
-    "mar_2021_photographer": "Photo by: Tom Matthews / National Geographic",
+    "mar_2021_photographer": "Fotoğraflayan: Tom Matthews / National Geographic",
     "mar_2021_badge_name": "Doğa Rozeti",
     "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
     "apr_2021_mission_2": "6 bitki bul",
@@ -734,10 +766,10 @@
     "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
     "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family - and with us using #NatGeoSeekChallenge on Twitter!",
     "apr_2021_badge_name": "Yenileme Rozeti",
-    "apr_2021_photographer": "Photo by: Enric Sala / National Geographic",
+    "apr_2021_photographer": "Fotoğraflayan: Enric Sala / National Geographic",
     "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
     "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
-    "may_2021_challenge_name": "Healthy Ecosystems Challenge",
+    "may_2021_challenge_name": "Sağlıklı Ekosistem Mücadelesi",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
     "may_2021_badge_name": "EkoSağlığı Rozeti",

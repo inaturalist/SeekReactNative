@@ -24,18 +24,49 @@
     "take_challenge": "Neem de uitdaging aan",
     "continue_challenge": "Ga door met de uitdaging",
     "view_all": "Bekijk alle uitdagingen",
-    "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!"
+    "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!",
+    "inat_admin": "iNat admins: bedankt voor het testen van Seek! Je ziet de nieuwste iNat uitdaging vóór het begin van de maand, voor testdoeleinden."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "STUUR NAAR  INATURALIST",
-    "uploading_x_observations": "Uploaden van {{count}} waarnemingen...",
-    "x_observations_uploaded": "{{count}} waarnemingen zijn geupload!",
-    "x_observations_to_upload": "{{count}} waarnemingen om te uploaden",
+    "uploading_x_observations": {
+      "zero": "Uploaden van {{count}} waarnemingen",
+      "one": "Uploaden van {{count}} waarneming",
+      "two": "Uploaden van {{count}} waarnemingen",
+      "few": "Uploaden van {{count}} waarnemingen",
+      "many": "Uploaden van {{count}} waarnemingen",
+      "other": "Uploaden van {{count}} waarnemingen"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} waarnemingen geupload!",
+      "one": "{{count}} waarneming geupload!",
+      "two": "{{count}} waarnemingen geupload!",
+      "few": "{{count}} waarnemingen geupload!",
+      "many": "{{count}} waarnemingen geupload!",
+      "other": "{{count}} waarnemingen geupload!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} waarnemingen om te uploaden",
+      "one": "{{count}} waarneming om te uploaden",
+      "two": "{{count}} waarnemingen om te uploaden",
+      "few": "{{count}} waarnemingen om te uploaden",
+      "many": "{{count}} waarnemingen om te uploaden",
+      "other": "{{count}} waarnemingen om te uploaden"
+    },
     "upload_now": "NU UPLOADEN",
     "error_internet": "Geen internetverbinding gedetecteerd. Probeer het later opnieuw.",
-    "error_downtime": "iNaturalist's server ondergaat onderhoud. Probeer het over {{count}} uur opnieuw.",
+    "error_downtime": {
+      "zero": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "one": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "two": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "few": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "many": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur.",
+      "other": "iNaturalist's server ondergaat onderhoud. Probeer het alsjeblieft opnieuw over {{count}} uur."
+    },
     "error_unknown": "Upload mislukt. Foutdetails: {{errorText}}",
-    "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert."
+    "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert.",
+    "error_photo": "Geen toegang meer tot foto op het apparaat.",
+    "a_few": "een paar"
   },
   "notifications": {
     "header": "Meldingen",
@@ -337,6 +368,7 @@
     "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
     "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
     "error_photoError": "Sorry, het foto-object is niet gevonden",
+    "error_selected_photos": "Als je toestemmingen zijn ingesteld op \"Geselecteerd foto's\" moet je mogelijk Seek herstarten of naar iOS  Instellingen > Seek > Foto's > Geselecteerde foto's gaan om te kiezen welke foto's hier moeten worden getoond.",
     "plant_filter": "Alleen planten",
     "non_plant_filter": "Alleen niet-planten",
     "filters_off": "Filters uit"
@@ -380,15 +412,15 @@
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
     "observe_plural": {
-      "zero": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
-      "one": "Nog {{count}} soort waarnemen om het volgende niveau te halen!",
-      "two": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "zero": "Neem {{count}} soorten waar om het volgende niveau te bereiken!",
+      "one": "Neem {{count}} soorten waar om het volgende niveau te bereiken!",
+      "two": "Neem {{count}} soorten waar om het volgende niveau te bereiken!",
       "few": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
       "many": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
-      "other": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!"
+      "other": "Neem {{count}} soorten waar om het volgende niveau te bereiken!"
     },
     "observe_max": "Je hebt het maximale level bereikt op Seek!",
-    "observe_species": "Waarnemen",
+    "observe_species": "Vind",
     "species_badges": "Soort Badges",
     "challenge_badges": "Uitdaging Badges",
     "observed": "Soorten\nwaargenomen",
@@ -715,7 +747,7 @@
     "save_to_camera_roll": "Opslaan in filmrol",
     "saved_to_camera_roll": "Opgeslagen op filmrol",
     "back_to_id": "Terug naar Determinatie",
-    "error_title": "Kon aanvraag niet voltooien",
+    "error_title": "Kan foto niet opslaan",
     "error": "Controleer nogmaals of de Facebook app is geïnstalleerd.",
     "adjust_square_crop": "Uitsnijding aanpassen",
     "crop_image": "Afbeelding bijsnijden"
@@ -750,7 +782,7 @@
     "june_2021_mission_7": "Vind 1 spinachtige",
     "june_2021_challenge_name": "Behoud Uitdaging",
     "june_2021_description": "Wij allen kunnen, ongeacht onze leeftijd of ervaring, een positief effect hebben op het behoud van de biodiversiteit. We kunnen bijvoorbeeld helpen om te zorgen voor een bepaalde plaats zoals ons eigen erf, een beschermd gebied of een lokaal park. Het beschermen van de natuur begint met het leren over planten, schimmels en dieren op de plaatsen waar je om geeft. Je uitdaging deze maand is om in je tuin of een lokaal park te kijken en zo veel mogelijk biodiversiteit te inventariseren.",
-    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van.",
+    "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van en deel het met ons door #NatGeoSeekChallenge op Twitter te gebruiken!",
     "june_2021_badge_name": "Behoud Badge"
   },
   "challenges_all": {

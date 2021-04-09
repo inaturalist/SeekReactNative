@@ -24,18 +24,49 @@
     "take_challenge": "Comincia la sfida",
     "continue_challenge": "Continua la sfida",
     "view_all": "Vedi tutte le sfide",
-    "new_join": "Aggiungi osservazioni con la Fotocamera di Seek per guadagnare il distintivo Sfida!"
+    "new_join": "Aggiungi osservazioni con la Fotocamera di Seek per guadagnare il distintivo Sfida!",
+    "inat_admin": "Admin di iNat: grazie per aver testato Seek! Stai vedendo l'ultima sfida di iNat prima dell'inizio del mese per scopi di test."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBBLICA SU INATURALIST",
-    "uploading_x_observations": "Caricamento di {{count}} osservazioni...",
-    "x_observations_uploaded": "{{count}} osservazioni caricate!",
-    "x_observations_to_upload": "{{count}} osservazioni da caricare",
+    "uploading_x_observations": {
+      "zero": "Caricamento di {{count}} osservazioni",
+      "one": "Caricamento di {{count}} osservazione",
+      "two": "Caricamento di {{count}} osservazioni",
+      "few": "Caricamento di {{count}} osservazioni",
+      "many": "Caricamento di {{count}} osservazioni",
+      "other": "Caricamento di {{count}} osservazioni"
+    },
+    "x_observations_uploaded": {
+      "zero": "{{count}} osservazioni caricate!",
+      "one": "{{count}} osservazione caricata!",
+      "two": "{{count}} osservazioni caricate!",
+      "few": "{{count}} osservazioni caricate!",
+      "many": "{{count}} osservazioni caricate!",
+      "other": "{{count}} osservazioni caricate!"
+    },
+    "x_observations_to_upload": {
+      "zero": "{{count}} osservazioni da caricare",
+      "one": "{{count}} osservazione da caricare",
+      "two": "{{count}} osservazioni da caricare",
+      "few": "{{count}} osservazioni da caricare",
+      "many": "{{count}} osservazioni da caricare",
+      "other": "{{count}} osservazioni da caricare"
+    },
     "upload_now": "CARICA ORA",
     "error_internet": "Nessuna connessione a internet. Riprova più tardi.",
-    "error_downtime": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
+    "error_downtime": {
+      "zero": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
+      "one": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ora.",
+      "two": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
+      "few": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
+      "many": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
+      "other": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore."
+    },
     "error_unknown": "Caricamento non riuscito. Dettagli errore: {{errorText}}",
-    "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalle schermate iNaturalist o Progressi prima di riprovare."
+    "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalle schermate iNaturalist o Progressi prima di riprovare.",
+    "error_photo": "Non è più possibile accedere alla foto sul dispositivo.",
+    "a_few": "alcuni"
   },
   "notifications": {
     "header": "Notifiche",
@@ -337,6 +368,7 @@
     "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}.",
     "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
     "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato",
+    "error_selected_photos": "Se i tuoi permessi sono impostati su \"Fotografie selezionate\", potrebbe essere necessario riavviare Seek o visitare impostazioni di iOS > Seek > Foto > Foto Selezionate per scegliere quali foto visualizzare qui.",
     "plant_filter": "Solo piante",
     "non_plant_filter": "Unicamente non vegetali",
     "filters_off": "Filtri disattivati"

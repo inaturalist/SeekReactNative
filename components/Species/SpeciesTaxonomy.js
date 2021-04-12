@@ -9,6 +9,7 @@ import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
 import { useCommonName } from "../../utility/customHooks";
+import i18n from "../../i18n";
 
 type Props = {
   +ancestors: ?Array<Object>,
@@ -84,7 +85,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
             <Image source={icons.greenDot} style={styles.bullet} />
             <View>
               <Text style={styles.taxonomyHeader}>
-                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank ) || ""} `}
+                {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
               </Text>
               <Text style={[styles.taxonomyText, !ancestor.preferred_common_name && styles.scientificName]}>

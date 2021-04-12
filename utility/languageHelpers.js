@@ -7,22 +7,22 @@ import languages from "./dictionaries/languageDict";
 import i18n from "../i18n";
 import { setupCommonNames } from "./commonNamesHelpers";
 
-const deviceLanguageSupported = ( ) => {
+const deviceLanguageSupported = ( ): boolean => {
   const { languageCode } = RNLocalize.getLocales()[0];
   return Object.keys( languages ).includes( languageCode );
 };
 
-const setDeviceLanguageOrFallback = ( ) => {
+const setDeviceLanguageOrFallback = ( ): string => {
   return deviceLanguageSupported( ) ? "device" : "en";
 };
 
-const setLanguageCodeOrFallback = ( ) => {
+const setLanguageCodeOrFallback = ( ): string => {
   // this is the hyphenated version
   const { languageCode } = RNLocalize.getLocales()[0];
   return deviceLanguageSupported( ) ? languageCode : "en";
 };
 
-const localeNoHyphens = ( locale: string ) => {
+const localeNoHyphens = ( locale: string ): string => {
   if ( locale === "pt-BR" ) {
     return locale.replace( "-","" );
   } else {
@@ -64,7 +64,7 @@ const loadUserLanguagePreference = ( preferredLanguage: string ) => {
   }
 };
 
-const setDisplayLanguage = ( preferredLanguage: string ) => {
+const setDisplayLanguage = ( preferredLanguage: string ): string => {
   if ( preferredLanguage === "device" ) {
     return setLanguageCodeOrFallback( );
   }

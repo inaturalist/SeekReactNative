@@ -10,23 +10,27 @@ import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
+import { useCommonName } from "../../utility/customHooks";
 
 type Props = {
   params: Object,
   setNavigationPath: Function,
-  speciesText: ?string,
-  screenType: string
+  screenType: string,
+  scientificNames: boolean
 }
 
 const MatchContainer = ( {
   screenType,
   params,
   setNavigationPath,
-  speciesText
+  scientificNames
 }: Props ): React.Node => {
   const navigation = useNavigation();
   const { taxon, image, seenDate } = params;
+  const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
+  const commonName = useCommonName( id );
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
+  const showScientificName = !commonName || scientificNames;
 
   const { gradientLight } = setGradients( screenType );
 
@@ -34,7 +38,7 @@ const MatchContainer = ( {
 
   const taxaInfo = {
     // don't pass taxon data in when user has flagged as misidentification
-    commonName: screenType === "unidentified" ? null : speciesText,
+    commonName: screenType === "unidentified" ? null : commonName,
     taxaId: screenType === "unidentified" ? null : taxaId,
     scientificName: screenType === "unidentified" ? null : scientificName,
     image
@@ -61,7 +65,11 @@ const MatchContainer = ( {
     <View style={styles.marginLarge}>
       <View style={styles.textContainer}>
         <Text style={[styles.headerText, { color: gradientLight }]}>{headerText}</Text>
-        {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
+        {screenType !== "unidentified" && (
+          <Text style={[styles.speciesText, showScientificName && styles.scientificName]}>
+            {showScientificName ? scientificName : commonName}
+          </Text>
+        )}
         <Text style={styles.text}>{text}</Text>
         <View style={styles.marginMedium} />
         <GreenButton

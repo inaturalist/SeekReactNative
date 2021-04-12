@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import inatjs from "inaturalistjs";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/species/iNatObs";
@@ -22,7 +23,7 @@ type Props = {
   +region: Object
 };
 
-const INatObs = ( { id, timesSeen, region }: Props ) => {
+const INatObs = ( { id, timesSeen, region }: Props ): Node => {
   const navigation = useNavigation();
   const [nearbySpeciesCount, setNearbySpeciesCount] = useState( null );
 

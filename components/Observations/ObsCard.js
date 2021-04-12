@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import { Image, TouchableOpacity, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
@@ -22,7 +23,7 @@ const ObservationCard = ( {
   openModal,
   updateItemScrolledId,
   itemScrolledId
-}: Props ) => {
+}: Props ): Node => {
   const scrollView = useRef( null );
   const { navigate } = useNavigation();
 

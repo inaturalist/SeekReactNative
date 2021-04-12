@@ -8,6 +8,7 @@ import {
   View,
   Modal
 } from "react-native";
+import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/posting/postToiNat";
@@ -32,7 +33,7 @@ type Props = {
   }
 }
 
-const LocationPickerCard = ( { location, updateLocation, observation }: Props ) => {
+const LocationPickerCard = ( { location, updateLocation, observation }: Props ): Node => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = () => setShowModal( true );

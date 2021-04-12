@@ -1,33 +1,33 @@
 // @flow
 
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { View, Text, Platform } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
-import { toggleSeasonality } from "../../utility/settingsHelpers";
-import { useLocationPermission } from "../../utility/customHooks";
+import { updateUserSetting } from "../../utility/settingsHelpers";
+import { useLocationPermission, useFetchUserSettings } from "../../utility/customHooks";
 import { colors } from "../../styles/global";
-import { SpeciesDetailContext } from "../UserContext";
 
-const SpeciesDetail = () => {
-  const granted = useLocationPermission();
+const SpeciesDetail = ( ): Node => {
+  const granted = useLocationPermission( );
+  const { localSeasonality } = useFetchUserSettings( );
+  const [seasonality, setSeasonality] = useState( localSeasonality );
 
-  const { localSeasonality, toggleLocalSeasonality } = useContext( SpeciesDetailContext );
   const radioButtons = [
     { label: i18n.t( "settings.seasonality_option_1" ), value: 0 },
     { label: i18n.t( "settings.seasonality_option_2" ), value: 1 }
   ];
 
-  const updateIndex = ( i ) => {
-    if ( i === 0 ) {
-      toggleSeasonality( false );
-      toggleLocalSeasonality( false );
-    } else {
-      toggleSeasonality( true );
-      toggleLocalSeasonality( true );
+  const updateIndex = async ( i ) => {
+    const newValue = i !== 0;
+    if ( newValue === seasonality ) {
+      return;
     }
+    const value = await updateUserSetting( "localSeasonality", newValue );
+    setSeasonality( value );
   };
 
   // probably need to add a check here for iOS permissions too
@@ -51,10 +51,8 @@ const SpeciesDetail = () => {
             <RadioButtonInput
               obj={obj}
               index={i}
-              isSelected={
-                ( i === 0 && !localSeasonality ) || ( i === 1 && localSeasonality )
-              }
-              onPress={( value ) => updateIndex( value )}
+              isSelected={( i === 0 && !seasonality ) || ( i === 1 && seasonality )}
+              onPress={updateIndex}
               borderWidth={1}
               buttonInnerColor={colors.seekForestGreen}
               buttonOuterColor={colors.seekForestGreen}
@@ -64,9 +62,9 @@ const SpeciesDetail = () => {
             <RadioButtonLabel
               obj={obj}
               index={i}
-              onPress={( value ) => updateIndex( value )}
+              onPress={updateIndex}
               labelHorizontal
-              labelStyle={[styles.text, styles.radioButtonWidth]}
+              labelStyle={styles.seasonalityRadioButtonText}
               accessible
               accessibilityLabel={`${radioButtons[i].label}`}
             />

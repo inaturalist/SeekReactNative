@@ -18,7 +18,7 @@ type Props = {
   +navigation: any
 };
 
-const Donation = ( { navigation }: Props ) => (
+const Donation = ( { navigation }: Props ): React.Node => (
   <View style={styles.container}>
     <View style={styles.header}>
       <Text style={styles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/posting/postToiNat";
@@ -20,7 +21,7 @@ type Props = {
   handleDatePicked: ( Date ) => void
 }
 
-const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
+const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = () => setShowModal( true );

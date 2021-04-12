@@ -18,12 +18,18 @@ import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
 type Props = {
-  +challenge: {
+  challenge: {
     index: number,
+    percentComplete: number,
     startedDate: Date,
-    backgroundName: string,
     availableDate: Date,
-    name: string
+    backgroundName: string,
+    name: string,
+    logo: string,
+    sponsorName: string,
+    secondLogo: string,
+    earnedIconName: string,
+    badgeName: string
   }
 }
 

@@ -11,6 +11,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
@@ -21,7 +22,7 @@ import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
 
-const SpeciesDetail = ( ) => {
+const SpeciesDetail = ( ): Node => {
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );

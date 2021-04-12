@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors } from "./global";
 
-export default StyleSheet.create( {
+import type { ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const styles: { [string]: ImageStyleProp } = StyleSheet.create( {
   backgroundImage: {
     alignItems: "center",
     flex: 1,
@@ -23,3 +25,5 @@ export default StyleSheet.create( {
     width: 303
   }
 } );
+
+export default styles;

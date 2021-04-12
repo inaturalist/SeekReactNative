@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HTML from "react-native-render-html";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
@@ -22,7 +23,7 @@ const About = ( {
   wikiUrl,
   id,
   scientificName
-}: Props ) => {
+}: Props ): Node => {
   const navigation = useNavigation();
   const { login } = useContext( UserContext );
   const commonName = useCommonName( id );

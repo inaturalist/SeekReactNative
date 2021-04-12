@@ -25,7 +25,7 @@ const createAncestor = ( ancestor: {
   rank: number
 }, taxa: ?{
   taxon_photos: Array<Object>
-} ) => {
+} ): Object => {
   return {
     taxaId: ancestor.taxon_id,
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -39,7 +39,7 @@ const createSpecies = ( species: {
   name: string
 }, taxa: ?{
   taxon_photos: Array<Object>
-} ) => {
+} ): Object => {
   return {
     taxaId: Number( species.taxon_id ),
     speciesSeenImage: setSpeciesSeenImage( taxa ),
@@ -53,7 +53,7 @@ const checkForSpecies = ( predictions: Array<Object>, threshold: number ) => {
   ) );
 };
 
-const checkForAncestor = ( predictions: Array<Object>, threshold: number ) => {
+const checkForAncestor = ( predictions: Array<Object>, threshold: number ): ?Object => {
   const reversePredictions = predictions.reverse();
   const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
@@ -85,7 +85,7 @@ const createObservationForRealm = ( species: {
   ancestor_ids: Array<number>
 }, taxa: ?{
   default_photo?: ?Object
-} ) => {
+} ): Object => {
   return {
     taxon: {
       default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
@@ -124,7 +124,7 @@ const createOnlineAncestor = ( ancestor: {
   name: string,
   default_photo: Object,
   rank_level: number
-} ) => {
+} ): Object => {
   const photo = ancestor.default_photo;
 
   return {
@@ -139,7 +139,7 @@ const createOnlineSpecies = ( species: {
   id: number,
   name: string,
   default_photo: Object
-} ) => {
+} ): Object => {
   const photo = species.default_photo;
 
   return {
@@ -177,7 +177,7 @@ const navToMatch = async (
   } );
 };
 
-const setImageCoords = ( coords?: { latitude: number, longitude: number }, image: Object ) => {
+const setImageCoords = ( coords?: { latitude: number, longitude: number }, image: Object ): Object => {
   if ( coords )  {
     image.latitude = coords.latitude;
     image.longitude = coords.longitude;

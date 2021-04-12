@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { View, Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/challenges/challengeDetails";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
@@ -34,7 +35,7 @@ type Props = {
   showMission: ( number ) => void
 }
 
-const ChallengeDetailsHeader = ( { challenge, showMission }: Props ) => {
+const ChallengeDetailsHeader = ( { challenge, showMission }: Props ): Node => {
   const navigation = useNavigation();
   const [showModal, setModal] = useState( false );
 

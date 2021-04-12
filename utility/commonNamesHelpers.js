@@ -6,7 +6,7 @@ import i18n from "../i18n";
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
-const getTaxonCommonName = ( taxonID: number ) => (
+const getTaxonCommonName = ( taxonID: number ): any => (
   new Promise<any>( ( resolve ) => {
     Realm.open( realmConfig.default ).then( ( realm ) => {
       // need this because realm isn't guaranteed to only contain

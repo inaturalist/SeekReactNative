@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/match/match";
@@ -15,7 +16,7 @@ type Props = {
   +taxaInfo: Object
 }
 
-const PostToiNat = ( { color, taxaInfo }: Props ) => {
+const PostToiNat = ( { color, taxaInfo }: Props ): Node => {
   const navigation = useNavigation( );
   const { login } = useContext( UserContext );
   const [postingSuccess, setPostingSuccess] = useState( false );

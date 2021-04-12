@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
@@ -26,8 +27,8 @@ type Props = {
   setNavigationPath: Function,
   params: Object,
   flagModal: boolean,
-  speciesText: ?string,
-  navPath: ?string
+  navPath: ?string,
+  scientificNames: boolean
 };
 
 const MatchModals = ( {
@@ -36,19 +37,14 @@ const MatchModals = ( {
   params,
   setNavigationPath,
   flagModal,
-  speciesText,
-  navPath
-}: Props ) => {
+  navPath,
+  scientificNames
+}: Props ): Node => {
   const navigation = useNavigation();
 
-  const {
-    seenDate,
-    taxon,
-    image
-  } = params;
+  const { seenDate, taxon, image } = params;
 
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
-
   const commonName = useCommonName( id );
 
   // eslint-disable-next-line no-shadow
@@ -210,10 +206,11 @@ const MatchModals = ( {
           >
             <ReplacePhotoModal
               seenDate={seenDate}
-              speciesText={speciesText}
               closeModal={closeReplacePhotoModal}
               image={image}
-              taxaId={taxon.taxaId}
+              commonName={commonName}
+              scientificNames={scientificNames}
+              taxon={taxon}
             />
           </Modal>
         </>
@@ -226,7 +223,8 @@ const MatchModals = ( {
         <FlagModal
           taxon={taxon}
           seenDate={seenDate}
-          speciesText={speciesText}
+          commonName={commonName}
+          scientificNames={scientificNames}
           closeModal={closeFlagModal}
           userImage={image.uri}
         />

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../styles/challenges/challengeMission";
 import icons from "../../assets/icons";
@@ -14,7 +15,7 @@ type Props = {
   +challenge: Object
 };
 
-const ChallengeMissionCard = ( { challenge }: Props ) => {
+const ChallengeMissionCard = ( { challenge }: Props ): Node => {
   const [missions, setMissions] = useState( [] );
 
   const { index, percentComplete } = challenge;

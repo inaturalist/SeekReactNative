@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { requiresParent, formatYearMonthDay } from "../../../utility/dateHelpers";
@@ -12,7 +13,7 @@ import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
-const AgeVerifyScreen = () => {
+const AgeVerifyScreen = (): Node => {
   const { navigate } = useNavigation();
   const [date, setDate] = useState( formatYearMonthDay() );
   const [isPickerVisible, setPicker] = useState( false );

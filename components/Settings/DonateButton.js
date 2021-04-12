@@ -8,7 +8,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/settings";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
-const DonateButton = () => {
+const DonateButton = (): React.Node => {
   const { navigate } = useNavigation();
 
   return (

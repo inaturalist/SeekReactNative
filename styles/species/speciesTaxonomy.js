@@ -22,7 +22,13 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   taxonomyText: {
+    color: colors.black,
+    fontSize: 16,
+    lineHeight: 21,
     fontFamily: fonts.book,
     maxWidth: 200
+  },
+  scientificName: {
+    fontFamily: fonts.bookItalic
   }
 } );

@@ -25,5 +25,8 @@ export default StyleSheet.create( {
     lineHeight: 23,
     maxWidth: 244,
     textAlign: "center"
+  },
+  scientificName: {
+    fontFamily: fonts.bookItalic
   }
 } );

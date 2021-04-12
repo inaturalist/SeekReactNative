@@ -28,18 +28,6 @@ const renderHeaderText = ( screenType: string, rank: number ): string => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderSpeciesText = ( screenType: string, taxon: { scientificName: string }, scientificNames: boolean, commonName: ?string ): ?string => {
-  if ( screenType === "unidentified" ) {
-    return null;
-  }
-
-  // not all online vision results have offline common names
-  if ( !commonName ) {
-    commonName = taxon.scientificName;
-  }
-  return !scientificNames ? commonName : taxon.scientificName;
-};
-
 const renderText = ( screenType: string, seenDate: ?string, image: { latitude: number } ): string => {
   let text: string;
 
@@ -92,7 +80,6 @@ const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?stri
 
 export {
   renderHeaderText,
-  renderSpeciesText,
   renderText,
   setGradients,
   setScreenType

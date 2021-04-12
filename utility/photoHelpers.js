@@ -3,9 +3,7 @@ import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
-import piexif from "piexifjs";
 import { FileUpload } from "inaturalistjs";
-import { version } from "react-native-inat-camera/package.json";
 
 import realmConfig from "../models/index";
 import { dirPictures, dirDebugLogs } from "./dirStorage";
@@ -361,28 +359,32 @@ const replacePhoto = async ( id: number, image: Object ) => {
 //   return srcexifs;
 // };
 
-const writeExifData = async ( file: string ): Promise<string> => {
-  const prefixe = "data:image/jpeg;base64,";
-  const srcdata = await RNFS.readFile( file, "base64" );
+// const writeExifData = async ( file: string ): Promise<string> => {
+//   const prefixe = "data:image/jpeg;base64,";
+//   const srcdata = await RNFS.readFile( file, "base64" );
 
-  const srcexifs = piexif.load( prefixe + srcdata );
+//   const srcexifs = piexif.load( prefixe + srcdata );
 
-  const _zero = srcexifs["0th"];
-  const _first = srcexifs["1st"];
-  const _Exif = srcexifs.Exif;
-  const _GPS = srcexifs.GPS;
-  const _Interop = srcexifs.Interop;
-  const _thumbnail = srcexifs.thumbnail;
+//   // console.log( srcexifs, "source data android exif" );
 
-  _zero[piexif.ImageIFD.Software] = `React Native iNat Camera ${version}`;
+//   const _zero = srcexifs["0th"];
+//   const _first = srcexifs["1st"];
+//   const _Exif = srcexifs.Exif;
+//   const _GPS = srcexifs.GPS;
+//   const _Interop = srcexifs.Interop;
+//   const _thumbnail = srcexifs.thumbnail;
 
-  var exifObj = { "0th": _zero, "1st": _first, Exif: _Exif, GPS: _GPS, Interop: _Interop, thumbnail: _thumbnail };
+//   _zero[piexif.ImageIFD.Software] = `React Native iNat Camera ${version}`;
 
-  const exifStr = piexif.dump( exifObj );
-  const bs64Exif = piexif.insert( exifStr, prefixe + srcdata ).substring( prefixe.length );
-  await RNFS.writeFile( file, bs64Exif, "base64" );
-  return bs64Exif;
-};
+//   var exifObj = { "0th": _zero, "1st": _first, Exif: _Exif, GPS: _GPS, Interop: _Interop, thumbnail: _thumbnail };
+
+//   // console.log( exifObj, "exif obj" );
+
+//   const exifStr = piexif.dump( exifObj );
+//   const bs64Exif = piexif.insert( exifStr, prefixe + srcdata ).substring( prefixe.length );
+//   await RNFS.writeFile( file, bs64Exif, "base64" );
+//   return bs64Exif;
+// };
 
 const formatBytes = ( bytes: number, decimals: number = 2 ) => {
   // https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
@@ -417,7 +419,7 @@ export {
   deleteDebugLogAfter7Days,
   replacePhoto,
   // readNativeExifData,
-  writeExifData,
+  // writeExifData,
   flattenUploadParameters,
   checkPhotoSize
 };

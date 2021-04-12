@@ -9,6 +9,7 @@ import {
 import Realm from "realm";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -18,7 +19,7 @@ import backgrounds from "../../assets/backgrounds";
 import { colors } from "../../styles/global";
 import logos from "../../assets/logos";
 
-const Footer = () => {
+const Footer = (): Node => {
   let challenge;
   const navigation = useNavigation();
   const route = useRoute();

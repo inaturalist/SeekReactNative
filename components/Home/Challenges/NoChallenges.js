@@ -2,6 +2,7 @@
 
 import React, { useContext } from "react";
 import { View, Text, Image } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
@@ -9,7 +10,7 @@ import styles from "../../../styles/home/noChallenges";
 import INatCard from "./iNatCard";
 import { UserContext } from "../../UserContext";
 
-const NoChallenges = () => {
+const NoChallenges = (): Node => {
   const { login } = useContext( UserContext );
 
   return (

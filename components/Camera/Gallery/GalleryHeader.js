@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
@@ -21,7 +22,7 @@ const cameraRoll = [{
   value: "All"
 }];
 
-const GalleryHeader = ( { updateAlbum }: Props ) => {
+const GalleryHeader = ( { updateAlbum }: Props ): Node => {
   const navigation = useNavigation( );
 
   const [albumNames, setAlbumNames] = useState( cameraRoll );

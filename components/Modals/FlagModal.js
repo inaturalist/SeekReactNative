@@ -11,20 +11,24 @@ import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
 
 type Props = {
-  +taxon: Object,
-  +closeModal: Function,
-  +userImage: string,
-  +speciesText: ?string,
-  +seenDate: ?string
+  taxon: Object,
+  closeModal: Function,
+  userImage: string,
+  seenDate: ?string,
+  scientificNames: boolean,
+  commonName: ?string
 };
 
 const FlagModal = ( {
   taxon,
   closeModal,
   userImage,
-  speciesText,
-  seenDate
+  seenDate,
+  scientificNames,
+  commonName
 }: Props ): React.Node => {
+  const { scientificName } = taxon;
+  const showScientificName = !commonName || scientificNames;
 
   const handlePress = () => {
     if ( seenDate ) {
@@ -42,7 +46,9 @@ const FlagModal = ( {
       userImage={userImage}
       originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
     >
-      <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
+      <Text allowFontScaling={false} style={[styles.speciesText, showScientificName && styles.scientificName]}>
+        {showScientificName ? scientificName : commonName}
+      </Text>
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
       <View style={styles.marginSmall} />
       <Button

@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
@@ -20,7 +21,7 @@ import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
-const LoginScreen = () => {
+const LoginScreen = (): Node => {
   const { navigate } = useNavigation();
   const { toggleLogin } = useContext( UserContext );
   const [username, setUsername] = useState( "" );
@@ -80,7 +81,6 @@ const LoginScreen = () => {
       <InputField
         handleTextChange={updatePassword}
         placeholder="*********"
-        secureTextEntry
         text={password}
         type="password"
       />

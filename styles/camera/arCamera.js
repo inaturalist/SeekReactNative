@@ -66,5 +66,8 @@ export default StyleSheet.create( {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
+  },
+  scientificName: {
+    fontFamily: fonts.bookItalic
   }
 } );

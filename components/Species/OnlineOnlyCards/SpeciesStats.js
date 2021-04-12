@@ -7,6 +7,7 @@ import {
   Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/species/speciesStats";
@@ -19,7 +20,7 @@ type Props = {
   +seenDate: ?string
 };
 
-const SpeciesStats = ( { stats, region, id, seenDate }: Props ) => {
+const SpeciesStats = ( { stats, region, id, seenDate }: Props ): Node => {
   const [tagsToShow, setTagsToShow] = useState( [] );
 
   const showAlert = ( type ) => {

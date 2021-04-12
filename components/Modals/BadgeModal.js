@@ -9,6 +9,7 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/badgeModal";
@@ -20,12 +21,12 @@ import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
-  +badges: Array<Object>,
-  +iconicSpeciesCount: number,
-  +closeModal: Function
+  badges: Array<Object>,
+  iconicSpeciesCount: number,
+  closeModal: Function
 };
 
-const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
+const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node => {
   const flatList = useRef( null );
   const [scrollIndex, setScrollIndex] = useState( 0 );
   const viewConfigRef = useRef( {

@@ -1,14 +1,10 @@
 // @flow
 
-import React, {
-  useReducer,
-  useCallback,
-  useRef,
-  useContext
-} from "react";
+import React, { useReducer, useCallback, useRef } from "react";
 import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import styles from "../../styles/match/match";
 import Footer from "../UIComponents/Footer";
@@ -17,21 +13,16 @@ import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/TopSpacer";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
-import { CameraContext } from "../UserContext";
-import { useCommonName, useScrollToTop } from "../../utility/customHooks";
-import { renderSpeciesText, setGradients, setScreenType } from "../../utility/matchHelpers";
+import { useFetchUserSettings, useScrollToTop } from "../../utility/customHooks";
+import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
 
-const MatchScreen = () => {
+const MatchScreen = ( ): Node => {
   const scrollView = useRef<any>( null );
-  const navigation = useNavigation();
-  const { params } = useRoute();
-  const { scientificNames } = useContext( CameraContext );
+  const navigation = useNavigation( );
+  const { params } = useRoute( );
+  const { scientificNames } = useFetchUserSettings( );
   const { taxon, seenDate } = params;
-
-  const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
-
-  const commonName = useCommonName( id );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -43,7 +34,7 @@ const MatchScreen = () => {
       case "CLOSE_FLAG":
         return { ...state, flagModal: false, screenType: action.screenType };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     navPath: null,
@@ -55,7 +46,7 @@ const MatchScreen = () => {
 
   useScrollToTop( scrollView, navigation );
 
-  const openFlagModal = () => dispatch( { type: "OPEN_FLAG_MODAL" } );
+  const openFlagModal = ( ) => dispatch( { type: "OPEN_FLAG_MODAL" } );
 
   const closeFlagModal = useCallback( ( showFailure ) => {
     if ( showFailure ) {
@@ -68,8 +59,6 @@ const MatchScreen = () => {
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
-
-  const speciesText = renderSpeciesText( screenType, taxon, scientificNames, commonName );
   const { gradientDark } = setGradients( screenType );
 
   return (
@@ -79,9 +68,9 @@ const MatchScreen = () => {
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
         params={params}
-        speciesText={speciesText}
         navPath={navPath}
         setNavigationPath={setNavigationPath}
+        scientificNames={scientificNames}
       />
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
         <Spacer backgroundColor={gradientDark} />
@@ -93,8 +82,8 @@ const MatchScreen = () => {
         <MatchContainer
           screenType={screenType}
           params={params}
-          speciesText={speciesText}
           setNavigationPath={setNavigationPath}
+          scientificNames={scientificNames}
         />
         <Padding />
       </ScrollView>

@@ -19,7 +19,7 @@ type Props = {
   +route: any
 };
 
-const WikipediaView = ( { navigation, route }: Props ) => {
+const WikipediaView = ( { navigation, route }: Props ): React.Node => {
   const { wikiUrl, scientificName } = route.params;
 
   let uri;

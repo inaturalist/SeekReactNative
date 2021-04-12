@@ -4,6 +4,7 @@ import React, { useCallback } from "react";
 import { View, Image, BackHandler, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useFocusEffect } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
@@ -20,7 +21,7 @@ const MatchHeader = ( {
   screenType,
   setNavigationPath,
   params
-}: Props ) => {
+}: Props ): Node => {
   const { image, taxon } = params;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 

@@ -3,6 +3,7 @@
 import React, { useReducer, useEffect, useCallback } from "react";
 import inatjs from "inaturalistjs";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import type { Node } from "react";
 
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
@@ -21,7 +22,7 @@ import {
   setImageCoords
 } from "../../utility/resultsHelpers";
 
-const OnlineServerResults = () => {
+const OnlineServerResults = (): Node => {
   const navigation = useNavigation();
   const { params } = useRoute();
 

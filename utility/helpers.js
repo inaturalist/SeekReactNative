@@ -13,8 +13,8 @@ import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
 import { serverBackOnlineTime } from "./dateHelpers";
 
-const checkForInternet = () => (
-  new Promise<any>( ( resolve ) => {
+const checkForInternet = (): Promise<?string> => (
+  new Promise( ( resolve ) => {
     NetInfo.fetch().then( ( { type } ) => {
       resolve( type );
     } ).catch( () => {
@@ -23,7 +23,7 @@ const checkForInternet = () => (
   } )
 );
 
-const capitalizeNames = ( name: string ) => {
+const capitalizeNames = ( name: string ): ?string => {
   if ( name === null ) {
     return;
   }
@@ -92,7 +92,7 @@ const addARCameraFiles = async () => {
   }
 };
 
-const shuffleList = ( list: Array<Object> ) => {
+const shuffleList = ( list: Array<Object> ): Array<Object> => {
   const newList = list;
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {
@@ -110,7 +110,7 @@ const setAppLaunched = () => {
   AsyncStorage.setItem( HAS_LAUNCHED, "true" );
 };
 
-const checkIfFirstLaunch = async () => {
+const checkIfFirstLaunch = async (): Promise<boolean> => {
   try {
     const hasLaunched = await AsyncStorage.getItem( HAS_LAUNCHED );
     if ( hasLaunched === null ) {
@@ -129,7 +129,7 @@ const setCameraLaunched = ( boolean: boolean ) => {
   AsyncStorage.setItem( CAMERA_LAUNCHED, boolean.toString() );
 };
 
-const checkIfCameraLaunched = async () => {
+const checkIfCameraLaunched = async (): Promise<boolean> => {
   try {
     const cameraLaunched = await AsyncStorage.getItem( CAMERA_LAUNCHED );
     if ( cameraLaunched === null || cameraLaunched === "false" ) {
@@ -148,7 +148,7 @@ const setCardShown = () => {
   AsyncStorage.setItem( CARD_SHOWN, "true" );
 };
 
-const checkIfCardShown = async () => {
+const checkIfCardShown = async (): Promise<boolean> => {
   try {
     const hasShown = await AsyncStorage.getItem( CARD_SHOWN );
     if ( hasShown === null ) {
@@ -178,7 +178,7 @@ const setRoute = ( route: string ) => {
   AsyncStorage.setItem( "route", route );
 };
 
-const getRoute = async () => {
+const getRoute = async (): Promise<string> => {
   try {
     const route = await AsyncStorage.getItem( "route" );
     return route;
@@ -187,7 +187,7 @@ const getRoute = async () => {
   }
 };
 
-const fetchNumberSpeciesSeen = () => (
+const fetchNumberSpeciesSeen = (): Promise<number> => (
   new Promise<any>( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
@@ -199,7 +199,7 @@ const fetchNumberSpeciesSeen = () => (
   } )
 );
 
-const createJwtToken = () => {
+const createJwtToken = (): string => {
   const claims = {
     application: "SeekRN",
     exp: new Date().getTime() / 1000 + 300
@@ -209,7 +209,7 @@ const createJwtToken = () => {
   return token;
 };
 
-const localizeNumber = ( number: number ) => {
+const localizeNumber = ( number: number ): string => {
   const { decimalSeparator, groupingSeparator } = RNLocalize.getNumberFormatSettings();
   return i18n.toNumber( number, {
     precision: 0,
@@ -218,7 +218,7 @@ const localizeNumber = ( number: number ) => {
   } );
 };
 
-const localizePercentage = ( number: number ) => i18n.toPercentage( number, { precision: 0 } );
+const localizePercentage = ( number: number ): string => i18n.toPercentage( number, { precision: 0 } );
 
 const hideLogs = () => {
   LogBox.ignoreLogs( [
@@ -237,7 +237,7 @@ const handleServerError = ( error: {
       }
     }
   }
-} ) => {
+} ): any => {
   const { response } = error;
 
   if ( !response ) { return null; }

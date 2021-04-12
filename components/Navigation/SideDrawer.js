@@ -14,7 +14,7 @@ import About from "../AboutScreen";
 import Settings from "../Settings/Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
 import Match from "../Match/MatchScreen";
-import DebugAndroid from "../UIComponents/DebugAndroid";
+import DebugEmailScreen from "../UIComponents/DebugEmailScreen";
 import Home from "../Home/HomeScreen";
 import Species from "../Species/SpeciesDetail";
 
@@ -29,7 +29,7 @@ type DrawerParamList = {
   Settings: void;
   Match: void;
   Species: void;
-  DebugAndroid: void;
+  DebugEmailScreen: void;
 };
 
 type Props = DrawerScreenProps<DrawerParamList>;
@@ -80,9 +80,9 @@ const SettingsFooter = () => (
   </Tab.Navigator>
 );
 
-const DebugAndroidFooter = () => (
+const DebugEmailScreenFooter = () => (
   <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="DebugAndroid" component={DebugAndroid} />
+    <Tab.Screen name="DebugEmailScreen" component={DebugEmailScreen} />
   </Tab.Navigator>
 );
 
@@ -120,7 +120,7 @@ const SideMenuDrawer = ( ): Props => (
     a footer with navigation.openDrawer( ) that won't work otherwise */}
     <Drawer.Screen name="Match" component={Match} />
     <Drawer.Screen name="Species" component={SpeciesFooter} />
-    <Drawer.Screen name="DebugAndroid" component={DebugAndroidFooter} />
+    <Drawer.Screen name="DebugEmailScreen" component={DebugEmailScreenFooter} />
   </Drawer.Navigator>
 );
 

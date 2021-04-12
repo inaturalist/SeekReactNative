@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
@@ -37,7 +38,7 @@ const LocationPicker = ( {
   location,
   updateLatLng,
   closeLocationPicker
-}: Props ) => {
+}: Props ): Node => {
   const [region, setRegion] = useState( {
     latitudeDelta,
     longitudeDelta,

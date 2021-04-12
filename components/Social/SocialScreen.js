@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
+import type { Node } from "react";
 
 import { colors, dimensions } from "../../styles/global";
 import styles from "../../styles/social/social";
@@ -26,7 +27,7 @@ import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
 import CropScreen from "./CropScreen";
 
-const SocialScreen = ( ) => {
+const SocialScreen = ( ): Node => {
   const cropViewRef = useRef( );
   // const { navigate } = useNavigation( );
   const { params } = useRoute( );

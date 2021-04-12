@@ -13,29 +13,32 @@ import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 
 type Props = {
-  +closeModal: Function,
-  +image: Object,
-  +speciesText?: ?string,
-  +seenDate: string,
-  +taxaId: number
+  closeModal: Function,
+  image: Object,
+  seenDate: string,
+  taxon: Object,
+  scientificNames: boolean,
+  commonName: ?string
 };
 
 const ReplacePhotoModal = ( {
   closeModal,
   image,
-  speciesText,
   seenDate,
-  taxaId
+  taxon,
+  scientificNames,
+  commonName
 }: Props ): React.Node => {
+  const { taxaId, scientificName } = taxon;
   const seenTaxa = useSeenTaxa( taxaId );
   const currentUserPhoto = useUserPhoto( seenTaxa );
+  const showScientificName = !commonName || scientificNames;
 
   if ( !currentUserPhoto || !seenTaxa ) {
     return null;
   }
 
-  const { taxon } = seenTaxa;
-  const { defaultPhoto } = taxon;
+  const { defaultPhoto } = seenTaxa.taxon;
 
   const displayDate = ( defaultPhoto && defaultPhoto.lastUpdated )
     ? formatShortMonthDayYear( defaultPhoto.lastUpdated )
@@ -54,7 +57,9 @@ const ReplacePhotoModal = ( {
       originalImage={currentUserPhoto.uri}
       displayDate={displayDate}
     >
-      <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
+      <Text allowFontScaling={false} style={[styles.speciesText, showScientificName && styles.scientificName]}>
+        {showScientificName ? scientificName : commonName}
+      </Text>
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "replace_photo.description" )}</Text>
       <View style={styles.marginMedium} />
       <Button
@@ -70,10 +75,6 @@ const ReplacePhotoModal = ( {
       />
     </ModalWithGradient>
   );
-};
-
-ReplacePhotoModal.defaultProps = {
-  speciesText: null
 };
 
 export default ReplacePhotoModal;

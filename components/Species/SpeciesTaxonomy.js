@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
+import type { Node } from "react";
 
 import { capitalizeNames } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
@@ -15,7 +16,7 @@ type Props = {
   +id: number
 };
 
-const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
+const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
   const commonName = useCommonName( id );
   const [taxonomyList, setTaxonomyList] = useState( [] );
 
@@ -70,13 +71,6 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
     }
   }, [ancestors, commonName] );
 
-  const showCapitalizedName = ( name, rank ) => {
-    if ( rank !== "species" ) {
-      return capitalizeNames( name );
-    }
-    return name;
-  };
-
   return (
     <SpeciesDetailCard text="species_detail.taxonomy" hide={taxonomyList.length === 0}>
       {taxonomyList.length > 0 && taxonomyList.map( ( ancestor, index ) => {
@@ -93,8 +87,10 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
                 {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank ) || ""} `}
                 {ancestor.name}
               </Text>
-              <Text style={[styles.taxonomyHeader, styles.taxonomyText]}>
-                {showCapitalizedName( ancestor.preferred_common_name || ancestor.name, ancestor.rank )}
+              <Text style={[styles.taxonomyText, !ancestor.preferred_common_name && styles.scientificName]}>
+                {( ancestor.rank !== "species" && ancestor.preferred_common_name )
+                  ? capitalizeNames( ancestor.preferred_common_name )
+                  : ancestor.name}
               </Text>
             </View>
           </View>

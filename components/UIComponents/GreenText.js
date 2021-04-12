@@ -1,6 +1,6 @@
 // @flow
 
-import React, { memo } from "react";
+import * as React from "react";
 import { Text } from "react-native";
 
 import styles from "../../styles/uiComponents/greenText";
@@ -20,7 +20,7 @@ const GreenText = ( {
   center,
   color,
   allowFontScaling
-}: Props ) => (
+}: Props ): React.Node => (
   <Text
     style={[
       styles.greenHeaderText,
@@ -41,4 +41,4 @@ GreenText.defaultProps = {
   allowFontScaling: true
 };
 
-export default memo<Props>( GreenText );
+export default GreenText;

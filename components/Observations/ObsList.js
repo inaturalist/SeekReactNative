@@ -2,6 +2,8 @@
 
 import React, { useState, useRef, useMemo } from "react";
 import { View, SectionList, Text, Keyboard } from "react-native";
+import type { Node } from "react";
+
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
@@ -27,7 +29,7 @@ const ObsList = ( {
   openModal,
   updateObs,
   clearText
-}: Props ) => {
+}: Props ): Node => {
   const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
   const [itemScrolledId, setItemScrolledId] = useState( null );

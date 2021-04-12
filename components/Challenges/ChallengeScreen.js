@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import realmConfig from "../../models";
-import { colors } from "../../styles/global";
 import styles from "../../styles/challenges/challenges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import GreenText from "../UIComponents/GreenText";
@@ -15,7 +15,7 @@ import NoChallenges from "../Home/Challenges/NoChallenges";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import EmptyChallengesCard from "./EmptyChallengesCard";
 
-const ChallengeScreen = () => {
+const ChallengeScreen = (): Node => {
   const navigation = useNavigation();
   const [state, setState] = useState( {
     notStarted: [],
@@ -112,7 +112,7 @@ const ChallengeScreen = () => {
       header="challenges.header"
       route="Home"
       loading={loading}
-      backgroundColor={colors.black}
+      // backgroundColor={colors.black}
     >
       {noChallenges && (
         <View style={styles.margins}>

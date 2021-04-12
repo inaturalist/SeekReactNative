@@ -1,10 +1,9 @@
 // @flow
+import Realm from "realm";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { setDeviceLanguageOrFallback } from "./languageHelpers";
 
-const toggleScientificNames = ( boolean: boolean ) => {
-  AsyncStorage.setItem( "scientific_names", boolean.toString() );
-};
+import realmConfig from "../models/index";
+import { setDeviceLanguageOrFallback } from "./languageHelpers";
 
 const getScientificNames = async ( ): Promise<boolean> => {
   try {
@@ -31,10 +30,6 @@ const getLanguage = async ( ): Promise<any> => {
   }
 };
 
-const toggleCameraCapture = ( boolean: boolean ) => {
-  AsyncStorage.setItem( "camera", boolean.toString() );
-};
-
 const getAutoCapture = async ( ): Promise<boolean> => {
   try {
     const camera = await AsyncStorage.getItem( "camera" );
@@ -45,10 +40,6 @@ const getAutoCapture = async ( ): Promise<boolean> => {
   } catch ( error ) {
     return false;
   }
-};
-
-const toggleSeasonality = ( boolean: boolean ) => {
-  AsyncStorage.setItem( "seasonality", boolean.toString() );
 };
 
 const getSeasonality = async ( ): Promise<boolean> => {
@@ -63,13 +54,52 @@ const getSeasonality = async ( ): Promise<boolean> => {
   }
 };
 
+const setupUserSettings = async ( ) => {
+  const realm = await Realm.open( realmConfig );
+
+  try {
+    // still keeping these stored in async storage
+    // but they'll only be used once to set up this realm
+    const autoCapture = await getAutoCapture( );
+    const localSeasonality = await getSeasonality( );
+    const scientificNames = await getScientificNames( );
+
+    realm.write( ( ) => {
+      if ( realm.objects( "UserSettingsRealm" ).length > 0 ) {
+        // don't overwrite user settings during setup
+        return;
+      }
+      realm.create( "UserSettingsRealm", {
+        autoCapture,
+        localSeasonality,
+        scientificNames
+      }, true );
+    } );
+  } catch ( e ) {
+    console.log( e, "couldn't set up User Settings Realm" );
+  }
+};
+
+const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolean> => {
+  const realm = await Realm.open( realmConfig );
+  const userSettings = realm.objects( "UserSettingsRealm" );
+
+  try {
+    realm.write( ( ) => {
+      userSettings[0][key] = value;
+    } );
+    return value;
+  } catch ( e ) {
+    console.log( e, "couldn't update User Settings Realm" );
+  }
+};
+
 export {
-  toggleScientificNames,
   getScientificNames,
   toggleLanguage,
   getLanguage,
-  toggleCameraCapture,
   getAutoCapture,
-  toggleSeasonality,
-  getSeasonality
+  getSeasonality,
+  setupUserSettings,
+  updateUserSetting
 };

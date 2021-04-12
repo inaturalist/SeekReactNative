@@ -4,6 +4,7 @@ import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { Platform, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { Node } from "react";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
@@ -14,7 +15,7 @@ import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/camer
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 
-const GalleryScreen = () => {
+const GalleryScreen = (): Node => {
   const navigation = useNavigation();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {

@@ -5,7 +5,7 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import styles from "../../../styles/uiComponents/speciesNearby/speciesImageCell";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { capitalizeNames, setSpeciesId, setRoute } from "../../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
 
@@ -55,10 +55,10 @@ const SpeciesImageCell = ( { item }: Props ) => {
     <TouchableOpacity onPress={navToNextScreen} style={styles.gridCell}>
       {photo && renderSpeciesImage( )}
       {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
-      <Text numberOfLines={3} style={styles.speciesNameText}>
-        {i18n.locale === "de"
-          ? capitalizeNames( commonName || item.name ).replace( /(- |-)/g, "-\n" )
-          : capitalizeNames( commonName || item.name )}
+      <Text numberOfLines={3} style={[styles.speciesNameText, !commonName && styles.scientificName]}>
+      {commonName
+          ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
+          : item.name}
       </Text>
     </TouchableOpacity>
   );

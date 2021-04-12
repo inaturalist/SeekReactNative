@@ -9,6 +9,7 @@ import React, {
 import { FlatList, View, Platform } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
@@ -19,7 +20,7 @@ import BottomSpacer from "../UIComponents/BottomSpacer";
 import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 
-const NotificationsScreen = () => {
+const NotificationsScreen = (): Node => {
   const navigation = useNavigation();
   const scrollView = useRef( null );
   const [notifications, setNotifications] = useState( [] );

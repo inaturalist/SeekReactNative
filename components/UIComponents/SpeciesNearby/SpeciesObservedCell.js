@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { capitalizeNames, setSpeciesId, setRoute } from "../../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName, useSeenTaxa, useUserPhoto } from "../../../utility/customHooks";
 
@@ -21,18 +21,15 @@ type Props = {
 
 const SpeciesObservedCell = ( { item }: Props ) => {
   const { navigate } = useNavigation();
-  const commonName = useCommonName( item.taxon.id );
-
-  const seenTaxa = useSeenTaxa( item.taxon.id );
-  const currentUserPhoto = useUserPhoto( seenTaxa );
-
-  const displayName = commonName || item.taxon.name;
-
   const { taxon } = item;
+  const commonName = useCommonName( taxon.id );
+
+  const seenTaxa = useSeenTaxa( taxon.id );
+  const currentUserPhoto = useUserPhoto( seenTaxa );
 
   const navToSpeciesDetails = () => {
     setRoute( "ChallengeDetails" );
-    setSpeciesId( item.taxon.id );
+    setSpeciesId( taxon.id );
     navigate( "Species" );
   };
 
@@ -52,10 +49,10 @@ const SpeciesObservedCell = ( { item }: Props ) => {
             <Image source={icons.speciesObserved} style={styles.checkbox} />
           </ImageBackground>
           <View style={styles.cellTitle}>
-            <Text numberOfLines={3} style={styles.cellTitleText}>
-              {i18n.locale === "de"
-                ? capitalizeNames( displayName ).replace( /(- |-)/g, "-\n" )
-                : capitalizeNames( displayName )}
+            <Text numberOfLines={3} style={[styles.cellTitleText, !commonName && styles.scientificName]}>
+            {commonName
+              ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
+              : taxon.name}
             </Text>
           </View>
         </>

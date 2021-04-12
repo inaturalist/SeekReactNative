@@ -28,7 +28,7 @@ const LocationMap = ( {
   onRegionChange,
   returnToUserLocation,
   posting
-}: Props ) => (
+}: Props ): React.Node => (
   <View style={styles.container}>
     {region.latitude && (
       <MapView

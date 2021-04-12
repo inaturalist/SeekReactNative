@@ -5,11 +5,11 @@ import {
   Image,
   Text,
   View,
-  Platform,
   TouchableOpacity
 } from "react-native";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../styles/about";
 import logos from "../assets/logos";
@@ -18,14 +18,14 @@ import { UserContext } from "./UserContext";
 import ScrollWithHeader from "./UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "./UIComponents/PrivacyAndTerms";
 
-const AboutScreen = () => {
+const AboutScreen = (): Node => {
   const navigation = useNavigation();
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
   const { login } = useContext( UserContext );
 
-  const navToDebug = () => navigation.navigate( "DebugAndroid" );
-  const disabled = Platform.OS === "ios" || !login;
+  const navToDebug = () => navigation.navigate( "DebugEmailScreen" );
+  const disabled = !login;
 
   return (
     <ScrollWithHeader header="about.header">

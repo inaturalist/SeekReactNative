@@ -58,7 +58,7 @@
     "react-native-maps": "^0.27.1",
     "react-native-modal": "^11.7.0",
     "react-native-modal-datetime-picker": "^9.2.0",
-    "react-native-open-settings": "^1.0.1",
+    "react-native-open-settings": "github:albullington/react-native-open-settings",
     "react-native-pager-view": "^5.1.2",
     "react-native-picker-select": "^8.0.4",
     "react-native-progress-circle": "^2.1.0",

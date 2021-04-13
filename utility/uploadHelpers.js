@@ -229,7 +229,7 @@ const saveObservationToRealm = async ( observation: {
   }
 };
 
-const checkForNumSuccessfulUploads = async ( ): Promise<Array<Object>> => {
+const checkForNumSuccessfulUploads = async ( ): Promise<number> => {
   const realm = await Realm.open( realmConfig );
 
   return realm.objects( "UploadPhotoRealm" )
@@ -271,7 +271,7 @@ const markCurrentUploadAsSeen = async ( upload: {
   }
 };
 
-const checkForUploads = async ( ): Promise<Array<Object>> => {
+const checkForUploads = async ( ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   return realm.objects( "UploadObservationRealm" );
 };

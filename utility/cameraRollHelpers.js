@@ -22,16 +22,16 @@ const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   return options;
 };
 
-const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ) => {
+const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ): Promise<Array<Object>> => {
   const options = setGalleryFetchOptions( album, lastCursor );
 
   const photos = await CameraRoll.getPhotos( options );
   return photos;
 };
 
-const checkForUniquePhotos = ( seen: Set<Object>, assets: Array<Object> ) => {
+const checkForUniquePhotos = ( seen: Set<Object>, assets: Array<Object> ): Array<Object> => {
   // from cameraroll example: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/7fa9b7c062c166cd94e62b4ab5d1f7b5f663c9a0/example/js/CameraRollView.js#L177
-  const uniqAssets: Array<Object> = assets.map( asset => {
+  const uniqAssets = assets.map( asset => {
     let value = asset.node.image.uri;
     if ( seen.has( value ) ) {
       return;
@@ -42,7 +42,7 @@ const checkForUniquePhotos = ( seen: Set<Object>, assets: Array<Object> ) => {
   return uniqAssets;
 };
 
-const fetchAlbums = async ( cameraRoll: Array<Object> ) => {
+const fetchAlbums = async ( cameraRoll: Array<Object> ): Promise<Array<Object>> => {
   try {
     const names = cameraRoll;
     const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );

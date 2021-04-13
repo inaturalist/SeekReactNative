@@ -19,7 +19,7 @@ const showCameraSaveFailureAlert = async ( e: string, uri: string ) => {
   );
 };
 
-const checkForSystemVersion = ( ) => {
+const checkForSystemVersion = ( ): string => {
   if ( Platform.OS === "ios" ) {
     const OS = getSystemVersion( );
     return i18n.t( "camera.error_version", { OS } );
@@ -27,7 +27,7 @@ const checkForSystemVersion = ( ) => {
   return "";
 };
 
-const checkForCameraAPIAndroid = async ( ) => {
+const checkForCameraAPIAndroid = async ( ): Promise<?string> => {
   if ( Platform.OS === "android" ) {
     const features = await getSystemAvailableFeatures( );
     if ( features.includes( "android.hardware.camera" ) ) {

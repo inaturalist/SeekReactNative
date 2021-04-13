@@ -47,7 +47,7 @@ const createSpecies = ( species: {
   };
 };
 
-const checkForSpecies = ( predictions: Array<Object>, threshold: number ) => {
+const checkForSpecies = ( predictions: Array<Object>, threshold: number ): ?Array<Object> => {
   return predictions.find( leaf => (
     leaf.rank === 10 && leaf.score > threshold
   ) );
@@ -98,7 +98,7 @@ const createObservationForRealm = ( species: {
 };
 
 // online results helpers
-const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ) => {
+const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ): ?Array<Object> => {
   if ( rank <= 20 ) {
     return ancestors.find( r => r.rank_level === 20 );
   } else if ( rank <= 30 ) {
@@ -110,7 +110,7 @@ const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ) =
   }
 };
 
-const checkCommonAncestorRank = ( rank: number ) => {
+const checkCommonAncestorRank = ( rank: number ): boolean => {
   const primaryRanks = [20, 30, 40, 50];
 
   if ( primaryRanks.includes( rank ) ) {

@@ -2,7 +2,7 @@
 
 import { PermissionsAndroid } from "react-native";
 
-const checkLocationPermissions = async () => {
+const checkLocationPermissions = async (): Promise<boolean> => {
   const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
   try {

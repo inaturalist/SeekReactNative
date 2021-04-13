@@ -82,32 +82,32 @@ const setLocale = ( ) => {
   return { };
 };
 
-const requiresParent = ( birthday: string ) => {
+const requiresParent = ( birthday: string ): boolean => {
   const thirteen = subYears( new Date(), 13 );
   const formattedBirthday = parseISO( birthday );
 
   return isAfter( formattedBirthday, thirteen );
 };
 
-const checkIfChallengeAvailable = ( date: Date ) => date <= new Date();
+const checkIfChallengeAvailable = ( date: Date ): boolean => date <= new Date();
 
-const isWithinPastYear = ( reviewShownDate: Date ) => {
+const isWithinPastYear = ( reviewShownDate: Date ): boolean => {
   const lastYear = subYears( new Date(), 1 );
 
   return isAfter( reviewShownDate, lastYear );
 };
 
-const isWithinCurrentMonth = ( date: Date ) => isSameMonth( date, new Date() );
+const isWithinCurrentMonth = ( date: Date ): boolean => isSameMonth( date, new Date() );
 
-const isWithin7Days = ( date: number ) => {
+const isWithin7Days = ( date: number ): boolean => {
   const sevenDaysAgo = subDays( new Date(), 7 );
 
   return isAfter( date, sevenDaysAgo );
 };
 
-const formatShortMonthDayYear = ( date: Date ) => format( date, "PP", setLocale( ) );
+const formatShortMonthDayYear = ( date: Date ): string => format( date, "PP", setLocale( ) );
 
-const fetchSpeciesSeenDate = ( taxaId: number ) => (
+const fetchSpeciesSeenDate = ( taxaId: number ): Promise<?string> => (
   // $FlowFixMe
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
@@ -126,17 +126,17 @@ const fetchSpeciesSeenDate = ( taxaId: number ) => (
   } )
 );
 
-const createTimestamp = () => getUnixTime( new Date() );
+const createTimestamp = (): number => getUnixTime( new Date() );
 
-const serverBackOnlineTime = ( gmtTime: string ) => differenceInHours( new Date( gmtTime ), new Date() );
+const serverBackOnlineTime = ( gmtTime: string ): number => differenceInHours( new Date( gmtTime ), new Date() );
 
-const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSSS" );
+const namePhotoByTime = (): string => format( new Date(), "ddMMyy_HHmmSSSS" );
 
-const setISOTime = ( time: number ) => formatISO( fromUnixTime( time ) );
+const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
-const formatGMTTimeWithTimeZone = ( date: any ) => {
+const formatGMTTimeWithTimeZone = ( date: any ): string => {
   const { utcToZonedTime } = TimeZone;
 
   const timeZone = RNLocalize.getTimeZone( );
@@ -145,7 +145,7 @@ const formatGMTTimeWithTimeZone = ( date: any ) => {
   return TimeZone.format( zonedDate, pattern, { timeZone, locale: enUS } );
 };
 
-const formatYearMonthDay = ( date: any ) => {
+const formatYearMonthDay = ( date: any ): string => {
   if ( date && typeof date === "string" ) {
     return format( parseISO( date ), "yyyy-MM-dd" );
   }
@@ -155,7 +155,7 @@ const formatYearMonthDay = ( date: any ) => {
   return format( new Date(), "yyyy-MM-dd" );
 };
 
-const formatHourMonthSecond = () => format( new Date(), "H:mm:ss" );
+const formatHourMonthSecond = (): string => format( new Date(), "H:mm:ss" );
 
 const createShortMonthsList = ( ): Array<string> => {
   const months = Array.from( { length: 12 }, ( v, i ) => i + 1 );
@@ -165,9 +165,9 @@ const createShortMonthsList = ( ): Array<string> => {
   } );
 };
 
-const formatMonthYear = ( date: Date ) => format( date, "MMMM yyyy", setLocale( ) );
+const formatMonthYear = ( date: Date ): string => format( date, "MMMM yyyy", setLocale( ) );
 
-const formatMonth = ( date: Date ) => format( date, "MMMM", setLocale( ) );
+const formatMonth = ( date: Date ): string => format( date, "MMMM", setLocale( ) );
 
 const isAndroidDateInFuture = ( selectedDate: Date ): boolean => {
   if ( Platform.OS === "android" && isAfter( selectedDate, new Date() ) ) {

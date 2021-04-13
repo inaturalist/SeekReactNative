@@ -165,7 +165,7 @@ const setSpeciesId = ( id: number ) => {
   AsyncStorage.setItem( "id", id.toString() );
 };
 
-const getSpeciesId = async () => {
+const getSpeciesId = async (): Promise<any> => {
   try {
     const id = await AsyncStorage.getItem( "id" );
     return Number( id );

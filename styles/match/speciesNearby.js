@@ -23,15 +23,15 @@ export default StyleSheet.create( {
     height: 231
   },
   speciesNearbyContainer: {
-    backgroundColor: colors.seekTeal,
-    height: 55
+    backgroundColor: colors.seekTeal
   },
   text: {
     color: colors.white,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 24,
-    marginLeft: 12,
+    marginHorizontal: 12,
+    marginVertical: 15,
     maxWidth: 245,
     textAlign: "center"
   }

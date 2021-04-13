@@ -99,7 +99,16 @@ const SpeciesNearby = () => {
     } ).catch( () => dispatch( { type: "NO_ERROR" } ) );
   }, [error] );
 
-  useEffect( () => requestAndroidPermissions(), [requestAndroidPermissions] );
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    if ( isCurrent ) {
+      requestAndroidPermissions( );
+    }
+    return ( ) => {
+      isCurrent = false;
+    };
+  } ,[requestAndroidPermissions] );
 
   const disabled = error !== null;
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );

@@ -1,7 +1,7 @@
 // @flow
 
 import CameraRoll from "@react-native-community/cameraroll";
-import type { GetPhotosParams } from "@react-native-community/cameraroll";
+import type { GetPhotosParams, PhotoIdentifiersPage } from "@react-native-community/cameraroll";
 
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   const options: GetPhotosParams = {
@@ -22,7 +22,7 @@ const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   return options;
 };
 
-const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ): Promise<Array<Object>> => {
+const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ): Promise<PhotoIdentifiersPage> => {
   const options = setGalleryFetchOptions( album, lastCursor );
 
   const photos = await CameraRoll.getPhotos( options );

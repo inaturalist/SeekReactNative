@@ -18,8 +18,8 @@ type Props = {
   photo: Object,
   allowFontScaling?: boolean,
   taxon: {
-    iconicTaxonId: number,
-    preferredCommonName: string,
+    iconicTaxonId: ?number,
+    preferredCommonName: ?string,
     name: string
   }
 }

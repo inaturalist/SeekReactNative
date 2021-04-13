@@ -199,7 +199,11 @@ const fetchPhoto = async ( id: number ) => {
 };
 
 const fetchImageLocationOrErrorCode = async ( image: {
-  latitude?: ?number
+  time: number,
+  uri: string,
+  predictions: Array<Object>,
+  latitude?: ?number,
+  longitude?: ?number
 } ): Promise<{ image: Object, errorCode: number }> => {
   if ( image.latitude ) { return { image, errorCode: 0 }; }
 

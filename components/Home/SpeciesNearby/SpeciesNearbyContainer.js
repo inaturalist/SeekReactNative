@@ -86,10 +86,16 @@ const SpeciesNearbyContainer = ( {
   }, [taxaType, latitude, longitude, fetchSpeciesNearby] );
 
   useEffect( () => {
+    let isCurrent = true;
     if ( latitude === null ) {
       return;
     }
-    setParams();
+    if ( isCurrent ) {
+      setParams();
+    }
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [latitude, taxaType, setParams] );
 
   return (

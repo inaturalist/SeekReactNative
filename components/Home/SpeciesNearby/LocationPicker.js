@@ -17,7 +17,7 @@ import LocationMap from "./LocationMap";
 import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
 import posting from "../../../assets/posting";
 import { colors } from "../../../styles/global";
-import styles from "../../../styles/home/locationPicker";
+import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
 
@@ -89,8 +89,8 @@ const LocationPicker = ( {
     setRegion( newRegion );
   };
 
-  const returnToUserLocation = () => {
-    fetchTruncatedUserLocation().then( ( coords ) => {
+  const returnToUserLocation = ( ) => {
+    fetchTruncatedUserLocation( ).then( ( coords ) => {
       if ( coords ) {
         const lat = coords.latitude;
         const long = coords.longitude;
@@ -103,7 +103,9 @@ const LocationPicker = ( {
           longitudeDelta
         } );
       }
-    } );
+    // should we alert the user that their location isn't being found?
+    // right now this is silently failing when a user taps the location button
+    } ).catch( e => console.log( "no user location found", e ) );
   };
 
   const searchNearLocation = () => {
@@ -119,16 +121,16 @@ const LocationPicker = ( {
   const changeText = text => setCoordsByLocationName( text );
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
-      <View style={styles.header}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
+      <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
-        <View style={styles.marginLarge} />
-        <Text style={styles.headerText}>
+        <View style={viewStyles.marginLarge} />
+        <Text style={textStyles.headerText}>
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
         </Text>
-        <View style={[styles.row, styles.inputRow]}>
+        <View style={[viewStyles.row, viewStyles.inputRow]}>
           {/* $FlowFixMe */}
-          <Image source={posting.location} tintColor={colors.white} style={styles.white} />
+          <Image source={posting.location} tintColor={colors.white} style={imageStyles.white} />
           <TextInput
             accessibilityLabel={inputLocation}
             accessible
@@ -136,7 +138,7 @@ const LocationPicker = ( {
             onChangeText={changeText}
             placeholder={inputLocation}
             placeholderTextColor={colors.placeholderGray}
-            style={styles.inputField}
+            style={textStyles.inputField}
             textContentType="addressCity"
           />
         </View>
@@ -146,7 +148,7 @@ const LocationPicker = ( {
         region={region}
         returnToUserLocation={returnToUserLocation}
       />
-      <View style={styles.footer}>
+      <View style={viewStyles.footer}>
         <GreenButton
           handlePress={searchNearLocation}
           letterSpacing={0.68}

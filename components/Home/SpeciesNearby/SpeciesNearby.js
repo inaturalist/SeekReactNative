@@ -110,7 +110,7 @@ const SpeciesNearby = () => {
     };
   } ,[requestAndroidPermissions] );
 
-  const disabled = error !== null;
+  const disabled = error === "internet_error";
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );
 
   return (

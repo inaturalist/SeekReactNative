@@ -140,11 +140,15 @@ const createRegion = ( region: { latitude: number, longitude: number } ): Object
 };
 
 const createAlertUserLocationOnMaps = ( errorCode: number ) => {
+  // iOS is already popping up a system alert
+  if ( Platform.OS === "ios" ) {
+    return;
+  }
   let body;
   const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
 
   if ( errorCode === 1 ) {
-    body =  Platform.OS === "android"
+    body = Platform.OS === "android"
       ? i18n.t( "species_nearby.no_location" )
       : i18n.t( "species_nearby.please_enable_location" );
     if ( Platform.OS === "android" ) {

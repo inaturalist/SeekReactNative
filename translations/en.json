@@ -12,7 +12,7 @@
     "location_timeout": "Your location request timed out. Please try again.",
     "location_settings": "Location service is not enabled or location mode is not appropriate for the current request",
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on your device's location services"
+    "error_alert_location_services": "To continue, turn on location services in your device settings"
   },
   "get_started": {
     "header": "Get started",

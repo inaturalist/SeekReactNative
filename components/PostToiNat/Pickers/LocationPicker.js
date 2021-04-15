@@ -67,8 +67,8 @@ const LocationPicker = ( {
       setAccuracy( newAccuracy );
     } else {
       setRegion( {
-        latitude: 37.77,
-        longitude: -122.42,
+        latitude: 37.7749,
+        longitude: -122.4194,
         latitudeDelta,
         longitudeDelta
       } );

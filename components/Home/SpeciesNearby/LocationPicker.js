@@ -14,7 +14,7 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
+import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName, createAlertUserLocationOnMaps } from "../../../utility/locationHelpers";
 import posting from "../../../assets/posting";
 import { colors } from "../../../styles/global";
 import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
@@ -103,9 +103,7 @@ const LocationPicker = ( {
           longitudeDelta
         } );
       }
-    // should we alert the user that their location isn't being found?
-    // right now this is silently failing when a user taps the location button
-    } ).catch( e => console.log( "no user location found", e ) );
+    } ).catch( e => createAlertUserLocationOnMaps( e ) );
   };
 
   const searchNearLocation = () => {

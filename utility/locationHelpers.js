@@ -139,6 +139,31 @@ const createRegion = ( region: { latitude: number, longitude: number } ): Object
   };
 };
 
+const createAlertUserLocationOnMaps = ( errorCode: number ) => {
+  let body;
+  const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
+
+  if ( errorCode === 1 ) {
+    body =  Platform.OS === "android"
+      ? i18n.t( "species_nearby.no_location" )
+      : i18n.t( "species_nearby.please_enable_location" );
+    if ( Platform.OS === "android" ) {
+      button.unshift( {
+        text: i18n.t( "species_nearby.enable_location" ),
+        onPress: () => OpenSettings.openSettings()
+      } );
+    }
+  } else if ( errorCode === 2 ) {
+    body = i18n.t( "species_nearby.no_gps" );
+  } else if ( errorCode === 5 ) {
+    body = i18n.t( "species_nearby.error_alert_location_services" );
+  } else {
+    body = i18n.t( "species_nearby.location_timeout" );
+  }
+
+  Alert.alert( null, body, button );
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
@@ -146,5 +171,6 @@ export {
   fetchTruncatedUserLocation,
   createLocationAlert,
   checkForTruncatedCoordinates,
-  createRegion
+  createRegion,
+  createAlertUserLocationOnMaps
 };

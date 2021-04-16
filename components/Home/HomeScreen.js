@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback
 } from "react";
-import { BackHandler } from "react-native";
+import { BackHandler, Platform } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -17,6 +17,7 @@ import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
 import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
+import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
 
 const HomeScreen = (): Node => {
   const navigation = useNavigation( );
@@ -33,6 +34,11 @@ const HomeScreen = (): Node => {
 
   useEffect( () => {
     const checkForFirstLaunch = async () => {
+      // also adding some other app startup type things in here
+      // that don't need to run in App.js or Splash.js
+      if ( Platform.OS === "android" ) {
+        deleteDebugLogAfter7Days(); // delete debug logs on Android
+      }
       const isFirstLaunch = await checkIfCardShown();
       if ( isFirstLaunch ) {
         openModal();

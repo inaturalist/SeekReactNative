@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useCallback } from "react";
-import { Image, ImageBackground, Platform } from "react-native";
+import { Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -10,9 +10,9 @@ import styles from "../styles/splash";
 import logos from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
 import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
-import { deleteDebugLogAfter7Days } from "../utility/photoHelpers";
 import { setupBadges } from "../utility/badgeHelpers";
 import { checkForHotStarts, checkForColdStarts } from "../utility/navigationHelpers";
+import { setupUserSettings } from "../utility/settingsHelpers";
 
 const SplashScreen = (): Node => {
   const navigation = useNavigation();
@@ -31,9 +31,7 @@ const SplashScreen = (): Node => {
   useEffect( () => {
     const checkForNewUser = async () => {
       setCameraLaunched( false );
-      if ( Platform.OS === "android" ) {
-        deleteDebugLogAfter7Days(); // delete debug logs on Android
-      }
+      setupUserSettings( );
       const isFirstLaunch = await checkIfFirstLaunch();
 
       setTimeout( setupBadges, 3000 );

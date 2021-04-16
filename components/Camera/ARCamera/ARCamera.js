@@ -29,7 +29,7 @@ import {
   checkForCameraAPIAndroid
 } from "../../../utility/cameraHelpers";
 import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
-
+import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
@@ -286,6 +286,8 @@ const ARCamera = (): Node => {
       resetState( );
       requestAndroidPermissions( );
       checkCameraHardware( );
+      // reset posting to iNat
+      savePostingSuccess( false );
     } );
   }, [navigation, requestAndroidPermissions] );
 

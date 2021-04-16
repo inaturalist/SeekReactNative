@@ -6,10 +6,8 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  ImageBackground,
-  Platform
+  ImageBackground
 } from "react-native";
-import OpenSettings from "react-native-open-settings";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/home/error";
@@ -29,36 +27,25 @@ const Error = ( {
   checkInternet,
   checkLocation
 }: Props ): React.Node => {
-  const handlePress = () => {
+  const handlePress = ( ) => {
     if ( error === "internet_error" ) {
-      checkInternet();
+      checkInternet( );
     } else if ( error ) {
-      checkLocation();
+      checkLocation( );
     }
   };
 
-  const openSettings = () => OpenSettings.openSettings();
+  const openMap = ( ) => console.log( "open map" );
 
-  const showPermissionsButton = () => {
-    if ( Platform.OS === "android" ) {
-      return (
-        <View style={styles.greenButton}>
-          <GreenButton
-            color={colors.seekGreen}
-            handlePress={openSettings}
-            text="species_nearby.enable_location"
-          />
-        </View>
-      );
-    }
-    return (
-      <View style={styles.greenButton}>
-        <Text style={styles.whiteText}>
-          {i18n.t( "species_nearby.please_enable_location" ).toLocaleUpperCase()}
-        </Text>
-      </View>
-    );
-  };
+  const showButton = ( ) => (
+    <View style={styles.greenButton}>
+      <GreenButton
+        color={colors.seekGreen}
+        handlePress={openMap}
+        text="species_nearby.choose_location_on_map"
+      />
+    </View>
+  );
 
   return (
     <TouchableOpacity
@@ -77,7 +64,7 @@ const Error = ( {
               : i18n.t( `species_nearby.${error}` )}
           </Text>
         </View>
-        {error === "location_error" && showPermissionsButton()}
+        {error === "species_nearby_requires_location" && showButton( )}
       </ImageBackground>
     </TouchableOpacity>
     );

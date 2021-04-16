@@ -25,7 +25,7 @@ const SpeciesNearby = () => {
       case "DOWNTIME_ERROR":
         return { ...state, error: "downtime" };
       case "LOCATION_ERROR":
-        return { ...state, error: action.error };
+        return { ...state, error: "species_nearby_requires_location" };
       case "LOCATION_UPDATED":
         return {
           ...state,
@@ -61,33 +61,23 @@ const SpeciesNearby = () => {
 
   const updateDowntimeError = useCallback( () => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
-  const setLocationError = useCallback( ( errorCode ) => {
-    if ( errorCode === 1 ) {
-      dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
-    } else if ( errorCode === 2 ) {
-      dispatch( { type: "LOCATION_ERROR", error: "no_gps" } );
-    } else if ( errorCode === 5 ) {
-      dispatch( { type: "LOCATION_ERROR", error: "location_settings" } );
-    } else {
-      dispatch( { type: "LOCATION_ERROR", error: "location_timeout" } );
-    }
-  }, [] );
+  const setLocationError = useCallback( ( ) => dispatch( { type: "LOCATION_ERROR" } ), [] );
 
   const getGeolocation = useCallback( () => {
     fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
       updateLatLng( latitude, longitude );
-    } ).catch( ( errorCode ) => setLocationError( errorCode ) );
+    } ).catch( ( ) => setLocationError( ) );
   }, [setLocationError, updateLatLng] );
 
   const requestAndroidPermissions = useCallback( () => {
     if ( latLng.latitude ) { return; }
     // only update location if user has not selected a location already
     if ( Platform.OS === "android" && granted === false ) {
-      dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
+      setLocationError( );
     } else {
       getGeolocation();
     }
-  }, [latLng, getGeolocation, granted] );
+  }, [latLng, getGeolocation, granted, setLocationError] );
 
   const checkInternet = useCallback( () => {
     checkForInternet().then( ( internet ) => {

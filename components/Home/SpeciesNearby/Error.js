@@ -17,15 +17,17 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 
 type Props = {
-  +error: string,
-  +checkInternet: Function,
-  +checkLocation: Function
+  error: string,
+  checkInternet: ( ) => void,
+  checkLocation: ( ) => void,
+  openLocationPicker: ( ) => void
 }
 
 const Error = ( {
   error,
   checkInternet,
-  checkLocation
+  checkLocation,
+  openLocationPicker
 }: Props ): React.Node => {
   const handlePress = ( ) => {
     if ( error === "internet_error" ) {
@@ -35,13 +37,11 @@ const Error = ( {
     }
   };
 
-  const openMap = ( ) => console.log( "open map" );
-
   const showButton = ( ) => (
     <View style={styles.greenButton}>
       <GreenButton
         color={colors.seekGreen}
-        handlePress={openMap}
+        handlePress={openLocationPicker}
         text="species_nearby.choose_location_on_map"
       />
     </View>

@@ -1,9 +1,5 @@
-import React, {
-  useEffect,
-  useCallback,
-  useReducer
-} from "react";
-import { View, Platform, Text } from "react-native";
+import React, { useEffect, useCallback, useReducer } from "react";
+import { View, Platform, Text, Modal } from "react-native";
 
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
@@ -14,6 +10,7 @@ import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
 import { checkForInternet } from "../../../utility/helpers";
 import { useLocationName, useLocationPermission } from "../../../utility/customHooks";
 import Error from "./Error";
+import LocationPicker from "./LocationPicker";
 
 const SpeciesNearby = () => {
   const granted = useLocationPermission();
@@ -36,6 +33,8 @@ const SpeciesNearby = () => {
         return { ...state, taxaType: action.taxaType };
       case "NO_ERROR":
         return { ...state, error: null };
+      case "SHOW_MODAL":
+        return { ...state, showModal: action.showModal };
       default:
         throw new Error();
     }
@@ -45,10 +44,11 @@ const SpeciesNearby = () => {
       longitude: null
     },
     taxaType: "all",
-    error: null
+    error: null,
+    showModal: false
   } );
 
-  const { latLng, error, taxaType } = state;
+  const { latLng, error, taxaType, showModal } = state;
 
   const location = useLocationName( latLng.latitude, latLng.longitude );
 
@@ -62,6 +62,9 @@ const SpeciesNearby = () => {
   const updateDowntimeError = useCallback( () => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
   const setLocationError = useCallback( ( ) => dispatch( { type: "LOCATION_ERROR" } ), [] );
+
+  const openLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } ), [] );
+  const closeLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } ), [] );
 
   const getGeolocation = useCallback( () => {
     fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
@@ -103,8 +106,21 @@ const SpeciesNearby = () => {
   const disabled = error === "internet_error";
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );
 
+  const renderModal = ( ) => (
+    <Modal visible={showModal}>
+      <LocationPicker
+        latitude={latLng.latitude}
+        location={location}
+        longitude={latLng.longitude}
+        closeLocationPicker={closeLocationPicker}
+        updateLatLng={updateLatLng}
+      />
+    </Modal>
+  );
+
   return (
     <View style={styles.container}>
+      {showModal && renderModal( )}
       <Text style={[styles.headerText, styles.header]}>
         {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
       </Text>
@@ -113,6 +129,7 @@ const SpeciesNearby = () => {
         updateLatLng={updateLatLng}
         disabled={disabled}
         location={locationText}
+        openLocationPicker={openLocationPicker}
       />
       <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
       <View style={styles.marginBottom} />
@@ -121,6 +138,7 @@ const SpeciesNearby = () => {
           error={error}
           checkInternet={checkInternet}
           checkLocation={requestAndroidPermissions}
+          openLocationPicker={openLocationPicker}
         />
       ) : (
         <SpeciesNearbyContainer

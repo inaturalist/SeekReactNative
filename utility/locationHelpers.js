@@ -61,37 +61,75 @@ const fetchTruncatedUserLocation = (): Promise<TruncatedCoords> => (
   } )
 );
 
+const setPlaceName = ( results: Array<Object> ) => {
+  let placeName = null;
+
+  const { locality, subAdminArea, adminArea, country, feature } = results[0];
+
+  // we could get as specific as sublocality here, but a lot of the results are
+  // too specific to be helpful in the U.S. at least. neighborhoods, parks, etc.
+  if ( locality ) {
+    placeName = locality;
+  } else if ( subAdminArea ) {
+    placeName = subAdminArea;
+  } else if ( adminArea ) {
+    placeName = adminArea;
+  } else if ( country ) {
+    placeName = country;
+  } else if ( feature ) {
+    // this one shows non-land areas like Channels, Seas, Oceans
+    placeName = feature;
+  }
+  return placeName;
+};
+
 const fetchLocationName = ( lat: ?number, lng: ?number ): Promise<?string> => (
   new Promise( ( resolve, reject ) => {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      if ( result.length === 0 ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( results ) => {
+      if ( results.length === 0 ) {
         resolve( null );
       }
-      let placeName = null;
 
-      const { locality, subAdminArea, adminArea, country, feature } = result[0];
-
-      // we could get as specific as sublocality here, but a lot of the results are
-      // too specific to be helpful in the U.S. at least. neighborhoods, parks, etc.
-      if ( locality ) {
-        placeName = locality;
-      } else if ( subAdminArea ) {
-        placeName = subAdminArea;
-      } else if ( adminArea ) {
-        placeName = adminArea;
-      } else if ( country ) {
-        placeName = country;
-      } else if ( feature ) {
-        // this one shows non-land areas like Channels, Seas, Oceans
-        placeName = feature;
-      }
-
+      const placeName = setPlaceName( results );
       resolve( placeName );
     } ).catch( ( e ) => {
       reject( e );
     } );
   } )
 );
+
+const fetchCoordsByLocationName = async ( location: string ): Promise<{
+  placeName: ?string,
+  position: {
+    lat: ?number,
+    lng: ?number
+  }
+}> => {
+  const emptyResults = {
+    placeName: null,
+    position: {
+      lat: null,
+      lng: null
+    }
+  };
+
+  try {
+    const results = await Geocoder.geocodeAddress( location );
+
+    if ( results.length === 0 ) { return emptyResults; }
+
+    const placeName = setPlaceName( results );
+    const { position } = results[0];
+
+    return {
+      placeName,
+      position
+    };
+  } catch ( e ) {
+    console.log( e, "couldn't fetch coords by location name" );
+    return emptyResults;
+  }
+};
 
 const createLocationAlert = ( errorCode: number ) => {
   let body;
@@ -176,5 +214,6 @@ export {
   createLocationAlert,
   checkForTruncatedCoordinates,
   createRegion,
-  createAlertUserLocationOnMaps
+  createAlertUserLocationOnMaps,
+  fetchCoordsByLocationName
 };

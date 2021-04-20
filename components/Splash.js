@@ -33,8 +33,8 @@ const SplashScreen = ( ): Node => {
       setupUserSettings( );
       const isFirstLaunch = await checkIfFirstLaunch( );
 
-      setTimeout( setupBadges, 3000 );
       if ( isFirstLaunch ) {
+        setTimeout( setupBadges, 3000 );
         setQuickActions( );
         addARCameraFiles( );
         resetRouter( "Onboarding" );

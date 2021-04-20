@@ -9,40 +9,41 @@ import { colors } from "../styles/global";
 import styles from "../styles/splash";
 import logos from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
-import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
+import { addARCameraFiles, checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { setupBadges } from "../utility/badgeHelpers";
-import { checkForHotStarts, checkForColdStarts } from "../utility/navigationHelpers";
+import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
 import { setupUserSettings } from "../utility/settingsHelpers";
 
-const SplashScreen = (): Node => {
-  const navigation = useNavigation();
-
+const SplashScreen = ( ): Node => {
+  const navigation = useNavigation( );
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );
 
   const resetRouter = useCallback( ( name ) => {
-    setTimeout( () => navigation.reset( { routes: [{ name }] } ), 2000 );
+    setTimeout( ( ) => navigation.reset( { routes: [{ name }] } ), 2000 );
   }, [navigation] );
 
-  const checkForQuickAction = useCallback( () => {
+  const checkForQuickAction = useCallback( ( ) => {
     checkForHotStarts( navToCamera );
     checkForColdStarts( navToCamera, resetRouter );
   }, [resetRouter, navToCamera] );
 
-  useEffect( () => {
-    const checkForNewUser = async () => {
+  useEffect( ( ) => {
+    const checkForNewUser = async ( ) => {
       setCameraLaunched( false );
       setupUserSettings( );
-      const isFirstLaunch = await checkIfFirstLaunch();
+      const isFirstLaunch = await checkIfFirstLaunch( );
 
       setTimeout( setupBadges, 3000 );
       if ( isFirstLaunch ) {
+        setQuickActions( );
+        addARCameraFiles( );
         resetRouter( "Onboarding" );
       } else {
-        checkForQuickAction();
+        checkForQuickAction( );
       }
     };
 
-    checkForNewUser();
+    checkForNewUser( );
   }, [navigation, checkForQuickAction, resetRouter] );
 
   return (

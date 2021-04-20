@@ -56,7 +56,7 @@
     "react-native-logs": "^3.0.3",
     "react-native-mail": "^6.0.2",
     "react-native-maps": "^0.27.1",
-    "react-native-modal": "^11.7.0",
+    "react-native-modal": "^11.10.0",
     "react-native-modal-datetime-picker": "^9.2.1",
     "react-native-open-settings": "github:albullington/react-native-open-settings",
     "react-native-pager-view": "^5.1.3",

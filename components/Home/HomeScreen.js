@@ -19,7 +19,7 @@ import UploadStatus from "./UploadStatus";
 import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
 
-const HomeScreen = (): Node => {
+const HomeScreen = ( ): Node => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
   const [showUploadCard, setShowUploadCard] = useState( false );
@@ -32,30 +32,30 @@ const HomeScreen = (): Node => {
 
   const updateSuccessfulUploads = num => setSuccessfulUploads( num );
 
-  useEffect( () => {
-    const checkForFirstLaunch = async () => {
+  useEffect( ( ) => {
+    const checkForFirstLaunch = async ( ) => {
       // also adding some other app startup type things in here
       // that don't need to run in App.js or Splash.js
       if ( Platform.OS === "android" ) {
-        deleteDebugLogAfter7Days(); // delete debug logs on Android
+        deleteDebugLogAfter7Days( ); // delete debug logs on Android
       }
-      const isFirstLaunch = await checkIfCardShown();
+      const isFirstLaunch = await checkIfCardShown( );
       if ( isFirstLaunch ) {
-        openModal();
+        openModal( );
       }
     };
-    checkForFirstLaunch();
+    checkForFirstLaunch( );
   }, [] );
 
   useFocusEffect(
-    useCallback( () => {
-      const onBackPress = () => {
+    useCallback( ( ) => {
+      const onBackPress = ( ) => {
         return true; // following custom Android back behavior template in React Navigation
       };
 
       BackHandler.addEventListener( "hardwareBackPress", onBackPress );
 
-      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+      return ( ) => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
     }, [] )
   );
 

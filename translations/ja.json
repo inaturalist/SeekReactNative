@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "近くの生き物",
-    "location_error": "周囲の生き物を表示するためには、位置情報が必要です。",
-    "location_device": "周囲の生き物を表示したり観察を投稿するには、位置情報が必要です。デバイスの位置情報サービスがオンにされていることをご確認ください。",
-    "enable_location": "設定から位置情報サービスをオンにしてください。",
-    "please_enable_location": "Please enable location in settings",
     "internet_error": "インターネットへの接続が必要です。再試行するにはタップしてください。",
     "no_location": "位置情報がありません",
     "no_species": "あなたの周囲で生き物の観察がされていないようです。位置を変えたり、種のフィルターを広げてください。",
-    "no_gps": "GPSシグナルが検出できません。",
-    "location_timeout": "位置情報の要求がタイムアウトしました。再試行してください。",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "始めよう！",

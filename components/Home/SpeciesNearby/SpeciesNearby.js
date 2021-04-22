@@ -62,7 +62,11 @@ const SpeciesNearby = ( ) => {
 
   const updateDowntimeError = useCallback( ( ) => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
-  const setLocationError = useCallback( ( ) => dispatch( { type: "LOCATION_ERROR" } ), [] );
+  const setLocationError = useCallback( ( ) => {
+    if ( error !== "species_nearby_requires_location" ) {
+      dispatch( { type: "LOCATION_ERROR" } );
+    }
+   }, [error] );
 
   const openLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } ), [] );
   const closeLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } ), [] );
@@ -73,7 +77,15 @@ const SpeciesNearby = ( ) => {
     } ).catch( ( ) => setLocationError( ) );
   }, [setLocationError, updateLatLng] );
 
-  const requestAndroidPermissions = useCallback( async ( ) => {
+  const checkLocationPermissions = useCallback( ( ) => {
+    if ( Platform.OS === "android" && granted === false ) {
+      setLocationError( );
+    } else {
+      getGeolocation( );
+    }
+  }, [getGeolocation, granted, setLocationError] );
+
+  const checkForSavedLocation = useCallback( async ( ) => {
     // only update location if user has not selected a location already
     if ( latLng.latitude ) { return; }
 
@@ -89,13 +101,15 @@ const SpeciesNearby = ( ) => {
 
     if ( searchedLocation ) {
       const { latitude, longitude } = JSON.parse( searchedLocation );
-      updateLatLng( latitude, longitude );
-    } else if ( Platform.OS === "android" && granted === false ) {
-      setLocationError( );
+      if ( !latitude ) {
+        checkLocationPermissions( );
+      } else {
+        updateLatLng( latitude, longitude );
+      }
     } else {
-      getGeolocation( );
+      checkLocationPermissions( );
     }
-  }, [latLng, getGeolocation, granted, setLocationError, updateLatLng] );
+  }, [latLng, updateLatLng, checkLocationPermissions] );
 
   const checkInternet = useCallback( ( ) => {
     checkForInternet( ).then( ( internet ) => {
@@ -111,12 +125,12 @@ const SpeciesNearby = ( ) => {
     let isCurrent = true;
 
     if ( isCurrent ) {
-      requestAndroidPermissions( );
+      checkForSavedLocation( );
     }
     return ( ) => {
       isCurrent = false;
     };
-  } ,[requestAndroidPermissions] );
+  } ,[checkForSavedLocation] );
 
   useEffect( ( ) => {
     saveSpeciesNearbyLocation( JSON.stringify( latLng ) );
@@ -156,7 +170,7 @@ const SpeciesNearby = ( ) => {
         <Error
           error={error}
           checkInternet={checkInternet}
-          checkLocation={requestAndroidPermissions}
+          checkLocation={checkForSavedLocation}
           openLocationPicker={openLocationPicker}
         />
       ) : (

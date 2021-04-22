@@ -12,7 +12,7 @@ import backgrounds from "../assets/backgrounds";
 import { addARCameraFiles, checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { setupBadges } from "../utility/badgeHelpers";
 import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
-import { setupUserSettings } from "../utility/settingsHelpers";
+import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
 
 const SplashScreen = ( ): Node => {
   const navigation = useNavigation( );
@@ -30,6 +30,7 @@ const SplashScreen = ( ): Node => {
   useEffect( ( ) => {
     const checkForNewUser = async ( ) => {
       setCameraLaunched( false );
+      await deleteFromAsyncStorage( "speciesNearbyLocation" );
       setupUserSettings( );
       const isFirstLaunch = await checkIfFirstLaunch( );
 

@@ -11,6 +11,8 @@ import { checkForInternet } from "../../../utility/helpers";
 import { useLocationName, useLocationPermission } from "../../../utility/customHooks";
 import Error from "./Error";
 import LocationPicker from "./LocationPicker";
+import { fetchFromAsyncStorage, saveSpeciesNearbyLocation } from "../../../utility/settingsHelpers";
+import { search } from "inaturalistjs/lib/endpoints/authorized_applications";
 
 const SpeciesNearby = () => {
   const granted = useLocationPermission();
@@ -72,15 +74,29 @@ const SpeciesNearby = () => {
     } ).catch( ( ) => setLocationError( ) );
   }, [setLocationError, updateLatLng] );
 
-  const requestAndroidPermissions = useCallback( () => {
-    if ( latLng.latitude ) { return; }
+  const requestAndroidPermissions = useCallback( async ( ) => {
     // only update location if user has not selected a location already
-    if ( Platform.OS === "android" && granted === false ) {
+    if ( latLng.latitude ) { return; }
+
+    const fetchSearchedLocation = async ( ) => {
+      return await fetchFromAsyncStorage( "speciesNearbyLocation" );
+    };
+
+    // check for truncated location from device or location picker
+    // before trying to access user location again
+    // this value is cleared when user reopens Seek, so the user can
+    // see species nearby in their new location
+    const searchedLocation = await fetchSearchedLocation( );
+
+    if ( searchedLocation ) {
+      const { latitude, longitude } = JSON.parse( searchedLocation );
+      updateLatLng( latitude, longitude );
+    } else if ( Platform.OS === "android" && granted === false ) {
       setLocationError( );
     } else {
       getGeolocation();
     }
-  }, [latLng, getGeolocation, granted, setLocationError] );
+  }, [latLng, getGeolocation, granted, setLocationError, updateLatLng] );
 
   const checkInternet = useCallback( () => {
     checkForInternet().then( ( internet ) => {
@@ -103,6 +119,10 @@ const SpeciesNearby = () => {
     };
   } ,[requestAndroidPermissions] );
 
+  useEffect( ( ) => {
+    saveSpeciesNearbyLocation( JSON.stringify( latLng ) );
+  }, [latLng] );
+
   const disabled = error === "internet_error";
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );
 
@@ -120,7 +140,7 @@ const SpeciesNearby = () => {
 
   return (
     <View style={styles.container}>
-      {showModal && renderModal( )}
+      {renderModal( )}
       <Text style={[styles.headerText, styles.header]}>
         {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
       </Text>

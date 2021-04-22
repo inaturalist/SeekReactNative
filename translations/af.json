@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Spesies naby",
-    "location_error": "Om spesies naby u te vertoon moet ons u ligging gebruik.",
-    "location_device": "Seek benodig u ligging om nabygeleë spesies te vertoon en waarnemings toe te voeg. Maak seker u toestel se ligging is geaktiveer.",
-    "enable_location": "Aktiveer ligging in instellings",
-    "please_enable_location": "Aktiveer ligging in instellings",
     "internet_error": "Ons benodig die Internet om nabygeleë spesies te genereer. Tik om weer te probeer.",
     "no_location": "Geen Ligging",
     "no_species": "Daar blyk nie baie spesies naby waargeneem te wees nie! Probeer u ligging verander of om die spesiefilter te verbreed.",
-    "no_gps": "Geen GPS-sein gevind.",
-    "location_timeout": "U liggingversoek het uitgetel. Probeer weer.",
-    "location_settings": "Liggingdienste is nie geaktiveer nie of liggingmodus is nie geskik vir die huidige versoek nie"
+    "input_location_above_map": "Geen ligging gevind; voer ’n liggingnaam in om die kaart te laai en na naby spesies te soek",
+    "error_alert_location_services": "Aktiveer liggingdienste in u toestelinstellings om voort te gaan",
+    "species_nearby_requires_location": "Spesies naby vereis u ligging. Aktiveer asb. ligging in instellings\n",
+    "choose_location_on_map": "KIES LIGGING OP KAART"
   },
   "get_started": {
     "header": "Val weg",
@@ -25,48 +22,48 @@
     "continue_challenge": "Sit uitdaging voort",
     "view_all": "Bekyk alle uitdagings",
     "new_join": "Voeg waarnemings met die Seek Kamera toe om die Uitdaging-kenteken te verdien!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat-admins: dankie dat u Seek toets! U sien die nuutste iNat-uitdaging voor die begin van die maand, vir testdoeleindes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PLAAS OP INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Laai tans {{count}} waarnemings op",
+      "one": "Laai tans {{count}} waarneming op",
+      "two": "Laai tans {{count}} waarnemings op",
+      "few": "Laai tans {{count}} waarnemings op",
+      "many": "Laai tans {{count}} waarnemings op",
+      "other": "Laai tans {{count}} waarnemings op"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} waarnemings opgelaai!",
+      "one": "{{count}} waarneming opgelaai!",
+      "two": "{{count}} waarnemings opgelaai!",
+      "few": "{{count}} waarnemings opgelaai!",
+      "many": "{{count}} waarnemings opgelaai!",
+      "other": "{{count}} waarnemings opgelaai!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} waarnemings om op te laai",
+      "one": "{{count}} waarneming om op te laai",
+      "two": "{{count}} waarnemings om op te laai",
+      "few": "{{count}} waarnemings om op te laai",
+      "many": "{{count}} waarnemings om op te laai",
+      "other": "{{count}} waarnemings om op te laai"
     },
     "upload_now": "LAAI NOU OP",
     "error_internet": "Geen internet bespeur nie. Probeer later weer.",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+      "one": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+      "two": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+      "few": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+      "many": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur.",
+      "other": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor {{count}} uur."
     },
     "error_unknown": "Oplaai het misluk. Foutdetails: {{errorText}}",
     "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_photo": "Geen toegang meer tot foto op die toestel nie.",
+    "a_few": "’n paar"
   },
   "notifications": {
     "header": "Kennisgewings",
@@ -368,7 +365,7 @@
     "error_version": "Seek se UR-kamera vereis iOS 11.0+. U toestel loop op iOS-weergawe {{OS}}.",
     "error_cameraManager": "Jammer, die Kamerabestuurder kon nie laai nie",
     "error_photoError": "Jammer, die foto-voorwerp is nie gevind nie",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "Indien u toestemmings ingestel is op ‘Geselekteerde foto’s’ moet u dalk Seek herbegin of na iOS Instellings > Seek > Foto’s > Geselekteerde foto’s gaan om te kies welke foto’s vertoon mag word.",
     "plant_filter": "Slegs plante",
     "non_plant_filter": "Slegs nie-plante",
     "filters_off": "Filters af"

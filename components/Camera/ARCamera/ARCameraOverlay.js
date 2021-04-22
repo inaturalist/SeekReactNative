@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/camera/arCameraOverlay";
+import { viewStyles, textStyles } from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
 import { setCameraHelpText } from "../../../utility/textHelpers";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -64,13 +64,13 @@ const ARCameraOverlay = ( {
   filterByTaxonId
 }: Props ): Node => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const { autoCapture } = useFetchUserSettings( );
   const [filterIndex, setFilterIndex] = useState( null );
 
-  const toggleFilterIndex = () => {
+  const toggleFilterIndex = ( ) => {
     if ( filterIndex !== null && filterIndex < 2 ) {
       setFilterIndex( filterIndex + 1 );
     } else {
@@ -78,7 +78,7 @@ const ARCameraOverlay = ( {
     }
   };
 
-  useEffect( () => {
+  useEffect( ( ) => {
     let isCurrent = true;
     if ( filterIndex && isCurrent ) {
       filterByTaxonId( settings[filterIndex].taxonId, settings[filterIndex].negativeFilter );
@@ -88,17 +88,17 @@ const ARCameraOverlay = ( {
     };
   }, [filterIndex, filterByTaxonId] );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     let isCurrent = true;
     if ( rankToRender === "species" && autoCapture && isCurrent ) {
-      takePicture();
+      takePicture( );
     }
     return ( ) => {
       isCurrent = false;
     };
   }, [rankToRender, takePicture, autoCapture] );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     let isCurrent = true;
     const entrance = {
       toValue: 1,
@@ -117,50 +117,50 @@ const ARCameraOverlay = ( {
       Animated.sequence( [
         Animated.timing( fadeOut, entrance ),
         Animated.timing( fadeOut, exit )
-      ] ).start();
+      ] ).start( );
     }
     return ( ) => {
       isCurrent = false;
     };
   }, [fadeOut, filterIndex] );
 
-  const showFilterText = () => {
+  const showFilterText = ( ) => {
     if ( filterIndex === 0 || filterIndex === null ) {
       return;
     }
 
     return (
-      <View style={styles.plantFilter}>
+      <View style={viewStyles.plantFilter}>
         <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
       </View>
     );
   };
 
-  const showAnimation = () => {
+  const showAnimation = ( ) => {
     if ( !filterIndex ) { return; }
 
     return (
-      <Animated.View style={[styles.plantFilter, { opacity: fadeOut }]}>
+      <Animated.View style={[viewStyles.plantFilter, { opacity: fadeOut }]}>
         <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
       </Animated.View>
     );
   };
 
-  const showCameraHelp = () => navigate( "CameraHelp" );
+  const showCameraHelp = ( ) => navigate( "CameraHelp" );
 
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
       <ARCameraHeader ranks={ranks} />
-      {isAndroid && showFilterText()}
-      {( isAndroid && filterIndex === 0 ) && showAnimation()}
-      <Text style={styles.scanText}>{helpText}</Text>
+      {isAndroid && showFilterText( )}
+      {( isAndroid && filterIndex === 0 ) && showAnimation( )}
+      <Text style={textStyles.scanText}>{helpText}</Text>
       {isAndroid && (
         <TouchableOpacity
           accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
           accessible
           onPress={toggleFilterIndex}
-          style={styles.plantFilterSettings}
+          style={viewStyles.plantFilterSettings}
         >
           <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
         </TouchableOpacity>
@@ -170,7 +170,7 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={styles.shutter}
+        style={viewStyles.shutter}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
@@ -179,7 +179,7 @@ const ARCameraOverlay = ( {
         accessibilityLabel={i18n.t( "accessibility.help" )}
         accessible
         onPress={showCameraHelp}
-        style={styles.help}
+        style={viewStyles.help}
       >
         <Image source={icons.cameraHelp} />
       </TouchableOpacity>

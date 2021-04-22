@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Arter i nærheden",
-    "location_error": "For at vise dig arter i nærheden, har vi brug for at kende din placering.",
-    "location_device": "Seek har brug for din placering for at vise arter i nærheden og tilføje observationer. Sørg venligst for at din enheds placering er slået til.",
-    "enable_location": "Aktiver placering i indstillinger",
-    "please_enable_location": "Aktivér venligst placering i indstillinger",
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden. Tryk for at prøve igen.",
     "no_location": "Ingen placering",
     "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret.",
-    "no_gps": "GPS-signal ikke fundet.",
-    "location_timeout": "Din placeringsanmodning udløb. Prøv venligst igen.",
-    "location_settings": "Placeringsfunktion er ikke aktiveret eller placeringstilstand er ikke egnet til den aktuelle forespørgsel"
+    "input_location_above_map": "Ingen placering fundet; indtast et stednavn ovenfor for at indlæse kortet og søge efter arter i nærheden",
+    "error_alert_location_services": "For at fortsætte skal du aktivere placeringstjenester i dine enhedsindstillinger",
+    "species_nearby_requires_location": "Arter i nærheden kræver din placering. Aktivér placering i indstillinger",
+    "choose_location_on_map": "VÆLG PLACERING PÅ KORT"
   },
   "get_started": {
     "header": "Kom i gang",

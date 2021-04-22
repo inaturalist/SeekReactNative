@@ -17,10 +17,7 @@ import styles from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
 import { setCameraHelpText } from "../../../utility/textHelpers";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
-import Modal from "../../UIComponents/Modals/Modal";
-import WarningModal from "../../Modals/WarningModal";
 import ARCameraHeader from "./ARCameraHeader";
-import { checkIfCameraLaunched } from "../../../utility/helpers";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
@@ -70,7 +67,6 @@ const ARCameraOverlay = ( {
   const { navigate } = useNavigation();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
-  const [showModal, setModal] = useState( false );
   const { autoCapture } = useFetchUserSettings( );
   const [filterIndex, setFilterIndex] = useState( null );
 
@@ -82,9 +78,6 @@ const ARCameraOverlay = ( {
     }
   };
 
-  const openModal = () => setModal( true );
-  const closeModal = () => setModal( false );
-
   useEffect( () => {
     let isCurrent = true;
     if ( filterIndex && isCurrent ) {
@@ -94,20 +87,6 @@ const ARCameraOverlay = ( {
       isCurrent = false;
     };
   }, [filterIndex, filterByTaxonId] );
-
-  useEffect( () => {
-    let isCurrent = true;
-    const checkForFirstCameraLaunch = async () => {
-      const isFirstLaunch = await checkIfCameraLaunched();
-      if ( isFirstLaunch && isCurrent ) {
-        openModal();
-      }
-    };
-    checkForFirstCameraLaunch();
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [] );
 
   useEffect( () => {
     let isCurrent = true;
@@ -171,44 +150,39 @@ const ARCameraOverlay = ( {
 
   return (
     <>
-      <Modal
-        showModal={showModal}
-        closeModal={closeModal}
-        modal={<WarningModal closeModal={closeModal} />}
-      />
-        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
-        <ARCameraHeader ranks={ranks} />
-        {isAndroid && showFilterText()}
-        {( isAndroid && filterIndex === 0 ) && showAnimation()}
-        <Text style={styles.scanText}>{helpText}</Text>
-        {isAndroid && (
-          <TouchableOpacity
-            accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
-            accessible
-            onPress={toggleFilterIndex}
-            style={styles.plantFilterSettings}
-          >
-            <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
-          </TouchableOpacity>
-        )}
+      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
+      <ARCameraHeader ranks={ranks} />
+      {isAndroid && showFilterText()}
+      {( isAndroid && filterIndex === 0 ) && showAnimation()}
+      <Text style={styles.scanText}>{helpText}</Text>
+      {isAndroid && (
         <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+          accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
           accessible
-          testID="takePhotoButton"
-          onPress={takePicture}
-          style={styles.shutter}
-          disabled={pictureTaken}
+          onPress={toggleFilterIndex}
+          style={styles.plantFilterSettings}
         >
-          <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+          <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
         </TouchableOpacity>
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.help" )}
-          accessible
-          onPress={showCameraHelp}
-          style={styles.help}
-        >
-          <Image source={icons.cameraHelp} />
-        </TouchableOpacity>
+      )}
+      <TouchableOpacity
+        accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+        accessible
+        testID="takePhotoButton"
+        onPress={takePicture}
+        style={styles.shutter}
+        disabled={pictureTaken}
+      >
+        <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        accessibilityLabel={i18n.t( "accessibility.help" )}
+        accessible
+        onPress={showCameraHelp}
+        style={styles.help}
+      >
+        <Image source={icons.cameraHelp} />
+      </TouchableOpacity>
     </>
   );
 };

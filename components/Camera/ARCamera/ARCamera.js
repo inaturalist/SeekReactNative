@@ -35,12 +35,15 @@ import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
+import { checkIfCameraLaunched } from "../../../utility/helpers";
 // import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
+import Modal from "../../UIComponents/Modals/Modal";
+import WarningModal from "../../Modals/WarningModal";
 
-const ARCamera = (): Node => {
-  const navigation = useNavigation();
-  const isFocused = useIsFocused();
+const ARCamera = ( ): Node => {
+  const navigation = useNavigation( );
+  const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
 
   // eslint-disable-next-line no-shadow
@@ -74,8 +77,12 @@ const ARCamera = (): Node => {
         return { ...state, cameraType: action.cameraType };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
+      case "SHOW_MODAL":
+        return { ...state, showModal: true };
+      case "CLOSE_MODAL":
+        return { ...state, showModal: false };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     ranks: {},
@@ -85,7 +92,8 @@ const ARCamera = (): Node => {
     cameraLoaded: false,
     negativeFilter: false,
     taxonId: null,
-    cameraType: "back"
+    cameraType: "back",
+    showModal: false
   } );
 
   const {
@@ -96,7 +104,8 @@ const ARCamera = (): Node => {
     cameraLoaded,
     negativeFilter,
     taxonId,
-    cameraType
+    cameraType,
+    showModal
   } = state;
 
   const rankToRender = Object.keys( ranks )[0] || null;
@@ -111,7 +120,7 @@ const ARCamera = (): Node => {
 
   const navigateToResults = useCallback( ( uri, predictions ) => {
     const image = {
-      time: createTimestamp(), // add current time to AR camera photos
+      time: createTimestamp( ), // add current time to AR camera photos
       uri,
       predictions
     };
@@ -119,7 +128,7 @@ const ARCamera = (): Node => {
     fetchOfflineResults( image, navigation );
   }, [navigation] );
 
-  const resetPredictions = () => {
+  const resetPredictions = ( ) => {
     // only rerender if state has different values than before
     if ( Object.keys( ranks ).length > 0 ) {
       dispatch( { type: "RESET_RANKS" } );
@@ -157,7 +166,7 @@ const ARCamera = (): Node => {
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     if ( rankToRender === "species" ) {
       // this block keeps the last species seen displayed for 2.5 seconds
-      setTimeout( () => resetPredictions(), 2500 );
+      setTimeout( ( ) => resetPredictions( ), 2500 );
     } else {
       ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
         // skip this block if a prediction state has already been set
@@ -170,7 +179,7 @@ const ARCamera = (): Node => {
           dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
         }
         if ( !predictionSet ) {
-          resetPredictions();
+          resetPredictions( );
         }
       } );
     }
@@ -194,7 +203,7 @@ const ARCamera = (): Node => {
   // event.nativeEvent.error is not implemented on Android
   // it shows up via handleCameraError on iOS
   // ignoring this callback since we're checking all permissions in React Native
-  const handleCameraPermissionMissing = () => {};
+  const handleCameraPermissionMissing = ( ) => {};
 
   const handleClassifierError = ( event: { nativeEvent?: { error: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
@@ -226,14 +235,14 @@ const ARCamera = (): Node => {
     checkPermissions( );
   }, [savePhoto] );
 
-  const takePicture = useCallback( async () => {
+  const takePicture = useCallback( async ( ) => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
         try {
-          const photo = await CameraManager.takePictureAsync();
+          const photo = await CameraManager.takePictureAsync( );
           if ( typeof photo !== "object" ) {
             updateError( "photoError", photo );
           } else {
@@ -256,7 +265,7 @@ const ARCamera = (): Node => {
     }
   }, [savePhoto, updateError, requestAndroidSavePermissions] );
 
-  const resetState = () => dispatch( { type: "RESET_STATE" } );
+  const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 
   const requestAndroidPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" ) {
@@ -279,10 +288,20 @@ const ARCamera = (): Node => {
     }
   };
 
+  const closeModal = useCallback( ( ) => dispatch( { type: "CLOSE_MODAL" } ), [] );
+
   useEffect( ( ) => {
+    const checkForFirstCameraLaunch = async ( ) => {
+      const isFirstLaunch = await checkIfCameraLaunched( );
+      if ( isFirstLaunch ) {
+        dispatch( { type: "SHOW_MODAL" } );
+      }
+    };
+    checkForFirstCameraLaunch();
     navigation.addListener( "focus", ( ) => {
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
+      checkForFirstCameraLaunch( );
       requestAndroidPermissions( );
       checkCameraHardware( );
       // reset posting to iNat
@@ -302,6 +321,11 @@ const ARCamera = (): Node => {
 
   return (
     <View style={styles.container}>
+      <Modal
+        showModal={showModal}
+        closeModal={closeModal}
+        modal={<WarningModal closeModal={closeModal} />}
+      />
       {error
         ? <CameraError error={error} errorEvent={errorEvent} />
         : (

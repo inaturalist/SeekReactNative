@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "附近物種",
-    "location_error": "為顯示你附近的物種，我們必須使用你的位置資訊。",
-    "location_device": "Seek 需要知道您所在的地點來顯示物種和添加觀察記錄。請確認您的裝置已開啟位置資訊。",
-    "enable_location": "在設定中開啟位置資訊",
-    "please_enable_location": "請在設定中啟用位置資訊",
     "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
     "no_location": "沒有位置資訊",
     "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。",
-    "no_gps": "無法取得GPS訊號",
-    "location_timeout": "已超過搜尋位置的時間。請再試一次。",
-    "location_settings": "位置資訊服務未啟用，或是目前的要求不適合位置資訊模式"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "開始",

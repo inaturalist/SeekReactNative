@@ -12,10 +12,9 @@ import { useLocationName, useLocationPermission } from "../../../utility/customH
 import Error from "./Error";
 import LocationPicker from "./LocationPicker";
 import { fetchFromAsyncStorage, saveSpeciesNearbyLocation } from "../../../utility/settingsHelpers";
-import { search } from "inaturalistjs/lib/endpoints/authorized_applications";
 
-const SpeciesNearby = () => {
-  const granted = useLocationPermission();
+const SpeciesNearby = ( ) => {
+  const granted = useLocationPermission( );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -38,7 +37,7 @@ const SpeciesNearby = () => {
       case "SHOW_MODAL":
         return { ...state, showModal: action.showModal };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     latLng: {
@@ -61,15 +60,15 @@ const SpeciesNearby = () => {
 
   const updateTaxaType = useCallback( ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } ), [] );
 
-  const updateDowntimeError = useCallback( () => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
+  const updateDowntimeError = useCallback( ( ) => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
   const setLocationError = useCallback( ( ) => dispatch( { type: "LOCATION_ERROR" } ), [] );
 
   const openLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } ), [] );
   const closeLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } ), [] );
 
-  const getGeolocation = useCallback( () => {
-    fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
+  const getGeolocation = useCallback( ( ) => {
+    fetchTruncatedUserLocation( ).then( ( { latitude, longitude } ) => {
       updateLatLng( latitude, longitude );
     } ).catch( ( ) => setLocationError( ) );
   }, [setLocationError, updateLatLng] );
@@ -94,18 +93,18 @@ const SpeciesNearby = () => {
     } else if ( Platform.OS === "android" && granted === false ) {
       setLocationError( );
     } else {
-      getGeolocation();
+      getGeolocation( );
     }
   }, [latLng, getGeolocation, granted, setLocationError, updateLatLng] );
 
-  const checkInternet = useCallback( () => {
-    checkForInternet().then( ( internet ) => {
+  const checkInternet = useCallback( ( ) => {
+    checkForInternet( ).then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         dispatch( { type: "INTERNET_ERROR" } );
       } else if ( error === "internet_error" ) {
         dispatch( { type: "NO_ERROR" } );
       }
-    } ).catch( () => dispatch( { type: "NO_ERROR" } ) );
+    } ).catch( ( ) => dispatch( { type: "NO_ERROR" } ) );
   }, [error] );
 
   useEffect( ( ) => {
@@ -142,7 +141,7 @@ const SpeciesNearby = () => {
     <View style={styles.container}>
       {renderModal( )}
       <Text style={[styles.headerText, styles.header]}>
-        {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+        {i18n.t( "species_nearby.header" ).toLocaleUpperCase( )}
       </Text>
       <LocationPickerButton
         latLng={latLng}

@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Közelben lévő fajok",
-    "location_error": "Ahhoz, hogy láthasd a közelben lévő fajokat, szükség van a tartózkodási helyedre.",
-    "location_device": "Győződj meg arról, hogy engedélyezted a készülékeden a helyadatok elérését! A Seek csak így tudja megmutatni a közeledben lévő fajokat.",
-    "enable_location": "Helyadatok engedélyezése",
-    "please_enable_location": "Please enable location in settings",
     "internet_error": "A közeli fajok generálásához Internet szükséges. Próbáld újra!",
     "no_location": "Nincs helyszín",
     "no_species": "Úgy tűnik, a közelben még sok faj nincs felfedezve! Változtasd meg a helyed vagy szélesítsd a faj szűrő beállításait.",
-    "no_gps": "A GPS jel nem elérhető.",
-    "location_timeout": "A helylekérésed lejárt. Kérlek, próbáld meg újra!",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Kezdjük!",

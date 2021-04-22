@@ -56,12 +56,12 @@
     "upload_now": "SUBIR AHORA",
     "error_internet": "No se ha detectado Internet. Inténtalo de nuevo más tarde.",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+      "one": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+      "two": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+      "few": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+      "many": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas.",
+      "other": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en {{count}} horas."
     },
     "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
     "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist en Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo.",

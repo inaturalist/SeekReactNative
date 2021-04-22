@@ -35,14 +35,13 @@ import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
-import { useEmulator } from "../../../utility/customHooks";
+// import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 
 const ARCamera = (): Node => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
-  const emulator = useEmulator( );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -303,14 +302,14 @@ const ARCamera = (): Node => {
 
   return (
     <View style={styles.container}>
-      {error && !emulator
+      {error
         ? <CameraError error={error} errorEvent={errorEvent} />
         : (
           <ARCameraOverlay
             ranks={ranks}
             pictureTaken={pictureTaken}
             takePicture={takePicture}
-            cameraLoaded={emulator ? true : cameraLoaded}
+            cameraLoaded={cameraLoaded}
             filterByTaxonId={filterByTaxonId}
           />
         )

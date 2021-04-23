@@ -55,6 +55,9 @@ const LanguagePicker = (): Node => {
 
   const renderDeviceCheckbox = useMemo( () => (
     <View style={[styles.row, styles.checkboxRow]}>
+      {/* accessibility isn't available for this component, and it's also not
+      implemented on iOS for the official react-native-checkbox library
+      https://github.com/crazycodeboy/react-native-check-box/issues/94 */}
       <Checkbox
         checkBoxColor={colors.checkboxColor}
         isChecked={isChecked}

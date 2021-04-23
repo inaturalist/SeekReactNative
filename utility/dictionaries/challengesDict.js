@@ -274,22 +274,22 @@ const challenges = {
     action: "natgeo_challenges.apr_2021_action",
     badgeName: "natgeo_challenges.apr_2021_badge_name",
     photographer: "natgeo_challenges.apr_2021_photographer"
+  },
+  may2021: {
+    name: "natgeo_challenges.may_2021_challenge_name",
+    description: "natgeo_challenges.may_2021_description",
+    totalSpecies: 7,
+    backgroundName: "img-challengedetail-may2021",
+    earnedIconName: "badge_natgeo_may2021",
+    missions: [
+      "natgeo_challenges.may_2021_mission_1",
+      "natgeo_challenges.may_2021_mission_2"
+    ],
+    availableDate: ( new Date( 2021, 4, 1 ): Date ),
+    action: "natgeo_challenges.may_2021_action",
+    badgeName: "natgeo_challenges.may_2021_badge_name",
+    photographer: "natgeo_challenges.may_2021_photographer"
   }
-  // may2021: {
-  //   name: "natgeo_challenges.may_2021_challenge_name",
-  //   description: "natgeo_challenges.may_2021_description",
-  //   totalSpecies: 7,
-  //   backgroundName: "img-challengedetail-april2021",
-  //   earnedIconName: "badge_natgeo_april2021",
-  //   missions: [
-  //     "natgeo_challenges.may_2021_mission_1",
-  //     "natgeo_challenges.may_2021_mission_2"
-  //   ],
-  //   availableDate: ( new Date( 2021, 4, 1 ): Date ),
-  //   action: "natgeo_challenges.may_2021_action",
-  //   badgeName: "natgeo_challenges.may_2021_badge_name"
-  //   // photographer: "natgeo_challenges.may_2021_photographer"
-  // }
 };
 
 export default challenges;

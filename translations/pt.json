@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Espécies próximas",
-    "location_error": "Para mostrar as tuas espécies próximas, temos de usar a tua localização.",
-    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
-    "enable_location": "Ativa a localização nas definições",
-    "please_enable_location": "Please enable location in settings",
     "internet_error": "Precisamos da Internet para gerar espécies das proximidades. Toque para tentar novamente.",
     "no_location": "Sem localização",
     "no_species": "Aparentemente não terão sido observadas muitas espécies nas proximidades! Tente alterar sua localização ou ampliar o filtro de espécies.",
-    "no_gps": "GPS signal not found.",
-    "location_timeout": "Your location request timed out. Please try again.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Começar",

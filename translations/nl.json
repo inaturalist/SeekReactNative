@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Soorten in de buurt",
-    "location_error": "Om soorten in de buurt te tonen moeten we je locatie gebruiken.",
-    "location_device": "Seek heeft je locatie nodig om soorten in de buurt weer te geven en waarnemingen toe te voegen. Controleer of de locatiebepaling van je apparaat aan staat.",
-    "enable_location": "Locatiebepaling aanzetten in instellingen",
-    "please_enable_location": "Locatiebepaling aanzetten in instellingen",
     "internet_error": "We hebben het internet nodig om om soorten in de buurt te genereren. Tik om het opnieuw te proberen.",
     "no_location": "Geen locatie",
     "no_species": "Zo te zien zijn er nog niet veel soorten in de buurt waargenomen! Probeer je locatie te wijzigen of breid het soortenfilter uit.",
-    "no_gps": "GPS signaal niet gevonden.",
-    "location_timeout": "Je locatieaanvraag is verlopen. Probeer het alsjeblieft opnieuw.",
-    "location_settings": "Locatieservice is niet ingeschakeld of locatiemodus is niet geschikt voor het huidige verzoek"
+    "input_location_above_map": "Geen locatie gevonden; voer een gebiedsnaam in om de kaart te laden en te zoeken naar soorten in de buurt",
+    "error_alert_location_services": "Schakel locatiediensten in de instellingen van je apparaat in om door te gaan",
+    "species_nearby_requires_location": "Soorten in de buurt vereist je locatie. Activeer de locatiediensten in je instellingen",
+    "choose_location_on_map": "KIES LOCATIE OP MAP"
   },
   "get_started": {
     "header": "Aan de slag",

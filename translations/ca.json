@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Espècies a prop",
-    "location_error": "Per mostrar-te les espècies properes, necessitem utilitzar la teva ubicació.",
-    "location_device": "Seek necessita la teva ubicació per a mostrar les espècies properes i afegir les observacions. Si us plau, assegura't que has activar la localització.",
-    "enable_location": "Activar el servei d'ubicació",
-    "please_enable_location": "Si us plau, activa la localització a la configuració",
     "internet_error": "Necessitem accés a internet per generar les espècies properes. Toca per intentar-ho de nou.",
     "no_location": "Sense ubicació",
     "no_species": "Sembla que no s'han observat moltes espècies properes! Intenta canviar d'ubicació o amplia el filtre d'espècies.",
-    "no_gps": "No s’ha trobat el senyal del GPS.",
-    "location_timeout": "La teva sol·licitud d'ubicació ha caducat. Intenta-ho de nou.",
-    "location_settings": "Els serveis d'ubicació no s'han habilitat o el mode de localització no és l'adequat per a aquesta consulta"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Començar",

@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Arter i närheten",
-    "location_error": "För att visa dig arter i närheten måste vi använda din plats.",
-    "location_device": "Seek behöver din plats för att visa arter i närheten och lägga till observationer. Kontrollera att enhetens plats är påslagen.",
-    "enable_location": "Aktivera plats i inställningarna",
-    "please_enable_location": "Vänligen aktivera platstjänster i inställningar ",
     "internet_error": "Vi behöver internet för att generera arter i närheten. Tryck för att försöka igen.",
     "no_location": "Ingen plats",
     "no_species": "Det ser ut som att väldigt få arter har observeras i närheten! Försök att ändra din fyndplats eller utöka artfiltret.",
-    "no_gps": "GPS-signalen hittades inte.",
-    "location_timeout": "Din platsbegäran tog för lång tid. Försök igen.",
-    "location_settings": "Platstjänsten är inte aktiverad eller platsläget är inte lämpligt för den aktuella begäran"
+    "input_location_above_map": "Ingen fyndplats hittades; ange ett platsnamn ovan för att ladda kartan och söka efter arter i närheten",
+    "error_alert_location_services": "För att fortsätta, aktivera platstjänster i enhetsinställningarna",
+    "species_nearby_requires_location": "Arter i närheten behöver din plats. Aktivera plats i inställningarna",
+    "choose_location_on_map": "VÄLJ PLATS PÅ KARTAN"
   },
   "get_started": {
     "header": "Kom igång",

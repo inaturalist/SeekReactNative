@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Yakındaki türler",
-    "location_error": "Yakındaki türleri göstermek için konumunu kullanmamız gerekiyor.",
-    "location_device": "Seek yakındaki türleri göstermek ve gözlem ekleyebilmek için konumuna ihtiyaç duyar. Lütfen cihazınızın konumunun açık olduğundan emin olun.",
-    "enable_location": "Ayarlardan konumu etkinleştir",
-    "please_enable_location": "Lütfen ayarlardan konumu etkinleştir",
     "internet_error": "Yakındaki türleri ortaya çıkarmak için internete ihtiyacımız var. Tekrar denemek için tıkla.",
     "no_location": "Konum yok",
     "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene.",
-    "no_gps": "GPS sinyali bulunamadı.",
-    "location_timeout": "Konum isteğiniz zaman aşımına uğradı. Lütfen tekrar deneyin.",
-    "location_settings": "Konum hizmeti etkin değil ya da konum modu mevcut istek için uygun değil"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Başla",

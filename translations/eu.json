@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Gertu dauden espezieak",
-    "location_error": "Gertu dauden espezieak erakusteko, zure kokapena jakin behar dugu.",
-    "location_device": "Seek-ek zure kokapena behar du gertu dauden espezieak eta behaketak gehitzeko. Mesedez, ziurtatu zure gailuaren kokapena piztuta dagoela.",
-    "enable_location": "Gaitu kokapena hobespenetan",
-    "please_enable_location": "Gaitu kokapena hobespenetan",
     "internet_error": "Interneterako konexioa behar dugu gertuko espezieak erakusteko. Ukitu berriro probatzeko.",
     "no_location": "Kokapenik gabe",
     "no_species": "Antza denez ez duzu espezie nahiko behatuta inguruan! Saiatu zure kokapena aldatzen edo iragazkiak zabaltzen.",
-    "no_gps": "GPS seinalerik ez da aurkitu.",
-    "location_timeout": "Zure kokapenaren eskaera denboraz kanpo geratu da. Saiatu berriro, mesedez.",
-    "location_settings": "Kokapen zerbitzua ez dago gaituta edo kokapena jartzeko modua ez da egokia eskari honetarako"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Hasi erabiltzen",

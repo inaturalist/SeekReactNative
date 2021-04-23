@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "අසල ඇති විශේෂ",
-    "location_error": "අසල ඇති විශේෂ පෙන්වීම සඳහා අපට ඔබේ ස්ථානය භාවිතා කිරීමට අවශ්‍ය වේ.",
-    "location_device": "අසල ඇති විශේෂ ප්‍රදර්ශනය කිරීමට සහ නිරීක්ෂණ එකතු කිරීමට Seek වෙත ඔබේ ස්ථානය අවශ්‍ය වේ. කරුණාකර ඔබගේ උපාංගයේ ස්ථානය සක්‍රිය කර ඇති බවට වග බලා ගන්න.",
-    "enable_location": "සැකසුම් තුළ ස්ථානය සක්‍රීය කරන්න",
-    "please_enable_location": "කරුණාකර සැකසුම් තුළ ස්ථානය සක්‍රීය කරන්න",
     "internet_error": "අසල ඇති විශේෂ ජනනය කිරීමට අපට අන්තර්ජාලය අවශ්‍යයි. නැවත උත්සාහ කිරීමට තට්ටු කරන්න.",
     "no_location": "ස්ථානයක් නොමැත",
     "no_species": "පෙනෙන ආකාරයට අසලින් තවමත් එතරම් විශේෂයන් නිරීක්ෂණය වී නොමැත! ඔබේ ස්ථානය වෙනස් කර හෝ විශේෂ පෙරණය පුළුල් කර උත්සාහ කරන්න.",
-    "no_gps": "GPS සංඥාව සොයා ගත නොහැක.",
-    "location_timeout": "ඔබගේ ස්ථාන ඉල්ලීම කල් ඉකුත් වී ඇත. කරුණාකර නැවත උත්සාහ කරන්න.",
-    "location_settings": "ස්ථාන සේවාව සක්‍රීය කර නැත හෝ වත්මන් ඉල්ලීම සඳහා ස්ථාන ප්‍රකාරය සුදුසු නොවේ"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "ආරම්භ කරන්න",

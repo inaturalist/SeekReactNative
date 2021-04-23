@@ -13,7 +13,7 @@ import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
 import { fetchJSONWebToken } from "./uploadHelpers";
 import i18n from "../i18n";
-import { LOG } from "./debugHelpers";
+// import { LOG } from "./debugHelpers";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 

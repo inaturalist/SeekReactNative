@@ -84,7 +84,7 @@ class SpeciesNearby extends Component<Props> {
         </Text>
         {notLoaded ? (
           <TouchableOpacity
-            onPress={this.setParamsForSpeciesNearby}
+            onPress={( ) => this.setParamsForSpeciesNearby( )}
             style={[styles.center, styles.speciesNearbyContainer]}
           >
             <Text style={styles.text}>{i18n.t( "results.tap" )}</Text>

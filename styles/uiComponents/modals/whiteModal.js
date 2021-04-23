@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, dimensions } from "../../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     alignSelf: "center",
@@ -17,3 +19,5 @@ export default StyleSheet.create( {
     // this creates margins on smaller screen sizes
   }
 } );
+
+export default viewStyles;

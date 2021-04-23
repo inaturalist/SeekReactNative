@@ -2,7 +2,9 @@
 
 import { StyleSheet } from "react-native";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     alignItems: "center",
     position: "absolute",
@@ -13,3 +15,5 @@ export default StyleSheet.create( {
     justifyContent: "center"
   }
 } );
+
+export default viewStyles;

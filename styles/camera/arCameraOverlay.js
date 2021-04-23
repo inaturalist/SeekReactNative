@@ -26,7 +26,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     position: "absolute",
     left: 60
   },
-
   shutter: {
     bottom: 0,
     paddingHorizontal: 48,

@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   chart: {
     borderBottomColor: colors.seekTeal,
     borderBottomWidth: 2,
@@ -25,3 +27,5 @@ export default StyleSheet.create( {
     right: 10
   }
 } );
+
+export default viewStyles;

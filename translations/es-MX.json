@@ -4,10 +4,10 @@
     "internet_error": "Necesitamos acceso a internet para generar especies en las cercanías. Toca para intentarlo de nuevo.",
     "no_location": "Sin ubicación",
     "no_species": "¡Parece que no ha habido muchas especies observadas en las cercanías! Intenta cambiar tu ubicación o ampliar el filtro de especies.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "input_location_above_map": "No se ha encontrado ninguna ubicación; introduzca arriba el nombre de un lugar para cargar el mapa y buscar especies cercanas",
+    "error_alert_location_services": "Para continuar, activa los servicios de localización en la configuración de tu dispositivo",
+    "species_nearby_requires_location": "Las especies cercanas requieren tu ubicación. Por favor, activa la ubicación en los ajustes",
+    "choose_location_on_map": "ELIJE LA UBICACIÓN EN EL MAPA"
   },
   "get_started": {
     "header": "Comencemos",

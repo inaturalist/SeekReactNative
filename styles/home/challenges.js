@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   challengeContainer: {
     backgroundColor: colors.darkGray,
     flex: 1
@@ -24,7 +26,10 @@ export default StyleSheet.create( {
   },
   marginTop: {
     marginTop: 31
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   viewText: {
     alignSelf: "center",
     color: colors.white,
@@ -42,3 +47,8 @@ export default StyleSheet.create( {
     paddingBottom: 10
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

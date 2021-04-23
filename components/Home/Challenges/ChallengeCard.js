@@ -3,7 +3,7 @@ import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from "../../../styles/home/challenges";
+import { viewStyles } from "../../../styles/home/challenges";
 import realmConfig from "../../../models";
 import Challenges from "./Challenges";
 import GreenText from "../../UIComponents/GreenText";
@@ -31,8 +31,8 @@ const ChallengeCard = () => {
   const navToChallenges = ( ) => navigate( "Challenges" );
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={navToChallenges} style={styles.header}>
+    <View style={viewStyles.container}>
+      <TouchableOpacity onPress={navToChallenges} style={viewStyles.header}>
         <GreenText text="challenges_card.header" />
       </TouchableOpacity>
       {challenge ? <Challenges challenge={challenge} /> : <NoChallenges />}

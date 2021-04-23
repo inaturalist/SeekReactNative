@@ -18,7 +18,11 @@ type Props = {
 }
 
 const GetStarted = ( { closeModal }: Props ): React.Node => (
-  <View style={styles.container}>
+  <View
+    style={styles.container}
+    accessible
+    accessibilityLabel={i18n.t( "accessibility.get_started_modal" )}
+  >
     <View style={styles.headerMargin}>
       <GreenText allowFontScaling={false} text="get_started.header" />
     </View>

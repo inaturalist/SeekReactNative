@@ -33,7 +33,7 @@ const GreenHeader = ( { header, route }: Props ): React.Node => {
       )}
       {name === "Post" && (
         <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.help" )}
+          accessibilityLabel={i18n.t( "accessibility.open_posting_elp" )}
           accessible
           onPress={() => navigation.navigate( "PostingHelp" )}
           style={styles.help}

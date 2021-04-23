@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/home/error";
+import { viewStyles, textStyles } from "../../../styles/home/error";
 import icons from "../../../assets/icons";
 import backgrounds from "../../../assets/backgrounds";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
@@ -38,7 +38,7 @@ const Error = ( {
   };
 
   const showButton = ( ) => (
-    <View style={styles.greenButton}>
+    <View style={viewStyles.greenButton}>
       <GreenButton
         color={colors.seekGreen}
         handlePress={openLocationPicker}
@@ -54,11 +54,11 @@ const Error = ( {
     >
       <ImageBackground
         source={backgrounds.noSpeciesNearby}
-        style={[styles.background, styles.center]}
+        style={[viewStyles.background, viewStyles.center]}
       >
-        <View style={styles.row}>
+        <View style={viewStyles.row}>
           <Image source={error === "internet_error" ? icons.internet : icons.error} />
-          <Text style={styles.text}>
+          <Text style={textStyles.text}>
             {error === "downtime"
               ? i18n.t( "results.error_downtime_plural", { count: i18n.t( "results.error_few" ) } )
               : i18n.t( `species_nearby.${error}` )}

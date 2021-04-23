@@ -176,7 +176,7 @@ const ARCameraOverlay = ( {
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
       </TouchableOpacity>
       <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.help" )}
+        accessibilityLabel={i18n.t( "accessibility.open_help" )}
         accessible
         onPress={showCameraHelp}
         style={viewStyles.help}

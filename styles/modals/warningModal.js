@@ -13,8 +13,8 @@ import {
 
 export default StyleSheet.create( {
   button: {
-    marginBottom: dimensions.height > 570 ? 24 : 17,
-    marginTop: dimensions.height > 570 ? 28 : 26
+    paddingBottom: dimensions.height > 570 ? 24 : 17,
+    paddingTop: dimensions.height > 570 ? 28 : 26
   },
   header: {
     backgroundColor: colors.seekForestGreen,

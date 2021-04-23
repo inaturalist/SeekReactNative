@@ -45,8 +45,6 @@ const SpeciesDetail = ( ): Node => {
           <RadioButton
             key={`${obj.label}${i}`}
             style={styles.radioMargin}
-            accessible
-            accessibilityLabel={`${radioButtons[i].label},${i}`}
           >
             <RadioButtonInput
               obj={obj}
@@ -58,6 +56,8 @@ const SpeciesDetail = ( ): Node => {
               buttonOuterColor={colors.seekForestGreen}
               buttonSize={12}
               buttonOuterSize={20}
+              accessible
+              accessibilityLabel={radioButtons[i].value.toString( )}
             />
             <RadioButtonLabel
               obj={obj}
@@ -66,7 +66,7 @@ const SpeciesDetail = ( ): Node => {
               labelHorizontal
               labelStyle={styles.seasonalityRadioButtonText}
               accessible
-              accessibilityLabel={`${radioButtons[i].label}`}
+              accessibilityLabel={radioButtons[i].label}
             />
           </RadioButton>
         ) )}

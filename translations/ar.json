@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "الأنواع القريبة",
-    "location_error": "نحتاج إلى استخدام موقعك من أجل إظهار الأنواع القريبة.",
-    "location_device": "يحتاج Seek إلى موقعك لعرض الأنواع القريبة و إضافة الملاحظات. المرجو التأكد من تشغيل الموقع على جهازك.",
-    "enable_location": "تشغيل الموقع في الإعدادات",
-    "please_enable_location": "الرجاء تمكين الموقع في الإعدادات",
     "internet_error": "نحتاج إلى الإنترنيت لتوليد الأنواع القريبة، انقر لإعادة المحاولة.",
     "no_location": "لا يوجد موقع",
     "no_species": "يبدو أنه لم يتم رصد العديد من الأنواع بالقرب منك! حاول تغيير موقعك أو توسيع فلتر الأنواع.",
-    "no_gps": "لم يتم العثور على إشارة GPS.",
-    "location_timeout": "مهلة طلب الموقع الخاص بك انتهت. المرجو المحاولة مجدداً.",
-    "location_settings": "خدمة الموقع غير مفعلة أو وضع الموقع غير مناسب للطلب الحالي"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "ابدأ الأن",

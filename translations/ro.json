@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Specii din apropiere",
-    "location_error": "Pentru a vă arăta speciile din apropiere, trebuie să vă folosim locația.",
-    "location_device": "Seek are nevoie de locația dvs. pentru a afișa specii din apropiere și pentru a adăuga observații. Asigurați-vă că locația aparatului este activată.",
-    "enable_location": "Activați locația în setări",
-    "please_enable_location": "Vă rugăm să activați locația în setări",
     "internet_error": "Avem nevoie de internet ca să generăm specii din apropiere. Atinge pentru a încerca din nou.",
     "no_location": "Fără Locație",
     "no_species": "Se pare că nu au fost observate multe specii în apropiere! Încearcă să schimbi locația sau să extinzi filtrul de specii.",
-    "no_gps": "Semnalul GPS nu a fost găsit.",
-    "location_timeout": "Cererea ta de locație a expirat. Te rugăm să încerci din nou.",
-    "location_settings": "Serviciul de localizare nu este activat sau modul de localizare nu este adecvat pentru solicitarea curentă"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Să începem",

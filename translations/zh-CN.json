@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "附近的物种",
-    "location_error": "为了显示您附近的物种，我们需要使用您的定位。",
-    "location_device": "Seek 需要您的定位来展示附近的物种并添加观察记录。请确保您的设备已为 Seek 开启定位的权限。",
-    "enable_location": "开启定位权限",
-    "please_enable_location": "Please enable location in settings",
     "internet_error": "我们需要网络才能整合附近的物种信息。点击再试一次。",
     "no_location": "无位置信息",
     "no_species": "看上去附近没有太多物种被观察到！尝试换一处或者更改过滤条件。",
-    "no_gps": "未找到GPS信号。",
-    "location_timeout": "您的位置请求超时。请重试。",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "马上开始",

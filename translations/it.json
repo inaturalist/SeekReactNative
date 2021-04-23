@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Specie nelle vicinanze",
-    "location_error": "Per mostrarti le specie nelle vicinanze, dobbiamo conoscere la tua posizione.",
-    "location_device": "Seek ha bisogno di conoscere la tua posizione per visualizzare le specie nelle vicinanze ed aggiungere le osservazioni. Assicurati che il rilevamento della posizione del dispositivo sia attivo.",
-    "enable_location": "Abilita rilevamento della posizione nelle impostazioni",
-    "please_enable_location": "Per favore abilità i servizi di localizzazione nelle impostazioni",
     "internet_error": "Abbiamo bisogno di Internet per generare la lista delle specie nelle vicinanze. Tocca per riprovare.",
     "no_location": "Nessuna posizione",
     "no_species": "Sembra che non siano state osservate molte specie nelle vicinanze! Prova a cambiare la tua posizione o ad ampliare il filtro delle specie.",
-    "no_gps": "Segnale GPS non trovato.",
-    "location_timeout": "La tua richiesta di acquisizione della posizione è scaduta. Riprova.",
-    "location_settings": "Il servizio di localizzazione non è abilitato o la modalità di localizzazione non è appropriata per la richiesta corrente"
+    "input_location_above_map": "Nessuna posizione trovata; inserisci un nome per caricare la mappa e cercare le specie nelle vicinanze",
+    "error_alert_location_services": "Per continuare, attiva i servizi di localizzazione nelle impostazioni del tuo dispositivo",
+    "species_nearby_requires_location": "Specie nelle vicinanze richiede la tua posizione. Abilita la localizzazione nelle impostazioni",
+    "choose_location_on_map": "SCEGLI LUOGO SULLA MAPPA"
   },
   "get_started": {
     "header": "Iniziamo",

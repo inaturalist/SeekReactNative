@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Arter i nærheten",
-    "location_error": "For å vise arter i nærheten trenger vi å vite din posisjon.",
-    "location_device": "Seek trenger din posisjon for å kunne vise arter og observasjoner i nærheten. Vennligst sjekk at posisjonen til din enhet er slått på.",
-    "enable_location": "Slå på posisjon i innstillinger",
-    "please_enable_location": "Vennligst slå på posisjon i innstillinger",
     "internet_error": "Vi trenger internettet for å generere arter i nærheten. Trykk for å prøve igjen.",
     "no_location": "Ingen posisjon",
     "no_species": "Det ser ut som det ikke har blitt observert mange arter i nærheten! Prøv å endre din posisjon eller utvide artsfilteret.",
-    "no_gps": "GPS-signal ikke funnet.",
-    "location_timeout": "Din posisjonsspørring ble tidsavbrutt. Vennligst prøv på nytt.",
-    "location_settings": "Posisjonstjenester er ikke aktivert, eller lokasjonsmodus er ikke egnet for denne forespørselen"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "Kom i gang",

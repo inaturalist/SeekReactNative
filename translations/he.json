@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "מינים הנמצאים בסביבה",
-    "location_error": "על מנת להראות לכם ייצורים סביבכם, אנו זקוקים למיקומכם.",
-    "location_device": "Seek זקוקה למיקומכם כדי להציג ייצורים מסביבכם ולהוסיף צפיות. אנא וודאו כי שירותי המיקום של מכשירכם מופעל ומאושר.",
-    "enable_location": "הפעילו את שירותי המיקום",
-    "please_enable_location": "נא לאשר שימוש בשירותי המיקום",
     "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר מינים בסביבה. הקישו לנסות שוב.",
     "no_location": "חסר מיקום",
     "no_species": "נראה שלא נצפו מינים בסביבה! נסו לשנות מיקום או להרחיב את פילטר המינים.",
-    "no_gps": "לא זוהה אות GPS.",
-    "location_timeout": "זיהוי המיקום לוקח יותר מדי זמן; אנא נסו שנית.",
-    "location_settings": "שירותי מיקום אינם מופעלים או ששירות המיקום אינו מאושר עבור הבקשה הנוכחית"
+    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
     "header": "התחילו",

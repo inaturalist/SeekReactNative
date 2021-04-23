@@ -1,16 +1,13 @@
 {
   "species_nearby": {
     "header": "Arten in der Nähe",
-    "location_error": "Um dir Arten in der Nähe anzeigen zu können, benötigen wir deinen Standort.",
-    "location_device": "Seek benötigt deinen Standort, um Arten in deiner Umgebung anzuzeigen und um Beobachtungen hinzuzufügen. Bitte stelle sicher, dass der Standort deines Geräts eingeschaltet ist.",
-    "enable_location": "Standort in den Einstellungen aktivieren",
-    "please_enable_location": "Bitte Standort in den Einstellungen aktivieren",
     "internet_error": "Wir brauchen eine Internetverbindung, um Arten in der Nähe anzuzeigen. Tippe, um es erneut zu versuchen.",
     "no_location": "Kein Standort",
     "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuche, deinen Standort zu ändern oder den Artenfilter zu erweitern.",
-    "no_gps": "GPS-Signal nicht gefunden.",
-    "location_timeout": "Die Standortanfrage hat das Zeitlimit erreicht. Bitte versuche es erneut.",
-    "location_settings": "Standortdienst ist nicht aktiviert oder der Standortmodus ist nicht geeignet für die aktuelle Anfrage"
+    "input_location_above_map": "Kein Standort gefunden; gib einen Ortsnamen ein, um die Karte zu laden und nach Arten in der Nähe zu suchen",
+    "error_alert_location_services": "Um fortzufahren, aktiviere den Standortdienst in deinen Geräteeinstellungen",
+    "species_nearby_requires_location": "Die Funktion 'Arten in der Nähe' benötigt deinen Standort. Bitte aktiviere die Ortung in den Einstellungen",
+    "choose_location_on_map": "ORT AUF KARTE WÄHLEN"
   },
   "get_started": {
     "header": "Erste Schritte",

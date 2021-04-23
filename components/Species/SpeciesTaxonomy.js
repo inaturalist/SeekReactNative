@@ -8,7 +8,7 @@ import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
-import { useCommonName } from "../../utility/customHooks";
+import i18n from "../../i18n";
 
 type Props = {
   +ancestors: ?Array<Object>,
@@ -17,16 +17,15 @@ type Props = {
 };
 
 const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
-  const commonName = useCommonName( id );
   const [taxonomyList, setTaxonomyList] = useState( [] );
 
   let marginLeft = 0;
 
-  useEffect( () => {
+  useEffect( ( ) => {
     const rankNames = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
     let ranks = [70, 60, 50, 40, 30, 20, 10];
 
-    const createAncestors = () => {
+    const createAncestors = ( ) => {
       const predictionAncestors = [];
 
       if ( !predictions ) {
@@ -59,17 +58,19 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
     };
 
     if ( predictions && predictions.length > 0 ) {
-      createAncestors();
+      createAncestors( );
     }
   }, [predictions] );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     if ( ( ancestors && ancestors.length > 0 ) ) {
       const species = ancestors.filter( ( a ) => a.rank === "species" );
-      species[0].preferred_common_name = commonName || null;
-      setTaxonomyList( ancestors );
+      getTaxonCommonName( id ).then( ( name ) => {
+        species[0].preferred_common_name = name || null;
+        setTaxonomyList( ancestors );
+      } );
     }
-  }, [ancestors, commonName] );
+  }, [ancestors, id] );
 
   return (
     <SpeciesDetailCard text="species_detail.taxonomy" hide={taxonomyList.length === 0}>
@@ -84,11 +85,11 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
             <Image source={icons.greenDot} style={styles.bullet} />
             <View>
               <Text style={styles.taxonomyHeader}>
-                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank ) || ""} `}
+                {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
               </Text>
               <Text style={[styles.taxonomyText, !ancestor.preferred_common_name && styles.scientificName]}>
-                {( ancestor.rank !== "species" && ancestor.preferred_common_name )
+                {ancestor.preferred_common_name
                   ? capitalizeNames( ancestor.preferred_common_name )
                   : ancestor.name}
               </Text>

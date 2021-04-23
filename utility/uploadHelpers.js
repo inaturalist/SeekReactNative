@@ -1,6 +1,8 @@
 // @flow
 import Realm from "realm";
+// import { Platform } from "react-native";
 import inatjs, { FileUpload } from "inaturalistjs";
+// import RNFS from "react-native-fs";
 
 import realmConfig from "../models/index";
 import createUserAgent from "../utility/userAgent";
@@ -8,7 +10,9 @@ import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { handleServerError } from "./helpers";
+// import { dirPhotosForUpload } from "./dirStorage";
 import i18n from "../i18n";
+// import { isWithin7Days } from "./dateHelpers";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -36,8 +40,8 @@ const saveUploadFailed = async ( id: number ) => {
   }
 };
 
-const resizeImageForUpload = async ( uri: string ): Promise<string> => {
-  return await resizeImage( uri, 2048 );
+const resizeImageForUpload = async ( uri: string, outputPath?: string ): Promise<string> => {
+  return await resizeImage( uri, 2048, 2048, outputPath );
 };
 
 const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
@@ -102,6 +106,11 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri:
 
 const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ) => {
   const { uri, id } = photo;
+
+  // const alreadyResized = uri.includes( "/SeekUploads" );
+
+  // now that we're resizing when creating the realm observation, this is unnecessary
+  // except for photos that were already stored with the cameraroll uri
   const resizedPhoto = await resizeImageForUpload( uri );
 
   if ( !resizedPhoto ) {
@@ -207,6 +216,15 @@ const saveObservationToRealm = async ( observation: {
   const uuid = await createUUID( );
   const photoUUID = await createUUID( );
 
+  // I'm not sure how much hidden space this will take up on a user's device
+  // but we probably need to delete photos from this directory regularly after they have been uploaded
+  // const outputPath = Platform.OS === "ios"
+    // ? `${dirPhotosForUpload}/${photoUUID}`
+    // for whatever reason, the resize library doesn't return anything if I add the photoUUID
+    // but we can at least store these uris in the SeekUploads folder on Android
+    // : `${dirPhotosForUpload}`;
+  // const resizedPhoto = await resizeImageForUpload( uri, outputPath );
+
   try {
     realm.write( ( ) => {
       const photo = realm.create( "UploadPhotoRealm", {
@@ -229,7 +247,7 @@ const saveObservationToRealm = async ( observation: {
   }
 };
 
-const checkForNumSuccessfulUploads = async ( ): Promise<Array<Object>> => {
+const checkForNumSuccessfulUploads = async ( ): Promise<number> => {
   const realm = await Realm.open( realmConfig );
 
   return realm.objects( "UploadPhotoRealm" )
@@ -271,24 +289,51 @@ const markCurrentUploadAsSeen = async ( upload: {
   }
 };
 
-const checkForUploads = async ( ): Promise<Array<Object>> => {
+const checkForUploads = async ( ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   return realm.objects( "UploadObservationRealm" );
 };
 
-const createFakeUploadData = ( ): Object => {
-  return {
-    "captive_flag": false,
-    "description": null,
-    "geoprivacy": "open",
-    "latitude": 37.838835309609536,
-    "longitude": -122.30571209495892,
-    "observed_on_string": "2021-03-11T10:26:38-08:00",
-    "place_guess": "Emeryville",
-    "positional_accuracy": 65,
-    "taxon_id": 366346
-  };
-};
+// const clearSeekUploadsFolderEvery7Days = ( ) => {
+//   RNFS.readDir( dirPhotosForUpload ).then( photos => {
+//     photos.forEach( ( { ctime, name, path, size } ) => {
+//       // on android, these are 1.1 MB after resizing
+//       console.log( ctime, name, path, size, "items in seek uploads folder" );
+//       if ( !isWithin7Days( ctime ) ) {
+//         console.log( "is older than 7 days" );
+//       }
+//     } );
+//       // RNFS.unlink( dirDebugLogs )
+//       //   .then( () => {
+//       //     console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
+//       //   } ).catch( ( err ) => {
+//       //     console.log( err.message );
+//       //   } );
+//     // }
+//   } ).catch( e => console.log( e, "directory does not exist" ) );
+// };
+
+// const createFakeUploadData = ( ): Object => {
+//   return {
+//     "captive_flag": false,
+//     "description": null,
+//     "geoprivacy": "open",
+//     "latitude": 37.838835309609536,
+//     "longitude": -122.30571209495892,
+//     "observed_on_string": "2021-03-11T10:26:38-08:00",
+//     "place_guess": "Emeryville",
+//     "positional_accuracy": 65,
+//     "taxon_id": 366346
+//   };
+// };
+
+// const createAndroidSeekUploadsDirectory = ( ) => {
+//   if ( Platform.OS === "ios" ) { return; }
+//   // on Android, we need to create this before saving a resized URL to this directory
+//   RNFS.mkdir( dirPhotosForUpload )
+//     .then( ( ) => { } )
+//     .catch( e => console.log( e, "couldn't create SeekUploads directory" ) );
+// };
 
 export {
   resizeImageForUpload,
@@ -296,8 +341,10 @@ export {
   saveObservationToRealm,
   checkForNumSuccessfulUploads,
   markUploadsAsSeen,
-  createFakeUploadData,
+  // createFakeUploadData,
   checkForUploads,
   uploadObservation,
   markCurrentUploadAsSeen
+  // createAndroidSeekUploadsDirectory,
+  // clearSeekUploadsFolderEvery7Days
 };

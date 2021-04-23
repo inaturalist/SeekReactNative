@@ -59,7 +59,7 @@ const checkForPhotoMetaData = ( location: Object ): boolean => {
   return false;
 };
 
-const resizeImage = async ( path: string, width: number, height?: number ): Promise<string> => {
+const resizeImage = async ( path: string, width: number, height?: number, outputPath?: string ): Promise<string> => {
   try {
     const { uri } = await ImageResizer.createResizedImage(
       path,
@@ -69,7 +69,7 @@ const resizeImage = async ( path: string, width: number, height?: number ): Prom
       100, // quality
       0, // rotation
       // $FlowFixMe
-      null, // outputPath
+      outputPath, // outputPath
       true // keep metadata
     );
 

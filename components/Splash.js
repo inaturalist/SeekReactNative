@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useCallback } from "react";
-import { Image, ImageBackground, Platform } from "react-native";
+import { Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -9,42 +9,42 @@ import { colors } from "../styles/global";
 import styles from "../styles/splash";
 import logos from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
-import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
-import { deleteDebugLogAfter7Days } from "../utility/photoHelpers";
+import { addARCameraFiles, checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { setupBadges } from "../utility/badgeHelpers";
-import { checkForHotStarts, checkForColdStarts } from "../utility/navigationHelpers";
+import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
+import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
 
-const SplashScreen = (): Node => {
-  const navigation = useNavigation();
-
+const SplashScreen = ( ): Node => {
+  const navigation = useNavigation( );
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );
 
   const resetRouter = useCallback( ( name ) => {
-    setTimeout( () => navigation.reset( { routes: [{ name }] } ), 2000 );
+    setTimeout( ( ) => navigation.reset( { routes: [{ name }] } ), 2000 );
   }, [navigation] );
 
-  const checkForQuickAction = useCallback( () => {
+  const checkForQuickAction = useCallback( ( ) => {
     checkForHotStarts( navToCamera );
     checkForColdStarts( navToCamera, resetRouter );
   }, [resetRouter, navToCamera] );
 
-  useEffect( () => {
-    const checkForNewUser = async () => {
+  useEffect( ( ) => {
+    const checkForNewUser = async ( ) => {
       setCameraLaunched( false );
-      if ( Platform.OS === "android" ) {
-        deleteDebugLogAfter7Days(); // delete debug logs on Android
-      }
-      const isFirstLaunch = await checkIfFirstLaunch();
+      await deleteFromAsyncStorage( "speciesNearbyLocation" );
+      setupUserSettings( );
+      const isFirstLaunch = await checkIfFirstLaunch( );
 
-      setTimeout( setupBadges, 3000 );
       if ( isFirstLaunch ) {
+        setTimeout( setupBadges, 3000 );
+        setQuickActions( );
+        addARCameraFiles( );
         resetRouter( "Onboarding" );
       } else {
-        checkForQuickAction();
+        checkForQuickAction( );
       }
     };
 
-    checkForNewUser();
+    checkForNewUser( );
   }, [navigation, checkForQuickAction, resetRouter] );
 
   return (

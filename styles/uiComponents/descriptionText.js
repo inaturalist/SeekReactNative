@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { fonts, colors, dimensions } from "../global";
 
-export default StyleSheet.create( {
+import type { TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -11,3 +13,5 @@ export default StyleSheet.create( {
     lineHeight: dimensions.height > 570 ? 21 : 14
   }
 } );
+
+export default textStyles;

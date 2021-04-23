@@ -46,7 +46,7 @@ const useScrollToTop = (
   }, [route, navigation, scrollToTop] );
 };
 
-const useLocationName = ( latitude: ?number, longitude: ?number ) => {
+const useLocationName = ( latitude: ?number, longitude: ?number ): ?string => {
   const [location, setLocation] = useState( null );
 
   useEffect( () => {
@@ -83,7 +83,7 @@ const useUserPhoto = ( item: ?{
    }
  },
  uuidString: string
-} ) => {
+} ): ?{ uri: string } => {
   const [photo, setPhoto] = useState( null );
 
   const checkForSeekV2Photos = useCallback( ( isCurrent ) => {
@@ -161,7 +161,7 @@ const useUserPhoto = ( item: ?{
   return photo;
 };
 
-const useLocationPermission = () => {
+const useLocationPermission = (): ?boolean => {
   const [granted, setGranted] = useState( null );
 
   const fetchPermissionStatus = async () => {
@@ -181,7 +181,7 @@ const useLocationPermission = () => {
   return granted;
 };
 
-const useCommonName = ( id: number ) => {
+const useCommonName = ( id: number ): ?string => {
   const [commonName, setCommonName] = useState( null );
 
   useEffect( () => {
@@ -201,7 +201,10 @@ const useCommonName = ( id: number ) => {
   return commonName;
 };
 
-const useTruncatedUserCoords = ( granted: ?boolean ) => {
+const useTruncatedUserCoords = ( granted: ?boolean ): ?{
+  latitude: number,
+  longitude: number
+} => {
   const [coords, setCoords] = useState( null );
 
   useEffect( ( ) => {
@@ -238,7 +241,7 @@ const useTruncatedUserCoords = ( granted: ?boolean ) => {
   return coords;
 };
 
-const useSeenTaxa = ( id: number ) => {
+const useSeenTaxa = ( id: number ): ?Object => {
   const [seenTaxa, setSeenTaxa] = useState( null );
 
   useEffect( () => {
@@ -262,7 +265,10 @@ const useSeenTaxa = ( id: number ) => {
   return seenTaxa;
 };
 
-const useRegion = ( coords: ?{ latitude: number, longitude: number }, seenTaxa: ?{ latitude: number, longitude: number } ) => {
+const useRegion = (
+  coords: ?{ latitude: number, longitude: number },
+  seenTaxa: ?{ latitude: number, longitude: number }
+) : ?Object => {
   const [region, setRegion] = useState( {} );
 
   const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );
@@ -284,7 +290,7 @@ const useRegion = ( coords: ?{ latitude: number, longitude: number }, seenTaxa: 
   return region;
 };
 
-const useInternetStatus = ( ) => {
+const useInternetStatus = ( ): boolean => {
   const [internet, setInternet] = useState( true );
 
   useEffect( ( ) => {
@@ -311,14 +317,14 @@ const useInternetStatus = ( ) => {
   return internet;
 };
 
-const useEmulator = ( ) => {
+const useEmulator = ( ): boolean => {
   const [emulator, setEmulator] = useState( false );
 
   useEffect( ( ) => {
     let isCurrent = true;
 
     const checkForEmulator = async ( ) => {
-      const isEmulator = DeviceInfo.isEmulator( );
+      const isEmulator = await DeviceInfo.isEmulator( );
       if ( isCurrent ) {
         setEmulator( isEmulator );
       }

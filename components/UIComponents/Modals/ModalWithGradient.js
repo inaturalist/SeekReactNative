@@ -57,7 +57,7 @@ const ModalWithGradient = ( {
           source={{ uri: userImage }}
           style={styles.imageCell}
         />
-        {( color === "green" && originalImage ) && (
+        {color === "green" && (
           <ImageBackground
             source={iconicTaxa[1]} // for cases where uri exists but photo is blank
             style={[styles.imageCell, styles.marginLeft]}

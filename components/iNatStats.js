@@ -15,6 +15,7 @@ import BackArrow from "./UIComponents/Buttons/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import createUserAgent from "../utility/userAgent";
 import ScrollNoHeader from "./UIComponents/Screens/ScrollNoHeader";
+import INatStatsPhotos from "./iNatStatsPhotos";
 
 const INatStatsScreen = ( ): Node => {
   const [stats, setStats] = useState( {
@@ -46,8 +47,6 @@ const INatStatsScreen = ( ): Node => {
     fetchiNatStats( );
   }, [] );
 
-  const INatStatsPhotos = React.lazy( ( ) => import( "./iNatStatsPhotos" ) );
-
   return (
     <ScrollNoHeader>
       <View style={styles.whiteContainer}>
@@ -69,9 +68,7 @@ const INatStatsScreen = ( ): Node => {
           <Text style={styles.missionHeaderText}>{i18n.t( "inat_stats.seek_data" )}</Text>
           <Text style={styles.missionText}>{i18n.t( "inat_stats.about_inat" )}</Text>
         </View>
-        <React.Suspense fallback={null}>
-          <INatStatsPhotos />
-        </React.Suspense>
+        <INatStatsPhotos />
         <LoginCard />
       </View>
     </ScrollNoHeader>

@@ -24,6 +24,10 @@ const ErrorMessage = ( { error }: Props ): React.Node => {
     message = i18n.t( "login.error_credentials" );
   } else if ( error === "username" ) {
     message = i18n.t( "login.error_username_taken" );
+  } else if ( error === "no_username" ) {
+    message = i18n.t( "login.error_no_username" );
+  } else if ( error === "no_password" ) {
+    message = i18n.t( "login.error_no_password" );
   } else {
     message = error;
   }

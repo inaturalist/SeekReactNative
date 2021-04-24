@@ -1,11 +1,7 @@
 // @flow
 
 import React, { useState, useContext } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -21,14 +17,14 @@ import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
-const LoginScreen = (): Node => {
-  const { navigate } = useNavigation();
+const LoginScreen = ( ): Node => {
+  const { navigate } = useNavigation( );
   const { toggleLogin } = useContext( UserContext );
   const [username, setUsername] = useState( "" );
   const [password, setPassword] = useState( "" );
   const [error, setError] = useState( false );
 
-  const retrieveOAuthToken = () => {
+  const retrieveOAuthToken = ( ) => {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
@@ -39,30 +35,61 @@ const LoginScreen = (): Node => {
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent()
+      "User-Agent": createUserAgent( )
     };
 
     const site = "https://www.inaturalist.org";
 
-    fetch( `${site}/oauth/token`, {
-      method: "POST",
-      body: JSON.stringify( params ),
-      headers
-    } )
-      .then( response => response.json() )
-      .then( ( responseJson ) => {
-        const accessToken = responseJson.access_token;
-        saveAccessToken( accessToken );
-        toggleLogin();
-        navigate( "LoginSuccess" );
-      } ).catch( () => { // SyntaxError: JSON Parse error: Unrecognized token '<'
-        setError( true );
-      } );
+    if ( !username || !password ) {
+      setError( true );
+    } else {
+      fetch( `${site}/oauth/token`, {
+        method: "POST",
+        body: JSON.stringify( params ),
+        headers
+      } )
+        .then( response => response.json( ) )
+        .then( ( responseJson ) => {
+          const accessToken = responseJson.access_token;
+          if ( !accessToken ) {
+            setError( true );
+          } else {
+            saveAccessToken( accessToken );
+            toggleLogin( );
+            navigate( "LoginSuccess" );
+          }
+        } ).catch( ( ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
+          setError( true );
+        } );
+    }
   };
 
-  const navToForgotPassword = () => navigate( "Forgot" );
-  const updateUsername = value => setUsername( value );
-  const updatePassword = value => setPassword( value );
+  const navToForgotPassword = ( ) => navigate( "Forgot" );
+  const updateUsername = value => {
+    setUsername( value );
+    if ( error ) {
+      setError( false );
+    }
+  };
+  const updatePassword = value => {
+    setPassword( value );
+    if ( error ) {
+      setError( false );
+    }
+  };
+
+  const setErrorText = ( ) => {
+    let errorText = "credentials";
+
+    if ( error && !password ) {
+      errorText = "no_password";
+    }
+
+    if ( error && !username ) {
+      errorText = "no_username";
+    }
+    return errorText;
+  };
 
   return (
     <ScrollWithHeader header="login.log_in">
@@ -92,7 +119,7 @@ const LoginScreen = (): Node => {
           {i18n.t( "inat_login.forgot_password" )}
         </Text>
       </TouchableOpacity>
-      {error ? <ErrorMessage error="credentials" /> : <View style={styles.greenButtonMargin} />}
+      {error ? <ErrorMessage error={setErrorText( )} /> : <View style={styles.greenButtonMargin} />}
       <GreenButton
         handlePress={retrieveOAuthToken}
         login

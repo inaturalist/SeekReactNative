@@ -8,16 +8,15 @@ import {
   Image,
   Platform
 } from "react-native";
-import Geocoder from "react-native-geocoder";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
+import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName, createAlertUserLocationOnMaps, fetchCoordsByLocationName } from "../../../utility/locationHelpers";
 import posting from "../../../assets/posting";
 import { colors } from "../../../styles/global";
-import styles from "../../../styles/home/locationPicker";
+import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
 
@@ -48,23 +47,18 @@ const LocationPicker = ( {
 
   const [inputLocation, setInputLocation] = useState( location );
 
-  const setCoordsByLocationName = ( newLocation ) => {
-    Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
-      if ( result.length === 0 ) {
-        return;
-      }
-      const { locality, subAdminArea, position } = result[0];
-      const { lng, lat } = position;
+  const setCoordsByLocationName = async ( newLocation ) => {
+    const { placeName, position } = await fetchCoordsByLocationName( newLocation );
+    const { lng, lat } = position;
 
-      setInputLocation( locality || subAdminArea );
-      setRegion( {
-        latitude: lat,
-        longitude: lng,
-        latitudeDelta,
-        longitudeDelta
-      } );
-    } ).catch( ( e ) => {
-      console.log( e, "error" );
+    if ( !placeName || !lng ) { return; }
+
+    setInputLocation( placeName );
+    setRegion( {
+      latitude: lat,
+      longitude: lng,
+      latitudeDelta,
+      longitudeDelta
     } );
   };
 
@@ -89,8 +83,8 @@ const LocationPicker = ( {
     setRegion( newRegion );
   };
 
-  const returnToUserLocation = () => {
-    fetchTruncatedUserLocation().then( ( coords ) => {
+  const returnToUserLocation = ( ) => {
+    fetchTruncatedUserLocation( ).then( ( coords ) => {
       if ( coords ) {
         const lat = coords.latitude;
         const long = coords.longitude;
@@ -103,7 +97,7 @@ const LocationPicker = ( {
           longitudeDelta
         } );
       }
-    } );
+    } ).catch( e => createAlertUserLocationOnMaps( e ) );
   };
 
   const searchNearLocation = () => {
@@ -119,24 +113,24 @@ const LocationPicker = ( {
   const changeText = text => setCoordsByLocationName( text );
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
-      <View style={styles.header}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
+      <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
-        <View style={styles.marginLarge} />
-        <Text style={styles.headerText}>
+        <View style={viewStyles.marginLarge} />
+        <Text style={textStyles.headerText}>
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
         </Text>
-        <View style={[styles.row, styles.inputRow]}>
+        <View style={[viewStyles.row, viewStyles.inputRow]}>
           {/* $FlowFixMe */}
-          <Image source={posting.location} tintColor={colors.white} style={styles.white} />
+          <Image source={posting.location} tintColor={colors.white} style={imageStyles.white} />
           <TextInput
             accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
             onChangeText={changeText}
-            placeholder={inputLocation}
+            placeholder={inputLocation || i18n.t( "species_nearby.no_location" )}
             placeholderTextColor={colors.placeholderGray}
-            style={styles.inputField}
+            style={textStyles.inputField}
             textContentType="addressCity"
           />
         </View>
@@ -146,7 +140,7 @@ const LocationPicker = ( {
         region={region}
         returnToUserLocation={returnToUserLocation}
       />
-      <View style={styles.footer}>
+      <View style={viewStyles.footer}>
         <GreenButton
           handlePress={searchNearLocation}
           letterSpacing={0.68}

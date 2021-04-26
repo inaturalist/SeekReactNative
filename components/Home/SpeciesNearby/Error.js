@@ -6,59 +6,46 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  ImageBackground,
-  Platform
+  ImageBackground
 } from "react-native";
-import OpenSettings from "react-native-open-settings";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/home/error";
+import { viewStyles, textStyles } from "../../../styles/home/error";
 import icons from "../../../assets/icons";
 import backgrounds from "../../../assets/backgrounds";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 
 type Props = {
-  +error: string,
-  +checkInternet: Function,
-  +checkLocation: Function
+  error: string,
+  checkInternet: ( ) => void,
+  checkLocation: ( ) => void,
+  openLocationPicker: ( ) => void
 }
 
 const Error = ( {
   error,
   checkInternet,
-  checkLocation
+  checkLocation,
+  openLocationPicker
 }: Props ): React.Node => {
-  const handlePress = () => {
+  const handlePress = ( ) => {
     if ( error === "internet_error" ) {
-      checkInternet();
+      checkInternet( );
     } else if ( error ) {
-      checkLocation();
+      checkLocation( );
     }
   };
 
-  const openSettings = () => OpenSettings.openSettings();
-
-  const showPermissionsButton = () => {
-    if ( Platform.OS === "android" ) {
-      return (
-        <View style={styles.greenButton}>
-          <GreenButton
-            color={colors.seekGreen}
-            handlePress={openSettings}
-            text="species_nearby.enable_location"
-          />
-        </View>
-      );
-    }
-    return (
-      <View style={styles.greenButton}>
-        <Text style={styles.whiteText}>
-          {i18n.t( "species_nearby.please_enable_location" ).toLocaleUpperCase()}
-        </Text>
-      </View>
-    );
-  };
+  const showButton = ( ) => (
+    <View style={viewStyles.greenButton}>
+      <GreenButton
+        color={colors.seekGreen}
+        handlePress={openLocationPicker}
+        text="species_nearby.choose_location_on_map"
+      />
+    </View>
+  );
 
   return (
     <TouchableOpacity
@@ -67,17 +54,17 @@ const Error = ( {
     >
       <ImageBackground
         source={backgrounds.noSpeciesNearby}
-        style={[styles.background, styles.center]}
+        style={[viewStyles.background, viewStyles.center]}
       >
-        <View style={styles.row}>
+        <View style={viewStyles.row}>
           <Image source={error === "internet_error" ? icons.internet : icons.error} />
-          <Text style={styles.text}>
+          <Text style={textStyles.text}>
             {error === "downtime"
               ? i18n.t( "results.error_downtime_plural", { count: i18n.t( "results.error_few" ) } )
               : i18n.t( `species_nearby.${error}` )}
           </Text>
         </View>
-        {error === "location_error" && showPermissionsButton()}
+        {error === "species_nearby_requires_location" && showButton( )}
       </ImageBackground>
     </TouchableOpacity>
     );

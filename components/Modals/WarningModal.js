@@ -15,7 +15,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
-  +closeModal: Function
+  closeModal: ( ) => void
 }
 
 const WarningModal = ( { closeModal }: Props ): React.Node => (
@@ -23,6 +23,7 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
     closeModal={closeModal}
     noButton
     width={dimensions.height > 570 ? 337 : 320}
+    accessibilityLabel={i18n.t( "accessibility.warning_modal" )}
   >
     <View style={styles.header}>
       <Text allowFontScaling={false} style={styles.headerText}>
@@ -53,7 +54,7 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
     <View style={styles.button}>
       <GreenButton
         allowFontScaling={false}
-        handlePress={() => closeModal()}
+        handlePress={closeModal}
         text="onboarding.continue"
         width={dimensions.height < 570 ? 271 : 285}
       />

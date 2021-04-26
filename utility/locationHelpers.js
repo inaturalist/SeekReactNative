@@ -61,37 +61,75 @@ const fetchTruncatedUserLocation = (): Promise<TruncatedCoords> => (
   } )
 );
 
+const setPlaceName = ( results: Array<Object> ) => {
+  let placeName = null;
+
+  const { locality, subAdminArea, adminArea, country, feature } = results[0];
+
+  // we could get as specific as sublocality here, but a lot of the results are
+  // too specific to be helpful in the U.S. at least. neighborhoods, parks, etc.
+  if ( locality ) {
+    placeName = locality;
+  } else if ( subAdminArea ) {
+    placeName = subAdminArea;
+  } else if ( adminArea ) {
+    placeName = adminArea;
+  } else if ( country ) {
+    placeName = country;
+  } else if ( feature ) {
+    // this one shows non-land areas like Channels, Seas, Oceans
+    placeName = feature;
+  }
+  return placeName;
+};
+
 const fetchLocationName = ( lat: ?number, lng: ?number ): Promise<?string> => (
   new Promise( ( resolve, reject ) => {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      if ( result.length === 0 ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( results ) => {
+      if ( results.length === 0 ) {
         resolve( null );
       }
-      let placeName = null;
 
-      const { locality, subAdminArea, adminArea, country, feature } = result[0];
-
-      // we could get as specific as sublocality here, but a lot of the results are
-      // too specific to be helpful in the U.S. at least. neighborhoods, parks, etc.
-      if ( locality ) {
-        placeName = locality;
-      } else if ( subAdminArea ) {
-        placeName = subAdminArea;
-      } else if ( adminArea ) {
-        placeName = adminArea;
-      } else if ( country ) {
-        placeName = country;
-      } else if ( feature ) {
-        // this one shows non-land areas like Channels, Seas, Oceans
-        placeName = feature;
-      }
-
+      const placeName = setPlaceName( results );
       resolve( placeName );
     } ).catch( ( e ) => {
       reject( e );
     } );
   } )
 );
+
+const fetchCoordsByLocationName = async ( location: string ): Promise<{
+  placeName: ?string,
+  position: {
+    lat: ?number,
+    lng: ?number
+  }
+}> => {
+  const emptyResults = {
+    placeName: null,
+    position: {
+      lat: null,
+      lng: null
+    }
+  };
+
+  try {
+    const results = await Geocoder.geocodeAddress( location );
+
+    if ( results.length === 0 ) { return emptyResults; }
+
+    const placeName = setPlaceName( results );
+    const { position } = results[0];
+
+    return {
+      placeName,
+      position
+    };
+  } catch ( e ) {
+    console.log( e, "couldn't fetch coords by location name" );
+    return emptyResults;
+  }
+};
 
 const createLocationAlert = ( errorCode: number ) => {
   let body;
@@ -139,6 +177,29 @@ const createRegion = ( region: { latitude: number, longitude: number } ): Object
   };
 };
 
+const createAlertUserLocationOnMaps = ( errorCode: number ) => {
+  let body;
+  const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
+
+  if ( errorCode === 1 ) {
+    body = i18n.t( "species_nearby.no_location" );
+    if ( Platform.OS === "android" ) {
+      button.unshift( {
+        text: i18n.t( "species_nearby.enable_location" ),
+        onPress: () => OpenSettings.openSettings()
+      } );
+    }
+  } else if ( errorCode === 2 ) {
+    body = i18n.t( "species_nearby.no_gps" );
+  } else if ( errorCode === 5 ) {
+    body = i18n.t( "species_nearby.error_alert_location_services" );
+  } else {
+    body = i18n.t( "species_nearby.location_timeout" );
+  }
+
+  Alert.alert( null, body, button );
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
@@ -146,5 +207,7 @@ export {
   fetchTruncatedUserLocation,
   createLocationAlert,
   checkForTruncatedCoordinates,
-  createRegion
+  createRegion,
+  createAlertUserLocationOnMaps,
+  fetchCoordsByLocationName
 };

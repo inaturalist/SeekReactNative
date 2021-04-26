@@ -27,3 +27,8 @@ export const dirPictures: string = Platform.select( {
   ios: `${dirHome}/Pictures`,
   android: `${dirHome}/SeekPictures`
 } );
+
+export const dirPhotosForUpload: string = Platform.select( {
+  ios: `${RNFS.DocumentDirectoryPath}/SeekUploads`,
+  android: `${RNFS.DocumentDirectoryPath}/SeekUploads`
+} );

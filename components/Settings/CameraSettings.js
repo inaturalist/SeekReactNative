@@ -104,7 +104,7 @@ const CameraSettings = ( ): Node => {
           trackColor={switchTrackColor}
           onValueChange={setAutoCapture}
           accessible
-          accessibilityLabel={i18n.t( "settings.auto_capture" )}
+          accessibilityLabel={settings.autoCapture ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
         />
         <Text style={styles.autoCaptureText}>
           {i18n.t( "settings.auto_capture" )}

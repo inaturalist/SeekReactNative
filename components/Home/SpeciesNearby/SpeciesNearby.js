@@ -1,9 +1,5 @@
-import React, {
-  useEffect,
-  useCallback,
-  useReducer
-} from "react";
-import { View, Platform, Text } from "react-native";
+import React, { useEffect, useCallback, useReducer } from "react";
+import { View, Platform, Text, Modal } from "react-native";
 
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
@@ -14,9 +10,11 @@ import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
 import { checkForInternet } from "../../../utility/helpers";
 import { useLocationName, useLocationPermission } from "../../../utility/customHooks";
 import Error from "./Error";
+import LocationPicker from "./LocationPicker";
+import { fetchFromAsyncStorage, saveSpeciesNearbyLocation } from "../../../utility/settingsHelpers";
 
-const SpeciesNearby = () => {
-  const granted = useLocationPermission();
+const SpeciesNearby = ( ) => {
+  const granted = useLocationPermission( );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -25,7 +23,7 @@ const SpeciesNearby = () => {
       case "DOWNTIME_ERROR":
         return { ...state, error: "downtime" };
       case "LOCATION_ERROR":
-        return { ...state, error: action.error };
+        return { ...state, error: "species_nearby_requires_location" };
       case "LOCATION_UPDATED":
         return {
           ...state,
@@ -36,8 +34,10 @@ const SpeciesNearby = () => {
         return { ...state, taxaType: action.taxaType };
       case "NO_ERROR":
         return { ...state, error: null };
+      case "SHOW_MODAL":
+        return { ...state, showModal: action.showModal };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     latLng: {
@@ -45,10 +45,11 @@ const SpeciesNearby = () => {
       longitude: null
     },
     taxaType: "all",
-    error: null
+    error: null,
+    showModal: false
   } );
 
-  const { latLng, error, taxaType } = state;
+  const { latLng, error, taxaType, showModal } = state;
 
   const location = useLocationName( latLng.latitude, latLng.longitude );
 
@@ -59,61 +60,109 @@ const SpeciesNearby = () => {
 
   const updateTaxaType = useCallback( ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } ), [] );
 
-  const updateDowntimeError = useCallback( () => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
+  const updateDowntimeError = useCallback( ( ) => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
-  const setLocationError = useCallback( ( errorCode ) => {
-    if ( errorCode === 1 ) {
-      dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
-    } else if ( errorCode === 2 ) {
-      dispatch( { type: "LOCATION_ERROR", error: "no_gps" } );
-    } else if ( errorCode === 5 ) {
-      dispatch( { type: "LOCATION_ERROR", error: "location_settings" } );
-    } else {
-      dispatch( { type: "LOCATION_ERROR", error: "location_timeout" } );
+  const setLocationError = useCallback( ( ) => {
+    if ( error !== "species_nearby_requires_location" ) {
+      dispatch( { type: "LOCATION_ERROR" } );
     }
-  }, [] );
+   }, [error] );
 
-  const getGeolocation = useCallback( () => {
-    fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
+  const openLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } ), [] );
+  const closeLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } ), [] );
+
+  const getGeolocation = useCallback( ( ) => {
+    fetchTruncatedUserLocation( ).then( ( { latitude, longitude } ) => {
       updateLatLng( latitude, longitude );
-    } ).catch( ( errorCode ) => setLocationError( errorCode ) );
+    } ).catch( ( ) => setLocationError( ) );
   }, [setLocationError, updateLatLng] );
 
-  const requestAndroidPermissions = useCallback( () => {
-    if ( latLng.latitude ) { return; }
-    // only update location if user has not selected a location already
+  const checkLocationPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" && granted === false ) {
-      dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
+      setLocationError( );
     } else {
-      getGeolocation();
+      getGeolocation( );
     }
-  }, [latLng, getGeolocation, granted] );
+  }, [getGeolocation, granted, setLocationError] );
 
-  const checkInternet = useCallback( () => {
-    checkForInternet().then( ( internet ) => {
+  const checkForSavedLocation = useCallback( async ( ) => {
+    // only update location if user has not selected a location already
+    if ( latLng.latitude ) { return; }
+
+    const fetchSearchedLocation = async ( ) => {
+      return await fetchFromAsyncStorage( "speciesNearbyLocation" );
+    };
+
+    // check for truncated location from device or location picker
+    // before trying to access user location again
+    // this value is cleared when user reopens Seek, so the user can
+    // see species nearby in their new location
+    const searchedLocation = await fetchSearchedLocation( );
+
+    if ( searchedLocation ) {
+      const { latitude, longitude } = JSON.parse( searchedLocation );
+      if ( !latitude ) {
+        checkLocationPermissions( );
+      } else {
+        updateLatLng( latitude, longitude );
+      }
+    } else {
+      checkLocationPermissions( );
+    }
+  }, [latLng, updateLatLng, checkLocationPermissions] );
+
+  const checkInternet = useCallback( ( ) => {
+    checkForInternet( ).then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         dispatch( { type: "INTERNET_ERROR" } );
       } else if ( error === "internet_error" ) {
         dispatch( { type: "NO_ERROR" } );
       }
-    } ).catch( () => dispatch( { type: "NO_ERROR" } ) );
+    } ).catch( ( ) => dispatch( { type: "NO_ERROR" } ) );
   }, [error] );
 
-  useEffect( () => requestAndroidPermissions(), [requestAndroidPermissions] );
+  useEffect( ( ) => {
+    let isCurrent = true;
 
-  const disabled = error !== null;
+    if ( isCurrent ) {
+      checkForSavedLocation( );
+    }
+    return ( ) => {
+      isCurrent = false;
+    };
+  } ,[checkForSavedLocation] );
+
+  useEffect( ( ) => {
+    saveSpeciesNearbyLocation( JSON.stringify( latLng ) );
+  }, [latLng] );
+
+  const disabled = error === "internet_error";
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );
+
+  const renderModal = ( ) => (
+    <Modal visible={showModal}>
+      <LocationPicker
+        latitude={latLng.latitude}
+        location={location}
+        longitude={latLng.longitude}
+        closeLocationPicker={closeLocationPicker}
+        updateLatLng={updateLatLng}
+      />
+    </Modal>
+  );
 
   return (
     <View style={styles.container}>
+      {renderModal( )}
       <Text style={[styles.headerText, styles.header]}>
-        {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+        {i18n.t( "species_nearby.header" ).toLocaleUpperCase( )}
       </Text>
       <LocationPickerButton
         latLng={latLng}
         updateLatLng={updateLatLng}
         disabled={disabled}
         location={locationText}
+        openLocationPicker={openLocationPicker}
       />
       <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
       <View style={styles.marginBottom} />
@@ -121,7 +170,8 @@ const SpeciesNearby = () => {
         <Error
           error={error}
           checkInternet={checkInternet}
-          checkLocation={requestAndroidPermissions}
+          checkLocation={checkForSavedLocation}
+          openLocationPicker={openLocationPicker}
         />
       ) : (
         <SpeciesNearbyContainer

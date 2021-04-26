@@ -9,7 +9,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/home/challenges";
+import { viewStyles, textStyles } from "../../../styles/home/challenges";
 import backgrounds from "../../../assets/backgrounds";
 import { setChallengeIndex } from "../../../utility/challengeHelpers";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
@@ -50,13 +50,13 @@ const Challenges = ( { challenge }: Props ): React.Node => {
   return (
     <ImageBackground
       source={backgrounds[challenge.backgroundName]}
-      style={styles.challengeContainer}
+      style={viewStyles.challengeContainer}
     >
-      <View style={styles.marginTop} />
+      <View style={viewStyles.marginTop} />
       <ChallengeTitle challenge={challenge} />
-      <View style={styles.marginSmall} />
+      <View style={viewStyles.marginSmall} />
       <ChallengeBadgeRow challenge={challenge} />
-      <View style={styles.marginMedium} />
+      <View style={viewStyles.marginMedium} />
       <GreenButton
         color={colors.seekGreen}
         handlePress={navToChallengeDetails}
@@ -64,7 +64,7 @@ const Challenges = ( { challenge }: Props ): React.Node => {
       />
       <Text
         onPress={navToAllChallenges}
-        style={styles.viewText}
+        style={textStyles.viewText}
       >
         {i18n.t( "challenges_card.view_all" )}
       </Text>

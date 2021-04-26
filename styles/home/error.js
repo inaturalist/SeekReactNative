@@ -10,10 +10,20 @@ import {
   dimensions
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   background: {
     height: 223
   },
+  center,
+  greenButton: {
+    paddingTop: 25
+  },
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   buttonText: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -21,11 +31,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.12,
     textAlign: "center"
   },
-  center,
-  greenButton: {
-    marginTop: 25
-  },
-  row,
   text: {
     color: colors.white,
     fontFamily: fonts.book,
@@ -45,3 +50,8 @@ export default StyleSheet.create( {
     maxWidth: dimensions.width - 40
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

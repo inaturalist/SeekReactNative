@@ -1,10 +1,10 @@
 // @flow
 
 import * as React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, Text } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
-import styles from "../../../styles/home/locationPicker";
+import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import icons from "../../../assets/icons";
 import postingIcons from "../../../assets/posting";
 import i18n from "../../../i18n";
@@ -12,7 +12,9 @@ import i18n from "../../../i18n";
 type Props = {
   region: {
     latitude?: ?number,
-    longitude?: ?number
+    longitude?: ?number,
+    latitudeDelta: number,
+    longitudeDelta: number
   },
   onRegionChange: ( {
     latitude: number,
@@ -29,25 +31,31 @@ const LocationMap = ( {
   returnToUserLocation,
   posting
 }: Props ): React.Node => (
-  <View style={styles.container}>
-    {region.latitude && (
+  <View style={viewStyles.container}>
+    {region.latitude ? (
       <MapView
         onRegionChangeComplete={onRegionChange}
         provider={PROVIDER_DEFAULT}
         region={region} // need region instead of initial region for return to user location
-        style={styles.map}
+        style={viewStyles.map}
       />
+    ) : (
+      <View style={viewStyles.textContainer}>
+        <Text style={textStyles.text}>
+          {i18n.t( "species_nearby.input_location_above_map" )}
+        </Text>
+      </View>
     )}
-    <View pointerEvents="none" style={styles.pinFixed}>
+    <View pointerEvents="none" style={viewStyles.pinFixed}>
       {posting
         ? <Image source={postingIcons.crosshair} />
-        : <Image source={icons.locationPin} style={styles.markerPin} />}
+        : region.latitude ? <Image source={icons.locationPin} style={imageStyles.markerPin} /> : null}
     </View>
     <TouchableOpacity
       accessibilityLabel={i18n.t( "accessibility.user_location" )}
       accessible
       onPress={returnToUserLocation}
-      style={styles.locationIcon}
+      style={viewStyles.locationIcon}
     >
       <Image source={icons.indicator} />
     </TouchableOpacity>

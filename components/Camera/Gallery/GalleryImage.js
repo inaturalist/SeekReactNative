@@ -78,7 +78,7 @@ const GalleryImage = ( { item, setLoading }: Props ): Node => {
 
   return (
     <TouchableOpacity
-      accessibilityLabel={item.node.image.filename}
+      accessibilityLabel={item.node.image.uri}
       accessible
       onPress={selectImage}
       style={styles.button}

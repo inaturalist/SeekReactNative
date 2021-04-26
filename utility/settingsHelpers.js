@@ -94,6 +94,31 @@ const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolea
   }
 };
 
+const saveToAsyncStorage = ( key: string, value: string ) => {
+  AsyncStorage.setItem( key, value );
+};
+
+const fetchFromAsyncStorage = async ( key: string ): Promise<?string> => {
+  try {
+    return await AsyncStorage.getItem( key );
+  } catch ( error ) {
+    return "";
+  }
+};
+
+const deleteFromAsyncStorage = async ( key: string ): Promise<boolean> => {
+  try {
+    await AsyncStorage.removeItem( key );
+    return true;
+  } catch ( e ) {
+    return false;
+  }
+};
+
+const saveSpeciesNearbyLocation = ( value: string ) => {
+  saveToAsyncStorage( "speciesNearbyLocation", value );
+};
+
 export {
   getScientificNames,
   toggleLanguage,
@@ -101,5 +126,8 @@ export {
   getAutoCapture,
   getSeasonality,
   setupUserSettings,
-  updateUserSetting
+  updateUserSetting,
+  saveSpeciesNearbyLocation,
+  deleteFromAsyncStorage,
+  fetchFromAsyncStorage
 };

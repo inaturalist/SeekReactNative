@@ -129,7 +129,7 @@ const checkNumberOfBadgesEarned = () => {
     } );
 };
 
-const getBadgesEarned = async () => {
+const getBadgesEarned = async (): Promise<string> => {
   try {
     const earned = await AsyncStorage.getItem( "badgesEarned" );
     return earned;
@@ -138,7 +138,10 @@ const getBadgesEarned = async () => {
   }
 };
 
-const checkForNewBadges = async () => {
+const checkForNewBadges = async (): Promise<{
+  latestBadge: ?Object,
+  latestLevel: ?Object
+}> => {
   const badgesEarned = await getBadgesEarned();
 
   return (

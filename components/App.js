@@ -7,11 +7,10 @@ import type { Node } from "react";
 import RootStack from "./Navigation/RootStack";
 import { checkINatAdminStatus, setupChallenges } from "../utility/challengeHelpers";
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
-import { addARCameraFiles, hideLogs } from "../utility/helpers";
-import { fetchAccessToken, savePostingSuccess } from "../utility/loginHelpers";
+import { hideLogs } from "../utility/helpers";
+import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, LanguageContext } from "./UserContext";
-import { getLanguage, setupUserSettings } from "../utility/settingsHelpers";
-import { setQuickActions } from "../utility/navigationHelpers";
+import { getLanguage } from "../utility/settingsHelpers";
 
 const App = ( ): Node => {
   const [login, setLogin] = useState( null );
@@ -28,38 +27,30 @@ const App = ( ): Node => {
     }
     setLogin( token );
   };
-  const getLanguagePreference = async () => setLanguage( await getLanguage() );
+  const getLanguagePreference = async ( ) => setLanguage( await getLanguage( ) );
 
-  const toggleLogin = () => getLoggedIn();
-  const toggleLanguagePreference = () => getLanguagePreference();
+  const toggleLogin = ( ) => getLoggedIn( );
+  const toggleLanguagePreference = ( ) => getLanguagePreference( );
 
   const userContextValue = { login, toggleLogin };
   const languageValue = { preferredLanguage, toggleLanguagePreference };
 
-  useEffect( () => {
+  useEffect( ( ) => {
     // wait until check for stored language is completed
     if ( !preferredLanguage ) { return; }
     loadUserLanguagePreference( preferredLanguage );
   }, [preferredLanguage] );
 
-  useEffect( () => {
-    hideLogs();
-    setQuickActions();
-    // testing
-    setupUserSettings( );
+  useEffect( ( ) => {
+    hideLogs( );
 
     // Context
-    getLoggedIn();
-    getLanguagePreference();
-
-    // reset posting to iNat
-    savePostingSuccess( false );
-
-    setTimeout( addARCameraFiles, 3000 );
+    getLoggedIn( );
+    getLanguagePreference( );
 
     RNLocalize.addEventListener( "change", handleLocalizationChange );
 
-    return () => RNLocalize.removeEventListener( "change", handleLocalizationChange );
+    return ( ) => RNLocalize.removeEventListener( "change", handleLocalizationChange );
   }, [] );
 
   return (

@@ -3,7 +3,9 @@
 import { StyleSheet, Platform } from "react-native";
 import { colors } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     backgroundColor: Platform.OS === "android" ? colors.white : colors.seekForestGreen,
     flex: 1
@@ -26,3 +28,5 @@ export default StyleSheet.create( {
     justifyContent: "center"
   }
 } );
+
+export default viewStyles;

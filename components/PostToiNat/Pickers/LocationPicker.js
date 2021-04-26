@@ -13,7 +13,7 @@ import type { Node } from "react";
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
 import { fetchUserLocation } from "../../../utility/locationHelpers";
-import styles from "../../../styles/home/locationPicker";
+import { viewStyles } from "../../../styles/home/locationPicker";
 import headerStyles from "../../../styles/uiComponents/greenHeader";
 import backStyles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
@@ -67,8 +67,8 @@ const LocationPicker = ( {
       setAccuracy( newAccuracy );
     } else {
       setRegion( {
-        latitude: 37.77,
-        longitude: -122.42,
+        latitude: 37.7749,
+        longitude: -122.4194,
         latitudeDelta,
         longitudeDelta
       } );
@@ -121,7 +121,7 @@ const LocationPicker = ( {
   );
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={[headerStyles.container, headerStyles.center]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
@@ -134,7 +134,7 @@ const LocationPicker = ( {
         <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
       </View>
       {region.latitude && displayMap( )}
-      <View style={styles.footer}>
+      <View style={viewStyles.footer}>
         <GreenButton
           handlePress={handleLocationChange}
           text="posting.save_location"

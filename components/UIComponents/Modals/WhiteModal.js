@@ -7,17 +7,19 @@ import styles from "../../../styles/uiComponents/modals/whiteModal";
 import BackButton from "../Buttons/ModalBackButton";
 
 type Props = {
-  +children: any,
-  +closeModal?: Function,
-  +noButton?: boolean,
-  +width?: ?number
+  children: any,
+  closeModal?: ( ) => void,
+  noButton?: boolean,
+  width?: ?number,
+  accessibilityLabel?: string
 };
 
 const WhiteModal = ( {
   children,
   closeModal,
   noButton,
-  width
+  width,
+  accessibilityLabel
 }: Props ): React.Node => {
   let widthStyle = null;
 
@@ -26,12 +28,15 @@ const WhiteModal = ( {
   }
 
   return (
-    <>
+    <View
+      accessible
+      accessibilityLabel={accessibilityLabel}
+    >
       <View style={[styles.innerContainer, widthStyle]}>
         {children}
       </View>
       {!noButton && <BackButton closeModal={closeModal} />}
-    </>
+    </View>
   );
 };
 

@@ -34,7 +34,7 @@ const ReplacePhotoModal = ( {
   const currentUserPhoto = useUserPhoto( seenTaxa );
   const showScientificName = !commonName || scientificNames;
 
-  if ( !currentUserPhoto || !seenTaxa ) {
+  if ( !seenTaxa ) {
     return null;
   }
 
@@ -54,7 +54,7 @@ const ReplacePhotoModal = ( {
       color="green"
       closeModal={closeModal}
       userImage={image.uri}
-      originalImage={currentUserPhoto.uri}
+      originalImage={currentUserPhoto ? currentUserPhoto.uri : null}
       displayDate={displayDate}
     >
       <Text allowFontScaling={false} style={[styles.speciesText, showScientificName && styles.scientificName]}>

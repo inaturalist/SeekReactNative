@@ -31,8 +31,8 @@ const InputField = ( {
   return (
     // $FlowFixMe
     <TextInput
-      accessibilityLabel={text}
-      accessible
+      // don't use accessibility label here because screen reader
+      // should read the text value (editable content) instead
       autoCapitalize="none"
       autoCorrect={false}
       autoFocus={type !== "password"}

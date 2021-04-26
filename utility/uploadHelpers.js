@@ -13,6 +13,7 @@ import { handleServerError } from "./helpers";
 // import { dirPhotosForUpload } from "./dirStorage";
 import i18n from "../i18n";
 // import { isWithin7Days } from "./dateHelpers";
+import { LOG } from "./debugHelpers";
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -22,6 +23,7 @@ const saveUploadSucceeded = async ( id: number ) => {
     realm.write( ( ) => {
       photo.uploadSucceeded = true;
     } );
+    LOG.info( `photo ${id} upload succeeded` );
   } catch ( e ) {
     console.log( "couldn't set succeeded status: ", e );
   }
@@ -93,6 +95,7 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri:
 
   try {
     await inatjs.observation_photos.create( photoParams, options );
+    LOG.info( `photo ${uuid} appended to observation ${id}` );
     return true;
   } catch ( e ) {
     return {
@@ -112,6 +115,8 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   // now that we're resizing when creating the realm observation, this is unnecessary
   // except for photos that were already stored with the cameraroll uri
   const resizedPhoto = await resizeImageForUpload( uri );
+
+  LOG.info( `resized photo: ${resizedPhoto}` );
 
   if ( !resizedPhoto ) {
     // if upload cannot complete because there is no longer a photo to upload
@@ -139,6 +144,7 @@ const saveObservationId = async ( id: number, photo: Object ) => {
     realm.write( ( ) => {
       photo.id = id;
     } );
+    LOG.info( `saving observation id: ${id}` );
     return photo;
   } catch ( e ) {
     console.log( "couldn't save id to UploadPhotoRealm", e );
@@ -176,6 +182,8 @@ const uploadObservation = async ( observation: {
       owners_identification_from_vision_requested: true
     }
   };
+
+  LOG.info( `obs params: ${JSON.stringify( params )}` );
 
   const token = await fetchJSONWebToken( login );
 
@@ -291,6 +299,7 @@ const markCurrentUploadAsSeen = async ( upload: {
 
 const checkForUploads = async ( ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
+  LOG.info( `total number of uploads in realm: ${realm.objects( "UploadObservationRealm" ) ? realm.objects( "UploadObservationRealm" ).length : 0}` );
   return realm.objects( "UploadObservationRealm" );
 };
 

@@ -359,7 +359,6 @@
     "error_classifier": "Désolé, nous n’arrivons pas à charger le répertoire",
     "error_camera": "Désolé, nous n’avons pas réussi à charger la caméra",
     "error_device": "Désolé, l’appareil utilisé n’est pas pris en charge",
-    "error_save": "Désolé, il y a eu un problème lors de la sauvegarde de votre photo",
     "error_take": "Désolé, nous n'avons pas pu prendre votre photo",
     "error_photos": "Aucune photo n'a été trouvée dans cet album. Essayez de sélectionner un autre album.",
     "error_version": "La caméra de réalité augmentée de Seek nécessite iOS 11.0+. Votre appareil utilise la version OS {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Signaler cette observation comme incorrecte",
     "back": "Retour à la page précédente",
     "user_location": "Retourner à votre position actuelle",
-    "help": "Appuyez pour afficher la page d’assistance",
+    "open_help": "Ouvrir l'écran d'aide de l'appareil photo",
+    "open_posting_help": "Ouvrir la publication sur l'écran d'aide d'iNaturalist",
     "take_photo": "Appuyez pour prendre une photo",
     "scroll_left": "Appuyez pour faire défiler à gauche",
-    "scroll_right": "Appuyez pour faire défiler à droite"
+    "scroll_right": "Appuyez pour faire défiler à droite",
+    "warning_modal": "Avertissements de la caméra AR",
+    "get_started_modal": "Conseils pour démarrer"
   },
   "review": {
     "title": "Évaluez cette appli",

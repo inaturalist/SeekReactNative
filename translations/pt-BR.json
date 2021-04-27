@@ -359,7 +359,6 @@
     "error_classifier": "Desculpe, não foi possível carregar esta informação.",
     "error_camera": "Desculpe, não conseguimos carregar a câmera",
     "error_device": "Desculpe, o dispositivo que você está usando não é compatível",
-    "error_save": "Desculpe, houve um problema ao salvar a sua foto",
     "error_take": "Desculpe, não conseguimos capturar a sua foto",
     "error_photos": "Nenhuma foto foi encontrada neste álbum de fotos. Tente selecionar um álbum diferente.",
     "error_version": "A Câmera de AR do Seek requer o iOS 11.0+. Seu dispositivo está executando a versão de SO {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Marcar esta observação como incorreta",
     "back": "Voltar à tela anterior",
     "user_location": "Voltar à sua localização atual",
-    "help": "Toque para a tela de ajuda",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Toque para tirar uma foto",
     "scroll_left": "Toque para rolar à esquerda",
-    "scroll_right": "Toque para rolar à direita"
+    "scroll_right": "Toque para rolar à direita",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Avaliar este aplicativo",

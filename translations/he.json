@@ -359,7 +359,6 @@
     "error_classifier": "סליחה, אנו לא מצליחים להעלות את המזהה",
     "error_camera": "סליחה, אנו לא מצליחים להתחיל את המצלמה",
     "error_device": "מצטערים, המכשיר בו אתה משתמש אינו נתמך",
-    "error_save": "מצטערים, הייתה תקלה בשמירת התמונה לאלבום התמונות",
     "error_take": "מצטערים, לא הצלחנו ללכוד את התמונה שלך",
     "error_photos": "לא נמצאו בעיות באלבום תמנות זה. נסו לבחור אלבום אחר.",
     "error_version": "מצלמת הבינה המלאכותית של Seek, דורשת גירסא +iOS 11.0, מכשירך מריץ גרסא {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "סמנו תצפית זו כלא נכונה",
     "back": "חזרו למסך הקודם",
     "user_location": "חזרו למיקומכם הנוכחי",
-    "help": "לחצו למסך עזרה",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "לחצו כדי לקחת תמונה",
     "scroll_left": "לחצו לגלילה שמאלה",
-    "scroll_right": "לחצו לגלילה ימינה"
+    "scroll_right": "לחצו לגלילה ימינה",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "דרגו את היישום הזה",

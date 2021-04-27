@@ -60,15 +60,29 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
     );
   };
 
-  const renderNextFiveBadges = ( start, finish ) => (
+  const renderNextFiveBadges = ( data ) => (
     <FlatList
       contentContainerStyle={viewStyles.center}
       numColumns={3}
-      data={speciesBadges.slice( start, finish )}
-      keyExtractor={( item, index ) => index.toString( )}
+      data={data}
+      keyExtractor={( item, index ) => `${index.toString( )}`}
       renderItem={renderSpeciesBadge}
     />
   );
+
+  const renderBadgeGrid = ( ) => {
+    const numOfSets = Math.ceil( speciesBadges.length / 5 );
+
+    const sets = [];
+
+    for ( let i = 0; i < numOfSets; i += 1 ) {
+      sets.push( i * 5 );
+    }
+
+    return sets.map( ( set, index ) => renderNextFiveBadges(
+      speciesBadges.slice( sets[index], sets[index + 1] )
+    ) );
+  };
 
   const renderBadgeModal = ( ) => (
     <Modal
@@ -88,8 +102,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
   return (
     <>
       {iconicTaxonBadges.length > 0 && renderBadgeModal( )}
-      {speciesBadges.length > 0 && renderNextFiveBadges( 0, 5 )}
-      {speciesBadges.length > 0 && renderNextFiveBadges( 5, 10 )}
+      {speciesBadges.length > 0 && renderBadgeGrid( )}
       <View style={viewStyles.margin} />
     </>
   );

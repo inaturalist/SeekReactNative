@@ -107,7 +107,7 @@ const ChallengeBadges = () => {
   };
 
   return (
-    <View>
+    <>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -125,7 +125,7 @@ const ChallengeBadges = () => {
       />
       {challengeBadges.length > 0 && renderChallengesGrid( )}
       <View style={viewStyles.marginLarge} />
-    </View>
+    </>
   );
 };
 

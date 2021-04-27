@@ -7,7 +7,7 @@ import realmConfig from "../../models";
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/achievements";
+import { imageStyles, viewStyles } from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modals/Modal";
 
 const ChallengeBadges = () => {
@@ -83,14 +83,14 @@ const ChallengeBadges = () => {
       >
         <Image
           source={item.percentComplete === 100 ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
-          style={styles.badgeIcon}
+          style={imageStyles.badgeIcon}
         />
       </TouchableOpacity>
     );
   };
 
   const renderNextFiveChallenges = ( start, finish ) => (
-    <View style={styles.gridRowWrap} key={start}>
+    <View style={viewStyles.gridRowWrap} key={start}>
       {challengeBadges.slice( start, finish ).map( ( item, index ) => renderChallengeBadge( item ) )}
     </View>
   );
@@ -124,7 +124,7 @@ const ChallengeBadges = () => {
         )}
       />
       {challengeBadges.length > 0 && renderChallengesGrid( )}
-      <View style={styles.marginLarge} />
+      <View style={viewStyles.marginLarge} />
     </View>
   );
 };

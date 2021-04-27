@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useCallback } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, FlatList } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import type { Node } from "react";
@@ -10,10 +10,15 @@ import i18n from "../../i18n";
 import realmConfig from "../../models";
 import BadgeModal from "../Modals/BadgeModal";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/achievements";
+import { viewStyles, imageStyles } from "../../styles/badges/achievements";
 
 type Props = {
-  +speciesBadges: Array<Object>
+  speciesBadges: Array<{
+    iconicTaxonId: number,
+    infoText: string,
+    earned: boolean,
+    earnedIconName: string
+  }>
 }
 
 const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
@@ -39,8 +44,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
       } );
   };
 
-  const renderSpeciesBadge = ( item ) => {
-    if ( !item ) { return; }
+  const renderSpeciesBadge = ( { item }: Object ) => {
     return (
       <TouchableOpacity
         onPress={() => fetchBadgesByIconicId( item.iconicTaxonId )}
@@ -50,28 +54,21 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
       >
         <Image
           source={item.earned ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
-          style={styles.badgeIcon}
+          style={imageStyles.badgeIcon}
         />
       </TouchableOpacity>
     );
   };
 
   const renderNextFiveBadges = ( start, finish ) => (
-    <View style={styles.gridRowWrap} key={start}>
-      {speciesBadges.slice( start, finish ).map( ( item, index ) => renderSpeciesBadge( item ) )}
-    </View>
+    <FlatList
+      contentContainerStyle={viewStyles.center}
+      numColumns={3}
+      data={speciesBadges.slice( start, finish )}
+      keyExtractor={( item, index ) => index.toString( )}
+      renderItem={renderSpeciesBadge}
+    />
   );
-
-  const renderBadgesGrid = ( ) => {
-    const numOfSets = Math.round( speciesBadges.length / 5 );
-    const sets = [];
-
-    for ( let i = 0; i < numOfSets; i += 1 ) {
-      sets.push( i * 5 );
-    }
-
-    return sets.map( ( set, index ) => renderNextFiveBadges( sets[index], sets[index + 1] ) );
-  };
 
   const renderBadgeModal = ( ) => (
     <Modal
@@ -89,11 +86,12 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
   );
 
   return (
-    <View>
+    <>
       {iconicTaxonBadges.length > 0 && renderBadgeModal( )}
-      {speciesBadges.length > 0 && renderBadgesGrid( )}
-      <View style={styles.margin} />
-    </View>
+      {speciesBadges.length > 0 && renderNextFiveBadges( 0, 5 )}
+      {speciesBadges.length > 0 && renderNextFiveBadges( 5, 10 )}
+      <View style={viewStyles.margin} />
+    </>
   );
 };
 

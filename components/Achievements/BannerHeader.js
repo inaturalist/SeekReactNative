@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ImageBackground, Text } from "react-native";
 
-import styles from "../../styles/badges/banner";
+import { viewStyles, textStyles } from "../../styles/badges/banner";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -14,9 +14,9 @@ type Props = {
 const BannerHeader = ( { text, modal }: Props ): React.Node => (
   <ImageBackground
     source={icons.titleBanner}
-    style={[styles.banner, modal && styles.modal]}
+    style={[viewStyles.banner, modal && viewStyles.modal]}
   >
-    <Text allowFontScaling={false} style={styles.bannerText}>{text}</Text>
+    <Text allowFontScaling={false} style={textStyles.bannerText}>{text}</Text>
   </ImageBackground>
 );
 

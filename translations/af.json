@@ -359,7 +359,6 @@
     "error_classifier": "Jammer, ons kon nie die klassifiseerder laai nie",
     "error_camera": "Jammer, ons kon nie die kamera laai nie",
     "error_device": "Jammer, die toestel wat u gebruik word nie gesteun nie",
-    "error_save": "Jammer, daar was ’n probleem met die bewaar van u foto",
     "error_take": "Jammer, ons kon nie u foto vasvang nie",
     "error_photos": "Geen foto’s is in hierdie album gevind nie. Kies asb. ’n ander album.",
     "error_version": "Seek se UR-kamera vereis iOS 11.0+. U toestel loop op iOS-weergawe {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Merk waarneming as verkeerd",
     "back": "Gaan terug na vorige skerm",
     "user_location": "Keer terug na u huidige ligging",
-    "help": "Tik vir hulpskerm",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Tik om ’n foto te neem",
     "scroll_left": "Tim om na links te rol",
-    "scroll_right": "Tik om na regs te rol"
+    "scroll_right": "Tik om na regs te rol",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Gradeer hierdie toep",

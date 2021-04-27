@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import { Platform, Image, TouchableOpacity } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -10,6 +10,7 @@ import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
+import { ObservationContext } from "../../UserContext";
 
 type Props = {
   item: Object,
@@ -17,6 +18,7 @@ type Props = {
 }
 
 const GalleryImage = ( { item, setLoading }: Props ): Node => {
+  const { setObservation } = useContext( ObservationContext );
   const navigation = useNavigation();
 
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
@@ -33,20 +35,29 @@ const GalleryImage = ( { item, setLoading }: Props ): Node => {
     const image = {
       time,
       uri,
-      latitude,
-      longitude,
-      predictions: []
+      predictions: [],
+      errorCode: latitude === null ? 2 : 0
     };
+
+    if ( latitude ) {
+      // $FlowFixMe
+      image.latitude = latitude;
+      // $FlowFixMe
+      image.longitude = longitude;
+    }
 
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
       image.predictions = predictions;
 
+      setObservation( { image } );
+
       fetchOfflineResults( image, navigation );
     } else {
+      setObservation( { image } );
       navigate( "OnlineServerResults", { image } );
     }
-  }, [navigation] );
+  }, [navigation, setObservation] );
 
   const getPredictions = useCallback( ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );

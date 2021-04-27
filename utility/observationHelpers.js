@@ -35,10 +35,11 @@ const addToCollection = async ( observation: {
     ancestor_ids: Array<number>
   }
 }, image: {
-  latitude: number,
-  longitude: number,
+  latitude?: number,
+  longitude?: number,
   uri: string,
-  time: number
+  time: number,
+  errorCode: number
 } ) => {
   const {
     latitude,

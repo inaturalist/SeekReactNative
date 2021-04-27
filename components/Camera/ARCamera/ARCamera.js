@@ -4,7 +4,8 @@ import React, {
   useReducer,
   useEffect,
   useRef,
-  useCallback
+  useCallback,
+  useContext
 } from "react";
 import {
   Image,
@@ -34,17 +35,19 @@ import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
-import { fetchOfflineResults } from "../../../utility/resultsHelpers";
+import { fetchOfflineResults, fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
 // import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
+import { ObservationContext } from "../../UserContext";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
+  const { setObservation } = useContext( ObservationContext );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -118,15 +121,23 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
   }, [error] );
 
-  const navigateToResults = useCallback( ( uri, predictions ) => {
-    const image = {
+  const navigateToResults = useCallback( async ( uri, predictions ) => {
+    const userImage = {
       time: createTimestamp( ), // add current time to AR camera photos
       uri,
       predictions
     };
 
+    // AR camera photos don't come with a location
+    // especially when user has location permissions off
+    // this is also needed for ancestor screen, species nearby
+    const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage );
+    image.errorCode = errorCode;
+
+    setObservation( { image } );
+
     fetchOfflineResults( image, navigation );
-  }, [navigation] );
+  }, [navigation, setObservation] );
 
   const resetPredictions = ( ) => {
     // only rerender if state has different values than before

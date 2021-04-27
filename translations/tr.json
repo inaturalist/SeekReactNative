@@ -359,7 +359,6 @@
     "error_classifier": "Üzgünüz, sınıflandırıcıyı yükleyemiyoruz",
     "error_camera": "Üzgünüz, kamerayı yükleyemedik",
     "error_device": "Üzgünüz, kullandığınız cihaz desteklenmiyor",
-    "error_save": "Üzgünüz, fotoğrafınızı kaydederken bir sorun oluştu",
     "error_take": "Üzgünüz, fotoğrafınızı çekemedik",
     "error_photos": "Bu albümde hiç fotoğraf bulunamadı. Farklı bir albüm seçmeyi deneyin.",
     "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor.",
@@ -625,10 +624,13 @@
     "flag": "Bu gözlemi yanlış olarak işaretle",
     "back": "Önceki ekrana dön",
     "user_location": "Var olan konuma dön",
-    "help": "Yardım ekranı için dokunun",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Fotoğraf çekmek için dokunun",
     "scroll_left": "Sola kaydırmak için dokunun",
-    "scroll_right": "Sağa kaydırmak için dokunun"
+    "scroll_right": "Sağa kaydırmak için dokunun",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Bu uygulamayı oylayın",

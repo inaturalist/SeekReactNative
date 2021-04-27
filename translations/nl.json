@@ -359,7 +359,6 @@
     "error_classifier": "Het spijt ons, we kunnen de classificeerder niet laden",
     "error_camera": "Het spijt ons, we zijn niet in staat de camera te laden",
     "error_device": "Sorry, het apparaat dat je gebruikt wordt niet ondersteund",
-    "error_save": "Sorry, er was een probleem bij het bewaren van je foto",
     "error_take": "Het spijt ons, we konden je foto niet opslaan",
     "error_photos": "Er zijn geen foto's gevonden in dit fotoalbum. Probeer een ander album.",
     "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Markeer deze waarneming als onjuist",
     "back": "Ga terug naar het vorige scherm",
     "user_location": "Keer terug naar je huidige locatie",
-    "help": "Tik om help scherm te tonen",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Neem een foto",
     "scroll_left": "Tik om naar links te scrollen",
-    "scroll_right": "Tik om naar rechts te scrollen"
+    "scroll_right": "Tik om naar rechts te scrollen",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Beoordeel deze app",

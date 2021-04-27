@@ -25,7 +25,7 @@ const saveUploadSucceeded = async ( id: number ) => {
     } );
     LOG.info( `photo ${id} upload succeeded` );
   } catch ( e ) {
-    LOG.info( `couldn't set photo ${id} upload succeeded` );
+    LOG.error( `couldn't set photo ${id} upload succeeded` );
     console.log( "couldn't set succeeded status: ", e );
   }
 };
@@ -40,7 +40,7 @@ const saveUploadFailed = async ( id: number ) => {
     } );
     LOG.info( `set upload failed: ${id}` );
   } catch ( e ) {
-    LOG.info( `couldn't set upload failed: ${id}` );
+    LOG.error( `couldn't set upload failed: ${id}` );
     console.log( "couldn't set failed status: ", e );
   }
 };
@@ -65,7 +65,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   } catch ( e ) {
     if ( e.response && e.response.status && e.response.status === 503 ) {
       // not 100% sure if this is working
-      LOG.info( `downtime server error: ${e.message}` );
+      LOG.error( `downtime server error: ${e.message}` );
       return {
         error: {
           type: "downtime",
@@ -74,7 +74,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
         }
       };
     }
-    LOG.info( `login error: ${e.message}` );
+    LOG.error( `login error: ${e.message}` );
     return {
       error: {
         type: "login",
@@ -84,7 +84,11 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   }
 };
 
-const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri: string }, token: string, uri: string ) => {
+const appendPhotoToObservation = async ( photo: {
+  id: number,
+  uuid: string,
+  uri: string
+}, token: string, uri: string ) => {
   const { id, uuid } = photo;
   const photoParams = {
     "observation_photo[observation_id]": id,
@@ -103,13 +107,18 @@ const appendPhotoToObservation = async ( photo: { id: number, uuid: string, uri:
     LOG.info( `photo ${uuid} appended to observation ${id}` );
     return true;
   } catch ( e ) {
-    LOG.info( `photo ${uuid} upload error: ${e.message}` );
-    return {
-      error: {
-        type: "photo",
-        errorText: e.message
-      }
-    };
+    LOG.error( `photo ${uuid} upload error: ${e.message}` );
+
+    // when there's no error message, this can be caused by upload starting when user first posts from posting screen
+    // and then immediately going to home screen, where a second upload will start while first is still in progress
+    if ( e.message ) {
+      return {
+        error: {
+          type: "photo",
+          errorText: e.message
+        }
+      };
+    }
   }
 };
 
@@ -128,7 +137,7 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
     // if upload cannot complete because there is no longer a photo to upload
     // save this setting so Seek does not keep trying to upload it (and crashing each time)
     saveUploadFailed( id );
-    LOG.info( `photo ${photo.uuid} doesn't exist error: ${id}` );
+    LOG.error( `photo ${photo.uuid} doesn't exist error: ${id}` );
     return {
       error: {
         type: "photo",
@@ -154,7 +163,7 @@ const saveObservationId = async ( id: number, photo: Object ) => {
     LOG.info( `saving observation id: ${id}` );
     return photo;
   } catch ( e ) {
-    LOG.info( `error: ${e}: couldn't save observation id: ${id}` );
+    LOG.error( `error: ${e}: couldn't save observation id: ${id}` );
     console.log( "couldn't save id to UploadPhotoRealm", e );
   }
 };
@@ -208,7 +217,7 @@ const uploadObservation = async ( observation: {
     const photo: Object = await saveObservationId( id, observation.photo );
     return await uploadPhoto( photo, token );
   } catch ( e ) {
-    LOG.info( `error uploading observation: ${e.message}` );
+    LOG.error( `error uploading observation: ${e.message}` );
     return {
       error: {
         type: "observation",
@@ -260,7 +269,7 @@ const saveObservationToRealm = async ( observation: {
     const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${uuid}'` )[0];
     return uploadObservation( latestObs );
   } catch ( e ) {
-    LOG.info( `error saving observation to realm: ${e}` );
+    LOG.error( `error saving observation to realm: ${e}` );
     console.log( "couldn't save observation to UploadObservationRealm", e );
   }
 };
@@ -288,7 +297,7 @@ const markUploadsAsSeen = async ( ) => {
       }
     } );
   } catch ( e ) {
-    LOG.info( `error marking uploads as seen: ${e}` );
+    LOG.error( `error marking uploads as seen: ${e}` );
     console.log( "couldn't mark uploads as seen in UploadPhotoRealm", e );
   }
 };
@@ -307,7 +316,7 @@ const markCurrentUploadAsSeen = async ( upload: {
       } );
     }
   } catch ( e ) {
-    LOG.info( `error marking current upload as seen: ${e}` );
+    LOG.error( `error marking current upload as seen: ${e}` );
     console.log( "couldn't mark current upload as seen", e );
   }
 };

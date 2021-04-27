@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useCallback } from "react";
-import { View, Image, TouchableOpacity, FlatList } from "react-native";
+import { View, Image, TouchableOpacity, LogBox } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import type { Node } from "react";
@@ -11,6 +11,8 @@ import realmConfig from "../../models";
 import BadgeModal from "../Modals/BadgeModal";
 import badgeImages from "../../assets/badges";
 import { viewStyles, imageStyles } from "../../styles/badges/achievements";
+import { createBadgeSetList } from "../../utility/badgeHelpers";
+import BadgeList from "./BadgeList";
 
 type Props = {
   speciesBadges: Array<{
@@ -22,9 +24,17 @@ type Props = {
 }
 
 const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
+  // FlatList renders twice, which throws the unique key error
+  // FlatList within a ScrollView also isn't ideal, but it's fine here
+  // since these are tiny lists, not long lists that need a ton of performance
+  // and using Views instead of FlatList here caused the UI for the entire app
+  // to stutter in Android
+  LogBox.ignoreLogs( ["Each child in a list"] );
   const [showModal, setModal] = useState( false );
   const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
   const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );
+
+  const sets = createBadgeSetList( speciesBadges );
 
   const openModal = useCallback( () => setModal( true ), [] );
   const closeModal = useCallback( () => setModal( false ), [] );
@@ -60,29 +70,12 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
     );
   };
 
-  const renderNextFiveBadges = ( data ) => (
-    <FlatList
-      contentContainerStyle={viewStyles.center}
-      numColumns={3}
-      data={data}
-      keyExtractor={( item, index ) => `${index.toString( )}`}
+  const renderBadgeGrid = ( ) => sets.map( ( set, index ) => (
+    <BadgeList
+      data={speciesBadges.slice( sets[index], sets[index + 1] )}
       renderItem={renderSpeciesBadge}
     />
-  );
-
-  const renderBadgeGrid = ( ) => {
-    const numOfSets = Math.ceil( speciesBadges.length / 5 );
-
-    const sets = [];
-
-    for ( let i = 0; i < numOfSets; i += 1 ) {
-      sets.push( i * 5 );
-    }
-
-    return sets.map( ( set, index ) => renderNextFiveBadges(
-      speciesBadges.slice( sets[index], sets[index + 1] )
-    ) );
-  };
+  ) );
 
   const renderBadgeModal = ( ) => (
     <Modal
@@ -102,7 +95,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
   return (
     <>
       {iconicTaxonBadges.length > 0 && renderBadgeModal( )}
-      {speciesBadges.length > 0 && renderBadgeGrid( )}
+      {renderBadgeGrid( )}
       <View style={viewStyles.margin} />
     </>
   );

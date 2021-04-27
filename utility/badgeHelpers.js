@@ -180,11 +180,24 @@ const checkForNewBadges = async (): Promise<{
   );
 };
 
+const createBadgeSetList = ( badges: Array<Object> ): Array<number> => {
+  const numOfSets = Math.ceil( badges.length / 5 );
+
+  const sets = [];
+
+  for ( let i = 0; i < numOfSets; i += 1 ) {
+    sets.push( i * 5 );
+  }
+
+  return sets;
+};
+
 export {
   recalculateBadges,
   setupBadges,
   checkNumberOfBadgesEarned,
   checkForNewBadges,
   getBadgesEarned,
-  deleteBadges
+  deleteBadges,
+  createBadgeSetList
 };

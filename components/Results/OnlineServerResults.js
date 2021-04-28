@@ -10,7 +10,6 @@ import ErrorScreen from "./Error";
 import { createJwtToken } from "../../utility/helpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
-import { createLocationAlert } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import {
@@ -54,7 +53,6 @@ const OnlineServerResults = (): Node => {
     taxon: {},
     image: params.image,
     loading: true,
-    errorCode: null,
     seenDate: null,
     observation: null,
     error: null,
@@ -66,7 +64,6 @@ const OnlineServerResults = (): Node => {
     taxon,
     image,
     loading,
-    errorCode,
     seenDate,
     observation,
     error,
@@ -99,7 +96,6 @@ const OnlineServerResults = (): Node => {
   };
 
   const handleServerError = useCallback( ( response ) => {
-    console.log( response, "response" );
     if ( !response ) {
       dispatch( { type: "ERROR", error: "onlineVision" } );
     } else if ( response.status && response.status === 503 ) {
@@ -113,10 +109,10 @@ const OnlineServerResults = (): Node => {
   const addObservation = useCallback( async () => {
     if ( !observation ) { return; }
     await addToCollection( observation, image );
-    if ( !image.latitude && errorCode !== null ) {
-      createLocationAlert( errorCode );
-    }
-  }, [observation, image, errorCode] );
+    // if ( !image.latitude && errorCode !== null ) {
+    //   createLocationAlert( errorCode );
+    // }
+  }, [observation, image] );
 
   const checkForMatches = () => dispatch( { type: "CLICKED" } );
 

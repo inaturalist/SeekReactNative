@@ -36,7 +36,7 @@ const GalleryImage = ( { item, setLoading }: Props ): Node => {
       time,
       uri,
       predictions: [],
-      errorCode: latitude === null ? 2 : 0
+      errorCode: 0
     };
 
     if ( latitude ) {

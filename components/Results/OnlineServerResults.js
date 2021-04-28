@@ -10,7 +10,7 @@ import ErrorScreen from "./Error";
 import { createJwtToken } from "../../utility/helpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
-import { fetchTruncatedUserLocation, createLocationAlert } from "../../utility/locationHelpers";
+import { createLocationAlert } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import {
@@ -18,8 +18,7 @@ import {
   checkCommonAncestorRank,
   createOnlineSpecies,
   createOnlineAncestor,
-  navToMatch,
-  setImageCoords
+  navToMatch
 } from "../../utility/resultsHelpers";
 import { ObservationContext } from "../UserContext";
 
@@ -44,10 +43,6 @@ const OnlineServerResults = (): Node => {
         return { ...state, seenDate: action.date };
       case "NO_MATCH":
         return { ...state, loading: false };
-      case "ADD_LOCATION_TO_NEW_OBS":
-        return { ...state, image: action.image };
-      case "SET_LOCATION_ERROR":
-        return { ...state, errorCode: action.code };
       case "ERROR":
         return { ...state, error: action.error, numberOfHours: action.numberOfHours || null };
       case "CLICKED":
@@ -80,20 +75,6 @@ const OnlineServerResults = (): Node => {
   } = state;
 
   const newObs = observation && !seenDate;
-
-  const getUserLocation = useCallback( () => {
-    // this should only apply to iOS photos with no metadata
-    // once metadata is fixed, should be able to remove this check for user location
-    if ( image.latitude ) {
-      return;
-    }
-
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      dispatch( { type: "ADD_LOCATION_TO_NEW_OBS", image: setImageCoords( coords, image ) } );
-    } ).catch( ( code ) => {
-      dispatch( { type: "SET_LOCATION_ERROR", code } );
-    } );
-  }, [image] );
 
   const checkSpeciesSeen = useCallback( async ( species ) => {
     const date = await fetchSpeciesSeenDate( species.taxon.id );
@@ -203,10 +184,9 @@ const OnlineServerResults = (): Node => {
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      getUserLocation(); // need this for Species Nearby This Taxon on Match Screen
       getParamsForOnlineVision();
     } );
-  }, [navigation, getUserLocation, getParamsForOnlineVision] );
+  }, [navigation, getParamsForOnlineVision] );
 
   if ( error && clicked ) {
     return (

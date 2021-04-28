@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useCallback, useRef, useContext } from "react";
+import React, { useReducer, useCallback, useRef } from "react";
 import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";

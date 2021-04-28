@@ -1,8 +1,9 @@
 // @flow
 
-import * as React from "react";
+import React, { useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import styles from "../../styles/match/match";
 import PostToiNat from "./PostToiNat";
@@ -11,6 +12,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useCommonName } from "../../utility/customHooks";
+import { ObservationContext } from "../UserContext";
 
 type Props = {
   params: Object,
@@ -24,9 +26,10 @@ const MatchContainer = ( {
   params,
   setNavigationPath,
   scientificNames
-}: Props ): React.Node => {
+}: Props ): Node => {
+  const { observation } = useContext( ObservationContext );
   const navigation = useNavigation();
-  const { taxon, image, seenDate } = params;
+  const { taxon, seenDate } = params;
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
@@ -34,6 +37,7 @@ const MatchContainer = ( {
 
   const { gradientLight } = setGradients( screenType );
 
+  const { image } = observation;
   const { taxaId, scientificName, rank } = taxon;
 
   const taxaInfo = {

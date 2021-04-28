@@ -158,21 +158,12 @@ const navToMatch = async (
     scientificName?: string,
     rank?: number
   },
-  image: {
-    time: number,
-    uri: string,
-    predictions: Array<Object>,
-    latitude?: number,
-    longitude?: number,
-    errorCode?: number
-  },
   seenDate: ?string
 ) => {
   navigation.push( "Drawer", {
     screen: "Match",
     params: {
       taxon,
-      image,
       seenDate
     }
   } );
@@ -259,15 +250,15 @@ const fetchOfflineResults = async ( userImage: {
       }
     }
     const taxon = createSpecies( species, taxa );
-    navToMatch( navigation, taxon, userImage, seenDate );
+    navToMatch( navigation, taxon, seenDate );
 
   } else if ( ancestor ) {
     const taxa = await fetchPhoto( ancestor.taxon_id );
     const taxon = createAncestor( ancestor, taxa );
-    navToMatch( navigation, taxon, userImage, null );
+    navToMatch( navigation, taxon, null );
   } else {
     // no match
-    navToMatch( navigation, { }, userImage, null );
+    navToMatch( navigation, { }, null );
   }
 };
 

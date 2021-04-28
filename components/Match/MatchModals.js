@@ -3,7 +3,8 @@
 import React, {
   useEffect,
   useCallback,
-  useReducer
+  useReducer,
+  useContext
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
@@ -20,6 +21,7 @@ import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/he
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
+import { ObservationContext } from "../UserContext";
 
 type Props = {
   screenType: string,
@@ -40,9 +42,11 @@ const MatchModals = ( {
   navPath,
   scientificNames
 }: Props ): Node => {
+  const { observation } = useContext( ObservationContext );
   const navigation = useNavigation();
 
-  const { seenDate, taxon, image } = params;
+  const { image } = observation;
+  const { seenDate, taxon } = params;
 
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );

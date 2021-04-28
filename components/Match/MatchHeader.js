@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import { View, Image, BackHandler, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useFocusEffect } from "@react-navigation/native";
@@ -10,6 +10,7 @@ import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import icons from "../../assets/icons";
 import { setGradients } from "../../utility/matchHelpers";
+import { ObservationContext } from "../UserContext";
 
 type Props = {
   screenType: string,
@@ -22,7 +23,9 @@ const MatchHeader = ( {
   setNavigationPath,
   params
 }: Props ): Node => {
-  const { image, taxon } = params;
+  const { observation } = useContext( ObservationContext );
+  const { image } = observation;
+  const { taxon } = params;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
   const { gradientDark, gradientLight } = setGradients( screenType );

@@ -251,7 +251,6 @@ const fetchOfflineResults = async ( userImage: {
     }
     const taxon = createSpecies( species, taxa );
     navToMatch( navigation, taxon, seenDate );
-
   } else if ( ancestor ) {
     const taxa = await fetchPhoto( ancestor.taxon_id );
     const taxon = createAncestor( ancestor, taxa );

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback, useRef } from "react";
+import React, { useReducer, useEffect, useCallback, useRef, useContext } from "react";
 import {
   View,
   Image,
@@ -26,12 +26,16 @@ import { resizeImage } from "../../utility/photoHelpers";
 import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
 import CropScreen from "./CropScreen";
+import { ObservationContext } from "../UserContext";
 
 const SocialScreen = ( ): Node => {
+  const { observation } = useContext( ObservationContext );
+  const { image } = observation;
+  const { uri } = image;
   const cropViewRef = useRef( );
   // const { navigate } = useNavigation( );
   const { params } = useRoute( );
-  const { uri, taxon, commonName } = params;
+  const { taxon, commonName } = params;
   const { scientificName } = taxon;
 
   // eslint-disable-next-line no-shadow

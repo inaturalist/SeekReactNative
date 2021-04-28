@@ -11,10 +11,10 @@ import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { replacePhoto } from "../../utility/photoHelpers";
 import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
+import { ObservationContext } from "../UserContext";
 
 type Props = {
   closeModal: Function,
-  image: Object,
   seenDate: string,
   taxon: Object,
   scientificNames: boolean,
@@ -23,12 +23,13 @@ type Props = {
 
 const ReplacePhotoModal = ( {
   closeModal,
-  image,
   seenDate,
   taxon,
   scientificNames,
   commonName
 }: Props ): React.Node => {
+  const { observation } = React.useContext( ObservationContext );
+  const { image } = observation;
   const { taxaId, scientificName } = taxon;
   const seenTaxa = useSeenTaxa( taxaId );
   const currentUserPhoto = useUserPhoto( seenTaxa );

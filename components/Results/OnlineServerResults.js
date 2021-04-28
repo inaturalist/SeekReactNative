@@ -118,10 +118,10 @@ const OnlineServerResults = (): Node => {
   };
 
   const handleServerError = useCallback( ( response ) => {
+    console.log( response, "response" );
     if ( !response ) {
       dispatch( { type: "ERROR", error: "onlineVision" } );
-    }
-    if ( response.status && response.status === 503 ) {
+    } else if ( response.status && response.status === 503 ) {
       const gmtTime = response.headers.map["retry-after"];
       const hours = serverBackOnlineTime( gmtTime );
 
@@ -158,10 +158,15 @@ const OnlineServerResults = (): Node => {
     const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.computervision.score_image( parameters, options ).then( ( response ) => {
+      if ( response.results.length === 0 ) {
+        dispatch( { type: "NO_MATCH" } );
+        return;
+      }
+
       const species = response.results[0];
       const commonAncestor = response.common_ancestor;
 
-      if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
+      if ( species && species.combined_score > 85 && species.taxon.rank === "species" ) {
         checkSpeciesSeen( species );
       } else if ( commonAncestor ) {
         const rankLevel = commonAncestor.taxon.rank_level;
@@ -179,7 +184,8 @@ const OnlineServerResults = (): Node => {
       } else {
         dispatch( { type: "NO_MATCH" } );
       }
-    } ).catch( ( { response } ) => {
+    } ).catch( ( err ) => {
+      const { response } = err;
       handleServerError( response );
     } );
   }, [handleServerError, checkSpeciesSeen] );
@@ -202,7 +208,7 @@ const OnlineServerResults = (): Node => {
     } );
   }, [navigation, getUserLocation, getParamsForOnlineVision] );
 
-  if ( error ) {
+  if ( error && clicked ) {
     return (
       <ErrorScreen
         error={error}

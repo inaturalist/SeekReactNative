@@ -9,7 +9,7 @@ import SpeciesMap from "./OnlineOnlyCards/SpeciesMap";
 import SpeciesTaxonomy from "./SpeciesTaxonomy";
 import INatObs from "./OnlineOnlyCards/INatObs";
 import Padding from "../UIComponents/Padding";
-import styles from "../../styles/species/species";
+import { viewStyles, textStyles } from "../../styles/species/species";
 import i18n from "../../i18n";
 import About from "./OnlineOnlyCards/About";
 import SeenDate from "./OnlineOnlyCards/SeenDate";
@@ -49,8 +49,8 @@ const OnlineSpeciesContainer = ( {
   const region = useRegion( coords, seenTaxa );
 
   const renderHumanCard = () => (
-    <View style={styles.textContainer}>
-      <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+    <View style={viewStyles.textContainer}>
+      <Text style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</Text>
       <Padding />
     </View>
   );

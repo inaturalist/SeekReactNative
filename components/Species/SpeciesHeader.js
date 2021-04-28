@@ -1,15 +1,17 @@
-import React, { useCallback } from "react";
-import { Text, BackHandler } from "react-native";
+import React, { useCallback, useContext } from "react";
+import { Text, BackHandler, Pressable } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import Clipboard from "@react-native-community/clipboard";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
-import styles from "../../styles/species/species";
+import { viewStyles, textStyles } from "../../styles/species/species";
 import { useCommonName } from "../../utility/customHooks";
 import { getRoute } from "../../utility/helpers";
-import CustomBackArrow from "../../components/UIComponents/Buttons/CustomBackArrow";
+import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
+import { UserContext } from "../UserContext";
 
 type Props = {
   photos: Array<Object>,
@@ -18,8 +20,11 @@ type Props = {
 }
 
 const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
+  const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const commonName = useCommonName( id );
+
+  const disabled = !login;
 
   const { scientificName, iconicTaxonId } = taxon;
 
@@ -49,17 +54,25 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
     }, [backAction] )
   );
 
+  const copyToClipboard = ( ) => Clipboard.setString( scientificName );
+
   return (
     <>
-      <CustomBackArrow handlePress={backAction} style={styles.backButton} />
+      <CustomBackArrow handlePress={backAction} style={viewStyles.backButton} />
       <SpeciesPhotos photos={photos} id={id} />
       {iconicTaxonId && (
-        <Text style={styles.iconicTaxaText}>
+        <Text style={textStyles.iconicTaxaText}>
           {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
         </Text>
       )}
-      <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
-      <Text style={styles.scientificNameText}>{scientificName}</Text>
+      <Text style={textStyles.commonNameText}>{commonName || scientificName}</Text>
+      <Pressable
+        onPress={copyToClipboard}
+        disabled={disabled}
+        style={viewStyles.pressableArea}
+      >
+        <Text style={textStyles.scientificNameText}>{scientificName}</Text>
+      </Pressable>
     </>
   );
 };

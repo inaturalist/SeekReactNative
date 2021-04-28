@@ -3,7 +3,7 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import styles from "../../styles/species/species";
+import { viewStyles } from "../../styles/species/species";
 import GreenText from "./GreenText";
 
 type Props = {
@@ -17,8 +17,8 @@ const SpeciesDetailCard = ( { children, text, hide }: Props ): React.Node => {
     return null;
   }
   return (
-    <View style={styles.textContainer}>
-      <View style={styles.headerMargins}>
+    <View style={viewStyles.textContainer}>
+      <View style={viewStyles.headerMargins}>
         <GreenText text={text} />
       </View>
       {children}

@@ -47,7 +47,7 @@ const createSpecies = ( species: {
   };
 };
 
-const checkForSpecies = ( predictions: Array<Object>, threshold: number ): ?Array<Object> => {
+const checkForSpecies = ( predictions: Array<Object>, threshold: number ): ?Object => {
   return predictions.find( leaf => (
     leaf.rank === 10 && leaf.score > threshold
   ) );

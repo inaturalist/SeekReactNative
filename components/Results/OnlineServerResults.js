@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback, useContext } from "react";
 import inatjs from "inaturalistjs";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import type { Node } from "react";
@@ -21,8 +21,10 @@ import {
   navToMatch,
   setImageCoords
 } from "../../utility/resultsHelpers";
+import { ObservationContext } from "../UserContext";
 
 const OnlineServerResults = (): Node => {
+  const { setObservation } = useContext( ObservationContext );
   const navigation = useNavigation();
   const { params } = useRoute();
 
@@ -138,8 +140,9 @@ const OnlineServerResults = (): Node => {
   const checkForMatches = () => dispatch( { type: "CLICKED" } );
 
   const navToResults = useCallback( () => {
-    navToMatch( navigation, taxon, image, seenDate );
-  }, [navigation, taxon, image, seenDate] );
+    setObservation( { image } );
+    navToMatch( navigation, taxon, seenDate );
+  }, [navigation, taxon, image, seenDate, setObservation] );
 
   const showResults = useCallback( async () => {
     if ( newObs ) {

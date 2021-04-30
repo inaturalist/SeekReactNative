@@ -624,13 +624,13 @@
     "flag": "Flagga detta fynd som felaktigt",
     "back": "Tillbaka till föregående sida",
     "user_location": "Återgå till din nuvarande plats",
-    "open_help": "Open camera help screen",
-    "open_posting_help": "Open posting to iNaturalist help screen",
+    "open_help": "Öppna kamerans hjälpsida",
+    "open_posting_help": "Öppna inlägg på iNaturalist-hjälpsidan",
     "take_photo": "Ta en bild",
     "scroll_left": "Skrolla vänster",
     "scroll_right": "Skrolla höger",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "AR-kameravarningar",
+    "get_started_modal": "Tips för att komma igång"
   },
   "review": {
     "title": "Betygsätt appen",

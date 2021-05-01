@@ -4,10 +4,10 @@
     "internet_error": "Yakındaki türleri ortaya çıkarmak için internete ihtiyacımız var. Tekrar denemek için tıkla.",
     "no_location": "Konum yok",
     "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "input_location_above_map": "Konum bulunamadı; yukarıdan konum adı girerek haritayı yükleyip yakınlardaki türleri ara",
+    "error_alert_location_services": "Devam etmek için cihazının ayarlarından konum hizmetlerini aç",
+    "species_nearby_requires_location": "Yakınlardaki türler için konumun gerekiyor. Lütfen ayarlardan konumunu etkinleştir",
+    "choose_location_on_map": "HARİTADAN KONUM SEÇ"
   },
   "get_started": {
     "header": "Başla",
@@ -624,13 +624,13 @@
     "flag": "Bu gözlemi yanlış olarak işaretle",
     "back": "Önceki ekrana dön",
     "user_location": "Var olan konuma dön",
-    "open_help": "Open camera help screen",
-    "open_posting_help": "Open posting to iNaturalist help screen",
+    "open_help": "Kamera yardım ekranını aç",
+    "open_posting_help": "iNaturalist'e gönderme yardım ekranını aç",
     "take_photo": "Fotoğraf çekmek için dokunun",
     "scroll_left": "Sola kaydırmak için dokunun",
     "scroll_right": "Sağa kaydırmak için dokunun",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "AR kamera uyarıları",
+    "get_started_modal": "Başlangıç ipuçları"
   },
   "review": {
     "title": "Bu uygulamayı oylayın",
@@ -772,7 +772,7 @@
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
     "may_2021_badge_name": "EkoSağlığı Rozeti",
-    "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
+    "may_2021_photographer": "Fotoğraflayan: Jim Richardson / National Geographic",
     "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
     "june_2021_mission_2": "Pinopsida (kozalaklı) sınıfından 1 bitki bul",
     "june_2021_mission_3": "Kapalı tohumlulardan (Çiçekli Bitkiler) 1 bitki bul",

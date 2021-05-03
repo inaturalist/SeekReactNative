@@ -42,6 +42,7 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext } from "../../UserContext";
+import { LOG } from "../../../utility/debugHelpers";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
@@ -51,6 +52,9 @@ const ARCamera = ( ): Node => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
+    if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
+      LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
+    }
     switch ( action.type ) {
       case "CAMERA_LOADED":
         return { ...state, cameraLoaded: true };
@@ -308,8 +312,9 @@ const ARCamera = ( ): Node => {
         dispatch( { type: "SHOW_MODAL" } );
       }
     };
-    checkForFirstCameraLaunch();
+
     navigation.addListener( "focus", ( ) => {
+      LOG.info( "AR Camera: add navigation focus listener" );
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       checkForFirstCameraLaunch( );

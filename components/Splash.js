@@ -32,6 +32,9 @@ const SplashScreen = ( ): Node => {
       setCameraLaunched( false );
       await deleteFromAsyncStorage( "speciesNearbyLocation" );
       setupUserSettings( );
+
+      // originally, I thought we could move AR camera files into the main bundle on first launch only,
+      // but this breaks the camera for offloaded apps on iOS
       addARCameraFiles( );
       const isFirstLaunch = await checkIfFirstLaunch( );
 

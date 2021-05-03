@@ -32,12 +32,12 @@ const SplashScreen = ( ): Node => {
       setCameraLaunched( false );
       await deleteFromAsyncStorage( "speciesNearbyLocation" );
       setupUserSettings( );
+      addARCameraFiles( );
       const isFirstLaunch = await checkIfFirstLaunch( );
 
       if ( isFirstLaunch ) {
         setTimeout( setupBadges, 3000 );
         setQuickActions( );
-        addARCameraFiles( );
         resetRouter( "Onboarding" );
       } else {
         checkForQuickAction( );

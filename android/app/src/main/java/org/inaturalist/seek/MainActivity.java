@@ -8,9 +8,8 @@ import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
     /**
-     * react-native-screens says this is needed to avoid random crashes
-     * when restoring the app from the background (when a view is created
-     * without the corresponding app state)
+     * react-native-screens says this is needed to avoid random crashes when restoring app from the background
+     * (this discards any Activity state persisted during the Activity restart process)
      * https://github.com/software-mansion/react-native-screens#android
      */
      */

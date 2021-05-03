@@ -36,8 +36,6 @@ const UploadStatus = ( {
   const [error, setError] = useState( null );
   const internet = useInternetStatus( );
 
-  console.log( error, "error" );
-
   useEffect( ( ) => {
     Animated.timing( animation.current, {
       toValue: progress,

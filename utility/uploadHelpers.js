@@ -201,6 +201,7 @@ const uploadObservation = async ( observation: {
   };
 
   LOG.info( `obs params: ${JSON.stringify( params )}` );
+  LOG.info( `obs photo id: ${observation.photo.id}` );
 
   const token = await fetchJSONWebToken( login );
 
@@ -211,11 +212,18 @@ const uploadObservation = async ( observation: {
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
-    const response = await inatjs.observations.create( params, options );
-    const { id } = response[0];
+    if ( !observation.photo.id ) {
+      const response = await inatjs.observations.create( params, options );
+      const { id } = response[0];
 
-    const photo: Object = await saveObservationId( id, observation.photo );
-    return await uploadPhoto( photo, token );
+      const photo: Object = await saveObservationId( id, observation.photo );
+      return await uploadPhoto( photo, token );
+    } else {
+      // don't try to create an observation which has already been uploaded to
+      // iNat; this leads to limitless repeat identifications if a user suggests a different identification
+      // than what's stored in observation.taxon_id via iNat web/apps
+      return await uploadPhoto( observation.photo, token );
+    }
   } catch ( e ) {
     LOG.error( `error uploading observation: ${e.message}` );
     return {

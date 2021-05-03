@@ -4,8 +4,20 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
+    /**
+     * react-native-screens says this is needed to avoid random crashes
+     * when restoring the app from the background (when a view is created
+     * without the corresponding app state)
+     * https://github.com/software-mansion/react-native-screens#android
+     */
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(null);
+    }
 
     /**
      * Returns the name of the main component registered from JavaScript.

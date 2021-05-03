@@ -267,7 +267,7 @@ PODS:
     - React
   - react-native-netinfo (6.0.0):
     - React-Core
-  - react-native-pager-view (5.1.3):
+  - react-native-pager-view (5.1.7):
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
@@ -640,7 +640,7 @@ SPEC CHECKSUMS:
   react-native-mail: 82d9a99b31de76084e279ed3a161dd9ed11001f0
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-netinfo: 34f4d7a42f49157f3b45c14217d256bce7dc9682
-  react-native-pager-view: 5a473354cf640d890a488c26c01dcdc5bd012fa7
+  react-native-pager-view: a10e94628bf100ff9a377ebc63690c8c05358ab7
   react-native-safe-area-context: e471852c5ed67eea4b10c5d9d43c1cebae3b231d
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
   react-native-webview: fdd3c7c2ad173e8ca8c82729ed05f3fda2491a82

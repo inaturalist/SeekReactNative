@@ -19,7 +19,7 @@ const CameraSettings = ( ): Node => {
     { label: i18n.t( "settings.scientific_names" ), value: 1 }
   ];
 
-  const updateIndex = async(  i ) => {
+  const updateIndex = async( i ) => {
     const newValue = i !== 0;
     if ( newValue === settings.scientificNames ) {
       return;

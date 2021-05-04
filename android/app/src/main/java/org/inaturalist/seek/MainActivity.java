@@ -12,7 +12,6 @@ public class MainActivity extends ReactActivity {
      * (this discards any Activity state persisted during the Activity restart process)
      * https://github.com/software-mansion/react-native-screens#android
      */
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(null);

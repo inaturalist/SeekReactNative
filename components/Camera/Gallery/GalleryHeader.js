@@ -18,7 +18,7 @@ type Props = {
 }
 
 const cameraRoll = [{
-  label: i18n.t( "gallery.camera_roll" ).toLocaleUpperCase( ),
+  label: i18n.t( "gallery.photo_library" ).toLocaleUpperCase( ),
   value: "All"
 }];
 

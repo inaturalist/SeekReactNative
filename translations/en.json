@@ -355,7 +355,7 @@
     "genus": "genus",
     "species": "species",
     "error_permissions": "We need access to the camera to help you identify species!",
-    "error_gallery": "We need access to your camera roll to save photos you take!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "Enable permissions in settings",
     "please_permissions": "Please enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
@@ -373,7 +373,7 @@
   },
   "gallery": {
     "label": "Photos",
-    "camera_roll": "Camera Roll"
+    "photo_library": "Photo Library"
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -745,8 +745,8 @@
     "options": "Options",
     "show_species_id": "Show species identification",
     "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Back to Identification",
     "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",

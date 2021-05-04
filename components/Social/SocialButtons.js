@@ -39,9 +39,9 @@ const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
   };
 
   const setSaveToCameraText = ( ) => {
-    let text = "social.save_to_camera_roll";
+    let text = "social.save_to_photo_library";
     if ( saved ) {
-      text = "social.saved_to_camera_roll";
+      text = "social.saved_to_photo_library";
     }
     return text;
   };

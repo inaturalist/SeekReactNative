@@ -359,7 +359,6 @@
     "error_classifier": "Tyvärr, det går inte att ladda klassificeraren",
     "error_camera": "Tyvärr, vi kunde inte ladda kameran",
     "error_device": "Tyvärr, enheten du använder stöds inte",
-    "error_save": "Tyvärr, det gick inte att spara din bild",
     "error_take": "Tyvärr, vi kunde inte ta din bild",
     "error_photos": "Inga bilder hittades i detta fotoalbum. Försök välja ett annat album.",
     "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Flagga detta fynd som felaktigt",
     "back": "Tillbaka till föregående sida",
     "user_location": "Återgå till din nuvarande plats",
-    "help": "Kamerahjälp",
+    "open_help": "Öppna kamerans hjälpsida",
+    "open_posting_help": "Öppna inlägg på iNaturalist-hjälpsidan",
     "take_photo": "Ta en bild",
     "scroll_left": "Skrolla vänster",
-    "scroll_right": "Skrolla höger"
+    "scroll_right": "Skrolla höger",
+    "warning_modal": "AR-kameravarningar",
+    "get_started_modal": "Tips för att komma igång"
   },
   "review": {
     "title": "Betygsätt appen",

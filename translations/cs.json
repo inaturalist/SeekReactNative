@@ -359,7 +359,6 @@
     "error_classifier": "Je nám líto, nelze načíst klasifikátor",
     "error_camera": "Omlouváme se, nepodařilo se nám načíst kameru",
     "error_device": "Je nám líto, zařízení, které používáte, není podporováno",
-    "error_save": "Omlouváme se, při ukládání fotografie do složky fotografií došlo k potížím",
     "error_take": "Omlouváme se, nepodařilo se nám zachytit fotografii",
     "error_photos": "V tomto albu nebyly nalezeny žádné fotografie. Zkuste vybrat jiné album.",
     "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Označit toto pozorování jako nesprávné",
     "back": "Vrátit se na předchozí obrazovku",
     "user_location": "Zpět na vaši aktuální polohu",
-    "help": "Klepnutím zobrazíte nápovědu",
+    "open_help": "Otevřít nápovědu k fotoaparátu",
+    "open_posting_help": "Otevřít nápovědu k publikování na iNaturalist",
     "take_photo": "Klepnutím pořídíte fotografii",
     "scroll_left": "Klepnutím posuňte vlevo",
-    "scroll_right": "Klepnutím posuňte vpravo"
+    "scroll_right": "Klepnutím posuňte vpravo",
+    "warning_modal": "Varování AR kamery",
+    "get_started_modal": "Tipy pro začátek"
   },
   "review": {
     "title": "Ohodnoťte tuto aplikaci",

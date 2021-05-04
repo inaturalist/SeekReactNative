@@ -359,7 +359,6 @@
     "error_classifier": "Lo sentimos, no hemos podido cargar el clasificador",
     "error_camera": "Lo sentimos, no hemos podido cargar la cámara",
     "error_device": "Lo sentimos, el dispositivo que estás usando no es compatible",
-    "error_save": "Lo sentimos, hubo un problema al guardar tu foto",
     "error_take": "Lo sentimos, no hemos podido capturar tu foto",
     "error_photos": "No se encontraron fotos en este álbum de fotos. Intenta seleccionar un álbum diferente.",
     "error_version": "La cámara AR de Seek requiere iOS 11.0+. Tu dispositivo está ejecutando la versión {{OS}} de OS.",
@@ -625,10 +624,13 @@
     "flag": "Marcar esta observación como incorrecta",
     "back": "Regresar a pantalla anterior",
     "user_location": "Volver a tu ubicación actual",
-    "help": "Toca para la pantalla de ayuda",
+    "open_help": "Abre la pantalla de ayuda de la cámara",
+    "open_posting_help": "Abre la pantalla de ayuda para \"publicación en iNaturalist\"",
     "take_photo": "Toca para tomar una foto",
     "scroll_left": "Toca para desplazar hacia la izquierda",
-    "scroll_right": "Toca para desplazar a la derecha"
+    "scroll_right": "Toca para desplazar a la derecha",
+    "warning_modal": "Advertencias de cámara de Realidad Aumentada",
+    "get_started_modal": "Consejos para comenzar"
   },
   "review": {
     "title": "Valorar esta aplicación",
@@ -770,7 +772,7 @@
     "may_2021_description": "Los ecosistemas saludables nos proveen de muchos beneficios diferentes, incluidos el limpiar nuestra agua y aire, almacenar carbono de la atmósfera y proveer hábitat para la biodiversidad. Algunas especies, como líquenes, musgos y odonatos (libélulas y caballitos del diablo), son conocidos como indicadores de salud ecológica. ¡Cuando veas alguna de estas especies es una buena señal de que ese ecosistema está saludable!",
     "may_2021_action": "Los ecosistemas saludables nos brinda importantes beneficios para nuestra salud y bienestar. Al pasar tiempo en contacto con la naturaleza las personas pueden recuperarse del estrés, mejorar su estado de ánimo y pensar con mayor claridad. Encuentra un lugar tranquilo en un espacio natural y pasa una hora poniendo atención al paisaje, sonidos, aromas y texturas a tu alrededor. Escribe algunas de tus observaciones. ¿Cómo te hace sentir al pasar tiempo en la naturaleza? ¡Comparte con nosotros una foto de tu sitio usando #NatGeoSeekChallenge en Twitter!",
     "may_2021_badge_name": "Insignia de EcoSalud",
-    "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
+    "may_2021_photographer": "Foto por: Tom Matthews / National Geographic",
     "june_2021_mission_1": "Encuentra 1 planta de las siguientes Clases:\n\nLycopodiopsida (Licopodios y Selaginelas);\nPolypodiopsida (Helechos)",
     "june_2021_mission_2": "Encuentra 1 planta en la clase Pinopsida (Coníferas: pinos, abetos y parientes)",
     "june_2021_mission_3": "Encuentra 1 planta Angiosperma (Plantas con flores)",

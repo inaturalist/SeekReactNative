@@ -359,7 +359,6 @@
     "error_classifier": "Ne pare rău, nu putem încărca repertoriul",
     "error_camera": "Ne pare rău, nu am reușit să încărcăm camera",
     "error_device": "Ne pare rău, aparatul utilizat nu este compatibil",
-    "error_save": "Ne pare rău, a apărut o problemă la salvarea fotografiei",
     "error_take": "Ne pare rău, nu-ți  putem salva fotografia",
     "error_photos": "Nu s-au găsit fotografii în acest album foto. Încearcă să selectezi un album diferit.",
     "error_version": "Camera Seek AR necesită iOS 11.0+. Aparatul tău rulează versiunea OS {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Marchează această observație ca incorectă",
     "back": "Revenire la ecranul anterior",
     "user_location": "Revenire la locația ta actuală",
-    "help": "Atinge pentru ecranul de ajutor",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Atinge pentru a face o fotografie",
     "scroll_left": "Atinge pentru derulare la stânga",
-    "scroll_right": "Atinge pentru derulare la dreapta"
+    "scroll_right": "Atinge pentru derulare la dreapta",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Evaluează aplicația",

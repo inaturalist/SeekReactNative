@@ -25,33 +25,33 @@
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "WYŚLIJ DO INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Przesyłanie {{count}} obserwacji",
+      "one": "Przesyłanie {{count}} obserwacji",
+      "two": "Przesyłanie {{count}} obserwacji",
+      "few": "Przesyłanie {{count}} obserwacji",
+      "many": "Przesyłanie {{count}} obserwacji",
+      "other": "Przesyłanie {{count}} obserwacji"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "Przesłano {{count}} obserwacji!",
+      "one": "Przesłano {{count}} obserwację!",
+      "two": "Przesłano {{count}} obserwacji!",
+      "few": "Przesłano {{count}} obserwacji!",
+      "many": "Przesłano {{count}} obserwacji!",
+      "other": "Przesłano {{count}} obserwacji!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} obserwacji do przesłania",
+      "one": "{{count}} obserwacja do przesłania",
+      "two": "{{count}} obserwacji do przesłania",
+      "few": "{{count}} obserwacji do przesłania",
+      "many": "{{count}} obserwacji do przesłania",
+      "other": "{{count}} obserwacji do przesłania"
     },
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
+    "upload_now": "PRZEŚLIJ TERAZ",
+    "error_internet": "Brak połączenia z Internetem. Spróbuj ponownie za chwilę.",
     "error_downtime": {
       "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
@@ -63,7 +63,7 @@
     "error_unknown": "Upload failed. Error details: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "a_few": "kilka"
   },
   "notifications": {
     "header": "Powiadomienia",
@@ -117,17 +117,17 @@
     "agree_to_terms": "Wyrażam zgodę na <terms>{{terms}}</terms> oraz <privacy>{{privacy}}</privacy> oraz są mi znane <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Wytyczne społeczności",
     "store_data": "Wyrażam zgodę na to, aby iNaturalist przechowywał i przetwarzał o mnie ograniczone informacje osobiste w celu zarządzania moim kontem.",
-    "learn_more": "Learn more",
+    "learn_more": "Dowiedz się więcej",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "about_personal_information": "O informacjach osobistych",
+    "about_licenses": "O Licencjach"
   },
   "inat_login": {
     "log_in_with_inat": "Zaloguj się do swojego konta iNaturalist",
     "username": "Nazwa użytkownika",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "Nazwa użytkownika / adres e-mail",
+    "username_or_email": "Nazwa użytkownika lub email",
     "password": "Hasło",
     "forgot_password_header": "Zapomniałem hasła",
     "forgot_password": "Nie pamiętasz hasła?",
@@ -359,7 +359,6 @@
     "error_classifier": "Przepraszamy, nie udało się załadować klasyfikatora",
     "error_camera": "Przepraszamy, ale nie mogliśmy uruchomić aparatu",
     "error_device": "Przepraszamy, ale Twoje urządzenie nie jest wspierane",
-    "error_save": "Przepraszamy, ale wystąpił problem z zapisywaniem zdjęcia do rolki aparatu",
     "error_take": "Przepraszamy, ale nie mogliśmy zrobić zdjęcia",
     "error_photos": "W tym albumie nie znaleziono żadnych zdjęć. Spróbuj wybrać inny album.",
     "error_version": "Aparat AR aplikacji Seek wymaga systemu iOS 11.0 lub nowszego. Twoje urządzenie posiada wersję {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Oznacz tę obserwację jako niepoprawną",
     "back": "Wróć do poprzedniego ekranu",
     "user_location": "Wróć do swojej bieżącej lokalizacji",
-    "help": "Dotknij, aby wyświetlić pomoc",
+    "open_help": "Otwórz ekran pomocy aparatu",
+    "open_posting_help": "Otwórz ekran pomocy przy wysyłaniu do iNaturalist",
     "take_photo": "Dotknij, aby zrobić zdjęcie",
     "scroll_left": "Dotknij, aby przesunąć w lewo",
-    "scroll_right": "Dotknij, aby przesunąć w prawo"
+    "scroll_right": "Dotknij, aby przesunąć w prawo",
+    "warning_modal": "Ostrzeżenia dotyczące kamery AR",
+    "get_started_modal": "Wskazówki na początek"
   },
   "review": {
     "title": "Oceń tę aplikację",

@@ -1,13 +1,13 @@
 {
   "species_nearby": {
-    "header": "Espècies a prop",
+    "header": "Espècies Properes",
     "internet_error": "Necessitem accés a internet per generar les espècies properes. Toca per intentar-ho de nou.",
     "no_location": "Sense ubicació",
     "no_species": "Sembla que no s'han observat moltes espècies properes! Intenta canviar d'ubicació o amplia el filtre d'espècies.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "input_location_above_map": "No s'ha trobat cap ubicació; introdueix una ubicació a sobre per carregar el mapa i cercar espècies properes.",
+    "error_alert_location_services": "Per continua, activa els serveis d'ubicació a la configuració del teu dispositiu",
+    "species_nearby_requires_location": "Espècies properes necessita la teva ubicació. Si us plau, activa la localització a la configuració.",
+    "choose_location_on_map": "ESCULL LOCALITZACIÓ EN EL MAPA"
   },
   "get_started": {
     "header": "Començar",
@@ -359,7 +359,6 @@
     "error_classifier": "Ho sentim, no hem pogut carregar el classificador",
     "error_camera": "Ho sentim, no hem pogut accedir a la càmera",
     "error_device": "Ho sentim, el dispositiu que utilitzes no està suportat",
-    "error_save": "Ho sentim, hi ha hagut un problema guardant la teva foto",
     "error_take": "Ho sentim, no hem pogut capturar la teva foto",
     "error_photos": "No hem trobat cap foto en aquest àlbum de fotos. Prova seleccionar un altre àlbum.",
     "error_version": "La Càmera AR necessita iOS 11.0+. El teu dispositiu de la versió {{OS}} de OS.",
@@ -625,10 +624,13 @@
     "flag": "Marcar aquesta observació com incorrecta",
     "back": "Tornar a la pantalla anterior",
     "user_location": "Torna a la teva ubicació actual",
-    "help": "Ajuda per a la Càmera",
+    "open_help": "Obre la pantalla d'ajuda de la càmera",
+    "open_posting_help": "Obre la publicació per obrir la pantalla d'ajuda d'iNaturalist",
     "take_photo": "Prendre una foto",
     "scroll_left": "Desplaçament a l'esquerra",
-    "scroll_right": "Desplaçament a la dreta"
+    "scroll_right": "Desplaçament a la dreta",
+    "warning_modal": "Advertències sobre la càmera de R.A.",
+    "get_started_modal": "Consell per començar"
   },
   "review": {
     "title": "Valora aquesta aplicació",
@@ -770,7 +772,7 @@
     "may_2021_description": "Els ecosistemes saludables ens proporcionen molts beneficis, com ara netejar l’aigua i l’aire, emmagatzemar carboni i proporcionar hàbitat per donar suport a la biodiversitat. Se sap que algunes espècies, com ara líquens, molses i odonats (libèl·lules i espiadimonis), són indicadors de salut de l'ecosistema. Quan veieu aquestes espècies, és un senyal que el vostre ecosistema és sa.",
     "may_2021_action": "Els ecosistemes saludables ofereixen importants beneficis per a la nostra pròpia salut i benestar. El temps que es passa a la natura pot ajudar les persones a recuperar-se de l’estrès, millorar l’estat d’ànim i pensar amb més claredat. Trobeu un lloc tranquil a la natura i passeu una hora centrant-vos en les vistes, els sons, les olors i les textures que us envolten. Escriviu algunes de les vostres observacions. Com et fa sentir aquest temps passat a la natura? Comparteix una foto del teu lloc mitjançant el hashtag #NatGeoSeekChallenge a Twitter.",
     "may_2021_badge_name": "Insígnia d'EcoSalut",
-    "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
+    "may_2021_photographer": "Foto: Jim Richardson / National Geographic",
     "june_2021_mission_1": "Cerqueu 1 planta de les classes següents:\n\nLycopodiopsida (Selaginel·la, Licopodis i Licòfits);\nPolypodiopsida (Falgueres)",
     "june_2021_mission_2": "Troba 1 planta de la classe Pinòpsida (Coníferes)",
     "june_2021_mission_3": "Troba una planta del subfilum Angiospermae (Plantes amb Flors)",

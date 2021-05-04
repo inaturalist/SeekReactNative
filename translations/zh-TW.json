@@ -359,7 +359,6 @@
     "error_classifier": "很抱歉，我們無法載入分類器",
     "error_camera": "很抱歉，我們無法開啟相機",
     "error_device": "很抱歉，您使用的裝置並不支援",
-    "error_save": "很抱歉，儲存您的照片至相機膠卷中出了問題",
     "error_take": "很報前，我們無法儲存您的照片",
     "error_photos": "在相簿中找不到任何照片。試著選擇不同的相簿看看。",
     "error_version": "探索的 AR 照相機需要 iOS 11.0 以上的版本。您的裝置執行的 OS 版本為 {{OS}}。",
@@ -625,10 +624,13 @@
     "flag": "標記這個觀察紀錄有誤",
     "back": "回到前一頁面",
     "user_location": "回到您目前的位置",
-    "help": "點選以開啟說明頁面",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "點擊拍照",
     "scroll_left": "向左滑動",
-    "scroll_right": "向右滑動"
+    "scroll_right": "向右滑動",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "評價這個App",

@@ -359,7 +359,6 @@
     "error_classifier": "Luokittelijan lataaminen valitettavasti epäonnistui",
     "error_camera": "Kameraa ei valitettavasti voitu ladata",
     "error_device": "Käyttämääsi laitetta ei valitettavasti tueta",
-    "error_save": "Valitettavasti valokuvasi tallentamisessa filmirullaan esiintyi ongelma",
     "error_take": "Sorry, we weren't able to capture your photo",
     "error_photos": "Tästä valokuva-albumista ei löytynyt valokuvia. Yritä valitsemalla toinen albumi.",
     "error_version": "Seekin AR-kameran vähimmäisvaatimus on iOS 11.0. Laitteessasi on käyttöjärjestelmäversio {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Merkitse tämä havainto vääräksi",
     "back": "Palaa edelliseen näyttöön",
     "user_location": "Palaa takaisin nykyiseen sijaintiisi",
-    "help": "Camera help",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Napsauta ottaaksesi kuvan",
     "scroll_left": "Napsauta vierittääksesi vasemmalle",
-    "scroll_right": "Napsauta vierittääksesi oikealle"
+    "scroll_right": "Napsauta vierittääksesi oikealle",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Arvostele tämä sovellus",

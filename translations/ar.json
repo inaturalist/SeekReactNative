@@ -359,7 +359,6 @@
     "error_classifier": "المعذرة، لسنا قادرين على تحميل المصنف",
     "error_camera": "المعذرة، لم نتمكن من تحميل الكاميرا",
     "error_device": "المعذرة، الجهاز الذي تستخدمه غير مدعوم",
-    "error_save": "المعذرة، حدثت مشكلة في حفظ صورتك إلى قائمة الكاميرا",
     "error_take": "المعذرة، لم نتمكن من التقاط صورتك",
     "error_photos": "لم يتم العثور على صور في ألبوم الصور هذا. حاول اختيار ألبوم مختلف.",
     "error_version": "كاميرا AR الخاصة بتطبيق Seek تتطلب iOS الإصدار 11 وما فوق. جهازك يستخدم إصدار OS الإصدار {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "الإبلاغ على أن هذه الملاحظة غير صحيحة",
     "back": "العودة إلى الشاشة السابقة",
     "user_location": "العودة إلى موقعك الحالي",
-    "help": "Camera help",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "انقر لالتقاط صورة",
     "scroll_left": "انقر للتمرير لليسار",
-    "scroll_right": "انقر للتمرير لليمين"
+    "scroll_right": "انقر للتمرير لليمين",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "قيِّم هذا التطبيق!",

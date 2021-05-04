@@ -359,7 +359,6 @@
     "error_classifier": "Barka, ezin izan dugu sailkatzailea kargatu",
     "error_camera": "Barka, ezin izan dugu kamera piztu",
     "error_device": "Barka, erabiltzen duzun gailua ez dago babestua",
-    "error_save": "Barka, zure argazkia bilduman gordetzeko garaian arazo bat egon da",
     "error_take": "Barka, ezin izan dugu argazkia atera",
     "error_photos": "Ez da argazkirik aurkitu album honetan. Saia zaitez beste album bat aukeratzen.",
     "error_version": "Seeken AR Kamarak iOS 11.0+ behar du. Zure gailua {{OS}} OS bertsioarekin dabil.",
@@ -625,10 +624,13 @@
     "flag": "Markatu behaketa hau ez-zuzen bezala",
     "back": "Aurreko pantailara joan",
     "user_location": "Zure uneko kokalekura itzuli",
-    "help": "Ukitu pantaila laguntza lortzeko",
+    "open_help": "Open camera help screen",
+    "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Ukitu argazkia egiteko",
     "scroll_left": "Ukitu ezkerrera mugitzeko",
-    "scroll_right": "Ukitu eskumara joateko"
+    "scroll_right": "Ukitu eskumara joateko",
+    "warning_modal": "AR camera warnings",
+    "get_started_modal": "Tips for getting started"
   },
   "review": {
     "title": "Baloratu aplikazio hau",

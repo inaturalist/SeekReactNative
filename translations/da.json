@@ -359,7 +359,6 @@
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_camera": "Beklager, vi kunne ikke starte kameraet",
     "error_device": "Beklager, den enhed du bruger er ikke understøttet",
-    "error_save": "Beklager, der opstod et problem med at gemme dit billede",
     "error_take": "Beklager, vi kunne ikke tage dit foto",
     "error_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album.",
     "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}.",
@@ -625,10 +624,13 @@
     "flag": "Markér denne observation som ukorrekt",
     "back": "Vend tilbage til foregående skærm",
     "user_location": "Vend tilbage til din nuværende placering",
-    "help": "Tryk for hjælpeskærm",
+    "open_help": "Åbn hjælpeskærm til kamera",
+    "open_posting_help": "Åbn hjælpeskærm til postering på iNaturalist",
     "take_photo": "Tryk for at tage foto",
     "scroll_left": "Tryk for at scrolle mod venstre",
-    "scroll_right": "Tryk for at scrolle mod højre"
+    "scroll_right": "Tryk for at scrolle mod højre",
+    "warning_modal": "AR-kamera advarsler",
+    "get_started_modal": "Tips til at komme i gang"
   },
   "review": {
     "title": "Bedøm denne app",

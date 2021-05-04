@@ -74,10 +74,12 @@ const ObsList = ( {
       return <View style={styles.hiddenSectionSeparator} />;
     }
 
+    const iconicTaxon = taxaIds[id].split( "." )[1];
+
     if ( data.length === 0 ) {
       return (
         <Text style={[styles.text, styles.emptyText]}>
-          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+          {i18n.t( `observations.not_seen_${iconicTaxon}` )}
         </Text>
       );
     }

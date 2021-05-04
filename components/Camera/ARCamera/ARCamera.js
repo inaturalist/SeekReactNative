@@ -201,14 +201,14 @@ const ARCamera = ( ): Node => {
   };
 
   const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
-    const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
+    const permissions = "Camera Input Failed";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
       // do nothing if there is already a device error
       return;
     }
 
-    if ( event.nativeEvent.error === permissions ) {
+    if ( event.nativeEvent.error.includes( permissions ) ) {
       updateError( "permissions" );
     } else {
       updateError( "camera", event.nativeEvent.error );

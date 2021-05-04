@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingBottom: 18,
@@ -18,6 +20,33 @@ export default StyleSheet.create( {
   checkmark: {
     marginRight: 10
   },
+  greenBanner: {
+    backgroundColor: colors.seekForestGreen
+  },
+  headerMargins: {
+    marginBottom: 11,
+    marginTop: 45
+  },
+  marginSmall: {
+    marginTop: 21
+  },
+  row,
+  rowMargin: {
+    marginTop: 28
+  },
+  textContainer: {
+    marginHorizontal: 28
+  },
+  seenDateContainer: {
+    marginHorizontal: 28
+  },
+  pressableArea: {
+    paddingTop: 10,
+    paddingBottom: 15
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   commonNameText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -26,13 +55,6 @@ export default StyleSheet.create( {
     lineHeight: 31,
     marginTop: 23,
     marginHorizontal: 28
-  },
-  greenBanner: {
-    backgroundColor: colors.seekForestGreen
-  },
-  headerMargins: {
-    marginBottom: 11,
-    marginTop: 45
   },
   humanText: {
     color: colors.black,
@@ -65,19 +87,11 @@ export default StyleSheet.create( {
     paddingTop: 10,
     textDecorationLine: "underline"
   },
-  marginSmall: {
-    marginTop: 21
-  },
-  row,
-  rowMargin: {
-    marginTop: 28
-  },
   scientificNameText: {
     color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 19,
     lineHeight: 21,
-    marginTop: 10,
     marginHorizontal: 28
   },
   text: {
@@ -85,11 +99,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
-  },
-  textContainer: {
-    marginHorizontal: 28
-  },
-  seenDateContainer: {
-    marginHorizontal: 28
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

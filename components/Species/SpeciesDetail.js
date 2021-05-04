@@ -15,7 +15,7 @@ import type { Node } from "react";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
-import styles from "../../styles/species/species";
+import { viewStyles } from "../../styles/species/species";
 import { getSpeciesId, checkForInternet, handleServerError } from "../../utility/helpers";
 import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
@@ -230,8 +230,8 @@ const SpeciesDetail = ( ): Node => {
   const predictions = params ? params.image : null;
 
   return (
-    <SafeAreaView style={styles.greenBanner} edges={["top"]}>
-      <ScrollView ref={scrollView} contentContainerStyle={styles.background}>
+    <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
+      <ScrollView ref={scrollView} contentContainerStyle={viewStyles.background}>
         <SpeciesHeader
           id={id}
           taxon={taxon}

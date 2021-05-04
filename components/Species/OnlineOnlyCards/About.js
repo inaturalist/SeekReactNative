@@ -8,7 +8,7 @@ import type { Node } from "react";
 import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
-import styles from "../../../styles/species/species";
+import { textStyles } from "../../../styles/species/species";
 import { useCommonName } from "../../../utility/customHooks";
 
 type Props = {
@@ -42,16 +42,16 @@ const About = ( {
       {about && (
         <>
           <HTML
-            baseFontStyle={styles.text}
+            baseFontStyle={textStyles.text}
             source={{ html }}
           />
-          <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
+          <Text style={textStyles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
         </>
       )}
       {( login && id !== 43584 ) && (
         <Text
           onPress={navToWikipediaView}
-          style={styles.linkText}
+          style={textStyles.linkText}
         >
           {commonName || scientificName}
         </Text>

@@ -9,12 +9,13 @@ import { checkINatAdminStatus, setupChallenges } from "../utility/challengeHelpe
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
 import { hideLogs } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
-import { UserContext, LanguageContext } from "./UserContext";
+import { UserContext, LanguageContext, ObservationContext } from "./UserContext";
 import { getLanguage } from "../utility/settingsHelpers";
 
 const App = ( ): Node => {
   const [login, setLogin] = useState( null );
   const [preferredLanguage, setLanguage] = useState( null );
+  const [observation, setObservation] = useState( null );
 
   const getLoggedIn = async ( ) => {
     const token = await fetchAccessToken( );
@@ -34,6 +35,7 @@ const App = ( ): Node => {
 
   const userContextValue = { login, toggleLogin };
   const languageValue = { preferredLanguage, toggleLanguagePreference };
+  const observationValue = { observation, setObservation };
 
   useEffect( ( ) => {
     // wait until check for stored language is completed
@@ -56,7 +58,9 @@ const App = ( ): Node => {
   return (
     <UserContext.Provider value={userContextValue}>
       <LanguageContext.Provider value={languageValue}>
-        <RootStack />
+        <ObservationContext.Provider value={observationValue}>
+          <RootStack />
+        </ObservationContext.Provider>
       </LanguageContext.Provider>
     </UserContext.Provider>
   );

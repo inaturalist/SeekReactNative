@@ -10,7 +10,7 @@ import inatjs from "inaturalistjs";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/species/speciesStats";
+import { viewStyles, textStyles } from "../../../styles/species/speciesStats";
 import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
@@ -77,17 +77,17 @@ const SpeciesStats = ( { stats, region, id, seenDate }: Props ): Node => {
   }, [region, id, stats] );
 
   if ( tagsToShow.length === 0 ) {
-    return <View style={styles.noTags} />;
+    return <View style={viewStyles.noTags} />;
   } else {
     return (
-      <View style={[styles.tagContainer, seenDate && styles.tagAndSeenDate]}>
+      <View style={[viewStyles.tagContainer, seenDate && viewStyles.tagAndSeenDate]}>
         {tagsToShow.map( tag => (
           <TouchableOpacity
             onPress={() => showAlert( tag )}
-            style={styles.tag}
+            style={viewStyles.tag}
             key={tag}
           >
-            <Text style={styles.tagText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</Text>
+            <Text style={textStyles.tagText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</Text>
           </TouchableOpacity>
         ) )}
       </View>

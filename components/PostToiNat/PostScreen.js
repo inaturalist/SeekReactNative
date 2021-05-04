@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback, useContext } from "react";
 import { View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import type { Node } from "react";
@@ -20,15 +20,17 @@ import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
+import { ObservationContext } from "../UserContext";
 
 const PostScreen = (): Node => {
+  const { observation } = useContext( ObservationContext );
   const navigation = useNavigation( );
   const { params } = useRoute( );
 
   const { taxaId, scientificName, commonName } = params;
 
-  const initialDate = params.image.time
-    ? formatGMTTimeWithTimeZone( setISOTime( params.image.time ) )
+  const initialDate = observation.image.time
+    ? formatGMTTimeWithTimeZone( setISOTime( observation.image.time ) )
     : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -41,25 +43,25 @@ const PostScreen = (): Node => {
             taxaId: action.selectedSpecies.id,
             preferredCommonName: action.selectedSpecies.updatedCommonName
           },
-          observation: action.observation
+          editedObservation: action.editedObservation
         };
       case "UPDATE_OBSERVATION":
-        return { ...state, observation: action.observation };
+        return { ...state, editedObservation: action.editedObservation };
       case "BUTTON_DISABLED":
         return { ...state, disabled: true };
       default:
         throw new Error( );
     }
   }, {
-    observation: {
+    editedObservation: {
       captive_flag: false,
       description: null,
       geoprivacy: "open",
-      latitude: params.image.latitude,
-      longitude: params.image.longitude,
+      latitude: observation.image.latitude,
+      longitude: observation.image.longitude,
       observed_on_string: initialDate,
       place_guess: null,
-      positional_accuracy: params.image.latitude ? 90 : null,
+      positional_accuracy: observation.image.latitude ? 90 : null,
       taxon_id: taxaId
     },
     taxon: {
@@ -70,28 +72,28 @@ const PostScreen = (): Node => {
     disabled: false
   } );
 
-  const { observation, taxon, disabled } = state;
+  const { editedObservation, taxon, disabled } = state;
 
-  const location = useLocationName( observation.latitude, observation.longitude );
+  const location = useLocationName( editedObservation.latitude, editedObservation.longitude );
 
   const setLocation = useCallback( ( coords ) => {
-    dispatch( { type: "UPDATE_OBSERVATION", observation: {
-      ...observation,
+    dispatch( { type: "UPDATE_OBSERVATION", editedObservation: {
+      ...editedObservation,
       latitude: coords.latitude,
       longitude: coords.longitude,
       positional_accuracy: coords.accuracy
     } } );
-  }, [observation] );
+  }, [editedObservation] );
 
   const getLocation = useCallback( ( ) => {
-    const truncated = checkForTruncatedCoordinates( params.image.latitude );
+    const truncated = checkForTruncatedCoordinates( observation.image.latitude );
 
     if ( truncated ) {
       fetchUserLocation( ).then( ( coords ) => {
         setLocation( coords );
       } ).catch( ( err ) => console.log( err ) );
     }
-  }, [setLocation, params.image] );
+  }, [setLocation, observation.image] );
 
   const updateLocation = ( latitude, longitude, newAccuracy ) => {
     const coords = { latitude, longitude, accuracy: newAccuracy };
@@ -103,27 +105,27 @@ const PostScreen = (): Node => {
     dispatch( {
       type: "SELECT_SPECIES",
       selectedSpecies,
-      observation: {
-        ...observation,
+      editedObservation: {
+        ...editedObservation,
         taxon_id: id
       }
     } );
 
-  }, [observation] );
+  }, [editedObservation] );
 
   const updateObservation = useCallback( ( key: string, value: any ) => dispatch( {
     type: "UPDATE_OBSERVATION",
-    observation: {
-      ...observation,
+    editedObservation: {
+      ...editedObservation,
       [key]: value
     }
-  } ), [observation] );
+  } ), [editedObservation] );
 
   useEffect( ( ) => {
-    if ( location !== observation.place_guess && location !== i18n.t( "location_picker.undefined" ) ) {
+    if ( location !== editedObservation.place_guess && location !== i18n.t( "location_picker.undefined" ) ) {
       updateObservation( "place_guess", location );
     }
-  }, [location, observation, updateObservation] );
+  }, [location, editedObservation, updateObservation] );
 
   const handleDatePicked = ( selectedDate ) => {
     if ( selectedDate ) {
@@ -144,7 +146,7 @@ const PostScreen = (): Node => {
 
   const saveObservation = ( ) => {
     dispatch( { type: "BUTTON_DISABLED" } );
-    saveObservationToRealm( observation, params.image.uri );
+    saveObservationToRealm( editedObservation, observation.image.uri );
     savePostingSuccess( true );
     navigation.navigate( "PostStatus" );
   };
@@ -153,18 +155,18 @@ const PostScreen = (): Node => {
     <ScrollWithHeader header="posting.header">
       <PostingHeader
         taxon={taxon}
-        image={params.image}
+        image={observation.image}
         updateTaxon={updateTaxon}
       />
-      <Notes description={observation.description} updateObservation={updateObservation} />
+      <Notes description={editedObservation.description} updateObservation={updateObservation} />
       <View style={styles.divider} />
-      <DatePicker dateToDisplay={observation.observed_on_string} handleDatePicked={handleDatePicked} />
+      <DatePicker dateToDisplay={editedObservation.observed_on_string} handleDatePicked={handleDatePicked} />
       <View style={styles.divider} />
-      <LocationPickerCard updateLocation={updateLocation} location={location} observation={observation} />
+      <LocationPickerCard updateLocation={updateLocation} location={location} observation={editedObservation} />
       <View style={styles.divider} />
-      <GeoprivacyPicker updateObservation={updateObservation} geoprivacy={observation.geoprivacy} />
+      <GeoprivacyPicker updateObservation={updateObservation} geoprivacy={editedObservation.geoprivacy} />
       <View style={styles.divider} />
-      <CaptivePicker updateObservation={updateObservation} captive={observation.captive_flag} />
+      <CaptivePicker updateObservation={updateObservation} captive={editedObservation.captive_flag} />
       <View style={styles.divider} />
       <View style={styles.textContainer}>
         <GreenButton

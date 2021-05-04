@@ -224,7 +224,8 @@ const hideLogs = () => {
   LogBox.ignoreLogs( [
     "Picker has been extracted",
     "Failed prop type: Invalid prop `confidenceThreshold`",
-    "Failed prop type: Invalid prop `taxaDetectionInterval`"
+    "Failed prop type: Invalid prop `taxaDetectionInterval`",
+    "VirtualizedLists should never be nested"
   ] );
 };
 

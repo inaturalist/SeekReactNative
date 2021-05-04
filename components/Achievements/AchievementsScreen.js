@@ -9,7 +9,7 @@ import type { Node } from "react";
 import i18n from "../../i18n";
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
-import styles from "../../styles/badges/achievements";
+import { viewStyles, textStyles } from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
@@ -90,26 +90,24 @@ const AchievementsScreen = (): Node => {
           speciesCount={state.speciesCount}
         />
       )}
-      <View style={styles.center}>
-        <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
-        <SpeciesBadges speciesBadges={state.speciesBadges} />
-        <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
-        <ChallengeBadges />
-      </View>
-      <View style={[styles.row, styles.center]}>
+      <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
+      <SpeciesBadges speciesBadges={state.speciesBadges} />
+      <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
+      <ChallengeBadges />
+      <View style={[viewStyles.row, viewStyles.center]}>
         <TouchableOpacity
           onPress={navToObservations}
-          style={styles.secondHeaderText}
+          style={viewStyles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />
-          <Text style={styles.number}>{state.speciesCount && localizeNumber( state.speciesCount )}</Text>
+          <Text style={textStyles.number}>{state.speciesCount && localizeNumber( state.speciesCount )}</Text>
         </TouchableOpacity>
-        <View style={styles.secondHeaderText}>
+        <View style={viewStyles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />
-          <Text style={styles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
+          <Text style={textStyles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
         </View>
       </View>
-      <View style={styles.center}>
+      <View style={viewStyles.center}>
         <LoginCard />
       </View>
     </ScrollWithHeader>

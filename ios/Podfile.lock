@@ -267,7 +267,7 @@ PODS:
     - React
   - react-native-netinfo (6.0.0):
     - React-Core
-  - react-native-pager-view (5.1.3):
+  - react-native-pager-view (5.1.7):
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
@@ -342,6 +342,8 @@ PODS:
     - GCDWebServer
     - React
   - RNCAsyncStorage (1.15.2):
+    - React-Core
+  - RNCClipboard (1.5.1):
     - React-Core
   - RNCMaskedView (0.1.10):
     - React
@@ -444,6 +446,7 @@ DEPENDENCIES:
   - ReactNativeWebPFormat (from `../node_modules/react-native-webp-format`)
   - RealmJS (from `../node_modules/realm`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCClipboard (from `../node_modules/@react-native-community/clipboard`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
@@ -565,6 +568,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/realm"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-community/clipboard"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
   RNCPicker:
@@ -635,7 +640,7 @@ SPEC CHECKSUMS:
   react-native-mail: 82d9a99b31de76084e279ed3a161dd9ed11001f0
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-netinfo: 34f4d7a42f49157f3b45c14217d256bce7dc9682
-  react-native-pager-view: 5a473354cf640d890a488c26c01dcdc5bd012fa7
+  react-native-pager-view: a10e94628bf100ff9a377ebc63690c8c05358ab7
   react-native-safe-area-context: e471852c5ed67eea4b10c5d9d43c1cebae3b231d
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
   react-native-webview: fdd3c7c2ad173e8ca8c82729ed05f3fda2491a82
@@ -652,6 +657,7 @@ SPEC CHECKSUMS:
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
   RealmJS: 2f319044327bafdd1b5eaaa13db09226fab4e55b
   RNCAsyncStorage: 502fbf425b9ee2d73ca6fa4b299dce0be411b422
+  RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
   RNCPicker: 5256da29a92406cac439ac6605719e233714a86a
   RNDateTimePicker: 227afce21a9c37874b1a88f2d494906cc265c5c7

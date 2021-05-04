@@ -41,8 +41,7 @@ const MatchModals = ( {
   scientificNames
 }: Props ): Node => {
   const navigation = useNavigation();
-
-  const { seenDate, taxon, image } = params;
+  const { seenDate, taxon } = params;
 
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );
@@ -113,7 +112,7 @@ const MatchModals = ( {
   const navigateTo = useCallback( () => {
     if ( navPath === "Camera" || navPath === "Social" ) {
       setNavigationPath( null );
-      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri, taxon, commonName } );
+      navigation.navigate( navPath, navPath === "Social" && { taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
       setSpeciesId( taxon.taxaId );
@@ -124,7 +123,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, params, taxon, setNavigationPath, image.uri, commonName] );
+  }, [navPath, navigation, params, taxon, setNavigationPath, commonName] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
@@ -207,7 +206,6 @@ const MatchModals = ( {
             <ReplacePhotoModal
               seenDate={seenDate}
               closeModal={closeReplacePhotoModal}
-              image={image}
               commonName={commonName}
               scientificNames={scientificNames}
               taxon={taxon}
@@ -226,7 +224,6 @@ const MatchModals = ( {
           commonName={commonName}
           scientificNames={scientificNames}
           closeModal={closeFlagModal}
-          userImage={image.uri}
         />
       </Modal>
     </>

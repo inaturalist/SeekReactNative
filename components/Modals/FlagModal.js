@@ -9,11 +9,11 @@ import { colors } from "../../styles/global";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
+import { ObservationContext } from "../UserContext";
 
 type Props = {
   taxon: Object,
   closeModal: Function,
-  userImage: string,
   seenDate: ?string,
   scientificNames: boolean,
   commonName: ?string
@@ -22,11 +22,12 @@ type Props = {
 const FlagModal = ( {
   taxon,
   closeModal,
-  userImage,
   seenDate,
   scientificNames,
   commonName
 }: Props ): React.Node => {
+  const { observation } = React.useContext( ObservationContext );
+  const { image } = observation;
   const { scientificName } = taxon;
   const showScientificName = !commonName || scientificNames;
 
@@ -43,7 +44,7 @@ const FlagModal = ( {
     <ModalWithGradient
       color="gray"
       closeModal={closeModal}
-      userImage={userImage}
+      userImage={image.uri}
       originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
     >
       <Text allowFontScaling={false} style={[styles.speciesText, showScientificName && styles.scientificName]}>

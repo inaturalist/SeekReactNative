@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, LogBox } from "react-native";
 import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
 
@@ -7,13 +7,23 @@ import realmConfig from "../../models";
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/achievements";
+import { imageStyles, viewStyles } from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modals/Modal";
+import { createBadgeSetList } from "../../utility/badgeHelpers";
+import BadgeList from "./BadgeList";
 
 const ChallengeBadges = () => {
+  // FlatList renders twice, which throws the unique key error
+  // FlatList within a ScrollView also isn't ideal, but it's fine here
+  // since these are tiny lists, not long lists that need a ton of performance
+  // and using Views instead of FlatList here caused the UI for the entire app
+  // to stutter in Android
+  LogBox.ignoreLogs( ["Each child in a list"] );
   const [showModal, setModal] = useState( false );
   const [selectedChallenge, setChallenge] = useState( null );
   const [challengeBadges, setChallengeBadges] = useState( [] );
+
+  const sets = createBadgeSetList( challengeBadges );
 
   const openModal = useCallback( () => setModal( true ), [] );
   const closeModal = useCallback( () => setModal( false ), [] );
@@ -70,7 +80,7 @@ const ChallengeBadges = () => {
 
   useEffect( () => { fetchChallenges(); }, [fetchChallenges] );
 
-  const renderChallengeBadge = ( item ) => {
+  const renderChallengeBadge = ( { item }: Object ) => {
     const openChallengeBadgeModal = () => {
       openModal();
       setChallenge( item );
@@ -83,31 +93,27 @@ const ChallengeBadges = () => {
       >
         <Image
           source={item.percentComplete === 100 ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
-          style={styles.badgeIcon}
+          style={imageStyles.badgeIcon}
         />
       </TouchableOpacity>
     );
   };
 
-  const renderNextFiveChallenges = ( start, finish ) => (
-    <View style={styles.gridRowWrap} key={start}>
-      {challengeBadges.slice( start, finish ).map( ( item, index ) => renderChallengeBadge( item ) )}
-    </View>
-  );
+  // const renderNextFiveChallenges = ( start, finish ) => (
+  //   <View style={viewStyles.gridRowWrap} key={start}>
+  //     {challengeBadges.slice( start, finish ).map( ( item, index ) => renderChallengeBadge( item ) )}
+  //   </View>
+  // );
 
-  const renderChallengesGrid = ( ) => {
-    const numOfSets = Math.ceil( challengeBadges.length / 5 );
-    const sets = [];
-
-    for ( let i = 0; i < numOfSets; i += 1 ) {
-      sets.push( i * 5 );
-    }
-
-    return sets.map( ( set, index ) => renderNextFiveChallenges( sets[index], sets[index + 1] ) );
-  };
+  const renderChallengesGrid = ( ) => sets.map( ( set, index ) => (
+    <BadgeList
+      data={challengeBadges.slice( sets[index], sets[index + 1] )}
+      renderItem={renderChallengeBadge}
+    />
+  ) );
 
   return (
-    <View>
+    <>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -124,8 +130,8 @@ const ChallengeBadges = () => {
         )}
       />
       {challengeBadges.length > 0 && renderChallengesGrid( )}
-      <View style={styles.marginLarge} />
-    </View>
+      <View style={viewStyles.marginLarge} />
+    </>
   );
 };
 

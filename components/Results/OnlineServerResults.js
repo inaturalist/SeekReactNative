@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback, useContext } from "react";
 import inatjs from "inaturalistjs";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import type { Node } from "react";
@@ -10,7 +10,6 @@ import ErrorScreen from "./Error";
 import { createJwtToken } from "../../utility/helpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
-import { fetchTruncatedUserLocation, createLocationAlert } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import {
@@ -18,11 +17,12 @@ import {
   checkCommonAncestorRank,
   createOnlineSpecies,
   createOnlineAncestor,
-  navToMatch,
-  setImageCoords
+  navToMatch
 } from "../../utility/resultsHelpers";
+import { ObservationContext } from "../UserContext";
 
 const OnlineServerResults = (): Node => {
+  const { setObservation } = useContext( ObservationContext );
   const navigation = useNavigation();
   const { params } = useRoute();
 
@@ -42,10 +42,6 @@ const OnlineServerResults = (): Node => {
         return { ...state, seenDate: action.date };
       case "NO_MATCH":
         return { ...state, loading: false };
-      case "ADD_LOCATION_TO_NEW_OBS":
-        return { ...state, image: action.image };
-      case "SET_LOCATION_ERROR":
-        return { ...state, errorCode: action.code };
       case "ERROR":
         return { ...state, error: action.error, numberOfHours: action.numberOfHours || null };
       case "CLICKED":
@@ -57,7 +53,6 @@ const OnlineServerResults = (): Node => {
     taxon: {},
     image: params.image,
     loading: true,
-    errorCode: null,
     seenDate: null,
     observation: null,
     error: null,
@@ -69,7 +64,6 @@ const OnlineServerResults = (): Node => {
     taxon,
     image,
     loading,
-    errorCode,
     seenDate,
     observation,
     error,
@@ -78,20 +72,6 @@ const OnlineServerResults = (): Node => {
   } = state;
 
   const newObs = observation && !seenDate;
-
-  const getUserLocation = useCallback( () => {
-    // this should only apply to iOS photos with no metadata
-    // once metadata is fixed, should be able to remove this check for user location
-    if ( image.latitude ) {
-      return;
-    }
-
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      dispatch( { type: "ADD_LOCATION_TO_NEW_OBS", image: setImageCoords( coords, image ) } );
-    } ).catch( ( code ) => {
-      dispatch( { type: "SET_LOCATION_ERROR", code } );
-    } );
-  }, [image] );
 
   const checkSpeciesSeen = useCallback( async ( species ) => {
     const date = await fetchSpeciesSeenDate( species.taxon.id );
@@ -118,8 +98,7 @@ const OnlineServerResults = (): Node => {
   const handleServerError = useCallback( ( response ) => {
     if ( !response ) {
       dispatch( { type: "ERROR", error: "onlineVision" } );
-    }
-    if ( response.status && response.status === 503 ) {
+    } else if ( response.status && response.status === 503 ) {
       const gmtTime = response.headers.map["retry-after"];
       const hours = serverBackOnlineTime( gmtTime );
 
@@ -130,16 +109,17 @@ const OnlineServerResults = (): Node => {
   const addObservation = useCallback( async () => {
     if ( !observation ) { return; }
     await addToCollection( observation, image );
-    if ( !image.latitude && errorCode !== null ) {
-      createLocationAlert( errorCode );
-    }
-  }, [observation, image, errorCode] );
+    // if ( !image.latitude && errorCode !== null ) {
+    //   createLocationAlert( errorCode );
+    // }
+  }, [observation, image] );
 
   const checkForMatches = () => dispatch( { type: "CLICKED" } );
 
   const navToResults = useCallback( () => {
-    navToMatch( navigation, taxon, image, seenDate );
-  }, [navigation, taxon, image, seenDate] );
+    setObservation( { image } );
+    navToMatch( navigation, taxon, seenDate );
+  }, [navigation, taxon, image, seenDate, setObservation] );
 
   const showResults = useCallback( async () => {
     if ( newObs ) {
@@ -155,10 +135,15 @@ const OnlineServerResults = (): Node => {
     const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.computervision.score_image( parameters, options ).then( ( response ) => {
+      if ( response.results.length === 0 ) {
+        dispatch( { type: "NO_MATCH" } );
+        return;
+      }
+
       const species = response.results[0];
       const commonAncestor = response.common_ancestor;
 
-      if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
+      if ( species && species.combined_score > 85 && species.taxon.rank === "species" ) {
         checkSpeciesSeen( species );
       } else if ( commonAncestor ) {
         const rankLevel = commonAncestor.taxon.rank_level;
@@ -176,7 +161,8 @@ const OnlineServerResults = (): Node => {
       } else {
         dispatch( { type: "NO_MATCH" } );
       }
-    } ).catch( ( { response } ) => {
+    } ).catch( ( err ) => {
+      const { response } = err;
       handleServerError( response );
     } );
   }, [handleServerError, checkSpeciesSeen] );
@@ -194,12 +180,11 @@ const OnlineServerResults = (): Node => {
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      getUserLocation(); // need this for Species Nearby This Taxon on Match Screen
       getParamsForOnlineVision();
     } );
-  }, [navigation, getUserLocation, getParamsForOnlineVision] );
+  }, [navigation, getParamsForOnlineVision] );
 
-  if ( error ) {
+  if ( error && clicked ) {
     return (
       <ErrorScreen
         error={error}

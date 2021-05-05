@@ -248,7 +248,7 @@ const handleServerError = ( error: {
     const hours = serverBackOnlineTime( gmtTime );
     return hours;
   }
-  return i18n.t( "post_to_inat_card.a few" );
+  return i18n.t( "post_to_inat_card.error_downtime_a_few_hours" );
 };
 
 export {

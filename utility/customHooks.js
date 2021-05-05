@@ -164,19 +164,28 @@ const useUserPhoto = ( item: ?{
 const useLocationPermission = (): ?boolean => {
   const [granted, setGranted] = useState( null );
 
-  const fetchPermissionStatus = async () => {
-    try {
-      const status = await checkLocationPermissions();
-      setGranted( status );
-    } catch ( e ) {
-      setGranted( false );
-    }
-  };
-
   useEffect( () => {
+    let isCurrent = true;
+
+    const fetchPermissionStatus = async () => {
+      try {
+        const status = await checkLocationPermissions();
+        if ( isCurrent ) {
+          setGranted( status );
+        }
+      } catch ( e ) {
+        if ( isCurrent ) {
+          setGranted( false );
+        }
+      }
+    };
+
     if ( Platform.OS === "android" ) {
       fetchPermissionStatus();
     }
+    return () => {
+      isCurrent = false;
+    };
   }, [] );
   return granted;
 };

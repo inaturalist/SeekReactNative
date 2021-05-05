@@ -84,7 +84,9 @@
     "skip_login": "Continuar sin iniciar sesión",
     "error_email": "Por favor introduce una dirección válida de correo electrónico",
     "error_credentials": "Nombre de usuario o contraseña incorrectos",
-    "error_username_taken": "Este nombre de usuario ya se está usando"
+    "error_username_taken": "Este nombre de usuario ya se está usando",
+    "error_no_username": "Falta nombre de usuario / email",
+    "error_no_password": "Falta contraseña"
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Carrete de fotos"
+    "photo_library": "Biblioteca de fotos"
   },
   "camera_help": {
     "title": "cámara de Seek",
@@ -489,10 +491,20 @@
     "no_obs": "¡Aún no tienes observaciones!",
     "help": "Toma una foto de una planta, animal o cualquier ser vivo con tu cámara y nuestro modelo AI te ayudará a identificarlo.",
     "open_camera": "Cámara abierta",
-    "not_seen": "¡No has observado ningún {{iconicTaxon}} todavía!",
     "search": "Busca observaciones",
     "search_empty": "No se encontraron observaciones con ese término de búsqueda.",
-    "reset_search": "Restablece búsqueda"
+    "reset_search": "Restablece búsqueda",
+    "not_seen_plants": "You haven’t observed any plants yet!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "Cercano",
@@ -743,8 +755,8 @@
     "options": "Opciones",
     "show_species_id": "Mostrar identificación de especies",
     "share": "Compartir en Facebook",
-    "save_to_camera_roll": "Guardar en Galería de Fotos",
-    "saved_to_camera_roll": "Guardar en Galería de Fotos",
+    "save_to_photo_library": "Guarda en la biblioteca de fotos",
+    "saved_to_photo_library": "Guardado en la biblioteca de fotos",
     "back_to_id": "Volver a la identificación",
     "error_title": "No se pudo guardar la foto",
     "error": "Por favor comprueba que tienes instalada la aplicación de Facebook.",

@@ -84,7 +84,9 @@
     "skip_login": "Continuă fără a te conecta",
     "error_email": "Introdu te rog o adresă de e-mail validă",
     "error_credentials": "Nume utilizator sau parolă greșită",
-    "error_username_taken": "Acest nume de utilizator există deja."
+    "error_username_taken": "Acest nume de utilizator există deja.",
+    "error_no_username": "Missing username / email",
+    "error_no_password": "Missing password"
   },
   "inat_signup": {
     "welcome": "Bun venit la Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotografii",
-    "camera_roll": "Galerie Foto"
+    "photo_library": "Photo Library"
   },
   "camera_help": {
     "title": "Camera Seek",
@@ -489,10 +491,20 @@
     "no_obs": "Deocamdată nu ai nicio observație!",
     "help": "Fotografiază cu camera noastră o plantă, un animal sau orice altceva viu, iar modelul nostru AI te va ajuta la identificare!",
     "open_camera": "Deschide Camera",
-    "not_seen": "Deocamdată nu ai niciun {{iconicTaxon}} încă! ",
     "search": "Caută observații",
     "search_empty": "Nu au fost găsite observații cu acest termen de căutare.",
-    "reset_search": "Resetare căutare"
+    "reset_search": "Resetare căutare",
+    "not_seen_plants": "You haven’t observed any plants yet!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "Din jur",
@@ -743,8 +755,8 @@
     "options": "Opțiuni",
     "show_species_id": "Afișare identificare specii",
     "share": "Partajează pe Facebook",
-    "save_to_camera_roll": "Salvează în album cameră",
-    "saved_to_camera_roll": "Salvat în album cameră",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Înapoi la identificare",
     "error_title": "Fotografia nu a putut fi salvată",
     "error": "Te rugăm să verifici de două ori dacă ai instalată aplicația Facebook.",

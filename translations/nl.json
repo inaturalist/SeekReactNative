@@ -84,7 +84,9 @@
     "skip_login": "Ga verder zonder in te loggen",
     "error_email": "Vul alsjeblieft een geldig e-mailadres in",
     "error_credentials": "Onjuiste gebruikersnaam of wachtwoord",
-    "error_username_taken": "Deze gebruikersnaam is al in gebruik"
+    "error_username_taken": "Deze gebruikersnaam is al in gebruik",
+    "error_no_username": "Ontbrekende gebruikersnaam / e-mail",
+    "error_no_password": "Wachtwoord ontbreekt"
   },
   "inat_signup": {
     "welcome": "Welkom bij Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Foto’s",
-    "camera_roll": "Filmrol"
+    "photo_library": "Fotobibliotheek "
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -489,10 +491,20 @@
     "no_obs": "Je hebt nog geen waarnemingen!",
     "help": "Neem een foto van een plant, dier, Cthulhu, Ophiocistioidea of iets dat leeft met onze camera en ons AI-model geeft het een naam!",
     "open_camera": "Activeer de camera",
-    "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!",
     "search": "Waarnemingen zoeken...",
     "search_empty": "Geen waarnemingen gevonden met die zoekterm.",
-    "reset_search": "Reset zoekopdracht"
+    "reset_search": "Reset zoekopdracht",
+    "not_seen_plants": "Je hebt nog geen planten waargenomen!",
+    "not_seen_amphibians": "Je hebt nog geen amfibieën waargenomen!",
+    "not_seen_fungi": "Je hebt nog geen paddenstoelen waargenomen!",
+    "not_seen_fish": "Je hebt nog geen vissen waargenomen!",
+    "not_seen_reptiles": "Je hebt nog geen reptielen waargenomen!",
+    "not_seen_arachnids": "Je hebt nog geen spinachtigen waargenomen!",
+    "not_seen_birds": "Je hebt nog geen vogels waargenomen!",
+    "not_seen_insects": "Je hebt nog geen insecten waargenomen!",
+    "not_seen_mollusks": "Je hebt nog geen weekdieren waargenomen!",
+    "not_seen_mammals": "Je hebt nog geen zoogdieren waargenomen!",
+    "not_seen_other": "Je hebt nog geen andere soorten waargenomen!"
   },
   "species_detail": {
     "near": "In de buurt",
@@ -743,8 +755,8 @@
     "options": "Instellingen",
     "show_species_id": "Toon soortdeterminatie",
     "share": "Delen op Facebook",
-    "save_to_camera_roll": "Opslaan in filmrol",
-    "saved_to_camera_roll": "Opgeslagen op filmrol",
+    "save_to_photo_library": "Opslaan in de fotobibliotheek",
+    "saved_to_photo_library": "Opgeslagen in fotobibliotheek",
     "back_to_id": "Terug naar Determinatie",
     "error_title": "Kan foto niet opslaan",
     "error": "Controleer nogmaals of de Facebook app is geïnstalleerd.",

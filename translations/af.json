@@ -84,7 +84,9 @@
     "skip_login": "Gaan voort sonder aantekening",
     "error_email": "Voer asb. ’n geldige e-posadres in",
     "error_credentials": "Verkeerde gebruikersnaam of wagwoord",
-    "error_username_taken": "Daardie gebruikersnaam is reeds in gebruik"
+    "error_username_taken": "Daardie gebruikersnaam is reeds in gebruik",
+    "error_no_username": "Missing username / email",
+    "error_no_password": "Missing password"
   },
   "inat_signup": {
     "welcome": "Welkom by Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Foto’s",
-    "camera_roll": "Filmrol"
+    "photo_library": "Photo Library"
   },
   "camera_help": {
     "title": "Seek se Kamera",
@@ -489,10 +491,20 @@
     "no_obs": "U het nog geen waarnemings nie!",
     "help": "Neem ’n foto van ’n plant, dier of enige lewende ding met ons kamera sodat ons KI-model u kan help met die identifisering daarvan!",
     "open_camera": "Open Kamera",
-    "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!",
     "search": "Soek waarnemings",
     "search_empty": "Geen waarnemings met daardie soekterm gevind.",
-    "reset_search": "Stel soekopdrag terug"
+    "reset_search": "Stel soekopdrag terug",
+    "not_seen_plants": "You haven’t observed any plants yet!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "Naby",
@@ -743,8 +755,8 @@
     "options": "Opsies",
     "show_species_id": "Toon spesie-identifikasie",
     "share": "Deel op Facebook",
-    "save_to_camera_roll": "Bewaar in filmrol",
-    "saved_to_camera_roll": "In filmrol bewaar",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Terug na identifikasie",
     "error_title": "Kon nie versoek voltooi nie",
     "error": "Maak dubbelseker die Facebook-toep is by u geïnstalleer.",

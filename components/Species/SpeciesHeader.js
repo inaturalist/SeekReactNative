@@ -71,7 +71,11 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
         disabled={disabled}
         style={viewStyles.pressableArea}
       >
-        <Text style={textStyles.scientificNameText}>{scientificName}</Text>
+        {( { pressed } ) => (
+          <Text style={[textStyles.scientificNameText, pressed && viewStyles.selectedPressableArea]}>
+            {scientificName}
+          </Text>
+        )}
       </Pressable>
     </>
   );

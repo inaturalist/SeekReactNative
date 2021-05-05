@@ -42,7 +42,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   pressableArea: {
     paddingTop: 10,
-    paddingBottom: 15
+    paddingBottom: 15,
+    paddingHorizontal: 28
+  },
+  selectedPressableArea: {
+    backgroundColor: "rgb(176, 196, 222)"
   }
 } );
 
@@ -91,8 +95,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 19,
-    lineHeight: 21,
-    marginHorizontal: 28
+    lineHeight: 21
   },
   text: {
     color: colors.black,

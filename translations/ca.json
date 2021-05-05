@@ -84,7 +84,9 @@
     "skip_login": "Continua sense registrar-te",
     "error_email": "Si us plau, introdueix una adreça vàlida de correu electrònic",
     "error_credentials": "Nom d'usuari o contrasenya incorrectes",
-    "error_username_taken": "Aquest nom d'usuari ja està agafat"
+    "error_username_taken": "Aquest nom d'usuari ja està agafat",
+    "error_no_username": "Missing username / email",
+    "error_no_password": "Missing password"
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Rodet de fotos"
+    "photo_library": "Photo Library"
   },
   "camera_help": {
     "title": "Càmera de Seek",
@@ -489,10 +491,20 @@
     "no_obs": "Encara no tens observacions!",
     "help": "Prem una foto d'una planta, un animal o qualsevol ésser viu utilitzant la nostra càmera, i el nostre model d'IA t'ajudarà a identificar-lo!",
     "open_camera": "Obre la càmera",
-    "not_seen": "Encara no has observat cap {{iconicTaxon}}!",
     "search": "Busca observacions",
     "search_empty": "No s'han trobat observacions amb aquest terme de cerca.",
-    "reset_search": "Reiniciar cerca"
+    "reset_search": "Reiniciar cerca",
+    "not_seen_plants": "You haven’t observed any plants yet!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "Propera",
@@ -743,8 +755,8 @@
     "options": "Opcions",
     "show_species_id": "Mostra la identificació de l'espècie",
     "share": "Comparteix a Facebook",
-    "save_to_camera_roll": "Desar a la galeria d'imatges",
-    "saved_to_camera_roll": "Desat a la galeria",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Torna a la identificació",
     "error_title": "No es pot completar la consulta",
     "error": "Si us plau, comprova que tens l'App de Facebook instal·lada.",

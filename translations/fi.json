@@ -84,7 +84,9 @@
     "skip_login": "Jatka kirjautumatta",
     "error_email": "Syötä kelvollinen sähköpostiosoite",
     "error_credentials": "Virheellinen käyttäjänimi tai salasana",
-    "error_username_taken": "Tämä käyttäjänimi on jo käytössä"
+    "error_username_taken": "Tämä käyttäjänimi on jo käytössä",
+    "error_no_username": "Missing username / email",
+    "error_no_password": "Missing password"
   },
   "inat_signup": {
     "welcome": "Tervetuloa Seekiin!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Kuvat",
-    "camera_roll": "Filmirulla"
+    "photo_library": "Photo Library"
   },
   "camera_help": {
     "title": "Seekin kamera",
@@ -489,10 +491,20 @@
     "no_obs": "Sinulla ei ole vielä havaintoja!",
     "help": "Ota valokuva kasvista, eläimestä tai muusta elävästä kamerallamme. Tekoälymalli auttaa sinua tunnistamaan sen!",
     "open_camera": "Avaa kamera",
-    "not_seen": "Et ole havainnut vielä yhtään {{iconicTaxon}}!",
     "search": "Search observations",
     "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "reset_search": "Reset search",
+    "not_seen_plants": "You haven’t observed any plants yet!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "Lähistöllä",
@@ -743,8 +755,8 @@
     "options": "Options",
     "show_species_id": "Show species identification",
     "share": "Share to Facebook",
-    "save_to_camera_roll": "Save to camera roll",
-    "saved_to_camera_roll": "Saved to camera roll",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Back to Identification",
     "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",

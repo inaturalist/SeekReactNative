@@ -84,7 +84,9 @@
     "skip_login": "Fortsätt utan att logga in",
     "error_email": "Ange en giltig e-postadress",
     "error_credentials": "Felaktigt användarnamn eller lösenord",
-    "error_username_taken": "Det användarnamnet är redan upptaget"
+    "error_username_taken": "Det användarnamnet är redan upptaget",
+    "error_no_username": "Användarnamn / e-postadress saknas",
+    "error_no_password": "Lösenord saknas"
   },
   "inat_signup": {
     "welcome": "Välkommen till Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Bilder",
-    "camera_roll": "Kamerarulle"
+    "photo_library": "Bildbibliotek"
   },
   "camera_help": {
     "title": "Seek-kameran",
@@ -489,10 +491,20 @@
     "no_obs": "Du har inga fynd ännu!",
     "help": "Ta en bild av en växt, ett djur eller något annat levande med vår kamera så hjälper vår AI-modell dig att bestämma den!",
     "open_camera": "Öppna kameran",
-    "not_seen": "Du har inte observerat någon {{iconicTaxon}} ännu!",
     "search": "Sök fynd",
     "search_empty": "Inga fynd hittades med den söktermen.",
-    "reset_search": "Återställ sökning"
+    "reset_search": "Återställ sökning",
+    "not_seen_plants": "Du har inte observerat några växter ännu!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "Närliggande",
@@ -743,8 +755,8 @@
     "options": "Alternativ",
     "show_species_id": "Visa artbestämning",
     "share": "Dela på Facebook",
-    "save_to_camera_roll": "Spara i kamerarullen",
-    "saved_to_camera_roll": "Sparad i kamerarullen",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Tillbaka till bestämning",
     "error_title": "Kunde inte spara bilden",
     "error": "Vänligen dubbelkolla att du har Facebook-appen installerad.",

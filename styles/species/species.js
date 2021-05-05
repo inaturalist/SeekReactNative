@@ -46,7 +46,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingHorizontal: 28
   },
   selectedPressableArea: {
-    backgroundColor: "rgb(176, 196, 222)"
+    backgroundColor: "rgb(176, 196, 222)",
+    alignSelf: "flex-start"
   }
 } );
 

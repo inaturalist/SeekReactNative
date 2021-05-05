@@ -61,7 +61,7 @@
       "other": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene."
     },
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
+    "error_login": "Giriş başarısız. Lütfen Seek'de iNaturalist veya Başarılar ekranından iNaturalist hesabına giriş yaparak tekrar dene.",
     "error_photo": "Artık cihazda fotoğrafa erişilemez.",
     "a_few": "a few"
   },
@@ -84,7 +84,9 @@
     "skip_login": "Giriş yapmadan devam et",
     "error_email": "Lütfen geçerli bir e-posta adresi girin",
     "error_credentials": "Hatalı kullanıcı adı veya parola",
-    "error_username_taken": "Bu kullanıcı adı zaten alınmış"
+    "error_username_taken": "Bu kullanıcı adı zaten alınmış",
+    "error_no_username": "Kullanıcı adı / eposta eksik",
+    "error_no_password": "Eksik parola"
   },
   "inat_signup": {
     "welcome": "Seek'e hoşgeldin!",
@@ -119,7 +121,7 @@
     "store_data": "iNaturalist'in hesabımı yönetmek için benimle ilgili sınırlı türde kişisel bilgileri saklamasına ve işlemesine izin veriyorum.",
     "learn_more": "Daha fazla bilgi edin",
     "learn_more_about_data_storage": "Bu sitedeki hesapları yönetmek ve gizlilik yasalarına uymak için kullanıcı adları ve e-posta adresleri gibi kişisel bilgileri saklıyoruz, kişisel bilgilerin bu şekilde kullanılmasına izin verdiğini belirtmek için bu kutuyu işaretlemen gerekiyor. Hangi bilgileri topladığımız ve bunları nasıl kullandığımızla ilgili daha çok bilgi edinmek için lütfen Gizlilik Politikamıza ve Hizmet Şartlarımıza gözat.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "learn_more_about_licensing": "Yüklenen içeriğe Creative Commons Atıf-Ticari Olmayan lisansı uygulamak istiyorsan bu kutuyu işaretle. Bu; sana atıf yapıldığı ve ticari olarak kullanılmadığı sürece fotoğraflarını ve / veya gözlemlerini herkesin kopyalayıp yeniden kullanabileceği anlamına gelir. Değişik bir lisans seçebilir veya daha sonra lisansı kaldırabilirsin ancak araştırmacılarla paylaşmak için en iyi lisans budur.",
     "about_personal_information": "Kişisel Bilgiler Hakkında",
     "about_licenses": "Lisanslar Hakkında"
   },
@@ -144,7 +146,7 @@
   },
   "menu": {
     "home": "Ana Sayfa",
-    "achievements": "Başarımlar",
+    "achievements": "Başarılar",
     "challenges": "Mücadeleler",
     "observations": "Gözlemlerim",
     "inat": "iNaturalist",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotoğraflar",
-    "camera_roll": "Galeri"
+    "photo_library": "Fotoğraf Arşivi"
   },
   "camera_help": {
     "title": "Seek'in Kamerası",
@@ -489,10 +491,20 @@
     "no_obs": "Henüz herhangi bir gözleminiz yok!",
     "help": "Bir bitkinin, hayvanın ya da kameranızı kullanarak yaşayan herhangi bir şeyin fotoğrafını çekin; YZ modelimiz bunu tanımlamanıza yardımcı olacaktır!",
     "open_camera": "Kamerayı Aç",
-    "not_seen": "Henüz herhangi bir {{iconicTaxon}} gözlemlemedin!",
     "search": "Gözlemleri ara",
     "search_empty": "Bu arama terimiyle hiçbir gözlem bulunamadı.",
-    "reset_search": "Aramayı sıfırla"
+    "reset_search": "Aramayı sıfırla",
+    "not_seen_plants": "Henüz herhangi bir bitki gözlemlemedin!",
+    "not_seen_amphibians": "Henüz herhangi bir amfibi gözlemlemedin!",
+    "not_seen_fungi": "Henüz herhangi bir mantar gözlemlemedin!",
+    "not_seen_fish": "Henüz herhangi bir balık gözlemlemedin!",
+    "not_seen_reptiles": "Henüz herhangi bir sürüngen gözlemlemedin!",
+    "not_seen_arachnids": "Henüz herhangi bir örümceğimsigil gözlemlemedin!",
+    "not_seen_birds": "Henüz herhangi bir kuş gözlemlemedin!",
+    "not_seen_insects": "Henüz herhangi bir böcek gözlemlemedin!",
+    "not_seen_mollusks": "Henüz herhangi bir yumuşakça gözlemlemedin!",
+    "not_seen_mammals": "Henüz herhangi bir memeli gözlemlemedin!",
+    "not_seen_other": "Henüz herhangi bir tür gözlemlemedin!"
   },
   "species_detail": {
     "near": "Yakında",
@@ -579,7 +591,7 @@
   },
   "posting_status": {
     "posting_to_inat_background": "ARKA PLANDA INATURALIST'E GÖNDERİLİYOR",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "posting_to_inat_background_description": "Seek açık olduğu sürece gönderim arka planda devam edecek.\n\nAna ekrandan yükleme durumunu kontrol edebilirsin.",
     "no_internet": "AĞ BAĞLANTISI YOK!",
     "no_internet_description": "Ağ bağlantısı bulunamadığından gözlemin iNaturalist'e yüklenemedi.\n\nAğa bağlandığında ve Seek'i yeniden başlattığında gözlemin yüklenecek."
   },
@@ -709,11 +721,11 @@
     "action_oct_2020": "Çevrenizdeki alanlarda ne tür ayrıştırıcıların ve çöpçülerin yaşadığını öğrenin. Ne tüketiyorlar? Hep aynı tür şeyleri mi yiyorlar?",
     "adaptation": "Adaptasyon Mücadelesi",
     "mission_1_nov_2020": "Güvercinler takımından 1 kuş bul",
-    "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
+    "mission_2_nov_2020": "Fabales takımından 1 bitki bul (Baklagil veya Sütotu benzerleri)",
     "mission_3_nov_2020": "1 örümceğimsi bul",
     "mission_4_nov_2020": "2 böcek bul",
-    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
-    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here.",
+    "nov_2020_description": "Bir çok tür, insan nüfusu arttıkça insanların yaşadığı ortama adapte olarak gelişmeye başladı. Hatta kentselleşmenin yoğun olduğu alanlarda bile kuşları, bitkileri ve böcekleri aramızda görebiliyoruz.",
+    "action_nov_2020": "Çevrende hangi yabani türler var? Bu türler oraya mı ait, istilacı mı, veya getirildi mi? Eğer getirildi ise, o türlerin oraya nasıl geldiğini öğren.",
     "ecosystem": "EkoSistem Mücadelesi",
     "mission_1_dec_2020": "Herhangi 3 omurgalı bul (kuş, memeli, sürüngen, amfibi, ve balık)",
     "mission_2_dec_2020": "3 bitki bul",
@@ -743,8 +755,8 @@
     "options": "Seçenekler",
     "show_species_id": "Tür tanımlaması göster",
     "share": "Facebook'ta paylaş",
-    "save_to_camera_roll": "Kamera rulosuna kaydet",
-    "saved_to_camera_roll": "Kamera rulosuna kaydedildi",
+    "save_to_photo_library": "Fotoğraf arşivine kaydet",
+    "saved_to_photo_library": "Fotoğraf arşivine kaydedildi",
     "back_to_id": "Tanımlamalara Geri Git",
     "error_title": "Fotoğraf kaydedilemedi",
     "error": "Lütfen Facebook Uygulamasının kurulu olduğunu tekrar kontrol et.",
@@ -755,7 +767,7 @@
     "mar_2021_mission_1": "Herhangi 10 tür bul",
     "mar_2021_challenge_name": "NatGeo Doğa Mücadelesi",
     "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
+    "mar_2021_action": "Seek'e tekrar katılmaya veya nasıl kullanıldığını öğrenmeye zaman ayır. Ana ekrana girerek yakınlarındaki türleri gör. Favori yerel bitki veya hayvan veya da gözlemlemeyi beğendiğin şeyler hakkında Twitter'da #NatGeoSeekChallenge etiketiyle bizimle paylaş!",
     "mar_2021_photographer": "Fotoğraflayan: Tom Matthews / National Geographic",
     "mar_2021_badge_name": "Doğa Rozeti",
     "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
@@ -766,14 +778,14 @@
     "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family - and with us using #NatGeoSeekChallenge on Twitter!",
     "apr_2021_badge_name": "Yenileme Rozeti",
     "apr_2021_photographer": "Fotoğraflayan: Enric Sala / National Geographic",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
+    "may_2021_mission_1": "Aşağıdaki ailelerden 5 bitki bul:\n\nPapatyagiller (Ayçiçeği, Papatya, Civanperçemi ve benzerleri);\nBaklagiller (Bakliyat);\nBallıbabagiller (Nane Familyası);\nAyıpençesigiller (Akantus ve Hanımeli Familyası);\nEbegümecigiller (Ebegümeci veya Gülhatmi Familyası);\nBignoniaceae (Bignonia Familyası);\nÇarkıfelekgiller (Çarkıfelek Familyası);",
+    "may_2021_mission_2": "2 eklem bacaklı bul (böcek, örümcek, kabuklu)",
     "may_2021_challenge_name": "Sağlıklı Ekosistem Mücadelesi",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
     "may_2021_badge_name": "EkoSağlığı Rozeti",
     "may_2021_photographer": "Fotoğraflayan: Jim Richardson / National Geographic",
-    "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
+    "june_2021_mission_1": "Aşağıdaki sınıflardan 1 bitki bul:\n\nLycopodiopsida (Spikemosses, Clubmosses ve Firmosses);\nPolypodiopsida (Ferns)",
     "june_2021_mission_2": "Pinopsida (kozalaklı) sınıfından 1 bitki bul",
     "june_2021_mission_3": "Kapalı tohumlulardan (Çiçekli Bitkiler) 1 bitki bul",
     "june_2021_mission_4": "1 mantar bul",

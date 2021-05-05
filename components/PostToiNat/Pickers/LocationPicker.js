@@ -14,7 +14,7 @@ import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
 import { fetchUserLocation } from "../../../utility/locationHelpers";
 import { viewStyles } from "../../../styles/home/locationPicker";
-import headerStyles from "../../../styles/uiComponents/greenHeader";
+import { viewHeaderStyles, textStyles } from "../../../styles/uiComponents/greenHeader";
 import backStyles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
@@ -122,7 +122,7 @@ const LocationPicker = ( {
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
-      <View style={[headerStyles.container, headerStyles.center]}>
+      <View style={[viewHeaderStyles.container, viewHeaderStyles.center]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
@@ -131,7 +131,7 @@ const LocationPicker = ( {
         >
           <Image source={icons.backButton} />
         </TouchableOpacity>
-        <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
+        <Text style={textStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
       </View>
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>

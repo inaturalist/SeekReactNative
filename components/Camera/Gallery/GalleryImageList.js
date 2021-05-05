@@ -4,7 +4,7 @@ import React, { useCallback } from "react";
 import { FlatList } from "react-native";
 import type { Node } from "react";
 
-import styles from "../../../styles/camera/gallery";
+import { viewStyles } from "../../../styles/camera/gallery";
 import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 
@@ -29,7 +29,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   return (
     <FlatList
       data={photos}
-      contentContainerStyle={styles.grayContainer}
+      contentContainerStyle={viewStyles.grayContainer}
       getItemLayout={getItemLayout}
       initialNumToRender={4}
       keyExtractor={extractKey}

@@ -9,9 +9,11 @@ import {
   dimensions
 } from "../global";
 
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
 import { enabledLargeFonts } from "../../utility/textHelpers";
 
-export default StyleSheet.create( {
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingHorizontal: 23,
@@ -27,10 +29,6 @@ export default StyleSheet.create( {
     paddingHorizontal: 1,
     paddingTop: 2
   },
-  buttonImage: {
-    padding: 5,
-    tintColor: colors.seekForestGreen
-  },
   center,
   grayContainer: {
     backgroundColor: colors.lightGray,
@@ -39,18 +37,6 @@ export default StyleSheet.create( {
   header: {
     backgroundColor: colors.white,
     height: 55
-  },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: enabledLargeFonts() ? 13 : 18,
-    letterSpacing: 1.0,
-    maxWidth: dimensions.width - 100,
-    paddingTop: Platform.OS === "ios" ? 5 : 0
-  },
-  image: {
-    height: dimensions.width / 4 - 2,
-    width: dimensions.width / 4 - 2
   },
   margin: {
     marginLeft: 15
@@ -61,3 +47,31 @@ export default StyleSheet.create( {
     paddingHorizontal: 50
   }
 } );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: enabledLargeFonts() ? 13 : 18,
+    letterSpacing: 1.0,
+    maxWidth: dimensions.width - 100,
+    paddingTop: Platform.OS === "ios" ? 5 : 0
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  buttonImage: {
+    padding: 5,
+    tintColor: colors.seekForestGreen
+  },
+  image: {
+    height: dimensions.width / 4 - 2,
+    width: dimensions.width / 4 - 2
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

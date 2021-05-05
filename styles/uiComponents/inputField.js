@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, dimensions } from "../global";
 
-export default StyleSheet.create( {
+import type { TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   inputField: {
     backgroundColor: colors.white,
     borderColor: colors.darkGray,
@@ -15,3 +17,5 @@ export default StyleSheet.create( {
     paddingLeft: 15
   }
 } );
+
+export default textStyles;

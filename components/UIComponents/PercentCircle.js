@@ -1,12 +1,10 @@
 // @flow
 
 import * as React from "react";
-import {
-  Text
-} from "react-native";
+import { Text } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
-import styles from "../../styles/uiComponents/percentCircle";
+import { viewStyles, textStyles } from "../../styles/uiComponents/percentCircle";
 import { colors } from "../../styles/global";
 import { localizePercentage } from "../../utility/helpers";
 
@@ -20,12 +18,12 @@ const PercentCircle = ( { challenge, large }: Props ): React.Node => (
     bgColor={colors.white}
     borderWidth={3}
     color={colors.seekiNatGreen}
-    outerCircleStyle={large ? styles.largeCircleStyle : styles.circleStyle}
+    outerCircleStyle={large ? viewStyles.largeCircleStyle : viewStyles.circleStyle}
     percent={challenge.percentComplete}
     radius={large ? ( 113 / 2 ) : ( 59 / 2 )}
     shadowColor={colors.circleGray}
   >
-    <Text allowFontScaling={false} style={large ? styles.largeCircleText : styles.circleText}>
+    <Text allowFontScaling={false} style={large ? textStyles.largeCircleText : textStyles.circleText}>
       {localizePercentage( challenge.percentComplete )}
     </Text>
   </ProgressCircle>

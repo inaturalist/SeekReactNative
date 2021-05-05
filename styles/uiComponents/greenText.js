@@ -2,8 +2,9 @@
 
 import { StyleSheet } from "react-native";
 import { fonts, colors } from "../global";
+import type { TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-export default StyleSheet.create( {
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   center: {
     textAlign: "center"
   },
@@ -19,3 +20,5 @@ export default StyleSheet.create( {
     lineHeight: 24
   }
 } );
+
+export default textStyles;

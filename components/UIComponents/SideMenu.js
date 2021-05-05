@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/uiComponents/sideMenu";
+import { viewStyles, imageStyles, textStyles } from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
@@ -42,27 +42,27 @@ const SideMenu = ( ): React.Node => {
         accessibilityLabel={name}
         accessible
         onPress={() => navToPath( path )}
-        style={[styles.menuItem, i < menuItems.length - 1 && styles.divider]}
+        style={[viewStyles.menuItem, i < menuItems.length - 1 && viewStyles.divider]}
       >
         {/* $FlowFixMe */}
         <Image
           source={icons[`menu${titleCase}`]}
-          style={styles.icon}
+          style={imageStyles.icon}
           tintColor={colors.menuItems}
         />
-        <Text allowFontScaling={false} style={styles.text}>{name}</Text>
+        <Text allowFontScaling={false} style={textStyles.text}>{name}</Text>
       </Pressable>
     );
   } );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={viewStyles.container}>
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
         onPress={navHome}
       >
-        <Image source={logoImages.seek} style={styles.seekLogo} />
+        <Image source={logoImages.seek} style={imageStyles.seekLogo} />
       </Pressable>
       {renderMenuItems( )}
     </SafeAreaView>

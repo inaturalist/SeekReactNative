@@ -10,7 +10,7 @@ import {
 import { useRoute, useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/uiComponents/greenHeader";
+import { textStyles, viewHeaderStyles } from "../../styles/uiComponents/greenHeader";
 import BackArrow from "./Buttons/BackArrow";
 import posting from "../../assets/posting";
 
@@ -24,10 +24,10 @@ const GreenHeader = ( { header, route }: Props ): React.Node => {
   const { name } = useRoute();
 
   return (
-    <View style={[styles.container, styles.center]}>
+    <View style={[viewHeaderStyles.container, viewHeaderStyles.center]}>
       {name !== "LoginSuccess" && <BackArrow route={route} />}
       {header && (
-        <Text allowFontScaling={false} style={styles.text}>
+        <Text allowFontScaling={false} style={textStyles.text}>
           {i18n.t( header ).toLocaleUpperCase()}
         </Text>
       )}
@@ -36,7 +36,7 @@ const GreenHeader = ( { header, route }: Props ): React.Node => {
           accessibilityLabel={i18n.t( "accessibility.open_posting_elp" )}
           accessible
           onPress={() => navigation.navigate( "PostingHelp" )}
-          style={styles.help}
+          style={viewHeaderStyles.help}
         >
           <Image source={posting.postingHelp} />
         </TouchableOpacity>

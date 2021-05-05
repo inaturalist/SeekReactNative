@@ -8,9 +8,11 @@ import {
   padding
 } from "../global";
 
+import type { ViewStyleProp, ImageStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
 const { height } = Dimensions.get( "window" );
 
-export default StyleSheet.create( {
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     backgroundColor: colors.seekForestGreen,
     flex: 1,
@@ -26,7 +28,10 @@ export default StyleSheet.create( {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap"
-  },
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   icon: {
     height: 25,
     marginHorizontal: 25,
@@ -40,7 +45,10 @@ export default StyleSheet.create( {
     marginBottom: height / 11 / 2,
     resizeMode: "contain",
     width: 223
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -50,3 +58,9 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSButtonPadding
   }
 } );
+
+export {
+  textStyles,
+  imageStyles,
+  viewStyles
+};

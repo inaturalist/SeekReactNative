@@ -9,7 +9,7 @@ import {
   ImageBackground
 } from "react-native";
 
-import styles from "../../styles/uiComponents/speciesCard";
+import { viewStyles, textStyles } from "../../styles/uiComponents/speciesCard";
 import iconicTaxa from "../../assets/iconicTaxa";
 import i18n from "../../i18n";
 
@@ -35,26 +35,26 @@ const SpeciesCard = ( {
   return (
     <TouchableOpacity
       onPress={handlePress}
-      style={[!handlePress ? styles.notTouchable : styles.touchableArea, styles.row]}
+      style={[!handlePress ? viewStyles.notTouchable : viewStyles.touchableArea, viewStyles.row]}
       disabled={!handlePress}
     >
       {iconicTaxonId ? (
         <ImageBackground
-          imageStyle={styles.image}
+          imageStyle={viewStyles.image}
           source={iconicTaxa[iconicTaxonId] || iconicTaxa[1]}
-          style={styles.image}
+          style={viewStyles.image}
         >
-          <Image source={photo} style={styles.image} />
+          <Image source={photo} style={viewStyles.image} />
         </ImageBackground>
-      ) : <Image source={photo} style={styles.image} />}
-      <View style={styles.speciesNameContainer}>
-        <Text allowFontScaling={allowFontScaling} style={styles.commonNameText}>
+      ) : <Image source={photo} style={viewStyles.image} />}
+      <View style={viewStyles.speciesNameContainer}>
+        <Text allowFontScaling={allowFontScaling} style={textStyles.commonNameText}>
           {( preferredCommonName || name )
             ? preferredCommonName || name
             : i18n.t( "posting.unknown" )}
         </Text>
         {name && (
-          <Text allowFontScaling={allowFontScaling} style={styles.scientificNameText}>
+          <Text allowFontScaling={allowFontScaling} style={textStyles.scientificNameText}>
             {name}
           </Text>
         )}

@@ -9,7 +9,9 @@ import {
   padding
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewHeaderStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   container: {
     backgroundColor: colors.seekForestGreen,
@@ -23,7 +25,10 @@ export default StyleSheet.create( {
     paddingTop: 13,
     position: "absolute",
     right: 0
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -33,3 +38,8 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPaddingSmall
   }
 } );
+
+export {
+  textStyles,
+  viewHeaderStyles
+};

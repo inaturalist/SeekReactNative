@@ -7,7 +7,7 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
-import styles from "../../../styles/camera/gallery";
+import { viewStyles, imageStyles } from "../../../styles/camera/gallery";
 import icons from "../../../assets/icons";
 import AlbumPicker from "./AlbumPicker";
 import { fetchAlbums } from "../../../utility/cameraRollHelpers";
@@ -38,18 +38,18 @@ const GalleryHeader = ( { updateAlbum }: Props ): Node => {
   const handleBackNav = useCallback( ( ) => resetRouter( navigation ), [navigation] );
 
   return (
-    <View style={[styles.header, styles.center]}>
+    <View style={[viewStyles.header, viewStyles.center]}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
         onPress={handleBackNav}
-        style={styles.backButton}
+        style={viewStyles.backButton}
       >
         {/* $FlowFixMe */}
         <Image
           source={icons.closeWhite}
           tintColor={colors.seekForestGreen}
-          style={styles.buttonImage}
+          style={imageStyles.buttonImage}
         />
       </TouchableOpacity>
       <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />

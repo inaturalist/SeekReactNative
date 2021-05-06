@@ -63,7 +63,7 @@
     "error_unknown": "Выгрузка неуспешна. Ошибка: {{errorText}}",
     "error_login": "Сбой токена входа в систему. При повторной попытке либо войдите в свою учетную запись  Seek через  iNaturalis, либо войдите через раздел меню «Достижения»",
     "error_photo": "Фото более не доступно на устройстве.",
-    "a_few": "несколько"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Уведомления",
@@ -85,8 +85,8 @@
     "error_email": "Пожалуйста, введите правильный адрес электронной почты",
     "error_credentials": "Неверное имя пользователя или пароль",
     "error_username_taken": "Это имя уже используется",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password"
+    "error_no_username": "Отсутствует имя пользователя / email",
+    "error_no_password": "Отсутствует пароль"
   },
   "inat_signup": {
     "welcome": "Добро пожаловать в Seek!",
@@ -373,7 +373,7 @@
   },
   "gallery": {
     "label": "Фото",
-    "photo_library": "Photo Library"
+    "photo_library": "Фотогалерея"
   },
   "camera_help": {
     "title": "Камера Seek",
@@ -494,17 +494,17 @@
     "search": "Искать наблюдения",
     "search_empty": "По этому запросу не найдено никаких наблюдений.",
     "reset_search": "Изменить настройки поиска",
-    "not_seen_plants": "You haven’t observed any plants yet!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_plants": "У Вас ещё нет наблюдений растений!",
+    "not_seen_amphibians": "У Вас ещё нет наблюдений земноводных!",
+    "not_seen_fungi": "У Вас ещё нет наблюдений грибов!",
+    "not_seen_fish": "У Вас ещё нет наблюдений рыб!",
+    "not_seen_reptiles": "У Вас ещё нет наблюдений пресмыкающихся!",
+    "not_seen_arachnids": "У Вас ещё нет наблюдений паукообразных!",
+    "not_seen_birds": "У Вас ещё нет наблюдений птиц!",
+    "not_seen_insects": "У Вас ещё нет наблюдений насекомых!",
+    "not_seen_mollusks": "У Вас ещё нет наблюдений моллюсков!",
+    "not_seen_mammals": "У Вас ещё нет наблюдений млекопитающих!",
+    "not_seen_other": "У Вас ещё нет наблюдений других видов!"
   },
   "species_detail": {
     "near": "Поблизости",
@@ -755,8 +755,8 @@
     "options": "Опции",
     "show_species_id": "Показать идентификацию вида",
     "share": "Поделиться в Facebook",
-    "save_to_photo_library": "Save to photo library",
-    "saved_to_photo_library": "Saved to photo library",
+    "save_to_photo_library": "Сохранить в фотогалерее",
+    "saved_to_photo_library": "Сохранено в фотогалерее",
     "back_to_id": "Вернуться к идентификации",
     "error_title": "Не удалось выполнить запрос",
     "error": "Проверьте, установлен ли Facebook",

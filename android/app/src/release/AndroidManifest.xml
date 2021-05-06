@@ -6,7 +6,6 @@
       https://reactnative.dev/docs/removing-default-permissions
       Remember, this works in production only
     -->
-    <uses-permission tools:node="remove" android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission tools:node="remove" android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission tools:node="remove" android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 </manifest>

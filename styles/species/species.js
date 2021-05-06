@@ -48,6 +48,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   selectedPressableArea: {
     backgroundColor: "rgb(176, 196, 222)",
     alignSelf: "flex-start"
+  },
+  copiedAnimation: {
+    zIndex: 1,
+    position: "absolute",
+    top: -34
   }
 } );
 

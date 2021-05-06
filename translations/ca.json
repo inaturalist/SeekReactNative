@@ -63,7 +63,7 @@
     "error_unknown": "Errada en la pujada. Detalls de l'errada: {{errorText}}",
     "error_login": "Errada en iniciar la sessió. Inicia la en sessió en el teu compte a Seek per a iNaturalist o des de la pantalla Objectius aconseguits abans de provar-ho de nou.",
     "error_photo": "La foto ja no és accessible des del dispositiu.",
-    "a_few": "algunes"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Notificacions",

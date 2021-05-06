@@ -63,7 +63,7 @@
     "error_unknown": "Envoi raté. Détails: {{errorText}}",
     "error_login": "Le jeton de connexion a échoué. Veuillez vous connecter à votre compte iNaturalist dans Seek à partir de l'écran iNaturalist ou Progression avant de réessayer.",
     "error_photo": "La photo n'est plus accessible sur l'appareil.",
-    "a_few": "un peu"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": " Notifications",
@@ -494,17 +494,17 @@
     "search": "Rechercher des observations",
     "search_empty": "Aucune observation trouvée avec ce terme de recherche.",
     "reset_search": "Réinitialiser la recherche",
-    "not_seen_plants": "You haven’t observed any plants yet!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_plants": "Vous n’avez pas encore observé de plantes !",
+    "not_seen_amphibians": "Vous n’avez pas encore observé d’amphibiens !",
+    "not_seen_fungi": "Vous n’avez pas encore observé de champignons !",
+    "not_seen_fish": "Vous n’avez pas encore observé de poisson !",
+    "not_seen_reptiles": "Vous n’avez pas encore observé de reptiles !",
+    "not_seen_arachnids": "Vous n’avez pas encore observé d’arachnides !",
+    "not_seen_birds": "Vous n’avez pas encore observé d’oiseaux !",
+    "not_seen_insects": "Vous n’avez pas encore observé d’insectes !",
+    "not_seen_mollusks": "Vous n’avez pas encore observé de mollusques !",
+    "not_seen_mammals": "Vous n’avez pas encore observé de mammifères !",
+    "not_seen_other": "Vous n’avez pas encore observé d’autres espèces !"
   },
   "species_detail": {
     "near": "A proximité",

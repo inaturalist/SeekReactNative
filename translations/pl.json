@@ -63,7 +63,7 @@
     "error_unknown": "Upload failed. Error details: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "kilka"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Powiadomienia",

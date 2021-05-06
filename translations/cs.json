@@ -63,7 +63,7 @@
     "error_unknown": "Nahrání se nezdařilo. Podrobnosti o chybě: {{errorText}}",
     "error_login": "Přihlašovací token selhal. Před dalším pokusem se prosím přihlaste ke svému účtu v nabídce iNaturalist nebo Úspěchy (tlačítko na konci stránky). ",
     "error_photo": "K fotografii na vašem zařízení již není přístup.",
-    "a_few": "několik"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Upozornění",

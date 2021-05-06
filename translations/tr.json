@@ -63,7 +63,7 @@
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
     "error_login": "Giriş başarısız. Lütfen Seek'de iNaturalist veya Başarılar ekranından iNaturalist hesabına giriş yaparak tekrar dene.",
     "error_photo": "Artık cihazda fotoğrafa erişilemez.",
-    "a_few": "a few"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Bildirimler",

@@ -63,7 +63,7 @@
     "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
     "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist de Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo.",
     "error_photo": "Ya no se puede acceder a la foto en el dispositivo.",
-    "a_few": "unas pocas"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Notificaciones",

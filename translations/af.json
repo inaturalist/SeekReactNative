@@ -63,7 +63,7 @@
     "error_unknown": "Oplaai het misluk. Foutdetails: {{errorText}}",
     "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer.",
     "error_photo": "Geen toegang meer tot foto op die toestel nie.",
-    "a_few": "’n paar"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Kennisgewings",

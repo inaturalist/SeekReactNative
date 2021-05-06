@@ -143,6 +143,7 @@ const ObsList = ( {
       SectionSeparatorComponent={renderSectionSeparator}
       ListFooterComponent={renderListFooter}
       ListEmptyComponent={renderListEmpty}
+      removeClippedSubviews
     />
   );
 };

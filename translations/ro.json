@@ -63,7 +63,7 @@
     "error_unknown": "Încărcare eșuată. Detalii eroare: {{errorText}}",
     "error_login": "Token de conectare a eșuat. Conectați-vă la contul dvs. iNaturalist pe Seek din ecranul iNaturalist sau Realizări înainte de a încerca din nou.",
     "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Notificări",

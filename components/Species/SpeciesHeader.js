@@ -1,5 +1,5 @@
-import React, { useCallback, useContext, useRef, useEffect, useState } from "react";
-import { Text, BackHandler, Pressable, Animated, View } from "react-native";
+import React, { useCallback, useContext, useState } from "react";
+import { Text, BackHandler, Pressable, View } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Clipboard from "@react-native-community/clipboard";
 
@@ -12,7 +12,7 @@ import { getRoute } from "../../utility/helpers";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
 import { UserContext } from "../UserContext";
-import GreenRectangle from "../UIComponents/GreenRectangle";
+import ToastAnimation from "../UIComponents/ToastAnimation";
 
 type Props = {
   photos: Array<Object>,
@@ -21,7 +21,6 @@ type Props = {
 }
 
 const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
-  const fadeOut = useRef( new Animated.Value( 0 ) ).current;
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const commonName = useCommonName( id );
@@ -63,41 +62,7 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
     setCopied( true );
   };
 
-  useEffect( ( ) => {
-    let isCurrent = true;
-    const entrance = {
-      toValue: 1,
-      duration: 0,
-      useNativeDriver: true
-    };
-
-    const exit = {
-      toValue: 0,
-      delay: 1000,
-      duration: 200,
-      useNativeDriver: true
-    };
-
-    if ( copied && isCurrent && textWidth > 0 ) {
-      Animated.sequence( [
-        Animated.timing( fadeOut, entrance ),
-        Animated.timing( fadeOut, exit )
-      ] ).start( ( { finished } ) => {
-        if ( finished ) {
-          setCopied( false );
-        }
-      } );
-    }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [fadeOut, copied, textWidth] );
-
-  const showAnimation = ( ) => (
-    <Animated.View style={[viewStyles.copiedAnimation, { opacity: fadeOut, left: ( textWidth / 2 ) - 40 }]}>
-      <GreenRectangle text={i18n.t( "species_detail.copied" )} />
-    </Animated.View>
-  );
+  const finishAnimation = ( ) => setCopied( false );
 
   const setScientificNameTextWidth = ( { nativeEvent } ) => {
     if ( textWidth === 0 && nativeEvent.layout.width < 300 ) {
@@ -122,7 +87,15 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
       >
         {( { pressed } ) => (
           <View>
-            {copied && showAnimation( )}
+            {copied && (
+              <ToastAnimation
+                delay={1000}
+                startAnimation={textWidth > 0}
+                styles={[viewStyles.copiedAnimation, { left: ( textWidth / 2 ) - 40 }]}
+                toastText={i18n.t( "species_detail.copied" )}
+                finishAnimation={finishAnimation}
+              />
+            )}
             <Text
               style={[textStyles.scientificNameText, pressed && viewStyles.selectedPressableArea]}
               onLayout={setScientificNameTextWidth}

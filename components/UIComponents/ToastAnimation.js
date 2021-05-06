@@ -6,16 +6,14 @@ import GreenRectangle from "../UIComponents/GreenRectangle";
 
 type Props = {
   startAnimation: boolean,
-  delay: number,
   toastText: string,
-  styles: Array<Object>,
+  styles: Object,
   finishAnimation?: ( ) => void,
-  rectangleColor?: string
+  rectangleColor: string
 }
 
 const ToastAnimation = ( {
   startAnimation,
-  delay,
   toastText,
   finishAnimation,
   styles,
@@ -33,7 +31,7 @@ const ToastAnimation = ( {
 
     const exit = {
       toValue: 0,
-      delay,
+      delay: 2000,
       duration: 200,
       useNativeDriver: true
     };
@@ -51,9 +49,12 @@ const ToastAnimation = ( {
     return ( ) => {
       isCurrent = false;
     };
-  }, [fadeOut, startAnimation, finishAnimation, delay] );
+  }, [fadeOut, startAnimation, finishAnimation] );
 
-  const animatedStyles = styles.concat( { opacity: fadeOut } );
+  const animatedStyles = [{
+    ...styles,
+    opacity: fadeOut
+  }];
 
   return (
     <Animated.View style={animatedStyles}>

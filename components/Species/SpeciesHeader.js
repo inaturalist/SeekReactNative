@@ -13,6 +13,7 @@ import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
 import { UserContext } from "../UserContext";
 import ToastAnimation from "../UIComponents/ToastAnimation";
+import { colors } from "../../styles/global";
 
 type Props = {
   photos: Array<Object>,
@@ -25,7 +26,7 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
   const navigation = useNavigation( );
   const commonName = useCommonName( id );
   const [copied, setCopied] = useState( false );
-  const [textWidth, setTextWidth] = useState( 0 );
+  const [isSelected, setSelected] = useState( false );
 
   const disabled = !login;
 
@@ -60,15 +61,10 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
   const copyToClipboard = ( ) => {
     Clipboard.setString( scientificName );
     setCopied( true );
+    setSelected( true );
   };
 
   const finishAnimation = ( ) => setCopied( false );
-
-  const setScientificNameTextWidth = ( { nativeEvent } ) => {
-    if ( textWidth === 0 && nativeEvent.layout.width < 300 ) {
-      setTextWidth( nativeEvent.layout.width );
-    }
-  };
 
   return (
     <>
@@ -89,16 +85,18 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
           <View>
             {copied && (
               <ToastAnimation
-                delay={1000}
-                startAnimation={textWidth > 0}
-                styles={[viewStyles.copiedAnimation, { left: ( textWidth / 2 ) - 40 }]}
+                startAnimation={copied}
+                styles={viewStyles.copiedAnimation}
                 toastText={i18n.t( "species_detail.copied" )}
                 finishAnimation={finishAnimation}
+                rectangleColor={colors.seekTeal}
               />
             )}
             <Text
-              style={[textStyles.scientificNameText, pressed && viewStyles.selectedPressableArea]}
-              onLayout={setScientificNameTextWidth}
+              style={[
+                textStyles.scientificNameText,
+                isSelected && viewStyles.selectedPressableArea
+              ]}
             >
               {scientificName}
             </Text>

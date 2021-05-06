@@ -120,9 +120,8 @@ const ARCameraOverlay = ( {
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
-          delay={2000}
           startAnimation={filterIndex === 0}
-          styles={[viewStyles.plantFilter]}
+          styles={viewStyles.plantFilter}
           toastText={settings[filterIndex].text}
           rectangleColor={settings[filterIndex].color}
         />

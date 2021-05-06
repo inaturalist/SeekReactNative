@@ -63,7 +63,7 @@
     "error_unknown": "Caricamento non riuscito. Dettagli errore: {{errorText}}",
     "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalle schermate iNaturalist o Progressi prima di riprovare.",
     "error_photo": "Non è più possibile accedere alla foto sul dispositivo.",
-    "a_few": "alcuni"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Notifiche",

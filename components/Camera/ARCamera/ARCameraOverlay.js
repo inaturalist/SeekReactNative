@@ -1,13 +1,12 @@
 // @flow
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity,
-  Platform,
-  Animated
+  Platform
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -21,6 +20,7 @@ import ARCameraHeader from "./ARCameraHeader";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
+import ToastAnimation from "../../UIComponents/ToastAnimation";
 
 type Props = {
   takePicture: Function,
@@ -63,7 +63,6 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId
 }: Props ): Node => {
-  const fadeOut = useRef( new Animated.Value( 0 ) ).current;
   const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
@@ -71,7 +70,9 @@ const ARCameraOverlay = ( {
   const [filterIndex, setFilterIndex] = useState( null );
 
   const toggleFilterIndex = ( ) => {
-    if ( filterIndex !== null && filterIndex < 2 ) {
+    if ( filterIndex === null ) {
+      setFilterIndex( 1 );
+    } else if ( filterIndex < 2 ) {
       setFilterIndex( filterIndex + 1 );
     } else {
       setFilterIndex( 0 );
@@ -98,32 +99,6 @@ const ARCameraOverlay = ( {
     };
   }, [rankToRender, takePicture, autoCapture] );
 
-  useEffect( ( ) => {
-    let isCurrent = true;
-    const entrance = {
-      toValue: 1,
-      duration: 0,
-      useNativeDriver: true
-    };
-
-    const exit = {
-      toValue: 0,
-      delay: 2000,
-      duration: 200,
-      useNativeDriver: true
-    };
-
-    if ( filterIndex === 0 && isCurrent ) {
-      Animated.sequence( [
-        Animated.timing( fadeOut, entrance ),
-        Animated.timing( fadeOut, exit )
-      ] ).start( );
-    }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [fadeOut, filterIndex] );
-
   const showFilterText = ( ) => {
     if ( filterIndex === 0 || filterIndex === null ) {
       return;
@@ -136,16 +111,6 @@ const ARCameraOverlay = ( {
     );
   };
 
-  const showAnimation = ( ) => {
-    if ( !filterIndex ) { return; }
-
-    return (
-      <Animated.View style={[viewStyles.plantFilter, { opacity: fadeOut }]}>
-        <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
-      </Animated.View>
-    );
-  };
-
   const showCameraHelp = ( ) => navigate( "CameraHelp" );
 
   return (
@@ -153,7 +118,15 @@ const ARCameraOverlay = ( {
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
       <ARCameraHeader ranks={ranks} />
       {isAndroid && showFilterText( )}
-      {( isAndroid && filterIndex === 0 ) && showAnimation( )}
+      {( isAndroid && filterIndex === 0 ) && (
+        <ToastAnimation
+          delay={2000}
+          startAnimation={filterIndex === 0}
+          styles={[viewStyles.plantFilter]}
+          toastText={settings[filterIndex].text}
+          rectangleColor={settings[filterIndex].color}
+        />
+      )}
       <Text style={textStyles.scanText}>{helpText}</Text>
       {isAndroid && (
         <TouchableOpacity

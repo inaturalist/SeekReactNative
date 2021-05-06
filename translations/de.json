@@ -63,7 +63,7 @@
     "error_unknown": "Upload fehlgeschlagen. Fehlerdetails: {{errorText}}",
     "error_login": "Login-Token fehlgeschlagen. Bitte melde dich in Seek über den iNaturalist- oder 'Erreichte Ziele'-Bildschirm auf deinem iNaturalist-Account an, bevor du es erneut versuchst.",
     "error_photo": "Das Gerät kann auf das Foto nicht mehr zugreifen.",
-    "a_few": "ein paar"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "Benachrichtigungen",
@@ -85,8 +85,8 @@
     "error_email": "Bitte eine gültige E-Mail-Adresse eingeben",
     "error_credentials": "Falscher Benutzername oder Passwort",
     "error_username_taken": "Dieser Benutzername ist bereits vergeben",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password"
+    "error_no_username": "Benutzername / E-Mail fehlt",
+    "error_no_password": "Passwort fehlt"
   },
   "inat_signup": {
     "welcome": "Willkommen bei Seek!",

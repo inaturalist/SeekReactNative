@@ -63,7 +63,7 @@
     "error_unknown": "העלאה נכשלה. הודעת שגיאה: {{errorText}}",
     "error_login": "אימות חיבור נכשל. נא להתחבר לחשבון iNaturalist מתוך Seek ממסך iNaturalist או השגים, לפני שמנסים שוב.",
     "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "הודעות",

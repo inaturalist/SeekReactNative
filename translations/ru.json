@@ -63,7 +63,7 @@
     "error_unknown": "Выгрузка неуспешна. Ошибка: {{errorText}}",
     "error_login": "Сбой токена входа в систему. При повторной попытке либо войдите в свою учетную запись  Seek через  iNaturalis, либо войдите через раздел меню «Достижения»",
     "error_photo": "Фото более не доступно на устройстве.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "Серверы iNaturalist на техническом обслуживании. Пожалуйста, попробуйте через  несколько часов."
   },
   "notifications": {
     "header": "Уведомления",

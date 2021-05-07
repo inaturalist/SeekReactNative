@@ -43,12 +43,12 @@
       "other": "{{count}} gözlem yüklendi!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} gözlem yüklenecek",
+      "one": "{{count}} gözlem yüklenecek",
+      "two": "{{count}} gözlem yüklenecek",
+      "few": "{{count}} gözlem yüklenecek",
+      "many": "{{count}} gözlem yüklenecek",
+      "other": "{{count}} gözlem yüklenecek"
     },
     "upload_now": "HEMEN YÜKLE",
     "error_internet": "Ağ bağlantısı bulunamadı. Lütfen daha sonra tekrar deneyin.",
@@ -63,7 +63,7 @@
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
     "error_login": "Giriş başarısız. Lütfen Seek'de iNaturalist veya Başarılar ekranından iNaturalist hesabına giriş yaparak tekrar dene.",
     "error_photo": "Artık cihazda fotoğrafa erişilemez.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "iNaturalist sunucusu bakımda. Lütfen bir kaç saat sonra tekrar dene."
   },
   "notifications": {
     "header": "Bildirimler",

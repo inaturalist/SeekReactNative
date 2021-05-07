@@ -63,7 +63,7 @@
     "error_unknown": "Upload mislukt. Foutdetails: {{errorText}}",
     "error_login": "Login token is mislukt. Log in op jouw iNaturalist account in  het Seek of Achievements scherm voordat je het opnieuw probeert.",
     "error_photo": "Geen toegang meer tot foto op het apparaat.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "iNaturalist's server ondergaat onderhoud. Probeer het over een paar uur opnieuw."
   },
   "notifications": {
     "header": "Meldingen",

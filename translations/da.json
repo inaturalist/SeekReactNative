@@ -63,7 +63,7 @@
     "error_unknown": "Upload mislykkedes. Fejldetaljer: {{errorText}}",
     "error_login": "Login-token mislykkedes. Log ind på din iNaturalist-konto i Seek fra iNaturalist eller Præstationer-siden før du prøver igen.",
     "error_photo": "Der er ikke længere adgang til foto på enheden.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "iNaturalist's server er under vedligeholdelse. Prøv igen om nogle få timer."
   },
   "notifications": {
     "header": "Meddelelser",

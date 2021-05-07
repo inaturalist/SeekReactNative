@@ -63,7 +63,7 @@
     "error_unknown": "Envoi raté. Détails: {{errorText}}",
     "error_login": "Le jeton de connexion a échoué. Veuillez vous connecter à votre compte iNaturalist dans Seek à partir de l'écran iNaturalist ou Progression avant de réessayer.",
     "error_photo": "La photo n'est plus accessible sur l'appareil.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "Le serveur d'iNaturalist est en cours de maintenance. Veuillez réessayer dans quelques heures."
   },
   "notifications": {
     "header": " Notifications",

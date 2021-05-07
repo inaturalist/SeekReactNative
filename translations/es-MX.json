@@ -63,7 +63,7 @@
     "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
     "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist en Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo.",
     "error_photo": "Ya no se puede acceder a la foto en el dispositivo.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en unas horas."
   },
   "notifications": {
     "header": "Notificaciones",
@@ -494,17 +494,17 @@
     "search": "Busca observaciones",
     "search_empty": "No se encontraron observaciones con ese término de búsqueda.",
     "reset_search": "Restablece búsqueda",
-    "not_seen_plants": "You haven’t observed any plants yet!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_plants": "¡Aún no has observado ninguna planta!",
+    "not_seen_amphibians": "¡Aún no has observado a ningún anfibio!",
+    "not_seen_fungi": "¡Aún no has observado ningún hongo!",
+    "not_seen_fish": "¡Aún no has observado ningún pez!",
+    "not_seen_reptiles": "¡Aún no has observado ningún reptil!",
+    "not_seen_arachnids": "¡Aún no has observado ningún arácnido!",
+    "not_seen_birds": "¡Aún no has observado ninguna ave!",
+    "not_seen_insects": "¡Aún no has observado ningún insecto!",
+    "not_seen_mollusks": "¡Aún no has observado ningún molusco!",
+    "not_seen_mammals": "¡Aún no has observado ningún mamífero!",
+    "not_seen_other": "¡Aún no has observado ninguna otra especie!"
   },
   "species_detail": {
     "near": "Cercano",

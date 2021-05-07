@@ -63,7 +63,7 @@
     "error_unknown": "Nahrání se nezdařilo. Podrobnosti o chybě: {{errorText}}",
     "error_login": "Přihlašovací token selhal. Před dalším pokusem se prosím přihlaste ke svému účtu v nabídce iNaturalist nebo Úspěchy (tlačítko na konci stránky). ",
     "error_photo": "K fotografii na vašem zařízení již není přístup.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za několik hodin."
   },
   "notifications": {
     "header": "Upozornění",
@@ -373,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotografie",
-    "photo_library": "Photo Library"
+    "photo_library": "Knihovna fotografií"
   },
   "camera_help": {
     "title": "Seek fotoaparát",
@@ -755,8 +755,8 @@
     "options": "Možnosti",
     "show_species_id": "Zobrazit identifikaci druhu",
     "share": "Sdílet na Facebook",
-    "save_to_photo_library": "Save to photo library",
-    "saved_to_photo_library": "Saved to photo library",
+    "save_to_photo_library": "Uložit do knihovny fotografií",
+    "saved_to_photo_library": "Uloženo do knihovny fotografií",
     "back_to_id": "Zpět k identifikaci",
     "error_title": "Fotku nelze uložit",
     "error": "Zkontrolujte prosím, zda máte nainstalovanou aplikaci Facebook.",

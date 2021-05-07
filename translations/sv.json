@@ -63,7 +63,7 @@
     "error_unknown": "Uppladdning misslyckades. Feldetaljer: {{errorText}}",
     "error_login": "Inloggningstoken misslyckades. Logga in på ditt iNaturalist-konto i Seek från iNaturalist- eller Prestationssidan innan du försöker igen.",
     "error_photo": "Bilden kan inte längre nås på enheten.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "iNaturalists server genomgår underhåll. Försök igen om några timmar."
   },
   "notifications": {
     "header": "Aviseringar",

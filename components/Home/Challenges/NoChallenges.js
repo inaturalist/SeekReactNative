@@ -2,6 +2,7 @@
 
 import React, { useContext } from "react";
 import { View, Text, Image } from "react-native";
+import { useRoute } from "@react-navigation/native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
@@ -10,7 +11,8 @@ import styles from "../../../styles/home/noChallenges";
 import INatCard from "./iNatCard";
 import { UserContext } from "../../UserContext";
 
-const NoChallenges = (): Node => {
+const NoChallenges = ( ): Node => {
+  const { name } = useRoute( );
   const { login } = useContext( UserContext );
 
   return (
@@ -27,7 +29,7 @@ const NoChallenges = (): Node => {
         </View>
       </View>
       <View style={styles.margin} />
-      {!login && <INatCard />}
+      {( !login && name === "Home" ) && <INatCard />}
     </>
   );
 };

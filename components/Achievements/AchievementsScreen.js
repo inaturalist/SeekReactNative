@@ -28,36 +28,42 @@ const AchievementsScreen = ( ): Node => {
     navigation.navigate( "Observations" );
   }, [navigation] );
 
+  const renderStats = ( disabled, headerText, text ) => (
+    <TouchableOpacity
+      onPress={navToObservations}
+      style={viewStyles.secondHeaderText}
+      disabled={disabled}
+    >
+      <GreenText center smaller text={headerText} />
+      <Text style={textStyles.number}>
+        {text && localizeNumber( text )}
+      </Text>
+    </TouchableOpacity>
+  );
+
+  const renderFooter = ( ) => (
+    <View style={viewStyles.center}>
+      <View style={viewStyles.row}>
+        {renderStats( false, "badges.observed", state.speciesCount )}
+        {renderStats( true, "badges.earned", state.badgesEarned )}
+      </View>
+      <LoginCard />
+    </View>
+  );
+
   return (
     <ScrollWithHeader header="badges.achievements" loading={state.level === null}>
       <Spacer backgroundColor={colors.greenGradientDark} />
-      {state.level && (
-        <LevelHeader
-          level={state.level}
-          nextLevelCount={state.nextLevelCount}
-          speciesCount={state.speciesCount}
-        />
-      )}
+      <LevelHeader
+        level={state.level}
+        nextLevelCount={state.nextLevelCount}
+        speciesCount={state.speciesCount}
+      />
       <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
       <SpeciesBadges speciesBadges={state.speciesBadges} />
       <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
       <ChallengeBadges />
-      <View style={[viewStyles.row, viewStyles.center]}>
-        <TouchableOpacity
-          onPress={navToObservations}
-          style={viewStyles.secondHeaderText}
-        >
-          <GreenText center smaller text="badges.observed" />
-          <Text style={textStyles.number}>{state.speciesCount && localizeNumber( state.speciesCount )}</Text>
-        </TouchableOpacity>
-        <View style={viewStyles.secondHeaderText}>
-          <GreenText center smaller text="badges.earned" />
-          <Text style={textStyles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
-        </View>
-      </View>
-      <View style={viewStyles.center}>
-        <LoginCard />
-      </View>
+      {renderFooter( )}
     </ScrollWithHeader>
   );
 };

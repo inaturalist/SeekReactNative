@@ -63,7 +63,7 @@
     "error_unknown": "Caricamento non riuscito. Dettagli errore: {{errorText}}",
     "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalle schermate iNaturalist o Progressi prima di riprovare.",
     "error_photo": "Non è più possibile accedere alla foto sul dispositivo.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "Il server di iNaturalist è in manutenzione. Riprova tra qualche ore."
   },
   "notifications": {
     "header": "Notifiche",
@@ -504,7 +504,7 @@
     "not_seen_insects": "Non hai ancora osservato alcun insetto!",
     "not_seen_mollusks": "Non hai ancora osservato alcun mollusco!",
     "not_seen_mammals": "Non hai ancora osservato alcun mammifero!",
-    "not_seen_other": "Non hai ancora osservato altre specie!"
+    "not_seen_other": "Non hai ancora osservato nessun altra specie!"
   },
   "species_detail": {
     "near": "Nelle vicinanze",

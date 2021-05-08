@@ -63,7 +63,7 @@
     "error_unknown": "Upload fehlgeschlagen. Fehlerdetails: {{errorText}}",
     "error_login": "Login-Token fehlgeschlagen. Bitte melde dich in Seek über den iNaturalist- oder 'Erreichte Ziele'-Bildschirm auf deinem iNaturalist-Account an, bevor du es erneut versuchst.",
     "error_photo": "Das Gerät kann auf das Foto nicht mehr zugreifen.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_downtime_a_few_hours": "Der iNaturalist-Server wird gewartet. Bitte versuche es in ein paar Stunden erneut."
   },
   "notifications": {
     "header": "Benachrichtigungen",

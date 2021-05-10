@@ -28,7 +28,6 @@ const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText
   const navigation = useNavigation( );
   const commonName = useCommonName( id );
   const [copied, setCopied] = useState( false );
-  // const [isSelected, setSelected] = useState( false );
 
   const disabled = !login;
 
@@ -64,7 +63,6 @@ const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText
     Clipboard.setString( scientificName );
     setCopied( true );
     highlightSelectedText( );
-    // setSelected( true );
   };
 
   const finishAnimation = ( ) => setCopied( false );

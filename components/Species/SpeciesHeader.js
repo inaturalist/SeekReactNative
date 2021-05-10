@@ -18,15 +18,17 @@ import { colors } from "../../styles/global";
 type Props = {
   photos: Array<Object>,
   taxon: Object,
-  id: number
+  id: number,
+  selectedText: boolean,
+  highlightSelectedText: ( ) => void
 }
 
-const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
+const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ) => {
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const commonName = useCommonName( id );
   const [copied, setCopied] = useState( false );
-  const [isSelected, setSelected] = useState( false );
+  // const [isSelected, setSelected] = useState( false );
 
   const disabled = !login;
 
@@ -61,7 +63,8 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
   const copyToClipboard = ( ) => {
     Clipboard.setString( scientificName );
     setCopied( true );
-    setSelected( true );
+    highlightSelectedText( );
+    // setSelected( true );
   };
 
   const finishAnimation = ( ) => setCopied( false );
@@ -95,7 +98,7 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
             <Text
               style={[
                 textStyles.scientificNameText,
-                isSelected && viewStyles.selectedPressableArea
+                selectedText && viewStyles.selectedPressableArea
               ]}
             >
               {scientificName}

@@ -16,14 +16,14 @@ import LoginCard from "../UIComponents/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
 import { localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import BannerHeader from "./BannerHeader";
-import useFetchAchievements from "./hooks/achievementHooks";
+import BannerHeader from "../UIComponents/BannerHeader";
+import { useFetchAchievements } from "./hooks/achievementHooks";
 
 const AchievementsScreen = ( ): Node => {
   const state = useFetchAchievements( );
   const navigation = useNavigation( );
 
-  const navToObservations = useCallback( () => {
+  const navToObservations = useCallback( ( ) => {
     setRoute( "Achievements" );
     navigation.navigate( "Observations" );
   }, [navigation] );

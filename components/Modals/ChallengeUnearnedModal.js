@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/challengeUnearnedModal";
-import BannerHeader from "../Achievements/BannerHeader";
+import BannerHeader from "../UIComponents/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable, formatMonthYear, formatMonth } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";

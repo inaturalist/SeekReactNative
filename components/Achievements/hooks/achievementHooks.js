@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Realm from "realm";
+import { addMonths, isEqual } from "date-fns";
 
 import realmConfig from "../../../models";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
@@ -58,4 +59,65 @@ const useFetchAchievements = ( ): any => {
   return state;
 };
 
-export default useFetchAchievements;
+const useFetchChallenges = ( ): any => {
+  const [challengeBadges, setChallengeBadges] = useState( [] );
+
+  useEffect( ( ) => {
+    const createBadge = ( latestBadge, numOfMonths ) => ( {
+      name: "",
+      availableDate: addMonths( latestBadge.availableDate, numOfMonths ),
+      index: latestBadge.index + numOfMonths
+    } );
+
+    const createPlaceholderBadges = ( badges ) => {
+      const remainderOfBadges = badges.length % 5;
+
+      if ( remainderOfBadges === 0 || remainderOfBadges === 3 ) {
+        // no placeholders needed
+        return badges;
+      }
+
+      const badgePlaceholders = badges;
+      const latestBadge = badges[badges.length - 1];
+
+      let nextBadge = createBadge( latestBadge, 1 );
+
+      // next challenge after Dec 2020 will be released Mar 2021
+      if ( isEqual( new Date( 2020, 11, 1 ), new Date( latestBadge.availableDate ) ) ) {
+        nextBadge = createBadge( latestBadge, 3 );
+      }
+
+      const badgeAfterNext = createBadge( latestBadge, 2 );
+
+      if ( remainderOfBadges === 2 || remainderOfBadges === 4 ) {
+        badgePlaceholders.push( nextBadge );
+      }
+
+      if ( remainderOfBadges === 1 ) {
+        badgePlaceholders.push( nextBadge, badgeAfterNext );
+      }
+
+      return badgePlaceholders;
+    };
+
+    const fetchChallenges = async ( ) => {
+      try {
+        const realm = await Realm.open( realmConfig );
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
+        const badges = challenges.map( ( challenge ) => challenge );
+        const badgesWithPlaceholders = createPlaceholderBadges( badges );
+        setChallengeBadges( badgesWithPlaceholders );
+      } catch ( e ) {
+        console.log( e, "couldn't open realm: achievements" );
+      }
+    };
+    fetchChallenges( );
+  }, [] );
+
+  return challengeBadges;
+};
+
+export {
+  useFetchAchievements,
+  useFetchChallenges
+};

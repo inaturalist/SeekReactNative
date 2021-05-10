@@ -355,7 +355,7 @@
     "genus": "geslacht",
     "species": "soort",
     "error_permissions": "We hebben toegang tot de camera nodig om je te helpen bij het determineren van soorten!",
-    "error_gallery": "Er is toegang tot opslag nodig om je foto's op te slaan!",
+    "error_gallery": "Er is toegang tot je fotobibliotheek nodig om de foto's die je neemt op te slaan!",
     "permissions": "Verleen toestemming bij instellingen",
     "please_permissions": "Verleen toestemming in instellingen",
     "error_classifier": "Het spijt ons, we kunnen de classificeerder niet laden",

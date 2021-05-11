@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useReducer } from "react";
+import React, { useCallback, useReducer, useContext, useEffect } from "react";
 import { View, Platform, Text, Modal } from "react-native";
 
 import styles from "../../../styles/home/speciesNearby";
@@ -6,14 +6,19 @@ import i18n from "../../../i18n";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
-import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
 import { checkForInternet } from "../../../utility/helpers";
-import { useLocationName, useLocationPermission } from "../../../utility/customHooks";
+import { useLocationPermission } from "../../../utility/customHooks";
 import Error from "./Error";
 import LocationPicker from "./LocationPicker";
-import { fetchFromAsyncStorage, saveSpeciesNearbyLocation } from "../../../utility/settingsHelpers";
+import { SpeciesNearbyContext } from "../../UserContext";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import { colors } from "../../../styles/global";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
+import taxonIds from "../../../utility/dictionaries/taxonDict";
+import createUserAgent from "../../../utility/userAgent";
 
 const SpeciesNearby = ( ) => {
+  const { speciesNearby, setSpeciesNearby } = useContext( SpeciesNearbyContext );
   const granted = useLocationPermission( );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -27,38 +32,44 @@ const SpeciesNearby = ( ) => {
       case "LOCATION_UPDATED":
         return {
           ...state,
-          latLng: action.coordinates,
           error: state.error === "internet_error" ? "internet_error" : null
         };
-      case "TAXATYPE_UPDATED":
-        return { ...state, taxaType: action.taxaType };
       case "NO_ERROR":
         return { ...state, error: null };
       case "SHOW_MODAL":
         return { ...state, showModal: action.showModal };
+      case "SET_LOADING":
+        return { ...state, loading: action.loading, fetching: false };
+      case "SET_FETCHING":
+        return { ...state, fetching: true };
       default:
         throw new Error( );
     }
   }, {
-    latLng: {
-      latitude: null,
-      longitude: null
-    },
-    taxaType: "all",
     error: null,
-    showModal: false
+    showModal: false,
+    loading: speciesNearby.taxa.length === 0,
+    fetching: false
   } );
 
-  const { latLng, error, taxaType, showModal } = state;
-
-  const location = useLocationName( latLng.latitude, latLng.longitude );
+  const { error, showModal, loading, fetching } = state;
 
   const updateLatLng = useCallback( ( latitude, longitude ) => {
-    const coordinates = { latitude, longitude };
-    dispatch( { type: "LOCATION_UPDATED", coordinates } );
-  }, [] );
+    setSpeciesNearby( {
+      ...speciesNearby,
+      latitude,
+      longitude
+    } );
+    dispatch( { type: "SET_LOADING", loading: true } );
+  }, [speciesNearby, setSpeciesNearby] );
 
-  const updateTaxaType = useCallback( ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } ), [] );
+  const updateTaxaType = useCallback( ( type ) => {
+    setSpeciesNearby( {
+      ...speciesNearby,
+      taxaType: type
+    } );
+    dispatch( { type: "SET_LOADING", loading: true } );
+  }, [speciesNearby, setSpeciesNearby] );
 
   const updateDowntimeError = useCallback( ( ) => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
@@ -85,32 +96,6 @@ const SpeciesNearby = ( ) => {
     }
   }, [getGeolocation, granted, setLocationError] );
 
-  const checkForSavedLocation = useCallback( async ( ) => {
-    // only update location if user has not selected a location already
-    if ( latLng.latitude ) { return; }
-
-    const fetchSearchedLocation = async ( ) => {
-      return await fetchFromAsyncStorage( "speciesNearbyLocation" );
-    };
-
-    // check for truncated location from device or location picker
-    // before trying to access user location again
-    // this value is cleared when user reopens Seek, so the user can
-    // see species nearby in their new location
-    const searchedLocation = await fetchSearchedLocation( );
-
-    if ( searchedLocation ) {
-      const { latitude, longitude } = JSON.parse( searchedLocation );
-      if ( !latitude ) {
-        checkLocationPermissions( );
-      } else {
-        updateLatLng( latitude, longitude );
-      }
-    } else {
-      checkLocationPermissions( );
-    }
-  }, [latLng, updateLatLng, checkLocationPermissions] );
-
   const checkInternet = useCallback( ( ) => {
     checkForInternet( ).then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
@@ -124,31 +109,97 @@ const SpeciesNearby = ( ) => {
   useEffect( ( ) => {
     let isCurrent = true;
 
-    if ( isCurrent ) {
-      checkForSavedLocation( );
+    if ( isCurrent && !speciesNearby.latitude && !error ) {
+      checkLocationPermissions( );
     }
     return ( ) => {
       isCurrent = false;
     };
-  } ,[checkForSavedLocation] );
+  } ,[checkLocationPermissions, speciesNearby, error] );
 
   useEffect( ( ) => {
-    saveSpeciesNearbyLocation( JSON.stringify( latLng ) );
-  }, [latLng] );
+    let isCurrent = true;
+
+    const fetchSpeciesNearby = ( ) => {
+      const { latitude, longitude, taxaType } = speciesNearby;
+
+      if ( !latitude ) {
+        return;
+      }
+
+      const params = {
+        per_page: 20,
+        lat: latitude,
+        lng: longitude,
+        observed_on: new Date(),
+        seek_exceptions: true,
+        locale: i18n.locale,
+        all_photos: true // this allows for ARR license filtering
+      };
+
+      if ( taxonIds[taxaType] ) {
+        // $FlowFixMe
+        params.taxon_id = taxonIds[taxaType];
+      }
+
+      const site = "https://api.inaturalist.org/v1/taxa/nearby";
+      // $FlowFixMe
+      const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
+      const options = { headers: { "User-Agent": createUserAgent() } };
+
+      console.log( queryString, "query string" );
+      dispatch( { type: "SET_FETCHING", fetching: true } );
+
+      fetch( `${site}?${queryString}`, options )
+        .then( response => response.json() )
+        .then( ( { results } ) => {
+          const newTaxa = results.map( r => r.taxon );
+          setSpeciesNearby( {
+            ...speciesNearby,
+            taxa: newTaxa
+          } );
+          dispatch( { type: "SET_LOADING", loading: false } );
+         } )
+        .catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
+          if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+            updateDowntimeError();
+          } else {
+            checkInternet();
+          }
+        } );
+    };
+
+    if ( loading && isCurrent && !fetching ) {
+      fetchSpeciesNearby( );
+    }
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [loading, speciesNearby, setLocationError, updateDowntimeError, checkInternet, setSpeciesNearby, fetching] );
 
   const disabled = error === "internet_error";
-  const locationText = location ? location : i18n.t( "species_nearby.no_location" );
 
   const renderModal = ( ) => (
     <Modal visible={showModal}>
       <LocationPicker
-        latitude={latLng.latitude}
-        location={location}
-        longitude={latLng.longitude}
+        latitude={speciesNearby.latitude}
+        location={speciesNearby.location}
+        longitude={speciesNearby.longitude}
         closeLocationPicker={closeLocationPicker}
         updateLatLng={updateLatLng}
       />
     </Modal>
+  );
+
+  const renderSpeciesNearbyList = ( ) => (
+    <>
+      <View style={styles.speciesNearbyContainer}>
+        {loading
+          ? <LoadingWheel color={colors.black} />
+          : <SpeciesNearbyList taxa={speciesNearby.taxa} />}
+      </View>
+      <View style={styles.speciesNearbyPadding} />
+    </>
   );
 
   return (
@@ -158,10 +209,8 @@ const SpeciesNearby = ( ) => {
         {i18n.t( "species_nearby.header" ).toLocaleUpperCase( )}
       </Text>
       <LocationPickerButton
-        latLng={latLng}
-        updateLatLng={updateLatLng}
         disabled={disabled}
-        location={locationText}
+        location={speciesNearby.location}
         openLocationPicker={openLocationPicker}
       />
       <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
@@ -170,18 +219,10 @@ const SpeciesNearby = ( ) => {
         <Error
           error={error}
           checkInternet={checkInternet}
-          checkLocation={checkForSavedLocation}
+          checkLocation={checkLocationPermissions}
           openLocationPicker={openLocationPicker}
         />
-      ) : (
-        <SpeciesNearbyContainer
-          taxaType={taxaType}
-          latitude={latLng.latitude}
-          longitude={latLng.longitude}
-          checkInternet={checkInternet}
-          updateDowntimeError={updateDowntimeError}
-        />
-      )}
+      ) : renderSpeciesNearbyList( )}
     </View>
   );
 };

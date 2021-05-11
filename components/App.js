@@ -11,6 +11,7 @@ import { hideLogs } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, LanguageContext, ObservationContext } from "./UserContext";
 import { getLanguage } from "../utility/settingsHelpers";
+import SpeciesNearbyProvider from "./SpeciesNearbyProvider";
 
 const App = ( ): Node => {
   const [login, setLogin] = useState( null );
@@ -59,7 +60,9 @@ const App = ( ): Node => {
     <UserContext.Provider value={userContextValue}>
       <LanguageContext.Provider value={languageValue}>
         <ObservationContext.Provider value={observationValue}>
-          <RootStack />
+          <SpeciesNearbyProvider>
+            <RootStack />
+          </SpeciesNearbyProvider>
         </ObservationContext.Provider>
       </LanguageContext.Provider>
     </UserContext.Provider>

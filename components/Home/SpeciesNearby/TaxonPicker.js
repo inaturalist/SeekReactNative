@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useContext, useMemo, useCallback } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -13,6 +13,7 @@ import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/home/speciesNearby";
 import Picker from "../../../components/UIComponents/Picker";
+import { SpeciesNearbyContext } from "../../UserContext";
 
 type Props = {
   +updateTaxaType: Function,
@@ -20,7 +21,8 @@ type Props = {
 }
 
 const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
-  const [taxonType, setTaxonType] = useState( "all" );
+  const { speciesNearby } = useContext( SpeciesNearbyContext );
+  const { taxaType } = speciesNearby;
 
   const types = useMemo( () => {
     const list = ["all", "plants", "amphibians", "fungi", "fish", "reptiles", "arachnids", "birds", "insects", "mollusks", "mammals"];
@@ -31,21 +33,18 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
     } ) );
   }, [] );
 
-  const handleValueChange = useCallback( ( value ) => {
-    setTaxonType( value );
-    updateTaxaType( value );
-  }, [updateTaxaType] );
+  const handleValueChange = useCallback( ( value ) => updateTaxaType( value ), [updateTaxaType] );
 
   const renderTaxonPicker = useMemo( () => (
     <TouchableOpacity style={[styles.row, styles.marginLeft]}>
       <Image source={icons.filter} style={styles.image} />
       <View style={styles.whiteButton}>
         <Text style={styles.buttonText}>
-          {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
+          {i18n.t( `taxon_picker.${taxaType}` ).toLocaleUpperCase()}
         </Text>
       </View>
     </TouchableOpacity>
-  ), [taxonType] );
+  ), [taxaType] );
 
   return (
     <Picker

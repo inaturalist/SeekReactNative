@@ -92,7 +92,6 @@ const HomeFooter = () => (
   </Tab.Navigator>
 );
 
-
 const SpeciesFooter = () => (
   <Tab.Navigator tabBar={tabBar}>
     <Tab.Screen name="Species" component={Species} />

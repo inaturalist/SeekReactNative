@@ -6,9 +6,8 @@ import i18n from "../../../i18n";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
-import { checkForInternet } from "../../../utility/helpers";
 import { useLocationPermission } from "../../../utility/customHooks";
-import Error from "./Error";
+import Error from "./SpeciesNearbyError";
 import LocationPicker from "./LocationPicker";
 import { SpeciesNearbyContext } from "../../UserContext";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -23,30 +22,21 @@ const SpeciesNearby = ( ) => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "INTERNET_ERROR":
-        return { ...state, error: "internet_error" };
-      case "DOWNTIME_ERROR":
-        return { ...state, error: "downtime" };
-      case "LOCATION_ERROR":
-        return { ...state, error: "species_nearby_requires_location" };
-      case "LOCATION_UPDATED":
-        return {
-          ...state,
-          error: state.error === "internet_error" ? "internet_error" : null
-        };
+      case "ERROR":
+        return { ...state, error: action.error };
       case "NO_ERROR":
-        return { ...state, error: null };
+        return { ...state, error: null, fetching: false };
       case "SHOW_MODAL":
         return { ...state, showModal: action.showModal };
       case "SET_LOADING":
-        return { ...state, loading: action.loading, fetching: false };
+        return { ...state, loading: action.loading, fetching: false, error: null };
       case "SET_FETCHING":
         return { ...state, fetching: true };
       default:
         throw new Error( );
     }
   }, {
-    error: null,
+    error: !speciesNearby.isConnected ? "internet_error" : null,
     showModal: false,
     loading: speciesNearby.taxa.length === 0,
     fetching: false
@@ -71,11 +61,11 @@ const SpeciesNearby = ( ) => {
     dispatch( { type: "SET_LOADING", loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
 
-  const updateDowntimeError = useCallback( ( ) => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
+  const updateDowntimeError = useCallback( ( ) => dispatch( { type: "ERROR", error: "downtime" } ), [] );
 
   const setLocationError = useCallback( ( ) => {
     if ( error !== "species_nearby_requires_location" ) {
-      dispatch( { type: "LOCATION_ERROR" } );
+      dispatch( { type: "ERROR", error: "species_nearby_requires_location" } );
     }
    }, [error] );
 
@@ -97,19 +87,18 @@ const SpeciesNearby = ( ) => {
   }, [getGeolocation, granted, setLocationError] );
 
   const checkInternet = useCallback( ( ) => {
-    checkForInternet( ).then( ( internet ) => {
-      if ( internet === "none" || internet === "unknown" ) {
-        dispatch( { type: "INTERNET_ERROR" } );
-      } else if ( error === "internet_error" ) {
-        dispatch( { type: "NO_ERROR" } );
-      }
-    } ).catch( ( ) => dispatch( { type: "NO_ERROR" } ) );
-  }, [error] );
+    const { isConnected } = speciesNearby;
+    if ( !isConnected ) {
+      dispatch( { type: "ERROR", error: "internet_error" } );
+    } else if ( error === "internet_error" && isConnected ) {
+      dispatch( { type: "NO_ERROR" } );
+    }
+  }, [error, speciesNearby] );
 
   useEffect( ( ) => {
     let isCurrent = true;
 
-    if ( isCurrent && !speciesNearby.latitude && !error ) {
+    if ( isCurrent && !speciesNearby.latitude ) {
       checkLocationPermissions( );
     }
     return ( ) => {
@@ -147,13 +136,13 @@ const SpeciesNearby = ( ) => {
       const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
       const options = { headers: { "User-Agent": createUserAgent() } };
 
-      console.log( queryString, "query string" );
       dispatch( { type: "SET_FETCHING", fetching: true } );
 
       fetch( `${site}?${queryString}`, options )
-        .then( response => response.json() )
+        .then( response => response.json( ) )
         .then( ( { results } ) => {
           const newTaxa = results.map( r => r.taxon );
+          console.log( results.length, "results from fetch" );
           setSpeciesNearby( {
             ...speciesNearby,
             taxa: newTaxa
@@ -162,9 +151,9 @@ const SpeciesNearby = ( ) => {
          } )
         .catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
           if ( e instanceof SyntaxError ) { // this is from the iNat server being down
-            updateDowntimeError();
-          } else {
-            checkInternet();
+            updateDowntimeError( );
+          } else if ( e.message === "Network request failed" ) {
+            dispatch( { type: "ERROR", error: "internet_error" } );
           }
         } );
     };

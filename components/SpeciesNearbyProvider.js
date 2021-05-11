@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNetInfo } from "@react-native-community/netinfo";
 
 import { SpeciesNearbyContext } from "./UserContext";
 import { useLocationName } from "../utility/customHooks";
@@ -8,11 +9,14 @@ type Props = {
 }
 
 const SpeciesNearbyProvider = ( { children }: Props ) => {
+  const netInfo = useNetInfo( );
+  const { isConnected } = netInfo;
   const [speciesNearby, setSpeciesNearby] = useState( {
     latitude: null,
     longitude: null,
     taxaType: "all",
-    taxa: []
+    taxa: [],
+    isConnected
   } );
 
   const location = useLocationName( speciesNearby.latitude, speciesNearby.longitude );

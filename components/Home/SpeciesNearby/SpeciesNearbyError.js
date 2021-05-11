@@ -8,6 +8,7 @@ import {
   Image,
   ImageBackground
 } from "react-native";
+import { useNetInfo } from "@react-native-community/netinfo";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/home/error";
@@ -15,6 +16,7 @@ import icons from "../../../assets/icons";
 import backgrounds from "../../../assets/backgrounds";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
+import { SpeciesNearbyContext } from "../../UserContext";
 
 type Props = {
   error: string,
@@ -23,14 +25,22 @@ type Props = {
   openLocationPicker: ( ) => void
 }
 
-const Error = ( {
+const SpeciesNearbyError = ( {
   error,
   checkInternet,
   checkLocation,
   openLocationPicker
 }: Props ): React.Node => {
+  const { speciesNearby, setSpeciesNearby } = React.useContext( SpeciesNearbyContext );
+  const netInfo = useNetInfo( );
+  const { isConnected } = netInfo;
+
   const handlePress = ( ) => {
-    if ( error === "internet_error" ) {
+    if ( error === "internet_error" && isConnected ) {
+      setSpeciesNearby( {
+        ...speciesNearby,
+        isConnected
+      } );
       checkInternet( );
     } else if ( error ) {
       checkLocation( );
@@ -70,4 +80,4 @@ const Error = ( {
     );
 };
 
-export default Error;
+export default SpeciesNearbyError;

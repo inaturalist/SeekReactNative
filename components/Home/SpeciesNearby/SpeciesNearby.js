@@ -36,7 +36,7 @@ const SpeciesNearby = ( ) => {
         throw new Error( );
     }
   }, {
-    error: !speciesNearby.isConnected ? "internet_error" : null,
+    error: speciesNearby.isConnected === false ? "internet_error" : null,
     showModal: false,
     loading: speciesNearby.taxa.length === 0,
     fetching: false
@@ -88,7 +88,7 @@ const SpeciesNearby = ( ) => {
 
   const checkInternet = useCallback( ( ) => {
     const { isConnected } = speciesNearby;
-    if ( !isConnected ) {
+    if ( isConnected === false ) {
       dispatch( { type: "ERROR", error: "internet_error" } );
     } else if ( error === "internet_error" && isConnected ) {
       dispatch( { type: "NO_ERROR" } );
@@ -142,7 +142,6 @@ const SpeciesNearby = ( ) => {
         .then( response => response.json( ) )
         .then( ( { results } ) => {
           const newTaxa = results.map( r => r.taxon );
-          console.log( results.length, "results from fetch" );
           setSpeciesNearby( {
             ...speciesNearby,
             taxa: newTaxa
@@ -171,9 +170,6 @@ const SpeciesNearby = ( ) => {
   const renderModal = ( ) => (
     <Modal visible={showModal}>
       <LocationPicker
-        latitude={speciesNearby.latitude}
-        location={speciesNearby.location}
-        longitude={speciesNearby.longitude}
         closeLocationPicker={closeLocationPicker}
         updateLatLng={updateLatLng}
       />

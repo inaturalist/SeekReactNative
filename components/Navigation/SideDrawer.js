@@ -17,7 +17,6 @@ import Match from "../Match/MatchScreen";
 import DebugEmailScreen from "../UIComponents/DebugEmailScreen";
 import Home from "../Home/HomeScreen";
 import Species from "../Species/SpeciesDetail";
-
 type DrawerParamList = {
   Home: void;
   Achievements: void;

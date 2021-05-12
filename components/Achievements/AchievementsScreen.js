@@ -52,7 +52,7 @@ const AchievementsScreen = ( ): Node => {
   );
 
   return (
-    <ScrollWithHeader header="badges.achievements">
+    <ScrollWithHeader header="badges.achievements" loading={state.level === null}>
       <Spacer backgroundColor={colors.greenGradientDark} />
       <LevelHeader
         level={state.level}

@@ -63,7 +63,7 @@
     "error_unknown": "Errada en la pujada. Detalls de l'errada: {{errorText}}",
     "error_login": "Errada en iniciar la sessió. Inicia la en sessió en el teu compte a Seek per a iNaturalist o des de la pantalla Objectius aconseguits abans de provar-ho de nou.",
     "error_photo": "La foto ja no és accessible des del dispositiu.",
-    "a_few": "algunes"
+    "error_downtime_a_few_hours": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en unes hores."
   },
   "notifications": {
     "header": "Notificacions",
@@ -84,7 +84,9 @@
     "skip_login": "Continua sense registrar-te",
     "error_email": "Si us plau, introdueix una adreça vàlida de correu electrònic",
     "error_credentials": "Nom d'usuari o contrasenya incorrectes",
-    "error_username_taken": "Aquest nom d'usuari ja està agafat"
+    "error_username_taken": "Aquest nom d'usuari ja està agafat",
+    "error_no_username": "Manca nom d'usuari/e-mail",
+    "error_no_password": "Manca la contrasenya"
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",
@@ -353,7 +355,7 @@
     "genus": "gènere",
     "species": "espècie",
     "error_permissions": "Necessitem accés a la càmera per ajudar-te a identificar l'espècie!",
-    "error_gallery": "Necessitem accés al rodet de la càmera per desar la imatges que prens!",
+    "error_gallery": "Necessitem accés a la galeria d'imatges per desar les fotos que prens!",
     "permissions": "Acceptar els permisos a la configuració",
     "please_permissions": "Si us plau, activa els permisos a la configuració",
     "error_classifier": "Ho sentim, no hem pogut carregar el classificador",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Rodet de fotos"
+    "photo_library": "Galeria d'imatges"
   },
   "camera_help": {
     "title": "Càmera de Seek",
@@ -489,10 +491,20 @@
     "no_obs": "Encara no tens observacions!",
     "help": "Prem una foto d'una planta, un animal o qualsevol ésser viu utilitzant la nostra càmera, i el nostre model d'IA t'ajudarà a identificar-lo!",
     "open_camera": "Obre la càmera",
-    "not_seen": "Encara no has observat cap {{iconicTaxon}}!",
     "search": "Busca observacions",
     "search_empty": "No s'han trobat observacions amb aquest terme de cerca.",
-    "reset_search": "Reiniciar cerca"
+    "reset_search": "Reiniciar cerca",
+    "not_seen_plants": "Encara no has observat cap planta!",
+    "not_seen_amphibians": "Encara no has observat cap amfibi!",
+    "not_seen_fungi": "Encara no has observat cap fong!",
+    "not_seen_fish": "Encara no has observat cap peix!",
+    "not_seen_reptiles": "Encara no has observat cap rèptil!",
+    "not_seen_arachnids": "Encara no has observat cap aràcnid!",
+    "not_seen_birds": "Encara no has observat cap ocell!",
+    "not_seen_insects": "Encara no has observat cap insecte!",
+    "not_seen_mollusks": "Encara no has observat cap mol·lusc!",
+    "not_seen_mammals": "Encara no has observat cap mamífer!",
+    "not_seen_other": "Encara no has observat cap altra espècie!"
   },
   "species_detail": {
     "near": "Propera",
@@ -743,8 +755,8 @@
     "options": "Opcions",
     "show_species_id": "Mostra la identificació de l'espècie",
     "share": "Comparteix a Facebook",
-    "save_to_camera_roll": "Desar a la galeria d'imatges",
-    "saved_to_camera_roll": "Desat a la galeria",
+    "save_to_photo_library": "Desa-ho a la galeria",
+    "saved_to_photo_library": "Desat a la galeria",
     "back_to_id": "Torna a la identificació",
     "error_title": "No es pot completar la consulta",
     "error": "Si us plau, comprova que tens l'App de Facebook instal·lada.",

@@ -63,7 +63,7 @@
     "error_unknown": "Oplaai het misluk. Foutdetails: {{errorText}}",
     "error_login": "Aanteken-teken het misluk. Teken aan op u iNaturalist-rekening in Seek vanuit die iNaturalist- of Prestasies-skerm voor u weer probeer.",
     "error_photo": "Geen toegang meer tot foto op die toestel nie.",
-    "a_few": "’n paar"
+    "error_downtime_a_few_hours": "iNaturalist se bediener ondergaan onderhoud. Probeer asb. weer oor ’n paar uur."
   },
   "notifications": {
     "header": "Kennisgewings",
@@ -84,7 +84,9 @@
     "skip_login": "Gaan voort sonder aantekening",
     "error_email": "Voer asb. ’n geldige e-posadres in",
     "error_credentials": "Verkeerde gebruikersnaam of wagwoord",
-    "error_username_taken": "Daardie gebruikersnaam is reeds in gebruik"
+    "error_username_taken": "Daardie gebruikersnaam is reeds in gebruik",
+    "error_no_username": "Ontbrekende gebruikersnaam / e-pos",
+    "error_no_password": "Ontbrekende wagwoord"
   },
   "inat_signup": {
     "welcome": "Welkom by Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Foto’s",
-    "camera_roll": "Filmrol"
+    "photo_library": "Fotobiblioteek"
   },
   "camera_help": {
     "title": "Seek se Kamera",
@@ -489,10 +491,20 @@
     "no_obs": "U het nog geen waarnemings nie!",
     "help": "Neem ’n foto van ’n plant, dier of enige lewende ding met ons kamera sodat ons KI-model u kan help met die identifisering daarvan!",
     "open_camera": "Open Kamera",
-    "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!",
     "search": "Soek waarnemings",
     "search_empty": "Geen waarnemings met daardie soekterm gevind.",
-    "reset_search": "Stel soekopdrag terug"
+    "reset_search": "Stel soekopdrag terug",
+    "not_seen_plants": "U het nog geen plante waargeneem nie!",
+    "not_seen_amphibians": "U het nog geen amfibieë waargeneem nie!",
+    "not_seen_fungi": "U het nog geen swamme waargeneem nie!",
+    "not_seen_fish": "U het nog geen vis waargeneem nie!",
+    "not_seen_reptiles": "U het nog geen reptiele waargeneem nie!",
+    "not_seen_arachnids": "U het nog geen spinagtiges waargeneem nie!",
+    "not_seen_birds": "U het nog geen voëls waargeneem nie!",
+    "not_seen_insects": "U het nog geen insekte waargeneem nie!",
+    "not_seen_mollusks": "U het nog geen weekdiere waargeneem nie!",
+    "not_seen_mammals": "U het nog geen soogdiere waargeneem nie!",
+    "not_seen_other": "U het nog geen ander spesies waargeneem nie!"
   },
   "species_detail": {
     "near": "Naby",
@@ -624,13 +636,13 @@
     "flag": "Merk waarneming as verkeerd",
     "back": "Gaan terug na vorige skerm",
     "user_location": "Keer terug na u huidige ligging",
-    "open_help": "Open camera help screen",
-    "open_posting_help": "Open posting to iNaturalist help screen",
+    "open_help": "Open kamerahulpskerm",
+    "open_posting_help": "Open hulpskerm vir plasing op iNaturalist",
     "take_photo": "Tik om ’n foto te neem",
     "scroll_left": "Tim om na links te rol",
     "scroll_right": "Tik om na regs te rol",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "AR-kamerawaarskuwings",
+    "get_started_modal": "Wenke om te begin"
   },
   "review": {
     "title": "Gradeer hierdie toep",
@@ -743,8 +755,8 @@
     "options": "Opsies",
     "show_species_id": "Toon spesie-identifikasie",
     "share": "Deel op Facebook",
-    "save_to_camera_roll": "Bewaar in filmrol",
-    "saved_to_camera_roll": "In filmrol bewaar",
+    "save_to_photo_library": "Bewaar in fotobiblioteek",
+    "saved_to_photo_library": "Is bewaar in fotobiblioteek",
     "back_to_id": "Terug na identifikasie",
     "error_title": "Kon nie versoek voltooi nie",
     "error": "Maak dubbelseker die Facebook-toep is by u geïnstalleer.",
@@ -772,7 +784,7 @@
     "may_2021_description": "Gesonde ekostelsels bied talle voordele, insluitend die skoonmaak van water en lug, en habitatverskaffing om biodiversiteit te ondersteun. Sommige spesies – soos korsmosse, mosse, odonata (naaldekokers en waterjuffers) is aanduidend van ekologiese gesondheid. Wanneer u hierdie spesies sien is dit ’n goeie teken dat u ekostelsel gesond is!",
     "may_2021_action": "Gesonde ekostelsels bied belangrike voordele vir ons eie gesondheid en welstand. Tyd wat in die natuur spandeer word kan mense help om van spanning ontslae te raak, hul gemoed te verbeter en om helderder te dink. Vir ’n vreedsame plek in die natuur en neem ’n uur om op die uitsig, geluide, reuke en teksture om u te konsentreer. Skryf van u waarnemings neer. Hoe laat die tyd in die natuur u voel?",
     "may_2021_badge_name": "Ekogesondheidkenteken",
-    "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
+    "may_2021_photographer": "Foto deur: Jim Richardson / National Geographic",
     "june_2021_mission_1": "Vind 1 plant uit die volgende klasse:\n\nLycopodiopsida (wolfskloue,  engelse mos en dennewolfsklouagtiges);\nPolypodiopsida (varings)",
     "june_2021_mission_2": "Vind 1 plant in die klas Pinopsida (konifere)",
     "june_2021_mission_3": "Vind 1 plant uit die onderstam Angiospermae (blomplante)",

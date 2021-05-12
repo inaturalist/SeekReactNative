@@ -63,7 +63,7 @@
     "error_unknown": "Upload failed. Error details: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",
-    "a_few": "a few"
+    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
   },
   "notifications": {
     "header": "දැනුම්දීම්",
@@ -84,7 +84,9 @@
     "skip_login": "පුරනය නොවී ඉදිරියට යන්න",
     "error_email": "කරණාකර වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළු කරන්න",
     "error_credentials": "පරිශීලක නාමය හෝ මුරපදය වැරදියි",
-    "error_username_taken": "එම පරිශීලක නාමය දැනටමත් ගෙන ඇත"
+    "error_username_taken": "එම පරිශීලක නාමය දැනටමත් ගෙන ඇත",
+    "error_no_username": "Missing username / email",
+    "error_no_password": "Missing password"
   },
   "inat_signup": {
     "welcome": "Seek වෙත සාදරයෙන් පිළිගනිමු!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "ඡායාරූප",
-    "camera_roll": "කැමරා රෝල"
+    "photo_library": "Photo Library"
   },
   "camera_help": {
     "title": "Seek හි කැමරාව",
@@ -489,10 +491,20 @@
     "no_obs": "ඔබට තවම නිරීක්ෂණ කිසිවක් නොමැත!",
     "help": "අපගේ කැමරාව භාවිතා කරමින් ශාකයක, සතෙකුගේ හෝ ජීවත්වන ඕනෑම දෙයක ඡායාරූපයක් ගන්න, අපගේ AI ආකෘතිය එය හඳුනා ගැනීමට ඔබට උපකාරී වනු ඇත!",
     "open_camera": "කැමරාව විවෘත කරන්න",
-    "not_seen": "ඔබ තවමත් {{iconicTaxon}} නිරීක්ෂණය කර නැත!",
     "search": "නිරීක්ෂණ සොයන්න",
     "search_empty": "එම සෙවුම් පදය සහිත නිරීක්ෂණ කිසිවක් හමු නොවීය.",
-    "reset_search": "සෙවීම යළි පිහිටුවන්න"
+    "reset_search": "සෙවීම යළි පිහිටුවන්න",
+    "not_seen_plants": "You haven’t observed any plants yet!",
+    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_fungi": "You haven’t observed any fungi yet!",
+    "not_seen_fish": "You haven’t observed any fish yet!",
+    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
+    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
+    "not_seen_birds": "You haven’t observed any birds yet!",
+    "not_seen_insects": "You haven’t observed any insects yet!",
+    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
+    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
     "near": "ආසන්නයේ",
@@ -743,8 +755,8 @@
     "options": "විකල්ප",
     "show_species_id": "විශේෂයේ හඳුනාගත් අනන්‍යතාවය පෙන්වන්න",
     "share": "Facebook වෙත බෙදා ගන්න",
-    "save_to_camera_roll": "කැමරා රෝල වෙත සුරකින්න",
-    "saved_to_camera_roll": "කැමරා රෝල වෙත සුරකින ලදි",
+    "save_to_photo_library": "Save to photo library",
+    "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "නැවත හඳුනාගැනීම වෙත",
     "error_title": "ඡායාරූපය සුරැකීමට නොහැකි විය",
     "error": "කරුණාකර ඔබ Facebook යෙදුම ස්ථාපනය කර ඇත්දැයි දෙවරක් පරීක්ෂා කරන්න.",

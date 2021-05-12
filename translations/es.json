@@ -63,7 +63,7 @@
     "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
     "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist de Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo.",
     "error_photo": "Ya no se puede acceder a la foto en el dispositivo.",
-    "a_few": "unas pocas"
+    "error_downtime_a_few_hours": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en unas horas."
   },
   "notifications": {
     "header": "Notificaciones",
@@ -84,7 +84,9 @@
     "skip_login": "Continuar sin iniciar sesión",
     "error_email": "Por favor, introduce una dirección de correo electrónico válida",
     "error_credentials": "Nombre de usuario o contraseña incorrectos",
-    "error_username_taken": "Ese nombre de usuario ya está en uso."
+    "error_username_taken": "Ese nombre de usuario ya está en uso.",
+    "error_no_username": "Falta nombre de usuario / email",
+    "error_no_password": "Falta la contraseña"
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -353,7 +355,7 @@
     "genus": "género",
     "species": "especie",
     "error_permissions": "¡Necesitamos acceso a la cámara para ayudarte a identificar la especie!",
-    "error_gallery": "¡Necesitamos acceso a tu archivo de imágenes para guardar las fotos que tomes!",
+    "error_gallery": "¡Necesitamos acceso a tu galería de fotos para guardar las fotos que tomes!",
     "permissions": "Habilita los permisos en la configuración",
     "please_permissions": "Por favor, habilita los permisos en la configuración",
     "error_classifier": "Lo sentimos, no hemos podido cargar el clasificador",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Galería de Imágenes"
+    "photo_library": "Galería de fotos"
   },
   "camera_help": {
     "title": "Cámara de Seek",
@@ -489,10 +491,20 @@
     "no_obs": "¡Aún no tienes observaciones!",
     "help": "¡Toma una foto de una planta, animal o cualquier otro ser vivo con tu cámara y nuestro modelo de IA te ayudará a identificarlo!",
     "open_camera": "Abrir Cámara",
-    "not_seen": "¡No has observado ningún {{iconicTaxon}} todavía!",
     "search": "Busca observaciones",
     "search_empty": "No se encontraron observaciones con esta palabra de búsqueda.",
-    "reset_search": "Reiniciar búsqueda"
+    "reset_search": "Reiniciar búsqueda",
+    "not_seen_plants": "¡Aún no has observado ninguna planta!",
+    "not_seen_amphibians": "¡Aún no has observado ningún anfibio!",
+    "not_seen_fungi": "¡Aún no has observado ningún hongo!",
+    "not_seen_fish": "¡Aún no has observado ningún pez!",
+    "not_seen_reptiles": "¡Aún no has observado ningún reptil!",
+    "not_seen_arachnids": "¡Aún no has observado ningún arácnido!",
+    "not_seen_birds": "¡Aún no has observado ningún ave!",
+    "not_seen_insects": "¡Aún no has observado ningún insecto!",
+    "not_seen_mollusks": "¡Aún no has observado ningún molusco!",
+    "not_seen_mammals": "¡Aún no has observado ningún mamífero!",
+    "not_seen_other": "¡Aún no has observado ninguna especie más!"
   },
   "species_detail": {
     "near": "Cercano",
@@ -743,8 +755,8 @@
     "options": "Opciones",
     "show_species_id": "Mostrar la identificación de la especie",
     "share": "Compartir en Facebook",
-    "save_to_camera_roll": "Guardar en el Carrete",
-    "saved_to_camera_roll": "Guardado en el Carrete",
+    "save_to_photo_library": "Guardar en la galería de fotos",
+    "saved_to_photo_library": "Guardado en la galería de fotos",
     "back_to_id": "Volver a la identificación",
     "error_title": "No se ha podido guardar la foto",
     "error": "Por favor, comprueba que tienes instalada la aplicación de Facebook.",

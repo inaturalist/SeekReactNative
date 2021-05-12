@@ -63,7 +63,7 @@
     "error_unknown": "Upload mislykkedes. Fejldetaljer: {{errorText}}",
     "error_login": "Login-token mislykkedes. Log ind på din iNaturalist-konto i Seek fra iNaturalist eller Præstationer-siden før du prøver igen.",
     "error_photo": "Der er ikke længere adgang til foto på enheden.",
-    "a_few": "nogle få"
+    "error_downtime_a_few_hours": "iNaturalist's server er under vedligeholdelse. Prøv igen om nogle få timer."
   },
   "notifications": {
     "header": "Meddelelser",
@@ -84,7 +84,9 @@
     "skip_login": "Fortsæt uden at logge ind",
     "error_email": "Indtast venligst en gyldig e-mailadresse",
     "error_credentials": "Forkert brugernavn eller adgangskode",
-    "error_username_taken": "Brugernavnet er allerede i brug"
+    "error_username_taken": "Brugernavnet er allerede i brug",
+    "error_no_username": "Manglende brugernavn / e-mail",
+    "error_no_password": "Mangler adgangskode"
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Kamerarulle"
+    "photo_library": "Fotobibliotek"
   },
   "camera_help": {
     "title": "Seek's kamera",
@@ -489,10 +491,20 @@
     "no_obs": "Du har ingen observationer endnu!",
     "help": "Tag et foto af en plante, et dyr eller noget andet levende med vores kamera. Så vil vores AI-model hjælpe dig med at identificere det!",
     "open_camera": "Åbn kamera",
-    "not_seen": "Du har endnu ikke observeret nogle {{iconicTaxon}}!",
     "search": "Søg efter observationer",
     "search_empty": "Ingen observationer fundet med dette søgeord.",
-    "reset_search": "Nulstil søgning"
+    "reset_search": "Nulstil søgning",
+    "not_seen_plants": "Du har endnu ikke observeret nogle planter!",
+    "not_seen_amphibians": "Du har endnu ikke observeret nogle padder!",
+    "not_seen_fungi": "Du har endnu ikke observeret nogle svampe!",
+    "not_seen_fish": "Du har endnu ikke observeret nogle fisk!",
+    "not_seen_reptiles": "Du har endnu ikke observeret nogle krybdyr!",
+    "not_seen_arachnids": "Du har endnu ikke observeret nogle spindlere!",
+    "not_seen_birds": "Du har endnu ikke observeret nogle fugle!",
+    "not_seen_insects": "Du har endnu ikke observeret nogle insekter!",
+    "not_seen_mollusks": "Du har endnu ikke observeret nogle bløddyr!",
+    "not_seen_mammals": "Du har endnu ikke observeret nogle pattedyr!",
+    "not_seen_other": "Du har endnu ikke observeret nogle andre arter!"
   },
   "species_detail": {
     "near": "I nærheden",
@@ -743,8 +755,8 @@
     "options": "Indstillinger",
     "show_species_id": "Vis artsidentifikation",
     "share": "Del på Facebook",
-    "save_to_camera_roll": "Gem på kamerarullen",
-    "saved_to_camera_roll": "Gemt på kamerarullen",
+    "save_to_photo_library": "Gem til fotobibliotek",
+    "saved_to_photo_library": "Gemt i fotobibliotek",
     "back_to_id": "Tilbage til Identifikation",
     "error_title": "Billedet kunne ikke gemmes",
     "error": "Dobbelttjek venligst, at du har installeret Facebook-appen.",

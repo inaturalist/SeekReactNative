@@ -63,7 +63,7 @@
     "error_unknown": "Nahrání se nezdařilo. Podrobnosti o chybě: {{errorText}}",
     "error_login": "Přihlašovací token selhal. Před dalším pokusem se prosím přihlaste ke svému účtu v nabídce iNaturalist nebo Úspěchy (tlačítko na konci stránky). ",
     "error_photo": "K fotografii na vašem zařízení již není přístup.",
-    "a_few": "několik"
+    "error_downtime_a_few_hours": "Probíhá údržba serveru iNaturalist. Zkuste to prosím znovu za několik hodin."
   },
   "notifications": {
     "header": "Upozornění",
@@ -84,7 +84,9 @@
     "skip_login": "Pokračovat bez přihlášení",
     "error_email": "Zadejte, prosím, platnou emailovou adresu",
     "error_credentials": "Nesprávné uživatelské jméno\nnebo heslo",
-    "error_username_taken": "Toto uživatelské jméno je již obsazeno"
+    "error_username_taken": "Toto uživatelské jméno je již obsazeno",
+    "error_no_username": "Chybí uživatelské jméno / e-mail",
+    "error_no_password": "Chybí heslo"
   },
   "inat_signup": {
     "welcome": "Vítejte s Seeku!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotografie",
-    "camera_roll": "Fotogalerie"
+    "photo_library": "Knihovna fotografií"
   },
   "camera_help": {
     "title": "Seek fotoaparát",
@@ -489,10 +491,20 @@
     "no_obs": "Zatím nemáte žádná pozorování!",
     "help": "Vyfoťte rostlinu, zvíře nebo cokoli žijícího pomocí našeho fotoaparátu a náš AI model Vám ji pomůže identifikovat!",
     "open_camera": "Otevřít fotoaparát",
-    "not_seen": "Zatím jste neviděli žádné organismy z kategorie {{iconicTaxon}}!",
     "search": "Hledat pozorování",
     "search_empty": "Hledanému výrazu neodpovídají žádná pozorování.",
-    "reset_search": "Obnovit vyhledávání"
+    "reset_search": "Obnovit vyhledávání",
+    "not_seen_plants": "Zatím jste nepozorovali žádné rostliny!",
+    "not_seen_amphibians": "Zatím jste nepozorovali žádné obojživelníky!",
+    "not_seen_fungi": "Zatím jste nepozorovali žádné houby!",
+    "not_seen_fish": "Zatím jste nepozorovali žádné ryby!",
+    "not_seen_reptiles": "Zatím jste nepozorovali žádné plazy!",
+    "not_seen_arachnids": "Zatím jste nepozorovali žádné pavoukovce!",
+    "not_seen_birds": "Zatím jste nepozorovali žádné ptáky!",
+    "not_seen_insects": "Zatím jste nepozorovali žádný hmyz!",
+    "not_seen_mollusks": "Zatím jste nepozorovali žádné měkkýše!",
+    "not_seen_mammals": "Zatím jste nepozorovali žádné savce!",
+    "not_seen_other": "Zatím jste nepozorovali žádné jiné druhy!"
   },
   "species_detail": {
     "near": "Poblíž",
@@ -743,8 +755,8 @@
     "options": "Možnosti",
     "show_species_id": "Zobrazit identifikaci druhu",
     "share": "Sdílet na Facebook",
-    "save_to_camera_roll": "Uložit do úložiště fotografií",
-    "saved_to_camera_roll": "Uloženo do úložiště fotografií",
+    "save_to_photo_library": "Uložit do knihovny fotografií",
+    "saved_to_photo_library": "Uloženo do knihovny fotografií",
     "back_to_id": "Zpět k identifikaci",
     "error_title": "Fotku nelze uložit",
     "error": "Zkontrolujte prosím, zda máte nainstalovanou aplikaci Facebook.",

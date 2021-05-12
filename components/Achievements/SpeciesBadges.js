@@ -29,7 +29,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
   // since these are tiny lists, not long lists that need a ton of performance
   // and using Views instead of FlatList here caused the UI for the entire app
   // to stutter in Android
-  LogBox.ignoreLogs( ["Each child in a list"] );
+  LogBox.ignoreLogs( ["Each child in a list", "VirtualizedLists should never be nested"] );
   const [showModal, setModal] = useState( false );
   const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
   const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );

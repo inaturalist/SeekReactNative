@@ -6,7 +6,6 @@ import { addMonths, isEqual } from "date-fns";
 
 import realmConfig from "../../../models";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
-import { fetchNumberSpeciesSeen } from "../../../utility/helpers";
 
 const useFetchAchievements = ( ): any => {
   const [state, setState] = useState( {
@@ -21,6 +20,7 @@ const useFetchAchievements = ( ): any => {
     const fetchAchievements = async ( ) => {
       try {
         const realm = await Realm.open( realmConfig );
+        const speciesCount = realm.objects( "TaxonRealm" ).length;
         const badges = realm.objects( "BadgeRealm" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
         const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
@@ -36,18 +36,15 @@ const useFetchAchievements = ( ): any => {
           speciesBadges.push( highestEarned[0] );
         } );
 
-        const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
 
-        fetchNumberSpeciesSeen( ).then( ( species ) => {
-          setState( {
-            speciesBadges,
-            level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
-            nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-            badgesEarned,
-            speciesCount: species
-          } );
+        setState( {
+          speciesBadges,
+          level: levelsEarned[0],
+          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
+          badgesEarned,
+          speciesCount
         } );
       } catch ( e ) {
         console.log( e, "couldn't open realm: achievements" );

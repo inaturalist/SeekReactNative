@@ -63,7 +63,7 @@
     "error_unknown": "Error al cargar. Detalles de error: {{errorText}}",
     "error_login": "Error al iniciar sesión. Inicia sesión en tu cuenta de iNaturalist en Seek desde la pantalla de iNaturalist o Logros antes de intentarlo de nuevo.",
     "error_photo": "Ya no se puede acceder a la foto en el dispositivo.",
-    "a_few": "unas pocas"
+    "error_downtime_a_few_hours": "El servidor de iNaturalist está en mantenimiento. Por favor, inténtalo de nuevo en unas horas."
   },
   "notifications": {
     "header": "Notificaciones",
@@ -84,7 +84,9 @@
     "skip_login": "Continuar sin iniciar sesión",
     "error_email": "Por favor introduce una dirección válida de correo electrónico",
     "error_credentials": "Nombre de usuario o contraseña incorrectos",
-    "error_username_taken": "Este nombre de usuario ya se está usando"
+    "error_username_taken": "Este nombre de usuario ya se está usando",
+    "error_no_username": "Falta nombre de usuario / email",
+    "error_no_password": "Falta contraseña"
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Carrete de fotos"
+    "photo_library": "Biblioteca de fotos"
   },
   "camera_help": {
     "title": "cámara de Seek",
@@ -489,10 +491,20 @@
     "no_obs": "¡Aún no tienes observaciones!",
     "help": "Toma una foto de una planta, animal o cualquier ser vivo con tu cámara y nuestro modelo AI te ayudará a identificarlo.",
     "open_camera": "Cámara abierta",
-    "not_seen": "¡No has observado ningún {{iconicTaxon}} todavía!",
     "search": "Busca observaciones",
     "search_empty": "No se encontraron observaciones con ese término de búsqueda.",
-    "reset_search": "Restablece búsqueda"
+    "reset_search": "Restablece búsqueda",
+    "not_seen_plants": "¡Aún no has observado ninguna planta!",
+    "not_seen_amphibians": "¡Aún no has observado a ningún anfibio!",
+    "not_seen_fungi": "¡Aún no has observado ningún hongo!",
+    "not_seen_fish": "¡Aún no has observado ningún pez!",
+    "not_seen_reptiles": "¡Aún no has observado ningún reptil!",
+    "not_seen_arachnids": "¡Aún no has observado ningún arácnido!",
+    "not_seen_birds": "¡Aún no has observado ninguna ave!",
+    "not_seen_insects": "¡Aún no has observado ningún insecto!",
+    "not_seen_mollusks": "¡Aún no has observado ningún molusco!",
+    "not_seen_mammals": "¡Aún no has observado ningún mamífero!",
+    "not_seen_other": "¡Aún no has observado ninguna otra especie!"
   },
   "species_detail": {
     "near": "Cercano",
@@ -743,8 +755,8 @@
     "options": "Opciones",
     "show_species_id": "Mostrar identificación de especies",
     "share": "Compartir en Facebook",
-    "save_to_camera_roll": "Guardar en Galería de Fotos",
-    "saved_to_camera_roll": "Guardar en Galería de Fotos",
+    "save_to_photo_library": "Guarda en la biblioteca de fotos",
+    "saved_to_photo_library": "Guardado en la biblioteca de fotos",
     "back_to_id": "Volver a la identificación",
     "error_title": "No se pudo guardar la foto",
     "error": "Por favor comprueba que tienes instalada la aplicación de Facebook.",

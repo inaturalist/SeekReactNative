@@ -63,7 +63,7 @@
     "error_unknown": "Upload fehlgeschlagen. Fehlerdetails: {{errorText}}",
     "error_login": "Login-Token fehlgeschlagen. Bitte melde dich in Seek über den iNaturalist- oder 'Erreichte Ziele'-Bildschirm auf deinem iNaturalist-Account an, bevor du es erneut versuchst.",
     "error_photo": "Das Gerät kann auf das Foto nicht mehr zugreifen.",
-    "a_few": "ein paar"
+    "error_downtime_a_few_hours": "Der iNaturalist-Server wird gewartet. Bitte versuche es in ein paar Stunden erneut."
   },
   "notifications": {
     "header": "Benachrichtigungen",
@@ -84,7 +84,9 @@
     "skip_login": "Weiter ohne Anmeldung",
     "error_email": "Bitte eine gültige E-Mail-Adresse eingeben",
     "error_credentials": "Falscher Benutzername oder Passwort",
-    "error_username_taken": "Dieser Benutzername ist bereits vergeben"
+    "error_username_taken": "Dieser Benutzername ist bereits vergeben",
+    "error_no_username": "Benutzername / E-Mail fehlt",
+    "error_no_password": "Passwort fehlt"
   },
   "inat_signup": {
     "welcome": "Willkommen bei Seek!",
@@ -371,7 +373,7 @@
   },
   "gallery": {
     "label": "Fotos",
-    "camera_roll": "Fotoalbum"
+    "photo_library": "Foto-Bibliothek"
   },
   "camera_help": {
     "title": "Seek-Kamera",
@@ -489,10 +491,20 @@
     "no_obs": "Du hast noch keine Beobachtungen!",
     "help": "Fotografiere eine Pflanze, ein Tier oder ein anderes Lebewesen mit unserer Kamera, und unser Algorithmus wird dabei helfen, es zu identifizieren!",
     "open_camera": "Kamera öffnen",
-    "not_seen": "Du hast noch keine {{iconicTaxon}} beobachtet!",
     "search": "Suche nach Beobachtungen",
     "search_empty": "Keine Beobachtungen mit diesem Suchbegriff gefunden.",
-    "reset_search": "Suche zurücksetzen"
+    "reset_search": "Suche zurücksetzen",
+    "not_seen_plants": "Du hast noch keine Pflanzen beobachtet!",
+    "not_seen_amphibians": "Du hast noch keine Amphibien beobachtet!",
+    "not_seen_fungi": "Du hast noch keine Pilze beobachtet!",
+    "not_seen_fish": "Du hast noch keine Fische beobachtet!",
+    "not_seen_reptiles": "Du hast noch keine Reptilien beobachtet!",
+    "not_seen_arachnids": "Du hast noch keine Spinnentiere beobachtet!",
+    "not_seen_birds": "Du hast noch keine Vögel beobachtet!",
+    "not_seen_insects": "Du hast noch keine Insekten beobachtet!",
+    "not_seen_mollusks": "Sie haben noch keine Weichtiere beobachtet!",
+    "not_seen_mammals": "Du hast noch keine Säugetiere beobachtet!",
+    "not_seen_other": "Du hast noch keine anderen Arten beobachtet!"
   },
   "species_detail": {
     "near": "In der Nähe",
@@ -743,8 +755,8 @@
     "options": "Einstellungen",
     "show_species_id": "Artbestimmung anzeigen",
     "share": "Auf Facebook teilen",
-    "save_to_camera_roll": "In der Kamera-App speichern",
-    "saved_to_camera_roll": "In Kamera-App gespeichert",
+    "save_to_photo_library": "In Foto-Bibliothek speichern",
+    "saved_to_photo_library": "In Foto-Bibliothek gespeichert",
     "back_to_id": "Zurück zur Bestimmung",
     "error_title": "Anfrage konnte nicht abgeschlossen werden",
     "error": "Bitte vergewissere dich, ob die Facebook-App installiert ist.",

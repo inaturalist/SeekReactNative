@@ -267,18 +267,6 @@
     "badge_name_november": "Oop See-kenteken",
     "badge_name_december": "Klimaatkenteken"
   },
-  "inat_stats": {
-    "global_observations": "Globale Waarnemings",
-    "naturalists_worldwide": "Natuurkenners Wêreldwyd",
-    "seek_data": "Seek kry sy data van iNaturalist.",
-    "about_inat": "iNaturalist is die grootste wêreldwye gemeenskap vir natuurkenners. Gebruikers laai foto’s van organismes oor die hele wêreld op en ons gemeenskap werk saam om dit te identifiseer. Ons gebruik hierdie waarnemings om ons identifikasiemodel op te lei, verspreidingskaarte te vertoon en nabygeleë waarnemings in Seek te genereer.",
-    "contribute": "Is u lus om tot burgerwetenskap met ’n wêreldwye gemeenskap van natuurkenners by te dra?",
-    "join": "Teken aan met iNaturalist",
-    "by": "deur",
-    "thanks": "Die iNaturalist-gemeenskap bestaan uit mense soos u! Sluit by die gemeenskap aan en voeg u eie waarnemings tot inaturalist.org toe!",
-    "logged_in": "U is op Seek met u iNaturalist-rekening aangeteken. Dankie dat u deel van die gemeenskap is!",
-    "sign_out": "Teken uit iNaturalist"
-  },
   "results": {
     "observed_species": "U het ’n nuwe spesie waargeneem!",
     "learn_more": "Dit is tot u waarnemings toegevoeg.\nLees hier meer oor hierdie spesie:",
@@ -740,14 +728,6 @@
     "new": "Gebruik nuwe foto",
     "old": "Behou ou foto"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "Ons dink u sak van iNaturalist hou.",
-    "text_1": "duik dieper in en leer van organismes om u heen",
-    "text_2": "Wees deel van ’n gemeenskap wat so nuuskierig soos u oor die natuur is",
-    "text_3": "deel waarnemings met die gemeenskap en deel selfs u waarnemings via Seek!",
-    "download": "Val weg deur die iNaturalist-toep af te laai of inaturalist.org te besoek.\n\nHet u reeds ’n iNaturalist-rekening? Teken met u bestaande rekening op Seek aan!"
-  },
   "social": {
     "share_observation": "Deel waarneming",
     "square": "Vierkant",
@@ -799,5 +779,51 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "U HET DIE {{sponsorName}}-UITDAGING VIR {{date}} VOLTOOI!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "YOU ARE LOGGED IN",
+    "welcome_back": "Welcome back, {{username}}!",
+    "open_inaturalist": "OPEN INATURALIST",
+    "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
+    "inat_value_prop_1": "Sync your observations across devices",
+    "inat_value_prop_2": "Get accurate, location-based identification suggestions",
+    "inat_value_prop_3": "Add, edit, and manage all your observations in one place",
+    "inat_value_prop_4": "Follow people and see what your friends are observing",
+    "learn_more_about_inat": "Learn more about iNaturalist",
+    "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
+    "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
+    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
+    "sign_out": "Sign out of iNaturalist",
+    "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
+    "log_in_with_inat": "LOG IN WITH INATURALIST",
+    "use_inat_to": "USE INATURALIST TO:",
+    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_is_an_online_community": "iNaturalist is an online community for naturalists",
+    "inat_bullet_1": "iNaturalist observations are public and help contribute to science",
+    "inat_bullet_2": "Each observation includes your username, date, and location of the observation",
+    "inat_bullet_3": "The iNaturalist community helps to identify and confirm observations",
+    "seek_is_an_id_app": "Seek is an ID app that helps anyone learn about the species around them",
+    "seek_bullet_1": "Seek observations stay on your device",
+    "seek_bullet_2": "No personally identifiable information is collected from logged out users",
+    "seek_bullet_3": "Identifications do not leave your device or require internet to work, but aren’t confirmed by the iNaturalist community",
+    "your_obs_could_make_difference": "YOUR OBSERVATION COULD MAKE A DIFFERENCE",
+    "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
+    "faqs": "FAQS",
+    "faq_1": "You must be 13+ or have a parent’s permission to create an iNaturalist account",
+    "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
+    "logged_in_as": "LOGGED IN AS",
+    "x_observations_posted_to_inat": {
+      "zero": "{{count}} observations posted to iNaturalist with Seek",
+      "one": "{{count}} observation posted to iNaturalist with Seek",
+      "two": "{{count}} observations posted to iNaturalist with Seek",
+      "few": "{{count}} observations posted to iNaturalist with Seek",
+      "many": "{{count}} observations posted to iNaturalist with Seek",
+      "other": "{{count}} observations posted to iNaturalist with Seek"
+    },
+    "logged_in_bullet_1": "You can post observations to iNaturalist by clicking 'Post to iNaturalist' after you make a Seek observation",
+    "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
+    "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
+    "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!"
   }
 }

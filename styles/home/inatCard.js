@@ -12,23 +12,27 @@ import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleS
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
-  bullets: {
-    marginHorizontal: 14
-  },
-  bulletWidth: {
-    maxWidth: 284
+  bulletContainer: {
+    flexDirection: "row"
   },
   secondHeader: {
-    marginVertical: 23
+    marginTop: 23,
+    marginBottom: 10
   },
   marginSmall: {
     marginTop: 23
+  },
+  marginOpenINat: {
+    marginTop: 33
   },
   row,
   container: {
     backgroundColor: colors.white,
     marginHorizontal: 22,
     marginTop: 45
+  },
+  topMarginWithChallenge: {
+    marginTop: 31
   }
 } );
 
@@ -38,7 +42,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginTop: 11
+    marginTop: 12
   },
   secondHeaderText: {
     marginLeft: 24,
@@ -48,9 +52,13 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     lineHeight: 24,
     width: 195
   },
-  marginRight: {
-    fontSize: 23,
-    marginRight: 14
+  bulletText: {
+    maxWidth: 284
+  },
+  bulletPoints: {
+    fontSize: 27,
+    marginHorizontal: 14,
+    marginTop: 4
   },
   linkText: {
     color: colors.seekForestGreen,
@@ -61,6 +69,14 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     alignSelf: "center",
     paddingTop: 23,
     paddingBottom: 33
+  },
+  lightText: {
+    color: colors.black,
+    fontFamily: fonts.light,
+    fontSize: 14,
+    letterSpacing: 0.61,
+    marginLeft: 24,
+    marginBottom: 2
   }
 } );
 

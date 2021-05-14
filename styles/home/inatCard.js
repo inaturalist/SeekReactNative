@@ -18,15 +18,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   bulletWidth: {
     maxWidth: 284
   },
-  textWidth: {
-    width: 195
-  },
-  margin: {
-    marginTop: 45
-  },
-  marginExtraSmall: {
-    marginTop: 12
-  },
   secondHeader: {
     marginVertical: 23
   },
@@ -60,6 +51,16 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   marginRight: {
     fontSize: 23,
     marginRight: 14
+  },
+  linkText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textDecorationLine: "underline",
+    alignSelf: "center",
+    paddingTop: 23,
+    paddingBottom: 33
   }
 } );
 

@@ -19,7 +19,7 @@ import UploadStatus from "./UploadStatus";
 import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
 import { LOG } from "../../utility/debugHelpers";
-import INatCard from "./INatCard/iNatCard";
+import INatCard from "./INatCard/INatCard";
 
 const HomeScreen = ( ): Node => {
   const navigation = useNavigation( );

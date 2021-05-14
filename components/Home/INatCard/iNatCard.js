@@ -5,8 +5,8 @@ import { View } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles } from "../../../styles/home/challenges";
-import INatCardLoggedIn from "./iNatCardLoggedIn";
-import INatCardLoggedOut from "./iNatCardLoggedOut";
+import INatCardLoggedIn from "./INatCardLoggedIn";
+import INatCardLoggedOut from "./INatCardLoggedOut";
 import { UserContext } from "../../UserContext";
 
 const INatCard = ( ): Node => {

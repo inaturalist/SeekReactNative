@@ -4,7 +4,7 @@ import * as React from "react";
 import { TouchableOpacity, Image } from "react-native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/buttons/backArrow";
+import { viewStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 
 type Props = {
@@ -16,7 +16,7 @@ const BackArrowModal = ( { handlePress }: Props ): React.Node => (
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible
     onPress={handlePress}
-    style={styles.backButton}
+    style={viewStyles.backButton}
   >
     <Image source={icons.backButton} />
   </TouchableOpacity>

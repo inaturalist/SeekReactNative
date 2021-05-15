@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import styles from "../../styles/uiComponents/loginCard";
+import { viewStyles, textStyles } from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
 import { removeAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "./Buttons/GreenButton";
@@ -27,17 +27,17 @@ const LoginCard = (): React.Node => {
   return (
     <UserContext.Consumer>
       {user => (
-        <View style={styles.container}>
+        <View style={viewStyles.container}>
           {user && (
             <>
               {name === "Achievements" ? (
-                <Text style={styles.loginText}>
+                <Text style={viewStyles.loginText}>
                   {user.login
                     ? i18n.t( "inat_stats.logged_in" )
                     : i18n.t( "badges.login" )}
                 </Text>
               ) : (
-                <Text style={styles.italicText}>
+                <Text style={textStyles.italicText}>
                   {user.login
                     ? i18n.t( "inat_stats.logged_in" )
                     : i18n.t( "inat_stats.thanks" )}
@@ -45,7 +45,7 @@ const LoginCard = (): React.Node => {
               )}
             </>
           )}
-          {name !== "achievements" && <View style={styles.margin} />}
+          {name !== "achievements" && <View style={viewStyles.margin} />}
           {user && (
             <GreenButton
               handlePress={() => {

@@ -12,9 +12,6 @@ import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleS
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
-  bulletContainer: {
-    flexDirection: "row"
-  },
   secondHeader: {
     marginTop: 23,
     marginBottom: 10
@@ -51,14 +48,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontSize: 19,
     lineHeight: 24,
     width: 195
-  },
-  bulletText: {
-    maxWidth: 284
-  },
-  bulletPoints: {
-    fontSize: 27,
-    marginHorizontal: 14,
-    marginTop: 4
   },
   linkText: {
     color: colors.seekForestGreen,

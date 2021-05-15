@@ -38,7 +38,6 @@ const icons = {
   speciesNearby: require( "./icons/img-speciesnearby.webp" ),
   greenDot: require( "./icons/GreenCircle-square-shadow.webp" ),
   whiteDot: require( "./icons/WhiteCircle-square-shadow.webp" ),
-  iNatExplanation: require( "./icons/img-iNatExplanation.webp" ),
   legendCamera: require( "./icons/legend-icon-camerabutton.webp" ),
   legendLocation: require( "./icons/legend-icon-location-onmap.webp" ),
   legendObs: require( "./icons/legend-icon-inatobs.webp" ),

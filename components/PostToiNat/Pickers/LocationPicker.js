@@ -15,7 +15,6 @@ import LocationMap from "../../Home/SpeciesNearby/LocationMap";
 import { fetchUserLocation } from "../../../utility/locationHelpers";
 import { viewStyles } from "../../../styles/home/locationPicker";
 import { viewHeaderStyles, textStyles } from "../../../styles/uiComponents/greenHeader";
-import backStyles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { dimensions } from "../../../styles/global";
@@ -127,7 +126,7 @@ const LocationPicker = ( {
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
           onPress={closeLocationPicker}
-          style={backStyles.backButton}
+          style={viewStyles.backButton}
         >
           <Image source={icons.backButton} />
         </TouchableOpacity>

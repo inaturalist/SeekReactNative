@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
-import styles from "../../../styles/uiComponents/speciesNearby/emptyList";
+import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/emptyList";
 import i18n from "../../../i18n";
 
 const EmptyList = () => {
@@ -19,8 +19,8 @@ const EmptyList = () => {
   }
 
   return (
-    <View style={styles.noTaxon}>
-      <Text style={styles.cellTitleText}>
+    <View style={viewStyles.noTaxon}>
+      <Text style={textStyles.cellTitleText}>
         {text}
       </Text>
     </View>

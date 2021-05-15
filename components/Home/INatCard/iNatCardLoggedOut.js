@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -7,10 +9,10 @@ import logos from "../../../assets/logos";
 import GreenText from "../../UIComponents/GreenText";
 import i18n from "../../../i18n";
 import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
-import INatValueProps from "./INatValueProps";
-import INatGetStarted from "./INatGetStarted";
+import INatValueProps from "../../iNaturalist/iNatValueProps";
+import INatLogin from "../../iNaturalist/iNatLogin";
 
-const INatCardLoggedOut = ( ) => {
+const INatCardLoggedOut = ( ): React.Node => {
   const navigation = useNavigation( );
   const challenge = useLatestChallenge( );
 
@@ -33,7 +35,7 @@ const INatCardLoggedOut = ( ) => {
           {i18n.t( "about_inat.learn_more_about_inat" )}
         </Text>
       </Pressable>
-      <INatGetStarted />
+      <INatLogin />
     </View>
   );
 };

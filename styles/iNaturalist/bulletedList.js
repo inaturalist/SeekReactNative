@@ -1,38 +1,35 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-
 import {
-  fonts,
   colors,
-  row,
-  center
+  dimensions,
+  fonts
 } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
-  center,
-  marginLeft: {
-    marginLeft: 14
-  },
-  row
+  bulletContainer: {
+    flexDirection: "row"
+  }
 } );
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-  textLink: {
+  text: {
     color: colors.black,
     fontFamily: fonts.book,
-    fontSize: 17,
-    marginTop: 26,
-    textDecorationLine: "underline"
-  },
-  signupTextLink: {
-    color: colors.seekForestGreen,
     fontSize: 16,
     lineHeight: 21,
-    marginTop: 23,
-    textAlign: "center"
+    marginTop: 12
+  },
+  bulletText: {
+    maxWidth: dimensions.width - ( 32 * 2 + 14 * 2 + 23 )
+  },
+  bulletPoints: {
+    fontSize: 27,
+    marginHorizontal: 14,
+    marginTop: 4
   }
 } );
 

@@ -5,7 +5,6 @@ const backgrounds = {
   login: require( "./backgrounds/bg-login-2020.webp" ),
   noSpeciesNearby: require( "./backgrounds/img-speciesnearby-error.webp" ),
   navBar: require( "./backgrounds/img-navbar.webp" ),
-  heatMap: require( "./backgrounds/img-inatheatmap.webp" ),
   sharing: require( "./backgrounds/bg-sharing.webp" ),
   "img-challengedetail-april": require( "./backgrounds/challenges/img-challengedetail-april.webp" ),
   "img-challengedetail-may": require( "./backgrounds/challenges/img-challengedetail-may.webp" ),

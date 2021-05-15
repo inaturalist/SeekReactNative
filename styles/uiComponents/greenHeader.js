@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 import {
   center,
   colors,
@@ -12,6 +12,13 @@ import {
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const viewHeaderStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  backButton: {
+    left: 0,
+    paddingVertical: 18,
+    paddingHorizontal: 23,
+    position: "absolute",
+    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
+  },
   center,
   container: {
     backgroundColor: colors.seekForestGreen,

@@ -9,7 +9,7 @@ import SideMenu from "../UIComponents/SideMenu";
 import Achievements from "../Achievements/AchievementsScreen";
 import Challenges from "../Challenges/ChallengeScreen";
 import Observations from "../Observations/Observations";
-import iNatStats from "../iNatStats";
+import iNatStats from "../iNaturalist/iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings/Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";

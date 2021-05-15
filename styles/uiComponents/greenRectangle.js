@@ -3,12 +3,17 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts, padding } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   greenButton: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
     paddingVertical: 6
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   greenButtonText: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -18,3 +23,8 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSButtonPadding
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

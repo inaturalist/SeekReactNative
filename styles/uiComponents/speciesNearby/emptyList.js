@@ -3,7 +3,17 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts, dimensions } from "../../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  noTaxon: {
+    width: dimensions.width,
+    alignItems: "center",
+    justifyContent: "center"
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   cellTitleText: {
     color: colors.white,
     fontFamily: fonts.medium,
@@ -11,10 +21,10 @@ export default StyleSheet.create( {
     lineHeight: 24,
     textAlign: "center",
     maxWidth: 322
-  },
-  noTaxon: {
-    width: dimensions.width,
-    alignItems: "center",
-    justifyContent: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

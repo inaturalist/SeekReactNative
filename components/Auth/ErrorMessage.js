@@ -9,7 +9,7 @@ import {
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import styles from "../../styles/auth/error";
+import { textStyles, viewStyles, imageStyles } from "../../styles/auth/error";
 import { colors } from "../../styles/global";
 
 type Props = {
@@ -33,15 +33,15 @@ const ErrorMessage = ( { error }: Props ): React.Node => {
   }
   return (
     <View style={[
-      styles.errorMargin,
-      styles.row,
-      error === "credentials" && styles.smallerMargin
+      viewStyles.errorMargin,
+      viewStyles.row,
+      error === "credentials" && viewStyles.smallerMargin
     ]}
     >
       {/* $FlowFixMe */}
-      <Image source={icons.error} style={styles.image} tintColor={colors.seekiNatGreen} />
-      <View style={styles.textContainer}>
-        <Text allowFontScaling={false} style={styles.text} testID="loginError">{message}</Text>
+      <Image source={icons.error} style={imageStyles.image} tintColor={colors.seekiNatGreen} />
+      <View style={viewStyles.textContainer}>
+        <Text allowFontScaling={false} style={textStyles.text} testID="loginError">{message}</Text>
       </View>
     </View>
   );

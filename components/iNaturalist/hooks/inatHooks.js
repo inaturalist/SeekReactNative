@@ -1,31 +1,15 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
-import { View, Text, Image } from "react-native";
+import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
-import type { Node } from "react";
 
-import styles from "../styles/iNatStats";
-import i18n from "../i18n";
-import { capitalizeNames, shuffleList } from "../utility/helpers";
-import { localizeAttributions } from "../utility/photoHelpers";
-import createUserAgent from "../utility/userAgent";
-import HorizontalScroll from "./UIComponents/HorizontalScroll";
+import i18n from "../../../i18n";
+import { capitalizeNames, shuffleList } from "../../../utility/helpers";
+import { localizeAttributions } from "../../../utility/photoHelpers";
+import createUserAgent from "../../../utility/userAgent";
 
-const INatStatsPhotos = ( ): Node => {
+const useFetchPhotos = ( ): any => {
   const [photos, setPhotos] = useState( [] );
-
-  const renderPhotos = ( ) => photos.map( ( photo ) => (
-    <View key={`image${photo.photoUrl}`} style={styles.center}>
-      <Image
-        source={{ uri: photo.photoUrl }}
-        style={styles.image}
-      />
-      <Text style={[styles.missionText, styles.caption]}>
-        {`${photo.commonName} ${i18n.t( "inat_stats.by" )} ${photo.attribution}`}
-      </Text>
-    </View>
-  ) );
 
   useEffect( ( ) => {
     let isCurrent = true;
@@ -44,6 +28,8 @@ const INatStatsPhotos = ( ): Node => {
 
       inatjs.observations.search( params, options ).then( ( { results } ) => {
         const taxa = results.map( ( r ) => r.taxon );
+
+        // console.log( Object.keys( results[0] ), results[0].latitude, results[0].longitude, "taxa" );
 
         const projectPhotos = [];
 
@@ -86,11 +72,7 @@ const INatStatsPhotos = ( ): Node => {
     };
   }, [] );
 
-  const photoList = renderPhotos( );
-
-  return (
-    <HorizontalScroll photoList={photoList} />
-  );
+  return photos;
 };
 
-export default INatStatsPhotos;
+export default useFetchPhotos;

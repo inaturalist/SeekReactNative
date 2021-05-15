@@ -13,6 +13,7 @@ import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
 import { fetchJSONWebToken } from "./uploadHelpers";
 import i18n from "../i18n";
+import createUserAgent from "./userAgent";
 // import { LOG } from "./debugHelpers";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
@@ -400,8 +401,9 @@ const checkForChallengesCompleted = async ( ): Promise<Object> => {
 const checkINatAdminStatus = async ( login: string ): Promise<boolean> => {
   try {
     const apiToken = await fetchJSONWebToken( login );
-    const options = { api_token: apiToken };
+    const options = { api_token: apiToken, user_agent: createUserAgent( ) };
     const { results } = await inatjs.users.me( options );
+    console.log( results[0] );
     if ( results[0].roles.includes( "admin" ) ) {
       return true;
     }

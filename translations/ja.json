@@ -75,7 +75,7 @@
     "view_challenges": "チャレンジを見る",
     "none": "まだ通知はありません。",
     "about": "ここから新しいチャレンジ、アプリのアップデートや新しい情報の通知をアクセスできます。",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "新しいチャレンジが利用できます！"
   },
   "login": {
     "log_in": "iNaturalistでログイン",
@@ -86,7 +86,7 @@
     "error_credentials": "ユーザー名またはパスワードが間違っています。",
     "error_username_taken": "このユーザー名は既に使用されています。",
     "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password"
+    "error_no_password": "パスワードがありません"
   },
   "inat_signup": {
     "welcome": "Seekへようこそ！",

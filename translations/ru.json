@@ -814,12 +814,12 @@
     "faq_2": "Seek и iNaturalist используют одну и ту же модель идентификации, но только наблюдения iNaturalist подтверждаются сообществом",
     "logged_in_as": "ВЫ ВОШЛИ КАК",
     "x_observations_posted_to_inat": {
-      "zero": "{{count}} наблюдений опубликовано в iNaturalist с помощью Seek",
-      "one": "{{count}} наблюдений опубликовано в iNaturalist с помощью Seek",
-      "two": "{{count}} наблюдений опубликовано в iNaturalist с помощью Seek",
-      "few": "{{count}} наблюдений опубликовано в iNaturalist с помощью Seek",
-      "many": "{{count}} наблюдений опубликовано в iNaturalist с помощью Seek",
-      "other": "{{count}} наблюдений опубликовано в iNaturalist с помощью Seek"
+      "zero": "наблюдений, опубликованных в iNaturalist с помощью Seek: {{count}} ",
+      "one": "наблюдений, опубликованных в iNaturalist с помощью Seek: {{count}} ",
+      "two": "наблюдений, опубликованных в iNaturalist с помощью Seek: {{count}} ",
+      "few": "наблюдений, опубликованных в iNaturalist с помощью Seek: {{count}} ",
+      "many": "наблюдений, опубликованных в iNaturalist с помощью Seek: {{count}} ",
+      "other": "наблюдений, опубликованных в iNaturalist с помощью Seek: {{count}} "
     },
     "logged_in_bullet_1": "Вы можете опубликовать наблюдения в iNaturalist, нажав на 'Отправить в iNaturalist' после того, как вы сделаете наблюдение в Seek",
     "logged_in_bullet_2": "Используйте приложение iNaturalist или веб-сайт для просмотра уведомлений об идентификациях, комментариях и других действиях с вашими наблюдениями",

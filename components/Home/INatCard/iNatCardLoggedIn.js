@@ -7,10 +7,11 @@ import { viewStyles, textStyles } from "../../../styles/home/inatCard";
 import logos from "../../../assets/logos";
 import GreenText from "../../UIComponents/GreenText";
 import i18n from "../../../i18n";
-import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
+
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 import BulletedList from "../../iNaturalist/BulletedList";
+import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
 
 const INatCardLoggedIn = ( ): React.Node => {
   const challenge = useLatestChallenge( );

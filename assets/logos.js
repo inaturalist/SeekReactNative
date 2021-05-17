@@ -11,7 +11,9 @@ const logos = {
   iNatWhite: require( "./logos/iNaturalist-Identity-white.webp" ),
   iNatAppIcon: require( "./logos/appicon-iNaturalist.webp" ),
   natGeo: require( "./logos/logo-NatGeo.webp" ),
-  natGeoBlack: require( "./logos/logo-badgemodal-natgeo.webp" )
+  natGeoBlack: require( "./logos/logo-badgemodal-natgeo.webp" ),
+  seekAppIcon: require( "./logos/appicon-Seek-Stats.webp" ),
+  iNatBadge: require( "./logos/img-iNatbadge.webp" )
 };
 
 export default logos;

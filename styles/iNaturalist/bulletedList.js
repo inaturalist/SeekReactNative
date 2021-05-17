@@ -12,6 +12,16 @@ import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleS
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   bulletContainer: {
     flexDirection: "row"
+  },
+  valuePropBullets: {
+    marginLeft: 3
+  },
+  iconContainer: {
+    width: 22,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 12,
+    marginRight: 17
   }
 } );
 
@@ -25,6 +35,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   },
   bulletText: {
     maxWidth: dimensions.width - ( 32 * 2 + 14 * 2 + 23 )
+  },
+  valuePropText: {
+    maxWidth: dimensions.width - ( 32 * 3 + 14 * 2 + 23 )
   },
   bulletPoints: {
     fontSize: 27,

@@ -12,7 +12,8 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
-    letterSpacing: 1.12
+    letterSpacing: 1.12,
+    lineHeight: 23
   },
   smallerText: {
     fontSize: 18,

@@ -19,6 +19,7 @@ import INatSignOut from "./iNatSignOut";
 import BulletedList from "./BulletedList";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { UserContext } from "../UserContext";
+import AppIconSubHeader from "./AppIconSubHeader";
 
 const INatDetails = ( ): Node => {
   const { login } = useContext( UserContext );
@@ -28,24 +29,39 @@ const INatDetails = ( ): Node => {
  return (
     <ScrollWithHeader header="about_inat.inaturalist">
       <View style={viewStyles.textContainer}>
-      <Text style={textStyles.secondHeaderText}>{i18n.t( "about_inat.log_in_to_post_observations" )}</Text>
-        <GreenButton
-          handlePress={logIntoiNat}
-          text="about_inat.log_in_with_inat"
+        <AppIconSubHeader
+          text={i18n.t( "about_inat.log_in_to_post_observations" )}
+          icon="inat"
+          largeIcon
         />
+        <View style={viewStyles.greenButtonMargins}>
+          <GreenButton
+            handlePress={logIntoiNat}
+            text="about_inat.log_in_with_inat"
+          />
+        </View>
         <GreenText text="about_inat.use_inat_to" />
         <INatValueProps />
+        <View style={viewStyles.sectionMargin} />
         <GreenText text="about_inat.inat_vs_seek" />
-        <Text style={textStyles.secondHeaderText}>{i18n.t( "about_inat.inat_is_an_online_community" )}</Text>
+        <AppIconSubHeader
+          text={i18n.t( "about_inat.inat_is_an_online_community" )}
+          icon="inat"
+        />
         {[1, 2, 3].map( item => (
           <BulletedList text={`about_inat.inat_bullet_${item}`} />
         ) )}
-        <Text style={textStyles.secondHeaderText}>{i18n.t( "about_inat.seek_is_an_id_app" )}</Text>
+        <View style={viewStyles.smallSectionMargin} />
+        <AppIconSubHeader
+          text={i18n.t( "about_inat.seek_is_an_id_app" )}
+          icon="seek"
+        />
         {[1, 2, 3].map( item => (
           <BulletedList text={`about_inat.seek_bullet_${item}`} />
         ) )}
+        <View style={viewStyles.sectionMargin} />
         <GreenText text="about_inat.your_obs_could_make_difference" />
-        <Text style={textStyles.text}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</Text>
+        <Text style={[textStyles.text, textStyles.everydayObs]}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</Text>
       </View>
       <INatPhotos />
       <View style={viewStyles.textContainer}>

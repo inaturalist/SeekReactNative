@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { UserContext } from "./UserContext";
 import { fetchAccessToken, fetchUserProfile } from "../utility/loginHelpers";
@@ -19,30 +19,30 @@ const UserLoginProvider = ( { children }: Props ) => {
     return false;
   };
 
-  useEffect( ( ) => {
-    const getLoggedIn = async ( ) => {
-      const token = await fetchAccessToken( );
+  const getLoggedIn = useCallback( async ( ) => {
+    const token = await fetchAccessToken( );
 
-      if ( !token ) {
-        setupChallenges( false );
-      } else {
-        const profile = await fetchUserProfile( token );
+    if ( !token ) {
+      setupChallenges( false );
+    } else {
+      const profile = await fetchUserProfile( token );
 
-        const profileObj = {
-          login: profile.login,
-          icon: profile.icon
-        };
-        setUserProfile( profileObj );
-        const isAdmin = checkINatAdminStatus( profile );
-        setupChallenges( isAdmin );
-      }
-      setLogin( token );
-    };
-
-    getLoggedIn( );
+      const profileObj = {
+        login: profile.login,
+        icon: profile.icon
+      };
+      setUserProfile( profileObj );
+      const isAdmin = checkINatAdminStatus( profile );
+      setupChallenges( isAdmin );
+    }
+    setLogin( token );
   }, [] );
 
-  const updateLogin = ( loginStatus ) => setLogin( loginStatus );
+  useEffect( ( ) => {
+    getLoggedIn( );
+  }, [getLoggedIn] );
+
+  const updateLogin = ( ) => getLoggedIn( );
 
   const userContextValue = {
     login,

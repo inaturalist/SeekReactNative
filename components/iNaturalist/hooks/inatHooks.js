@@ -81,7 +81,7 @@ const useFetchObservationCount = ( login: ?string, name: string, username: strin
 
     const fetchObservationsMadeViaSeek = async ( ) => {
       const params = {
-        oauth_application: 333,
+        oauth_application_id: 333,
         user_id: username
       };
 

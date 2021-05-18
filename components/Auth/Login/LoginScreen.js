@@ -55,7 +55,7 @@ const LoginScreen = ( ): Node => {
             setError( true );
           } else {
             saveAccessToken( accessToken );
-            updateLogin( accessToken );
+            updateLogin( );
             navigate( "LoginSuccess" );
           }
         } ).catch( ( ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'

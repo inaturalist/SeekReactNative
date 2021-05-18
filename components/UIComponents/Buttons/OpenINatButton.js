@@ -19,16 +19,10 @@ const OpenINatButton = ( ): React.Node => {
         await Linking.openURL( `https:/://play.google.com/store/apps/details?id=${packageId}` );
       }
     } else {
-      try {
-        const urlScheme = "org.inaturalist.inaturalist";
-        const canOpen = await Linking.canOpenURL( urlScheme + "://" );
-        console.log( canOpen, "can open" );
-
-        // const iNatAppDownloaded = await AppInstalledChecker.checkURLScheme( urlScheme );
-        // console.log( iNatAppDownloaded, "is inat app downloaded" );
-      } catch ( e ) {
-        console.log( e );
-      }
+      await Linking.openURL( "https://apps.apple.com/app/inaturalist/id421397028" );
+      // const urlScheme = "org.inaturalist.inaturalist";
+      // const canOpen = await Linking.canOpenURL( urlScheme + "://" );
+      // console.log( canOpen, "can open" );
     }
   };
 

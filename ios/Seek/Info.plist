@@ -85,6 +85,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>
+		<string>org.inaturalist.inaturalist</string>
 	</array>
 </dict>
 </plist>

@@ -73,4 +73,41 @@ const useFetchPhotos = ( ): any => {
   return photos;
 };
 
-export default useFetchPhotos;
+const useFetchObservationCount = ( login: ?string, name: string, username: string ): any => {
+  const [observationCount, setObservationCount] = useState( null );
+
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    const fetchObservationsMadeViaSeek = async ( ) => {
+      const params = {
+        oauth_application: 333,
+        user_id: username
+      };
+
+      const options = { user_agent: createUserAgent( ) };
+
+      const response = await inatjs.observations.search( params, options );
+      const results = response.total_results;
+
+      if ( isCurrent ) {
+        setObservationCount( results );
+      }
+    };
+
+    if ( login && name === "iNatStats" ) {
+      fetchObservationsMadeViaSeek( );
+    }
+
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [login, name, username] );
+
+  return observationCount;
+};
+
+export {
+  useFetchPhotos,
+  useFetchObservationCount
+};

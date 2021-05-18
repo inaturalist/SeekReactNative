@@ -11,12 +11,12 @@ import { removeAccessToken } from "../../utility/loginHelpers";
 import { UserContext } from "../UserContext";
 
 const INatSignOut = ( ): Node => {
-  const { toggleLogin } = useContext( UserContext );
+  const { updateLogin } = useContext( UserContext );
 
   const logUserOut = async ( ) => {
     const loggedOut = await removeAccessToken( );
     if ( loggedOut === null ) {
-      toggleLogin( );
+      updateLogin( null );
     }
   };
 

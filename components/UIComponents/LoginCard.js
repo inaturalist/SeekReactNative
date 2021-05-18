@@ -20,7 +20,7 @@ const LoginCard = (): React.Node => {
   const logUserOut = async ( user: Object ) => {
     const loggedOut = await removeAccessToken();
     if ( loggedOut === null ) {
-      user.toggleLogin();
+      user.updateLogin( null );
     }
   };
 

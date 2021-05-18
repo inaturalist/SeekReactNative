@@ -1,7 +1,6 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
-import inatjs from "inaturalistjs";
 import { getYear, isEqual } from "date-fns";
 import { Alert } from "react-native";
 
@@ -11,9 +10,7 @@ import missionsDict from "./dictionaries/missionsDict";
 import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
-import { fetchJSONWebToken } from "./uploadHelpers";
 import i18n from "../i18n";
-import createUserAgent from "./userAgent";
 // import { LOG } from "./debugHelpers";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
@@ -398,22 +395,6 @@ const checkForChallengesCompleted = async ( ): Promise<Object> => {
   );
 };
 
-const checkINatAdminStatus = async ( login: string ): Promise<boolean> => {
-  try {
-    const apiToken = await fetchJSONWebToken( login );
-    const options = { api_token: apiToken, user_agent: createUserAgent( ) };
-    const { results } = await inatjs.users.me( options );
-    console.log( results[0] );
-    if ( results[0].roles.includes( "admin" ) ) {
-      return true;
-    }
-    return false;
-  } catch ( e ) {
-    console.log( e.message, "error checking for admin" );
-    return false;
-  }
-};
-
 export {
   recalculateChallenges,
   calculatePercent,
@@ -425,6 +406,5 @@ export {
   setChallengeProgress,
   checkForChallengesCompleted,
   fetchObservationsAfterChallengeStarted,
-  checkForAncestors,
-  checkINatAdminStatus
+  checkForAncestors
 };

@@ -19,7 +19,7 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 const LoginScreen = ( ): Node => {
   const { navigate } = useNavigation( );
-  const { toggleLogin } = useContext( UserContext );
+  const { updateLogin } = useContext( UserContext );
   const [username, setUsername] = useState( "" );
   const [password, setPassword] = useState( "" );
   const [error, setError] = useState( false );
@@ -55,7 +55,7 @@ const LoginScreen = ( ): Node => {
             setError( true );
           } else {
             saveAccessToken( accessToken );
-            toggleLogin( );
+            updateLogin( accessToken );
             navigate( "LoginSuccess" );
           }
         } ).catch( ( ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'

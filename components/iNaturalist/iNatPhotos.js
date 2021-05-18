@@ -7,7 +7,7 @@ import type { Node } from "react";
 import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
-import useFetchPhotos from "./hooks/inatHooks";
+import { useFetchPhotos } from "./hooks/inatHooks";
 
 const INatStatsPhotos = ( ): Node => {
   const photos = useFetchPhotos( );

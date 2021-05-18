@@ -18,9 +18,8 @@ const INatCardLoggedIn = ( ): React.Node => {
     <View style={[viewStyles.container, challenge && viewStyles.topMarginWithChallenge]}>
       <GreenText text="about_inat.inaturalist" />
       <ProfileImageAndLogin />
-      {[1, 2].map( item => (
-        <BulletedList text={`about_inat.logged_in_bullet_${item}`} />
-      ) )}
+      <BulletedList text="about_inat.logged_in_bullet_1" />
+      <BulletedList text="about_inat.logged_in_bullet_2" />
       <View style={viewStyles.marginOpenINat} />
       <OpenINatButton />
     </View>

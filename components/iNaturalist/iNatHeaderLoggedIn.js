@@ -22,9 +22,9 @@ const INatHeaderLoggedIn = ( ): Node => (
     </LinearGradient>
     <View style={viewStyles.loggedInHeaderMargin} />
     <View style={viewStyles.textContainer}>
-      {[1, 2, 3].map( item => (
-        <BulletedList text={`about_inat.logged_in_bullet_${item}`} />
-      ) )}
+    <BulletedList text="about_inat.logged_in_bullet_1" />
+    <BulletedList text="about_inat.logged_in_bullet_2" />
+    <BulletedList text="about_inat.logged_in_bullet_3" />
     </View>
   </>
 );

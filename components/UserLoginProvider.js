@@ -27,8 +27,12 @@ const UserLoginProvider = ( { children }: Props ) => {
         setupChallenges( false );
       } else {
         const profile = await fetchUserProfile( token );
-        console.log( profile, "user profile" );
-        setUserProfile( profile );
+
+        const profileObj = {
+          login: profile.login,
+          icon: profile.icon
+        };
+        setUserProfile( profileObj );
         const isAdmin = checkINatAdminStatus( profile );
         setupChallenges( isAdmin );
       }

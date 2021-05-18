@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import { Image, Text, Pressable } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerContentScrollView } from "@react-navigation/drawer";
 
 import i18n from "../../i18n";
 import { viewStyles, imageStyles, textStyles } from "../../styles/uiComponents/sideMenu";
@@ -13,8 +12,11 @@ import { capitalizeNames, setRoute } from "../../utility/helpers";
 import { resetRouter } from "../../utility/navigationHelpers";
 import { colors } from "../../styles/global";
 
-const SideMenu = ( ): React.Node => {
-  const navigation = useNavigation( );
+type Props = {
+  navigation: any
+}
+
+const SideMenu = ( { navigation }: Props ): React.Node => {
   const { navigate } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
@@ -56,7 +58,7 @@ const SideMenu = ( ): React.Node => {
   } );
 
   return (
-    <SafeAreaView style={viewStyles.container}>
+    <DrawerContentScrollView contentContainerStyle={viewStyles.container}>
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
@@ -65,7 +67,7 @@ const SideMenu = ( ): React.Node => {
         <Image source={logoImages.seek} style={imageStyles.seekLogo} />
       </Pressable>
       {renderMenuItems( )}
-    </SafeAreaView>
+    </DrawerContentScrollView>
   );
 };
 

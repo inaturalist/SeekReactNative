@@ -19,7 +19,7 @@ const INatStatsPhotos = ( ): Node => {
         style={imageStyles.image}
       />
       <Text style={[textStyles.text, textStyles.caption]}>
-        {`${photo.commonName} ${i18n.t( "inat_stats.by" )} ${photo.attribution}`}
+        {i18n.t( "about_inat.x_seen_by_user", { speciesName: photo.commonName, user: photo.attribution } )}
       </Text>
     </View>
   ) );

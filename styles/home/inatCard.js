@@ -58,14 +58,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     alignSelf: "center",
     paddingTop: 23,
     paddingBottom: 33
-  },
-  lightText: {
-    color: colors.black,
-    fontFamily: fonts.light,
-    fontSize: 14,
-    letterSpacing: 0.61,
-    marginLeft: 24,
-    marginBottom: 2
   }
 } );
 

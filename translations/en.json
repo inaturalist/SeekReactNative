@@ -825,6 +825,7 @@
     "logged_in_bullet_1": "You can post observations to iNaturalist by clicking 'Post to iNaturalist' after you make a Seek observation",
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
-    "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!"
+    "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
+    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
   }
 }

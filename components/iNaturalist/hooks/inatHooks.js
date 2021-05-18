@@ -29,11 +29,9 @@ const useFetchPhotos = ( ): any => {
       inatjs.observations.search( params, options ).then( ( { results } ) => {
         const taxa = results.map( ( r ) => r.taxon );
 
-        // console.log( Object.keys( results[0] ), results[0].latitude, results[0].longitude, "taxa" );
-
         const projectPhotos = [];
 
-        taxa.forEach( ( photo ) => {
+        taxa.forEach( photo => {
           const { defaultPhoto } = photo;
 
           if ( !defaultPhoto ) {

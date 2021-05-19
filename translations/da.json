@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Du kan sende observationer til iNaturalist ved at klikke på 'Send til iNaturalist' efter du har lavet en Seek-observation",
     "logged_in_bullet_2": "Brug iNaturalist-appen eller hjemmeside til at se meddelelser om identifikationer, kommentarer og anden aktivitet på dine observationer",
     "logged_in_bullet_3": "Din Seek-observationer er IKKE sikkerhedskopieret til iNaturalist. Sletning af Seek vil slette alle observationerne på din enhed.",
-    "upload_and_track_obs_using_inat": "Upload og hold styr på dine observationer ved hjælp af iNaturalist-app'en eller besøg inaturalist.org.\n\nTak fordi du er en del af dette fællesskab!"
+    "upload_and_track_obs_using_inat": "Upload og hold styr på dine observationer ved hjælp af iNaturalist-app'en eller besøg inaturalist.org.\n\nTak fordi du er en del af dette fællesskab!",
+    "x_seen_by_user": "{{speciesName}} set af {{user}}"
   }
 }

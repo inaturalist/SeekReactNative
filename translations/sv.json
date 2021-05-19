@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Du kan lägga upp fynd till iNaturalist genom att klicka på \"Lägg upp till iNaturalist\" när  du gjort ett Seek-fynd",
     "logged_in_bullet_2": "Använd iNaturalist-appen eller -webbplatsen för att se aviseringar om bestämningar, kommentarer och annan aktivitet på dina fynd",
     "logged_in_bullet_3": "Dina Seek-fynd är INTE säkerhetskopierade till iNaturalist. Tar du bort Seek kommer alla fynd på din enhet att raderas.",
-    "upload_and_track_obs_using_inat": "Ladda upp och håll koll på dina fynd med iNaturalist-appen eller besök inaturalist.se.\n\nTack för att du är en del av denna community!"
+    "upload_and_track_obs_using_inat": "Ladda upp och håll koll på dina fynd med iNaturalist-appen eller besök inaturalist.se.\n\nTack för att du är en del av denna community!",
+    "x_seen_by_user": "{{speciesName}} sedd av {{user}}"
   }
 }

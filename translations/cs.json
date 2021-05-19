@@ -267,18 +267,6 @@
     "badge_name_november": "Odznak širého moře",
     "badge_name_december": "Odznak klimatu"
   },
-  "inat_stats": {
-    "global_observations": "Globální pozorování",
-    "naturalists_worldwide": "Přírodovědců celosvětově",
-    "seek_data": "Seek svá data získává z iNaturalist.",
-    "about_inat": "iNaturalist je největší komunita přírodovědců na světě. Uživatelé nahrávají fotografie organismů po celém světě a komunita spolupracuje na jejich identifikaci. Tato pozorování jsou tím, co používáme k vyškolení našeho identifikačního modelu, zobrazování map rozšíření a generování pozorování v okolí v aplikaci Seek.",
-    "contribute": "Máte zájem přispívat k občanské vědě společně s globální komunitou přírodovědců?",
-    "join": "Přihlásit se pomocí iNaturalist",
-    "by": "od",
-    "thanks": "Komunita iNaturalist se skládá z lidí, jako jste Vy! Připojte se ke komunitě a přidejte své vlastní pozorování na inaturalist.org!",
-    "logged_in": "K Seeku jste přihlášeni pomocí svého iNaturalist účtu. Děkujeme, že jste součástí této komunity!",
-    "sign_out": "Odhlásit se z iNaturalist"
-  },
   "results": {
     "observed_species": "Zaznamenali jste nový druh!",
     "learn_more": "Bylo to přidáno k Vašim pozorováním.\nDalší informace o tomto druhu naleznete zde:",
@@ -740,14 +728,6 @@
     "new": "Použít novou fotografii",
     "old": "Ponechat starou fotografii"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "Myslíme si, že iNaturalist se vám bude opravdu líbit.",
-    "text_1": "ponořte se do poznávání organismů ve svém okolí",
-    "text_2": "buďte součástí komunity, která je stejně nadšená přírodou jako vy",
-    "text_3": "sdílejte pozorování s komunitou, nebo dokonce sdílejte pozorování přes Seek!",
-    "download": "Začněte stažením aplikace iNaturalist nebo navštívením inaturalist.org.\n\nJiž máte účet iNaturalist? Přihlaste se do Seeku svým stávajícím účtem!"
-  },
   "social": {
     "share_observation": "Sdílet pozorování",
     "square": "Čtverec",
@@ -799,5 +779,52 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "DOKONČIL JSI VÝZVU {{sponsorName}} ZA {{date}}!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "JSTE PŘIHLÁŠENI",
+    "welcome_back": "Vítejte zpět, {{username}}!",
+    "open_inaturalist": "OTEVŘÍT INATURALIST",
+    "dive_deeper_with_inat": "Ponořte se hlouběji s iNaturalist.",
+    "inat_value_prop_1": "Synchronizujte pozorování napříč zařízeními",
+    "inat_value_prop_2": "Získejte přesné návrhy identifikace na základě polohy",
+    "inat_value_prop_3": "Přidávejte, upravujte a spravujte všechna vaše pozorování na jednom místě",
+    "inat_value_prop_4": "Sledujte lidi a dívejte se, co pozorují vaši přátelé",
+    "learn_more_about_inat": "Zjistěte více o iNaturalist",
+    "get_started_by_downloading_inat": "Začněte stažením aplikace iNaturalist nebo navštívením inaturalist.org.\n\nMáte již účet iNaturalist? Přihlaste se k aplikaci Seek pomocí svého stávajícího účtu!",
+    "we_think_youll_like_inat": "Myslíme si, že iNaturalist se vám bude opravdu líbit.",
+    "logged_in": "K Seeku jste přihlášeni pomocí svého účtu iNaturalist. Děkujeme, že jste součástí této komunity!",
+    "sign_out": "Odhlásit se z iNaturalist",
+    "log_in_to_post_observations": "Přihlaste se a vložte svá pozorování do iNaturalist!",
+    "log_in_with_inat": "PŘIHLÁSIT SE POMOCÍ INATURALIST",
+    "use_inat_to": "POUŽÍT INATURALIST K:",
+    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_is_an_online_community": "iNaturalist je online komunita pro přírodovědce",
+    "inat_bullet_1": "Pozorování iNaturalist jsou veřejná a přispívají k vědě",
+    "inat_bullet_2": "Každé pozorování obsahuje vaše uživatelské jméno, datum a místo pozorování",
+    "inat_bullet_3": "Komunita iNaturalist pomáhá identifikovat a potvrzovat pozorování",
+    "seek_is_an_id_app": "Seek je aplikace pro identifikaci, která pomáhá každému, kdo se chce dozvědět něco o druzích ve svém okolí",
+    "seek_bullet_1": "Pozorování Seek zůstanou ve vašem zařízení",
+    "seek_bullet_2": "Od odhlášených uživatelů nejsou shromažďovány žádné osobní informace",
+    "seek_bullet_3": "Identifikace neopustí vaše zařízení ani nevyžadují internet, ale nejsou potvrzeny komunitou iNaturalist",
+    "your_obs_could_make_difference": "VÁŠE POZOROVÁNÍ BY MOHLO LECCOS ZMĚNIT",
+    "everyday_obs_help_scientists": "Každodenní pozorování přírodovědců, jako jste vy, mohou vědcům pomoci zjistit kde a kdy se organismy vyskytují, a dokonce vést k novým objevům!",
+    "faqs": "Často kladené otázky",
+    "faq_1": "Pro vytvoření účtu iNaturalist musíte být starší 13 let nebo mít souhlas rodičů",
+    "faq_2": "Seek a iNaturalist používají stejný identifikační model, ale pouze pozorování iNaturalist jsou potvrzena komunitou",
+    "logged_in_as": "PŘIHLÁŠEN JAKO",
+    "x_observations_posted_to_inat": {
+      "zero": "{{count}} pozorování vloženo do iNaturalist pomocí Seek",
+      "one": "{{count}} pozorování vloženo do iNaturalist pomocí Seek",
+      "two": "{{count}} pozorování vložena do iNaturalist pomocí Seek",
+      "few": "{{count}} pozorování vložena do iNaturalist pomocí Seek",
+      "many": "{{count}} pozorování vloženo do iNaturalist pomocí Seek",
+      "other": "{{count}} pozorování vloženo do iNaturalist pomocí Seek"
+    },
+    "logged_in_bullet_1": "Pozorování můžete do iNaturalist odeslat klepnutím na \"Odeslat do iNaturalist\" po vytvoření pozorování Seek",
+    "logged_in_bullet_2": "Pomocí aplikace nebo webové stránky iNaturalist můžete zobrazovat oznámení o identifikacích, komentářích a dalších aktivitách týkajících se vašich pozorování",
+    "logged_in_bullet_3": "Vaše pozorování Seek NENÍ zálohováno v iNaturalist. Smazáním Seek se vymažou všechna pozorování ve vašem zařízení.",
+    "upload_and_track_obs_using_inat": "Nahrávejte a zaznamenávejte svá pozorování pomocí aplikace iNaturalist nebo na webu inaturalist.org.\n\nDěkujeme, že jste součástí této komunity!",
+    "x_seen_by_user": "{{speciesName}} pozorováno uživatelem {{user}}"
   }
 }

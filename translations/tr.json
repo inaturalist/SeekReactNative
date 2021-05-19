@@ -267,18 +267,6 @@
     "badge_name_november": "Açık Deniz Rozeti",
     "badge_name_december": "İklim Rozeti"
   },
-  "inat_stats": {
-    "global_observations": "Küresel Gözlemler",
-    "naturalists_worldwide": "Dünya Çapında Doğacılar",
-    "seek_data": "Seek verilerini iNaturalist'ten alıyor.",
-    "about_inat": "iNaturalist, dünyadaki doğacılar için en büyük topluluktur. Kullanıcılar dünya genelindeki organizmaların fotoğraflarını yükler ve topluluğumuz onları tanımlamak için birlikte çalışır. Bu gözlemler, tanımlama modelimizi eğitmek, alan haritalarını göstermek ve Seek'de yakın gözlemler yapmak için kullandığımız şeylerdir.",
-    "contribute": "Küresel bir doğacı topluluğu ile vatandaş bilimine katkıda bulunmak ister misiniz?",
-    "join": "iNaturalist ile giriş yap",
-    "by": "tarafından",
-    "thanks": "iNaturalist topluluğu senin gibi insanlardan oluşuyor! Topluluğa katılın ve kendi gözlemlerinizi inaturalist.org adresinde ekleyin!",
-    "logged_in": "Seek'e iNaturalist hesabınız ile giriş yaptınız. Topluluğumuzun bir parçası olduğunuz için teşekkürler!",
-    "sign_out": "iNaturalist'ten çıkış yap"
-  },
   "results": {
     "observed_species": "Yeni bir tür gözlemlediniz!",
     "learn_more": "Bu gözlemlerinize eklendi.\nBu tür ile ilgili daha çok bilgiyi burada bulabilirsiniz:",
@@ -740,14 +728,6 @@
     "new": "Yeni fotoğraf kullan",
     "old": "Eski fotoğrafı tut"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "iNaturalist'i gerçekten seveceğinizi düşünüyoruz.",
-    "text_1": "çevrenizdeki organizmalarla ilgili bilgi edinmek için daha derine dalın",
-    "text_2": "sizin kadar doğayı merak eden bir topluluğun parçası olun",
-    "text_3": "gözlemlerinizi toplulukla paylaşın ve hatta Seek aracılığıyla gözlemlerinizi paylaşın!",
-    "download": "iNaturalist uygulamasını indirerek ya da inaturalist.org adresini ziyaret ederek başlayın.\n\nZaten bir iNaturalist hesabınız var mı? Arama yapmak için mevcut hesabınızla oturum açın!"
-  },
   "social": {
     "share_observation": "Gözlem paylaş",
     "square": "Kare",
@@ -799,5 +779,52 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "{{sponsorName}} MÜCADELESİNİ {{date}} TARİHİNDE TAMAMLADIN!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "GİRİŞ YAPTIN",
+    "welcome_back": "Tekrar hoş geldin {{username}}!",
+    "open_inaturalist": "INATURALIST'İ AÇ",
+    "dive_deeper_with_inat": "iNaturalist ile daha derinlere dal.",
+    "inat_value_prop_1": "Gözlemlerini cihazlar arası senkronize et",
+    "inat_value_prop_2": "Tam ve konum tabanlı tanımlama önerilerini al",
+    "inat_value_prop_3": "Tüm gözlemlerini tek bir yerden ekle, düzenle ve yönet",
+    "inat_value_prop_4": "İnsanları takip et ve arkadaşlarının neler gözlemlediğini gör",
+    "learn_more_about_inat": "iNaturalist hakkında daha fazlasını öğren",
+    "get_started_by_downloading_inat": "iNaturalist uygulamasını indirerek veya inaturalist.org sitesini ziyaret ederek başla.\n\niNaturalist hesabın zaten var mı? Seek'e mevcut hesabınla giriş yap!",
+    "we_think_youll_like_inat": "iNaturalist'i gerçekten beğeneceğini düşünüyoruz.",
+    "logged_in": "Seek'e iNaturalist hesabınla giriş yaptın. Topluluğun parçası olduğun için teşekkürler!",
+    "sign_out": "iNaturalist'ten çık",
+    "log_in_to_post_observations": "Seek gözlemlerini iNaturalist'e göndermek için giriş yap!",
+    "log_in_with_inat": "INATURALIST İLE GİRİŞ YAP",
+    "use_inat_to": "INATURALIST'I KULLAN:",
+    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_is_an_online_community": "iNaturalist doğacılar için çevrimiçi bir topluluktur",
+    "inat_bullet_1": "iNaturalist gözlemleri kamuya açık ve bilime katkı sağlamaya yardım eder",
+    "inat_bullet_2": "Her gözlem senin kullanıcı adını, tarihi ve gözlemin konumunu içerir",
+    "inat_bullet_3": "iNaturalist topluluğu gözlemlerin tanımlanmasına ve doğrulanmasına yardımcı olur",
+    "seek_is_an_id_app": "Seek herkesin kendi etrafındaki türleri öğrenmesi için yardım eden tanımlayıcı bir uygulamadır",
+    "seek_bullet_1": "Seek gözlemleri cihazında kalır",
+    "seek_bullet_2": "Çıkış yapan kullanıcıların kişisel tanımlama bilgileri toplanmaz",
+    "seek_bullet_3": "Tanımlamalar cihazındadır ve internet gerektirmez, ancak iNaturalist topluluğu tarafından doğrulanmamıştır",
+    "your_obs_could_make_difference": "GÖZLEMİN FARK YARATABİLİR",
+    "everyday_obs_help_scientists": "Her gün senin gibi doğacılar tarafından gözlemlerin yapılması; bilim insanlarının hangi organizmaların nerede ve ne zaman bulunduklarını öğrenmelerine yardımcı olur, hatta yeni keşiflere yol açar!",
+    "faqs": "SSS",
+    "faq_1": "iNaturalist hesabı açmak için 13'ten büyük veya ailenin iznin olması gerekir",
+    "faq_2": "Seek ve iNaturalist aynı tanımlama modelini kullanır, ancak sadece iNaturalist gözlemleri topluluk tarafından doğrulanır",
+    "logged_in_as": "OLARAK GİRİŞ YAPTIN",
+    "x_observations_posted_to_inat": {
+      "zero": "Seek ile iNaturalist'e {{count}} gözlem gönderildi",
+      "one": "Seek ile iNaturalist'e {{count}} gözlem gönderildi",
+      "two": "Seek ile iNaturalist'e {{count}} gözlem gönderildi",
+      "few": "Seek ile iNaturalist'e {{count}} gözlem gönderildi",
+      "many": "Seek ile iNaturalist'e {{count}} gözlem gönderildi",
+      "other": "Seek ile iNaturalist'e {{count}} gözlem gönderildi"
+    },
+    "logged_in_bullet_1": "Seek gözleminden sonra 'iNaturalist'e gönder'e tıklayarak gözlemlerini iNaturalist'e gönderebilirsin.",
+    "logged_in_bullet_2": "Gözlemlerinin tanımlamalarının bildirimlerini, yorumları ve diğer etkinlikleri iNaturalist uygulaması veya websitesi üzerinden görüntüleyebilirsin",
+    "logged_in_bullet_3": "Seek gözlemlerin iNaturalist üzerinde YEDEKLENMEZ. Seek'i silersen cihazındaki tüm gözlemler silinir.",
+    "upload_and_track_obs_using_inat": "iNaturalist uygulamasını kullanarak veya inaturalist.org sitesini ziyaret ederek gözlemlerini yükleyebilir ve izleyebilirsin.\n\nTopluluğun parçası olduğun için teşekkürler!",
+    "x_seen_by_user": "{{speciesName}} {{user}} tarafından görüldü"
   }
 }

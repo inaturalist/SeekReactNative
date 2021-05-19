@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Du kannst Beobachtungen auf iNaturalist melden, indem du auf 'An iNaturalist senden' klickst, nachdem du eine Seek-Beobachtung gemacht hast",
     "logged_in_bullet_2": "Verwende die iNaturalist-App oder die Website, um Benachrichtigungen über Identifikationen, Kommentare und andere Aktivitäten zu deinen Beobachtungen zu erhalten",
     "logged_in_bullet_3": "Deine Seek-Beobachtungen sind NICHT über iNaturalist gesichert. Das Löschen von Seek löscht alle Beobachtungen auf deinem Gerät.",
-    "upload_and_track_obs_using_inat": "Hochladen und verfolgen deiner Beobachtungen mit der iNaturalist-App oder über inaturalist.org.\n\nDanke, dass du Teil dieser Gemeinschaft bist!"
+    "upload_and_track_obs_using_inat": "Hochladen und verfolgen deiner Beobachtungen mit der iNaturalist-App oder über inaturalist.org.\n\nDanke, dass du Teil dieser Gemeinschaft bist!",
+    "x_seen_by_user": "{{speciesName}} beobachtet von {{user}}"
   }
 }

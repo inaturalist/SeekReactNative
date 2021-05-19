@@ -25,7 +25,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row,
   container: {
     backgroundColor: colors.white,
-    marginHorizontal: 22,
+    marginHorizontal: 36,
     marginTop: 45
   },
   topMarginWithChallenge: {

@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Pozorování můžete do iNaturalist odeslat klepnutím na \"Odeslat do iNaturalist\" po vytvoření pozorování Seek",
     "logged_in_bullet_2": "Pomocí aplikace nebo webové stránky iNaturalist můžete zobrazovat oznámení o identifikacích, komentářích a dalších aktivitách týkajících se vašich pozorování",
     "logged_in_bullet_3": "Vaše pozorování Seek NENÍ zálohováno v iNaturalist. Smazáním Seek se vymažou všechna pozorování ve vašem zařízení.",
-    "upload_and_track_obs_using_inat": "Nahrávejte a zaznamenávejte svá pozorování pomocí aplikace iNaturalist nebo na webu inaturalist.org.\n\nDěkujeme, že jste součástí této komunity!"
+    "upload_and_track_obs_using_inat": "Nahrávejte a zaznamenávejte svá pozorování pomocí aplikace iNaturalist nebo na webu inaturalist.org.\n\nDěkujeme, že jste součástí této komunity!",
+    "x_seen_by_user": "{{speciesName}} pozorováno uživatelem {{user}}"
   }
 }

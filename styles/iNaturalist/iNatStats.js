@@ -116,6 +116,17 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   smallIcon: {
     width: smallIconWidth,
     height: smallIconWidth
+  },
+  profileIcon: {
+    height: 86,
+    width: 86,
+    borderRadius: 86 / 2
+  },
+  iNatBadge: {
+    position: "absolute",
+    right: -8,
+    bottom: -8,
+    zIndex: 1
   }
 } );
 

@@ -60,7 +60,8 @@ const icons = {
   iNat_valueprop_bullet_1: require( "./icons/icon-sync-green.webp" ),
   iNat_valueprop_bullet_2: require( "./icons/icon-cv-green.webp" ),
   iNat_valueprop_bullet_3: require( "./icons/icon-obs-green.webp" ),
-  iNat_valueprop_bullet_4: require( "./icons/icon-person-green.webp" )
+  iNat_valueprop_bullet_4: require( "./icons/icon-person-green.webp" ),
+  noProfilePhoto: require( "./icons/img-inatlogin-nophoto.webp" )
 };
 
 export default icons;

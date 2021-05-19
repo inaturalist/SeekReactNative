@@ -4,11 +4,12 @@ import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
-import { viewStyles, textStyles } from "../../styles/iNaturalist/iNatStats";
+import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import logos from "../../assets/logos";
 import i18n from "../../i18n";
 import { UserContext } from "../UserContext";
 import { useFetchObservationCount } from "./hooks/inatHooks";
+import icons from "../../assets/icons";
 
 const ProfileImageAndLogin = ( ): React.Node => {
   const { userProfile, login } = React.useContext( UserContext );
@@ -19,8 +20,15 @@ const ProfileImageAndLogin = ( ): React.Node => {
 
   return (
     <View style={[viewStyles.row, viewStyles.center]}>
-      <Image source={userProfile.icon} />
-      <Image source={logos.iNatBadge} />
+      <View>
+        <Image
+          source={userProfile.icon
+            ? { uri: userProfile.icon }
+            : icons.noProfilePhoto}
+          style={imageStyles.profileIcon}
+        />
+        {userProfile.icon && <Image source={logos.iNatBadge} style={imageStyles.iNatBadge} />}
+      </View>
       <View style={viewStyles.linearGradientTextContainer}>
         <Text style={[textStyles.lightText, name !== "Home" && textStyles.whiteText]}>
           {name === "Home"

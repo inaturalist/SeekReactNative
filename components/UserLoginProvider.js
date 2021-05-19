@@ -29,7 +29,8 @@ const UserLoginProvider = ( { children }: Props ) => {
 
       const profileObj = {
         login: profile.login,
-        icon: profile.icon
+        // icon_url is higher resolution than icon
+        icon: profile.icon_url
       };
       setUserProfile( profileObj );
       const isAdmin = checkINatAdminStatus( profile );

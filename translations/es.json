@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Puedes publicar observaciones en iNaturalist haciendo clic en 'Publicar en iNaturalist' después de hacer una observación en Seek",
     "logged_in_bullet_2": "Utiliza la App iNaturalist o el sitio web para ver notificaciones de identificaciones, comentarios u otras actividades sobre tus observaciones",
     "logged_in_bullet_3": "Tus observaciones de Seek NO están copiadas en iNaturalist. Si borras Seek se borrarán todas las observaciones de tu dispositivo.",
-    "upload_and_track_obs_using_inat": "Sube y mantén un seguimiento de tus observaciones usando la aplicación iNaturalist o visitando inaturalist.org.\n\n¡Gracias por ser parte de esta comunidad!"
+    "upload_and_track_obs_using_inat": "Sube y mantén un seguimiento de tus observaciones usando la aplicación iNaturalist o visitando inaturalist.org.\n\n¡Gracias por ser parte de esta comunidad!",
+    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
   }
 }

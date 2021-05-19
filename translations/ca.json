@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Pots enviar les observacions a iNaturalist prement a \"Envia a iNaturalist\" després de fer l'observació a Seek",
     "logged_in_bullet_2": "Utilitza l'App iNaturalist o el seu lloc web per veure notificacions d'identificacions, comentaris o altres activitats de les teves observacions",
     "logged_in_bullet_3": "Les teves observacions NO es copien a iNaturalist. Si esborres Seek esborraràs totes les observacions del teu dispositiu.",
-    "upload_and_track_obs_using_inat": "Puja i manté el registre de les teves observacions utilitzant l'App d'iNaturalist o visitant inaturalist.org.\n\nGràcies per formar part d'aquesta comunitat!"
+    "upload_and_track_obs_using_inat": "Puja i manté el registre de les teves observacions utilitzant l'App d'iNaturalist o visitant inaturalist.org.\n\nGràcies per formar part d'aquesta comunitat!",
+    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
   }
 }

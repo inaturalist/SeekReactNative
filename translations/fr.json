@@ -785,7 +785,7 @@
     "you_are_logged_in": "VOUS AVEZ OUVERT UNE SESSION",
     "welcome_back": "Vous êtes de retour, bienvenue {{username}} !",
     "open_inaturalist": "OUVRIR INATURALIST",
-    "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
+    "dive_deeper_with_inat": "Plongez plus profondément avec iNaturalist.",
     "inat_value_prop_1": "Synchroniser vos observations sur vos appareils",
     "inat_value_prop_2": "Obtenir des suggestions d’identification précises basées sur la localisation",
     "inat_value_prop_3": "Ajouter, modifier et gérer toutes vos observations en un seul endroit",
@@ -796,8 +796,8 @@
     "logged_in": "Vous avez ouvert une session sur Seek avec votre compte iNaturalist. Merci de faire partie de cette communauté !",
     "sign_out": "Se déconnecter d'iNaturalist",
     "log_in_to_post_observations": "Connectez-vous pour publier vos observations dans Seek sur iNaturalist !",
-    "log_in_with_inat": "LOG IN WITH INATURALIST",
-    "use_inat_to": "USE INATURALIST TO:",
+    "log_in_with_inat": "CONNEXION AVEC INATURALISTE",
+    "use_inat_to": "UTILISER INATURALISTE À :",
     "inat_vs_seek": "INATURALIST VS SEEK",
     "inat_is_an_online_community": "iNaturalist est une communauté en ligne pour les naturalistes",
     "inat_bullet_1": "Les observations sur iNaturalist sont publiques et contribuent à la science",
@@ -824,6 +824,7 @@
     "logged_in_bullet_1": "Vous pouvez publier des observations sur iNaturalist en cliquant sur « Poster sur iNaturalist » après avoir effectué une observation dans Seek.",
     "logged_in_bullet_2": "Utilisez l'application ou le site Web iNaturalist pour voir les notifications à propos des identifications, des commentaires et d'autres activités concernant vos observations",
     "logged_in_bullet_3": "Vos observations dans Seek NE sont PAS sauvegardées sur iNaturalist. Si vous supprimez Seek, vous supprimerez également toutes les observations qui se trouvent sur votre appareil.",
-    "upload_and_track_obs_using_inat": "Téléchargez et gardez une trace de vos observations en utilisant l'application iNaturalist ou en visitant inaturalist.org.\n\nMerci de faire partie de cette communauté !"
+    "upload_and_track_obs_using_inat": "Téléchargez et gardez une trace de vos observations en utilisant l'application iNaturalist ou en visitant inaturalist.org.\n\nMerci de faire partie de cette communauté !",
+    "x_seen_by_user": "{{speciesName}} vu par {{user}}"
   }
 }

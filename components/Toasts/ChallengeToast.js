@@ -9,7 +9,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/toasts/badgeToast";
+import { viewStyles, textStyles } from "../../styles/toasts/badgeToast";
 import PercentCircle from "../UIComponents/PercentCircle";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 
@@ -28,18 +28,18 @@ const ChallengeToast = ( { challenge }: Props ): React.Node => {
   return (
     <TouchableOpacity
       onPress={navToChallenge}
-      style={styles.row}
+      style={viewStyles.row}
     >
       <View>
-        <Text allowFontScaling={false} style={styles.headerText}>
+        <Text allowFontScaling={false} style={textStyles.headerText}>
           {i18n.t( challenge.name ).toLocaleUpperCase()}
         </Text>
-        <Text allowFontScaling={false} style={styles.description}>
+        <Text allowFontScaling={false} style={textStyles.description}>
           {i18n.t( "banner.challenge_progress" )}
         </Text>
-        <Text allowFontScaling={false} style={styles.view}>{i18n.t( "banner.challenge_view" )}</Text>
+        <Text allowFontScaling={false} style={textStyles.view}>{i18n.t( "banner.challenge_view" )}</Text>
       </View>
-      <View style={styles.progress}>
+      <View style={viewStyles.progress}>
         <PercentCircle challenge={challenge} />
       </View>
     </TouchableOpacity>

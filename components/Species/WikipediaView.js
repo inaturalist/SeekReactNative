@@ -11,7 +11,7 @@ import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
-import styles from "../../styles/species/wikipedia";
+import { viewStyles, textStyles } from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -35,15 +35,15 @@ const WikipediaView = ( { navigation, route }: Props ): React.Node => {
   const navBack = () => navigation.goBack();
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
-      <View style={styles.header}>
-        <Text style={styles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</Text>
-        <TouchableOpacity onPress={navBack} style={styles.back}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
+      <View style={viewStyles.header}>
+        <Text style={textStyles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</Text>
+        <TouchableOpacity onPress={navBack} style={viewStyles.back}>
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
       </View>
       <WebView startInLoadingState source={{ uri }} />
-      <View style={styles.bottom} />
+      <View style={viewStyles.bottom} />
     </SafeAreaView>
   );
 };

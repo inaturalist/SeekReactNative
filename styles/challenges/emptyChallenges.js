@@ -7,8 +7,18 @@ import {
   fonts
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
+  noChallengeContainer: {
+    paddingBottom: 49,
+    paddingTop: 24
+  }
+} );
+
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   lightText: {
     color: colors.errorGray,
     fontFamily: fonts.light,
@@ -17,10 +27,6 @@ export default StyleSheet.create( {
     marginTop: 10,
     textAlign: "center",
     width: 229
-  },
-  noChallengeContainer: {
-    paddingBottom: 49,
-    paddingTop: 24
   },
   noChallengeText: {
     color: colors.black,
@@ -31,3 +37,8 @@ export default StyleSheet.create( {
     width: 229
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

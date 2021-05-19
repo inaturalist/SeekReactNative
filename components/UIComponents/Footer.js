@@ -12,7 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import realmConfig from "../../models";
-import styles from "../../styles/uiComponents/footer";
+import { viewStyles, imageStyles } from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
@@ -59,14 +59,14 @@ const Footer = (): Node => {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={["right", "bottom", "left"]}>
-      <ImageBackground source={backgrounds.navBar} style={styles.container}>
-        <View style={[styles.navbar, styles.row]}>
+    <SafeAreaView style={viewStyles.safeArea} edges={["right", "bottom", "left"]}>
+      <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
+        <View style={[viewStyles.navbar, viewStyles.row]}>
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.menu" )}
             accessible
             onPress={navToDrawer}
-            style={styles.leftIcon}
+            style={viewStyles.leftIcon}
           >
             <Image source={icons.hamburger} />
           </TouchableOpacity>
@@ -74,26 +74,26 @@ const Footer = (): Node => {
             accessibilityLabel={i18n.t( "accessibility.camera" )}
             accessible
             onPress={() => navigation.navigate( "Camera" )}
-            style={styles.camera}
+            style={viewStyles.camera}
           >
-            <Image source={icons.cameraGreen} style={styles.cameraImage} />
+            <Image source={icons.cameraGreen} style={viewStyles.cameraImage} />
           </TouchableOpacity>
           {challenge ? (
             <TouchableOpacity
               accessibilityLabel={i18n.t( "accessibility.iNatStats" )}
               accessible
               onPress={() => navigation.navigate( "iNatStats" )}
-              style={styles.rightIcon}
+              style={viewStyles.rightIcon}
             >
               {/* $FlowFixMe */}
-              <Image source={logos.bird} tintColor={colors.seekForestGreen} style={styles.bird} />
+              <Image source={logos.bird} tintColor={colors.seekForestGreen} style={imageStyles.bird} />
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
               accessibilityLabel={i18n.t( "accessibility.notifications" )}
               accessible
               onPress={() => navigation.navigate( "Notifications" )}
-              style={styles.notificationPadding}
+              style={viewStyles.notificationPadding}
             >
               <Image source={notifications ? icons.notifications : icons.notificationsInactive} />
             </TouchableOpacity>

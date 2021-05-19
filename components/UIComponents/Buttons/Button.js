@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/buttons/button";
+import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/button";
 
 type Props = {
   +color?: ?Object,
@@ -30,15 +30,15 @@ const Button = ( {
   <TouchableOpacity
     onPress={() => handlePress()}
     style={[
-      styles.button,
-      styles.center,
-      large && styles.largeButton,
-      large && styles.extraPadding,
+      viewStyles.button,
+      viewStyles.center,
+      large && viewStyles.largeButton,
+      large && viewStyles.extraPadding,
       color && { backgroundColor: color },
-      login && styles.login
+      login && viewStyles.login
     ]}
   >
-    <Text style={[styles.buttonText, greenText && styles.greenText]}>
+    <Text style={[textStyles.buttonText, greenText && textStyles.greenText]}>
       {i18n.t( text ).toLocaleUpperCase()}
     </Text>
   </TouchableOpacity>

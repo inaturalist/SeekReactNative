@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import styles from "../../styles/uiComponents/footer";
+import { viewStyles } from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
@@ -19,14 +19,14 @@ type Props = {
 }
 
 const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ): React.Node => (
-  <SafeAreaView style={styles.safeArea} edges={["right", "bottom", "left"]}>
-    <ImageBackground source={backgrounds.navBar} style={styles.container}>
-      <View style={[styles.navbar, styles.row]}>
+  <SafeAreaView style={viewStyles.safeArea} edges={["right", "bottom", "left"]}>
+    <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
+      <View style={[viewStyles.navbar, viewStyles.row]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.menu" )}
           accessible
           onPress={() => setNavigationPath( "Drawer" )}
-          style={styles.leftIcon}
+          style={viewStyles.leftIcon}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
@@ -34,15 +34,15 @@ const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ): React.Node 
           accessibilityLabel={i18n.t( "accessibility.camera" )}
           accessible
           onPress={() => setNavigationPath( "Camera" )}
-          style={styles.camera}
+          style={viewStyles.camera}
         >
-          <Image source={icons.cameraGreen} style={styles.cameraImage} />
+          <Image source={icons.cameraGreen} style={viewStyles.cameraImage} />
         </TouchableOpacity>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.flag" )}
           accessible
           onPress={() => openFlagModal()}
-          style={styles.flagPadding}
+          style={viewStyles.flagPadding}
         >
           <Image source={icons.flag} />
         </TouchableOpacity>

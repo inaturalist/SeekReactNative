@@ -5,7 +5,7 @@ import * as React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/buttons/greenButton";
+import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/greenButton";
 
 type Props = {
   +color?: ?Object,
@@ -40,16 +40,16 @@ const GreenButton = ( {
     <TouchableOpacity
       onPress={handlePress}
       style={[
-        styles.greenButton, color
+        viewStyles.greenButton, color
         && { backgroundColor: color },
-        login && styles.loginHeight,
+        login && viewStyles.loginHeight,
         widthStyle
       ]}
       disabled={disabled}
       testID="greenButton"
     >
       <Text
-        style={[styles.buttonText, { letterSpacing }, { fontSize }]}
+        style={[textStyles.buttonText, { letterSpacing }, { fontSize }]}
         allowFontScaling={allowFontScaling}
       >
         {i18n.t( text ).toLocaleUpperCase()}

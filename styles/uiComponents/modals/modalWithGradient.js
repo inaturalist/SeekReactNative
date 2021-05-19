@@ -9,18 +9,12 @@ import {
 
 const fontScale = PixelRatio.getFontScale();
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
     marginLeft: 33,
     marginRight: 29
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
-    letterSpacing: 1.0,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    textAlign: "center"
   },
   container: {
     alignSelf: "center",
@@ -40,11 +34,6 @@ export default StyleSheet.create( {
     position: "absolute",
     right: 17.5,
     top: 45
-  },
-  grayButtonText: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 12
   },
   header: {
     borderTopLeftRadius: 40,
@@ -78,8 +67,27 @@ export default StyleSheet.create( {
   marginMedium: {
     marginTop: 32
   },
-  paddingSmall: {
-    paddingTop: 9
-  },
   row
 } );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: ( fontScale > 1 ) ? 16 : 18,
+    letterSpacing: 1.0,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
+    textAlign: "center"
+  },
+  grayButtonText: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 12,
+    paddingTop: 9
+  }
+} );
+
+export {
+  viewStyles,
+  textStyles
+};

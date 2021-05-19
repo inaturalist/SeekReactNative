@@ -12,7 +12,7 @@ import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import styles from "../../../styles/uiComponents/modals/modalWithGradient";
+import { viewStyles, textStyles } from "../../../styles/uiComponents/modals/modalWithGradient";
 import { colors } from "../../../styles/global";
 import iconicTaxa from "../../../assets/iconicTaxa";
 
@@ -33,39 +33,39 @@ const ModalWithGradient = ( {
   originalImage,
   displayDate
 }: Props ): React.Node => (
-  <View style={styles.container}>
+  <View style={viewStyles.container}>
     {/* $FlowFixMe */}
     <LinearGradient
       colors={[colors[`${color}GradientDark`], colors[`${color}GradientLight`]]}
-      style={styles.header}
+      style={viewStyles.header}
     >
-      <View style={[styles.headerTextContainer, styles.row]}>
-        <Text allowFontScaling={false} style={[styles.buttonText, styles.paddingSmall]}>
+      <View style={[viewStyles.headerTextContainer, viewStyles.row]}>
+        <Text allowFontScaling={false} style={textStyles.buttonText}>
           {color === "green"
             ? i18n.t( "replace_photo.header" ).toLocaleUpperCase()
             : i18n.t( "results.flag" ).toLocaleUpperCase()}
         </Text>
         <TouchableOpacity
           onPress={closeModal}
-          style={styles.backButton}
+          style={viewStyles.backButton}
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
       </View>
-      <View style={[styles.images, styles.row]}>
+      <View style={[viewStyles.images, viewStyles.row]}>
         <Image
           source={{ uri: userImage }}
-          style={styles.imageCell}
+          style={viewStyles.imageCell}
         />
         {color === "green" && (
           <ImageBackground
             source={iconicTaxa[1]} // for cases where uri exists but photo is blank
-            style={[styles.imageCell, styles.marginLeft]}
-            imageStyle={styles.imageCell}
+            style={[viewStyles.imageCell, viewStyles.marginLeft]}
+            imageStyle={viewStyles.imageCell}
           >
             <Image
               source={{ uri: originalImage }}
-              style={styles.imageCell}
+              style={viewStyles.imageCell}
             />
           </ImageBackground>
         )}
@@ -73,21 +73,21 @@ const ModalWithGradient = ( {
           {( color === "gray" && originalImage ) && (
             <Image
               source={{ uri: originalImage }}
-              style={[styles.imageCell, styles.marginLeft]}
+              style={[viewStyles.imageCell, viewStyles.marginLeft]}
             />
           )}
           {displayDate && (
-            <View style={styles.grayButton}>
-              <Text style={styles.grayButtonText}>{displayDate}</Text>
+            <View style={viewStyles.grayButton}>
+              <Text style={textStyles.grayButtonText}>{displayDate}</Text>
             </View>
           )}
         </View>
       </View>
     </LinearGradient>
-    <View style={styles.innerContainer}>
-      <View style={styles.marginLarge} />
+    <View style={viewStyles.innerContainer}>
+      <View style={viewStyles.marginLarge} />
       {children}
-      <View style={styles.marginMedium} />
+      <View style={viewStyles.marginMedium} />
     </View>
   </View>
 );

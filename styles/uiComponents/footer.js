@@ -4,13 +4,9 @@ import { StyleSheet, Platform } from "react-native";
 
 import { colors, row } from "../global";
 
-export default StyleSheet.create( {
-  bird: {
-    height: 33,
-    resizeMode: "contain",
-    tintColor: colors.seekForestGreen,
-    width: 37
-  },
+import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   camera: {
     marginBottom: Platform.OS === "android" ? 10 : 50,
     marginLeft: 8
@@ -50,3 +46,18 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   }
 } );
+
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  bird: {
+    height: 33,
+    resizeMode: "contain",
+    tintColor: colors.seekForestGreen,
+    width: 37
+  }
+} );
+
+export {
+  viewStyles,
+  imageStyles
+};

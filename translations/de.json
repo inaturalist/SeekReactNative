@@ -25,7 +25,7 @@
     "inat_admin": "iNat-Admins: Vielen Dank dafür, Seek zu testen! Du siehst zu Testzwecken die neueste iNat-Mission bereits vor Monatsbeginn."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "AUF INATURALIST POSTEN",
+    "post_to_inaturalist": "AN INATURALIST SENDEN",
     "uploading_x_observations": {
       "zero": "Lade {{count}} Beobachtungen hoch",
       "one": "Lade {{count}} Beobachtung hoch",
@@ -110,7 +110,7 @@
     "continue_no_log_in": "Mit der Anmeldung fortfahren",
     "terms": "Nutzungsbedingungen",
     "linked_account": "Du hast ein iNaturalist-Konto mit Seek verknüpft!",
-    "posting": "In iNaturalist veröffentlichen",
+    "posting": "An iNaturalist senden",
     "posting_details": "Du kannst Beobachtungen in Seek sofort nach dem Hinzufügen zu deinen Beobachtungen auch in iNaturalist veröffentlichen. Falls du Beobachtungen später in iNaturalist veröffentlichen möchtest, verwende bitte die iNaturalist-App oder die Website.",
     "observations": "Beobachtungen auf Gerät gespeichert",
     "observations_1": "Deine Beobachtungen in Seek werden nur auf deinem Gerät gespeichert und sind NICHT online gesichert.",
@@ -266,18 +266,6 @@
     "badge_name_october": "Süßwasser-Abzeichen",
     "badge_name_november": "Hochsee-Abzeichen",
     "badge_name_december": "Klima-Abzeichen"
-  },
-  "inat_stats": {
-    "global_observations": "Beobachtungen weltweit",
-    "naturalists_worldwide": "Naturbeobachter in aller Welt",
-    "seek_data": "Seek bezieht seine Daten von iNaturalist.",
-    "about_inat": "iNaturalist ist die weltweit größte Gemeinschaft von Naturbeobachtern. Die Benutzer laden Fotos von Arten in aller Welt hoch, und wir arbeiten gemeinschaftlich daran, sie zu identifizieren. Anhand dieser Daten lernt die Bestimmungs-Software, werden Kartendaten angezeigt, und in Seek Beobachtungen in deiner Nähe generiert.",
-    "contribute": "Möchtest du zu Citizen Science-Projekten gemeinsam mit einer weltweiten Community von Naturbeobachtern beitragen?",
-    "join": "Mit iNaturalist anmelden",
-    "by": "von",
-    "thanks": "Die iNaturalist-Community besteht aus Menschen wie Dir! Werde Mitglied der Community und fügen deine eigenen Beobachtungen unter inaturalist.org hinzu!",
-    "logged_in": "Du bist mit deinem iNaturalist-Konto in Seek eingeloggt. Vielen Dank, dass du Teil dieser Gemeinschaft bist!",
-    "sign_out": "Von iNaturalist abmelden"
   },
   "results": {
     "observed_species": "Du hast eine neue Art beobachtet!",
@@ -740,14 +728,6 @@
     "new": "Neues Foto verwenden",
     "old": "Altes Foto behalten"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "Wir denken, dass dir iNaturalist bestimmt gefallen wird.",
-    "text_1": "Vertiefe dein Wissen über die Lebewesen in deiner Umgebung",
-    "text_2": "werde Teil einer Gemeinschaft, die ebenso neugierig auf die Natur ist wie du",
-    "text_3": "Teile deine Beobachtungen mit der Gemeinschaft - du kannst sie sogar über Seek teilen!",
-    "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
-  },
   "social": {
     "share_observation": "Beobachtung teilen",
     "square": "Quadrat",
@@ -799,5 +779,52 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "DU HAST DIE {{sponsorName}}-MISSION FÜR {{date}} ABGESCHLOSSEN!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "DU BIST ANGEMELDET",
+    "welcome_back": "Willkommen zurück, {{username}}!",
+    "open_inaturalist": "INATURALIST ÖFFNEN",
+    "dive_deeper_with_inat": "Gehe mit iNaturalist den Dingen auf den Grund.",
+    "inat_value_prop_1": "Beobachtungen zwischen Geräten synchronisieren",
+    "inat_value_prop_2": "Präzise, standortbasierte Bestimmungsvorschläge erhalten",
+    "inat_value_prop_3": "Alle Beobachtungen an einem Ort hinzufügen, bearbeiten und verwalten",
+    "inat_value_prop_4": "Folgen anderen Benutzern und sehe, was deine Freunde beobachten",
+    "learn_more_about_inat": "Erfahre mehr über iNaturalist",
+    "get_started_by_downloading_inat": "Lade die iNaturalist-App herunter oder besuche inaturalist.org.\n\nHast du bereits ein iNaturalist Konto? Melde dich mit deinem bestehenden Konto auf Seek an!",
+    "we_think_youll_like_inat": "Wir denken, dass dir iNaturalist bestimmt gefallen wird.",
+    "logged_in": "Du bist mit deinem iNaturalist-Konto in Seek eingeloggt. Vielen Dank, dass du Teil dieser Gemeinschaft bist!",
+    "sign_out": "Von iNaturalist abmelden",
+    "log_in_to_post_observations": "Melde dich an, um deine Seek-Beobachtungen auf iNaturalist zu veröffentlichen!",
+    "log_in_with_inat": "MIT INATURALIST ANMELDEN",
+    "use_inat_to": "MIT INATURALIST KANNST DU:",
+    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_is_an_online_community": "iNaturalist ist eine Online-Community für Naturbeobachter",
+    "inat_bullet_1": "iNaturalist Beobachtungen sind öffentlich und tragen zur Wissenschaft bei",
+    "inat_bullet_2": "Jede Beobachtung enthält deinen Benutzernamen, Datum und Ort der Beobachtung",
+    "inat_bullet_3": "Die iNaturalist-Gemeinschaft hilft dabei, Beobachtungen zu identifizieren und zu bestätigen",
+    "seek_is_an_id_app": "Seek ist eine ID-App, die dabei hilft, die Arten um dich herum kennenzulernen",
+    "seek_bullet_1": "Seek-Beobachtungen bleiben auf deinem Handy",
+    "seek_bullet_2": "Es werden keine persönlich identifizierbare Daten von abgemeldeten Benutzern gesammelt",
+    "seek_bullet_3": "Bestimmungen verlassen dein Gerät nicht und benötigen kein Internet, werden aber von der iNaturalist-Community nicht bestätigt",
+    "your_obs_could_make_difference": "DEINE BEOBACHTUNGEN KÖNNTEN VON BEDEUTUNG SEIN",
+    "everyday_obs_help_scientists": "Alltägliche Beobachtungen von Naturbeobachtern wie dir können Wissenschaftlern helfen, zu erfahren, wo und wann Organismen gefunden werden, und sogar zu neuen Entdeckungen führen!",
+    "faqs": "FAQs (Häufig gestellte Fragen)",
+    "faq_1": "Du musst 13+ sein oder die Erlaubnis eines Elternteils haben, um ein iNaturalist-Konto zu erstellen",
+    "faq_2": "Seek und iNaturalist verwenden dasselbe Identifikationsmodell, aber nur iNaturalist-Beobachtungen werden von der Gemeinschaft bestätigt",
+    "logged_in_as": "ANGEMELDET ALS",
+    "x_observations_posted_to_inat": {
+      "zero": "{{count}} Beobachtungen an iNaturalist mittels Seek gemeldet",
+      "one": "{{count}} Beobachtung an iNaturalist mittels Seek gemeldet",
+      "two": "{{count}} Beobachtungen an iNaturalist mittels Seek gemeldet",
+      "few": "{{count}} Beobachtungen an iNaturalist mittels Seek gemeldet",
+      "many": "{{count}} Beobachtungen an iNaturalist mittels Seek gemeldet",
+      "other": "{{count}} Beobachtungen an iNaturalist mittels Seek gemeldet"
+    },
+    "logged_in_bullet_1": "Du kannst Beobachtungen auf iNaturalist melden, indem du auf 'An iNaturalist senden' klickst, nachdem du eine Seek-Beobachtung gemacht hast",
+    "logged_in_bullet_2": "Verwende die iNaturalist-App oder die Website, um Benachrichtigungen über Identifikationen, Kommentare und andere Aktivitäten zu deinen Beobachtungen zu erhalten",
+    "logged_in_bullet_3": "Deine Seek-Beobachtungen sind NICHT über iNaturalist gesichert. Das Löschen von Seek löscht alle Beobachtungen auf deinem Gerät.",
+    "upload_and_track_obs_using_inat": "Hochladen und verfolgen deiner Beobachtungen mit der iNaturalist-App oder über inaturalist.org.\n\nDanke, dass du Teil dieser Gemeinschaft bist!",
+    "x_seen_by_user": "{{speciesName}} beobachtet von {{user}}"
   }
 }

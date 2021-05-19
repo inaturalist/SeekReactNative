@@ -25,7 +25,7 @@
     "inat_admin": "Administradors d'iNat: Gràcies per posar a prova Seek! Esteu veient el darrer repte abans de començament de més amb la finalitat de provar-lo."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "PUBLICAR A INATURALIST",
+    "post_to_inaturalist": "ENVIA A INATURALIST",
     "uploading_x_observations": {
       "zero": "Pujant {{count}} observacions",
       "one": "Pujant {{count}} observació",
@@ -61,7 +61,7 @@
       "other": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en {{count}} hores."
     },
     "error_unknown": "Errada en la pujada. Detalls de l'errada: {{errorText}}",
-    "error_login": "Errada en iniciar la sessió. Inicia la en sessió en el teu compte a Seek per a iNaturalist o des de la pantalla Objectius aconseguits abans de provar-ho de nou.",
+    "error_login": "Errada en iniciar la sessió. Inicia la sessió en el teu compte de Seek des de la d'iNaturalist o des de la pantalla Objectius aconseguits, abans de provar-ho de nou.",
     "error_photo": "La foto ja no és accessible des del dispositiu.",
     "error_downtime_a_few_hours": "El servidor d'iNaturalist està en manteniment- Si us plau, torna a provar-ho en unes hores."
   },
@@ -80,7 +80,7 @@
   "login": {
     "log_in": "Entra amb iNaturalist",
     "sign_up": "Registra't a iNaturalist",
-    "about": " Entrant amb iNaturalis, podeu enviar observacions a la la comunitat en línia a través de Seek.",
+    "about": " Entrant amb iNaturalist, pots enviar observacions a la comunitat en línia a través de Seek.",
     "skip_login": "Continua sense registrar-te",
     "error_email": "Si us plau, introdueix una adreça vàlida de correu electrònic",
     "error_credentials": "Nom d'usuari o contrasenya incorrectes",
@@ -110,7 +110,7 @@
     "continue_no_log_in": "Continua sense registrar-te",
     "terms": "Condicions del servei",
     "linked_account": "Has enllaçat un compte d'iNaturalist a Seek!",
-    "posting": "Envia a iNaturalist",
+    "posting": "Enviant a iNaturalist",
     "posting_details": "Pots enviar les observacions fetes amb Seek a iNaturalist immediatament després d'haver-les afegit a les teves observacions. Si les vols enviar a iNaturalist després, utilitza l'App d'iNaturalist o el lloc web.",
     "observations": "Observacions guardades en el dispositiu",
     "observations_1": "Les teves observacions de Seek es guarden en el teu dispositiu i NO s'envien online.",
@@ -266,18 +266,6 @@
     "badge_name_october": "Insígnia d'Aigües Continentals",
     "badge_name_november": "Insígnia d'Alta Mar",
     "badge_name_december": "Insígnia Climàtica"
-  },
-  "inat_stats": {
-    "global_observations": "Observacions globals",
-    "naturalists_worldwide": "Naturalistes a tot el Mon",
-    "seek_data": "Seek obté les teves dades d'iNaturalist.",
-    "about_inat": "iNaturalist és la major comunitat de naturalistes del món. Els usuaris carreguen fotografies d’organismes de tot el món i la comunitat col·labora conjuntament per identificar-les. Aquestes observacions són les que fem servir per entrenar el nostre model d’identificació, mostrar mapes de distribució i generar les observacions properes que es mostren a Seek.",
-    "contribute": "Estàs interessat a contribuir a la ciència ciutadana des d'una comunitat global de naturalistes?",
-    "join": "Entra amb iNaturalist",
-    "by": "per",
-    "thanks": "La comunitat d'iNaturalist està formada per persones com tu! Uneix-te a la comunitat i afegeix les teves observacions a inaturalist.org!",
-    "logged_in": "Heu entrat a Seek amb el vostre compte d'iNaturalist. Gràcies per formar part d'aquesta comunitat!",
-    "sign_out": "Sortir d'iNaturalist"
   },
   "results": {
     "observed_species": "Has observat una nova espècie!",
@@ -598,9 +586,9 @@
   "posting_help": {
     "header": "Ajut per publicar",
     "identification": "Identificació d’espècie",
-    "id_description": "A mesura que carregues la teva observació, podras identificar l’espècie des dels tàxons que en els quals tingueu més confiança, d’una classe com la els rèptils fins a una espècie, com el Pardal. Després que publiquis la teva observació a iNaturalist, la nostra comunitat t'ajudarà a identificar l’espècie.\n\nTambé pots afegir notes opcionals a la teva observació aquí.",
+    "id_description": "A mesura que carregues la teva observació, podràs identificar l’espècie des dels tàxons en els quals tingueu més confiança, des d’una classe, com la dels rèptils, fins a una espècie, com el Pardal. Després de publicar la teva observació a iNaturalist, la nostra comunitat t'ajudarà a identificar l’espècie.\n\nTambé pots afegir notes opcionals a la teva observació aquí.",
     "date": "Data i ubicació",
-    "date_description": "Cada observació d'iNaturalist està associada a una data i u lloc determinats. D’aquesta manera, podem veure clarament una imatge global d'allò que està fent una espècie a tot el món al llarg del temps.",
+    "date_description": "Cada observació d'iNaturalist està associada a una data i un lloc determinats. D’aquesta manera, podem veure clarament una imatge global d'allò que està fent una espècie a tot el món al llarg del temps.",
     "geoprivacy": "Geoprivadesa",
     "open_header": "Obert: ",
     "obscured_header": "Difosa: ",
@@ -740,14 +728,6 @@
     "new": "Utilitzar la nova foto",
     "old": "Mantenir la foto anterior"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "Creiem que us agradarà iNaturalist.",
-    "text_1": "aprofundeix en l'aprenentatge sobre els organismes del teu voltant",
-    "text_2": "forma part d'una comunitat que és tan curiosa sobre la natura com tu",
-    "text_3": "comparteix observacions amb la comunitat, i fins i tot comparteix les observacions a través de Seek!",
-    "download": "Comença descarregant l'aplicació d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!"
-  },
   "social": {
     "share_observation": "Compartir observació",
     "square": "Quadrat",
@@ -799,5 +779,52 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "HAS COMPLETAT EL REPTE DE {{sponsorName}} PER {{date}}!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "ESTAS DINS",
+    "welcome_back": "Benvingut de nou, {{username}}!",
+    "open_inaturalist": "OBRIR INATURALIST",
+    "dive_deeper_with_inat": "Aprofundir més amb iNaturalist",
+    "inat_value_prop_1": "Sincronitzar les teves observacions entre dispositius",
+    "inat_value_prop_2": "Obtenir suggeriments d'identificació acurats basats en la ubicació",
+    "inat_value_prop_3": "Afegir, editar i gestionar totes les teves observacions des d'un únic lloc",
+    "inat_value_prop_4": "Segueix persones i descobreix què estan observant els teus amics",
+    "learn_more_about_inat": "Coneix més sobre iNaturalist",
+    "get_started_by_downloading_inat": "Comença descarregant l'App d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!",
+    "we_think_youll_like_inat": "Creiem que t'agradarà iNaturalist.",
+    "logged_in": "Has entrat a Seek amb el teu compte d'iNaturalist. Gràcies per formar part d'aquesta comunitat!",
+    "sign_out": "Surt d'iNaturalist",
+    "log_in_to_post_observations": "Entra per enviar les teves observacions de Seek a iNaturalist!",
+    "log_in_with_inat": "ENTRA AMB INATURALIST",
+    "use_inat_to": "UTILITZA INATURALIST PER A:",
+    "inat_vs_seek": "INATURALIST RESPECTE A SEEK",
+    "inat_is_an_online_community": "iNaturalist és una comunitat online per a naturalistes",
+    "inat_bullet_1": "Les observacions d'iNaturalist són públiques i ajuden al desenvolupament de la ciència",
+    "inat_bullet_2": "Cada observació inclou el teu nom d'usuari, la data i localització de les observacions",
+    "inat_bullet_3": "La comunitat d'iNaturalist ajuda a identificar i confirmar observacions",
+    "seek_is_an_id_app": "Seek és una aplicació d'identificació que ajuda tothom a aprendre sobre les espècies del seu entorn",
+    "seek_bullet_1": "Les observacions de Seek es queden al teu dispositiu",
+    "seek_bullet_2": "No es recull informació identificable dels usuaris desconnectats",
+    "seek_bullet_3": "Les identificacions no abandonen el teu dispositiu ni necessiten internet per a funcionar, però tampoc són confirmades per la comunitat d'iNaturalist",
+    "your_obs_could_make_difference": "LA TEVA OBSERVACIÓ POT MARCAR LA DIFERÈNCIA",
+    "everyday_obs_help_scientists": "Cada dia, les observacions fetes per naturalistes com tu ajuden els científics a aprendre sobre on i quan es poden trobar els organismes, i fins i tot en duen a nous descobriments!",
+    "faqs": "FAQS (Preguntes freqüents)",
+    "faq_1": "Has de tenir més de 13 anys per crear un compte a iNaturalist o tenir el permís dels teus pares o tutors",
+    "faq_2": "Seek i iNaturalist utilitzen el mateix model d'identificació, però només les observacions d'iNaturalist són confirmades per la comunitat",
+    "logged_in_as": "HAS ENTRAT COM",
+    "x_observations_posted_to_inat": {
+      "zero": "{{count}} observacions enviades a iNaturalist des de Seek",
+      "one": "{{count}} observació enviada a iNaturalist des de Seek",
+      "two": "{{count}} observacions enviades a iNaturalist des de Seek",
+      "few": "{{count}} observacions enviades a iNaturalist des de Seek",
+      "many": "{{count}} observacions enviades a iNaturalist des de Seek",
+      "other": "{{count}} observacions enviades a iNaturalist des de Seek"
+    },
+    "logged_in_bullet_1": "Pots enviar les observacions a iNaturalist prement a \"Envia a iNaturalist\" després de fer l'observació a Seek",
+    "logged_in_bullet_2": "Utilitza l'App iNaturalist o el seu lloc web per veure notificacions d'identificacions, comentaris o altres activitats de les teves observacions",
+    "logged_in_bullet_3": "Les teves observacions NO es copien a iNaturalist. Si esborres Seek esborraràs totes les observacions del teu dispositiu.",
+    "upload_and_track_obs_using_inat": "Puja i manté el registre de les teves observacions utilitzant l'App d'iNaturalist o visitant inaturalist.org.\n\nGràcies per formar part d'aquesta comunitat!",
+    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
   }
 }

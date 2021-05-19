@@ -267,18 +267,6 @@
     "badge_name_november": "Öppna havet-utmärkelse",
     "badge_name_december": "Klimatutmärkelse"
   },
-  "inat_stats": {
-    "global_observations": "Globala fynd",
-    "naturalists_worldwide": "Naturforskare i världen",
-    "seek_data": "Sök hämtar data från iNaturalist.",
-    "about_inat": "iNaturalist är den största communityn för naturforskare i världen. Användare laddar upp bilder av organismer från hela världen, och vår community jobbar tillsammans för att artbestämma dem. Dessa fynd är de vi använder för att träna vår artbestämningsmodell, visa kartor och generera fynd i närheten i Seek.",
-    "contribute": "Intresserad av att bidra till medborgarvetenskap i en global community av naturforskare?",
-    "join": "Logga in med iNaturalist",
-    "by": "av",
-    "thanks": "iNaturalist-communityn utgörs av människor som du! Gå med i communityn och lägg till dina egna fynd på inaturalist.org!",
-    "logged_in": "Du är inloggad på Seek med ditt iNaturalist-konto. Tack för att du är en del av denna community!",
-    "sign_out": "Logga ut från iNaturalist"
-  },
   "results": {
     "observed_species": "Du observerade en ny art!",
     "learn_more": "Det har lagts till i dina fynd.\nLäs mer om denna art här:",
@@ -310,7 +298,7 @@
     "error_location": "För att lägga till arter till dina fynd, måste du aktivera din plats. Seek använder din plats för att påminna dig om var du såg en organism, och för att kunna bidra till medborgarforskning om du lägger upp på iNaturalist.",
     "error_downtime_plural": {
       "zero": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
-      "one": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timme.",
+      "one": "Tjänsten tillfälligt otillgänglig. Försök igen om {{count}} timme.",
       "two": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
       "few": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
       "many": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
@@ -740,14 +728,6 @@
     "new": "Använd ny bild",
     "old": "Behåll gammal bild"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "Vi tror att du kommer att gilla iNaturalist.",
-    "text_1": "gör en djupdykning och lär dig om organismerna omkring dig",
-    "text_2": "vara en del av en community som är lika nyfiken på naturen som du",
-    "text_3": "dela fynd med communityn, och t.o.m. dela fynd via Seek!",
-    "download": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.org.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!"
-  },
   "social": {
     "share_observation": "Dela fynd",
     "square": "Fyrkant",
@@ -799,5 +779,52 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "DU AVSLUTADE {{sponsorName}}-UTMANINGEN FÖR {{date}}!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "DU ÄR INLOGGAD",
+    "welcome_back": "Välkommen tillbaka, {{username}}!",
+    "open_inaturalist": "ÖPPNA INATURALIST",
+    "dive_deeper_with_inat": "Dyk djupare med iNaturalist.",
+    "inat_value_prop_1": "Synkronisera dina fynd mellan enheter",
+    "inat_value_prop_2": "Få precisa, platsbaserade bestämningsförslag",
+    "inat_value_prop_3": "Lägg till, redigera och hantera alla dina fynd på ett ställe",
+    "inat_value_prop_4": "Följ användare och se vad dina vänner observerar",
+    "learn_more_about_inat": "Läs mer om iNaturalist",
+    "get_started_by_downloading_inat": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.se.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!",
+    "we_think_youll_like_inat": "Vi tror att du kommer att gilla iNaturalist.",
+    "logged_in": "Du är inloggad i Seek med ditt iNaturalist-konto. Tack för att du är en del av denna community!",
+    "sign_out": "Logga ut från iNaturalist",
+    "log_in_to_post_observations": "Logga in för att lägga upp dina Seek-fynd på iNaturalist!",
+    "log_in_with_inat": "LOGGA IN MED INATURALIST",
+    "use_inat_to": "ANVÄND INATURALIST FÖR ATT:",
+    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_is_an_online_community": "iNaturalist är en online-community för naturforskare",
+    "inat_bullet_1": "iNaturalist-fynd är offentliga och bidrar till vetenskapen",
+    "inat_bullet_2": "Varje fynd inkluderar ditt användarnamn, datum och fyndplats",
+    "inat_bullet_3": "iNaturalist-communityn hjälps åt att bestämma och bekräfta fynd",
+    "seek_is_an_id_app": "Seek är en artbestämningsapp som hjälper alla att lära sig om arterna omkring dem",
+    "seek_bullet_1": "Seek-fynd stannar på din enhet",
+    "seek_bullet_2": "Ingen personligt spårbar information samlas in från utloggade användare",
+    "seek_bullet_3": "Bestämningar lämnar inte din enhet eller kräver internet för att fungera, men bekräftas heller inte av iNaturalist-communityn",
+    "your_obs_could_make_difference": "DITT FYND KAN GÖRA SKILLNAD",
+    "everyday_obs_help_scientists": "Vardagliga fynd gjorda av naturforskare som du kan hjälpa forskare att lära sig om var och när organismer finns, och t.o.m. leda till nya upptäckter!",
+    "faqs": "Vanliga frågor",
+    "faq_1": "Du måste vara 13+ eller ha en förälders tillstånd för att skapa ett iNaturalist-konto",
+    "faq_2": "Seek och iNaturalist använder samma bestämningsmodell, men endast iNaturalist-fynd bekräftas av communityn",
+    "logged_in_as": "INLOGGAD SOM",
+    "x_observations_posted_to_inat": {
+      "zero": "{{count}} fynd postade till iNaturalist med Seek",
+      "one": "{{count}} fynd postade till iNaturalist med Seek",
+      "two": "{{count}} fynd postade till iNaturalist med Seek",
+      "few": "{{count}} fynd postade till iNaturalist med Seek",
+      "many": "{{count}} fynd postade till iNaturalist med Seek",
+      "other": "{{count}} fynd postade till iNaturalist med Seek"
+    },
+    "logged_in_bullet_1": "Du kan lägga upp fynd till iNaturalist genom att klicka på \"Lägg upp till iNaturalist\" när  du gjort ett Seek-fynd",
+    "logged_in_bullet_2": "Använd iNaturalist-appen eller -webbplatsen för att se aviseringar om bestämningar, kommentarer och annan aktivitet på dina fynd",
+    "logged_in_bullet_3": "Dina Seek-fynd är INTE säkerhetskopierade till iNaturalist. Tar du bort Seek kommer alla fynd på din enhet att raderas.",
+    "upload_and_track_obs_using_inat": "Ladda upp och håll koll på dina fynd med iNaturalist-appen eller besök inaturalist.se.\n\nTack för att du är en del av denna community!",
+    "x_seen_by_user": "{{speciesName}} sedd av {{user}}"
   }
 }

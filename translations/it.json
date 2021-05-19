@@ -267,18 +267,6 @@
     "badge_name_november": "Distintivo Alto Mare",
     "badge_name_december": "Distintivo Clima"
   },
-  "inat_stats": {
-    "global_observations": "Osservazioni Totali",
-    "naturalists_worldwide": "Naturalisti In Tutto il Mondo",
-    "seek_data": "Seek ottiene i suoi dati da iNaturalist.",
-    "about_inat": "iNaturalist è la più grande comunità di naturalisti del mondo. Gli utenti caricano foto di organismi in tutto il globo e la nostra comunità lavora insieme per identificarli. Queste osservazioni sono quelle che usiamo per allenare il nostro modello di identificazione, visualizzare le mappe degli areali e generare le osservazioni nelle vicinanze in Seek.",
-    "contribute": "Interessato a contribuire alla Scienza dei Cittadini insieme una comunità di naturalisti mondiale?",
-    "join": "Accedi con iNaturalist",
-    "by": "da",
-    "thanks": "La comunità iNaturalist è composta da persone come te! Unisciti alla comunità e aggiungi le tue osservazioni su iNaturalist.org!",
-    "logged_in": "Hai effettuato l'accesso in Seek con il tuo account iNaturalist. Grazie per far parte di questa comunità!",
-    "sign_out": "Esci da iNaturalist"
-  },
   "results": {
     "observed_species": "Hai osservato una nuova specie!",
     "learn_more": "È stata aggiunta alle tue osservazioni.\nUlteriori informazioni su questa specie qui:",
@@ -740,14 +728,6 @@
     "new": "Usa la nuova foto",
     "old": "Mantieni la foto vecchia"
   },
-  "inat_card": {
-    "header": "iNaturalist",
-    "header_1": "Pensiamo che ti piacerà davvero iNaturalist.",
-    "text_1": "immergetevi più a fondo nella conoscenza degli organismi che vi circondano",
-    "text_2": "diventa parte di una comunità che è curiosa come te verso la natura",
-    "text_3": "condividi le osservazioni con la comunità, e condividi anche le osservazioni attraverso Seek!",
-    "download": "Inizia scaricando l'app iNaturalist o visitando inaturalist.org.\n\nHai già un account iNaturalist? Accedi in Seek con il tuo account esistente!"
-  },
   "social": {
     "share_observation": "Condividi osservazione",
     "square": "Quadrato",
@@ -799,5 +779,52 @@
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "Hai COMPLETATO LA SFIDA {{sponsorName}} PER {{date}}!"
+  },
+  "about_inat": {
+    "inaturalist": "INATURALIST",
+    "you_are_logged_in": "HAI EFFETTUATO L'ACCESSO",
+    "welcome_back": "Bentornato, {{username}}!",
+    "open_inaturalist": "APRI INATURALIST",
+    "dive_deeper_with_inat": "Immergiti più in profondità con iNaturalist.",
+    "inat_value_prop_1": "Sincronizza le tue osservazioni su più dispositivi",
+    "inat_value_prop_2": "Ottieni suggerimenti di identificazione accurati e basati sulla posizione",
+    "inat_value_prop_3": "Aggiungi, modifica e gestisci tutte le tue osservazioni in un unico posto",
+    "inat_value_prop_4": "Segui le persone e vedi cosa stanno osservando i tuoi amici",
+    "learn_more_about_inat": "Scopri di più su iNaturalist",
+    "get_started_by_downloading_inat": "Inizia scaricando l'app iNaturalist o visitando inaturalist.org.\n\nHai già un account iNaturalist? Accedi a Seek con il tuo account esistente!",
+    "we_think_youll_like_inat": "Pensiamo che ti piacerà davvero iNaturalist.",
+    "logged_in": "Hai effettuato l'accesso in Seek con il tuo account iNaturalist. Grazie per far parte di questa comunità!",
+    "sign_out": "Esci da iNaturalist",
+    "log_in_to_post_observations": "Accedi per pubblicare le tue osservazioni di Seek su iNaturalist!",
+    "log_in_with_inat": "ACCEDI CON INATURALIST",
+    "use_inat_to": "USA NATURALIST PER:",
+    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_is_an_online_community": "iNaturalist è una comunità online per naturalisti",
+    "inat_bullet_1": "Le osservazioni iNaturalist sono pubbliche e contribuiscono alla scienza",
+    "inat_bullet_2": "Ogni osservazione include il tuo nome utente, la data e la posizione dell'osservazione",
+    "inat_bullet_3": "La comunità iNaturalist aiuta a identificare e confermare le osservazioni",
+    "seek_is_an_id_app": "Seek è un'app d'identificazione che aiuta chiunque a conoscere le specie che li circondano",
+    "seek_bullet_1": "Le osservazioni di Seek rimangono sul tuo dispositivo",
+    "seek_bullet_2": "Nessuna informazione personalmente identificabile è raccolta da utenti registrati",
+    "seek_bullet_3": "Le identificazioni non lasciano il tuo dispositivo o richiedono internet per funzionare, ma non sono confermate dalla comunità iNaturalist",
+    "your_obs_could_make_difference": "LA TUA OSSERVAZIONE PUÒ FARE LA DIFFERENZA",
+    "everyday_obs_help_scientists": "Ogni giorno le osservazioni fatte dai naturalisti come voi possono aiutare gli scienziati a conoscere dove e quando gli organismi sono trovati, e anche portare a nuove scoperte!",
+    "faqs": "FAQ",
+    "faq_1": "Devi avere più di 13 anni o avere il permesso di un genitore per creare un account iNaturalist",
+    "faq_2": "Seek e iNaturalist usano lo stesso modello di identificazione, ma solo le osservazioni iNaturalist sono confermate dalla comunità",
+    "logged_in_as": "ACCESSO EFFETTUATO COME",
+    "x_observations_posted_to_inat": {
+      "zero": "{{count}} osservazioni caricate su iNaturalist con Seek",
+      "one": "{{count}} osservazione caricata su iNaturalist con Seek",
+      "two": "{{count}} osservazioni caricate su iNaturalist con Seek",
+      "few": "{{count}} osservazioni caricate su iNaturalist con Seek",
+      "many": "{{count}} osservazioni caricate su iNaturalist con Seek",
+      "other": "{{count}} osservazioni caricate su iNaturalist con Seek"
+    },
+    "logged_in_bullet_1": "È possibile pubblicare le osservazioni su iNaturalist facendo clic su \"Pubblica su iNaturalist\" dopo aver effettuato un'osservazione con Seek",
+    "logged_in_bullet_2": "Usa l'app iNaturalist o il sito web per visualizzare le notifiche di identificazioni, commenti e altre attività sulle tue osservazioni",
+    "logged_in_bullet_3": "Le tue osservazioni di Seek NON sono salvate su iNaturalist. L'eliminazione di Seek cancellerà tutte le osservazioni sul tuo dispositivo.",
+    "upload_and_track_obs_using_inat": "Carica e tieni traccia delle tue osservazioni utilizzando l'app iNaturalist o visitando inaturalist.org.\n\nGrazie per essere parte di questa community!",
+    "x_seen_by_user": "{{speciesName}} visto da {{user}}"
   }
 }

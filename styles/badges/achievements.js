@@ -44,6 +44,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingBottom: 26,
     paddingTop: 25,
     width: 167
+  },
+  loginCardMargin: {
+    marginTop: 32
   }
 } );
 

@@ -9,7 +9,7 @@ import GreenText from "../../UIComponents/GreenText";
 import i18n from "../../../i18n";
 import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
 import INatValueProps from "../../iNaturalist/iNatValueProps";
-import INatLogin from "../../iNaturalist/iNatLogin";
+import INatLogin from "../../UIComponents/Login/iNatLogin";
 import AppIconSubHeader from "../../iNaturalist/AppIconSubHeader";
 
 const INatCardLoggedOut = ( ): React.Node => {

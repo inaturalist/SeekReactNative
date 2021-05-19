@@ -4,9 +4,9 @@ import * as React from "react";
 import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { textStyles } from "../../styles/iNaturalist/iNatStats";
-import i18n from "../../i18n";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
+import { textStyles } from "../../../styles/iNaturalist/iNatStats";
+import i18n from "../../../i18n";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
 
 const INatLogIn = ( ): React.Node => {
   const navigation = useNavigation( );

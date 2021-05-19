@@ -9,18 +9,17 @@ import i18n from "../../i18n";
 import GreenText from "../UIComponents/GreenText";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import INatPhotos from "./iNatPhotos";
-import INatLogin from "./iNatLogin";
-import INatSignOut from "./iNatSignOut";
 import BulletedList from "./BulletedList";
 import { UserContext } from "../UserContext";
 import AppIconSubHeader from "./AppIconSubHeader";
 import INatHeaderLoggedOut from "./iNatHeaderLoggedOut";
 import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
+import LoginCard from "../UIComponents/Login/LoginCard";
 
 const INatDetails = ( ): Node => {
   const { login } = useContext( UserContext );
 
- return (
+  return (
     <ScrollWithHeader header="about_inat.inaturalist">
       {login ? <INatHeaderLoggedIn /> : <INatHeaderLoggedOut />}
       <View style={viewStyles.textContainer}>
@@ -50,7 +49,7 @@ const INatDetails = ( ): Node => {
         <GreenText text="about_inat.faqs" />
         <BulletedList text="about_inat.faq_1" />
         <BulletedList text="about_inat.faq_2" />
-        {login ? <INatSignOut /> : <INatLogin />}
+        <LoginCard />
       </View>
     </ScrollWithHeader>
   );

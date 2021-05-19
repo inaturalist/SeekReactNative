@@ -12,7 +12,7 @@ import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import GreenText from "../UIComponents/GreenText";
-import LoginCard from "../UIComponents/LoginCard";
+import LoginCard from "../UIComponents/Login/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
 import { localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
@@ -47,6 +47,7 @@ const AchievementsScreen = ( ): Node => {
         {renderStats( false, "badges.observed", state.speciesCount )}
         {renderStats( true, "badges.earned", state.badgesEarned )}
       </View>
+      <View style={viewStyles.loginCardMargin} />
       <LoginCard />
     </View>
   );

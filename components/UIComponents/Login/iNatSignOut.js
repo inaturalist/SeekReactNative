@@ -4,11 +4,11 @@ import React, { useContext } from "react";
 import { Text } from "react-native";
 import type { Node } from "react";
 
-import { textStyles } from "../../styles/iNaturalist/iNatStats";
-import i18n from "../../i18n";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { removeAccessToken } from "../../utility/loginHelpers";
-import { UserContext } from "../UserContext";
+import { textStyles } from "../../../styles/iNaturalist/iNatStats";
+import i18n from "../../../i18n";
+import GreenButton from "../Buttons/GreenButton";
+import { removeAccessToken } from "../../../utility/loginHelpers";
+import { UserContext } from "../../UserContext";
 
 const INatSignOut = ( ): Node => {
   const { updateLogin } = useContext( UserContext );

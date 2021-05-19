@@ -20,7 +20,7 @@ const ProfileImageAndLogin = ( ): React.Node => {
   return (
     <View style={[viewStyles.row, viewStyles.center]}>
       <Image source={userProfile.icon} />
-      {/* <Image source={logos.iNatBadge} /> */}
+      <Image source={logos.iNatBadge} />
       <View style={viewStyles.linearGradientTextContainer}>
         <Text style={[textStyles.lightText, name !== "Home" && textStyles.whiteText]}>
           {name === "Home"

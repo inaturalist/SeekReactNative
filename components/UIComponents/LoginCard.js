@@ -33,14 +33,14 @@ const LoginCard = (): React.Node => {
               {name === "Achievements" ? (
                 <Text style={viewStyles.loginText}>
                   {user.login
-                    ? i18n.t( "inat_stats.logged_in" )
+                    ? i18n.t( "about_inat.logged_in" )
                     : i18n.t( "badges.login" )}
                 </Text>
               ) : (
                 <Text style={textStyles.italicText}>
                   {user.login
-                    ? i18n.t( "inat_stats.logged_in" )
-                    : i18n.t( "inat_stats.thanks" )}
+                    ? i18n.t( "about_inat.logged_in" )
+                    : i18n.t( "about_inat.thanks" )}
                 </Text>
               )}
             </>
@@ -56,8 +56,8 @@ const LoginCard = (): React.Node => {
                 }
               }}
               text={user.login
-                ? "inat_stats.sign_out"
-                : "inat_stats.join"}
+                ? "about_inat.sign_out"
+                : "about_inat.log_in_with_inat"}
             />
           )}
         </View>

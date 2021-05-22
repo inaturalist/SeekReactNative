@@ -169,7 +169,6 @@ const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   const newFile = `${dirPictures}/${timestamp}`;
 
   const imageMoved = await movePhotoToAppStorage( oldFile, newFile );
-  writeToDebugLog( `${imageMoved.toString()}: image moved to new location` );
 
   if ( imageMoved ) {
     realm.write( () => {
@@ -213,7 +212,6 @@ const updateRealmThumbnails = () => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
-      writeToDebugLog( `${databasePhotos.map( photo => photo.backupUri )}: all backups in realm` );
       // check out backup names in realm
 
       const duplicates = findDuplicates( backups );
@@ -247,7 +245,6 @@ const checkForDirectory = async ( dir: string ): Promise<boolean> => {
 const moveAndroidFilesToInternalStorage = async () => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const dirExists = await checkForDirectory( oldAndroidDir );
-  writeToDebugLog( `${dirExists.toString()}: does /Seek/Pictures still exist` );
 
   if ( dirExists ) {
     const permission = await checkSavePermissions();
@@ -279,19 +276,17 @@ const createNewBackup = async ( realm, photo ) => {
   }
 };
 
-const debugAndroidDirectories = () => {
-  const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+// const debugAndroidDirectories = () => {
+//   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
 
-  RNFS.readDir( oldAndroidDir ).then( ( results ) => {
-    const path = results.map( ( file => file.path ) );
-    writeToDebugLog( `${path.toString()}: filepaths still in /Seek/Pictures` );
-  } ).catch( ( e ) => writeToDebugLog( `${e}: error opening /Seek/Pictures` ) );
+//   RNFS.readDir( oldAndroidDir ).then( ( results ) => {
+//     // results.map( ( file => file.path ) );
+//   } ).catch( ( e ) => writeToDebugLog( `${e}: error opening /Seek/Pictures` ) );
 
-  RNFS.readDir( dirPictures ).then( ( results ) => {
-    const path = results.map( ( file => file.path ) );
-    writeToDebugLog( `${path.toString()}: filepaths in SeekPictures` );
-  } ).catch( ( e ) => writeToDebugLog( `${e}: error opening SeekPictures` ) );
-};
+//   RNFS.readDir( dirPictures ).then( ( results ) => {
+//     // const path = results.map( ( file => file.path ) );
+//   } ).catch( ( e ) => writeToDebugLog( `${e}: error opening SeekPictures` ) );
+// };
 
 const regenerateBackupUris = async () => {
   Realm.open( realmConfig )
@@ -313,10 +308,10 @@ const regenerateBackupUris = async () => {
         } );
       }
     } ).then( () => {
-      if ( Platform.OS === "android" ) {
-        // moveAndroidFilesToInternalStorage(); // taking this out for the release build
-        debugAndroidDirectories();
-      }
+      // if ( Platform.OS === "android" ) {
+      //   // moveAndroidFilesToInternalStorage(); // taking this out for the release build
+      //   debugAndroidDirectories();
+      // }
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
 };
 

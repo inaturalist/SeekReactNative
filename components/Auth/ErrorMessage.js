@@ -6,6 +6,7 @@ import {
   Text,
   Image
 } from "react-native";
+import { useNetInfo } from "@react-native-community/netinfo";
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
@@ -17,8 +18,13 @@ type Props = {
 }
 
 const ErrorMessage = ( { error }: Props ): React.Node => {
+  const netInfo = useNetInfo( );
+  const { isConnected } = netInfo;
+
   let message;
-  if ( error === "email" ) {
+  if ( !isConnected ) {
+    message = i18n.t( "login.error_internet" );
+  } else if ( error === "email" ) {
     message = i18n.t( "login.error_email" );
   } else if ( error === "credentials" ) {
     message = i18n.t( "login.error_credentials" );

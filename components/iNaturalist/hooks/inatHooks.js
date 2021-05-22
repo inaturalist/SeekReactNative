@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
+import Realm from "realm";
 
 import i18n from "../../../i18n";
 import { capitalizeNames, shuffleList } from "../../../utility/helpers";
 import { localizeAttributions } from "../../../utility/photoHelpers";
 import createUserAgent from "../../../utility/userAgent";
+import realmConfig from "../../../models";
 
 const useFetchPhotos = ( ): any => {
   const [photos, setPhotos] = useState( [] );
@@ -76,6 +78,22 @@ const useFetchPhotos = ( ): any => {
 const useFetchObservationCount = ( login: ?string, username: string ): any => {
   const [observationCount, setObservationCount] = useState( null );
 
+  const updateSavedLogin = async ( newCount ) => {
+    try {
+      const realm = await Realm.open( realmConfig );
+      const savedLogin = realm.objects( "LoginRealm" );
+
+      if ( savedLogin[0].observationCount !== newCount ) {
+        realm.write( ( ) => {
+          savedLogin[0].observationCount = newCount;
+        } );
+      }
+      return savedLogin[0].observationCount;
+    } catch ( e ) {
+      console.log( "couldn't update saved login" );
+    }
+  };
+
   useEffect( ( ) => {
     let isCurrent = true;
 
@@ -90,8 +108,10 @@ const useFetchObservationCount = ( login: ?string, username: string ): any => {
       const response = await inatjs.observations.search( params, options );
       const results = response.total_results;
 
+      const savedCount = await updateSavedLogin( results );
+
       if ( isCurrent ) {
-        setObservationCount( results );
+        setObservationCount( savedCount );
       }
     };
 

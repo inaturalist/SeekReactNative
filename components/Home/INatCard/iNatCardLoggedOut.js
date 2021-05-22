@@ -5,7 +5,6 @@ import { View, Text, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { viewStyles, textStyles } from "../../../styles/home/inatCard";
-import GreenText from "../../UIComponents/GreenText";
 import i18n from "../../../i18n";
 import INatValueProps from "../../iNaturalist/iNatValueProps";
 import INatLogin from "../../UIComponents/Login/iNatLogin";
@@ -21,7 +20,6 @@ const INatCardLoggedOut = ( challenge: Props ): React.Node => {
 
   return (
     <View style={viewStyles.textContainer}>
-      <GreenText text="about_inat.inaturalist" />
       <AppIconSubHeader
         text={challenge
           ? i18n.t( "about_inat.dive_deeper_with_inat" )

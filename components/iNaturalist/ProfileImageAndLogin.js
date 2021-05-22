@@ -8,15 +8,21 @@ import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iN
 import logos from "../../assets/logos";
 import i18n from "../../i18n";
 import { UserContext } from "../UserContext";
-import { useFetchObservationCount } from "./hooks/inatHooks";
 import icons from "../../assets/icons";
 
-const ProfileImageAndLogin = ( ): React.Node => {
-  const { userProfile, login } = React.useContext( UserContext );
+type Props = {
+  count?: number
+}
+
+const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
+  const { userProfile } = React.useContext( UserContext );
   const { name } = useRoute( );
-  const count = useFetchObservationCount( login, name, userProfile.login );
 
   const username = "@" + userProfile.login;
+
+  if ( name !== "Home" && count === null ) {
+    return null;
+  }
 
   return (
     <View style={[viewStyles.row, viewStyles.center]}>
@@ -41,7 +47,7 @@ const ProfileImageAndLogin = ( ): React.Node => {
             ? i18n.t( "about_inat.welcome_back", { username } )
             : username}
         </Text>
-        {( name !== "Home" && count !== null ) && (
+        {name !== "Home" && (
           <Text style={[textStyles.text, name !== "Home" && textStyles.whiteText]}>
             {i18n.t( "about_inat.x_observations_posted_to_inat", { count } )}
           </Text>

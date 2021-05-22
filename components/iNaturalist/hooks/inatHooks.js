@@ -73,7 +73,7 @@ const useFetchPhotos = ( ): any => {
   return photos;
 };
 
-const useFetchObservationCount = ( login: ?string, name: string, username: string ): any => {
+const useFetchObservationCount = ( login: ?string, username: string ): any => {
   const [observationCount, setObservationCount] = useState( null );
 
   useEffect( ( ) => {
@@ -95,14 +95,14 @@ const useFetchObservationCount = ( login: ?string, name: string, username: strin
       }
     };
 
-    if ( login && name === "iNatStats" ) {
+    if ( login ) {
       fetchObservationsMadeViaSeek( );
     }
 
     return ( ) => {
       isCurrent = false;
     };
-  }, [login, name, username] );
+  }, [login, username] );
 
   return observationCount;
 };

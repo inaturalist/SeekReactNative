@@ -7,8 +7,7 @@ import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleS
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   challengeContainer: {
-    backgroundColor: colors.darkGray,
-    flex: 1
+    backgroundColor: colors.darkGray
   },
   container: {
     backgroundColor: colors.white

@@ -392,7 +392,7 @@ PODS:
     - React-Core
   - RNImageMarker (0.6.2):
     - React
-  - RNLocalize (2.0.3):
+  - RNLocalize (2.0.2):
     - React-Core
   - RNQuickAction (0.3.13):
     - React
@@ -706,7 +706,7 @@ SPEC CHECKSUMS:
   RNFS: 93d5b5535eb39d98e6b19009faa8fe717f7ea45d
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageMarker: 22af6b7b051096c07fb3f6b92551be5074dfdac6
-  RNLocalize: 29e84ea169d3bca6c3b83584536c7f586a07fb98
+  RNLocalize: 43f6c30d8e19ad92282ae434d310fb463b31f419
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 514a11da3a2bcc6c3dfd9de32b38e2b9bf101926
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d

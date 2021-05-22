@@ -7,19 +7,20 @@ import { useNavigation } from "@react-navigation/native";
 import { viewStyles, textStyles } from "../../../styles/home/inatCard";
 import GreenText from "../../UIComponents/GreenText";
 import i18n from "../../../i18n";
-import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
 import INatValueProps from "../../iNaturalist/iNatValueProps";
 import INatLogin from "../../UIComponents/Login/iNatLogin";
 import AppIconSubHeader from "../../iNaturalist/AppIconSubHeader";
 
-const INatCardLoggedOut = ( ): React.Node => {
-  const navigation = useNavigation( );
-  const challenge = useLatestChallenge( );
+type Props = {
+  challenge: ?Object
+}
 
+const INatCardLoggedOut = ( challenge: Props ): React.Node => {
+  const navigation = useNavigation( );
   const navToINatStats = ( ) => navigation.navigate( "iNatStats" );
 
   return (
-    <View style={[viewStyles.container, challenge && viewStyles.topMarginWithChallenge]}>
+    <View style={viewStyles.textContainer}>
       <GreenText text="about_inat.inaturalist" />
       <AppIconSubHeader
         text={challenge

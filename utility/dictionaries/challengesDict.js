@@ -289,6 +289,26 @@ const challenges = {
     action: "natgeo_challenges.may_2021_action",
     badgeName: "natgeo_challenges.may_2021_badge_name",
     photographer: "natgeo_challenges.may_2021_photographer"
+  },
+  june2021: {
+    name: "natgeo_challenges.june_2021_challenge_name",
+    description: "natgeo_challenges.june_2021_description",
+    totalSpecies: 8,
+    backgroundName: "img-challengedetail-june2021",
+    earnedIconName: "badge_natgeo_june2021",
+    missions: [
+      "natgeo_challenges.june_2021_mission_1",
+      "natgeo_challenges.june_2021_mission_2",
+      "natgeo_challenges.june_2021_mission_3",
+      "natgeo_challenges.june_2021_mission_4",
+      "natgeo_challenges.june_2021_mission_5",
+      "natgeo_challenges.june_2021_mission_6",
+      "natgeo_challenges.june_2021_mission_7"
+    ],
+    availableDate: ( new Date( 2021, 5, 1 ): Date ),
+    action: "natgeo_challenges.june_2021_action",
+    badgeName: "natgeo_challenges.june_2021_badge_name",
+    photographer: "natgeo_challenges.june_2021_photographer"
   }
 };
 

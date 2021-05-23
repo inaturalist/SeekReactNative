@@ -319,7 +319,7 @@
     "challenge_view": "Afficher vos progrès",
     "level_up": "Vous avez progressé d'un niveau !",
     "number_seen_plural": {
-      "zero": "Vous avez observé {{count}} espèce(s) !",
+      "zero": "Vous avez observé {{count}} espèce !",
       "one": "Vous avez observé {{count}} espèce !",
       "two": "Vous avez observé {{count}} espèces !",
       "few": "Vous avez observé {{count}} espèces !",
@@ -775,7 +775,8 @@
     "june_2021_challenge_name": "Défi de la conservation",
     "june_2021_description": "Quel que soit notre âge ou notre expérience, nous pouvons tous avoir un impact positif sur la conservation de la biodiversité. Par exemple, nous pouvons prendre soin d'un endroit particulier comme notre propre jardin, une zone protégée ou un parc près de chez nous. La protection de la nature commence par la connaissance des plantes, des champignons et des animaux qui se trouvent dans les endroits qui nous tiennent à coeur. Votre défi ce mois-ci est de regarder dans votre jardin ou dans un parc à proximité et de réaliser l'inventaire le plus complet possible de la biodiversité.",
     "june_2021_action": "Ce mois-ci, essayez d'apprendre quelque chose sur chaque espèce que vous observez. Par exemple, l'espèce est-elle indigène ou introduite ? Réfléchissez à toutes vos observations des quatre derniers mois. Quelles différences avez-vous remarquées dans la biodiversité et dans l'emprise humaine au cours de cette période et dans les lieux que vous avez explorés ? Que pouvez-vous vous engager à faire pour rendre un lieu à proximité (comme une cour ou un parc) plus accueillant pour les espèces indigènes ? Notez votre objectif, prenez une photo et transmettez-le nous sur Twitter ! #NatGeoSeekChallenge ",
-    "june_2021_badge_name": "Badge Conservation"
+    "june_2021_badge_name": "Badge Conservation",
+    "june_2021_photographer": "Photo : Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "VOUS AVEZ COMPLÉTÉ LE DÉFI {{sponsorName}} POUR {{date}}!"

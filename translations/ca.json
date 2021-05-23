@@ -775,7 +775,8 @@
     "june_2021_challenge_name": "Repte de Conservació",
     "june_2021_description": "Tots, independentment de la nostra edat o experiència, podem tenir un impacte positiu en la conservació de la biodiversitat. Per exemple, podem ajudar a cuidar un lloc concret com el nostre propi jardí, una àrea protegida o un parc local. La protecció de la natura comença aprenent sobre les plantes, els fongs i els animals que es troben als llocs que ens interessen. El teu repte d’aquest mes és mirar al jardí o al parc local i fer un inventari de tota la biodiversitat que puguis.",
     "june_2021_action": "Aquest mes, centra't a aprendre alguna cosa sobre cada espècie que documentes, incloses quines són natives i quines són introduïdes. Reflexiona sobre totes les teves observacions durant els darrers quatre mesos: quines diferències has notat en la biodiversitat i la petjada humana en aquest període i en els diferents llocs que has explorat? Identifica alguna cosa que et puguis comprometre a fer perquè un lloc local (com el teu jardí o un parc) sigui més saludable per a les espècies autòctones. Escriu el teu objectiu, fes-ne una foto i comparteix-lo amb nosaltres amb el hashtag #NatGeoSeekChallenge a Twitter.",
-    "june_2021_badge_name": "Insígnia de Conservació"
+    "june_2021_badge_name": "Insígnia de Conservació",
+    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "HAS COMPLETAT EL REPTE DE {{sponsorName}} PER {{date}}!"
@@ -825,6 +826,6 @@
     "logged_in_bullet_2": "Utilitza l'App iNaturalist o el seu lloc web per veure notificacions d'identificacions, comentaris o altres activitats de les teves observacions",
     "logged_in_bullet_3": "Les teves observacions NO es copien a iNaturalist. Si esborres Seek esborraràs totes les observacions del teu dispositiu.",
     "upload_and_track_obs_using_inat": "Puja i manté el registre de les teves observacions utilitzant l'App d'iNaturalist o visitant inaturalist.org.\n\nGràcies per formar part d'aquesta comunitat!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "x_seen_by_user": "{{speciesName}} vist per {{user}}"
   }
 }

@@ -52,6 +52,7 @@ const UserLoginProvider = ( { children }: Props ): Node => {
           savedLogin[0].username = profile.login;
           savedLogin[0].profilePhoto = profile.icon_url;
           savedLogin[0].isAdmin = checkINatAdminStatus( profile );
+          savedLogin[0].loginToken = token;
         } );
       }
       return savedLogin;
@@ -89,7 +90,6 @@ const UserLoginProvider = ( { children }: Props ): Node => {
         // icon_url is higher resolution than icon
         icon: savedLogin[0].profilePhoto
       };
-      console.log( profileObj, "profile object", profile );
       setUserProfile( profileObj );
       setupChallenges( savedLogin[0].isAdmin );
       setLogin( savedLogin[0].loginToken );

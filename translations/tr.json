@@ -750,7 +750,7 @@
     "mar_2021_action": "Seek'e tekrar katılmaya veya nasıl kullanıldığını öğrenmeye zaman ayır. Ana ekrana girerek yakınlarındaki türleri gör. Favori yerel bitki veya hayvan veya da gözlemlemeyi beğendiğin şeyler hakkında Twitter'da #NatGeoSeekChallenge etiketiyle bizimle paylaş!",
     "mar_2021_photographer": "Fotoğraflayan: Tom Matthews / National Geographic",
     "mar_2021_badge_name": "Doğa Rozeti",
-    "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
+    "apr_2021_mission_1": "2 tane yumuşakça (salyangoz, sümüklü böcek, kiton) veya kabuklu (midye, yengeç, ıstakoz) bul",
     "apr_2021_mission_2": "6 bitki bul",
     "apr_2021_mission_3": "2 mantar bul",
     "apr_2021_challenge_name": "Yenileme & İyileştirme Mücadelesi",
@@ -775,7 +775,8 @@
     "june_2021_challenge_name": "Koruma Mücadelesi",
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
     "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
-    "june_2021_badge_name": "Koruma Rozeti"
+    "june_2021_badge_name": "Koruma Rozeti",
+    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "{{sponsorName}} MÜCADELESİNİ {{date}} TARİHİNDE TAMAMLADIN!"
@@ -798,7 +799,7 @@
     "log_in_to_post_observations": "Seek gözlemlerini iNaturalist'e göndermek için giriş yap!",
     "log_in_with_inat": "INATURALIST İLE GİRİŞ YAP",
     "use_inat_to": "INATURALIST'I KULLAN:",
-    "inat_vs_seek": "INATURALIST VS SEEK",
+    "inat_vs_seek": "INATURALIST VE SEEK KARŞILAŞTIRMASI",
     "inat_is_an_online_community": "iNaturalist doğacılar için çevrimiçi bir topluluktur",
     "inat_bullet_1": "iNaturalist gözlemleri kamuya açık ve bilime katkı sağlamaya yardım eder",
     "inat_bullet_2": "Her gözlem senin kullanıcı adını, tarihi ve gözlemin konumunu içerir",

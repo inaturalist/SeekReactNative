@@ -43,11 +43,9 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
       </View>
     ) );
 
-    console.log( item, "item" );
-
     const observedCount = (
       <Text style={[styles.text, styles.greenText]}>
-        {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
+        {i18n.t( "challenges.number_observed_plural", { count: item.observations || 0 } )}
       </Text>
     );
 

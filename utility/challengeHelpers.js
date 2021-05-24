@@ -1,7 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
-import { getYear, isEqual } from "date-fns";
+import { getYear } from "date-fns";
 import { Alert } from "react-native";
 
 import { createNotification, isDuplicateNotification } from "./notificationHelpers";
@@ -190,46 +190,6 @@ const setChallengeDetails = ( date: Date ) => {
   }
 };
 
-const addExistingBadgeNames = ( date: Date ) => {
-  const year = getYear( date );
-
-  // this covers Our Planet and all future, non-Seek challenges
-  if ( year !== 2020 ) {
-    const badgeMonth = Object.keys( challengesDict ).filter( month => {
-      if ( isEqual( challengesDict[month].availableDate, date ) ) {
-        return month;
-      }
-     } );
-
-    const challenge = badgeMonth[0];
-
-    // avoid undefined object error here
-    return ( challengesDict[challenge] && challengesDict[challenge].badgeName ) ? challengesDict[challenge].badgeName : "";
-  } else {
-    return "seek_challenges.badge";
-  }
-};
-
-const addDetailsToExistingChallenges = ( realm: any ) => {
-  realm.write( ( ) => {
-    // these are in no particular order unless we sort by index
-    const challenges = realm.objects( "ChallengeRealm" ).sorted( "index" );
-
-    challenges.forEach( challenge => {
-      if ( challenge.sponsorName ) {
-        // no need to keep re-writing these if they already exist in realm
-        return;
-      }
-      const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
-
-      challenge.logo = logo;
-      challenge.secondLogo = secondLogo;
-      challenge.sponsorName = sponsorName;
-      challenge.badgeName = addExistingBadgeNames( challenge.availableDate );
-    } );
-  } );
-};
-
 const showAdminAlert = ( ) => {
   // this lets admins know that they should expect to see the
   // newest challenge before the start of the month
@@ -239,68 +199,56 @@ const showAdminAlert = ( ) => {
   );
 };
 
-const setupChallenges = ( isAdmin: boolean ): void => {
-  Realm.open( realmConfig ).then( ( realm ) => {
-    const numChallenges = realm.objects( "ChallengeRealm" ).length;
+const setupChallenges = async ( isAdmin: boolean ): Promise<any> => {
+  try {
+    const realm = await Realm.open( realmConfig );
     const dict = Object.keys( challengesDict );
 
-    addDetailsToExistingChallenges( realm );
-    // don't write to realm unless there are actually new challenges available
-    // this should help Seek startup faster since realm.writes are slow
-    if ( numChallenges === dict.length ) {
-      return;
-    }
-
-    realm.write( () => {
+    realm.write( ( ) => {
       dict.forEach( ( challengesType, i ) => {
-        const existingChallenge = realm.objects( "ChallengeRealm" ).filtered( `index == ${i}` ).length;
+        const challenge = challengesDict[challengesType];
+        const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
+        const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
-        // only create new challenges
-        if ( existingChallenge === 0 ) {
-          const challenge = challengesDict[challengesType];
-          const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
-          const isCurrent = isWithinCurrentMonth( challenge.availableDate );
+        // start showing the latest challenge in developer mode for testing
+        if ( isAvailable || process.env.NODE_ENV === "development" || isAdmin ) {
+          const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
-          // start showing the latest challenge in developer mode for testing
-          if ( isAvailable || process.env.NODE_ENV === "development" || isAdmin ) {
-            const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
+          if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {
+            showAdminAlert( );
+          }
 
-            if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {
-              showAdminAlert( );
-            }
+          realm.create( "ChallengeRealm", {
+            name: challenge.name,
+            description: challenge.description,
+            totalSpecies: challenge.totalSpecies,
+            backgroundName: challenge.backgroundName,
+            earnedIconName: challenge.earnedIconName,
+            missions: challenge.missions,
+            availableDate: challenge.availableDate,
+            photographer: challenge.photographer || null,
+            action: challenge.action,
+            logo,
+            secondLogo,
+            sponsorName,
+            badgeName: challenge.badgeName || "seek_challenges.badge",
+            index: i
+          }, true );
 
-            realm.create( "ChallengeRealm", {
-              name: challenge.name,
-              description: challenge.description,
-              totalSpecies: challenge.totalSpecies,
-              backgroundName: challenge.backgroundName,
-              earnedIconName: challenge.earnedIconName,
-              missions: challenge.missions,
-              availableDate: challenge.availableDate,
-              photographer: challenge.photographer || null,
-              action: challenge.action,
-              logo,
-              secondLogo,
-              sponsorName,
-              badgeName: challenge.badgeName || "seek_challenges.badge",
-              index: i
-            }, true );
+          // need to check if challenge is available within this month,
+          // otherwise new users will get notifications for all past challenges
 
-            // need to check if challenge is available within this month,
-            // otherwise new users will get notifications for all past challenges
-
-            // also checking for existing notification with the same title and challenge index
-            // so we can overwrite the march challenge without duplicating this notification
-            if ( isCurrent && !isDuplicateNotification( realm, i ) ) {
-              createNotification( "newChallenge", i );
-            }
+          // also checking for existing notification with the same title and challenge index
+          // so we can overwrite the march challenge without duplicating this notification
+          if ( isCurrent && !isDuplicateNotification( realm, i ) ) {
+            createNotification( "newChallenge", i );
           }
         }
       } );
     } );
-  } ).catch( ( err ) => {
-    console.log( "[DEBUG] Failed to setup challenges: ", err );
-  } );
+  } catch ( e ) {
+    console.log( "[DEBUG] Failed to setup challenges: ", e );
+  }
 };
 
 const setChallengesCompleted = ( challenges ) => {

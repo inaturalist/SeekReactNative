@@ -51,27 +51,27 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    try {
-      /*
-        This try/catch is intended to patch fix the Google Maps server issue introduced 4/23/20
-      */
-      SharedPreferences hasFixedGoogleBug154855417 = getSharedPreferences("google_bug_154855417", Context.MODE_PRIVATE);
-      if (!hasFixedGoogleBug154855417.contains("fixed")) {
-        File corruptedZoomTables = new File(getFilesDir(), "ZoomTables.data");
-        File corruptedSavedClientParameters = new File(getFilesDir(), "SavedClientParameters.data.cs");
-        File corruptedClientParametersData =
-            new File(
-              getFilesDir(),
-              "DATA_ServerControlledParametersManager.data.v1."
-                  + getBaseContext().getPackageName());
-        corruptedZoomTables.delete();
-        corruptedSavedClientParameters.delete();
-        corruptedClientParametersData.delete();
-        hasFixedGoogleBug154855417.edit().putBoolean("fixed", true).apply();
-      }
-    } catch (Exception e) {
+    // try {
+    //   /*
+    //     This try/catch is intended to patch fix the Google Maps server issue introduced 4/23/20
+    //   */
+    //   SharedPreferences hasFixedGoogleBug154855417 = getSharedPreferences("google_bug_154855417", Context.MODE_PRIVATE);
+    //   if (!hasFixedGoogleBug154855417.contains("fixed")) {
+    //     File corruptedZoomTables = new File(getFilesDir(), "ZoomTables.data");
+    //     File corruptedSavedClientParameters = new File(getFilesDir(), "SavedClientParameters.data.cs");
+    //     File corruptedClientParametersData =
+    //         new File(
+    //           getFilesDir(),
+    //           "DATA_ServerControlledParametersManager.data.v1."
+    //               + getBaseContext().getPackageName());
+    //     corruptedZoomTables.delete();
+    //     corruptedSavedClientParameters.delete();
+    //     corruptedClientParametersData.delete();
+    //     hasFixedGoogleBug154855417.edit().putBoolean("fixed", true).apply();
+    //   }
+    // } catch (Exception e) {
 
-    }
+    // }
 
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
@@ -92,7 +92,7 @@ public class MainApplication extends Application implements ReactApplication {
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("org.inaturalist.Seek.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("org.inaturalist.seek.ReactNativeFlipper");
         aClass.getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
           .invoke(null, context, reactInstanceManager);
       } catch (ClassNotFoundException e) {

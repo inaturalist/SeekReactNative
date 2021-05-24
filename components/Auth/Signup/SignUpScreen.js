@@ -75,7 +75,7 @@ class SignUpScreen extends Component<Props, State> {
       .then( ( responseJson ) => {
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
-        user.toggleLogin();
+        user.updateLogin( );
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {

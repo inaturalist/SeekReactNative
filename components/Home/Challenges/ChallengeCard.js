@@ -1,41 +1,66 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { View, TouchableOpacity } from "react-native";
-import Realm from "realm";
+import React from "react";
+import { View, TouchableOpacity, Text, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { viewStyles } from "../../../styles/home/challenges";
-import realmConfig from "../../../models";
-import Challenges from "./Challenges";
 import GreenText from "../../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
+import useLatestChallenge from "./hooks/challengeCardHooks";
+import i18n from "../../../i18n";
+import { viewStyles, textStyles } from "../../../styles/home/challenges";
+import backgrounds from "../../../assets/backgrounds";
+import { setChallengeIndex } from "../../../utility/challengeHelpers";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import { colors } from "../../../styles/global";
+import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
+import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
-const ChallengeCard = () => {
-  const { navigate } = useNavigation();
-  const [challenge, setChallenge] = useState( null );
-
-  const fetchLatestChallenge = useCallback( ( ) => {
-    Realm.open( realmConfig ).then( ( realm ) => {
-      const incompleteChallenges = realm.objects( "ChallengeRealm" )
-        .filtered( "percentComplete != 100" )
-        .sorted( "availableDate", true );
-
-      if ( incompleteChallenges.length === 0 ) { return; }
-      setChallenge( incompleteChallenges[0] );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm, error: ", err );
-    } );
-  }, [] );
-
-  useEffect( () => fetchLatestChallenge( ), [fetchLatestChallenge] );
+const ChallengeCard = ( ) => {
+  const { navigate } = useNavigation( );
+  const challenge = useLatestChallenge( );
 
   const navToChallenges = ( ) => navigate( "Challenges" );
+
+  const renderLatestChallenge = ( ) => {
+    const navToChallengeDetails = ( ) => {
+      setChallengeIndex( challenge.index );
+      navigate( "ChallengeDetails" );
+    };
+
+    const buttonText = challenge.startedDate
+    ? "challenges_card.continue_challenge"
+    : "challenges_card.take_challenge";
+
+    return (
+      <ImageBackground
+        source={backgrounds[challenge.backgroundName]}
+        style={viewStyles.challengeContainer}
+      >
+        <View style={viewStyles.marginTop} />
+        <ChallengeTitle challenge={challenge} />
+        <View style={viewStyles.marginSmall} />
+        <ChallengeBadgeRow challenge={challenge} />
+        <View style={viewStyles.marginMedium} />
+        <GreenButton
+          color={colors.seekGreen}
+          handlePress={navToChallengeDetails}
+          text={buttonText}
+        />
+        <Text
+          onPress={navToChallenges}
+          style={textStyles.viewText}
+        >
+          {i18n.t( "challenges_card.view_all" )}
+        </Text>
+      </ImageBackground>
+    );
+  };
 
   return (
     <View style={viewStyles.container}>
       <TouchableOpacity onPress={navToChallenges} style={viewStyles.header}>
         <GreenText text="challenges_card.header" />
       </TouchableOpacity>
-      {challenge ? <Challenges challenge={challenge} /> : <NoChallenges />}
+      {challenge ? renderLatestChallenge( ) : <NoChallenges />}
     </View>
   );
 };

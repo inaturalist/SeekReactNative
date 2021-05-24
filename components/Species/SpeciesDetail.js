@@ -61,7 +61,18 @@ const SpeciesDetail = ( ): Node => {
           taxon: {},
           details: {},
           error: null,
-          seenTaxa: null
+          seenTaxa: null,
+          selectedText: false
+        };
+      case "CLEAR_SELECTION":
+        return {
+          ...state,
+          selectedText: false
+        };
+      case "HIGHLIGHT_SELECTION":
+        return {
+          ...state,
+          selectedText: true
         };
       default:
         throw new Error( );
@@ -72,7 +83,8 @@ const SpeciesDetail = ( ): Node => {
     taxon: {},
     details: {},
     error: null,
-    seenTaxa: null
+    seenTaxa: null,
+    selectedText: false
   } );
 
   const {
@@ -81,8 +93,12 @@ const SpeciesDetail = ( ): Node => {
     photos,
     details,
     error,
-    seenTaxa
+    seenTaxa,
+    selectedText
   } = state;
+
+  const clearSelectedText = ( ) => dispatch( { type:"CLEAR_SELECTION" } );
+  const highlightSelectedText = useCallback( ( ) => dispatch( { type: "HIGHLIGHT_SELECTION" } ), [] );
 
   const setId = useCallback( async ( ) => {
     const i = await getSpeciesId( );
@@ -231,11 +247,17 @@ const SpeciesDetail = ( ): Node => {
 
   return (
     <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
-      <ScrollView ref={scrollView} contentContainerStyle={viewStyles.background}>
+      <ScrollView
+        ref={scrollView}
+        contentContainerStyle={viewStyles.background}
+        onScrollBeginDrag={clearSelectedText}
+      >
         <SpeciesHeader
           id={id}
           taxon={taxon}
           photos={photos}
+          selectedText={selectedText}
+          highlightSelectedText={highlightSelectedText}
         />
         {error && (
           <OfflineSpeciesContainer

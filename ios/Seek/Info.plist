@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.12.5</string>
+	<string>2.12.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>187</string>
+	<string>191</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false />
 	<key>LSRequiresIPhoneOS</key>
@@ -85,6 +85,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>
+		<string>org.inaturalist.inaturalist</string>
 	</array>
 </dict>
 </plist>

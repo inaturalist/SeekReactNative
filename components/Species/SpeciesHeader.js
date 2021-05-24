@@ -1,5 +1,5 @@
-import React, { useCallback, useContext } from "react";
-import { Text, BackHandler, Pressable } from "react-native";
+import React, { useCallback, useContext, useState } from "react";
+import { Text, BackHandler, Pressable, View } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Clipboard from "@react-native-community/clipboard";
 
@@ -12,17 +12,22 @@ import { getRoute } from "../../utility/helpers";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
 import { UserContext } from "../UserContext";
+import ToastAnimation from "../UIComponents/ToastAnimation";
+import { colors } from "../../styles/global";
 
 type Props = {
   photos: Array<Object>,
   taxon: Object,
-  id: number
+  id: number,
+  selectedText: boolean,
+  highlightSelectedText: ( ) => void
 }
 
-const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
+const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ) => {
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const commonName = useCommonName( id );
+  const [copied, setCopied] = useState( false );
 
   const disabled = !login;
 
@@ -54,7 +59,13 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
     }, [backAction] )
   );
 
-  const copyToClipboard = ( ) => Clipboard.setString( scientificName );
+  const copyToClipboard = ( ) => {
+    Clipboard.setString( scientificName );
+    setCopied( true );
+    highlightSelectedText( );
+  };
+
+  const finishAnimation = ( ) => setCopied( false );
 
   return (
     <>
@@ -71,7 +82,27 @@ const SpeciesHeader = ( { photos, taxon, id }: Props ) => {
         disabled={disabled}
         style={viewStyles.pressableArea}
       >
-        <Text style={textStyles.scientificNameText}>{scientificName}</Text>
+        {( { pressed } ) => (
+          <View>
+            {copied && (
+              <ToastAnimation
+                startAnimation={copied}
+                styles={viewStyles.copiedAnimation}
+                toastText={i18n.t( "species_detail.copied" )}
+                finishAnimation={finishAnimation}
+                rectangleColor={colors.seekTeal}
+              />
+            )}
+            <Text
+              style={[
+                textStyles.scientificNameText,
+                selectedText && viewStyles.selectedPressableArea
+              ]}
+            >
+              {scientificName}
+            </Text>
+          </View>
+        )}
       </Pressable>
     </>
   );

@@ -115,10 +115,6 @@ const deleteFromAsyncStorage = async ( key: string ): Promise<boolean> => {
   }
 };
 
-const saveSpeciesNearbyLocation = ( value: string ) => {
-  saveToAsyncStorage( "speciesNearbyLocation", value );
-};
-
 export {
   getScientificNames,
   toggleLanguage,
@@ -127,7 +123,6 @@ export {
   getSeasonality,
   setupUserSettings,
   updateUserSetting,
-  saveSpeciesNearbyLocation,
   deleteFromAsyncStorage,
   fetchFromAsyncStorage
 };

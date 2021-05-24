@@ -25,9 +25,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     flexWrap: "wrap",
     justifyContent: "center"
   },
-  header: {
-    flex: 1
-  },
   margin: {
     marginTop: 12
   },
@@ -39,12 +36,17 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     marginHorizontal: 23,
     maxWidth: 150
   },
-
+  header: {
+    minHeight: 117 + 25 + 26
+  },
   textContainer: {
     marginLeft: 22,
     paddingBottom: 26,
     paddingTop: 25,
     width: 167
+  },
+  loginCardMargin: {
+    marginTop: 32
   }
 } );
 

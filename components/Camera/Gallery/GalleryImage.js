@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
-import styles from "../../../styles/camera/gallery";
+import { viewStyles, imageStyles } from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 import { ObservationContext } from "../../UserContext";
@@ -92,11 +92,11 @@ const GalleryImage = ( { item, setLoading }: Props ): Node => {
       accessibilityLabel={item.node.image.uri}
       accessible
       onPress={selectImage}
-      style={styles.button}
+      style={viewStyles.button}
     >
       <Image
         source={imageSource}
-        style={styles.image}
+        style={imageStyles.image}
       />
     </TouchableOpacity>
   );

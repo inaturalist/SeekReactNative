@@ -7,15 +7,9 @@ import {
   row
 } from "../global";
 
-export default StyleSheet.create( {
-  commonNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.book,
-    fontSize: 21,
-    lineHeight: 21
-  },
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   image: {
     borderRadius: 80 / 2,
     height: 80,
@@ -26,14 +20,6 @@ export default StyleSheet.create( {
     width: 276
   },
   row,
-  scientificNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    marginTop: 12
-  },
   speciesNameContainer: {
     maxWidth: 220
   },
@@ -41,3 +27,27 @@ export default StyleSheet.create( {
     width: 327
   }
 } );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  commonNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: 21,
+    lineHeight: 21
+  },
+  scientificNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    marginTop: 12
+  }
+} );
+
+export {
+  viewStyles,
+  textStyles
+};

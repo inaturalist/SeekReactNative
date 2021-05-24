@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   back: {
     padding: 18,
     position: "absolute",
@@ -21,7 +23,10 @@ export default StyleSheet.create( {
   header: {
     backgroundColor: colors.seekForestGreen,
     height: 55
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     alignSelf: "center",
     color: colors.white,
@@ -31,3 +36,8 @@ export default StyleSheet.create( {
     top: 19
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   cellImage: {
     borderRadius: 108 / 2,
     height: 108,
@@ -16,13 +18,6 @@ export default StyleSheet.create( {
     paddingTop: 13,
     width: 108
   },
-  cellTitleText: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
-    textAlign: "center"
-  },
   checkbox: {
     position: "absolute",
     right: 0,
@@ -31,10 +26,37 @@ export default StyleSheet.create( {
     height: 24,
     width: 24
   },
+  speciesImageCheckbox: {
+    bottom: 91
+  },
   gridCell: {
     marginRight: 23
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  cellTitleText: {
+    color: colors.black,
+    fontFamily: fonts.medium,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center"
   },
   scientificName: {
     fontFamily: fonts.bookItalic
+  },
+  speciesNameText: {
+    paddingTop: 13,
+    width: 108,
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

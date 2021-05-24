@@ -1,9 +1,10 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// import inatjs from "inaturalistjs";
+import inatjs from "inaturalistjs";
 // import { Alert } from "react-native";
 
-// import { fetchJSONWebToken } from "./uploadHelpers";
+import { fetchJSONWebToken } from "./uploadHelpers";
+import createUserAgent from "./userAgent";
 
 const checkIsEmailValid = ( email: string ): boolean => {
   if ( email && email.length > 5 ) {
@@ -98,6 +99,17 @@ const formatError = ( error: string ): string => {
 //   }
 // };
 
+const fetchUserProfile = async ( login: string ): Promise<Object> => {
+  try {
+    const apiToken = await fetchJSONWebToken( login );
+    const options = { api_token: apiToken, user_agent: createUserAgent( ) };
+    const { results } = await inatjs.users.me( options );
+    return results[0];
+  } catch ( e ) {
+    return null;
+  }
+};
+
 export {
   saveAccessToken,
   fetchAccessToken,
@@ -106,6 +118,7 @@ export {
   checkIsUsernameValid,
   savePostingSuccess,
   fetchPostingSuccess,
-  formatError
+  formatError,
+  fetchUserProfile
   // fetchUserId
 };

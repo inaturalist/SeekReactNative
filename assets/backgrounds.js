@@ -5,7 +5,6 @@ const backgrounds = {
   login: require( "./backgrounds/bg-login-2020.webp" ),
   noSpeciesNearby: require( "./backgrounds/img-speciesnearby-error.webp" ),
   navBar: require( "./backgrounds/img-navbar.webp" ),
-  heatMap: require( "./backgrounds/img-inatheatmap.webp" ),
   sharing: require( "./backgrounds/bg-sharing.webp" ),
   "img-challengedetail-april": require( "./backgrounds/challenges/img-challengedetail-april.webp" ),
   "img-challengedetail-may": require( "./backgrounds/challenges/img-challengedetail-may.webp" ),
@@ -26,7 +25,8 @@ const backgrounds = {
   "img-challengedetail-december2020": require( "./backgrounds/challenges/img-challengedetail-december2020.webp" ),
   "img-challengedetail-march2021": require( "./backgrounds/challenges/img-challengedetail-march2021.webp" ),
   "img-challengedetail-april2021": require( "./backgrounds/challenges/img-challengedetail-april2021.webp" ),
-  "img-challengedetail-may2021": require( "./backgrounds/challenges/img-challengedetail-may2021.webp" )
+  "img-challengedetail-may2021": require( "./backgrounds/challenges/img-challengedetail-may2021.webp" ),
+  "img-challengedetail-june2021": require( "./backgrounds/challenges/img-challengedetail-june2021.webp" )
 };
 
 export default backgrounds;

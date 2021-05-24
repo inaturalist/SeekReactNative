@@ -3,7 +3,9 @@
 import { StyleSheet, I18nManager } from "react-native";
 import { colors } from "../../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingVertical: 18,
@@ -14,10 +16,18 @@ export default StyleSheet.create( {
   challengeDetails: {
     paddingTop: 28
   },
-  green: {
-    tintColor: colors.seekForestGreen
-  },
   rotateRTL: {
     transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  green: {
+    tintColor: colors.seekForestGreen
+  }
+} );
+
+export {
+  imageStyles,
+  viewStyles
+};

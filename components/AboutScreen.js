@@ -11,7 +11,7 @@ import { getVersion, getBuildNumber } from "react-native-device-info";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import styles from "../styles/about";
+import { viewStyles, imageStyles, textStyles } from "../styles/about";
 import logos from "../assets/logos";
 import i18n from "../i18n";
 import { UserContext } from "./UserContext";
@@ -29,42 +29,42 @@ const AboutScreen = (): Node => {
 
   return (
     <ScrollWithHeader header="about.header">
-      <View style={styles.textContainer}>
+      <View style={viewStyles.textContainer}>
         <Image source={logos.iNat} />
-        <View style={styles.marginSmall} />
-        <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.seek" )}</Text>
-        <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
-        <View style={styles.block} />
-        <Image source={logos.casNatGeo} style={styles.image} />
-        <View style={styles.marginLarge} />
-        <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
-        <View style={styles.margin} />
-        <Image source={logos.wwfop} style={styles.wwfop} />
-        <View style={styles.marginSmall} />
+        <View style={viewStyles.marginSmall} />
+        <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek" )}</Text>
+        <Text style={textStyles.text}>{i18n.t( "about.joint_initiative" )}</Text>
+        <View style={viewStyles.block} />
+        <Image source={logos.casNatGeo} style={imageStyles.image} />
+        <View style={viewStyles.marginLarge} />
+        <Text style={textStyles.text}>{i18n.t( "about.original" )}</Text>
+        <View style={viewStyles.margin} />
+        <Image source={logos.wwfop} style={imageStyles.wwfop} />
+        <View style={viewStyles.marginSmall} />
         <Image source={logos.hhmi} />
-        <View style={styles.margin} />
-        <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
-        <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
-        <View style={styles.marginSmallest} />
-        <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
-        <View style={styles.marginSmallest} />
-        <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+        <View style={viewStyles.margin} />
+        <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
+        <Text style={textStyles.text}>{i18n.t( "about.inat_team" )}</Text>
+        <View style={viewStyles.marginSmallest} />
+        <Text style={textStyles.text}>{i18n.t( "about.translations" )}</Text>
+        <View style={viewStyles.marginSmallest} />
+        <Text style={textStyles.text}>{i18n.t( "about.join_crowdin" )}</Text>
         {login && <PrivacyAndTerms />}
         <TouchableOpacity
           onPress={navToDebug}
-          style={styles.debug}
+          style={viewStyles.debug}
           disabled={disabled}
           testID="debug"
         >
-          <Text style={styles.greenText}>
+          <Text style={textStyles.greenText}>
             {i18n.t( "about.version" ).toLocaleUpperCase()}
             {` ${appVersion} (${buildVersion})`}
           </Text>
         </TouchableOpacity>
-        <Text style={styles.text}>
+        <Text style={textStyles.text}>
           {i18n.t( "about.help" )}
         </Text>
-        <View style={styles.block} />
+        <View style={viewStyles.block} />
       </View>
     </ScrollWithHeader>
   );

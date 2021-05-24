@@ -8,7 +8,7 @@ import { CameraContext } from "../Components/UserContext";
 // const fetchAutoCapture = async () => await getAutoCapture();
 // const fetchLocalSeasonality = async () => await getSeasonality();
 
-// const toggleLogin = () => getLoggedIn();
+// const updateLogin = () => getLoggedIn();
 // const toggleNames = () => fetchScientificNames();
 // const toggleLanguagePreference = () => getLanguagePreference();
 // const toggleAutoCapture = () => fetchAutoCapture();
@@ -16,7 +16,7 @@ import { CameraContext } from "../Components/UserContext";
 
 // const userContextValue = {
 //   login,
-//   toggleLogin
+//   updateLogin
 // };
 const CameraContextValue = {
   // scientificNames,

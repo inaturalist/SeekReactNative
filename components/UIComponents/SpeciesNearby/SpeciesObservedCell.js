@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
+import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import { setSpeciesId, setRoute } from "../../../utility/helpers";
@@ -35,21 +35,21 @@ const SpeciesObservedCell = ( { item }: Props ) => {
 
   return (
     <TouchableOpacity
-      style={styles.gridCell}
+      style={viewStyles.gridCell}
       onPress={navToSpeciesDetails}
     >
       {currentUserPhoto && (
         <>
           <ImageBackground
             source={iconicTaxa[taxon.iconicTaxonId]}
-            style={styles.cellImage}
-            imageStyle={styles.cellImage}
+            style={viewStyles.cellImage}
+            imageStyle={viewStyles.cellImage}
           >
-            <Image source={{ uri: currentUserPhoto.uri }} style={styles.cellImage} />
-            <Image source={icons.speciesObserved} style={styles.checkbox} />
+            <Image source={{ uri: currentUserPhoto.uri }} style={viewStyles.cellImage} />
+            <Image source={icons.speciesObserved} style={viewStyles.checkbox} />
           </ImageBackground>
-          <View style={styles.cellTitle}>
-            <Text numberOfLines={3} style={[styles.cellTitleText, !commonName && styles.scientificName]}>
+          <View style={viewStyles.cellTitle}>
+            <Text numberOfLines={3} style={[textStyles.cellTitleText, !commonName && textStyles.scientificName]}>
             {commonName
               ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
               : taxon.name}

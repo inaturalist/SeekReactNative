@@ -10,7 +10,7 @@ import type { Node } from "react";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
-import styles from "../../styles/toasts/badgeToast";
+import { viewStyles } from "../../styles/toasts/badgeToast";
 
 const { height } = Dimensions.get( "window" );
 
@@ -89,10 +89,10 @@ class Toasts extends Component<Props> {
     const { badge, challenge } = this.props;
 
     return (
-      <View style={Platform.OS === "ios" ? styles.topContainer : null}>
+      <View style={Platform.OS === "ios" ? viewStyles.topContainer : null}>
         {badge && (
           <Animated.View style={[
-            styles.animatedStyle, {
+            viewStyles.animatedStyle, {
               transform: [{ translateY: this.animatedBadge }]
             }
           ]}
@@ -102,7 +102,7 @@ class Toasts extends Component<Props> {
         )}
         {challenge && (
           <Animated.View style={[
-            styles.animatedStyle, {
+            viewStyles.animatedStyle, {
               transform: [{ translateY: this.animatedChallenge }]
             }
           ]}

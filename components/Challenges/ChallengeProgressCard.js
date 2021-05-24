@@ -10,7 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/challenges/challengeProgress";
+import { imageStyles, viewStyles, textStyles } from "../../styles/challenges/challengeProgress";
 import PercentCircle from "../UIComponents/PercentCircle";
 import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
 import icons from "../../assets/icons";
@@ -69,7 +69,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
         accessible
         allowFontScaling={false}
         onPress={beginChallenge}
-        style={styles.startText}
+        style={textStyles.startText}
       >
         {i18n.t( "challenges.start_now" ).toLocaleUpperCase()}
       </Text>
@@ -84,20 +84,20 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
   return (
     <TouchableOpacity
       onPress={navToChallengeDetails}
-      style={[styles.card, styles.row]}
+      style={[viewStyles.card, viewStyles.row]}
     >
-      <Image source={leftIcon} style={styles.challengeBadgeIcon} />
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText}>
+      <Image source={leftIcon} style={imageStyles.challengeBadgeIcon} />
+      <View style={viewStyles.textContainer}>
+        <Text style={textStyles.titleText}>
           {i18n.t( name ).toLocaleUpperCase().replace( /(- |-)/g, "-\n" )}
         </Text>
-        <Text style={styles.messageText}>
+        <Text style={textStyles.messageText}>
           {challenge.sponsorName}
           {" - "}
           {formatMonthYear( availableDate )}
         </Text>
       </View>
-      <View style={styles.startButton}>
+      <View style={viewStyles.startButton}>
         {rightIcon}
       </View>
     </TouchableOpacity>

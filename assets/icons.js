@@ -38,7 +38,6 @@ const icons = {
   speciesNearby: require( "./icons/img-speciesnearby.webp" ),
   greenDot: require( "./icons/GreenCircle-square-shadow.webp" ),
   whiteDot: require( "./icons/WhiteCircle-square-shadow.webp" ),
-  iNatExplanation: require( "./icons/img-iNatExplanation.webp" ),
   legendCamera: require( "./icons/legend-icon-camerabutton.webp" ),
   legendLocation: require( "./icons/legend-icon-location-onmap.webp" ),
   legendObs: require( "./icons/legend-icon-inatobs.webp" ),
@@ -57,7 +56,12 @@ const icons = {
   plantFilterOff: require( "./icons/plantfilter-off.webp" ),
   iconShare: require( "./icons/icon-share.webp" ),
   cropIcon: require( "./icons/button-crop.webp" ),
-  cropIconWhite: require( "./icons/icon-crop.webp" )
+  cropIconWhite: require( "./icons/icon-crop.webp" ),
+  iNat_valueprop_bullet_1: require( "./icons/icon-sync-green.webp" ),
+  iNat_valueprop_bullet_2: require( "./icons/icon-cv-green.webp" ),
+  iNat_valueprop_bullet_3: require( "./icons/icon-obs-green.webp" ),
+  iNat_valueprop_bullet_4: require( "./icons/icon-person-green.webp" ),
+  noProfilePhoto: require( "./icons/img-inatlogin-nophoto.webp" )
 };
 
 export default icons;

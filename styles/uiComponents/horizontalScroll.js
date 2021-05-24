@@ -3,7 +3,9 @@
 import { StyleSheet, I18nManager } from "react-native";
 import { colors } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   leftArrow: {
     left: 0,
     paddingLeft: 5,
@@ -42,3 +44,5 @@ export default StyleSheet.create( {
     top: 100
   }
 } );
+
+export default viewStyles;

@@ -9,7 +9,7 @@ import SideMenu from "../UIComponents/SideMenu";
 import Achievements from "../Achievements/AchievementsScreen";
 import Challenges from "../Challenges/ChallengeScreen";
 import Observations from "../Observations/Observations";
-import iNatStats from "../iNatStats";
+import iNatStats from "../iNaturalist/iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings/Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
@@ -17,7 +17,6 @@ import Match from "../Match/MatchScreen";
 import DebugEmailScreen from "../UIComponents/DebugEmailScreen";
 import Home from "../Home/HomeScreen";
 import Species from "../Species/SpeciesDetail";
-
 type DrawerParamList = {
   Home: void;
   Achievements: void;
@@ -91,7 +90,6 @@ const HomeFooter = () => (
     <Tab.Screen name="Home" component={Home} />
   </Tab.Navigator>
 );
-
 
 const SpeciesFooter = () => (
   <Tab.Navigator tabBar={tabBar}>

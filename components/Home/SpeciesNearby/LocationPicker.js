@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Text,
   View,
@@ -19,32 +19,29 @@ import { colors } from "../../../styles/global";
 import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
+import { SpeciesNearbyContext } from "../../UserContext";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +latitude: ?number,
-  +longitude: ?number,
-  +location: ?string,
-  +updateLatLng: Function,
-  +closeLocationPicker: Function
+  updateLatLng: ( number, number ) => void,
+  closeLocationPicker: ( ) => void
 }
 
 const LocationPicker = ( {
-  latitude,
-  longitude,
-  location,
   updateLatLng,
   closeLocationPicker
 }: Props ): Node => {
+  const { speciesNearby } = useContext( SpeciesNearbyContext );
+  const { latitude, longitude, location } = speciesNearby;
+
   const [region, setRegion] = useState( {
     latitudeDelta,
     longitudeDelta,
     latitude,
     longitude
   } );
-
   const [inputLocation, setInputLocation] = useState( location );
 
   const setCoordsByLocationName = async ( newLocation ) => {
@@ -100,14 +97,14 @@ const LocationPicker = ( {
     } ).catch( e => createAlertUserLocationOnMaps( e ) );
   };
 
-  const searchNearLocation = () => {
+  const searchNearLocation = ( ) => {
     const lat = region.latitude ? truncateCoordinates( region.latitude ) : null;
     const lng = region.longitude ? truncateCoordinates( region.longitude ) : null;
 
     if ( lat && lng ) {
       updateLatLng( lat, lng );
     }
-    closeLocationPicker();
+    closeLocationPicker( );
   };
 
   const changeText = text => setCoordsByLocationName( text );

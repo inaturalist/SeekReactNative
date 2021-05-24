@@ -6,12 +6,21 @@ import {
   fonts
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     flexGrow: 1,
     justifyContent: "center",
     marginHorizontal: 28
   },
+  greenButtonMargin: {
+    marginTop: 32
+  }
+} );
+
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   headerText: {
     alignSelf: "center",
     color: colors.seekForestGreen,
@@ -21,9 +30,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     maxWidth: 279,
     textAlign: "center"
-  },
-  margin: {
-    marginTop: 32
   },
   text: {
     alignSelf: "center",
@@ -35,3 +41,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

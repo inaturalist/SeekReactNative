@@ -1,115 +1,70 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Realm from "realm";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import taxonIds from "../../utility/dictionaries/taxonDict";
-import realmConfig from "../../models";
 import { viewStyles, textStyles } from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import GreenText from "../UIComponents/GreenText";
-import LoginCard from "../UIComponents/LoginCard";
+import LoginCard from "../UIComponents/Login/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
-import { fetchNumberSpeciesSeen, localizeNumber, setRoute } from "../../utility/helpers";
+import { localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import BannerHeader from "./BannerHeader";
+import BannerHeader from "../UIComponents/BannerHeader";
+import { useFetchAchievements } from "./hooks/achievementHooks";
 
-const AchievementsScreen = (): Node => {
-  const navigation = useNavigation();
-  const [state, setState] = useState( {
-    speciesBadges: [],
-    level: null,
-    nextLevelCount: 0,
-    badgesEarned: null,
-    speciesCount: null
-  } );
+const AchievementsScreen = ( ): Node => {
+  const state = useFetchAchievements( );
+  const navigation = useNavigation( );
 
-  const fetchBadges = useCallback( async ( ) => {
-    try {
-      const realm = await Realm.open( realmConfig );
-      const badges = realm.objects( "BadgeRealm" );
-      const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
-      const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
-
-      const speciesBadges = [];
-
-      iconicTaxonIds.forEach( ( id ) => {
-        if ( id === null ) { return; }
-        const highestEarned = badges
-          .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
-          .sorted( "index", true )
-          .sorted( "earned", true );
-        speciesBadges.push( highestEarned[0] );
-      } );
-
-      const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
-      const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-      const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
-
-      fetchNumberSpeciesSeen( ).then( ( species ) => {
-        setState( {
-          speciesBadges,
-          level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
-          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-          badgesEarned,
-          speciesCount: species
-        } );
-      } );
-    } catch ( e ) {
-      console.log( e, "couldn't open realm: achievements" );
-    }
-  }, [] );
-
-  useEffect( () => {
-    navigation.addListener( "focus", () => { fetchBadges(); } );
-  }, [navigation, fetchBadges] );
-
-  const navToObservations = useCallback( () => {
+  const navToObservations = useCallback( ( ) => {
     setRoute( "Achievements" );
     navigation.navigate( "Observations" );
   }, [navigation] );
 
-  if ( state.level === null ) {
-    return null;
-  }
+  const renderStats = ( disabled, headerText, text ) => (
+    <TouchableOpacity
+      onPress={navToObservations}
+      style={viewStyles.secondHeaderText}
+      disabled={disabled}
+    >
+      <GreenText center smaller text={headerText} />
+      <Text style={textStyles.number}>
+        {text && localizeNumber( text )}
+      </Text>
+    </TouchableOpacity>
+  );
+
+  const renderFooter = ( ) => (
+    <View style={viewStyles.center}>
+      <View style={viewStyles.row}>
+        {renderStats( false, "badges.observed", state.speciesCount )}
+        {renderStats( true, "badges.earned", state.badgesEarned )}
+      </View>
+      <View style={viewStyles.loginCardMargin} />
+      <LoginCard />
+    </View>
+  );
 
   return (
-    <ScrollWithHeader header="badges.achievements">
+    <ScrollWithHeader header="badges.achievements" loading={state.level === null}>
       <Spacer backgroundColor={colors.greenGradientDark} />
-      {state.level && (
-        <LevelHeader
-          level={state.level}
-          nextLevelCount={state.nextLevelCount}
-          speciesCount={state.speciesCount}
-        />
-      )}
+      <LevelHeader
+        level={state.level}
+        nextLevelCount={state.nextLevelCount}
+        speciesCount={state.speciesCount}
+      />
       <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
       <SpeciesBadges speciesBadges={state.speciesBadges} />
       <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
       <ChallengeBadges />
-      <View style={[viewStyles.row, viewStyles.center]}>
-        <TouchableOpacity
-          onPress={navToObservations}
-          style={viewStyles.secondHeaderText}
-        >
-          <GreenText center smaller text="badges.observed" />
-          <Text style={textStyles.number}>{state.speciesCount && localizeNumber( state.speciesCount )}</Text>
-        </TouchableOpacity>
-        <View style={viewStyles.secondHeaderText}>
-          <GreenText center smaller text="badges.earned" />
-          <Text style={textStyles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
-        </View>
-      </View>
-      <View style={viewStyles.center}>
-        <LoginCard />
-      </View>
+      {renderFooter( )}
     </ScrollWithHeader>
   );
 };

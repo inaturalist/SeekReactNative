@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     flex: 1,
     alignItems: "center",
@@ -11,7 +13,10 @@ export default StyleSheet.create( {
   },
   margin: {
     marginTop: 42
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   headerText: {
     textAlign: "center",
     fontFamily: fonts.medium,
@@ -21,3 +26,8 @@ export default StyleSheet.create( {
     width: 247
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

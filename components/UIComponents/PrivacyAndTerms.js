@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/uiComponents/privacyAndTerms";
+import { viewStyles, textStyles } from "../../styles/uiComponents/privacyAndTerms";
 
 const PrivacyAndTerms = (): React.Node => {
   const { navigate } = useNavigation();
@@ -14,26 +14,28 @@ const PrivacyAndTerms = (): React.Node => {
   const screens = ["Age", "LicensePhotos", "About"];
   const greenText = screens.includes( name );
 
+  const linkStyles = [
+    textStyles.textLink,
+    greenText && textStyles.signupTextLink
+  ];
+
+  const navToPrivacy = ( ) => navigate( "Privacy" );
+  const navToTerms = ( ) => navigate( "TermsOfService" );
+
   return (
-    <View style={[styles.center, styles.row]}>
+    <View style={[viewStyles.center, viewStyles.row]}>
       <Text
         allowFontScaling={false}
-        onPress={() => navigate( "Privacy" )}
-        style={[
-          styles.textLink,
-          greenText && styles.signupTextLink
-        ]}
+        onPress={navToPrivacy}
+        style={linkStyles}
       >
         {i18n.t( "inat_signup.privacy" )}
       </Text>
-      <View style={styles.marginLeft} />
+      <View style={viewStyles.marginLeft} />
       <Text
         allowFontScaling={false}
-        onPress={() => navigate( "TermsOfService" )}
-        style={[
-          styles.textLink,
-          greenText && styles.signupTextLink
-        ]}
+        onPress={navToTerms}
+        style={linkStyles}
       >
         {i18n.t( "inat_signup.terms" )}
       </Text>

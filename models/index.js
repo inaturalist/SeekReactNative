@@ -3,6 +3,7 @@
 import BadgeRealm from "./BadgeRealm";
 import ChallengeRealm from "./ChallengeRealm";
 import CommonNamesRealm from "./CommonNamesRealm";
+import LoginRealm from "./LoginRealm";
 import NotificationRealm from "./NotificationRealm";
 import ObservationRealm from "./ObservationRealm";
 import PhotoRealm from "./PhotoRealm";
@@ -17,6 +18,7 @@ export default {
     BadgeRealm,
     ChallengeRealm,
     CommonNamesRealm,
+    LoginRealm,
     NotificationRealm,
     ObservationRealm,
     PhotoRealm,
@@ -26,6 +28,6 @@ export default {
     UploadPhotoRealm,
     UserSettingsRealm
   ],
-  schemaVersion: 32,
+  schemaVersion: 36,
   path: "db.realm"
 };

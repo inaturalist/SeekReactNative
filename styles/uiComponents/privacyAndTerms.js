@@ -9,12 +9,17 @@ import {
   center
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   marginLeft: {
     marginLeft: 14
   },
-  row,
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   textLink: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -30,3 +35,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

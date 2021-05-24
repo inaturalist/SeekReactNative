@@ -7,7 +7,7 @@ import {
 } from "react-native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/buttons/backArrow";
+import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 import { colors } from "../../../styles/global";
 
@@ -26,13 +26,13 @@ const CustomBackArrow = ( {
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible
     onPress={handlePress}
-    style={[style, styles.rotateRTL]}
+    style={[style, viewStyles.rotateRTL]}
   >
     {/* $FlowFixMe */}
     <Image
       source={icons.backButton}
       tintColor={green && colors.seekForestGreen}
-      style={green && styles.green}
+      style={green && imageStyles.green}
     />
   </TouchableOpacity>
 );

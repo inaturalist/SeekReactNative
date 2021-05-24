@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, TouchableOpacity, Image } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
-import styles from "../../../styles/uiComponents/speciesNearby/speciesImageCell";
+import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import { setSpeciesId, setRoute } from "../../../utility/helpers";
@@ -37,7 +37,7 @@ const SpeciesImageCell = ( { item }: Props ) => {
       }
     }
 
-    return <Image source={source} style={styles.cellImage} />;
+    return <Image source={source} style={viewStyles.cellImage} />;
   };
 
   const navToNextScreen = ( ) => {
@@ -52,10 +52,10 @@ const SpeciesImageCell = ( { item }: Props ) => {
   };
 
   return (
-    <TouchableOpacity onPress={navToNextScreen} style={styles.gridCell}>
+    <TouchableOpacity onPress={navToNextScreen} style={viewStyles.gridCell}>
       {photo && renderSpeciesImage( )}
-      {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
-      <Text numberOfLines={3} style={[styles.speciesNameText, !commonName && styles.scientificName]}>
+      {seenTaxa && <Image source={icons.speciesObserved} style={[viewStyles.checkbox, viewStyles.speciesImageCheckbox]} />}
+      <Text numberOfLines={3} style={[textStyles.speciesNameText, !commonName && textStyles.scientificName]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
           : item.name}

@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { fonts, colors, dimensions } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   animatedStyle: {
     left: 0,
     position: "absolute",
@@ -11,6 +13,24 @@ export default StyleSheet.create( {
     top: 0,
     zIndex: 1
   },
+  progress: {
+    height: 59,
+    position: "absolute",
+    right: 24,
+    width: 59
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    paddingLeft: 21,
+    backgroundColor: colors.white
+  },
+  topContainer: {
+    zIndex: 1
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   description: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -27,28 +47,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     maxWidth: dimensions.width - 59 - ( 24 * 2 )
   },
-  image: {
-    height: 75,
-    width: 75,
-    resizeMode: "contain",
-    position: "absolute",
-    right: 17
-  },
-  progress: {
-    height: 59,
-    position: "absolute",
-    right: 24,
-    width: 59
-  },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    paddingLeft: 21,
-    backgroundColor: colors.white
-  },
-  topContainer: {
-    zIndex: 1
-  },
   view: {
     color: colors.black,
     fontFamily: fonts.light,
@@ -58,3 +56,19 @@ export default StyleSheet.create( {
     marginBottom: 21
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: 75,
+    width: 75,
+    resizeMode: "contain",
+    position: "absolute",
+    right: 17
+  }
+} );
+
+export {
+  viewStyles,
+  textStyles,
+  imageStyles
+};

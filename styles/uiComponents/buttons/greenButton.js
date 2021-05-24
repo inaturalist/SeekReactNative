@@ -10,15 +10,9 @@ import {
 
 const { getFontScale } = PixelRatio;
 
-export default StyleSheet.create( {
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSButtonPadding,
-    textAlign: "center"
-  },
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   greenButton: {
     alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
@@ -33,3 +27,19 @@ export default StyleSheet.create( {
     marginHorizontal: dimensions.height > 570 ? 34 : 20
   }
 } );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSButtonPadding,
+    textAlign: "center"
+  }
+} );
+
+export {
+  viewStyles,
+  textStyles
+};

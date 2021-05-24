@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
-import styles from "../../../styles/camera/gallery";
+import { viewStyles } from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
@@ -173,7 +173,7 @@ const GalleryScreen = (): Node => {
   };
 
   return (
-    <SafeAreaView style={styles.background} edges={["top"]}>
+    <SafeAreaView style={viewStyles.background} edges={["top"]}>
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
       {renderImageList( )}

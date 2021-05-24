@@ -2,10 +2,11 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "29.0.2"
+        buildToolsVersion = "29.0.3"
         minSdkVersion = 23
         compileSdkVersion = 29
         targetSdkVersion = 29
+        ndkVersion = "23.0.7123448"
     }
     repositories {
         jcenter()
@@ -13,7 +14,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath 'com.google.android.gms:play-services-location:17.0.0'
+        // classpath 'com.google.android.gms:play-services-location:17.0.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -22,14 +23,14 @@ buildscript {
 
 allprojects {
     repositories {
-        configurations.all {
-            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-                if (requested.group == 'com.google.android.gms') {
-                    details.useVersion '17.0.0'
-                }
-            }
-        }
+        // configurations.all {
+        //     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        //     def requested = details.requested
+        //         if (requested.group == 'com.google.android.gms') {
+        //             details.useVersion '17.0.0'
+        //         }
+        //     }
+        // }
         mavenLocal()
         jcenter()
         maven { url 'https://www.jitpack.io' }

@@ -11,7 +11,7 @@ import { getSystemName } from "react-native-device-info";
 import { WebView } from "react-native-webview";
 
 import i18n from "../../i18n";
-import styles from "../../styles/species/wikipedia";
+import { viewStyles, textStyles } from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -19,12 +19,12 @@ type Props = {
 };
 
 const Donation = ( { navigation }: Props ): React.Node => (
-  <View style={styles.container}>
-    <View style={styles.header}>
-      <Text style={styles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
+  <View style={viewStyles.container}>
+    <View style={viewStyles.header}>
+      <Text style={textStyles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
       <TouchableOpacity
         onPress={() => navigation.goBack()}
-        style={styles.back}
+        style={viewStyles.back}
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
@@ -33,7 +33,7 @@ const Donation = ( { navigation }: Props ): React.Node => (
       startInLoadingState
       source={{ uri: `https://www.inaturalist.org/donate?utm_source=Seek_${getSystemName()}}` }}
     />
-    <View style={styles.bottom} />
+    <View style={viewStyles.bottom} />
   </View>
 );
 

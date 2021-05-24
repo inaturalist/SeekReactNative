@@ -8,7 +8,7 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/buttons/backArrow";
+import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 import { colors } from "../../../styles/global";
 
@@ -34,13 +34,13 @@ const BackArrow = ( { green, route }: Props ): React.Node => {
       accessibilityLabel={i18n.t( "accessibility.back" )}
       accessible
       onPress={handlePress}
-      style={[styles.backButton, name === "ChallengeDetails" && styles.challengeDetails]}
+      style={[viewStyles.backButton, name === "ChallengeDetails" && viewStyles.challengeDetails]}
     >
       {/* $FlowFixMe */}
       <Image
         source={icons.backButton}
         tintColor={green && colors.seekForestGreen}
-        style={green && styles.green}
+        style={green && imageStyles.green}
       />
     </TouchableOpacity>
   );

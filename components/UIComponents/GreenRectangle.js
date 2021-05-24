@@ -2,7 +2,7 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 
-import styles from "../../styles/uiComponents/greenRectangle";
+import { viewStyles, textStyles } from "../../styles/uiComponents/greenRectangle";
 
 type Props = {
   text: string,
@@ -12,11 +12,11 @@ type Props = {
 
 const GreenRectangle = ( { text, color, letterSpacing }: Props ): React.Node => (
   <View style={[
-    styles.greenButton,
+    viewStyles.greenButton,
     color && { backgroundColor: color }
   ]}>
     <Text style={[
-      styles.greenButtonText,
+      textStyles.greenButtonText,
       { letterSpacing }
     ]}>
       {text.toLocaleUpperCase()}

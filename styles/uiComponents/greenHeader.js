@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 import {
   center,
   colors,
@@ -9,7 +9,16 @@ import {
   padding
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewHeaderStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  backButton: {
+    left: 0,
+    paddingVertical: 18,
+    paddingHorizontal: 23,
+    position: "absolute",
+    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
+  },
   center,
   container: {
     backgroundColor: colors.seekForestGreen,
@@ -23,7 +32,10 @@ export default StyleSheet.create( {
     paddingTop: 13,
     position: "absolute",
     right: 0
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -33,3 +45,8 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPaddingSmall
   }
 } );
+
+export {
+  textStyles,
+  viewHeaderStyles
+};

@@ -124,6 +124,8 @@ const PostScreen = (): Node => {
   useEffect( ( ) => {
     if ( location !== editedObservation.place_guess && location !== i18n.t( "location_picker.undefined" ) ) {
       updateObservation( "place_guess", location );
+    } else if ( location === i18n.t( "location_picker.undefined" )  && editedObservation.place_guess !== null ) {
+      updateObservation( "place_guess", null );
     }
   }, [location, editedObservation, updateObservation] );
 

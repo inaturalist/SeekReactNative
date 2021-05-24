@@ -12,6 +12,7 @@ import type { Node } from "react";
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/home/speciesNearby";
 import posting from "../../../assets/posting";
+import i18n from "../../../i18n";
 
 type Props = {
   openLocationPicker: ( ) => void,
@@ -23,20 +24,23 @@ const LocationPickerButton = ( {
   openLocationPicker,
   disabled,
   location
-}: Props ): Node => (
-  <TouchableOpacity
-    onPress={openLocationPicker}
-    style={[styles.row, styles.locationPickerButton]}
-    disabled={disabled}
-  >
-    {/* $FlowFixMe */}
-    <Image source={posting.location} tintColor={colors.white} style={styles.image} />
-    <View style={styles.whiteButton}>
-      <Text style={styles.buttonText}>
-        {location.toLocaleUpperCase( )}
-      </Text>
-    </View>
-  </TouchableOpacity>
-);
+}: Props ): Node => {
+  const locationText = location ? location : i18n.t( "species_nearby.no_location" );
+  return (
+    <TouchableOpacity
+      onPress={openLocationPicker}
+      style={[styles.row, styles.locationPickerButton]}
+      disabled={disabled}
+    >
+      {/* $FlowFixMe */}
+      <Image source={posting.location} tintColor={colors.white} style={styles.image} />
+      <View style={styles.whiteButton}>
+        <Text style={styles.buttonText}>
+          {locationText.toLocaleUpperCase( )}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 export default LocationPickerButton;

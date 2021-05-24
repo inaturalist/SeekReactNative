@@ -10,7 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/toasts/badgeToast";
+import { viewStyles, imageStyles, textStyles } from "../../styles/toasts/badgeToast";
 import badges from "../../assets/badges";
 
 type Props = {
@@ -23,20 +23,20 @@ const BadgeToast = ( { badge }: Props ): React.Node => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate( "Achievements" )}
-      style={styles.row}
+      style={viewStyles.row}
     >
       <View>
-        <Text allowFontScaling={false} style={styles.headerText}>
+        <Text allowFontScaling={false} style={textStyles.headerText}>
           {i18n.t( badge.intlName ).toLocaleUpperCase()}
         </Text>
-        <Text allowFontScaling={false} style={styles.description}>
+        <Text allowFontScaling={false} style={textStyles.description}>
           {i18n.t( "badges.you_found" )}
           {" "}
           {i18n.t( badge.infoText )}
         </Text>
-        <Text allowFontScaling={false} style={styles.view}>{i18n.t( "banner.view" )}</Text>
+        <Text allowFontScaling={false} style={textStyles.view}>{i18n.t( "banner.view" )}</Text>
       </View>
-      <Image source={badges[badge.earnedIconName]} style={styles.image} />
+      <Image source={badges[badge.earnedIconName]} style={imageStyles.image} />
     </TouchableOpacity>
   );
 };

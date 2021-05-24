@@ -60,4 +60,26 @@ const useFetchChallenges = ( ): any => {
   return list;
 };
 
-export default useFetchChallenges;
+const useFetchMissions = ( challenge: Object ): any => {
+  const [missions, setMissions] = useState( [] );
+
+  useEffect( ( ) => {
+    const { numbersObserved } = challenge;
+    const missionList = Object.keys( challenge.missions ).map( mission => challenge.missions[mission] );
+    const observationsList = Object.keys( numbersObserved ).map( number => numbersObserved[number] );
+
+    const newMissions = missionList.map( ( mission, i ) => ( {
+      mission,
+      observations: observationsList[i]
+    } ) );
+
+    setMissions( newMissions );
+  }, [challenge] );
+
+  return missions;
+};
+
+export {
+  useFetchChallenges,
+  useFetchMissions
+};

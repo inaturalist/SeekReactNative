@@ -10,7 +10,7 @@ import GreenText from "../UIComponents/GreenText";
 import NoChallenges from "../Home/Challenges/NoChallenges";
 import EmptyChallengesCard from "./EmptyChallengesCard";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
-import useFetchChallenges from "./hooks/challengeHooks";
+import { useFetchChallenges } from "./hooks/challengeHooks";
 
 const ChallengeScreen = ( ): Node => {
   const list = useFetchChallenges( );

@@ -8,6 +8,7 @@ import { fetchSpeciesSeenDate } from "./dateHelpers";
 import { addToCollection } from "./observationHelpers";
 import { fetchTruncatedUserLocation, createLocationAlert } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
+// import { LOG } from "./debugHelpers";
 
 const setAncestorIdsiOS = ( predictions: Array<Object> ): Array<number> => {
   // adding ancestor ids to take iOS camera experience offline
@@ -199,8 +200,12 @@ const fetchImageLocationOrErrorCode = async ( image: {
   const fetchLocation = async ( ) => {
     try {
       const coords = await fetchTruncatedUserLocation( );
+      // LOG.info( "truncated coords: ", JSON.stringify( coords ) );
+      // Alert.alert( "", JSON.stringify( coords ) );
       return { image: setImageCoords( coords, image ), errorCode: 0 };
     } catch ( code ) {
+      // LOG.info( "error code: ", code );
+      // Alert.alert( "errorCode", code );
       return { image, errorCode: code };
     }
   };

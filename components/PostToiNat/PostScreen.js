@@ -21,6 +21,7 @@ import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 import { ObservationContext } from "../UserContext";
+// import { LOG } from "../../utility/debugHelpers";
 
 const PostScreen = (): Node => {
   const { observation } = useContext( ObservationContext );
@@ -85,11 +86,17 @@ const PostScreen = (): Node => {
     } } );
   }, [editedObservation] );
 
+  // const log = useCallback( ( coords ) => {
+  //   Alert.alert( "", JSON.stringify( { latitude: coords.latitude, longitude: coords.longitude } ) );
+  //   LOG.info( "id: ", editedObservation.taxon_id, JSON.stringify( { latitude: coords.latitude, longitude: coords.longitude } ) );
+  // }, [editedObservation.taxon_id] );
+
   const getLocation = useCallback( ( ) => {
     const truncated = checkForTruncatedCoordinates( observation.image.latitude );
 
     if ( truncated ) {
       fetchUserLocation( ).then( ( coords ) => {
+        // log( coords );
         setLocation( coords );
       } ).catch( ( err ) => console.log( err ) );
     }

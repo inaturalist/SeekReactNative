@@ -86,7 +86,8 @@
     "error_credentials": "Forkert brugernavn eller adgangskode",
     "error_username_taken": "Brugernavnet er allerede i brug",
     "error_no_username": "Manglende brugernavn / e-mail",
-    "error_no_password": "Mangler adgangskode"
+    "error_no_password": "Mangler adgangskode",
+    "error_internet": "Ingen Internetforbindelse"
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Denne art er gemt under dine observationer.",
     "you": "Hej igen! Gå udenfor og find nogle vilde arter for at lære endnu mere om dem.",
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise siden med artsdetaljer. Tryk for at prøve igen.",
-    "no_photos_found": "Ingen billeder fundet for denne art."
+    "no_photos_found": "Ingen billeder fundet for denne art.",
+    "copied": "KOPIERET!"
   },
   "about": {
     "header": "Om",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Lær mere om iNaturalist",
     "get_started_by_downloading_inat": "Kom i gang ved at downloade iNaturalist-appen eller besøge inaturalist.org.\n\nHar du allerede en iNaturalist-konto? Log ind på Seek med din eksisterende konto!",
     "we_think_youll_like_inat": "Vi tror, at du vil blive virkelig glad for iNaturalist.",
-    "logged_in": "Du er logget ind på Seek med din iNaturalist-konto. Tak fordi du er del af dette fællesskab!",
     "sign_out": "Log af iNaturalist",
     "log_in_to_post_observations": "Log ind for at sende dine Seek-observationer til iNaturalist!",
     "log_in_with_inat": "LOG IND MED INATURALIST",

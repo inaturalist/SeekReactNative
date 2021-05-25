@@ -86,7 +86,8 @@
     "error_credentials": "Hatalı kullanıcı adı veya parola",
     "error_username_taken": "Bu kullanıcı adı zaten alınmış",
     "error_no_username": "Kullanıcı adı / eposta eksik",
-    "error_no_password": "Eksik parola"
+    "error_no_password": "Eksik parola",
+    "error_internet": "No internet connection"
   },
   "inat_signup": {
     "welcome": "Seek'e hoşgeldin!",
@@ -543,7 +544,8 @@
     "species_saved": "Bu tür gözlemlerinize kaydedildi.",
     "you": "Hey bak! Dışarı çık ve onlar hakkında daha çok bilgi edinmek için bazı vahşi türler bul.",
     "internet_error": "Tür ayrıntı ekranını oluşturmak için internete gereksinimimiz var. Tekrar denemek için dokunun.",
-    "no_photos_found": "Bu tür için fotoğraf bulunamadı."
+    "no_photos_found": "Bu tür için fotoğraf bulunamadı.",
+    "copied": "COPIED!"
   },
   "about": {
     "header": "Hakkında",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "iNaturalist hakkında daha fazlasını öğren",
     "get_started_by_downloading_inat": "iNaturalist uygulamasını indirerek veya inaturalist.org sitesini ziyaret ederek başla.\n\niNaturalist hesabın zaten var mı? Seek'e mevcut hesabınla giriş yap!",
     "we_think_youll_like_inat": "iNaturalist'i gerçekten beğeneceğini düşünüyoruz.",
-    "logged_in": "Seek'e iNaturalist hesabınla giriş yaptın. Topluluğun parçası olduğun için teşekkürler!",
     "sign_out": "iNaturalist'ten çık",
     "log_in_to_post_observations": "Seek gözlemlerini iNaturalist'e göndermek için giriş yap!",
     "log_in_with_inat": "INATURALIST İLE GİRİŞ YAP",

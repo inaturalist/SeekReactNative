@@ -86,7 +86,8 @@
     "error_credentials": "Nome utente o password errata",
     "error_username_taken": "Questo nome utente è già stato preso",
     "error_no_username": "Nome utente / email mancante",
-    "error_no_password": "Password mancante"
+    "error_no_password": "Password mancante",
+    "error_internet": "Nessuna connessione Internet"
   },
   "inat_signup": {
     "welcome": "Benvenuto in Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Questa specie è salvata nelle tue osservazioni.",
     "you": "Ehi, sei tu! Vai fuori e trova alcune specie selvatiche per saperne di più.",
     "internet_error": "Abbiamo bisogno di internet per generare la schermata di dettaglio delle specie. Tocca per riprovare.",
-    "no_photos_found": "Nessuna foto trovata per questa specie."
+    "no_photos_found": "Nessuna foto trovata per questa specie.",
+    "copied": "COPIATO!"
   },
   "about": {
     "header": "Info su",
@@ -794,11 +796,10 @@
     "learn_more_about_inat": "Scopri di più su iNaturalist",
     "get_started_by_downloading_inat": "Inizia scaricando l'app iNaturalist o visitando inaturalist.org.\n\nHai già un account iNaturalist? Accedi a Seek con il tuo account esistente!",
     "we_think_youll_like_inat": "Pensiamo che ti piacerà davvero iNaturalist.",
-    "logged_in": "Hai effettuato l'accesso in Seek con il tuo account iNaturalist. Grazie per far parte di questa comunità!",
     "sign_out": "Esci da iNaturalist",
     "log_in_to_post_observations": "Accedi per pubblicare le tue osservazioni di Seek su iNaturalist!",
     "log_in_with_inat": "ACCEDI CON INATURALIST",
-    "use_inat_to": "USA NATURALIST PER:",
+    "use_inat_to": "USA INATURALIST PER:",
     "inat_vs_seek": "INATURALIST VS SEEK",
     "inat_is_an_online_community": "iNaturalist è una comunità online per naturalisti",
     "inat_bullet_1": "Le osservazioni iNaturalist sono pubbliche e contribuiscono alla scienza",
@@ -826,6 +827,6 @@
     "logged_in_bullet_2": "Usa l'app iNaturalist o il sito web per visualizzare le notifiche di identificazioni, commenti e altre attività sulle tue osservazioni",
     "logged_in_bullet_3": "Le tue osservazioni di Seek NON sono salvate su iNaturalist. L'eliminazione di Seek cancellerà tutte le osservazioni sul tuo dispositivo.",
     "upload_and_track_obs_using_inat": "Carica e tieni traccia delle tue osservazioni utilizzando l'app iNaturalist o visitando inaturalist.org.\n\nGrazie per essere parte di questa community!",
-    "x_seen_by_user": "{{speciesName}} visto da {{user}}"
+    "x_seen_by_user": "{{speciesName}} vista da {{user}}"
   }
 }

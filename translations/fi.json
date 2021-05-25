@@ -86,7 +86,8 @@
     "error_credentials": "Virheellinen käyttäjänimi tai salasana",
     "error_username_taken": "Tämä käyttäjänimi on jo käytössä",
     "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password"
+    "error_no_password": "Missing password",
+    "error_internet": "No internet connection"
   },
   "inat_signup": {
     "welcome": "Tervetuloa Seekiin!",
@@ -543,7 +544,8 @@
     "species_saved": "Tämä laji on tallennettu havaintoihisi.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "No photos found for this species.",
+    "copied": "COPIED!"
   },
   "about": {
     "header": "About",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Learn more about iNaturalist",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
     "sign_out": "Sign out of iNaturalist",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
     "log_in_with_inat": "LOG IN WITH INATURALIST",

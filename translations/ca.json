@@ -86,7 +86,8 @@
     "error_credentials": "Nom d'usuari o contrasenya incorrectes",
     "error_username_taken": "Aquest nom d'usuari ja està agafat",
     "error_no_username": "Manca nom d'usuari/e-mail",
-    "error_no_password": "Manca la contrasenya"
+    "error_no_password": "Manca la contrasenya",
+    "error_internet": "No internet connection"
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Aquesta espècie està guardada a les teves observacions.",
     "you": "Ei, mira, tu! Surt a l'exterior i troba algunes espècies salvatges per aprendre encara més sobre elles.",
     "internet_error": "Necessitem accés a internet per mostrar informació detallada de l'espècie. Toca per intentar-ho de nou.",
-    "no_photos_found": "No hem trobat fotos d'aquesta espècie."
+    "no_photos_found": "No hem trobat fotos d'aquesta espècie.",
+    "copied": "COPIED!"
   },
   "about": {
     "header": "Quant a",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Coneix més sobre iNaturalist",
     "get_started_by_downloading_inat": "Comença descarregant l'App d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!",
     "we_think_youll_like_inat": "Creiem que t'agradarà iNaturalist.",
-    "logged_in": "Has entrat a Seek amb el teu compte d'iNaturalist. Gràcies per formar part d'aquesta comunitat!",
     "sign_out": "Surt d'iNaturalist",
     "log_in_to_post_observations": "Entra per enviar les teves observacions de Seek a iNaturalist!",
     "log_in_with_inat": "ENTRA AMB INATURALIST",

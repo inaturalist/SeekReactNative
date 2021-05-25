@@ -86,7 +86,8 @@
     "error_credentials": "Nombre de usuario o contraseña incorrectos",
     "error_username_taken": "Este nombre de usuario ya se está usando",
     "error_no_username": "Falta nombre de usuario / email",
-    "error_no_password": "Falta contraseña"
+    "error_no_password": "Falta contraseña",
+    "error_internet": "No hay conexión a internet"
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Esta especie se guarda en tus observaciones.",
     "you": "Mira - ¡eres tú! Sal y encuentra algunas especies silvestres para aprender aún más sobre ellas.",
     "internet_error": "Necesitamos Internet para generar la pantalla de información de la especie. Pulsa para intentarlo de nuevo.",
-    "no_photos_found": "No hay fotos para esta especie."
+    "no_photos_found": "No hay fotos para esta especie.",
+    "copied": "¡COPIADO!"
   },
   "about": {
     "header": "Acerca de",
@@ -776,7 +778,7 @@
     "june_2021_description": "Todos nosotros, sin importar la edad o experiencia, podemos generar un impacto positivo en la conservación de la biodiversidad. Por ejemplo, podemos ayudar a cuidar un sitio en particular, como tu jardín, un área protegida o un parque local. Proteger la naturaleza comienza aprendiendo sobre las plantas, hongos y animales que viven en los sitios que te interesan. Tu desafío de este mes es buscar en tu jardín o un parque local y hacer un inventario de la mayor cantidad de especies que puedas.",
     "june_2021_action": "Este mes enfócate en aprender algo sobre cada especie que documentes, incluyendo cuales son nativas o introducidas. Piensa en todas las observaciones que has realizado en los últimos 4 meses - ¿qué diferencias has notado en la biodiversidad y la huella del humano durante este periodo de tiempo y en los diferentes lugares que has explorado?. Identifica alguna acción que puedas hacer para ayudar a ese lugar  (como tu jardín o parque) para ser más amigable con las especies nativas. Escribe tu meta y toma una foto de ella, ¡Compártela con nosotros usando #NatGeoSeekChallenge en Twitter!",
     "june_2021_badge_name": "Insignia de Conservación",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Foto por: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "¡HAS COMPLETADO EL DESAFÍO DE {{sponsorName}} PARA {{date}}!"
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Conoce más sobre iNaturalist",
     "get_started_by_downloading_inat": "Comienza descargando la aplicación iNaturalist o visitando inaturalist.org.\n\n¿Ya tienes una cuenta de iNaturalist? ¡Inicia sesión en Seek con tu cuenta!",
     "we_think_youll_like_inat": "Creemos que en verdad te gustará iNaturalist.",
-    "logged_in": "Has iniciado sesión en Seek con tu cuenta de iNaturalist. ¡Gracias por formar parte de esta comunidad!",
     "sign_out": "Sal de iNaturalist",
     "log_in_to_post_observations": "¡Inicia sesión para enviar tus observaciones de Seek a iNaturalist!",
     "log_in_with_inat": "ENTRA CON INATURALIST",

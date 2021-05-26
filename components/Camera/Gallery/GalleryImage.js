@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { Platform, Image, TouchableOpacity } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -9,7 +9,6 @@ import type { Node } from "react";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { viewStyles, imageStyles } from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
-import { fetchOfflineResults } from "../../../utility/resultsHelpers";
 import { ObservationContext } from "../../UserContext";
 
 type Props = {
@@ -18,7 +17,7 @@ type Props = {
 }
 
 const GalleryImage = ( { item, setLoading }: Props ): Node => {
-  const { setObservation } = useContext( ObservationContext );
+  const { setObservation, observation } = useContext( ObservationContext );
   const navigation = useNavigation();
 
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
@@ -51,13 +50,19 @@ const GalleryImage = ( { item, setLoading }: Props ): Node => {
       image.predictions = predictions;
 
       setObservation( { image } );
-
-      fetchOfflineResults( image, navigation );
     } else {
       setObservation( { image } );
       navigate( "OnlineServerResults", { image } );
     }
   }, [navigation, setObservation] );
+
+  useEffect( ( ) => {
+    if ( observation && observation.taxon ) {
+      navigation.push( "Drawer", {
+        screen: "Match"
+      } );
+    }
+  }, [observation, navigation] );
 
   const getPredictions = useCallback( ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );

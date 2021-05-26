@@ -1,14 +1,17 @@
+// @flow
+
 import React, { useState } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
+import type { Node } from "react";
 
-import { SpeciesNearbyContext } from "./UserContext";
-import { useLocationName } from "../utility/customHooks";
+import { SpeciesNearbyContext } from "../UserContext";
+import { useLocationName } from "../../utility/customHooks";
 
 type Props = {
   children: any
 }
 
-const SpeciesNearbyProvider = ( { children }: Props ) => {
+const SpeciesNearbyProvider = ( { children }: Props ): Node => {
   const netInfo = useNetInfo( );
   const { isConnected } = netInfo;
   const [speciesNearby, setSpeciesNearby] = useState( {

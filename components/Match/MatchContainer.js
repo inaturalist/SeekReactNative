@@ -15,7 +15,6 @@ import { useCommonName } from "../../utility/customHooks";
 import { ObservationContext } from "../UserContext";
 
 type Props = {
-  params: Object,
   setNavigationPath: Function,
   screenType: string,
   scientificNames: boolean
@@ -23,13 +22,13 @@ type Props = {
 
 const MatchContainer = ( {
   screenType,
-  params,
   setNavigationPath,
   scientificNames
 }: Props ): Node => {
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation();
-  const { taxon, seenDate } = params;
+  const { taxon } = observation;
+  const { seenDate } = taxon;
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";

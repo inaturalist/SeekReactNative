@@ -35,7 +35,7 @@ import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
-import { fetchOfflineResults, fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
+import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
 // import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
@@ -48,7 +48,7 @@ const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
-  const { setObservation } = useContext( ObservationContext );
+  const { setObservation, observation } = useContext( ObservationContext );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -139,9 +139,16 @@ const ARCamera = ( ): Node => {
     image.errorCode = errorCode;
 
     setObservation( { image } );
+    // fetchOfflineResults( image, navigation );
+  }, [setObservation] );
 
-    fetchOfflineResults( image, navigation );
-  }, [navigation, setObservation] );
+  useEffect( ( ) => {
+    if ( observation && observation.taxon ) {
+      navigation.push( "Drawer", {
+        screen: "Match"
+      } );
+    }
+  }, [observation, navigation] );
 
   const resetPredictions = ( ) => {
     // only rerender if state has different values than before

@@ -3,7 +3,8 @@
 import React, {
   useEffect,
   useCallback,
-  useReducer
+  useReducer,
+  useContext
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
@@ -20,12 +21,12 @@ import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/he
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
+import { ObservationContext } from "../UserContext";
 
 type Props = {
   screenType: string,
   closeFlagModal: Function,
   setNavigationPath: Function,
-  params: Object,
   flagModal: boolean,
   navPath: ?string,
   scientificNames: boolean
@@ -34,14 +35,15 @@ type Props = {
 const MatchModals = ( {
   screenType,
   closeFlagModal,
-  params,
   setNavigationPath,
   flagModal,
   navPath,
   scientificNames
 }: Props ): Node => {
-  const navigation = useNavigation();
-  const { seenDate, taxon } = params;
+  const { observation } = useContext( ObservationContext );
+  const navigation = useNavigation( );
+  const { taxon } = observation;
+  const { seenDate } = taxon;
 
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );
@@ -118,12 +120,13 @@ const MatchModals = ( {
       setSpeciesId( taxon.taxaId );
       // return user to match screen
       setRoute( "Match" );
-      navigation.navigate( "Species", { ...params } );
+      // params are not actually working here, and I'm not sure why
+      navigation.navigate( "Species", { observation } );
     } else if ( navPath === "Drawer" ) {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, params, taxon, setNavigationPath, commonName] );
+  }, [navPath, navigation, taxon, setNavigationPath, commonName, observation] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

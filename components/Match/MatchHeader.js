@@ -14,18 +14,15 @@ import { ObservationContext } from "../UserContext";
 
 type Props = {
   screenType: string,
-  setNavigationPath: Function,
-  params: Object
+  setNavigationPath: Function
 }
 
 const MatchHeader = ( {
   screenType,
-  setNavigationPath,
-  params
+  setNavigationPath
 }: Props ): Node => {
   const { observation } = useContext( ObservationContext );
-  const { image } = observation;
-  const { taxon } = params;
+  const { image, taxon } = observation;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
   const { gradientDark, gradientLight } = setGradients( screenType );

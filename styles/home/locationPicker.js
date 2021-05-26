@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 import {
   colors,
   fonts,
@@ -76,6 +76,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     position: "absolute",
     right: 0,
     top: 0
+  },
+  backButton: {
+    left: 0,
+    paddingVertical: 18,
+    paddingHorizontal: 23,
+    position: "absolute",
+    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
   }
 } );
 

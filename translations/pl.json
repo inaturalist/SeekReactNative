@@ -87,7 +87,7 @@
     "error_username_taken": "Ta nazwa użytkownika jest już zajęta",
     "error_no_username": "Brak nazwy użytkownika / adresu e-mail",
     "error_no_password": "Brak hasła",
-    "error_internet": "No internet connection"
+    "error_internet": "Brak połączenia z Internetem"
   },
   "inat_signup": {
     "welcome": "Witaj w Seek!",
@@ -545,7 +545,7 @@
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
     "no_photos_found": "Nie znaleziono zdjęć dla tego gatunku.",
-    "copied": "COPIED!"
+    "copied": "SKOPIOWANE!"
   },
   "about": {
     "header": "O aplikacji",

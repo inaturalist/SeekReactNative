@@ -87,7 +87,7 @@
     "error_username_taken": "Det användarnamnet är redan upptaget",
     "error_no_username": "Användarnamn / e-postadress saknas",
     "error_no_password": "Lösenord saknas",
-    "error_internet": "No internet connection"
+    "error_internet": "Ingen internetanslutning"
   },
   "inat_signup": {
     "welcome": "Välkommen till Seek!",
@@ -545,7 +545,7 @@
     "you": "Ser man på, det är ju du! Ge dig ut och hitta några vilda arter att lära dig ännu mer om.",
     "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen.",
     "no_photos_found": "Inga bilder hittades för denna art.",
-    "copied": "COPIED!"
+    "copied": "KOPIERAT!"
   },
   "about": {
     "header": "Om",

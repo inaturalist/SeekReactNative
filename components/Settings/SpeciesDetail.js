@@ -28,7 +28,6 @@ const SpeciesDetail = ( ): Node => {
       return;
     }
     const value = await updateUserSetting( "localSeasonality", newValue );
-    console.log( value, "seasonality value" );
     setSeasonality( value );
   };
 

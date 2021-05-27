@@ -27,7 +27,7 @@ const checkForPowerUsers = ( length, newLength ) => {
 const addToCollection = async ( observation: {
   taxon: {
     default_photo: ?{
-      medium_url: string
+      medium_url: ?string
     },
     id: number,
     name: string,

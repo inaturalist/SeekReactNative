@@ -61,10 +61,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return iconicTaxonId[0] || 1;
   };
 
-  const setSpeciesSeenImage = ( taxa ) => {
-    return taxa && taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
-  };
-
   const fetchPhoto = useCallback( async ( id: number ) => {
     const options = { user_agent: createUserAgent( ) };
 
@@ -72,27 +68,33 @@ const ObservationProvider = ( { children }: Props ): Node => {
 
     try {
       const { results } = await inatjs.taxa.fetch( id, options );
-      console.log( results[0] );
-      return connected ? results[0] : null;
+      const taxa = results[0];
+      const defaultPhoto = taxa && taxa.default_photo && taxa.default_photo.medium_url
+        ? taxa.default_photo.medium_url
+        : null;
+      console.log( defaultPhoto, "default photo" );
+      return connected ? defaultPhoto : null;
     } catch ( e ) {
       return null;
     }
   }, [connected] );
 
   const handleSpecies = useCallback( async ( species ) => {
-    const createSpecies = ( taxa, seenDate ) => {
+    const createSpecies = ( photo, seenDate ) => {
       return {
         taxaId: Number( species.taxon_id ),
-        speciesSeenImage: setSpeciesSeenImage( taxa ),
+        speciesSeenImage: photo,
         scientificName: species.name,
         seenDate
       };
     };
 
-    const createObservationForRealm = taxa => {
+    const createObservationForRealm = photo => {
       return {
         taxon: {
-          default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
+          default_photo: {
+            medium_url: photo
+          },
           id: Number( species.taxon_id ),
           name: species.name,
           iconic_taxon_id: checkForIconicTaxonId( species.ancestor_ids ),
@@ -109,10 +111,10 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
 
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
-    const taxa = await fetchPhoto( species.taxon_id );
+    const mediumPhoto = await fetchPhoto( species.taxon_id );
 
     if ( !seenDate ) {
-      const newObs = createObservationForRealm( taxa );
+      const newObs = createObservationForRealm( mediumPhoto );
       await addToCollection( newObs, observation.image );
 
       // also added to online server results
@@ -120,16 +122,16 @@ const ObservationProvider = ( { children }: Props ): Node => {
         createLocationAlert( errorCode );
       }
     }
-    const taxon = createSpecies( taxa, seenDate );
+    const taxon = createSpecies( mediumPhoto, seenDate );
     return taxon;
   }, [observation, fetchPhoto] );
 
   const handleAncestor = useCallback( async ( ancestor ) => {
-    const taxa = await fetchPhoto( ancestor.taxon_id );
+    const photo = await fetchPhoto( ancestor.taxon_id );
 
     return {
       taxaId: ancestor.taxon_id,
-      speciesSeenImage: setSpeciesSeenImage( taxa ),
+      speciesSeenImage: photo,
       scientificName: ancestor.name,
       rank: ancestor.rank
     };

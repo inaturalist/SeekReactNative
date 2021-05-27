@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect, useCallback } from "react";
-// import { useNetInfo } from "@react-native-community/netinfo";
+import NetInfo from "@react-native-community/netinfo";
 import type { Node } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
@@ -19,6 +19,7 @@ type Props = {
 }
 
 const ObservationProvider = ( { children }: Props ): Node => {
+  const [connected, setConnected] = useState( null );
   const [observation, setObservation] = useState( null );
   const observationValue = { observation, setObservation };
 
@@ -64,17 +65,19 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return taxa && taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
   };
 
-  const fetchPhoto = async ( id: number ) => {
+  const fetchPhoto = useCallback( async ( id: number ) => {
     const options = { user_agent: createUserAgent( ) };
+
+    if ( !connected ) { return null; }
 
     try {
       const { results } = await inatjs.taxa.fetch( id, options );
-      const taxa = results[0];
-      return taxa;
+      console.log( results[0] );
+      return connected ? results[0] : null;
     } catch ( e ) {
       return null;
     }
-  };
+  }, [connected] );
 
   const handleSpecies = useCallback( async ( species ) => {
     const createSpecies = ( taxa, seenDate ) => {
@@ -119,7 +122,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
     const taxon = createSpecies( taxa, seenDate );
     return taxon;
-  }, [observation] );
+  }, [observation, fetchPhoto] );
 
   const handleAncestor = useCallback( async ( ancestor ) => {
     const taxa = await fetchPhoto( ancestor.taxon_id );
@@ -130,7 +133,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       scientificName: ancestor.name,
       rank: ancestor.rank
     };
-  }, [] );
+  }, [fetchPhoto] );
 
   useEffect( ( ) => {
     let isCurrent = true;
@@ -176,6 +179,16 @@ const ObservationProvider = ( { children }: Props ): Node => {
       isCurrent = false;
     };
   }, [observation, handleSpecies, handleAncestor] );
+
+  useEffect( ( ) => {
+    // Subscribe
+    const unsubscribe = NetInfo.addEventListener( state => {
+      setConnected( state.isConnected );
+    } );
+
+    // Unsubscribe
+    unsubscribe( );
+  }, [] );
 
   return (
     <ObservationContext.Provider value={observationValue}>

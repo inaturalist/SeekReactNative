@@ -244,7 +244,6 @@ const SpeciesDetail = ( ): Node => {
   }
 
   const predictions = params ? params.image : null;
-  console.log( params, "params" );
 
   return (
     <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>

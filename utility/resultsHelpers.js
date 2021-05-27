@@ -1,12 +1,12 @@
 // @flow
 import { Platform } from "react-native";
-import inatjs from "inaturalistjs";
+// import inatjs from "inaturalistjs";
 
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
-import createUserAgent from "./userAgent";
-import { fetchSpeciesSeenDate } from "./dateHelpers";
-import { addToCollection } from "./observationHelpers";
-import { fetchTruncatedUserLocation, createLocationAlert } from "./locationHelpers";
+// import createUserAgent from "./userAgent";
+// import { fetchSpeciesSeenDate } from "./dateHelpers";
+// import { addToCollection } from "./observationHelpers";
+import { fetchTruncatedUserLocation } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 // import { LOG } from "./debugHelpers";
 
@@ -179,17 +179,17 @@ const setImageCoords = ( coords?: { latitude: number, longitude: number }, image
   return image;
 };
 
-const fetchPhoto = async ( id: number ) => {
-  const options = { user_agent: createUserAgent( ) };
+// const fetchPhoto = async ( id: number ) => {
+//   const options = { user_agent: createUserAgent( ) };
 
-  try {
-    const { results } = await inatjs.taxa.fetch( id, options );
-    const taxa = results[0];
-    return taxa;
-  } catch ( e ) {
-    return null;
-  }
-};
+//   try {
+//     const { results } = await inatjs.taxa.fetch( id, options );
+//     const taxa = results[0];
+//     return taxa;
+//   } catch ( e ) {
+//     return null;
+//   }
+// };
 
 // this is only being called from AR camera
 const fetchImageLocationOrErrorCode = async ( image: {
@@ -223,48 +223,48 @@ const fetchImageLocationOrErrorCode = async ( image: {
   }
 };
 
-const fetchOfflineResults = async ( userImage: {
-  time: number,
-  uri: string,
-  predictions: Array<Object>,
-  latitude?: number,
-  longitude?: number,
-  errorCode: number
-}, navigation: any ) => {
-  const threshold = 0.7;
-  const { predictions, errorCode, latitude } = userImage;
+// const fetchOfflineResults = async ( userImage: {
+//   time: number,
+//   uri: string,
+//   predictions: Array<Object>,
+//   latitude?: number,
+//   longitude?: number,
+//   errorCode: number
+// }, navigation: any ) => {
+//   const threshold = 0.7;
+//   const { predictions, errorCode, latitude } = userImage;
 
-  const species = checkForSpecies( predictions, threshold );
-  const ancestor = checkForAncestor( predictions, threshold );
+//   const species = checkForSpecies( predictions, threshold );
+//   const ancestor = checkForAncestor( predictions, threshold );
 
-  if ( species ) {
-    if ( Platform.OS === "ios" ) {
-      species.ancestor_ids = setAncestorIdsiOS( predictions );
-    }
+//   if ( species ) {
+//     if ( Platform.OS === "ios" ) {
+//       species.ancestor_ids = setAncestorIdsiOS( predictions );
+//     }
 
-    const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
-    const taxa = await fetchPhoto( species.taxon_id );
+//     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
+//     const taxa = await fetchPhoto( species.taxon_id );
 
-    if ( !seenDate ) {
-      const newObs = createObservationForRealm( species, taxa );
-      await addToCollection( newObs, userImage );
+//     if ( !seenDate ) {
+//       const newObs = createObservationForRealm( species, taxa );
+//       await addToCollection( newObs, userImage );
 
-      // also added to online server results
-      if ( !latitude && errorCode !== 0 ) {
-        createLocationAlert( errorCode );
-      }
-    }
-    const taxon = createSpecies( species, taxa );
-    navToMatch( navigation, taxon, seenDate );
-  } else if ( ancestor ) {
-    const taxa = await fetchPhoto( ancestor.taxon_id );
-    const taxon = createAncestor( ancestor, taxa );
-    navToMatch( navigation, taxon, null );
-  } else {
-    // no match
-    navToMatch( navigation, { }, null );
-  }
-};
+//       // also added to online server results
+//       if ( !latitude && errorCode !== 0 ) {
+//         createLocationAlert( errorCode );
+//       }
+//     }
+//     const taxon = createSpecies( species, taxa );
+//     navToMatch( navigation, taxon, seenDate );
+//   } else if ( ancestor ) {
+//     const taxa = await fetchPhoto( ancestor.taxon_id );
+//     const taxon = createAncestor( ancestor, taxa );
+//     navToMatch( navigation, taxon, null );
+//   } else {
+//     // no match
+//     navToMatch( navigation, { }, null );
+//   }
+// };
 
 // const fetchOnlineResults = async ( userImage: {
 //   time: number,
@@ -344,7 +344,7 @@ export {
   createOnlineAncestor,
   navToMatch,
   setImageCoords,
-  fetchOfflineResults,
+  // fetchOfflineResults,
   // fetchOnlineResults,
   fetchImageLocationOrErrorCode
 };

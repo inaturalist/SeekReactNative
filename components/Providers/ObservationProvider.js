@@ -8,7 +8,7 @@ import inatjs from "inaturalistjs";
 
 import iconicTaxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import createUserAgent from "../../utility/userAgent";
-import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
 import { ObservationContext } from "../UserContext";
@@ -18,7 +18,6 @@ import {
   findNearestPrimaryRankTaxon,
   checkCommonAncestorRank
 } from "../../utility/resultsHelpers";
-
 type Props = {
   children: any
 }
@@ -26,7 +25,8 @@ type Props = {
 const ObservationProvider = ( { children }: Props ): Node => {
   const [connected, setConnected] = useState( null );
   const [observation, setObservation] = useState( null );
-  const observationValue = { observation, setObservation };
+  const [error, setError] = useState( null );
+  const observationValue = { observation, setObservation, error, setError };
 
   const threshold = 0.7;
 
@@ -50,23 +50,17 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return ancestorIds.sort( );
   };
 
-  const checkForIconicTaxonId = ( ancestorIds: Array<number> ) => {
-    const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
-    taxaIdList.pop();
+  const checkForIconicTaxonId = ancestorIds => {
+    const taxaIdList = Object.keys( iconicTaxaIds ).reverse( );
+    taxaIdList.pop( );
     taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
 
-    const newTaxaList = [];
-
-    taxaIdList.forEach( ( id ) => {
-      newTaxaList.push( Number( id ) );
-    } );
-
-    const iconicTaxonId = newTaxaList.filter( ( value ) => ancestorIds.indexOf( value ) !== -1 );
-
+    const idList = taxaIdList.map( id => Number( id ) );
+    const iconicTaxonId = idList.filter( ( value ) => ancestorIds.indexOf( value ) !== -1 );
     return iconicTaxonId[0] || 1;
   };
 
-  const fetchPhoto = useCallback( async ( id: number ) => {
+  const fetchPhoto = useCallback( async ( id ) => {
     const options = { user_agent: createUserAgent( ) };
 
     if ( !connected ) { return null; }
@@ -224,13 +218,19 @@ const ObservationProvider = ( { children }: Props ): Node => {
       await addToCollection( species, observation.image );
     }
 
-    const taxon = createOnlineSpecies( species.taxon, seenDate );
-    return taxon;
+    return createOnlineSpecies( species.taxon, seenDate );
   }, [observation] );
 
-  const handleOnlineAncestor = useCallback( async ( ancestor ) => {
-    const taxon = createOnlineAncestor( ancestor );
-    return taxon;
+  const handleOnlineAncestor = useCallback( async ( ancestor ) => createOnlineAncestor( ancestor ), [] );
+
+  const handleServerError = useCallback( ( response ) => {
+    if ( !response ) {
+      return { error: "onlineVision" };
+    } else if ( response.status && response.status === 503 ) {
+      const gmtTime = response.headers.map["retry-after"];
+      const hours = serverBackOnlineTime( gmtTime );
+      return { error: "downtime", numberOfHours: hours };
+    }
   }, [] );
 
   // this is for online predictions (only iOS photo library uploads)
@@ -247,7 +247,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       return;
     }
 
-    const updateObs = taxon => {
+    const updateObs = ( taxon ) => {
       if ( !isCurrent ) { return; }
 
       const prevTaxon = observation.taxon;
@@ -295,15 +295,17 @@ const ObservationProvider = ( { children }: Props ): Node => {
           updateObs( { } );
         }
       } catch ( e ) {
-        // still need to handle this like we were doing before
-        console.log( e, "server error" );
+        const parsedError = JSON.stringify( e );
+        const { response } = parsedError;
+        const error = handleServerError( response );
+        setError( error );
       }
     };
 
     if ( image.predictions.length === 0  && !observation.taxon ) {
       fetchOnlineVisionResults( );
     }
-  }, [observation, handleOnlineSpecies, handleOnlineAncestor] );
+  }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
 
   useEffect( ( ) => {
     // Subscribe

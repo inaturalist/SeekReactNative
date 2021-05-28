@@ -6,17 +6,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from "../../styles/results/confirm";
-import { colors } from "../../styles/global";
-import LoadingWheel from "../UIComponents/LoadingWheel";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import GreenText from "../UIComponents/GreenText";
-import BackArrow from "../UIComponents/Buttons/BackArrow";
-import { ObservationContext } from "../UserContext";
+import styles from "../../../styles/camera/confirm";
+import { colors } from "../../../styles/global";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import GreenText from "../../UIComponents/GreenText";
+import BackArrow from "../../UIComponents/Buttons/BackArrow";
+import { ObservationContext } from "../../UserContext";
+import ErrorScreen from "./Error";
 
 const ConfirmScreen = ( ): Node => {
   const navigation = useNavigation( );
-  const { observation, setObservation } = useContext( ObservationContext );
+  const { observation, setObservation, error, setError } = useContext( ObservationContext );
   const { image, clicked } = observation;
   const { uri } = image;
 
@@ -32,6 +33,21 @@ const ConfirmScreen = ( ): Node => {
       } );
     }
   }, [observation, navigation, clicked] );
+
+  useEffect( ( ) => {
+    navigation.addListener( "blur", ( ) => {
+      setError( null );
+    } );
+  }, [navigation, setError] );
+
+  if ( error ) {
+    return (
+      <ErrorScreen
+        error={error.error}
+        number={error.numberOfHours}
+      />
+    );
+  }
 
   return (
     <SafeAreaView edges={["top"]}>

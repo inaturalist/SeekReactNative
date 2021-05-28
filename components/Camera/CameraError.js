@@ -7,7 +7,7 @@ import { useRoute } from "@react-navigation/native";
 import { getSystemVersion } from "react-native-device-info";
 
 import i18n from "../../i18n";
-import styles from "../../styles/camera/error";
+import styles from "../../styles/camera/cameraError";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {

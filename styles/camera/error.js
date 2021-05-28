@@ -1,20 +1,18 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import {
-  colors,
-  fonts,
-  center,
-  dimensions,
-  padding
-} from "../global";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
-  blackBackground: {
-    backgroundColor: colors.black,
-    height: dimensions.height
+  container: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 1
   },
-  center,
+  textContainer: {
+    flex: 1,
+    backgroundColor: colors.black,
+    justifyContent: "center"
+  },
   errorText: {
     color: colors.white,
     fontFamily: fonts.medium,
@@ -22,20 +20,5 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginHorizontal: 41,
     textAlign: "center"
-  },
-  galleryHeight: {
-    height: dimensions.height - 100
-  },
-  margin: {
-    marginTop: 38
-  },
-  whiteText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 16,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSButtonPadding,
-    textAlign: "center",
-    maxWidth: 323
   }
 } );

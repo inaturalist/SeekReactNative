@@ -10,7 +10,7 @@ import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
-import OnlineServerResults from "../Results/OnlineServerResults";
+import ConfirmScreen from "../Camera/Gallery/ConfirmScreen";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostStatus from "../PostToiNat/PostStatus";
@@ -114,8 +114,8 @@ const App = ( ): Props => (
           options={defaultConfig}
         />
         <Stack.Screen
-          name="OnlineServerResults"
-          component={OnlineServerResults}
+          name="Confirm"
+          component={ConfirmScreen}
           options={defaultConfig}
         />
         <Stack.Screen

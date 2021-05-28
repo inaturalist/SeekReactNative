@@ -56,7 +56,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
       // $FlowFixMe
       image.onlineVision = true;
       setObservation( { image } );
-      navigate( "OnlineServerResults" );
+      navigate( "Confirm" );
     }
   }, [navigation, setObservation] );
 

@@ -4,9 +4,9 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import i18n from "../../i18n";
-import GreenHeader from "../UIComponents/GreenHeader";
-import styles from "../../styles/results/error";
+import i18n from "../../../i18n";
+import GreenHeader from "../../UIComponents/GreenHeader";
+import styles from "../../../styles/camera/error";
 
 type Props = {
   +error: string,

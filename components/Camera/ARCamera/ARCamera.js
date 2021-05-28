@@ -143,7 +143,6 @@ const ARCamera = ( ): Node => {
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.image.arCamera ) {
-      console.log( "ar camera is navigating!!!", observation.image.arCamera );
       navigation.push( "Drawer", {
         screen: "Match"
       } );

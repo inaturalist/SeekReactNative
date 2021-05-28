@@ -51,16 +51,18 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
       image.predictions = predictions;
-
       setObservation( { image } );
     } else {
+      // $FlowFixMe
+      image.onlineVision = true;
       setObservation( { image } );
-      navigate( "OnlineServerResults", { image } );
+      navigate( "OnlineServerResults" );
     }
   }, [navigation, setObservation] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon ) {
+    if ( observation && observation.taxon && observation.image.onlineVision === false ) {
+      console.log( "navigating from gallery image list", observation.image.onlineVision );
       navigation.push( "Drawer", {
         screen: "Match"
       } );
@@ -93,7 +95,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
     }
   }, [getPredictions, navigateToResults, setLoading] );
 
-  const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [setLoading] );
+  const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [selectImage] );
 
   // skips measurement of dynamic content for faster loading
   const getItemLayout = useCallback( ( data, index ) => ( {

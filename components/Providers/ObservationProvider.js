@@ -11,8 +11,13 @@ import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
-
 import { ObservationContext } from "../UserContext";
+import { flattenUploadParameters } from "../../utility/photoHelpers";
+import { createJwtToken } from "../../utility/helpers";
+import {
+  findNearestPrimaryRankTaxon,
+  checkCommonAncestorRank
+} from "../../utility/resultsHelpers";
 
 type Props = {
   children: any
@@ -72,7 +77,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
       const defaultPhoto = taxa && taxa.default_photo && taxa.default_photo.medium_url
         ? taxa.default_photo.medium_url
         : null;
-      console.log( defaultPhoto, "default photo" );
       return connected ? defaultPhoto : null;
     } catch ( e ) {
       return null;
@@ -137,10 +141,17 @@ const ObservationProvider = ( { children }: Props ): Node => {
     };
   }, [fetchPhoto] );
 
+  // this is for offline predictions
   useEffect( ( ) => {
     let isCurrent = true;
 
-    if ( observation === null || !observation.image || !observation.image.predictions ) {
+    if ( observation === null ) { return; }
+    const { image } = observation;
+
+    if ( !image
+      || !image.predictions
+      || image.onlineVision
+    ) {
       return;
     }
 
@@ -181,6 +192,118 @@ const ObservationProvider = ( { children }: Props ): Node => {
       isCurrent = false;
     };
   }, [observation, handleSpecies, handleAncestor] );
+
+  const createOnlineSpecies = ( species, seenDate ) => {
+    const photo = species.default_photo;
+
+    return {
+      taxaId: species.id,
+      speciesSeenImage: photo ? photo.medium_url : null,
+      scientificName: species.name,
+      seenDate
+    };
+  };
+
+  const createOnlineAncestor = ( ancestor ) => {
+    if ( !ancestor ) { return; }
+    const photo = ancestor.default_photo;
+
+    return {
+      taxaId: ancestor.id,
+      speciesSeenImage: photo ? photo.medium_url : null,
+      scientificName: ancestor.name,
+      rank: ancestor.rank_level
+    };
+  };
+
+  const handleOnlineSpecies = useCallback( async ( species ) => {
+    const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
+    if ( !observation ) { return; }
+
+    if ( !seenDate ) {
+      await addToCollection( species, observation.image );
+    }
+
+    const taxon = createOnlineSpecies( species.taxon, seenDate );
+    return taxon;
+  }, [observation] );
+
+  const handleOnlineAncestor = useCallback( async ( ancestor ) => {
+    const taxon = createOnlineAncestor( ancestor );
+    return taxon;
+  }, [] );
+
+  // this is for online predictions (only iOS photo library uploads)
+  useEffect( ( ) => {
+    let isCurrent = true;
+
+    if ( !observation ) { return; }
+    const { image, clicked } = observation;
+
+    if ( !image
+      || !clicked
+      || !image.onlineVision
+    ) {
+      return;
+    }
+
+    const updateObs = taxon => {
+      if ( !isCurrent ) { return; }
+
+      const prevTaxon = observation.taxon;
+
+      if ( !prevTaxon
+        || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
+        setObservation( {
+          ...observation,
+          taxon
+        } );
+      }
+    };
+
+    const fetchOnlineVisionResults = async ( ) => {
+      const uploadParams = await flattenUploadParameters( image );
+      const token = createJwtToken( );
+      const options = { api_token: token, user_agent: createUserAgent() };
+
+      try {
+        const r = await inatjs.computervision.score_image( uploadParams, options );
+        if ( r.results.length === 0 ) { return null; }
+
+        const taxa = r.results[0];
+        const ancestor = r.common_ancestor;
+
+        if ( taxa && taxa.combined_score > 85 && taxa.taxon.rank === "species" ) {
+          const taxon = await handleOnlineSpecies( taxa );
+          updateObs( taxon );
+        } else if ( ancestor ) {
+          const rankLevel = ancestor.taxon.rank_level;
+          const primaryRank = checkCommonAncestorRank( rankLevel );
+
+          if ( primaryRank ) {
+            const taxon = await handleOnlineAncestor( ancestor.taxon );
+            updateObs( taxon );
+          } else {
+            // roll up to the nearest primary rank instead of showing sub-ranks
+            // this better matches what we do on the AR camera
+            const { ancestorTaxa } = taxa.taxon;
+            const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
+            const taxon = await handleOnlineAncestor( nearestTaxon );
+            updateObs( taxon );
+          }
+        } else {
+          updateObs( { } );
+        }
+      } catch ( e ) {
+        // still need to handle this like we were doing before
+        console.log( e, "server error" );
+      }
+    };
+
+    if ( image.predictions.length === 0  && !observation.taxon ) {
+      fetchOnlineVisionResults( );
+    }
+  }, [observation, handleOnlineSpecies, handleOnlineAncestor] );
 
   useEffect( ( ) => {
     // Subscribe

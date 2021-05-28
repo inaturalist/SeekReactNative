@@ -137,13 +137,13 @@ const ARCamera = ( ): Node => {
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage );
     image.errorCode = errorCode;
-
+    image.arCamera = true;
     setObservation( { image } );
-    // fetchOfflineResults( image, navigation );
   }, [setObservation] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon ) {
+    if ( observation && observation.taxon && observation.image.arCamera ) {
+      console.log( "ar camera is navigating!!!", observation.image.arCamera );
       navigation.push( "Drawer", {
         screen: "Match"
       } );

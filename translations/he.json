@@ -87,7 +87,7 @@
     "error_username_taken": "שם המשתמש הזה כבר תפוס",
     "error_no_username": "חסר שם משתמש / דואל",
     "error_no_password": "חסרה סיסמה",
-    "error_internet": "No internet connection"
+    "error_internet": "אין חיבור אינטרנט"
   },
   "inat_signup": {
     "welcome": "ברוכים הבאים ל-Seek!",
@@ -545,7 +545,7 @@
     "you": "היי ראו, זה אתם! צאו החוצה ומצאו קצת בעלי חיים בטבע כדי ללמוד עליהם יותר.",
     "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר את עמוד פרטי המין. הקישו לנסת שוב.",
     "no_photos_found": "לא נמצאו תמונות עבור מין זה.",
-    "copied": "COPIED!"
+    "copied": "הועתק!"
   },
   "about": {
     "header": "אודות",
@@ -631,8 +631,8 @@
     "take_photo": "לחצו כדי לקחת תמונה",
     "scroll_left": "לחצו לגלילה שמאלה",
     "scroll_right": "לחצו לגלילה ימינה",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "אזהרות מצלמת מציאות רבודה",
+    "get_started_modal": "טיפים למתחילים"
   },
   "review": {
     "title": "דרגו את היישום הזה",
@@ -737,8 +737,8 @@
     "options": "אפשרויות",
     "show_species_id": "הצג זיהוי מינים",
     "share": "שיתוף ב-Facebook",
-    "save_to_photo_library": "Save to photo library",
-    "saved_to_photo_library": "Saved to photo library",
+    "save_to_photo_library": "שמירה לספריית התמונות",
+    "saved_to_photo_library": "נשמר לספריית התמונות",
     "back_to_id": "חזרה לזיהוי",
     "error_title": "לא ניתן היה לשמור את התמונה",
     "error": "נא לבדוק שוב שאפליקציית Facebook מותקנת.",

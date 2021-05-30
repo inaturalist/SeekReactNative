@@ -22,48 +22,48 @@
     "continue_challenge": "Continuar desafio",
     "view_all": "Ver todos os desafios",
     "new_join": "Entre no desafio da observação global e acompanhe na Nosso Planeta, na Netflix!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "Administradores do iNat: Obrigado por testar o Seek! Você está vendo o último desafio do iNat antes do início do mês para fins de teste."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "PUBLICAR NO  INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Enviando {{count}} observações",
+      "one": "Enviando {{count}} observações",
+      "two": "Enviando {{count}} observações",
+      "few": "Enviando {{count}} observações",
+      "many": "Enviando {{count}} observações",
+      "other": "Enviando {{count}} observações"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} observações enviadas!",
+      "one": "{{count}} observações enviadas!",
+      "two": "{{count}} observações enviadas!",
+      "few": "{{count}} observações enviadas!",
+      "many": "{{count}} observações enviadas!",
+      "other": "{{count}} observações enviadas!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} observações para enviar",
+      "one": "{{count}} observações para enviar",
+      "two": "{{count}} observações para enviar",
+      "few": "{{count}} observações para enviar",
+      "many": "{{count}} observações para enviar",
+      "other": "{{count}} observações para enviar"
     },
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
+    "upload_now": "ENVIAR AGORA",
+    "error_internet": "Falha na conexão de rede. Tente novamente mais tarde.",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente em {{count}} horas.",
+      "one": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente em {{count}} horas.",
+      "two": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente em {{count}} horas.",
+      "few": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente em {{count}} horas.",
+      "many": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente em {{count}} horas.",
+      "other": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente em {{count}} horas."
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_unknown": "Falha ao enviar. Detalhes do erro: {{errorText}}",
+    "error_login": "Erro ao fazer login. Por favor, faça login com a sua conta iNaturalist no Seek na tela do iNaturalist ou Conquistas antes de tentar novamente.",
+    "error_photo": "A foto não pode mais ser acessada no dispositivo.",
+    "error_downtime_a_few_hours": "O servidor do iNaturalist está em manutenção. Por favor, tente novamente mais tarde."
   },
   "notifications": {
     "header": "Notificações",
@@ -85,9 +85,9 @@
     "error_email": "Por favor, insira um endereço de e-mail válido",
     "error_credentials": "Nome de usuário ou senha incorretos",
     "error_username_taken": "Este nome de usuário já está em uso",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password",
-    "error_internet": "No internet connection"
+    "error_no_username": "Falta nome de usuário / e-mail",
+    "error_no_password": "Falta senha",
+    "error_internet": "Sem conexão à internet"
   },
   "inat_signup": {
     "welcome": "Bem-vindo ao Seek!",
@@ -355,14 +355,14 @@
     "error_version": "A Câmera de AR do Seek requer o iOS 11.0+. Seu dispositivo está executando a versão de SO {{OS}}.",
     "error_cameraManager": "Desculpe, não foi possível carregar o Gerenciador de Câmera",
     "error_photoError": "Desculpe, o objeto da foto não foi encontrado",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "Se suas permissões estiverem definidas para 'Fotos Selecionadas', você pode precisar reiniciar o Seek ou visitar as Configurações do iOS > Busca > Fotos > Fotos selecionadas para escolher quais fotos exibir aqui.",
     "plant_filter": "Somente plantas",
     "non_plant_filter": "Somente espécies que não sejam plantas",
     "filters_off": "Filtros desativados"
   },
   "gallery": {
     "label": "Fotos",
-    "photo_library": "Photo Library"
+    "photo_library": "Galeria de Fotos"
   },
   "camera_help": {
     "title": "Câmera do Seek",
@@ -483,17 +483,17 @@
     "search": "Pesquisar observações",
     "search_empty": "Não foram encontradas observações com esse termo de pesquisa.",
     "reset_search": "Redefinir pesquisa",
-    "not_seen_plants": "You haven’t observed any plants yet!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_plants": "Você ainda não observou nenhuma planta!",
+    "not_seen_amphibians": "Você ainda não observou nenhum anfíbio!",
+    "not_seen_fungi": "Você ainda não observou nenhum fungo!",
+    "not_seen_fish": "Você ainda não observou nenhum peixe!",
+    "not_seen_reptiles": "Você ainda não observou nenhum réptil!",
+    "not_seen_arachnids": "Você ainda não observou nenhum aracnídeo!",
+    "not_seen_birds": "Você ainda não observou nenhuma ave!",
+    "not_seen_insects": "Você ainda não observou nenhum inseto!",
+    "not_seen_mollusks": "Você ainda não observou nenhum molusco!",
+    "not_seen_mammals": "Você ainda não observou nenhum mamífero!",
+    "not_seen_other": "Você ainda não observou nenhuma outra espécie!"
   },
   "species_detail": {
     "near": "Nas proximidades",
@@ -545,7 +545,7 @@
     "you": "Ei, você! Saia e encontre algumas espécies silvestres para saber ainda mais sobre elas.",
     "internet_error": "Precisamos da internet para gerar a tela de detalhes de espécies. Toque para tentar novamente.",
     "no_photos_found": "Nenhuma foto encontrada para esta espécie.",
-    "copied": "COPIED!"
+    "copied": "COPIADO!"
   },
   "about": {
     "header": "Sobre",
@@ -580,10 +580,10 @@
     "look_up": "Procure uma espécie por nome"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
+    "posting_to_inat_background": "PUBLICAR NO INATURALIST EM SEGUNDO PLANO",
+    "posting_to_inat_background_description": "Publicar no iNaturalist continuará em segundo plano enquanto o Seek está aberto.\n\nVocê pode verificar o status dos envios na tela de início.",
+    "no_internet": "SEM INTERNET!",
+    "no_internet_description": "A sua observação não foi enviada para o iNaturalist porque você não está conectado à internet.\n\nVocê pode enviar a sua observação pela tela de início assim que tiver internet."
   },
   "posting_help": {
     "header": "Publicando ajuda",
@@ -626,13 +626,13 @@
     "flag": "Marcar esta observação como incorreta",
     "back": "Voltar à tela anterior",
     "user_location": "Voltar à sua localização atual",
-    "open_help": "Open camera help screen",
-    "open_posting_help": "Open posting to iNaturalist help screen",
+    "open_help": "Abrir tela de ajuda da câmera",
+    "open_posting_help": "Abrir publicação na tela de ajuda do iNaturalist",
     "take_photo": "Toque para tirar uma foto",
     "scroll_left": "Toque para rolar à esquerda",
     "scroll_right": "Toque para rolar à direita",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "Avisos de câmera AR",
+    "get_started_modal": "Dicas para começar"
   },
   "review": {
     "title": "Avaliar este aplicativo",
@@ -737,8 +737,8 @@
     "options": "Opções",
     "show_species_id": "Mostrar identificação de espécies",
     "share": "Compartilhar no Facebook",
-    "save_to_photo_library": "Save to photo library",
-    "saved_to_photo_library": "Saved to photo library",
+    "save_to_photo_library": "Salvar na galeria de fotos",
+    "saved_to_photo_library": "Salvo na galeria de fotos",
     "back_to_id": "Voltar à identificação",
     "error_title": "Não foi possível salvar a foto",
     "error": "Por favor, verifique se você tem o aplicativo do Facebook instalado.",
@@ -759,14 +759,14 @@
     "apr_2021_description": "As alterações climáticas, a perda de espécies e a poluição plástica são três dos maiores desafios que o nosso planeta enfrenta atualmente, e todos eles são movidos pela atividade humana. O tema deste ano para o Dia da Terra (22 de Abril) é \"Restaure nossa Terra. Todos nós precisamos trabalhar juntos para construir um futuro mais sustentável para ambas as comunidades e a vida selvagem — suas ações individuais podem ajudar a fazer a diferença!",
     "apr_2021_action": "Um dos impactos humanos mais difundidos nos ecossistemas é o lixo. Enquanto exploramos a natureza este mês, prestamos atenção ao lixo que vemos e pensamos na sua origem. Faça uma lista de coisas que você poderia fazer em casa para reduzir o desperdício que sua família gera, e compartilhe esta lista com o resto da sua família.",
     "apr_2021_badge_name": "Emblema de Restauração",
-    "apr_2021_photographer": "Photo by: Enric Sala / National Geographic",
+    "apr_2021_photographer": "Foto de: Enric Sala / National Geographic",
     "may_2021_mission_1": "Encontre 5 plantas de qualquer uma das seguintes famílias:\n\nAsteraceae;\nFabaceae;\nLamiaceae;\nAcanthaceae;\nMalvaceae);\nBignoniaceae;\nPassifloraceae",
     "may_2021_mission_2": "Encontre 2 artrópodes (insetos, aracnídeos, crustáceos)",
     "may_2021_challenge_name": "Desafio Ecossistemas Saudáveis",
     "may_2021_description": "Os ecossistemas saudáveis proporcionam-nos muitos benefícios diversos, incluindo a limpeza da nossa água e do ar, o armazenamento de carbono e a criação de habitats para apoiar a biodiversidade. Algumas espécies como liquens, mosquitos e odonatos (libélulas e libelinhas) são conhecidos por serem indicadores de saúde ecológica. Quando você vê essas espécies, é um bom sinal de que o seu ecossistema é saudável!",
     "may_2021_action": "Os ecossistemas saudáveis trazem benefícios importantes para a nossa própria saúde e bem-estar. O tempo gasto na natureza pode ajudar as pessoas a se recuperarem do estresse, melhorar o seu humor e pensar mais claramente. Encontre um lugar pacífico na natureza e passe uma hora focada nas visões, sons, cheiros e texturas ao seu redor. Anote algumas de suas observações. Como este tempo gasto na natureza faz você se sentir?",
     "may_2021_badge_name": "Emblema de EcoSaúde",
-    "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
+    "may_2021_photographer": "Foto de: Jim Richardson / National Geographic",
     "june_2021_mission_1": "Encontre 1 planta das seguintes classes:\n\nLycopodiopsida;\nPolypodiopsida",
     "june_2021_mission_2": "Encontre 1 planta na classe Pinopsida (Coníferas)",
     "june_2021_mission_3": "Encontre 1 planta do subfilo Angiospermae (Planta de Flores)",
@@ -778,55 +778,55 @@
     "june_2021_description": "Todos nós, independentemente da nossa idade ou experiência, podemos ter um impacto positivo na conservação da biodiversidade. Por exemplo, podemos ajudar a cuidar de um determinado lugar como o nosso, uma zona protegida ou um parque local. A proteção da natureza começa por aprender sobre as plantas, os fungos e os animais que se encontram nos lugares com os quais você se importa. O seu desafio este mês é olhar para o seu quintal ou para um parque local e fazer um inventário da maior biodiversidade possível.",
     "june_2021_action": "Este mês, concentremo-nos em aprender algo sobre cada espécie que você documenta, incluindo quais são as que são originárias e as que são introduzidas. Reflita sobre todas as suas observações nos últimos quatro meses, que diferenças você notou na biodiversidade e na pegada humana durante esse período e nos diferentes lugares que você explorou? Identifique algo que você pode se comprometer a fazer para ajudar a tornar um lugar local (como seu quintal ou um parque) mais saudável para espécies nativas. Anote o seu objetivo e tire uma foto dele.",
     "june_2021_badge_name": "Emblema de conservação",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Foto de: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "VOCÊ CONCLUIU O DESAFIO {{sponsorName}} PARA {{date}}!"
   },
   "about_inat": {
     "inaturalist": "INATURALIST",
-    "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
-    "open_inaturalist": "OPEN INATURALIST",
-    "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
-    "inat_value_prop_1": "Sync your observations across devices",
-    "inat_value_prop_2": "Get accurate, location-based identification suggestions",
-    "inat_value_prop_3": "Add, edit, and manage all your observations in one place",
-    "inat_value_prop_4": "Follow people and see what your friends are observing",
-    "learn_more_about_inat": "Learn more about iNaturalist",
-    "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
-    "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "sign_out": "Sign out of iNaturalist",
-    "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
-    "log_in_with_inat": "LOG IN WITH INATURALIST",
-    "use_inat_to": "USE INATURALIST TO:",
-    "inat_vs_seek": "INATURALIST VS SEEK",
-    "inat_is_an_online_community": "iNaturalist is an online community for naturalists",
-    "inat_bullet_1": "iNaturalist observations are public and help contribute to science",
-    "inat_bullet_2": "Each observation includes your username, date, and location of the observation",
-    "inat_bullet_3": "The iNaturalist community helps to identify and confirm observations",
-    "seek_is_an_id_app": "Seek is an ID app that helps anyone learn about the species around them",
-    "seek_bullet_1": "Seek observations stay on your device",
-    "seek_bullet_2": "No personally identifiable information is collected from logged out users",
-    "seek_bullet_3": "Identifications do not leave your device or require internet to work, but aren’t confirmed by the iNaturalist community",
-    "your_obs_could_make_difference": "YOUR OBSERVATION COULD MAKE A DIFFERENCE",
-    "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
-    "faqs": "FAQS",
-    "faq_1": "You must be 13+ or have a parent’s permission to create an iNaturalist account",
-    "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
-    "logged_in_as": "LOGGED IN AS",
+    "you_are_logged_in": "VOCÊ ENTROU NA CONTA",
+    "welcome_back": "Bem-vindo de volta, {{username}}!",
+    "open_inaturalist": "ABRIR INATURALIST",
+    "dive_deeper_with_inat": "Aprofunde-se mais com o iNaturalist.",
+    "inat_value_prop_1": "Sincronize suas observações entre dispositivos",
+    "inat_value_prop_2": "Obtenha sugestões de identificação precisas baseadas na localização",
+    "inat_value_prop_3": "Adicione, edite e gerencie todas as suas observações em um só lugar",
+    "inat_value_prop_4": "Siga pessoas e veja o que os seus amigos estão observando",
+    "learn_more_about_inat": "Saiba mais sobre o iNaturalist",
+    "get_started_by_downloading_inat": "Comece baixando o aplicativo iNaturalist ou visite inaturalist.org.\n\nJá tem uma conta iNaturalist? Inicie sessão no Seek com a sua conta atual!",
+    "we_think_youll_like_inat": "Acreditamos que você vai gostar do iNaturalist.",
+    "sign_out": "Sair do iNaturalist",
+    "log_in_to_post_observations": "Faça login para publicar suas observações do Seek no iNaturalist!",
+    "log_in_with_inat": "ENTRAR COM INATURALIST",
+    "use_inat_to": "UTILIZAR INATURALIST PARA:",
+    "inat_vs_seek": "INATURALIST X SEEK",
+    "inat_is_an_online_community": "iNaturalist é uma comunidade online para naturalistas",
+    "inat_bullet_1": "As observações do iNaturalist são públicas e ajudam a contribuir com a ciência",
+    "inat_bullet_2": "Cada observação inclui seu nome de usuário, data e localização da observação",
+    "inat_bullet_3": "A comunidade do iNaturalist ajuda a identificar e confirmar observações",
+    "seek_is_an_id_app": "Seek é um aplicativo de identificação que ajuda as pessoas a aprender sobre as espécies ao seu redor",
+    "seek_bullet_1": "As observações do Seek ficam no seu dispositivo",
+    "seek_bullet_2": "Não se coleta nenhuma informação pessoal identificável de usuários desconectados",
+    "seek_bullet_3": "As identificações não saem do seu dispositivo nem precisam de internet para funcionar, porém não são confirmadas pela comunidade iNaturalist",
+    "your_obs_could_make_difference": "A SUA OBSERVAÇÃO PODE FAZER A DIFERENÇA",
+    "everyday_obs_help_scientists": "As observações feitas todos os dias por naturalistas como você podem ajudar os cientistas a aprender sobre onde e quando são encontrados organismos e até mesmo a levar a novas descobertas!",
+    "faqs": "Perguntas frequentes",
+    "faq_1": "Você precisa ter mais de 13 anos ou a permissão dos pais ou responsável para criar uma conta no iNaturalist",
+    "faq_2": "Seek e iNaturalist usam o mesmo modelo de identificação, mas apenas observações do iNaturalist são confirmadas pela comunidade",
+    "logged_in_as": "ENTROU COMO",
     "x_observations_posted_to_inat": {
-      "zero": "{{count}} observations posted to iNaturalist with Seek",
-      "one": "{{count}} observation posted to iNaturalist with Seek",
-      "two": "{{count}} observations posted to iNaturalist with Seek",
-      "few": "{{count}} observations posted to iNaturalist with Seek",
-      "many": "{{count}} observations posted to iNaturalist with Seek",
-      "other": "{{count}} observations posted to iNaturalist with Seek"
+      "zero": "{{count}} observações publicadas no iNaturalist com o Seek",
+      "one": "{{count}} observações publicadas no iNaturalist com o Seek",
+      "two": "{{count}} observações publicadas no iNaturalist com o Seek",
+      "few": "{{count}} observações publicadas no iNaturalist com o Seek",
+      "many": "{{count}} observações publicadas no iNaturalist com o Seek",
+      "other": "{{count}} observações publicadas no iNaturalist com o Seek"
     },
-    "logged_in_bullet_1": "You can post observations to iNaturalist by clicking 'Post to iNaturalist' after you make a Seek observation",
-    "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
-    "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
-    "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "logged_in_bullet_1": "Você pode publicar observações no iNaturalist clicando em 'Publicar no iNaturalist' depois que você fizer uma observação do Seek",
+    "logged_in_bullet_2": "Use o aplicativo iNaturalist ou site para ver as notificações de identificações, comentários e outras atividades nas suas observações",
+    "logged_in_bullet_3": "As suas observações do Seek NÃO foram salvas no iNaturalist. Quando desinstalar o Seek, todas as observações serão apagadas do seu dispositivo.",
+    "upload_and_track_obs_using_inat": "Carregue e acompanhe suas observações usando o aplicativo iNaturalist ou visitando inaturalist.org.\n\nObrigado por fazer parte desta comunidade!",
+    "x_seen_by_user": "{{speciesName}} visto por {{user}}"
   }
 }

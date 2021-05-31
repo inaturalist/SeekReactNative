@@ -87,7 +87,7 @@
     "error_username_taken": "Ese nombre de usuario ya está en uso.",
     "error_no_username": "Falta nombre de usuario / email",
     "error_no_password": "Falta la contraseña",
-    "error_internet": "No internet connection"
+    "error_internet": "Sin conexión al internet"
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -545,7 +545,7 @@
     "you": "Mira - ¡es por ti! Sal y encuentra algunas especies silvestres para aprender aún más sobre ellas.",
     "internet_error": "Necesitamos Internet para generar la pantalla de información de la especie. Pulsa para intentarlo de nuevo.",
     "no_photos_found": "No se han encontrado fotos de esta especie.",
-    "copied": "COPIED!"
+    "copied": "¡COPIADO!"
   },
   "about": {
     "header": "Acerca de",
@@ -778,7 +778,7 @@
     "june_2021_description": "Todos nosotros, sin importar la edad o experiencia, podemos generar un impacto positivo en la conservación de la biodiversidad. Por ejemplo, podemos ayudar a cuidar un sitio en particular, como tu jardín, un área protegida o un parque local. Proteger la naturaleza comienza aprendiendo sobre las plantas, hongos y animales que viven en los sitios que te interesan. Tu desafío de este mes es buscar en tu jardín o un parque local, y hacer un inventario de la mayor cantidad de especies que puedas.",
     "june_2021_action": "Este mes concéntrate en aprender algo sobre cada especie que documentes, incluyendo cuales son nativas o introducidas. Piensa en todas las observaciones que has realizado en los últimos 4 meses - ¿qué diferencias has notado en la biodiversidad y la huella que han dejado los humanos durante este periodo de tiempo y en los diferentes lugares que has explorado? Identifica alguna acción que puedas hacer para ayudar ese lugar  (como tu jardín o parque) para ayudar a las especies nativas. Escribe tu meta y toma una foto de ella, ¡Compártela con nosotros usando el hashtag #NatGeoSeekChallenge en Twitter!",
     "june_2021_badge_name": "Insignia de Conservación",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Foto de: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "¡HAS COMPLETADO EL RETO DE {{sponsorName}} PARA {{date}}!"

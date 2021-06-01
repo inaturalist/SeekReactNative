@@ -198,7 +198,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     };
   };
 
-  const createOnlineAncestor = ( ancestor ) => {
+  const createOnlineAncestor = ( ancestor: Object ) => {
     if ( !ancestor ) { return; }
     const photo = ancestor.default_photo;
 
@@ -297,8 +297,8 @@ const ObservationProvider = ( { children }: Props ): Node => {
       } catch ( e ) {
         const parsedError = JSON.stringify( e );
         const { response } = parsedError;
-        const error = handleServerError( response );
-        setError( error );
+        const serverError = handleServerError( response );
+        setError( serverError );
       }
     };
 

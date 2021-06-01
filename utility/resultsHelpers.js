@@ -1,7 +1,7 @@
 // @flow
 import { Platform } from "react-native";
 
-import { fetchTruncatedUserLocation } from "./locationHelpers";
+import { fetchTruncatedUserLocation, fetchUserLocation } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 
 // online results helpers
@@ -26,10 +26,25 @@ const checkCommonAncestorRank = ( rank: number ): boolean => {
   return false;
 };
 
-const setImageCoords = ( coords?: { latitude: number, longitude: number }, image: Object ): Object => {
+const setImageCoords = (
+  coords?: {
+    latitude: number,
+    longitude: number
+  },
+  image: Object,
+  preciseCoords?: {
+    latitude: number,
+    longitude: number,
+    accuracy: number
+  }
+): Object => {
   if ( coords )  {
     image.latitude = coords.latitude;
     image.longitude = coords.longitude;
+  }
+
+  if ( preciseCoords ) {
+    image.preciseCoords = preciseCoords;
   }
 
   return image;
@@ -40,13 +55,20 @@ const fetchImageLocationOrErrorCode = async ( image: {
   time: number,
   uri: string,
   predictions: Array<Object>
-} ): Promise<{ image: Object, errorCode: number }> => {
+}, login: ?string ): Promise<{ image: Object, errorCode: number }> => {
   const fetchLocation = async ( ) => {
     try {
       const coords = await fetchTruncatedUserLocation( );
-      // LOG.info( "truncated coords: ", JSON.stringify( coords ) );
-      // Alert.alert( "", JSON.stringify( coords ) );
-      return { image: setImageCoords( coords, image ), errorCode: 0 };
+
+      if ( !login ) {
+        // LOG.info( "truncated coords: ", JSON.stringify( coords ) );
+        // Alert.alert( "", JSON.stringify( coords ) );
+        return { image: setImageCoords( coords, image ), errorCode: 0 };
+      } else {
+        const preciseCoords = await fetchUserLocation( );
+        // if user is logged in, fetch their untruncated coords and accuracy too
+        return { image: setImageCoords( coords, image, preciseCoords ), errorCode: 0 };
+      }
     } catch ( code ) {
       // LOG.info( "error code: ", code );
       // Alert.alert( "errorCode", code );

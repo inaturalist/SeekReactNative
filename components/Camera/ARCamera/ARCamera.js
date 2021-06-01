@@ -41,7 +41,7 @@ import { checkIfCameraLaunched } from "../../../utility/helpers";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext } from "../../UserContext";
+import { ObservationContext, UserContext } from "../../UserContext";
 import { LOG } from "../../../utility/debugHelpers";
 
 const ARCamera = ( ): Node => {
@@ -49,6 +49,9 @@ const ARCamera = ( ): Node => {
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
+
+  // determines whether or not to fetch untruncated coords for posting to iNat
+  const { login } = useContext( UserContext );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -135,11 +138,11 @@ const ARCamera = ( ): Node => {
     // AR camera photos don't come with a location
     // especially when user has location permissions off
     // this is also needed for ancestor screen, species nearby
-    const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage );
+    const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
     image.errorCode = errorCode;
     image.arCamera = true;
     setObservation( { image } );
-  }, [setObservation] );
+  }, [setObservation, login] );
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.image.arCamera ) {

@@ -29,7 +29,12 @@ const fetchUserLocation = ( enableHighAccuracy: ?boolean ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
-      resolve( coords );
+      const { latitude, longitude, accuracy } = coords;
+      resolve( {
+        latitude,
+        longitude,
+        accuracy
+      } );
     }, ( { code } ) => {
       reject( code );
     }, {

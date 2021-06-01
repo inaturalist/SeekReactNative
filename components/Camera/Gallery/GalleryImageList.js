@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { viewStyles } from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
-import { ObservationContext } from "../../UserContext";
+import { ObservationContext, UserContext } from "../../UserContext";
 import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 
@@ -21,18 +21,11 @@ type Props = {
 
 const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node => {
   const { setObservation, observation } = useContext( ObservationContext );
+  const { login } = useContext( UserContext );
   const navigation = useNavigation( );
 
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
     const { navigate } = navigation;
-
-    let latitude = null;
-    let longitude = null;
-
-    if ( checkForPhotoMetaData( location ) ) {
-      latitude = location.latitude;
-      longitude = location.longitude;
-    }
 
     const image = {
       time,
@@ -41,11 +34,20 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
       errorCode: 0
     };
 
-    if ( latitude ) {
+    if ( checkForPhotoMetaData( location ) ) {
+      const { latitude, longitude } = location;
       // $FlowFixMe
       image.latitude = latitude;
       // $FlowFixMe
       image.longitude = longitude;
+      if ( login ) {
+        // $FlowFixMe
+        image.preciseCoords = {
+          latitude,
+          longitude,
+          accuracy: null
+        };
+      }
     }
 
     if ( predictions && predictions.length > 0 ) {
@@ -58,7 +60,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
       setObservation( { image } );
       navigate( "Confirm" );
     }
-  }, [navigation, setObservation] );
+  }, [navigation, setObservation, login] );
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.image.onlineVision === false ) {

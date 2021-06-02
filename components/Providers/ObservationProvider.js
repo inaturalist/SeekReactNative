@@ -90,9 +90,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const createObservationForRealm = photo => {
       return {
         taxon: {
-          default_photo: {
-            medium_url: photo
-          },
           id: Number( species.taxon_id ),
           name: species.name,
           iconic_taxon_id: checkForIconicTaxonId( species.ancestor_ids ),
@@ -268,7 +265,10 @@ const ObservationProvider = ( { children }: Props ): Node => {
 
       try {
         const r = await inatjs.computervision.score_image( uploadParams, options );
-        if ( r.results.length === 0 ) { return null; }
+        if ( r.results.length === 0 ) {
+          updateObs( { } );
+          return;
+        }
 
         const taxa = r.results[0];
         const ancestor = r.common_ancestor;

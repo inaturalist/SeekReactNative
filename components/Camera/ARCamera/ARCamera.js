@@ -42,7 +42,7 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext } from "../../UserContext";
-import { LOG } from "../../../utility/debugHelpers";
+// import { LOG } from "../../../utility/debugHelpers";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
@@ -55,9 +55,9 @@ const ARCamera = ( ): Node => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
-      LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
-    }
+    // if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
+    //   LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
+    // }
     switch ( action.type ) {
       case "CAMERA_LOADED":
         return { ...state, cameraLoaded: true };
@@ -323,7 +323,8 @@ const ARCamera = ( ): Node => {
     };
 
     navigation.addListener( "focus", ( ) => {
-      LOG.info( "AR Camera: add navigation focus listener" );
+      setObservation( null );
+      // LOG.info( "AR Camera: add navigation focus listener" );
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       checkForFirstCameraLaunch( );
@@ -332,7 +333,7 @@ const ARCamera = ( ): Node => {
       // reset posting to iNat
       savePostingSuccess( false );
     } );
-  }, [navigation, requestAndroidPermissions] );
+  }, [navigation, requestAndroidPermissions, setObservation] );
 
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );

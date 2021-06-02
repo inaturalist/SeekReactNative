@@ -37,9 +37,9 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
     if ( checkForPhotoMetaData( location ) ) {
       const { latitude, longitude } = location;
       // $FlowFixMe
-      image.latitude = latitude;
+      image.latitude = latitude || null;
       // $FlowFixMe
-      image.longitude = longitude;
+      image.longitude = longitude || null;
       if ( login ) {
         // $FlowFixMe
         image.preciseCoords = {
@@ -48,6 +48,13 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
           accuracy: null
         };
       }
+    } else if ( login ) {
+      // $FlowFixMe
+      image.preciseCoords = {
+        latitude: null,
+        longitude: null,
+        accuracy: null
+      };
     }
 
     if ( predictions && predictions.length > 0 ) {
@@ -63,7 +70,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   }, [navigation, setObservation, login] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && observation.image.onlineVision === false ) {
+    if ( observation && observation.taxon && !observation.image.onlineVision ) {
       navigation.push( "Drawer", {
         screen: "Match"
       } );

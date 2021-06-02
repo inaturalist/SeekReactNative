@@ -33,7 +33,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingVertical: 5,
     position: "absolute",
     right: 17.5,
-    top: 45
+    top: 55
   },
   header: {
     borderTopLeftRadius: 40,
@@ -82,8 +82,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   grayButtonText: {
     color: colors.white,
     fontFamily: fonts.medium,
-    fontSize: 12,
-    paddingTop: 9
+    fontSize: 12
   }
 } );
 

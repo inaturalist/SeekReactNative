@@ -10,7 +10,6 @@ import DeviceInfo from "react-native-device-info";
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
-import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
@@ -105,7 +104,6 @@ const useUserPhoto = ( item: ?{
           setPhoto( { uri: backupFilepath } );
         }
       } else {
-        writeToDebugLog( backupUri );
         RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
           if ( isCurrent ) {
             setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );

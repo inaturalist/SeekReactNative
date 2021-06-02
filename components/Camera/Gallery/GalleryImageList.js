@@ -64,7 +64,6 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.image.onlineVision === false ) {
-      console.log( "navigating from gallery image list", observation.image.onlineVision );
       navigation.push( "Drawer", {
         screen: "Match"
       } );

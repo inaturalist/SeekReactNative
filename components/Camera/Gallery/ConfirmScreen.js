@@ -18,27 +18,32 @@ import ErrorScreen from "./Error";
 const ConfirmScreen = ( ): Node => {
   const navigation = useNavigation( );
   const { observation, setObservation, error, setError } = useContext( ObservationContext );
-  const { image, clicked } = observation;
-  const { uri } = image;
-
-  const updateClicked = ( ) => setObservation( {
-    ...observation,
-    clicked: true
-  } );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && clicked ) {
+    if ( observation && observation.taxon && observation.clicked ) {
       navigation.push( "Drawer", {
         screen: "Match"
       } );
     }
-  }, [observation, navigation, clicked] );
+  }, [observation, navigation] );
 
   useEffect( ( ) => {
     navigation.addListener( "blur", ( ) => {
       setError( null );
     } );
   }, [navigation, setError] );
+
+  if ( !observation ) {
+    return null;
+  }
+
+  const { image, clicked } = observation;
+  const imageSource = { uri: observation ? image.uri : null };
+
+  const updateClicked = ( ) => setObservation( {
+    ...observation,
+    clicked: true
+  } );
 
   if ( error ) {
     return (
@@ -65,7 +70,7 @@ const ConfirmScreen = ( ): Node => {
           </View>
         )}
         <Image
-          source={{ uri }}
+          source={imageSource}
           style={styles.image}
         />
       </View>

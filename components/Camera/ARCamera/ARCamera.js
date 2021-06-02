@@ -163,11 +163,14 @@ const ARCamera = ( ): Node => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 
+    // console.log( uri, "handling save error in AR camera" );
+
     await showCameraSaveFailureAlert( e, uri );
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
+    // console.log( photo.uri, "saving photo in AR camera" );
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );

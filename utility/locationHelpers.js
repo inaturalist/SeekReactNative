@@ -7,7 +7,7 @@ import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
 
-const requestiOSPermissions = async () => {
+const requestiOSPermissions = async ( ) => {
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );
     return permission;
@@ -25,9 +25,8 @@ type Coords = {
   accuracy: number
 }
 
-const fetchUserLocation = ( enableHighAccuracy: ?boolean ): Promise<Coords> => (
+const fetchUserLocation = ( enableHighAccuracy: ?boolean = false ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {
-    requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const { latitude, longitude, accuracy } = coords;
       resolve( {
@@ -42,14 +41,17 @@ const fetchUserLocation = ( enableHighAccuracy: ?boolean ): Promise<Coords> => (
       // on error (particular Android devices), try again with enableHighAccuracy = false
       enableHighAccuracy,
       showLocationDialog: false,
-      maximumAge: 5000
+      maximumAge: 20000,
+      // added timeout and removed requestiOSPermissions for precise locations
+      // since this sometimes wasn't resolving or rejecting
+      timeout: 30000
     } );
   } )
 );
 
 const truncateCoordinates = ( coordinate: number ): number => Number( coordinate.toFixed( 2 ) );
 
-const fetchTruncatedUserLocation = (): Promise<TruncatedCoords> => (
+const fetchTruncatedUserLocation = ( ): Promise<TruncatedCoords> => (
   new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {

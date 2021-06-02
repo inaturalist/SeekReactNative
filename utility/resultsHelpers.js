@@ -1,7 +1,7 @@
 // @flow
 import { Platform } from "react-native";
 
-import { fetchTruncatedUserLocation, fetchUserLocation } from "./locationHelpers";
+import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 
 // online results helpers
@@ -31,20 +31,31 @@ const setImageCoords = (
     latitude: number,
     longitude: number
   },
-  image: Object,
-  preciseCoords?: {
-    latitude: number,
-    longitude: number,
-    accuracy: number
-  }
+  image: Object
 ): Object => {
   if ( coords )  {
     image.latitude = coords.latitude;
     image.longitude = coords.longitude;
   }
 
-  if ( preciseCoords ) {
-    image.preciseCoords = preciseCoords;
+  return image;
+};
+
+const setPreciseImageCoords = (
+  coords?: {
+    latitude: number,
+    longitude: number,
+    accuracy: number
+  },
+  image: Object
+): Object => {
+  if ( coords )  {
+    // keeping the lat/lng that we store in realm truncated even if the user is logged in
+    image.latitude = truncateCoordinates( coords.latitude );
+    image.longitude = truncateCoordinates( coords.longitude );
+
+    // preciseCoords are only used by PostScreen / upload to iNat flow
+    image.preciseCoords = coords;
   }
 
   return image;
@@ -58,20 +69,17 @@ const fetchImageLocationOrErrorCode = async ( image: {
 }, login: ?string ): Promise<{ image: Object, errorCode: number }> => {
   const fetchLocation = async ( ) => {
     try {
-      const coords = await fetchTruncatedUserLocation( );
-
       if ( !login ) {
-        // LOG.info( "truncated coords: ", JSON.stringify( coords ) );
+        const coords = await fetchTruncatedUserLocation( );
         // Alert.alert( "", JSON.stringify( coords ) );
         return { image: setImageCoords( coords, image ), errorCode: 0 };
       } else {
         const preciseCoords = await fetchUserLocation( );
+        // console.log( preciseCoords, "fetching precise coords" );
         // if user is logged in, fetch their untruncated coords and accuracy too
-        return { image: setImageCoords( coords, image, preciseCoords ), errorCode: 0 };
+        return { image: setPreciseImageCoords( preciseCoords, image ), errorCode: 0 };
       }
     } catch ( code ) {
-      // LOG.info( "error code: ", code );
-      // Alert.alert( "errorCode", code );
       return { image, errorCode: code };
     }
   };

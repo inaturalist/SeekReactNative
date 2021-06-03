@@ -344,7 +344,7 @@
     "genus": "属",
     "species": "種",
     "error_permissions": "We need access to the camera to help you identify species!",
-    "error_gallery": "撮った写真を保存をする為に、カメラロールのアクセスが必要です。",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "設定から許可をしてください。",
     "please_permissions": "Please enable permissions in settings",
     "error_classifier": "申し訳ございません。判定ツールをを起動することができませんでした。",

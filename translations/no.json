@@ -344,7 +344,7 @@
     "genus": "slekt",
     "species": "art",
     "error_permissions": "Vi trenger tilgang til kameraet for å hjelpe deg med å identifisere arter!",
-    "error_gallery": "Vi trenger tilgang til ditt bildegalleri for å lagre bilder som du tar!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "Gi tillatelser i innstillingene",
     "please_permissions": "Please enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",

@@ -180,7 +180,7 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event: { nativeEvent: { predictions?: Array<Object> } } ) => {
+  const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
 
     if ( pictureTaken ) { return; }

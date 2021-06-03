@@ -30,46 +30,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
 
   const threshold = 0.7;
 
-  const checkForCommonAncestor = predictions => {
-    const reversePredictions = predictions.reverse( );
-    const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
-
-    if ( ancestor && ancestor.rank <= 33 ) {
-      return ancestor;
-    }
-    return null;
-  };
-
-  const checkForNonHumanExclusion = useCallback( predictions => {
-    // following what we do on the web for non-human exclusion,
-    // a 'common ancestor' can be no higher than superfamily, i.e. rank level 33
-    // and uses our usual 0.7 scoring threshold
-    // https://github.com/inaturalist/iNaturalistAPI/blob/c4ba229ba551eb2a0247f7070b2fcc918ef5c687/lib/controllers/v1/computervision_controller.js#L21
-    const includesHuman = predictions.some( leaf => leaf.name === "Homo" );
-    const hasCommonAncestor = checkForCommonAncestor( predictions );
-
-    console.log( predictions, "predictions" );
-
-    if ( includesHuman ) {
-      const humanIndex = predictions.map( leaf => leaf.name ).indexOf( "Homo" );
-      const humanScore = predictions[humanIndex].score;
-      const nextClosestScore = predictions[humanIndex + 1].score;
-
-      console.log( predictions[humanIndex], predictions[humanIndex + 1], "show human when big score gap" );
-      if ( humanScore >= nextClosestScore + 0.2 ) {
-        console.log( "what exactly do we return here", humanScore, nextClosestScore + 0.2 );
-        return predictions[humanIndex];
-      }
-    }
-
-    if ( includesHuman && !hasCommonAncestor ) {
-      console.log( "non human exclusion" );
-      // true displays an undefined match screen
-      return true;
-    }
-    return false;
-  }, [] );
-
   const checkForSpecies = predictions => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
 
   const checkForAncestor = predictions => {
@@ -201,14 +161,10 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const checkForMatch = async ( ) => {
       const { predictions } = observation.image;
 
-      const nonHumanExclusion = checkForNonHumanExclusion( predictions );
       const species = checkForSpecies( predictions );
       const ancestor = checkForAncestor( predictions );
-      console.log( nonHumanExclusion, "yes non human exclusion" );
 
-      if ( nonHumanExclusion ) {
-        updateObs( { } );
-      } else if ( species ) {
+      if ( species ) {
         const taxon = await handleSpecies( species );
         updateObs( taxon );
       } else if ( ancestor ) {
@@ -224,7 +180,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return ( ) => {
       isCurrent = false;
     };
-  }, [observation, handleSpecies, handleAncestor, checkForNonHumanExclusion] );
+  }, [observation, handleSpecies, handleAncestor] );
 
   const createOnlineSpecies = ( species, seenDate ) => {
     const photo = species.default_photo;

@@ -344,7 +344,7 @@
     "genus": "género",
     "species": "espécie",
     "error_permissions": "We need access to the camera to help you identify species!",
-    "error_gallery": "Temos de aceder ao rolo da sua câmara para guardar as fotos que tirar!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "Ative permissões em configurações",
     "please_permissions": "Please enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",

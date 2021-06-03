@@ -71,16 +71,31 @@ const fetchImageLocationOrErrorCode = async ( image: {
     try {
       if ( !login ) {
         const coords = await fetchTruncatedUserLocation( );
-        // Alert.alert( "", JSON.stringify( coords ) );
         return { image: setImageCoords( coords, image ), errorCode: 0 };
       } else {
         const preciseCoords = await fetchUserLocation( );
-        // console.log( preciseCoords, "fetching precise coords" );
         // if user is logged in, fetch their untruncated coords and accuracy too
         return { image: setPreciseImageCoords( preciseCoords, image ), errorCode: 0 };
       }
     } catch ( code ) {
-      return { image, errorCode: code };
+      if ( !login ) {
+        return {
+          image,
+          errorCode: code
+        };
+      } else {
+        return {
+          image: {
+            ...image,
+            preciseCoords: {
+              latitude: null,
+              longitude: null,
+              accuracy: null
+            }
+          },
+          errorCode: code
+        };
+      }
     }
   };
 

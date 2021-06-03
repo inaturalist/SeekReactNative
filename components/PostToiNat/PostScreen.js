@@ -63,9 +63,7 @@ const PostScreen = (): Node => {
       longitude: preciseCoords.longitude,
       observed_on_string: initialDate,
       place_guess: null,
-      // 90 is sort of arbitrary here, and I'm not sure if it should apply to photo library images
-      // since library images come with no accuracy metadata
-      positional_accuracy: preciseCoords.accuracy || 90,
+      positional_accuracy: preciseCoords.accuracy,
       taxon_id: taxaId
     },
     taxon: {

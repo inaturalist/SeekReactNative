@@ -344,7 +344,7 @@
     "genus": "род",
     "species": "вид",
     "error_permissions": "Нам нужен доступ к камере, чтобы помочь вам определить виды!",
-    "error_gallery": "Нам нужен доступ к вашей фотогалерее для сохранения фото, которые вы делаете!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "Задайте разрешения в настройках",
     "please_permissions": "Задайте разрешения в настройках",
     "error_classifier": "К сожалению, мы не можем загрузить классификатор",

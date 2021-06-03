@@ -86,7 +86,8 @@
     "error_credentials": "Неверное имя пользователя или пароль",
     "error_username_taken": "Это имя уже используется",
     "error_no_username": "Отсутствует имя пользователя / email",
-    "error_no_password": "Отсутствует пароль"
+    "error_no_password": "Отсутствует пароль",
+    "error_internet": "Нет подключения к Интернету"
   },
   "inat_signup": {
     "welcome": "Добро пожаловать в Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Эти виды сохранены в ваших наблюдениях.",
     "you": "Посмотри, это ты! Выйди на улицу и найди некоторые дикие виды, чтобы узнать о них еще больше.",
     "internet_error": "Нам нужен интернет, чтобы создать экран детализации видов. Нажмите, чтобы повторить попытку.",
-    "no_photos_found": "Фото этого вида не найдены"
+    "no_photos_found": "Фото этого вида не найдены",
+    "copied": "СКОПИРОВАНО!"
   },
   "about": {
     "header": "Подробно",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Узнайте больше об iNaturalist",
     "get_started_by_downloading_inat": "Начните, загрузив приложение iNaturalist или посетив inaturalist.org.\n\nУ вас уже есть учетная запись iNaturalist? Войдите в Seek с существующей учетной записью!",
     "we_think_youll_like_inat": "Думаем, вам понравится iNaturalist.",
-    "logged_in": "Вы вошли в Seek с вашей учётной записью iNaturalist. Спасибо, что являетесь частью этого сообщества!",
     "sign_out": "Выйти из iNaturalist",
     "log_in_to_post_observations": "Войдите, чтобы опубликовать ваши наблюдения Seek в iNaturalist!",
     "log_in_with_inat": "ВОЙТИ ЧЕРЕЗ INATURALIST",

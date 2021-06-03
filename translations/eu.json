@@ -86,7 +86,8 @@
     "error_credentials": "Erabiltzaile-izen edo pasahitz okerra",
     "error_username_taken": "Sentitzen dugu, erabiltaile-izena hartuta dago.",
     "error_no_username": "Galdu egin da erabiltzailea / posta helbidea",
-    "error_no_password": "Galdu egin da pasahitza"
+    "error_no_password": "Galdu egin da pasahitza",
+    "error_internet": "No internet connection"
   },
   "inat_signup": {
     "welcome": "Ongi etorri Seek-era!",
@@ -543,7 +544,8 @@
     "species_saved": "Espezie hau zure behaketetan gorde da.",
     "you": "Aizu, begira, zu zara! Atera zaitez kalera eta aurkitu hainbat espezie basati euren inguruan gehiago jakiteko.",
     "internet_error": "Interneterako sarrera behar dugu xehetasunen pantaila sortu ahal izateko. Ukitu berriro saiatzeko.",
-    "no_photos_found": "Ez da aurkitu argazkirik espezie honetarako."
+    "no_photos_found": "Ez da aurkitu argazkirik espezie honetarako.",
+    "copied": "COPIED!"
   },
   "about": {
     "header": "Honi buruz",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Learn more about iNaturalist",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
     "sign_out": "Sign out of iNaturalist",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
     "log_in_with_inat": "LOG IN WITH INATURALIST",

@@ -40,7 +40,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return null;
   };
 
-  const checkForNonHumanExclusion = predictions => {
+  const checkForNonHumanExclusion = useCallback( predictions => {
     // following what we do on the web for non-human exclusion,
     // a 'common ancestor' can be no higher than superfamily, i.e. rank level 33
     // and uses our usual 0.7 scoring threshold
@@ -48,25 +48,27 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const includesHuman = predictions.some( leaf => leaf.name === "Homo" );
     const hasCommonAncestor = checkForCommonAncestor( predictions );
 
+    console.log( predictions, "predictions" );
 
     if ( includesHuman ) {
       const humanIndex = predictions.map( leaf => leaf.name ).indexOf( "Homo" );
-      console.log( "reverse predictions ", humanIndex );
       const humanScore = predictions[humanIndex].score;
       const nextClosestScore = predictions[humanIndex + 1].score;
 
       console.log( predictions[humanIndex], predictions[humanIndex + 1], "show human when big score gap" );
       if ( humanScore >= nextClosestScore + 0.2 ) {
+        console.log( "what exactly do we return here", humanScore, nextClosestScore + 0.2 );
         return predictions[humanIndex];
       }
     }
 
     if ( includesHuman && !hasCommonAncestor ) {
-      console.log( "non human exclusion!" );
-      return null;
+      console.log( "non human exclusion" );
+      // true displays an undefined match screen
+      return true;
     }
-
-  };
+    return false;
+  }, [] );
 
   const checkForSpecies = predictions => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
 
@@ -202,8 +204,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       const nonHumanExclusion = checkForNonHumanExclusion( predictions );
       const species = checkForSpecies( predictions );
       const ancestor = checkForAncestor( predictions );
-      console.log( species, "yes species" );
-      console.log( ancestor, "yes ancestor" );
+      console.log( nonHumanExclusion, "yes non human exclusion" );
 
       if ( nonHumanExclusion ) {
         updateObs( { } );
@@ -223,7 +224,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return ( ) => {
       isCurrent = false;
     };
-  }, [observation, handleSpecies, handleAncestor] );
+  }, [observation, handleSpecies, handleAncestor, checkForNonHumanExclusion] );
 
   const createOnlineSpecies = ( species, seenDate ) => {
     const photo = species.default_photo;

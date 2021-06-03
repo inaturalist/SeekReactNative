@@ -50,7 +50,7 @@ const ARCamera = ( ): Node => {
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
 
-  // determines whether or not to fetch untruncated coords for posting to iNat
+  // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
 
   // eslint-disable-next-line no-shadow

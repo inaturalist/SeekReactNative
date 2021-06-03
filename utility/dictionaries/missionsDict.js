@@ -49,7 +49,7 @@ const missions = [{
 }, {
   0: {
     number: 10,
-    types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta"]
+    types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta", "Cyperaceae"]
   }
 }, {
   0: {

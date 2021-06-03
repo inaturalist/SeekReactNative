@@ -86,7 +86,8 @@
     "error_credentials": "Nom d’utilisateur ou mot de passe incorrect",
     "error_username_taken": "Ce nom d’utilisateur est déjà utilisé",
     "error_no_username": "Nom d'utilisateur/email manquant",
-    "error_no_password": "Mot de passe manquant"
+    "error_no_password": "Mot de passe manquant",
+    "error_internet": "Aucune connexion internet"
   },
   "inat_signup": {
     "welcome": " Bienvenue sur Seek !",
@@ -543,7 +544,8 @@
     "species_saved": "Cette espèce est enregistrée dans vos observations.",
     "you": "Regardez, c'est vous ! Sortez et trouvez des espèces sauvages pour en savoir plus sur elles.",
     "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer.",
-    "no_photos_found": "Pas de photos trouvées pour cette espèce."
+    "no_photos_found": "Pas de photos trouvées pour cette espèce.",
+    "copied": "COPIED!"
   },
   "about": {
     "header": "À propos",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": " En savoir plus sur iNaturalist",
     "get_started_by_downloading_inat": "Vous avez déjà un compte iNaturalist ? Connectez-vous à Seek avec votre compte existant !",
     "we_think_youll_like_inat": "Nous pensons que vous allez adorer iNaturalist.",
-    "logged_in": "Vous avez ouvert une session sur Seek avec votre compte iNaturalist. Merci de faire partie de cette communauté !",
     "sign_out": "Se déconnecter d'iNaturalist",
     "log_in_to_post_observations": "Connectez-vous pour publier vos observations dans Seek sur iNaturalist !",
     "log_in_with_inat": "CONNEXION AVEC INATURALIST",

@@ -86,7 +86,8 @@
     "error_credentials": "Nesprávné uživatelské jméno\nnebo heslo",
     "error_username_taken": "Toto uživatelské jméno je již obsazeno",
     "error_no_username": "Chybí uživatelské jméno / e-mail",
-    "error_no_password": "Chybí heslo"
+    "error_no_password": "Chybí heslo",
+    "error_internet": "Bez připojení k Internetu"
   },
   "inat_signup": {
     "welcome": "Vítejte s Seeku!",
@@ -543,7 +544,8 @@
     "species_saved": "Tento druh je uložen do vašich pozorování.",
     "you": "Podívejte, to jste vy! Jděte ven a najděte nějaké divoké druhy, abyste se o nich dozvěděli více.",
     "internet_error": "K vygenerování detailů druhu je potřeba internetové připojení. Klepnutím to zkusíte znovu.",
-    "no_photos_found": "Pro tento druh nebyly nalezeny žádné fotografie."
+    "no_photos_found": "Pro tento druh nebyly nalezeny žádné fotografie.",
+    "copied": "ZKOPÍROVÁNO!"
   },
   "about": {
     "header": "O aplikaci",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Zjistěte více o iNaturalist",
     "get_started_by_downloading_inat": "Začněte stažením aplikace iNaturalist nebo navštívením inaturalist.org.\n\nMáte již účet iNaturalist? Přihlaste se k aplikaci Seek pomocí svého stávajícího účtu!",
     "we_think_youll_like_inat": "Myslíme si, že iNaturalist se vám bude opravdu líbit.",
-    "logged_in": "K Seeku jste přihlášeni pomocí svého účtu iNaturalist. Děkujeme, že jste součástí této komunity!",
     "sign_out": "Odhlásit se z iNaturalist",
     "log_in_to_post_observations": "Přihlaste se a vložte svá pozorování do iNaturalist!",
     "log_in_with_inat": "PŘIHLÁSIT SE POMOCÍ INATURALIST",

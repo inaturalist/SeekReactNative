@@ -86,7 +86,8 @@
     "error_credentials": "Onjuiste gebruikersnaam of wachtwoord",
     "error_username_taken": "Deze gebruikersnaam is al in gebruik",
     "error_no_username": "Ontbrekende gebruikersnaam / e-mail",
-    "error_no_password": "Wachtwoord ontbreekt"
+    "error_no_password": "Wachtwoord ontbreekt",
+    "error_internet": "Geen internetverbinding"
   },
   "inat_signup": {
     "welcome": "Welkom bij Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Deze soort wordt opgeslagen in jouw waarnemingen.",
     "you": "Hey look, jij bent het! Ga naar buiten en vind wat wilde soorten om nog meer over hen te leren.",
     "internet_error": "Internet is nodig om het detailscherm te tonen. Tik om het opnieuw te proberen.",
-    "no_photos_found": "Geen foto's gevonden voor deze soort."
+    "no_photos_found": "Geen foto's gevonden voor deze soort.",
+    "copied": "GEKOPIEERD!"
   },
   "about": {
     "header": "Over",
@@ -776,7 +778,7 @@
     "june_2021_description": "Wij allen kunnen, ongeacht onze leeftijd of ervaring, een positief effect hebben op het behoud van de biodiversiteit. We kunnen bijvoorbeeld helpen om te zorgen voor een bepaalde plaats zoals ons eigen erf, een beschermd gebied of een lokaal park. Het beschermen van de natuur begint met het leren over planten, schimmels en dieren op de plaatsen waar je om geeft. Je uitdaging deze maand is om in je tuin of een lokaal park te kijken en zo veel mogelijk biodiversiteit te inventariseren.",
     "june_2021_action": "Deze maand ga je iets leren over elk soort die je documenteert, waaronder of de soort inheems is of geïntroduceerd. Ga eens al je waarnemingen van de afgelopen vier maanden na: welke verschillen heb je opgemerkt in biodiversiteit en de menselijke voetafdruk gedurende deze periode en op de verschillende plaatsen die je hebt verkend? Doe iets om een lokale plek (zoals je tuin of een park) geschikter te maken voor inheemse soorten. Schrijf je doel op en maak er een foto van en deel het met ons door #NatGeoSeekChallenge op Twitter te gebruiken!",
     "june_2021_badge_name": "Behoud Badge",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Foto door: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "JE VOLTOOIDE DE {{sponsorName}} UITDAGING VOOR {{date}}!"
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Meer informatie over iNaturalist",
     "get_started_by_downloading_inat": "Ga aan de slag door de iNaturalist app te downloaden of door het bezoeken van inaturalist.org.\n\nHeb je al een iNaturalist account? Log in op Seek met jouw bestaande account!",
     "we_think_youll_like_inat": "Wij denken dat je iNaturalist heel leuk zult vinden.",
-    "logged_in": "Je heb je aangemeld in Seek met je iNaturalist account. Bedankt dat je deel wil uitmaken van deze gemeenschap!",
     "sign_out": "Afmelden iNaturalist",
     "log_in_to_post_observations": "Log in om je Seek waarnemingen te plaatsen op iNaturalist!",
     "log_in_with_inat": "AANMELDEN MET INATURALIST",

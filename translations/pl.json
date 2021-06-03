@@ -7,7 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "choose_location_on_map": "WYBIERZ LOKACJĘ NA MAPIE"
   },
   "get_started": {
     "header": "Rozpocznij",
@@ -85,8 +85,9 @@
     "error_email": "Proszę wprowadź poprawny adres e-mail",
     "error_credentials": "Nieprawidłowa nazwa użytkownika lub hasło",
     "error_username_taken": "Ta nazwa użytkownika jest już zajęta",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password"
+    "error_no_username": "Brak nazwy użytkownika / adresu e-mail",
+    "error_no_password": "Brak hasła",
+    "error_internet": "Brak połączenia z Internetem"
   },
   "inat_signup": {
     "welcome": "Witaj w Seek!",
@@ -345,7 +346,7 @@
     "error_permissions": "Potrzebujemy dostępu do aparatu, aby pomóc Ci zidentyfikować gatunki!",
     "error_gallery": "Potrzebujemy dostępu do rolki aparatu, aby zapisywać wykonane zdjęcia!",
     "permissions": "Włącz uprawnienia w ustawieniach",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Proszę włączyć uprawnienia w ustawieniach",
     "error_classifier": "Przepraszamy, nie udało się załadować klasyfikatora",
     "error_camera": "Przepraszamy, ale nie mogliśmy uruchomić aparatu",
     "error_device": "Przepraszamy, ale Twoje urządzenie nie jest wspierane",
@@ -353,15 +354,15 @@
     "error_photos": "W tym albumie nie znaleziono żadnych zdjęć. Spróbuj wybrać inny album.",
     "error_version": "Aparat AR aplikacji Seek wymaga systemu iOS 11.0 lub nowszego. Twoje urządzenie posiada wersję {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found",
+    "error_photoError": "Niestety zdjęcie nie zostało znalezione",
     "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
-    "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only",
-    "filters_off": "Filters off"
+    "plant_filter": "Tylko rośliny",
+    "non_plant_filter": "Tylko nie rośliny",
+    "filters_off": "Filtry wyłączone"
   },
   "gallery": {
     "label": "Zdjęcia",
-    "photo_library": "Photo Library"
+    "photo_library": "Galeria zdjęć"
   },
   "camera_help": {
     "title": "Kamera Seek",
@@ -481,17 +482,17 @@
     "open_camera": "Uruchom aparat",
     "search": "Search observations",
     "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search",
-    "not_seen_plants": "You haven’t observed any plants yet!",
+    "reset_search": "Resetuj wyszukiwanie",
+    "not_seen_plants": "Nie zaobserwowałeś jeszcze żadnych roślin!",
     "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_fungi": "Nie zaobserwowałeś jeszcze żadnych grzybów!",
+    "not_seen_fish": "Nie zaobserwowałeś jeszcze żadnych ryb!",
+    "not_seen_reptiles": "Nie zaobserwowałeś jeszcze żadnych gadów!",
+    "not_seen_arachnids": "Nie zaobserwowałeś jeszcze żadnych pajęczaków!",
+    "not_seen_birds": "Nie zaobserwowałeś jeszcze żadnych ptaków!",
+    "not_seen_insects": "Nie zaobserwowałeś jeszcze żadnych owadów!",
+    "not_seen_mollusks": "Nie zaobserwowałeś jeszcze żadnych mięczaków!",
+    "not_seen_mammals": "Nie zaobserwowałeś jeszcze żadnych ssaków!",
     "not_seen_other": "You haven’t observed any other species yet!"
   },
   "species_detail": {
@@ -543,7 +544,8 @@
     "species_saved": "Ten gatunek został zapisany w twoich obserwacjach.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "Nie znaleziono zdjęć dla tego gatunku.",
+    "copied": "SKOPIOWANE!"
   },
   "about": {
     "header": "O aplikacji",
@@ -656,7 +658,7 @@
     "device_settings": "Użyj ustawień języka urządzenia",
     "auto_capture": "Automatycznie zrób zdjęcie, gdy identyfikator znajdzie gatunek.",
     "species_detail": "Species detail",
-    "seasonality": "Seasonality",
+    "seasonality": "Sezonowość",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
@@ -731,8 +733,8 @@
   "social": {
     "share_observation": "Share observation",
     "square": "Square",
-    "original": "Original",
-    "options": "Options",
+    "original": "Oryginał",
+    "options": "Ustawienia",
     "show_species_id": "Show species identification",
     "share": "Share to Facebook",
     "save_to_photo_library": "Save to photo library",
@@ -741,7 +743,7 @@
     "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "crop_image": "Przytnij obraz"
   },
   "natgeo_challenges": {
     "mar_2021_mission_1": "Find any ten species",
@@ -776,7 +778,7 @@
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
     "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
     "june_2021_badge_name": "Conservation Badge",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Zdjęcie: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
@@ -784,7 +786,7 @@
   "about_inat": {
     "inaturalist": "INATURALIST",
     "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
+    "welcome_back": "Witaj z powrotem, {{username}}!",
     "open_inaturalist": "OPEN INATURALIST",
     "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
     "inat_value_prop_1": "Sync your observations across devices",
@@ -794,10 +796,9 @@
     "learn_more_about_inat": "Learn more about iNaturalist",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
-    "sign_out": "Sign out of iNaturalist",
+    "sign_out": "Wyloguj się z iNaturalist",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
-    "log_in_with_inat": "LOG IN WITH INATURALIST",
+    "log_in_with_inat": "Zaloguj się z iNaturalist",
     "use_inat_to": "USE INATURALIST TO:",
     "inat_vs_seek": "INATURALIST VS SEEK",
     "inat_is_an_online_community": "iNaturalist is an online community for naturalists",
@@ -826,6 +827,6 @@
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "x_seen_by_user": "{{speciesName}} zaobserwowany przez {{user}}"
   }
 }

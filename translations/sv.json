@@ -86,7 +86,8 @@
     "error_credentials": "Felaktigt användarnamn eller lösenord",
     "error_username_taken": "Det användarnamnet är redan upptaget",
     "error_no_username": "Användarnamn / e-postadress saknas",
-    "error_no_password": "Lösenord saknas"
+    "error_no_password": "Lösenord saknas",
+    "error_internet": "Ingen internetanslutning"
   },
   "inat_signup": {
     "welcome": "Välkommen till Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Denna art är sparad till dina fynd.",
     "you": "Ser man på, det är ju du! Ge dig ut och hitta några vilda arter att lära dig ännu mer om.",
     "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen.",
-    "no_photos_found": "Inga bilder hittades för denna art."
+    "no_photos_found": "Inga bilder hittades för denna art.",
+    "copied": "KOPIERAT!"
   },
   "about": {
     "header": "Om",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Läs mer om iNaturalist",
     "get_started_by_downloading_inat": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.se.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!",
     "we_think_youll_like_inat": "Vi tror att du kommer att gilla iNaturalist.",
-    "logged_in": "Du är inloggad i Seek med ditt iNaturalist-konto. Tack för att du är en del av denna community!",
     "sign_out": "Logga ut från iNaturalist",
     "log_in_to_post_observations": "Logga in för att lägga upp dina Seek-fynd på iNaturalist!",
     "log_in_with_inat": "LOGGA IN MED INATURALIST",

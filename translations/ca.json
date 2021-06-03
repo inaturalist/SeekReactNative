@@ -86,7 +86,8 @@
     "error_credentials": "Nom d'usuari o contrasenya incorrectes",
     "error_username_taken": "Aquest nom d'usuari ja està agafat",
     "error_no_username": "Manca nom d'usuari/e-mail",
-    "error_no_password": "Manca la contrasenya"
+    "error_no_password": "Manca la contrasenya",
+    "error_internet": "Sense connexió a internet"
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "Aquesta espècie està guardada a les teves observacions.",
     "you": "Ei, mira, tu! Surt a l'exterior i troba algunes espècies salvatges per aprendre encara més sobre elles.",
     "internet_error": "Necessitem accés a internet per mostrar informació detallada de l'espècie. Toca per intentar-ho de nou.",
-    "no_photos_found": "No hem trobat fotos d'aquesta espècie."
+    "no_photos_found": "No hem trobat fotos d'aquesta espècie.",
+    "copied": "COPIAT!"
   },
   "about": {
     "header": "Quant a",
@@ -776,7 +778,7 @@
     "june_2021_description": "Tots, independentment de la nostra edat o experiència, podem tenir un impacte positiu en la conservació de la biodiversitat. Per exemple, podem ajudar a cuidar un lloc concret com el nostre propi jardí, una àrea protegida o un parc local. La protecció de la natura comença aprenent sobre les plantes, els fongs i els animals que es troben als llocs que ens interessen. El teu repte d’aquest mes és mirar al jardí o al parc local i fer un inventari de tota la biodiversitat que puguis.",
     "june_2021_action": "Aquest mes, centra't a aprendre alguna cosa sobre cada espècie que documentes, incloses quines són natives i quines són introduïdes. Reflexiona sobre totes les teves observacions durant els darrers quatre mesos: quines diferències has notat en la biodiversitat i la petjada humana en aquest període i en els diferents llocs que has explorat? Identifica alguna cosa que et puguis comprometre a fer perquè un lloc local (com el teu jardí o un parc) sigui més saludable per a les espècies autòctones. Escriu el teu objectiu, fes-ne una foto i comparteix-lo amb nosaltres amb el hashtag #NatGeoSeekChallenge a Twitter.",
     "june_2021_badge_name": "Insígnia de Conservació",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Foto de: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "HAS COMPLETAT EL REPTE DE {{sponsorName}} PER {{date}}!"
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Coneix més sobre iNaturalist",
     "get_started_by_downloading_inat": "Comença descarregant l'App d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!",
     "we_think_youll_like_inat": "Creiem que t'agradarà iNaturalist.",
-    "logged_in": "Has entrat a Seek amb el teu compte d'iNaturalist. Gràcies per formar part d'aquesta comunitat!",
     "sign_out": "Surt d'iNaturalist",
     "log_in_to_post_observations": "Entra per enviar les teves observacions de Seek a iNaturalist!",
     "log_in_with_inat": "ENTRA AMB INATURALIST",

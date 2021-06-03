@@ -4,10 +4,10 @@
     "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר מינים בסביבה. הקישו לנסות שוב.",
     "no_location": "חסר מיקום",
     "no_species": "נראה שלא נצפו מינים בסביבה! נסו לשנות מיקום או להרחיב את פילטר המינים.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "input_location_above_map": "לא נמצא מיקום; יש להכניס מיקום על מנת לנעלות את המפה ולחפש מינים בסביבה",
+    "error_alert_location_services": "על מנת להמשיך, יש להפעיל את אפשרויות המיקום בהגדרות המכשיר",
+    "species_nearby_requires_location": "מינים בסביבה דורשים את מיקומם. נא לאשר שיתוף מיקום בהגדרות",
+    "choose_location_on_map": "בחרו מיקום על המפה"
   },
   "get_started": {
     "header": "התחילו",
@@ -22,48 +22,48 @@
     "continue_challenge": "המשך אתגר",
     "view_all": "הצג את כל האתגרים",
     "new_join": "הוסף תצפית עם מצלמת Seek כדי לקבל את תג האתגר!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "מנהלי iNat: תודה שאתם בודקים את Seek! אתם רואים את אתגר ה iNat לפני תחילת החודש למטרות בדיקה."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "פרסמו ל iNaturalist",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "מעלה {{count}} תצפיות",
+      "one": "מעלה {{count}} תצפית",
+      "two": "מעלה {{count}} תצפיות",
+      "few": "מעלה {{count}} תצפיות",
+      "many": "מעלה {{count}} תצפיות",
+      "other": "מעלה {{count}} תצפיות"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} תצפיות הועלו!",
+      "one": "{{count}} תצפית הועלתה!",
+      "two": "{{count}} תצפיות הועלו!",
+      "few": "{{count}} תצפיות הועלו!",
+      "many": "{{count}} תצפיות הועלו!",
+      "other": "{{count}} תצפיות הועלו!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} תצפיות להעלות",
+      "one": "{{count}} תצפית להעלות",
+      "two": "{{count}} תצפיות להעלות",
+      "few": "{{count}} תצפיות להעלות",
+      "many": "{{count}} תצפיות להעלות",
+      "other": "{{count}} תצפיות להעלות"
     },
     "upload_now": "העלו עכשיו",
     "error_internet": "לא זוהה חיבור רשת. אנא נסה שוב מאוחר יותר.",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות.",
+      "one": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות.",
+      "two": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות.",
+      "few": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות.",
+      "many": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות.",
+      "other": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד {{count}} שעות."
     },
     "error_unknown": "העלאה נכשלה. הודעת שגיאה: {{errorText}}",
     "error_login": "אימות חיבור נכשל. נא להתחבר לחשבון iNaturalist מתוך Seek ממסך iNaturalist או השגים, לפני שמנסים שוב.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_photo": "לא ניתן יותר לגשת לתמונה על המכשיר.",
+    "error_downtime_a_few_hours": "השרת של iNaturalist בתחזוקה. אנא נסו בעוד מספר שעות."
   },
   "notifications": {
     "header": "הודעות",
@@ -85,8 +85,9 @@
     "error_email": "נא להכניס כתובת דואל חוקית",
     "error_credentials": "טעות בשם המשתמש או הסיסמא",
     "error_username_taken": "שם המשתמש הזה כבר תפוס",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password"
+    "error_no_username": "חסר שם משתמש / דואל",
+    "error_no_password": "חסרה סיסמה",
+    "error_internet": "אין חיבור אינטרנט"
   },
   "inat_signup": {
     "welcome": "ברוכים הבאים ל-Seek!",
@@ -120,7 +121,7 @@
     "guidelines": "כליים לקהילה",
     "store_data": "אני נותן את הסכמתי לאפשר ל iNaturalist לשמור ולעבד פרטי מידע אישי אודותיי על מנת לנהל את חשבוני",
     "learn_more": "למידע נוסף",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_data_storage": "אנו שומרים מידע אישי כגון שמות משתמש וכתובות דואל על מנת לנהל את המשתמשים באתר, ועל מנת לשמור על חוקי הפרטיות, אנו זקוקים לאישור כי אתם מאשרים לנו להשתמש במידע פרטי זה. על מנת ללמוד עוד איזה מידע אנו אוספים ואיך אנו עושים בו שימוש, בבקשה קראו את הודעת הפרטיות שלנו ואת תנאי האתר.",
     "learn_more_about_licensing": "סמן תיבה זו אם ברצונך לקבל רשיון קריאטיב קומונס לתוכן. המשמעות היא כי כל אחד יכול להעתיק ולהשתמש בתמונות וגם/או בתצפיות ללא קבלת אישור כל עוד הם נותנים קרדיט לך ולא עושים שימוש מסחרי. ניתן לבחור רשיון אחר או להסיר רשיון זה מאוחר יותר, אבל זוהי הצורה הטובה ביותר לשיתוף מידע עם חוקרים.",
     "about_personal_information": "אודות מידע אישי",
     "about_licenses": "אודות רישיונות"
@@ -298,7 +299,7 @@
     "error_location": "לא תוכלו לראות אזורים במפה, לחקור מינים בסביבה או להעלות תצפיות ל iNaturalist. אם תפעילו את שירותי המיקום ב Seek, תוכלו לקבל מידע מפורט על התצפיות שלכם ולתרום למדע האזרחי. מיקומכם לא יפורסם לעולם אלא אם תפרסמו ב iNaturalist.",
     "error_downtime_plural": {
       "zero": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
-      "one": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
+      "one": "השרות אינו נגיש זמנית. אנא נסו שנית בעוד {{count}} שעה.",
       "two": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
       "few": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
       "many": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
@@ -343,7 +344,7 @@
     "genus": "סוג",
     "species": "מין",
     "error_permissions": "אנו זקוקים לגישה למצלמה לעזור לזהות את המין!",
-    "error_gallery": "אנו זקוקים לגישה לאלבום תמונות על מנת לשמור תמונות חדשות!",
+    "error_gallery": "אנו זקוקים לגישה לאלבום התמונות על מנת לשמור תמונות חדשות!",
     "permissions": "הענק הרשאות ב'הגדרות'",
     "please_permissions": "נא לאשר הרשאות ב'הגדרות'",
     "error_classifier": "סליחה, אנו לא מצליחים להעלות את המזהה",
@@ -354,14 +355,14 @@
     "error_version": "מצלמת הבינה המלאכותית של Seek, דורשת גירסא +iOS 11.0, מכשירך מריץ גרסא {{OS}}.",
     "error_cameraManager": "סליחה, אפליקציית ניהול המצלמה לא מצליחה לעלות",
     "error_photoError": "סליחה, לא ניתן למצוא את אובייקט התמונה",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "אם ההרשאות הן 'תמונות נבחרות', ייתכן שיש להתחיל את Seek מחדש או לבדוק את הגדרות > Seek > תמונות > תמונות נבחרות ולבחור אילו תמונות לאשר כאן.",
     "plant_filter": "צמחים בלבד",
     "non_plant_filter": "רק לא צמחים",
     "filters_off": "ללא פילטרים"
   },
   "gallery": {
     "label": "תמונות",
-    "photo_library": "Photo Library"
+    "photo_library": "ספריית תמונות"
   },
   "camera_help": {
     "title": "מצלמת Seek",
@@ -482,17 +483,17 @@
     "search": "חיפוש תצפיות",
     "search_empty": "לא נמצאו תצפיות עם מונח החיפוש הזה.",
     "reset_search": "אפס חיפוש",
-    "not_seen_plants": "You haven’t observed any plants yet!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_plants": "עדיין לא צפיתם באף צמח!",
+    "not_seen_amphibians": "עדיין לא צפיתם באף דו חי!",
+    "not_seen_fungi": "עדיין לא צפיתם באף פטריה!",
+    "not_seen_fish": "עדיין לא צפיתם באף דג!",
+    "not_seen_reptiles": "עדיין לא צפיתם באף זוחל!",
+    "not_seen_arachnids": "עדיין לא צפיתם באף עכבישן!",
+    "not_seen_birds": "עדיין לא צפיתם באף ציפור!",
+    "not_seen_insects": "עדיין לא צפיתם באף חרק!",
+    "not_seen_mollusks": "עדיין לא צפיתם באף רכיכה!",
+    "not_seen_mammals": "עדיין לא צפיתם באף יונק!",
+    "not_seen_other": "עדיין לא צפיתם באף מין אחר!"
   },
   "species_detail": {
     "near": "בקרבת מקום",
@@ -543,7 +544,8 @@
     "species_saved": "מין זה נשמר בתצפיות שלך.",
     "you": "היי ראו, זה אתם! צאו החוצה ומצאו קצת בעלי חיים בטבע כדי ללמוד עליהם יותר.",
     "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר את עמוד פרטי המין. הקישו לנסת שוב.",
-    "no_photos_found": "לא נמצאו תמונות עבור מין זה."
+    "no_photos_found": "לא נמצאו תמונות עבור מין זה.",
+    "copied": "הועתק!"
   },
   "about": {
     "header": "אודות",
@@ -581,7 +583,7 @@
     "posting_to_inat_background": "מעלה ל iNaturalist ברקע",
     "posting_to_inat_background_description": "העלאה ל iNaturalist תמשיך ברקע בעוד Seek עובד.\n\nניתן לבדוק את מצב ההעלאות במסך הבית.",
     "no_internet": "אין אינטרנט!",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
+    "no_internet_description": "לא ניתן להעלות את התצפית ל iNaturalist כי אין חיבור לאינטרנט.\n\nניתן להעלות את הצפית מעמוד הבית כאשר יהיה חיבור לאינטרנט."
   },
   "posting_help": {
     "header": "בקשו עזרה",
@@ -624,13 +626,13 @@
     "flag": "סמנו תצפית זו כלא נכונה",
     "back": "חזרו למסך הקודם",
     "user_location": "חזרו למיקומכם הנוכחי",
-    "open_help": "Open camera help screen",
-    "open_posting_help": "Open posting to iNaturalist help screen",
-    "take_photo": "לחצו כדי לקחת תמונה",
+    "open_help": "חלון עזרה למצלמה",
+    "open_posting_help": "חלון עזרה לפרסום ל iNaturalist",
+    "take_photo": "לחצו כדי לצלם",
     "scroll_left": "לחצו לגלילה שמאלה",
     "scroll_right": "לחצו לגלילה ימינה",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "אזהרות מצלמת מציאות רבודה",
+    "get_started_modal": "טיפים למתחילים"
   },
   "review": {
     "title": "דרגו את היישום הזה",
@@ -735,8 +737,8 @@
     "options": "אפשרויות",
     "show_species_id": "הצג זיהוי מינים",
     "share": "שיתוף ב-Facebook",
-    "save_to_photo_library": "Save to photo library",
-    "saved_to_photo_library": "Saved to photo library",
+    "save_to_photo_library": "שמירה לספריית התמונות",
+    "saved_to_photo_library": "נשמר לספריית התמונות",
     "back_to_id": "חזרה לזיהוי",
     "error_title": "לא ניתן היה לשמור את התמונה",
     "error": "נא לבדוק שוב שאפליקציית Facebook מותקנת.",
@@ -747,10 +749,10 @@
     "mar_2021_mission_1": "מצאו 10 מינים שונים",
     "mar_2021_challenge_name": "אתגר NatGeo Nature",
     "mar_2021_description": "אנו מתחילים ארבעה חודשים של אתגרים שממומנים על ידי National Geographic Society שמטרתם להבין כיצד הטבע משפיע עלינו וכיצד אנו משפיעים עליו.\n\nהטבע הוא סביבנו, וזמן שנעביר בטבע עוזר לבנית בריאות ואושר. אם אפשר, אנו מעודדים אתכם לבחור נקודה מסויימת כמו פארק, סביבה מוגנת, או חצר הבית שלכם אותו תבקרו כל חודש כחלק מהחקירות שלכם עם Seek. משימת החודש: מצאו 10 מינים כל שהם שעושים אותכם מאושרים!\n\nבכדי למצוא משאבים שיעזרו לכם להשתמש ב Seek וללמוד עוד על רבגוניות המינים, בקרו NatGeoEd.org/BioBlitz",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
+    "mar_2021_action": "נצלו את הזמן לרענן, או ללמוד להשתמש, ב Seek. בקרו בעמוד הבית לראות אילו מינים חיים בסביבתכם. יידעו אותנו על צמח או בעל חי מועדף, או אחד שהיית מאוד רוצים לראות על ידי שימוש NatGeoSeekChallenge# בטויטר!",
     "mar_2021_photographer": "צילום על ידי: Tom Matthews / National Geographic",
     "mar_2021_badge_name": "תג הטבע",
-    "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
+    "apr_2021_mission_1": "זהו 2 רכיכות(חלזונות, חשופיות, כיטונים) או סרטנאים (זיפרגליים, לובסטרים, סרטנים קצרי בטן, כדרורוניים)",
     "apr_2021_mission_2": "מצאו 6 צמחים",
     "apr_2021_mission_3": "מצאו 2 פטריות",
     "apr_2021_challenge_name": "אתגר שחזור והצלה",
@@ -783,10 +785,10 @@
   },
   "about_inat": {
     "inaturalist": "INATURALIST",
-    "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
-    "open_inaturalist": "OPEN INATURALIST",
-    "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
+    "you_are_logged_in": "אתם מחוברים",
+    "welcome_back": "ברוכים הבאים, {{username}} !",
+    "open_inaturalist": "פתחו את INATURALIST",
+    "dive_deeper_with_inat": "למדו עוד עם iNaturalist.",
     "inat_value_prop_1": "Sync your observations across devices",
     "inat_value_prop_2": "Get accurate, location-based identification suggestions",
     "inat_value_prop_3": "Add, edit, and manage all your observations in one place",
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Learn more about iNaturalist",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
     "sign_out": "Sign out of iNaturalist",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
     "log_in_with_inat": "LOG IN WITH INATURALIST",
@@ -810,22 +811,22 @@
     "seek_bullet_3": "Identifications do not leave your device or require internet to work, but aren’t confirmed by the iNaturalist community",
     "your_obs_could_make_difference": "YOUR OBSERVATION COULD MAKE A DIFFERENCE",
     "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
-    "faqs": "FAQS",
-    "faq_1": "You must be 13+ or have a parent’s permission to create an iNaturalist account",
-    "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
-    "logged_in_as": "LOGGED IN AS",
+    "faqs": "שאלות נפוצות",
+    "faq_1": "עליכים להיות בני 13+ או לקבל אישור הורים על מנת ליצור חשבון iNaturalist",
+    "faq_2": "Seek ו iNaturalist משתמשים באותו מודל זהוי, אבל רק תצפיות iNaturalist מאושרות על ידי הקבילה",
+    "logged_in_as": "התחברת כ",
     "x_observations_posted_to_inat": {
-      "zero": "{{count}} observations posted to iNaturalist with Seek",
-      "one": "{{count}} observation posted to iNaturalist with Seek",
-      "two": "{{count}} observations posted to iNaturalist with Seek",
-      "few": "{{count}} observations posted to iNaturalist with Seek",
-      "many": "{{count}} observations posted to iNaturalist with Seek",
-      "other": "{{count}} observations posted to iNaturalist with Seek"
+      "zero": "{{count}} תצפיות הועלו ל iNaturalist באמצעות Seek",
+      "one": "{{count}} תצפית הועלתה ל iNaturalist באמצעות Seek",
+      "two": "{{count}} תצפיות הועלו ל iNaturalist באמצעות Seek",
+      "few": "{{count}} תצפיות הועלו ל iNaturalist באמצעות Seek",
+      "many": "{{count}} תצפיות הועלו ל iNaturalist באמצעות Seek",
+      "other": "{{count}} תצפיות הועלו ל iNaturalist באמצעות Seek"
     },
-    "logged_in_bullet_1": "You can post observations to iNaturalist by clicking 'Post to iNaturalist' after you make a Seek observation",
-    "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
-    "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
-    "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "logged_in_bullet_1": "ניתן להעלות תצפיות ל iNaturalist על ידי לחיצה 'העלה ל iNaturalist' לאחר שביצעת תצפית עם Seek",
+    "logged_in_bullet_2": "השתמשו בפליקציית iNaturalist או באתר לראות התרעות על זיהויים, הערות ואירועים אחרים עת התצפיות שלכם",
+    "logged_in_bullet_3": "התצפיות שלך לא מגובות באתר iNaturalist. מחיקת אפליקציית Seek תמחוק את כל התצפיות מהמכשיר.",
+    "upload_and_track_obs_using_inat": "העלו ועיקבו אחר התצפיות שלכם באמצעות אפליקציית iNaturalist או באתר inaturalist.org.",
+    "x_seen_by_user": "{{speciesName}} נצפה על ידי {{user}}"
   }
 }

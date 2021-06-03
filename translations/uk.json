@@ -86,7 +86,8 @@
     "error_credentials": "Неправильне ім'я користувача або пароль",
     "error_username_taken": "Це ім'я користувача вже використовується.",
     "error_no_username": "Відсутнє ім'я користувача / електронна пошта",
-    "error_no_password": "Відсутній пароль"
+    "error_no_password": "Відсутній пароль",
+    "error_internet": "No internet connection"
   },
   "inat_signup": {
     "welcome": "Ласкаво просимо до Seek!",
@@ -543,7 +544,8 @@
     "species_saved": "This species is saved to your observations.",
     "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
-    "no_photos_found": "No photos found for this species."
+    "no_photos_found": "No photos found for this species.",
+    "copied": "COPIED!"
   },
   "about": {
     "header": "About",
@@ -776,7 +778,7 @@
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
     "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
     "june_2021_badge_name": "Conservation Badge",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Фото: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "YOU COMPLETED THE {{sponsorName}} CHALLENGE FOR {{date}}!"
@@ -794,7 +796,6 @@
     "learn_more_about_inat": "Learn more about iNaturalist",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
     "sign_out": "Sign out of iNaturalist",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
     "log_in_with_inat": "LOG IN WITH INATURALIST",

@@ -1,7 +1,6 @@
 // @flow
 
 import React, { useState, useEffect, useCallback } from "react";
-import NetInfo from "@react-native-community/netinfo";
 import type { Node } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
@@ -23,7 +22,6 @@ type Props = {
 }
 
 const ObservationProvider = ( { children }: Props ): Node => {
-  const [connected, setConnected] = useState( null );
   const [observation, setObservation] = useState( null );
   const [error, setError] = useState( null );
   const observationValue = { observation, setObservation, error, setError };
@@ -61,19 +59,31 @@ const ObservationProvider = ( { children }: Props ): Node => {
   const fetchPhoto = useCallback( async ( id ) => {
     const options = { user_agent: createUserAgent( ) };
 
-    if ( !connected ) { return null; }
+    // probably should break this into a helper function to use in other places
+    // like species nearby fetches for better offline experience
+    const fetchWithTimeout = ( timeout ) => Promise.race( [
+      inatjs.taxa.fetch( id, options ),
+      new Promise( ( _, reject ) =>
+          setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
+        )
+    ] );
 
     try {
-      const { results } = await inatjs.taxa.fetch( id, options );
+      // this will hopefully stop Seek from stalling when a user has spotty cell service;
+      // if the fetch doesn't resolve in a certain number of milliseconds, no
+      // default photo will be shown
+
+      // not sure how long we really want to wait for this
+      const { results } = await fetchWithTimeout( 500 );
       const taxa = results[0];
       const defaultPhoto = taxa && taxa.default_photo && taxa.default_photo.medium_url
         ? taxa.default_photo.medium_url
         : null;
-      return connected ? defaultPhoto : null;
+      return defaultPhoto;
     } catch ( e ) {
       return null;
     }
-  }, [connected] );
+  }, [] );
 
   const handleSpecies = useCallback( async ( species ) => {
     const createSpecies = ( photo, seenDate ) => {
@@ -304,16 +314,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
       fetchOnlineVisionResults( );
     }
   }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
-
-  useEffect( ( ) => {
-    // Subscribe
-    const unsubscribe = NetInfo.addEventListener( state => {
-      setConnected( state.isConnected );
-    } );
-
-    // Unsubscribe
-    unsubscribe( );
-  }, [] );
 
   return (
     <ObservationContext.Provider value={observationValue}>

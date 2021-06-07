@@ -26,9 +26,6 @@ const checkForPowerUsers = ( length, newLength ) => {
 
 const addToCollection = async ( observation: {
   taxon: {
-    default_photo: ?{
-      medium_url: string
-    },
     id: number,
     name: string,
     iconic_taxon_id: number,
@@ -60,10 +57,10 @@ const addToCollection = async ( observation: {
 
     realm.write( () => {
       let defaultPhoto;
-      const p = taxon.default_photo;
       if ( uri ) {
         defaultPhoto = realm.create( "PhotoRealm", {
-          squareUrl: p ? p.medium_url : null,
+          // mediumUrl should probably be renamed 'originalPhoto'
+          // so as not to confuse it with medium_url from the API call
           mediumUrl: uri,
           backupUri
         } );

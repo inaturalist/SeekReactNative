@@ -4,10 +4,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import Realm from "realm";
 import type { Node } from "react";
 
-import { UserContext } from "./UserContext";
-import { fetchAccessToken, fetchUserProfile } from "../utility/loginHelpers";
-import { setupChallenges } from "../utility/challengeHelpers";
-import realmConfig from "../models";
+import { UserContext } from "../UserContext";
+import { fetchAccessToken, fetchUserProfile } from "../../utility/loginHelpers";
+import { setupChallenges } from "../../utility/challengeHelpers";
+import realmConfig from "../../models";
 
 type Props = {
   children: any

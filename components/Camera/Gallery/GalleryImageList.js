@@ -1,10 +1,15 @@
 // @flow
 
-import React, { useCallback } from "react";
-import { FlatList } from "react-native";
+import React, { useCallback, useContext, useEffect } from "react";
+import { FlatList, Platform } from "react-native";
 import type { Node } from "react";
+import { getPredictionsForImage } from "react-native-inat-camera";
+import { useNavigation } from "@react-navigation/native";
 
+import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { viewStyles } from "../../../styles/camera/gallery";
+import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
+import { ObservationContext, UserContext } from "../../UserContext";
 import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 
@@ -15,7 +20,90 @@ type Props = {
 }
 
 const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node => {
-  const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} setLoading={setLoading} />, [setLoading] );
+  const { setObservation, observation } = useContext( ObservationContext );
+  const { login } = useContext( UserContext );
+  const navigation = useNavigation( );
+
+  const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
+    const { navigate } = navigation;
+
+    const image = {
+      time,
+      uri,
+      predictions: [],
+      errorCode: 0
+    };
+
+    if ( checkForPhotoMetaData( location ) ) {
+      const { latitude, longitude } = location;
+      // $FlowFixMe
+      image.latitude = latitude || null;
+      // $FlowFixMe
+      image.longitude = longitude || null;
+      if ( login ) {
+        // $FlowFixMe
+        image.preciseCoords = {
+          latitude,
+          longitude,
+          accuracy: null
+        };
+      }
+    } else if ( login ) {
+      // $FlowFixMe
+      image.preciseCoords = {
+        latitude: null,
+        longitude: null,
+        accuracy: null
+      };
+    }
+
+    if ( predictions && predictions.length > 0 ) {
+      // $FlowFixMe
+      image.predictions = predictions;
+      setObservation( { image } );
+    } else {
+      // $FlowFixMe
+      image.onlineVision = true;
+      setObservation( { image } );
+      navigate( "Confirm" );
+    }
+  }, [navigation, setObservation, login] );
+
+  useEffect( ( ) => {
+    if ( observation && observation.taxon && !observation.image.onlineVision ) {
+      navigation.push( "Drawer", {
+        screen: "Match"
+      } );
+    }
+  }, [observation, navigation] );
+
+  const getPredictions = useCallback( ( uri, timestamp, location ) => {
+    const path = uri.split( "file://" );
+    const reactUri = path[1];
+
+    getPredictionsForImage( {
+      uri: reactUri,
+      modelFilename: dirModel,
+      taxonomyFilename: dirTaxonomy
+    } ).then( ( { predictions } ) => {
+      navigateToResults( uri, timestamp, location, predictions );
+    } ).catch( ( err ) => {
+      console.log( "Error", err );
+    } );
+  }, [navigateToResults] );
+
+  const selectImage = useCallback( ( item ) => {
+    setLoading( );
+    const { timestamp, location, image } = item.node;
+
+    if ( Platform.OS === "android" ) {
+      getPredictions( image.uri, timestamp, location );
+    } else {
+      navigateToResults( image.uri, timestamp, location );
+    }
+  }, [getPredictions, navigateToResults, setLoading] );
+
+  const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [selectImage] );
 
   // skips measurement of dynamic content for faster loading
   const getItemLayout = useCallback( ( data, index ) => ( {

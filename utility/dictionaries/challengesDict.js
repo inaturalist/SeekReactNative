@@ -260,7 +260,7 @@ const challenges = {
     photographer: "natgeo_challenges.mar_2021_photographer"
   },
   apr2021: {
-    name: "natgeo_challenges.may_2021_challenge_name",
+    name: "natgeo_challenges.apr_2021_challenge_name",
     description: "natgeo_challenges.apr_2021_description",
     totalSpecies: 10,
     backgroundName: "img-challengedetail-april2021",

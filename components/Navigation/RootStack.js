@@ -1,17 +1,16 @@
 // @flow
 import * as React from "react";
-import { createStackNavigator, CardStyleInterpolators, StackScreenProps } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigatorScreenParams } from "@react-navigation/native";
 
 import Drawer from "./SideDrawer";
 import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
-import OnlineServerResults from "../Results/OnlineServerResults";
+import ConfirmScreen from "../Camera/Gallery/ConfirmScreen";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostStatus from "../PostToiNat/PostStatus";
@@ -34,55 +33,13 @@ import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Notifications from "../Notifications/Notifications";
 import Footer from "../UIComponents/Footer";
 import Social from "../Social/SocialScreen";
-type DrawerParamList = {
-  Home: void;
-  Achievements: void;
-  Challenges: void;
-  ChallengeDetails: void;
-  Observations: void;
-  iNatStats: void;
-  About: void;
-  Settings: void;
-  Match: void;
-  Species: void;
-  DebugEmailScreen: void;
-};
-type TabParamList = {
-  ARCamera: void;
-  Gallery: void;
-};
 
-type RootStackParamList = {
-  Drawer: NavigatorScreenParams<DrawerParamList>;
-  Camera: NavigatorScreenParams<TabParamList>;
-  Splash: void;
-  Onboarding: void;
-  Wikipedia: void;
-  OnlineServerResults: void;
-  CameraHelp: void;
-  Post: void;
-  PostStatus: void;
-  PostingHelp: void;
-  RangeMap: void;
-  Donation: void;
-  PrivacyPolicyScreen: void;
-  TermsOfServiceScreen: void;
-  CommunityGuidelines: void;
-  LoginScreen: void;
-  LoginOrSignupScreen: void;
-  LoginSuccessScreen: void;
-  ForgotPasswordScreen: void;
-  AgeVerifyScreen: void;
-  ParentalConsentScreen: void;
-  ParentCheckEmailScreen: void;
-  LicensePhotosScreen: void;
-  SignUpScreen: void;
-  Notifications: void;
-  Footer: void;
-  Social: void;
+type Props = {
+  +props: any,
+  +ref: any,
+  +type: any,
+  +key: any
 };
-
-type Props = StackScreenProps<RootStackParamList>;
 
 const Tab = createBottomTabNavigator( );
 const tabBar = props => <Footer {...props} />;
@@ -157,8 +114,8 @@ const App = ( ): Props => (
           options={defaultConfig}
         />
         <Stack.Screen
-          name="OnlineServerResults"
-          component={OnlineServerResults}
+          name="Confirm"
+          component={ConfirmScreen}
           options={defaultConfig}
         />
         <Stack.Screen

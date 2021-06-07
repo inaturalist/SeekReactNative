@@ -7,7 +7,7 @@ import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
 
-const requestiOSPermissions = async () => {
+const requestiOSPermissions = async ( ) => {
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );
     return permission;
@@ -25,25 +25,33 @@ type Coords = {
   accuracy: number
 }
 
-const fetchUserLocation = ( enableHighAccuracy: ?boolean ): Promise<Coords> => (
+const fetchUserLocation = ( enableHighAccuracy: ?boolean = false ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {
-    requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
-      resolve( coords );
+      const { latitude, longitude, accuracy } = coords;
+      resolve( {
+        latitude,
+        longitude,
+        accuracy
+      } );
     }, ( { code } ) => {
       reject( code );
     }, {
       // enableHighAccuracy to use GPS instead of Wifi location (i.e. cell towers )
       // on error (particular Android devices), try again with enableHighAccuracy = false
       enableHighAccuracy,
-      showLocationDialog: false
+      showLocationDialog: false,
+      maximumAge: 20000,
+      // added timeout and removed requestiOSPermissions for precise locations
+      // since this sometimes wasn't resolving or rejecting
+      timeout: 30000
     } );
   } )
 );
 
 const truncateCoordinates = ( coordinate: number ): number => Number( coordinate.toFixed( 2 ) );
 
-const fetchTruncatedUserLocation = (): Promise<TruncatedCoords> => (
+const fetchTruncatedUserLocation = ( ): Promise<TruncatedCoords> => (
   new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
@@ -57,7 +65,11 @@ const fetchTruncatedUserLocation = (): Promise<TruncatedCoords> => (
     }, ( { code } ) => {
       reject( code );
       // remove annoying Google location accuracy popup on older Android devices
-    }, { timeout: 30000, showLocationDialog: false } );
+    }, {
+      timeout: 30000,
+      showLocationDialog: false,
+      maximumAge: 5000
+    } );
   } )
 );
 

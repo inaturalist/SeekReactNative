@@ -1,8 +1,8 @@
 // @flow
 
-import React, { useReducer, useCallback, useRef } from "react";
+import React, { useReducer, useCallback, useRef, useContext } from "react";
 import { ScrollView } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
@@ -16,13 +16,14 @@ import MatchContainer from "./MatchContainer";
 import { useFetchUserSettings, useScrollToTop } from "../../utility/customHooks";
 import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
+import { ObservationContext } from "../UserContext";
 
 const MatchScreen = ( ): Node => {
+  const { observation } = useContext( ObservationContext );
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
-  const { params } = useRoute( );
   const { scientificNames } = useFetchUserSettings( );
-  const { taxon, seenDate } = params;
+  const { taxon } = observation;
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -39,7 +40,7 @@ const MatchScreen = ( ): Node => {
   }, {
     navPath: null,
     flagModal: false,
-    screenType: setScreenType( taxon, seenDate )
+    screenType: setScreenType( taxon, taxon.seenDate || null )
   } );
 
   const { navPath, flagModal, screenType } = state;
@@ -67,7 +68,6 @@ const MatchScreen = ( ): Node => {
         screenType={screenType}
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
-        params={params}
         navPath={navPath}
         setNavigationPath={setNavigationPath}
         scientificNames={scientificNames}
@@ -77,11 +77,9 @@ const MatchScreen = ( ): Node => {
         <MatchHeader
           screenType={screenType}
           setNavigationPath={setNavigationPath}
-          params={params}
         />
         <MatchContainer
           screenType={screenType}
-          params={params}
           setNavigationPath={setNavigationPath}
           scientificNames={scientificNames}
         />

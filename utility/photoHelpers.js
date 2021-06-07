@@ -254,67 +254,6 @@ const moveAndroidFilesToInternalStorage = async () => {
   }
 };
 
-const createNewBackup = async ( realm, photo ) => {
-  const { mediumUrl } = photo;
-  let uuid;
-
-  if ( Platform.OS === "ios" ) {
-    const uriParts = mediumUrl.split( "/" );
-    uuid = uriParts[2];
-  } else {
-    const uriParts = mediumUrl.split( "Pictures/" );
-    const id = uriParts[1] ? uriParts[1].split( "." ) : null; // account for edge case where this doesn't exist
-    uuid = id ? id[0] : null;
-  }
-
-  const newBackup = await createBackupUri( mediumUrl, uuid );
-
-  if ( newBackup ) {
-    realm.write( () => {
-      photo.backupUri = newBackup;
-    } );
-  }
-};
-
-// const debugAndroidDirectories = () => {
-//   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
-
-//   RNFS.readDir( oldAndroidDir ).then( ( results ) => {
-//     // results.map( ( file => file.path ) );
-//   } ).catch( ( e ) => writeToDebugLog( `${e}: error opening /Seek/Pictures` ) );
-
-//   RNFS.readDir( dirPictures ).then( ( results ) => {
-//     // const path = results.map( ( file => file.path ) );
-//   } ).catch( ( e ) => writeToDebugLog( `${e}: error opening SeekPictures` ) );
-// };
-
-const regenerateBackupUris = async () => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      const databasePhotos = realm.objects( "PhotoRealm" );
-      const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
-
-      const duplicates = findDuplicates( backups );
-
-      let filteredPhotoObjects;
-
-      if ( duplicates.length > 0 ) {
-        duplicates.forEach( ( duplicate ) => {
-          filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
-
-          filteredPhotoObjects.forEach( ( photo ) => {
-            createNewBackup( realm, photo );
-          } );
-        } );
-      }
-    } ).then( () => {
-      // if ( Platform.OS === "android" ) {
-      //   // moveAndroidFilesToInternalStorage(); // taking this out for the release build
-      //   debugAndroidDirectories();
-      // }
-    } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
-};
-
 const replacePhoto = async ( id: number, image: Object ) => {
   const {
     latitude,
@@ -343,44 +282,6 @@ const replacePhoto = async ( id: number, image: Object ) => {
   } );
 };
 
-// helpful for development, but not used in production
-// const readNativeExifData = async ( file: string ) => {
-//   // this does not work on ph:// iOS files
-//   const prefixe = "data:image/jpeg;base64,";
-//   const srcdata = await RNFS.readFile( file, "base64" );
-
-//   const srcexifs = piexif.load( prefixe + srcdata );
-
-//   return srcexifs;
-// };
-
-// const writeExifData = async ( file: string ): Promise<string> => {
-//   const prefixe = "data:image/jpeg;base64,";
-//   const srcdata = await RNFS.readFile( file, "base64" );
-
-//   const srcexifs = piexif.load( prefixe + srcdata );
-
-//   // console.log( srcexifs, "source data android exif" );
-
-//   const _zero = srcexifs["0th"];
-//   const _first = srcexifs["1st"];
-//   const _Exif = srcexifs.Exif;
-//   const _GPS = srcexifs.GPS;
-//   const _Interop = srcexifs.Interop;
-//   const _thumbnail = srcexifs.thumbnail;
-
-//   _zero[piexif.ImageIFD.Software] = `React Native iNat Camera ${version}`;
-
-//   var exifObj = { "0th": _zero, "1st": _first, Exif: _Exif, GPS: _GPS, Interop: _Interop, thumbnail: _thumbnail };
-
-//   // console.log( exifObj, "exif obj" );
-
-//   const exifStr = piexif.dump( exifObj );
-//   const bs64Exif = piexif.insert( exifStr, prefixe + srcdata ).substring( prefixe.length );
-//   await RNFS.writeFile( file, bs64Exif, "base64" );
-//   return bs64Exif;
-// };
-
 const formatBytes = ( bytes: number, decimals: number = 2 ) => {
   // https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
   if ( bytes === 0 ) {return "0 Bytes";}
@@ -408,13 +309,10 @@ export {
   createBackupUri,
   moveAndroidFilesToInternalStorage,
   deleteFile,
-  regenerateBackupUris,
   checkForDirectory,
   writeToDebugLog,
   deleteDebugLogAfter7Days,
   replacePhoto,
-  // readNativeExifData,
-  // writeExifData,
   flattenUploadParameters,
   checkPhotoSize
 };

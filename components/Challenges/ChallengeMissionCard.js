@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, Text, Image } from "react-native";
 import type { Node } from "react";
 
@@ -10,29 +10,17 @@ import i18n from "../../i18n";
 import PercentCircle from "../UIComponents/PercentCircle";
 import GreenText from "../UIComponents/GreenText";
 import missionsDict from "../../utility/dictionaries/missionsDict";
+import { useFetchMissions } from "./hooks/challengeHooks";
 
 type Props = {
   +challenge: Object
 };
 
 const ChallengeMissionCard = ( { challenge }: Props ): Node => {
-  const [missions, setMissions] = useState( [] );
+  const missions = useFetchMissions( challenge );
 
   const { index, percentComplete } = challenge;
   const missionDetails = Object.keys( missionsDict[index] ).map( mission => missionsDict[index][mission] );
-
-  useEffect( () => {
-    const { numbersObserved } = challenge;
-    const missionList = Object.keys( challenge.missions ).map( mission => challenge.missions[mission] );
-    const observationsList = Object.keys( numbersObserved ).map( number => numbersObserved[number] );
-
-    const newMissions = missionList.map( ( mission, i ) => ( {
-      mission,
-      observations: observationsList[i]
-    } ) );
-
-    setMissions( newMissions );
-  }, [challenge] );
 
   const formatLongMissionText = ( item, missionIndex ) => {
     const text = i18n.t( item.mission );
@@ -57,7 +45,7 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
 
     const observedCount = (
       <Text style={[styles.text, styles.greenText]}>
-        {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
+        {i18n.t( "challenges.number_observed_plural", { count: item.observations || 0 } )}
       </Text>
     );
 

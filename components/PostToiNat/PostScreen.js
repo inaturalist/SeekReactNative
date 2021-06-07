@@ -7,7 +7,6 @@ import type { Node } from "react";
 
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
-import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/locationHelpers";
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
 import CaptivePicker from "./Pickers/CaptivePicker";
@@ -21,16 +20,19 @@ import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 import { ObservationContext } from "../UserContext";
+// import { LOG } from "../../utility/debugHelpers";
 
 const PostScreen = (): Node => {
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation( );
   const { params } = useRoute( );
 
+  const { image } = observation;
+  const { preciseCoords } = image;
   const { taxaId, scientificName, commonName } = params;
 
-  const initialDate = observation.image.time
-    ? formatGMTTimeWithTimeZone( setISOTime( observation.image.time ) )
+  const initialDate = image.time
+    ? formatGMTTimeWithTimeZone( setISOTime( image.time ) )
     : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -57,11 +59,11 @@ const PostScreen = (): Node => {
       captive_flag: false,
       description: null,
       geoprivacy: "open",
-      latitude: observation.image.latitude,
-      longitude: observation.image.longitude,
+      latitude: preciseCoords.latitude,
+      longitude: preciseCoords.longitude,
       observed_on_string: initialDate,
       place_guess: null,
-      positional_accuracy: observation.image.latitude ? 90 : null,
+      positional_accuracy: preciseCoords.accuracy,
       taxon_id: taxaId
     },
     taxon: {
@@ -84,16 +86,6 @@ const PostScreen = (): Node => {
       positional_accuracy: coords.accuracy
     } } );
   }, [editedObservation] );
-
-  const getLocation = useCallback( ( ) => {
-    const truncated = checkForTruncatedCoordinates( observation.image.latitude );
-
-    if ( truncated ) {
-      fetchUserLocation( ).then( ( coords ) => {
-        setLocation( coords );
-      } ).catch( ( err ) => console.log( err ) );
-    }
-  }, [setLocation, observation.image] );
 
   const updateLocation = ( latitude, longitude, newAccuracy ) => {
     const coords = { latitude, longitude, accuracy: newAccuracy };
@@ -138,13 +130,6 @@ const PostScreen = (): Node => {
       updateObservation( "observed_on_string", newDate );
     }
   };
-
-  useEffect( ( ) => {
-    navigation.addListener( "focus", ( ) => {
-      // make sure these only happen on first page load, not when a user taps posting help
-      getLocation( );
-    } );
-  }, [navigation, getLocation] );
 
   const saveObservation = ( ) => {
     dispatch( { type: "BUTTON_DISABLED" } );

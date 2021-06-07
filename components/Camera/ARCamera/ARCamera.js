@@ -35,26 +35,29 @@ import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
-import { fetchOfflineResults, fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
+import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
 // import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext } from "../../UserContext";
-import { LOG } from "../../../utility/debugHelpers";
+import { ObservationContext, UserContext } from "../../UserContext";
+// import { LOG } from "../../../utility/debugHelpers";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
-  const { setObservation } = useContext( ObservationContext );
+  const { setObservation, observation } = useContext( ObservationContext );
+
+  // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
+  const { login } = useContext( UserContext );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
-      LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
-    }
+    // if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
+    //   LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
+    // }
     switch ( action.type ) {
       case "CAMERA_LOADED":
         return { ...state, cameraLoaded: true };
@@ -135,13 +138,19 @@ const ARCamera = ( ): Node => {
     // AR camera photos don't come with a location
     // especially when user has location permissions off
     // this is also needed for ancestor screen, species nearby
-    const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage );
+    const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
     image.errorCode = errorCode;
-
+    image.arCamera = true;
     setObservation( { image } );
+  }, [setObservation, login] );
 
-    fetchOfflineResults( image, navigation );
-  }, [navigation, setObservation] );
+  useEffect( ( ) => {
+    if ( observation && observation.taxon && observation.image.arCamera ) {
+      navigation.push( "Drawer", {
+        screen: "Match"
+      } );
+    }
+  }, [observation, navigation] );
 
   const resetPredictions = ( ) => {
     // only rerender if state has different values than before
@@ -154,11 +163,14 @@ const ARCamera = ( ): Node => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 
+    // console.log( uri, "handling save error in AR camera" );
+
     await showCameraSaveFailureAlert( e, uri );
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
+    // console.log( photo.uri, "saving photo in AR camera" );
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
@@ -168,7 +180,7 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event: { nativeEvent: { predictions?: Array<Object> } } ) => {
+  const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
 
     if ( pictureTaken ) { return; }
@@ -314,7 +326,8 @@ const ARCamera = ( ): Node => {
     };
 
     navigation.addListener( "focus", ( ) => {
-      LOG.info( "AR Camera: add navigation focus listener" );
+      setObservation( null );
+      // LOG.info( "AR Camera: add navigation focus listener" );
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       checkForFirstCameraLaunch( );
@@ -323,7 +336,7 @@ const ARCamera = ( ): Node => {
       // reset posting to iNat
       savePostingSuccess( false );
     } );
-  }, [navigation, requestAndroidPermissions] );
+  }, [navigation, requestAndroidPermissions, setObservation] );
 
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback, useRef } from "react";
+import React, { useReducer, useEffect, useCallback, useRef, useContext } from "react";
 import { Platform, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,9 +14,11 @@ import CameraError from "../CameraError";
 import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
+import { ObservationContext } from "../../UserContext";
 
 const GalleryScreen = (): Node => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
+  const { setObservation } = useContext( ObservationContext );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -159,11 +161,12 @@ const GalleryScreen = (): Node => {
     };
 
     navigation.addListener( "focus", ( ) => {
+      setObservation( null );
       requestAndroidPermissions( );
       initialFetch( );
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation, initialFetch] );
+  }, [navigation, initialFetch, setObservation] );
 
   const renderImageList = ( ) => {
     if ( error ) {

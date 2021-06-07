@@ -344,7 +344,7 @@
     "genus": "gen",
     "species": "specii",
     "error_permissions": "Avem nevoie de acces la cameră pentru a te ajuta să identifici speciile!",
-    "error_gallery": "Avem nevoie de acces la cameră pentru a-ți salva fotografii făcute!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "Activează permisiunile în setări",
     "please_permissions": "Vă rugăm să activați permisiunile în setări",
     "error_classifier": "Ne pare rău, nu putem încărca repertoriul",

@@ -27,12 +27,12 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "POST TO INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Laster opp {{count}} observasjoner",
+      "one": "Laster opp {{count}} observasjon",
+      "two": "Laster opp {{count}} observasjoner",
+      "few": "Laster opp {{count}} observasjoner",
+      "many": "Laster opp {{count}} observasjoner",
+      "other": "Laster opp {{count}} observasjoner"
     },
     "x_observations_uploaded": {
       "zero": "{{count}} observations uploaded!",
@@ -50,7 +50,7 @@
       "many": "{{count}} observations to upload",
       "other": "{{count}} observations to upload"
     },
-    "upload_now": "UPLOAD NOW",
+    "upload_now": "LAST OPP NÅ",
     "error_internet": "No internet detected. Please try again later.",
     "error_downtime": {
       "zero": "iNaturalist's server er under vedlikehold. Vennligst prøv igjen om {{count}} timer.",
@@ -85,7 +85,7 @@
     "error_email": "Vennligst oppgi en gyldig e-postadresse",
     "error_credentials": "Feil brukernavn eller passord",
     "error_username_taken": "Det brukernavnet er allerede i bruk",
-    "error_no_username": "Missing username / email",
+    "error_no_username": "Manglende brukernavn / e-post",
     "error_no_password": "Missing password",
     "error_internet": "No internet connection"
   },
@@ -123,8 +123,8 @@
     "learn_more": "Learn more",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "about_personal_information": "Om Personlig Informasjon",
+    "about_licenses": "Om Lisenser"
   },
   "inat_login": {
     "log_in_with_inat": "Logg på med din iNaturalist-konto",
@@ -344,7 +344,7 @@
     "genus": "slekt",
     "species": "art",
     "error_permissions": "Vi trenger tilgang til kameraet for å hjelpe deg med å identifisere arter!",
-    "error_gallery": "Vi trenger tilgang til ditt bildegalleri for å lagre bilder som du tar!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "Gi tillatelser i innstillingene",
     "please_permissions": "Please enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
@@ -399,12 +399,12 @@
     "login": "Logg på med iNaturalist for å poste observasjoner til det online fellesskapet!",
     "achievements": "Oppnåelser",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Observer {{count}} arter for å komme til neste nivå!",
+      "one": "Observer {{count}} arter for å komme til neste nivå!",
+      "two": "Observer {{count}} arter for å komme til neste nivå!",
+      "few": "Observer {{count}} arter for å komme til neste nivå!",
+      "many": "Observer {{count}} arter for å komme til neste nivå!",
+      "other": "Observer {{count}} arter for å komme til neste nivå!"
     },
     "observe_max": "Du har oppnådd det høyeste nivået på Seek!",
     "observe_species": "Observér",
@@ -483,17 +483,17 @@
     "search": "Søk observasjoner",
     "search_empty": "Ingen observasjoner funnet med det søkeordet.",
     "reset_search": "Tilbakestill søk",
-    "not_seen_plants": "You haven’t observed any plants yet!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_plants": "Du har ikke observert noen planter ennå!",
+    "not_seen_amphibians": "Du har ikke observert noen amfibier ennå!",
+    "not_seen_fungi": "Du har ikke observert noen sopper ennå!",
+    "not_seen_fish": "Du har ikke observert noen fisker ennå!",
+    "not_seen_reptiles": "Du har ikke observert noen reptiler ennå!",
+    "not_seen_arachnids": "Du har ikke observert noen edderkoppdyr ennå!",
+    "not_seen_birds": "Du har ikke observert noen fugler ennå!",
+    "not_seen_insects": "Du har ikke observert noen insekter ennå!",
+    "not_seen_mollusks": "Du har ikke observert noen bløtdyr ennå!",
+    "not_seen_mammals": "Du har ikke observert noen pattedyr ennå!",
+    "not_seen_other": "Du har ikke observert noen andre arter ennå!"
   },
   "species_detail": {
     "near": "I nærheten",
@@ -545,14 +545,14 @@
     "you": "Se der, det er deg! Kom deg ut og finn noen ville arter for å lære enda mer om de.",
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
     "no_photos_found": "Ingen bilder funnet for denne arten.",
-    "copied": "COPIED!"
+    "copied": "KOPIERT!"
   },
   "about": {
     "header": "Om",
     "seek": "Seek er laget av iNaturalist-teamet.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
-    "designed_by": "Designed & developed by the iNaturalist team:",
+    "original": "Seek ble opprinnelig laget med støtte fra HHMI Tangled Bank Studios og utvidet med støtte fra Our Planet på Netflix og WWF.",
+    "designed_by": "Designet og utviklet av iNaturalist-teamet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, og Yaron Budowski. Spesiell takk til Visipedia og iNaturalist-fellesskapet.",
     "version": "Versjon",
     "help": "For hjelp med Seek, vennligst send e-post til help+seek@inaturalist.org.",
@@ -582,7 +582,7 @@
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
+    "no_internet": "INGEN INTERNETT!",
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
   "posting_help": {
@@ -632,7 +632,7 @@
     "scroll_left": "Trykk for å scrolle til venstre",
     "scroll_right": "Trykk for å scrolle til høyre",
     "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "get_started_modal": "Tips for å komme i gang"
   },
   "review": {
     "title": "Vurder denne appen",
@@ -741,8 +741,8 @@
     "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Tilbake til identifikasjon",
     "error_title": "Kunne ikke lagre bilde",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
+    "error": "Vennligst dobbeltsjekk at du har Facebook-appen installert.",
+    "adjust_square_crop": "Juster kvadrat-beskjæring",
     "crop_image": "Beskjær bilde"
   },
   "natgeo_challenges": {
@@ -785,10 +785,10 @@
   },
   "about_inat": {
     "inaturalist": "INATURALIST",
-    "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
-    "open_inaturalist": "OPEN INATURALIST",
-    "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
+    "you_are_logged_in": "DU ER LOGGET INN",
+    "welcome_back": "Velkommen tilbake, {{username}}!",
+    "open_inaturalist": "ÅPNE INATURALIST",
+    "dive_deeper_with_inat": "Dykk dypere med iNaturalist.",
     "inat_value_prop_1": "Sync your observations across devices",
     "inat_value_prop_2": "Get accurate, location-based identification suggestions",
     "inat_value_prop_3": "Add, edit, and manage all your observations in one place",
@@ -801,7 +801,7 @@
     "log_in_with_inat": "LOG IN WITH INATURALIST",
     "use_inat_to": "USE INATURALIST TO:",
     "inat_vs_seek": "INATURALIST VS SEEK",
-    "inat_is_an_online_community": "iNaturalist is an online community for naturalists",
+    "inat_is_an_online_community": "iNaturalist er et online samfunn for naturalister",
     "inat_bullet_1": "iNaturalist observations are public and help contribute to science",
     "inat_bullet_2": "Each observation includes your username, date, and location of the observation",
     "inat_bullet_3": "The iNaturalist community helps to identify and confirm observations",
@@ -810,11 +810,11 @@
     "seek_bullet_2": "No personally identifiable information is collected from logged out users",
     "seek_bullet_3": "Identifications do not leave your device or require internet to work, but aren’t confirmed by the iNaturalist community",
     "your_obs_could_make_difference": "YOUR OBSERVATION COULD MAKE A DIFFERENCE",
-    "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
+    "everyday_obs_help_scientists": "Hverdagsobservasjoner gjort av naturalister som deg kan hjelpe forskere med å lære om hvor og når organismer blir funnet, og til og med lede til nye oppdagelser!",
     "faqs": "FAQS",
     "faq_1": "You must be 13+ or have a parent’s permission to create an iNaturalist account",
     "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
-    "logged_in_as": "LOGGED IN AS",
+    "logged_in_as": "LOGGET INN SOM",
     "x_observations_posted_to_inat": {
       "zero": "{{count}} observations posted to iNaturalist with Seek",
       "one": "{{count}} observation posted to iNaturalist with Seek",

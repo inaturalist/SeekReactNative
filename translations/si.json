@@ -344,7 +344,7 @@
     "genus": "ගණය",
     "species": "විශේෂය",
     "error_permissions": "විශේෂ හඳුනා ගැනීමට ඔබට උදව් කිරීමට අපට කැමරාවට ප්‍රවේශය අවශ්‍යයි!",
-    "error_gallery": "ඔබ ගන්නා ඡායාරූප සුරැකීමට අපට ඔබගේ කැමරා රෝලයට ප්‍රවේශය අවශ්‍යයි!",
+    "error_gallery": "We need access to your photo library to save photos you take!",
     "permissions": "සැකසුම් තුළ අවසර සක්‍රීය කරන්න",
     "please_permissions": "කරුණාකර සැකසුම් තුළ අවසර සක්‍රීය කරන්න",
     "error_classifier": "කණගාටුයි, අපට වර්ගීකරණය ප්‍රවේශනය කළ නොහැක",

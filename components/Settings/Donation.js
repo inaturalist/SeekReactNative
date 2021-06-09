@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import { WebView } from "react-native-webview";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/wikipedia";
@@ -28,7 +29,7 @@ const Donation = ( { navigation }: Props ): React.Node => {
     : `${donorbox}&utm_source=ios`;
 
   return (
-    <View style={viewStyles.container}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={viewStyles.header}>
         <Text style={textStyles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase( )}</Text>
         <TouchableOpacity
@@ -43,7 +44,7 @@ const Donation = ( { navigation }: Props ): React.Node => {
         source={{ uri: donationPage }}
       />
       <View style={viewStyles.bottom} />
-    </View>
+    </SafeAreaView>
   );
 };
 

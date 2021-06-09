@@ -40,7 +40,7 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
   const openModal = () => setShowModal( true );
   const closeModal = useCallback( () => setShowModal( false ), [] );
 
-  const coords = `${i18n.t( "posting.latitude_longitude", {
+  const coords = observation.latitude && `${i18n.t( "posting.latitude_longitude", {
     latitude: truncateCoordinates( observation.latitude ),
     longitude: truncateCoordinates( observation.longitude )
   } )}`;

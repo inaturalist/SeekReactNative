@@ -577,7 +577,8 @@
     "save_location": "Save location",
     "unknown": "Unknown",
     "ok": "Ok",
-    "look_up": "Look up a species by name"
+    "look_up": "Look up a species by name",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",

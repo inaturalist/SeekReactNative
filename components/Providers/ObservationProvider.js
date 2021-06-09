@@ -157,7 +157,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const updateObs = taxon => {
       if ( !isCurrent ) { return; }
 
-      const prevTaxon = observation.taxon;
+      const prevTaxon = observation.taxon; // crash?
 
       if ( !prevTaxon
         || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
@@ -255,7 +255,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const updateObs = ( taxon ) => {
       if ( !isCurrent ) { return; }
 
-      const prevTaxon = observation.taxon;
+      const prevTaxon = observation.taxon; // crash?
 
       if ( !prevTaxon
         || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
@@ -289,12 +289,12 @@ const ObservationProvider = ( { children }: Props ): Node => {
           const primaryRank = checkCommonAncestorRank( rankLevel );
 
           if ( primaryRank ) {
-            const taxon = await handleOnlineAncestor( ancestor.taxon );
+            const taxon = await handleOnlineAncestor( ancestor.taxon ); // crash
             updateObs( taxon );
           } else {
             // roll up to the nearest primary rank instead of showing sub-ranks
             // this better matches what we do on the AR camera
-            const { ancestorTaxa } = taxa.taxon;
+            const { ancestorTaxa } = taxa.taxon; // crash?
             const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
             const taxon = await handleOnlineAncestor( nearestTaxon );
             updateObs( taxon );
@@ -310,10 +310,12 @@ const ObservationProvider = ( { children }: Props ): Node => {
       }
     };
 
-    if ( image.predictions.length === 0  && !observation.taxon ) {
+    if ( image.predictions.length === 0  && !observation.taxon ) { // crash
       fetchOnlineVisionResults( );
     }
   }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
+
+  console.log( observation, "observation" );
 
   return (
     <ObservationContext.Provider value={observationValue}>

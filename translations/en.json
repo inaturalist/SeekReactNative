@@ -578,7 +578,11 @@
     "unknown": "Unknown",
     "ok": "Ok",
     "look_up": "Look up a species by name",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}"
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",

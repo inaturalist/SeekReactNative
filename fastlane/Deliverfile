@@ -34,12 +34,12 @@ languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE',
 
 # bug fix
 release_notes({
-  'en-US' => "Bug fixes",
-  'fi' => "Bug fixes",
-  'ja' => "Bug fixes",
-  'no' => "Bug fixes",
-  'tr' => "Bug fixes",
-  'zh-Hant' => "Bug fixes",
+  'en-US' => "Bug fixes; add donate button with Apple Pay option for logged in users",
+  'fi' => "Bug fixes; add donate button with Apple Pay option for logged in users",
+  'ja' => "Bug fixes; add donate button with Apple Pay option for logged in users",
+  'no' => "Bug fixes; add donate button with Apple Pay option for logged in users",
+  'tr' => "Bug fixes; add donate button with Apple Pay option for logged in users",
+  'zh-Hant' => "Bug fixes; add donate button with Apple Pay option for logged in users",
   'ar-SA' => "إصلاح الأخطاء",
   'ca' => "Errades corregides",
   'cs' => "Opravy chyb",

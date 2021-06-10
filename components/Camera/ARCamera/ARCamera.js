@@ -42,13 +42,15 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext } from "../../UserContext";
-// import { LOG } from "../../../utility/debugHelpers";
+import { LOG } from "../../../utility/debugHelpers";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
+
+  LOG.info( `AR Camera: ${JSON.stringify( observation )}` );
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );

@@ -11,6 +11,7 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import DonateButton from "./DonateButton";
 import CameraSettings from "./CameraSettings";
 import SpeciesDetail from "./SpeciesDetail";
+import Dropbox from "./Dropbox/Dropbox";
 
 const SettingsScreen = (): Node => {
   const { login } = useContext( UserContext );
@@ -22,6 +23,7 @@ const SettingsScreen = (): Node => {
         <SpeciesDetail />
         <LanguagePicker />
         {login && <DonateButton />}
+        <Dropbox />
       </View>
     </ScrollWithHeader>
   );

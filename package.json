@@ -78,7 +78,8 @@
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
     "react-native-webview": "^11.4.4",
-    "realm": "^10.4.0"
+    "realm": "^10.4.0",
+    "shitty-qs": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",

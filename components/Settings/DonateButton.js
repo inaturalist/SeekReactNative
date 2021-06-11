@@ -1,17 +1,37 @@
 // @flow
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform, Linking } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import urls from "../../constants/urls";
 
 const DonateButton = ( ): React.Node => {
   const { navigate } = useNavigation( );
 
-  const navToDonation = ( ) => navigate( "Donation" );
+  const donationPage = `${urls.DONORBOX}&utm_source=ios`;
+
+  const openLinkInSafari = async ( ) => {
+    try {
+      const canOpen = await Linking.canOpenURL( donationPage );
+      if ( canOpen ) {
+        await Linking.openURL( donationPage );
+      }
+    } catch ( e ) {
+      console.log( e, "can't open donation url in safari" );
+    }
+  };
+
+  const navToDonation = ( ) => {
+    if ( Platform.OS === "ios" ) {
+      openLinkInSafari( );
+    } else {
+      navigate( "Donation" );
+    }
+  };
 
   return (
     <View style={styles.margin}>

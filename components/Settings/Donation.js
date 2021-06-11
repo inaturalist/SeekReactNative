@@ -5,8 +5,7 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
-  Platform
+  Image
 } from "react-native";
 import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,6 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
+import urls from "../../constants/urls";
 
 type Props = {
   +navigation: any
@@ -22,11 +22,7 @@ type Props = {
 const Donation = ( { navigation }: Props ): React.Node => {
   const goBack = ( ) => navigation.goBack( );
 
-  const donorbox = "https://donorbox.org/support-seek-by-inaturalist?utm_campaign=settings&utm_medium=seek";
-
-  const donationPage = Platform.OS === "android"
-    ? `${donorbox}&utm_source=android`
-    : `${donorbox}&utm_source=ios`;
+  const donationPage = `${urls.DONORBOX}&utm_source=android`;
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>

@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 import {render, fireEvent} from "@testing-library/react-native";
 import ForgotPassword from "../ForgotPasswordScreen";

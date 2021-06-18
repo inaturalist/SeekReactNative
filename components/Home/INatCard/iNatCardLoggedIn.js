@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { View } from "react-native";
+import { View, Platform } from "react-native";
 
 import { viewStyles } from "../../../styles/home/inatCard";
 
@@ -15,7 +15,7 @@ const INatCardLoggedIn = ( ): React.Node => (
     <BulletedList text="about_inat.logged_in_bullet_1" />
     <BulletedList text="about_inat.logged_in_bullet_2" />
     <View style={viewStyles.marginOpenINat} />
-    <OpenINatButton />
+    {Platform.OS === "android" && <OpenINatButton />}
   </View>
 );
 

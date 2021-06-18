@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View } from "react-native";
+import { View, Platform } from "react-native";
 import type { Node } from "react";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -24,7 +24,7 @@ const INatHeaderLoggedIn = ( ): Node => {
         style={[viewStyles.linearGradient]}
       >
         <ProfileImageAndLogin count={count} />
-        <OpenINatButton />
+        {Platform.OS === "android" && <OpenINatButton />}
       </LinearGradient>
       <View style={viewStyles.loggedInHeaderMargin} />
       <View style={viewStyles.textContainer}>

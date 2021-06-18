@@ -5,7 +5,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  Platform
 } from "react-native";
 import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -23,6 +24,7 @@ const Donation = ( { navigation }: Props ): React.Node => {
   const goBack = ( ) => navigation.goBack( );
 
   const donationPage = `${urls.DONORBOX}&utm_source=android`;
+  const bitlyForiOS = "bit.ly/3cUNTAu";
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
@@ -35,10 +37,21 @@ const Donation = ( { navigation }: Props ): React.Node => {
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
       </View>
-      <WebView
-        startInLoadingState
-        source={{ uri: donationPage }}
-      />
+      {Platform.OS === "android" ? (
+        <WebView
+          startInLoadingState
+          source={{ uri: donationPage }}
+        />
+      ) : (
+        <View style={viewStyles.whiteContainer}>
+          <Text style={[textStyles.text, textStyles.blackText]}>
+           {i18n.t( "settings.donate_ios" )}
+          </Text>
+          <Text style={[textStyles.text, textStyles.blackText]}>
+            {bitlyForiOS}
+          </Text>
+        </View>
+      )}
       <View style={viewStyles.bottom} />
     </SafeAreaView>
   );

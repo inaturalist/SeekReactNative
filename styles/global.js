@@ -41,7 +41,8 @@ export const colors = {
   placeholderGray: "#828282",
   searchGray: "#b5b5b5",
   settingsGray: "#999999",
-  cameraFilterGray: "#858585"
+  cameraFilterGray: "#858585",
+  skeletonGray: "#d1d5da"
 };
 
 export const fonts = {

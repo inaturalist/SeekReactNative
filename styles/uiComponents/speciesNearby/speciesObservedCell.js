@@ -9,7 +9,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   cellImage: {
     borderRadius: 108 / 2,
     height: 108,
-    width: 108
+    width: 108,
+    backgroundColor: colors.skeletonGray
   },
   cellTitle: {
     flexDirection: "row",

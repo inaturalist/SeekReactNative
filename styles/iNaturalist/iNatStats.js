@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -38,7 +38,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     marginTop: 7
   },
   linearGradient: {
-    height: 225
+    height: Platform.OS === "android" ? 225 : 152
   },
   loggedInHeaderMargin: {
     marginTop: 30 - 12

@@ -24,7 +24,7 @@ const Donation = ( { navigation }: Props ): React.Node => {
   const goBack = ( ) => navigation.goBack( );
 
   const donationPage = `${urls.DONORBOX}&utm_source=android`;
-  const bitlyForiOS = "bit.ly/3cUNTAu";
+  const bitlyForiOS = "bit.ly/3xoB9tU";
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>

@@ -70,7 +70,7 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
           <Text style={styles.text}>
             {location || i18n.t( "location_picker.undefined" )}
           </Text>
-          <Text style={styles.coordsText}>{coords}</Text>
+          {coords && <Text style={styles.coordsText}>{coords}</Text>}
         </View>
         {/* $FlowFixMe */}
         <Image

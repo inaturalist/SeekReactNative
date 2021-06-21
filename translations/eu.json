@@ -87,7 +87,7 @@
     "error_username_taken": "Sentitzen dugu, erabiltaile-izena hartuta dago.",
     "error_no_username": "Galdu egin da erabiltzailea / posta helbidea",
     "error_no_password": "Galdu egin da pasahitza",
-    "error_internet": "No internet connection"
+    "error_internet": "Interneteko konexiorik ez"
   },
   "inat_signup": {
     "welcome": "Ongi etorri Seek-era!",
@@ -121,7 +121,7 @@
     "guidelines": "Komunitatearen gidalerroak",
     "store_data": "Baimentzen dut iNaturalist niri buruzko oso informazio mugatua gorde eta prozesatzera nire kontua kudeatu ahal izateko.",
     "learn_more": "Gehiago ikasi",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_data_storage": "Informazio pribatua gordetzen dugu: erabiltzaile-izenak eta posta helbideak. Kontuak kudeatzeko da, betiere pribatutasun legediak betez. Behar dugu zuk kutxatilatxo honetan klik egitea jakinaren gainean zaudela adierazteko eta ados zaudela. Zein informazio jaso eta gordetzen dugun, eta zertarako erabiltzen dugun gaiari buruz gehiago jakiteko, mesedez begiratu gura Pribatutasun Politika eta Zerbitzu Baldintzak.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "Informazio pertsonalaren inguruan",
     "about_licenses": "Lizentziei buruz"
@@ -582,7 +582,7 @@
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
     "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
+    "no_internet": "INTERNETa EZ DABIL!",
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
   "posting_help": {

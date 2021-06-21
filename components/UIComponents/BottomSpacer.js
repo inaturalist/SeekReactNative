@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 import { View, Platform } from "react-native";
 

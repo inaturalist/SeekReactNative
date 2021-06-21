@@ -82,5 +82,10 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     height: height / 9,
     marginLeft: 27
+  },
+  coordsText: {
+    color: colors.placeholderGray,
+    fontFamily: fonts.book,
+    fontSize: 12
   }
 } );

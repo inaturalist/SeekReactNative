@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext } from "react";
-import { View, Platform } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import styles from "../../styles/settings";
@@ -21,7 +21,7 @@ const SettingsScreen = (): Node => {
         <CameraSettings />
         <SpeciesDetail />
         <LanguagePicker />
-        {( login && Platform.OS === "android" ) && <DonateButton />}
+        {login && <DonateButton />}
       </View>
     </ScrollWithHeader>
   );

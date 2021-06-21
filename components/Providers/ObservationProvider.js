@@ -157,7 +157,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const updateObs = taxon => {
       if ( !isCurrent ) { return; }
 
-      const prevTaxon = observation.taxon;
+      const prevTaxon = observation && observation.taxon;
 
       if ( !prevTaxon
         || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {

@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { View, TouchableOpacity, Text, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";

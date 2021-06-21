@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useEffect, useMemo, useReducer } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";

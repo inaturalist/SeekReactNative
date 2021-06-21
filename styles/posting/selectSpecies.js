@@ -1,28 +1,23 @@
 // @flow
 
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
+  dimensions,
   fonts
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-export default StyleSheet.create( {
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
     left: 23,
     paddingBottom: 18,
     paddingTop: 18
   },
   card: {
-    marginBottom: 18
-  },
-  commonNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.book,
-    fontSize: 21
+    marginBottom: 18,
+    marginLeft: 24
   },
   container: {
     backgroundColor: colors.seekForestGreen,
@@ -37,12 +32,37 @@ export default StyleSheet.create( {
     height: 55
   },
   headerMargins: {
+    marginTop: 27,
+    marginLeft: 24,
     marginBottom: 18
   },
-  image: {
-    height: 155,
-    resizeMode: "contain",
-    width
+  photoContainer: {
+    alignItems: "center",
+    backgroundColor: colors.black,
+    height: 155
+  },
+  row: {
+    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    height: 63,
+    justifyContent: "center"
+  },
+  suggestionsTopMargin: {
+    marginTop: 23
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  topHeader: {
+    alignSelf: "center",
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: Platform.OS === "android" ? 18 : 20,
+    position: "absolute"
   },
   inputField: {
     backgroundColor: colors.white,
@@ -55,56 +75,26 @@ export default StyleSheet.create( {
     paddingBottom: 0,
     paddingLeft: 16,
     paddingTop: 0,
-    width: "81%"
-  },
-  photoContainer: {
-    alignItems: "center",
-    backgroundColor: colors.black,
-    height: 155
-  },
-  roundImage: {
-    borderRadius: 80 / 2,
-    height: 80,
-    marginRight: 24,
-    width: 80
-  },
-  row: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    height: 63,
-    justifyContent: "center"
-  },
-  scientificNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21,
-    marginTop: 5
+    width: dimensions.width - 19 - 52
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: 155,
+    resizeMode: "contain",
+    width: dimensions.width
   },
   search: {
     height: 20,
     resizeMode: "contain",
     tintColor: colors.white,
     width: 20
-  },
-  speciesNameContainer: {
-    maxWidth: 223
-  },
-  text: {
-    alignSelf: "center",
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: Platform.OS === "android" ? 18 : 20,
-    position: "absolute"
-  },
-  textContainer: {
-    marginHorizontal: 24,
-    marginTop: 27
   }
 } );
+
+export {
+  viewStyles,
+  textStyles,
+  imageStyles
+};

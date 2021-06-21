@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 import { Text, View } from "react-native";
 import { useRoute } from "@react-navigation/native";

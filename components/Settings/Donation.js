@@ -5,36 +5,56 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  Platform
 } from "react-native";
-import { getSystemName } from "react-native-device-info";
 import { WebView } from "react-native-webview";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
+import urls from "../../constants/urls";
 
 type Props = {
   +navigation: any
 };
 
-const Donation = ( { navigation }: Props ): React.Node => (
-  <View style={viewStyles.container}>
-    <View style={viewStyles.header}>
-      <Text style={textStyles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={viewStyles.back}
-      >
-        <Image source={icons.closeWhite} />
-      </TouchableOpacity>
-    </View>
-    <WebView
-      startInLoadingState
-      source={{ uri: `https://www.inaturalist.org/donate?utm_source=Seek_${getSystemName()}}` }}
-    />
-    <View style={viewStyles.bottom} />
-  </View>
-);
+const Donation = ( { navigation }: Props ): React.Node => {
+  const goBack = ( ) => navigation.goBack( );
+
+  const donationPage = `${urls.DONORBOX}&utm_source=android`;
+  const bitlyForiOS = "bit.ly/3xoB9tU";
+
+  return (
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
+      <View style={viewStyles.header}>
+        <Text style={textStyles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase( )}</Text>
+        <TouchableOpacity
+          onPress={goBack}
+          style={viewStyles.back}
+        >
+          <Image source={icons.closeWhite} />
+        </TouchableOpacity>
+      </View>
+      {Platform.OS === "android" ? (
+        <WebView
+          startInLoadingState
+          source={{ uri: donationPage }}
+        />
+      ) : (
+        <View style={viewStyles.whiteContainer}>
+          <Text style={[textStyles.text, textStyles.blackText]}>
+           {i18n.t( "settings.donate_ios" )}
+          </Text>
+          <Text style={[textStyles.text, textStyles.blackText]}>
+            {bitlyForiOS}
+          </Text>
+        </View>
+      )}
+      <View style={viewStyles.bottom} />
+    </SafeAreaView>
+  );
+};
 
 export default Donation;

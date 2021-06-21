@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useCallback, useReducer, useContext, useEffect } from "react";
 import { View, Platform, Text, Modal } from "react-native";
 

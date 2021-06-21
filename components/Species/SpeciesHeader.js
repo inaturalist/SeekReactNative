@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useCallback, useContext, useState } from "react";
 import { Text, BackHandler, Pressable, View } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";

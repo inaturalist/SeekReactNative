@@ -23,6 +23,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   header: {
     backgroundColor: colors.seekForestGreen,
     height: 55
+  },
+  whiteContainer: {
+    backgroundColor: colors.white,
+    flexGrow: 1
   }
 } );
 
@@ -34,6 +38,13 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     top: 19
+  },
+  blackText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    textAlign: "center"
   }
 } );
 

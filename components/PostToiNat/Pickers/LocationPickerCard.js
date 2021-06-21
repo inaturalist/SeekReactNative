@@ -16,6 +16,7 @@ import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
 import LocationPicker from "./LocationPicker";
+import { truncateCoordinates } from "../../../utility/locationHelpers";
 
 type Props = {
   location: ?string,
@@ -38,6 +39,11 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
 
   const openModal = () => setShowModal( true );
   const closeModal = useCallback( () => setShowModal( false ), [] );
+
+  const coords = observation.latitude && `${i18n.t( "posting.latitude_longitude", {
+    latitude: truncateCoordinates( observation.latitude ),
+    longitude: truncateCoordinates( observation.longitude )
+  } )}`;
 
   return (
     <>
@@ -64,6 +70,7 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
           <Text style={styles.text}>
             {location || i18n.t( "location_picker.undefined" )}
           </Text>
+          <Text style={styles.coordsText}>{coords}</Text>
         </View>
         {/* $FlowFixMe */}
         <Image

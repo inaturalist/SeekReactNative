@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useState, useCallback } from "react";
 import { View, Image, TouchableOpacity, LogBox } from "react-native";
 

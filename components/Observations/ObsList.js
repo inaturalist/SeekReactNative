@@ -33,6 +33,7 @@ const ObsList = ( {
   const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
   const [itemScrolledId, setItemScrolledId] = useState( null );
+  const [hasAnimated, setHasAnimated] = useState( false );
 
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
@@ -64,6 +65,8 @@ const ObsList = ( {
           updateItemScrolledId={updateItemScrolledId}
           sectionId={section.id}
           index={index}
+          hasAnimated={hasAnimated}
+          setHasAnimated={setHasAnimated}
         />
        {index === section.data.length - 1 && <View style={styles.bottomOfSectionPadding} />}
       </>

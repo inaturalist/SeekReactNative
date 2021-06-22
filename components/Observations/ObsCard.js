@@ -1,7 +1,7 @@
 // @flow
 
-import React, { useRef, useEffect, useCallback, useMemo } from "react";
-import { Image, TouchableOpacity, ScrollView, Animated, View } from "react-native";
+import React, { useRef, useEffect, useCallback, useMemo, useState } from "react";
+import { Image, Pressable, ScrollView, Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -10,7 +10,6 @@ import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import { useUserPhoto } from "../../utility/customHooks";
-import { dimensions } from "../../styles/global";
 
 type Props = {
   item: Object,
@@ -18,7 +17,9 @@ type Props = {
   updateItemScrolledId: ( ?number ) => void,
   itemScrolledId: ?number,
   sectionId: number,
-  index: number
+  index: number,
+  hasAnimated: boolean,
+  setHasAnimated: ( boolean ) => void
 }
 
 const ObservationCard = ( {
@@ -27,7 +28,9 @@ const ObservationCard = ( {
   updateItemScrolledId,
   itemScrolledId,
   sectionId,
-  index
+  index,
+  hasAnimated,
+  setHasAnimated
 }: Props ): Node => {
   const scrollView = useRef( null );
   const { navigate } = useNavigation( );
@@ -84,10 +87,11 @@ const ObservationCard = ( {
   }, [animation] );
 
   useEffect( ( ) => {
-    if ( index === 0 && sectionId === 47126 ) {
+    if ( index === 0 && sectionId === 47126 && !hasAnimated ) {
       animate( );
+      setHasAnimated( true );
     }
-  },[index, sectionId, animate] );
+  },[index, sectionId, animate, hasAnimated, setHasAnimated] );
 
   return (
     <ScrollView
@@ -103,12 +107,12 @@ const ObservationCard = ( {
           handlePress={handleSpeciesCardPress}
           photo={photo}
         />
-      <TouchableOpacity
-        onPress={handleDeletePress}
-        style={styles.deleteButton}
-      >
-        <Image source={icons.delete} />
-      </TouchableOpacity>
+        <Pressable
+          onPress={handleDeletePress}
+          style={styles.deleteButton}
+        >
+          <Image source={icons.delete} />
+        </Pressable>
       </Animated.View>
     </ScrollView>
   );

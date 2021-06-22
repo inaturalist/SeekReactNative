@@ -577,7 +577,12 @@
     "save_location": "Spara plats",
     "unknown": "Okänd",
     "ok": "Okej",
-    "look_up": "Sök en art via namn"
+    "look_up": "Sök en art via namn",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICERAR PÅ INATURALIST I BAKGRUNDEN",
@@ -660,7 +665,8 @@
     "species_detail": "Artdetaljer",
     "seasonality": "Säsongsvariation",
     "seasonality_option_1": "Visa säsongsvariation baserat på iNaturalist-fynd från hela världen",
-    "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-fynd nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)"
+    "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-fynd nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Seek-utmärkelse",

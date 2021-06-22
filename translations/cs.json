@@ -577,7 +577,12 @@
     "save_location": "Uložit polohu",
     "unknown": "Neznámý",
     "ok": "OK",
-    "look_up": "Vyhledat druh podle názvu"
+    "look_up": "Vyhledat druh podle názvu",
+    "latitude_longitude": "Zeměpisná šířka: {{latitude}}, délka: {{longitude}}",
+    "major_taxa": "HLAVNÍ TAXONY",
+    "animals": "Živočichové",
+    "protozoans": "Prvoci",
+    "kelp": "Chaluhy, rozsivky a příbuzné rody"
   },
   "posting_status": {
     "posting_to_inat_background": "POSÍLÁM DO INATURALISTU NA POZADÍ",
@@ -660,7 +665,8 @@
     "species_detail": "Detail druhu",
     "seasonality": "Sezónnost",
     "seasonality_option_1": "Zobrazit sezónnost na základě celosvětových pozorování iNaturalist",
-    "seasonality_option_2": "Zobrazit sezónnost na základě pozorování iNaturalist poblíž mé aktuální polohy (druhy, které nebyly nalezeny v blízkosti mé polohy, nebudou mít žádnou sezónnost)"
+    "seasonality_option_2": "Zobrazit sezónnost na základě pozorování iNaturalist poblíž mé aktuální polohy (druhy, které nebyly nalezeny v blízkosti mé polohy, nebudou mít žádnou sezónnost)",
+    "donate_ios": "K odeslání příspěvku pro Seek prosím navštivte následující odkaz:"
   },
   "seek_challenges": {
     "badge": "Odznak Seeku",

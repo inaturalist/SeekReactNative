@@ -62,6 +62,8 @@ const ObsList = ( {
           itemScrolledId={itemScrolledId}
           openModal={openModal}
           updateItemScrolledId={updateItemScrolledId}
+          sectionId={section.id}
+          index={index}
         />
        {index === section.data.length - 1 && <View style={styles.bottomOfSectionPadding} />}
       </>

@@ -9,6 +9,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
@@ -21,7 +22,7 @@ type Props = {
   +item: Object
 }
 
-const SpeciesObservedCell = ( { item }: Props ) => {
+const SpeciesObservedCell = ( { item }: Props ): Node => {
   const { navigate } = useNavigation();
   const { taxon } = item;
   const commonName = useCommonName( taxon.id );

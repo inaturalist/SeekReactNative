@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { View, Image, TouchableOpacity, LogBox } from "react-native";
+import type { Node } from "react";
 
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
@@ -12,7 +13,7 @@ import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeList from "./BadgeList";
 import { useFetchChallenges } from "./hooks/achievementHooks";
 
-const ChallengeBadges = () => {
+const ChallengeBadges = ( ): Node => {
   const challengeBadges = useFetchChallenges( );
   // FlatList renders twice, which throws the unique key error
   // FlatList within a ScrollView also isn't ideal, but it's fine here
@@ -57,21 +58,23 @@ const ChallengeBadges = () => {
 
   return (
     <>
-      <Modal
-        showModal={showModal}
-        closeModal={closeModal}
-        modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
-          <ChallengeModal
-            challenge={selectedChallenge}
-            closeModal={closeModal}
-          />
-        ) : (
-          <ChallengeUnearnedModal
-            challenge={selectedChallenge}
-            closeModal={closeModal}
-          />
-        )}
-      />
+      {selectedChallenge && (
+        <Modal
+          showModal={showModal}
+          closeModal={closeModal}
+          modal={selectedChallenge.percentComplete === 100 ? (
+            <ChallengeModal
+              challenge={selectedChallenge}
+              closeModal={closeModal}
+            />
+          ) : (
+            <ChallengeUnearnedModal
+              challenge={selectedChallenge}
+              closeModal={closeModal}
+            />
+          )}
+        />
+      )}
       {challengeBadges.length > 0 && renderChallengesGrid( )}
       <View style={viewStyles.marginLarge} />
     </>

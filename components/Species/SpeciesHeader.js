@@ -4,6 +4,7 @@ import React, { useCallback, useContext, useState } from "react";
 import { Text, BackHandler, Pressable, View } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Clipboard from "@react-native-community/clipboard";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
@@ -25,7 +26,7 @@ type Props = {
   highlightSelectedText: ( ) => void
 }
 
-const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ) => {
+const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const commonName = useCommonName( id );

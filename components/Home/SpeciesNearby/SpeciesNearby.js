@@ -2,6 +2,7 @@
 
 import React, { useCallback, useReducer, useContext, useEffect } from "react";
 import { View, Platform, Text, Modal } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
@@ -9,7 +10,7 @@ import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
 import { useLocationPermission } from "../../../utility/customHooks";
-import Error from "./SpeciesNearbyError";
+import SpeciesError from "./SpeciesNearbyError";
 import LocationPicker from "./LocationPicker";
 import { SpeciesNearbyContext } from "../../UserContext";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -18,7 +19,7 @@ import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyLis
 import taxonIds from "../../../utility/dictionaries/taxonDict";
 import createUserAgent from "../../../utility/userAgent";
 
-const SpeciesNearby = ( ) => {
+const SpeciesNearby = ( ): Node => {
   const { speciesNearby, setSpeciesNearby } = useContext( SpeciesNearbyContext );
   const granted = useLocationPermission( );
   // eslint-disable-next-line no-shadow
@@ -203,7 +204,7 @@ const SpeciesNearby = ( ) => {
       <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
       <View style={styles.marginBottom} />
       {error ? (
-        <Error
+        <SpeciesError
           error={error}
           checkInternet={checkInternet}
           checkLocation={checkLocationPermissions}

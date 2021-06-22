@@ -3,6 +3,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { Node } from "react";
 
 import GreenText from "../../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
@@ -16,7 +17,7 @@ import { colors } from "../../../styles/global";
 import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
-const ChallengeCard = ( ) => {
+const ChallengeCard = ( ): Node => {
   const { navigate } = useNavigation( );
   const challenge = useLatestChallenge( );
 

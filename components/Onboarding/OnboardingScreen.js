@@ -6,13 +6,14 @@ import {
   Text,
   View
 } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/onboarding";
 import Swiper from "./Swiper";
 import icons from "../../assets/icons";
 
-const OnboardingScreen = () => (
+const OnboardingScreen = ( ): Node => (
   <Swiper>
     {[1, 2, 3].map( ( item ) => (
       <View key={`${item}`} style={styles.image}>

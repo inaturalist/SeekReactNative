@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesError";
@@ -17,7 +18,7 @@ type Props = {
   +checkForInternet: Function
 }
 
-const SpeciesError = ( { seenTaxa, checkForInternet }: Props ) => (
+const SpeciesError = ( { seenTaxa, checkForInternet }: Props ): Node => (
   <View style={styles.background}>
     <TouchableOpacity
       onPress={() => checkForInternet()}

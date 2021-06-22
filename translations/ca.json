@@ -577,7 +577,12 @@
     "save_location": "Desa la ubicació",
     "unknown": "Desconegut",
     "ok": "D’acord",
-    "look_up": "Cerca una espècie pel seu nom"
+    "look_up": "Cerca una espècie pel seu nom",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR A INATURALIST EN SEGON TERME",
@@ -660,7 +665,8 @@
     "species_detail": "Detalls de l'espècie",
     "seasonality": "Estacionalitat",
     "seasonality_option_1": "Mostrar estacionalitat basada en les observacions mundials d'iNaturalist",
-    "seasonality_option_2": "Mostrar estacionalitat basada en les observacions d'iNaturalist properes a la meva ubicació actual (les espècies que no es troben prop de la meva localització no tenen estacionalitat)"
+    "seasonality_option_2": "Mostrar estacionalitat basada en les observacions d'iNaturalist properes a la meva ubicació actual (les espècies que no es troben prop de la meva localització no tenen estacionalitat)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Veure insignia",

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef, useEffect, useCallback, useMemo, useState } from "react";
+import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { Image, Pressable, ScrollView, Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";

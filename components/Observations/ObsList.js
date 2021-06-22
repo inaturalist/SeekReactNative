@@ -94,13 +94,6 @@ const ObsList = ( {
 
   const renderSectionSeparator = () => <View style={styles.sectionWithDataSeparator} />;
 
-  const renderItemSeparator = ( { section } ) => {
-    if ( !sectionIsHidden( section.id ) ) {
-      return <View style={styles.itemSeparator} />;
-    }
-    return null;
-  };
-
   const renderSectionHeader = ( { section } ) => (
     <SectionHeader
       section={section}
@@ -145,7 +138,6 @@ const ObsList = ( {
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
-      ItemSeparatorComponent={renderItemSeparator}
       renderSectionFooter={renderSectionFooter}
       SectionSeparatorComponent={renderSectionSeparator}
       ListFooterComponent={renderListFooter}

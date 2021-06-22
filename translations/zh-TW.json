@@ -577,7 +577,12 @@
     "save_location": "儲存地點",
     "unknown": "未知",
     "ok": "好的",
-    "look_up": "依照名字來查找物種"
+    "look_up": "依照名字來查找物種",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
@@ -660,7 +665,8 @@
     "species_detail": "物種詳細資訊",
     "seasonality": "季節性",
     "seasonality_option_1": "根據全球的 iNaturalist 觀察紀錄來顯示季節性",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Seek 徽章",

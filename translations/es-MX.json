@@ -577,7 +577,12 @@
     "save_location": "Guardar ubicación",
     "unknown": "Desconocido",
     "ok": "Aceptar",
-    "look_up": "Buscar una especie por el nombre"
+    "look_up": "Buscar una especie por el nombre",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "PRINCIPALES TAXA",
+    "animals": "Animales",
+    "protozoans": "Protozoarios",
+    "kelp": "Algas pardas, diatomeas y parientes"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR EN INATURALIST EN SEGUNDO PLANO",
@@ -660,7 +665,8 @@
     "species_detail": "Detalle de la especie",
     "seasonality": "Estacionalidad",
     "seasonality_option_1": "Mostrar estacionalidad basada en observaciones mundiales de iNaturalist",
-    "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi ubicación actual (especies no encontradas cerca de mi ubicación no tendrán estacionalidad)"
+    "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi ubicación actual (especies no encontradas cerca de mi ubicación no tendrán estacionalidad)",
+    "donate_ios": "Por favor visita el siguiente enlace para hacer una donación a Seek:"
   },
   "seek_challenges": {
     "badge": "Ver insignia",

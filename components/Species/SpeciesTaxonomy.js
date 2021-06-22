@@ -84,7 +84,10 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
           >
             <Image source={icons.greenDot} style={styles.bullet} />
             <View>
-              <Text style={styles.taxonomyHeader}>
+              <Text style={[
+                styles.taxonomyHeader,
+                ancestor.rank === "species" && styles.speciesTaxonomyHeader
+              ]}>
                 {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
               </Text>

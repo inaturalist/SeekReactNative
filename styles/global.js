@@ -50,7 +50,8 @@ export const fonts = {
   semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
   book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
   light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro",
-  bookItalic: Platform.OS === "ios" ? "Whitney-BookItalic" : "Whitney-BookItalic-Pro"
+  bookItalic: Platform.OS === "ios" ? "Whitney-BookItalic" : "Whitney-BookItalic-Pro",
+  semiboldItalic: Platform.OS === "ios" ? "Whitney-SemiboldItalic" : "Whitney-SemiboldItalic-Pro"
 };
 
 export const padding = {

@@ -21,6 +21,9 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
+  speciesTaxonomyHeader: {
+    fontFamily: fonts.semiboldItalic
+  },
   taxonomyText: {
     color: colors.black,
     fontSize: 16,

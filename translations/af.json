@@ -577,7 +577,12 @@
     "save_location": "Bewaar ligging",
     "unknown": "Onbekend",
     "ok": "Goed",
-    "look_up": "Soek spesies volgens naam"
+    "look_up": "Soek spesies volgens naam",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "PLAAS OP DIE AGTERGROND OP INATURALIST",
@@ -660,7 +665,8 @@
     "species_detail": "Spesiedetail",
     "seasonality": "Seisoensgebonde",
     "seasonality_option_1": "Toon seisoensgebondenheid gebaseer op wêreldwye iNaturalis-waarnemings",
-    "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)"
+    "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",

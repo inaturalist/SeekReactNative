@@ -23,7 +23,8 @@ const MatchScreen = ( ): Node => {
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
   const { scientificNames } = useFetchUserSettings( );
-  const { taxon } = observation;
+  const taxon = observation && observation.taxon;
+  const seenDate = taxon && taxon.seenDate;
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -40,7 +41,7 @@ const MatchScreen = ( ): Node => {
   }, {
     navPath: null,
     flagModal: false,
-    screenType: setScreenType( taxon, taxon.seenDate || null )
+    screenType: setScreenType( taxon, seenDate )
   } );
 
   const { navPath, flagModal, screenType } = state;

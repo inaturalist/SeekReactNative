@@ -18,7 +18,7 @@ import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
 import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
-import { LOG } from "../../utility/debugHelpers";
+// import { LOG } from "../../utility/debugHelpers";
 import INatCard from "./INatCard/iNatCard";
 
 const HomeScreen = ( ): Node => {
@@ -72,7 +72,7 @@ const HomeScreen = ( ): Node => {
       } else {
         const allUploads = await checkForUploads( );
         const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false AND photo.uploadFailed == false" ).length;
-        LOG.info( `number of pending uploads: ${pendingUploads}` );
+        // LOG.info( `number of pending uploads: ${pendingUploads}` );
         if ( pendingUploads > 0 ) {
           setShowUploadCard( true );
           setNumPendingUploads( pendingUploads );

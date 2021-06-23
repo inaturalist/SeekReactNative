@@ -66,7 +66,7 @@ const UploadStatus = ( {
     if ( error !== null ) {
       const { numOfHours, errorText } = error;
 
-      if ( internet === false ) {
+      if ( internet === false || error.type === "timeout" ) {
         return i18n.t( "post_to_inat_card.error_internet" );
       } else if ( error.type === "downtime" ) {
         return i18n.t( "post_to_inat_card.error_downtime", { count: numOfHours } );

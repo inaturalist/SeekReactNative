@@ -145,12 +145,12 @@ const ARCamera = ( ): Node => {
   }, [setObservation, login] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && observation.image.arCamera ) {
+    if ( observation && observation.taxon && observation.image.arCamera && pictureTaken ) {
       navigation.push( "Drawer", {
         screen: "Match"
       } );
     }
-  }, [observation, navigation] );
+  }, [observation, navigation, pictureTaken] );
 
   const resetPredictions = ( ) => {
     // only rerender if state has different values than before

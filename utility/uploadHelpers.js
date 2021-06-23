@@ -13,7 +13,14 @@ import { handleServerError } from "./helpers";
 // import { dirPhotosForUpload } from "./dirStorage";
 import i18n from "../i18n";
 // import { isWithin7Days } from "./dateHelpers";
-import { LOG } from "./debugHelpers";
+// import { LOG } from "./debugHelpers";
+
+const fetchWithTimeout = ( timeout, fetch ) => Promise.race( [
+  fetch,
+  new Promise( ( _, reject ) =>
+      setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
+    )
+] );
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -23,9 +30,9 @@ const saveUploadSucceeded = async ( id: number ) => {
     realm.write( ( ) => {
       photo.uploadSucceeded = true;
     } );
-    LOG.info( `photo ${id} upload succeeded` );
+    // LOG.info( `photo ${id} upload succeeded` );
   } catch ( e ) {
-    LOG.error( `couldn't set photo ${id} upload succeeded` );
+    // LOG.error( `couldn't set photo ${id} upload succeeded` );
     console.log( "couldn't set succeeded status: ", e );
   }
 };
@@ -38,9 +45,9 @@ const saveUploadFailed = async ( id: number ) => {
     realm.write( ( ) => {
       photo.uploadFailed = true;
     } );
-    LOG.info( `set upload failed: ${id}` );
+    // LOG.info( `set upload failed: ${id}` );
   } catch ( e ) {
-    LOG.error( `couldn't set upload failed: ${id}` );
+    // LOG.error( `couldn't set upload failed: ${id}` );
     console.log( "couldn't set failed status: ", e );
   }
 };
@@ -59,13 +66,13 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   const site = "https://www.inaturalist.org";
 
   try {
-    const r = await fetch( `${site}/users/api_token`, { headers } );
+    const r = await fetchWithTimeout( 5000, fetch( `${site}/users/api_token`, { headers } ) );
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
     if ( e.response && e.response.status && e.response.status === 503 ) {
       // not 100% sure if this is working
-      LOG.error( `downtime server error: ${e.message}` );
+      // LOG.error( `downtime server error: ${e.message}` );
       return {
         error: {
           type: "downtime",
@@ -74,7 +81,14 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
         }
       };
     }
-    LOG.error( `login error: ${e.message}` );
+    if ( e.message === "timeout" ) {
+      return {
+        error: {
+          type: "timeout"
+        }
+      };
+    }
+    // LOG.error( `login error: ${e.message}` );
     return {
       error: {
         type: "login",
@@ -103,11 +117,20 @@ const appendPhotoToObservation = async ( photo: {
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
-    await inatjs.observation_photos.create( photoParams, options );
-    LOG.info( `photo ${uuid} appended to observation ${id}` );
+    // this is a pretty slow operation, so it has a higher timeout number
+    await fetchWithTimeout( 15000, inatjs.observation_photos.create( photoParams, options ) );
+    // LOG.info( `photo ${uuid} appended to observation ${id}` );
     return true;
   } catch ( e ) {
-    LOG.error( `photo ${uuid} upload error: ${e.message}` );
+    // LOG.error( `photo ${uuid} upload error: ${e.message}` );
+
+    if ( e.message === "timeout" ) {
+      return {
+        error: {
+          type: "timeout"
+        }
+      };
+    }
 
     // when there's no error message, this can be caused by upload starting when user first posts from posting screen
     // and then immediately going to home screen, where a second upload will start while first is still in progress
@@ -131,13 +154,13 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   // except for photos that were already stored with the cameraroll uri
   const resizedPhoto = await resizeImageForUpload( uri );
 
-  LOG.info( `resized photo: ${resizedPhoto}` );
+  // LOG.info( `resized photo: ${resizedPhoto}` );
 
   if ( !resizedPhoto ) {
     // if upload cannot complete because there is no longer a photo to upload
     // save this setting so Seek does not keep trying to upload it (and crashing each time)
     saveUploadFailed( id );
-    LOG.error( `photo ${photo.uuid} doesn't exist error: ${id}` );
+    // LOG.error( `photo ${photo.uuid} doesn't exist error: ${id}` );
     return {
       error: {
         type: "photo",
@@ -160,10 +183,10 @@ const saveObservationId = async ( id: number, photo: Object ) => {
     realm.write( ( ) => {
       photo.id = id;
     } );
-    LOG.info( `saving observation id: ${id}` );
+    // LOG.info( `saving observation id: ${id}` );
     return photo;
   } catch ( e ) {
-    LOG.error( `error: ${e}: couldn't save observation id: ${id}` );
+    // LOG.error( `error: ${e}: couldn't save observation id: ${id}` );
     console.log( "couldn't save id to UploadPhotoRealm", e );
   }
 };
@@ -200,8 +223,8 @@ const uploadObservation = async ( observation: {
     }
   };
 
-  LOG.info( `obs params: ${JSON.stringify( params )}` );
-  LOG.info( `obs photo id: ${observation.photo.id}` );
+  // LOG.info( `obs params: ${JSON.stringify( params )}` );
+  // LOG.info( `obs photo id: ${observation.photo.id}` );
 
   const token = await fetchJSONWebToken( login );
 
@@ -213,7 +236,7 @@ const uploadObservation = async ( observation: {
 
   try {
     if ( !observation.photo.id ) {
-      const response = await inatjs.observations.create( params, options );
+      const response = await fetchWithTimeout( 5000, inatjs.observations.create( params, options ) );
       const { id } = response[0];
 
       const photo: Object = await saveObservationId( id, observation.photo );
@@ -225,7 +248,14 @@ const uploadObservation = async ( observation: {
       return await uploadPhoto( observation.photo, token );
     }
   } catch ( e ) {
-    LOG.error( `error uploading observation: ${e.message}` );
+    if ( e.message === "timeout" ) {
+      return {
+        error: {
+          type: "timeout"
+        }
+      };
+    }
+    // LOG.error( `error uploading observation: ${e.message}` );
     return {
       error: {
         type: "observation",
@@ -277,7 +307,7 @@ const saveObservationToRealm = async ( observation: {
     const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${uuid}'` )[0];
     return uploadObservation( latestObs );
   } catch ( e ) {
-    LOG.error( `error saving observation to realm: ${e}` );
+    // LOG.error( `error saving observation to realm: ${e}` );
     console.log( "couldn't save observation to UploadObservationRealm", e );
   }
 };
@@ -285,8 +315,8 @@ const saveObservationToRealm = async ( observation: {
 const checkForNumSuccessfulUploads = async ( ): Promise<number> => {
   const realm = await Realm.open( realmConfig );
 
-  LOG.info( `number of successful uploads: ${realm.objects( "UploadPhotoRealm" )
-  .filtered( "uploadSucceeded == true AND notificationShown == false" ).length}` );
+  // LOG.info( `number of successful uploads: ${realm.objects( "UploadPhotoRealm" )
+  // .filtered( "uploadSucceeded == true AND notificationShown == false" ).length}` );
 
   return realm.objects( "UploadPhotoRealm" )
     .filtered( "uploadSucceeded == true AND notificationShown == false" ).length;
@@ -305,7 +335,7 @@ const markUploadsAsSeen = async ( ) => {
       }
     } );
   } catch ( e ) {
-    LOG.error( `error marking uploads as seen: ${e}` );
+    // LOG.error( `error marking uploads as seen: ${e}` );
     console.log( "couldn't mark uploads as seen in UploadPhotoRealm", e );
   }
 };
@@ -324,14 +354,14 @@ const markCurrentUploadAsSeen = async ( upload: {
       } );
     }
   } catch ( e ) {
-    LOG.error( `error marking current upload as seen: ${e}` );
+    // LOG.error( `error marking current upload as seen: ${e}` );
     console.log( "couldn't mark current upload as seen", e );
   }
 };
 
 const checkForUploads = async ( ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
-  LOG.info( `total number of uploads in realm: ${realm.objects( "UploadObservationRealm" ) ? realm.objects( "UploadObservationRealm" ).length : 0}` );
+  // LOG.info( `total number of uploads in realm: ${realm.objects( "UploadObservationRealm" ) ? realm.objects( "UploadObservationRealm" ).length : 0}` );
   return realm.objects( "UploadObservationRealm" );
 };
 

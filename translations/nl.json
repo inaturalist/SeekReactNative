@@ -579,10 +579,10 @@
     "ok": "Ok",
     "look_up": "Opzoeken van een soort op basis van de naam",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "major_taxa": "BELANGRIJKSTE TAXA",
+    "animals": "Dieren",
+    "protozoans": "Eencelligen",
+    "kelp": "Zeewier, diatomeeën en verwanten"
   },
   "posting_status": {
     "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",
@@ -666,7 +666,7 @@
     "seasonality": "Seizoensgebonden",
     "seasonality_option_1": "Geef seizoensgebondenheid weer op basis van wereldwijde iNaturalist waarnemingen",
     "seasonality_option_2": "Seizoensgebonden weergave op basis van iNaturalist waarnemingen bij mijn huidige locatie (soorten die niet gevonden zijn in de buurt van mijn locatie zullen geen seizoensgebonden karakter hebben)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Bezoek de volgende link om een donatie aan Seek te doen:"
   },
   "seek_challenges": {
     "badge": "Seek badge",

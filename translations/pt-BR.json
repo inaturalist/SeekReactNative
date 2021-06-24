@@ -579,10 +579,10 @@
     "ok": "Ok",
     "look_up": "Procure uma espécie por nome",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "major_taxa": "TÁXONS PRINCIPAIS",
+    "animals": "Animais",
+    "protozoans": "Protozoários",
+    "kelp": "Algas, diatomáceas e similares"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR NO INATURALIST EM SEGUNDO PLANO",
@@ -666,7 +666,7 @@
     "seasonality": "Sazonalidade",
     "seasonality_option_1": "Mostrar sazonalidade com base em observações mundiais do iNaturalist",
     "seasonality_option_2": "Mostrar sazonalidade com base em observações do iNaturalist próximo da minha localização atual (espécies não encontradas perto da minha localização não terão sazonalidade)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Por favor, visite o seguinte link para fazer uma doação ao Seek:"
   },
   "seek_challenges": {
     "badge": "Distintivo do Seek",

@@ -241,6 +241,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
   // this is for online predictions (only iOS photo library uploads)
   useEffect( ( ) => {
     let isCurrent = true;
+    if ( Platform.OS === "android" ) { return; }
 
     if ( !observation ) { return; }
     const { image, clicked } = observation;
@@ -310,7 +311,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       }
     };
 
-    if ( image.predictions.length === 0  && !observation.taxon ) {
+    if ( image.predictions.length === 0 && !observation.taxon ) {
       fetchOnlineVisionResults( );
     }
   }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );

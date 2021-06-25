@@ -33,6 +33,7 @@ const ObsList = ( {
   const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
   const [itemScrolledId, setItemScrolledId] = useState( null );
+  const [hasAnimated, setHasAnimated] = useState( false );
 
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
@@ -62,6 +63,10 @@ const ObsList = ( {
           itemScrolledId={itemScrolledId}
           openModal={openModal}
           updateItemScrolledId={updateItemScrolledId}
+          sectionId={section.id}
+          index={index}
+          hasAnimated={hasAnimated}
+          setHasAnimated={setHasAnimated}
         />
        {index === section.data.length - 1 && <View style={styles.bottomOfSectionPadding} />}
       </>
@@ -88,13 +93,6 @@ const ObsList = ( {
   };
 
   const renderSectionSeparator = () => <View style={styles.sectionWithDataSeparator} />;
-
-  const renderItemSeparator = ( { section } ) => {
-    if ( !sectionIsHidden( section.id ) ) {
-      return <View style={styles.itemSeparator} />;
-    }
-    return null;
-  };
 
   const renderSectionHeader = ( { section } ) => (
     <SectionHeader
@@ -140,7 +138,6 @@ const ObsList = ( {
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
-      ItemSeparatorComponent={renderItemSeparator}
       renderSectionFooter={renderSectionFooter}
       SectionSeparatorComponent={renderSectionSeparator}
       ListFooterComponent={renderListFooter}

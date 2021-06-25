@@ -3,12 +3,13 @@
 import * as React from "react";
 import { Text, View } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/emptyList";
 import i18n from "../../../i18n";
 
-const EmptyList = () => {
-  const { name } = useRoute();
+const EmptyList = ( ): Node => {
+  const { name } = useRoute( );
 
   let text = null;
 

@@ -20,9 +20,6 @@ export default StyleSheet.create( {
   flexGrow: {
     flexGrow: 1
   },
-  itemSeparator: {
-    marginBottom: 18
-  },
   padding: {
     backgroundColor: colors.white,
     paddingBottom: Platform.OS === "android" ? 37 : 44

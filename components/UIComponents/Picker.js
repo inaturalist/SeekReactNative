@@ -2,6 +2,7 @@
 
 import React, { useCallback } from "react";
 import RNPickerSelect from "react-native-picker-select";
+import type { Node } from "react";
 
 const placeholder = {};
 type Props = {
@@ -16,7 +17,7 @@ const Picker = ( {
   children,
   itemList,
   disabled
-}: Props ) => {
+}: Props ): Node => {
   const showIcon = useCallback( () => <></>, [] );
 
   return (

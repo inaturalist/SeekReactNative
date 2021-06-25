@@ -3,6 +3,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { View, FlatList } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import type { Node } from "react";
 
 import styles from "../../styles/onboarding";
 import Dots from "./Dots";
@@ -13,12 +14,12 @@ type Props = {
 }
 
 const gradientColors = {
-  0: ["#50c49c", "#1b6537"],
-  1: ["#43b7a8", "#1d5d49"],
-  2: ["#3ab6bb", "#184b56"]
+  "0": ["#50c49c", "#1b6537"],
+  "1": ["#43b7a8", "#1d5d49"],
+  "2": ["#3ab6bb", "#184b56"]
 };
 
-const Swiper = ( { children }: Props ) => {
+const Swiper = ( { children }: Props ): Node => {
   const flatList = useRef( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,

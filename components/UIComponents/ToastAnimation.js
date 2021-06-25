@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { Animated } from "react-native";
+import type { Node } from "react";
 
 import GreenRectangle from "../UIComponents/GreenRectangle";
 
@@ -19,7 +20,7 @@ const ToastAnimation = ( {
   finishAnimation,
   styles,
   rectangleColor
-}: Props ) => {
+}: Props ): Node => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
 
   useEffect( ( ) => {

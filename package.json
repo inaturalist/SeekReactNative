@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.12.8",
+  "version": "2.12.9",
   "private": true,
   "scripts": {
     "android": "react-native run-android",

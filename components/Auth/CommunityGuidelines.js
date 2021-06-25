@@ -6,7 +6,7 @@ import HTML from "react-native-render-html";
 import styles from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
-const CommunityGuidelines = () => {
+const CommunityGuidelines = ( ): React.Node => {
   const html = `<div class="last column span-18">
 
   <p>

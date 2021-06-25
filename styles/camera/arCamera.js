@@ -68,6 +68,6 @@ export default StyleSheet.create( {
     textShadowRadius: 3
   },
   scientificName: {
-    fontFamily: fonts.bookItalic
+    fontFamily: fonts.semiboldItalic
   }
 } );

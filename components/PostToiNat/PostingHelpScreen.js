@@ -6,13 +6,14 @@ import {
   View,
   Image
 } from "react-native";
+import type { Node } from "react";
 
 import styles from "../../styles/posting/postingHelp";
 import i18n from "../../i18n";
 import icons from "../../assets/posting";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
-const PostingHelpScreen = () => (
+const PostingHelpScreen = ( ): Node => (
   <ScrollWithHeader header="posting_help.header">
     <View style={styles.textContainer}>
       <View style={styles.row}>

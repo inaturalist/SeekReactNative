@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
+import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/match/speciesNearby";
@@ -19,8 +20,8 @@ type Props = {
 }
 
 class SpeciesNearby extends Component<Props> {
-  constructor() {
-    super();
+  constructor( ) {
+    super( );
 
     this.state = {
       taxa: [],
@@ -68,7 +69,7 @@ class SpeciesNearby extends Component<Props> {
       } );
   }
 
-  render() {
+  render(): Node {
     const { taxa, loading, notLoaded } = this.state;
 
     let species;

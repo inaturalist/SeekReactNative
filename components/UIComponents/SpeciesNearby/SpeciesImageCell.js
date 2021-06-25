@@ -15,7 +15,7 @@ type Props = {
   +item: Object
 }
 
-const SpeciesImageCell = ( { item }: Props ) => {
+const SpeciesImageCell = ( { item }: Props ): React.Node => {
   const navigation = useNavigation( );
   const { navigate } = navigation;
   const route = useRoute( );

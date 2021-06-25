@@ -24,7 +24,7 @@ const Donation = ( { navigation }: Props ): React.Node => {
   const goBack = ( ) => navigation.goBack( );
 
   const donationPage = `${urls.DONORBOX}&utm_source=android`;
-  const bitlyForiOS = "bit.ly/3xoB9tU";
+  const redirectForiOS = "inaturalist.org/donate-seek";
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
@@ -48,7 +48,7 @@ const Donation = ( { navigation }: Props ): React.Node => {
            {i18n.t( "settings.donate_ios" )}
           </Text>
           <Text style={[textStyles.text, textStyles.blackText]}>
-            {bitlyForiOS}
+            {redirectForiOS}
           </Text>
         </View>
       )}

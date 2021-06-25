@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { fonts, padding, center } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
@@ -21,7 +21,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   circleText: {
     fontFamily: fonts.book,
     fontSize: 20,
-    paddingTop: Platform.OS === "ios" ? 7 : 0
+    paddingTop: padding.iOSButtonPadding
   },
   largeCircleText: {
     fontFamily: fonts.light,

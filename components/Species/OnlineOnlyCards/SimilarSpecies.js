@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useReducer } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
+import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -16,7 +17,7 @@ type Props = {
   +id: ?number
 }
 
-const SimilarSpecies = ( { id }: Props ) => {
+const SimilarSpecies = ( { id }: Props ): Node => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {

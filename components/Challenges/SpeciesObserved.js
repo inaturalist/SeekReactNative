@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Realm from "realm";
+import type { Node } from "react";
 
 import { colors } from "../../styles/global";
 import styles from "../../styles/challenges/challengeDetails";
@@ -18,7 +19,7 @@ type Props = {
   +challenge: Object
 }
 
-const SpeciesObserved = ( { challenge }: Props ) => {
+const SpeciesObserved = ( { challenge }: Props ): Node => {
   const [speciesObserved, setSpeciesObserved] = useState( [] );
   const [loading, setLoading] = useState( true );
 

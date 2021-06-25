@@ -33,7 +33,7 @@ const UserLoginProvider = ( { children }: Props ): Node => {
         return savedLogin;
       }
 
-      if ( savedLogin.length === 0 ) {
+      if ( savedLogin.length === 0 || !savedLogin[0] ) {
         realm.write( ( ) => {
           realm.create( "LoginRealm", {
             loginToken: token,

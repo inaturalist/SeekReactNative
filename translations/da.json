@@ -579,7 +579,7 @@
     "ok": "Ok",
     "look_up": "Slå en art op efter navn",
     "latitude_longitude": "Bredde: {{latitude}}, Længde: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
+    "major_taxa": "OVERORDNET TAKSA",
     "animals": "Dyr",
     "protozoans": "Protozoer",
     "kelp": "Brunalger, kiselalger og beslægtede"

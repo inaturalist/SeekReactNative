@@ -577,7 +577,12 @@
     "save_location": "Gem placering",
     "unknown": "Ukendt",
     "ok": "Ok",
-    "look_up": "Slå en art op efter navn"
+    "look_up": "Slå en art op efter navn",
+    "latitude_longitude": "Bredde: {{latitude}}, Længde: {{longitude}}",
+    "major_taxa": "OVERORDNET TAKSA",
+    "animals": "Dyr",
+    "protozoans": "Protozoer",
+    "kelp": "Brunalger, kiselalger og beslægtede"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICERER TIL INATURALIST I BAGGRUNDEN",
@@ -660,7 +665,8 @@
     "species_detail": "Artsdetaljer",
     "seasonality": "Sæsonudsving",
     "seasonality_option_1": "Vis sæsonudsving baseret på verdensomspændende iNaturalist-observationer",
-    "seasonality_option_2": "Vis sæsonudsving baseret på iNaturalist-observationer nær min aktuelle placering (arter som ikke er fundet i nærheden, vil ikke have nogen sæsonudsving)"
+    "seasonality_option_2": "Vis sæsonudsving baseret på iNaturalist-observationer nær min aktuelle placering (arter som ikke er fundet i nærheden, vil ikke have nogen sæsonudsving)",
+    "donate_ios": "Besøg følgende link for at donere til Seek:"
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",

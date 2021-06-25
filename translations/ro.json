@@ -577,7 +577,12 @@
     "save_location": "Salvează locația",
     "unknown": "Necunoscută",
     "ok": "Ok",
-    "look_up": "Caută o specie după nume"
+    "look_up": "Caută o specie după nume",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTARE PE INATURALIST ÎN FUNDAL",
@@ -660,7 +665,8 @@
     "species_detail": "Detalii specii",
     "seasonality": "Sezonalitate",
     "seasonality_option_1": "Afișează sezonalitatea bazată pe observații iNaturalist la nivel mondial",
-    "seasonality_option_2": "Afișează sezonalitatea bazată pe observații iNaturalist aproape de locația mea actuală (speciile care nu sunt găsite în apropierea locației mele nu vor avea sezonalitate)"
+    "seasonality_option_2": "Afișează sezonalitatea bazată pe observații iNaturalist aproape de locația mea actuală (speciile care nu sunt găsite în apropierea locației mele nu vor avea sezonalitate)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Insignă Seek",

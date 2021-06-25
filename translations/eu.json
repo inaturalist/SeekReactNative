@@ -577,7 +577,12 @@
     "save_location": "Kokapena gorde",
     "unknown": "Ezezaguna",
     "ok": "Ados",
-    "look_up": "Behatu espezieak izenaren arabera"
+    "look_up": "Behatu espezieak izenaren arabera",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
@@ -660,7 +665,8 @@
     "species_detail": "Espeziearen xehetasunak",
     "seasonality": "Urtarokotasuna",
     "seasonality_option_1": "Mundu osoko iNaturalist behaketen urtarokotasuna erakutsi",
-    "seasonality_option_2": "Nire uneko kokapenetik gertu egindako iNaturalist behaketetan oinarritutako urtarokotasuna erakutsi (nire kokapenetik gertu aurkitu ez diren espezieek ez dute zertan urtarokotasuna izan behar)"
+    "seasonality_option_2": "Nire uneko kokapenetik gertu egindako iNaturalist behaketetan oinarritutako urtarokotasuna erakutsi (nire kokapenetik gertu aurkitu ez diren espezieek ez dute zertan urtarokotasuna izan behar)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Seek Txapa",

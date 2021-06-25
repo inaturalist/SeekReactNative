@@ -577,7 +577,12 @@
     "save_location": "ස්ථානය සුරකින්න",
     "unknown": "නොදන්නා",
     "ok": "හරි",
-    "look_up": "නමින් විශේෂයක් සොයා බලන්න"
+    "look_up": "නමින් විශේෂයක් සොයා බලන්න",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
@@ -660,7 +665,8 @@
     "species_detail": "විශේෂයේ විස්තරය",
     "seasonality": "සෘතුමයභාවය",
     "seasonality_option_1": "ලොව පුරා iNaturalist නිරීක්ෂණ මත පදනම්ව සෘතුමයභාවය පෙන්වන්න",
-    "seasonality_option_2": "මගේ වර්තමාන ස්ථානය අසල iNaturalist නිරීක්ෂණ මත පදනම්ව සෘතුමයභාවය ප්‍රදර්ශනය කරන්න (මගේ ස්ථානය අසල හමු නොවූ විශේෂයන්ට සෘතුමයභාවයක් නොමැත)"
+    "seasonality_option_2": "මගේ වර්තමාන ස්ථානය අසල iNaturalist නිරීක්ෂණ මත පදනම්ව සෘතුමයභාවය ප්‍රදර්ශනය කරන්න (මගේ ස්ථානය අසල හමු නොවූ විශේෂයන්ට සෘතුමයභාවයක් නොමැත)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Seek ලාංඡනය",

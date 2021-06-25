@@ -577,7 +577,12 @@
     "save_location": "Konumu kaydet",
     "unknown": "Bilinmiyor",
     "ok": "Tamam",
-    "look_up": "Adına göre bir türe bak"
+    "look_up": "Adına göre bir türe bak",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "ARKA PLANDA INATURALIST'E GÖNDERİLİYOR",
@@ -660,7 +665,8 @@
     "species_detail": "Tür ayrıntısı",
     "seasonality": "Mevsimsellik",
     "seasonality_option_1": "Dünya çapındaki iNaturalist gözlemlerine göre mevsimselliği görüntüleyin",
-    "seasonality_option_2": "Mevcut konumumun yakınındaki iNaturalist gözlemlerine dayalı mevsimselliği görüntüleyin (konumumun yakınında bulunmayan türlerin mevsimselliği bulunmaz)"
+    "seasonality_option_2": "Mevcut konumumun yakınındaki iNaturalist gözlemlerine dayalı mevsimselliği görüntüleyin (konumumun yakınında bulunmayan türlerin mevsimselliği bulunmaz)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "Rozet ara",

@@ -577,7 +577,12 @@
     "save_location": "Standort speichern",
     "unknown": "Unbekannt",
     "ok": "Ok",
-    "look_up": "Eine Art nach Namen suchen"
+    "look_up": "Eine Art nach Namen suchen",
+    "latitude_longitude": "Breite: {{latitude}}, Länge: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Tiere",
+    "protozoans": "Protozoen",
+    "kelp": "Braunalgen, Diatomeen und Verwandte"
   },
   "posting_status": {
     "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",
@@ -660,7 +665,8 @@
     "species_detail": "Artendetails",
     "seasonality": "Jahreszeitliche Verteilung",
     "seasonality_option_1": "Zeige die jahreszeitliche Verteilung basierend auf weltweiten iNaturalist Beobachtungen",
-    "seasonality_option_2": "Zeige die jahreszeitliche Verteilung basierend auf iNaturalist-Beobachtungen in der Nähe meines aktuellen Standortes (bei nicht in der Nähe meines Standortes gefundenen Arten wird diese Verteilung nicht angezeigt)"
+    "seasonality_option_2": "Zeige die jahreszeitliche Verteilung basierend auf iNaturalist-Beobachtungen in der Nähe meines aktuellen Standortes (bei nicht in der Nähe meines Standortes gefundenen Arten wird diese Verteilung nicht angezeigt)",
+    "donate_ios": "Bitte besuchen den folgenden Link, um an Seek zu spenden:"
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",

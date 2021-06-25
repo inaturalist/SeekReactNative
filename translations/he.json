@@ -577,7 +577,12 @@
     "save_location": "שמור מיקום",
     "unknown": "לא ידועה",
     "ok": "אישור",
-    "look_up": "חפש מין לפי שם"
+    "look_up": "חפש מין לפי שם",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "מעלה ל iNaturalist ברקע",
@@ -660,7 +665,8 @@
     "species_detail": "פירוט מינים",
     "seasonality": "עונתיות",
     "seasonality_option_1": "הצג עונתיות בהתבסס על תצפיות עולמיות של iNaturalist",
-    "seasonality_option_2": "הצג עונתיות בהתבסס על תצפיות של iNaturalist סביב המיקום שלי (מינים שלא נמצאים באיזור שלי יהיו ללא פירוט עונתיות)"
+    "seasonality_option_2": "הצג עונתיות בהתבסס על תצפיות של iNaturalist סביב המיקום שלי (מינים שלא נמצאים באיזור שלי יהיו ללא פירוט עונתיות)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "תג של Seek",

@@ -577,7 +577,12 @@
     "save_location": "Sla locatie op",
     "unknown": "Onbekend",
     "ok": "Ok",
-    "look_up": "Opzoeken van een soort op basis van de naam"
+    "look_up": "Opzoeken van een soort op basis van de naam",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "BELANGRIJKSTE TAXA",
+    "animals": "Dieren",
+    "protozoans": "Eencelligen",
+    "kelp": "Zeewier, diatomeeën en verwanten"
   },
   "posting_status": {
     "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",
@@ -660,7 +665,8 @@
     "species_detail": "Soort details",
     "seasonality": "Seizoensgebonden",
     "seasonality_option_1": "Geef seizoensgebondenheid weer op basis van wereldwijde iNaturalist waarnemingen",
-    "seasonality_option_2": "Seizoensgebonden weergave op basis van iNaturalist waarnemingen bij mijn huidige locatie (soorten die niet gevonden zijn in de buurt van mijn locatie zullen geen seizoensgebonden karakter hebben)"
+    "seasonality_option_2": "Seizoensgebonden weergave op basis van iNaturalist waarnemingen bij mijn huidige locatie (soorten die niet gevonden zijn in de buurt van mijn locatie zullen geen seizoensgebonden karakter hebben)",
+    "donate_ios": "Bezoek de volgende link om een donatie aan Seek te doen:"
   },
   "seek_challenges": {
     "badge": "Seek badge",

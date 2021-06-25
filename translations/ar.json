@@ -577,7 +577,12 @@
     "save_location": "حفظ الموقع",
     "unknown": "غير معروف",
     "ok": "حسنًا",
-    "look_up": "البحث عن الأنواع حسب الاسم"
+    "look_up": "البحث عن الأنواع حسب الاسم",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "MAJOR TAXA",
+    "animals": "Animals",
+    "protozoans": "Protozoans",
+    "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
@@ -660,7 +665,8 @@
     "species_detail": "Species detail",
     "seasonality": "Seasonality",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
+    "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
     "badge": "شارة Seek",

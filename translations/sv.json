@@ -247,7 +247,7 @@
     "mission_4_june": "Hitta 2 svampar (nedbrytare)",
     "mission_1_november": "Hitta 10 olika träd eller buskar av följande typer:\n\n-Barrträd: tall, gran, lärk och en;\n-Palmer;\n-Bok, valnöt och ek;\n-Lönn, hästkastanj, mango, mahogny och citrus;\n-Järnekar;\n-Rönn, oxel;\n-Körsbär, äpplen och päron;\n-Bäralm, asp, poppel och vide, sälg, pil;\n-Lager, avokado, feberbuske, och sassafras;\n-Alm;\n-Havtorn och brakved;\n-Fikon och mullbär;\n-Mangrove;\n-Combretum;\n-Korneller och hortensior",
     "mission_1_august": "Hitta 10 olika insekter",
-    "mission_1_september": "Hitta 10 olika arter av: trollsländor, groddjur, fiskar, ankor, mossor, ormbunkar, halvgräs eller kaveldun",
+    "mission_1_september": "Hitta 10 olika arter av: trollsländor, groddjur, fiskar, ankor, mossor, ormbunkar, vattenliljor, näckrosor, andmat, halvgräs eller kaveldun",
     "mission_1_october": "Hitta 5 fåglar",
     "mission_1_december": "Hitta 20 växter",
     "photographer_april": "Foto © Netflix / Silverback Films",
@@ -577,7 +577,12 @@
     "save_location": "Spara plats",
     "unknown": "Okänd",
     "ok": "Okej",
-    "look_up": "Sök en art via namn"
+    "look_up": "Sök en art via namn",
+    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "major_taxa": "HUVUDTAXA",
+    "animals": "Djur",
+    "protozoans": "Protozoer",
+    "kelp": "Kelp, kiselalger och närbesläktade"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICERAR PÅ INATURALIST I BAKGRUNDEN",
@@ -660,7 +665,8 @@
     "species_detail": "Artdetaljer",
     "seasonality": "Säsongsvariation",
     "seasonality_option_1": "Visa säsongsvariation baserat på iNaturalist-fynd från hela världen",
-    "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-fynd nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)"
+    "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-fynd nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)",
+    "donate_ios": "Följ denna länk för att göra en donation till Seek:"
   },
   "seek_challenges": {
     "badge": "Seek-utmärkelse",

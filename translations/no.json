@@ -4,10 +4,10 @@
     "internet_error": "Vi trenger internettet for å generere arter i nærheten. Trykk for å prøve igjen.",
     "no_location": "Ingen posisjon",
     "no_species": "Det ser ut som det ikke har blitt observert mange arter i nærheten! Prøv å endre din posisjon eller utvide artsfilteret.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "input_location_above_map": "Ingen posisjon funnet; oppgi et stedsnavn over for å laste opp kartet og søke etter arter i nærheten",
+    "error_alert_location_services": "For å fortsette, slå på stedstilgang i enhetensinnstillingene",
+    "species_nearby_requires_location": "Arter i nærheten trenger din plassering. Vennligst aktiver stedstilgang i innstillinger",
+    "choose_location_on_map": "VELG STED PÅ KARTET"
   },
   "get_started": {
     "header": "Kom i gang",
@@ -25,7 +25,7 @@
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "LAST OPP TIL INATURALIST",
     "uploading_x_observations": {
       "zero": "Laster opp {{count}} observasjoner",
       "one": "Laster opp {{count}} observasjon",
@@ -35,23 +35,23 @@
       "other": "Laster opp {{count}} observasjoner"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} observasjoner lastet opp!",
+      "one": "{{count}} observasjoner lastet opp!",
+      "two": "{{count}} observasjoner lastet opp!",
+      "few": "{{count}} observasjoner lastet opp!",
+      "many": "{{count}} observasjoner lastet opp!",
+      "other": "{{count}} observasjoner lastet opp!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} observasjoner lastet opp",
+      "one": "{{count}} observasjoner lastet opp",
+      "two": "{{count}} observasjoner lastet opp",
+      "few": "{{count}} observasjoner lastet opp",
+      "many": "{{count}} observasjoner lastet opp",
+      "other": "{{count}} observasjoner lastet opp"
     },
     "upload_now": "LAST OPP NÅ",
-    "error_internet": "No internet detected. Please try again later.",
+    "error_internet": "Ingen internett-tilgang. Prøv igjen senere.",
     "error_downtime": {
       "zero": "iNaturalist's server er under vedlikehold. Vennligst prøv igjen om {{count}} timer.",
       "one": "iNaturalist's server er under vedlikehold. Vennligst prøv igjen om {{count}} time.",
@@ -60,10 +60,10 @@
       "many": "iNaturalist's server er under vedlikehold. Vennligst prøv igjen om {{count}} timer.",
       "other": "iNaturalist's server er under vedlikehold. Vennligst prøv igjen om {{count}} timer."
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_unknown": "Opplastingen mislyktes. Detaljer om feilen: {{errorText}}",
+    "error_login": "Innlogging mislyktes. Vennligst logg inn på iNaturalist-kontoen din i Seek fra iNaturalist eller prestasjonsskjermen før du prøver igjen.",
+    "error_photo": "Bilde kan ikke lenger hentes fra enheten.",
+    "error_downtime_a_few_hours": "iNaturalist's server er under vedlikehold. Vennligst prøv igjen om noen timer."
   },
   "notifications": {
     "header": "Varslinger",
@@ -86,8 +86,8 @@
     "error_credentials": "Feil brukernavn eller passord",
     "error_username_taken": "Det brukernavnet er allerede i bruk",
     "error_no_username": "Manglende brukernavn / e-post",
-    "error_no_password": "Missing password",
-    "error_internet": "No internet connection"
+    "error_no_password": "Mangler passord",
+    "error_internet": "Ingen internett-tilkobling"
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -117,10 +117,10 @@
     "observations_1": "Dine observasjoner i Seek er lagret på din enhet, og har INGEN sikkerhetskopi på nett.",
     "observations_2": "Å slette appen sletter alle dine observasjoner gjort i Seek.",
     "observations_3": "Seek synkroniserer ikke dine observasjoner til andre enheter.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
+    "agree_to_terms": "Jeg godtar <terms>{{terms}}</terms> og <privacy>{{privacy}}</privacy>, og jeg har lest <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Fellesskapets rettningslinjer",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
-    "learn_more": "Learn more",
+    "store_data": "Jeg samtykker til at iNaturalist kan lagre og behandle begrensede typer personlig informasjon om meg for å håndtere kontoen min.",
+    "learn_more": "Les mer",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "Om Personlig Informasjon",
@@ -259,14 +259,14 @@
     "photographer_october": "Bilde © Netflix / Silverback Films",
     "photographer_december": "Bilde © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Arter observert",
-    "badge_name_april": "Connectivity Badge",
-    "badge_name_may": "Biodiversity Badge",
-    "badge_name_june": "Community Badge",
-    "badge_name_august": "Forests Badge",
-    "badge_name_september": "Grasslands Badge",
-    "badge_name_october": "Freshwater Badge",
-    "badge_name_november": "High Seas Badge",
-    "badge_name_december": "Climate Badge"
+    "badge_name_april": "Tilknytnings-merke",
+    "badge_name_may": "Biologisk mangfold-merke",
+    "badge_name_june": "Community-merke",
+    "badge_name_august": "Skogs-merke",
+    "badge_name_september": "Gresslette-merke",
+    "badge_name_october": "Ferskvanns-merke",
+    "badge_name_november": "Hav-merke",
+    "badge_name_december": "Klima-merke"
   },
   "results": {
     "observed_species": "Du har observert en ny art!",
@@ -362,7 +362,7 @@
   },
   "gallery": {
     "label": "Bilder",
-    "photo_library": "Photo Library"
+    "photo_library": "Bildebiblioteket"
   },
   "camera_help": {
     "title": "Seeks kamera",
@@ -556,7 +556,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, og Yaron Budowski. Spesiell takk til Visipedia og iNaturalist-fellesskapet.",
     "version": "Versjon",
     "help": "For hjelp med Seek, vennligst send e-post til help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "Vi er takknemlige for hjelpen med oversettelse levert av crowdin.com-fellesskapet. En spesiell takk til: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, og Yulia Lygina.",
     "join_crowdin": "For å bli med i oversettelsesteamet til Seek, vennligst gå til https://crowdin.com/project/seek"
   },
   "posting": {
@@ -580,7 +580,7 @@
     "look_up": "Finn art basert på navn",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
+    "animals": "Dyr",
     "protozoans": "Protozoans",
     "kelp": "Kelp, Diatoms, & Allies"
   },
@@ -591,7 +591,7 @@
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
   "posting_help": {
-    "header": "Posting Help",
+    "header": "Hjelp med publisering",
     "identification": "Artsidentifikasjon",
     "id_description": "As you upload your observation, you can identify the species to whatever taxa you are most confident- from a class such as reptiles, down to a species, like Western Bluebird. After your observation is posted to iNaturalist, our community will help identify the species.\n\nYou can also choose to add optional notes to your observation here.",
     "date": "Dato & sted",
@@ -657,16 +657,16 @@
     "common_names": "Vis populærnavn",
     "scientific_names": "Vis vitenskapelige navn",
     "donate": "Donér",
-    "donate_header": "Help support iNaturalist",
+    "donate_header": "Støtt iNaturalist",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
-    "language": "In-app language",
+    "language": "App-språk",
     "device_settings": "Bruk enhetens språkinnstillinger",
     "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten.",
-    "species_detail": "Species detail",
+    "species_detail": "Artsdetaljer",
     "seasonality": "Sesongavhengighet",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Besøk følgende link for å donere til Seek:"
   },
   "seek_challenges": {
     "badge": "Seek merke",
@@ -676,21 +676,21 @@
     "completed": "You completed the challenge and earned the challenge badge!",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "backyard": "Backyard Challenge",
+    "backyard": "Bakgårdsutfordring",
     "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
     "mission_1_may_2020": "Finn 5 planter",
     "mission_2_may_2020": "Finn 2 insekter",
     "mission_3_may_2020": "Finn 1 edderkoppdyr",
     "mission_4_may_2020": "Finn 2 fugler",
-    "resilience": "Resilience Challenge",
+    "resilience": "Resiliens-utfordring",
     "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
     "mission_3_june_2020": "Finn 1 insekt i ordren Coleoptera (biller)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
     "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
     "river": "Elv-utfordring",
-    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_1_july_2020": "Finn 2 fisk eller amfibier",
     "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "Finn 1 bløtdyr",
     "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
@@ -726,7 +726,7 @@
     "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
     "mission_2_dec_2020": "Finn 3 planter",
     "mission_3_dec_2020": "Finn 3 insekter",
-    "mission_4_dec_2020": "Find 1 arachnid",
+    "mission_4_dec_2020": "Finn 1 edderkoppdyr",
     "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
     "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
   },
@@ -741,7 +741,7 @@
     "square": "Firkant",
     "original": "Original",
     "options": "Alternativer",
-    "show_species_id": "Show species identification",
+    "show_species_id": "Vis artsidentifikasjon",
     "share": "Del på Facebook",
     "save_to_photo_library": "Lagre til bildebiblioteket",
     "saved_to_photo_library": "Lagre til bildebiblioteket",

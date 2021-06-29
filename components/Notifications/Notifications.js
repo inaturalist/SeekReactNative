@@ -1,54 +1,42 @@
 // @flow
 
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useCallback
-} from "react";
-import { FlatList, View, Platform } from "react-native";
-import Realm from "realm";
-import { useNavigation } from "@react-navigation/native";
+import React, { useEffect, useRef } from "react";
+import { FlatList, View } from "react-native";
+import { useNavigation, useScrollToTop } from "@react-navigation/native";
 import type { Node } from "react";
 
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
-import realmConfig from "../../models";
 import EmptyState from "../UIComponents/EmptyState";
 import Padding from "../UIComponents/Padding";
 import BottomSpacer from "../UIComponents/BottomSpacer";
 import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
+import useFetchNotifications from "./hooks/notificationHooks";
 
-const NotificationsScreen = (): Node => {
-  const navigation = useNavigation();
+const NotificationsScreen = ( ): Node => {
+  const navigation = useNavigation( );
   const scrollView = useRef( null );
-  const [notifications, setNotifications] = useState( [] );
+  const notifications = useFetchNotifications( );
 
-  const fetchNotifications = useCallback( () => {
-    Realm.open( realmConfig ).then( ( realm ) => {
-      const notificationList = realm.objects( "NotificationRealm" ).sorted( "index", true );
-      setNotifications( notificationList );
-    } ).catch( () => {
-      // console.log( "[DEBUG] Failed to open realm, error: ", err );
+  useScrollToTop( scrollView );
+
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
+      markNotificationsAsViewed( );
     } );
-  }, [] );
+  }, [navigation] );
 
-  useEffect( () => {
-    const scrollToTop = () => {
-      if ( scrollView && scrollView.current !== null ) {
-        scrollView.current.scrollToOffset( {
-          offset: 0, animated: Platform.OS === "android"
-        } );
-      }
-    };
-
-    navigation.addListener( "focus", () => {
-      markNotificationsAsViewed();
-      fetchNotifications();
-      scrollToTop();
-    } );
-  }, [fetchNotifications, navigation] );
+  const renderItem = ( { item } ) => <NotificationCard item={item} />;
+  const showEmptyList = ( ) => <EmptyState />;
+  const renderItemSeparator = ( ) => <View style={styles.divider} />;
+  const renderFooter = ( ) => (
+    <>
+      <Padding />
+      <BottomSpacer />
+    </>
+  );
+  const extractKey = ( item, index ) => item + index;
 
   return (
     <ViewWithHeader header="notifications.header">
@@ -56,16 +44,11 @@ const NotificationsScreen = (): Node => {
         ref={scrollView}
         contentContainerStyle={[styles.containerWhite, styles.flexGrow]}
         data={notifications}
-        keyExtractor={( item, i ) => `${item}${i}`}
-        ListFooterComponent={() => (
-          <>
-            <Padding />
-            <BottomSpacer />
-          </>
-        )}
-        renderItem={( { item } ) => <NotificationCard item={item} />}
-        ListEmptyComponent={() => <EmptyState />}
-        ItemSeparatorComponent={() => <View style={styles.divider} />}
+        keyExtractor={extractKey}
+        ListFooterComponent={renderFooter}
+        renderItem={renderItem}
+        ListEmptyComponent={showEmptyList}
+        ItemSeparatorComponent={renderItemSeparator}
       />
     </ViewWithHeader>
   );

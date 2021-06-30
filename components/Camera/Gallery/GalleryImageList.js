@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { FlatList, Platform } from "react-native";
 import type { Node } from "react";
 import { getPredictionsForImage } from "react-native-inat-camera";
@@ -23,6 +23,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   const { setObservation, observation } = useContext( ObservationContext );
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
+  const [imageSelected, setImageSelected] = useState( false );
 
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
     const { navigate } = navigation;
@@ -31,17 +32,19 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
       time,
       uri,
       predictions: [],
-      errorCode: 0
+      errorCode: 0,
+      latitude: null,
+      longitude: null,
+      preciseCoords: {},
+      onlineVision: false
     };
 
     if ( checkForPhotoMetaData( location ) ) {
       const { latitude, longitude } = location;
-      // $FlowFixMe
       image.latitude = latitude || null;
-      // $FlowFixMe
       image.longitude = longitude || null;
+
       if ( login ) {
-        // $FlowFixMe
         image.preciseCoords = {
           latitude,
           longitude,
@@ -49,7 +52,6 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
         };
       }
     } else if ( login ) {
-      // $FlowFixMe
       image.preciseCoords = {
         latitude: null,
         longitude: null,
@@ -58,11 +60,9 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
     }
 
     if ( predictions && predictions.length > 0 ) {
-      // $FlowFixMe
       image.predictions = predictions;
       setObservation( { image } );
     } else {
-      // $FlowFixMe
       image.onlineVision = true;
       setObservation( { image } );
       navigate( "Confirm" );
@@ -70,12 +70,16 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   }, [navigation, setObservation, login] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && !observation.image.onlineVision ) {
+    if ( observation
+      && observation.taxon
+      && !observation.image.onlineVision
+      && imageSelected
+    ) {
       navigation.push( "Drawer", {
         screen: "Match"
       } );
     }
-  }, [observation, navigation] );
+  }, [observation, navigation, imageSelected] );
 
   const getPredictions = useCallback( ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );
@@ -93,6 +97,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   }, [navigateToResults] );
 
   const selectImage = useCallback( ( item ) => {
+    setImageSelected( true );
     setLoading( );
     const { timestamp, location, image } = item.node;
 

@@ -6,7 +6,7 @@
     "no_species": "Aparentemente, não foram observadas muitas espécies na região! Tente alterar sua localização ou ampliar o filtro de espécies.",
     "input_location_above_map": "Nenhum local encontrado; insira um nome de local acima para carregar o mapa e procurar por espécies nas proximidades",
     "error_alert_location_services": "Para continuar, ative os serviços de localização nas configurações do dispositivo",
-    "species_nearby_requires_location": "Para encontrar espécies nas proximidades, é necessário ativar a sua localização. Por favor, ative a localização nas configurações",
+    "species_nearby_requires_location": "Para encontrar espécies próximas, é necessário ativar a sua localização. Por favor, ative a localização nas configurações",
     "choose_location_on_map": "ESCOLHA A LOCALIZAÇÃO NO MAPA"
   },
   "get_started": {
@@ -162,8 +162,8 @@
     "continue": "Continuar"
   },
   "location_picker": {
-    "species_nearby": "Espécies nas proximidades",
-    "button": "Pesquisar nas proximidades",
+    "species_nearby": "Espécies próximas",
+    "button": "Pesquisar nesta área",
     "undefined": "Localização indefinida"
   },
   "taxon_picker": {
@@ -308,7 +308,7 @@
     "error_few": "alguns",
     "error_gps": "Não conseguimos detectar a sua localização. A sua observação foi salva, mas sem localização, você não poderá ver informações detalhadas, como mapas da área de distribuição. Tente mover-se para um lugar onde possa ver o céu e ativar a localização do seu dispositivo.",
     "error_timeout": "A sua localização demorou muito para recuperar. A sua observação foi salva, mas sem localização, você não poderá ver informações detalhadas como mapas da área de distribuição. Por favor, tente novamente mais tarde.",
-    "nearby": "Espécie ao redor deste táxon",
+    "nearby": "Espécies próximas deste táxon",
     "nothing_nearby": "Parece que não foram observadas muitas espécies deste táxon nas proximidades! Tente tirar outra foto ou publicá-la no iNaturalist.",
     "tap": "Toque para carregar espécies ao redor",
     "social": "Compartilhar na rede social"
@@ -370,10 +370,10 @@
     "explanation_1": "Cada ponto na câmera do Seek representa um nível taxonômico que vai do reino até à espécie. Este sistema é como os cientistas classificam os seres vivos.",
     "explanation_2": "Aponte a câmera para seres vivos à sua volta e tire uma foto assim que o medidor estiver preenchido até a espécie.",
     "header_1": "Como funciona?",
-    "how_works": "O modelo de identificação do Seek funciona diretamente usando a árvore da vida. Cada ponto da barra de identificação representa um nível taxonômico na árvore da vida. Na medida em que consegue identificar com certeza as espécies exibidas em cada nível, o Seek acrescenta mais um ponto à barra. Quando o organismo for identificado com a espécie, tire uma foto!",
+    "how_works": "O modelo de identificação do Seek funciona usando diretamente a árvore da vida. Cada ponto da barra de identificação representa um nível taxonômico na árvore da vida. À medida que consegue identificar com certeza as espécies exibidas em cada nível, o Seek acrescenta mais um ponto à barra. Quando o organismo for identificado com a espécie, tire a foto!",
     "header_2": "Dicas e truques",
     "tips": "O Seek é melhor na identificação de fotos com boa iluminação e imagem nítida da espécie. Tente diferentes ângulos até obter uma boa foto.\n\nO Seek ainda está aprendendo. Assim, se ocorrer alguma dificuldade no preenchimento dos pontos, provavelmente é porque você está vendo um organismo que não é comum no banco de dados do iNaturalist. Você pode publicar observações no iNaturalist para ajudar. Logo mais, você poderá fazer publicações no iNaturalist a partir do Seek!",
-    "header_3": "Lembrar",
+    "header_3": "Avisos",
     "tip_1": "Fique sempre atento ao que está à sua volta e permaneça em segurança!",
     "tip_2": "Não coma nada que encontrar em estado selvagem.",
     "tip_3": "Não infrinja regras.",
@@ -593,7 +593,7 @@
   "posting_help": {
     "header": "Publicando ajuda",
     "identification": "Identificação de espécie",
-    "id_description": "À medida que você envia a sua observação, você pode identificar a espécie em qualquer táxon no qual você está mais confiante- de uma classe como répteis, descendo para uma espécie, como um pássaro. Depois que a sua observação for publicada no iNaturalist, a nossa comunidade ajudará a identificar a espécie.\n\nVocê também pode optar por adicionar notas opcionais à sua observação aqui.",
+    "id_description": "À medida que você envia a sua observação, você pode identificar a espécie em qualquer táxon no qual você está mais confiante - desde uma classe como répteis, descendo para uma espécie, como o Pardal. Depois que a sua observação for publicada no iNaturalist, a nossa comunidade ajudará a identificar a espécie.\n\nVocê também pode optar por adicionar notas opcionais à sua observação aqui.",
     "date": "Data e Localização",
     "date_description": "Todas as observações do iNaturalist estão associadas a uma determinada data e localização. Desta forma, podemos ver claramente uma imagem global do modo como uma espécie está a ser desenvolvida a nível mundial ao longo do tempo.",
     "geoprivacy": "Geoprivacidade",

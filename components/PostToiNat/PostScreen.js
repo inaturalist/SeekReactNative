@@ -64,7 +64,9 @@ const PostScreen = (): Node => {
       observed_on_string: initialDate,
       place_guess: null,
       positional_accuracy: preciseCoords.accuracy,
-      taxon_id: taxaId
+      taxon_id: taxaId,
+      // this shows that the id is recommended by computer vision
+      vision: true
     },
     taxon: {
       preferredCommonName: commonName,
@@ -99,7 +101,8 @@ const PostScreen = (): Node => {
       selectedSpecies,
       editedObservation: {
         ...editedObservation,
-        taxon_id: id
+        taxon_id: id,
+        vision: false
       }
     } );
 

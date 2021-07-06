@@ -30,7 +30,8 @@ type Props = {
     latitude: ?number,
     longitude: ?number,
     positional_accuracy: ?number,
-    description: ?string
+    description: ?string,
+    vision: boolean
   }
 }
 

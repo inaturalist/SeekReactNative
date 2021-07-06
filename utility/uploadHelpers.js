@@ -202,7 +202,8 @@ const uploadObservation = async ( observation: {
   longitude: ?number,
   positional_accuracy: ?number,
   description: ?string,
-  photo: Object
+  photo: Object,
+  vision: boolean
 } ): Promise<any> => {
   const login = await fetchAccessToken( );
   const params = {
@@ -219,7 +220,7 @@ const uploadObservation = async ( observation: {
       positional_accuracy: observation.positional_accuracy,
       description: observation.description,
       // this shows that the id is recommended by computer vision
-      owners_identification_from_vision_requested: true
+      owners_identification_from_vision_requested: observation.vision
     }
   };
 
@@ -274,11 +275,14 @@ const saveObservationToRealm = async ( observation: {
   latitude: ?number,
   longitude: ?number,
   positional_accuracy: ?number,
-  description: ?string
+  description: ?string,
+  vision: boolean
 }, uri: string ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
   const photoUUID = await createUUID( );
+
+  console.log( observation.vision, "vision boolean in save to realm" );
 
   // I'm not sure how much hidden space this will take up on a user's device
   // but we probably need to delete photos from this directory regularly after they have been uploaded

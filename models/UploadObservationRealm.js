@@ -13,7 +13,8 @@ UploadObservationRealm.schema = {
     longitude: "float?",
     positional_accuracy: "int?",
     description: "string?",
-    photo: "UploadPhotoRealm"
+    photo: "UploadPhotoRealm",
+    vision: "bool"
   }
 };
 

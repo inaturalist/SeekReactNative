@@ -137,6 +137,7 @@ const SpeciesNearby = ( ): Node => {
       const site = "https://api.inaturalist.org/v1/taxa/nearby";
       // $FlowFixMe
       const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
+      console.log( `${site}?${queryString}`, "query species nearby" );
       const options = { headers: { "User-Agent": createUserAgent() } };
 
       dispatch( { type: "SET_FETCHING", fetching: true } );

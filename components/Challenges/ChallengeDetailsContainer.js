@@ -41,7 +41,12 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
       </View>
       {challenge.percentComplete > 0 && <SpeciesObserved challenge={challenge} />}
       <View style={styles.textContainer}>
-        <GreenText text="challenges.get_involved" />
+        <GreenText
+          text={challenge.logo === "iNatWhite"
+            ? "inat_signup.learn_more"
+            : "challenges.get_involved"
+          }
+        />
         <View style={styles.marginSmall} />
         <Text style={styles.descriptionText}>
           {i18n.t( challenge.action )}

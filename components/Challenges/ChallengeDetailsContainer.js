@@ -10,6 +10,7 @@ import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import GreenText from "../UIComponents/GreenText";
 import SpeciesObserved from "./SpeciesObserved";
+import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
 
 type Props = {
   challenge: {
@@ -39,6 +40,8 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
         <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
         <View style={styles.marginLarge} />
       </View>
+      {/* <TapToLoad handlePress={( ) => console.log( "pressed in tap to load" )} backgroundColor="white" />
+      <View style={styles.marginLarge} /> */}
       {challenge.percentComplete > 0 && <SpeciesObserved challenge={challenge} />}
       <View style={styles.textContainer}>
         <GreenText

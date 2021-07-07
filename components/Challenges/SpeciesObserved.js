@@ -6,7 +6,7 @@ import Realm from "realm";
 import type { Node } from "react";
 
 import { colors } from "../../styles/global";
-import styles from "../../styles/challenges/challengeDetails";
+import { viewStyles } from "../../styles/challenges/challengeDetails";
 import realmConfig from "../../models/index";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
@@ -23,7 +23,7 @@ const SpeciesObserved = ( { challenge }: Props ): Node => {
   const [speciesObserved, setSpeciesObserved] = useState( [] );
   const [loading, setLoading] = useState( true );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     const fetchMatchingAncestors = ( seenTaxa, taxaForMission ) => {
       const matchingAncestors = [];
 
@@ -44,7 +44,7 @@ const SpeciesObserved = ( { challenge }: Props ): Node => {
       return matchingAncestors;
     };
 
-    const fetchSpeciesObservedForChallenge = () => {
+    const fetchSpeciesObservedForChallenge = ( ) => {
       Realm.open( realmConfig ).then( ( realm ) => {
         const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
 
@@ -108,18 +108,18 @@ const SpeciesObserved = ( { challenge }: Props ): Node => {
       } );
     };
 
-    fetchSpeciesObservedForChallenge();
+    fetchSpeciesObservedForChallenge( );
   }, [challenge] );
 
   return (
     <>
-      <View style={styles.textContainer}>
+      <View style={viewStyles.textContainer}>
         <GreenText text="challenges.species_observed" />
       </View>
       {loading
         ? <LoadingWheel color={colors.black} />
         : <SpeciesNearbyList taxa={speciesObserved} />}
-      <View style={styles.marginSmall} />
+      <View style={viewStyles.marginSmall} />
     </>
   );
 };

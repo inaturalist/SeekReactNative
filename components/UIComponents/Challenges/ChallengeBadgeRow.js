@@ -5,7 +5,7 @@ import { View, Text, Image } from "react-native";
 import { isAfter } from "date-fns";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/challenges";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/uiComponents/challenges";
 import badges from "../../../assets/badges";
 import { colors } from "../../../styles/global";
 
@@ -23,24 +23,24 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ): React.Node => {
 
   const showBadge = ( ) => {
     if ( challenge.percentComplete === 100 ) {
-      return <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
+      return <Image source={badges[challenge.earnedIconName]} style={imageStyles.badge} />;
     } else {
       return (
         // $FlowFixMe
         <Image
           source={badges.badge_empty}
           tintColor={colors.white}
-          style={[large ? styles.badge : styles.badgeSmall, styles.white]}
+          style={[large ? imageStyles.badge : imageStyles.badgeSmall, imageStyles.white]}
         />
       );
     }
   };
 
   return (
-    <View style={[styles.row, styles.center]}>
+    <View style={[viewStyles.row, viewStyles.center]}>
       {challenge && showBadge( )}
-      <View style={styles.marginMiddle} />
-      <Text style={[large ? styles.text : styles.textSmall, longText && styles.longText]}>
+      <View style={viewStyles.marginMiddle} />
+      <Text style={[large ? textStyles.text : textStyles.textSmall, longText && textStyles.longText]}>
         {text}
       </Text>
     </View>

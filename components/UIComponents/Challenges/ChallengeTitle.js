@@ -4,7 +4,7 @@ import * as React from "react";
 import { Text } from "react-native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/uiComponents/challenges";
+import { textStyles } from "../../../styles/uiComponents/challenges";
 import { formatMonthYear } from "../../../utility/dateHelpers";
 
 type Props = {
@@ -25,10 +25,10 @@ type Props = {
 
 const ChallengeTitle = ( { challenge }: Props ): React.Node => (
   <>
-    <Text style={styles.challengeHeader}>
+    <Text style={textStyles.challengeHeader}>
       {formatMonthYear( challenge.availableDate ).toLocaleUpperCase()}
     </Text>
-    <Text style={styles.challengeName}>
+    <Text style={textStyles.challengeName}>
       {i18n.t( challenge.name ).toLocaleUpperCase()}
     </Text>
   </>

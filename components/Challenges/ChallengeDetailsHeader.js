@@ -5,7 +5,7 @@ import { View, Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import styles from "../../styles/challenges/challengeDetails";
+import { viewStyles, imageStyles } from "../../styles/challenges/challengeDetails";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
@@ -36,24 +36,24 @@ type Props = {
 }
 
 const ChallengeDetailsHeader = ( { challenge, showMission }: Props ): Node => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
 
-  const openModal = () => setModal( true );
-  const closeModal = () => setModal( false );
+  const openModal = ( ) => setModal( true );
+  const closeModal = ( ) => setModal( false );
 
-  const handlePress = () => {
+  const handlePress = ( ) => {
     if ( !challenge.startedDate ) {
       startChallenge( challenge.index );
       showMission( challenge.index );
     } else if ( challenge.startedDate && challenge.percentComplete < 100 ) {
       navigation.navigate( "Camera" );
     } else if ( challenge.startedDate && challenge.percentComplete === 100 ) {
-      openModal();
+      openModal( );
     }
   };
 
-  const renderButton = () => {
+  const renderButton = ( ) => {
     const buttonText = setChallengeDetailsButtonText( challenge, challenge.startedDate );
 
     const button = (
@@ -81,23 +81,23 @@ const ChallengeDetailsHeader = ( { challenge, showMission }: Props ): Node => {
       />
       <ImageBackground
         source={backgrounds[challenge.backgroundName]}
-        style={styles.challengeBackground}
+        style={viewStyles.challengeBackground}
       >
         <BackArrow />
         <Image
           source={logos[challenge.logo]}
           style={[
-            styles.logo,
-            challenge.logo === "iNatWhite" && styles.iNatLogo,
-            challenge.logo === "natGeo" && styles.natGeoLogo
+            imageStyles.logo,
+            challenge.logo === "iNatWhite" && imageStyles.iNatLogo,
+            challenge.logo === "natGeo" && imageStyles.natGeoLogo
           ]}
         />
         {challenge && <ChallengeTitle challenge={challenge} />}
-        <View style={styles.marginSmall} />
+        <View style={viewStyles.marginSmall} />
         <ChallengeBadgeRow challenge={challenge} large />
-        <View style={styles.marginMedium} />
-        {challenge && renderButton()}
-        <View style={styles.marginLarge} />
+        <View style={viewStyles.marginMedium} />
+        {challenge && renderButton( )}
+        <View style={viewStyles.marginLarge} />
       </ImageBackground>
     </>
   );

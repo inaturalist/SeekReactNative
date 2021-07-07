@@ -19,8 +19,8 @@ import ObsList from "./ObsList";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import { resetRouter } from "../../utility/navigationHelpers";
 
-const Observations = (): Node => {
-  const navigation = useNavigation();
+const Observations = ( ): Node => {
+  const navigation = useNavigation( );
   const [observations, setObservations] = useState( [] );
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
@@ -28,15 +28,15 @@ const Observations = (): Node => {
   const [searchText, setSearchText] = useState( "" );
 
   useFocusEffect(
-    useCallback( () => {
-      const onBackPress = () => {
+    useCallback( ( ) => {
+      const onBackPress = ( ) => {
         resetRouter( navigation );
         return true; // following custom Android back behavior template in React Navigation
       };
 
       BackHandler.addEventListener( "hardwareBackPress", onBackPress );
 
-      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+      return ( ) => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
     }, [navigation] )
   );
 
@@ -52,7 +52,7 @@ const Observations = (): Node => {
     setModal( true );
   }, [] );
 
-  const closeModal = () => setModal( false );
+  const closeModal = ( ) => setModal( false );
 
   const setupObsList = ( realm, species, hideSections = false ) => {
     const obs = createSectionList( realm, species, hideSections );
@@ -70,7 +70,7 @@ const Observations = (): Node => {
       const { id } = taxon;
       commonNames.push(
         getTaxonCommonName( id ).then( ( taxonName ) => {
-          realm.write( () => {
+          realm.write( ( ) => {
             taxon.preferredCommonName = taxonName;
           } );
         } )
@@ -83,7 +83,7 @@ const Observations = (): Node => {
     } );
   };
 
-  const fetchObservations = () => {
+  const fetchObservations = ( ) => {
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" );
 
@@ -92,16 +92,16 @@ const Observations = (): Node => {
       } else {
         fetchCommonNames( realm, species );
       }
-    } ).catch( () => {
+    } ).catch( ( ) => {
       // console.log( "Err: ", err )
     } );
   };
 
-  const resetObservations = useCallback( () => {
+  const resetObservations = useCallback( ( ) => {
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" );
       setupObsList( realm, species );
-    } ).catch( () => {
+    } ).catch( ( ) => {
         // console.log( "Err: ", err )
     } );
   }, [] );
@@ -114,27 +114,27 @@ const Observations = (): Node => {
       Realm.open( realmConfig ).then( ( realm ) => {
         const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}' OR taxon.preferredCommonName CONTAINS[c] '${text}'` );
         setupObsList( realm, species, true );
-      } ).catch( () => {
+      } ).catch( ( ) => {
         // console.log( "Err: ", err )
       } );
     } else {
-      resetObservations();
+      resetObservations( );
     }
   }, [resetObservations] );
 
-  const fetchRoute = async () => {
-    const routeName = await getRoute();
+  const fetchRoute = async ( ) => {
+    const routeName = await getRoute( );
     // don't fetch if user is toggling back and forth from SpeciesDetail screens
     if ( routeName !== "Observations" ) {
       setSearchText( "" );
       setLoading( true );
-      fetchObservations();
+      fetchObservations( );
     }
   };
 
-  useEffect( () => {
-    const unsub = navigation.addListener( "focus", () => {
-      fetchRoute();
+  useEffect( ( ) => {
+    const unsub = navigation.addListener( "focus", ( ) => {
+      fetchRoute( );
     } );
 
     return unsub;
@@ -143,12 +143,12 @@ const Observations = (): Node => {
   const deleteObservation = async ( id ) => {
     await removeFromCollection( id );
     setObservations( [] );
-    fetchObservations();
+    fetchObservations( );
   };
 
-  const clearText = useCallback( () => {
+  const clearText = useCallback( ( ) => {
     setSearchText( "" );
-    resetObservations();
+    resetObservations( );
   }, [resetObservations] );
 
   const updateObs = useCallback( ( obs ) => setObservations( obs ), [] );

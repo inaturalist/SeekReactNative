@@ -10,7 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/modals/challengeUnearnedModal";
+import { viewStyles, imageStyles, textStyles } from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../UIComponents/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable, formatMonthYear, formatMonth } from "../../utility/dateHelpers";
@@ -21,8 +21,8 @@ import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
-  +closeModal: ( ) => void,
-  +challenge: {
+  closeModal: ( ) => void,
+  challenge: {
     index: number,
     percentComplete: number,
     startedDate: Date,
@@ -31,7 +31,7 @@ type Props = {
 };
 
 const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
 
   const navToChallengeDetails = ( ) => {
     setChallengeIndex( challenge.index );
@@ -41,38 +41,38 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node 
 
   return (
     <WhiteModal closeModal={closeModal}>
-      <View style={styles.center}>
+      <View style={viewStyles.center}>
         <BannerHeader
           modal
-          text={i18n.t( "seek_challenges.badge" ).toLocaleUpperCase()}
+          text={i18n.t( "seek_challenges.badge" ).toLocaleUpperCase( )}
         />
         {challenge.startedDate && challenge.percentComplete !== 100 ? (
           <ImageBackground
-            imageStyle={styles.imageStyle}
+            imageStyle={imageStyles.imageStyle}
             source={badgeImages.badge_empty}
-            style={[styles.image, styles.center]}
+            style={[imageStyles.emptyBadgeImage, viewStyles.center]}
           >
             <PercentCircle challenge={challenge} large />
           </ImageBackground>
         ) : (
           <Image
             source={badgeImages.badge_empty}
-            style={[styles.image, styles.imageStyle]}
+            style={[imageStyles.emptyBadgeImage, imageStyles.imageStyle]}
           />
         )}
       </View>
-      <View style={styles.margins}>
+      <View style={viewStyles.margins}>
         <GreenText
           center
           text="badges.to_earn"
           allowFontScaling={false}
         />
       </View>
-      <Text allowFontScaling={false} style={styles.nameText}>
+      <Text allowFontScaling={false} style={textStyles.nameText}>
         {i18n.t( "challenges.how_to", { month: formatMonth( challenge.availableDate ) } )}
       </Text>
       {checkIfChallengeAvailable( challenge.availableDate ) ? (
-        <View style={styles.container}>
+        <View style={viewStyles.container}>
           <GreenButton
             handlePress={navToChallengeDetails}
             text="notifications.view_challenges"
@@ -80,7 +80,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node 
           />
         </View>
       ) : (
-        <Text allowFontScaling={false} style={[styles.italicText, styles.centerSelf]}>
+        <Text allowFontScaling={false} style={textStyles.italicText}>
           {i18n.t( "challenges.released", { date: formatMonthYear( challenge.availableDate ) } )}
         </Text>
       )}

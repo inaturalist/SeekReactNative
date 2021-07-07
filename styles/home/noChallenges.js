@@ -8,8 +8,17 @@ import {
   row
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
+  noChallengeTextContainer: {
+    marginLeft: 28
+  },
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -23,37 +32,13 @@ export default StyleSheet.create( {
     fontSize: 19,
     lineHeight: 24
   },
-  bullets: {
-    marginHorizontal: 14
-  },
-  bulletWidth: {
-    maxWidth: 284
-  },
   textWidth: {
     width: 195
-  },
-  noChallengeTextContainer: {
-    marginLeft: 28
-  },
-  margin: {
-    marginTop: 45
-  },
-  marginExtraSmall: {
-    marginTop: 12
-  },
-  marginSmall: {
-    marginTop: 23
-  },
-  marginRight: {
-    fontSize: 23,
-    marginRight: 14
-  },
-  marginLeft: {
-    marginLeft: 24
-  },
-  row,
-  container: {
-    backgroundColor: colors.white,
-    marginHorizontal: 22
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};
+

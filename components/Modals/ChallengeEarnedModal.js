@@ -10,7 +10,7 @@ import {
 import { isAfter } from "date-fns";
 import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
 
-import styles from "../../styles/modals/challengeEarnedModal";
+import { viewStyles, imageStyles, textStyles } from "../../styles/modals/challengeEarnedModal";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
@@ -42,24 +42,24 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
     <WhiteModal closeModal={closeModal}>
       <ImageBackground
         source={backgrounds[challenge.backgroundName]}
-        imageStyle={styles.header}
-        style={styles.headerImage}
+        imageStyle={viewStyles.header}
+        style={imageStyles.headerImage}
       >
         <Image
           source={badges[challenge.earnedIconName]}
-          style={styles.badge}
+          style={imageStyles.badge}
         />
         <ImageBackground
           source={icons.badgeBanner}
-          style={styles.seekBanner}
+          style={imageStyles.seekBanner}
         >
-          <Text style={[styles.bannerText, is2020OrAfterChallenge && styles.seekBannerText]}>
+          <Text style={[textStyles.bannerText, is2020OrAfterChallenge && textStyles.seekBannerText]}>
             {i18n.t( challenge.badgeName ).toLocaleUpperCase( )}
           </Text>
         </ImageBackground>
       </ImageBackground>
-      <View style={styles.marginTop} />
-      <Text style={styles.headerText}>
+      <View style={viewStyles.marginTop} />
+      <Text style={textStyles.headerText}>
         {i18n.t( "challenges_all.you_completed_sponsor_challenge", {
           sponsorName: challenge.sponsorName.toLocaleUpperCase( ),
           date: challenge.sponsorName === "Our Planet"
@@ -67,21 +67,21 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
             : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( )
         } )}
       </Text>
-      <Text style={styles.text}>
+      <Text style={textStyles.text}>
         {is2020OrAfterChallenge
           ? i18n.t( "seek_challenges.text" )
           : i18n.t( "challenges.thanks" )}
       </Text>
-      <View style={styles.marginTop} />
+      <View style={viewStyles.marginTop} />
       <Image
         source={logos[challenge.secondLogo]}
         style={[
-          styles.logo,
-          challenge.secondLogo === "iNat" && styles.iNatLogo,
-          challenge.secondLogo === "natGeoBlack" && styles.natGeoLogo
+          viewStyles.logo,
+          challenge.secondLogo === "iNat" && imageStyles.iNatLogo,
+          challenge.secondLogo === "natGeoBlack" && imageStyles.natGeoLogo
         ]}
       />
-      <View style={styles.marginBottom} />
+      <View style={viewStyles.marginBottom} />
     </WhiteModal>
   );
 };

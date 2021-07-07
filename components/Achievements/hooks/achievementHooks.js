@@ -79,12 +79,12 @@ const useFetchChallenges = ( ): any => {
 
       let nextBadge = createBadge( latestBadge, 1 );
 
-      // next challenge after Dec 2020 will be released Mar 2021
-      if ( isEqual( new Date( 2020, 11, 1 ), new Date( latestBadge.availableDate ) ) ) {
-        nextBadge = createBadge( latestBadge, 3 );
+      // next challenge after June 2021 will be released Aug 2021
+      if ( isEqual( new Date( 2021, 5, 1 ), new Date( latestBadge.availableDate ) ) ) {
+        nextBadge = createBadge( latestBadge, 2 );
       }
 
-      const badgeAfterNext = createBadge( latestBadge, 2 );
+      const badgeAfterNext = createBadge( nextBadge, 1 );
 
       if ( remainderOfBadges === 2 || remainderOfBadges === 4 ) {
         badgePlaceholders.push( nextBadge );

@@ -63,7 +63,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
 } );
 
 
-const imageStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   checklist: {
     marginTop: 20,
     marginRight: 16

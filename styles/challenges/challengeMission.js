@@ -3,21 +3,13 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
-  bullets: {
-    fontSize: 29,
-    marginTop: 7,
-    alignItems: "center",
-    marginRight: 22
-  },
+
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   subBullets: {
     marginTop: 15,
     marginRight: 10
-  },
-  checklist: {
-    marginTop: 19,
-    alignItems: "center",
-    marginRight: 22
   },
   circleStyle: {
     height: 59,
@@ -27,17 +19,30 @@ export default StyleSheet.create( {
     marginBottom: 20,
     marginTop: 36
   },
-  greenText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.medium,
-    marginTop: 9
-  },
   marginTop: {
     marginTop: 6
   },
   missionRow: {
     flexDirection: "row",
     flexWrap: "nowrap"
+  },
+  textContainer: {
+    flex: 1,
+    paddingRight: 18
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  bullets: {
+    fontSize: 29,
+    marginTop: 7,
+    alignItems: "center",
+    marginRight: 22
+  },
+  greenText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.medium,
+    marginTop: 9
   },
   secondLevelBulletText: {
     color: colors.black,
@@ -54,9 +59,20 @@ export default StyleSheet.create( {
     lineHeight: 21,
     marginTop: 16,
     maxWidth: 274
-  },
-  textContainer: {
-    flex: 1,
-    paddingRight: 18
   }
 } );
+
+
+const imageStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  checklist: {
+    marginTop: 20,
+    marginRight: 16
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};
+

@@ -4,10 +4,10 @@ import React from "react";
 import { View } from "react-native";
 import type { Node } from "react";
 
-import { viewStyles } from "../../styles/challenges/challengeDetails";
-import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
-import GreenText from "../UIComponents/GreenText";
-import { useFetchSpeciesObserved } from "./hooks/challengeHooks";
+import { viewStyles } from "../../../styles/challenges/challengeDetails";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
+import GreenText from "../../UIComponents/GreenText";
+import { useFetchSpeciesObserved } from "../hooks/challengeHooks";
 
 type Props = {
   +challenge: Object
@@ -21,7 +21,7 @@ const SpeciesObserved = ( { challenge }: Props ): Node => {
       <View style={viewStyles.textContainer}>
         <GreenText text="challenges.species_observed" />
       </View>
-      <SpeciesNearbyList taxa={speciesObserved} />
+      <SpeciesNearbyList taxa={speciesObserved} observed />
       <View style={viewStyles.marginSmall} />
     </>
   );

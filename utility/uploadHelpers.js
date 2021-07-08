@@ -66,7 +66,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   const site = "https://www.inaturalist.org";
 
   try {
-    const r = await fetchWithTimeout( 5000, fetch( `${site}/users/api_token`, { headers } ) );
+    const r = await fetchWithTimeout( 10000, fetch( `${site}/users/api_token`, { headers } ) );
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
@@ -118,7 +118,7 @@ const appendPhotoToObservation = async ( photo: {
 
   try {
     // this is a pretty slow operation, so it has a higher timeout number
-    await fetchWithTimeout( 15000, inatjs.observation_photos.create( photoParams, options ) );
+    await fetchWithTimeout( 25000, inatjs.observation_photos.create( photoParams, options ) );
     // LOG.info( `photo ${uuid} appended to observation ${id}` );
     return true;
   } catch ( e ) {
@@ -237,7 +237,7 @@ const uploadObservation = async ( observation: {
 
   try {
     if ( !observation.photo.id ) {
-      const response = await fetchWithTimeout( 5000, inatjs.observations.create( params, options ) );
+      const response = await fetchWithTimeout( 10000, inatjs.observations.create( params, options ) );
       const { id } = response[0];
 
       const photo: Object = await saveObservationId( id, observation.photo );

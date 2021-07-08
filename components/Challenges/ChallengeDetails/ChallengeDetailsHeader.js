@@ -5,18 +5,18 @@ import { View, Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import { viewStyles, imageStyles } from "../../styles/challenges/challengeDetails";
-import BackArrow from "../UIComponents/Buttons/BackArrow";
-import logos from "../../assets/logos";
-import backgrounds from "../../assets/backgrounds";
-import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { colors } from "../../styles/global";
-import Modal from "../UIComponents/Modals/Modal";
-import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
-import { startChallenge } from "../../utility/challengeHelpers";
-import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";
-import ChallengeBadgeRow from "../UIComponents/Challenges/ChallengeBadgeRow";
+import { viewStyles, imageStyles } from "../../../styles/challenges/challengeDetails";
+import BackArrow from "../../UIComponents/Buttons/BackArrow";
+import logos from "../../../assets/logos";
+import backgrounds from "../../../assets/backgrounds";
+import ChallengeEarnedModal from "../../Modals/ChallengeEarnedModal";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import { colors } from "../../../styles/global";
+import Modal from "../../UIComponents/Modals/Modal";
+import { setChallengeDetailsButtonText } from "../../../utility/textHelpers";
+import { startChallenge } from "../../../utility/challengeHelpers";
+import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
+import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
 type Props = {
   challenge: {

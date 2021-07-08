@@ -2,7 +2,6 @@
 
 import React, { useCallback } from "react";
 import { FlatList } from "react-native";
-import { useRoute } from "@react-navigation/native";
 import type { Node } from "react";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesNearbyList";
@@ -11,12 +10,11 @@ import EmptyList from "./EmptyList";
 import SpeciesObservedCell from "./SpeciesObservedCell";
 
 type Props = {
-  +taxa: Array<Object>
+  taxa: Array<Object>,
+  observed?: boolean
 }
 
-const SpeciesNearbyList = ( { taxa }: Props ): Node => {
-  const { name } = useRoute();
-
+const SpeciesNearbyList = ( { taxa, observed }: Props ): Node => {
   const getItemLayout = useCallback( ( data, index ) => (
     // skips measurement of dynamic content for faster loading
     {
@@ -26,16 +24,16 @@ const SpeciesNearbyList = ( { taxa }: Props ): Node => {
     }
   ), [] );
 
-  const extractKey = useCallback( ( taxon, i ) => name === "ChallengeDetails" ? `observed-${i}` : `species-${taxon.id}`, [name] );
+  const extractKey = useCallback( ( taxon, i ) => observed ? `observed-${i}` : `species-${taxon.id}`, [observed] );
 
   const renderEmptyList = useCallback( () => <EmptyList />, [] );
 
   const renderSpecies = useCallback( ( { item } ) => {
-    if ( name === "ChallengeDetails" ) {
+    if ( observed ) {
       return <SpeciesObservedCell item={item} />;
     }
     return <SpeciesImageCell item={item} />;
-  }, [name] );
+  }, [observed] );
 
   return (
     <FlatList

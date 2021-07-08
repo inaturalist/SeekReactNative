@@ -7,6 +7,7 @@ import realmConfig from "../../../models";
 import { recalculateChallenges, fetchObservationsAfterChallengeStarted } from "../../../utility/challengeHelpers";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import taxonDict from "../../../utility/dictionaries/taxonDictForMissions";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 
 const useFetchChallenges = ( ): any => {
   const [list, setList] = useState( [] );
@@ -178,9 +179,27 @@ const useFetchSpeciesObserved = ( challenge: Object ): Array<Object> => {
   return speciesObserved;
 };
 
+const useFetchTruncatedUserCoords = ( ): any => {
+  const [coords, setCoords] = useState( {
+    latitude: null,
+    longitude: null
+  } );
+
+  useEffect( ( ) => {
+    const fetchTruncatedUserCoords = async ( ) => {
+      const userCoords = await fetchTruncatedUserLocation( );
+      setCoords( userCoords );
+    };
+    fetchTruncatedUserCoords( );
+  }, [] );
+
+  return coords;
+};
+
 
 export {
   useFetchChallenges,
   useFetchMissions,
-  useFetchSpeciesObserved
+  useFetchSpeciesObserved,
+  useFetchTruncatedUserCoords
 };

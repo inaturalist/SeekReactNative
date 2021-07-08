@@ -343,6 +343,27 @@ const checkForChallengesCompleted = async ( ): Promise<Object> => {
   );
 };
 
+const fetchUnobservedChallengeTaxaIds = ( missions: Array<Object>, index: number ): Array<Object> => {
+  const unobservedTaxaIds = [];
+  const missionDetails = Object.keys( missionsDict[index] ).map( mission => missionsDict[index][mission] );
+
+  const fetchUnobservedMissionTaxaIds = ( taxaTypes ) => {
+    taxaTypes.forEach( type => {
+      const taxaId = taxonDict[type];
+      unobservedTaxaIds.push( taxaId );
+    } );
+  };
+
+  missions.map( ( mission, i ) => {
+    const missionCompleted = missionDetails[i] && missionDetails[i].number === mission.observations;
+
+    if ( missionCompleted ) { return; }
+    fetchUnobservedMissionTaxaIds( missionDetails[i].types );
+  } );
+
+  return unobservedTaxaIds;
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
@@ -354,5 +375,6 @@ export {
   setChallengeProgress,
   checkForChallengesCompleted,
   fetchObservationsAfterChallengeStarted,
-  checkForAncestors
+  checkForAncestors,
+  fetchUnobservedChallengeTaxaIds
 };

@@ -266,7 +266,9 @@
     "photographer_september": "Photo © Netflix / Silverback Films",
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Photo © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Species Observed",
+    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
+    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed"
   },
   "results": {
     "observed_species": "You observed a new species!",

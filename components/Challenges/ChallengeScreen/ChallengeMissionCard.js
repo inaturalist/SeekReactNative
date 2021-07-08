@@ -4,13 +4,13 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import type { Node } from "react";
 
-import { viewStyles, textStyles, imageStyles } from "../../styles/challenges/challengeMission";
-import icons from "../../assets/icons";
-import i18n from "../../i18n";
-import PercentCircle from "../UIComponents/PercentCircle";
-import GreenText from "../UIComponents/GreenText";
-import missionsDict from "../../utility/dictionaries/missionsDict";
-import { useFetchMissions } from "./hooks/challengeHooks";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeMission";
+import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import PercentCircle from "../../UIComponents/PercentCircle";
+import GreenText from "../../UIComponents/GreenText";
+import missionsDict from "../../../utility/dictionaries/missionsDict";
+import { useFetchMissions } from "./../hooks/challengeHooks";
 
 type Props = {
   +challenge: Object

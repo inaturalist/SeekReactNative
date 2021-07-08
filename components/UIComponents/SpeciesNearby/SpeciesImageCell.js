@@ -53,11 +53,21 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
     }
   };
 
+  if ( seenTaxa && name === "ChallengeDetails" ) {
+    return null;
+  }
+
   return (
     <TouchableOpacity onPress={navToNextScreen} style={viewStyles.gridCell}>
       {photo && renderSpeciesImage( )}
       {seenTaxa && <Image source={icons.speciesObserved} style={[viewStyles.checkbox, viewStyles.speciesImageCheckbox]} />}
-      <Text numberOfLines={3} style={[textStyles.speciesNameText, !commonName && textStyles.scientificName]}>
+      <Text
+        numberOfLines={3}
+        style={[
+          textStyles.speciesNameText,
+          !commonName && textStyles.scientificName,
+          name === "ChallengeDetails" && textStyles.challengeDetailsText
+        ]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
           : item.name}

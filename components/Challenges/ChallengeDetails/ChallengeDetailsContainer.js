@@ -4,13 +4,13 @@ import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { viewStyles, textStyles } from "../../styles/challenges/challengeDetails";
-import i18n from "../../i18n";
-import logos from "../../assets/logos";
+import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
+import i18n from "../../../i18n";
+import logos from "../../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import GreenText from "../UIComponents/GreenText";
+import GreenText from "../../UIComponents/GreenText";
 import SpeciesObserved from "./SpeciesObserved";
-// import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
+import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
 
 type Props = {
   challenge: {
@@ -25,7 +25,7 @@ type Props = {
 }
 
 const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation( );
 
   const navToChallenges = ( ) => navigate( "Challenges" );
 
@@ -40,8 +40,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
         <Text style={textStyles.descriptionText}>{i18n.t( challenge.description )}</Text>
         <View style={viewStyles.marginLarge} />
       </View>
-      {/* <TapToLoad handlePress={( ) => console.log( "pressed in tap to load" )} backgroundColor="white" />
-      <View style={styles.marginLarge} /> */}
+      <SpeciesNearbyChallenge challenge={challenge} />
       {challenge.percentComplete > 0 && <SpeciesObserved challenge={challenge} />}
       <View style={viewStyles.textContainer}>
         <GreenText

@@ -31,6 +31,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   whiteContainer: {
     backgroundColor: colors.white
+  },
+  loadingWheelContainer: {
+    height: 223
   }
 } );
 

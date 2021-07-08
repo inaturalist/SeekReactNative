@@ -9,7 +9,7 @@ import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyLis
 import TapToLoad from "../../UIComponents/SpeciesNearby/TapToLoad";
 import GreenText from "../../UIComponents/GreenText";
 import { useFetchMissions, useFetchTruncatedUserCoords } from "../hooks/challengeHooks";
-import { fetchUnobservedChallengeTaxaIds } from "../../../utility/challengeHelpers";
+import { fetchAllObservedTaxaIds, fetchUnobservedChallengeTaxaIds } from "../../../utility/challengeHelpers";
 import { fetchSpeciesNearby } from "../../../utility/apiCalls";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import i18n from "../../../i18n";
@@ -43,6 +43,9 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
   useEffect( ( ) => {
     const fetchSpecies = async ( params ) => {
       try {
+        const observed = await fetchObservedSpecies( );
+        params.without_taxon_id = observed.join( "," );
+
         const taxaNearby = await fetchSpeciesNearby( params );
 
         if ( !Array.isArray( taxaNearby ) ) {
@@ -57,6 +60,10 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
       } catch ( e ) {
         updateError( "unknown" );
       }
+    };
+
+    const fetchObservedSpecies = async ( ) => {
+      return await fetchAllObservedTaxaIds( );
     };
 
     const { latitude, longitude } = coords;
@@ -74,7 +81,8 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
       const params = {
         lat: latitude,
         lng: longitude,
-        taxon_id: unobservedTaxaIds.join( "," )
+        taxon_id: unobservedTaxaIds.join( "," ),
+        without_taxon_id: []
       };
 
       fetchSpecies( params );
@@ -113,8 +121,6 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
       );
     }
   };
-
-  console.log( loading, loaded, taxa.length, error, "loadingggg" );
 
   return (
     <>

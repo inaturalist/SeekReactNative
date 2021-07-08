@@ -40,7 +40,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
         <Text style={textStyles.descriptionText}>{i18n.t( challenge.description )}</Text>
         <View style={viewStyles.marginLarge} />
       </View>
-      <SpeciesNearbyChallenge challenge={challenge} />
+      {/* <SpeciesNearbyChallenge challenge={challenge} /> */}
       {challenge.percentComplete > 0 && <SpeciesObserved challenge={challenge} />}
       <View style={viewStyles.textContainer}>
         <GreenText

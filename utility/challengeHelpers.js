@@ -364,6 +364,18 @@ const fetchUnobservedChallengeTaxaIds = ( missions: Array<Object>, index: number
   return unobservedTaxaIds;
 };
 
+const fetchAllObservedTaxaIds = async ( ): Promise<Array<Object>> => {
+  try {
+    const realm = await Realm.open( realmConfig );
+    const observations = realm.objects( "TaxonRealm" );
+    const ids = observations.map( obs => obs.id );
+    return ids;
+  } catch ( e ) {
+    console.log( e, "couldn't fetch all observed taxa ids" );
+    return [];
+  }
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
@@ -376,5 +388,6 @@ export {
   checkForChallengesCompleted,
   fetchObservationsAfterChallengeStarted,
   checkForAncestors,
-  fetchUnobservedChallengeTaxaIds
+  fetchUnobservedChallengeTaxaIds,
+  fetchAllObservedTaxaIds
 };

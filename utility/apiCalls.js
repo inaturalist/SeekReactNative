@@ -21,7 +21,6 @@ const fetchSpeciesNearby = async ( params: Object ): any => {
 
   const options = { headers: { "User-Agent": createUserAgent( ) } };
   const url = `${site}?${queryString}`;
-  console.log( url, "url" );
 
   try {
     const response = await fetch( url, options );
@@ -29,7 +28,7 @@ const fetchSpeciesNearby = async ( params: Object ): any => {
     const newTaxa = results.map( r => r.taxon );
     return newTaxa;
   } catch ( e ) {
-    return [];
+    return "unknown";
   }
 };
 

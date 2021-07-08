@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { View, Text } from "react-native";
 import type { Node } from "react";
 
@@ -14,6 +14,8 @@ import { fetchSpeciesNearby } from "../../../utility/apiCalls";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import i18n from "../../../i18n";
 import SpeciesNearbyChallengeError from "./SpeciesNearbyChallengeError";
+import { useInternetStatus } from "../../../utility/customHooks";
+import { colors } from "../../../styles/global";
 
 type Props = {
   challenge: Object
@@ -26,30 +28,48 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
   const [error, setError] = useState( null );
   const missions = useFetchMissions( challenge );
   const coords = useFetchTruncatedUserCoords( );
+  const internet = useInternetStatus( );
 
   const { index, percentComplete } = challenge;
 
   const unobservedTaxaIds = fetchUnobservedChallengeTaxaIds( missions, index );
 
+  const updateError = useCallback( ( newError ) => {
+    if ( !error ) {
+      setError( newError );
+    }
+  }, [error] );
+
   useEffect( ( ) => {
     const fetchSpecies = async ( params ) => {
-      const taxaNearby = await fetchSpeciesNearby( params );
+      try {
+        const taxaNearby = await fetchSpeciesNearby( params );
 
-      if ( !Array.isArray( taxaNearby ) ) {
-        setError( "unknown" );
-      } else if ( taxaNearby.length === 0 ) {
-        setError( "emptyList" );
-      } else {
-        setTaxa( taxaNearby );
+        if ( !Array.isArray( taxaNearby ) ) {
+          updateError( "unknown" );
+        } else if ( taxaNearby.length === 0 ) {
+          updateError( "emptyList" );
+        } else {
+          setTaxa( taxaNearby );
+        }
+        setLoading( false );
+        setLoaded( true );
+      } catch ( e ) {
+        updateError( "unknown" );
       }
-      setLoading( false );
-      setLoaded( true );
     };
+
     const { latitude, longitude } = coords;
 
-    if ( !latitude && loading ) {
-      setError( "location" );
+    if ( latitude === null && loading ) {
+      updateError( "location" );
+      return;
     }
+    if ( !internet ) {
+      updateError( "internet" );
+      return;
+    }
+
     if ( unobservedTaxaIds.length > 0 && latitude !== null && loading && !loaded ) {
       const params = {
         lat: latitude,
@@ -59,7 +79,7 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
 
       fetchSpecies( params );
     }
-  }, [unobservedTaxaIds, coords, loading, loaded] );
+  }, [unobservedTaxaIds, coords, loading, loaded, internet, updateError] );
 
   if ( percentComplete === 100 ) {
     return null;
@@ -77,14 +97,14 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
           <TapToLoad handlePress={startLoading} />
         </>
       );
+    } else if ( error ) {
+      return <SpeciesNearbyChallengeError error={error} />;
     } else if ( loading ) {
       return (
         <View style={viewStyles.loadingWheelContainer}>
-          <LoadingWheel />
+          <LoadingWheel color={colors.darkGray} />
         </View>
       );
-    } else if ( error ) {
-      return <SpeciesNearbyChallengeError error={error} />;
     } else {
       return (
         <View style={viewStyles.loadingWheelContainer}>
@@ -93,6 +113,8 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
       );
     }
   };
+
+  console.log( loading, loaded, taxa.length, error, "loadingggg" );
 
   return (
     <>

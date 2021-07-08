@@ -33,7 +33,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     backgroundColor: colors.white
   },
   loadingWheelContainer: {
-    height: 223
+    height: 223,
+    justifyContent: "center"
   }
 } );
 
@@ -56,6 +57,14 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     lineHeight: 21,
     textAlign: "center",
     textDecorationLine: "underline"
+  },
+  speciesNearbyErrorText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center",
+    marginHorizontal: 28
   }
 } );
 

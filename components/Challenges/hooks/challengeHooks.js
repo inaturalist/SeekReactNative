@@ -187,8 +187,13 @@ const useFetchTruncatedUserCoords = ( ): any => {
 
   useEffect( ( ) => {
     const fetchTruncatedUserCoords = async ( ) => {
-      const userCoords = await fetchTruncatedUserLocation( );
-      setCoords( userCoords );
+      try {
+        const userCoords = await fetchTruncatedUserLocation( );
+        setCoords( userCoords );
+      } catch ( e ) {
+        console.log( e, "error fetching truncated user coords" );
+        // do nothing
+      }
     };
     fetchTruncatedUserCoords( );
   }, [] );

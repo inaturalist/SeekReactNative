@@ -16,11 +16,11 @@ const SpeciesNearbyChallengeError = ( { error }: Props ): Node => {
     let text = null;
 
     if ( error === "location" ) {
-      text = i18n.t( "challenges.no_location" );
+      text = i18n.t( "species_nearby.species_nearby_requires_location" );
     } else if ( error === "emptyList" ) {
       text = i18n.t( "challenges.no_species_nearby" );
     } else {
-      text = i18n.t( "challenges.no_internet" );
+      text = i18n.t( "challenges.species_nearby_internet_error" );
     }
 
     return text;
@@ -28,7 +28,7 @@ const SpeciesNearbyChallengeError = ( { error }: Props ): Node => {
 
   return (
     <View style={viewStyles.loadingWheelContainer}>
-      <Text style={textStyles.text}>{setErrorText( )}</Text>
+      <Text style={textStyles.speciesNearbyErrorText}>{setErrorText( )}</Text>
     </View>
   );
 };

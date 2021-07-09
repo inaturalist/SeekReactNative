@@ -1,6 +1,7 @@
 {
   "name": "seek",
   "version": "2.12.10",
+  "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -40,7 +41,7 @@
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "lodash.memoize": "^4.1.2",
     "react": "^17.0.1",
-    "react-native": "^0.64.1",
+    "react-native": "^0.64.2",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^8.1.3",

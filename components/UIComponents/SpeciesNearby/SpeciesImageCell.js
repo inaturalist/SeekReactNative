@@ -53,9 +53,9 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
     }
   };
 
-  if ( seenTaxa && name === "ChallengeDetails" ) {
-    return null;
-  }
+  // if ( seenTaxa && name === "ChallengeDetails" ) {
+  //   return null;
+  // }
 
   return (
     <TouchableOpacity onPress={navToNextScreen} style={viewStyles.gridCell}>

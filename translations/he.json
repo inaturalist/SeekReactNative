@@ -578,11 +578,11 @@
     "unknown": "לא ידועה",
     "ok": "אישור",
     "look_up": "חפש מין לפי שם",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "latitude_longitude": "רוחב: {{latitude}}, אורך: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "animals": "חיות",
+    "protozoans": "פרוטוזואות",
+    "kelp": "קלף, צורניות, ואחרים"
   },
   "posting_status": {
     "posting_to_inat_background": "מעלה ל iNaturalist ברקע",
@@ -666,7 +666,7 @@
     "seasonality": "עונתיות",
     "seasonality_option_1": "הצג עונתיות בהתבסס על תצפיות עולמיות של iNaturalist",
     "seasonality_option_2": "הצג עונתיות בהתבסס על תצפיות של iNaturalist סביב המיקום שלי (מינים שלא נמצאים באיזור שלי יהיו ללא פירוט עונתיות)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "לחצו על הקישור לתרום ל Seek:"
   },
   "seek_challenges": {
     "badge": "תג של Seek",
@@ -774,7 +774,7 @@
     "may_2021_badge_name": "תג בריאות הסביבה",
     "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
     "june_2021_mission_1": "Find 1 plant from the following classes:\n\nLycopodiopsida (Spikemosses, Clubmosses and Firmosses);\nPolypodiopsida (Ferns)",
-    "june_2021_mission_2": "Find 1 plant in the class Pinopsida (Conifers)",
+    "june_2021_mission_2": "מצאו צמח אחד ממשפחת המחטנאים",
     "june_2021_mission_3": "Find 1 plant from the subphylum Angiospermae (Flowering Plants)",
     "june_2021_mission_4": "מצאו 1 פטריות",
     "june_2021_mission_5": "Find any 2 vertebrates (birds, mammals, amphibians, reptiles, fish)",
@@ -802,12 +802,12 @@
     "learn_more_about_inat": "Learn more about iNaturalist",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "sign_out": "Sign out of iNaturalist",
+    "sign_out": "התנתק מ iNaturalist",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
     "log_in_with_inat": "LOG IN WITH INATURALIST",
     "use_inat_to": "USE INATURALIST TO:",
-    "inat_vs_seek": "INATURALIST VS SEEK",
-    "inat_is_an_online_community": "iNaturalist is an online community for naturalists",
+    "inat_vs_seek": "INATURALIST לעומת SEEK\n",
+    "inat_is_an_online_community": "iNaturalist היא קהילת רשת לחובבי טבע",
     "inat_bullet_1": "iNaturalist observations are public and help contribute to science",
     "inat_bullet_2": "Each observation includes your username, date, and location of the observation",
     "inat_bullet_3": "The iNaturalist community helps to identify and confirm observations",

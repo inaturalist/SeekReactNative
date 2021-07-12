@@ -1,34 +1,31 @@
 // @flow
 
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  dimensions
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width } = dimensions;
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center: {
     alignItems: "center"
-  },
-  centerSelf: {
-    alignSelf: "center"
   },
   container: {
     marginBottom: 32,
     marginHorizontal: 20,
     marginTop: 37
   },
-  image: {
-    height: width < 366 ? ( width / 2 ) : ( 366 / 2 ),
-    justifyContent: "center",
-    marginBottom: 25,
-    width: width < 366 ? ( width / 2 ) : ( 366 / 2 )
-  },
-  imageStyle: {
-    resizeMode: "contain"
-  },
+  margins: {
+    marginHorizontal: 20
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   italicText: {
     color: colors.black,
     fontFamily: fonts.bookItalic,
@@ -40,9 +37,6 @@ export default StyleSheet.create( {
     maxWidth: 256,
     textAlign: "center"
   },
-  margins: {
-    marginHorizontal: 20
-  },
   nameText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -53,3 +47,22 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  imageStyle: {
+    resizeMode: "contain"
+  },
+  emptyBadgeImage: {
+    height: width < 366 ? ( width / 2 ) : ( 366 / 2 ),
+    justifyContent: "center",
+    marginBottom: 25,
+    width: width < 366 ? ( width / 2 ) : ( 366 / 2 )
+  }
+} );
+
+  export {
+    viewStyles,
+    textStyles,
+    imageStyles
+  };
+

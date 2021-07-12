@@ -6,16 +6,16 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import styles from "../../../styles/home/noChallenges";
+import { viewStyles, textStyles } from "../../../styles/home/noChallenges";
 
 const NoChallenges = ( ): Node => (
-  <View style={[styles.row, styles.center]}>
+  <View style={[viewStyles.row, viewStyles.center]}>
     <Image source={icons.completed} />
-    <View style={styles.noChallengeTextContainer}>
-      <Text style={[styles.largeText, styles.textWidth]}>
+    <View style={viewStyles.noChallengeTextContainer}>
+      <Text style={[textStyles.largeText, textStyles.textWidth]}>
         {i18n.t( "challenges.completed_all" )}
       </Text>
-      <Text style={[styles.text, styles.textWidth]}>
+      <Text style={[textStyles.text, textStyles.textWidth]}>
         {i18n.t( "challenges.no_new_challenges" )}
       </Text>
     </View>

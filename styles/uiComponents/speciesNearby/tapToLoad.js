@@ -4,36 +4,34 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  center,
-  row
-} from "../global";
+  center
+} from "../../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
-  noChallengeTextContainer: {
-    marginLeft: 28
+  speciesNearbyContainer: {
+    backgroundColor: colors.seekTeal,
+    paddingVertical: 15
   },
-  row
+  challengeContainer: {
+    backgroundColor: colors.white
+  }
 } );
+
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
-    color: colors.black,
+    color: colors.white,
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21,
-    marginTop: 11
+    lineHeight: 24,
+    maxWidth: 245,
+    textAlign: "center"
   },
-  largeText: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24
-  },
-  textWidth: {
-    width: 195
+  challengeText: {
+    color: colors.black
   }
 } );
 
@@ -41,4 +39,3 @@ export {
   viewStyles,
   textStyles
 };
-

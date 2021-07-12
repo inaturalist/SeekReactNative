@@ -4,13 +4,13 @@ import React, { useRef } from "react";
 import { View, SectionList } from "react-native";
 import type { Node } from "react";
 
-import styles from "../../styles/challenges/challenges";
+import styles from "../../../styles/challenges/challenges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import GreenText from "../UIComponents/GreenText";
-import NoChallenges from "../Home/Challenges/NoChallenges";
+import GreenText from "../../UIComponents/GreenText";
+import NoChallenges from "../../Home/Challenges/NoChallenges";
 import EmptyChallengesCard from "./EmptyChallengesCard";
-import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
-import { useFetchChallenges } from "./hooks/challengeHooks";
+import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
+import { useFetchChallenges } from "../hooks/challengeHooks";
 
 const ChallengeScreen = ( ): Node => {
   const list = useFetchChallenges( );

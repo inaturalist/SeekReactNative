@@ -4,13 +4,13 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import type { Node } from "react";
 
-import styles from "../../styles/challenges/challengeMission";
-import icons from "../../assets/icons";
-import i18n from "../../i18n";
-import PercentCircle from "../UIComponents/PercentCircle";
-import GreenText from "../UIComponents/GreenText";
-import missionsDict from "../../utility/dictionaries/missionsDict";
-import { useFetchMissions } from "./hooks/challengeHooks";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeMission";
+import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import PercentCircle from "../../UIComponents/PercentCircle";
+import GreenText from "../../UIComponents/GreenText";
+import missionsDict from "../../../utility/dictionaries/missionsDict";
+import { useFetchMissions } from "./../hooks/challengeHooks";
 
 type Props = {
   +challenge: Object
@@ -37,14 +37,14 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
     }
 
     const list = subBullets.map( ( bullet, i ) => (
-      <View key={i.toString()} style={styles.missionRow}>
-        <Image source={icons.grayBullet} style={styles.subBullets} />
-        <Text style={styles.secondLevelBulletText}>{bullet.split( "-" )}</Text>
+      <View key={i.toString()} style={viewStyles.missionRow}>
+        <Image source={icons.grayBullet} style={viewStyles.subBullets} />
+        <Text style={textStyles.secondLevelBulletText}>{bullet.split( "-" )}</Text>
       </View>
     ) );
 
     const observedCount = (
-      <Text style={[styles.text, styles.greenText]}>
+      <Text style={[textStyles.text, textStyles.greenText]}>
         {i18n.t( "challenges.number_observed_plural", { count: item.observations || 0 } )}
       </Text>
     );
@@ -52,11 +52,11 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
     return (
       <>
         {missionDetails[missionIndex] && missionDetails[missionIndex].number === item.observations
-          ? <Image source={icons.checklist} style={styles.checklist} />
-          : <Text allowFontScaling={false} style={styles.bullets}>&#8226;</Text>}
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>{missionNoSubBullets || header}</Text>
-          {header.length > 0 && <View style={styles.marginTop} />}
+          ? <Image source={icons.checklist} style={imageStyles.checklist} />
+          : <Text allowFontScaling={false} style={textStyles.bullets}>&#8226;</Text>}
+        <View style={viewStyles.textContainer}>
+          <Text style={textStyles.text}>{missionNoSubBullets || header}</Text>
+          {header.length > 0 && <View style={viewStyles.marginTop} />}
           {subBullets.length > 0 && list}
           {observedCount}
         </View>
@@ -65,10 +65,10 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
   };
 
   const renderMissionText = () => missions.map( ( item, i ) => (
-    <View key={`${item.toString()}${i.toString()}`} style={styles.missionRow}>
+    <View key={`${item.toString()}${i.toString()}`} style={viewStyles.missionRow}>
       {formatLongMissionText( item, i )}
       {i === 0 && (
-        <View style={styles.circleStyle}>
+        <View style={viewStyles.circleStyle}>
           {percentComplete === 100 ? <Image source={icons.completed} /> : <PercentCircle challenge={challenge} />}
         </View>
       )}
@@ -76,9 +76,9 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
   ) );
 
   return (
-    <View style={styles.container}>
+    <View style={viewStyles.container}>
       <GreenText text="challenges.your_mission" />
-      {missions.length > 0 && renderMissionText()}
+      {missions.length > 0 && renderMissionText( )}
     </View>
   );
 };

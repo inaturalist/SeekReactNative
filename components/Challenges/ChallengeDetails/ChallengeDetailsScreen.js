@@ -5,14 +5,14 @@ import Realm from "realm";
 import { useIsFocused } from "@react-navigation/native";
 import type { Node } from "react";
 
-import realmConfig from "../../models";
+import realmConfig from "../../../models";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
-import { getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
+import { getChallengeIndex, recalculateChallenges } from "../../../utility/challengeHelpers";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
-import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
+import ScrollNoHeader from "../../UIComponents/Screens/ScrollNoHeader";
 
-const ChallengeDetailsScreen = (): Node => {
-  const isFocused = useIsFocused();
+const ChallengeDetailsScreen = ( ): Node => {
+  const isFocused = useIsFocused( );
   const [challenge, setChallenge] = useState( null );
 
   const fetchChallenge = ( index ) => {
@@ -25,18 +25,18 @@ const ChallengeDetailsScreen = (): Node => {
       } );
   };
 
-  const setupScreen = useCallback( async () => {
-    recalculateChallenges();
-    const index = await getChallengeIndex();
+  const setupScreen = useCallback( async ( ) => {
+    recalculateChallenges( );
+    const index = await getChallengeIndex( );
 
     if ( !challenge || challenge.index !== index ) {
       fetchChallenge( index );
     }
   }, [challenge] );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     if ( isFocused ) { // need this for screens where challenge index must change
-      setupScreen();
+      setupScreen( );
     } else {
       setChallenge( null ); // reset necessary for race condition on iOS
     }

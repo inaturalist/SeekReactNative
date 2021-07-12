@@ -3,8 +3,8 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/challenges/emptyChallenges";
-import i18n from "../../i18n";
+import { viewStyles, textStyles } from "../../../styles/challenges/emptyChallenges";
+import i18n from "../../../i18n";
 
 type Props = {
   type: string

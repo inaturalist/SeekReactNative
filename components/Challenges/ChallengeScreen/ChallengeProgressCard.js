@@ -9,13 +9,13 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { imageStyles, viewStyles, textStyles } from "../../styles/challenges/challengeProgress";
-import PercentCircle from "../UIComponents/PercentCircle";
-import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
-import icons from "../../assets/icons";
-import { formatMonthYear } from "../../utility/dateHelpers";
-import badges from "../../assets/badges";
+import i18n from "../../../i18n";
+import { imageStyles, viewStyles, textStyles } from "../../../styles/challenges/challengeProgress";
+import PercentCircle from "../../UIComponents/PercentCircle";
+import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../../utility/challengeHelpers";
+import icons from "../../../assets/icons";
+import { formatMonthYear } from "../../../utility/dateHelpers";
+import badges from "../../../assets/badges";
 
 type Props = {
   +challenge: {

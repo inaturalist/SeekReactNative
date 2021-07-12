@@ -66,7 +66,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   const site = "https://www.inaturalist.org";
 
   try {
-    const r = await fetchWithTimeout( 5000, fetch( `${site}/users/api_token`, { headers } ) );
+    const r = await fetchWithTimeout( 10000, fetch( `${site}/users/api_token`, { headers } ) );
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
@@ -118,7 +118,7 @@ const appendPhotoToObservation = async ( photo: {
 
   try {
     // this is a pretty slow operation, so it has a higher timeout number
-    await fetchWithTimeout( 15000, inatjs.observation_photos.create( photoParams, options ) );
+    await fetchWithTimeout( 25000, inatjs.observation_photos.create( photoParams, options ) );
     // LOG.info( `photo ${uuid} appended to observation ${id}` );
     return true;
   } catch ( e ) {
@@ -202,7 +202,8 @@ const uploadObservation = async ( observation: {
   longitude: ?number,
   positional_accuracy: ?number,
   description: ?string,
-  photo: Object
+  photo: Object,
+  vision: boolean
 } ): Promise<any> => {
   const login = await fetchAccessToken( );
   const params = {
@@ -219,7 +220,7 @@ const uploadObservation = async ( observation: {
       positional_accuracy: observation.positional_accuracy,
       description: observation.description,
       // this shows that the id is recommended by computer vision
-      owners_identification_from_vision_requested: true
+      owners_identification_from_vision_requested: observation.vision
     }
   };
 
@@ -236,7 +237,7 @@ const uploadObservation = async ( observation: {
 
   try {
     if ( !observation.photo.id ) {
-      const response = await fetchWithTimeout( 5000, inatjs.observations.create( params, options ) );
+      const response = await fetchWithTimeout( 10000, inatjs.observations.create( params, options ) );
       const { id } = response[0];
 
       const photo: Object = await saveObservationId( id, observation.photo );
@@ -274,11 +275,14 @@ const saveObservationToRealm = async ( observation: {
   latitude: ?number,
   longitude: ?number,
   positional_accuracy: ?number,
-  description: ?string
+  description: ?string,
+  vision: boolean
 }, uri: string ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   const uuid = await createUUID( );
   const photoUUID = await createUUID( );
+
+  console.log( observation.vision, "vision boolean in save to realm" );
 
   // I'm not sure how much hidden space this will take up on a user's device
   // but we probably need to delete photos from this directory regularly after they have been uploaded

@@ -4,12 +4,13 @@ import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from "../../styles/challenges/challengeDetails";
-import i18n from "../../i18n";
-import logos from "../../assets/logos";
+import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
+import i18n from "../../../i18n";
+import logos from "../../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import GreenText from "../UIComponents/GreenText";
+import GreenText from "../../UIComponents/GreenText";
 import SpeciesObserved from "./SpeciesObserved";
+import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
 
 type Props = {
   challenge: {
@@ -24,7 +25,7 @@ type Props = {
 }
 
 const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation( );
 
   const navToChallenges = ( ) => navigate( "Challenges" );
 
@@ -32,36 +33,42 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
   const photographerLogo = challenge.logo === "op" ? logos[challenge.secondLogo] : null;
 
   return (
-    <View style={styles.whiteContainer}>
-      <View style={styles.textContainer}>
+    <View style={viewStyles.whiteContainer}>
+      <View style={viewStyles.textContainer}>
         {challenge.startedDate && <ChallengeMissionCard challenge={challenge} />}
-        <View style={styles.marginSmall} />
-        <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
-        <View style={styles.marginLarge} />
+        <View style={viewStyles.marginSmall} />
+        <Text style={textStyles.descriptionText}>{i18n.t( challenge.description )}</Text>
+        <View style={viewStyles.marginLarge} />
       </View>
+      <SpeciesNearbyChallenge challenge={challenge} />
       {challenge.percentComplete > 0 && <SpeciesObserved challenge={challenge} />}
-      <View style={styles.textContainer}>
-        <GreenText text="challenges.get_involved" />
-        <View style={styles.marginSmall} />
-        <Text style={styles.descriptionText}>
+      <View style={viewStyles.textContainer}>
+        <GreenText
+          text={challenge.logo === "iNatWhite"
+            ? "inat_signup.learn_more"
+            : "challenges.get_involved"
+          }
+        />
+        <View style={viewStyles.marginSmall} />
+        <Text style={textStyles.descriptionText}>
           {i18n.t( challenge.action )}
         </Text>
         {challenge.photographer && (
           <>
-            {photographerLogo && <Image source={photographerLogo} style={styles.opContainer} />}
-            <Text style={[styles.descriptionText, styles.photographerText]}>
+            {photographerLogo && <Image source={photographerLogo} style={viewStyles.opContainer} />}
+            <Text style={[textStyles.descriptionText, textStyles.photographerText]}>
               {i18n.t( challenge.photographer )}
             </Text>
           </>
         )}
-        <View style={styles.marginMedium} />
+        <View style={viewStyles.marginMedium} />
         <Text
           onPress={navToChallenges}
-          style={styles.viewText}
+          style={textStyles.viewText}
         >
           {i18n.t( "challenges_card.view_all" )}
         </Text>
-        <View style={styles.marginMedium} />
+        <View style={viewStyles.marginMedium} />
       </View>
     </View>
   );

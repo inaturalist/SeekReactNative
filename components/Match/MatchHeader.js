@@ -46,7 +46,6 @@ const MatchHeader = ( {
   const showSpeciesImage = ( taxon && taxon.speciesSeenImage ) && screenType !== "unidentified";
 
   return (
-    // $FlowFixMe
     <LinearGradient colors={[gradientDark, gradientLight]} style={styles.header}>
       <CustomBackArrow handlePress={setCameraPath} style={styles.backButton} />
       {speciesIdentified && (

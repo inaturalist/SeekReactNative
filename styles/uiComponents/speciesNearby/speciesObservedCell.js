@@ -54,6 +54,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     textAlign: "center"
+  },
+  challengeDetailsText: {
+    color: colors.black
   }
 } );
 

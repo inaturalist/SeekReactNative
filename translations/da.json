@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Arter observeret",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ARTER I NÆRHEDEN I DENNE UDFORDRING",
+    "no_species_nearby": "Vi fandt ingen arter i nærheden i denne udfordring, som du ikke allerede har observeret",
+    "species_nearby_internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden."
   },
   "results": {
     "observed_species": "Du observerede en ny art!",
@@ -837,5 +837,19 @@
     "logged_in_bullet_3": "Din Seek-observationer er IKKE sikkerhedskopieret til iNaturalist. Sletning af Seek vil slette alle observationerne på din enhed.",
     "upload_and_track_obs_using_inat": "Upload og hold styr på dine observationer ved hjælp af iNaturalist-app'en eller besøg inaturalist.org.\n\nTak fordi du er en del af dette fællesskab!",
     "x_seen_by_user": "{{speciesName}} set af {{user}}"
+  },
+  "seek_2021_challenges": {
+    "august_2021_challenge_name": "Rovleddyrsudfordring",
+    "august_2021_mission_1": "Find 5 leddyrsarter fra:\n\n-Insektordnen Mantodea (Knælere);\n-Insektordnen Odonata (Guldsmede og vandnymfer);\n-Insektordnen Megaloptera (Dovenfluer);\n-Insektordnen Neuroptera (Myreløver, Guldøjer);\n-Insektfamilien Coccinellidae (Mariehøns);\n-Klassen Chilopoda (Tusindben);\n-Klassen Arachnida (Spindlere)",
+    "august_2021_description": "Rovdyr er dyr, der jager og æder andre dyr. Men du behøver ikke at gå langt for at finde dem! Tusindben, edderkopper og mange andre insekter og spidlere er sandsynligvis på jagt efter mindre byttedyr lige uden for dit vindue – eller endda indendørs. Selv de fleste mariehøns er rovdyr!",
+    "august_2021_action": "Tænk over de typer af rovdyr, du har fundet. Hvilke slags bytte dyr spiser de? Hvordan finder de, fanger og æder byttedyr?",
+    "september_2021_challenge_name": "Sæsonudfordring",
+    "september_2021_mission_1": "Find 10 nye arter",
+    "september_2021_description": "Årstider skifter! Hvert år er der to jævndøgn: i marts og september. På jævndøgnets dag vil der være næsten præcis 12 timers dagslys og 12 timers nat overalt i verden. Som længden af dagene ændrer sig, reagerer planter og dyr ved at ændre deres vækst eller adfærd.",
+    "september_2021_action": "Har der været ekstreme vejrbegivenheder i nærheden af dig for nylig? Hvordan reagerede planter, dyr og svampe? Prøv at finde tidligere vejrdata for denne måned i dit område. Hvilken slags forandringer er sket, og hvordan tror du, der kan påvirke de organismer, der lever der?",
+    "october_2021_challenge_name": "Spindlerudfordring",
+    "october_2021_mission_1": "Find 4 spindlere",
+    "october_2021_description": "Vidste du, at ikke alle spindlere er edderkoppere? Ud over edderkopper kan mider, flåter, mejere og endda små, oversete mosskorpioner findes på alle beboede kontinenter. Andre mindre udbredte spindlere som skorpioner findes generelt i varme og/eller tørre dele af verden.",
+    "october_2021_action": "Tænk over de slags spindlere du har fundet. Hvordan ville du beskrive deres habitater? Blev nogen af dem fundet i samme habitat?"
   }
 }

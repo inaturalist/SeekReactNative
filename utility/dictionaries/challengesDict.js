@@ -315,7 +315,7 @@ const challenges = {
   //   description: "seek_2021_challenges.august_2021_description",
   //   totalSpecies: 5,
   //   backgroundName: "img-challengedetail-august2021",
-  //   earnedIconName: "badge_natgeo_august2021",
+  //   earnedIconName: "badge_inaturalist_august2021",
   //   missions: [
   //     "seek_2021_challenges.august_2021_mission_1"
   //   ],
@@ -328,7 +328,7 @@ const challenges = {
   //   description: "seek_2021_challenges.september_2021_description",
   //   totalSpecies: 10,
   //   backgroundName: "img-challengedetail-september2021",
-  //   earnedIconName: "badge_natgeo_september2021",
+  //   earnedIconName: "badge_inaturalist_september2021",
   //   missions: [
   //     "seek_2021_challenges.september_2021_mission_1"
   //   ],
@@ -341,7 +341,7 @@ const challenges = {
   //   description: "seek_2021_challenges.october_2021_description",
   //   totalSpecies: 4,
   //   backgroundName: "img-challengedetail-october2021",
-  //   earnedIconName: "badge_natgeo_october2021",
+  //   earnedIconName: "badge_inaturalist_october2021",
   //   missions: [
   //     "seek_2021_challenges.october_2021_mission_1"
   //   ],

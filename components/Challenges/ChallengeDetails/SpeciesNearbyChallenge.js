@@ -102,7 +102,7 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
       return (
         <>
           <View style={viewStyles.marginMedium} />
-          <TapToLoad handlePress={startLoading} />
+          <TapToLoad handlePress={startLoading} backgroundColor="white" />
         </>
       );
     } else if ( error ) {

@@ -3,11 +3,14 @@
 import { StyleSheet } from "react-native";
 import { fonts, dimensions, colors } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     flex: 1,
-    marginBottom: dimensions.height > 570 ? 60 : 26,
-    marginHorizontal: 32
+    paddingBottom: dimensions.height > 570 ? 60 : 26,
+    paddingHorizontal: 32,
+    backgroundColor: colors.white
   },
   content: {
     flex: 1,
@@ -19,7 +22,10 @@ export default StyleSheet.create( {
   },
   uploadImage: {
     marginTop: 41
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     textAlign: "center",
     fontFamily: fonts.book,
@@ -39,3 +45,8 @@ export default StyleSheet.create( {
     marginTop: 19
   }
 } );
+
+export {
+  viewStyles,
+  textStyles
+};

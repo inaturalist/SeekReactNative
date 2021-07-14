@@ -15,12 +15,13 @@ import i18n from "../i18n";
 // import { isWithin7Days } from "./dateHelpers";
 // import { LOG } from "./debugHelpers";
 
-const fetchWithTimeout = ( timeout, fetch ) => Promise.race( [
-  fetch,
-  new Promise( ( _, reject ) =>
-      setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
-    )
-] );
+// this was causing some users to only see internet errors, so removing this for the moment
+// const fetchWithTimeout = ( timeout, fetch ) => Promise.race( [
+//   fetch,
+//   new Promise( ( _, reject ) =>
+//       setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
+//     )
+// ] );
 
 const saveUploadSucceeded = async ( id: number ) => {
   const realm = await Realm.open( realmConfig );
@@ -66,7 +67,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
   const site = "https://www.inaturalist.org";
 
   try {
-    const r = await fetchWithTimeout( 10000, fetch( `${site}/users/api_token`, { headers } ) );
+    const r = await fetch( `${site}/users/api_token`, { headers } );
     const parsedResponse = await r.json( );
     return parsedResponse.api_token;
   } catch ( e ) {
@@ -117,8 +118,7 @@ const appendPhotoToObservation = async ( photo: {
   const options = { api_token: token, user_agent: createUserAgent( ) };
 
   try {
-    // this is a pretty slow operation, so it has a higher timeout number
-    await fetchWithTimeout( 25000, inatjs.observation_photos.create( photoParams, options ) );
+    await inatjs.observation_photos.create( photoParams, options );
     // LOG.info( `photo ${uuid} appended to observation ${id}` );
     return true;
   } catch ( e ) {
@@ -237,7 +237,7 @@ const uploadObservation = async ( observation: {
 
   try {
     if ( !observation.photo.id ) {
-      const response = await fetchWithTimeout( 10000, inatjs.observations.create( params, options ) );
+      const response = await inatjs.observations.create( params, options );
       const { id } = response[0];
 
       const photo: Object = await saveObservationId( id, observation.photo );

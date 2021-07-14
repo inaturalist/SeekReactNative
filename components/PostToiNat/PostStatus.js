@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/posting/postModal";
+import { viewStyles, textStyles } from "../../styles/posting/postModal";
 import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { useInternetStatus } from "../../utility/customHooks";
@@ -42,15 +42,15 @@ const PostStatus = ( ): React.Node => {
   const navToMatch = ( ) => navigation.navigate( "Match" );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={viewStyles.container}>
       <StatusBar barStyle="dark-content" />
-      <View style={styles.content}>
+      <View style={viewStyles.content}>
         {!internet && <Image source={posting.internet} />}
-        <Text style={styles.headerText}>{i18n.t( setHeaderText( ) )}</Text>
-        <Image style={styles.uploadImage} source={setImage( )} />
-        <Text style={styles.text}>{setText( )}</Text>
+        <Text style={textStyles.headerText}>{i18n.t( setHeaderText( ) )}</Text>
+        <Image style={viewStyles.uploadImage} source={setImage( )} />
+        <Text style={textStyles.text}>{setText( )}</Text>
       </View>
-      <View style={styles.greenButton}>
+      <View style={viewStyles.greenButton}>
         <GreenButton
           handlePress={navToMatch}
           text="posting.ok"

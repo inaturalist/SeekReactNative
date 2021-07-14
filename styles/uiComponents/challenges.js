@@ -74,9 +74,9 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   }
 } );
 
-  export {
-    viewStyles,
-    textStyles,
-    imageStyles
-  };
+export {
+  viewStyles,
+  textStyles,
+  imageStyles
+};
 

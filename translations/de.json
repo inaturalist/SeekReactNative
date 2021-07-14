@@ -27,12 +27,12 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "AN INATURALIST SENDEN",
     "uploading_x_observations": {
-      "zero": "Lade {{count}} Beobachtungen hoch",
-      "one": "Lade {{count}} Beobachtung hoch",
-      "two": "Lade {{count}} Beobachtungen hoch",
-      "few": "Lade {{count}} Beobachtungen hoch",
-      "many": "Lade {{count}} Beobachtungen hoch",
-      "other": "Lade {{count}} Beobachtungen hoch"
+      "zero": "{{count}} Beobachtungen werden hochgeladen",
+      "one": "{{count}} Beobachtung wird hochgeladen",
+      "two": "{{count}} Beobachtungen werden hochgeladen",
+      "few": "{{count}} Beobachtungen werden hochgeladen",
+      "many": "{{count}} Beobachtungen werden hochgeladen",
+      "other": "{{count}} Beobachtungen werden hochgeladen"
     },
     "x_observations_uploaded": {
       "zero": "{{count}} Beobachtungen hochgeladen!",
@@ -567,7 +567,7 @@
     "notes": "Hier Notizen hinzufügen",
     "date": "Datum",
     "location": "Standort",
-    "geoprivacy": "Geoprivatsphäre",
+    "geoprivacy": "Geo-Privatsphäre",
     "open": "Öffentlich",
     "obscured": "Verdeckt",
     "private": "Privat",
@@ -575,7 +575,7 @@
     "no": "Nein",
     "captive": "in Haltung/kultiviert",
     "what_seen": "Was hast du gesehen?",
-    "id": "Identifikation durch Seek",
+    "id": "Bestimmung durch Seek",
     "edit_location": "Standort bearbeiten",
     "save_location": "Standort speichern",
     "unknown": "Unbekannt",
@@ -585,7 +585,7 @@
     "major_taxa": "MAJOR TAXA",
     "animals": "Tiere",
     "protozoans": "Protozoen",
-    "kelp": "Braunalgen, Diatomeen und Verwandte"
+    "kelp": "Braunalgen, Diatomeen & Verwandte"
   },
   "posting_status": {
     "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",
@@ -599,7 +599,7 @@
     "id_description": "Wenn du eine Beobachtung hochlädst, kannst du den Organismus soweit einem Taxon zuordnen, wie du es dir am ehesten zutraust - von \"Klasse\", wie z.B. Reptilien, bis zu einer Art, wie z.B. Kohlmeise. Nachdem deine Beobachtung an iNaturalist geschickt wurde, versucht unsere Gemeinschaft dabei zu helfen, die Art zu identifizieren oder zu bestätigen.\n\nHier kannst du auch optional Notizen hinzufügen.",
     "date": "Datum & Standort",
     "date_description": "Jede Beobachtung auf iNaturalist ist mit einem bestimmten Datum und Ort verbunden, so können wir ein globales Bild davon sehen, wie sich eine Art weltweit mit der Zeit verändert.",
-    "geoprivacy": "Geoprivatsphäre",
+    "geoprivacy": "Geo-Privatsphäre",
     "open_header": "Öffentlich: ",
     "obscured_header": "Verdeckt: ",
     "closed_header": "Privat: ",

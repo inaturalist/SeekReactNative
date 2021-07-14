@@ -256,7 +256,7 @@ const missions = [{
 }, { // august 2021
   0: {
     number: 5,
-    types: ["Mantodea", "Odonata", "Megaloptera", "Neuroptera", "Cocconellidae", "Chilopoda", "arachnids"]
+    types: ["Mantodea", "Odonata", "Megaloptera", "Neuroptera", "Coccinellidae", "Chilopoda", "arachnids"]
   }
 }, { // september 2021
   0: {

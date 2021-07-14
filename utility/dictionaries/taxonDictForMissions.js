@@ -48,7 +48,7 @@ const taxonIds = {
   Magnoliales: 50898,
   Malus: 54500,
   Malvaceae: 48797,
-  Mantodea: 48151,
+  Mantodea: 48112,
   Megaloptera: 47864,
   Moraceae: 50998,
   Mysticeti: 424321,

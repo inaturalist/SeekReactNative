@@ -320,8 +320,7 @@ const challenges = {
       "seek_2021_challenges.august_2021_mission_1"
     ],
     availableDate: ( new Date( 2021, 7, 1 ): Date ),
-    action: "seek_2021_challenges.august_2021_action",
-    badgeName: "seek_2021_challenges.august_2021_badge_name"
+    action: "seek_2021_challenges.august_2021_action"
   }
   // sept2021: {
   //   name: "seek_2021_challenges.september_2021_challenge_name",
@@ -333,8 +332,7 @@ const challenges = {
   //     "seek_2021_challenges.september_2021_mission_1"
   //   ],
   //   availableDate: ( new Date( 2021, 8, 1 ): Date ),
-  //   action: "seek_2021_challenges.september_2021_action",
-  //   badgeName: "seek_2021_challenges.september_2021_badge_name"
+  //   action: "seek_2021_challenges.september_2021_action"
   // }
   // oct2021: {
   //   name: "seek_2021_challenges.october_2021_challenge_name",
@@ -346,8 +344,7 @@ const challenges = {
   //     "seek_2021_challenges.october_2021_mission_1"
   //   ],
   //   availableDate: ( new Date( 2021, 9, 1 ): Date ),
-  //   action: "seek_2021_challenges.october_2021_action",
-  //   badgeName: "seek_2021_challenges.october_2021_badge_name"
+  //   action: "seek_2021_challenges.october_2021_action"
   // }
 };
 

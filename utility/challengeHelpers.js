@@ -1,7 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Realm from "realm";
-import { getYear } from "date-fns";
+import { getYear, getMonth } from "date-fns";
 import { Alert } from "react-native";
 
 import { createNotification, isDuplicateNotification } from "./notificationHelpers";
@@ -168,6 +168,7 @@ const startChallenge = ( index: number ) => {
 
 const setChallengeDetails = ( date: Date ) => {
   const year = getYear( date );
+  const month = getMonth( date );
 
   if ( year === 2019 ) {
     return {
@@ -175,17 +176,17 @@ const setChallengeDetails = ( date: Date ) => {
       secondLogo: "wwfop",
       sponsorName: "Our Planet"
     };
-  } else if ( year === 2020 ) {
-    return {
-      logo: "iNatWhite",
-      secondLogo: "iNat",
-      sponsorName: "Seek"
-    };
-  } else {
+  } else if ( year === 2021 && month < 6 ) {
     return {
       logo: "natGeo",
       secondLogo: "natGeoBlack",
       sponsorName: "NatGeo"
+    };
+  } else {
+    return {
+      logo: "iNatWhite",
+      secondLogo: "iNat",
+      sponsorName: "Seek"
     };
   }
 };

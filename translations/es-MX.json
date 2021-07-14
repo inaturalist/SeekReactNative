@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Especies observadas",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ESPECIES CIERCANAS EN ESTE DESAFIO",
+    "no_species_nearby": "No encontramos especies cercanas en este desafío que no hayas observado",
+    "species_nearby_internet_error": "Necesitamos Internet para generar especies cercanas."
   },
   "results": {
     "observed_species": "¡Has observado una nueva especie!",
@@ -837,5 +837,19 @@
     "logged_in_bullet_3": "Tus observaciones de Seek NO están copiadas en iNaturalist. Si borras Seek se borrarán todas las observaciones de tu dispositivo.",
     "upload_and_track_obs_using_inat": "Sube y da seguimiento a tus observaciones usando la aplicación iNaturalist o visitando inaturalist.org.\n\n¡Gracias por ser parte de esta comunidad!",
     "x_seen_by_user": "{{speciesName}} visto por {{user}}"
+  },
+  "seek_2021_challenges": {
+    "august_2021_challenge_name": "Arthropod Predator Challenge",
+    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
+    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
+    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
+    "september_2021_challenge_name": "Seasonality Challenge",
+    "september_2021_mission_1": "Find 10 new species",
+    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
+    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
+    "october_2021_challenge_name": "Arachnid Challenge",
+    "october_2021_mission_1": "Find 4 arachnids",
+    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
+    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
   }
 }

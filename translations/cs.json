@@ -267,9 +267,9 @@
     "photographer_october": "Fotografie © Netflix / Silverback Films",
     "photographer_december": "Fotografie © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Pozorované druhy",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "DRUHY POBLÍŽ V TÉTO VÝZVĚ",
+    "no_species_nearby": "V této výzvě jsme nenašli žádné druhy poblíž, které jste ještě nezaznamenali",
+    "species_nearby_internet_error": "K vygenerování druhů poblíž potřebujeme internet."
   },
   "results": {
     "observed_species": "Zaznamenali jste nový druh!",
@@ -837,5 +837,19 @@
     "logged_in_bullet_3": "Vaše pozorování Seek NENÍ zálohováno v iNaturalist. Smazáním Seek se vymažou všechna pozorování ve vašem zařízení.",
     "upload_and_track_obs_using_inat": "Nahrávejte a zaznamenávejte svá pozorování pomocí aplikace iNaturalist nebo na webu inaturalist.org.\n\nDěkujeme, že jste součástí této komunity!",
     "x_seen_by_user": "{{speciesName}} pozorováno uživatelem {{user}}"
+  },
+  "seek_2021_challenges": {
+    "august_2021_challenge_name": "Výzva členovců–predátorů",
+    "august_2021_mission_1": "Najděte 5 druhů členovců z:\n\n-řádu hmyzu Mantodea (kudlanky);\n-řádu hmyzu Odonata (vážky);\n-řádu hmyzu Megaloptera (střechatky);\n-řádu hmyzu Neuroptera (mravkolvi, zlatoočky a další síťokřídlí);\n-čeledi hmyzu Coccinellidae (slunéčka);\n-třídy Chilopoda (stonožky);\n-třídy Arachnida (pavoukovci)",
+    "august_2021_description": "Predátoři jsou živočichové, kteří loví a požírají jiná zvířata. Ale nemusíte jít daleko, abyste je našli! Stonožky, pavouci a mnoho dalších druhů hmyzu a pavoukovců pravděpodobně loví menší kořist hned za vaším oknem – nebo dokonce uvnitř. I většina slunéček jsou dravci!",
+    "august_2021_action": "Přemýšlejte o typech predátorů, které jste našli. Jaké druhy kořisti jedí? Jak kořist najdou, chytnou a konzumují?",
+    "september_2021_challenge_name": "Výzva ročních období",
+    "september_2021_mission_1": "Najděte 10 nových druhů",
+    "september_2021_description": "Roční období se mění! Každoročně nastávají dvě rovnodennosti: v březnu a v září. V den rovnodennosti bude všude na světě téměř přesně 12 hodin denního světla a 12 hodin noci. Jak se mění délka dne, rostliny a zvířata reagují změnou jejich velikosti nebo chování.",
+    "september_2021_action": "Došlo ve vašem okolí v poslední době k nějakým extrémním jevům počasí? Jak reagovaly rostliny, zvířata a houby? Zkuste najít údaje o počasí v minulosti za tento měsíc ve vaší oblasti. Jaké změny nastaly a jaký si myslíte, že by to mohlo mít dopad na organismy, které tam žijí?",
+    "october_2021_challenge_name": "Výzva pavoukovců",
+    "october_2021_mission_1": "Najděte 4 pavoukovce",
+    "october_2021_description": "Věděli jste, že ne všichni pavoukovci jsou pavouci? Kromě pavouků lze najít na všech obydlených kontinentech roztoče a klíšťata, sekáče a dokonce i malé, přehlížené štírce. V teplejších a/nebo sušších částech světa se obvykle vyskytují i další méně známí pavoukovci, jako jsou štíři, bičnatci, krabovci a solifugy.",
+    "october_2021_action": "Zamyslete se nad druhy pavoukovců, které jste našli. Jak byste popsali jejich stanoviště? Byly některé z nich nalezeny na stejném stanovišti?"
   }
 }

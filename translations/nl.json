@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Waargenomen soorten",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "IN DEZE UITDAGING: SOORTEN IN DE OMGEVING",
+    "no_species_nearby": "We hebben voor deze uitdaging geen soorten gevonden in de omgeving die je nog niet hebt waargenomen",
+    "species_nearby_internet_error": "Internet is nodig om soorten in de omgeving te genereren."
   },
   "results": {
     "observed_species": "Je hebt een nieuwe soort waargenomen!",
@@ -837,5 +837,19 @@
     "logged_in_bullet_3": "Je Seek waarnemingen zijn NIET geback-upt in iNaturalist. Als je Seek verwijdert worden alle waarnemingen van je apparaat verwijderd.",
     "upload_and_track_obs_using_inat": "Upload en houd jouw waarnemingen bij met behulp van de iNaturalist app of bezoek inaturalist.org.\n\nBedankt dat je deel uit maakt van deze gemeenschap!",
     "x_seen_by_user": "{{speciesName}} gezien door {{user}}"
+  },
+  "seek_2021_challenges": {
+    "august_2021_challenge_name": "Geleedpotige Roofdier Uitdaging",
+    "august_2021_mission_1": "Vind 5 soorten geleedpotigen uit de:\n\n-insect orde Mantodea (Bidsprinkhanen);\n-insect orde Odonata (Libellen en juffers);\n-insect orde Megaloptera (Elzenvliegen en Corydalidae);\n-insect orde Neuroptera (Mierenleeuwen, Gaasvliegen en verwanten);\n-insect familie Coccinellidae (Lieveheersbeestjes);\n-klasse Chilopoda (Duitzendpoten);\n-klasse Arachnida (Spinachtigen)",
+    "august_2021_description": "Roofdieren zijn dieren die jagen en andere dieren opeten. Maar je hoeft niet ver te reizen om ze te vinden! Duizendpoten, spinnen en veel andere insecten en spinachtigen jagen waarschijnlijk net buiten je raam of zelfs in huis. Zelfs de meeste lieveheersbeestjes zijn roofdieren!",
+    "august_2021_action": "Bedenk welke soorten roofdieren je hebt gevonden. Welke soort prooien eten ze? Hoe vinden,  vangen en nuttigen ze?",
+    "september_2021_challenge_name": "Seizoensgebonden Uitdaging",
+    "september_2021_mission_1": "Vind 10 nieuwe soorten",
+    "september_2021_description": "De seizoenen veranderen! Elk jaar zijn er twee equinoxen: in maart en september. Op de dag van de equinox is er precies twaalf uur daglicht en twaalf uur nacht in de hele wereld. Als de daglengte verandert reageren planten en dieren daarop door hun groei of gedrag te veranderen.",
+    "september_2021_action": "Zijn er onlangs extreme weergebeurtenissen geweest in de buurt? Hoe hebben planten, dieren en schimmels daar op gereageerd? Probeer de gegevens over het weer deze maand in jouw omgeving te vinden. Wat voor soort veranderingen hebben zich voorgedaan en hoe denkt u dat dit van invloed kan zijn op de organismen die daar leven?",
+    "october_2021_challenge_name": "Spinnenuitdaging",
+    "october_2021_mission_1": "Vind 4 spinachtigen",
+    "october_2021_description": "Wist je dat niet alle spinachtigen spinnen zijn? Naast spinnen, mijten en teken, hooiwagens en zelfs kleine pseudoscorpions die over het hoofd gezien kunnen worden zijn gevonden op alle bewoonde continenten. Andere minder bekende spinachtigen zoals schorpioenen, zweepspunten, stoutloze zweepspunten en solifuges zijn meestal te vinden in warmer en/of drogere delen van de wereld.",
+    "october_2021_action": "Denk je aan de spinachtigen die je hebt gevonden. Hoe zou je hun habitats beschrijven? Zijn ze gevonden in dezelfde habitat?"
   }
 }

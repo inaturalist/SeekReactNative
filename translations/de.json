@@ -27,12 +27,12 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "AN INATURALIST SENDEN",
     "uploading_x_observations": {
-      "zero": "Lade {{count}} Beobachtungen hoch",
-      "one": "Lade {{count}} Beobachtung hoch",
-      "two": "Lade {{count}} Beobachtungen hoch",
-      "few": "Lade {{count}} Beobachtungen hoch",
-      "many": "Lade {{count}} Beobachtungen hoch",
-      "other": "Lade {{count}} Beobachtungen hoch"
+      "zero": "{{count}} Beobachtungen werden hochgeladen",
+      "one": "{{count}} Beobachtung wird hochgeladen",
+      "two": "{{count}} Beobachtungen werden hochgeladen",
+      "few": "{{count}} Beobachtungen werden hochgeladen",
+      "many": "{{count}} Beobachtungen werden hochgeladen",
+      "other": "{{count}} Beobachtungen werden hochgeladen"
     },
     "x_observations_uploaded": {
       "zero": "{{count}} Beobachtungen hochgeladen!",
@@ -198,10 +198,10 @@
     "badge_name_april": "Vernetzungs-Abzeichen",
     "badge_name_may": "Biodiversitäts-Abzeichen",
     "badge_name_june": "Gemeinschafts-Abzeichen",
-    "badge_name_august": "Waldabzeichen",
-    "badge_name_september": "Wiesen-Abzeichen",
-    "badge_name_october": "Süßwasser-Abzeichen",
-    "badge_name_november": "Hochsee-Abzeichen",
+    "badge_name_august": "Wiesen-Abzeichen",
+    "badge_name_september": "Süßwasser-Abzeichen",
+    "badge_name_october": "Hochsee-Abzeichen",
+    "badge_name_november": "Waldabzeichen",
     "badge_name_december": "Klima-Abzeichen",
     "op": "Unser Planet",
     "start_now": "Jetzt beginnen",
@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "beobachtete Arten",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ARTEN IN DER UMGEBUNG FÜR DIESE MISSION",
+    "no_species_nearby": "Wir haben für diese Mission keine Arten in der Nähe gefunden, die du noch nicht gesehen hast",
+    "species_nearby_internet_error": "Wir brauchen eine Internetverbindung, um Arten in der Nähe anzuzeigen."
   },
   "results": {
     "observed_species": "Du hast eine neue Art beobachtet!",
@@ -567,7 +567,7 @@
     "notes": "Hier Notizen hinzufügen",
     "date": "Datum",
     "location": "Standort",
-    "geoprivacy": "Geoprivatsphäre",
+    "geoprivacy": "Geo-Privatsphäre",
     "open": "Öffentlich",
     "obscured": "Verdeckt",
     "private": "Privat",
@@ -575,17 +575,17 @@
     "no": "Nein",
     "captive": "in Haltung/kultiviert",
     "what_seen": "Was hast du gesehen?",
-    "id": "Identifikation durch Seek",
+    "id": "Bestimmung durch Seek",
     "edit_location": "Standort bearbeiten",
     "save_location": "Standort speichern",
     "unknown": "Unbekannt",
     "ok": "Ok",
     "look_up": "Eine Art nach Namen suchen",
     "latitude_longitude": "Breite: {{latitude}}, Länge: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
+    "major_taxa": "Haupt-Taxa",
     "animals": "Tiere",
     "protozoans": "Protozoen",
-    "kelp": "Braunalgen, Diatomeen und Verwandte"
+    "kelp": "Braunalgen, Diatomeen & Verwandte"
   },
   "posting_status": {
     "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",
@@ -599,7 +599,7 @@
     "id_description": "Wenn du eine Beobachtung hochlädst, kannst du den Organismus soweit einem Taxon zuordnen, wie du es dir am ehesten zutraust - von \"Klasse\", wie z.B. Reptilien, bis zu einer Art, wie z.B. Kohlmeise. Nachdem deine Beobachtung an iNaturalist geschickt wurde, versucht unsere Gemeinschaft dabei zu helfen, die Art zu identifizieren oder zu bestätigen.\n\nHier kannst du auch optional Notizen hinzufügen.",
     "date": "Datum & Standort",
     "date_description": "Jede Beobachtung auf iNaturalist ist mit einem bestimmten Datum und Ort verbunden, so können wir ein globales Bild davon sehen, wie sich eine Art weltweit mit der Zeit verändert.",
-    "geoprivacy": "Geoprivatsphäre",
+    "geoprivacy": "Geo-Privatsphäre",
     "open_header": "Öffentlich: ",
     "obscured_header": "Verdeckt: ",
     "closed_header": "Privat: ",
@@ -837,5 +837,19 @@
     "logged_in_bullet_3": "Deine Seek-Beobachtungen sind NICHT über iNaturalist gesichert. Das Löschen von Seek löscht alle Beobachtungen auf deinem Gerät.",
     "upload_and_track_obs_using_inat": "Hochladen und verfolgen deiner Beobachtungen mit der iNaturalist-App oder über inaturalist.org.\n\nDanke, dass du Teil dieser Gemeinschaft bist!",
     "x_seen_by_user": "{{speciesName}} beobachtet von {{user}}"
+  },
+  "seek_2021_challenges": {
+    "august_2021_challenge_name": "Räuberische Arthropoden-Mission",
+    "august_2021_mission_1": "Finde 5 Arten von Arthropoden aus diesen Gruppen:\n\n-Insektenordnung Mantodea (Gottesanbeterinnen);\n-Insektenordnung Odonata (Libellen);\n-Insektenordnung Megaloptera (Schlammfliegen);\n-Insektenordnung Neuroptera (Florfliegen, Ameisenjungfern und Verwandte);\n-Insektenfamilie Coccinellidae (Marienkäfer);\n-Klasse Chilopoda (Hundertfüßer);\n-Klasse Arachnida (Spinnentiere)",
+    "august_2021_description": "Raubtiere sind Tiere, die andere Tiere jagen und fressen. Aber du musst nicht weit gehen, um welche zu finden! Hundertfüßer, Spinnen und viele andere Insekten und Spinnentiere jagen wahrscheinlich direkt vor deinem Fenster kleine Beutetiere – oder sogar im Haus. Sogar die meisten Marienkäfer sind Raubtiere!",
+    "august_2021_action": "Denke an die Arten von Raubtieren, die du gefunden hast. Was für Beutetiere fressen sie? Wie finden, fangen und konsumieren sie ihre Beute?",
+    "september_2021_challenge_name": "Jahreszeiten-Mission",
+    "september_2021_mission_1": "Finde 10 neue Arten",
+    "september_2021_description": "Die Jahreszeiten ändern sich: Jedes Jahr gibt es zwei Äquinoxe: im März und September. Am Tag des Äquinox gibt es fast genau 12 Stunden Tageslicht und 12 Stunden Nacht auf der ganzen Welt. Während sich die Tagesdauer ändert, reagieren Pflanzen und Tiere mit einer Veränderung ihres Wachstums oder Verhaltens darauf.",
+    "september_2021_action": "Hast du in letzter Zeit extreme Wetterereignisse in deiner Nähe erlebt? Wie haben Pflanzen, Tiere und Pilze reagiert? Versuche, frühere Wetterdaten für diesen Monat in deiner Region zu finden. Welche Art von Veränderungen sind eingetreten und wie könnten sich deiner Meinung nach die dort lebenden Organismen auswirken?",
+    "october_2021_challenge_name": "Spinnentier-Mission",
+    "october_2021_mission_1": "Finde 4 Spinnentiere",
+    "october_2021_description": "Wusstest du, dass nicht alle Arachniden Spinnen sind? Neben Spinnen finden sich auch Milben und Zecken, Weberknechte und sogar die kleinen, oft übersehenen Pseudoskorpione auf allen bewohnten Kontinenten. Andere weniger bekannte Arachniden wie Skorpione, Geißelspinnen, Geißelskorpione und Walzenspinnen sind generell in wärmeren und/oder trockeneren Teilen der Welt zu finden.",
+    "october_2021_action": "Denke an die Sorten von Spinnentieren, die du gefunden hast. Wie würdest du ihre Lebensräume beschreiben? Wurde eines von ihnen im gleichen Lebensraum gefunden?"
   }
 }

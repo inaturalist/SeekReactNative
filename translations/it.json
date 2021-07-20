@@ -198,10 +198,10 @@
     "badge_name_april": "Distintivo Connettività",
     "badge_name_may": "Distintivo Biodiversità",
     "badge_name_june": "Distintivo Comunità",
-    "badge_name_august": "Distintivo Foreste",
-    "badge_name_september": "Distintivo Praterie",
-    "badge_name_october": "Distintivo Acque Dolci",
-    "badge_name_november": "Distintivo Alto Mare",
+    "badge_name_august": "Distintivo Praterie",
+    "badge_name_september": "Distintivo Acque Dolci",
+    "badge_name_october": "Distintivo Alto Mare",
+    "badge_name_november": "Distintivo Foreste",
     "badge_name_december": "Distintivo Clima",
     "op": "Il Nostro Pianeta",
     "start_now": "Inizia adesso",
@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Specie Osservate",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "SPECIE NELLE VICINANZE IN QUESTA SFIDA",
+    "no_species_nearby": "Non abbiamo trovato specie nelle vicinanze in questa sfida che non hai già osservato",
+    "species_nearby_internet_error": "Abbiamo bisogno di Internet per generare la lista delle specie nelle vicinanze."
   },
   "results": {
     "observed_species": "Hai osservato una nuova specie!",
@@ -837,5 +837,19 @@
     "logged_in_bullet_3": "Le tue osservazioni di Seek NON sono salvate su iNaturalist. L'eliminazione di Seek cancellerà tutte le osservazioni sul tuo dispositivo.",
     "upload_and_track_obs_using_inat": "Carica e tieni traccia delle tue osservazioni utilizzando l'app iNaturalist o visitando inaturalist.org.\n\nGrazie per essere parte di questa community!",
     "x_seen_by_user": "{{speciesName}} vista da {{user}}"
+  },
+  "seek_2021_challenges": {
+    "august_2021_challenge_name": "Sfida Artropodi Predatori",
+    "august_2021_mission_1": "Trova 5 specie di artropodi da:\n\n-Insetti: Ordine Mantodea (Mantidi);\n-Insetti: Ordine Odonata (Libellule e Damigelle);\n-Insetti: Ordine Megaloptera (Sialidae, Corydalinae, e Chauliodinae);\n-Insetti: Ordine Neuroptera (Formicaleoni, Crisope e simili);\n-Insetti: Famiglia Coccinellidae (Coccinelle);\n-Classe Chilopoda (Centopiedi);\n-Classe Arachnida (Arachnidi)",
+    "august_2021_description": "I predatori sono animali che cacciano e consumano altri animali. Ma non c'è bisogno di andare lontano per trovarli! Centopiedi, ragni e molti altri insetti ed aracnidi stanno probabilmente cacciando animali prede più piccoli appena fuori dalla tua finestra—o anche dentro casa. Anche la maggior parte delle coccinelle sono predatori!",
+    "august_2021_action": "Pensa ai tipi di predatori che hai trovato. Che tipo di prede mangiano? Come trovano, catturano e consumano le prede?",
+    "september_2021_challenge_name": "Sfida Stagionalità",
+    "september_2021_mission_1": "Trova 10 nuove specie",
+    "september_2021_description": "Le stagioni stanno cambiando! Ogni anno ci sono due equinozi: in marzo e settembre. Il giorno dell'equinozio ci saranno quasi esattamente 12 ore di luce e 12 ore di notte in tutto il mondo. Quando la durata dei giorni cambia, le piante e gli animali rispondono cambiando la loro crescita o il loro comportamento.",
+    "september_2021_action": "Ci sono stati eventi meteorologici estremi vicino a te recentemente? Come hanno risposto piante, animali e funghi? Prova a trovare i dati meteo il mese trascorso nella tua zona. Che tipo di cambiamenti si sono verificati e come pensi che abbiano influito sugli organismi che vi vivono?",
+    "october_2021_challenge_name": "Sfida Aracnidi",
+    "october_2021_mission_1": "Trova 4 aracnidi",
+    "october_2021_description": "Lo sapevi che non tutti gli aracnidi sono ragni? Oltre ai ragni, gli acari e le zecche, gli opilionidi (noti anche come “papà gambe lunghe”), e anche i piccoli trascurati pseudoscorpioni si possono trovare in tutti i continenti abitati. Altri aracnidi meno conosciuti come scorpioni, Uropygi, Amblipigi, e  Solifughi, si trovano generalmente nelle parti più calde e/o più secche del mondo.",
+    "october_2021_action": "Pensa ai tipi di aracnidi che ha trovato. Come descriveresti i loro habitat? Hai trovato alcuni di loro nello stesso habitat?"
   }
 }

@@ -1,11 +1,7 @@
 // @flow
 
-import React, { Component } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
@@ -13,93 +9,64 @@ import styles from "../../styles/match/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
+import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
+import { fetchSpeciesNearby } from "../../utility/apiCalls";
 
 type Props = {
   +ancestorId:number,
   +image: Object
 }
 
-class SpeciesNearby extends Component<Props> {
-  constructor( ) {
-    super( );
+const SpeciesNearby = ( { ancestorId, image }: Props ): Node => {
+  const [taxa, setTaxa] = useState( [] );
+  const [loading, setLoading] = useState( false );
+  const [loaded, setLoaded] = useState( false );
 
-    this.state = {
-      taxa: [],
-      loading: false,
-      notLoaded: true
-    };
-  }
-
-  setTaxa( taxa ) {
-    this.setState( { taxa }, () => this.setState( {
-      loading: false
-    } ) );
-  }
-
-  setParamsForSpeciesNearby() {
-    this.setState( { loading: true, notLoaded: null } );
-    const { ancestorId, image } = this.props;
-    const { latitude, longitude } = image;
-
+  useEffect( ( ) => {
     const params = {
-      per_page: 20,
-      lat: latitude,
-      lng: longitude,
-      observed_on: new Date(),
-      seek_exceptions: true,
-      locale: i18n.locale,
-      taxon_id: ancestorId,
-      all_photos: true // this allows for ARR license filtering
+      lat: image.latitude,
+      lng: image.longitude,
+      taxon_id: ancestorId
     };
 
-    this.fetchSpeciesNearby( params );
-  }
-
-  fetchSpeciesNearby( params ) {
-    const site = "https://api.inaturalist.org/v1/taxa/nearby";
-    const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
-
-    fetch( `${site}?${queryString}` )
-      .then( response => response.json() )
-      .then( ( { results } ) => {
-        const taxa = results.map( r => r.taxon );
-        this.setTaxa( taxa );
-      } ).catch( () => {
-        console.log( "couldn't fetch species nearby" );
-      } );
-  }
-
-  render(): Node {
-    const { taxa, loading, notLoaded } = this.state;
-
-    let species;
+    const fetchTaxa = async ( ) => {
+      const results = await fetchSpeciesNearby( params );
+      setTaxa( results );
+      setLoaded( true );
+    };
 
     if ( loading ) {
-      species = <LoadingWheel color={colors.black} />;
-    } else {
-      species = <SpeciesNearbyList taxa={taxa} />;
+      fetchTaxa( );
     }
+  }, [loading, image, ancestorId] );
 
-    return (
-      <>
-        <Text style={styles.headerText}>
-          {i18n.t( "results.nearby" ).toLocaleUpperCase()}
-        </Text>
-        {notLoaded ? (
-          <TouchableOpacity
-            onPress={( ) => this.setParamsForSpeciesNearby( )}
-            style={[styles.center, styles.speciesNearbyContainer]}
-          >
-            <Text style={styles.text}>{i18n.t( "results.tap" )}</Text>
-          </TouchableOpacity>
-        ) : (
-          <View style={[styles.speciesNearbyContainer, styles.center, styles.largerHeight]}>
-            {species}
-          </View>
-        )}
-      </>
-    );
-  }
-}
+  const startLoading = ( ) => setLoading( true );
+
+  const renderSpecies = ( ) => {
+    if ( loaded ) {
+      return (
+        <View style={[styles.speciesNearbyContainer, styles.center, styles.largerHeight]}>
+          <SpeciesNearbyList taxa={taxa} />
+        </View>
+      );
+    } else if ( loading ) {
+      return (
+        <View style={[styles.speciesNearbyContainer, styles.center, styles.largerHeight]}>
+          <LoadingWheel color={colors.black} />
+        </View>
+      );
+    }
+    return <TapToLoad handlePress={startLoading} />;
+  };
+
+  return (
+    <>
+      <Text style={styles.headerText}>
+        {i18n.t( "results.nearby" ).toLocaleUpperCase( )}
+      </Text>
+      {renderSpecies( )}
+    </>
+  );
+};
 
 export default SpeciesNearby;

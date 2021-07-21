@@ -31,9 +31,10 @@ const PostScreen = (): Node => {
   const { preciseCoords } = image;
   const { taxaId, scientificName, commonName } = params;
 
-  const initialDate = image.time
-    ? formatGMTTimeWithTimeZone( setISOTime( image.time ) )
-    : null;
+  const date = formatGMTTimeWithTimeZone( setISOTime( image.time ) );
+
+  const initialDate = date.dateForServer;
+  const initialDisplayDate = date.dateForDisplay;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -51,6 +52,8 @@ const PostScreen = (): Node => {
         return { ...state, editedObservation: action.editedObservation };
       case "BUTTON_DISABLED":
         return { ...state, disabled: true };
+      case "UPDATE_DISPLAY_DATE":
+        return { ...state, displayDate: action.displayDate };
       default:
         throw new Error( );
     }
@@ -73,10 +76,11 @@ const PostScreen = (): Node => {
       name: scientificName,
       taxaId
     },
-    disabled: false
+    disabled: false,
+    displayDate: initialDisplayDate
   } );
 
-  const { editedObservation, taxon, disabled } = state;
+  const { editedObservation, taxon, disabled, displayDate } = state;
 
   const location = useLocationName( editedObservation.latitude, editedObservation.longitude );
 
@@ -127,10 +131,10 @@ const PostScreen = (): Node => {
   const handleDatePicked = ( selectedDate ) => {
     if ( selectedDate ) {
       const isFuture = isAndroidDateInFuture( selectedDate );
-      const newDate = isFuture
-        ? formatGMTTimeWithTimeZone( new Date( ) )
-        : formatGMTTimeWithTimeZone( selectedDate );
+      const formattedDate = formatGMTTimeWithTimeZone( isFuture ? new Date( ) : selectedDate );
+      const newDate = formattedDate.dateForServer;
       updateObservation( "observed_on_string", newDate );
+      dispatch( { type: "UPDATE_DISPLAY_DATE", displayDate: formattedDate.dateForDisplay } );
     }
   };
 
@@ -150,7 +154,7 @@ const PostScreen = (): Node => {
       />
       <Notes description={editedObservation.description} updateObservation={updateObservation} />
       <View style={styles.divider} />
-      <DatePicker dateToDisplay={editedObservation.observed_on_string} handleDatePicked={handleDatePicked} />
+      <DatePicker dateToDisplay={displayDate} handleDatePicked={handleDatePicked} />
       <View style={styles.divider} />
       <LocationPickerCard updateLocation={updateLocation} location={location} observation={editedObservation} />
       <View style={styles.divider} />

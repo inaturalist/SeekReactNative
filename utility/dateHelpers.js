@@ -53,6 +53,7 @@ const locales = {
   cs,
   da,
   de,
+  en: enUS,
   es,
   "es-MX": es,
   eu,
@@ -132,17 +133,29 @@ const serverBackOnlineTime = ( gmtTime: string ): number => differenceInHours( n
 
 const namePhotoByTime = (): string => format( new Date(), "ddMMyy_HHmmSSSS" );
 
+const formatPostingToINat = ( date: any ): string => format( date, "PPPPpaaa", { locale: locales[i18n.locale] } );
+
 const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
-const formatGMTTimeWithTimeZone = ( date: any ): string => {
+const formatGMTTimeWithTimeZone = ( date: any ): {
+  dateForServer: ?string,
+  dateForDisplay: ?string
+} => {
+  if ( !date ) { return {
+    dateForServer: null,
+    dateForDisplay: null
+  }; }
   const { utcToZonedTime } = TimeZone;
 
   const timeZone = RNLocalize.getTimeZone( );
   const zonedDate = utcToZonedTime( date, timeZone );
   const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
-  return TimeZone.format( zonedDate, pattern, { timeZone, locale: enUS } );
+  return {
+    dateForServer: TimeZone.format( zonedDate, pattern, { timeZone, locale: enUS } ),
+    dateForDisplay: formatPostingToINat( zonedDate )
+  };
 };
 
 const formatYearMonthDay = ( date: any ): string => {

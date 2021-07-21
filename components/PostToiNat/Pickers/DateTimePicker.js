@@ -24,19 +24,14 @@ type Props = {
 const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
   const [showModal, setShowModal] = useState( false );
 
-  const openModal = () => setShowModal( true );
-  const closeModal = () => setShowModal( false );
+  const openModal = ( ) => setShowModal( true );
+  const closeModal = ( ) => setShowModal( false );
 
-  const displayDate = ( ) => {
-    if ( !dateToDisplay ) { return ""; }
-
-    const dayAndTime = dateToDisplay.split( ":" ).splice( 0, 2 ).join( ":" );
-    return dayAndTime;
-  };
+  const displayDate = ( ) => dateToDisplay || "";
 
   const handlePicked = ( value ) => {
     handleDatePicked( value );
-    closeModal();
+    closeModal( );
   };
 
   return (
@@ -54,7 +49,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
         <Image source={posting.date} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
-            {i18n.t( "posting.date" ).toLocaleUpperCase()}
+            {i18n.t( "posting.date" ).toLocaleUpperCase( )}
           </Text>
           <Text style={styles.text}>{displayDate( )}</Text>
         </View>

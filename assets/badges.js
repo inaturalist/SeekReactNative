@@ -63,7 +63,8 @@ const badges = {
   badge_natgeo_march2021: require( "./badges/natGeoChallenges/badge_natgeo_march2021.webp" ),
   badge_natgeo_april2021: require( "./badges/natGeoChallenges/badge_natgeo_april2021.webp" ),
   badge_natgeo_may2021: require( "./badges/natGeoChallenges/badge_natgeo_may2021.webp" ),
-  badge_natgeo_june2021: require( "./badges/natGeoChallenges/badge_natgeo_june2021.webp" )
+  badge_natgeo_june2021: require( "./badges/natGeoChallenges/badge_natgeo_june2021.webp" ),
+  badge_inaturalist_august2021: require( "./badges/seekChallenges/badge_inaturalist_august2021.webp" )
 };
 
 export default badges;

@@ -253,6 +253,21 @@ const missions = [{
     number: 1,
     types: ["Araneae"]
   }
+}, { // august 2021
+  0: {
+    number: 5,
+    types: ["Mantodea", "Odonata", "Megaloptera", "Neuroptera", "Coccinellidae", "Chilopoda", "arachnids"]
+  }
+}, { // september 2021
+  0: {
+    number: 10,
+    types: ["all"]
+  }
+}, { // october 2021
+  0: {
+    number: 4,
+    types: ["arachnids"]
+  }
 }];
 
 export default missions;

@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.12.10",
+  "version": "2.12.11",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {

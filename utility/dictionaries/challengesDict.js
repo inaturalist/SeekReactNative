@@ -309,7 +309,43 @@ const challenges = {
     action: "natgeo_challenges.june_2021_action",
     badgeName: "natgeo_challenges.june_2021_badge_name",
     photographer: "natgeo_challenges.june_2021_photographer"
+  },
+  aug2021: {
+    name: "seek_2021_challenges.august_2021_challenge_name",
+    description: "seek_2021_challenges.august_2021_description",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-august2021",
+    earnedIconName: "badge_inaturalist_august2021",
+    missions: [
+      "seek_2021_challenges.august_2021_mission_1"
+    ],
+    availableDate: ( new Date( 2021, 7, 1 ): Date ),
+    action: "seek_2021_challenges.august_2021_action"
   }
+  // sept2021: {
+  //   name: "seek_2021_challenges.september_2021_challenge_name",
+  //   description: "seek_2021_challenges.september_2021_description",
+  //   totalSpecies: 10,
+  //   backgroundName: "img-challengedetail-september2021",
+  //   earnedIconName: "badge_inaturalist_september2021",
+  //   missions: [
+  //     "seek_2021_challenges.september_2021_mission_1"
+  //   ],
+  //   availableDate: ( new Date( 2021, 8, 1 ): Date ),
+  //   action: "seek_2021_challenges.september_2021_action"
+  // }
+  // oct2021: {
+  //   name: "seek_2021_challenges.october_2021_challenge_name",
+  //   description: "seek_2021_challenges.october_2021_description",
+  //   totalSpecies: 4,
+  //   backgroundName: "img-challengedetail-october2021",
+  //   earnedIconName: "badge_inaturalist_october2021",
+  //   missions: [
+  //     "seek_2021_challenges.october_2021_mission_1"
+  //   ],
+  //   availableDate: ( new Date( 2021, 9, 1 ): Date ),
+  //   action: "seek_2021_challenges.october_2021_action"
+  // }
 };
 
 export default challenges;

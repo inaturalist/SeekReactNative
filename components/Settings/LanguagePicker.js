@@ -8,7 +8,7 @@ import RNPickerSelect from "react-native-picker-select";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/settings";
+import { viewStyles, textStyles } from "../../styles/settings";
 import { colors } from "../../styles/global";
 import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
@@ -20,7 +20,7 @@ const localeList = Object.keys( languages ).map( ( locale ) => (
 ) );
 
 const placeholder = {};
-const pickerStyles = { ...styles };
+const pickerStyles = { ...viewStyles };
 const showIcon = () => <></>;
 
 const { languageCode } = RNLocalize.getLocales()[0];
@@ -54,7 +54,7 @@ const LanguagePicker = (): Node => {
   const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );
 
   const renderDeviceCheckbox = useMemo( () => (
-    <View style={[styles.row, styles.checkboxRow]}>
+    <View style={[viewStyles.row, viewStyles.checkboxRow]}>
       {/* accessibility isn't available for this component, and it's also not
       implemented on iOS for the official react-native-checkbox library
       https://github.com/crazycodeboy/react-native-check-box/issues/94 */}
@@ -63,15 +63,15 @@ const LanguagePicker = (): Node => {
         isChecked={isChecked}
         disabled={isChecked}
         onClick={setDeviceLanguage}
-        style={styles.checkBox}
+        style={viewStyles.checkBox}
       />
-      <Text style={[styles.text, styles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
+      <Text style={[textStyles.text, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
     </View>
   ), [isChecked, setDeviceLanguage] );
 
   return (
-    <View style={styles.donateMarginBottom}>
-      <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
+    <View style={viewStyles.donateMarginBottom}>
+      <Text style={textStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
       {deviceLanguageSupported( ) && renderDeviceCheckbox}
       <RNPickerSelect
         hideIcon

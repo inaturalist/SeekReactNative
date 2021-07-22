@@ -10,7 +10,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/modals/deleteModal";
+import { viewStyles, textStyles } from "../../styles/modals/deleteModal";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
@@ -52,21 +52,21 @@ const DeleteModal = ( {
       {/* $FlowFixMe */}
       <LinearGradient
         colors={[colors.grayGradientDark, colors.grayGradientLight]}
-        style={styles.flagHeader}
+        style={viewStyles.flagHeader}
       >
-        <View style={[styles.flagTextContainer, styles.row]}>
-          <Text allowFontScaling={false} style={[styles.buttonText, styles.headerStyling]}>
+        <View style={[viewStyles.flagTextContainer, viewStyles.row]}>
+          <Text allowFontScaling={false} style={textStyles.buttonText}>
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
             onPress={closeModal}
-            style={styles.flagBackButton}
+            style={viewStyles.flagBackButton}
           >
             <Image source={icons.closeWhite} />
           </TouchableOpacity>
         </View>
       </LinearGradient>
-      <View style={styles.margin} />
+      <View style={viewStyles.margin} />
       <SpeciesCard
         allowFontScaling={false}
         taxon={{
@@ -76,21 +76,21 @@ const DeleteModal = ( {
         }}
         photo={photo}
       />
-      <View style={styles.margin} />
-      <Text allowFontScaling={false} style={styles.text}>{i18n.t( "delete.description" )}</Text>
-      <View style={styles.marginSmall} />
+      <View style={viewStyles.margin} />
+      <Text allowFontScaling={false} style={textStyles.text}>{i18n.t( "delete.description" )}</Text>
+      <View style={viewStyles.marginSmall} />
       <Button
         handlePress={deleteObs}
         text="delete.yes"
         large
       />
-      <View style={styles.marginSmall} />
+      <View style={viewStyles.marginSmall} />
       <Button
         handlePress={closeModal}
         text="delete.no"
         color={colors.grayGradientLight}
       />
-      <View style={styles.marginLarge} />
+      <View style={viewStyles.marginLarge} />
     </WhiteModal>
   );
 };

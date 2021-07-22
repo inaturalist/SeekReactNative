@@ -1,22 +1,15 @@
 // @flow
 
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
   row
 } from "../global";
 
-export default StyleSheet.create( {
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    textAlign: "center"
-  },
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   flagBackButton: {
     marginLeft: 33,
     marginRight: 29
@@ -31,10 +24,6 @@ export default StyleSheet.create( {
     justifyContent: "flex-end",
     marginTop: 15
   },
-  headerStyling: {
-    marginRight: 15,
-    paddingTop: 9
-  },
   margin: {
     marginTop: 27
   },
@@ -44,7 +33,20 @@ export default StyleSheet.create( {
   marginSmall: {
     marginTop: 16
   },
-  row,
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    marginRight: 15,
+    paddingTop: 9,
+    textAlign: "center"
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -54,3 +56,8 @@ export default StyleSheet.create( {
     width: 292
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

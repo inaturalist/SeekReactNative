@@ -25,7 +25,9 @@ const setCarouselHorizontalMargins = ( ) => {
   return ( modalWidth - setImageWidth( ) ) / 2;
 };
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   arrow: {
     padding: 27,
     position: "absolute",
@@ -33,11 +35,6 @@ export default StyleSheet.create( {
     top: 190 - 27,
     transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }],
     zIndex: 1
-  },
-  bullets: {
-    color: colors.seekForestGreen,
-    fontSize: 37,
-    marginHorizontal: 41
   },
   carousel: {
     alignItems: "center"
@@ -48,9 +45,6 @@ export default StyleSheet.create( {
     marginBottom: 25,
     width: setImageWidth( ),
     marginHorizontal: setCarouselHorizontalMargins( )
-  },
-  imageStyle: {
-    resizeMode: "contain"
   },
   leftArrow: {
     left: 0,
@@ -72,6 +66,18 @@ export default StyleSheet.create( {
   marginMedium: {
     marginBottom: 11
   },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  bullets: {
+    color: colors.seekForestGreen,
+    fontSize: 37,
+    marginHorizontal: 41
+  },
   nameText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -79,17 +85,25 @@ export default StyleSheet.create( {
     marginHorizontal: 27,
     textAlign: "center"
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap"
+  transparent: {
+    color: colors.white
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  imageStyle: {
+    resizeMode: "contain"
   },
   smallImage: {
     height: 57,
     marginHorizontal: 20,
     resizeMode: "contain",
     width: 57
-  },
-  transparent: {
-    color: colors.white
   }
 } );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

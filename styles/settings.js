@@ -31,7 +31,9 @@ const buttonContainer = {
   alignItems: "center"
 };
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   checkBox: {
     paddingRight: 10.3
@@ -45,24 +47,6 @@ export default StyleSheet.create( {
     paddingBottom: 11,
     paddingHorizontal: 18,
     paddingTop: Platform.OS === "ios" ? 18 : 12
-  },
-  subHeader: {
-    color: colors.settingsGray,
-    fontFamily: fonts.semibold,
-    fontSize: 17,
-    letterSpacing: 0.94
-  },
-  header: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
-  languageText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
-    letterSpacing: 1.11
   },
   leftMargin: {
     marginBottom: 5,
@@ -110,6 +94,33 @@ export default StyleSheet.create( {
     paddingVertical: 19 / 2,
     marginRight: 10
   },
+  // $FlowFixMe
+  inputIOS: greenButton,
+  inputIOSContainer: buttonContainer,
+  // $FlowFixMe
+  inputAndroid: greenButton,
+  inputAndroidContainer: buttonContainer
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  subHeader: {
+    color: colors.settingsGray,
+    fontFamily: fonts.semibold,
+    fontSize: 17,
+    letterSpacing: 0.94
+  },
+  header: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
+  },
+  languageText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 20,
+    letterSpacing: 1.11
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -131,9 +142,10 @@ export default StyleSheet.create( {
     lineHeight: 21,
     paddingTop: padding.iOSPaddingSmall,
     maxWidth: width - ( 28 * 2 ) - 30 - 10.3
-  },
-  inputIOS: greenButton,
-  inputIOSContainer: buttonContainer,
-  inputAndroid: greenButton,
-  inputAndroidContainer: buttonContainer
+  }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

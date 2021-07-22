@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/settings";
+import { viewStyles, textStyles } from "../../styles/settings";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 const DonateButton = ( ): React.Node => {
@@ -14,17 +14,17 @@ const DonateButton = ( ): React.Node => {
   const navToDonation = ( ) => navigate( "Donation" );
 
   return (
-    <View style={styles.margin}>
-      <Text style={styles.header}>{i18n.t( "settings.donate_header" ).toLocaleUpperCase( )}</Text>
-      <View style={styles.marginSmall} />
-      <Text style={styles.text}>{i18n.t( "settings.donate_description" )}</Text>
-      <View style={styles.marginMedium} />
+    <View style={viewStyles.margin}>
+      <Text style={textStyles.header}>{i18n.t( "settings.donate_header" ).toLocaleUpperCase( )}</Text>
+      <View style={viewStyles.marginSmall} />
+      <Text style={textStyles.text}>{i18n.t( "settings.donate_description" )}</Text>
+      <View style={viewStyles.marginMedium} />
       <GreenButton
         text="settings.donate"
         handlePress={navToDonation}
       />
-      <View style={styles.marginTop} />
-      <View style={styles.marginTop} />
+      <View style={viewStyles.marginTop} />
+      <View style={viewStyles.marginTop} />
     </View>
   );
 };

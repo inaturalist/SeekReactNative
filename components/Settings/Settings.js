@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { View } from "react-native";
 import type { Node } from "react";
 
-import styles from "../../styles/settings";
+import { viewStyles } from "../../styles/settings";
 import { UserContext } from "../UserContext";
 import LanguagePicker from "./LanguagePicker";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
@@ -17,7 +17,7 @@ const SettingsScreen = (): Node => {
 
   return (
     <ScrollWithHeader header="menu.settings">
-      <View style={[styles.marginHorizontal, styles.marginTop]}>
+      <View style={[viewStyles.marginHorizontal, viewStyles.marginTop]}>
         <CameraSettings />
         <SpeciesDetail />
         <LanguagePicker />

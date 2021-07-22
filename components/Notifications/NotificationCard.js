@@ -10,7 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/notifications";
+import { viewStyles, textStyles, imageStyles } from "../../styles/notifications";
 import notifications from "../../assets/notifications";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import challengesDict from "../../utility/dictionaries/challengesDict";
@@ -45,18 +45,18 @@ const NotificationCard = ( { item }: Props ): React.Node => {
   return (
     <TouchableOpacity
       onPress={goToNotification}
-      style={[styles.card, styles.row]}
+      style={[viewStyles.card, viewStyles.row]}
     >
-      <Image source={image} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText}>
+      <Image source={image} style={imageStyles.image} />
+      <View style={viewStyles.textContainer}>
+        <Text style={textStyles.titleText}>
           {i18n.t( item.title )}
         </Text>
-        <Text style={styles.messageText}>
+        <Text style={textStyles.messageText}>
           {i18n.t( item.message )}
         </Text>
       </View>
-      {!item.seen && <View style={styles.greenDot} />}
+      {!item.seen && <View style={viewStyles.greenDot} />}
     </TouchableOpacity>
   );
 };

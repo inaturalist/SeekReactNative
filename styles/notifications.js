@@ -10,7 +10,9 @@ import {
 
 const { width } = dimensions;
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   card: {
     height: 112,
     justifyContent: "flex-start",
@@ -40,20 +42,17 @@ export default StyleSheet.create( {
     height: 11,
     width: 11
   },
-  image: {
-    height: 72,
-    marginRight: 24,
-    resizeMode: "contain",
-    width: 72
-  },
+  row,
+  textContainer: {
+    width: width - 161
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   messageText: {
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21
-  },
-  row,
-  textContainer: {
-    width: width - 161
   },
   titleText: {
     fontFamily: fonts.medium,
@@ -62,3 +61,19 @@ export default StyleSheet.create( {
     marginBottom: 6
   }
 } );
+
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: 72,
+    marginRight: 24,
+    resizeMode: "contain",
+    width: 72
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

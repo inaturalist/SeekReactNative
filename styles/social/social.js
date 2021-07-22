@@ -5,51 +5,19 @@ import { colors, center, fonts, dimensions, row, padding } from "../global";
 
 const { getFontScale } = PixelRatio;
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   header: {
     backgroundColor: colors.white,
     height: 55
-  },
-  headerText: {
-    alignSelf: "center",
-    paddingTop: 18,
-    position: "absolute"
   },
   spaceBeforeButtons: {
     marginTop: 23
   },
   spaceBetweenButtons: {
     marginTop: 23
-  },
-  photoSizeText: {
-    color: colors.seekForestGreen,
-    fontSize: 14,
-    lineHeight: 24,
-    letterSpacing: 0.78
-  },
-  selectedPhotoSizeText: {
-    fontFamily: fonts.semibold
-  },
-  linkText: {
-    alignSelf: "center",
-    color: colors.linkText,
-    fontFamily: fonts.book,
-    fontSize: 18,
-    textDecorationLine: "underline",
-    paddingVertical: 27
-  },
-  optionsText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    marginTop: 18,
-    marginLeft: 24
-  },
-  speciesIdText: {
-    fontFamily: fonts.book,
-    fontSize: 16
   },
   photoTabs: {
     flexDirection: "row",
@@ -66,20 +34,6 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 4,
     width: 138
-  },
-  image: {
-    backgroundColor: colors.black,
-    width: dimensions.width,
-    // containing the image shows an accurate watermark on the social screen
-    resizeMode: "contain",
-    height: dimensions.height
-  },
-  squareImage: {
-    width: dimensions.width,
-    // containing the image shows an accurate watermark on the social screen
-    resizeMode: "contain",
-    height: dimensions.width,
-    backgroundColor: colors.black
   },
   row,
   checkboxRow: {
@@ -135,6 +89,46 @@ export default StyleSheet.create( {
     maxWidth: 317,
     width: dimensions.width < 500 ? 293 : 317
   },
+  whiteContainer: {
+    backgroundColor: colors.white
+  },
+  headerText: {
+    alignSelf: "center",
+    paddingTop: 18,
+    position: "absolute"
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  photoSizeText: {
+    color: colors.seekForestGreen,
+    fontSize: 14,
+    lineHeight: 24,
+    letterSpacing: 0.78
+  },
+  selectedPhotoSizeText: {
+    fontFamily: fonts.semibold
+  },
+  linkText: {
+    alignSelf: "center",
+    color: colors.linkText,
+    fontFamily: fonts.book,
+    fontSize: 18,
+    textDecorationLine: "underline",
+    paddingVertical: 27
+  },
+  optionsText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginTop: 18,
+    marginLeft: 24
+  },
+  speciesIdText: {
+    fontFamily: fonts.book,
+    fontSize: 16
+  },
   buttonText: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -143,8 +137,28 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSButtonPadding,
     textAlign: "center",
     marginLeft: 10
-  },
-  whiteContainer: {
-    backgroundColor: colors.white
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    backgroundColor: colors.black,
+    width: dimensions.width,
+    // containing the image shows an accurate watermark on the social screen
+    resizeMode: "contain",
+    height: dimensions.height
+  },
+  squareImage: {
+    width: dimensions.width,
+    // containing the image shows an accurate watermark on the social screen
+    resizeMode: "contain",
+    height: dimensions.width,
+    backgroundColor: colors.black
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

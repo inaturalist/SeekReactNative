@@ -3,7 +3,7 @@
 import * as React from "react";
 import HTML from "react-native-render-html";
 
-import styles from "../../styles/auth/privacy";
+import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const PrivacyPolicyScreen = (): React.Node => {
@@ -318,9 +318,9 @@ const PrivacyPolicyScreen = (): React.Node => {
     <ScrollWithHeader header="inat_signup.privacy">
       <HTML
         {...DEFAULT_PROPS}
-        containerStyle={styles.textContainer}
+        containerStyle={viewStyles.textContainer}
         source={{ html }}
-        tagsStyles={ { p: styles.text, h3: styles.headerText, a: styles.text, li: styles.list } }
+        tagsStyles={ { p: textStyles.text, h3: textStyles.headerText, a: textStyles.text, li: textStyles.list } }
       />
     </ScrollWithHeader>
   );

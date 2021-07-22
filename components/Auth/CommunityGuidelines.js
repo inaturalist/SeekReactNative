@@ -3,7 +3,7 @@
 import * as React from "react";
 import HTML from "react-native-render-html";
 
-import styles from "../../styles/auth/privacy";
+import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const CommunityGuidelines = ( ): React.Node => {
@@ -190,9 +190,9 @@ const CommunityGuidelines = ( ): React.Node => {
   return (
     <ScrollWithHeader header="inat_signup.guidelines">
       <HTML
-        containerStyle={styles.textContainer}
+        containerStyle={viewStyles.textContainer}
         source={{ html }}
-        tagsStyles={ { p: styles.text, strong: styles.headerText, h3: styles.headerText, a: styles.text } }
+        tagsStyles={ { p: textStyles.text, strong: textStyles.headerText, h3: textStyles.headerText, a: textStyles.text } }
       />
     </ScrollWithHeader>
   );

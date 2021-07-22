@@ -5,7 +5,7 @@ import { FlatList, View } from "react-native";
 import { useNavigation, useScrollToTop } from "@react-navigation/native";
 import type { Node } from "react";
 
-import styles from "../../styles/notifications";
+import { viewStyles } from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import EmptyState from "../UIComponents/EmptyState";
 import Padding from "../UIComponents/Padding";
@@ -29,7 +29,7 @@ const NotificationsScreen = ( ): Node => {
 
   const renderItem = ( { item } ) => <NotificationCard item={item} />;
   const showEmptyList = ( ) => <EmptyState />;
-  const renderItemSeparator = ( ) => <View style={styles.divider} />;
+  const renderItemSeparator = ( ) => <View style={viewStyles.divider} />;
   const renderFooter = ( ) => (
     <>
       <Padding />
@@ -42,7 +42,7 @@ const NotificationsScreen = ( ): Node => {
     <ViewWithHeader header="notifications.header">
       <FlatList
         ref={scrollView}
-        contentContainerStyle={[styles.containerWhite, styles.flexGrow]}
+        contentContainerStyle={[viewStyles.containerWhite, viewStyles.flexGrow]}
         data={notifications}
         keyExtractor={extractKey}
         ListFooterComponent={renderFooter}

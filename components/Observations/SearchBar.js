@@ -4,7 +4,7 @@ import * as React from "react";
 import { View, TextInput, Image, TouchableOpacity } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/observations/searchBar";
+import { viewStyles, textStyles, imageStyles } from "../../styles/observations/searchBar";
 import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
 import icons from "../../assets/icons";
@@ -16,16 +16,16 @@ type Props = {
 }
 
 const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props ): React.Node => (
-  <View style={[styles.row, styles.margins]}>
-    <Image source={posting.searchGreen} style={styles.search} />
+  <View style={[viewStyles.row, viewStyles.margins]}>
+    <Image source={posting.searchGreen} style={imageStyles.search} />
     {searchText.length > 0 && (
       <TouchableOpacity
         onPress={clearText}
-        style={styles.top}
+        style={viewStyles.top}
       >
         <Image
           source={icons.closeGray}
-          style={styles.clear}
+          style={imageStyles.clear}
         />
       </TouchableOpacity>
     )}
@@ -33,7 +33,7 @@ const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props 
       onChangeText={fetchFilteredObservations}
       placeholder={i18n.t( "observations.search" )}
       placeholderTextColor={colors.placeholderGray}
-      style={styles.inputField}
+      style={textStyles.inputField}
       defaultValue={searchText}
     />
   </View>

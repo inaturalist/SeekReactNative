@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from "../../../styles/camera/confirm";
+import { viewStyles, imageStyles } from "../../../styles/camera/confirm";
 import { colors } from "../../../styles/global";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
@@ -56,25 +56,25 @@ const ConfirmScreen = ( ): Node => {
 
   return (
     <SafeAreaView edges={["top"]}>
-      <View style={styles.header}>
+      <View style={viewStyles.header}>
         <BackArrow green />
-        <View style={styles.headerText}>
+        <View style={viewStyles.headerText}>
           <GreenText allowFontScaling={false} smaller text="confirm.identify" />
         </View>
         <View />
       </View>
-      <View style={styles.imageContainer}>
+      <View style={viewStyles.imageContainer}>
         {clicked && (
-          <View style={styles.loadingWheel}>
+          <View style={viewStyles.loadingWheel}>
             <LoadingWheel color="white" />
           </View>
         )}
         <Image
           source={imageSource}
-          style={styles.image}
+          style={imageStyles.image}
         />
       </View>
-      <View style={styles.footer}>
+      <View style={viewStyles.footer}>
         <GreenButton
           color={clicked && colors.seekTransparent}
           handlePress={updateClicked}

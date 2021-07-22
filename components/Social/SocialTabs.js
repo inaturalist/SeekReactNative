@@ -3,7 +3,7 @@
 import * as React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 
-import styles from "../../styles/social/social";
+import { viewStyles, textStyles } from "../../styles/social/social";
 import i18n from "../../i18n";
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
 const SocialTabs = ( { tab, toggleTab }: Props ): React.Node => {
   const renderTab = selectedTab => (
     <TouchableOpacity onPress={toggleTab}>
-      <Text style={[styles.photoSizeText, tab === selectedTab && styles.selectedPhotoSizeText]}>
+      <Text style={[textStyles.photoSizeText, tab === selectedTab && textStyles.selectedPhotoSizeText]}>
         {i18n.t( `social.${selectedTab}` ).toLocaleUpperCase( )}
       </Text>
     </TouchableOpacity>
@@ -22,19 +22,19 @@ const SocialTabs = ( { tab, toggleTab }: Props ): React.Node => {
 
   const renderIndicator = selectedTab => {
     if ( tab === selectedTab ) {
-      return <View style={styles.roundedIndicator} />;
+      return <View style={viewStyles.roundedIndicator} />;
     } else {
-      return <View style={styles.hiddenIndicator} />;
+      return <View style={viewStyles.hiddenIndicator} />;
     }
   };
 
   return (
     <>
-      <View style={styles.photoTabs}>
+      <View style={viewStyles.photoTabs}>
         {renderTab( "square" )}
         {renderTab( "original" )}
       </View>
-      <View style={styles.photoTabs}>
+      <View style={viewStyles.photoTabs}>
         {renderIndicator( "square" )}
         {renderIndicator( "original" )}
       </View>

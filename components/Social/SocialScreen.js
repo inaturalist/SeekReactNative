@@ -15,7 +15,7 @@ import Checkbox from "react-native-check-box";
 import type { Node } from "react";
 
 import { colors, dimensions } from "../../styles/global";
-import styles from "../../styles/social/social";
+import { viewStyles, textStyles, imageStyles } from "../../styles/social/social";
 import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
 import BackArrow from "../UIComponents/Buttons/BackArrow";
@@ -143,7 +143,7 @@ const SocialScreen = ( ): Node => {
   const showOriginalRatioImage = ( ) => {
     const photo = { uri: resizedOriginalImage };
 
-    return <Image source={photo} style={[styles.image, { height }]} />;
+    return <Image source={photo} style={[imageStyles.image, { height }]} />;
   };
 
   const saveCrop = ( ) => {
@@ -181,7 +181,7 @@ const SocialScreen = ( ): Node => {
   const showCropButton = ( ) => {
     if ( watermarkedSquareImage ) {
       return (
-        <TouchableOpacity onPress={openModal} style={styles.cropButton}>
+        <TouchableOpacity onPress={openModal} style={viewStyles.cropButton}>
           <Image source={icons.cropIcon} />
         </TouchableOpacity>
       );
@@ -189,10 +189,10 @@ const SocialScreen = ( ): Node => {
       return (
         <TouchableOpacity
           onPress={openModal}
-          style={styles.greenButton}
+          style={viewStyles.greenButton}
         >
           <Image source={icons.cropIconWhite} />
-          <Text style={styles.buttonText}>
+          <Text style={textStyles.buttonText}>
             {i18n.t( "social.crop_image" ).toLocaleUpperCase( )}
           </Text>
         </TouchableOpacity>
@@ -204,11 +204,11 @@ const SocialScreen = ( ): Node => {
     const photo = setSquarePhoto( );
 
     return (
-      <View style={styles.imageCropContainer}>
+      <View style={viewStyles.imageCropContainer}>
         <ImageBackground
           source={photo}
-          style={[styles.squareImage, !watermarkedSquareImage && styles.centerCropButton]}
-          imageStyle={!watermarkedSquareImage && styles.overlay}
+          style={[imageStyles.squareImage, !watermarkedSquareImage && viewStyles.centerCropButton]}
+          imageStyle={!watermarkedSquareImage && viewStyles.overlay}
         >
           {showCropButton( )}
         </ImageBackground>
@@ -254,7 +254,7 @@ const SocialScreen = ( ): Node => {
 
   return (
     <ScrollNoHeader>
-      <View style={styles.whiteContainer}>
+      <View style={viewStyles.whiteContainer}>
         <Modal
           onRequestClose={closeModal}
           visible={showModal}
@@ -267,9 +267,9 @@ const SocialScreen = ( ): Node => {
             closeModal={closeModal}
           />
         </Modal>
-        <View style={styles.header}>
+        <View style={viewStyles.header}>
           <BackArrow green />
-          <View style={styles.headerText}>
+          <View style={viewStyles.headerText}>
             <GreenText allowFontScaling={false} smaller text="social.share_observation" />
           </View>
           <View />
@@ -278,15 +278,15 @@ const SocialScreen = ( ): Node => {
         {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
         {!noWatermark && (
           <>
-            <Text style={styles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
-            <View style={[styles.row, styles.checkboxRow]}>
+            <Text style={textStyles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
+            <View style={[viewStyles.row, viewStyles.checkboxRow]}>
               <Checkbox
                 checkBoxColor={colors.checkboxColor}
                 isChecked={showWatermark}
                 onClick={toggleWatermark}
-                style={styles.checkbox}
+                style={viewStyles.checkbox}
               />
-              <Text style={styles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
+              <Text style={textStyles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
             </View>
           </>
         )}

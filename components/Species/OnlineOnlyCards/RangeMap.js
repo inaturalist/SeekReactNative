@@ -6,7 +6,7 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/species/rangeMap";
+import { viewStyles, textStyles } from "../../../styles/species/rangeMap";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import icons from "../../../assets/icons";
 import Legend from "../../Modals/LegendModal";
@@ -79,7 +79,7 @@ const RangeMap = (): Node => {
       <MapView
         provider={PROVIDER_DEFAULT}
         region={mapRegion}
-        style={styles.map}
+        style={viewStyles.map}
         zoomEnabled
       >
         <UrlTile
@@ -99,9 +99,9 @@ const RangeMap = (): Node => {
       </MapView>
       <TouchableOpacity
         onPress={openModal}
-        style={styles.legend}
+        style={viewStyles.legend}
       >
-        <Text style={styles.whiteText}>
+        <Text style={textStyles.whiteText}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
@@ -110,7 +110,7 @@ const RangeMap = (): Node => {
           accessibilityLabel={i18n.t( "accessibility.user_location" )}
           accessible
           onPress={updateMap}
-          style={styles.locationIcon}
+          style={viewStyles.locationIcon}
         >
           <Image source={icons.indicator} />
         </TouchableOpacity>

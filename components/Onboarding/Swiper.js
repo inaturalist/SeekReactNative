@@ -29,7 +29,9 @@ const Swiper = ( { children }: Props ): Node => {
 
   const onViewRef = useRef( ( { changed } ) => {
     const { index } = changed[0];
-    setScrollIndex( index );
+    if ( typeof index === "number" ) {
+      setScrollIndex( index );
+    }
   } );
 
   const renderPage = useCallback( ( { item, index } ) => (

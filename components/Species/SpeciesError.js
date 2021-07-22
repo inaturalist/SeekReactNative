@@ -10,7 +10,7 @@ import {
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/species/speciesError";
+import { viewStyles, textStyles } from "../../styles/species/speciesError";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -19,15 +19,15 @@ type Props = {
 }
 
 const SpeciesError = ( { seenTaxa, checkForInternet }: Props ): Node => (
-  <View style={styles.background}>
+  <View style={viewStyles.background}>
     <TouchableOpacity
-      onPress={() => checkForInternet()}
-      style={[styles.errorContainer, styles.center, styles.row]}
+      onPress={checkForInternet}
+      style={[viewStyles.errorContainer, viewStyles.center, viewStyles.row]}
     >
       <Image source={icons.internet} />
-      <Text style={styles.errorText}>{i18n.t( "species_detail.internet_error" )}</Text>
+      <Text style={textStyles.errorText}>{i18n.t( "species_detail.internet_error" )}</Text>
     </TouchableOpacity>
-    {seenTaxa && <Text style={styles.text}>{i18n.t( "species_detail.species_saved" )}</Text>}
+    {seenTaxa && <Text style={textStyles.text}>{i18n.t( "species_detail.species_saved" )}</Text>}
   </View>
 );
 

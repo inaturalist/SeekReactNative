@@ -38,13 +38,15 @@ type Props = {
 const LocationPickerCard = ( { location, updateLocation, observation }: Props ): Node => {
   const [showModal, setShowModal] = useState( false );
 
-  const openModal = () => setShowModal( true );
-  const closeModal = useCallback( () => setShowModal( false ), [] );
+  const openModal = ( ) => setShowModal( true );
+  const closeModal = useCallback( ( ) => setShowModal( false ), [] );
 
-  const coords = observation.latitude && `${i18n.t( "posting.latitude_longitude", {
-    latitude: truncateCoordinates( observation.latitude ),
-    longitude: truncateCoordinates( observation.longitude )
-  } )}`;
+  const latString = observation.latitude && truncateCoordinates( observation.latitude );
+  const longString = observation.longitude && truncateCoordinates( observation.longitude );
+
+  const coordinateString = ( latString && longString )
+    ? `${i18n.t( "posting.latitude_longitude", { latitude: latString, longitude: longString } )}`
+    : null;
 
   return (
     <>
@@ -66,12 +68,12 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
         <Image source={posting.location} style={styles.extraMargin} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
-            {i18n.t( "posting.location" ).toLocaleUpperCase()}
+            {i18n.t( "posting.location" ).toLocaleUpperCase( )}
           </Text>
           <Text style={styles.text}>
             {location || i18n.t( "location_picker.undefined" )}
           </Text>
-          {coords && <Text style={styles.coordsText}>{coords}</Text>}
+          {coordinateString && <Text style={styles.coordsText}>{coordinateString}</Text>}
         </View>
         {/* $FlowFixMe */}
         <Image

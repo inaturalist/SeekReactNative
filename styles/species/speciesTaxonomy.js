@@ -7,14 +7,19 @@ import {
   row
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   bullet: {
     marginRight: 18
   },
   marginTop: {
     marginTop: 7
   },
-  row,
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   taxonomyHeader: {
     color: colors.black,
     fontFamily: fonts.semibold,
@@ -35,3 +40,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.bookItalic
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

@@ -10,7 +10,7 @@ import {
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/species/speciesPhotos";
+import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { localizeAttributions } from "../../utility/photoHelpers";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
@@ -35,16 +35,14 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
 
     return (
       <View key={`image${photo.medium_url}`}>
-        <Image source={{ uri: photo.medium_url }} style={styles.image} />
+        <Image source={{ uri: photo.medium_url }} style={imageStyles.image} />
         <TouchableOpacity
           onPress={showLicense}
-          style={styles.ccButton}
+          style={viewStyles.ccButton}
         >
-          <View style={styles.ccView}>
-            <Text style={styles.ccButtonText}>
-              {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
-            </Text>
-          </View>
+          <Text style={textStyles.ccButtonText}>
+            {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -61,7 +59,7 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
     if ( userPhoto ) {
       list.push(
         <View key="user-image">
-          <Image source={userPhoto} style={styles.image} />
+          <Image source={userPhoto} style={imageStyles.image} />
         </View>
       );
     }
@@ -91,13 +89,13 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
   const renderPhotoList = ( ) => {
     if ( error ) {
       return (
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
+        <View style={viewStyles.errorContainer}>
+          <Text style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
         </View>
       );
     } else if ( photoList.length === 0 ) {
       return (
-        <View style={[styles.photoContainer, styles.fullWidth]}>
+        <View style={viewStyles.photoContainer}>
           <LoadingWheel color="white" />
         </View>
       );

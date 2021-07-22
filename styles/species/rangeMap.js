@@ -5,7 +5,9 @@ import { colors, fonts } from "../global";
 
 const { width, height } = Dimensions.get( "screen" );
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   legend: {
     backgroundColor: colors.seekForestGreen,
     borderTopRightRadius: 40,
@@ -47,7 +49,10 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     marginHorizontal: 25,
     marginTop: 15
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -65,3 +70,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

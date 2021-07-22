@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/species/iNatObs";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/species/iNatObs";
 import logos from "../../../assets/logos";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import createUserAgent from "../../../utility/userAgent";
@@ -65,29 +65,29 @@ const INatObs = ( { id, timesSeen, region }: Props ): Node => {
     if ( timesSeen && nearbySpeciesCount ) {
       obs = (
         <SpeciesDetailCard text="species_detail.inat_obs">
-          <View style={[styles.center, styles.row]}>
+          <View style={[viewStyles.center, viewStyles.row]}>
             <TouchableOpacity onPress={navToINatStats}>
-              <Image source={logos.bird} style={styles.bird} />
+              <Image source={logos.bird} style={imageStyles.bird} />
             </TouchableOpacity>
-            <View style={styles.textContainer}>
+            <View style={viewStyles.textContainer}>
               {region.latitude && (
                 <>
-                  <Text style={styles.secondHeaderText}>
+                  <Text style={textStyles.secondHeaderText}>
                     {i18n.t( "species_detail.near" )}
                   </Text>
-                  <Text style={styles.number}>
+                  <Text style={textStyles.number}>
                     {localizeNumber( nearbySpeciesCount )}
                   </Text>
                 </>
               )}
               <Text style={[
-                styles.secondHeaderText,
-                region.latitude && styles.margin
+                textStyles.secondHeaderText,
+                region.latitude && viewStyles.margin
               ]}
               >
                 {i18n.t( "species_detail.worldwide" )}
               </Text>
-              <Text style={styles.number}>
+              <Text style={textStyles.number}>
                 {localizeNumber( timesSeen )}
               </Text>
             </View>

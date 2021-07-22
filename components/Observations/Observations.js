@@ -160,11 +160,13 @@ const Observations = ( ): Node => {
         useNativeDriverForBackdrop
         useNativeDriver
       >
-        <DeleteModal
-          deleteObservation={deleteObservation}
-          itemToDelete={itemToDelete}
-          closeModal={closeModal}
-        />
+        {itemToDelete && (
+          <DeleteModal
+            deleteObservation={deleteObservation}
+            itemToDelete={itemToDelete}
+            closeModal={closeModal}
+          />
+        )}
       </Modal>
       <View style={styles.whiteContainer}>
         {loading

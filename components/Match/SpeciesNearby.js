@@ -17,7 +17,7 @@ type Props = {
   +image: Object
 }
 
-const SpeciesNearby = ( { ancestorId, image }: Props ): Node => {
+const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
   const [taxa, setTaxa] = useState( [] );
   const [loading, setLoading] = useState( false );
   const [loaded, setLoaded] = useState( false );
@@ -69,4 +69,4 @@ const SpeciesNearby = ( { ancestorId, image }: Props ): Node => {
   );
 };
 
-export default SpeciesNearby;
+export default SpeciesNearbyMatch;

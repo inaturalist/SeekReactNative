@@ -11,7 +11,7 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import styles from "../../../styles/home/speciesNearby";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/home/speciesNearby";
 import Picker from "../../../components/UIComponents/Picker";
 import { SpeciesNearbyContext } from "../../UserContext";
 
@@ -36,10 +36,10 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
   const handleValueChange = useCallback( ( value ) => updateTaxaType( value ), [updateTaxaType] );
 
   const renderTaxonPicker = useMemo( () => (
-    <TouchableOpacity style={[styles.row, styles.marginLeft]}>
-      <Image source={icons.filter} style={styles.image} />
-      <View style={styles.whiteButton}>
-        <Text style={styles.buttonText}>
+    <TouchableOpacity style={[viewStyles.row, viewStyles.marginLeft]}>
+      <Image source={icons.filter} style={imageStyles.image} />
+      <View style={viewStyles.whiteButton}>
+        <Text style={textStyles.buttonText}>
           {i18n.t( `taxon_picker.${taxaType}` ).toLocaleUpperCase()}
         </Text>
       </View>

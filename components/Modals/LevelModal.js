@@ -9,7 +9,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/modals/levelModal";
+import { viewStyles, textStyles, imageStyles } from "../../styles/modals/levelModal";
 import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
 import GreenText from "../UIComponents/GreenText";
@@ -29,7 +29,7 @@ const LevelModal = ( {
   screen
 }: Props ): React.Node => (
   <WhiteModal closeModal={closeModal}>
-    <View style={styles.headerMargins}>
+    <View style={viewStyles.headerMargins}>
       <GreenText text={screen === "achievements"
         ? "badges.your_level"
         : "banner.level_up"}
@@ -38,15 +38,15 @@ const LevelModal = ( {
     {/* $FlowFixMe */}
     <LinearGradient
       colors={[colors.greenGradientLight, colors.greenGradientDark]}
-      style={styles.backgroundColor}
+      style={viewStyles.backgroundColor}
     >
       <Image
         source={badgeImages[level.earnedIconName]}
-        style={styles.image}
+        style={imageStyles.image}
       />
-      <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
+      <Text style={textStyles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
     </LinearGradient>
-    <Text style={styles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</Text>
+    <Text style={textStyles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</Text>
   </WhiteModal>
 );
 

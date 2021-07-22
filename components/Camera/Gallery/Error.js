@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
 import GreenHeader from "../../UIComponents/GreenHeader";
-import styles from "../../../styles/camera/error";
+import { viewStyles, textStyles } from "../../../styles/camera/error";
 
 type Props = {
   +error: string,
@@ -29,10 +29,10 @@ const ErrorScreen = ( { error, number }: Props ): React.Node => {
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <GreenHeader />
-      <View style={styles.textContainer}>
-        <Text style={styles.errorText}>{errorText}</Text>
+      <View style={viewStyles.textContainer}>
+        <Text style={textStyles.errorText}>{errorText}</Text>
       </View>
     </SafeAreaView>
   );

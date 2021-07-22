@@ -1,10 +1,10 @@
 // @flow
 import { createContext } from "react";
 
-const UserContext = createContext<Function>( );
-const LanguageContext = createContext<Function>( );
-const ObservationContext = createContext<Function>( );
-const SpeciesNearbyContext = createContext<Function>( );
+const UserContext: Object = createContext<Function>( );
+const LanguageContext: Object = createContext<Function>( );
+const ObservationContext: Object = createContext<Function>( );
+const SpeciesNearbyContext: Object = createContext<Function>( );
 
 export {
   UserContext,

@@ -33,7 +33,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-
 const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   image: {
     height: ( height / 3 ) * 2,

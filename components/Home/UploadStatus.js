@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/home/uploadStatus";
+import { viewStyles, textStyles, imageStyles } from "../../styles/home/uploadStatus";
 import logos from "../../assets/logos";
 import icons from "../../assets/icons";
 import { uploadObservation, markCurrentUploadAsSeen, checkForUploads } from "../../utility/uploadHelpers";
@@ -132,44 +132,44 @@ const UploadStatus = ( {
   const retryUploads = ( ) => resetRouter( navigation );
 
   return (
-    <View style={styles.container}>
+    <View style={viewStyles.container}>
       {successfulUploads > 0 && (
         <Pressable
           onPress={closeCard}
-          style={styles.closeButton}
+          style={viewStyles.closeButton}
         >
           <Image
-            style={styles.closeIcon}
+            style={imageStyles.closeIcon}
             source={icons.closeWhite}
           />
         </Pressable>
       )}
-      <View style={styles.containerPadding}>
-        <View style={[styles.row, styles.center]}>
-          <Image source={logos.iNatAppIcon} style={styles.iNatIcon} />
+      <View style={viewStyles.containerPadding}>
+        <View style={[viewStyles.row, viewStyles.center]}>
+          <Image source={logos.iNatAppIcon} style={viewStyles.iNatIcon} />
           <View>
-            <Text style={styles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
-            <View style={styles.row}>
-              {internet !== null && <Text style={styles.text}>{setUploadText( )}</Text>}
-              {successfulUploads > 0 && <Image source={icons.checklist} style={styles.checkmark} />}
+            <Text style={textStyles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
+            <View style={viewStyles.row}>
+              {internet !== null && <Text style={textStyles.text}>{setUploadText( )}</Text>}
+              {successfulUploads > 0 && <Image source={icons.checklist} style={imageStyles.checkmark} />}
             </View>
           </View>
         </View>
         {error && (
-          <View style={styles.greenButton}>
+          <View style={viewStyles.greenButton}>
             <GreenButton
               color={colors.seekiNatGreen}
               handlePress={retryUploads}
               text="post_to_inat_card.upload_now"
             />
-            <Text style={styles.errorText}>{setErrorText( )}</Text>
+            <Text style={textStyles.errorText}>{setErrorText( )}</Text>
           </View>
         )}
         {( internet === true && !error ) && (
-          <View style={styles.progressBar}>
+          <View style={viewStyles.progressBar}>
             {successfulUploads > 0
-              ? <View style={[styles.absoluteFill, styles.fullWidth]} />
-              : <Animated.View style={[styles.absoluteFill, { width }]} />}
+              ? <View style={[viewStyles.absoluteFill, viewStyles.fullWidth]} />
+              : <Animated.View style={[viewStyles.absoluteFill, { width }]} />}
           </View>
         )}
       </View>

@@ -11,16 +11,11 @@ const { width, height } = dimensions;
 
 const requiresSafeArea = ( ) => Platform.OS === "ios" && height > 570;
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   cameraTab: {
     backgroundColor: colors.black
-  },
-  cameraTabLabel: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 14,
-    letterSpacing: 0.88,
-    marginBottom: requiresSafeArea( ) ? 25 : 0
   },
   indicator: {
     backgroundColor: colors.seekGreen,
@@ -41,3 +36,18 @@ export default StyleSheet.create( {
     width: width / 2.5
   }
 } );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  cameraTabLabel: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 14,
+    letterSpacing: 0.88,
+    marginBottom: requiresSafeArea( ) ? 25 : 0
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles
+};

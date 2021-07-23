@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/match/speciesNearby";
+import { viewStyles, textStyles } from "../../styles/match/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
@@ -45,13 +45,13 @@ const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
   const renderSpecies = ( ) => {
     if ( loaded ) {
       return (
-        <View style={[styles.speciesNearbyContainer, styles.center, styles.largerHeight]}>
+        <View style={[viewStyles.speciesNearbyContainer, viewStyles.center]}>
           <SpeciesNearbyList taxa={taxa} />
         </View>
       );
     } else if ( loading ) {
       return (
-        <View style={[styles.speciesNearbyContainer, styles.center, styles.largerHeight]}>
+        <View style={[viewStyles.speciesNearbyContainer, viewStyles.center]}>
           <LoadingWheel color={colors.black} />
         </View>
       );
@@ -61,7 +61,7 @@ const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
 
   return (
     <>
-      <Text style={styles.headerText}>
+      <Text style={textStyles.headerText}>
         {i18n.t( "results.nearby" ).toLocaleUpperCase( )}
       </Text>
       {renderSpecies( )}

@@ -3,13 +3,18 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   marginMedium: {
     marginTop: 26
   },
   marginSmall: {
     marginTop: 16
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   speciesText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -30,3 +35,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.bookItalic
   }
 } );
+
+
+export {
+  textStyles,
+  viewStyles
+};

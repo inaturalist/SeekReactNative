@@ -5,7 +5,7 @@ import { Platform, Dimensions, View } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import type { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
 
-import styles from "../../styles/navigation";
+import { viewStyles, textStyles } from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
@@ -22,15 +22,15 @@ const Tab = createMaterialTopTabNavigator();
 const { width, length } = Dimensions.get( "window" );
 
 const tabBarOptions = {
-  labelStyle: styles.cameraTabLabel,
-  style: styles.cameraTab,
+  labelStyle: textStyles.cameraTabLabel,
+  style: viewStyles.cameraTab,
   renderIndicator: props => {
     const { index } = props.navigationState;
 
     if ( index === 0 ) {
-      return <View style={styles.indicator} />;
+      return <View style={viewStyles.indicator} />;
     } else {
-      return <View style={styles.galleryIndicator} />;
+      return <View style={viewStyles.galleryIndicator} />;
     }
   }
 };

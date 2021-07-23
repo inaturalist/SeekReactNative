@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   absoluteFill: {
     position: "absolute",
     left: 0,
@@ -15,11 +17,6 @@ export default StyleSheet.create( {
   },
   center: {
     alignItems: "center"
-  },
-  checkmark: {
-    width: 15.8,
-    height: 11,
-    tintColor: colors.white
   },
   closeButton: {
     right: 0,
@@ -45,12 +42,6 @@ export default StyleSheet.create( {
   fullWidth: {
     width: "100%"
   },
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
   iNatIcon: {
     height: 69,
     width: 69,
@@ -64,6 +55,18 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   row,
+  greenButton: {
+    marginTop: 20
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  headerText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
+  },
   text: {
     paddingTop: 5,
     color: colors.white,
@@ -72,9 +75,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     paddingRight: 15,
     maxWidth: 236
-  },
-  greenButton: {
-    marginTop: 20
   },
   errorText: {
     marginTop: 20,
@@ -85,3 +85,17 @@ export default StyleSheet.create( {
     lineHeight: 24
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  checkmark: {
+    width: 15.8,
+    height: 11,
+    tintColor: colors.white
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

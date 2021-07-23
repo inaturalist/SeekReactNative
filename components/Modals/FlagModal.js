@@ -4,7 +4,7 @@ import * as React from "react";
 import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/modals/flagModal";
+import { viewStyles, textStyles } from "../../styles/modals/flagModal";
 import { colors } from "../../styles/global";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
@@ -47,11 +47,11 @@ const FlagModal = ( {
       userImage={image.uri}
       originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
     >
-      <Text allowFontScaling={false} style={[styles.speciesText, showScientificName && styles.scientificName]}>
+      <Text allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
         {showScientificName ? scientificName : commonName}
       </Text>
-      <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
-      <View style={styles.marginSmall} />
+      <Text allowFontScaling={false} style={textStyles.text}>{i18n.t( "results.incorrect" )}</Text>
+      <View style={viewStyles.marginSmall} />
       <Button
         handlePress={handlePress}
         text={seenDate
@@ -59,7 +59,7 @@ const FlagModal = ( {
           : "results.yes"}
         large
       />
-      <View style={styles.marginSmall} />
+      <View style={viewStyles.marginSmall} />
       <Button
         handlePress={closeModal}
         text="results.no"

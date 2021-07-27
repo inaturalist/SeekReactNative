@@ -32,7 +32,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     height: 250
   },
   footer: {
-    padding: 40
+    padding: 100,
+    backgroundColor: colors.white
   }
 } );
 

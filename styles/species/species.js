@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { colors, fonts, row } from "../global";
+import { colors, fonts, row, dimensions } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
@@ -19,10 +19,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   landscapeBackground: {
     backgroundColor: colors.white,
-    width: "50%"
+    width: dimensions.width / 2,
+    paddingBottom: 100
   },
   twoColumnContainer: {
-    // flexDirection: "row",
     flexWrap: "wrap",
     backgroundColor: colors.white
   },

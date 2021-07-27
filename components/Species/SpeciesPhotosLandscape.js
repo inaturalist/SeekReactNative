@@ -10,7 +10,6 @@ import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributions } from "../../utility/photoHelpers";
-// import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 
 type Props = {
@@ -22,8 +21,12 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
-  const renderPhoto = ( { item } ) => {
+  const renderPhoto = ( { item, index } ) => {
     const photo = item;
+
+    if ( !photo.license_code && index !== 0 ) {
+      return null;
+    }
 
     return (
       <View key={`image${photo.medium_url}`} style={viewStyles.imagePadding}>
@@ -54,6 +57,7 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
       renderItem={renderPhoto}
       keyExtractor={key}
       ListFooterComponent={renderFooter}
+      bounces={false}
     />
   );
 

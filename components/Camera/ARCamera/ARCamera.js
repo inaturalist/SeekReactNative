@@ -371,7 +371,7 @@ const ARCamera = ( ): Node => {
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
         onPress={navHome}
-        style={styles.backButton}
+        style={[styles.backButton, styles.shadow]}
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
@@ -379,7 +379,7 @@ const ARCamera = ( ): Node => {
         accessibilityLabel={i18n.t( "menu.settings" )}
         accessible
         onPress={navToSettings}
-        style={styles.settingsButton}
+        style={[styles.settingsButton, styles.shadow]}
       >
         {/* $FlowFixMe */}
         <Image

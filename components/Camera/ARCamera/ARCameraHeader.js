@@ -11,7 +11,7 @@ import rankDict from "../../../utility/dictionaries/rankDict";
 import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
-import { useFetchUserSettings } from "../../../utility/customHooks";
+import { useFetchUserSettings, useIsLandscape } from "../../../utility/customHooks";
 
 type Props = {
   +ranks: Object
@@ -22,6 +22,7 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
   const [commonName, setCommonName] = useState( null );
   const { scientificNames } = useFetchUserSettings( );
   const showScientificName = scientificNames || !commonName;
+  const isLandscape = useIsLandscape( );
 
   let id = null;
 
@@ -41,28 +42,46 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
     }
   }, [id] );
 
+  const showPortraitModeDots = ( ) => rankList.map( ( rank, index ) => (
+    <Image
+      key={rank}
+      source={rankToRender && rankList.includes( rankToRender, index )
+        ? icons.greenDot
+        : icons.whiteDot}
+      style={styles.dots}
+    />
+  ) );
+
+  const showLandscapeModeDots = ( ) => rankList.map( ( rank, index ) => (
+    <View
+      key={rank}
+      style={
+      rankToRender && rankList.includes( rankToRender, index )
+        ? styles.landscapeDots
+        : styles.landscapeDotsGray
+      }
+    />
+  ) );
+
   return (
     <View style={styles.header}>
       {( ranks && rankToRender ) && (
-        <>
+        <View style={isLandscape && styles.landscapeHeader}>
           <View style={styles.greenButton}>
-            <GreenRectangle text={i18n.t( rankDict[rankToRender] )} letterSpacing={0.94} color={colors.seekGreen} />
+            <GreenRectangle
+              text={i18n.t( rankDict[rankToRender] )}
+              letterSpacing={0.94}
+              color={isLandscape ? colors.white : colors.seekGreen}
+              textColor={isLandscape ? colors.seekForestGreen : null}
+            />
           </View>
           <Text style={[styles.predictions, showScientificName && styles.scientificName]}>
             {showScientificName ? ranks[rankToRender][0].name : commonName}
           </Text>
           <View style={styles.row}>
-            {rankList.map( ( rank, index ) => (
-              <Image
-                key={rank}
-                source={rankToRender && rankList.includes( rankToRender, index )
-                  ? icons.greenDot
-                  : icons.whiteDot}
-                style={styles.dots}
-              />
-            ) )}
+            {isLandscape ? showLandscapeModeDots( ) : showPortraitModeDots( )}
           </View>
-        </>
+        </View>
       )}
     </View>
   );

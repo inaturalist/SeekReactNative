@@ -23,7 +23,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   footer: {
     padding: 100,
-    backgroundColor: colors.white
+    backgroundColor: colors.black
   },
   imagePadding: {
     paddingVertical: 10

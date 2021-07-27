@@ -13,6 +13,15 @@ export default StyleSheet.create( {
     position: "absolute",
     top: height > 700 ? 31 : 0
   },
+  shadow: {
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 3
+  },
   settingsButton: {
     right: 0,
     paddingHorizontal: 23,
@@ -69,5 +78,27 @@ export default StyleSheet.create( {
   },
   scientificName: {
     fontFamily: fonts.semiboldItalic
+  },
+  landscapeHeader: {
+    borderRadius: 20,
+    backgroundColor: colors.seekForestGreen,
+    paddingVertical: 15,
+    paddingHorizontal: 20
+  },
+  landscapeDots: {
+    backgroundColor: colors.white,
+    borderRadius: 10 / 2,
+    height: 10,
+    marginHorizontal: 16,
+    width: 10
+  },
+  landscapeDotsGray: {
+    backgroundColor: colors.darkGray,
+    borderRadius: 6 / 2,
+    height: 6,
+    marginBottom: 3,
+    marginHorizontal: 16,
+    marginTop: 3,
+    width: 6
   }
 } );

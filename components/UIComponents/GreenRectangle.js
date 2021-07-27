@@ -7,17 +7,19 @@ import { viewStyles, textStyles } from "../../styles/uiComponents/greenRectangle
 type Props = {
   text: string,
   color: ?string,
-  letterSpacing: number
+  letterSpacing: number,
+  textColor?: ?string
 };
 
-const GreenRectangle = ( { text, color, letterSpacing }: Props ): React.Node => (
+const GreenRectangle = ( { text, color, letterSpacing, textColor }: Props ): React.Node => (
   <View style={[
     viewStyles.greenButton,
     color && { backgroundColor: color }
   ]}>
     <Text style={[
       textStyles.greenButtonText,
-      { letterSpacing }
+      { letterSpacing },
+      { color: textColor }
     ]}>
       {text.toLocaleUpperCase()}
     </Text>

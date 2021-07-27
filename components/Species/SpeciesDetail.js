@@ -294,6 +294,7 @@ const SpeciesDetail = ( ): Node => {
           ref={scrollView}
           contentContainerStyle={viewStyles.landscapeBackground}
           onScrollBeginDrag={clearSelectedText}
+          bounces={false}
         >
           {taxon.scientificName && (
             <>

@@ -127,7 +127,9 @@ const ARCameraOverlay = ( {
           rectangleColor={settings[filterIndex].color}
         />
       )}
-      <Text style={textStyles.scanText}>{helpText}</Text>
+      <View style={isLandscape ? viewStyles.landscapeHelpBubble : viewStyles.helpBubble}>
+        <Text style={textStyles.scanText}>{helpText}</Text>
+      </View>
       {isAndroid && (
         <TouchableOpacity
           accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
@@ -143,7 +145,7 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={[viewStyles.shutter, isLandscape && viewStyles.landscapeShutter]}
+        style={[viewStyles.shutter, viewStyles.shadow, isLandscape && viewStyles.landscapeShutter]}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
@@ -152,7 +154,7 @@ const ARCameraOverlay = ( {
         accessibilityLabel={i18n.t( "accessibility.open_help" )}
         accessible
         onPress={showCameraHelp}
-        style={viewStyles.help}
+        style={[viewStyles.help, isLandscape && viewStyles.landscapeHelp]}
       >
         <Image source={icons.cameraHelp} />
       </TouchableOpacity>

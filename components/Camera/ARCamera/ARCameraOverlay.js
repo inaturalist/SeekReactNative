@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
-import { isLandscape } from "react-native-device-info";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/camera/arCameraOverlay";
@@ -20,7 +19,7 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 import ARCameraHeader from "./ARCameraHeader";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
-import { useFetchUserSettings } from "../../../utility/customHooks";
+import { useFetchUserSettings, useIsLandscape } from "../../../utility/customHooks";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
 
 type Props = {
@@ -69,6 +68,7 @@ const ARCameraOverlay = ( {
   const helpText = setCameraHelpText( rankToRender );
   const { autoCapture } = useFetchUserSettings( );
   const [filterIndex, setFilterIndex] = useState( null );
+  const isLandscape = useIsLandscape( );
 
   const toggleFilterIndex = ( ) => {
     if ( filterIndex === null ) {
@@ -143,7 +143,7 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={[viewStyles.shutter, isLandscape( ) && viewStyles.landscapeShutter]}
+        style={[viewStyles.shutter, isLandscape && viewStyles.landscapeShutter]}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />

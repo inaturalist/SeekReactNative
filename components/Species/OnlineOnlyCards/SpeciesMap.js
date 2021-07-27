@@ -46,11 +46,13 @@ const SpeciesMap = ( {
         tileSize={512}
         urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
       />
-      <Marker
-        coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-      >
-        <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
-      </Marker>
+      {region.latitude !== undefined && (
+        <Marker
+          coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+        >
+          <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
+        </Marker>
+      )}
     </MapView>
   ), [id, region, seenDate, navToRangeMap] );
 

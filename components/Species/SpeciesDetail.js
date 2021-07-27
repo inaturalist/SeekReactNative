@@ -21,17 +21,17 @@ import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
-import { isLandscape } from "react-native-device-info";
 import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
-import { useCommonName } from "../../utility/customHooks";
+import { useCommonName, useIsLandscape } from "../../utility/customHooks";
 
 const SpeciesDetail = ( ): Node => {
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );
+  const isLandscape = useIsLandscape( );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -247,7 +247,7 @@ const SpeciesDetail = ( ): Node => {
 
   const commonName = useCommonName( id );
 
-  if ( !id ) {
+  if ( !id || isLandscape === null ) {
     return null;
   }
 
@@ -295,13 +295,17 @@ const SpeciesDetail = ( ): Node => {
           contentContainerStyle={viewStyles.landscapeBackground}
           onScrollBeginDrag={clearSelectedText}
         >
-          <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
-          <SpeciesName
-            id={id}
-            taxon={taxon}
-            selectedText={selectedText}
-            highlightSelectedText={highlightSelectedText}
-          />
+          {taxon.scientificName && (
+            <>
+              <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
+              <SpeciesName
+                id={id}
+                taxon={taxon}
+                selectedText={selectedText}
+                highlightSelectedText={highlightSelectedText}
+              />
+            </>
+          )}
         {error && (
           <OfflineSpeciesContainer
             checkForInternet={checkInternetConnection}
@@ -325,7 +329,7 @@ const SpeciesDetail = ( ): Node => {
 
   return (
     <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
-      {isLandscape( ) ? renderLandscapeMode( ) : renderPortraitMode( )}
+      {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
     </SafeAreaView>
   );
 };

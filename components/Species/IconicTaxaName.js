@@ -3,7 +3,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import type { Node } from "react";
-import { isLandscape } from "react-native-device-info";
+import { useIsLandscape } from "../../utility/customHooks";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
@@ -14,13 +14,14 @@ type Props = {
 }
 
 const IconicTaxaName = ( { iconicTaxonId }: Props ): Node => {
+  const isLandscape = useIsLandscape( );
   if ( !iconicTaxonId ) {
     return null;
   }
   return (
     <>
-    {isLandscape( ) && <View style={viewStyles.topRibbon} />}
-    <Text style={[textStyles.iconicTaxaText, isLandscape( ) && textStyles.largerPadding]}>
+    {isLandscape && <View style={viewStyles.topRibbon} />}
+    <Text style={[textStyles.iconicTaxaText, isLandscape && textStyles.largerPadding]}>
       {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase( )}
     </Text>
     </>

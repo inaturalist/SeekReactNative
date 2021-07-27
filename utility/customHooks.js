@@ -5,7 +5,7 @@ import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
-import DeviceInfo from "react-native-device-info";
+import DeviceInfo, { isLandscape } from "react-native-device-info";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -371,6 +371,20 @@ const useFetchUserSettings = ( ): Object => {
   return settings;
 };
 
+const useIsLandscape = ( ): ?boolean => {
+  const [landscape, setLandscape] = useState( null );
+
+  useEffect( ( ) => {
+    const fetchOrientation = async ( ) => {
+      const orientation = await isLandscape( );
+      setLandscape( orientation );
+    };
+
+    fetchOrientation( );
+  }, [] );
+  return landscape;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -382,5 +396,6 @@ export {
   useRegion,
   useInternetStatus,
   useEmulator,
-  useFetchUserSettings
+  useFetchUserSettings,
+  useIsLandscape
 };

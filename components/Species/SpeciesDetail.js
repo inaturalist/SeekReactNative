@@ -285,7 +285,6 @@ const SpeciesDetail = ( ): Node => {
     <>
       <GreenHeader plainText={taxon.scientificName} />
       <View style={viewStyles.twoColumnContainer}>
-        <SpeciesPhotosLandscape photos={photos} id={id} />
         <ScrollView
           ref={scrollView}
           contentContainerStyle={viewStyles.landscapeBackground}
@@ -314,6 +313,7 @@ const SpeciesDetail = ( ): Node => {
           />
         )}
         </ScrollView>
+        <SpeciesPhotosLandscape photos={photos} id={id} />
       </View>
     </>
   );

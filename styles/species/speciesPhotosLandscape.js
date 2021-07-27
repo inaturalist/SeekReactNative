@@ -12,13 +12,6 @@ import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/
 const columnWidth = dimensions.width / 4;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
-  ccButton: {
-    bottom: 0,
-    padding: 15,
-    position: "absolute",
-    right: 0,
-    zIndex: 1
-  },
   landscapeBackground: {
     backgroundColor: colors.black,
     width: columnWidth
@@ -28,14 +21,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     height: columnWidth,
     width: columnWidth
   },
-  errorContainer: {
-    justifyContent: "center",
-    backgroundColor: colors.black,
-    height: 250
-  },
   footer: {
     padding: 100,
     backgroundColor: colors.white
+  },
+  imagePadding: {
+    paddingVertical: 3
   }
 } );
 
@@ -49,13 +40,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     paddingBottom: Platform.OS === "ios" ? 3 : 5,
     paddingHorizontal: 5,
     paddingTop: Platform.OS === "ios" ? 8 : 5
-  },
-  errorText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
-    textAlign: "center"
   }
 } );
 

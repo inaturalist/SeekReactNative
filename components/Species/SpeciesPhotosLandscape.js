@@ -26,7 +26,7 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
     const photo = item;
 
     return (
-      <View key={`image${photo.medium_url}`}>
+      <View key={`image${photo.medium_url}`} style={viewStyles.imagePadding}>
         <Image source={{ uri: photo.medium_url }} style={imageStyles.image} />
         {photo.attribution && (
           <Text style={textStyles.ccButtonText}>

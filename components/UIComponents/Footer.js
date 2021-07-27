@@ -61,7 +61,7 @@ const Footer = (): Node => {
   return (
     <SafeAreaView style={viewStyles.safeArea} edges={["right", "bottom", "left"]}>
       <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
-        <View style={[viewStyles.navbar, viewStyles.row]}>
+        <View style={[viewStyles.navbar, viewStyles.row, viewStyles.shadow]}>
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.menu" )}
             accessible

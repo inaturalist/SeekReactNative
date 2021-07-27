@@ -16,7 +16,7 @@ import type { Node } from "react";
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import { viewStyles } from "../../styles/species/species";
-import { getSpeciesId, checkForInternet, handleServerError } from "../../utility/helpers";
+import { getSpeciesId, checkForInternet } from "../../utility/helpers";
 import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
@@ -178,8 +178,8 @@ const SpeciesDetail = ( ): Node => {
           }
         }
       } );
-    } ).catch( ( err ) => {
-      const errorType = handleServerError( err );
+    } ).catch( ( ) => {
+      // const errorType = handleServerError( err );
       checkInternetConnection( );
      } );
   }, [id, checkInternetConnection] );

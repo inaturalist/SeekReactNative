@@ -9,6 +9,8 @@ import {
 
 import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
+const columnWidth = dimensions.width / 4;
+
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   ccButton: {
     bottom: 0,
@@ -19,12 +21,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   landscapeBackground: {
     backgroundColor: colors.black,
-    width: dimensions.width / 2
+    width: columnWidth
   },
   photoContainer: {
     backgroundColor: colors.black,
-    height: dimensions.width / 2,
-    width: dimensions.width / 2
+    height: columnWidth,
+    width: columnWidth
   },
   errorContainer: {
     justifyContent: "center",
@@ -59,9 +61,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
 
 const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   image: {
-    height: dimensions.width / 2,
+    height: columnWidth,
     resizeMode: "cover",
-    width: dimensions.width / 2
+    width: columnWidth
   }
 } );
 

@@ -25,11 +25,11 @@ const SpeciesMap = ( {
   id,
   seenDate
 }: Props ): React.Node => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
 
-  const navToRangeMap = () => navigation.navigate( "RangeMap", { region, id, seenDate } );
+  const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
 
-  const displayMap = ( ) => (
+  const displayMap = React.useMemo( ( ) => (
     <MapView
       maxZoomLevel={7}
       onPress={navToRangeMap}
@@ -50,11 +50,11 @@ const SpeciesMap = ( {
         <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
       </Marker>
     </MapView>
-  );
+  ), [id, region, seenDate, navToRangeMap] );
 
   return (
     <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude || !region.longitude}>
-      {( ( region.latitude && region.longitude ) && id ) && displayMap( )}
+      {( ( region.latitude && region.longitude ) && id ) && displayMap}
       <GreenButton
         handlePress={navToRangeMap}
         text="species_detail.view_map"

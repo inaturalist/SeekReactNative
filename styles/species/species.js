@@ -17,6 +17,15 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
+  landscapeBackground: {
+    backgroundColor: colors.white,
+    width: "50%"
+  },
+  twoColumnContainer: {
+    // flexDirection: "row",
+    flexWrap: "wrap",
+    backgroundColor: colors.white
+  },
   checkmark: {
     marginRight: 10
   },

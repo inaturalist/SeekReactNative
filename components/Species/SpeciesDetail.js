@@ -6,7 +6,7 @@ import React, {
   useRef,
   useCallback
 } from "react";
-import { ScrollView, Platform } from "react-native";
+import { ScrollView, Platform, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
@@ -21,6 +21,10 @@ import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
+import { isLandscape } from "react-native-device-info";
+import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
+import GreenHeader from "../UIComponents/GreenHeader";
+import SpeciesName from "./SpeciesName";
 
 const SpeciesDetail = ( ): Node => {
   const scrollView = useRef( null );
@@ -245,20 +249,54 @@ const SpeciesDetail = ( ): Node => {
 
   const predictions = params ? params.image : null;
 
-  return (
-    <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
-      <ScrollView
-        ref={scrollView}
-        contentContainerStyle={viewStyles.background}
-        onScrollBeginDrag={clearSelectedText}
-      >
-        <SpeciesHeader
+  const renderPortraitMode = ( ) => (
+    <ScrollView
+      ref={scrollView}
+      contentContainerStyle={viewStyles.background}
+      onScrollBeginDrag={clearSelectedText}
+    >
+      <SpeciesHeader
+        id={id}
+        taxon={taxon}
+        photos={photos}
+        selectedText={selectedText}
+        highlightSelectedText={highlightSelectedText}
+      />
+      {error && (
+        <OfflineSpeciesContainer
+          checkForInternet={checkInternetConnection}
+          details={details}
           id={id}
-          taxon={taxon}
-          photos={photos}
-          selectedText={selectedText}
-          highlightSelectedText={highlightSelectedText}
+          predictions={predictions}
         />
+      )}
+      {( Object.keys( taxon ).length > 0 && !error ) && (
+        <OnlineSpeciesContainer
+          details={details}
+          scientificName={taxon.scientificName}
+          id={id}
+          predictions={predictions}
+        />
+      )}
+    </ScrollView>
+  );
+
+  const renderLandscapeMode = ( ) => (
+    <>
+      <GreenHeader plainText={taxon.scientificName} />
+      <View style={viewStyles.twoColumnContainer}>
+        <SpeciesPhotosLandscape photos={photos} id={id} />
+        <ScrollView
+          ref={scrollView}
+          contentContainerStyle={viewStyles.landscapeBackground}
+          onScrollBeginDrag={clearSelectedText}
+        >
+          <SpeciesName
+            id={id}
+            taxon={taxon}
+            selectedText={selectedText}
+            highlightSelectedText={highlightSelectedText}
+          />
         {error && (
           <OfflineSpeciesContainer
             checkForInternet={checkInternetConnection}
@@ -275,7 +313,14 @@ const SpeciesDetail = ( ): Node => {
             predictions={predictions}
           />
         )}
-      </ScrollView>
+        </ScrollView>
+      </View>
+    </>
+  );
+
+  return (
+    <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
+      {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
     </SafeAreaView>
   );
 };

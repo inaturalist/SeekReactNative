@@ -1,22 +1,18 @@
 // @flow
 
-import React, { useCallback, useContext, useState } from "react";
-import { Text, BackHandler, Pressable, View } from "react-native";
+import React, { useCallback } from "react";
+import { Text, BackHandler } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import Clipboard from "@react-native-community/clipboard";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
 import { viewStyles, textStyles } from "../../styles/species/species";
-import { useCommonName } from "../../utility/customHooks";
 import { getRoute } from "../../utility/helpers";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
-import { UserContext } from "../UserContext";
-import ToastAnimation from "../UIComponents/ToastAnimation";
-import { colors } from "../../styles/global";
+import SpeciesName from "./SpeciesName";
 
 type Props = {
   photos: Array<Object>,
@@ -27,14 +23,9 @@ type Props = {
 }
 
 const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
-  const { login } = useContext( UserContext );
   const navigation = useNavigation( );
-  const commonName = useCommonName( id );
-  const [copied, setCopied] = useState( false );
 
-  const disabled = !login;
-
-  const { scientificName, iconicTaxonId } = taxon;
+  const { iconicTaxonId } = taxon;
 
   const backAction = useCallback( async ( ) => {
     const routeName = await getRoute( );
@@ -62,14 +53,6 @@ const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText
     }, [backAction] )
   );
 
-  const copyToClipboard = ( ) => {
-    Clipboard.setString( scientificName );
-    setCopied( true );
-    highlightSelectedText( );
-  };
-
-  const finishAnimation = ( ) => setCopied( false );
-
   return (
     <>
       <CustomBackArrow handlePress={backAction} style={viewStyles.backButton} />
@@ -79,34 +62,12 @@ const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText
           {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
         </Text>
       )}
-      <Text style={textStyles.commonNameText}>{commonName || scientificName}</Text>
-      <Pressable
-        onPress={copyToClipboard}
-        disabled={disabled}
-        style={viewStyles.pressableArea}
-      >
-        {( { pressed } ) => (
-          <View>
-            {copied && (
-              <ToastAnimation
-                startAnimation={copied}
-                styles={viewStyles.copiedAnimation}
-                toastText={i18n.t( "species_detail.copied" )}
-                finishAnimation={finishAnimation}
-                rectangleColor={colors.seekTeal}
-              />
-            )}
-            <Text
-              style={[
-                textStyles.scientificNameText,
-                selectedText && viewStyles.selectedPressableArea
-              ]}
-            >
-              {scientificName}
-            </Text>
-          </View>
-        )}
-      </Pressable>
+      <SpeciesName
+        id={id}
+        taxon={taxon}
+        selectedText={selectedText}
+        highlightSelectedText={highlightSelectedText}
+      />
     </>
   );
 };

@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
+import { isLandscape } from "react-native-device-info";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/camera/arCameraOverlay";
@@ -142,7 +143,7 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={viewStyles.shutter}
+        style={[viewStyles.shutter, isLandscape && viewStyles.landscapeShutter]}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />

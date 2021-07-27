@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet, PixelRatio } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, dimensions } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
@@ -31,6 +31,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingHorizontal: 48,
     paddingVertical: 18,
     position: "absolute"
+  },
+  landscapeShutter: {
+    right: 0,
+    // really wish I could figure out how to use flex here instead of subtracting navbar + camera icon size
+    bottom: dimensions.height / 2 - 65 - 31,
+    paddingHorizontal: 48,
+    paddingVertical: 0
   }
 } );
 

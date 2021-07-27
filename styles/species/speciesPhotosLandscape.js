@@ -9,7 +9,7 @@ import {
 
 import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const columnWidth = dimensions.width / 4;
+const columnWidth = dimensions.width / 3;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   landscapeBackground: {
@@ -26,7 +26,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     backgroundColor: colors.white
   },
   imagePadding: {
-    paddingVertical: 3
+    paddingVertical: 10
   }
 } );
 

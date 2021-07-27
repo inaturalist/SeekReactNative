@@ -5,7 +5,7 @@ import { colors, fonts, row, dimensions } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const columnWidth = dimensions.width / 4 * 3;
+const columnWidth = dimensions.width / 3 * 2;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
@@ -65,6 +65,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     alignSelf: "center",
     position: "absolute",
     top: -35
+  },
+  topRibbon: {
+    paddingTop: 3,
+    backgroundColor: colors.grayGradientDark
   }
 } );
 

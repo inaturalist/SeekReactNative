@@ -145,8 +145,12 @@ const createBackupUri = async ( uri: string, uuid?: ?string ): Promise<?string> 
     newImageName = `${timestamp}.jpg`;
   }
 
+  // const historicalSeekSize = 250;
+
+  const thumbnailWidth = dimensions.width;
+
   try {
-    const resizedImage = await resizeImage( uri, dimensions.width, 250 ); // stored in cache
+    const resizedImage = await resizeImage( uri, thumbnailWidth, thumbnailWidth ); // stored in cache
 
     if ( resizedImage ) {
       const backupFilepath = `${dirPictures}/${newImageName}`; // stored in document directory

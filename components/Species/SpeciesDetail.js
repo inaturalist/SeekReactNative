@@ -25,6 +25,8 @@ import { isLandscape } from "react-native-device-info";
 import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SpeciesName from "./SpeciesName";
+import IconicTaxaName from "./IconicTaxaName";
+import { useCommonName } from "../../utility/customHooks";
 
 const SpeciesDetail = ( ): Node => {
   const scrollView = useRef( null );
@@ -243,6 +245,8 @@ const SpeciesDetail = ( ): Node => {
     } );
   }, [navigation, fetchiNatData] );
 
+  const commonName = useCommonName( id );
+
   if ( !id ) {
     return null;
   }
@@ -283,13 +287,15 @@ const SpeciesDetail = ( ): Node => {
 
   const renderLandscapeMode = ( ) => (
     <>
-      <GreenHeader plainText={taxon.scientificName} />
+      <GreenHeader plainText={commonName || taxon.scientificName} />
       <View style={viewStyles.twoColumnContainer}>
+        <SpeciesPhotosLandscape photos={photos} id={id} />
         <ScrollView
           ref={scrollView}
           contentContainerStyle={viewStyles.landscapeBackground}
           onScrollBeginDrag={clearSelectedText}
         >
+          <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
           <SpeciesName
             id={id}
             taxon={taxon}
@@ -313,14 +319,13 @@ const SpeciesDetail = ( ): Node => {
           />
         )}
         </ScrollView>
-        <SpeciesPhotosLandscape photos={photos} id={id} />
       </View>
     </>
   );
 
   return (
     <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
-      {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
+      {isLandscape( ) ? renderLandscapeMode( ) : renderPortraitMode( )}
     </SafeAreaView>
   );
 };

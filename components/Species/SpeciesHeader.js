@@ -1,18 +1,17 @@
 // @flow
 
 import React, { useCallback } from "react";
-import { Text, BackHandler } from "react-native";
+import { BackHandler } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import type { Node } from "react";
 
-import i18n from "../../i18n";
-import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
-import { viewStyles, textStyles } from "../../styles/species/species";
+import { viewStyles } from "../../styles/species/species";
 import { getRoute } from "../../utility/helpers";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
 import SpeciesName from "./SpeciesName";
+import IconicTaxaName from "./IconicTaxaName";
 
 type Props = {
   photos: Array<Object>,
@@ -57,11 +56,7 @@ const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText
     <>
       <CustomBackArrow handlePress={backAction} style={viewStyles.backButton} />
       <SpeciesPhotos photos={photos} id={id} />
-      {iconicTaxonId && (
-        <Text style={textStyles.iconicTaxaText}>
-          {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
-        </Text>
-      )}
+      <IconicTaxaName iconicTaxonId={iconicTaxonId} />
       <SpeciesName
         id={id}
         taxon={taxon}

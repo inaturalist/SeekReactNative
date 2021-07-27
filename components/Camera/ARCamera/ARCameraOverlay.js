@@ -143,7 +143,7 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={[viewStyles.shutter, isLandscape && viewStyles.landscapeShutter]}
+        style={[viewStyles.shutter, isLandscape( ) && viewStyles.landscapeShutter]}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />

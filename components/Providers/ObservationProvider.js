@@ -74,7 +74,8 @@ const ObservationProvider = ( { children }: Props ): Node => {
       // default photo will be shown
 
       // not sure how long we really want to wait for this
-      const { results } = await fetchWithTimeout( 500 );
+      // started with 500 which was apparently too slow, now 5 seconds
+      const { results } = await fetchWithTimeout( 5000 );
       const taxa = results[0];
       const defaultPhoto = taxa && taxa.default_photo && taxa.default_photo.medium_url
         ? taxa.default_photo.medium_url

@@ -29,6 +29,8 @@ const SpeciesMap = ( {
 
   const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
 
+  const isNumber = prop => typeof prop === "number";
+
   const displayMap = React.useMemo( ( ) => (
     <MapView
       maxZoomLevel={7}
@@ -54,7 +56,7 @@ const SpeciesMap = ( {
 
   return (
     <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude || !region.longitude}>
-      {( ( region.latitude && region.longitude ) && id ) && displayMap}
+      {( ( isNumber( region.latitude ) && isNumber( region.longitude ) ) && isNumber( id ) ) && displayMap}
       <GreenButton
         handlePress={navToRangeMap}
         text="species_detail.view_map"

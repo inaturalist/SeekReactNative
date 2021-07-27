@@ -20,7 +20,7 @@ const IconicTaxaName = ( { iconicTaxonId }: Props ): Node => {
   return (
     <>
     {isLandscape( ) && <View style={viewStyles.topRibbon} />}
-    <Text style={textStyles.iconicTaxaText}>
+    <Text style={[textStyles.iconicTaxaText, isLandscape( ) && textStyles.largerPadding]}>
       {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase( )}
     </Text>
     </>

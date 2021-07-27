@@ -48,8 +48,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   textContainer: {
     marginHorizontal: 28
   },
-  seenDateContainer: {
-    marginHorizontal: 28
+  largerTextContainer: {
+    marginHorizontal: 32
   },
   pressableArea: {
     paddingTop: 10,
@@ -104,6 +104,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     paddingLeft: 28,
     paddingVertical: 12,
     backgroundColor: colors.seekForestGreen
+  },
+  largerPadding: {
+    paddingLeft: 32
   },
   linkText: {
     color: colors.seekForestGreen,

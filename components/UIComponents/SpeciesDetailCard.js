@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { View } from "react-native";
+import { isLandscape } from "react-native-device-info";
 
 import { viewStyles } from "../../styles/species/species";
 import GreenText from "./GreenText";
@@ -17,7 +18,7 @@ const SpeciesDetailCard = ( { children, text, hide }: Props ): React.Node => {
     return null;
   }
   return (
-    <View style={viewStyles.textContainer}>
+    <View style={isLandscape( ) ? viewStyles.largerTextContainer : viewStyles.textContainer}>
       <View style={viewStyles.headerMargins}>
         <GreenText text={text} />
       </View>

@@ -69,6 +69,10 @@ const RangeMap = (): Node => {
     } );
   }, [navigation] );
 
+  if ( mapRegion.latitude === undefined ) {
+    return null;
+  }
+
   return (
     <ViewWithHeader header="species_detail.range_map">
       <Modal

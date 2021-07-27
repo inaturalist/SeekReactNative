@@ -29,36 +29,40 @@ const SpeciesMap = ( {
 
   const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
 
-  const isNumber = prop => typeof prop === "number";
+  const displayMap = React.useMemo( ( ) => {
+    if ( region.latitude === undefined && !id ) {
+      return null;
+    }
 
-  const displayMap = React.useMemo( ( ) => (
-    <MapView
-      maxZoomLevel={7}
-      onPress={navToRangeMap}
-      provider={PROVIDER_DEFAULT}
-      region={region}
-      rotateEnabled={false}
-      scrollEnabled={false}
-      style={styles.map}
-      zoomEnabled={false}
-    >
-      <UrlTile
-        tileSize={512}
-        urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
-      />
-      {region.latitude !== undefined && (
-        <Marker
-          coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-        >
-          <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
-        </Marker>
-      )}
-    </MapView>
-  ), [id, region, seenDate, navToRangeMap] );
+    return (
+      <MapView
+        maxZoomLevel={7}
+        onPress={navToRangeMap}
+        provider={PROVIDER_DEFAULT}
+        region={region}
+        rotateEnabled={false}
+        scrollEnabled={false}
+        style={styles.map}
+        zoomEnabled={false}
+      >
+        <UrlTile
+          tileSize={512}
+          urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
+        />
+        {region.latitude !== undefined && (
+          <Marker
+            coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+          >
+            <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
+          </Marker>
+        )}
+      </MapView>
+    );
+  }, [id, region, seenDate, navToRangeMap] );
 
   return (
     <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude || !region.longitude}>
-      {( ( isNumber( region.latitude ) && isNumber( region.longitude ) ) && isNumber( id ) ) && displayMap}
+      {displayMap}
       <GreenButton
         handlePress={navToRangeMap}
         text="species_detail.view_map"

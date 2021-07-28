@@ -8,7 +8,7 @@ import {
   dimensions
 } from "../global";
 
-const landscapeImageHeight = 250;
+const landscapeImageHeight = 315;
 
 export default StyleSheet.create( {
   backButton: {
@@ -76,7 +76,7 @@ export default StyleSheet.create( {
     marginLeft: dimensions.width < 350 ? 15 : 47
   },
   largeMargin: {
-    marginLeft: dimensions.width / 2 - 150
+    marginLeft: dimensions.width / 2 - 190
   },
   marginMedium: {
     marginBottom: 28

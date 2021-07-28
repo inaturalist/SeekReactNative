@@ -30,7 +30,7 @@ const SpeciesMap = ( {
   const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
 
   const displayMap = React.useMemo( ( ) => {
-    if ( region.latitude === undefined && !id ) {
+    if ( region.latitude === undefined || !id ) {
       return null;
     }
 
@@ -49,13 +49,11 @@ const SpeciesMap = ( {
           tileSize={512}
           urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
         />
-        {region.latitude !== undefined && (
-          <Marker
-            coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-          >
-            <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
-          </Marker>
-        )}
+        <Marker
+          coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+        >
+          <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
+        </Marker>
       </MapView>
     );
   }, [id, region, seenDate, navToRangeMap] );

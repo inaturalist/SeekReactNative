@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import type { Node } from "react";
 
+import i18n from "../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
 import { useUserPhoto, useSeenTaxa, useIsLandscape } from "../../utility/customHooks";
@@ -51,6 +52,14 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
 
   const renderFooter = ( ) => <View style={viewStyles.footer} />;
 
+  const renderEmptyComponent = ( ) => (
+    <View style={viewStyles.errorContainer}>
+      <Text style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
+    </View>
+  );
+
+  console.log( photos.length, "length" );
+
   const renderPhotoList = ( ) => (
     <FlatList
       data={photos}
@@ -59,6 +68,7 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
       keyExtractor={key}
       ListFooterComponent={renderFooter}
       bounces={false}
+      ListEmptyComponent={renderEmptyComponent}
     />
   );
 

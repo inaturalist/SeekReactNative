@@ -68,6 +68,7 @@ const MatchHeader = ( {
             ]}
           />
         )}
+        {isLandscape && !showSpeciesImage && <View style={[styles.landscapeImage, styles.largeMargin]} />}
       </View>
     </LinearGradient>
   );

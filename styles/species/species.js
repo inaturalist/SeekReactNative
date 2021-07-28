@@ -67,8 +67,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     top: -35
   },
   topRibbon: {
-    paddingTop: 3,
-    backgroundColor: colors.grayGradientDark
+    paddingTop: 2,
+    backgroundColor: colors.speciesNearbyGreen
   }
 } );
 

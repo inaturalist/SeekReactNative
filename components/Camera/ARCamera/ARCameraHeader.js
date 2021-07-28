@@ -63,16 +63,38 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
     />
   ) );
 
+  const setTaxonomicRankColor = ( ) => {
+    if ( isLandscape ) {
+      if ( rankToRender === "species" ) {
+        return colors.seekGreen;
+      } else {
+        return colors.seekForestGreen;
+      }
+    }
+    return null;
+  };
+
+  const setTaxonomicRankBubbleColor = ( ) => {
+    if ( isLandscape ) {
+      if ( rankToRender === "species" ) {
+        return [styles.landscapeHeader, styles.landscapeHeaderSpecies];
+      } else {
+        return styles.landscapeHeader;
+      }
+    }
+    return null;
+  };
+
   return (
     <View style={styles.header}>
       {( ranks && rankToRender ) && (
-        <View style={isLandscape && styles.landscapeHeader}>
+        <View style={setTaxonomicRankBubbleColor( )}>
           <View style={styles.greenButton}>
             <GreenRectangle
               text={i18n.t( rankDict[rankToRender] )}
               letterSpacing={0.94}
               color={isLandscape ? colors.white : colors.seekGreen}
-              textColor={isLandscape ? colors.seekForestGreen : null}
+              textColor={setTaxonomicRankColor( )}
             />
           </View>
           <Text style={[styles.predictions, showScientificName && styles.scientificName]}>

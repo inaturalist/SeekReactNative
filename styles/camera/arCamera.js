@@ -85,6 +85,9 @@ export default StyleSheet.create( {
     paddingVertical: 15,
     paddingHorizontal: 20
   },
+  landscapeHeaderSpecies: {
+    backgroundColor: colors.seekGreen
+  },
   landscapeDots: {
     backgroundColor: colors.white,
     borderRadius: 10 / 2,

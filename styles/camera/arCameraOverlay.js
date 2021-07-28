@@ -64,6 +64,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingHorizontal: 20,
     backgroundColor: colors.seekForestGreen
   },
+  landscapeHelpBubbleSpecies: {
+    backgroundColor: colors.seekGreen
+  },
   helpBubble: {
     bottom: 26 + 65 + 18,
     width: 293,

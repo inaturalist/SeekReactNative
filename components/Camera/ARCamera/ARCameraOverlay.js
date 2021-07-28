@@ -114,6 +114,17 @@ const ARCameraOverlay = ( {
 
   const showCameraHelp = ( ) => navigate( "CameraHelp" );
 
+  const setTaxonomicRankColorStyles = ( ) => {
+    if ( isLandscape ) {
+      if ( rankToRender === "species" ) {
+        return [viewStyles.landscapeHelpBubble, viewStyles.landscapeHelpBubbleSpecies];
+      } else {
+        return viewStyles.landscapeHelpBubble;
+      }
+    }
+    return viewStyles.helpBubble;
+  };
+
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
@@ -127,7 +138,7 @@ const ARCameraOverlay = ( {
           rectangleColor={settings[filterIndex].color}
         />
       )}
-      <View style={isLandscape ? viewStyles.landscapeHelpBubble : viewStyles.helpBubble}>
+      <View style={setTaxonomicRankColorStyles( )}>
         <Text style={textStyles.scanText}>{helpText}</Text>
       </View>
       {isAndroid && (

@@ -18,7 +18,7 @@ type Props = {
   +id: number
 };
 
-const SpeciesPhotos = ( { photos, id }: Props ): Node => {
+const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
   const isLandscape = useIsLandscape( );
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
@@ -52,13 +52,11 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
 
   const renderFooter = ( ) => <View style={viewStyles.footer} />;
 
-  const renderEmptyComponent = ( ) => (
-    <View style={viewStyles.errorContainer}>
-      <Text style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
-    </View>
-  );
-
-  console.log( photos.length, "length" );
+  // const renderEmptyComponent = ( ) => (
+  //   <View style={viewStyles.errorContainer}>
+  //     <Text style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
+  //   </View>
+  // );
 
   const renderPhotoList = ( ) => (
     <FlatList
@@ -68,11 +66,11 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
       keyExtractor={key}
       ListFooterComponent={renderFooter}
       bounces={false}
-      ListEmptyComponent={renderEmptyComponent}
+      // ListEmptyComponent={renderEmptyComponent}
     />
   );
 
   return renderPhotoList( );
 };
 
-export default SpeciesPhotos;
+export default SpeciesPhotosLandscape;

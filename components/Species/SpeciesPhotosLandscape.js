@@ -9,8 +9,8 @@ import {
 import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
-import { localizeAttributions } from "../../utility/photoHelpers";
-import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
+import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
+import { useUserPhoto, useSeenTaxa, useIsLandscape } from "../../utility/customHooks";
 
 type Props = {
   +photos: Array<Object>,
@@ -18,6 +18,7 @@ type Props = {
 };
 
 const SpeciesPhotos = ( { photos, id }: Props ): Node => {
+  const isLandscape = useIsLandscape( );
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
@@ -32,8 +33,8 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
       <View key={`image${photo.medium_url}`} style={viewStyles.imagePadding}>
         <Image source={{ uri: photo.medium_url }} style={imageStyles.image} />
         {photo.attribution && (
-          <Text style={textStyles.ccButtonText}>
-            {localizeAttributions( photo.attribution, photo.license_code, "SpeciesDetail" )}
+          <Text style={[textStyles.ccButtonText, isLandscape && textStyles.ccButtonLandscape]}>
+            {localizeAttributionsLandscape( photo.attribution, photo.license_code, "SpeciesDetail" )}
           </Text>
         )}
       </View>

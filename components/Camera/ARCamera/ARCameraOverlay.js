@@ -139,7 +139,7 @@ const ARCameraOverlay = ( {
         />
       )}
       <View style={setTaxonomicRankColorStyles( )}>
-        <Text style={textStyles.scanText}>{helpText}</Text>
+        <Text style={[textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</Text>
       </View>
       {isAndroid && (
         <TouchableOpacity

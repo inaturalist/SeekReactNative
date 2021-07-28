@@ -95,8 +95,8 @@ export default StyleSheet.create( {
     marginHorizontal: 16,
     width: 10
   },
-  landscapeDotsGray: {
-    backgroundColor: colors.darkGray,
+  landscapeDotsGreen: {
+    backgroundColor: colors.speciesNearbyGreen,
     borderRadius: 6 / 2,
     height: 6,
     marginBottom: 3,

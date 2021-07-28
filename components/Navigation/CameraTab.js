@@ -37,7 +37,9 @@ const tabBarOptions = {
 
 const initialLayout = { width, length };
 
-const swipeEnabled = Platform.OS === "ios" || false;
+// removing this since it was easy to swipe by accident in landscape while trying to tap camera
+const swipeEnabled = false;
+// const swipeEnabled = Platform.OS === "ios" || false;
 
 const CameraNav = ( ): Props => (
   <Tab.Navigator

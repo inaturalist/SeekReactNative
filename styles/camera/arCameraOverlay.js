@@ -80,7 +80,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 14 : 16,
     lineHeight: 21,
-    textAlign: "center",
+    textAlign: "center"
+  },
+  textShadow: {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3

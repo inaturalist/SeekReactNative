@@ -58,7 +58,7 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
       style={
       rankToRender && rankList.includes( rankToRender, index )
         ? styles.landscapeDots
-        : styles.landscapeDotsGray
+        : styles.landscapeDotsGreen
       }
     />
   ) );

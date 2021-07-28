@@ -26,7 +26,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     backgroundColor: colors.black
   },
   imagePadding: {
-    paddingVertical: 10
+    paddingBottom: 20
   }
 } );
 
@@ -40,6 +40,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     paddingBottom: Platform.OS === "ios" ? 3 : 5,
     paddingHorizontal: 5,
     paddingTop: Platform.OS === "ios" ? 8 : 5
+  },
+  ccButtonLandscape: {
+    fontFamily: fonts.light
   }
 } );
 

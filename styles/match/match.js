@@ -23,7 +23,7 @@ export default StyleSheet.create( {
   },
   buttonContainer: {
     marginBottom: 10,
-    marginTop: 58
+    marginTop: 44
   },
   center,
   container: {
@@ -34,7 +34,7 @@ export default StyleSheet.create( {
     flex: 0
   },
   header: {
-    height: 186,
+    height: 152,
     overflow: "visible"
   },
   headerText: {
@@ -57,7 +57,7 @@ export default StyleSheet.create( {
     borderRadius: landscapeImageHeight / 2
   },
   imageContainer: {
-    alignItems: "center",
+    alignItems: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "center"

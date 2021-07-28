@@ -55,14 +55,11 @@ const ARCamera = ( ): Node => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    // if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
-    //   LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
-    // }
     switch ( action.type ) {
       case "CAMERA_LOADED":
         return { ...state, cameraLoaded: true };
       case "RESET_RANKS":
-        return { ...state, ranks: {} };
+        return { ...state, ranks: {}, speciesTimeoutSet: action.speciesTimeoutSet };
       case "SET_RANKS":
         return { ...state, ranks: action.ranks };
       case "PHOTO_TAKEN":
@@ -91,6 +88,8 @@ const ARCamera = ( ): Node => {
         return { ...state, showModal: true };
       case "CLOSE_MODAL":
         return { ...state, showModal: false };
+      case "SPECIES_TIMEOUT":
+        return { ...state, speciesTimeoutSet: action.speciesTimeoutSet };
       default:
         throw new Error( );
     }
@@ -103,7 +102,8 @@ const ARCamera = ( ): Node => {
     negativeFilter: false,
     taxonId: null,
     cameraType: "back",
-    showModal: false
+    showModal: false,
+    speciesTimeoutSet: false
   } );
 
   const {
@@ -115,7 +115,8 @@ const ARCamera = ( ): Node => {
     negativeFilter,
     taxonId,
     cameraType,
-    showModal
+    showModal,
+    speciesTimeoutSet
   } = state;
 
   const rankToRender = Object.keys( ranks )[0] || null;
@@ -152,10 +153,13 @@ const ARCamera = ( ): Node => {
     }
   }, [observation, navigation, pictureTaken] );
 
-  const resetPredictions = ( ) => {
+  const resetPredictions = ( updateTimeout = null ) => {
     // only rerender if state has different values than before
     if ( Object.keys( ranks ).length > 0 ) {
-      dispatch( { type: "RESET_RANKS" } );
+      dispatch( {
+        type: "RESET_RANKS",
+        speciesTimeoutSet: updateTimeout !== null ? updateTimeout : speciesTimeoutSet
+      } );
     }
   };
 
@@ -163,14 +167,11 @@ const ARCamera = ( ): Node => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 
-    // console.log( uri, "handling save error in AR camera" );
-
     await showCameraSaveFailureAlert( e, uri );
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
-    // console.log( photo.uri, "saving photo in AR camera" );
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
@@ -190,11 +191,16 @@ const ARCamera = ( ): Node => {
     }
 
     let predictionSet = false;
-    // not looking at kingdom or phylum as we are currently not displaying results for those ranks
+
+    // don't bother with trying to set predictions if a species timeout is in place
+    if ( speciesTimeoutSet ) { return; }
+
     if ( rankToRender === "species" ) {
       // this block keeps the last species seen displayed for 2.5 seconds
-      setTimeout( ( ) => resetPredictions( ), 2500 );
+      dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
+      setTimeout( ( ) => resetPredictions( false ), 2500 );
     } else {
+      // not looking at kingdom or phylum as we are currently not displaying results for those ranks
       ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
         // skip this block if a prediction state has already been set
         if ( predictionSet ) { return; }

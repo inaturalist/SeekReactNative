@@ -19,7 +19,7 @@ const GreenRectangle = ( { text, color, letterSpacing, textColor }: Props ): Rea
     <Text style={[
       textStyles.greenButtonText,
       { letterSpacing },
-      { color: textColor }
+      textColor && { color: textColor }
     ]}>
       {text.toLocaleUpperCase()}
     </Text>

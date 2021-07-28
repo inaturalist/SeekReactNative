@@ -11,6 +11,7 @@ import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import icons from "../../assets/icons";
 import { setGradients } from "../../utility/matchHelpers";
 import { ObservationContext } from "../UserContext";
+import { useIsLandscape } from "../../utility/customHooks";
 
 type Props = {
   screenType: string,
@@ -21,6 +22,7 @@ const MatchHeader = ( {
   screenType,
   setNavigationPath
 }: Props ): Node => {
+  const isLandscape = useIsLandscape( );
   const { observation } = useContext( ObservationContext );
   const { image, taxon } = observation;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
@@ -54,11 +56,16 @@ const MatchHeader = ( {
         </TouchableOpacity>
         )}
       <View style={[styles.imageContainer, styles.buttonContainer]}>
-        <Image source={{ uri: image.uri }} style={styles.imageCell} />
+        <Image source={{ uri: image.uri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />
         {showSpeciesImage && (
           <Image
             source={{ uri: taxon.speciesSeenImage }}
-            style={[styles.imageCell, styles.marginLeft]}
+            style={[
+              styles.imageCell,
+              styles.marginLeft,
+              isLandscape && styles.landscapeImage,
+              isLandscape && styles.largeMargin
+            ]}
           />
         )}
       </View>

@@ -8,6 +8,8 @@ import {
   dimensions
 } from "../global";
 
+const landscapeImageHeight = 250;
+
 export default StyleSheet.create( {
   backButton: {
     left: 0,
@@ -49,6 +51,11 @@ export default StyleSheet.create( {
     height: 150,
     width: 150
   },
+  landscapeImage: {
+    height: landscapeImageHeight,
+    width: landscapeImageHeight,
+    borderRadius: landscapeImageHeight / 2
+  },
   imageContainer: {
     alignItems: "center",
     flexDirection: "row",
@@ -67,6 +74,9 @@ export default StyleSheet.create( {
   },
   marginLeft: {
     marginLeft: dimensions.width < 350 ? 15 : 47
+  },
+  largeMargin: {
+    marginLeft: dimensions.width / 2 - 150
   },
   marginMedium: {
     marginBottom: 28

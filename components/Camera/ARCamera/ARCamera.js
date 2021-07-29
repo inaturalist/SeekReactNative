@@ -37,12 +37,10 @@ import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
-// import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext } from "../../UserContext";
-// import { LOG } from "../../../utility/debugHelpers";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
@@ -59,7 +57,7 @@ const ARCamera = ( ): Node => {
       case "CAMERA_LOADED":
         return { ...state, cameraLoaded: true };
       case "RESET_RANKS":
-        return { ...state, ranks: {}, speciesTimeoutSet: action.speciesTimeoutSet };
+        return { ...state, ranks: {} };
       case "SET_RANKS":
         return { ...state, ranks: action.ranks };
       case "PHOTO_TAKEN":
@@ -153,13 +151,10 @@ const ARCamera = ( ): Node => {
     }
   }, [observation, navigation, pictureTaken] );
 
-  const resetPredictions = ( updateTimeout = null ) => {
+  const resetPredictions = ( ) => {
     // only rerender if state has different values than before
     if ( Object.keys( ranks ).length > 0 ) {
-      dispatch( {
-        type: "RESET_RANKS",
-        speciesTimeoutSet: updateTimeout !== null ? updateTimeout : speciesTimeoutSet
-      } );
+      dispatch( { type: "RESET_RANKS" } );
     }
   };
 
@@ -181,6 +176,14 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
+  const pauseOnSpecies = ( ) => {
+    // this block keeps the last species seen displayed for 2.5 seconds
+    dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
+    setTimeout( ( ) => {
+      dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: false } );
+    }, 2500 );
+  };
+
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
 
@@ -195,27 +198,24 @@ const ARCamera = ( ): Node => {
     // don't bother with trying to set predictions if a species timeout is in place
     if ( speciesTimeoutSet ) { return; }
 
-    if ( rankToRender === "species" ) {
-      // this block keeps the last species seen displayed for 2.5 seconds
-      dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
-      setTimeout( ( ) => resetPredictions( false ), 2500 );
-    } else {
-      // not looking at kingdom or phylum as we are currently not displaying results for those ranks
-      ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
-        // skip this block if a prediction state has already been set
-        if ( predictionSet ) { return; }
-        if ( predictions[rank] ) {
-          predictionSet = true;
-          const prediction = predictions[rank][0];
+    // not looking at kingdom or phylum as we are currently not displaying results for those ranks
+    ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
+      // skip this block if a prediction state has already been set
+      if ( predictionSet ) { return; }
+      if ( predictions[rank] ) {
+        if ( predictions[rank] === "species" ) {
+          pauseOnSpecies( );
+        }
+        predictionSet = true;
+        const prediction = predictions[rank][0];
 
-          //$FlowFixMe
-          dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
-        }
-        if ( !predictionSet ) {
-          resetPredictions( );
-        }
-      } );
-    }
+        //$FlowFixMe
+        dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
+      }
+      if ( !predictionSet ) {
+        resetPredictions( );
+      }
+    } );
   };
 
   const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
@@ -333,7 +333,6 @@ const ARCamera = ( ): Node => {
 
     navigation.addListener( "focus", ( ) => {
       setObservation( null );
-      // LOG.info( "AR Camera: add navigation focus listener" );
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       checkForFirstCameraLaunch( );

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -19,8 +19,9 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 import ARCameraHeader from "./ARCameraHeader";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
-import { useFetchUserSettings, useIsLandscape } from "../../../utility/customHooks";
+import { useFetchUserSettings } from "../../../utility/customHooks";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
+import { AppOrientationContext } from "../../UserContext";
 
 type Props = {
   takePicture: Function,
@@ -63,12 +64,15 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId
 }: Props ): Node => {
+  const { isLandscape, height } = useContext( AppOrientationContext );
   const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const { autoCapture } = useFetchUserSettings( );
   const [filterIndex, setFilterIndex] = useState( null );
-  const isLandscape = useIsLandscape( );
+
+  const shutterButtonPositionLandscape = height / 2 - 65 - 31;
+  const helpButtonPositionLandscape = height / 2 + 50;
 
   const toggleFilterIndex = ( ) => {
     if ( filterIndex === null ) {
@@ -156,7 +160,12 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={[viewStyles.shutter, viewStyles.shadow, isLandscape && viewStyles.landscapeShutter]}
+        style={[
+          viewStyles.shutter,
+          viewStyles.shadow,
+          isLandscape && viewStyles.landscapeShutter,
+          isLandscape && { bottom: shutterButtonPositionLandscape }
+        ]}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
@@ -165,7 +174,11 @@ const ARCameraOverlay = ( {
         accessibilityLabel={i18n.t( "accessibility.open_help" )}
         accessible
         onPress={showCameraHelp}
-        style={[viewStyles.help, isLandscape && viewStyles.landscapeHelp]}
+        style={[
+          viewStyles.help,
+          isLandscape && viewStyles.landscapeHelp,
+          isLandscape && { bottom: helpButtonPositionLandscape }
+        ]}
       >
         <Image source={icons.cameraHelp} />
       </TouchableOpacity>

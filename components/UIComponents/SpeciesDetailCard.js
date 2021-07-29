@@ -5,7 +5,7 @@ import { View } from "react-native";
 
 import { viewStyles } from "../../styles/species/species";
 import GreenText from "./GreenText";
-import { useIsLandscape } from "../../utility/customHooks";
+import { AppOrientationContext } from "../UserContext";
 
 
 type Props = {
@@ -15,7 +15,8 @@ type Props = {
 };
 
 const SpeciesDetailCard = ( { children, text, hide }: Props ): React.Node => {
-    const isLandscape = useIsLandscape( );
+  const { isLandscape } = React.useContext( AppOrientationContext );
+
   if ( hide ) {
     return null;
   }

@@ -40,9 +40,12 @@ import { checkIfCameraLaunched } from "../../../utility/helpers";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext, UserContext } from "../../UserContext";
+import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
 
 const ARCamera = ( ): Node => {
+  // getting width and height passes correct dimensions to camera
+  // on orientation change
+  const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
@@ -116,8 +119,6 @@ const ARCamera = ( ): Node => {
     showModal,
     speciesTimeoutSet
   } = state;
-
-  const rankToRender = Object.keys( ranks )[0] || null;
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -353,6 +354,26 @@ const ARCamera = ( ): Node => {
     return null;
   }
 
+  const renderCamera = ( ) => (
+    <INatCamera
+      ref={camera}
+      confidenceThreshold={confidenceThreshold}
+      modelPath={dirModel}
+      onCameraError={handleCameraError}
+      onCameraPermissionMissing={handleCameraPermissionMissing}
+      onClassifierError={handleClassifierError}
+      onDeviceNotSupported={handleDeviceNotSupported}
+      onTaxaDetected={handleTaxaDetected}
+      onLog={handleLog}
+      style={[styles.camera, { width, height } ]}
+      taxaDetectionInterval={taxaDetectionInterval}
+      taxonomyPath={dirTaxonomy}
+      filterByTaxonId={taxonId}
+      negativeFilter={negativeFilter}
+      type={cameraType}
+    />
+  );
+
   return (
     <View style={styles.container}>
       <Modal
@@ -393,23 +414,7 @@ const ARCamera = ( ): Node => {
           source={icons.menuSettings}
         />
       </TouchableOpacity>
-      <INatCamera
-        ref={camera}
-        confidenceThreshold={confidenceThreshold}
-        modelPath={dirModel}
-        onCameraError={handleCameraError}
-        onCameraPermissionMissing={handleCameraPermissionMissing}
-        onClassifierError={handleClassifierError}
-        onDeviceNotSupported={handleDeviceNotSupported}
-        onTaxaDetected={handleTaxaDetected}
-        onLog={handleLog}
-        style={styles.camera}
-        taxaDetectionInterval={taxaDetectionInterval}
-        taxonomyPath={dirTaxonomy}
-        filterByTaxonId={taxonId}
-        negativeFilter={negativeFilter}
-        type={cameraType}
-      />
+      {renderCamera( )}
     </View>
   );
 };

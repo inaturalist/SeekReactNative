@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -8,10 +8,10 @@ import {
 } from "react-native";
 import type { Node } from "react";
 
-import i18n from "../../i18n";
+import { AppOrientationContext } from "../UserContext";
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
-import { useUserPhoto, useSeenTaxa, useIsLandscape } from "../../utility/customHooks";
+import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 
 type Props = {
   +photos: Array<Object>,
@@ -19,7 +19,7 @@ type Props = {
 };
 
 const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
-  const isLandscape = useIsLandscape( );
+  const { isLandscape } = useContext( AppOrientationContext );
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
@@ -42,13 +42,15 @@ const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
     );
   };
 
+
+
   useEffect( ( ) => {
     if ( userPhoto ) {
       photos.unshift( { medium_url: userPhoto.uri, attribution: null, license_code: null } );
     }
   }, [userPhoto, photos] );
 
-  const key = ( item ) => item.medium_url;
+  const key = ( item ) => "landscape-" + item.medium_url;
 
   const renderFooter = ( ) => <View style={viewStyles.footer} />;
 

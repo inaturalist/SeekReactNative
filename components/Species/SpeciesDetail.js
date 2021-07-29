@@ -4,7 +4,8 @@ import React, {
   useReducer,
   useEffect,
   useRef,
-  useCallback
+  useCallback,
+  useContext
 } from "react";
 import { ScrollView, Platform, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -25,13 +26,14 @@ import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
-import { useCommonName, useIsLandscape } from "../../utility/customHooks";
+import { useCommonName } from "../../utility/customHooks";
+import { AppOrientationContext } from "../UserContext";
 
 const SpeciesDetail = ( ): Node => {
+  const { isLandscape } = useContext( AppOrientationContext );
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );
-  const isLandscape = useIsLandscape( );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {

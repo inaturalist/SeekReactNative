@@ -5,10 +5,12 @@ const UserContext: Object = createContext<Function>( );
 const LanguageContext: Object = createContext<Function>( );
 const ObservationContext: Object = createContext<Function>( );
 const SpeciesNearbyContext: Object = createContext<Function>( );
+const AppOrientationContext: Object = createContext<Function>( );
 
 export {
   UserContext,
   LanguageContext,
   ObservationContext,
-  SpeciesNearbyContext
+  SpeciesNearbyContext,
+  AppOrientationContext
 };

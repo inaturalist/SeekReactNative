@@ -5,14 +5,14 @@ import { View, Image, Text } from "react-native";
 import { viewStyles, textStyles } from "../../../styles/species/species";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { useIsLandscape } from "../../../utility/customHooks";
+import { AppOrientationContext } from "../../UserContext";
 
 type Props = {
   +seenDate: ?string
 }
 
 const SeenDate = ( { seenDate }: Props ): React.Node => {
-  const isLandscape = useIsLandscape( );
+  const { isLandscape } = React.useContext( AppOrientationContext );
     return (
     <View style={[viewStyles.row, viewStyles.textContainer, isLandscape && viewStyles.largerTextContainer]}>
       <Image source={icons.checklist} style={viewStyles.checkmark} />

@@ -1,20 +1,20 @@
 // @flow
 
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
 import type { Node } from "react";
-import { useIsLandscape } from "../../utility/customHooks";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import { textStyles, viewStyles } from "../../styles/species/species";
+import { AppOrientationContext } from "../UserContext";
 
 type Props = {
   iconicTaxonId: number
 }
 
 const IconicTaxaName = ( { iconicTaxonId }: Props ): Node => {
-  const isLandscape = useIsLandscape( );
+  const { isLandscape } = useContext( AppOrientationContext );
   if ( !iconicTaxonId ) {
     return null;
   }

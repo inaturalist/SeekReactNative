@@ -105,7 +105,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
         <ImageBackground
           imageStyle={imageStyles.imageStyle}
           source={badgeImages.badge_empty}
-          style={imageStyles.image}
+          style={imageStyles.badgeIcon}
         >
           <LargeProgressCircle badge={item} iconicSpeciesCount={iconicSpeciesCount} />
         </ImageBackground>

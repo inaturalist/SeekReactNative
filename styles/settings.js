@@ -62,6 +62,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     justifyContent: "space-between",
     marginHorizontal: 28
   },
+  landscapeContainer: {
+    maxWidth: 455
+  },
   marginMedium: {
     marginTop: 22
   },

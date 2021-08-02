@@ -11,6 +11,8 @@ import {
 
 import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
+const badgeIconWidth = Math.min( 455, dimensions.width ) / 4;
+
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   container: {
@@ -82,9 +84,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
 
 const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   badgeIcon: {
-    height: dimensions.width / 4,
+    height: badgeIconWidth,
     resizeMode: "contain",
-    width: dimensions.width / 4,
+    width: badgeIconWidth,
     marginHorizontal: 6
   },
   levelImage: {

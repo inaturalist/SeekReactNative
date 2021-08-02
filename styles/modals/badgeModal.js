@@ -14,7 +14,7 @@ const modalWidth = Math.min(
   width > 350 ? width - width * 0.1 : width,
   366 );
 
-const setImageWidth = () => {
+const setImageWidth = ( ) => {
   if ( width < 366 ) {
     return width / 2;
   }
@@ -38,13 +38,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   carousel: {
     alignItems: "center"
-  },
-  image: {
-    height: setImageWidth( ),
-    justifyContent: "center",
-    marginBottom: 25,
-    width: setImageWidth( ),
-    marginHorizontal: setCarouselHorizontalMargins( )
   },
   leftArrow: {
     left: 0,
@@ -99,6 +92,13 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
     marginHorizontal: 20,
     resizeMode: "contain",
     width: 57
+  },
+  badgeIcon: {
+    height: setImageWidth( ),
+    justifyContent: "center",
+    marginBottom: 25,
+    width: setImageWidth( ),
+    marginHorizontal: setCarouselHorizontalMargins( )
   }
 } );
 

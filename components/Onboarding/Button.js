@@ -13,11 +13,11 @@ type Props = {
 const Button = ( { index }: Props ): React.Node => {
   const navigation = useNavigation( );
 
-  const navToLogin = ( ) => navigation.navigate( "LoginOrSignup" );
+  const navToHome = ( ) => navigation.navigate( "Drawer" );
 
   return (
     <TouchableOpacity
-      onPress={navToLogin}
+      onPress={navToHome}
       style={[viewStyles.buttonContainer, viewStyles.center]}
     >
       {index === 2

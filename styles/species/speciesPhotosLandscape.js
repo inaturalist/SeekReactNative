@@ -16,6 +16,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     backgroundColor: colors.black,
     width: columnWidth
   },
+  blackBackground: {
+    backgroundColor: colors.black,
+    height: dimensions.height
+  },
   photoContainer: {
     backgroundColor: colors.black,
     height: columnWidth,

@@ -10,6 +10,8 @@ import {
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
+const maxColumnWidth = 455;
+
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   secondHeader: {
@@ -36,6 +38,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   headerPadding: {
     paddingLeft: 22
+  },
+  landscapeContainerRestrictedWidth: {
+    width: maxColumnWidth,
+    alignSelf: "center"
   }
 } );
 

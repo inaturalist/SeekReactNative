@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -11,27 +11,31 @@ import GreenText from "../UIComponents/GreenText";
 import INatValueProps from "./iNatValueProps";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import AppIconSubHeader from "./AppIconSubHeader";
+import { AppOrientationContext } from "../UserContext";
 
 const INatHeaderLoggedOut = ( ): Node => {
   const navigation = useNavigation( );
   const logIntoiNat = ( ) => navigation.navigate( "LoginOrSignup" );
+  const { isLandscape } = useContext( AppOrientationContext );
 
   return (
-    <View style={viewStyles.textContainer}>
+    <>
       <AppIconSubHeader
         text={i18n.t( "about_inat.log_in_to_post_observations" )}
         icon="inat"
         largeIcon
       />
-      <View style={viewStyles.greenButtonMargins}>
-        <GreenButton
-          handlePress={logIntoiNat}
-          text="about_inat.log_in_with_inat"
-        />
+      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+        <View style={viewStyles.greenButtonMargins}>
+          <GreenButton
+            handlePress={logIntoiNat}
+            text="about_inat.log_in_with_inat"
+          />
+        </View>
+        <GreenText text="about_inat.use_inat_to" />
+        <INatValueProps />
       </View>
-      <GreenText text="about_inat.use_inat_to" />
-      <INatValueProps />
-    </View>
+    </>
   );
 };
 

@@ -19,21 +19,23 @@ const INatCardLoggedOut = ( challenge: Props ): React.Node => {
   const navToINatStats = ( ) => navigation.navigate( "iNatStats" );
 
   return (
-    <View style={viewStyles.textContainer}>
+    <>
       <AppIconSubHeader
         text={challenge
           ? i18n.t( "about_inat.dive_deeper_with_inat" )
           : i18n.t( "about_inat.we_think_youll_like_inat" )}
         icon="inat"
       />
-      <INatValueProps />
-      <Pressable onPress={navToINatStats} >
-        <Text style={textStyles.linkText}>
-          {i18n.t( "about_inat.learn_more_about_inat" )}
-        </Text>
-      </Pressable>
-      <INatLogin />
-    </View>
+      <View style={viewStyles.textContainer}>
+        <INatValueProps />
+        <Pressable onPress={navToINatStats} >
+          <Text style={textStyles.linkText}>
+            {i18n.t( "about_inat.learn_more_about_inat" )}
+          </Text>
+        </Pressable>
+        <INatLogin />
+      </View>
+    </>
   );
 };
 

@@ -54,11 +54,7 @@ const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
 
   const renderFooter = ( ) => <View style={viewStyles.footer} />;
 
-  // const renderEmptyComponent = ( ) => (
-  //   <View style={viewStyles.errorContainer}>
-  //     <Text style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
-  //   </View>
-  // );
+  const renderEmptyComponent = ( ) => <View style={viewStyles.blackBackground} />;
 
   const renderPhotoList = ( ) => (
     <FlatList
@@ -68,7 +64,7 @@ const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
       keyExtractor={key}
       ListFooterComponent={renderFooter}
       bounces={false}
-      // ListEmptyComponent={renderEmptyComponent}
+      ListEmptyComponent={renderEmptyComponent}
     />
   );
 

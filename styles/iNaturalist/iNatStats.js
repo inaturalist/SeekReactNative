@@ -14,14 +14,23 @@ import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/
 const largeIconWidth = 94;
 const smallIconWidth = 58;
 
+const landscapeMaxWidth = 455;
+
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   textContainer: {
     marginHorizontal: 27
   },
-  // landscapeContainer: {
-  //   maxWidth: 455
-  // },
+  landscapeContainer: {
+    width: landscapeMaxWidth,
+    alignSelf: "center"
+  },
+  landscapeContainerLargeIcon: {
+    width: landscapeMaxWidth - largeIconWidth
+  },
+  appIconSubHeader: {
+    marginLeft: 27
+  },
   photoMargins: {
     marginVertical: 33
   },

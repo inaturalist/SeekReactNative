@@ -5,7 +5,7 @@ import { View } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles } from "../../styles/settings";
-import { AppOrientationContext, UserContext } from "../UserContext";
+import { AppOrientationContext } from "../UserContext";
 import LanguagePicker from "./LanguagePicker";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import DonateButton from "./DonateButton";
@@ -13,7 +13,7 @@ import CameraSettings from "./CameraSettings";
 import SpeciesDetail from "./SpeciesDetail";
 
 const SettingsScreen = ( ): Node => {
-  const { login } = useContext( UserContext );
+  // const { login } = useContext( UserContext );
   const { isLandscape } = useContext( AppOrientationContext );
 
   return (
@@ -26,7 +26,8 @@ const SettingsScreen = ( ): Node => {
         <CameraSettings />
         <SpeciesDetail />
         <LanguagePicker />
-        {login && <DonateButton />}
+        <DonateButton />
+        {/* {login && <DonateButton />} */}
       </View>
     </ScrollWithHeader>
   );

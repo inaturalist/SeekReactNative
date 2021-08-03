@@ -51,20 +51,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   largerTextContainer: {
     marginHorizontal: 32
   },
-  pressableArea: {
-    paddingTop: 10,
-    paddingBottom: 15,
-    paddingHorizontal: 28
-  },
   selectedPressableArea: {
     backgroundColor: "rgb(176, 196, 222)",
     alignSelf: "flex-start"
-  },
-  copiedAnimation: {
-    zIndex: 1,
-    alignSelf: "center",
-    position: "absolute",
-    top: -35
   },
   topRibbon: {
     paddingTop: 2,

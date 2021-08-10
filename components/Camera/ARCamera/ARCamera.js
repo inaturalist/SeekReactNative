@@ -20,7 +20,7 @@ import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/camera/arCamera";
+import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import {
@@ -354,6 +354,12 @@ const ARCamera = ( ): Node => {
     return null;
   }
 
+  const cameraStyle = {
+    // need different styling for android to avoid black line on right side of screen
+    width: Platform.OS === "android" ? width + 100 : width,
+    height
+  };
+
   const renderCamera = ( ) => (
     <INatCamera
       ref={camera}
@@ -365,7 +371,7 @@ const ARCamera = ( ): Node => {
       onDeviceNotSupported={handleDeviceNotSupported}
       onTaxaDetected={handleTaxaDetected}
       onLog={handleLog}
-      style={[styles.camera, { width, height } ]}
+      style={[viewStyles.camera, cameraStyle]}
       taxaDetectionInterval={taxaDetectionInterval}
       taxonomyPath={dirTaxonomy}
       filterByTaxonId={taxonId}
@@ -375,7 +381,7 @@ const ARCamera = ( ): Node => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={viewStyles.container}>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -397,7 +403,7 @@ const ARCamera = ( ): Node => {
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
         onPress={navHome}
-        style={[styles.backButton, styles.shadow]}
+        style={[viewStyles.backButton, viewStyles.shadow]}
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
@@ -405,12 +411,12 @@ const ARCamera = ( ): Node => {
         accessibilityLabel={i18n.t( "menu.settings" )}
         accessible
         onPress={navToSettings}
-        style={[styles.settingsButton, styles.shadow]}
+        style={[viewStyles.settingsButton, viewStyles.shadow]}
       >
         {/* $FlowFixMe */}
         <Image
           tintColor={colors.white}
-          style={styles.settingsIcon}
+          style={imageStyles.settingsIcon}
           source={icons.menuSettings}
         />
       </TouchableOpacity>

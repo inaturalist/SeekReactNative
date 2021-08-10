@@ -198,10 +198,10 @@
     "badge_name_april": "Anslutningsutmärkelse",
     "badge_name_may": "Biologisk mångfalds-utmärkelse",
     "badge_name_june": "Community-utmärkelse",
-    "badge_name_august": "Skogsutmärkelse",
-    "badge_name_september": "Gräsmarksutmärkelse",
-    "badge_name_october": "Sötvattensutmärkelse",
-    "badge_name_november": "Öppna havet-utmärkelse",
+    "badge_name_august": "Gräsmarksutmärkelse",
+    "badge_name_september": "Sötvattensutmärkelse",
+    "badge_name_october": "Öppna havet-utmärkelse",
+    "badge_name_november": "Skogsutmärkelse",
     "badge_name_december": "Klimatutmärkelse",
     "op": "Our Planet",
     "start_now": "Börja nu",
@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Observerade arter",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "NÄRLIGGANDE ARTER I DENNA UTMANING",
+    "no_species_nearby": "Vi hittade inga arter i närheten i denna utmaning som du inte redan har observerat",
+    "species_nearby_internet_error": "Vi behöver internet för att generera arter i närheten."
   },
   "results": {
     "observed_species": "Du observerade en ny art!",
@@ -839,17 +839,17 @@
     "x_seen_by_user": "{{speciesName}} sedd av {{user}}"
   },
   "seek_2021_challenges": {
-    "august_2021_challenge_name": "Arthropod Predator Challenge",
-    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
-    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
-    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
-    "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
-    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "august_2021_challenge_name": "Utmaning för rovlevande leddjur",
+    "august_2021_mission_1": "Hitta 5 leddjursarter från:\n\n-Insektsordningen Mantodea (Bönsyrsor);\n-Insektsordningen Odonata (Trollsländor);\n-Insektsordningen Megaloptera (Vattennätvingar);\n-Insektsordningen Neuroptera (Nätvingar);\n-Insektsfamiljen Coccinellidae (Nyckelpigor);\n-Klassen Chilopoda (Enkelfotingar);\n-Klass Arachnids (Spindeldjur)",
+    "august_2021_description": "Rovdjur är djur som jagar och äter upp andra djur. Men du behöver inte gå långt för att hitta dem! Enkelfotingar, spindlar och många andra insekter och spindeldjur är förmodligen på jakt efter mindre bytesdjur precis utanför ditt fönster — eller till och med inomhus. Till och med de flesta nyckelpigor är rovdjur!",
+    "august_2021_action": "Tänk på vilka typer av rovdjur du hittat. Vilka sorters bytesdjur äter de? Hur hittar de, fångar och äter byten?",
+    "september_2021_challenge_name": "Årstidsutmaning",
+    "september_2021_mission_1": "Hitta 10 nya arter",
+    "september_2021_description": "Årstiderna kommer och går! Varje år har två dagjämningar: i mars och september. På dagjämningen är det nästan exakt 12 timmar dag och 12 timmar natt överallt i världen. Alltmedan dagslängden ändras förändrar växter och djur sin tillväxt eller sitt beteende.",
+    "september_2021_action": "Har det varit några extrema väderhändelser nära dig nyligen? Hur reagerade växter, djur och svampar? Försök att hitta tidigare väderdata för denna månad i ditt område. Vilka förändringar har skett och hur tror du att det kan påverka de organismer som lever där?",
+    "october_2021_challenge_name": "Spindelsdjursutmaning",
+    "october_2021_mission_1": "Hitta 4 spindeldjur",
+    "october_2021_description": "Visste du att inte alla spindeldjur är spindlar? Förutom spindlar kan man på alla bebodda kontinenter hitta kvalster och fästingar, lockespindlar och de små, förbisedda klokryparna. Andra mindre välkända spindeldjur som skorpioner, gisselskorpioner, amblypyger och solifuger finns i allmänhet i varmare och/eller torrare delar av världen.",
+    "october_2021_action": "Tänk på vilka typer av spindeldjur du hittat. Hur skulle du beskriva deras livsmiljöer? Hittade du några i samma livsmiljö?"
   }
 }

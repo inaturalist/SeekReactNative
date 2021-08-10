@@ -198,10 +198,10 @@
     "badge_name_april": "Insígnia de Connectivitat",
     "badge_name_may": "Insígnia de Biodiversitat",
     "badge_name_june": "Insígnia de la Comunitat",
-    "badge_name_august": "Insígnia Forestal",
-    "badge_name_september": "Insígnia d'Herbassars",
-    "badge_name_october": "Insígnia d'Aigües Continentals",
-    "badge_name_november": "Insígnia d'Alta Mar",
+    "badge_name_august": "Insígnia d'Herbassars",
+    "badge_name_september": "Insígnia d'Aigües Continentals",
+    "badge_name_october": "Insígnia d'Alta Mar",
+    "badge_name_november": "Insígnia Forestal",
     "badge_name_december": "Insígnia Climàtica",
     "op": "\"Nuestro Planeta\"",
     "start_now": "Comença ara",
@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Espècies Observades",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ESPÈCIES PROPERES EN AQUEST REPTE",
+    "no_species_nearby": "No hem trobat espècies properes en aquest repte que no hagis observat ja",
+    "species_nearby_internet_error": "Necessitem Internet per generar les espècies pròperes"
   },
   "results": {
     "observed_species": "Has observat una nova espècie!",
@@ -582,10 +582,10 @@
     "ok": "D’acord",
     "look_up": "Cerca una espècie pel seu nom",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
+    "major_taxa": "TÀXONS PRINCIPALS",
     "animals": "Animals",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "protozoans": "Protozous",
+    "kelp": "Algues brunes, diatomees i relacionats"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR A INATURALIST EN SEGON TERME",
@@ -669,7 +669,7 @@
     "seasonality": "Estacionalitat",
     "seasonality_option_1": "Mostrar estacionalitat basada en les observacions mundials d'iNaturalist",
     "seasonality_option_2": "Mostrar estacionalitat basada en les observacions d'iNaturalist properes a la meva ubicació actual (les espècies que no es troben prop de la meva localització no tenen estacionalitat)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Visita el següent enllaç per fer un donatiu a Seek:"
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -839,17 +839,17 @@
     "x_seen_by_user": "{{speciesName}} vist per {{user}}"
   },
   "seek_2021_challenges": {
-    "august_2021_challenge_name": "Arthropod Predator Challenge",
-    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
-    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
-    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
-    "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
-    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "august_2021_challenge_name": "Repte d'Artròpodes Depredadors",
+    "august_2021_mission_1": "Troba 5 espècies d'artròpode de:\n-Insecte Ordre Mantodea (Mantis)\n-Insecte Ordre Odonata (Libèl·lules o Espiadimonis)\n-Insecte Ordre Megaloptera (Mosques de Dobson, Siàlids i similars)\n-Insecte Ordre Neuroptera (Formigues lleó i semblants)\n-Insecte Família Coccinellidae (Marietes)\n-Classe Chilopoda (Centpeus)\n-Classe Arachnida (Aranyes, Escorpins i similars)",
+    "august_2021_description": "Els predadors són animals que cacen i s'alimenten d'altres animals. Però no cal que vagis molt lluny per trobar-los! Els centpeus, les aranyes i altres insectes i aràcnids són, probablement, caçadors d'altres preses animals a l'altre costat de la teva finestra -o fins i tot dins de casa. Fins i tot les Marietes són depredadores!",
+    "august_2021_action": "Pensa sobre els tipus de depredadors que trobes. Quins tipus de preses animals mengen? Com les troben, captures i consumeixen les seves preses?",
+    "september_2021_challenge_name": "Repte d'Estacionalitat",
+    "september_2021_mission_1": "Troba 10 espècies noves",
+    "september_2021_description": "Les estacions van canviant! Cada any té dos equinoccis: al març i al setembre. El dia de l'equinocci té exactament 12 hores de dia i 12 hores de nit a tots els punts de planta. A mesura la longitud del dia canvia, les plantes i els animals responen canviant el seu creixement o comportament.",
+    "september_2021_action": "Hi ha hagut algun esdeveniment meteorològic extrem a prop teu, recentment? Com han respost les plantes, els animals o els fongs? Intenta trobar dades meteorològiques d'aquest mes a la teva zona. Quins canvis han succeït i com penses que poden haver afectat els organismes que viuen aquí?",
+    "october_2021_challenge_name": "Repte Aràcnid",
+    "october_2021_mission_1": "Troba 4 aràcnids",
+    "october_2021_description": "Sabies que no tots els aràcnids són aranyes. A més de les aranyes, els àcars i les paparres, es poden trobar opilions, i fins i tot petits pseudoescorpins es poden trobar a tots els continents habitats. Altres aràcnids menys coneguts com els escorpins, els amblipigis, com escorpins sense cua, i els solífugs, entre d'altres, es troben generalment a les parts més càlides o les més seques del món",
+    "october_2021_action": "Pensa sobre els tipus d'aràcnids que trobis. Com descriuries els seus hàbitats? Pots trobar-los sempre als mateixos hàbitats?"
   }
 }

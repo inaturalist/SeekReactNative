@@ -8,6 +8,7 @@ const languages = {
   cs: "Čeština",
   da: "Dansk",
   de: "Deutsch",
+  el: "Ελληνικά",
   en: "English",
   es: "Español",
   "es-MX": "Español (Mexico)",

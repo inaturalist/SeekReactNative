@@ -80,6 +80,7 @@
 		379EB0DD25101F630059D835 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
 		379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
 		37A0EA3C24A2AD6A006A21C7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ../ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		37B1FB7826C2F24900CB4C5C /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = ../el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37B922B5251C2497009DE0A7 /* si-LK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "si-LK"; path = "../si-LK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -309,6 +310,7 @@
 				"es-MX",
 				eu,
 				"si-LK",
+				el,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -475,6 +477,7 @@
 				373E63AE24E60C5400E98448 /* es-MX */,
 				371DF56724FED22D00A3D1FE /* eu */,
 				37B922B5251C2497009DE0A7 /* si-LK */,
+				37B1FB7826C2F24900CB4C5C /* el */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

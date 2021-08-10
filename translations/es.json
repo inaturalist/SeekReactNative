@@ -198,10 +198,10 @@
     "badge_name_april": "Insignia de Conectividad",
     "badge_name_may": "Insignia de Biodiversidad",
     "badge_name_june": "Insignia de Comunidad",
-    "badge_name_august": "Insignia Forestal",
-    "badge_name_september": "Insignia de Praderas",
-    "badge_name_october": "Insignia de Agua Dulce",
-    "badge_name_november": "Insignia de Alta Mar",
+    "badge_name_august": "Insignia de Praderas",
+    "badge_name_september": "Insignia de Agua Dulce",
+    "badge_name_october": "Insignia de Alta Mar",
+    "badge_name_november": "Insignia Forestal",
     "badge_name_december": "Insignia Climática",
     "op": "Nuestro planeta",
     "start_now": "Empezar ahora",
@@ -267,9 +267,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Especies observadas",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ESPECIES CIERCANAS EN ESTE DESAFIO",
+    "no_species_nearby": "No hemos encontrado especies cercanas en este desafío que no hayas observado ya",
+    "species_nearby_internet_error": "Necesitamos Internet para generar las especies cercanas."
   },
   "results": {
     "observed_species": "¡Has observado una nueva especie!",
@@ -585,7 +585,7 @@
     "major_taxa": "TAXONES PRINCIPALES",
     "animals": "Animales",
     "protozoans": "Protozoarios",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "kelp": "Algas pardas, diatomeas y parientes"
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICANDO EN INATURALIST EN SEGUNDO PLANO",
@@ -839,17 +839,17 @@
     "x_seen_by_user": "{{speciesName}} visto por {{user}}"
   },
   "seek_2021_challenges": {
-    "august_2021_challenge_name": "Arthropod Predator Challenge",
-    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
-    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
-    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
-    "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
-    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "august_2021_challenge_name": "Desafío de Artrópodos Depredadores",
+    "august_2021_mission_1": "Encuentra 5 especies de artrópodos de:\n\n-Orden de Insectos Mantodea (Mantis);\n-Orden de Insectos Odonata (Libélulas y Caballitos del diablo);\n-Orden de Insectos Megaloptera (Moscas de Dobson y Moscas-pez);\n-Orden de Insectos Neuroptera (Hormigas león, Crisopas y parientes);\n-Familia de Insectos Coccinellidae (Mariquitas);\n-Clase Chilopoda (Ciempiés);\n-Clase Arachnida (Arañas, escorpiones y parientes)\n\n",
+    "august_2021_description": "Los depredadores son animales que cazan y consumen otros animales. ¡Pero no necesitas ir muy lejos para encontrarlos! Es probable que  ciempiés, arañas y otros muchos insectos y arácnidos estén buscando animales de presa más pequeños tras tu ventana, o incluso dentro de casa. ¡La  mayoría de las mariquitas son depredadoras!",
+    "august_2021_action": "Piensa en los tipos de depredadores que has encontrado. ¿Qué tipo de animales presa comen? ¿Cómo encuentran, capturan y consumen sus presas?",
+    "september_2021_challenge_name": "Desafío de Estacionalidad",
+    "september_2021_mission_1": "Encuentra 10 nuevas especies",
+    "september_2021_description": "Las estaciones van cambiando: cada año hay dos equinoccios: en marzo y septiembre. El día del equinoccio, hay casi exactamente 12 horas de luz y 12 horas de noche en todo el mundo. A medida que la duración de los días cambia, las plantas y los animales responden cambiando su crecimiento o comportamiento.",
+    "september_2021_action": "¿Ha habido recientemente eventos meteorológicos extremos cerca de ti? ¿Cómo respondieron plantas, animales y hongos? Intenta encontrar datos meteorológicos pasados para este mes en tu área. ¿Qué tipo de cambios se han producido y cómo crees que podrían afectar a los organismos que viven aquí?",
+    "october_2021_challenge_name": "Desafío Arácnido",
+    "october_2021_mission_1": "Encuentra 4 aracnidos",
+    "october_2021_description": "¿Sabías que no todos los arácnidos son arañas? Además de las arañas, los ácaros, las garrapatas y los opiliones, e incluso los pseudoscorpiones se pueden encontrar en todos los continentes habitados. Otros arácnidos menos conocidos como los escorpiones, los pseudoescorpiones y los solífugos se encuentran generalmente en partes más cálidas y/o secas del mundo.",
+    "october_2021_action": "Piensa en los tipos de arácnidos que encuentras. ¿Cómo describirías sus hábitats? ¿Alguno de ellos se encontraba en el mismo hábitat?"
   }
 }

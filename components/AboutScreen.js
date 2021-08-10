@@ -23,14 +23,14 @@ const AboutScreen = (): Node => {
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
   const { login } = useContext( UserContext );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isTablet } = useContext( AppOrientationContext );
 
   const navToDebug = () => navigation.navigate( "DebugEmailScreen" );
   const disabled = !login;
 
   return (
     <ScrollWithHeader header="about.header">
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <Image source={logos.iNat} />
         <View style={viewStyles.marginSmall} />
         <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek" )}</Text>

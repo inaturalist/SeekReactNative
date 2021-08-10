@@ -16,7 +16,7 @@ import { AppOrientationContext } from "../UserContext";
 const INatHeaderLoggedOut = ( ): Node => {
   const navigation = useNavigation( );
   const logIntoiNat = ( ) => navigation.navigate( "LoginOrSignup" );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isTablet } = useContext( AppOrientationContext );
 
   return (
     <>
@@ -25,7 +25,7 @@ const INatHeaderLoggedOut = ( ): Node => {
         icon="inat"
         largeIcon
       />
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <View style={viewStyles.greenButtonMargins}>
           <GreenButton
             handlePress={logIntoiNat}

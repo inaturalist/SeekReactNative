@@ -18,12 +18,12 @@ import LoginCard from "../UIComponents/Login/LoginCard";
 
 const INatDetails = ( ): Node => {
   const { login } = useContext( UserContext );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isTablet } = useContext( AppOrientationContext );
 
   return (
     <ScrollWithHeader header="about_inat.inaturalist">
       {login ? <INatHeaderLoggedIn /> : <INatHeaderLoggedOut />}
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <View style={viewStyles.sectionMargin} />
         <GreenText text="about_inat.inat_vs_seek" />
       </View>
@@ -31,7 +31,7 @@ const INatDetails = ( ): Node => {
         text={i18n.t( "about_inat.inat_is_an_online_community" )}
         icon="inat"
       />
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <BulletedList text="about_inat.inat_bullet_1" />
         <BulletedList text="about_inat.inat_bullet_2" />
         <BulletedList text="about_inat.inat_bullet_3" />
@@ -41,7 +41,7 @@ const INatDetails = ( ): Node => {
         text={i18n.t( "about_inat.seek_is_an_id_app" )}
         icon="seek"
       />
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <BulletedList text="about_inat.seek_bullet_1" />
         <BulletedList text="about_inat.seek_bullet_2" />
         <BulletedList text="about_inat.seek_bullet_3" />
@@ -50,7 +50,7 @@ const INatDetails = ( ): Node => {
         <Text style={[textStyles.text, textStyles.everydayObs]}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</Text>
       </View>
       <INatPhotos />
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <GreenText text="about_inat.faqs" />
         <BulletedList text="about_inat.faq_1" />
         <BulletedList text="about_inat.faq_2" />

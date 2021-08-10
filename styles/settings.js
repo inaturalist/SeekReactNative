@@ -62,8 +62,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     justifyContent: "space-between",
     marginHorizontal: 28
   },
-  landscapeContainer: {
-    maxWidth: 455
+  tabletContainer: {
+    maxWidth: 455,
+    alignSelf: "center"
   },
   marginMedium: {
     marginTop: 22
@@ -82,8 +83,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   radioMargin: {
     paddingVertical: 19 / 2,
-    paddingLeft: 20,
-    paddingRight: 14
+    paddingLeft: 20
   },
   donateMarginBottom: {
     paddingTop: 35 - 19
@@ -93,7 +93,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   row,
   switch: {
-    paddingHorizontal: 10.3 / 2,
     paddingVertical: 19 / 2,
     marginRight: 10
   },

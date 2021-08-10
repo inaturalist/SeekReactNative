@@ -52,56 +52,8 @@ export default StyleSheet.create( {
     flex: 1
   },
   row,
-  dots: {
-    marginHorizontal: width / 32
-  },
-  greenButton: {
-    alignItems: "center"
-  },
-  header: {
-    position: "absolute",
-    top: height > 700 ? 89 : 58
-  },
   loading: {
     position: "absolute",
     top: height / 2 - 50
-  },
-  predictions: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
-    margin: 22,
-    textAlign: "center",
-    textShadowColor: colors.textShadow,
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 3
-  },
-  scientificName: {
-    fontFamily: fonts.semiboldItalic
-  },
-  landscapeHeader: {
-    borderRadius: 20,
-    backgroundColor: colors.seekForestGreen,
-    paddingVertical: 15,
-    paddingHorizontal: 20
-  },
-  landscapeHeaderSpecies: {
-    backgroundColor: colors.seekGreen
-  },
-  landscapeDots: {
-    backgroundColor: colors.white,
-    borderRadius: 10 / 2,
-    height: 10,
-    marginHorizontal: 16,
-    width: 10
-  },
-  landscapeDotsGreen: {
-    backgroundColor: colors.speciesNearbyGreen,
-    borderRadius: 6 / 2,
-    height: 6,
-    marginBottom: 3,
-    marginHorizontal: 16,
-    marginTop: 3,
-    width: 6
   }
 } );

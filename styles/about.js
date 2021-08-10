@@ -35,7 +35,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     marginHorizontal: 26,
     marginTop: 31
   },
-  landscapeContainer: {
+  tabletContainer: {
     maxWidth: 455,
     alignSelf: "center"
   }

@@ -13,8 +13,10 @@ import { addARCameraFiles, checkIfFirstLaunch, setCameraLaunched } from "../util
 import { setupBadges } from "../utility/badgeHelpers";
 import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
 import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
+import { AppOrientationContext } from "./UserContext";
 
 const SplashScreen = ( ): Node => {
+  const { isTablet } = React.useContext( AppOrientationContext );
   const navigation = useNavigation( );
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );
 
@@ -51,10 +53,20 @@ const SplashScreen = ( ): Node => {
   }, [navigation, checkForQuickAction, resetRouter] );
 
   return (
-    <ImageBackground source={backgrounds.splash} style={styles.backgroundImage}>
-      <Image source={logos.seek} style={styles.logo} />
+    <ImageBackground
+      source={isTablet ? backgrounds.splashiPad : backgrounds.splash}
+      style={styles.backgroundImage}
+    >
+      <Image
+        source={logos.seek}
+        style={[styles.logo, isTablet && styles.logoTablet]}
+      />
       {/* $FlowFixMe */}
-      <Image source={logos.casNatGeo} tintColor={colors.white} style={styles.joint} />
+      <Image
+        source={logos.casNatGeo}
+        tintColor={colors.white}
+        style={[styles.joint, isTablet && styles.logoJoint]}
+      />
     </ImageBackground>
   );
 };

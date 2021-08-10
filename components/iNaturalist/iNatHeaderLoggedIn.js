@@ -15,7 +15,7 @@ import { AppOrientationContext, UserContext } from "../UserContext";
 
 const INatHeaderLoggedIn = ( ): Node => {
   const { userProfile, login } = useContext( UserContext );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isTablet } = useContext( AppOrientationContext );
   const count = useFetchObservationCount( login, userProfile.login );
 
   return (
@@ -28,7 +28,7 @@ const INatHeaderLoggedIn = ( ): Node => {
         {Platform.OS === "android" && <OpenINatButton />}
       </LinearGradient>
       <View style={viewStyles.loggedInHeaderMargin} />
-      <View style={[viewStyles.textContainer, isLandscape && viewStyles.landscapeContainer]}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <BulletedList text="about_inat.logged_in_bullet_1" />
         <BulletedList text="about_inat.logged_in_bullet_2" />
         <BulletedList text="about_inat.logged_in_bullet_3" />

@@ -14,14 +14,14 @@ type Props = {
 }
 
 const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
-  const { isLandscape } = React.useContext( AppOrientationContext );
+  const { isTablet } = React.useContext( AppOrientationContext );
 
   return (
     <View style={[
       viewStyles.row,
       viewStyles.secondHeader,
       viewStyles.appIconSubHeader,
-      isLandscape && viewStyles.landscapeContainer
+      isTablet && viewStyles.tabletContainer
     ]}>
       <Image
         source={icon === "inat" ? logos.iNatAppIcon : logos.seekAppIcon}
@@ -30,8 +30,8 @@ const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
       <Text style={[
         textStyles.secondHeaderText,
         largeIcon && textStyles.smallerTextWidth,
-        isLandscape && viewStyles.landscapeContainer,
-        ( isLandscape && largeIcon ) && viewStyles.landscapeContainerLargeIcon
+        isTablet && viewStyles.tabletContainer,
+        ( isTablet && largeIcon ) && viewStyles.landscapeContainerLargeIcon
       ]}>
         {text}
       </Text>

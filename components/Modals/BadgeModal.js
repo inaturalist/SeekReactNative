@@ -100,7 +100,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
       style={viewStyles.carousel}
     >
       {item.earned ? (
-        <Image source={badgeImages[item.earnedIconName]} style={imageStyles.image} />
+        <Image source={badgeImages[item.earnedIconName]} style={imageStyles.badgeIcon} />
       ) : (
         <ImageBackground
           imageStyle={imageStyles.imageStyle}

@@ -2,6 +2,7 @@
 
 const backgrounds = {
   splash: require( "./backgrounds/bg-splash-2020.webp" ),
+  splashiPad: require( "./backgrounds/bg-splash-2021-iPad.png" ),
   login: require( "./backgrounds/bg-login-2020.webp" ),
   noSpeciesNearby: require( "./backgrounds/img-speciesnearby-error.webp" ),
   navBar: require( "./backgrounds/img-navbar.webp" ),

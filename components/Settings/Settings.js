@@ -8,26 +8,24 @@ import { viewStyles } from "../../styles/settings";
 import { AppOrientationContext } from "../UserContext";
 import LanguagePicker from "./LanguagePicker";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import DonateButton from "./DonateButton";
+import DonateCard from "../UIComponents/Cards/DonateCard";
 import CameraSettings from "./CameraSettings";
 import SpeciesDetail from "./SpeciesDetail";
 
 const SettingsScreen = ( ): Node => {
-  // const { login } = useContext( UserContext );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isTablet } = useContext( AppOrientationContext );
 
   return (
     <ScrollWithHeader header="menu.settings">
       <View style={[
         viewStyles.marginHorizontal,
         viewStyles.marginTop,
-        isLandscape && viewStyles.landscapeContainer
+        isTablet && viewStyles.tabletContainer
       ]}>
         <CameraSettings />
         <SpeciesDetail />
         <LanguagePicker />
-        <DonateButton />
-        {/* {login && <DonateButton />} */}
+        <DonateCard />
       </View>
     </ScrollWithHeader>
   );

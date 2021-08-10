@@ -26,7 +26,7 @@ const INatCardLoggedOut = ( challenge: Props ): React.Node => {
           : i18n.t( "about_inat.we_think_youll_like_inat" )}
         icon="inat"
       />
-      <View style={viewStyles.textContainer}>
+      <View style={[viewStyles.textContainer, viewStyles.marginBottom]}>
         <INatValueProps />
         <Pressable onPress={navToINatStats} >
           <Text style={textStyles.linkText}>

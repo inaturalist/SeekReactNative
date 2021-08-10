@@ -21,6 +21,8 @@ const setImageWidth = ( ) => {
   return 366 / 2;
 };
 
+console.log( setImageWidth( ) );
+
 const setCarouselHorizontalMargins = ( ) => {
   return ( modalWidth - setImageWidth( ) ) / 2;
 };

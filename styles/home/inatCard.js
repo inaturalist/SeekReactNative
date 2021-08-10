@@ -42,6 +42,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   landscapeContainerRestrictedWidth: {
     width: maxColumnWidth,
     alignSelf: "center"
+  },
+  marginBottom: {
+    paddingBottom: 45
   }
 } );
 

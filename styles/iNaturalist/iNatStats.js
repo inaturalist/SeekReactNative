@@ -21,7 +21,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   textContainer: {
     marginHorizontal: 27
   },
-  landscapeContainer: {
+  tabletContainer: {
     width: landscapeMaxWidth,
     alignSelf: "center"
   },

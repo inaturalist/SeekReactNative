@@ -16,7 +16,7 @@ import Post from "../PostToiNat/PostScreen";
 import PostStatus from "../PostToiNat/PostStatus";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
-import Donation from "../Settings/Donation";
+import Donation from "../Donation";
 import PrivacyPolicyScreen from "../Auth/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "../Auth/TermsOfServiceScreen";
 import CommunityGuidelines from "../Auth/CommunityGuidelines";

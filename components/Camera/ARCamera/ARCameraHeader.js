@@ -5,7 +5,7 @@ import { View, Text, Image } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/camera/arCamera";
+import { viewStyles, textStyles } from "../../../styles/camera/arCameraHeader";
 import icons from "../../../assets/icons";
 import rankDict from "../../../utility/dictionaries/rankDict";
 import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
@@ -49,18 +49,20 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
       source={rankToRender && rankList.includes( rankToRender, index )
         ? icons.greenDot
         : icons.whiteDot}
-      style={styles.dots}
+      style={viewStyles.dots}
     />
   ) );
 
   const showLandscapeModeDots = ( ) => rankList.map( ( rank, index ) => (
     <View
       key={rank}
-      style={
+      style={[
       rankToRender && rankList.includes( rankToRender, index )
-        ? styles.landscapeDots
-        : styles.landscapeDotsGreen
-      }
+        ? viewStyles.landscapeDots
+        : viewStyles.landscapeDotsGreen,
+      index === 0 && viewStyles.noLeftMargin,
+      index === 6 && viewStyles.noRightMargin
+    ]}
     />
   ) );
 
@@ -78,19 +80,19 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
   const setTaxonomicRankBubbleColor = ( ) => {
     if ( isLandscape ) {
       if ( rankToRender === "species" ) {
-        return [styles.landscapeHeader, styles.landscapeHeaderSpecies];
+        return [viewStyles.landscapeHeader, viewStyles.landscapeHeaderSpecies];
       } else {
-        return styles.landscapeHeader;
+        return viewStyles.landscapeHeader;
       }
     }
     return null;
   };
 
   return (
-    <View style={styles.header}>
+    <View style={viewStyles.header}>
       {( ranks && rankToRender ) && (
         <View style={setTaxonomicRankBubbleColor( )}>
-          <View style={styles.greenButton}>
+          <View style={viewStyles.greenButton}>
             <GreenRectangle
               text={i18n.t( rankDict[rankToRender] )}
               letterSpacing={0.94}
@@ -98,10 +100,10 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
               textColor={setTaxonomicRankColor( )}
             />
           </View>
-          <Text style={[styles.predictions, showScientificName && styles.scientificName]}>
+          <Text style={[textStyles.predictions, showScientificName && textStyles.scientificName]}>
             {showScientificName ? ranks[rankToRender][0].name : commonName}
           </Text>
-          <View style={styles.row}>
+          <View style={[viewStyles.row, viewStyles.center]}>
             {isLandscape ? showLandscapeModeDots( ) : showPortraitModeDots( )}
           </View>
         </View>

@@ -6,11 +6,13 @@ const LanguageContext: Object = createContext<Function>( );
 const ObservationContext: Object = createContext<Function>( );
 const SpeciesNearbyContext: Object = createContext<Function>( );
 const AppOrientationContext: Object = createContext<Function>( );
+const ChallengeContext: Object = createContext<Function>( );
 
 export {
   UserContext,
   LanguageContext,
   ObservationContext,
   SpeciesNearbyContext,
-  AppOrientationContext
+  AppOrientationContext,
+  ChallengeContext
 };

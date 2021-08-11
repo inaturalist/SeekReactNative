@@ -11,7 +11,6 @@ import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
 import i18n from "../i18n";
-// import { LOG } from "./debugHelpers";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 
@@ -277,22 +276,6 @@ const getChallengesCompleted = async () => {
   }
 };
 
-const setChallengeIndex = ( index: number ) => {
-  AsyncStorage.setItem( "index", index.toString() );
-};
-
-const getChallengeIndex = async (): any => {
-  try {
-    const index = await AsyncStorage.getItem( "index" );
-    if ( index !== "none" ) {
-      return Number( index );
-    }
-    return null;
-  } catch ( error ) {
-    return ( error );
-  }
-};
-
 const getChallengeProgress = async () => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
@@ -383,8 +366,6 @@ export {
   startChallenge,
   setupChallenges,
   checkNumberOfChallengesCompleted,
-  setChallengeIndex,
-  getChallengeIndex,
   setChallengeProgress,
   checkForChallengesCompleted,
   fetchObservationsAfterChallengeStarted,

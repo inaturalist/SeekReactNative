@@ -12,16 +12,17 @@ import { useNavigation } from "@react-navigation/native";
 import i18n from "../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../styles/notifications";
 import notifications from "../../assets/notifications";
-import { setChallengeIndex } from "../../utility/challengeHelpers";
 import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
 import { markNotificationAsSeen } from "../../utility/notificationHelpers";
+import { ChallengeContext } from "../UserContext";
 
 type Props = {
   +item: Object
 }
 
 const NotificationCard = ( { item }: Props ): React.Node => {
+  const { setIndex } = React.useContext( ChallengeContext );
   const navigation = useNavigation();
 
   let image = notifications[item.iconName];
@@ -34,7 +35,7 @@ const NotificationCard = ( { item }: Props ): React.Node => {
 
   const goToNotification = () => {
     if ( item.nextScreen === "ChallengeDetails" ) {
-      setChallengeIndex( item.challengeIndex );
+      setIndex( item.challengeIndex );
     }
     if ( item.seen === false ) {
       markNotificationAsSeen( item.index );

@@ -12,10 +12,11 @@ import { useNavigation } from "@react-navigation/native";
 import i18n from "../../../i18n";
 import { imageStyles, viewStyles, textStyles } from "../../../styles/challenges/challengeProgress";
 import PercentCircle from "../../UIComponents/PercentCircle";
-import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../../utility/challengeHelpers";
+import { startChallenge } from "../../../utility/challengeHelpers";
 import icons from "../../../assets/icons";
 import { formatMonthYear } from "../../../utility/dateHelpers";
 import badges from "../../../assets/badges";
+import { ChallengeContext } from "../../UserContext";
 
 type Props = {
   +challenge: {
@@ -31,7 +32,8 @@ type Props = {
 }
 
 const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {
-  const navigation = useNavigation();
+  const { setIndex } = React.useContext( ChallengeContext );
+  const navigation = useNavigation( );
   const {
     name,
     availableDate,
@@ -50,12 +52,14 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
     leftIcon = badges.badge_empty;
   }
 
-  const beginChallenge = () => {
-    setChallengeIndex( index );
-    startChallenge( index );
-    fetchChallenges();
-    recalculateChallenges();
+  const navToChallengeDetails = ( ) => {
+    setIndex( index );
     navigation.navigate( "ChallengeDetails" );
+  };
+
+  const beginChallenge = ( ) => {
+    startChallenge( index );
+    navToChallengeDetails( );
   };
 
   if ( percentComplete === 100 ) {
@@ -71,15 +75,10 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
         onPress={beginChallenge}
         style={textStyles.startText}
       >
-        {i18n.t( "challenges.start_now" ).toLocaleUpperCase()}
+        {i18n.t( "challenges.start_now" ).toLocaleUpperCase( )}
       </Text>
     );
   }
-
-  const navToChallengeDetails = () => {
-    setChallengeIndex( index );
-    navigation.navigate( "ChallengeDetails" );
-  };
 
   return (
     <TouchableOpacity
@@ -89,7 +88,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
       <Image source={leftIcon} style={imageStyles.challengeBadgeIcon} />
       <View style={viewStyles.textContainer}>
         <Text style={textStyles.titleText}>
-          {i18n.t( name ).toLocaleUpperCase().replace( /(- |-)/g, "-\n" )}
+          {i18n.t( name ).toLocaleUpperCase( ).replace( /(- |-)/g, "-\n" )}
         </Text>
         <Text style={textStyles.messageText}>
           {challenge.sponsorName}
@@ -105,7 +104,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
 };
 
 ChallengeProgressCard.defaultProps = {
-  fetchChallenges: () => {}
+  fetchChallenges: ( ) => {}
 };
 
 export default ChallengeProgressCard;

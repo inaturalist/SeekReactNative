@@ -11,17 +11,18 @@ import { useNavigation } from "@react-navigation/native";
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/toasts/badgeToast";
 import PercentCircle from "../UIComponents/PercentCircle";
-import { setChallengeIndex } from "../../utility/challengeHelpers";
+import { ChallengeContext } from "../UserContext";
 
 type Props = {
   +challenge: Object
 }
 
 const ChallengeToast = ( { challenge }: Props ): React.Node => {
+  const { setIndex } = React.useContext( ChallengeContext );
   const navigation = useNavigation( );
 
   const navToChallenge = ( ) => {
-    setChallengeIndex( challenge.index );
+    setIndex( challenge.index );
     navigation.navigate( "ChallengeDetails" );
   };
 

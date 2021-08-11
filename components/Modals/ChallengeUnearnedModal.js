@@ -14,11 +14,11 @@ import { viewStyles, imageStyles, textStyles } from "../../styles/modals/challen
 import BannerHeader from "../UIComponents/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable, formatMonthYear, formatMonth } from "../../utility/dateHelpers";
-import { setChallengeIndex } from "../../utility/challengeHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import { ChallengeContext } from "../UserContext";
 
 type Props = {
   closeModal: ( ) => void,
@@ -31,10 +31,11 @@ type Props = {
 };
 
 const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node => {
+  const { setIndex } = React.useContext( ChallengeContext );
   const navigation = useNavigation( );
 
   const navToChallengeDetails = ( ) => {
-    setChallengeIndex( challenge.index );
+    setIndex( challenge.index );
     navigation.navigate( "ChallengeDetails" );
     closeModal();
   };

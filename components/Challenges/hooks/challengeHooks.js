@@ -9,58 +9,76 @@ import missionsDict from "../../../utility/dictionaries/missionsDict";
 import taxonDict from "../../../utility/dictionaries/taxonDictForMissions";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 
+const createChallengeSections = ( challenges ) => {
+  const started = challenges.filtered( "startedDate != null AND percentComplete != 100" );
+    const notStarted = challenges.filtered( "startedDate == null" );
+    const completed = challenges.filtered( "startedDate != null AND percentComplete == 100" );
+
+    const noChallenges = notStarted.length === 0 && started.length === 0;
+
+    const twoSections = [{
+      id: 0,
+      data: [],
+      header: "",
+      empty: ""
+    }, {
+      id: 1,
+      data: completed,
+      header: "challenges.completed",
+      empty: "no_completed_challenges"
+    }];
+
+    const threeSections = [{
+      id: 0,
+      data: started,
+      header: "challenges.in_progress",
+      empty: "no_challenges_in_progress"
+    }, {
+      id: 1,
+      data: notStarted,
+      header: "challenges.not_started",
+      empty: "no_new_challenges_header"
+    }, {
+      id: 2,
+      data: completed,
+      header: "challenges.completed",
+      empty: "no_completed_challenges"
+    }];
+
+    if ( noChallenges ) {
+      return twoSections;
+    } else {
+      return threeSections;
+    }
+};
+
 const useFetchChallenges = ( ): any => {
-  const [list, setList] = useState( [] );
+  const [list, setList] = useState( {
+    data: [],
+    changes: null
+  } );
 
   useEffect( ( ) => {
-    const fetchChallenges = ( ) => {
-      Realm.open( realmConfig ).then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
-        const challengesStarted = challenges.filtered( "startedDate != null AND percentComplete != 100" );
-        const challengesNotStarted = challenges.filtered( "startedDate == null" );
-        const challengesCompleted = challenges.filtered( "startedDate != null AND percentComplete == 100" );
-
-        const noChallenges = challengesNotStarted.length === 0 && challengesStarted.length === 0;
-
-        if ( noChallenges ) {
-          setList( [{
-            id: 0,
-            data: [],
-            header: "",
-            empty: ""
-          }, {
-            id: 1,
-            data: challengesCompleted,
-            header: "challenges.completed",
-            empty: "no_completed_challenges"
-          }] );
-        } else {
-          setList( [{
-            id: 0,
-            data: challengesStarted,
-            header: "challenges.in_progress",
-            empty: "no_challenges_in_progress"
-          }, {
-            id: 1,
-            data: challengesNotStarted,
-            header: "challenges.not_started",
-            empty: "no_new_challenges_header"
-          }, {
-            id: 2,
-            data: challengesCompleted,
-            header: "challenges.completed",
-            empty: "no_completed_challenges"
-          }] );
-        }
-      } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
-    };
     recalculateChallenges( );
-    fetchChallenges( );
-  }, [] );
+    Realm.open( realmConfig ).then( ( realm ) => {
+      // add a realm listener to fetch challenge hook, to make sure data gets updated in flatlist
+      // https://github.com/realm/realm-js/issues/2345#issuecomment-619565280
+      const query = ( ) => realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
 
-  return list;
+      const handleChange = ( newData, newChanges ) => {
+        setList( { data: createChallengeSections( newData ), changes: newChanges } );
+      };
+
+      const dataQuery = query( );
+      dataQuery.addListener( handleChange );
+
+      return ( ) => {
+        dataQuery.removeAllListeners( );
+      };
+    } );
+   }, [] );
+
+  return list.data;
 };
 
 const useFetchMissions = ( challenge: Object ): any => {

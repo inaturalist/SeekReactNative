@@ -7,6 +7,7 @@ const ObservationContext: Object = createContext<Function>( );
 const SpeciesNearbyContext: Object = createContext<Function>( );
 const AppOrientationContext: Object = createContext<Function>( );
 const ChallengeContext: Object = createContext<Function>( );
+const SpeciesDetailContext: Object = createContext<Function>( );
 
 export {
   UserContext,
@@ -14,5 +15,6 @@ export {
   ObservationContext,
   SpeciesNearbyContext,
   AppOrientationContext,
-  ChallengeContext
+  ChallengeContext,
+  SpeciesDetailContext
 };

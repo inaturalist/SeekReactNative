@@ -17,11 +17,11 @@ import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
 import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import Toasts from "../Toasts/Toasts";
-import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen, setRoute } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
-import { ObservationContext } from "../UserContext";
+import { ObservationContext, SpeciesDetailContext } from "../UserContext";
 
 type Props = {
   screenType: string,
@@ -40,6 +40,7 @@ const MatchModals = ( {
   navPath,
   scientificNames
 }: Props ): Node => {
+  const { setId } = useContext( SpeciesDetailContext );
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation( );
   const { taxon } = observation;
@@ -117,7 +118,7 @@ const MatchModals = ( {
       navigation.navigate( navPath, navPath === "Social" && { taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
-      setSpeciesId( taxon.taxaId );
+      setId( taxon.taxaId );
       // return user to match screen
       setRoute( "Match" );
       // params are not actually working here, and I'm not sure why
@@ -126,7 +127,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, taxon, setNavigationPath, commonName, observation] );
+  }, [navPath, navigation, taxon, setNavigationPath, commonName, observation, setId] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

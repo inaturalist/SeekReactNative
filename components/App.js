@@ -14,6 +14,7 @@ import UserLoginProvider from "./Providers/UserLoginProvider";
 import ObservationProvider from "./Providers/ObservationProvider";
 import AppOrientationProvider from "./Providers/AppOrientationProvider";
 import ChallengeProvider from "./Providers/ChallengeProvider";
+import SpeciesDetailProvider from "./Providers/SpeciesDetailProvider";
 
 const App = ( ): Node => {
   const [preferredLanguage, setLanguage] = useState( null );
@@ -47,7 +48,9 @@ const App = ( ): Node => {
           <ObservationProvider>
             <SpeciesNearbyProvider>
               <ChallengeProvider>
+                <SpeciesDetailProvider>
                 <RootStack />
+                </SpeciesDetailProvider>
               </ChallengeProvider>
             </SpeciesNearbyProvider>
           </ObservationProvider>

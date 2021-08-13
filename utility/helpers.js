@@ -161,19 +161,6 @@ const checkIfCardShown = async (): Promise<boolean> => {
   }
 };
 
-const setSpeciesId = ( id: number ) => {
-  AsyncStorage.setItem( "id", id.toString() );
-};
-
-const getSpeciesId = async (): Promise<any> => {
-  try {
-    const id = await AsyncStorage.getItem( "id" );
-    return Number( id );
-  } catch ( error ) {
-    return ( error );
-  }
-};
-
 const setRoute = ( route: string ) => {
   AsyncStorage.setItem( "route", route );
 };
@@ -258,9 +245,7 @@ export {
   checkIfCardShown,
   checkIfCameraLaunched,
   shuffleList,
-  setSpeciesId,
   setCameraLaunched,
-  getSpeciesId,
   setRoute,
   getRoute,
   checkForInternet,

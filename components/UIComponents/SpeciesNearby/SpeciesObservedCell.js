@@ -14,15 +14,17 @@ import type { Node } from "react";
 import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { setSpeciesId, setRoute } from "../../../utility/helpers";
+import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName, useSeenTaxa, useUserPhoto } from "../../../utility/customHooks";
+import { SpeciesDetailContext } from "../../UserContext";
 
 type Props = {
   +item: Object
 }
 
 const SpeciesObservedCell = ( { item }: Props ): Node => {
+  const { setId } = React.useContext( SpeciesDetailContext );
   const { navigate } = useNavigation();
   const { taxon } = item;
   const commonName = useCommonName( taxon.id );
@@ -32,7 +34,7 @@ const SpeciesObservedCell = ( { item }: Props ): Node => {
 
   const navToSpeciesDetails = () => {
     setRoute( "ChallengeDetails" );
-    setSpeciesId( taxon.id );
+    setId( taxon.id );
     navigate( "Species" );
   };
 

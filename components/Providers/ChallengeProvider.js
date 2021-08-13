@@ -17,8 +17,6 @@ const ChallengeProvider = ( { children }: Props ): Node => {
     setIndex
   };
 
-  console.log( challengeIndex, "challenge index" );
-
   return (
     <ChallengeContext.Provider value={challengeValue}>
       {children}

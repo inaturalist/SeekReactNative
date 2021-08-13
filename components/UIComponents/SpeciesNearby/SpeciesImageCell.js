@@ -7,15 +7,17 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { setSpeciesId, setRoute } from "../../../utility/helpers";
+import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
+import { SpeciesDetailContext } from "../../UserContext";
 
 type Props = {
   +item: Object
 }
 
 const SpeciesImageCell = ( { item }: Props ): React.Node => {
+  const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation( );
   const { navigate } = navigation;
   const route = useRoute( );
@@ -43,7 +45,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
   };
 
   const navToNextScreen = ( ) => {
-    setSpeciesId( item.id );
+    setId( item.id );
     if ( name === "Species" ) {
       navigation.push( "Drawer", { screen: "Species", params: { ...route.params } } );
     } else {

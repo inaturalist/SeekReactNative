@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { Platform, Dimensions, View } from "react-native";
+import { Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import type { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
 
@@ -9,6 +9,7 @@ import { viewStyles, textStyles } from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
+import CameraIndicator from "./CameraIndicator";
 
 type TabParamList = {
   ARCamera: void;
@@ -26,12 +27,7 @@ const tabBarOptions = {
   style: viewStyles.cameraTab,
   renderIndicator: props => {
     const { index } = props.navigationState;
-
-    if ( index === 0 ) {
-      return <View style={viewStyles.indicator} />;
-    } else {
-      return <View style={viewStyles.galleryIndicator} />;
-    }
+    return <CameraIndicator index={index} />;
   }
 };
 

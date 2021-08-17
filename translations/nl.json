@@ -296,6 +296,7 @@
     "yes_resighted": "Ja, deze soort is onjuist gedetermineerd",
     "no": "Nee, het is juist",
     "enable_location": "Je waarneming heeft geen locatie",
+    "enable_location_button": "LOCATIE INSCHAKELEN",
     "error_server": "Het spijt ons, we konden deze afbeelding niet scoren. Controleer je internetverbinding en probeer het opnieuw.",
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",

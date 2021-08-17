@@ -14,7 +14,7 @@ import type { Node } from "react";
 import { viewStyles, imageStyles, textStyles } from "../styles/about";
 import logos from "../assets/logos";
 import i18n from "../i18n";
-import { UserContext } from "./UserContext";
+import { AppOrientationContext, UserContext } from "./UserContext";
 import ScrollWithHeader from "./UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "./UIComponents/PrivacyAndTerms";
 
@@ -23,13 +23,14 @@ const AboutScreen = (): Node => {
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
   const { login } = useContext( UserContext );
+  const { isTablet } = useContext( AppOrientationContext );
 
   const navToDebug = () => navigation.navigate( "DebugEmailScreen" );
   const disabled = !login;
 
   return (
     <ScrollWithHeader header="about.header">
-      <View style={viewStyles.textContainer}>
+      <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <Image source={logos.iNat} />
         <View style={viewStyles.marginSmall} />
         <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek" )}</Text>

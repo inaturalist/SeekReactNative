@@ -8,7 +8,9 @@ import {
 
 const { height } = Dimensions.get( "window" );
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   button: {
     marginBottom: 21,
     marginHorizontal: 29,
@@ -24,12 +26,7 @@ export default StyleSheet.create( {
     alignSelf: "center",
     marginTop: 30
   },
-  image: {
-    height: 68,
-    marginRight: 24,
-    resizeMode: "contain",
-    width: 68
-  },
+
   margin: {
     marginHorizontal: 29
   },
@@ -44,3 +41,17 @@ export default StyleSheet.create( {
     maxWidth: height > 570 ? 194 : 150
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: 68,
+    marginRight: 24,
+    resizeMode: "contain",
+    width: 68
+  }
+} );
+
+export {
+  viewStyles,
+  imageStyles
+};

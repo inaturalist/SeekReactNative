@@ -4,9 +4,10 @@ import React, {
   useReducer,
   useEffect,
   useRef,
-  useCallback
+  useCallback,
+  useContext
 } from "react";
-import { ScrollView, Platform } from "react-native";
+import { ScrollView, Platform, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
@@ -16,13 +17,20 @@ import type { Node } from "react";
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import { viewStyles } from "../../styles/species/species";
-import { getSpeciesId, checkForInternet, handleServerError } from "../../utility/helpers";
+import { getSpeciesId, checkForInternet } from "../../utility/helpers";
 import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
+import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
+import GreenHeader from "../UIComponents/GreenHeader";
+import SpeciesName from "./SpeciesName";
+import IconicTaxaName from "./IconicTaxaName";
+import { useCommonName } from "../../utility/customHooks";
+import { AppOrientationContext } from "../UserContext";
 
 const SpeciesDetail = ( ): Node => {
+  const { isLandscape } = useContext( AppOrientationContext );
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );
@@ -174,8 +182,8 @@ const SpeciesDetail = ( ): Node => {
           }
         }
       } );
-    } ).catch( ( err ) => {
-      const errorType = handleServerError( err );
+    } ).catch( ( ) => {
+      // const errorType = handleServerError( err );
       checkInternetConnection( );
      } );
   }, [id, checkInternetConnection] );
@@ -239,26 +247,68 @@ const SpeciesDetail = ( ): Node => {
     } );
   }, [navigation, fetchiNatData] );
 
-  if ( !id ) {
+  const commonName = useCommonName( id );
+
+  if ( !id || isLandscape === null ) {
     return null;
   }
 
   const predictions = params ? params.image : null;
 
-  return (
-    <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
-      <ScrollView
-        ref={scrollView}
-        contentContainerStyle={viewStyles.background}
-        onScrollBeginDrag={clearSelectedText}
-      >
-        <SpeciesHeader
+  const renderPortraitMode = ( ) => (
+    <ScrollView
+      ref={scrollView}
+      contentContainerStyle={viewStyles.background}
+      onScrollBeginDrag={clearSelectedText}
+    >
+      <SpeciesHeader
+        id={id}
+        taxon={taxon}
+        photos={photos}
+        selectedText={selectedText}
+        highlightSelectedText={highlightSelectedText}
+      />
+      {error && (
+        <OfflineSpeciesContainer
+          checkForInternet={checkInternetConnection}
+          details={details}
           id={id}
-          taxon={taxon}
-          photos={photos}
-          selectedText={selectedText}
-          highlightSelectedText={highlightSelectedText}
+          predictions={predictions}
         />
+      )}
+      {( Object.keys( taxon ).length > 0 && !error ) && (
+        <OnlineSpeciesContainer
+          details={details}
+          scientificName={taxon.scientificName}
+          id={id}
+          predictions={predictions}
+        />
+      )}
+    </ScrollView>
+  );
+
+  const renderLandscapeMode = ( ) => (
+    <>
+      <GreenHeader plainText={commonName || taxon.scientificName} />
+      <View style={viewStyles.twoColumnContainer}>
+        <SpeciesPhotosLandscape photos={photos} id={id} />
+        <ScrollView
+          ref={scrollView}
+          contentContainerStyle={viewStyles.landscapeBackground}
+          onScrollBeginDrag={clearSelectedText}
+          bounces={false}
+        >
+          {taxon.scientificName && (
+            <>
+              <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
+              <SpeciesName
+                id={id}
+                taxon={taxon}
+                selectedText={selectedText}
+                highlightSelectedText={highlightSelectedText}
+              />
+            </>
+          )}
         {error && (
           <OfflineSpeciesContainer
             checkForInternet={checkInternetConnection}
@@ -275,7 +325,14 @@ const SpeciesDetail = ( ): Node => {
             predictions={predictions}
           />
         )}
-      </ScrollView>
+        </ScrollView>
+      </View>
+    </>
+  );
+
+  return (
+    <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
+      {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
     </SafeAreaView>
   );
 };

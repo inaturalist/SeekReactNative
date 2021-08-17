@@ -4,7 +4,7 @@ import React, { useCallback, useReducer, useContext, useEffect } from "react";
 import { View, Platform, Text, Modal } from "react-native";
 import type { Node } from "react";
 
-import styles from "../../../styles/home/speciesNearby";
+import { viewStyles, textStyles } from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import TaxonPicker from "./TaxonPicker";
@@ -181,19 +181,19 @@ const SpeciesNearby = ( ): Node => {
 
   const renderSpeciesNearbyList = ( ) => (
     <>
-      <View style={styles.speciesNearbyContainer}>
+      <View style={viewStyles.speciesNearbyContainer}>
         {loading
           ? <LoadingWheel color={colors.black} />
           : <SpeciesNearbyList taxa={speciesNearby.taxa} />}
       </View>
-      <View style={styles.speciesNearbyPadding} />
+      <View style={viewStyles.speciesNearbyPadding} />
     </>
   );
 
   return (
-    <View style={styles.container}>
+    <View style={viewStyles.container}>
       {renderModal( )}
-      <Text style={[styles.headerText, styles.header]}>
+      <Text style={[textStyles.headerText, viewStyles.header]}>
         {i18n.t( "species_nearby.header" ).toLocaleUpperCase( )}
       </Text>
       <LocationPickerButton
@@ -202,7 +202,7 @@ const SpeciesNearby = ( ): Node => {
         openLocationPicker={openLocationPicker}
       />
       <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
-      <View style={styles.marginBottom} />
+      <View style={viewStyles.marginBottom} />
       {error ? (
         <SpeciesError
           error={error}

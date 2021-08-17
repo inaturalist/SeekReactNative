@@ -18,8 +18,8 @@ import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import UploadStatus from "./UploadStatus";
 import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
-// import { LOG } from "../../utility/debugHelpers";
 import INatCard from "./INatCard/iNatCard";
+import DonateCard from "../UIComponents/Cards/DonateCard";
 
 const HomeScreen = ( ): Node => {
   const navigation = useNavigation( );
@@ -109,6 +109,7 @@ const HomeScreen = ( ): Node => {
         <SpeciesNearby />
         <ChallengeCard />
         <INatCard />
+        <DonateCard />
     </ScrollNoHeader>
   );
 };

@@ -10,7 +10,9 @@ import {
 
 const { width, height } = Dimensions.get( "window" );
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   activeDot: {
     backgroundColor: colors.white,
     borderRadius: 10 / 2,
@@ -40,13 +42,6 @@ export default StyleSheet.create( {
     justifyContent: "flex-end",
     width
   },
-  continue: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    textAlign: "center"
-  },
   dot: {
     backgroundColor: colors.darkGray,
     borderRadius: 6 / 2,
@@ -66,7 +61,10 @@ export default StyleSheet.create( {
     flexDirection: "row",
     marginBottom: height > 570 ? 37 : 27,
     marginTop: height > 570 ? 57 : 27
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   skipText: {
     color: colors.white,
     fontFamily: fonts.book,
@@ -81,5 +79,17 @@ export default StyleSheet.create( {
     lineHeight: 24,
     maxWidth: 292,
     textAlign: "center"
+  },
+  continue: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    textAlign: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

@@ -1,14 +1,15 @@
 // @flow
 
 import * as React from "react";
-import { Platform, Dimensions, View } from "react-native";
+import { Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import type { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
 
-import styles from "../../styles/navigation";
+import { viewStyles, textStyles } from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
+import CameraIndicator from "./CameraIndicator";
 
 type TabParamList = {
   ARCamera: void;
@@ -22,22 +23,19 @@ const Tab = createMaterialTopTabNavigator();
 const { width, length } = Dimensions.get( "window" );
 
 const tabBarOptions = {
-  labelStyle: styles.cameraTabLabel,
-  style: styles.cameraTab,
+  labelStyle: textStyles.cameraTabLabel,
+  style: viewStyles.cameraTab,
   renderIndicator: props => {
     const { index } = props.navigationState;
-
-    if ( index === 0 ) {
-      return <View style={styles.indicator} />;
-    } else {
-      return <View style={styles.galleryIndicator} />;
-    }
+    return <CameraIndicator index={index} />;
   }
 };
 
 const initialLayout = { width, length };
 
-const swipeEnabled = Platform.OS === "ios" || false;
+// removing this since it was easy to swipe by accident in landscape while trying to tap camera
+const swipeEnabled = false;
+// const swipeEnabled = Platform.OS === "ios" || false;
 
 const CameraNav = ( ): Props => (
   <Tab.Navigator

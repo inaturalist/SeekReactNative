@@ -12,6 +12,7 @@ import { getLanguage } from "../utility/settingsHelpers";
 import SpeciesNearbyProvider from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
 import ObservationProvider from "./Providers/ObservationProvider";
+import AppOrientationProvider from "./Providers/AppOrientationProvider";
 
 const App = ( ): Node => {
   const [preferredLanguage, setLanguage] = useState( null );
@@ -39,15 +40,17 @@ const App = ( ): Node => {
   }, [] );
 
   return (
-    <UserLoginProvider>
-      <LanguageContext.Provider value={languageValue}>
-        <ObservationProvider>
-          <SpeciesNearbyProvider>
-            <RootStack />
-          </SpeciesNearbyProvider>
-        </ObservationProvider>
-      </LanguageContext.Provider>
-    </UserLoginProvider>
+    <AppOrientationProvider>
+      <UserLoginProvider>
+        <LanguageContext.Provider value={languageValue}>
+          <ObservationProvider>
+            <SpeciesNearbyProvider>
+              <RootStack />
+            </SpeciesNearbyProvider>
+          </ObservationProvider>
+        </LanguageContext.Provider>
+      </UserLoginProvider>
+    </AppOrientationProvider>
   );
 };
 

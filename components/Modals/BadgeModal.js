@@ -12,7 +12,7 @@ import {
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/modals/badgeModal";
+import { viewStyles, textStyles, imageStyles } from "../../styles/modals/badgeModal";
 import badgeImages from "../../assets/badges";
 import BannerHeader from "../UIComponents/BannerHeader";
 import LargeProgressCircle from "../UIComponents/LargeProgressCircle";
@@ -60,7 +60,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
       accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
       accessible
       onPress={scrollLeft}
-      style={styles.leftArrow}
+      style={viewStyles.leftArrow}
     >
       <Image source={icons.badgeSwipeRight} />
     </TouchableOpacity>
@@ -71,7 +71,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
       accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
       accessible
       onPress={scrollRight}
-      style={styles.arrow}
+      style={viewStyles.arrow}
     >
       <Image source={icons.badgeSwipeRight} />
     </TouchableOpacity>
@@ -86,9 +86,9 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
         source={badges[item].earned
           ? badgeImages[badges[item].earnedIconName]
           : badgeImages.badge_empty}
-        style={styles.smallImage}
+        style={imageStyles.smallImage}
       />
-      <Text style={[styles.bullets, index !== scrollIndex && styles.transparent]}>
+      <Text style={[textStyles.bullets, index !== scrollIndex && textStyles.transparent]}>
         &#8226;
       </Text>
     </TouchableOpacity>
@@ -97,15 +97,15 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
   const renderBadge = ( { item } ) => (
     <View
       key={`badge${item.earnedIconName}`}
-      style={styles.carousel}
+      style={viewStyles.carousel}
     >
       {item.earned ? (
-        <Image source={badgeImages[item.earnedIconName]} style={styles.image} />
+        <Image source={badgeImages[item.earnedIconName]} style={imageStyles.badgeIcon} />
       ) : (
         <ImageBackground
-          imageStyle={styles.imageStyle}
+          imageStyle={imageStyles.imageStyle}
           source={badgeImages.badge_empty}
-          style={styles.image}
+          style={imageStyles.badgeIcon}
         >
           <LargeProgressCircle badge={item} iconicSpeciesCount={iconicSpeciesCount} />
         </ImageBackground>
@@ -116,8 +116,8 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
           : "badges.to_earn"}
         allowFontScaling={false}
       />
-      <View style={styles.margin} />
-      <Text allowFontScaling={false} style={styles.nameText}>
+      <View style={viewStyles.margin} />
+      <Text allowFontScaling={false} style={textStyles.nameText}>
         {i18n.t( "badges.observe_species" )}
         {" "}
         {i18n.t( item.infoText )}
@@ -146,11 +146,11 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
       />
       {scrollIndex > 0 && renderLeftArrow( )}
       {scrollIndex < 2 && renderRightArrow( )}
-      <View style={styles.marginLarge} />
-      <View style={styles.row}>
+      <View style={viewStyles.marginLarge} />
+      <View style={viewStyles.row}>
         {renderBulletsAndSmallImages( )}
       </View>
-      <View style={styles.marginBottom} />
+      <View style={viewStyles.marginBottom} />
     </WhiteModal>
   );
 };

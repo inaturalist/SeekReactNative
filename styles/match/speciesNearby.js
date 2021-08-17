@@ -7,8 +7,18 @@ import {
   center
 } from "../global";
 
-export default StyleSheet.create( {
+
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
+  speciesNearbyContainer: {
+    backgroundColor: colors.seekTeal,
+    height: 231
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   headerText: {
     alignSelf: "center",
     color: colors.seekTeal,
@@ -18,21 +28,10 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginBottom: 20,
     marginTop: 4
-  },
-  largerHeight: {
-    height: 231
-  },
-  speciesNearbyContainer: {
-    backgroundColor: colors.seekTeal
-  },
-  text: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
-    marginHorizontal: 12,
-    marginVertical: 15,
-    maxWidth: 245,
-    textAlign: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

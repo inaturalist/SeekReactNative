@@ -5,7 +5,7 @@ import type { Node } from "react";
 
 import { capitalizeNames } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
-import styles from "../../styles/species/speciesTaxonomy";
+import { viewStyles, textStyles } from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
 import i18n from "../../i18n";
@@ -80,18 +80,18 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
         return (
           <View
             key={`taxon-${ancestor.rank}`}
-            style={[{ marginLeft }, styles.row, index !== 0 && styles.marginTop]}
+            style={[{ marginLeft }, viewStyles.row, index !== 0 && viewStyles.marginTop]}
           >
-            <Image source={icons.greenDot} style={styles.bullet} />
+            <Image source={icons.greenDot} style={viewStyles.bullet} />
             <View>
               <Text style={[
-                styles.taxonomyHeader,
-                ancestor.rank === "species" && styles.speciesTaxonomyHeader
+                textStyles.taxonomyHeader,
+                ancestor.rank === "species" && textStyles.speciesTaxonomyHeader
               ]}>
                 {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
               </Text>
-              <Text style={[styles.taxonomyText, !ancestor.preferred_common_name && styles.scientificName]}>
+              <Text style={[textStyles.taxonomyText, !ancestor.preferred_common_name && textStyles.scientificName]}>
                 {ancestor.preferred_common_name
                   ? capitalizeNames( ancestor.preferred_common_name )
                   : ancestor.name}

@@ -134,6 +134,13 @@ const localizeAttributions = ( attribution: string, licenseCode: string, screen:
   return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
+const localizeAttributionsLandscape = ( attribution: string, licenseCode: string, screen: string ): string => {
+  const nameAndCC = attribution.split( "," )[0];
+  const userName = nameAndCC.split( ")" )[1];
+
+  return `\u00A9${userName} (${licenseCode.toUpperCase()})`;
+};
+
 const createBackupUri = async ( uri: string, uuid?: ?string ): Promise<?string> => {
   let newImageName;
 
@@ -145,8 +152,12 @@ const createBackupUri = async ( uri: string, uuid?: ?string ): Promise<?string> 
     newImageName = `${timestamp}.jpg`;
   }
 
+  // const historicalSeekSize = 250;
+
+  const thumbnailWidth = dimensions.width;
+
   try {
-    const resizedImage = await resizeImage( uri, dimensions.width, 250 ); // stored in cache
+    const resizedImage = await resizeImage( uri, thumbnailWidth, thumbnailWidth ); // stored in cache
 
     if ( resizedImage ) {
       const backupFilepath = `${dirPictures}/${newImageName}`; // stored in document directory
@@ -306,6 +317,7 @@ export {
   resizeImage,
   movePhotoToAppStorage,
   localizeAttributions,
+  localizeAttributionsLandscape,
   createBackupUri,
   moveAndroidFilesToInternalStorage,
   deleteFile,

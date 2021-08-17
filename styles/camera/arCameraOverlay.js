@@ -1,13 +1,22 @@
 // @flow
 
 import { StyleSheet, PixelRatio } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, dimensions } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const fontScale = PixelRatio.getFontScale( );
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  shadow: {
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 1,
+    shadowRadius: 3
+  },
   help: {
     bottom: 0,
     paddingHorizontal: 10,
@@ -31,19 +40,49 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingHorizontal: 48,
     paddingVertical: 18,
     position: "absolute"
+  },
+  landscapeShutter: {
+    right: 0,
+    // really wish I could figure out how to use flex here instead of subtracting navbar + camera icon size
+    bottom: dimensions.height / 2 - 65 - 31,
+    paddingHorizontal: 22,
+    paddingVertical: 0
+  },
+  landscapeHelp: {
+    right: 0,
+    // really wish I could figure out how to use flex here instead of subtracting navbar + camera icon size
+    bottom: dimensions.height / 2 + 50,
+    paddingHorizontal: 37,
+    paddingVertical: 0
+  },
+  landscapeHelpBubble: {
+    bottom: 26 + 65 + 18,
+    width: 293,
+    position: "absolute",
+    borderRadius: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    backgroundColor: colors.seekForestGreen
+  },
+  landscapeHelpBubbleSpecies: {
+    backgroundColor: colors.seekGreen
+  },
+  helpBubble: {
+    bottom: 26 + 65 + 18,
+    width: 293,
+    position: "absolute"
   }
 } );
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   scanText: {
-    bottom: 26 + 65 + 18,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 14 : 16,
     lineHeight: 21,
-    width: 293,
-    position: "absolute",
-    textAlign: "center",
+    textAlign: "center"
+  },
+  textShadow: {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3

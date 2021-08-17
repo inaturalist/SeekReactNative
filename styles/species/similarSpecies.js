@@ -3,7 +3,9 @@
 import { StyleSheet, Platform } from "react-native";
 import { colors } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   bottomPadding: {
     backgroundColor: colors.seekForestGreen,
     height: Platform.OS === "android" ? 17 : 60
@@ -21,3 +23,5 @@ export default StyleSheet.create( {
     marginTop: 45
   }
 } );
+
+export default viewStyles;

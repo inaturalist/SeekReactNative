@@ -1,9 +1,11 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { colors, fonts, row } from "../global";
+import { colors, fonts, row, dimensions } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const columnWidth = dimensions.width / 3 * 2;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
@@ -15,6 +17,15 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     zIndex: 1
   },
   background: {
+    backgroundColor: colors.white
+  },
+  landscapeBackground: {
+    backgroundColor: colors.white,
+    width: columnWidth,
+    paddingBottom: 100
+  },
+  twoColumnContainer: {
+    flexWrap: "wrap",
     backgroundColor: colors.white
   },
   checkmark: {
@@ -37,23 +48,16 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   textContainer: {
     marginHorizontal: 28
   },
-  seenDateContainer: {
-    marginHorizontal: 28
-  },
-  pressableArea: {
-    paddingTop: 10,
-    paddingBottom: 15,
-    paddingHorizontal: 28
+  largerTextContainer: {
+    marginHorizontal: 32
   },
   selectedPressableArea: {
     backgroundColor: "rgb(176, 196, 222)",
     alignSelf: "flex-start"
   },
-  copiedAnimation: {
-    zIndex: 1,
-    alignSelf: "center",
-    position: "absolute",
-    top: -35
+  topRibbon: {
+    paddingTop: 2,
+    backgroundColor: colors.speciesNearbyGreen
   }
 } );
 
@@ -89,6 +93,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     paddingLeft: 28,
     paddingVertical: 12,
     backgroundColor: colors.seekForestGreen
+  },
+  largerPadding: {
+    paddingLeft: 32
   },
   linkText: {
     color: colors.seekForestGreen,

@@ -3,7 +3,20 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  textContainer: {
+    marginBottom: 27,
+    marginHorizontal: 29,
+    marginTop: 27
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  list: {
+    marginLeft: -15
+  },
   headerText: {
     color: colors.black,
     fontFamily: fonts.medium,
@@ -11,19 +24,16 @@ export default StyleSheet.create( {
     lineHeight: 23,
     marginBottom: 20
   },
-  list: {
-    marginLeft: -15
-  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 23,
     marginBottom: 20
-  },
-  textContainer: {
-    marginBottom: 27,
-    marginHorizontal: 29,
-    marginTop: 27
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

@@ -31,7 +31,9 @@ const buttonContainer = {
   alignItems: "center"
 };
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   checkBox: {
     paddingRight: 10.3
@@ -46,24 +48,6 @@ export default StyleSheet.create( {
     paddingHorizontal: 18,
     paddingTop: Platform.OS === "ios" ? 18 : 12
   },
-  subHeader: {
-    color: colors.settingsGray,
-    fontFamily: fonts.semibold,
-    fontSize: 17,
-    letterSpacing: 0.94
-  },
-  header: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
-  languageText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
-    letterSpacing: 1.11
-  },
   leftMargin: {
     marginBottom: 5,
     marginLeft: 10
@@ -77,6 +61,10 @@ export default StyleSheet.create( {
   marginHorizontal: {
     justifyContent: "space-between",
     marginHorizontal: 28
+  },
+  tabletContainer: {
+    maxWidth: 455,
+    alignSelf: "center"
   },
   marginMedium: {
     marginTop: 22
@@ -95,8 +83,7 @@ export default StyleSheet.create( {
   },
   radioMargin: {
     paddingVertical: 19 / 2,
-    paddingLeft: 20,
-    paddingRight: 14
+    paddingLeft: 20
   },
   donateMarginBottom: {
     paddingTop: 35 - 19
@@ -106,9 +93,35 @@ export default StyleSheet.create( {
   },
   row,
   switch: {
-    paddingHorizontal: 10.3 / 2,
     paddingVertical: 19 / 2,
-    marginRight: 10
+    marginRight: 16
+  },
+  // $FlowFixMe
+  inputIOS: greenButton,
+  inputIOSContainer: buttonContainer,
+  // $FlowFixMe
+  inputAndroid: greenButton,
+  inputAndroidContainer: buttonContainer
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  subHeader: {
+    color: colors.settingsGray,
+    fontFamily: fonts.semibold,
+    fontSize: 17,
+    letterSpacing: 0.94
+  },
+  header: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
+  },
+  languageText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 20,
+    letterSpacing: 1.11
   },
   text: {
     color: colors.black,
@@ -131,9 +144,10 @@ export default StyleSheet.create( {
     lineHeight: 21,
     paddingTop: padding.iOSPaddingSmall,
     maxWidth: width - ( 28 * 2 ) - 30 - 10.3
-  },
-  inputIOS: greenButton,
-  inputIOSContainer: buttonContainer,
-  inputAndroid: greenButton,
-  inputAndroidContainer: buttonContainer
+  }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

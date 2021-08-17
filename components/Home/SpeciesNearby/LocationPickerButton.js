@@ -10,7 +10,7 @@ import {
 import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
-import styles from "../../../styles/home/speciesNearby";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/home/speciesNearby";
 import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
 
@@ -29,13 +29,13 @@ const LocationPickerButton = ( {
   return (
     <TouchableOpacity
       onPress={openLocationPicker}
-      style={[styles.row, styles.locationPickerButton]}
+      style={[viewStyles.row, viewStyles.locationPickerButton]}
       disabled={disabled}
     >
       {/* $FlowFixMe */}
-      <Image source={posting.location} tintColor={colors.white} style={styles.image} />
-      <View style={styles.whiteButton}>
-        <Text style={styles.buttonText}>
+      <Image source={posting.location} tintColor={colors.white} style={imageStyles.image} />
+      <View style={viewStyles.whiteButton}>
+        <Text style={textStyles.buttonText}>
           {locationText.toLocaleUpperCase( )}
         </Text>
       </View>

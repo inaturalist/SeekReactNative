@@ -8,6 +8,8 @@ import {
   dimensions
 } from "../global";
 
+const landscapeImageHeight = 315;
+
 export default StyleSheet.create( {
   backButton: {
     left: 0,
@@ -21,7 +23,7 @@ export default StyleSheet.create( {
   },
   buttonContainer: {
     marginBottom: 10,
-    marginTop: 58
+    marginTop: 44
   },
   center,
   container: {
@@ -32,7 +34,7 @@ export default StyleSheet.create( {
     flex: 0
   },
   header: {
-    height: 186,
+    height: 152,
     overflow: "visible"
   },
   headerText: {
@@ -49,8 +51,13 @@ export default StyleSheet.create( {
     height: 150,
     width: 150
   },
+  landscapeImage: {
+    height: landscapeImageHeight,
+    width: landscapeImageHeight,
+    borderRadius: landscapeImageHeight / 2
+  },
   imageContainer: {
-    alignItems: "center",
+    alignItems: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "center"
@@ -67,6 +74,9 @@ export default StyleSheet.create( {
   },
   marginLeft: {
     marginLeft: dimensions.width < 350 ? 15 : 47
+  },
+  largeMargin: {
+    marginLeft: dimensions.width / 2 - 190
   },
   marginMedium: {
     marginBottom: 28

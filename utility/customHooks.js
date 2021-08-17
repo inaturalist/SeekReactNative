@@ -188,11 +188,13 @@ const useLocationPermission = (): ?boolean => {
   return granted;
 };
 
-const useCommonName = ( id: number ): ?string => {
+const useCommonName = ( id: ?number ): ?string => {
   const [commonName, setCommonName] = useState( null );
 
   useEffect( () => {
     let isCurrent = true;
+
+    if ( !id ) { return; }
 
     getTaxonCommonName( id ).then( ( name ) => {
       if ( isCurrent ) {

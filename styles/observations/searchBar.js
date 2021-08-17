@@ -3,18 +3,24 @@
 import { StyleSheet } from "react-native";
 import { row, colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row,
   margins: {
     marginHorizontal: 24,
     marginTop: 21,
     marginBottom: 24
   },
-  search: {
-    height: 22,
-    width: 21,
-    resizeMode: "contain"
-  },
+  top: {
+    zIndex: 1,
+    position: "absolute",
+    right: 0,
+    padding: 39
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   inputField: {
     backgroundColor: colors.white,
     borderRadius: 40,
@@ -27,12 +33,14 @@ export default StyleSheet.create( {
     width: "88%",
     marginLeft: 12,
     paddingLeft: 15
-  },
-  top: {
-    zIndex: 1,
-    position: "absolute",
-    right: 0,
-    padding: 39
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  search: {
+    height: 22,
+    width: 21,
+    resizeMode: "contain"
   },
   clear: {
     height: 13,
@@ -40,3 +48,9 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

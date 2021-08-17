@@ -7,7 +7,7 @@ import Realm from "realm";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/settings";
+import { viewStyles, textStyles } from "../../styles/settings";
 import { updateUserSetting } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
 import realmConfig from "../../models";
@@ -63,12 +63,12 @@ const CameraSettings = ( ): Node => {
 
   return (
     <>
-      <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
-      <View style={styles.radioButtonSmallMargin}>
+      <Text style={textStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
+      <View style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
             key={`${obj.label}${i}`}
-            style={styles.radioMargin}
+            style={viewStyles.radioMargin}
           >
             <RadioButtonInput
               obj={obj}
@@ -90,23 +90,23 @@ const CameraSettings = ( ): Node => {
               index={i}
               onPress={handleRadioButtonPress}
               labelHorizontal
-              labelStyle={styles.text}
+              labelStyle={textStyles.text}
               accessible
               accessibilityLabel={radioButtons[i].label}
             />
           </RadioButton>
         ) )}
       </View>
-      <View style={[styles.row, styles.radioButtonSmallMargin]}>
+      <View style={[viewStyles.row, viewStyles.radioButtonSmallMargin]}>
         <Switch
-          style={styles.switch}
+          style={viewStyles.switch}
           value={settings.autoCapture}
           trackColor={switchTrackColor}
           onValueChange={setAutoCapture}
           accessible
           accessibilityLabel={settings.autoCapture ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
         />
-        <Text style={styles.autoCaptureText}>
+        <Text style={textStyles.autoCaptureText}>
           {i18n.t( "settings.auto_capture" )}
         </Text>
       </View>

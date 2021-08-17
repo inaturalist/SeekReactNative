@@ -9,7 +9,9 @@ import {
   dimensions
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
@@ -20,6 +22,10 @@ export default StyleSheet.create( {
     paddingHorizontal: 28,
     paddingVertical: 28
   },
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   errorText: {
     color: colors.white,
     fontFamily: fonts.book,
@@ -29,7 +35,6 @@ export default StyleSheet.create( {
     maxWidth: dimensions.width - ( 28 * 2 ) - 25 - 47,
     textAlign: "center"
   },
-  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -40,3 +45,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

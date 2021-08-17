@@ -5,7 +5,7 @@ import { View, FlatList } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import type { Node } from "react";
 
-import styles from "../../styles/onboarding";
+import { viewStyles } from "../../styles/onboarding";
 import Dots from "./Dots";
 import Button from "./Button";
 
@@ -29,11 +29,13 @@ const Swiper = ( { children }: Props ): Node => {
 
   const onViewRef = useRef( ( { changed } ) => {
     const { index } = changed[0];
-    setScrollIndex( index );
+    if ( typeof index === "number" ) {
+      setScrollIndex( index );
+    }
   } );
 
   const renderPage = useCallback( ( { item, index } ) => (
-    <View key={`page-${index.toString()}`} style={styles.contentContainer}>
+    <View key={`page-${index.toString()}`} style={viewStyles.contentContainer}>
       {item}
     </View>
   ), [] );
@@ -55,7 +57,7 @@ const Swiper = ( { children }: Props ): Node => {
   return (
     <LinearGradient
       colors={[gradientColors[scrollIndex][0], gradientColors[scrollIndex][1]]}
-      style={styles.container}
+      style={viewStyles.container}
     >
       {renderScrollView( children )}
       <Dots index={scrollIndex} />

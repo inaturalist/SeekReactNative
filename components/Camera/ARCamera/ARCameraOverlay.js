@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -21,6 +21,7 @@ import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
+import { AppOrientationContext } from "../../UserContext";
 
 type Props = {
   takePicture: Function,
@@ -63,11 +64,15 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId
 }: Props ): Node => {
+  const { isLandscape, height } = useContext( AppOrientationContext );
   const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const { autoCapture } = useFetchUserSettings( );
   const [filterIndex, setFilterIndex] = useState( null );
+
+  const shutterButtonPositionLandscape = height / 2 - 65 - 31;
+  const helpButtonPositionLandscape = height / 2 + 50;
 
   const toggleFilterIndex = ( ) => {
     if ( filterIndex === null ) {
@@ -113,6 +118,17 @@ const ARCameraOverlay = ( {
 
   const showCameraHelp = ( ) => navigate( "CameraHelp" );
 
+  const setTaxonomicRankColorStyles = ( ) => {
+    if ( isLandscape ) {
+      if ( rankToRender === "species" ) {
+        return [viewStyles.landscapeHelpBubble, viewStyles.landscapeHelpBubbleSpecies];
+      } else {
+        return viewStyles.landscapeHelpBubble;
+      }
+    }
+    return viewStyles.helpBubble;
+  };
+
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
@@ -126,7 +142,9 @@ const ARCameraOverlay = ( {
           rectangleColor={settings[filterIndex].color}
         />
       )}
-      <Text style={textStyles.scanText}>{helpText}</Text>
+      <View style={setTaxonomicRankColorStyles( )}>
+        <Text style={[textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</Text>
+      </View>
       {isAndroid && (
         <TouchableOpacity
           accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
@@ -142,7 +160,12 @@ const ARCameraOverlay = ( {
         accessible
         testID="takePhotoButton"
         onPress={takePicture}
-        style={viewStyles.shutter}
+        style={[
+          viewStyles.shutter,
+          viewStyles.shadow,
+          isLandscape && viewStyles.landscapeShutter,
+          isLandscape && { bottom: shutterButtonPositionLandscape }
+        ]}
         disabled={pictureTaken}
       >
         <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
@@ -151,7 +174,11 @@ const ARCameraOverlay = ( {
         accessibilityLabel={i18n.t( "accessibility.open_help" )}
         accessible
         onPress={showCameraHelp}
-        style={viewStyles.help}
+        style={[
+          viewStyles.help,
+          isLandscape && viewStyles.landscapeHelp,
+          isLandscape && { bottom: helpButtonPositionLandscape }
+        ]}
       >
         <Image source={icons.cameraHelp} />
       </TouchableOpacity>

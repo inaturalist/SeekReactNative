@@ -8,14 +8,9 @@ import {
   padding
 } from "../global";
 
-export default StyleSheet.create( {
-  buttonText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1,
-    paddingTop: padding.iOSButtonPadding
-  },
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -25,20 +20,6 @@ export default StyleSheet.create( {
     marginBottom: 22,
     marginLeft: 23,
     marginTop: 23
-  },
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
-  image: {
-    height: 21,
-    marginLeft: 10,
-    marginRight: 13,
-    resizeMode: "contain",
-    tintColor: colors.white,
-    width: 16
   },
   marginBottom: {
     marginBottom: 23
@@ -73,3 +54,36 @@ export default StyleSheet.create( {
     marginLeft: 22
   }
 } );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  headerText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
+  },
+  buttonText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1,
+    paddingTop: padding.iOSButtonPadding
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: 21,
+    marginLeft: 10,
+    marginRight: 13,
+    resizeMode: "contain",
+    tintColor: colors.white,
+    width: 16
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

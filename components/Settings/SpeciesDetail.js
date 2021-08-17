@@ -7,7 +7,7 @@ import Realm from "realm";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/settings";
+import { viewStyles, textStyles } from "../../styles/settings";
 import { updateUserSetting } from "../../utility/settingsHelpers";
 import { useLocationPermission } from "../../utility/customHooks";
 import { colors } from "../../styles/global";
@@ -53,15 +53,15 @@ const SpeciesDetail = ( ): Node => {
   }
 
   return (
-    <View style={styles.margin}>
-      <Text style={styles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</Text>
-      <View style={styles.marginSmall} />
-      <Text style={styles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</Text>
-      <View style={styles.radioButtonSmallMargin}>
+    <View style={viewStyles.margin}>
+      <Text style={textStyles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</Text>
+      <View style={viewStyles.marginSmall} />
+      <Text style={textStyles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</Text>
+      <View style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
             key={`${obj.label}${i}`}
-            style={styles.radioMargin}
+            style={viewStyles.radioMargin}
           >
             <RadioButtonInput
               obj={obj}
@@ -81,7 +81,7 @@ const SpeciesDetail = ( ): Node => {
               index={i}
               onPress={updateIndex}
               labelHorizontal
-              labelStyle={styles.seasonalityRadioButtonText}
+              labelStyle={textStyles.seasonalityRadioButtonText}
               accessible
               accessibilityLabel={radioButtons[i].label}
             />

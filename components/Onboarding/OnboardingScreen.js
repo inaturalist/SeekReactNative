@@ -9,17 +9,17 @@ import {
 import type { Node } from "react";
 
 import i18n from "../../i18n";
-import styles from "../../styles/onboarding";
+import { viewStyles, textStyles } from "../../styles/onboarding";
 import Swiper from "./Swiper";
 import icons from "../../assets/icons";
 
 const OnboardingScreen = ( ): Node => (
   <Swiper>
     {[1, 2, 3].map( ( item ) => (
-      <View key={`${item}`} style={styles.image}>
+      <View key={`${item}`} style={viewStyles.image}>
         <Image source={icons[`onboarding${item}`]} />
-        <View style={styles.margin} />
-        <Text allowFontScaling={false} style={[styles.text, styles.center]}>
+        <View style={viewStyles.margin} />
+        <Text allowFontScaling={false} style={[textStyles.text, viewStyles.center]}>
           {i18n.t( `onboarding.onboarding_${item}` )}
         </Text>
       </View>

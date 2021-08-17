@@ -2,15 +2,15 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import styles from "../../styles/onboarding";
+import { viewStyles } from "../../styles/onboarding";
 
 type Props = {
   index: number
 }
 
 const Dots = ( { index }: Props ): React.Node => {
-  const ActiveDot = <View style={[styles.dot, styles.activeDot]} />;
-  const Dot = <View style={styles.dot} />;
+  const ActiveDot = <View style={[viewStyles.dot, viewStyles.activeDot]} />;
+  const Dot = <View style={viewStyles.dot} />;
 
   const dots = [];
 
@@ -21,7 +21,7 @@ const Dots = ( { index }: Props ): React.Node => {
   }
 
   return (
-    <View style={[styles.pagination, styles.center]}>
+    <View style={[viewStyles.pagination, viewStyles.center]}>
       {dots}
     </View>
   );

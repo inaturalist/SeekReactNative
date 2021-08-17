@@ -7,6 +7,7 @@ import ca from "./translations/ca.json";
 import cs from "./translations/cs.json";
 import da from "./translations/da.json";
 import de from "./translations/de.json";
+import el from "./translations/el.json";
 import en from "./translations/en.json";
 import es from "./translations/es.json";
 import esMX from "./translations/es-MX.json";
@@ -34,6 +35,7 @@ i18n.translations = {
   cs,
   da,
   de,
+  el,
   en,
   es,
   "es-MX": esMX,

@@ -3,7 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     backgroundColor: colors.seekForestGreen,
     flex: 1
@@ -12,7 +14,10 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.black,
     justifyContent: "center"
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   errorText: {
     color: colors.white,
     fontFamily: fonts.medium,
@@ -22,3 +27,9 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};
+

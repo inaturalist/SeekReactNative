@@ -8,16 +8,22 @@ import {
   center
 } from "../global";
 
-export default StyleSheet.create( {
-  bird: {
-    height: 65,
-    resizeMode: "contain",
-    width: 73
-  },
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
   center,
   margin: {
     marginTop: 28
   },
+  row,
+  textContainer: {
+    marginLeft: 36
+  }
+} );
+
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   number: {
     color: colors.black,
     fontFamily: fonts.light,
@@ -25,14 +31,24 @@ export default StyleSheet.create( {
     lineHeight: 21,
     marginTop: 7
   },
-  row,
   secondHeaderText: {
     color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 19,
     lineHeight: 24
-  },
-  textContainer: {
-    marginLeft: 36
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  bird: {
+    height: 65,
+    resizeMode: "contain",
+    width: 73
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

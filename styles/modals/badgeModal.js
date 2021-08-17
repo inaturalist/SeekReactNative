@@ -14,18 +14,22 @@ const modalWidth = Math.min(
   width > 350 ? width - width * 0.1 : width,
   366 );
 
-const setImageWidth = () => {
+const setImageWidth = ( ) => {
   if ( width < 366 ) {
     return width / 2;
   }
   return 366 / 2;
 };
 
+console.log( setImageWidth( ) );
+
 const setCarouselHorizontalMargins = ( ) => {
   return ( modalWidth - setImageWidth( ) ) / 2;
 };
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   arrow: {
     padding: 27,
     position: "absolute",
@@ -34,23 +38,8 @@ export default StyleSheet.create( {
     transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }],
     zIndex: 1
   },
-  bullets: {
-    color: colors.seekForestGreen,
-    fontSize: 37,
-    marginHorizontal: 41
-  },
   carousel: {
     alignItems: "center"
-  },
-  image: {
-    height: setImageWidth( ),
-    justifyContent: "center",
-    marginBottom: 25,
-    width: setImageWidth( ),
-    marginHorizontal: setCarouselHorizontalMargins( )
-  },
-  imageStyle: {
-    resizeMode: "contain"
   },
   leftArrow: {
     left: 0,
@@ -72,6 +61,18 @@ export default StyleSheet.create( {
   marginMedium: {
     marginBottom: 11
   },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  bullets: {
+    color: colors.seekForestGreen,
+    fontSize: 37,
+    marginHorizontal: 41
+  },
   nameText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -79,9 +80,14 @@ export default StyleSheet.create( {
     marginHorizontal: 27,
     textAlign: "center"
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap"
+  transparent: {
+    color: colors.white
+  }
+} );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  imageStyle: {
+    resizeMode: "contain"
   },
   smallImage: {
     height: 57,
@@ -89,7 +95,17 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 57
   },
-  transparent: {
-    color: colors.white
+  badgeIcon: {
+    height: setImageWidth( ),
+    justifyContent: "center",
+    marginBottom: 25,
+    width: setImageWidth( ),
+    marginHorizontal: setCarouselHorizontalMargins( )
   }
 } );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

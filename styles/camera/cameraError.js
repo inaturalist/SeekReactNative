@@ -9,12 +9,23 @@ import {
   padding
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   blackBackground: {
     backgroundColor: colors.black,
     height: dimensions.height
   },
   center,
+  galleryHeight: {
+    height: dimensions.height - 100
+  },
+  margin: {
+    marginTop: 38
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   errorText: {
     color: colors.white,
     fontFamily: fonts.medium,
@@ -22,12 +33,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginHorizontal: 41,
     textAlign: "center"
-  },
-  galleryHeight: {
-    height: dimensions.height - 100
-  },
-  margin: {
-    marginTop: 38
   },
   whiteText: {
     color: colors.white,
@@ -39,3 +44,8 @@ export default StyleSheet.create( {
     maxWidth: 323
   }
 } );
+
+export {
+  textStyles,
+  viewStyles
+};

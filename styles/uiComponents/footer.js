@@ -15,6 +15,15 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     height: Platform.OS === "android" ? 84 : 94,
     width: Platform.OS === "android" ? 84 : 94
   },
+  shadow: {
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: -3
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 2
+  },
   container: {
     height: 74,
     justifyContent: "flex-end"

@@ -19,26 +19,21 @@ const pickerText = {
   letterSpacing: Platform.OS === "ios" ? 1.0 : 0
 };
 
-export default StyleSheet.create( {
-  backButton: {
-    left: 0,
-    paddingHorizontal: 23,
-    paddingVertical: 18,
-    position: "absolute",
-    zIndex: 1
-  },
-  header: {
-    backgroundColor: colors.white,
-    height: 55
-  },
-  inputIOS: pickerText,
+import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   inputIOSContainer: pickerContainer,
   viewContainer: {
     alignItems: "center"
   },
-  inputAndroid: pickerText,
   inputAndroidContainer: pickerContainer,
   carot: {
     marginRight: 15
-  }
+  },
+  // $FlowFixMe
+  inputIOS: pickerText,
+  // $FlowFixMe
+  inputAndroid: pickerText
 } );
+
+export default viewStyles;

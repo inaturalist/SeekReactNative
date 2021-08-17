@@ -5,7 +5,7 @@ import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import styles from "../../styles/social/social";
+import { viewStyles, textStyles } from "../../styles/social/social";
 import { dimensions, colors } from "../../styles/global";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import i18n from "../../i18n";
@@ -54,7 +54,7 @@ const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
   }, [tab] );
 
   return (
-    <View style={styles.spaceBeforeButtons}>
+    <View style={viewStyles.spaceBeforeButtons}>
       {login && (
         <>
           <GreenButton
@@ -64,7 +64,7 @@ const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
             disabled={disabled}
             color={disabled && colors.seekTransparent}
           />
-          <View style={styles.spaceBetweenButtons} />
+          <View style={viewStyles.spaceBetweenButtons} />
         </>
       )}
       <GreenButton
@@ -75,7 +75,7 @@ const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
         color={disabled && colors.seekTransparent}
       />
       <TouchableOpacity onPress={navigateBack}>
-        <Text style={styles.linkText}>{i18n.t( "social.back_to_id" )}</Text>
+        <Text style={textStyles.linkText}>{i18n.t( "social.back_to_id" )}</Text>
       </TouchableOpacity>
     </View>
   );

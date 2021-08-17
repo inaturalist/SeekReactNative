@@ -8,7 +8,9 @@ import {
 
 const { height } = Dimensions.get( "window" );
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backgroundColor: {
     alignItems: "center",
     width: "100%"
@@ -16,13 +18,10 @@ export default StyleSheet.create( {
   headerMargins: {
     marginBottom: Platform.OS === "android" ? 19 : 15,
     marginTop: 25
-  },
-  image: {
-    height: height > 640 ? 258 : 215,
-    marginTop: height > 570 ? 50 : 30,
-    resizeMode: "contain",
-    width: height > 640 ? 258 : 215
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   nameText: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -42,3 +41,18 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: height > 640 ? 258 : 215,
+    marginTop: height > 570 ? 50 : 30,
+    resizeMode: "contain",
+    width: height > 640 ? 258 : 215
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};

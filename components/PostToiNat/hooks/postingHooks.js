@@ -6,6 +6,7 @@ import inatjs from "inaturalistjs";
 import i18n from "../../../i18n";
 import { capitalizeNames } from "../../../utility/helpers";
 import createUserAgent from "../../../utility/userAgent";
+import { fetchUserLocation } from "../../../utility/locationHelpers";
 
 const useSearchSpecies = ( speciesName: ?string ): any => {
   const [suggestions, setSuggestions] = useState( [] );
@@ -46,4 +47,29 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
   return suggestions;
 };
 
-export default useSearchSpecies;
+const useFetchUserLocation = ( ): Object => {
+  const [userCoords, setUserCoords] = useState( null );
+  const [fetching, setFetching] = useState( false );
+
+  useEffect( ( ) => {
+    if ( !userCoords && !fetching ) {
+      setFetching( true );
+      fetchUserLocation( true ).then( ( coords ) => {
+        setUserCoords( coords );
+      } ).catch( ( err ) => {
+        if ( err ) {
+          fetchUserLocation( false ).then( ( coords ) => {
+            setUserCoords( coords );
+          } ).catch( ( ) => console.log( "couldn't fetch user coords" ) );
+        }
+      } );
+    }
+  }, [userCoords, fetching] );
+
+  return userCoords;
+};
+
+export {
+  useSearchSpecies,
+  useFetchUserLocation
+};

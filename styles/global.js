@@ -45,7 +45,7 @@ export const colors = {
   skeletonGray: "#d1d5da"
 };
 
-export const fonts = {
+export const fonts: Object = {
   medium: Platform.OS === "ios" ? "Whitney-Medium" : "Whitney-Medium-Pro",
   semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
   book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
@@ -54,7 +54,7 @@ export const fonts = {
   semiboldItalic: Platform.OS === "ios" ? "Whitney-SemiboldItalic" : "Whitney-SemiboldItalic-Pro"
 };
 
-export const padding = {
+export const padding: Object = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
   iOSButtonPadding: Platform.OS === "ios" ? 3 : 0, // this looks different on RN 0.63.x
   iOSPaddingSmall: Platform.OS === "ios" ? 5 : 0

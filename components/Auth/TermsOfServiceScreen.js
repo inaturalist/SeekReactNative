@@ -3,7 +3,7 @@
 import * as React from "react";
 import HTML from "react-native-render-html";
 
-import styles from "../../styles/auth/privacy";
+import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const TermsOfServiceScreen = ( ): React.Node => {
@@ -180,15 +180,15 @@ const TermsOfServiceScreen = ( ): React.Node => {
     <ScrollWithHeader header="inat_signup.terms">
       <HTML
         {...DEFAULT_PROPS}
-        containerStyle={styles.textContainer}
+        containerStyle={viewStyles.textContainer}
         source={{ html }}
         tagsStyles={ {
-          p: styles.text,
-          a: styles.text,
-          h3: styles.headerText,
-          strong: styles.headerText,
-          ul: styles.list,
-          ol: styles.list
+          p: textStyles.text,
+          a: textStyles.text,
+          h3: textStyles.headerText,
+          strong: textStyles.headerText,
+          ul: textStyles.list,
+          ol: textStyles.list
         } }
       />
     </ScrollWithHeader>

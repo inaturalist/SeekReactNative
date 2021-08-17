@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 import {
   colors,
@@ -10,12 +10,13 @@ import {
 
 import type { ViewStyleProp, ImageStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const { height } = Dimensions.get( "window" );
+// const { height } = Dimensions.get( "window" );
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   container: {
     backgroundColor: colors.seekForestGreen,
     flex: 1,
+    flexGrow: 1,
     justifyContent: "center"
   },
   divider: {
@@ -23,7 +24,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     borderBottomColor: colors.dividerWhite
   },
   menuItem: {
-    height: height / 11,
+    // height: height / 11,
+    paddingVertical: 21,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
@@ -42,7 +44,8 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   seekLogo: {
     alignSelf: "center",
     height: 79,
-    marginBottom: height / 11 / 2,
+    marginVertical: 62 - 21,
+    // marginBottom: height / 11 / 2,
     resizeMode: "contain",
     width: 223
   }

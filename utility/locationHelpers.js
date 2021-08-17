@@ -151,7 +151,7 @@ const createLocationAlert = ( errorCode: number ) => {
     body = i18n.t( "results.error_location" );
     if ( Platform.OS === "android" ) {
       button.unshift( {
-        text: i18n.t( "species_nearby.enable_location" ),
+        text: i18n.t( "results.enable_location_button" ),
         onPress: () => OpenSettings.openSettings()
       } );
     }

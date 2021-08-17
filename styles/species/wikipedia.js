@@ -27,6 +27,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   whiteContainer: {
     backgroundColor: colors.white,
     flexGrow: 1
+  },
+  selectedPressableArea: {
+    backgroundColor: "rgb(176, 196, 222)"
   }
 } );
 
@@ -44,6 +47,18 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontFamily: fonts.book,
     paddingHorizontal: 24,
     paddingTop: 24,
+    textAlign: "center"
+  },
+  donateText: {
+    top: 19,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    color: colors.black,
+    fontFamily: fonts.book,
+    paddingHorizontal: 24,
+    marginVertical: 14,
+    paddingVertical: 10,
+    alignSelf: "center",
     textAlign: "center"
   }
 } );

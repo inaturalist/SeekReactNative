@@ -7,7 +7,7 @@ import { useRoute } from "@react-navigation/native";
 import { getSystemVersion } from "react-native-device-info";
 
 import i18n from "../../i18n";
-import styles from "../../styles/camera/cameraError";
+import { viewStyles, textStyles } from "../../styles/camera/cameraError";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
@@ -41,7 +41,7 @@ const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
     if ( Platform.OS === "android" ) {
       return (
         <>
-          <View style={styles.margin} />
+          <View style={viewStyles.margin} />
           <GreenButton
             handlePress={openSettings}
             text="camera.permissions"
@@ -53,8 +53,8 @@ const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
     }
     return (
       <>
-        <View style={styles.margin} />
-        <Text style={styles.whiteText}>
+        <View style={viewStyles.margin} />
+        <Text style={textStyles.whiteText}>
           {i18n.t( "camera.please_permissions" ).toLocaleUpperCase()}
         </Text>
       </>
@@ -62,8 +62,8 @@ const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
   };
 
   return (
-    <View style={[styles.blackBackground, styles.center, name === "Gallery" && styles.galleryHeight]}>
-      <Text allowFontScaling={false} numberOfLines={23} style={styles.errorText}>
+    <View style={[viewStyles.blackBackground, viewStyles.center, name === "Gallery" && viewStyles.galleryHeight]}>
+      <Text allowFontScaling={false} numberOfLines={23} style={textStyles.errorText}>
         {setCameraErrorText( error, errorEvent )}
       </Text>
       {( error === "permissions" || error === "gallery" ) && showPermissionsButton()}

@@ -11,7 +11,9 @@ import {
   dimensions
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, ImageStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   button: {
     paddingBottom: dimensions.height > 570 ? 24 : 17,
     paddingTop: dimensions.height > 570 ? 28 : 26
@@ -24,20 +26,6 @@ export default StyleSheet.create( {
     justifyContent: "center",
     width: "100%"
   },
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: Platform.OS === "ios" ? 9 : 0,
-    textAlign: "center"
-  },
-  image: {
-    height: 40,
-    marginRight: 22,
-    resizeMode: "contain",
-    width: 40
-  },
   margin: {
     marginTop: 28
   },
@@ -47,7 +35,18 @@ export default StyleSheet.create( {
   marginTop: {
     marginTop: dimensions.height > 570 ? 26 : 24
   },
-  row,
+  row
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+  headerText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: Platform.OS === "ios" ? 9 : 0,
+    textAlign: "center"
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -60,3 +59,18 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  image: {
+    height: 40,
+    marginRight: 22,
+    resizeMode: "contain",
+    width: 40
+  }
+} );
+
+export {
+  viewStyles,
+  textStyles,
+  imageStyles
+};

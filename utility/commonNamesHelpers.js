@@ -88,6 +88,10 @@ const setupCommonNames = ( preferredLanguage: string ) => {
           require( "./commonNames/commonNamesDict-14" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-15" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-16" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-17" ).default, seekLocale );
       } );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );

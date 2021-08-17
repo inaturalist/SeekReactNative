@@ -3,7 +3,7 @@ import * as React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import styles from "../../styles/onboarding";
+import { viewStyles, textStyles } from "../../styles/onboarding";
 import i18n from "../../i18n";
 
 type Props = {
@@ -11,20 +11,26 @@ type Props = {
 }
 
 const Button = ( { index }: Props ): React.Node => {
-  const navigation = useNavigation();
+  const navigation = useNavigation( );
+
+  const navToHome = ( ) => navigation.navigate( "Drawer" );
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate( "LoginOrSignup" )}
-      style={[styles.buttonContainer, styles.center]}
+      onPress={navToHome}
+      style={[viewStyles.buttonContainer, viewStyles.center]}
     >
       {index === 2
         ? (
-          <View style={styles.button}>
-            <Text allowFontScaling={false} style={styles.continue}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
+          <View style={viewStyles.button}>
+            <Text allowFontScaling={false} style={textStyles.continue}>
+              {i18n.t( "onboarding.continue" ).toLocaleUpperCase( )}
+            </Text>
           </View>
         ) : (
-          <Text allowFontScaling={false} style={[styles.skipText, styles.buttonHeight]}>{i18n.t( "onboarding.skip" )}</Text>
+          <Text allowFontScaling={false} style={[textStyles.skipText, textStyles.buttonHeight]}>
+            {i18n.t( "onboarding.skip" )}
+          </Text>
         )}
     </TouchableOpacity>
   );

@@ -9,15 +9,12 @@ import {
   dimensions
 } from "../global";
 
-export default StyleSheet.create( {
+import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
+const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,
   container: {
     flex: 1
-  },
-  logo: {
-    height: 107,
-    resizeMode: "contain",
-    width: dimensions.width - 70
   },
   margin: {
     marginTop: dimensions.height > 570 ? 64 : 34
@@ -27,7 +24,10 @@ export default StyleSheet.create( {
   },
   scrollContainer: {
     flexGrow: 1
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
     color: colors.white,
     fontFamily: fonts.medium,
@@ -38,3 +38,18 @@ export default StyleSheet.create( {
     textAlign: "center"
   }
 } );
+
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  logo: {
+    height: 107,
+    resizeMode: "contain",
+    width: dimensions.width - 70
+  }
+} );
+
+export {
+  textStyles,
+  viewStyles,
+  imageStyles
+};
+

@@ -9,7 +9,7 @@ import { dimensions } from "../../styles/global";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
-import styles from "../../styles/social/social";
+import { viewStyles } from "../../styles/social/social";
 
 type Props = {
   saveCrop: Function,
@@ -28,23 +28,23 @@ const CropScreen = ( {
   handleImageCrop,
   closeModal
 }: Props ): React.Node => (
-  <SafeAreaView style={styles.cropScreenContainer} edges={["top"]}>
-    <View style={styles.header}>
-      <CustomBackArrow handlePress={closeModal} style={styles.backButton} green />
-      <View style={styles.headerText}>
+  <SafeAreaView style={viewStyles.cropScreenContainer} edges={["top"]}>
+    <View style={viewStyles.header}>
+      <CustomBackArrow handlePress={closeModal} style={viewStyles.backButton} green />
+      <View style={viewStyles.headerText}>
         <GreenText allowFontScaling={false} smaller text="social.adjust_square_crop" />
       </View>
       <View />
     </View>
     <CropView
       sourceUrl={uri}
-      style={styles.cropView}
+      style={viewStyles.cropView}
       ref={cropViewRef}
       onImageCrop={handleImageCrop}
       keepAspectRatio
       aspectRatio={aspectRatio}
     />
-    <View style={styles.cropFooter}>
+    <View style={viewStyles.cropFooter}>
       <GreenButton
         width={dimensions.width}
         handlePress={saveCrop}

@@ -12,15 +12,15 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
-import { fetchUserLocation } from "../../../utility/locationHelpers";
 import { viewStyles } from "../../../styles/home/locationPicker";
 import { viewHeaderStyles, textStyles } from "../../../styles/uiComponents/greenHeader";
 import icons from "../../../assets/icons";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { dimensions } from "../../../styles/global";
+import { useFetchUserLocation } from "../hooks/postingHooks";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
-const longitudeDelta = 0.005;
+const longitudeDelta = latitudeDelta;
 
 type Props = {
   +latitude: ?number,
@@ -35,8 +35,15 @@ const LocationPicker = ( {
   updateLocation,
   closeLocationPicker
 }: Props ): Node => {
-  const [accuracy, setAccuracy] = useState( 90 );
-  const [region, setRegion] = useState( {} );
+  const initialAccuracy = 90;
+  const [accuracy, setAccuracy] = useState( initialAccuracy );
+  const [region, setRegion] = useState( {
+    latitude: null,
+    longitude: null,
+    latitudeDelta,
+    longitudeDelta
+  } );
+  const userCoords = useFetchUserLocation( );
 
   const handleRegionChange = ( newRegion ) => {
     const sizeOfCrossHairIcon = 127;
@@ -51,57 +58,40 @@ const LocationPicker = ( {
     setAccuracy( estimatedAccuracy );
   };
 
-  const setCoords = ( coords ) => {
+  const updateRegion = ( lat, long ) => {
+    setRegion( {
+      latitude: lat,
+      longitude: long,
+      latitudeDelta,
+      longitudeDelta
+    } );
+  };
+
+  const setCoords = useCallback( ( coords ) => {
+  const downtownSFLat = 37.7749;
+  const downtownSFLong = -122.4194;
+
     if ( coords ) {
       const lat = coords.latitude;
       const long = coords.longitude;
       const newAccuracy = coords.accuracy;
 
-      setRegion( {
-        latitude: lat,
-        longitude: long,
-        latitudeDelta,
-        longitudeDelta
-      } );
+      updateRegion( lat, long );
       setAccuracy( newAccuracy );
     } else {
-      setRegion( {
-        latitude: 37.7749,
-        longitude: -122.4194,
-        latitudeDelta,
-        longitudeDelta
-      } );
+      updateRegion( downtownSFLat, downtownSFLong );
     }
-  };
-
-  const returnToUserLocation = useCallback( () => {
-    fetchUserLocation( true ).then( ( coords ) => {
-      setCoords( coords );
-    } ).catch( ( err ) => {
-      if ( err ) {
-        fetchUserLocation( false ).then( ( coords ) => {
-          setCoords( coords );
-        } ).catch( () => setCoords() );
-      }
-    } );
   }, [] );
 
-  useEffect( () => {
-    const setNewRegion = () => {
-      setRegion( {
-        latitude,
-        longitude,
-        latitudeDelta,
-        longitudeDelta
-      } );
-    };
+  const returnToUserLocation = useCallback( ( ) => setCoords( userCoords ), [userCoords, setCoords] );
 
+  useEffect( ( ) => {
     if ( latitude && longitude ) {
       // if photo has location, set map to that location
-      setNewRegion();
+      updateRegion( latitude, longitude );
     } else {
       // otherwise, set to user location
-      returnToUserLocation();
+      returnToUserLocation( );
     }
   }, [latitude, longitude, returnToUserLocation] );
 

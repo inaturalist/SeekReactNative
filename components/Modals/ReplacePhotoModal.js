@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
-import styles from "../../styles/modals/flagModal";
+import { viewStyles, textStyles } from "../../styles/modals/flagModal";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { replacePhoto } from "../../utility/photoHelpers";
@@ -58,17 +58,17 @@ const ReplacePhotoModal = ( {
       originalImage={currentUserPhoto ? currentUserPhoto.uri : null}
       displayDate={displayDate}
     >
-      <Text allowFontScaling={false} style={[styles.speciesText, showScientificName && styles.scientificName]}>
+      <Text allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
         {showScientificName ? scientificName : commonName}
       </Text>
-      <Text allowFontScaling={false} style={styles.text}>{i18n.t( "replace_photo.description" )}</Text>
-      <View style={styles.marginMedium} />
+      <Text allowFontScaling={false} style={textStyles.text}>{i18n.t( "replace_photo.description" )}</Text>
+      <View style={viewStyles.marginMedium} />
       <Button
         handlePress={setNewPhoto}
         text="replace_photo.new"
         color={colors.seekForestGreen}
       />
-      <View style={styles.marginSmall} />
+      <View style={viewStyles.marginSmall} />
       <Button
         handlePress={closeModal}
         text="replace_photo.old"

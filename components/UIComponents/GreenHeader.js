@@ -16,10 +16,11 @@ import posting from "../../assets/posting";
 
 type Props = {
   +header?: ?string,
-  +route?: ?string
+  +route?: ?string,
+  plainText?: string
 }
 
-const GreenHeader = ( { header, route }: Props ): React.Node => {
+const GreenHeader = ( { header, route, plainText }: Props ): React.Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
 
@@ -29,6 +30,11 @@ const GreenHeader = ( { header, route }: Props ): React.Node => {
       {header && (
         <Text allowFontScaling={false} style={textStyles.text}>
           {i18n.t( header ).toLocaleUpperCase()}
+        </Text>
+      )}
+      {plainText && (
+        <Text allowFontScaling={false} style={textStyles.text}>
+          {plainText.toLocaleUpperCase( )}
         </Text>
       )}
       {name === "Post" && (

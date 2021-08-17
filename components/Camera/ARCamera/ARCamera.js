@@ -20,7 +20,7 @@ import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/camera/arCamera";
+import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import {
@@ -37,14 +37,15 @@ import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
-// import { useEmulator } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext, UserContext } from "../../UserContext";
-// import { LOG } from "../../../utility/debugHelpers";
+import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
 
 const ARCamera = ( ): Node => {
+  // getting width and height passes correct dimensions to camera
+  // on orientation change
+  const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
@@ -55,9 +56,6 @@ const ARCamera = ( ): Node => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    // if (  action.type !== "SET_RANKS" && action.type !== "RESET_RANKS" ) {
-    //   LOG.info( `AR Camera: ${action.type} - ${JSON.stringify( state )} - isFocused: ${isFocused}` );
-    // }
     switch ( action.type ) {
       case "CAMERA_LOADED":
         return { ...state, cameraLoaded: true };
@@ -91,6 +89,8 @@ const ARCamera = ( ): Node => {
         return { ...state, showModal: true };
       case "CLOSE_MODAL":
         return { ...state, showModal: false };
+      case "SPECIES_TIMEOUT":
+        return { ...state, speciesTimeoutSet: action.speciesTimeoutSet };
       default:
         throw new Error( );
     }
@@ -103,7 +103,8 @@ const ARCamera = ( ): Node => {
     negativeFilter: false,
     taxonId: null,
     cameraType: "back",
-    showModal: false
+    showModal: false,
+    speciesTimeoutSet: false
   } );
 
   const {
@@ -115,10 +116,9 @@ const ARCamera = ( ): Node => {
     negativeFilter,
     taxonId,
     cameraType,
-    showModal
+    showModal,
+    speciesTimeoutSet
   } = state;
-
-  const rankToRender = Object.keys( ranks )[0] || null;
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -163,14 +163,11 @@ const ARCamera = ( ): Node => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 
-    // console.log( uri, "handling save error in AR camera" );
-
     await showCameraSaveFailureAlert( e, uri );
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
-    // console.log( photo.uri, "saving photo in AR camera" );
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
@@ -179,6 +176,14 @@ const ARCamera = ( ): Node => {
   const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
+
+  const pauseOnSpecies = ( ) => {
+    // this block keeps the last species seen displayed for 2.5 seconds
+    dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
+    setTimeout( ( ) => {
+      dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: false } );
+    }, 2500 );
+  };
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
@@ -190,26 +195,28 @@ const ARCamera = ( ): Node => {
     }
 
     let predictionSet = false;
-    // not looking at kingdom or phylum as we are currently not displaying results for those ranks
-    if ( rankToRender === "species" ) {
-      // this block keeps the last species seen displayed for 2.5 seconds
-      setTimeout( ( ) => resetPredictions( ), 2500 );
-    } else {
-      ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
-        // skip this block if a prediction state has already been set
-        if ( predictionSet ) { return; }
-        if ( predictions[rank] ) {
-          predictionSet = true;
-          const prediction = predictions[rank][0];
 
-          //$FlowFixMe
-          dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
+    // don't bother with trying to set predictions if a species timeout is in place
+    if ( speciesTimeoutSet ) { return; }
+
+    // not looking at kingdom or phylum as we are currently not displaying results for those ranks
+    ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
+      // skip this block if a prediction state has already been set
+      if ( predictionSet ) { return; }
+      if ( predictions[rank] ) {
+        if ( predictions[rank] === "species" ) {
+          pauseOnSpecies( );
         }
-        if ( !predictionSet ) {
-          resetPredictions( );
-        }
-      } );
-    }
+        predictionSet = true;
+        const prediction = predictions[rank][0];
+
+        //$FlowFixMe
+        dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
+      }
+      if ( !predictionSet ) {
+        resetPredictions( );
+      }
+    } );
   };
 
   const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
@@ -327,7 +334,6 @@ const ARCamera = ( ): Node => {
 
     navigation.addListener( "focus", ( ) => {
       setObservation( null );
-      // LOG.info( "AR Camera: add navigation focus listener" );
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       checkForFirstCameraLaunch( );
@@ -348,8 +354,34 @@ const ARCamera = ( ): Node => {
     return null;
   }
 
+  const cameraStyle = {
+    // need different styling for android to avoid black line on right side of screen
+    width: Platform.OS === "android" ? width + 100 : width,
+    height
+  };
+
+  const renderCamera = ( ) => (
+    <INatCamera
+      ref={camera}
+      confidenceThreshold={confidenceThreshold}
+      modelPath={dirModel}
+      onCameraError={handleCameraError}
+      onCameraPermissionMissing={handleCameraPermissionMissing}
+      onClassifierError={handleClassifierError}
+      onDeviceNotSupported={handleDeviceNotSupported}
+      onTaxaDetected={handleTaxaDetected}
+      onLog={handleLog}
+      style={[viewStyles.camera, cameraStyle]}
+      taxaDetectionInterval={taxaDetectionInterval}
+      taxonomyPath={dirTaxonomy}
+      filterByTaxonId={taxonId}
+      negativeFilter={negativeFilter}
+      type={cameraType}
+    />
+  );
+
   return (
-    <View style={styles.container}>
+    <View style={viewStyles.container}>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -371,7 +403,7 @@ const ARCamera = ( ): Node => {
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
         onPress={navHome}
-        style={styles.backButton}
+        style={[viewStyles.backButton, viewStyles.shadow]}
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
@@ -379,32 +411,16 @@ const ARCamera = ( ): Node => {
         accessibilityLabel={i18n.t( "menu.settings" )}
         accessible
         onPress={navToSettings}
-        style={styles.settingsButton}
+        style={[viewStyles.settingsButton, viewStyles.shadow]}
       >
         {/* $FlowFixMe */}
         <Image
           tintColor={colors.white}
-          style={styles.settingsIcon}
+          style={imageStyles.settingsIcon}
           source={icons.menuSettings}
         />
       </TouchableOpacity>
-      <INatCamera
-        ref={camera}
-        confidenceThreshold={confidenceThreshold}
-        modelPath={dirModel}
-        onCameraError={handleCameraError}
-        onCameraPermissionMissing={handleCameraPermissionMissing}
-        onClassifierError={handleClassifierError}
-        onDeviceNotSupported={handleDeviceNotSupported}
-        onTaxaDetected={handleTaxaDetected}
-        onLog={handleLog}
-        style={styles.camera}
-        taxaDetectionInterval={taxaDetectionInterval}
-        taxonomyPath={dirTaxonomy}
-        filterByTaxonId={taxonId}
-        negativeFilter={negativeFilter}
-        type={cameraType}
-      />
+      {renderCamera( )}
     </View>
   );
 };

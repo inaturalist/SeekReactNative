@@ -22,7 +22,7 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 import GreenText from "../UIComponents/GreenText";
 import icons from "../../assets/icons";
 import Padding from "../UIComponents/Padding";
-import useSearchSpecies from "./hooks/postingHooks";
+import { useSearchSpecies } from "./hooks/postingHooks";
 import { iconicTaxaNames, iconicScientificNames } from "../../utility/dictionaries/iconicTaxonDictSelectSpecies";
 import { capitalizeNames } from "../../utility/helpers";
 

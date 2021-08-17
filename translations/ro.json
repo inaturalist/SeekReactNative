@@ -4,10 +4,10 @@
     "internet_error": "Avem nevoie de internet ca să generăm specii din apropiere. Atinge pentru a încerca din nou.",
     "no_location": "Fără Locație",
     "no_species": "Se pare că nu au fost observate multe specii în apropiere! Încearcă să schimbi locația sau să extinzi filtrul de specii.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
+    "input_location_above_map": "Nu a fost găsită nicio poziționare; introduceți o denumire pentru reperul de mai sus pentru a încărca harta și a căuta specii din apropriere",
+    "error_alert_location_services": "Pentru a continua, activați serviciile de poziționare disponibile pe dispozitivul dumneavoastră.",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "choose_location_on_map": "ALEGEȚI POZIȚIA PE HARTĂ"
   },
   "get_started": {
     "header": "Să începem",
@@ -22,7 +22,7 @@
     "continue_challenge": "Continuă provocarea",
     "view_all": "Vezi toate provocările",
     "new_join": "Adăugați observații cu Camera Seek pentru a câștiga insigna Provocării!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat admins: mulțumim pentru că ați testat Seek! În prezent, vedeți cea mai recentă provocare iNat înainte de începutul lunii, cu scopul testării."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTAȚI PE INATURALIST",
@@ -62,8 +62,8 @@
     },
     "error_unknown": "Încărcare eșuată. Detalii eroare: {{errorText}}",
     "error_login": "Token de conectare a eșuat. Conectați-vă la contul dvs. iNaturalist pe Seek din ecranul iNaturalist sau Realizări înainte de a încerca din nou.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_photo": "Fotografia nu mai poate fi accesată pe acest dispozitiv.",
+    "error_downtime_a_few_hours": "Serverul iNaturalist este în curs de întreținere. Încercați din nou în câteva ore."
   },
   "notifications": {
     "header": "Notificări",
@@ -85,9 +85,9 @@
     "error_email": "Introdu te rog o adresă de e-mail validă",
     "error_credentials": "Nume utilizator sau parolă greșită",
     "error_username_taken": "Acest nume de utilizator există deja.",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password",
-    "error_internet": "No internet connection"
+    "error_no_username": "Lipsește numele de utilizator / adresa de e-mail",
+    "error_no_password": "Parola dumneavoastră lipsește",
+    "error_internet": "Nu există conexiune la rețeaua de date."
   },
   "inat_signup": {
     "welcome": "Bun venit la Seek!",
@@ -296,6 +296,7 @@
     "yes_resighted": "Da, specia a fost identificată greșit",
     "no": "Nu, este corect",
     "enable_location": "Observația ta nu are locație",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Ne pare rău, nu am putut evalua această imagine. Verifică conexiunea la internet și încearcă din nou.",
     "error_image": "Ne pare rău, nu am putut procesa această imagine. Verifică conexiunea la internet și încearcă din nou.",
     "error_species": "Ne pare rău, nu am putut obține detaliile speciilor din această imagine. Verifică conexiunea la internet și încearcă din nou.",
@@ -365,7 +366,7 @@
   },
   "gallery": {
     "label": "Fotografii",
-    "photo_library": "Photo Library"
+    "photo_library": "Galerie Foto"
   },
   "camera_help": {
     "title": "Camera Seek",

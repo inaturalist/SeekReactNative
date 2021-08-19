@@ -22,7 +22,7 @@ const SpeciesContainer = ( {
   predictions,
   checkForInternet
 }: Props ): React.Node => {
-  const { ancestors } = details;
+  const ancestors = details && details.ancestors;
 
   const seenTaxa = useSeenTaxa( id );
 

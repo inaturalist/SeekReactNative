@@ -24,7 +24,7 @@ type Props = {
 const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
   const navigation = useNavigation( );
 
-  const { iconicTaxonId } = taxon;
+  const iconicTaxonId = taxon && taxon.iconicTaxonId;
 
   const backAction = useCallback( async ( ) => {
     const routeName = await getRoute( );

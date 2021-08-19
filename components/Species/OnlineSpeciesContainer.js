@@ -73,12 +73,6 @@ const OnlineSpeciesContainer = ( {
     </>
   );
 
-  // some of MyObservations don't show up with this code implemented on iOS
-
-  // if ( !region.latitude || !stats ) {
-  //   return null;
-  // }
-
   return (
     <>
       <SpeciesStats stats={stats} id={id} region={region} seenDate={seenDate} />

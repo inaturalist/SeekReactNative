@@ -23,7 +23,7 @@ import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
 import { useCommonName, useInternetStatus } from "../../utility/customHooks";
 import { AppOrientationContext, SpeciesDetailContext } from "../UserContext";
-import { useSpeciesSeen, useTaxonDetails } from "./hooks/speciesDetailHooks";
+import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
@@ -32,11 +32,10 @@ const SpeciesDetail = ( ): Node => {
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );
-  // const seenTaxa = useSpeciesSeen( id );
   const commonName = useCommonName( id );
   const taxonDetails = useTaxonDetails( id );
 
-  const photos = taxonDetails && taxonDetails.photos;
+  const photos = taxonDetails ? taxonDetails.photos : [];
   const taxon = taxonDetails && taxonDetails.taxon;
   const details = taxonDetails && taxonDetails.details;
 
@@ -108,10 +107,6 @@ const SpeciesDetail = ( ): Node => {
     } );
   }, [navigation, resetScreen] );
 
-  if ( !id || isLandscape === null ) {
-    return null;
-  }
-
   const predictions = params ? params.image : null;
 
   const renderOnlineOrOfflineContent = ( ) => {
@@ -135,24 +130,21 @@ const SpeciesDetail = ( ): Node => {
         />
       );
     }
-    return null;
   };
 
   const renderPortraitMode = ( ) => (
     <ScrollView
       ref={scrollView}
-      contentContainerStyle={viewStyles.background}
+      contentContainerStyle={[viewStyles.background, error && viewStyles.bottomPadding]}
       onScrollBeginDrag={clearSelectedText}
     >
-      {taxon && (
-        <SpeciesHeader
-          id={id}
-          taxon={taxon}
-          photos={photos}
-          selectedText={selectedText}
-          highlightSelectedText={highlightSelectedText}
-        />
-      )}
+      <SpeciesHeader
+        id={id}
+        taxon={taxon}
+        photos={photos}
+        selectedText={selectedText}
+        highlightSelectedText={highlightSelectedText}
+      />
       {renderOnlineOrOfflineContent( )}
     </ScrollView>
   );
@@ -168,17 +160,13 @@ const SpeciesDetail = ( ): Node => {
           onScrollBeginDrag={clearSelectedText}
           bounces={false}
         >
-          {taxon.scientificName && (
-            <>
-              <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
-              <SpeciesName
-                id={id}
-                taxon={taxon}
-                selectedText={selectedText}
-                highlightSelectedText={highlightSelectedText}
-              />
-            </>
-          )}
+          <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
+          <SpeciesName
+            id={id}
+            taxon={taxon}
+            selectedText={selectedText}
+            highlightSelectedText={highlightSelectedText}
+          />
           {renderOnlineOrOfflineContent( )}
         </ScrollView>
       </View>

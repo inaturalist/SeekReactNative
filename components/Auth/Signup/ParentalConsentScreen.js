@@ -14,6 +14,7 @@ import InputField from "../../UIComponents/InputField";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import { createJwtToken } from "../../../utility/helpers";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -55,13 +56,10 @@ class ParentalConsentScreen extends Component<Props, State> {
     };
 
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": token,
+      "User-Agent": createUserAgent()
     };
-
-    if ( token ) {
-      // $FlowFixMe
-      headers.Authorization = `Authorization: ${token}`;
-    }
 
     const site = "https://www.inaturalist.org";
 

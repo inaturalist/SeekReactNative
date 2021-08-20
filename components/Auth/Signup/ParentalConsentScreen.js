@@ -48,6 +48,11 @@ class ParentalConsentScreen extends Component<Props, State> {
   shareEmailWithiNat() {
     const { email } = this.state;
 
+    const handleError = ( err ) => {
+      this.setError( err );
+      this.setLoading( false );
+    };
+
     this.setLoading( true );
     const token = createJwtToken();
 
@@ -70,13 +75,14 @@ class ParentalConsentScreen extends Component<Props, State> {
     } )
       .then( ( responseJson ) => {
         const { status } = responseJson;
-        if ( status === 200 || status === 404 ) {
+        if ( status === 200 ) {
           this.setLoading( false );
           this.submit();
+        } else {
+          handleError( i18n.t( "login.error_request_could_not_be_completed" ) );
         }
       } ).catch( ( err ) => {
-        this.setError( err );
-        this.setLoading( false );
+        handleError( err );
       } );
   }
 

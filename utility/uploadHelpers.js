@@ -206,6 +206,7 @@ const uploadObservation = async ( observation: {
   vision: boolean
 } ): Promise<any> => {
   const login = await fetchAccessToken( );
+
   const params = {
     // realm doesn't let you use spread operator, apparently
     observation: {

@@ -75,7 +75,7 @@ class ParentalConsentScreen extends Component<Props, State> {
     } )
       .then( ( responseJson ) => {
         const { status } = responseJson;
-        if ( status === 200 ) {
+        if ( status === 204 ) {
           this.setLoading( false );
           this.submit();
         } else {

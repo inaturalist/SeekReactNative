@@ -350,10 +350,6 @@ const ARCamera = ( ): Node => {
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
-  if ( !isFocused ) { // this is necessary for camera to load properly in iOS
-    return null;
-  }
-
   const cameraStyle = {
     // need different styling for android to avoid black line on right side of screen
     width: Platform.OS === "android" ? width + 100 : width,

@@ -38,61 +38,61 @@ const Tab = createBottomTabNavigator();
 const tabBar = props => <Footer {...props} />;
 
 const AchievementsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="Achievements" component={Achievements} />
   </Tab.Navigator>
 );
 
 const ChallengesFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="Challenges" component={Challenges} />
   </Tab.Navigator>
 );
 
 const ChallengeDetailsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
   </Tab.Navigator>
 );
 
 const ObservationsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="Observations" component={Observations} />
   </Tab.Navigator>
 );
 
 const iNatStatsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="iNatStats" component={iNatStats} />
   </Tab.Navigator>
 );
 
 const AboutFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="About" component={About} />
   </Tab.Navigator>
 );
 
 const SettingsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="Settings" component={Settings} />
   </Tab.Navigator>
 );
 
 const DebugEmailScreenFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="DebugEmailScreen" component={DebugEmailScreen} />
   </Tab.Navigator>
 );
 
 const HomeFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="Home" component={Home} />
   </Tab.Navigator>
 );
 
 const SpeciesFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
+  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
     <Tab.Screen name="Species" component={Species} />
   </Tab.Navigator>
 );

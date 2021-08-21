@@ -25,16 +25,16 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     top: 37,
     left: width / 19,
     width: width / 2.5
-  },
-  galleryIndicator: {
-    backgroundColor: colors.seekGreen,
-    borderRadius: 40,
-    height: 2,
-    position: "absolute",
-    top: 37,
-    right: width / 19,
-    width: width / 2.5
   }
+  // galleryIndicator: {
+  //   backgroundColor: colors.seekGreen,
+  //   borderRadius: 40,
+  //   height: 2,
+  //   position: "absolute",
+  //   top: 37,
+  //   right: width / 19,
+  //   width: width / 2.5
+  // }
 } );
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {

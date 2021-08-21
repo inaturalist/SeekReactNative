@@ -30,7 +30,7 @@ const NotificationCard = ( { item }: Props ): React.Node => {
   if ( item.title === "notifications.challenge_completed" ) {
     const challenges = Object.keys( challengesDict ).map( challenge => challengesDict[challenge] );
     const completed = challenges[item.challengeIndex];
-    image = badges[completed.earnedIconName];
+    image = completed && badges[completed.earnedIconName];
   }
 
   const goToNotification = () => {

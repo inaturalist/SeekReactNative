@@ -38,6 +38,7 @@ const SpeciesDetail = ( ): Node => {
   const photos = taxonDetails ? taxonDetails.photos : [];
   const taxon = taxonDetails && taxonDetails.taxon;
   const details = taxonDetails && taxonDetails.details;
+  const scientificName = taxon && taxon.scientificName;
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -124,7 +125,7 @@ const SpeciesDetail = ( ): Node => {
       return (
         <OnlineSpeciesContainer
           details={details}
-          scientificName={taxon.scientificName}
+          scientificName={scientificName}
           id={id}
           predictions={predictions}
         />
@@ -151,7 +152,7 @@ const SpeciesDetail = ( ): Node => {
 
   const renderLandscapeMode = ( ) => (
     <>
-      <GreenHeader plainText={commonName || taxon.scientificName} />
+      <GreenHeader plainText={commonName || scientificName} />
       <View style={viewStyles.twoColumnContainer}>
         <SpeciesPhotosLandscape photos={photos} id={id} />
         <ScrollView
@@ -160,7 +161,7 @@ const SpeciesDetail = ( ): Node => {
           onScrollBeginDrag={clearSelectedText}
           bounces={false}
         >
-          <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
+          <IconicTaxaName iconicTaxonId={taxon && taxon.iconicTaxonId} />
           <SpeciesName
             id={id}
             taxon={taxon}

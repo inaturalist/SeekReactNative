@@ -46,7 +46,7 @@ const tabBar = props => <Footer {...props} />;
 
 const NotificationsFooter = ( ) => (
   <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
-    <Tab.Screen name="Notifications" component={Notifications} />
+    <Tab.Screen name="NotificationsFooter" component={Notifications} />
   </Tab.Navigator>
 );
 

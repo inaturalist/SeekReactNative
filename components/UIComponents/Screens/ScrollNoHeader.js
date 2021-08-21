@@ -17,17 +17,17 @@ type Props = {
 };
 
 const ScrollNoHeader = ( { children, showUploadCard }: Props ): Node => {
-  const navigation = useNavigation();
-  const { name } = useRoute();
+  const navigation = useNavigation( );
+  const { name } = useRoute( );
   const scrollView = useRef<any>( null );
 
   useScrollToTop( scrollView, navigation );
 
   let backgroundColor;
 
-  if ( name === "Home" ) {
+  if ( name === "HomeFooter" ) {
     backgroundColor = showUploadCard ? styles.darkGreen : styles.green;
-  } else if ( name === "ChallengeDetails" ) {
+  } else if ( name === "ChallengeDetailsFooter" ) {
     backgroundColor = styles.black;
   } else {
     backgroundColor = styles.containerWhite;
@@ -35,8 +35,8 @@ const ScrollNoHeader = ( { children, showUploadCard }: Props ): Node => {
 
   return (
     <SafeAreaView style={[styles.container, backgroundColor]} edges={["top"]}>
-      <StatusBar barStyle={name === "iNatStats" ? "dark-content" : "light-content"} />
-      <ScrollView ref={scrollView} contentContainerStyle={showUploadCard ? styles.darkGreen : styles.green}>
+      <StatusBar barStyle="light-content" />
+      <ScrollView ref={scrollView} contentContainerStyle={backgroundColor}>
         {children}
         <Padding />
         {Platform.OS === "ios" && <BottomSpacer />}

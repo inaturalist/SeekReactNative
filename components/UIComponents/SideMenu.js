@@ -1,8 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { Image, Text, Pressable } from "react-native";
-import { DrawerContentScrollView } from "@react-navigation/drawer";
+import { Image, Text, Pressable, View } from "react-native";
 
 import i18n from "../../i18n";
 import { viewStyles, imageStyles, textStyles } from "../../styles/uiComponents/sideMenu";
@@ -58,7 +57,7 @@ const SideMenu = ( { navigation }: Props ): React.Node => {
   } );
 
   return (
-    <DrawerContentScrollView contentContainerStyle={viewStyles.container}>
+    <View style={viewStyles.container}>
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
@@ -67,7 +66,7 @@ const SideMenu = ( { navigation }: Props ): React.Node => {
         <Image source={logoImages.seek} style={imageStyles.seekLogo} />
       </Pressable>
       {renderMenuItems( )}
-    </DrawerContentScrollView>
+    </View>
   );
 };
 

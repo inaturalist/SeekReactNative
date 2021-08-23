@@ -44,7 +44,7 @@ const MatchModals = ( {
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation( );
   const { taxon } = observation;
-  const { seenDate } = taxon;
+  const seenDate = taxon && taxon.seenDate;
 
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );

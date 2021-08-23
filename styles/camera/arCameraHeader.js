@@ -9,13 +9,15 @@ import {
   center
 } from "../global";
 
-const { width, height } = dimensions;
+const { height } = dimensions;
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
-  dots: {
-    marginHorizontal: width / 32
+  portraitDotsRow: {
+    width: 262,
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   greenButton: {
     alignItems: "center"
@@ -28,8 +30,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     borderRadius: 20,
     backgroundColor: colors.seekForestGreen,
     paddingVertical: 15,
-    maxWidth: 262
-    // paddingHorizontal: 20
+    paddingHorizontal: 20
   },
   landscapeHeaderSpecies: {
     backgroundColor: colors.seekGreen

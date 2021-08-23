@@ -296,6 +296,7 @@
     "yes_resighted": "Si, questa specie è stata identificata erroneamente",
     "no": "No, è giusto",
     "enable_location": "La tua osservazione non ha una posizione",
+    "enable_location_button": "ABILITA POSIZIONE",
     "error_server": "Siamo spiacenti, non siamo riusciti a valutare questa immagine. Controlla la tua connessione internet e riprova.",
     "error_image": "Siamo spiacenti, non siamo riusciti ad elaborare la tua immagine. Controlla la tua connessione internet e riprova.",
     "error_species": "Siamo spiacenti, non siamo riusciti a recuperare i dettagli di questa immagine. Controlla la tua connessione internet e riprova.",

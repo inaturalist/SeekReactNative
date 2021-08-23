@@ -296,6 +296,7 @@
     "yes_resighted": "Sí, aquesta espècie ha estat mal identificada",
     "no": "No, és correcte",
     "enable_location": "Habilitar ubicació per guardar les observacions",
+    "enable_location_button": "HABILITAR UBICACIÓ",
     "error_server": "Ho sentim, no hem pogut analitzar aquesta imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_image": "Ho sentim, no hem pogut processar la teva imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_species": "Ho sentim, no hem pogut identificar detalls de l'espècie a aquesta imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",

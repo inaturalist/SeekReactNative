@@ -296,6 +296,7 @@
     "yes_resighted": "Sim, esta espécie foi mal identificada",
     "no": "Não, está correto",
     "enable_location": "A sua observação não tem localização",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_image": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_species": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",

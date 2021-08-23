@@ -87,7 +87,7 @@
     "error_username_taken": "Bu kullanıcı adı zaten alınmış",
     "error_no_username": "Kullanıcı adı / eposta eksik",
     "error_no_password": "Eksik parola",
-    "error_internet": "No internet connection"
+    "error_internet": "Internet bağlantısı yok"
   },
   "inat_signup": {
     "welcome": "Seek'e hoşgeldin!",
@@ -296,6 +296,7 @@
     "yes_resighted": "Evet, bu tür yanlış tanımlandı",
     "no": "Hayır, doğru",
     "enable_location": "Gözlemleri kaydetmek için konumu etkinleştir",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_image": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
@@ -548,7 +549,7 @@
     "you": "Hey bak! Dışarı çık ve onlar hakkında daha çok bilgi edinmek için bazı vahşi türler bul.",
     "internet_error": "Tür ayrıntı ekranını oluşturmak için internete gereksinimimiz var. Tekrar denemek için dokunun.",
     "no_photos_found": "Bu tür için fotoğraf bulunamadı.",
-    "copied": "COPIED!"
+    "copied": "KOPYALANDI!"
   },
   "about": {
     "header": "Hakkında",
@@ -581,9 +582,9 @@
     "unknown": "Bilinmiyor",
     "ok": "Tamam",
     "look_up": "Adına göre bir türe bak",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "latitude_longitude": "Enlem: {{latitude}}, Boylam: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
+    "animals": "Hayvanlar",
     "protozoans": "Protozoans",
     "kelp": "Kelp, Diatoms, & Allies"
   },
@@ -844,7 +845,7 @@
     "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
     "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
     "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
+    "september_2021_mission_1": "10 yeni tür bul",
     "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
     "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
     "october_2021_challenge_name": "Arachnid Challenge",

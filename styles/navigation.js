@@ -7,7 +7,7 @@ import {
   dimensions
 } from "./global";
 
-const { width, height } = dimensions;
+const { height } = dimensions;
 
 const requiresSafeArea = ( ) => Platform.OS === "ios" && height > 570;
 
@@ -22,9 +22,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     borderRadius: 40,
     height: 2,
     position: "absolute",
+<<<<<<< HEAD
     top: 37,
     left: width / 19,
     width: width / 2.5
+=======
+    top: 37
+>>>>>>> main
   }
   // galleryIndicator: {
   //   backgroundColor: colors.seekGreen,

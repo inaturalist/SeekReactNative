@@ -296,6 +296,7 @@
     "yes_resighted": "是的，這個物種鑑定有誤",
     "no": "不，這鑑定沒錯",
     "enable_location": "您的觀察紀錄沒有位置資訊",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "很抱歉，我們無法評判此照片。請確認您的網路連線並重試一次。",
     "error_image": "很抱歉，我們無法處理您的照片. 請確認您的網路連線並重試一次。",
     "error_species": "很抱歉，我們無法針對此照片下載物種的詳細資訊。請確認您的網路連線並重試一次。",

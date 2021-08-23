@@ -43,15 +43,20 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
     }
   }, [id] );
 
-  const showPortraitModeDots = ( ) => rankList.map( ( rank, index ) => (
-    <Image
-      key={rank}
-      source={rankToRender && rankList.includes( rankToRender, index )
-        ? icons.greenDot
-        : icons.whiteDot}
-      style={viewStyles.dots}
-    />
-  ) );
+  const showPortraitModeDots = ( ) => {
+    return (
+      <View style={viewStyles.portraitDotsRow}>
+        {rankList.map( ( rank, index ) => (
+          <Image
+            key={rank}
+            source={rankToRender && rankList.includes( rankToRender, index )
+              ? icons.greenDot
+              : icons.whiteDot}
+          />
+        ) )}
+      </View>
+    );
+  };
 
   const showLandscapeModeDots = ( ) => rankList.map( ( rank, index ) => (
     <View

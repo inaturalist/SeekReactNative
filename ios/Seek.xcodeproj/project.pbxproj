@@ -10,12 +10,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3750FC0326CC35EF00C6F1DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */; };
 		37593D8926827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37593D8826827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
 		379EB0DE25101F630059D835 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 379EB0DD25101F630059D835 /* taxonomy.json */; };
 		379EB0E025101F6A0059D835 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */; };
 		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
-		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */; };
 		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
 		52DAB02FDAF4E41C1A69670A /* libPods-Seek.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDF2A87EF154B417EDF3293 /* libPods-Seek.a */; };
@@ -59,40 +59,15 @@
 		15D53123BCFE4D5992B467B6 /* libRNWebGL.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNWebGL.a; sourceTree = "<group>"; };
 		15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		30CA28AFC0A1387CDB9AC26A /* Pods-Seek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.debug.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.debug.xcconfig"; sourceTree = "<group>"; };
-		371DF56724FED22D00A3D1FE /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = ../eu.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3721C5BA22B30F3800151678 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "../zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		3721C5BB22B30F5700151678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = ../es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3721C5BC22B30F5D00151678 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = ../nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3721C5BD22B30F6200151678 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3721C5C122B30F7E00151678 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = ../de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		373E63AB24E60C2700E98448 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "../pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		373E63AC24E60C3100E98448 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		373E63AD24E60C3E00E98448 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = ../pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		373E63AE24E60C5400E98448 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "../es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		374AF64122DE43690040B45F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = ../da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		37593D8826827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
 		375C595B24491334000C16B5 /* Seek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seek-Bridging-Header.h"; sourceTree = "<group>"; };
 		378785D6244E5B7C00D4509C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		378785E4245A1F1B00D4509C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = ../fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		378785E5245A1F2400D4509C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = ../cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		378785E6245A1F2B00D4509C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = ../he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		379A071821C4328C00F176E3 /* Seek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Seek.entitlements; path = Seek/Seek.entitlements; sourceTree = "<group>"; };
 		379EB0DD25101F630059D835 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
 		379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
-		37A0EA3C24A2AD6A006A21C7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ../ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37B1FB7826C2F24900CB4C5C /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = ../el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37B922B5251C2497009DE0A7 /* si-LK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "si-LK"; path = "../si-LK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37DA6884242AB4CB00F3C235 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = ../af.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		37E2583324CB62CB00424D49 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ../ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37E6180A23CD006C00B7600B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ../ca.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37E6180B23CD007500B7600B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = ../nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		37EE91A82384C327001B7415 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ../ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37EE91AA2384C32E001B7415 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = ../tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37EE91AB2384C357001B7415 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = ../it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Book-Pro.otf"; path = "../assets/fonts/Whitney-Book-Pro.otf"; sourceTree = "<group>"; };
 		684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Medium-Pro.otf"; path = "../assets/fonts/Whitney-Medium-Pro.otf"; sourceTree = "<group>"; };
@@ -172,7 +147,6 @@
 		37DFB70121FFA4BE007B4E22 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */,
 			);
 			name = Base.lproj;
 			path = Seek/Base.lproj;
@@ -197,6 +171,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */,
 				13B07FAE1A68108700A75B9A /* Seek */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -347,10 +322,10 @@
 				379EB0DE25101F630059D835 /* taxonomy.json in Resources */,
 				4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */,
 				9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */,
-				37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */,
 				AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */,
 				37593D8926827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf in Resources */,
 				CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */,
+				3750FC0326CC35EF00C6F1DA /* Launch Screen.storyboard in Resources */,
 				FDF5B89C59BD4E16B8381B96 /* Whitney-Light-Pro.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,42 +422,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37DFB70321FFA4BE007B4E22 /* Base */,
-				3721C5BA22B30F3800151678 /* zh-Hant */,
-				3721C5BB22B30F5700151678 /* es */,
-				3721C5BC22B30F5D00151678 /* nl */,
-				3721C5BD22B30F6200151678 /* fr */,
-				3721C5C122B30F7E00151678 /* de */,
-				374AF64122DE43690040B45F /* da */,
-				37EE91A82384C327001B7415 /* ru */,
-				37EE91AA2384C32E001B7415 /* tr */,
-				37EE91AB2384C357001B7415 /* it */,
-				37E6180A23CD006C00B7600B /* ca */,
-				37E6180B23CD007500B7600B /* nb */,
-				37DA6882242AB4C000F3C235 /* sv */,
-				37DA6884242AB4CB00F3C235 /* af */,
-				378785E4245A1F1B00D4509C /* fi */,
-				378785E5245A1F2400D4509C /* cs */,
-				378785E6245A1F2B00D4509C /* he */,
-				37A0EA3C24A2AD6A006A21C7 /* ar */,
-				37E2583324CB62CB00424D49 /* ro */,
-				373E63AB24E60C2700E98448 /* pt-BR */,
-				373E63AC24E60C3100E98448 /* ja */,
-				373E63AD24E60C3E00E98448 /* pl */,
-				373E63AE24E60C5400E98448 /* es-MX */,
-				371DF56724FED22D00A3D1FE /* eu */,
-				37B922B5251C2497009DE0A7 /* si-LK */,
-				37B1FB7826C2F24900CB4C5C /* el */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {

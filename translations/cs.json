@@ -296,6 +296,7 @@
     "yes_resighted": "Ano, tento druh byl identifikován nesprávně",
     "no": "Ne, je to správně",
     "enable_location": "Vaše pozorování nemá polohu",
+    "enable_location_button": "POVOLIT POLOHU",
     "error_server": "Omlouváme se, nemohli jsme zaznamenat tento obrázek. Zkontrolujte prosím své připojení k internetu a zkuste to znovu.",
     "error_image": "Omlouváme se, nemohli jsme zpracovat váš obrázek. Zkontrolujte prosím připojení k internetu a zkuste to znovu.",
     "error_species": "Omlouváme se, nepodařilo se nám načíst údaje o tomto obrázku. Zkontrolujte prosím své připojení k internetu a zkuste to znovu.",

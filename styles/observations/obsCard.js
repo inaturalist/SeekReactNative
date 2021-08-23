@@ -13,10 +13,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingVertical: 9
   },
   deleteButton: {
-    justifyContent: "center",
-    marginHorizontal: dimensions.width - 327 + 1, // width - touchable area of species card
-    paddingRight: 24,
-    paddingVertical: 9
+    justifyContent: "center"
   },
   animatedView: {
     position: "absolute",

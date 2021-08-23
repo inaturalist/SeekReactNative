@@ -296,6 +296,7 @@
     "yes_resighted": "Kyllä, tämä laji tunnistettiin väärin",
     "no": "Ei, se on oikein",
     "enable_location": "Ota sijainti käyttöön tallentaaksesi havainnot",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Valitettavasti emme voineet pisteyttää tätä kuvaa. Tarkista Internet-yhteytesi ja yritä uudelleen.",
     "error_image": "Valitettavasti emme voineet prosessoida tätä kuvaa. Tarkista Internet-yhteytesi ja yritä uudelleen.",
     "error_species": "Valitettavasti emme voineet hakea tietoja tämän kuvan lajista. Tarkista Internet-yhteytesi ja yritä uudelleen.",

@@ -29,7 +29,7 @@ const SpeciesMap = ( {
 
   const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
 
-  const displayMap = React.useMemo( ( ) => {
+  const displayMap = ( ) => {
     if ( region.latitude === undefined || !id ) {
       return null;
     }
@@ -56,11 +56,11 @@ const SpeciesMap = ( {
         </Marker>
       </MapView>
     );
-  }, [id, region, seenDate, navToRangeMap] );
+  };
 
   return (
     <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude || !region.longitude}>
-      {displayMap}
+      {displayMap( )}
       <GreenButton
         handlePress={navToRangeMap}
         text="species_detail.view_map"

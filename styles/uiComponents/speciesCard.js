@@ -4,7 +4,8 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  row
+  row,
+  dimensions
 } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
@@ -24,7 +25,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     maxWidth: 220
   },
   touchableArea: {
-    width: 327
+    width: dimensions.width
   }
 } );
 

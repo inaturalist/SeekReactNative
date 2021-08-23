@@ -94,7 +94,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row,
   switch: {
     paddingVertical: 19 / 2,
-    marginRight: 10
+    marginRight: 16
   },
   // $FlowFixMe
   inputIOS: greenButton,

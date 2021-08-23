@@ -49,7 +49,7 @@ const App = ( ): Node => {
             <SpeciesNearbyProvider>
               <ChallengeProvider>
                 <SpeciesDetailProvider>
-                <RootStack />
+                  <RootStack />
                 </SpeciesDetailProvider>
               </ChallengeProvider>
             </SpeciesNearbyProvider>

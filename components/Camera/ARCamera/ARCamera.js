@@ -15,7 +15,7 @@ import {
   NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
@@ -47,7 +47,6 @@ const ARCamera = ( ): Node => {
   // on orientation change
   const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
-  const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
 

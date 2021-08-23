@@ -296,6 +296,7 @@
     "yes_resighted": "Czy gatunek został źle zidentyfikowany",
     "no": "Nie, to jest poprawne",
     "enable_location": "Włącz usługi lokalizacji aby zapisywać obserwacje",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",

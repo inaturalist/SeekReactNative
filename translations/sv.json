@@ -296,6 +296,7 @@
     "yes_resighted": "Ja, denna art var felbestämd",
     "no": "Nej, det är rätt",
     "enable_location": "Aktivera plats för att spara fynd",
+    "enable_location_button": "AKTIVERA PLATS",
     "error_server": "Tyvärr kunde vi inte bedöma den här bilden. Kontrollera din internetanslutning och försök igen.",
     "error_image": "Tyvärr kunde vi inte bearbeta din bild. Kontrollera din internetanslutning och försök igen.",
     "error_species": "Tyvärr kunde vi inte hämta artuppgifter för den här bilden. Kontrollera din internetanslutning och försök igen.",

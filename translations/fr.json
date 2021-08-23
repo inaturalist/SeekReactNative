@@ -296,6 +296,7 @@
     "yes_resighted": "Oui, cette espèce a été mal identifiée",
     "no": "Non, c'est correct",
     "enable_location": "Votre observation n’est pas localisée ",
+    "enable_location_button": "ACTIVER LA LOCALISATION",
     "error_server": "Désolé nous ne parvenons pas à reconnaître cette image. Veuillez vérifier votre connexion internet et essayez de nouveau.",
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",

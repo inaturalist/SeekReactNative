@@ -296,6 +296,7 @@
     "yes_resighted": "Ja, denne arten ble feilidentifisert",
     "no": "Nei, det stemmer",
     "enable_location": "Slå på lokalitet for å lagre observasjoner",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Beklager, vi kunne ikke score dette bildet. Vennligst sjekk din internettilkobling og prøv på nytt.",
     "error_image": "Beklager, vi kunne ikke behandle ditt bilde. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_species": "Beklager, vi kunne ikke hente artsdetaljer for dette bildet. Vennligst kontroller din internettforbindelse og prøv igjen.",

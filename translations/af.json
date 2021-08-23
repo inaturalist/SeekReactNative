@@ -296,6 +296,7 @@
     "yes_resighted": "Ja, die spesie is verkeerd geïdentifiseer",
     "no": "Nee, dit is korrek",
     "enable_location": "Aktiveer ligging om waarnemings te bewaar",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Jammer, ons kon nie die beeld ontleed nie. Gaan u Internetverbinding na en probeer weer.",
     "error_image": "Jammer, ons kon nie u beeld verwerk nie. Gaan u Internetverbinding na en probeer weer.",
     "error_species": "Jammer, ons kon nie die spesiedata vir hierdie beeld ophaal nie. Gaan u Internetverbinding na en probeer weer.",

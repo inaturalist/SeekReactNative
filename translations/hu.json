@@ -296,6 +296,7 @@
     "yes_resighted": "Igen, ez a faj tévesen lett azonosítva.",
     "no": "Nem. Helyes a név.",
     "enable_location": "A felfedezésedhez nem tartozik helyszín",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Sajnáljuk, nem tudunk kapcsolódni a szerverhez. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_image": "Sajnáljuk, nem tudtuk feldolgozni a képedet. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_species": "Sajnáljuk, nem tudjuk azonosítani a képen szereplő fajt. Ellenőrizd az internetkapcsolatot és próbáld újra!",

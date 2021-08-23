@@ -296,6 +296,7 @@
     "yes_resighted": "Bai, espezie hau gaizki identifikatu al zen",
     "no": "Ez, zuzena da",
     "enable_location": "Zure behaketak ez du kokapenik",
+    "enable_location_button": "ENABLE LOCATION",
     "error_server": "Barka, ezin izan dugu argazki hau baloratu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_image": "Barka, ezin izan dugu argazki hau prozesatu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_species": "Barka, ezin izan dugu argazki honetatik espeziea eskuratu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",

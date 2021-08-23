@@ -296,6 +296,7 @@
     "yes_resighted": "Ja, diese Beobachtung wurde falsch identifiziert",
     "no": "Nein, es ist richtig",
     "enable_location": "Standort zum Speichern von Beobachtungen aktivieren",
+    "enable_location_button": "STANDORT AKTIVIEREN",
     "error_server": "Leider können wir das Bild nicht bewerten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_image": "Leider können wir das Bild nicht verarbeiten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",

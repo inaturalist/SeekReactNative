@@ -9,7 +9,6 @@ import { viewStyles, textStyles } from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
-import CameraIndicator from "./CameraIndicator";
 
 type TabParamList = {
   ARCamera: void;
@@ -22,21 +21,11 @@ const Tab = createMaterialTopTabNavigator();
 
 const { width, length } = Dimensions.get( "window" );
 
-<<<<<<< HEAD
 const screenOptions = {
   tabBarLabelStyle: textStyles.cameraTabLabel,
   tabBarStyle: viewStyles.cameraTab,
   tabBarIndicatorStyle: viewStyles.indicator,
   swipeEnabled: false
-=======
-const tabBarOptions = {
-  labelStyle: textStyles.cameraTabLabel,
-  style: viewStyles.cameraTab,
-  renderIndicator: props => {
-    const { index } = props.navigationState;
-    return <CameraIndicator index={index} />;
-  }
->>>>>>> main
 };
 
 const initialLayout = { width, length };

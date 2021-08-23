@@ -103,10 +103,16 @@ const Drawer = createDrawerNavigator( );
 
 const drawerContent = props => <SideMenu {...props} />;
 
+const screenOptions = {
+  drawerType: "front",
+  headerShown: false
+};
+
 const SideMenuDrawer = ( ): Props => (
   <Drawer.Navigator
     initialRouteName="Drawer"
     drawerContent={drawerContent}
+    screenOptions={screenOptions}
   >
     <Drawer.Screen name="Home" component={HomeFooter} />
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />

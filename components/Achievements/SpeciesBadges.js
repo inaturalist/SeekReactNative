@@ -55,6 +55,11 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
   };
 
   const renderSpeciesBadge = ( { item }: Object ) => {
+    let imageSrc = badgeImages.badge_empty;
+
+    if ( item && item.earned && item.earnedIconName ) {
+      imageSrc = badgeImages[item.earnedIconName];
+    }
     return (
       <TouchableOpacity
         onPress={() => fetchBadgesByIconicId( item.iconicTaxonId )}
@@ -63,7 +68,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
         key={item.iconicTaxonId}
       >
         <Image
-          source={item.earned ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
+          source={imageSrc}
           style={imageStyles.badgeIcon}
         />
       </TouchableOpacity>

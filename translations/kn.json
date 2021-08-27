@@ -25,7 +25,7 @@
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "INATURALIST ಗೆ ಪ್ರಸರಿಸಿ",
     "uploading_x_observations": {
       "zero": "{{count}} ವೀಕ್ಷಣೆಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ",
       "one": "{{count}} ವೀಕ್ಷಣೆಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ",
@@ -111,7 +111,7 @@
     "continue_no_log_in": "ಲಾಗ್ ಇನ್ ಮಾಡದೇ ಮುಂದುವರೆಯಿರಿ",
     "terms": "ಸೇವಾ ನಿಯಮಗಳು",
     "linked_account": "ನೀವು iNaturalist ಖಾತೆಯನ್ನು Seek ಗೆ ಜೋಡಿಸಿದ್ದೀರಿ!",
-    "posting": "Posting to iNaturalist",
+    "posting": "iNaturalist ಗೆ ಪ್ರಸರಿಸುತ್ತಿದೆ",
     "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
     "observations": "ಸಾಧನದಲ್ಲಿ ಉಳಿಸಲಾಗಿರುವ ವೀಕ್ಷಣೆಗಳು",
     "observations_1": "Seek ನಲ್ಲಿಯ ನಿಮ್ಮ ವೀಕ್ಷಣೆಗಳನ್ನು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ, ಹಾಗೂ ಆನ್‍ಲೈನ್ ನಲ್ಲಿ ಬ್ಯಾಕಪ್ ಆಗುವುದಿಲ್ಲ.",
@@ -164,7 +164,7 @@
   "location_picker": {
     "species_nearby": "ಸಮೀಪದ ಜೀವಿವರ್ಗ",
     "button": "ಸಮೀಪದ ಸ್ಥಳವನ್ನು ಹುಡುಕಿ",
-    "undefined": "Undefined location"
+    "undefined": "ಅನಾಮಿಕ ಸ್ಥಳ"
   },
   "taxon_picker": {
     "all": "ಎಲ್ಲಾ ಜೀವಿವರ್ಗ",
@@ -289,17 +289,17 @@
     "resighted": "ನೀವು ಜೀವಿವರ್ಗವೊಂದನ್ನು ಮರುವೀಕ್ಷಿಸಿದ್ದೀರಿ!",
     "date_observed": "ನೀವು ಇದನ್ನು ಮೊದಲು ವೀಕ್ಷಿಸಿದ್ದು : {{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
-    "post": "Post to iNaturalist",
-    "flag": "Misidentification",
+    "post": "iNaturalist ಗೆ ಪ್ರಸರಿಸಿ",
+    "flag": "ತಪ್ಪಾದ ಗುರುತಿಸುವಿಕೆ",
     "incorrect": "ಈ ಜೀವಿವರ್ಗವನ್ನು ತಪ್ಪಾಗಿ ಗುರುತಿಸಲಾಗಿದೆಯೇ?",
     "yes": "ಹೌದು, ಇದನ್ನು ನನ್ನ ವೀಕ್ಷಣೆಗಳಿಂದ ಅಳಿಸಿ",
     "yes_resighted": "ಹೌದು, ಈ ಜೀವಿವರ್ಗವನ್ನು ತಪ್ಪಾಗಿ ಗುರುತಿಸಲಾಗಿದೆ",
     "no": "ಇಲ್ಲ, ಇದು ಸರಿಯಾಗಿದೆ",
     "enable_location": "ನಿಮ್ಮ ವೀಕ್ಷಣೆ ಸ್ಥಳವನ್ನು ಹೊಂದಿಲ್ಲ",
     "enable_location_button": "ಸ್ಥಳವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
-    "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
-    "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
-    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
+    "error_server": "ಕ್ಷಮಿಸಿ, ಈ ಚಿತ್ರವನ್ನು ನಾವು ಸ್ಕೋರ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ದಯಮಾಡಿ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
+    "error_image": "ಕ್ಷಮಿಸಿ, ಈ ಚಿತ್ರವನ್ನು ಸಂಸ್ಕರಿಸಲಾಗಲಿಲ್ಲ. ದಯಮಾಡಿ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
+    "error_species": "ಕ್ಷಮಿಸಿ, ಈ ಚಿತ್ರಕ್ಕೆ ನಾವು ಜೀವಿವರ್ಗದ ವಿವರಗಳನ್ನು ಹೆಕ್ಕಿ ತೆಗೆಯಲಾಗಲಿಲ್ಲ. ದಯಮಾಡಿ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
     "error_downtime_plural": {
       "zero": "ಸೇವೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು {{count}} ಗಂಟೆಗಳ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
@@ -309,7 +309,7 @@
       "many": "ಸೇವೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು {{count}} ಗಂಟೆಗಳ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
       "other": "ಸೇವೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು {{count}} ಗಂಟೆಗಳ ನಂತರ ಪ್ರಯತ್ನಿಸಿ."
     },
-    "error_few": "a few",
+    "error_few": "ಕೆಲವೇ ಕೆಲವು",
     "error_gps": "Seek can't detect your GPS location. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Try moving to a place where you can see the sky and check that your device's location services are turned on.",
     "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Species nearby in this taxon",
@@ -502,9 +502,9 @@
   "species_detail": {
     "near": "ಸಮೀಪದ",
     "about": "ಕುರಿತು",
-    "range_map": "Range map",
-    "range_about": "A map of observations of this species seen on iNaturalist.",
-    "view_map": "View range map",
+    "range_map": "ವ್ಯಾಪ್ತಿ ಭೂಪಟ",
+    "range_about": "ಈ ಜೀವಿವರ್ಗದ iNaturalist ಕಂಡ ವೀಕ್ಷಣೆಗಳ ಭೂಪಟ",
+    "view_map": "ವ್ಯಾಪಿ ಭೂಪಟವನ್ನು ವೀಕ್ಷಿಸಿ",
     "legend": "Legend",
     "current_location": "ಪ್ರಸ್ತುತ ಸ್ಥಳ",
     "obs": "ನನ್ನ Seek ವೀಕ್ಷಣೆ",
@@ -564,7 +564,7 @@
     "join_crowdin": "Seek ಅನುವಾದ ತಂಡಕ್ಕೆ ಸೇರಲು, ದಯವಿಟ್ಟು https://crowdin.com/project/seek ಗೆ ಭೇಟಿನೀಡಿ"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "iNaturalist ಗೆ ಪ್ರಸರಿಸಿ",
     "notes": "ಇಲ್ಲಿ ಟಿಪ್ಪಣಿಗಳನ್ನು ಸೇರಿಸಿ",
     "date": "ದಿನಾಂಕ",
     "location": "ಸ್ಥಳ",
@@ -576,7 +576,7 @@
     "no": "ಇಲ್ಲ",
     "captive": "captive/cultivated",
     "what_seen": "ನೀವು ಏನು ನೋಡಿದಿರಿ?",
-    "id": "Seek's identification",
+    "id": "Seek ನ ಗುರುತಿಸುವಿಕೆ",
     "edit_location": "ಸ್ಥಳವನ್ನು ಸಂಪಾದಿಸಿ",
     "save_location": "ಸ್ಥಳ ಮಾಹಿತಿಯನ್ನು ಉಳಿಸಿ",
     "unknown": "ಅಪರಿಚಿತ",
@@ -595,7 +595,7 @@
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
   "posting_help": {
-    "header": "Posting Help",
+    "header": "ಪ್ರಸರಣ ಸಹಾಯ",
     "identification": "ಜೀವಿವರ್ಗಗಳ ಗುರುತಿಸುವಿಕೆ",
     "id_description": "As you upload your observation, you can identify the species to whatever taxa you are most confident- from a class such as reptiles, down to a species, like Western Bluebird. After your observation is posted to iNaturalist, our community will help identify the species.\n\nYou can also choose to add optional notes to your observation here.",
     "date": "ದಿನಾಂಕ & ಸ್ಥಳ",
@@ -611,7 +611,7 @@
     "closed": "ಈ ವೀಕ್ಷಣೆಯ ಸ್ಥಳವನ್ನು iNaturalist ನ ಇತರೆ ಬಳಕೆದಾರರೊಡನೆ ಹಂಚಿಕೊಳ್ಳಲಾಗುವುದಿಲ್ಲ.",
     "captive": "Captive/Cultivated?",
     "no": "ಇದು ಕಾಡಿನಲ್ಲಿ ಸಹಜವಾಗಿ ಕಂಡುಬರುವ ಜೀವಿಯಾಗಿದೆ, ಹಾಗೂ ಇದನ್ನು ಮಾನವರು ಈ ಸ್ಥಳಕ್ಕೆ ಅದನ್ನು ತಂದಿಲ್ಲ.",
-    "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
+    "yes": "ಈ ಜೀವಿಯನ್ನು ಮಾನವರು ಈ ಸ್ಥಳದಲ್ಲಿ ತಂದಿರಿಸಿದ್ದಾರೆ. ಇದು ಉದ್ಯಾನದ ಸಸ್ಯಗಳಿಗೆ, ಸಾಕುಪ್ರಾಣಿಗಳಿಗೆ ಮತ್ತು ಸಂಗ್ರಹಾಲಯದ ಪ್ರಾಣಿಗಳಿಗೆ ಅನ್ವಯಿಸುತ್ತದೆ.",
     "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
@@ -752,8 +752,8 @@
     "back_to_id": "ಗುರುತಿಸುವಿಕೆಗೆ ಹಿಂದಿರುಗಿ",
     "error_title": "ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ",
     "error": "ನೀವು ಫೇಸ್‍ಬುಕ್ ಆಪ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿರುವುದನ್ನು ಮತ್ತೊಮ್ಮೆ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "adjust_square_crop": "ಚೌಕಾಕಾರದ ಕ್ರಾಪ್ ಅನ್ನು ಹೊಂದಿಸಿ",
+    "crop_image": "ಚಿತ್ರವನ್ನು ಕ್ರಾಪ್ ಮಾಡಿ"
   },
   "natgeo_challenges": {
     "mar_2021_mission_1": "ಯಾವುದೇ ಹತ್ತು ಜೀವಿವರ್ಗವನ್ನು ಹುಡುಕಿ",
@@ -799,21 +799,21 @@
     "welcome_back": "ಮರಳಿ ಸುಸ್ವಾಗತ, {{username}}!",
     "open_inaturalist": "INATURALIST ತೆರೆಯಿರಿ",
     "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
-    "inat_value_prop_1": "Sync your observations across devices",
-    "inat_value_prop_2": "Get accurate, location-based identification suggestions",
+    "inat_value_prop_1": "ನಿಮ್ಮ ವೀಕ್ಷಣೆಗಳನ್ನು ಅನೇಕ ಸಾಧನಗಳೊಂದಿಗೆ ಸಿಂಕ್ ಮಾಡಿ",
+    "inat_value_prop_2": "ಸ್ಥಳಾಧಾರಿತ ನಿಖರವಾದ ಗುರುತಿಸುವಿಕೆಯ ಸಲಹೆಗಳನ್ನು ಪಡೆಯಿರಿ",
     "inat_value_prop_3": "ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ನಿಮ್ಮೆಲ್ಲಾ ವೀಕ್ಷಣೆಗಳನ್ನು ಸೇರಿಸಿ, ಸಂಪಾದಿಸಿ, ಹಾಗು ನಿರ್ವಹಿಸಿ",
     "inat_value_prop_4": "ವ್ಯಕ್ತಿಗಳನ್ನು ಅನುಸರಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಗೆಳೆಯರು ಏನನ್ನು ವೀಕ್ಷಿಸುತಿದ್ದಾರೆಂದು ತಿಳಿಯಿರಿ. ",
     "learn_more_about_inat": "iNaturalist ಬಗ್ಗೆ ಹೆಚ್ಚು ತಿಳಿಯಿರಿ",
     "get_started_by_downloading_inat": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
     "sign_out": "iNaturalist ನಿಂದ್ ಸೈನ್ ಔಟ್ ಆಗಿ",
-    "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
+    "log_in_to_post_observations": "iNaturalist ಗೆ ನಿಮ್ಮ Seek ವೀಕ್ಷಣೆಗಳನ್ನು ಪ್ರಸರಿಸಲು ಲಾಗಿನ್ ಆಗಿ",
     "log_in_with_inat": "INATURALIST ಜೊತೆ ಲಾಗಿನ್ ಆಗಿ",
-    "use_inat_to": "USE INATURALIST TO:",
+    "use_inat_to": "INATURALIST ಅನ್ನು ಹೀಗೆ ಬಳಸಿ:",
     "inat_vs_seek": "INATURALIST VS SEEK",
-    "inat_is_an_online_community": "iNaturalist is an online community for naturalists",
+    "inat_is_an_online_community": "iNaturalist ಪರಿಸರ ಪ್ರೇಮಿಗಳಿಗಾಗಿ ಇರುವ ಆನ್‍ಲೈನ್ ಸಮುದಾಯ",
     "inat_bullet_1": "iNaturalist observations are public and help contribute to science",
-    "inat_bullet_2": "Each observation includes your username, date, and location of the observation",
+    "inat_bullet_2": "ಪ್ರತಿ ವೀಕ್ಷಣೆಯು ನಿಮ್ಮ ಬಳಕೆದಾರರ ಹೆಸರು, ದಿನಾಂಕ, ಹಾಗು ವೀಕ್ಷಣೆಯ ಸ್ಥಳದ ವಿವರಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ",
     "inat_bullet_3": "iNaturalist ಸಮುದಾಯವು ವೀಕ್ಷಣೆಗಳನ್ನು ಗುರುತಿಸಲು ಮತ್ತು ಧೃಢೀಕರಿಸಲು ಸಹಾಯಮಾಡುತ್ತದೆ.",
     "seek_is_an_id_app": "Seek is an ID app that helps anyone learn about the species around them",
     "seek_bullet_1": "Seek ನ ವೀಕ್ಷಣೆಗಳು ನಿಮ್ಮ ಸಾಧನದಲ್ಲೇ ಉಳಿಯುತ್ತವೆ",
@@ -823,21 +823,21 @@
     "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
     "faqs": "FAQS",
     "faq_1": "ನೀವು iNaturalist ಖಾತೆ ರಚಿಸಲು ನಿಮಗೆ 13+ ಆಗಿರಬೇಕು ಅಥವಾ ನಿಮ್ಮ ಪೋಷಕರ ಅನುಮತಿ ಹೊಂದಿರಬೇಕು",
-    "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
-    "logged_in_as": "LOGGED IN AS",
+    "faq_2": "Seek ಮತ್ತು iNaturalist ಗಳು ಒಂದೇ ಗುರುತಿಸುವಿಕೆಯ ಮಾದರಿಯನ್ನು ಬಳಸುತ್ತವೆ, ಆದರೆ iNaturalist ವೀಕ್ಷಣೆಗಳು ಮಾತ್ರ ಸಮುದಾಯದಿಂದ ಧೃಢೀಕೃತವಾಗುತ್ತವೆ.",
+    "logged_in_as": "ನಂತೆ ಲಾಗಿನ್ ಆಗಿದೆ",
     "x_observations_posted_to_inat": {
-      "zero": "{{count}} observations posted to iNaturalist with Seek",
-      "one": "{{count}} observation posted to iNaturalist with Seek",
-      "two": "{{count}} observations posted to iNaturalist with Seek",
-      "few": "{{count}} observations posted to iNaturalist with Seek",
-      "many": "{{count}} observations posted to iNaturalist with Seek",
-      "other": "{{count}} observations posted to iNaturalist with Seek"
+      "zero": "Seek ನಿಂದ {{count}} ವೀಕ್ಷಣೆಗಳನ್ನು iNaturalist ಗೆ ಪ್ರಸರಿಸಲಾಗಿದೆ",
+      "one": "Seek ನಿಂದ {{count}} ವೀಕ್ಷಣೆಗಳನ್ನು iNaturalist ಗೆ ಪ್ರಸರಿಸಲಾಗಿದೆ",
+      "two": "Seek ನಿಂದ {{count}} ವೀಕ್ಷಣೆಗಳನ್ನು iNaturalist ಗೆ ಪ್ರಸರಿಸಲಾಗಿದೆ",
+      "few": "Seek ನಿಂದ {{count}} ವೀಕ್ಷಣೆಗಳನ್ನು iNaturalist ಗೆ ಪ್ರಸರಿಸಲಾಗಿದೆ",
+      "many": "Seek ನಿಂದ {{count}} ವೀಕ್ಷಣೆಗಳನ್ನು iNaturalist ಗೆ ಪ್ರಸರಿಸಲಾಗಿದೆ",
+      "other": "Seek ನಿಂದ {{count}} ವೀಕ್ಷಣೆಗಳನ್ನು iNaturalist ಗೆ ಪ್ರಸರಿಸಲಾಗಿದೆ"
     },
     "logged_in_bullet_1": "You can post observations to iNaturalist by clicking 'Post to iNaturalist' after you make a Seek observation",
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "x_seen_by_user": "{{user}} ರಿಂದ ವೀಕ್ಷಣೆಯಾದ {{speciesName}}"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",

@@ -42,7 +42,8 @@ export const colors = {
   searchGray: "#b5b5b5",
   settingsGray: "#999999",
   cameraFilterGray: "#858585",
-  skeletonGray: "#d1d5da"
+  skeletonGray: "#d1d5da",
+  ccGray: "#363636"
 };
 
 export const fonts: Object = {

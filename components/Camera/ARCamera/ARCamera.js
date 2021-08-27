@@ -15,7 +15,7 @@ import {
   NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
@@ -47,7 +47,6 @@ const ARCamera = ( ): Node => {
   // on orientation change
   const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
-  const isFocused = useIsFocused( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
 
@@ -349,10 +348,6 @@ const ARCamera = ( ): Node => {
 
   const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
-
-  if ( !isFocused ) { // this is necessary for camera to load properly in iOS
-    return null;
-  }
 
   const cameraStyle = {
     // need different styling for android to avoid black line on right side of screen

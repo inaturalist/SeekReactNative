@@ -1,17 +1,18 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import Realm from "realm";
 import { useIsFocused } from "@react-navigation/native";
 import type { Node } from "react";
 
 import realmConfig from "../../../models";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
-import { getChallengeIndex, recalculateChallenges } from "../../../utility/challengeHelpers";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 import ScrollNoHeader from "../../UIComponents/Screens/ScrollNoHeader";
+import { ChallengeContext } from "../../UserContext";
 
 const ChallengeDetailsScreen = ( ): Node => {
+  const { challengeIndex } = useContext( ChallengeContext );
   const isFocused = useIsFocused( );
   const [challenge, setChallenge] = useState( null );
 
@@ -25,14 +26,7 @@ const ChallengeDetailsScreen = ( ): Node => {
       } );
   };
 
-  const setupScreen = useCallback( async ( ) => {
-    recalculateChallenges( );
-    const index = await getChallengeIndex( );
-
-    if ( !challenge || challenge.index !== index ) {
-      fetchChallenge( index );
-    }
-  }, [challenge] );
+  const setupScreen = useCallback( ( ) => fetchChallenge( challengeIndex ), [challengeIndex] );
 
   useEffect( ( ) => {
     if ( isFocused ) { // need this for screens where challenge index must change

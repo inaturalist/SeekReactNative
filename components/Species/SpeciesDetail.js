@@ -9,31 +9,36 @@ import React, {
 } from "react";
 import { ScrollView, Platform, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import inatjs from "inaturalistjs";
-import Realm from "realm";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
-import i18n from "../../i18n";
-import realmConfig from "../../models/index";
 import { viewStyles } from "../../styles/species/species";
-import { getSpeciesId, checkForInternet } from "../../utility/helpers";
+import { checkForInternet } from "../../utility/helpers";
 import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
-import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
 import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
-import { useCommonName } from "../../utility/customHooks";
-import { AppOrientationContext } from "../UserContext";
+import { useCommonName, useInternetStatus } from "../../utility/customHooks";
+import { AppOrientationContext, SpeciesDetailContext } from "../UserContext";
+import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 
 const SpeciesDetail = ( ): Node => {
+  const internet = useInternetStatus( );
+  const { id } = useContext( SpeciesDetailContext );
   const { isLandscape } = useContext( AppOrientationContext );
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   const { params } = useRoute( );
+  const commonName = useCommonName( id );
+  const taxonDetails = useTaxonDetails( id );
+
+  const photos = taxonDetails ? taxonDetails.photos : [];
+  const taxon = taxonDetails && taxonDetails.taxon;
+  const details = taxonDetails && taxonDetails.details;
+  const scientificName = taxon && taxon.scientificName;
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -42,36 +47,6 @@ const SpeciesDetail = ( ): Node => {
         return { ...state, error: "internet" };
       case "NO_ERROR":
         return { ...state, error: null };
-      case "SET_ID":
-        return { ...state, id: action.id };
-      case "SET_TAXON_DETAILS":
-        return {
-          ...state,
-          taxon: action.taxon,
-          photos: action.photos,
-          details: action.details
-        };
-      case "TAXA_SEEN":
-        return {
-          ...state,
-          seenTaxa: action.seen,
-          taxon: {
-            scientificName: action.seen.taxon.name,
-            iconicTaxonId: action.seen.taxon.iconicTaxonId
-          }
-        };
-      case "TAXA_NOT_SEEN":
-        return { ...state, seenTaxa: null };
-      case "RESET_SCREEN":
-        return {
-          id: null,
-          photos: [],
-          taxon: {},
-          details: {},
-          error: null,
-          seenTaxa: null,
-          selectedText: false
-        };
       case "CLEAR_SELECTION":
         return {
           ...state,
@@ -86,67 +61,21 @@ const SpeciesDetail = ( ): Node => {
         throw new Error( );
     }
   }, {
-    id: null,
-    photos: [],
-    taxon: {},
-    details: {},
-    error: null,
-    seenTaxa: null,
+    error: internet === false ? "internet" : null,
     selectedText: false
   } );
 
   const {
-    taxon,
-    id,
-    photos,
-    details,
     error,
-    seenTaxa,
     selectedText
   } = state;
 
   const clearSelectedText = ( ) => dispatch( { type:"CLEAR_SELECTION" } );
   const highlightSelectedText = useCallback( ( ) => dispatch( { type: "HIGHLIGHT_SELECTION" } ), [] );
 
-  const setId = useCallback( async ( ) => {
-    const i = await getSpeciesId( );
-    dispatch( { type: "SET_ID", id: i } );
-  }, [] );
-
-  const checkIfSpeciesSeen = useCallback( ( ) => {
-    if ( id === null ) {
-      return;
-    }
-    Realm.open( realmConfig ).then( ( realm ) => {
-      const observations = realm.objects( "ObservationRealm" );
-      const seen = observations.filtered( `taxon.id == ${id}` )[0];
-
-      if ( seen ) {
-        dispatch( { type: "TAXA_SEEN", seen } );
-      }
-    } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
-  }, [id] );
-
-  const createTaxonomyList = ( ancestors, scientificName ) => {
-    const taxonomyList = [];
-    const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
-    ancestors.forEach( ( ancestor ) => {
-      if ( ranks.includes( ancestor.rank ) ) {
-        taxonomyList.push( ancestor );
-      }
-    } );
-
-    taxonomyList.push( {
-      rank: "species",
-      name: scientificName || null
-    } );
-
-    return taxonomyList;
-  };
-
   const checkInternetConnection = useCallback( ( ) => {
-    checkForInternet( ).then( ( internet ) => {
-      if ( internet === "none" || internet === "unknown" ) {
+    checkForInternet( ).then( ( network ) => {
+      if ( network === "none" || network === "unknown" ) {
         dispatch( { type: "ERROR" } );
       } else {
         dispatch( { type: "NO_ERROR" } );
@@ -154,53 +83,7 @@ const SpeciesDetail = ( ): Node => {
     } );
   }, [] );
 
-  const fetchTaxonDetails = useCallback( ( ) => {
-    const localeParams = { locale: i18n.currentLocale( ) };
-    const options = { user_agent: createUserAgent( ) };
-
-    inatjs.taxa.fetch( id, localeParams, options ).then( ( response ) => {
-      const taxa = response.results[0];
-      const scientificName = taxa.name;
-      const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
-
-      const photosWithLicense = taxa.taxon_photos.map( ( p ) => p.photo ).filter( p => p.license_code );
-
-      dispatch( {
-        type: "SET_TAXON_DETAILS",
-        taxon: {
-          scientificName,
-          iconicTaxonId: taxa.iconic_taxon_id
-        },
-        photos: photosWithLicense,
-        details: {
-          wikiUrl: taxa.wikipedia_url,
-          about: taxa.wikipedia_summary && taxa.wikipedia_summary,
-          timesSeen: taxa.observations_count,
-          ancestors: createTaxonomyList( taxa.ancestors, scientificName ),
-          stats: {
-            endangered: ( conservationStatus && conservationStatus.status_name === "endangered" ) || false
-          }
-        }
-      } );
-    } ).catch( ( ) => {
-      // const errorType = handleServerError( err );
-      checkInternetConnection( );
-     } );
-  }, [id, checkInternetConnection] );
-
-  const fetchDetails = useCallback( ( ) => {
-    fetchTaxonDetails( );
-    checkIfSpeciesSeen( );
-  }, [fetchTaxonDetails, checkIfSpeciesSeen] );
-
-  const fetchiNatData = useCallback( ( ) => {
-    setId( );
-
-    // reset seenTaxa if refreshing screen from Similar Species
-    if ( seenTaxa ) {
-      dispatch( { type: "TAXA_NOT_SEEN" } );
-    }
-
+  const resetScreen = useCallback( ( ) => {
     const scrollToTop = ( ) => {
       if ( scrollView.current ) {
         scrollView.current.scrollTo( {
@@ -215,50 +98,45 @@ const SpeciesDetail = ( ): Node => {
     } else {
       scrollToTop( );
     }
-  }, [setId, seenTaxa] );
-
-  useEffect( ( ) => {
-    let isCurrent = true;
-    if ( id !== null && isCurrent ) {
-      fetchDetails( );
-    }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [id, fetchDetails] );
-
-  useEffect( ( ) => {
-    let isCurrent = true;
-    if ( error === "internet" && isCurrent ) {
-      // only fetch the data needed to fill in the rest of the screen
-      fetchDetails( );
-    }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [error, fetchDetails] );
+  }, [] );
 
   useEffect( ( ) => {
     // would be nice to stop refetch when a user goes to range map and back
     // and also wikipedia and back or iNat obs and back
     navigation.addListener( "focus", ( ) => {
-      dispatch( { type: "RESET_SCREEN" } );
-      fetchiNatData( );
+      resetScreen( );
     } );
-  }, [navigation, fetchiNatData] );
-
-  const commonName = useCommonName( id );
-
-  if ( !id || isLandscape === null ) {
-    return null;
-  }
+  }, [navigation, resetScreen] );
 
   const predictions = params ? params.image : null;
+
+  const renderOnlineOrOfflineContent = ( ) => {
+    if ( error ) {
+      return (
+        <OfflineSpeciesContainer
+          checkForInternet={checkInternetConnection}
+          details={details}
+          id={id}
+          predictions={predictions}
+        />
+      );
+    }
+    if ( taxon && Object.keys( taxon ).length > 0 && !error ) {
+      return (
+        <OnlineSpeciesContainer
+          details={details}
+          scientificName={scientificName}
+          id={id}
+          predictions={predictions}
+        />
+      );
+    }
+  };
 
   const renderPortraitMode = ( ) => (
     <ScrollView
       ref={scrollView}
-      contentContainerStyle={viewStyles.background}
+      contentContainerStyle={[viewStyles.background, error && viewStyles.bottomPadding]}
       onScrollBeginDrag={clearSelectedText}
     >
       <SpeciesHeader
@@ -268,28 +146,13 @@ const SpeciesDetail = ( ): Node => {
         selectedText={selectedText}
         highlightSelectedText={highlightSelectedText}
       />
-      {error && (
-        <OfflineSpeciesContainer
-          checkForInternet={checkInternetConnection}
-          details={details}
-          id={id}
-          predictions={predictions}
-        />
-      )}
-      {( Object.keys( taxon ).length > 0 && !error ) && (
-        <OnlineSpeciesContainer
-          details={details}
-          scientificName={taxon.scientificName}
-          id={id}
-          predictions={predictions}
-        />
-      )}
+      {renderOnlineOrOfflineContent( )}
     </ScrollView>
   );
 
   const renderLandscapeMode = ( ) => (
     <>
-      <GreenHeader plainText={commonName || taxon.scientificName} />
+      <GreenHeader plainText={commonName || scientificName} />
       <View style={viewStyles.twoColumnContainer}>
         <SpeciesPhotosLandscape photos={photos} id={id} />
         <ScrollView
@@ -298,33 +161,14 @@ const SpeciesDetail = ( ): Node => {
           onScrollBeginDrag={clearSelectedText}
           bounces={false}
         >
-          {taxon.scientificName && (
-            <>
-              <IconicTaxaName iconicTaxonId={taxon.iconicTaxonId} />
-              <SpeciesName
-                id={id}
-                taxon={taxon}
-                selectedText={selectedText}
-                highlightSelectedText={highlightSelectedText}
-              />
-            </>
-          )}
-        {error && (
-          <OfflineSpeciesContainer
-            checkForInternet={checkInternetConnection}
-            details={details}
+          <IconicTaxaName iconicTaxonId={taxon && taxon.iconicTaxonId} />
+          <SpeciesName
             id={id}
-            predictions={predictions}
+            taxon={taxon}
+            selectedText={selectedText}
+            highlightSelectedText={highlightSelectedText}
           />
-        )}
-        {( Object.keys( taxon ).length > 0 && !error ) && (
-          <OnlineSpeciesContainer
-            details={details}
-            scientificName={taxon.scientificName}
-            id={id}
-            predictions={predictions}
-          />
-        )}
+          {renderOnlineOrOfflineContent( )}
         </ScrollView>
       </View>
     </>

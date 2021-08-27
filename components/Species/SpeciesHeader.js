@@ -24,16 +24,13 @@ type Props = {
 const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
   const navigation = useNavigation( );
 
-  const { iconicTaxonId } = taxon;
+  const iconicTaxonId = taxon && taxon.iconicTaxonId;
 
   const backAction = useCallback( async ( ) => {
     const routeName = await getRoute( );
-    // odd behavior at the moment -> if a user clicks through 4 species screens
-    // and the last one was Great Egret, they will reload the Great Egret Species Details 4x before getting back
-    // to the previous screen
     if ( routeName ) {
       // ChallengeDetails, Observations, Home, or Match
-      navigation.goBack( );
+      navigation.navigate( routeName );
     } else {
       resetRouter( navigation );
     }

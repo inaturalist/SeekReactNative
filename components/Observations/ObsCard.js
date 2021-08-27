@@ -1,15 +1,16 @@
 // @flow
 
-import React, { useRef, useEffect, useCallback, useMemo } from "react";
+import React, { useRef, useEffect, useCallback, useMemo, useContext } from "react";
 import { Image, Pressable, ScrollView, Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import { setSpeciesId, setRoute } from "../../utility/helpers";
+import { setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import { useUserPhoto } from "../../utility/customHooks";
+import { SpeciesDetailContext } from "../UserContext";
 
 type Props = {
   item: Object,
@@ -32,6 +33,7 @@ const ObservationCard = ( {
   hasAnimated,
   setHasAnimated
 }: Props ): Node => {
+  const { setId } = useContext( SpeciesDetailContext );
   const scrollView = useRef( null );
   const { navigate } = useNavigation( );
   const animation = useMemo( ( ) => new Animated.Value( -0 ), [] );
@@ -59,7 +61,7 @@ const ObservationCard = ( {
   const handleDeletePress = ( ) => openModal( photo, taxon );
 
   const handleSpeciesCardPress = ( ) => {
-    setSpeciesId( id );
+    setId( id );
     setRoute( "Observations" );
     navigate( "Species" );
   };

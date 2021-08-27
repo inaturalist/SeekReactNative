@@ -11,13 +11,14 @@ import useLatestChallenge from "./hooks/challengeCardHooks";
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/home/challenges";
 import backgrounds from "../../../assets/backgrounds";
-import { setChallengeIndex } from "../../../utility/challengeHelpers";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
+import { ChallengeContext } from "../../UserContext";
 
 const ChallengeCard = ( ): Node => {
+  const { setIndex } = React.useContext( ChallengeContext );
   const { navigate } = useNavigation( );
   const challenge = useLatestChallenge( );
 
@@ -25,7 +26,7 @@ const ChallengeCard = ( ): Node => {
 
   const renderLatestChallenge = ( ) => {
     const navToChallengeDetails = ( ) => {
-      setChallengeIndex( challenge.index );
+      setIndex( challenge.index );
       navigate( "ChallengeDetails" );
     };
 

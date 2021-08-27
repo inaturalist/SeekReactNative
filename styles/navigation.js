@@ -7,7 +7,7 @@ import {
   dimensions
 } from "./global";
 
-const { height } = dimensions;
+const { width, height } = dimensions;
 
 const requiresSafeArea = ( ) => Platform.OS === "ios" && height > 570;
 
@@ -22,7 +22,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     borderRadius: 40,
     height: 2,
     position: "absolute",
-    top: 37
+    top: 37,
+    left: width / 19,
+    width: width / 2.5
   }
 } );
 

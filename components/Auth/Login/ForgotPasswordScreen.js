@@ -13,7 +13,6 @@ import InputField from "../../UIComponents/InputField";
 import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../../utility/userAgent";
-import { createJwtToken } from "../../../utility/helpers";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 const ForgotPasswordScreen = (): Node => {
@@ -22,7 +21,6 @@ const ForgotPasswordScreen = (): Node => {
   const [error, setError] = useState( false );
 
   const emailForgotPassword = () => {
-    const token = createJwtToken();
 
     const params = { user: { email } };
 
@@ -30,11 +28,6 @@ const ForgotPasswordScreen = (): Node => {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent()
     };
-
-    if ( token ) {
-      // $FlowFixMe
-      headers.Authorization = `Authorization: ${token}`;
-    }
 
     const site = "https://www.inaturalist.org";
 

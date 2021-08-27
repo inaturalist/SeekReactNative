@@ -34,7 +34,7 @@ const BackArrow = ( { green, route }: Props ): React.Node => {
       accessibilityLabel={i18n.t( "accessibility.back" )}
       accessible
       onPress={handlePress}
-      style={[viewStyles.backButton, name === "ChallengeDetails" && viewStyles.challengeDetails]}
+      style={[viewStyles.backButton, name === "ChallengeDetailsFooter" && viewStyles.challengeDetails]}
     >
       {/* $FlowFixMe */}
       <Image

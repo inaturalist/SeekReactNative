@@ -14,6 +14,7 @@ import InputField from "../../UIComponents/InputField";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import { createJwtToken } from "../../../utility/helpers";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -47,6 +48,11 @@ class ParentalConsentScreen extends Component<Props, State> {
   shareEmailWithiNat() {
     const { email } = this.state;
 
+    const handleError = ( err ) => {
+      this.setError( err );
+      this.setLoading( false );
+    };
+
     this.setLoading( true );
     const token = createJwtToken();
 
@@ -55,13 +61,10 @@ class ParentalConsentScreen extends Component<Props, State> {
     };
 
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": token,
+      "User-Agent": createUserAgent()
     };
-
-    if ( token ) {
-      // $FlowFixMe
-      headers.Authorization = `Authorization: ${token}`;
-    }
 
     const site = "https://www.inaturalist.org";
 
@@ -72,13 +75,14 @@ class ParentalConsentScreen extends Component<Props, State> {
     } )
       .then( ( responseJson ) => {
         const { status } = responseJson;
-        if ( status === 200 || status === 404 ) {
+        if ( status === 204 ) {
           this.setLoading( false );
           this.submit();
+        } else {
+          handleError( i18n.t( "login.error_request_could_not_be_completed" ) );
         }
       } ).catch( ( err ) => {
-        this.setError( err );
-        this.setLoading( false );
+        handleError( err );
       } );
   }
 

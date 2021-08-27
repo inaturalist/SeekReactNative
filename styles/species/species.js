@@ -6,6 +6,8 @@ import { colors, fonts, row, dimensions } from "../global";
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const columnWidth = dimensions.width / 3 * 2;
+const backgroundHeight = dimensions.height;
+const bottomPadding = 100;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   backButton: {
@@ -17,12 +19,16 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     zIndex: 1
   },
   background: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    minHeight: backgroundHeight
   },
   landscapeBackground: {
     backgroundColor: colors.white,
     width: columnWidth,
-    paddingBottom: 100
+    paddingBottom: bottomPadding
+  },
+  bottomPadding: {
+    paddingBottom: bottomPadding
   },
   twoColumnContainer: {
     flexWrap: "wrap",

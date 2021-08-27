@@ -125,13 +125,9 @@ class SignUpScreen extends Component<Props, State> {
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent()
+      "User-Agent": createUserAgent(),
+      "Authorization": token
     };
-
-    if ( token ) {
-      // $FlowFixMe
-      headers.Authorization = `Authorization: ${token}`;
-    }
 
     const site = "https://www.inaturalist.org";
 

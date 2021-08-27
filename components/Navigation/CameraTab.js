@@ -9,7 +9,6 @@ import { viewStyles, textStyles } from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
-import CameraIndicator from "./CameraIndicator";
 
 type TabParamList = {
   ARCamera: void;
@@ -22,30 +21,20 @@ const Tab = createMaterialTopTabNavigator();
 
 const { width, length } = Dimensions.get( "window" );
 
-const tabBarOptions = {
-  labelStyle: textStyles.cameraTabLabel,
-  style: viewStyles.cameraTab,
-  renderIndicator: props => {
-    const { index } = props.navigationState;
-    return <CameraIndicator index={index} />;
-  }
+const screenOptions = {
+  tabBarLabelStyle: textStyles.cameraTabLabel,
+  tabBarStyle: viewStyles.cameraTab,
+  tabBarIndicatorStyle: viewStyles.indicator,
+  swipeEnabled: false
 };
 
 const initialLayout = { width, length };
 
-// removing this since it was easy to swipe by accident in landscape while trying to tap camera
-const swipeEnabled = false;
-// const swipeEnabled = Platform.OS === "ios" || false;
-
 const CameraNav = ( ): Props => (
   <Tab.Navigator
     tabBarPosition="bottom"
-    swipeEnabled={swipeEnabled}
     initialLayout={initialLayout}
-    tabBarOptions={tabBarOptions}
-    // AR Camera is already a memory intensive screen
-    // lazy means the gallery is not loading at the same time
-    lazy
+    screenOptions={screenOptions}
   >
     <Tab.Screen
       name="ARCamera"
@@ -56,7 +45,10 @@ const CameraNav = ( ): Props => (
     <Tab.Screen
       name="Gallery"
       component={Gallery}
-      options={{ tabBarLabel: i18n.t( "gallery.label" ).toLocaleUpperCase() }}
+      options={{
+        tabBarLabel: i18n.t( "gallery.label" ).toLocaleUpperCase(),
+        lazy: true
+      }}
     />
   </Tab.Navigator>
 );

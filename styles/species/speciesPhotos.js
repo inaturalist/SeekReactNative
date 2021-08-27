@@ -1,10 +1,7 @@
 // @flow
 
-import { StyleSheet, Dimensions, Platform } from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
+import { StyleSheet, Dimensions } from "react-native";
+import { colors, fonts } from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
@@ -12,11 +9,13 @@ import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   ccButton: {
-    bottom: 0,
-    padding: 15,
+    bottom: 14,
+    padding: 6,
     position: "absolute",
-    right: 0,
-    zIndex: 1
+    right: 15,
+    zIndex: 1,
+    backgroundColor: colors.ccGray,
+    borderRadius: 50
   },
   photoContainer: {
     backgroundColor: colors.black,
@@ -32,14 +31,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   ccButtonText: {
-    backgroundColor: colors.black,
-    borderRadius: 40,
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: 16,
-    paddingBottom: Platform.OS === "ios" ? 3 : 5,
-    paddingHorizontal: 5,
-    paddingTop: Platform.OS === "ios" ? 8 : 5
+    fontSize: 16
   },
   errorText: {
     color: colors.white,

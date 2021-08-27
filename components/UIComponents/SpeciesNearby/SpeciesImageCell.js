@@ -7,15 +7,17 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { setSpeciesId, setRoute } from "../../../utility/helpers";
+import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
+import { SpeciesDetailContext } from "../../UserContext";
 
 type Props = {
   +item: Object
 }
 
 const SpeciesImageCell = ( { item }: Props ): React.Node => {
+  const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation( );
   const { navigate } = navigation;
   const route = useRoute( );
@@ -43,8 +45,8 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
   };
 
   const navToNextScreen = ( ) => {
-    setSpeciesId( item.id );
-    if ( name === "Species" ) {
+    setId( item.id );
+    if ( name === "SpeciesFooter" ) {
       navigation.push( "Drawer", { screen: "Species", params: { ...route.params } } );
     } else {
       // Match is for common ancestor match screen with species nearby card
@@ -52,10 +54,6 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
       navigate( "Species", { ...route.params } );
     }
   };
-
-  // if ( seenTaxa && name === "ChallengeDetails" ) {
-  //   return null;
-  // }
 
   return (
     <TouchableOpacity onPress={navToNextScreen} style={viewStyles.gridCell}>
@@ -66,7 +64,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
         style={[
           textStyles.speciesNameText,
           !commonName && textStyles.scientificName,
-          name === "ChallengeDetails" && textStyles.challengeDetailsText
+          name === "ChallengeDetailsFooter" && textStyles.challengeDetailsText
         ]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

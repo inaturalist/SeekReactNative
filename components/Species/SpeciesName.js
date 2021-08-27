@@ -17,7 +17,7 @@ type Props = {
 
 const SpeciesName = ( { taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
   const commonName = useCommonName( id );
-  const { scientificName } = taxon;
+  const scientificName = taxon && taxon.scientificName;
 
   return (
     <>

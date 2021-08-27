@@ -17,10 +17,12 @@ type Props = {
 const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
   const { userProfile } = React.useContext( UserContext );
   const { name } = useRoute( );
+  const home = "HomeFooter";
+  const isHomeScreen = name === home;
 
   const username = "@" + userProfile.login;
 
-  if ( name !== "Home" && count === null ) {
+  if ( !isHomeScreen && count === null ) {
     return null;
   }
 
@@ -36,19 +38,19 @@ const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
         {userProfile.icon && <Image source={logos.iNatBadge} style={imageStyles.iNatBadge} />}
       </View>
       <View style={viewStyles.linearGradientTextContainer}>
-        <Text style={[textStyles.lightText, name !== "Home" && textStyles.whiteText]}>
-          {name === "Home"
+        <Text style={[textStyles.lightText, !isHomeScreen && textStyles.whiteText]}>
+          {isHomeScreen
             ? i18n.t( "about_inat.you_are_logged_in" )
             : i18n.t( "about_inat.logged_in_as" )
           }
         </Text>
-        <Text style={[textStyles.loginNameText, name !== "Home" && textStyles.whiteText]}>
-          {name === "Home"
+        <Text style={[textStyles.loginNameText, !isHomeScreen && textStyles.whiteText]}>
+          {isHomeScreen
             ? i18n.t( "about_inat.welcome_back", { username } )
             : username}
         </Text>
-        {name !== "Home" && (
-          <Text style={[textStyles.text, name !== "Home" && textStyles.whiteText]}>
+        {!isHomeScreen && (
+          <Text style={[textStyles.text, !isHomeScreen && textStyles.whiteText]}>
             {i18n.t( "about_inat.x_observations_posted_to_inat", { count } )}
           </Text>
         )}

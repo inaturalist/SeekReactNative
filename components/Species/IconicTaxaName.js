@@ -15,14 +15,12 @@ type Props = {
 
 const IconicTaxaName = ( { iconicTaxonId }: Props ): Node => {
   const { isLandscape } = useContext( AppOrientationContext );
-  if ( !iconicTaxonId ) {
-    return null;
-  }
+
   return (
     <>
     {isLandscape && <View style={viewStyles.topRibbon} />}
     <Text style={[textStyles.iconicTaxaText, isLandscape && textStyles.largerPadding]}>
-      {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase( )}
+      {iconicTaxonId && i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase( )}
     </Text>
     </>
   );

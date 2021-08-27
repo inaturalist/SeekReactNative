@@ -33,78 +33,86 @@ type DrawerParamList = {
 
 type Props = DrawerScreenProps<DrawerParamList>;
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator( );
 
 const tabBar = props => <Footer {...props} />;
 
-const AchievementsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="Achievements" component={Achievements} />
+const noHeader = { headerShown: false };
+
+const AchievementsFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="AchievementsFooter" component={Achievements} />
   </Tab.Navigator>
 );
 
-const ChallengesFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="Challenges" component={Challenges} />
+const ChallengesFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="ChallengesFooter" component={Challenges} />
   </Tab.Navigator>
 );
 
-const ChallengeDetailsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
+const ChallengeDetailsFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="ChallengeDetailsFooter" component={ChallengeDetails} />
   </Tab.Navigator>
 );
 
-const ObservationsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="Observations" component={Observations} />
+const ObservationsFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="ObservationsFooter" component={Observations} />
   </Tab.Navigator>
 );
 
-const iNatStatsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="iNatStats" component={iNatStats} />
+const iNatStatsFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="iNatStatsFooter" component={iNatStats} />
   </Tab.Navigator>
 );
 
-const AboutFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="About" component={About} />
+const AboutFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="AboutFooter" component={About} />
   </Tab.Navigator>
 );
 
-const SettingsFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="Settings" component={Settings} />
+const SettingsFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="SettingsFooter" component={Settings} />
   </Tab.Navigator>
 );
 
-const DebugEmailScreenFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="DebugEmailScreen" component={DebugEmailScreen} />
+const DebugEmailScreenFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="DebugEmailScreenFooter" component={DebugEmailScreen} />
   </Tab.Navigator>
 );
 
-const HomeFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="Home" component={Home} />
+const HomeFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="HomeFooter" component={Home} />
   </Tab.Navigator>
 );
 
-const SpeciesFooter = () => (
-  <Tab.Navigator tabBar={tabBar}>
-    <Tab.Screen name="Species" component={Species} />
+const SpeciesFooter = ( ) => (
+  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
+    <Tab.Screen name="SpeciesFooter" component={Species} />
   </Tab.Navigator>
 );
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator( );
 
 const drawerContent = props => <SideMenu {...props} />;
+
+const screenOptions = {
+  drawerType: "front",
+  headerShown: false
+};
 
 const SideMenuDrawer = ( ): Props => (
   <Drawer.Navigator
     initialRouteName="Drawer"
     drawerContent={drawerContent}
+    screenOptions={screenOptions}
   >
     <Drawer.Screen name="Home" component={HomeFooter} />
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />

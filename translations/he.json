@@ -87,7 +87,8 @@
     "error_username_taken": "שם המשתמש הזה כבר תפוס",
     "error_no_username": "חסר שם משתמש / דואל",
     "error_no_password": "חסרה סיסמה",
-    "error_internet": "אין חיבור אינטרנט"
+    "error_internet": "אין חיבור אינטרנט",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "ברוכים הבאים ל-Seek!",

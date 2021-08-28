@@ -87,7 +87,8 @@
     "error_username_taken": "Це ім'я користувача вже використовується.",
     "error_no_username": "Відсутнє ім'я користувача / електронна пошта",
     "error_no_password": "Відсутній пароль",
-    "error_internet": "No internet connection"
+    "error_internet": "No internet connection",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Ласкаво просимо до Seek!",

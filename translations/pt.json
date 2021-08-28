@@ -87,7 +87,8 @@
     "error_username_taken": "That username is already taken",
     "error_no_username": "Missing username / email",
     "error_no_password": "Missing password",
-    "error_internet": "No internet connection"
+    "error_internet": "No internet connection",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Bem-vindo a Seek!",

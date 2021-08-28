@@ -87,7 +87,8 @@
     "error_username_taken": "Ez a felhasználónév már foglalt!",
     "error_no_username": "Hiányzó felhasználónév / jelszó",
     "error_no_password": "Hiányzó jelszó",
-    "error_internet": "Nincs internetkapcsolat"
+    "error_internet": "Nincs internetkapcsolat",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Üdvözlünk a Seek-ben!",

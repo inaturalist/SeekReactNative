@@ -87,7 +87,8 @@
     "error_username_taken": "Dieser Benutzername ist bereits vergeben",
     "error_no_username": "Benutzername / E-Mail fehlt",
     "error_no_password": "Passwort fehlt",
-    "error_internet": "Keine Internet-Verbindung"
+    "error_internet": "Keine Internet-Verbindung",
+    "error_request_could_not_be_completed": "Die Anfrage konnte nicht abgeschlossen werden."
   },
   "inat_signup": {
     "welcome": "Willkommen bei Seek!",

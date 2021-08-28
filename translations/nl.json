@@ -87,7 +87,8 @@
     "error_username_taken": "Deze gebruikersnaam is al in gebruik",
     "error_no_username": "Ontbrekende gebruikersnaam / e-mail",
     "error_no_password": "Wachtwoord ontbreekt",
-    "error_internet": "Geen internetverbinding"
+    "error_internet": "Geen internetverbinding",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Welkom bij Seek!",

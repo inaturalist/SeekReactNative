@@ -49,6 +49,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   loginCardMargin: {
     marginTop: 32
+  },
+  imageContainer: {
+    justifyContent: "center",
+    alignSelf: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: badgeIconWidth * 3 + 12 * 3
   }
 } );
 

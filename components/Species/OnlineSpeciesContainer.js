@@ -43,7 +43,7 @@ const OnlineSpeciesContainer = ( {
   } = details;
 
   const seenTaxa = useSeenTaxa( id );
-  const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
+  const seenDate = ( seenTaxa && seenTaxa.date ) ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const granted = useLocationPermission( );
   const coords = useTruncatedUserCoords( granted );
   const region = useRegion( coords, seenTaxa );

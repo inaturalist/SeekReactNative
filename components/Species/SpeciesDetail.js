@@ -31,6 +31,7 @@ const SpeciesDetail = ( ): Node => {
   const { isLandscape } = useContext( AppOrientationContext );
   const scrollView = useRef( null );
   const navigation = useNavigation( );
+  // not actually using params at the moment
   const { params } = useRoute( );
   const commonName = useCommonName( id );
   const taxonDetails = useTaxonDetails( id );

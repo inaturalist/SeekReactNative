@@ -122,12 +122,12 @@ const MatchModals = ( {
       // return user to match screen
       setRoute( "Match" );
       // params are not actually working here, and I'm not sure why
-      navigation.navigate( "Species", { observation } );
+      navigation.navigate( "Species" );
     } else if ( navPath === "Drawer" ) {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, taxon, setNavigationPath, commonName, observation, setId, taxaId] );
+  }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

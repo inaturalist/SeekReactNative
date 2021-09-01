@@ -39,174 +39,60 @@ type Props = {
   +key: any
 };
 
-const forFade = ( { current } ) => ( {
-  cardStyle: { opacity: current.progress }
-} );
+const forFade = ( { current } ) => ( { cardStyle: { opacity: current.progress } } );
 
-const defaultConfig = {
-  headerShown: false,
-  cardStyleInterpolator: forFade
-};
+const config = { headerShown: false };
 
-const verticalConfig = {
-  headerShown: false,
-  cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
-};
-
-const notificationsConfig = {
-  headerShown: false,
-  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-};
-
-const drawerConfig = {
-  headerShown: false,
-  // this is off for resetting screen from AR Camera
-  animationEnabled: false
-};
+const defaultConfig = { ...config, cardStyleInterpolator: forFade };
+const verticalConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS };
+const notificationsConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS };
+// animation is off for resetting screen from AR Camera
+const drawerConfig = { ...config,  animationEnabled: false };
 
 const screenOptions = { gestureEnabled: false };
+const modal = { presentation: "modal" };
 
 const Stack = createStackNavigator( );
 
 const App = ( ): Props => (
   <SafeAreaProvider>
     <NavigationContainer>
-      <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen
-          name="Splash"
-          component={Splash}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Onboarding"
-          component={Onboarding}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Drawer"
-          component={Drawer}
-          options={drawerConfig}
-        />
-        <Stack.Screen
-          name="Camera"
-          component={Camera}
-          options={verticalConfig}
-        />
-        <Stack.Screen
-          name="Wikipedia"
-          component={Wikipedia}
-          options={verticalConfig}
-        />
-        <Stack.Screen
-          name="CameraHelp"
-          component={CameraHelp}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Confirm"
-          component={ConfirmScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Post"
-          component={Post}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="PostStatus"
-          component={PostStatus}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="PostingHelp"
-          component={PostingHelp}
-          options={defaultConfig}
-        />
-        <Stack.Screen // turn range map into modal, since it only pops up from species screen
-          name="RangeMap"
-          component={RangeMap}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Donation"
-          component={Donation}
-          options={verticalConfig}
-        />
-        <Stack.Screen
-          name="Privacy"
-          component={PrivacyPolicyScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="TermsOfService"
-          component={TermsOfServiceScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="CommunityGuidelines"
-          component={CommunityGuidelines}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="LoginOrSignup"
-          component={LoginOrSignupScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Age"
-          component={AgeVerifyScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Forgot"
-          component={ForgotPasswordScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="PasswordEmail"
-          component={PasswordEmailScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="ParentCheck"
-          component={ParentCheckEmailScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="LoginSuccess"
-          component={LoginSuccessScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Parent"
-          component={ParentalConsentScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="LicensePhotos"
-          component={LicensePhotosScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Signup"
-          component={SignUpScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Notifications"
-          component={Notifications}
-          options={notificationsConfig}
-        />
-        <Stack.Screen
-          name="Social"
-          component={Social}
-          options={defaultConfig}
-        />
+      <Stack.Navigator >
+        <Stack.Group screenOptions={screenOptions}>
+          <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />
+          <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
+          <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
+          <Stack.Screen name="Camera" component={Camera} options={verticalConfig} />
+          <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
+          <Stack.Screen name="Post" component={Post} options={defaultConfig} />
+          <Stack.Screen name="PostStatus" component={PostStatus} options={defaultConfig} />
+          <Stack.Screen name="LoginOrSignup" component={LoginOrSignupScreen} options={defaultConfig} />
+          <Stack.Screen name="Age" component={AgeVerifyScreen} options={defaultConfig} />
+          <Stack.Screen name="Login" component={LoginScreen} options={defaultConfig} />
+          <Stack.Screen name="Forgot" component={ForgotPasswordScreen} options={defaultConfig} />
+          <Stack.Screen name="PasswordEmail" component={PasswordEmailScreen} options={defaultConfig} />
+          <Stack.Screen name="ParentCheck" component={ParentCheckEmailScreen} options={defaultConfig} />
+          <Stack.Screen name="LoginSuccess" component={LoginSuccessScreen} options={defaultConfig} />
+          <Stack.Screen name="Parent" component={ParentalConsentScreen} options={defaultConfig} />
+          <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
+          <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
+          <Stack.Screen name="Notifications" component={Notifications} options={notificationsConfig} />
+          <Stack.Screen name="Social" component={Social} options={defaultConfig} />
+        </Stack.Group>
+         <Stack.Group screenOptions={modal}>
+          <Stack.Screen name="RangeMap" component={RangeMap} options={defaultConfig} />
+          <Stack.Screen name="Wikipedia" component={Wikipedia} options={verticalConfig} />
+          <Stack.Screen name="CameraHelp" component={CameraHelp} options={defaultConfig} />
+          <Stack.Screen name="Donation" component={Donation} options={verticalConfig} />
+          <Stack.Screen name="PostingHelp" component={PostingHelp} options={defaultConfig} />
+          <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} options={defaultConfig} />
+          <Stack.Screen name="TermsOfService" component={TermsOfServiceScreen} options={defaultConfig} />
+          <Stack.Screen
+            name="CommunityGuidelines"
+            component={CommunityGuidelines}
+            options={defaultConfig}
+          />
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   </SafeAreaProvider>

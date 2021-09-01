@@ -3,7 +3,6 @@ import * as React from "react";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Drawer from "./SideDrawer";
 import Splash from "../Splash";
@@ -31,7 +30,6 @@ import ParentCheckEmailScreen from "../Auth/Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Notifications from "../Notifications/Notifications";
-import Footer from "../UIComponents/Footer";
 import Social from "../Social/SocialScreen";
 
 type Props = {
@@ -40,15 +38,6 @@ type Props = {
   +type: any,
   +key: any
 };
-
-const Tab = createBottomTabNavigator( );
-const tabBar = props => <Footer {...props} />;
-
-const NotificationsFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={{ headerShown: false }}>
-    <Tab.Screen name="NotificationsFooter" component={Notifications} />
-  </Tab.Navigator>
-);
 
 const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
@@ -210,7 +199,7 @@ const App = ( ): Props => (
         />
         <Stack.Screen
           name="Notifications"
-          component={NotificationsFooter}
+          component={Notifications}
           options={notificationsConfig}
         />
         <Stack.Screen

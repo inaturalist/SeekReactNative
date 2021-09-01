@@ -16,7 +16,7 @@ const SettingsScreen = ( ): Node => {
   const { isTablet } = useContext( AppOrientationContext );
 
   return (
-    <ScrollWithHeader header="menu.settings">
+    <ScrollWithHeader header="menu.settings" footer>
       <View style={[
         viewStyles.marginHorizontal,
         viewStyles.marginTop,

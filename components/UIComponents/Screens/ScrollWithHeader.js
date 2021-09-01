@@ -19,19 +19,22 @@ import GreenHeader from "../GreenHeader";
 import Padding from "../Padding";
 import LoadingWheel from "../LoadingWheel";
 import { colors } from "../../../styles/global";
+import Footer from "../Footer";
 
 type Props = {
-  +children: any,
-  +header: string,
-  +route?: ?string,
-  +loading?: boolean
+  children: any,
+  header: string,
+  route?: ?string,
+  loading?: boolean,
+  footer?: boolean
 };
 
 const ScrollWithHeader = ( {
   children,
   header,
   route,
-  loading
+  loading,
+  footer = false
 }: Props ): Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
@@ -69,6 +72,7 @@ const ScrollWithHeader = ( {
           {Platform.OS === "ios" && <BottomSpacer />}
         </ScrollView>
       )}
+      {footer && <Footer />}
     </SafeAreaView>
   );
 };

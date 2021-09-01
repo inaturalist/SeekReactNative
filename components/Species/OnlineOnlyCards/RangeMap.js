@@ -74,7 +74,7 @@ const RangeMap = (): Node => {
   }
 
   return (
-    <ViewWithHeader header="species_detail.range_map">
+    <ViewWithHeader header="species_detail.range_map" footer={false}>
       <Modal
         showModal={showModal}
         closeModal={closeModal}

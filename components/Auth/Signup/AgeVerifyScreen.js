@@ -37,7 +37,7 @@ const AgeVerifyScreen = (): Node => {
   };
 
   return (
-    <ViewWithHeader header="login.sign_up">
+    <ViewWithHeader header="login.sign_up" footer={false}>
       <View style={[styles.flexCenter, styles.whiteContainer]}>
         <Text style={styles.header} allowFontScaling={false}>
           {i18n.t( "inat_signup.enter_birthday" )}

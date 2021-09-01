@@ -21,7 +21,7 @@ const INatDetails = ( ): Node => {
   const { isTablet } = useContext( AppOrientationContext );
 
   return (
-    <ScrollWithHeader header="about_inat.inaturalist">
+    <ScrollWithHeader header="about_inat.inaturalist" footer>
       {login ? <INatHeaderLoggedIn /> : <INatHeaderLoggedOut />}
       <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <View style={viewStyles.sectionMargin} />

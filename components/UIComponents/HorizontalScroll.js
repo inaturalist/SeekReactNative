@@ -25,8 +25,8 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
   const { width } = dimensions;
   const [scrollIndex, setScrollIndex] = useState( 0 );
 
-  const isStatsScreen = name === "iNatStatsFooter";
-  const isSpeciesScreen = name === "SpeciesFooter";
+  const isStatsScreen = name === "iNatStats";
+  const isSpeciesScreen = name === "Species";
 
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;

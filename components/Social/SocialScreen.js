@@ -253,7 +253,7 @@ const SocialScreen = ( ): Node => {
   }, [watermarkedSquareImage, squareImage, tab] );
 
   return (
-    <ScrollNoHeader>
+    <ScrollNoHeader footer={false}>
       <View style={viewStyles.whiteContainer}>
         <Modal
           onRequestClose={closeModal}

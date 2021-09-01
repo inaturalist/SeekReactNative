@@ -8,6 +8,8 @@ import { getVersion, getBuildNumber, getSystemName } from "react-native-device-i
 import GreenButton from "./Buttons/GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
 import { dirDebugLogs } from "../../utility/dirStorage";
+import ViewWithHeader from "./Screens/ViewWithHeader";
+import i18n from "../../i18n";
 
 const DebugEmailScreen = ( ): React.Node => {
   const appVersion = getVersion( );
@@ -54,14 +56,16 @@ const DebugEmailScreen = ( ): React.Node => {
   };
 
   return (
-    <View style={styles.background}>
-      <View style={styles.center}>
-        <GreenButton
-          handlePress={sendEmailAttachment}
-          text="debug.logs"
-        />
+    <ViewWithHeader header="inat_signup.email">
+      <View style={styles.background}>
+        <View style={styles.center}>
+          <GreenButton
+            handlePress={sendEmailAttachment}
+            text="debug.logs"
+          />
+        </View>
       </View>
-    </View>
+    </ViewWithHeader>
   );
 };
 

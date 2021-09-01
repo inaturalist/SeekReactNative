@@ -33,10 +33,8 @@ type Props = DrawerScreenProps<DrawerParamList>;
 const Drawer = createDrawerNavigator( );
 const drawerContent = props => <SideMenu {...props} />;
 
-const screenOptions = {
-  drawerType: "front",
-  headerShown: false
-};
+const config = { headerShown: false };
+const screenOptions = { ...config, drawerType: "front" };
 
 const SideMenuDrawer = ( ): Props => (
   <Drawer.Navigator

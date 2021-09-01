@@ -76,10 +76,13 @@ const App = ( ): Props => (
           <Stack.Screen name="Parent" component={ParentalConsentScreen} options={defaultConfig} />
           <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
           <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
-          <Stack.Screen name="Notifications" component={Notifications} options={notificationsConfig} />
           <Stack.Screen name="Social" component={Social} options={defaultConfig} />
         </Stack.Group>
          <Stack.Group screenOptions={modal}>
+          {/* Removed Footer from Notification screen because animation from right
+          doesn't work if it's in drawer, but this screen would also need access to open the drawer
+          if the footer is shown */}
+          <Stack.Screen name="Notifications" component={Notifications} options={notificationsConfig} />
           <Stack.Screen name="RangeMap" component={RangeMap} options={defaultConfig} />
           <Stack.Screen name="Wikipedia" component={Wikipedia} options={verticalConfig} />
           <Stack.Screen name="CameraHelp" component={CameraHelp} options={defaultConfig} />

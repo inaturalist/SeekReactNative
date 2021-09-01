@@ -39,7 +39,7 @@ const NotificationsScreen = ( ): Node => {
   const extractKey = ( item, index ) => item + index;
 
   return (
-    <ViewWithHeader header="notifications.header">
+    <ViewWithHeader header="notifications.header" footer={false}>
       <FlatList
         ref={scrollView}
         contentContainerStyle={[viewStyles.containerWhite, viewStyles.flexGrow]}

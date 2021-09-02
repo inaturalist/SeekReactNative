@@ -43,7 +43,7 @@ const MatchModals = ( {
   const { setId } = useContext( SpeciesDetailContext );
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation( );
-  const { taxon } = observation;
+  const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
   const taxaId = taxon && taxon.taxaId;
 

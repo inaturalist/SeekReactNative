@@ -15,7 +15,7 @@ import {
   NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
@@ -45,6 +45,7 @@ import { ObservationContext, UserContext, AppOrientationContext } from "../../Us
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
   // on orientation change
+  const isFocused = useIsFocused( );
   const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
@@ -354,6 +355,13 @@ const ARCamera = ( ): Node => {
     width: Platform.OS === "android" ? width + 100 : width,
     height
   };
+
+  if ( !isFocused ) {
+    // this is necessary for camera to load properly in iOS
+    // if removed, it means a user will see a frozen camera preview the second
+    // time they try to navigate to the camera (like, after the match screen)
+    return null;
+  }
 
   const renderCamera = ( ) => (
     <INatCamera

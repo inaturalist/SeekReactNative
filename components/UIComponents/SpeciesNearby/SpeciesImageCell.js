@@ -47,11 +47,11 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
   const navToNextScreen = ( ) => {
     setId( item.id );
     if ( name === "SpeciesFooter" ) {
-      navigation.push( "Drawer", { screen: "Species", params: { ...route.params } } );
+      navigation.push( "Drawer", { screen: "Species" } );
     } else {
       // Match is for common ancestor match screen with species nearby card
       setRoute( name === "Match" ? "Match" : "Home" );
-      navigate( "Species", { ...route.params } );
+      navigate( "Species" );
     }
   };
 

@@ -45,9 +45,9 @@ const MatchModals = ( {
   const navigation = useNavigation( );
   const { taxon } = observation;
   const seenDate = taxon && taxon.seenDate;
+  const taxaId = taxon && taxon.taxaId;
 
-  const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
-  const commonName = useCommonName( id );
+  const commonName = useCommonName( taxaId );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -118,16 +118,16 @@ const MatchModals = ( {
       navigation.navigate( navPath, navPath === "Social" && { taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
-      setId( taxon.taxaId );
+      setId( taxaId );
       // return user to match screen
       setRoute( "Match" );
       // params are not actually working here, and I'm not sure why
-      navigation.navigate( "Species", { observation } );
+      navigation.navigate( "Species" );
     } else if ( navPath === "Drawer" ) {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, taxon, setNavigationPath, commonName, observation, setId] );
+  }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

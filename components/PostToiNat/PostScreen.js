@@ -20,9 +20,8 @@ import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 import { ObservationContext } from "../UserContext";
-// import { LOG } from "../../utility/debugHelpers";
 
-const PostScreen = (): Node => {
+const PostScreen = ( ): Node => {
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation( );
   const { params } = useRoute( );
@@ -30,6 +29,9 @@ const PostScreen = (): Node => {
   const { image } = observation;
   const { preciseCoords } = image;
   const { taxaId, scientificName, commonName } = params;
+  const preciseLat = preciseCoords && preciseCoords.latitude;
+  const preciseLong = preciseCoords && preciseCoords.longitude;
+  const accuracy = preciseCoords && preciseCoords.accuracy;
 
   const date = formatGMTTimeWithTimeZone( setISOTime( image.time ) );
 
@@ -62,11 +64,11 @@ const PostScreen = (): Node => {
       captive_flag: false,
       description: null,
       geoprivacy: "open",
-      latitude: preciseCoords.latitude,
-      longitude: preciseCoords.longitude,
+      latitude: preciseLat,
+      longitude: preciseLong,
       observed_on_string: initialDate,
       place_guess: null,
-      positional_accuracy: preciseCoords.accuracy,
+      positional_accuracy: accuracy,
       taxon_id: taxaId,
       // this shows that the id is recommended by computer vision
       vision: true

@@ -87,7 +87,8 @@
     "error_username_taken": "Acest nume de utilizator există deja.",
     "error_no_username": "Lipsește numele de utilizator / adresa de e-mail",
     "error_no_password": "Parola dumneavoastră lipsește",
-    "error_internet": "Nu există conexiune la rețeaua de date."
+    "error_internet": "Nu există conexiune la rețeaua de date.",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Bun venit la Seek!",

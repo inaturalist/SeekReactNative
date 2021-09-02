@@ -87,7 +87,8 @@
     "error_username_taken": "Daardie gebruikersnaam is reeds in gebruik",
     "error_no_username": "Ontbrekende gebruikersnaam / e-pos",
     "error_no_password": "Ontbrekende wagwoord",
-    "error_internet": "Geen internetverbinding"
+    "error_internet": "Geen internetverbinding",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Welkom by Seek!",

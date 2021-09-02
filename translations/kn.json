@@ -87,7 +87,8 @@
     "error_username_taken": "ಆ ಬಳಕೆದಾರರ ಹೆಸರು ಈಗಾಗಲೇ ಬಳಸಲ್ಪಟ್ಟಿದೆ",
     "error_no_username": "ಕಾಣೆಯಾದ ಬಳಕೆದಾರರ ಹೆಸರು / ಮಿಂಚೆ",
     "error_no_password": "ಕಾಣೆಯಾದ ಗುಪ್ತಪದ",
-    "error_internet": "ಅಂತರ್ಜಾಲದ ಸಂಪರ್ಕವಿಲ್ಲ"
+    "error_internet": "ಅಂತರ್ಜಾಲದ ಸಂಪರ್ಕವಿಲ್ಲ",
+    "error_request_could_not_be_completed": "ನಿಮ್ಮ ಕೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣ ಮಾಡಲಾಗಲಿಲ್ಲ."
   },
   "inat_signup": {
     "welcome": "Seek ಗೆ ಸುಸ್ವಾಗತ!",
@@ -260,7 +261,7 @@
     "mission_1_december": "20 ಸಸ್ಯಗಳನ್ನು ಹುಡುಕಿ",
     "photographer_april": "ಚಿತ್ರದ © Netflix / Silverback Films",
     "photographer_may": "ಚಿತ್ರದ ©  Huw Cordey, Netflix / Silverback Films",
-    "photographer_june": "ಚಿತ್ರದ © Grace Frank, Netflix / Silverback Film",
+    "photographer_june": "ಚಿತ್ರದ © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "ಚಿತ್ರದ © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "ಚಿತ್ರದ © Ben Macdonald, Netflix / Silverback Films",
     "photographer_september": "ಚಿತ್ರದ © Netflix / Silverback Films",
@@ -821,7 +822,7 @@
     "seek_bullet_3": "Identifications do not leave your device or require internet to work, but aren’t confirmed by the iNaturalist community",
     "your_obs_could_make_difference": "ನಿಮ್ಮ ವೀಕ್ಷಣೆ ಇತಿಹಾಸ ಸೃಷ್ಟಿಸಬಹುದು",
     "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
-    "faqs": "FAQS",
+    "faqs": "ಪ್ರಶ್ನೋತ್ತರ",
     "faq_1": "ನೀವು iNaturalist ಖಾತೆ ರಚಿಸಲು ನಿಮಗೆ 13+ ಆಗಿರಬೇಕು ಅಥವಾ ನಿಮ್ಮ ಪೋಷಕರ ಅನುಮತಿ ಹೊಂದಿರಬೇಕು",
     "faq_2": "Seek ಮತ್ತು iNaturalist ಗಳು ಒಂದೇ ಗುರುತಿಸುವಿಕೆಯ ಮಾದರಿಯನ್ನು ಬಳಸುತ್ತವೆ, ಆದರೆ iNaturalist ವೀಕ್ಷಣೆಗಳು ಮಾತ್ರ ಸಮುದಾಯದಿಂದ ಧೃಢೀಕೃತವಾಗುತ್ತವೆ.",
     "logged_in_as": "ನಂತೆ ಲಾಗಿನ್ ಆಗಿದೆ",

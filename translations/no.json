@@ -87,7 +87,8 @@
     "error_username_taken": "Det brukernavnet er allerede i bruk",
     "error_no_username": "Manglende brukernavn / e-post",
     "error_no_password": "Mangler passord",
-    "error_internet": "Ingen internett-tilkobling"
+    "error_internet": "Ingen internett-tilkobling",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",

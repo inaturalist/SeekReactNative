@@ -87,7 +87,8 @@
     "error_username_taken": "Toto uživatelské jméno je již obsazeno",
     "error_no_username": "Chybí uživatelské jméno / e-mail",
     "error_no_password": "Chybí heslo",
-    "error_internet": "Bez připojení k Internetu"
+    "error_internet": "Bez připojení k Internetu",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Vítejte s Seeku!",

@@ -87,7 +87,8 @@
     "error_username_taken": "Ce nom d’utilisateur est déjà utilisé",
     "error_no_username": "Nom d'utilisateur/email manquant",
     "error_no_password": "Mot de passe manquant",
-    "error_internet": "Aucune connexion internet"
+    "error_internet": "Aucune connexion internet",
+    "error_request_could_not_be_completed": "Votre demande n'a pas pu être traitée."
   },
   "inat_signup": {
     "welcome": " Bienvenue sur Seek !",

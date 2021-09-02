@@ -87,7 +87,8 @@
     "error_username_taken": "Sentitzen dugu, erabiltaile-izena hartuta dago.",
     "error_no_username": "Galdu egin da erabiltzailea / posta helbidea",
     "error_no_password": "Galdu egin da pasahitza",
-    "error_internet": "Interneteko konexiorik ez"
+    "error_internet": "Interneteko konexiorik ez",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Ongi etorri Seek-era!",

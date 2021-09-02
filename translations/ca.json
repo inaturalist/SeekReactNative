@@ -87,7 +87,8 @@
     "error_username_taken": "Aquest nom d'usuari ja està agafat",
     "error_no_username": "Manca nom d'usuari/e-mail",
     "error_no_password": "Manca la contrasenya",
-    "error_internet": "Sense connexió a internet"
+    "error_internet": "Sense connexió a internet",
+    "error_request_could_not_be_completed": "La teva sol·licitud no s'ha pogut completar."
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",

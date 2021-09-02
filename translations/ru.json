@@ -87,7 +87,8 @@
     "error_username_taken": "Это имя уже используется",
     "error_no_username": "Отсутствует имя пользователя / email",
     "error_no_password": "Отсутствует пароль",
-    "error_internet": "Нет подключения к Интернету"
+    "error_internet": "Нет подключения к Интернету",
+    "error_request_could_not_be_completed": "Не удаётся выполнить ваш запрос."
   },
   "inat_signup": {
     "welcome": "Добро пожаловать в Seek!",

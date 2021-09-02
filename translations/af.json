@@ -87,7 +87,8 @@
     "error_username_taken": "Daardie gebruikersnaam is reeds in gebruik",
     "error_no_username": "Ontbrekende gebruikersnaam / e-pos",
     "error_no_password": "Ontbrekende wagwoord",
-    "error_internet": "Geen internetverbinding"
+    "error_internet": "Geen internetverbinding",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Welkom by Seek!",
@@ -269,7 +270,7 @@
     "species_observed": "Spesies waargeneem",
     "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
     "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby_internet_error": "Ons benodig die Internet om nabygeleë spesies te genereer."
   },
   "results": {
     "observed_species": "U het ’n nuwe spesie waargeneem!",
@@ -296,7 +297,7 @@
     "yes_resighted": "Ja, die spesie is verkeerd geïdentifiseer",
     "no": "Nee, dit is korrek",
     "enable_location": "Aktiveer ligging om waarnemings te bewaar",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "AKTIVEER LIGGING",
     "error_server": "Jammer, ons kon nie die beeld ontleed nie. Gaan u Internetverbinding na en probeer weer.",
     "error_image": "Jammer, ons kon nie u beeld verwerk nie. Gaan u Internetverbinding na en probeer weer.",
     "error_species": "Jammer, ons kon nie die spesiedata vir hierdie beeld ophaal nie. Gaan u Internetverbinding na en probeer weer.",
@@ -582,11 +583,11 @@
     "unknown": "Onbekend",
     "ok": "Goed",
     "look_up": "Soek spesies volgens naam",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "latitude_longitude": "Lengte: {{latitude}}, Breedte: {{longitude}}",
+    "major_taxa": "BELANGRIKSTE TAXA",
+    "animals": "Diere",
+    "protozoans": "Eenselliges",
+    "kelp": "Seewier, diatome en verwante"
   },
   "posting_status": {
     "posting_to_inat_background": "PLAAS OP DIE AGTERGROND OP INATURALIST",
@@ -670,7 +671,7 @@
     "seasonality": "Seisoensgebonde",
     "seasonality_option_1": "Toon seisoensgebondenheid gebaseer op wêreldwye iNaturalis-waarnemings",
     "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Besoek die volgende skakel om aan Seek te skenk:"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -841,16 +842,16 @@
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",
-    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
-    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
-    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
+    "august_2021_mission_1": "Vind 5 spesies geleedpotiges uit die:\n\n-insek orde Mantodea (hottentotsgotte);\n-insek orde Odonata (Naaldekokers en juffers);\n-insek orde Megaloptera (Elsevlieë en Corydalidae);\n-insek orde Neuroptera (Mierleeus, Gaasvlieë en verwante);\n-insek familie Coccinellidae (Liewenheersbesies);\n-klas Chilopoda (Honderdpote);\n-klas Arachnida (Spinagtiges)",
+    "august_2021_description": "Roofdiere is diere wat jag en ander diere opeet. Maar u hoef nie ver te reis om hulle te vind nie! Honderdpote, spinnekoppe en talle ander insekte en arachniede jag waarskynlik net buite u venster of selfs in u huis. Selfs die meeste liewenheersbesies is roofdiere!",
+    "august_2021_action": "Dink aan die tipes roofdiere wat u gevend het. Welke soort prooi eet hulle? Hoe vind, vang en verorber hulle die prooi?",
     "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
+    "september_2021_mission_1": "Vind 10 nuwe spesies",
     "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
     "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
+    "october_2021_challenge_name": "Aragnieduitdaging",
+    "october_2021_mission_1": "Vind 4 aragniede",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "october_2021_action": "Dink aan die arachniede wat u gevind het. Hoe sou u hul habitats beskryf? Is enige van hulle in dieselfde habitat gevind?"
   }
 }

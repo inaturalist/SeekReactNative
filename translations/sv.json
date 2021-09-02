@@ -87,7 +87,8 @@
     "error_username_taken": "Det användarnamnet är redan upptaget",
     "error_no_username": "Användarnamn / e-postadress saknas",
     "error_no_password": "Lösenord saknas",
-    "error_internet": "Ingen internetanslutning"
+    "error_internet": "Ingen internetanslutning",
+    "error_request_could_not_be_completed": "Din begäran kunde inte slutföras."
   },
   "inat_signup": {
     "welcome": "Välkommen till Seek!",

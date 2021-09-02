@@ -87,7 +87,8 @@
     "error_username_taken": "Αυτό το όνομα χρήστη χρησιμοποιείται ήδη.",
     "error_no_username": "Λείπει όνομα χρήστη / email",
     "error_no_password": "Λείπει ο κωδικός πρόσβασης",
-    "error_internet": "Δεν υπάρχει σύνδεση στο Διαδίκτυο"
+    "error_internet": "Δεν υπάρχει σύνδεση στο Διαδίκτυο",
+    "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
     "welcome": "Καλώς ήρθατε στο Seek!",

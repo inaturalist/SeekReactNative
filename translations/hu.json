@@ -53,7 +53,7 @@
     "upload_now": "Feltöltés most",
     "error_internet": "Nincs internet, kérjük próbáld meg később.",
     "error_downtime": {
-      "zero": "Az iNaturalist szerverkarbantartás alatt áll. Kérjük próbáld újra {{count}} óra múlva.",
+      "zero": "Az iNaturalist szerver karbantartás alatt áll. Kérjük próbáld újra {{count}} óra múlva.",
       "one": "Az iNaturalist szerverkarbantartás alatt áll. Kérjük próbáld újra {{count}} óra múlva.",
       "two": "Az iNaturalist szerverkarbantartás alatt áll. Kérjük próbáld újra {{count}} óra múlva.",
       "few": "Az iNaturalist szerverkarbantartás alatt áll. Kérjük próbáld újra {{count}} óra múlva.",

@@ -1,6 +1,6 @@
 {
   "species_nearby": {
-    "header": "Species nearby",
+    "header": "Especies cercanas",
     "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "No Location",
     "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter.",

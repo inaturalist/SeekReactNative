@@ -101,7 +101,7 @@ const challenges = {
     ],
     availableDate: ( new Date( 2019, 10, 1 ): Date ),
     photographer: "challenges.photographer_november",
-    action: "challenges.action_november",
+    action: "challenges.action_november_2019",
     badgeName: "challenges.badge_name_november"
   },
   december: {

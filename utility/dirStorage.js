@@ -3,19 +3,21 @@
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 
+import modelFiles from "../constants/modelFileNames";
+
 export const dirHome: string = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/Seek`,
   android: `${RNFS.DocumentDirectoryPath}/Seek` // start using internal storage
 } );
 
 export const dirModel: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc`,
-  android: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`
+  ios: `${RNFS.DocumentDirectoryPath}/${modelFiles.IOSMODEL}`,
+  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDMODEL}`
 } );
 
 export const dirTaxonomy: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/taxonomy.json`,
-  android: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
+  ios: `${RNFS.DocumentDirectoryPath}/${modelFiles.IOSTAXONOMY}`,
+  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`
 } );
 
 export const dirDebugLogs: string = Platform.select( {

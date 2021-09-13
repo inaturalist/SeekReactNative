@@ -4,7 +4,7 @@
 # no, pl, pt-BR, pt-PT, ro, ru, sk, sv, th, tr, uk, vi, zh-Hans, zh-Hant
 
 languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE', 'el',
-  'es-ES', 'es-MX', 'fi', 'fr-FR', 'he', 'it', 'ja', 'nl-NL', 'no',
+  'es-ES', 'es-MX', 'fi', 'fr-FR', 'he', 'id', 'it', 'ja', 'nl-NL', 'no',
   'pt-BR', 'ro', 'ru', 'sv', 'tr', 'zh-Hant'
 ])
 
@@ -31,6 +31,7 @@ languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE', 'el',
 # 'ro' => "Este disponibilă o nouă provocare lunară",
 # 'ru' => "Доступно новое ежемесячное испытание",
 # 'sv' => "Det finns en ny månadsutmaning"
+# 'id' => "Tantangan bulanan baru tersedia"
 # })
 
 # bug fix
@@ -55,5 +56,6 @@ release_notes({
   'pt-BR' => "Correções de erros",
   'ro' => "Corecții de erori",
   'ru' => "Исправления ошибок",
-  'sv' => "Buggfixar"
+  'sv' => "Buggfixar",
+  'id' => "Perbaikan kekutu"
 })

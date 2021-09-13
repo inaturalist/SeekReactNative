@@ -42,6 +42,7 @@ import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
 
+
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
   // on orientation change

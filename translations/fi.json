@@ -86,8 +86,8 @@
     "error_credentials": "Virheellinen käyttäjänimi tai salasana",
     "error_username_taken": "Tämä käyttäjänimi on jo käytössä",
     "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password",
-    "error_internet": "No internet connection",
+    "error_no_password": "Puuttuva salasana",
+    "error_internet": "Ei verkkoyhteyttä",
     "error_request_could_not_be_completed": "Your request could not be completed."
   },
   "inat_signup": {
@@ -119,9 +119,9 @@
     "observations_2": "Sovelluksen poistaminen poistaa kaikki Seekissä tehdyt havainnot.",
     "observations_3": "Seek ei synkronoi havaintojasi muihin laitteisiin.",
     "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
+    "guidelines": "Yhteisön säännöt",
     "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
-    "learn_more": "Learn more",
+    "learn_more": "Lue lisää",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "About Personal Information",
@@ -136,7 +136,7 @@
     "forgot_password_header": "Unohtunut salasana",
     "forgot_password": "Unohditko salasanasi?",
     "log_in": "Kirjaudu sisään",
-    "email": "Email",
+    "email": "Sähköposti",
     "no_worries": "Ei hätää. Lähetämme salasanan palautusohjeet sähköpostiisi.",
     "reset": "Nollaa salasanani",
     "check_email": "Tarkista sähköpostisi!",
@@ -163,7 +163,7 @@
     "continue": "Jatka"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Lajit lähistöllä",
     "button": "Hae lähellä sijaintia",
     "undefined": "Määrittämätön sijainti"
   },
@@ -182,7 +182,7 @@
     "other": "muu laji"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Haasteet",
     "in_progress": "Käynnissä",
     "not_started": "Ei aloitettu",
     "completed": "Suoritettu",
@@ -481,11 +481,11 @@
     "to_earn": "Ansaitaksesi tämän merkin:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Omat havaintoni",
     "no_obs": "Sinulla ei ole vielä havaintoja!",
     "help": "Ota valokuva kasvista, eläimestä tai muusta elävästä kamerallamme. Tekoälymalli auttaa sinua tunnistamaan sen!",
     "open_camera": "Avaa kamera",
-    "search": "Search observations",
+    "search": "Etsi havaintoja",
     "search_empty": "No observations found with that search term.",
     "reset_search": "Reset search",
     "not_seen_plants": "You haven’t observed any plants yet!",

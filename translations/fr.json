@@ -550,7 +550,7 @@
     "you": "Regardez, c'est vous ! Sortez et trouvez des espèces sauvages pour en savoir plus sur elles.",
     "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer.",
     "no_photos_found": "Pas de photos trouvées pour cette espèce.",
-    "copied": "COPIED!"
+    "copied": "COPIÉ !"
   },
   "about": {
     "header": "À propos",
@@ -841,17 +841,17 @@
     "x_seen_by_user": "{{speciesName}} vu par {{user}}"
   },
   "seek_2021_challenges": {
-    "august_2021_challenge_name": "Arthropod Predator Challenge",
-    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
-    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
-    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
-    "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
-    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "august_2021_challenge_name": "Défi des prédateurs arthropodes",
+    "august_2021_mission_1": "Trouvez 5 espèces d'arthropodes parmi :\n\n- Ordre d'insectes de Mantodea (Mantes)\n- Ordre d'insectes Odonata (Demoiselles et Libellules)\n- Ordre d'insectes Megaloptera (Sialis, Corydalinae et Chauliodinae)\n- Ordre d'insectes Neuroptera (Fourmilions, Chrysopes et apparentés)\n- Famille d'insectes Coccinellidae (Coccinellidés)\n- Classe Chilopoda (Centipèdes)\n- Classe Arachnida (Arachnides)",
+    "august_2021_description": "Les prédateurs sont des animaux qui chassent et consomment d'autres animaux. Il n'y a pas besoin d’aller loin pour en trouver ! Des mille-pattes, des araignées ainsi que de nombreux autres insectes et arachnides chassent probablement de petites proies sous votre fenêtre, voire à l'intérieur. Même la plupart des coccinelles sont prédatrices !",
+    "august_2021_action": "Pensez aux types de prédateurs que vous avez trouvés. Quels types de proies mangent-ils ? Comment trouvent-ils, attrapent-ils et consomment-ils leurs proies ?",
+    "september_2021_challenge_name": "Défi de la saisonnalité",
+    "september_2021_mission_1": "Trouvez 10 nouvelles espèces !",
+    "september_2021_description": "Les saisons changent ! Chaque année, il y a deux équinoxes : en mars et en septembre. Le jour de l'équinoxe, il y a presque exactement 12 heures de lumière du jour et 12 heures de nuit partout dans le monde. Au fur et à mesure que les jours rallongent ou raccourcissent, les plantes et les animaux réagissent en modifiant leur croissance ou leur comportement.",
+    "september_2021_action": "Y a-t-il eu des phénomènes météorologiques extrêmes près de chez vous récemment ? Comment les plantes, les animaux et les champignons ont-ils réagi ? Essayez de trouver les données météorologiques des dernières années pour ce mois-ci dans votre région. Quels types de changements se sont produits ? Selon vous, quel est l'effet de ces changements sur les organismes présents ? ",
+    "october_2021_challenge_name": "Défi des arachnides",
+    "october_2021_mission_1": "Trouvez 4 arachnides",
+    "october_2021_description": "Saviez-vous que les arachnides ne sont pas tous des araignées? En plus des araignées, on trouve des acariens et des tiques, des opilions (« faucheux ») et même de minuscules pseudoscorpions sur tous les continents habités. D'autres arachnides moins connus comme les scorpions, les uropyges, les amblypyges (« araignées 24 heures ») et les solifuges (« scorpion du vent ») se rencontrent dans les régions chaudes ou sèches du monde.",
+    "october_2021_action": "Pensez aux arachnides que vous avez trouvés. Comment décririez-vous leur habitat? Avez-vous trouvé plusieurs d'entre eux dans le même habitat?"
   }
 }

@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist este o inițiativă comună a Academiei de Științe din California și a Societății Naționale Geografice. ",
     "original": "Seek a fost creat inițial cu sprijinul HHMI Tangled Bank Studios și îmbunătățit cu sprijin din partea Our Planet pe Netflix și WWF.",
     "designed_by": "Proiectat și dezvoltat de echipa iNaturalist:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary și Yaron Budowski. Mulțumiri speciale Visipedia și comunității iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versiune",
     "help": "Pentru ajutor cu Seek, te rugăm trimite un e-mail la help+seek@inaturalist.org.",
-    "translations": "Suntem recunoscători pentru asistența de traducere oferită de comunitatea crowdin.com, în special: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Pentru a te alătura echipei de traducere Seek, te rugăm vizitează https://crowdin.com/project/seek"
   },
   "posting": {

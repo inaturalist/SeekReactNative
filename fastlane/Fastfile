@@ -51,6 +51,7 @@ platform :ios do
   end
 
   lane :release do
+    xcode_select("/Applications/Xcode-beta.app")
     deliver(
       username: ENV["USERNAME"],
       build_number: lane_context[SharedValues::LATEST_BUILD_NUMBER],

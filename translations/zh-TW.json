@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist 是加州科學院與美國國家地理學會之間的共同專案。",
     "original": "「探索」原先是由 HHMI Tangled Bank Studios 支援下所打造的 app，然後獲得 Netflix 上我們的星球(Our Planet)和世界野生動物基金會(WWF)進一步的支持。",
     "designed_by": "由以下 iNaturalist 團隊成員設計和開發：:",
-    "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別鳴謝 Visipedia 和 iNaturalist 社群。",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "版本",
     "help": "需要「探索」的協助和說明，請 email 到 help+seek@inaturalist.org",
-    "translations": "我們對 crowdin.com 社群的翻譯協助致上我們的謝意，特別是：Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch 和 Yulia Lygina。",
+    "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "加入「探索」的翻譯團隊，請參見 https://crowdin.com/project/seek"
   },
   "posting": {

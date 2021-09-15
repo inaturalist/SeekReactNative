@@ -22,7 +22,7 @@ default_platform(:android)
 platform :ios do
   desc "Distributes a beta version of Seek on TestFlight"
   lane :beta do
-    xcode_select("/Applications/Xcode-beta.app")
+    # xcode_select("/Applications/Xcode-beta.app")
     get_certificates(username: ENV["USERNAME"]) # invokes cert
     get_provisioning_profile(username: ENV["USERNAME"],
                          app_identifier: ENV["APPLE_ID"]) # invokes sigh
@@ -51,7 +51,6 @@ platform :ios do
   end
 
   lane :release do
-    xcode_select("/Applications/Xcode-beta.app")
     deliver(
       username: ENV["USERNAME"],
       build_number: lane_context[SharedValues::LATEST_BUILD_NUMBER],

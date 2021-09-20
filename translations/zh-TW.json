@@ -7,7 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "choose_location_on_map": "挑選在地圖上的位置"
   },
   "get_started": {
     "header": "開始",
@@ -121,7 +121,7 @@
     "agree_to_terms": "我同意<terms>{{terms}}</terms>和<privacy>{{privacy}}</privacy>，而且已審閱過<guidelines>{{guidelines}}</guidelines>    。",
     "guidelines": "社群指南",
     "store_data": "我同意允許讓 iNaturalist 儲存、處理關於我的有限個人資訊，以便管理我的帳號。",
-    "learn_more": "Learn more",
+    "learn_more": "了解更多",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "About Personal Information",
@@ -130,8 +130,8 @@
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",
     "username": "使用者名稱",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "使用者名稱 / 電子郵件",
+    "username_or_email": "使用者名稱或電子郵件",
     "password": "密碼",
     "forgot_password_header": "忘記密碼？",
     "forgot_password": "忘記你的密碼了嗎？",

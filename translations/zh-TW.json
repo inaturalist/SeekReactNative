@@ -27,20 +27,20 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "POST TO INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "正在上傳 {{count}} 個觀察",
+      "one": "正在上傳 {{count}} 個觀察",
+      "two": "正在上傳 {{count}} 個觀察",
+      "few": "正在上傳 {{count}} 個觀察",
+      "many": "正在上傳 {{count}} 個觀察",
+      "other": "正在上傳 {{count}} 個觀察"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} 個觀察已上傳！",
+      "one": "{{count}} 個觀察已上傳！",
+      "two": "{{count}} 個觀察已上傳！",
+      "few": "{{count}} 個觀察已上傳！",
+      "many": "{{count}} 個觀察已上傳！",
+      "other": "{{count}} 個觀察已上傳！"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
@@ -316,7 +316,7 @@
     "nearby": "在此分類群中附近的物種",
     "nothing_nearby": "看起來此分類群中附近還沒有觀察到許多物種！試著拍其他張不同角度的照片，或是上傳至 iNaturalist 上讓其他人協助辨識。",
     "tap": "點選以載入附近的物種",
-    "social": "Share on social"
+    "social": "在社交平台上分享"
   },
   "banner": {
     "view": "檢視徽章",
@@ -550,7 +550,7 @@
     "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
     "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。",
     "no_photos_found": "No photos found for this species.",
-    "copied": "COPIED!"
+    "copied": "已複製！"
   },
   "about": {
     "header": "關於",
@@ -585,8 +585,8 @@
     "look_up": "依照名字來查找物種",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
+    "animals": "動物",
+    "protozoans": "原生動物",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
@@ -747,14 +747,14 @@
     "original": "Original",
     "options": "Options",
     "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
+    "share": "分享到 Facebook",
     "save_to_photo_library": "Save to photo library",
     "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Back to Identification",
     "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "crop_image": "裁切圖片"
   },
   "natgeo_challenges": {
     "mar_2021_mission_1": "Find any ten species",
@@ -797,8 +797,8 @@
   "about_inat": {
     "inaturalist": "INATURALIST",
     "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
-    "open_inaturalist": "OPEN INATURALIST",
+    "welcome_back": "歡迎回來，{{username}}！",
+    "open_inaturalist": "開啟 INATURALIST",
     "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
     "inat_value_prop_1": "Sync your observations across devices",
     "inat_value_prop_2": "Get accurate, location-based identification suggestions",
@@ -838,7 +838,7 @@
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "x_seen_by_user": "{{speciesName}}由{{user}}發現"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",
@@ -846,11 +846,11 @@
     "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
     "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
     "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
+    "september_2021_mission_1": "尋找 10 種新物種",
     "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
     "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
     "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
+    "october_2021_mission_1": "尋找 4 種蛛形綱動物",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
     "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
   }

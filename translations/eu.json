@@ -88,7 +88,7 @@
     "error_no_username": "Galdu egin da erabiltzailea / posta helbidea",
     "error_no_password": "Galdu egin da pasahitza",
     "error_internet": "Interneteko konexiorik ez",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Zure eskaera ezin izan da osatu."
   },
   "inat_signup": {
     "welcome": "Ongi etorri Seek-era!",
@@ -123,7 +123,7 @@
     "store_data": "Baimentzen dut iNaturalist niri buruzko oso informazio mugatua gorde eta prozesatzera nire kontua kudeatu ahal izateko.",
     "learn_more": "Gehiago ikasi",
     "learn_more_about_data_storage": "Informazio pribatua gordetzen dugu: erabiltzaile-izenak eta posta helbideak. Kontuak kudeatzeko da, betiere pribatutasun legediak betez. Behar dugu zuk kutxatilatxo honetan klik egitea jakinaren gainean zaudela adierazteko eta ados zaudela. Zein informazio jaso eta gordetzen dugun, eta zertarako erabiltzen dugun gaiari buruz gehiago jakiteko, mesedez begiratu gura Pribatutasun Politika eta Zerbitzu Baldintzak.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "learn_more_about_licensing": "Markatu ezazu kutxatila hau igotako edukiari Creative Commons Attribution-NonCommercial lizentzia bat esleitu nahi badiozu. Honek esan nahi du edonork zure argazki eta behaketak baimenik eskatu gabe kopiatu eta berrerabili ahalko dituela betiere zuri aitortza eginda eta erabilera komertziala egiten ez badu. Beranduago beste lizentzia bat aukeratu edo lizentzia kendu dezakezu, baina hau da ikertzaileekin partekatzeko lizentziarik onena.",
     "about_personal_information": "Informazio pertsonalaren inguruan",
     "about_licenses": "Lizentziei buruz"
   },
@@ -268,7 +268,7 @@
     "photographer_october": "Argazkia © Netflix / Silverback Films",
     "photographer_december": "Argazkia © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Behatutako espezieak",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
+    "species_nearby": "ERRONKA HONETAKO HURBILEKO ESPEZIEAK ",
     "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
     "species_nearby_internet_error": "We need the Internet to generate nearby species."
   },

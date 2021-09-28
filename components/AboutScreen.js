@@ -45,9 +45,9 @@ const AboutScreen = (): Node => {
         <Image source={logos.hhmi} />
         <View style={viewStyles.margin} />
         <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
-        <Text style={textStyles.text}>{i18n.t( "about.inat_team" )}</Text>
+        <Text style={textStyles.text}>{i18n.t( "about.inat_team_credits" )}</Text>
         <View style={viewStyles.marginSmallest} />
-        <Text style={textStyles.text}>{i18n.t( "about.translations" )}</Text>
+        <Text style={textStyles.text}>{i18n.t( "about.translators" )}</Text>
         <View style={viewStyles.marginSmallest} />
         <Text style={textStyles.text}>{i18n.t( "about.join_crowdin" )}</Text>
         {login && <PrivacyAndTerms />}

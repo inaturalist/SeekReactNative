@@ -7,7 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "choose_location_on_map": "挑選在地圖上的位置"
   },
   "get_started": {
     "header": "開始",
@@ -27,20 +27,20 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "POST TO INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "正在上傳 {{count}} 個觀察",
+      "one": "正在上傳 {{count}} 個觀察",
+      "two": "正在上傳 {{count}} 個觀察",
+      "few": "正在上傳 {{count}} 個觀察",
+      "many": "正在上傳 {{count}} 個觀察",
+      "other": "正在上傳 {{count}} 個觀察"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} 個觀察已上傳！",
+      "one": "{{count}} 個觀察已上傳！",
+      "two": "{{count}} 個觀察已上傳！",
+      "few": "{{count}} 個觀察已上傳！",
+      "many": "{{count}} 個觀察已上傳！",
+      "other": "{{count}} 個觀察已上傳！"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
@@ -121,7 +121,7 @@
     "agree_to_terms": "我同意<terms>{{terms}}</terms>和<privacy>{{privacy}}</privacy>，而且已審閱過<guidelines>{{guidelines}}</guidelines>    。",
     "guidelines": "社群指南",
     "store_data": "我同意允許讓 iNaturalist 儲存、處理關於我的有限個人資訊，以便管理我的帳號。",
-    "learn_more": "Learn more",
+    "learn_more": "了解更多",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "About Personal Information",
@@ -130,8 +130,8 @@
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",
     "username": "使用者名稱",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "使用者名稱 / 電子郵件",
+    "username_or_email": "使用者名稱或電子郵件",
     "password": "密碼",
     "forgot_password_header": "忘記密碼？",
     "forgot_password": "忘記你的密碼了嗎？",
@@ -316,7 +316,7 @@
     "nearby": "在此分類群中附近的物種",
     "nothing_nearby": "看起來此分類群中附近還沒有觀察到許多物種！試著拍其他張不同角度的照片，或是上傳至 iNaturalist 上讓其他人協助辨識。",
     "tap": "點選以載入附近的物種",
-    "social": "Share on social"
+    "social": "在社交平台上分享"
   },
   "banner": {
     "view": "檢視徽章",
@@ -550,7 +550,7 @@
     "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
     "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。",
     "no_photos_found": "No photos found for this species.",
-    "copied": "COPIED!"
+    "copied": "已複製！"
   },
   "about": {
     "header": "關於",
@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist 是加州科學院與美國國家地理學會之間的共同專案。",
     "original": "「探索」原先是由 HHMI Tangled Bank Studios 支援下所打造的 app，然後獲得 Netflix 上我們的星球(Our Planet)和世界野生動物基金會(WWF)進一步的支持。",
     "designed_by": "由以下 iNaturalist 團隊成員設計和開發：:",
-    "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別鳴謝 Visipedia 和 iNaturalist 社群。",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "版本",
     "help": "需要「探索」的協助和說明，請 email 到 help+seek@inaturalist.org",
-    "translations": "我們對 crowdin.com 社群的翻譯協助致上我們的謝意，特別是：Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch 和 Yulia Lygina。",
+    "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "加入「探索」的翻譯團隊，請參見 https://crowdin.com/project/seek"
   },
   "posting": {
@@ -585,8 +585,8 @@
     "look_up": "依照名字來查找物種",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
+    "animals": "動物",
+    "protozoans": "原生動物",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
@@ -747,14 +747,14 @@
     "original": "Original",
     "options": "Options",
     "show_species_id": "Show species identification",
-    "share": "Share to Facebook",
+    "share": "分享到 Facebook",
     "save_to_photo_library": "Save to photo library",
     "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Back to Identification",
     "error_title": "Couldn't save photo",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "crop_image": "裁切圖片"
   },
   "natgeo_challenges": {
     "mar_2021_mission_1": "Find any ten species",
@@ -797,8 +797,8 @@
   "about_inat": {
     "inaturalist": "INATURALIST",
     "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
-    "open_inaturalist": "OPEN INATURALIST",
+    "welcome_back": "歡迎回來，{{username}}！",
+    "open_inaturalist": "開啟 INATURALIST",
     "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
     "inat_value_prop_1": "Sync your observations across devices",
     "inat_value_prop_2": "Get accurate, location-based identification suggestions",
@@ -838,7 +838,7 @@
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "x_seen_by_user": "{{speciesName}}由{{user}}發現"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",
@@ -846,11 +846,11 @@
     "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
     "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
     "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
+    "september_2021_mission_1": "尋找 10 種新物種",
     "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
     "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
     "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
+    "october_2021_mission_1": "尋找 4 種蛛形綱動物",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
     "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
   }

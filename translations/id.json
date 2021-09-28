@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist adalah inisiatif gabungan dari California Academy of Sciences dan National Geographic Society.",
     "original": "Seek pada awalnya dibuat dengan dukungan HHMI Tangled Bank Studios dan ditingkatkan dengan dukungan dari Our Planet di Netflix dan WWF.",
     "designed_by": "Didesain & dikembangkan oleh tim iNaturalist:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, dan Yaron Budowski. Terima kasih khususnya kepada Visipedia dan komunitas iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, dan Yaron Budowski. Terima kasih khususnya kepada Grant Van Horn dari Visipedia untuk bantuannya atas teknologi penglihatan komputer, dan juga komunitas iNaturalist.",
     "version": "Versi",
     "help": "Untuk bantuan tentang Seek, silakan email help+seek@inaturalist.org.",
-    "translations": "Kami berterima kasih atas bantuan terjemahan yang diberikan oleh komunitas crowdin.com, khususnya: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, dan Yulia Lygina.",
+    "translators": "Kami berterima kasih atas bantuan terjemahan yang diberikan oleh komunitas crowdin.com, khususnya: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, dan Yulia Lygina.",
     "join_crowdin": "Untuk bergabung dengan tim penerjemah iNaturalist, silakan mengunjungi https://crowdin.com/project/seek"
   },
   "posting": {

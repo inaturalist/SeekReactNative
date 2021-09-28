@@ -4,10 +4,10 @@
     "internet_error": "Abbiamo bisogno di Internet per generare la lista delle specie nelle vicinanze. Tocca per riprovare.",
     "no_location": "Nessuna posizione",
     "no_species": "Sembra che non siano state osservate molte specie nelle vicinanze! Prova a cambiare la tua posizione o ad ampliare il filtro delle specie.",
-    "input_location_above_map": "Nessuna posizione trovata; inserisci un nome per caricare la mappa e cercare le specie nelle vicinanze",
-    "error_alert_location_services": "Per continuare, attiva i servizi di localizzazione nelle impostazioni del tuo dispositivo",
-    "species_nearby_requires_location": "Specie nelle vicinanze richiede la tua posizione. Abilita la localizzazione nelle impostazioni",
-    "choose_location_on_map": "SCEGLI LUOGO SULLA MAPPA"
+    "input_location_above_map": "Nessuna posizione trovata; inserisci sopra il nome di un luogo per caricare la mappa e cercare le specie nelle vicinanze",
+    "error_alert_location_services": "Per continuare, attiva i servizi di posizione nelle impostazioni del tuo dispositivo",
+    "species_nearby_requires_location": "Le specie nelle vicinanze richiedono la tua posizione. Sei pregato di abilitare la posizione nelle impostazioni",
+    "choose_location_on_map": "SCEGLI LA POSIZIONE SULLA MAPPA"
   },
   "get_started": {
     "header": "Iniziamo",
@@ -27,12 +27,12 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBBLICA SU INATURALIST",
     "uploading_x_observations": {
-      "zero": "Caricamento di {{count}} osservazioni",
-      "one": "Caricamento di {{count}} osservazione",
-      "two": "Caricamento di {{count}} osservazioni",
-      "few": "Caricamento di {{count}} osservazioni",
-      "many": "Caricamento di {{count}} osservazioni",
-      "other": "Caricamento di {{count}} osservazioni"
+      "zero": "Caricando {{count}} osservazioni",
+      "one": "Caricando {{count}} osservazione",
+      "two": "Caricando {{count}} osservazioni",
+      "few": "Caricando {{count}} osservazioni",
+      "many": "Caricando {{count}} osservazioni",
+      "other": "Caricando {{count}} osservazioni"
     },
     "x_observations_uploaded": {
       "zero": "{{count}} osservazioni caricate!",
@@ -51,19 +51,19 @@
       "other": "{{count}} osservazioni da caricare"
     },
     "upload_now": "CARICA ORA",
-    "error_internet": "Nessuna connessione a internet. Riprova più tardi.",
+    "error_internet": "Internet non rilevato. Sei pregato di riprovare più tardi.",
     "error_downtime": {
-      "zero": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
-      "one": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ora.",
-      "two": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
-      "few": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
-      "many": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore.",
-      "other": "Il server di iNaturalist è in manutenzione. Riprova tra {{count}} ore."
+      "zero": "Il server di iNaturalist è in manutenzione. Sei pregato di riprovare tra {{count}} ore.",
+      "one": "Il server di iNaturalist è in manutenzione. Sei pregato di riprovare tra {{count}} ora.",
+      "two": "Il server di iNaturalist è in manutenzione. Sei pregato di riprovare tra {{count}} ore.",
+      "few": "Il server di iNaturalist è in manutenzione. Sei pregato di riprovare tra {{count}} ore.",
+      "many": "Il server di iNaturalist è in manutenzione. Sei pregato di riprovare tra {{count}} ore.",
+      "other": "Il server di iNaturalist è in manutenzione. Sei pregato di riprovare tra {{count}} ore."
     },
-    "error_unknown": "Caricamento non riuscito. Dettagli errore: {{errorText}}",
-    "error_login": "Token di login non riuscito. Per favore accedi al tuo account iNaturalist in Seek dalle schermate iNaturalist o Progressi prima di riprovare.",
+    "error_unknown": "Caricamento fallito. Dettagli dell'errore: {{errorText}}",
+    "error_login": "Token d'accesso fallito. Sei pregato di accedere al tuo profilo di iNaturalist su Seek dalla schermata di iNaturalist o degli Obiettivi prima di riprovare.",
     "error_photo": "Non è più possibile accedere alla foto sul dispositivo.",
-    "error_downtime_a_few_hours": "Il server di iNaturalist è in manutenzione. Riprova tra qualche ore."
+    "error_downtime_a_few_hours": "il server di iNaturalist è in manutenzione. Riprova tra qualche ora."
   },
   "notifications": {
     "header": "Notifiche",
@@ -87,7 +87,7 @@
     "error_username_taken": "Questo nome utente è già stato preso",
     "error_no_username": "Nome utente / email mancante",
     "error_no_password": "Password mancante",
-    "error_internet": "Nessuna connessione Internet",
+    "error_internet": "Nessuna connessione internet",
     "error_request_could_not_be_completed": "La tua richiesta non può essere completata."
   },
   "inat_signup": {
@@ -122,10 +122,10 @@
     "guidelines": "Linee Guida della Comunità",
     "store_data": "Io acconsento che iNaturalist conservi e processi un limitato tipo di mie informazioni personali al fine di gestire il mio account.",
     "learn_more": "Scopri di più",
-    "learn_more_about_data_storage": "Noi conserviamo informazioni personali come nome utente ed email per gestire gli account su questo sito, e per rispettare le leggi sulla privacy, devi selezionare questa casella per indicare che tu acconsenti all'utilizzo delle informazioni personali. Per saperne di più su quali informazioni personali raccogliamo e su come le usiamo, per favore visita le nostre Politiche della Privacy e i nostri Termini di Servizio.",
-    "learn_more_about_licensing": "Seleziona questa casella se vuoi applicare una licenza Creative Commons Attribuzione-NonCommerciale al tuo contenuto caricato. Ciò significa che ognuno potrà copiare o riutilizzare le tue foto e/o le tue osservazioni senza chiederti permesso purché che ti accrediti e non le utilizzi a scopi commerciali. Puoi scegliere un'altra licenza o rimuoverla successivamente, ma questa è la miglior licenza per la condivisione con gli altri ricercatori.",
+    "learn_more_about_data_storage": "Conserviamo informazioni personali quali nomi utente e indirizzi email per gestire i profili su questo sito e rispettare le leggi sulla privacy, abbiamo bisogno che tu spunti questa casella per indicare che acconsenti a quest'uso delle informazioni personali. Per scoprire di più su quali informazioni raccogliamo e come le usiamo, sei pregato di visualizzare la nostra Politica sulla Privacy e i nostri Termini di Servizio.",
+    "learn_more_about_licensing": "Spunta questa casella se vuoi applicare una licenza Creative Commons Attribution-NonCommercial al contenuto caricato. Ciò significa che chiunque possa copiare e riutilizzare le tue foto e/od osservazioni senza chiedere il permesso finché ti danno credito e non usano le opere commercialmente. Puoi scegliere una licenza differente o rimuoverla in seguito, ma questa è la migliore per la condivisione coi ricercatori.",
     "about_personal_information": "Riguardo le Informazioni Personali",
-    "about_licenses": "A proposito delle Licenze"
+    "about_licenses": "Sulle Licenze"
   },
   "inat_login": {
     "log_in_with_inat": "Accedi con il tuo account iNaturalist",
@@ -269,7 +269,7 @@
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Specie Osservate",
     "species_nearby": "SPECIE NELLE VICINANZE IN QUESTA SFIDA",
-    "no_species_nearby": "Non abbiamo trovato specie nelle vicinanze in questa sfida che non hai già osservato",
+    "no_species_nearby": "Non abbiamo trovato alcuna specie nelle vicinanze in questa sfida, che non hai già osservato",
     "species_nearby_internet_error": "Abbiamo bisogno di Internet per generare la lista delle specie nelle vicinanze."
   },
   "results": {
@@ -304,7 +304,7 @@
     "error_location": "Non sarai in grado di visualizzare gli areali, esplorare le specie nelle vicinanze o pubblicare questa osservazione su iNaturalist. Abilitando il rilevamento della posizione in Seek, sarai in grado di visualizzare informazioni dettagliate sulle tue osservazioni e contribuire alla scienza dei cittadini. La tua posizione non verrà pubblicata a meno che tu non la invii ad iNaturalist.",
     "error_downtime_plural": {
       "zero": "Servizio temporaneamente non disponibile. Per favore riprova tra {{count}} ore.",
-      "one": "Servizio temporaneamente non disponibile. Per favore riprova tra {{count}} ore.",
+      "one": "Servizio temporaneamente non disponibile. Sei pregato di riprovare tra {{count}} ora.",
       "two": "Servizio temporaneamente non disponibile. Per favore riprova tra {{count}} ore.",
       "few": "Servizio temporaneamente non disponibile. Per favore riprova tra {{count}} ore.",
       "many": "Servizio temporaneamente non disponibile. Per favore riprova tra {{count}} ore.",
@@ -360,7 +360,7 @@
     "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}.",
     "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
     "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato",
-    "error_selected_photos": "Se i tuoi permessi sono impostati su \"Fotografie selezionate\", potrebbe essere necessario riavviare Seek o visitare impostazioni di iOS > Seek > Foto > Foto Selezionate per scegliere quali foto visualizzare qui.",
+    "error_selected_photos": "Se le tue autorizzazioni sono impostate a 'Foto Selezionate', potresti dover riavviare Seek o visitare le Impostazioni di iOS > Seek > Foto > Foto Selezionate per scegliere quali foto mostrare qui.",
     "plant_filter": "Solo piante",
     "non_plant_filter": "Unicamente non vegetali",
     "filters_off": "Filtri disattivati"
@@ -486,7 +486,7 @@
     "help": "Scatta una foto di una pianta, animale o qualsiasi essere vivente usando la nostra fotocamera, e il nostro programma di IA ti aiuterà a identificarla!",
     "open_camera": "Apri Fotocamera",
     "search": "Cerca osservazioni",
-    "search_empty": "Nessuna osservazione trovata con questo termine di ricerca.",
+    "search_empty": "Nessun'osservazione trovata con quel termine di ricerca.",
     "reset_search": "Azzera la ricerca",
     "not_seen_plants": "Non hai ancora osservato alcuna pianta!",
     "not_seen_amphibians": "Non hai ancora osservato alcun anfibio!",
@@ -498,7 +498,7 @@
     "not_seen_insects": "Non hai ancora osservato alcun insetto!",
     "not_seen_mollusks": "Non hai ancora osservato alcun mollusco!",
     "not_seen_mammals": "Non hai ancora osservato alcun mammifero!",
-    "not_seen_other": "Non hai ancora osservato nessun altra specie!"
+    "not_seen_other": "Non hai ancora osservato alcun'altra specie!"
   },
   "species_detail": {
     "near": "Nelle vicinanze",
@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist è un' iniziativa congiunta della California Academy of Sciences e della National Geographic Society.",
     "original": "Seek è stata creata originariamente con il supporto di Il Nostro pianeta e HHMI Tangled Bank Studios.",
     "designed_by": "Progettato e sviluppato dal team iNaturalist:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Grant Van Horn da Visipedia per l'aiuto con la tecnologia visiva artificiale e alla community di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
-    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, e Yulia Lygina.",
+    "translators": "Siamo grati per l'assistenza nella traduzione fornita dalla community di Crowdin.com, specialmente: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, e Yulia Lygina.",
     "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -584,15 +584,15 @@
     "ok": "Ok",
     "look_up": "Cerca una specie per nome",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
+    "major_taxa": "TAXA PRINCIPALE",
     "animals": "Animali",
     "protozoans": "Protozoi",
-    "kelp": "Alghe, diatomee e affini"
+    "kelp": "Alghe, Diatomee e Affini"
   },
   "posting_status": {
-    "posting_to_inat_background": "PUBBLICAZIONE SU INATURALIST IN BACKGROUND",
-    "posting_to_inat_background_description": "La pubblicazione su iNaturalist continuerà in background mentre Seek è aperto.\n\nPuoi controllare lo stato dei caricamenti nella schermata iniziale.",
-    "no_internet": "NESSUNA CONNESSIONE!",
+    "posting_to_inat_background": "PUBBLICANDO SU INATURALIST IN BACKGROUND",
+    "posting_to_inat_background_description": "La pubblicazione su iNaturalist continuerà in background mentre Seek è aperta.\n\nPuoi controllare lo stato dei caricamenti sulla schermata home.",
+    "no_internet": "NIENTE INTERNET!",
     "no_internet_description": "La tua osservazione non è stata caricata su iNaturalist perché non sei connesso a internet.\n\nLa tua osservazione verrà caricata una volta riavviato Seek e connesso a internet."
   },
   "posting_help": {
@@ -669,9 +669,9 @@
     "auto_capture": "Scatta automaticamente una foto quando l'identificazione raggiunge il livello di specie.",
     "species_detail": "Dettagli specie",
     "seasonality": "Stagionalità",
-    "seasonality_option_1": "Mostra la stagionalità basata sulle osservazioni iNaturalist in tutto il mondo",
+    "seasonality_option_1": "Mostra la stagionalità in base alle osservazioni globali di iNaturalist",
     "seasonality_option_2": "Mostra la stagionalità basata sulle osservazioni iNaturalist vicino alla mia posizione attuale (le specie non trovate vicino alla mia posizione non avranno la stagionalità)",
-    "donate_ios": "Visita il seguente link per fare una donazione a Seek:"
+    "donate_ios": "Sei pregato di visitare il seguente link per donare a Seek:"
   },
   "seek_challenges": {
     "badge": "Distintivo Seek",
@@ -715,8 +715,8 @@
     "action_sept_2020": "Fai alcune ricerche su come il consumo di carne ha un impatto sull'ambiente. Quali passi puoi intraprendere per ridurre il tuo impatto?\n\nAlternativa: Che tipo di piante mangi? Da quali parti della pianta provengono? Riesci a scoprire a quali altri animali piace mangiare anche quelle piante?",
     "scavenger": "Sfida Necrofagi",
     "mission_1_oct_2020": "Trova 4 funghi",
-    "mission_2_oct_2020": "Trova 1 organismo qualsiasi dei seguenti ordini:\n\nAccipitriformes (Poiane, Aquile, & Nibbi);\nCathartiformes (Rapaci);\nCarnivora (Carnivori)",
-    "mission_3_oct_2020": "Trova 1 mollusco",
+    "mission_2_oct_2020": "Trova 1 organismo qualsiasi dei seguenti ordini:\n\nAccipitriformes (Poiane, Aquile, e Nibbi);\nCathartiformes (Rapaci);\nCarnivora (Carnivori)",
+    "mission_3_oct_2020": "Trova 1 Mollusco",
     "mission_4_oct_2020": "Trova 1 Artropode",
     "oct_2020_description": "Necrofagi e decompositori sono essenziali per la vita sul nostro pianeta. I Funghi sono decompositori che possono decomporre tessuti morti come legno e foglie. Molti tipi di animali, come avvoltoi, isopodi e alcune lumache, possono mangiare piante morte o animali. Aiutano a riciclare i nutrienti in modo che siano disponibili per nuove crescite.",
     "action_oct_2020": "Scopri che tipo di decompositori e necrofagi vivono nelle zone che ti circondano. Che cosa mangiano? Mangiano sempre gli stessi tipi di cose?",

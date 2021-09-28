@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
     "original": "Seek se creó originalmente con el apoyo de HHMI Tangled Bank Studios y mejorado gracias a Our Planet de Netflix y WWF.",
     "designed_by": "Diseñada y desarrollada por el equipo de iNaturalist:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary y Yaron Budowski. Agradecimientos especiales a Visipedia y la comunidad iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary y Yaron Budowski. Agradecimientos especiales a Grant Van Horn de Visipedia, por la ayuda con la tecnología de visión por ordenador, y a la comunidad iNaturalist.",
     "version": "Versión",
     "help": "Para recibir ayuda de Seek, por favor envía un correo electrónico a help+seek@inaturalist.org.",
-    "translations": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, y Yulia Lygina.",
+    "translators": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch y Yulia Lygina.",
     "join_crowdin": "Para unirte al equipo de traducción de Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {

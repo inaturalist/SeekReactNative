@@ -88,7 +88,7 @@
     "error_no_username": "Hiányzó felhasználónév / jelszó",
     "error_no_password": "Hiányzó jelszó",
     "error_internet": "Nincs internetkapcsolat",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Ez a kérés sajnos nem teljesíthető."
   },
   "inat_signup": {
     "welcome": "Üdvözlünk a Seek-ben!",
@@ -239,7 +239,7 @@
     "action_april": "Check if you live close to a city that's part of the City Nature Challenge, and if so look out for nature recording and identification activities for urban wildlife!",
     "action_may": "Volunteer your time with local groups that help maintain your local greenspaces.\n\nShare your findings with your family, friends or school community to open their eyes to the wildlife around them.\n\nOrganise a litter pick in a local greenspace.",
     "action_june": "Látogass el az ourplanet.com oldalra, ahol biodiverzitás projektet hozhatsz létre a saját környezetedben, segítséget nyújtva a helyi élővilágnak.",
-    "action_november": "Collect seeds from local trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
+    "action_november": "Gyűjts magokat helyi fákról, csíráztasd ki őket cserépben és ültesd el a fiatal fákat.\n\nMondd el családtagjaidnak és barátaidnak, hogy miért hasznosak a fák.",
     "action_august": "Plant wildflowers to provide food for pollinators.\n\nMake a ‘bug hotel’ to provide homes for insects in your garden or schoolground by bundling short lengths of pipe together and stuffing each with small twigs and pieces of broken tile.",
     "action_september": "Keep a record of how much water you use throughout a day. Think how you could cut this down to help reduce the strain on freshwater habitats.\n\nCheck local freshwater habitats for litter or other pollution. Could you run a local campaign to protect this precious ecosystem?",
     "action_october": "Birds need fuel for the long journeys they take to migrate. In winter months leave nuts, seeds and fat balls in your garden to give them a boost.\n\nPlant trees and shrubs that provide berries and roosts for visiting birds.",
@@ -297,7 +297,7 @@
     "yes_resighted": "Igen, ez a faj tévesen lett azonosítva.",
     "no": "Nem. Helyes a név.",
     "enable_location": "A felfedezésedhez nem tartozik helyszín",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "HELYZET ENGEDÉLYEZÉSE",
     "error_server": "Sajnáljuk, nem tudunk kapcsolódni a szerverhez. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_image": "Sajnáljuk, nem tudtuk feldolgozni a képedet. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_species": "Sajnáljuk, nem tudjuk azonosítani a képen szereplő fajt. Ellenőrizd az internetkapcsolatot és próbáld újra!",
@@ -316,13 +316,13 @@
     "nearby": "A taxon közelében található fajok",
     "nothing_nearby": "Úgy tűnik, nem sok faj került megfigyelésre! Próbálj új képet készíteni vagy posztolni az iNaturalist-ra!",
     "tap": "Közeli fajok betöltése",
-    "social": "Share on social"
+    "social": "Megosztás"
   },
   "banner": {
     "view": "Jelvény megtekintése",
     "badge": "Jelvény",
     "challenge_progress": "Új fajt találtál!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Állapot megtekintése",
     "level_up": "Szintet léptél!",
     "number_seen_plural": {
       "zero": "Már láttál {{count}} fajt!",
@@ -339,7 +339,7 @@
     "off": "ki",
     "scan": "Keep scanning the environment for organisms to identify!",
     "scan_class": "Try different angles till you can get the identification to species!",
-    "scan_genus": "Almost at species!",
+    "scan_genus": "Majdnem minden faj!",
     "scan_species": "That’s it! Now take a picture to add this species to your observations.",
     "kingdom": "ország",
     "phylum": "törzs",
@@ -350,8 +350,8 @@
     "species": "faj",
     "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "We need access to your photo library to save photos you take!",
-    "permissions": "Enable permissions in settings",
-    "please_permissions": "Please enable permissions in settings",
+    "permissions": "Engedélyek megadása a beállításoknál",
+    "please_permissions": "Engedélyek megadása a beállításoknál",
     "error_classifier": "Sorry, we're unable to load the classifier",
     "error_camera": "Sorry, we weren't able to load the camera",
     "error_device": "Sorry, the device you are using is not supported",
@@ -487,7 +487,7 @@
     "open_camera": "Kamera megnyitása",
     "search": "Megfigyelések keresése",
     "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search",
+    "reset_search": "Keresés visszaállítása",
     "not_seen_plants": "Még nem figyeltél meg növényeket!",
     "not_seen_amphibians": "Még nem figyeltél meg kétéltűeket!",
     "not_seen_fungi": "Még nem figyeltél meg gombákat!",
@@ -541,7 +541,7 @@
     "fungi": "gomba",
     "fish": "hal",
     "reptile": "hüllő",
-    "arachnid": "arachnid",
+    "arachnid": "pókszabású",
     "bird": "madár",
     "insect": "rovar",
     "mollusk": "puhatestű",
@@ -558,15 +558,15 @@
     "joint_initiative": "Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése.",
     "original": "A Seek a HHMI Tangled Bank Studios, a Netflix Our Planet - Bolygónk Csodái és a WFF támogatásával jött létre.",
     "designed_by": "Tervezte és feljesztette az iNaturalist csapata:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary és Yaron Budowski. Külön köszönet a Visipediának és az iNaturalist közösségének.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Verzió",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Küldés az iNaturalist-ra",
-    "notes": "Add notes here",
+    "notes": "Jegyzetek hozzáadása",
     "date": "Dátum",
     "location": "helyszín",
     "geoprivacy": "A pozíció láthatósága",
@@ -583,10 +583,10 @@
     "unknown": "Ismeretlen",
     "ok": "Rendben",
     "look_up": "Faj keresése név alapján",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
+    "latitude_longitude": "Szél.: {{latitude}}, hossz.: {{longitude}}",
+    "major_taxa": "MAGASABB TAXONOK",
+    "animals": "Állatok",
+    "protozoans": "Állati egysejtűek",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
@@ -597,7 +597,7 @@
   },
   "posting_help": {
     "header": "Segítség",
-    "identification": "Species Identification",
+    "identification": "Fajok meghatározása",
     "id_description": "As you upload your observation, you can identify the species to whatever taxa you are most confident- from a class such as reptiles, down to a species, like Western Bluebird. After your observation is posted to iNaturalist, our community will help identify the species.\n\nYou can also choose to add optional notes to your observation here.",
     "date": "Dátum és Helyszín",
     "date_description": "Every observation on iNaturalist is associated with a certain date and location. This way, we can clearly see a global picture of how a species is doing worldwide over time.",
@@ -618,12 +618,12 @@
   "delete": {
     "header": "Törlöd a fajt?",
     "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
-    "yes": "Yes, delete it from my observations",
+    "yes": "Igen, eltávolítás a megfigyeléseim közül.",
     "no": "Mégse"
   },
   "warning": {
     "remember": "Emlékezz rám",
-    "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
+    "tip_1": "Mindig nézz szét, vigyázz magadra és kerüld a birtokháborítást.",
     "tip_2": "Ne kóstolj meg mindent, amit a vadonban találsz!",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
@@ -636,13 +636,13 @@
     "flag": "Flag this observation incorrect",
     "back": "Go back to previous screen",
     "user_location": "Return to your current location",
-    "open_help": "Open camera help screen",
+    "open_help": "Kamera súgó megjelenítése",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Fénykép készítése",
     "scroll_left": "Görgetés balra",
     "scroll_right": "Görgetés jobbra",
     "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "get_started_modal": "Tippek a kezdéshez"
   },
   "review": {
     "title": "Értékeld az appot!",
@@ -665,9 +665,9 @@
     "donate_header": "Az iNaturalist támogatása",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "Alkalmazás nyelve",
-    "device_settings": "Use device language settings",
+    "device_settings": "A készülék nyelvi beállításainak átvétele",
     "auto_capture": "Automatically take a picture when the identification reaches species.",
-    "species_detail": "Species detail",
+    "species_detail": "A faj részletei",
     "seasonality": "Szezonalitás",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
@@ -677,7 +677,7 @@
     "badge": "Seek jelvény",
     "header": "Teljesítetted a Seek Kihívást ekkorra: {{date}}",
     "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
+    "citizen_science": "Közösségi tudomány kihívás",
     "completed": "Teljesítetted a kihívást és megszerezted a hozzá tartozó jelvényt!",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
@@ -736,13 +736,13 @@
     "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
+    "header": "Cseréled a fényképet?",
     "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "new": "Új fénykép használata",
+    "old": "Régi kép megtartása"
   },
   "social": {
-    "share_observation": "Share observation",
+    "share_observation": "Megfigyelés megosztása",
     "square": "Négyzetes",
     "original": "Eredeti",
     "options": "Beállítások",
@@ -751,7 +751,7 @@
     "save_to_photo_library": "Save to photo library",
     "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't save photo",
+    "error_title": "A fénykép mentése sikertelen",
     "error": "Please double check that you have the Facebook app installed.",
     "adjust_square_crop": "Adjust square crop",
     "crop_image": "Fénykép vágása"
@@ -796,7 +796,7 @@
   },
   "about_inat": {
     "inaturalist": "INATURALIST",
-    "you_are_logged_in": "YOU ARE LOGGED IN",
+    "you_are_logged_in": "BE VAGY JELENTKEZVE",
     "welcome_back": "Üdv ismét, {{username}}!",
     "open_inaturalist": "INATURALIST MEGNYITÁSA",
     "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
@@ -838,18 +838,18 @@
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}} seen by {{user}}"
+    "x_seen_by_user": "{{user}} megfigyelte: {{speciesName}}"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",
     "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
     "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
     "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
-    "september_2021_challenge_name": "Seasonality Challenge",
+    "september_2021_challenge_name": "Szezonalitás kihívás",
     "september_2021_mission_1": "Találj 10 fajt",
     "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
     "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
+    "october_2021_challenge_name": "Pókszabásúak kihívás",
     "october_2021_mission_1": "Találj 4 pókszabásút",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
     "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"

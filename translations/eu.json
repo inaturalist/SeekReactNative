@@ -88,7 +88,7 @@
     "error_no_username": "Galdu egin da erabiltzailea / posta helbidea",
     "error_no_password": "Galdu egin da pasahitza",
     "error_internet": "Interneteko konexiorik ez",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Zure eskaera ezin izan da osatu."
   },
   "inat_signup": {
     "welcome": "Ongi etorri Seek-era!",
@@ -123,7 +123,7 @@
     "store_data": "Baimentzen dut iNaturalist niri buruzko oso informazio mugatua gorde eta prozesatzera nire kontua kudeatu ahal izateko.",
     "learn_more": "Gehiago ikasi",
     "learn_more_about_data_storage": "Informazio pribatua gordetzen dugu: erabiltzaile-izenak eta posta helbideak. Kontuak kudeatzeko da, betiere pribatutasun legediak betez. Behar dugu zuk kutxatilatxo honetan klik egitea jakinaren gainean zaudela adierazteko eta ados zaudela. Zein informazio jaso eta gordetzen dugun, eta zertarako erabiltzen dugun gaiari buruz gehiago jakiteko, mesedez begiratu gura Pribatutasun Politika eta Zerbitzu Baldintzak.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "learn_more_about_licensing": "Markatu ezazu kutxatila hau igotako edukiari Creative Commons Attribution-NonCommercial lizentzia bat esleitu nahi badiozu. Honek esan nahi du edonork zure argazki eta behaketak baimenik eskatu gabe kopiatu eta berrerabili ahalko dituela betiere zuri aitortza eginda eta erabilera komertziala egiten ez badu. Beranduago beste lizentzia bat aukeratu edo lizentzia kendu dezakezu, baina hau da ikertzaileekin partekatzeko lizentziarik onena.",
     "about_personal_information": "Informazio pertsonalaren inguruan",
     "about_licenses": "Lizentziei buruz"
   },
@@ -268,9 +268,9 @@
     "photographer_october": "Argazkia © Netflix / Silverback Films",
     "photographer_december": "Argazkia © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Behatutako espezieak",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ERRONKA HONETAKO HURBILEKO ESPEZIEAK ",
+    "no_species_nearby": "Ez dugu aurkitu dagoeneko behatu ez duzun erronka honetako hurbileko espezierik",
+    "species_nearby_internet_error": "Internet-erako konexioa behar dugu hurbileko espezieak arakatzeko."
   },
   "results": {
     "observed_species": "Espezie berri bat behatu duzu!",
@@ -297,7 +297,7 @@
     "yes_resighted": "Bai, espezie hau gaizki identifikatu al zen",
     "no": "Ez, zuzena da",
     "enable_location": "Zure behaketak ez du kokapenik",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "GAITU KOKAPENA",
     "error_server": "Barka, ezin izan dugu argazki hau baloratu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_image": "Barka, ezin izan dugu argazki hau prozesatu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_species": "Barka, ezin izan dugu argazki honetatik espeziea eskuratu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
@@ -360,7 +360,7 @@
     "error_version": "Seeken AR Kamarak iOS 11.0+ behar du. Zure gailua {{OS}} OS bertsioarekin dabil.",
     "error_cameraManager": "Barka, Kamera Kudeatzailea ez da kargatu",
     "error_photoError": "Barka, argazkiaren objektua ez da aurkitu",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "Zure baimenetan 'Aukeratutako Argazkiak' aukeratuz gero, baliteke Seek berrabiarazi behar izatea edo joan iOS Ezarpenak > Seek > Argazkiak > Aukeratutako Argazkiak hemen erakutsi beharreko argazkiak aukeratzeko.",
     "plant_filter": "Landareak baino ez",
     "non_plant_filter": "Landare ez direnak baino ez",
     "filters_off": "Iragazkirik gabe"
@@ -492,13 +492,13 @@
     "not_seen_amphibians": "Ez duzu oraindik inongo anfibiorik behatu!",
     "not_seen_fungi": "Ez duzu oraindik inongo onddorik behatu!",
     "not_seen_fish": "Ez duzu oraindik inongo arrainik behatu!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_reptiles": "Ez duzu oraindik inongo narrastirik behatu!",
+    "not_seen_arachnids": "Ez duzu oraindik inongo araknidorik behatu!",
+    "not_seen_birds": "Ez duzu oraindik inongo hegaztirik behatu!",
+    "not_seen_insects": "Ez duzu oraindik inongo intsekturik behatu!",
+    "not_seen_mollusks": "Ez duzu oraindik inongo moluskurik behatu!",
+    "not_seen_mammals": "Ez duzu oraindik inongo ugaztunik behatu!",
+    "not_seen_other": "Ez duzu oraindik bestelako espezierik behatu!"
   },
   "species_detail": {
     "near": "Gertukoak",
@@ -550,7 +550,7 @@
     "you": "Aizu, begira, zu zara! Atera zaitez kalera eta aurkitu hainbat espezie basati euren inguruan gehiago jakiteko.",
     "internet_error": "Interneterako sarrera behar dugu xehetasunen pantaila sortu ahal izateko. Ukitu berriro saiatzeko.",
     "no_photos_found": "Ez da aurkitu argazkirik espezie honetarako.",
-    "copied": "COPIED!"
+    "copied": "KOPIATUTA!"
   },
   "about": {
     "header": "Honi buruz",
@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist Kaliforniako Zientzien Akademiaren eta National Geographic Societyren ekimen bateratua da.\n\n",
     "original": "Seek, jatorrian, HHMI Tangled Bank Studiosen laguntzarekin sortua izan zen, eta gure planetaren laguntzarekin hobetua Netflix eta WWFn.\n\n",
     "designed_by": "iNaturalist taldeak diseinatua eta garatua:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, eta Yaron Budowski. Visipedia eta iNaturalist komunitateari esker bereziak.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, eta Yaron Budowski. Esker bereziak Visipediako Grant Van Horn-eri ordenagailu bidezko bisio-teknologiagatik eta iNaturalist komunitateari.",
     "version": "Bertsioa",
     "help": "Seek laguntza lortzeko, help+seek@inaturalist.org helbidera idatzi.",
-    "translations": "Eskertzen dugu crowdin.com komunitateak itzulpenekin egindako lana, bereziki: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, Yulia Lygina eta Galder Gonzalez.",
+    "translators": "Eskertuta gaude crowdin.com-eko komunitateari itzulpenean emandako laguntzagatik, bereziki hauei: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, eta Yulia Lygina.",
     "join_crowdin": "Seek itzulpen taldea batzeko, bisita ezazu https://crowdin.com/project/seek"
   },
   "posting": {
@@ -584,9 +584,9 @@
     "ok": "Ados",
     "look_up": "Behatu espezieak izenaren arabera",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
+    "major_taxa": "TAXON NAGUSIA",
+    "animals": "Animaliak",
+    "protozoans": "Protozooak",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
@@ -770,14 +770,14 @@
     "apr_2021_description": "Klima aldaketa, espezieen iraungitzea, eta plastikoen poluzioa dira gure planetak gaur egun aurrean dituen hiru erronkarik handienak, eta guztietan eragiten dugu gizakiok. Aurtengo Lurraren Egunaren leloa (apirilaren 22a) \"Lurra Berreskuratu\" izango da. Guztiok lan egin behar dugu elkarrekin etorkizun hobea eraikitzeko gure komunitateentzat eta basa-bizitzarentzat. Zure ekarpenarekin ere diferentzia handia egin dezakezu!",
     "apr_2021_action": "Gizakiok ekosisteman eragiteko dugun modurik handienetako bat zaborra da. Hilabete honetan natura esploratzen ari zarela, kontura zaitez inguruan ikusten duzun zaborrarekin eta pentsatu ea nondik etorri den. Egin ezazu etxean zerrenda bat zure familiak sortzen duen zaborra gutxitzeko ideiekin, eta zure familiarekin partekatu ideia horiek.",
     "apr_2021_badge_name": "Berreskurapenaren Txapa",
-    "apr_2021_photographer": "Photo by: Enric Sala / National Geographic",
+    "apr_2021_photographer": "Argazkiaren egilea: Enric Sala / National Geographic",
     "may_2021_mission_1": "Aurkitu familia hauetako 5 landare:\n\nAsteraceae (eguzki-loreak, txiribitak);\nFabaceae (lekaleak);\nLamiaceae (menda);\nAcanthaceae (Acanthus);\nMalvaceae (Hibiscusak);\nBignoniaceae (Bignonia);\nPassifloraceae (Pasioaren fruitua)\n",
     "may_2021_mission_2": "Aurkitu 2 artropodo (intsektuak, araknidoak, krustazeoak)",
     "may_2021_challenge_name": "Ekosistema Osasuntsuaren Erronka",
     "may_2021_description": "Ekosistema osasuntsuek onura asko ematen dizkigute, besteak beste, ura eta airea garbitzea, karbonoa biltegiratzea eta bioaniztasuna babesteko habitatak ematea. Espezie batzuk, hala nola likenak, goroldioa eta odonatuak (marisorginak), osasun ekologikoaren adierazle dira. Espezie hauek ikusita, seinale ona da zure ekosistema osasungarria izateko!",
     "may_2021_action": "Ekosistema osasuntsuek onura handiak dituzte gure osasunean eta ongizatean. Naturan emandako denborak lagundu dezake jendea estresetik suspertzen, aldartea hobetzen eta argiago pentsatzen. Aurkitu leku baketsu bat naturan eta ordubete eman zure inguruko ikuskizun, soinu, usain eta ehundurei begira. Idatzi ohar batzuk. Nola sentiarazten zaitu naturan emandako denbora honek?",
     "may_2021_badge_name": "EkoOsasunaren Txapa",
-    "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
+    "may_2021_photographer": "Argazkiaren egilea: Jim Richardson / National Geographic",
     "june_2021_mission_1": "Aurkitu klase hauetako landare bat:\nLycopodiopsida (goroldioak);\nPolypodiopsida (iratzeak)",
     "june_2021_mission_2": "Aurkitu klase honetako landare 1: Pinopsida (koniferoak, pinuak)",
     "june_2021_mission_3": "Aurkitu Angiosperame azpifilumeko landare 1 (landare loredun bat)",
@@ -789,7 +789,7 @@
     "june_2021_description": "Denok, gure adina edo esperientzia gorabehera, eragin positiboa izan dezakegu bioaniztasunaren kontserbazioan. Adibidez, gure patioa bezalako leku jakin bat zaindu dezakegu, eremu babestu bat, edo parke lokal bat. Natura babestuz gero, axola zaizkizun lekuetan dauden landare, onddo eta animaliei buruz ikasten da. Zure erronka da zure lorategian edo parke lokal batean begiratzea... eta ahalik eta bioaniztasunaren inbentarioa egitea.",
     "june_2021_action": "Hilabete honetan, zuk dokumentatutako espezie bakoitzaz zerbait jakitean zentratu, besteak beste, zeintzuk diren bertakoak eta zeintzuk inbaditzaileak. Gogoeta egin azken lau hilabeteotan egin dituzun behaketez — zer alde antzeman dituzu bioaniztasunean eta giza aztarnan aldi honetan eta aztertu dituzun leku ezberdinetan zehar? Identifikatu zerbait bertako leku bat egiten laguntzeko (hala nola zure patioa edo parkea) bertako espezieentzat osasuntsuagoa. Idatzi zure helburua eta atera argazki bat.",
     "june_2021_badge_name": "Kontserbazioaren Txapa",
-    "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
+    "june_2021_photographer": "Argazkiaren egilea: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
     "you_completed_sponsor_challenge": "AMAITU DUZU {{sponsorName}} {{date}} ERRONKA!"

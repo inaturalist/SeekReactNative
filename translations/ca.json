@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist és una iniciativa conjunta de la California Academy of Sciences i National Geographic Society.",
     "original": "Seek fou creada originalment amb el suport de \"Nuestro Planeta\" de Netflix i HHMI Tangled Bank Studios.",
     "designed_by": "Dissenyat i desenvolupat per l'equip d'iNaturalist:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, i Yaron Budowski. Un agraiment especial a Visipedia i la comunitat d'iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, i Yaron Budowski. Un agraiment especial a Grant Van Horn  de Visipedia  per ajudar amb la tecnologia de visión per ordinador, i a la comunitat d'iNaturalist.",
     "version": "Versió",
     "help": "Per ajuda amb Seek, pots contactar amb help+seek@inaturalist.org.",
-    "translations": "Agraïm l'ajut en la traducció oferta per la comunitat de crowdin.com, i especialment a: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch i Yulia Lygina.",
+    "translators": "Agraïm l'ajut en la traducció oferta per la comunitat de crowdin.com, i especialment a: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch i Yulia Lygina.",
     "join_crowdin": "Per unir-te a l'equip de traducció de Seek, si us plau, visiteu https://crowdin.com/project/seek"
   },
   "posting": {

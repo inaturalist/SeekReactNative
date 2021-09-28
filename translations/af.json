@@ -88,7 +88,7 @@
     "error_no_username": "Ontbrekende gebruikersnaam / e-pos",
     "error_no_password": "Ontbrekende wagwoord",
     "error_internet": "Geen internetverbinding",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "U versoek kon nie voltooi word nie."
   },
   "inat_signup": {
     "welcome": "Welkom by Seek!",
@@ -268,8 +268,8 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Spesies waargeneem",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
+    "species_nearby": "IN HIERDIE UITDAGING: SPESIES NABY",
+    "no_species_nearby": "Ons het geen spesies naby in hierdie uitgaging gevind wat u nog nie waargeneem het nie",
     "species_nearby_internet_error": "Ons benodig die Internet om nabygeleë spesies te genereer."
   },
   "results": {
@@ -558,10 +558,10 @@
     "joint_initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap.",
     "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Ontwerp & ontwikkel deur die iNaturalist-span:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Spesiale dank aan Visipedia en die iNaturalist-gemeenskap.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Spesiale dank aan Grand Van Horn van Visipedia vir hulp met die rekenaarsigtegnologie, en die iNaturalist-gemeenskap.",
     "version": "Weergawe",
     "help": "Stuur ’n e-pos aan help+seek@inaturalist.org vir hulp met Seek.",
-    "translations": "Ons is dankbaar vir die vertalingsbystand wat deur die crowdin.com-gemeenskap gebied is, in besonder: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkin, Marcel Hospers, Martin Reith, Sakatur, Wouter Kock en Yulia Lygina.",
+    "translators": "Ons is dankbaar vir die vertalingsbystand wat deur die crowdin.com-gemeenskap gebied is, in besonder: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch en Yulia Lygina.",
     "join_crowdin": "Gaan na https://crowdin.com/project/seek om by die Seek-vertaalspan aan te sluit"
   },
   "posting": {
@@ -841,17 +841,17 @@
     "x_seen_by_user": "{{speciesName}} gesien deur {{user}}"
   },
   "seek_2021_challenges": {
-    "august_2021_challenge_name": "Arthropod Predator Challenge",
+    "august_2021_challenge_name": "Geleedpotige Roofdier-uitdaging",
     "august_2021_mission_1": "Vind 5 spesies geleedpotiges uit die:\n\n-insek orde Mantodea (hottentotsgotte);\n-insek orde Odonata (Naaldekokers en juffers);\n-insek orde Megaloptera (Elsevlieë en Corydalidae);\n-insek orde Neuroptera (Mierleeus, Gaasvlieë en verwante);\n-insek familie Coccinellidae (Liewenheersbesies);\n-klas Chilopoda (Honderdpote);\n-klas Arachnida (Spinagtiges)",
     "august_2021_description": "Roofdiere is diere wat jag en ander diere opeet. Maar u hoef nie ver te reis om hulle te vind nie! Honderdpote, spinnekoppe en talle ander insekte en arachniede jag waarskynlik net buite u venster of selfs in u huis. Selfs die meeste liewenheersbesies is roofdiere!",
     "august_2021_action": "Dink aan die tipes roofdiere wat u gevend het. Welke soort prooi eet hulle? Hoe vind, vang en verorber hulle die prooi?",
-    "september_2021_challenge_name": "Seasonality Challenge",
+    "september_2021_challenge_name": "Seisoensgebonde-uitdaging",
     "september_2021_mission_1": "Vind 10 nuwe spesies",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
-    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
+    "september_2021_description": "Die seisoene verander! Elke jaar is daar twee dag-en-nag-ewenings: in Maart en September. Op die dag van die ewening is daar presies twaalf uur daglig en twaalf uur nag in die hele wêreld. As die daglengte verander reageer plante en diere daarop deur hul groei of gedrag te verander.",
+    "september_2021_action": "Was daar onlangs ekstreme weergebeurtenisse in u omgewing? Hoe het plante, diere en swamme daarop gereageer? Probeer die afgelope maand se weerdata vir u omgewing kry. Welke tipe veranderinge het voorgekom en hoe dink u beïnvloed dit die organismes wat daar leef?",
     "october_2021_challenge_name": "Aragnieduitdaging",
     "october_2021_mission_1": "Vind 4 aragniede",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
+    "october_2021_description": "Het u geweet dat nie alle aragnide spinnekoppe is nie? Buiten spinnekoppe, myte en vlooie, hooiwaens en selfs klein pseudoskerpioene wat oor die hoof gesien kan word, word op elke bewoonde kontinent gevind. Ander minder bekende aragnide soos skerpioene, sweepskerpioene, stertlose sweepskerpioene en baardskeerder-spinnekoppe is meestal te vinde in warmer en/droër dele van die wêreld.",
     "october_2021_action": "Dink aan die arachniede wat u gevind het. Hoe sou u hul habitats beskryf? Is enige van hulle in dieselfde habitat gevind?"
   }
 }

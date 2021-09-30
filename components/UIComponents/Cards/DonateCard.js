@@ -15,7 +15,7 @@ const DonateButton = ( ): React.Node => {
   const { name } = useRoute( );
   const { isLandscape } = React.useContext( AppOrientationContext );
 
-  const isHomeScreen = name === "HomeFooter";
+  const isHomeScreen = name === "Home";
 
   const navToDonation = ( ) => navigate( "Donation" );
 
@@ -23,7 +23,7 @@ const DonateButton = ( ): React.Node => {
     <View style={viewStyles.whiteContainer}>
       <Text style={[
         textStyles.header,
-        name === "SettingsFooter" && viewStyles.noHeaderPadding
+        name === "Settings" && viewStyles.noHeaderPadding
       ]}>
         {i18n.t( "settings.donate_header" ).toLocaleUpperCase( )}
       </Text>

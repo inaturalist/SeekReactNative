@@ -11,7 +11,7 @@ import GreenButton from "./Buttons/GreenButton";
 const EmptyState = (): React.Node => {
   const navigation = useNavigation();
   const { name } = useRoute();
-  const obsScreen = name === "ObservationsFooter";
+  const obsScreen = name === "Observations";
 
   return (
     <View style={viewStyles.container}>

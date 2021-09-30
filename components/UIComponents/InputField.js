@@ -35,6 +35,9 @@ const InputField = ( {
       // should read the text value (editable content) instead
       autoCapitalize="none"
       autoCorrect={false}
+      // spellCheck off is required for iOS 15
+      // https://reactnative.dev/blog/2021/09/01/preparing-your-app-for-iOS-15-and-android-12
+      spellCheck={false}
       autoFocus={type !== "password"}
       keyboardType={keyboardType}
       onChangeText={handleTextChange}

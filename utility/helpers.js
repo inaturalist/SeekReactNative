@@ -12,6 +12,7 @@ import config from "../config";
 import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
 import { serverBackOnlineTime } from "./dateHelpers";
+import modelFiles from "../constants/modelFileNames";
 
 const checkForInternet = (): Promise<?string> => (
   new Promise( ( resolve ) => {
@@ -43,13 +44,15 @@ const addCameraFilesAndroid = () => {
   };
 
   RNFS.readDirAssets( "camera" ).then( ( results ) => {
-    const model = "optimized_model.tflite";
-    const taxonomy = "taxonomy.csv";
+    const model = modelFiles.ANDROIDMODEL;
+    const taxonomy = modelFiles.ANDROIDTAXONOMY;
     const sampleModel = "small_inception_tf1.tflite";
     const sampleTaxonomy = "small_export_tax.csv";
 
     const hasModel = results.find( r => r.name === model );
     const hasSampleModel = results.find( r => r.name === sampleModel );
+
+    console.log( results, "results", model, taxonomy, hasModel );
 
     // Android writes over existing files
     if ( hasModel !== undefined ) {
@@ -73,8 +76,8 @@ const addCameraFilesiOS = () => {
 
   // external devs should swap sample model and taxonomy file
   RNFS.readDir( RNFS.MainBundlePath ).then( ( results ) => {
-    const model = "optimized_model.mlmodelc";
-    const taxonomy = "taxonomy.json";
+    const model = modelFiles.IOSMODEL;
+    const taxonomy = modelFiles.IOSTAXONOMY;
     // const sampleModel = "small_inception_tf1.mlmodelc";
     // const sampleTaxonomy = "small_export_tax.json";
 

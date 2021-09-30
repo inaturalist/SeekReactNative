@@ -46,7 +46,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
 
   const navToNextScreen = ( ) => {
     setId( item.id );
-    if ( name === "SpeciesFooter" ) {
+    if ( name === "Species" ) {
       navigation.push( "Drawer", { screen: "Species" } );
     } else {
       // Match is for common ancestor match screen with species nearby card
@@ -64,7 +64,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
         style={[
           textStyles.speciesNameText,
           !commonName && textStyles.scientificName,
-          name === "ChallengeDetailsFooter" && textStyles.challengeDetailsText
+          name === "ChallengeDetails" && textStyles.challengeDetailsText
         ]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

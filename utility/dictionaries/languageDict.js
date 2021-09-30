@@ -16,6 +16,7 @@ const languages = {
   fi: "Suomi",
   fr: "Français",
   he: "עברית",
+  id: "Bahasa Indonesia",
   it: "Italiano",
   ja: "日本語",
   nl: "Nederlands",

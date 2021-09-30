@@ -72,14 +72,26 @@ const SpeciesNearby = ( ): Node => {
     }
    }, [error] );
 
+  const setAndroidAccuracyLocationError = useCallback( ( ) => {
+    if ( error !== "species_nearby_requires_android_accuracy" ) {
+      dispatch( { type: "ERROR", error: "species_nearby_requires_android_accuracy" } );
+    }
+  }, [error] );
+
   const openLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } ), [] );
   const closeLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } ), [] );
 
   const getGeolocation = useCallback( ( ) => {
     fetchTruncatedUserLocation( ).then( ( { latitude, longitude } ) => {
       updateLatLng( latitude, longitude );
-    } ).catch( ( ) => setLocationError( ) );
-  }, [setLocationError, updateLatLng] );
+    } ).catch( ( code ) => {
+      if ( code === 5 ) {
+        setAndroidAccuracyLocationError( );
+      } else {
+        setLocationError( );
+      }
+    } );
+  }, [setLocationError, updateLatLng, setAndroidAccuracyLocationError] );
 
   const checkLocationPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" && granted === false ) {

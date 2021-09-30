@@ -1,10 +1,8 @@
 // @flow
 import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import type { DrawerScreenProps } from "@react-navigation/drawer";
 
-import Footer from "../UIComponents/Footer";
 import SideMenu from "../UIComponents/SideMenu";
 import Achievements from "../Achievements/AchievementsScreen";
 import Challenges from "../Challenges/ChallengeScreen/ChallengeScreen";
@@ -32,81 +30,11 @@ type DrawerParamList = {
 };
 
 type Props = DrawerScreenProps<DrawerParamList>;
-
-const Tab = createBottomTabNavigator( );
-
-const tabBar = props => <Footer {...props} />;
-
-const noHeader = { headerShown: false };
-
-const AchievementsFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="AchievementsFooter" component={Achievements} />
-  </Tab.Navigator>
-);
-
-const ChallengesFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="ChallengesFooter" component={Challenges} />
-  </Tab.Navigator>
-);
-
-const ChallengeDetailsFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="ChallengeDetailsFooter" component={ChallengeDetails} />
-  </Tab.Navigator>
-);
-
-const ObservationsFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="ObservationsFooter" component={Observations} />
-  </Tab.Navigator>
-);
-
-const iNatStatsFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="iNatStatsFooter" component={iNatStats} />
-  </Tab.Navigator>
-);
-
-const AboutFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="AboutFooter" component={About} />
-  </Tab.Navigator>
-);
-
-const SettingsFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="SettingsFooter" component={Settings} />
-  </Tab.Navigator>
-);
-
-const DebugEmailScreenFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="DebugEmailScreenFooter" component={DebugEmailScreen} />
-  </Tab.Navigator>
-);
-
-const HomeFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="HomeFooter" component={Home} />
-  </Tab.Navigator>
-);
-
-const SpeciesFooter = ( ) => (
-  <Tab.Navigator tabBar={tabBar} screenOptions={noHeader}>
-    <Tab.Screen name="SpeciesFooter" component={Species} />
-  </Tab.Navigator>
-);
-
 const Drawer = createDrawerNavigator( );
-
 const drawerContent = props => <SideMenu {...props} />;
 
-const screenOptions = {
-  drawerType: "front",
-  headerShown: false
-};
+const config = { headerShown: false };
+const screenOptions = { ...config, drawerType: "front" };
 
 const SideMenuDrawer = ( ): Props => (
   <Drawer.Navigator
@@ -114,19 +42,19 @@ const SideMenuDrawer = ( ): Props => (
     drawerContent={drawerContent}
     screenOptions={screenOptions}
   >
-    <Drawer.Screen name="Home" component={HomeFooter} />
-    <Drawer.Screen name="Achievements" component={AchievementsFooter} />
-    <Drawer.Screen name="Challenges" component={ChallengesFooter} />
-    <Drawer.Screen name="ChallengeDetails" component={ChallengeDetailsFooter} />
-    <Drawer.Screen name="Observations" component={ObservationsFooter} />
-    <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
-    <Drawer.Screen name="About" component={AboutFooter} />
-    <Drawer.Screen name="Settings" component={SettingsFooter} />
+    <Drawer.Screen name="Home" component={Home} />
+    <Drawer.Screen name="Achievements" component={Achievements} />
+    <Drawer.Screen name="Challenges" component={Challenges} />
+    <Drawer.Screen name="ChallengeDetails" component={ChallengeDetails} />
+    <Drawer.Screen name="Observations" component={Observations} />
+    <Drawer.Screen name="iNatStats" component={iNatStats} />
+    <Drawer.Screen name="About" component={About} />
+    <Drawer.Screen name="Settings" component={Settings} />
     {/* MatchScreen needs to be nested inside Drawer because it has
     a footer with navigation.openDrawer( ) that won't work otherwise */}
     <Drawer.Screen name="Match" component={Match} />
-    <Drawer.Screen name="Species" component={SpeciesFooter} />
-    <Drawer.Screen name="DebugEmailScreen" component={DebugEmailScreenFooter} />
+    <Drawer.Screen name="Species" component={Species} />
+    <Drawer.Screen name="DebugEmailScreen" component={DebugEmailScreen} />
   </Drawer.Navigator>
 );
 

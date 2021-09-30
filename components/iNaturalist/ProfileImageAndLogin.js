@@ -17,7 +17,7 @@ type Props = {
 const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
   const { userProfile } = React.useContext( UserContext );
   const { name } = useRoute( );
-  const home = "HomeFooter";
+  const home = "Home";
   const isHomeScreen = name === home;
 
   const username = "@" + userProfile.login;

@@ -10,13 +10,15 @@ import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
 import BottomSpacer from "../BottomSpacer";
 import Padding from "../Padding";
+import Footer from "../Footer";
 
 type Props = {
-  +children: any,
-  showUploadCard?: boolean
+  children: any,
+  showUploadCard?: boolean,
+  footer?: boolean
 };
 
-const ScrollNoHeader = ( { children, showUploadCard }: Props ): Node => {
+const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ): Node => {
   const navigation = useNavigation( );
   const { name } = useRoute( );
   const scrollView = useRef<any>( null );
@@ -25,9 +27,11 @@ const ScrollNoHeader = ( { children, showUploadCard }: Props ): Node => {
 
   let backgroundColor;
 
-  if ( name === "HomeFooter" ) {
+  if ( name === "Home" ) {
     backgroundColor = showUploadCard ? styles.darkGreen : styles.green;
-  } else if ( name === "ChallengeDetailsFooter" ) {
+  } else if ( name === "Species" ) {
+    backgroundColor = styles.green;
+  } else if ( name === "ChallengeDetails" ) {
     backgroundColor = styles.black;
   } else {
     backgroundColor = styles.containerWhite;
@@ -41,6 +45,7 @@ const ScrollNoHeader = ( { children, showUploadCard }: Props ): Node => {
         <Padding />
         {Platform.OS === "ios" && <BottomSpacer />}
       </ScrollView>
+      {footer && <Footer />}
     </SafeAreaView>
   );
 };

@@ -139,6 +139,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     ndkVersion rootProject.ext.ndkVersion
+
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     compileOptions {
@@ -150,8 +151,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 220
-        versionName "2.12.15"
+        versionCode 225
+        versionName "2.12.16"
         // for creating ic_seek_adaptiveappicon.xml
         vectorDrawables.useSupportLibrary = true
     }
@@ -186,12 +187,6 @@ android {
             }
         }
     }
-    // packagingOptions {
-    //     pickFirst "lib/armeabi-v7a/libc++_shared.so"
-    //     pickFirst "lib/arm64-v8a/libc++_shared.so"
-    //     pickFirst "lib/x86/libc++_shared.so"
-    //     pickFirst "lib/x86_64/libc++_shared.so"
-    // }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->

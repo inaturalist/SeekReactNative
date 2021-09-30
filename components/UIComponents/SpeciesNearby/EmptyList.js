@@ -15,7 +15,7 @@ const EmptyList = ( ): Node => {
 
   if ( name === "Species" ) {
     text = i18n.t( "species_detail.similar_no_species" );
-  } else if ( name === "HomeFooter" ) {
+  } else if ( name === "Home" ) {
     text = i18n.t( "species_nearby.no_species" );
   } else {
     text = i18n.t( "results.nothing_nearby" );

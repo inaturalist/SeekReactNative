@@ -24,6 +24,7 @@ import IconicTaxaName from "./IconicTaxaName";
 import { useCommonName, useInternetStatus } from "../../utility/customHooks";
 import { AppOrientationContext, SpeciesDetailContext } from "../UserContext";
 import { useTaxonDetails } from "./hooks/speciesDetailHooks";
+import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
@@ -176,9 +177,9 @@ const SpeciesDetail = ( ): Node => {
   );
 
   return (
-    <SafeAreaView style={viewStyles.greenBanner} edges={["top"]}>
+    <ScrollNoHeader>
       {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
-    </SafeAreaView>
+    </ScrollNoHeader>
   );
 };
 

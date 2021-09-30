@@ -29,7 +29,7 @@ const AboutScreen = (): Node => {
   const disabled = !login;
 
   return (
-    <ScrollWithHeader header="about.header">
+    <ScrollWithHeader header="about.header" footer>
       <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <Image source={logos.iNat} />
         <View style={viewStyles.marginSmall} />

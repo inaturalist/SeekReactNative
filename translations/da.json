@@ -7,6 +7,7 @@
     "input_location_above_map": "Ingen placering fundet; indtast et stednavn ovenfor for at indlæse kortet og søge efter arter i nærheden",
     "error_alert_location_services": "For at fortsætte skal du aktivere placeringstjenester i dine enhedsindstillinger",
     "species_nearby_requires_location": "Arter i nærheden kræver din placering. Aktivér placering i indstillinger",
+    "species_nearby_requires_android_accuracy": "Arter i nærheden kræver din placering. Kontroller at placeringstjenester er aktiveret.",
     "choose_location_on_map": "VÆLG PLACERING PÅ KORT"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Tjek om du bor nær en by, som er en del af Bynatur-udfordringen, og hold i så fald øje med natur- og identifikationsaktiviteter for byens dyre- og planteliv!",
     "action_may": "Tilbyd din arbejdskraft til lokale grupper, som hjælper med at vedligeholde dine lokale grønne områder. \n\nDel dine fund med din familie, venner eller skole for at åbne deres øje for dyre- og plantelivet omkring dem. \n\nOrganiser en affaldsindsamling i et lokalt grønt område.",
     "action_june": "Brug ressourcerne på ourplanet.com til at starte et lokale biodiversitetsprojekt eller tiltag i dit område for at give det lokale dyre- og planteliv en hjælpende hånd.",
-    "action_november": "Indsaml frø fra lokale træer, dyrk dem i potter og plant derefter de unge træer.\n\nFortæl venner eller familiemedlemmer om alle de ting, som træer gør for os.",
+    "action_november_2019": "Indsaml frø fra lokale træer, dyrk dem i potter og udplant derefter de unge træer.\n\nFortæl venner eller familiemedlemmer om alle de ting, som træer gør for os.",
     "action_august": "Plant vilde blomster så der er føde til bestøverne.\n\nLav et insekthotel for at give insekterne i din have eller skolegård et hjem. Saml for eksempel et bundt af korte rør, hvor der i hvert rør er småkviste eller potteskår.",
     "action_september": "Lav en optegnelse over hvor meget vand du bruger hver dag. Overvej hvordan du kan nedbringe forbruget for at mindske belastningen af ferskvandshabitater.\n\nTjek de lokale ferskvandshabitater for affald og forurening. Kunne du eventuelt lave en kampagne for at beskytte dette værdifulde økosystem?",
     "action_october": "Fugle har brug for brændstof til deres lange rejser, når de tager på træk. I vintermånederne kan du lægge nødder, frø eller fedtkugler ud i din have for at give dem lidt hjælp.",

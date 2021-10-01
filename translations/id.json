@@ -7,6 +7,7 @@
     "input_location_above_map": "Lokasi tidak ditemukan; masukkan suatu nama lokasi di atas untuk memuat peta dan mencari spesies di dekatmu",
     "error_alert_location_services": "Untuk melanjutkan, harap menyalakan layanan lokasi di pengaturan perangkatmu",
     "species_nearby_requires_location": "Spesies di sekitar memerlukan lokasimu. Harap menyalakan lokasi di pengaturan",
+    "species_nearby_requires_android_accuracy": "Spesies di dekatmu memerlukan lokasimu. Silakan periksa apakah layanan lokasimu sudah diaktifkan.",
     "choose_location_on_map": "PILIH LOKASI DI PETA"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Check if you live close to a city that's part of the City Nature Challenge, and if so look out for nature recording and identification activities for urban wildlife!",
     "action_may": "Volunteer your time with local groups that help maintain your local greenspaces.\n\nShare your findings with your family, friends or school community to open their eyes to the wildlife around them.\n\nOrganise a litter pick in a local greenspace.",
     "action_june": "Use the resources on ourplanet.com to start a local biodiversity action project in your area to give your local wildlife a helping hand.",
-    "action_november": "Kumpulkan biji dari pohon-pohon lokal, kecambahkan di dalam pot dan tanam pohon yang masih muda.\n\nBeritahu teman atau anggota keluarga tentang semua hal yang pohon lakukan untuk kita.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plant wildflowers to provide food for pollinators.\n\nMake a ‘bug hotel’ to provide homes for insects in your garden or schoolground by bundling short lengths of pipe together and stuffing each with small twigs and pieces of broken tile.",
     "action_september": "Simpan catatan berapa banyak air yang kamu pakai dalam sehari. Pikirkan bagaimana kamu dapat mengurangi ini untuk membantu mengurangi tekanan pada habitat air tawar.\n\nPeriksa habitat air tawar lokal apakah ada sampah atau polusi lainnya. Dapatkah kamu memulai kampanye lokal untuk melindungi ekosistem yang berharga ini?",
     "action_october": "Burung memerlukan bahan bakar untuk perjalanan jauh yang mereka tempuh untuk bermigrasi. Di bulan-bulan musim dingin, biarkan kacang, biji, dan bola-bola lemak di tamanmu untuk memberikan energi kepada mereka.\n\nTanam pohon dan semak belukar yang menghasilkan beri dan tempat bertengger untuk burung yang berkunjung.",

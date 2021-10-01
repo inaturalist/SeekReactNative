@@ -7,6 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Tarkista, asuvatko lähellä kaupunkia, joka on osa Kaupunkiluonto-haastetta, ja jos on, niin kiinnitä huomiota villin kaupunkiluonnon tallentamis- ja tunnistamistoimiin!",
     "action_may": "Tarjoudu vapaaehtoiseksi paikallisiin ryhmiin, jotka auttavat ylläpitämään paikallisia viheralueita.\n\nJaa havaintojasi perheesi, ystäviesi tai kouluyhteisösi kanssa avataksesi heidän silmänsä ympäröivälle luonnolle.\n\nJärjestä roskienkeräys paikallisella viheralueella.",
     "action_june": "Käytä ourplanet.com-sivustomme resursseja aloittaaksesi paikallisen biologista monimuotoisuutta koskevan toimintaprojektin alueellasi antaaksesi paikalliselle luonnolle auttavan käden.",
-    "action_november": "Kerää siemeniä paikallisista puista, idätä ne ruukuissa ja istuta sitten nuoret puut.\n\nKerro ystäville tai perheenjäsenille kaikesta siitä, mitä puut tekevät meille.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Istuta villikukkia tarjotaksesi ruokaa pölyttäjille.\n\nTee \"ötökkähotelli\" tarjotaksesi koteja hyönteisille puutarhassasi tai koulun pihalla niputtamalla putkenpätkiä yhteen ja täyttämällä jokainen pienillä oksilla ja rikkinäisten laattojen palasilla.",
     "action_september": "Pidä kirjaa siitä, kuinka paljon vettä käytät päivässä. Mieti, kuinka voisit vähentää tätä vähentääksesi makean veden luontotyyppien rasitusta.\n\nTarkista paikalliset makean veden elinympäristöt roskien tai muun saastumisen varalta. Voisitko käynnistää paikallisen kampanjan tämän arvokkaan ekosysteemin suojelemiseksi?",
     "action_october": "Linnut tarvitsevat polttoainetta pitkille muuttomatkoille. Jätä talvikuukausina pähkinöitä, siemeniä ja talipalloja puutarhaasi antaaksesi niille vauhtia.\n\nIstuta puita ja pensaita, jotka tarjoavat marjoja ja lepopaikkoja vieraileville linnuille.",

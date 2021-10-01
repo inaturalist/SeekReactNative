@@ -7,6 +7,7 @@
     "input_location_above_map": "Nie znaleziono lokalizacji; wprowadź nazwę lokalizacji powyżej, aby załadować mapę i szukać gatunków w pobliżu",
     "error_alert_location_services": "Aby kontynuować, włącz usługi lokalizacji w ustawieniach urządzenia",
     "species_nearby_requires_location": "Funkcja gatunki w pobliżu wymaga Twojej lokalizacji. Proszę włączyć lokalizację w ustawieniach",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "WYBIERZ LOKACJĘ NA MAPIE"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Sprawdź, czy mieszkasz w pobliżu miasta, które jest częścią Wyzwania Miejska Przyroda, i jeśli tak, zaangażuj się w udokumentowanie i identyfikację natury środowisku miejskim.",
     "action_may": "Poświęć swój czas lokalnym grupom, które pomagają w utrzymaniu lokalnych terenów zielonych.\n\nPodziel się swoimi odkryciami ze swoją rodziną, przyjaciółmi lub szkolną społecznością, aby zaczęli zwracać uwagę na przyrodę wokół siebie.\n\nZorganizuj zbiórkę śmieci w lokalnej przestrzeni zielonej.",
     "action_june": "Korzystaj z zasobów na ourplanet.com, aby rozpocząć lokalny projekt na rzecz bioróżnorodności w swojej okolicy, aby podać lokalnej przyrodzie pomocną dłoń.",
-    "action_november": "Zbieraj nasiona z pobliskich drzew, kiełkując je w doniczkach, a następnie sadź młode drzewa.\n\nPowiedz znajomym lub członkom rodziny o wszystkich zaletach drzew.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Prowadź dzikie kwiaty w celu zapewnienia żywności dla zapylaczy.\n\nZrób 'dom dla pszczół', aby zapewnić domy dla owadów w Twoim ogrodzie lub szkole poprzez łączenie krótkich rur i wypychanie ich małymi gałązkami.",
     "action_september": "Przeanalizuj jak dużo wody zużywasz w ciągu dnia. Pomyśl o tym, jak możesz zmniejszyć tę ilość, aby zredukować obciążenie słodkowodnych siedlisk.\n\nSprawdź lokalne środowiska słodkowodne w poszukiwaniu odpadów lub innych zanieczyszczeń. Czy masz możliwość przeprowadzić lokalną kampanię na rzecz ochrony tego cennego ekosystemu?",
     "action_october": "Ptaki potrzebują paliwa na długie podróże migracyjne. W miesiącach zimowych należy zostawić im orzechy, nasiona i piłki tłuszczowe w ogrodzie i nadać im dawkę uzupełniającą.\n\nPosadź drzewa i krzewy owocowe dla ptaków",

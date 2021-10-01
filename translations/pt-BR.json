@@ -7,6 +7,7 @@
     "input_location_above_map": "Nenhum local encontrado; insira um nome de local acima para carregar o mapa e procurar por espécies nas proximidades",
     "error_alert_location_services": "Para continuar, ative os serviços de localização nas configurações do dispositivo",
     "species_nearby_requires_location": "Para encontrar espécies próximas, é necessário ativar a sua localização. Por favor, ative a localização nas configurações",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "ESCOLHA A LOCALIZAÇÃO NO MAPA"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Verifique se você mora perto de uma cidade que faça parte do Desafio Cidade Natureza e, em caso afirmativo, procure atividades de gravação e identificação de vida silvestre em ambiente urbano!",
     "action_may": "Seja voluntário em grupos locais que ajudam a manter as áreas verdes da cidade.",
     "action_june": "Utilize os recursos de ourplanet.com para iniciar um projeto de ação da biodiversidade da sua região, ajudando a vida silvestre local.",
-    "action_november": "Colha sementes de árvores locais, germine-as em vasos e, depois, plante as novas árvores. Conte aos amigos e parentes tudo o que as árvores fazem por nós.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plantar flores silvestres para fornecer comida aos polinizadores.\n\nFaça um \"hotel de insetos\" para fornecer casas para insetos no seu jardim ou na sua escola, agrupando pequenos comprimentos de tubos e recheando cada um com galhos pequenos e pedaços de bloco quebrado.",
     "action_september": "Faça um registro de quanto de água você usa durante o dia. Pense como você poderia reduzir essa quantidade para ajudar a minimizar a sobrecarga dos habitats de água doce.\n\nVerifique os cursos de água para saber se há poluição ou outros tipos de contaminação. Poderia iniciar uma campanha local para proteger este valioso ecossistema?",
     "action_october": "As aves precisam de alimento para as longas viagens que percorrem ao migrar. Nos meses de inverno, deixe nozes, sementes e bolas de gordura no jardim para ajudá-las.\n\nMuitas árvores e arbustos proveem frutos e refúgio para as aves que nos visitam.",

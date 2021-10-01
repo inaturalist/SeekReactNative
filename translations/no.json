@@ -7,6 +7,7 @@
     "input_location_above_map": "Ingen posisjon funnet; oppgi et stedsnavn over for å laste opp kartet og søke etter arter i nærheten",
     "error_alert_location_services": "For å fortsette, slå på stedstilgang i enhetensinnstillingene",
     "species_nearby_requires_location": "Arter i nærheten trenger din plassering. Vennligst aktiver stedstilgang i innstillinger",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "VELG STED PÅ KARTET"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Sjekk om du bor i nærheten av en by som er del av City Nature Challenge, og hvis det er tilfellet, se etter aktiviteter rundt registrering av natur og identifisering av byrelatert natur!",
     "action_may": "Bli frivillig i en lokal gruppe som hjelper med vedlikehold av lokale grønnområder.\n\nDel dine funn med familie, venner eller skole for å åpne øyne deres for naturen rundt seg.\n\nOrganiser en ryddeaksjon i et lokalt grøntområde.",
     "action_june": "Bruk ressursene på ourplanet.com for å starte et lokalt prosjekt for biodiversitetsaksjon i ditt område for å hjelpe naturen der du er.",
-    "action_november": "Fortell venner eller familiemedlemmer om alt trær gjør for oss.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plant villblomster for å ordne mat for pollinatorer.\n\nLag et \"insekthotell\" for å gi et hjem til insektet i din hage eller skoleplass, ved å knytte sammen korte rør og stappe de fulle av små kvister og biter av knuste fliser.",
     "action_september": "Register hvor mye vann du bruker på en dag. Tenk på hvordan du tror at du kan minske dette for å mindre presset på ferskvannshabitater.\n\nSjekk lokale ferskvannshabitater for avfall og forurensning. Kan du kjøre en lokal kampanje for å bevare dette verdifulle økosystemet?",
     "action_october": "Fugler trenger drivstoff til de lange reisene de foretar seg under migrasjonen. Legg ut nøtter, frø og fugleboller i hagen din om vinteren for å hjelpe de på vei.\n\nPlant trær og busker som gir bær og gjemmesteder for fugler som kommer på besøk.",

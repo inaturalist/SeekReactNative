@@ -7,6 +7,7 @@
     "input_location_above_map": "Nessuna posizione trovata; inserisci sopra il nome di un luogo per caricare la mappa e cercare le specie nelle vicinanze",
     "error_alert_location_services": "Per continuare, attiva i servizi di posizione nelle impostazioni del tuo dispositivo",
     "species_nearby_requires_location": "Le specie nelle vicinanze richiedono la tua posizione. Sei pregato di abilitare la posizione nelle impostazioni",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "SCEGLI LA POSIZIONE SULLA MAPPA"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Controlla se vivi vicino ad una città che fa parte della City Nature Challenge, e se così controlla le osservazioni ed identificazioni delle specie selvatiche urbane!",
     "action_may": "Fai volontariato con i gruppi locali che aiutano a mantenere i tuoi spazi verdi vicino a te.\n\nCondividi i tuoi risultati con la tua famiglia, gli amici o la comunità scolastica per aprire i loro occhi alla fauna che gli sta intorno.\n\nOrganizza una raccolta rifiuti in uno spazio verde vicino a te.",
     "action_june": "Usa le risorse su ourplanet.com per avviare un progetto d'azione locale sulla biodiversità nella tua zona per dare una mano alla natura vicino a te.",
-    "action_november": "Raccogli i semi delle piante vicino a te, falli germogliare in vaso, e poi pianta i giovani alberi.\n\nDì agli amici o ai familiari tutto ciò che gli alberi fanno per noi.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Pianta i fiori selvatici per fornire cibo per gli impollinatori.\n\nCrea un 'hotel per insetti' per fornire casa agli insetti del tuo giardino o della tua scuola, unendo insieme piccoli pezzi di tubo e riempiendoli con piccoli ramoscelli e pezzi di piastrelle rotte.",
     "action_september": "Tieni traccia di quanta acqua usi durante tutto il giorno. Pensa come puoi ridurre gli sprechi per diminuire l'impatto sugli habitat di acqua dolce.\n\nControlla la spazzatura o gli altri inquinamenti degli habitat di acqua dolce vicino a te. Puoi organizzare una campagna per proteggere questo prezioso ecosistema?",
     "action_october": "Gli uccelli hanno bisogno di carburante per i lunghi viaggi che percorrono per migrare. Nei mesi invernali lascia noci, semi e palle di grasso nel tuo giardino per dargli un aiuto.\n\nPianta alberi ed arbusti che forniscano bacche e radici per gli uccelli di passaggio.",

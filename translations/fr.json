@@ -7,6 +7,7 @@
     "input_location_above_map": "Aucune localisation trouvé ; saisissez un nom de lieu ci-dessus pour charger la carte et rechercher des espèces à proximité",
     "error_alert_location_services": "Pour continuer, activez les services de localisation dans les paramètres de votre appareil",
     "species_nearby_requires_location": "Les espèces à proximité nécessitent votre emplacement. Veuillez activer la localisation dans les paramètres",
+    "species_nearby_requires_android_accuracy": "Pour la fonction « Espèces à proximité », votre position doit être connue. Veuillez vérifier que les services de géolocalisation sont activés.",
     "choose_location_on_map": "CHOISIR LA LOCALISATION SUR LA CARTE"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Voyez si vous habitez près d'une ville engagée dans le défi City Nature et, si c’est le cas, renseignez-vous sur les initiatives de suivi et d’identification de la faune urbaine !",
     "action_may": "Devenez bénévole auprès de groupes locaux qui œuvrent pour la préservation de vos espaces verts. \n\nPartagez vos découvertes avec votre famille, vos amis ou votre communauté scolaire afin qu'ils ouvrent les yeux sur la faune qui les entoure. \n\nOrganisez un ramassage de déchets dans les espaces verts locaux.",
     "action_june": "Utilisez les ressources de ourplanet.com pour lancer un projet d’action local de biodiversité dans votre région et donnez ainsi un coup de main à la faune qui vous entoure.",
-    "action_november": "Recueillez des graines des arbres locaux, faites-les germer dans des pots, puis plantez les jeunes arbres. Dites à vos amis et à vos parents tout ce que les arbres nous apportent.",
+    "action_november_2019": "Recueillez les graines des arbres indigènes de votre région, faites-les germer dans des pots, puis plantez les jeunes arbres. Dites à vos amis et aux membres de votre famille tout ce que les arbres font pour nous.",
     "action_august": "Plantez des fleurs sauvages pour fournir de la nourriture aux pollinisateurs. \n\nConstruisez un « hôtel à insectes » dans votre jardin ou dans la cour de l'école en regroupant des morceaux de tuyaux et en les rembourrant de brindilles et de morceaux de tuile pour offrir un abri aux insectes.",
     "action_september": "Tenez un registre de la quantité d'eau que vous utilisez par jour. Pensez à la manière dont vous pourriez réduire votre consommation afin de limiter le dessèchement des habitats d'eau douce. \n\nContrôlez la présence de détritus et autre pollution dans les habitats locaux d'eau douce. Vous pourriez peut-être mener une campagne pour protéger ce précieux écosystème ?",
     "action_october": "Pendant leurs longues périodes de migration, les oiseaux ont besoin de nutriments. Durant la période hivernale, déposez dans votre jardin des noix, des graines ou des boules de graisse afin qu’ils puissent faire le plein d’énergie. \n\nPlantez de arbres et des arbustes qui fourniront des baies et des perchoirs durant leur passage.",

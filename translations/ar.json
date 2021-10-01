@@ -7,6 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "تحقق مما إذا كتت تعيش بالقرب من مدينة هي جزء من تحدي الطبيعة، إذا كان كذلك فابحث عن أنشطة تسجبل الطبيعة وتحديد هوية الأحياء البرية الحضرية!",
     "action_may": "تطوّع واستثمر وقتك مع المجموعات المحلية التي تساعد في الحفاظ على المساحات الخضراء المحلية.\n\nشارك نتائجك مع عائلتك، أصدقائك أو المجتمع المدرسي لفتح أعينهم على الحياة البرية حولهم.\n\nقم بتنظيم القمامات في مساحة محلية خضراء.",
     "action_june": "استخدم المصادر الموجودة على ourplanet.com لبدء مشروع عمل محلي للتنوع البيولوجي في منطقتك لتمد يد المساعدة للحياة البرية المحلية.",
-    "action_november": "اجمع البذور من الأشجار المحلية وازرعها في بقعة أرضية ثم ازرع الأشجار الصغيرة.\n\nأخبر الأصدقاء أو أفراد العائلة عن كل الأشياء التي تقوم بها الأشجار من أجلنا.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "ازرع الزهور البرية لتوفر الطعام للمُلقّحات.\n\nأنشئ \"مأوى صغير الحجم\" لتوفير منازل للحشرات في حديقتك أو أرض مدرستك عن طريق تجميع أطوال قصيرة من الأنابيب معًا وحشو كل منها بأغصان صغيرة وقطع من السيراميك أو البلاط المكسور.",
     "action_september": "احتفظ بتسجيل مقدار الماء الذي تستخدمه طوال اليوم. فكرّ في كيف يمكنك تقليل ذلك للمساعدة في تقليل الضغط على موائل المياه العذبة.\n\nتحقق من موائل المياه العذبة المحلية أو غيرها من التلوث. هل يمكنك إدارة حملة محلية لحماية هذا النظام الإيكولوجي الثمين؟",
     "action_october": "تحتاج الطيور إلى الوقود للرحلات الطويلة التي تستغرقها في الهجرة. في شهور الشتاء أترك الجوز، البذور أو كرات الدهون في حديقتك لإعطائها دفعة كبيرة.\n\nازرع الأشجار والشجيرات التي توفر التوت والمأوى من أجل زيارة الطيور.",

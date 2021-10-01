@@ -7,6 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Verifique se vive perto de uma cidade que faça parte do Desafio Cidade Natureza e, em caso afirmativo, procure atividades de registo e identificação da natureza para a vida selvagem urbana!",
     "action_may": "Volunteer your time with local groups that help maintain your local greenspaces.\n\nShare your findings with your family, friends or school community to open their eyes to the wildlife around them.\n\nOrganise a litter pick in a local greenspace.",
     "action_june": "Utilize os recursos de ourplanet.com para iniciar um projeto de ação da biodiversidade local na sua zona, dando assim uma ajuda à sua vida selvagem local.",
-    "action_november": "Collect seeds from local trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plant wildflowers to provide food for pollinators.\n\nMake a ‘bug hotel’ to provide homes for insects in your garden or schoolground by bundling short lengths of pipe together and stuffing each with small twigs and pieces of broken tile.",
     "action_september": "Keep a record of how much water you use throughout a day. Think how you could cut this down to help reduce the strain on freshwater habitats.\n\nCheck local freshwater habitats for litter or other pollution. Could you run a local campaign to protect this precious ecosystem?",
     "action_october": "Birds need fuel for the long journeys they take to migrate. In winter months leave nuts, seeds and fat balls in your garden to give them a boost.\n\nPlant trees and shrubs that provide berries and roosts for visiting birds.",

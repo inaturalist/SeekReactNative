@@ -7,7 +7,7 @@
     "input_location_above_map": "Geen locatie gevonden; voer een gebiedsnaam in om de kaart te laden en te zoeken naar soorten in de buurt",
     "error_alert_location_services": "Schakel locatiediensten in de instellingen van je apparaat in om door te gaan",
     "species_nearby_requires_location": "Soorten in de buurt vereist je locatie. Activeer de locatiediensten in je instellingen",
-    "species_nearby_requires_android_accuracy": "Soorten in de buurt vereist jouw locatie. Controleer of locatieservices zijn ingeschakeld.",
+    "species_nearby_requires_android_accuracy": "Soorten in de buurt heeft jouw locatie nodig. Controleer of locatieservices zijn ingeschakeld.",
     "choose_location_on_map": "KIES LOCATIE OP MAP"
   },
   "get_started": {

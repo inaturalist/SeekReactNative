@@ -119,7 +119,13 @@ const SocialScreen = ( ): Node => {
     if ( noWatermark ) {
       return;
     }
-    const preferredCommonName = commonName ? commonName.toLocaleUpperCase( ) : scientificName.toLocaleUpperCase( );
+    let preferredCommonName = "";
+
+    if ( commonName ) {
+      preferredCommonName = commonName.toLocaleUpperCase( );
+    } else if ( scientificName ) {
+      preferredCommonName = scientificName.toLocaleUpperCase( );
+    }
     const watermarkedImage = await addWatermark( uriToWatermark, preferredCommonName, scientificName );
 
     // if ( type !== "square" ) {

@@ -7,6 +7,7 @@
     "input_location_above_map": "Ez da kokapena aurkitu; sartu hementxe gainean kokapen bat eskuz eta hasi bilatzen espezieak inguruan",
     "error_alert_location_services": "Jarraitzeko, piztu edo gaitu kokapen zerbitzuak zure gailuaren ezarpenetan",
     "species_nearby_requires_location": "Inguruko espezietan ibiltzeko, zure kokapena beharko. Mesedez, gaitu kokapen zerbitzuren bat ezarpenetan",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "HAUTATU KOKAPENA MAPAN"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Egiaztatu Hiriko Naturaren Desafioaren parte den hiri baten ondoan bizi zaren, eta hala bada, kontuz hiriko basa-bizitzarako natura erregistratzeko eta identifikatzeko jarduerekin!\n\n",
     "action_may": "Eskaini zure denbora tokiko taldeei, bertako berdeguneak mantentzen laguntzeko.\n\nPartekatu zure aurkikuntzak zure familiarekin, lagunekin edo eskola-komunitatearekin, begiak zabal diezazkioten inguruko bizitza basatiari.\n\nZabor bilketa antolatzen du tokiko berdegune batean.\n\n",
     "action_june": "Erabili ourplanet.com webguneko baliabideak zure zonan biodibertsitate lokaleko ekintza-proiektu bati ekiteko, bertako basa-bizitzari laguntzeko.",
-    "action_november": "Tokiko zuhaitzen haziak biltzen ditu, loreontzietan ernetzen ditu eta, ondoren, zuhaitz gazteak landatzen ditu.\n\nKontatu zure lagunei edo senideei zuhaitzek gugatik egiten dituzten gauza guztiak.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Basoko loreak landatu, polinizatzaileei janaria emateko.\n\nEgin ezazu \"zomorro-hotel\" bat intsektuentzako zure lorategian edo ikastetxean, hodi-zati txikiak lotuz eta bakoitza adaxka txikiekin eta hautsitako azuleju-zatiekin betez.\n\n",
     "action_september": "Erregistratu zenbat ur erabiltzen duzun egunean zehar. Pentsa ezazu zelan alda ditzakezu ohitura horiek ur gutxiago erabiltzeko eta ur-gezako habitatak hobetzeko.\n\nBilatu zure inguruko ur-gezako inguruneetan ea zaborrik edo kutsadurarik dagoen. Kanpaina bat abiatu dezakezu ekosistema aberats hori babesteko?",
     "action_october": "Hegaztiek indarra hartu behar dute migrazio luzeak egin ahal izateko. Neguko hilabeteetan utzi fruitu oskoldunak, haziak edo gantz-bolak zure lorategian laguntzeko.\n\nLandatu fruituak ematen dituzten zuhaitzak edo zuhaixkak hegaztiak bisitan dituzunerako.",
@@ -587,7 +588,7 @@
     "major_taxa": "TAXON NAGUSIA",
     "animals": "Animaliak",
     "protozoans": "Protozooak",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "kelp": "Alga, Arreak eta Ahaideak"
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",

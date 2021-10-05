@@ -7,6 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "挑選在地圖上的位置"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "确認您的居住地所毗鄰的城市是否屬於「城市大自然挑戰」之一部分，如果是，請注意都市野生生物大自然記錄和識別活動！",
     "action_may": "抽空做志工並與當地志工團體幫助維護當地綠色空間。\n\n和您的家人、朋友或是學校同學們分享您找到哪些生物，以開拓他們的眼界來看周圍的野生生物。\n\n在周遭綠地環境中，組織撿垃圾的活動\n\n",
     "action_june": "使用 ourplanet.com 上的資源在您所在區域發起本地生物多樣性行動專案，向您當地的野生生物伸出援手。",
-    "action_november": "從本地的樹木來收集種子，種在盆子裡使其生根發芽，然後在土壤中種植小苗。\n\n告訴朋友或家人樹木對我們的所有益處。",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "種植野花來為傳粉者提供食物。\n\n打造一個「昆蟲旅館」，為您的花園或學校場域中的昆蟲提供棲息之地，只需將一些短的水管綁在一起，然後用小樹枝和碎瓦片填充其中。",
     "action_september": "請記錄您在一整天的用水量。思考如何減少用水量，以緩解淡水棲地的壓力。\n\n查看當地淡水棲地是否有垃圾或其他污染。您能否發起在地的環保活動來保護此寶貴的生態系？",
     "action_october": "鳥兒需要食物才能完成長途遷徏。在冬季，在您的花園中撒播堅果種子和鳥脂肪球讓牠們能補充能量展翅高飛。",

@@ -7,6 +7,7 @@
     "input_location_above_map": "No se ha encontrado ninguna ubicación; introduce una ubicación arriba para cargar el mapa y buscar especies cercanas",
     "error_alert_location_services": "Para continuar, activa los servicios de localización en la configuración de tu dispositivo",
     "species_nearby_requires_location": "Especies Cercanas requiere tu ubicación. Por favor, activa la ubicación en los ajustes",
+    "species_nearby_requires_android_accuracy": "Especies Próximas requiere su ubicación. Por favor, compruebe que los servicios de ubicación están habilitados.",
     "choose_location_on_map": "ELEGIR UBICACIÓN EN EL MAPA"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Verifica si vives cerca de una ciudad que forma parte del City Nature Challenge y, de ser así ¡presta atención a las actividades de identificación y registro de la naturaleza para la vida silvestre urbana!",
     "action_may": "Ofrece tu tiempo como voluntario a grupos locales que ayuden a mantener las zonas verdes locales.\n\nComparte tus hallazgos con tu familia, amigos o comunidad escolar para que puedan conocer la vida salvaje que nos rodea.\n\nOrganiza una recolección de basura en una zona verde local.",
     "action_june": "Utiliza los recursos en ourplanet.com para iniciar un proyecto de acción de biodiversidad en tu zona para ayudar a la vida silvestre local.",
-    "action_november": "Recoge semillas de los árboles locales, germínalas en macetas y luego planta los árboles jóvenes en la tierra.\n\nCuéntales a tus amigos o familiares todas las cosas que hacen los árboles por nosotros.",
+    "action_november_2019": "Recoge semillas de los árboles locales, germínalas en macetas y luego planta los jóvenes árboles en la tierra.\n\nCuéntales a tus amigos o familiares todas las cosas que hacen los árboles por nosotros.",
     "action_august": "Plantar flores silvestres para proporcionar alimento a los polinizadores.\n\nHaz un \"hotel de insectos\" para proporcionar una vivienda a los insectos de tu jardín o el patio de la escuela, uniendo tramos de cañitas y añadiendo ramitas pequeñas y pedazos de cerámica.",
     "action_september": "Mantén un registro de la cantidad de agua que consumes durante un día. Piensa cómo podrías reducir esta cantidad para ayudar a disminuir la sobrecarga en los hábitats de agua dulce.\n\nRevisa los cursos de agua para ver si hay basura u otras formas de contaminación. ¿Podrías iniciar una campaña local para proteger este valioso ecosistema?",
     "action_october": "Las aves necesitan alimento para los largos viajes que realizan para migrar. En los meses de invierno deja nueces, semillas o bolas de grasa en tu jardín para ayudarlas.\n\nPlanta árboles y arbustos proveen alimentos y refugios a las aves que nos visitan.",

@@ -7,6 +7,7 @@
     "input_location_above_map": "Nu a fost găsită nicio poziționare; introduceți o denumire pentru reperul de mai sus pentru a încărca harta și a căuta specii din apropriere",
     "error_alert_location_services": "Pentru a continua, activați serviciile de poziționare disponibile pe dispozitivul dumneavoastră.",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "ALEGEȚI POZIȚIA PE HARTĂ"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Vezi dacă locuiești în apropierea unui oraș angajat în Provocarea Natura Orașului, și dacă da, află despre inițiativele de monitorizare și identificare a faunei sălbatice urbane!",
     "action_may": "Voluntariază-ți timpul cu grupuri locale care ajută să mențină spațiile verzi locale.\n\nPartajează-ți descoperirile cu familia, prietenii sau comunitatea școlară pentru a le deschide ochii către viața sălbatică din jurul lor.\n\nOrganizează o culegere de gunoi într-un spațiu verde.",
     "action_june": "Utilizează resursele site-ului ourplanet.com ca să lansezi un proiect local de acțiune pentru biodiversitate în regiunea ta, ajutând astfel fauna din jurul tău.",
-    "action_november": "Colectează semințe din copacii locali, germinează-le în ghivece și apoi plantează copacii tineri.\n\nSpune-le prietenilor sau membrilor familiei despre tot ceea ce fac copacii pentru noi.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plantează flori sălbatice pentru a oferi hrană polenizatorilor.\n\nFă un \"hotel de insecte” pentru a oferi locuințe insectelor din grădina sau școala ta îmbinând bucăți de țeavă și umpluturile cu crenguțe și bucăți de țiglă spartă.",
     "action_september": "Păstrează evidența cantității de apă utilizată în cursul unei zile. Gândește-te cum o poți reduce pentru a ajuta la reducerea încordării din habitatele cu apă dulce.\n\nVerifică habitatele locale de apă dulce de gunoi sau alte poluări. Ai putea duce o campanie locală pentru protejarea acestui ecosistem prețios?",
     "action_october": "Păsările au nevoie de combustibil pentru lungile călătorii de migrare. În lunile de iarnă lasă nucă, semințe și bile de grăsime în grădina ta pentru a le oferi un impuls.\n\nPlantează copaci și arbuști care oferă fructe de pădure și locuri de dormit păsărilor.",

@@ -7,6 +7,7 @@
     "input_location_above_map": "Geen locatie gevonden; voer een gebiedsnaam in om de kaart te laden en te zoeken naar soorten in de buurt",
     "error_alert_location_services": "Schakel locatiediensten in de instellingen van je apparaat in om door te gaan",
     "species_nearby_requires_location": "Soorten in de buurt vereist je locatie. Activeer de locatiediensten in je instellingen",
+    "species_nearby_requires_android_accuracy": "Soorten in de buurt heeft jouw locatie nodig. Controleer of locatieservices zijn ingeschakeld.",
     "choose_location_on_map": "KIES LOCATIE OP MAP"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Kijk of je dichtbij een stad woont die deel uitmaakt van de City Nature Challenge. Als dat zo is, zoek dan naar veldbiologische activiteiten in de urbane stadsnatuur!",
     "action_may": "Wordt vrijwilliger bij lokale groepen die de lokale natuur helpen te behouden. Deel je vondsten met je familie, vrienden of schoolvrienden en open hun ogen voor de natuur om ze heen. Ruim met je buurt het zwerfafval op in het lokale groen.",
     "action_june": "Gebruik de hulpmiddelen op ourplanet.com om een lokaal actieproject voor biodiversiteit in jouw omgeving te starten om je lokale natuur een handje te helpen.",
-    "action_november": "Verzamel zaad van lokale bomen, laat ze kiemen in potten en plant vervolgens de jonge bomen.\nVertel vrienden, gezinsleden of je huisdier over alle dingen die bomen voor ons doen.",
+    "action_november_2019": "Verzamel zaad van lokale inheemse bomen, laat ze kiemen in potten en plant vervolgens de jonge bomen.\n\nVertel vrienden of familieleden over alle dingen die bomen voor ons doen.",
     "action_august": "Plant wilde bloemen die voedsel kunnen leveren aan bestuivers.\n\nMaak een 'insectenhotel' om onderdak te bieden aan insecten in je tuin of schoolgrond door korte holle pijpjes te bundelen en elk te vullen met kleine twijgjes en stukjes gebroken tegel.",
     "action_september": "Houd eens bij hoeveel water je op een dag gebruikt. Hoe kan je dit verminderen om zo de druk op zoetwaterhabitats te verminderen? Controleer lokale zoetwaterhabitats op zwerfafval of andere vervuiling. Kan je een lokale campagne voeren om dit kostbare ecosysteem te beschermen?",
     "action_october": "Vogels hebben brandstof nodig voor de lange afstanden die ze afleggen tijdens de trek. Hang in de wintermaanden noten, zaden en vetbollen in je tuin om ze een energieboost te geven.\n\nPlant bomen en bessenstruiken die eten en een schuilplaats bieden voor vogels.",

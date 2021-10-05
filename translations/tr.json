@@ -7,6 +7,7 @@
     "input_location_above_map": "Konum bulunamadı; yukarıdan konum adı girerek haritayı yükleyip yakınlardaki türleri ara",
     "error_alert_location_services": "Devam etmek için cihazının ayarlarından konum hizmetlerini aç",
     "species_nearby_requires_location": "Yakınlardaki türler için konumun gerekiyor. Lütfen ayarlardan konumunu etkinleştir",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "HARİTADAN KONUM SEÇ"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Şehir Doğa Mücadelesi'ne yakın olup olmadığını görmek için kontrol et, eğer yakınsan şehir vahşi yaşamı doğa kaydı yapma ve tanımlama aktiviteleri için gözlerini dört aç!",
     "action_may": "Gönüllü olarak zamanını sizin yerel yeşil alanlarınızı korumaya yardım eden yerel gruplarla harca.\n\nEtraflarındaki vahşi yaşama gözlerini açmak için bulduklarını ailenle, arkadaşlarınla ya da okul topluluğu ile paylaş.\n\nYerel bir yeşil alanda çöp toplama etkinliği organize et.",
     "action_june": "Yerel vahşi yaşamına bir yardım eli uzatmak için ourplanet.com'daki kaynakları kullanarak bölgende bir yerel biyoçeşitlilik hareket projesi başlat.",
-    "action_november": "Yerel ağaçlardan tohumlar topla, saksılarda filizlendir ve sonra da genç fidanları dik.\n\nArkadaşlarına ve aile üyelerine ağaçların bizim için yaptığı her şeyi anlat.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Tozlaştırıcılara besin temin etmek için yabani çiçekler ek.\n\nKısa boruları bir araya getirerek ve her birini küçük dallarla ve kırık fayanslarla doldurarak bahçenizdeki veya okul bahçenizdeki böceklere ev sağlamak için bir \"böcek oteli\" yap.",
     "action_september": "Bir günde kullandığın su miktarının kaydını tut. Temiz su kaynaklarının üzerindeki baskıyı azaltmak için bu miktarı nasıl azaltabileceğini düşün. \n\nYerel temiz su kaynaklarında çöp veya diğer kirleticiler olup olmadığını kontrol et. Bu değerli ekosistemi korumak için yerel bir mücadele başlatabilir misin?",
     "action_october": "Kuşlar uzun göç yolculukları için yakıta ihtiyaç duyar. Kış aylarında onlara bir canlandırıcı olarak bahçene çerez, tohum ve yağ topları bırak.\n\nMisafir kuşlara besin ve tünek temin edecek ağaçlar ve çalılar dik.",

@@ -7,6 +7,7 @@
     "input_location_above_map": "Ingen fyndplats hittades; ange ett platsnamn ovan för att ladda kartan och söka efter arter i närheten",
     "error_alert_location_services": "För att fortsätta, aktivera platstjänster i enhetsinställningarna",
     "species_nearby_requires_location": "Arter i närheten behöver din plats. Aktivera plats i inställningarna",
+    "species_nearby_requires_android_accuracy": "Arter i närheten behöver din plats. Kontrollera att platstjänster är aktiverade.",
     "choose_location_on_map": "VÄLJ PLATS PÅ KARTAN"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Kolla om du bor nära en stad som är en med i City Nature Challenge, och håll i så fall ögonen öppna efter natur- och bestämningsaktiviteter för urbant djurliv!",
     "action_may": "Jobba ideellt i lokala grupper som hjälper till att upprätthålla era lokala grönområden.\n\nDela dina fynd med din familj, vänner eller skolan för att öppna deras ögon för djurlivet runt omkring dem.\n\nOrganisera uppsamling av skräp i ett lokalt grönområde.",
     "action_june": "Använd resurserna på ourplanet.com för att starta ett lokalt hjälpprojekt för biologisk mångfald i ditt område för att ge ditt lokala djurliv en hjälpande hand.",
-    "action_november": "Samla frön från lokala träd, gro dem i krukor och plantera sedan de unga träden.\n\nBerätta för vänner eller familjemedlemmar om allt som träden gör för oss.",
+    "action_november_2019": "Samla frön från inhemska träd där du bor, gro dem i krukor och plantera sedan de unga träden.\n\nBerätta för vänner eller familjemedlemmar om allt träden gör för oss.",
     "action_august": "Plantera vilda blommor för att ge mat åt pollinatörer.\n\nGör ett 'insektshotell' för att ge hem åt insekter i trädgården eller skolgården genom att bunta ihop korta rör och fylla vart och ett med små kvistar och bitar av trasiga plattor.",
     "action_september": "Håll koll på hur mycket vatten du använder under en dag. Tänk på hur du skulle kunna skära ner på detta för att minska belastningen på sötvattenslivsmiljöer.\n\nLeta efter skräp och andra föroreningar i lokala våtmarker. Kan du driva en lokal kampanj för att skydda detta värdefulla ekosystem?",
     "action_october": "Fåglar behöver energi för de långa resor de gör när de flyttar. Under vintermånaderna kan du lägga ut nötter, frön och feta bollar i din trädgård för att ge dem ett tillskott.\n\nPlantera träd och buskar som tillhandahåller bär och rastplatser för gästande fåglar.",

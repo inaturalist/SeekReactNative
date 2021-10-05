@@ -7,6 +7,7 @@
     "input_location_above_map": "Kein Standort gefunden; gib einen Ortsnamen ein, um die Karte zu laden und nach Arten in der Nähe zu suchen",
     "error_alert_location_services": "Um fortzufahren, aktiviere den Standortdienst in deinen Geräteeinstellungen",
     "species_nearby_requires_location": "Die Funktion 'Arten in der Nähe' benötigt deinen Standort. Bitte aktiviere die Ortung in den Einstellungen",
+    "species_nearby_requires_android_accuracy": "Die Funktion 'Arten in der Nähe' benötigt Standortinformationen. Bitte überprüfe, ob Ortungsdienste aktiviert sind.",
     "choose_location_on_map": "ORT AUF KARTE WÄHLEN"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Überprüfe, ob du in der Nähe einer Stadt wohnst, die Teil der City Nature Challenge ist, und wenn ja, halte Ausschau nach Naturerfassungs- und Bestimmungsaktivitäten für städtische Wildtiere!\n\n",
     "action_may": "Verbringe deine Zeit in lokalen Gruppen, die helfen, deine örtlichen Grünflächen zu erhalten.\n\nTeile deine Erkenntnisse mit deiner Familie, Freunden oder in der Schule, um ihre Augen für die Lebewesen um sie herum zu öffnen.\n\nOrganisiere eine Müllsammelaktion in einer lokalen Grünanlage.",
     "action_june": "Nutze die Ressourcen auf ourplanet.com, um ein lokales Biodiversitäts-Aktionsprojekt in deiner Nähe zu starten, um der lokalen Tierwelt zu helfen.\n",
-    "action_november": "Sammel Samen von Bäumen ein, bringe sie in Töpfen zum Keimen und pflanze dann die jungen Bäume aus. \n\nErzähle Freunden oder Familienmitgliedern von all den Dingen, die Bäume für uns tun.",
+    "action_november_2019": "Sammel Samen von einheimischen Bäumen, bringe sie in Töpfen zum Keimen und pflanze dann die jungen Bäume aus. \n\nErzähle Freunden oder Familienmitgliedern davon, was die Bäume für uns tun.",
     "action_august": "Pflanze Wildblumen, um Bestäuber mit Nahrung zu versorgen. \n\nBaue ein \"Käferhotel\", um Insekten in deinem Garten oder Schulgelände ein Zuhause zu bieten, indem du kurze Röhren bündelst und jedes mit kleinen Zweigen und Bruchstücken von Fliesen füllst.",
     "action_september": "Führe eine Aufzeichnung darüber, wie viel Wasser du an einem Tag verbrauchst. Überlege, wie du dies reduzieren könntest, um die Belastung der Süßwasserlebensräume zu verringern. \n\nKontrolliere die örtlichen Süßwasserlebensräume auf Abfälle oder andere Verunreinigungen. Könntest du eine lokale Kampagne zum Schutz dieses wertvollen Ökosystems durchführen?",
     "action_october": "Vögel brauchen Nahrung für ihre langen Wanderungen. Überlasse ihnen in den Wintermonaten Nüsse, Samen und Fettkugeln in deinem Garten, um ihnen einen Energieschub zu geben. \n\nPflanze Bäume und Sträucher an, die Beeren und Schlafplätze für Vögel bieten.",

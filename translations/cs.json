@@ -7,6 +7,7 @@
     "input_location_above_map": "Žádné místo nebylo nalezeno; pro načtení mapy a vyhledání druhů v okolí zadejte název místa výše",
     "error_alert_location_services": "Chcete-li pokračovat, zapněte službu určování polohy v nastavení zařízení",
     "species_nearby_requires_location": "Druhy v okolí vyžadují vaši polohu. Prosím povolte určování polohy v nastavení",
+    "species_nearby_requires_android_accuracy": "Druhy v okolí vyžadují vaši polohu. Zkontrolujte, zda jsou služby určení polohy povoleny.",
     "choose_location_on_map": "VYBERTE MÍSTO NA MAPĚ"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Zkontrolujte, zda žijete v blízkosti města, které je součástí výzvy Městské přírody a pokud ano, tak zkuste zaznamenat nebo identifikovat přírodu kolem vás!",
     "action_may": "Věnujte svůj čas místním skupinám a organizacím dobrovolníků, které pomáhají udržovat místní zeleň.\n\nSdílejte své nálezy s rodinou, přáteli nebo školní komunitou, abyste jim ukázali krásy přírody a volně žijících živočichům kolem nich.\n\nUspořádejte sbírání odpadků a čištění přírody kolem Vás.",
     "action_june": "Využijte zdroje na ourplanet.com k zahájení lokálního projektu pro biologickou rozmanitost ve vaší oblasti a pomohli tak divoké přírodě kolem vás..",
-    "action_november": "Sbírej semena z místních stromů, vypěstuj sazenice a pak sázej mladé stromy.\n\nŘekněte přátelům nebo rodinným příslušníkům o všech věcech, které pro nás stromy dělají.",
+    "action_november_2019": "Sbírejte semena místních stromů, vypěstujte sazenice v květináčích a pak sázejte mladé stromky.\n\nŘekněte přátelům nebo členům rodiny o všem, co pro nás stromy dělají.",
     "action_august": "Rostliny divokých květin, které zajišťují potraviny pro opylovače.\n\nVytvořte „hotel pro broučky“ a zajistěte bydlení pro hmyz ve vaší zahradě nebo na školním pozemku svázáním kousků trubek a vycpáváním meziprostoru malými větvičkami a kousky rozbitých dlaždic.",
     "action_september": "Zapište si, kolik vody spotřebujete za celý den. Přemýšlejte o tom, jak byste mohli její objem snížit, abyste  zmenšili spotřebu zdrojů sladké vody.\n\nZkontrolujte, zde místní zdroje sladké vody neobsahují odpadky nebo jiné znečištění. Můžete spustit místní kampaň na ochranu tohoto vzácného ekosystému?",
     "action_october": "Ptáci potřebují palivo na dlouhé cesty, které podnikají během migrace. V zimních měsících je můžete podpořit tím, že jim na své zahradě nabídnete oříšky, semínka a lojové koule.\n\nZasaďte pro své ptačí návštěvníky stromy a keře, které jim poskytnou bobule a úkryty.",

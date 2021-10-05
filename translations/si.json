@@ -7,6 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "ඔබ නගර සොබාදහම අභියෝගයේ කොටසක් වන නගරයකට ආසන්නව ජීවත් වනවාද යන්න පරීක්ෂා කරන්න, එසේ නම් නාගරික වන ජීවීන් සඳහා සොබාදහම පටිගත කිරීමේ සහ හඳුනා ගැනීමේ ක්‍රියාකාරකම් පිළිබඳව සොයා බලන්න!",
     "action_may": "ඔබේ ප්‍රාදේශීය හරිත අවකාශය පවත්වා ගැනීමට උපකාරී වන ප්‍රාදේශීය කණ්ඩායම් සඳහා ඔබේ කාලය ස්වේච්ඡාවෙන් වෙන් කරන්න.\n\nඅවට වන ජීවීන් වෙත ඔවුන්ගේ ඇස් ඇරීමට ඔබගේ සොයාගැනීම් ඔබගේ පවුලේ අය, මිතුරන් හෝ පාසල් ප්‍රජාව සමඟ බෙදා ගන්න.\n\nප්‍රාදේශීය හරිත අවකාශයක කසළ එකතු කිරීමක් සංවිධානය කරන්න.",
     "action_june": "ඔබේ ප්‍රදේශයේ වනජීවීන්ට උපකාර කිරීම සඳහා ඔබේ ප්‍රදේශයේ ප්‍රාදේශීය ජෛව විවිධත්ව ක්‍රියාකාරී ව්‍යාපෘතියක් ආරම්භ කිරීමට ourplanet.com හි ඇති සම්පත් භාවිතා කරන්න.",
-    "action_november": "ප්‍රාදේශීය ගස් වලින් බීජ එකතු කරන්න, ඒවා භාජන වල ප්‍රරෝහණය කරන්න ඉන්පසු තරුණ ගස් සිටුවන්න.\n\nගස් අප වෙනුවෙන් කරන සියලු දේ ගැන මිතුරන්ට හෝ පවුලේ සාමාජිකයන්ට කියන්න.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "පරාග වාහකයන්ට ආහාර සැපයීම සඳහා වනමල් වගා කරන්න.\n\nකෙටි පයිප්ප එකට බැඳීමෙන් හා ඒ සෑම එකක්ම කුඩා රිකිලි සහ කැඩුණු උළු කැබලිවලින් පිරවීමෙන්, ඔබේ ගෙවත්තේ හෝ පාසැල් භූමියේ කෘමීන් සඳහා නිවාස ලබා දීම සඳහා ‘කෘමි හෝටලයක්’ සාදන්න.",
     "action_september": "ඔබ දවස පුරා කොපමණ ජලය භාවිතා කරනවාද යන්න පිළිබඳ වාර්තාවක් තබා ගන්න. මිරිදිය වාසස්ථානවල ඇති වන පීඩනය අඩු කිරීමට ඔබට මෙය කපා දැමිය හැක්කේ කෙසේදැයි සිතා බලන්න.\n\nකසළ හෝ වෙනත් දූෂණයන් සඳහා ප්‍රාදේශීය මිරිදිය වාසස්ථාන පරීක්ෂා කරන්න. මෙම වටිනා පරිසර පද්ධතිය ආරක්ෂා කිරීම සඳහා ඔබට ප්‍රාදේශීය ව්‍යාපාරයක් දියත් කළ හැකිද?",
     "action_october": "කුරුල්ලන්ට සංක්‍රමණය වීමට ගතවන දිගු ගමන සඳහා ඉන්ධන අවශ්‍ය වේ. ඔවුන්ට පෝෂණයක් ලබා දීමට ශීත සෘතුවේ මාස වලදී ගෙඩි, බීජ සහ මේද බෝල ඔබේ ගෙවත්තේ තබන්න.\n\nසංචාරක කුරුල්ලන් සඳහා දං වැනි ගෙඩි හා ලගින්න වාසස්ථාන සපයන ගස් හා පඳුරු සිටුවන්න.",

@@ -7,6 +7,7 @@
     "input_location_above_map": "Ingen posisjon funnet; oppgi et stedsnavn over for å laste opp kartet og søke etter arter i nærheten",
     "error_alert_location_services": "For å fortsette, slå på stedstilgang i enhetensinnstillingene",
     "species_nearby_requires_location": "Arter i nærheten trenger din plassering. Vennligst aktiver stedstilgang i innstillinger",
+    "species_nearby_requires_android_accuracy": "Arter i nærheten krever din posisjon. Vennligst sjekk at stedstjenester er aktivert.",
     "choose_location_on_map": "VELG STED PÅ KARTET"
   },
   "get_started": {
@@ -22,7 +23,7 @@
     "continue_challenge": "Fortsett utfordring",
     "view_all": "Vis alle utfordringer",
     "new_join": "Legg til observasjoner med Seek-kameraet for å tjene utfordrings-merken!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat admins: takk for at du tester Seek! Du ser den nyeste iNat-utfordringen før starten av måneden for testformål."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "LAST OPP TIL INATURALIST",
@@ -88,7 +89,7 @@
     "error_no_username": "Manglende brukernavn / e-post",
     "error_no_password": "Mangler passord",
     "error_internet": "Ingen internett-tilkobling",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Forespørselen din kunne ikke fullføres."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -122,7 +123,7 @@
     "guidelines": "Fellesskapets rettningslinjer",
     "store_data": "Jeg samtykker til at iNaturalist kan lagre og behandle begrensede typer personlig informasjon om meg for å håndtere kontoen min.",
     "learn_more": "Les mer",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_data_storage": "Vi lagrer personlige opplysninger som brukernavn og e-postadresser for å kunne administrere kontoer på dette nettstedet, og for å overholde personvernlovgivningen trenger vi at du krysser av denne boksen for å vise at du samtykker til denne bruken av personopplysninger. For å lære mer om hvilken informasjon vi samler inn og hvordan vi bruker den, vennligst se våre retningslinjer for personvern og våre vilkår for bruk.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "Om Personlig Informasjon",
     "about_licenses": "Om Lisenser"
@@ -239,7 +240,7 @@
     "action_april": "Sjekk om du bor i nærheten av en by som er del av City Nature Challenge, og hvis det er tilfellet, se etter aktiviteter rundt registrering av natur og identifisering av byrelatert natur!",
     "action_may": "Bli frivillig i en lokal gruppe som hjelper med vedlikehold av lokale grønnområder.\n\nDel dine funn med familie, venner eller skole for å åpne øyne deres for naturen rundt seg.\n\nOrganiser en ryddeaksjon i et lokalt grøntområde.",
     "action_june": "Bruk ressursene på ourplanet.com for å starte et lokalt prosjekt for biodiversitetsaksjon i ditt område for å hjelpe naturen der du er.",
-    "action_november": "Fortell venner eller familiemedlemmer om alt trær gjør for oss.",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plant villblomster for å ordne mat for pollinatorer.\n\nLag et \"insekthotell\" for å gi et hjem til insektet i din hage eller skoleplass, ved å knytte sammen korte rør og stappe de fulle av små kvister og biter av knuste fliser.",
     "action_september": "Register hvor mye vann du bruker på en dag. Tenk på hvordan du tror at du kan minske dette for å mindre presset på ferskvannshabitater.\n\nSjekk lokale ferskvannshabitater for avfall og forurensning. Kan du kjøre en lokal kampanje for å bevare dette verdifulle økosystemet?",
     "action_october": "Fugler trenger drivstoff til de lange reisene de foretar seg under migrasjonen. Legg ut nøtter, frø og fugleboller i hagen din om vinteren for å hjelpe de på vei.\n\nPlant trær og busker som gir bær og gjemmesteder for fugler som kommer på besøk.",
@@ -268,9 +269,9 @@
     "photographer_october": "Bilde © Netflix / Silverback Films",
     "photographer_december": "Bilde © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Arter observert",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ARTER I NÆRHETEN I DENNE UTFORDINGEN",
+    "no_species_nearby": "Vi fant ingen arter i nærheten av denne utfordringen som du ikke allerede har observert",
+    "species_nearby_internet_error": "Vi trenger internett for å generere arter i nærheten."
   },
   "results": {
     "observed_species": "Du har observert en ny art!",
@@ -349,18 +350,18 @@
     "genus": "slekt",
     "species": "art",
     "error_permissions": "Vi trenger tilgang til kameraet for å hjelpe deg med å identifisere arter!",
-    "error_gallery": "We need access to your photo library to save photos you take!",
+    "error_gallery": "Vi trenger tilgang til ditt bildebibliotek for å lagre bilder du tar!",
     "permissions": "Gi tillatelser i innstillingene",
     "please_permissions": "Please enable permissions in settings",
-    "error_classifier": "Sorry, we're unable to load the classifier",
+    "error_classifier": "Beklager, vi kan ikke laste klassifiseringen",
     "error_camera": "Beklager, vi kunne ikke laste kameraet",
     "error_device": "Beklager, enheten du bruker støttes ikke",
     "error_take": "Sorry, we weren't able to capture your photo",
-    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
+    "error_photos": "Ingen bilder ble funnet i dette albumet. Prøv å velge et annet album.",
+    "error_version": "Seeks AR-Kamera krever iOS 11.0+. Enheten din kjører OS versjon {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_photoError": "Beklager, bildeobjektet ble ikke funnet",
+    "error_selected_photos": "Hvis dine rettigheter er satt til 'Valgte bilder', kan du bli nødt til å starte Seek på nytt eller gå til iOS Innstillinger > Søke > Bilder > Valgte Bilder for å velge hvilke bilder du vil vise her.",
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre av"
@@ -373,7 +374,7 @@
     "title": "Seeks kamera",
     "header": "Ditt mål",
     "explanation_1": "Hver prikk på Seek-kameraet representerer et taksonomisk nivå, fra rike ned til art. Dette systemet er hvordan forskere klassifiserer levende ting.",
-    "explanation_2": "Point the camera at living things around you, and take a picture once the meter fills up to species.",
+    "explanation_2": "Pek kameraet på levende ting rundt deg, og ta et bilde så snart måleren fyller opp til arter.",
     "header_1": "Hvordan fungerer det?",
     "how_works": "Seek’s identification model works directly using the tree of life.\n\nEach dot on the identification bar represents a taxonomic level on the tree of life. As Seek is able to confidently identify the species you’re looking at at each level, it will add another dot to the bar. When the organism is identified to species, take a photo!",
     "header_2": "Tips og triks",
@@ -529,13 +530,13 @@
     "endemic_about": "This species naturally occurs in this area and isn’t found anywhere else.",
     "native_about": "This species naturally occurs in this area and was not brought here by humans.",
     "threatened_about": "This species is likely to become in danger of extinction in the future.",
-    "introduced_about": "This species was brought to this area by humans, and doesn’t naturally occur here.",
+    "introduced_about": "Denne arten ble brakt til dette området av mennesker og forekommer ikke naturlig her.",
     "got_it": "Skjønner!",
     "wikipedia": "Kilde: Wikipedia",
     "wikipedia_1": "Wikipedia",
     "similar": "Lignende arter",
     "similar_about": "Organismer ofte feilidentifisert som denne arten.",
-    "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
+    "similar_no_species": "Ser ut som det ikke har blitt mange lignende arter observert i nærheten!",
     "plant": "plante",
     "amphibian": "amfibie",
     "fungi": "sopp",
@@ -555,7 +556,7 @@
   "about": {
     "header": "Om",
     "seek": "Seek er laget av iNaturalist-teamet.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "joint_initiative": "iNaturalist er et felles initiativ av California Academy of Sciences og National Geographic Society.",
     "original": "Seek ble opprinnelig laget med støtte fra HHMI Tangled Bank Studios og utvidet med støtte fra Our Planet på Netflix og WWF.",
     "designed_by": "Designet og utviklet av iNaturalist-teamet:",
     "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
@@ -586,12 +587,12 @@
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
     "animals": "Dyr",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "protozoans": "Protozoer",
+    "kelp": "Tarer, Kiselalger og Allierte"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "posting_to_inat_background": "LASTER OPP TIL INATURALIST I BAKGRUNNEN",
+    "posting_to_inat_background_description": "Opplasting til iNaturalist vil fortsette i bakgrunnen mens Seek er åpen.\n\nDu kan sjekke status for opplastinger på hjem-skjermen.",
     "no_internet": "INGEN INTERNETT!",
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
@@ -607,7 +608,7 @@
     "closed_header": "Lukket: ",
     "yes_header": "Ja: ",
     "no_header": "Nei: ",
-    "open": "Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
+    "open": "Andre brukere på iNaturalist vil kunne se hvor denne arten ble observert og forskere kan bruke disse dataene til forskning.",
     "obscured": "The exact location of this observation will be hidden from other users on iNaturalist, and instead expanded to a larger area. (The locations of all threatened and endangered species is automatically obscured)",
     "closed": "The location of this observation will not be shared with other users on iNaturalist.",
     "captive": "I fangenskap/kultivert?",
@@ -625,7 +626,7 @@
     "remember": "Husk",
     "tip_1": "Vær alltid obs på dine omgivelser, vær trygg, og ikke gå på andres eiendom.",
     "tip_2": "Ikke spis noe du finner i naturen.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_3": "Ha respekt for andre levende vesener ved å ikke plage eller røre de. Noen kan stikke eller bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
@@ -641,7 +642,7 @@
     "take_photo": "Trykk for å ta bilde",
     "scroll_left": "Trykk for å scrolle til venstre",
     "scroll_right": "Trykk for å scrolle til høyre",
-    "warning_modal": "AR camera warnings",
+    "warning_modal": "AR-kamera-advarsler",
     "get_started_modal": "Tips for å komme i gang"
   },
   "review": {
@@ -717,7 +718,7 @@
     "mission_1_oct_2020": "Finn 4 sopp",
     "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
     "mission_3_oct_2020": "Finn 1 bløtdyr",
-    "mission_4_oct_2020": "Find 1 Arthropod",
+    "mission_4_oct_2020": "Finn 1 leddyr",
     "oct_2020_description": "Scavengers and decomposers are essential to life on our planet. Fungi are decomposers that can break down dead tissue such as wood and leaves. Many types of animals such as vultures, isopods, and some snails can eat dead plants or animals. They help to recycle nutrients so they are available for new growth.",
     "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?",
     "adaptation": "Adaptasjonsutfordring",
@@ -846,11 +847,11 @@
     "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
     "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
     "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
+    "september_2021_mission_1": "Finn 10 nye arter",
     "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
     "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
+    "october_2021_challenge_name": "Edderkoppdyr-utfordring",
+    "october_2021_mission_1": "Finn 4 edderkoppdyr",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
     "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
   }

@@ -7,6 +7,7 @@
     "input_location_above_map": "No s'ha trobat cap ubicació; introdueix una ubicació a sobre per carregar el mapa i cercar espècies properes.",
     "error_alert_location_services": "Per continua, activa els serveis d'ubicació a la configuració del teu dispositiu",
     "species_nearby_requires_location": "Espècies properes necessita la teva ubicació. Si us plau, activa la localització a la configuració.",
+    "species_nearby_requires_android_accuracy": "Espècies Properes necessita la teva ubicació. Si us plau, comprova que els serveis de localització estan activats",
     "choose_location_on_map": "ESCULL LOCALITZACIÓ EN EL MAPA"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "Comprova si vius a prop d'una ciutat que forma part del Repte de la Natura a Ciutat, i si és així estigues atent de les activitats d'enregistrarment i identificació de la natura urbana!",
     "action_may": "Fes de voluntari en els grups locals que ajuden a mantenir els espais naturals propers.\n\nComparteix les teves troballes amb la teva família i companys de l'escola per ensenyar-lis els éssers vius que ens envolten.\n\nOrganitza la neteja d'un espai natural proper.",
     "action_june": "Utilitza els recursos de ourplanet.com per començar un projecte d'acció local per la biodiversitat del teu voltant, per donar un cop de mà a la natura local.",
-    "action_november": "Recull llavors dels arbres silvestres locals, germína-les en pots i després plante els arbrets joves.\n\nExplica als teus amics i la família tot el que els arbres fan per nosaltres.",
+    "action_november_2019": "Recull llavors dels arbres silvestres locals, germina-les en pots i després planta els arbrets joves.\n\nExplica als teus amics i la família tot el que els arbres fan per nosaltres.",
     "action_august": "Planta flors silvestres per oferir menjar als pol·linitzadors.\nFes un \"hotel d'insectes\" per oferir llars pels insectes del teu jardí o pati de l'escola, ajuntant petites canyetes i afegint branquetes o peces de ceràmica.",
     "action_september": "Mantén un registre de quanta aigua utilitzes al llarg del dia. Pensa sobre cóm pots reduir-la per ajudar a reduir la pressió sobre els ecosistemes aquàtics.\n\nRevisa si els hàbitats d'aigua continentals tenen residus o altres formes de contaminació. Podries endegar una campanya local per protegir aquest preciós ecosistema?",
     "action_october": "Els ocells necessiten alimentar-se per fer els grans viatges que necessiten per migrar. A l'hivern deixa fruits secs, llavors o boles de greix al teu jardí per ajudar-los.\n\nMolts arbres i arbusts ofereixen aliment i refugi als ocells que ens visiten.",

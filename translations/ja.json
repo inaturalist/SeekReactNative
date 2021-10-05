@@ -7,6 +7,7 @@
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "CHOOSE LOCATION ON MAP"
   },
   "get_started": {
@@ -239,7 +240,7 @@
     "action_april": "都会自然チャレンジに参加している都市の近くに住んでいるか確認して、自然記録や判定の活動に交わろう！",
     "action_may": "あなたの地域の緑を維持しているグループでボランティアしよう。\n\n発見を家族、友達や学校のコミュニティと共有して、周りの自然に目を向けさせよう。\n\nあなたの地域の緑でゴミ拾いを企画しよう。",
     "action_june": "ourplanet.comに載っている資料を使い、あなたの地域で生物多様性アクションプロジェクトを初めて、あなたの地域の自然の手助けをしよう。",
-    "action_november": "地元の木から集めた種を植木鉢で育てて、若い木を植えよう。\n\n友達や家族に、木が私たちに何の恵みをもたらしているかを話し合おう。",
+    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "蜂のような送粉者に食べ物を与えられるように野花を植えよう。\n\n「バグ・ホテル（虫ホテル）」を庭や校庭に作って、虫に家を提供しよう。短い筒を束ねて、木の枝や壊れたタイルを筒の中に詰めると作れるよ。",
     "action_september": "あなたが1日に水をどのくらい使っているかを調べてみよう。淡水の生息地への負担を減らすために、どうしたら使用量を減らせるかな？\n\n近くの淡水の生息地のゴミや汚染をチェックしてみよう。この貴重な生態系を保護するために、地域の人が関わった保全活動を実施できるかな？",
     "action_october": "野鳥は長い距離を渡るためのエネルギーが必要。冬には餌としてナッツ、種やファットボールを庭に置いて補助しよう。\n\n野鳥に果実や、ねぐらを与える木や低木を植えよう。",

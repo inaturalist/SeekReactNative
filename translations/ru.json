@@ -853,6 +853,10 @@
     "october_2021_challenge_name": "Испытание по паукообразным",
     "october_2021_mission_1": "Найти 4 паукообразных",
     "october_2021_description": "Знаете ли вы, что не все паукообразные - пауки? В дополнение к паукам, клещей и сенокосцев (также известных как “косиножки”) и даже крошечных, незаметных псевдоскорпионов можно найти на всех обитаемых континентах. Другие менее известные паукообразные, такие как скорпионы, телифоны, фрины и сольпуги обычно встречаются в более теплых и/или сухих частях света.",
-    "october_2021_action": "Подумайте о найденных паукообразных. Как бы вы описали места их обитания? Были ли они найдены в одном и том же ареале?"
+    "october_2021_action": "Подумайте о найденных паукообразных. Как бы вы описали места их обитания? Были ли они найдены в одном и том же ареале?",
+    "november_2021_challenge_name_flight_challenge": "Flight Challenge",
+    "november_2021_mission_1": "Find 5 species in these groups:\n\n-Birds (except flightless groups);\nWinged and Once-winged Insects",
+    "november_2021_description_ability_to_fly": "The ability to fly has evolved independently in birds, insects, and bats. Among birds, some species have become flightless but descend from flying ancestors. The same is true for many insects, and all insects are flightless for at least part of their life cycle.",
+    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?"
   }
 }

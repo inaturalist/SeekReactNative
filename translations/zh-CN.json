@@ -853,6 +853,10 @@
     "october_2021_challenge_name": "Arachnid Challenge",
     "october_2021_mission_1": "Find 4 arachnids",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?",
+    "november_2021_challenge_name_flight_challenge": "Flight Challenge",
+    "november_2021_mission_1": "Find 5 species in these groups:\n\n-Birds (except flightless groups);\nWinged and Once-winged Insects",
+    "november_2021_description_ability_to_fly": "The ability to fly has evolved independently in birds, insects, and bats. Among birds, some species have become flightless but descend from flying ancestors. The same is true for many insects, and all insects are flightless for at least part of their life cycle.",
+    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?"
   }
 }

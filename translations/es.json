@@ -853,6 +853,10 @@
     "october_2021_challenge_name": "Desafío Arácnido",
     "october_2021_mission_1": "Encuentra 4 aracnidos",
     "october_2021_description": "¿Sabías que no todos los arácnidos son arañas? Además de las arañas, los ácaros, las garrapatas y los opiliones, e incluso los pseudoscorpiones se pueden encontrar en todos los continentes habitados. Otros arácnidos menos conocidos como los escorpiones, los pseudoescorpiones y los solífugos se encuentran generalmente en partes más cálidas y/o secas del mundo.",
-    "october_2021_action": "Piensa en los tipos de arácnidos que encuentras. ¿Cómo describirías sus hábitats? ¿Alguno de ellos se encontraba en el mismo hábitat?"
+    "october_2021_action": "Piensa en los tipos de arácnidos que encuentras. ¿Cómo describirías sus hábitats? ¿Alguno de ellos se encontraba en el mismo hábitat?",
+    "november_2021_challenge_name_flight_challenge": "Flight Challenge",
+    "november_2021_mission_1": "Find 5 species in these groups:\n\n-Birds (except flightless groups);\nWinged and Once-winged Insects",
+    "november_2021_description_ability_to_fly": "The ability to fly has evolved independently in birds, insects, and bats. Among birds, some species have become flightless but descend from flying ancestors. The same is true for many insects, and all insects are flightless for at least part of their life cycle.",
+    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?"
   }
 }

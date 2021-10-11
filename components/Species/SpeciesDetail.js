@@ -9,7 +9,6 @@ import React, {
 } from "react";
 import { ScrollView, Platform, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { viewStyles } from "../../styles/species/species";
@@ -29,7 +28,8 @@ import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
   const { id } = useContext( SpeciesDetailContext );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape, width } = useContext( AppOrientationContext );
+  const columnWidth = width / 3;
   const scrollView = useRef( null );
   const navigation = useNavigation( );
   // not actually using params at the moment
@@ -156,7 +156,9 @@ const SpeciesDetail = ( ): Node => {
     <>
       <GreenHeader plainText={commonName || scientificName} />
       <View style={viewStyles.twoColumnContainer}>
-        <SpeciesPhotosLandscape photos={photos} id={id} />
+        <View style={{ width: columnWidth }}>
+          <SpeciesPhotosLandscape photos={photos} id={id} />
+        </View>
         <ScrollView
           ref={scrollView}
           contentContainerStyle={viewStyles.landscapeBackground}

@@ -4,11 +4,11 @@
     "internet_error": "我们需要网络才能整合附近的物种信息。点击再试一次。",
     "no_location": "无位置信息",
     "no_species": "看上去附近没有太多物种被观察到！尝试换一处或者更改过滤条件。",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "input_location_above_map": "未找到位置；在上方输入位置名称以加载地图并搜索附近的物种。",
+    "error_alert_location_services": "要继续，请在您的设备设置中开启位置服务",
+    "species_nearby_requires_location": "附近物种需要您的位置。请在设置中启用位置",
+    "species_nearby_requires_android_accuracy": "附近物种需要您的位置。请检查位置服务是否已启用。",
+    "choose_location_on_map": "选择地图位置"
   },
   "get_started": {
     "header": "马上开始",
@@ -23,48 +23,48 @@
     "continue_challenge": "继续完成挑战",
     "view_all": "查看所有挑战",
     "new_join": "使用 Seek 相机拍照观察来赢得挑战徽章",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat 管理员：感谢您测试Seek！您看到的是在月初之前用作测试的最新 iNat 挑战。"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "发表至 INATURALIST ",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "正在上传 {{count}} 个观察",
+      "one": "正在上传 {{count}} 个观察",
+      "two": "正在上传 {{count}} 个观察",
+      "few": "正在上传 {{count}} 个观察",
+      "many": "正在上传 {{count}} 个观察",
+      "other": "正在上传 {{count}} 个观察"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} 个观察记录已上传！",
+      "one": "{{count}} 个观察记录已上传！",
+      "two": "{{count}} 个观察记录已上传！",
+      "few": "{{count}} 个观察记录已上传！",
+      "many": "{{count}} 个观察记录已上传！",
+      "other": "{{count}} 个观察记录已上传！"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "上传 {{count}} 条观察",
+      "one": "上传 {{count}} 条观察",
+      "two": "上传 {{count}} 条观察",
+      "few": "上传 {{count}} 条观察",
+      "many": "上传 {{count}} 条观察",
+      "other": "上传 {{count}} 条观察"
     },
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
+    "upload_now": "立即上传",
+    "error_internet": "未检测到网络连接，请稍后重试",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "iNaturalist的服务器正在维护。请在 {{count}} 小时后重试。",
+      "one": "iNaturalist的服务器正在维护。请在 {{count}} 小时后重试。",
+      "two": "iNaturalist的服务器正在维护。请在 {{count}} 小时后重试。",
+      "few": "iNaturalist的服务器正在维护。请在 {{count}} 小时后重试。",
+      "many": "iNaturalist的服务器正在维护。请在 {{count}} 小时后重试。",
+      "other": "iNaturalist的服务器正在维护。请在 {{count}} 小时后重试。"
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_unknown": "上传失败。错误详细信息: {{errorText}}",
+    "error_login": "登录令牌失败。请您在 Seek 中的 iNaturalist 或成就界面登录您的 iNaturalist 帐户，然后再重试。",
+    "error_photo": "无法继续在设备上访问照片。",
+    "error_downtime_a_few_hours": "iNaturalist的服务器正在维护。请在 {} 小时后重试。"
   },
   "notifications": {
     "header": "消息提示",
@@ -75,8 +75,8 @@
     "challenge_completed": "恭喜！你已经完成了一项挑战！",
     "view_challenges": "查看挑战",
     "none": "您尚未有任何消息通知。",
-    "about": "Here, you’ll be notified about new challenges as they become available, updates to Seek, and other relevant information.",
-    "new_challenge": "There's a new challenge available!"
+    "about": "在这里，您将收到关于新挑战、Seek更新、以及其他相关信息的通知。",
+    "new_challenge": "有新的挑战可用！"
   },
   "login": {
     "log_in": "使用 iNaturalist 账户登录",
@@ -86,10 +86,10 @@
     "error_email": "请输入一个有效的电子邮箱地址",
     "error_credentials": "用户名或密码错误",
     "error_username_taken": "此用户名已被使用",
-    "error_no_username": "Missing username / email",
-    "error_no_password": "Missing password",
-    "error_internet": "No internet connection",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_no_username": "缺少用户名 / 电子邮件",
+    "error_no_password": "缺少密码",
+    "error_internet": "没有网络连接",
+    "error_request_could_not_be_completed": "您的请求无法完成。"
   },
   "inat_signup": {
     "welcome": "欢迎来到 Seek ！",
@@ -99,7 +99,7 @@
     "continue": "继续",
     "enter_email": "请输入你家长的邮箱地址",
     "parent_email": "家长/监护人的电子邮件",
-    "under_13": "Because you’re under 13, we need to get your parent or guardian’s permission before creating an account.",
+    "under_13": "因为您未满13岁，我们需要在创建账户之前得到您的父母或监护人的许可。",
     "sign_up": "注册",
     "next": "继续",
     "submit": "提交",
@@ -114,25 +114,25 @@
     "terms": "《服务条款》",
     "linked_account": "您已经将一个 iNaturalist 关联到 Seek 了！",
     "posting": " 同步至 iNaturalist",
-    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
-    "observations": "Observations Saved on Device",
-    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
-    "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
-    "learn_more": "Learn more",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "posting_details": "您可以在将 Seek 观察结果添加到您的观察记录后立即发布至 iNaturalist 中。 如果您想稍后将其发布到 iNaturalist ，请使用 iNaturalist 应用程序或网站。",
+    "observations": "保存在设备中的观察记录",
+    "observations_1": "您在 Seek 中的观察记录存储在您的设备上，没有在线备份。",
+    "observations_2": "删除本 App 将删除您在 Seek 中所有的观察记录。",
+    "observations_3": "Seek 不会将您的观察记录同步到其他设备。",
+    "agree_to_terms": "我同意 <terms>{{terms}}</terms> 和 <privacy>{{privacy}}</privacy>，并且已经审阅过 <guidelines>{{guidelines}}</guidelines>。",
+    "guidelines": "社区指南",
+    "store_data": "我同意允许 iNaturalist 储存、处理关于我的有限个人信息，以便管理我的账号。",
+    "learn_more": "了解更多",
+    "learn_more_about_data_storage": "我们需要储存用户名称以及电子邮箱地址之类的个人信息来管理在网站上的账号，因要符合隐私法规的要求，需要您勾选此方框來表明您同意上述的个人信息使用。要了解更多关于我们如何收集以及使用信息，请查看我们的隐私政策和服务条款。",
+    "learn_more_about_licensing": "如果您想要应用知识共享许可（署名-非商业性），请选中此项。 这意味着只要保持诚信且不商业使用作品，任何人都可以复制和重新使用您的照片和/或观察记录，而无需请求许可。 您可以稍后选择一个不同的许可证或删除许可证，但这是与研究人员分享的最佳许可证。",
+    "about_personal_information": "关于个人信息",
+    "about_licenses": "关于许可证"
   },
   "inat_login": {
-    "log_in_with_inat": "Log in with your iNaturalist account",
+    "log_in_with_inat": "使用您的 iNaturalist 帐户登录",
     "username": "用户名",
-    "username_email": "Username / email",
-    "username_or_email": "Username or email",
+    "username_email": "用户名 / 电子邮件",
+    "username_or_email": "用户名或电子邮件",
     "password": "密码",
     "forgot_password_header": "忘记密码",
     "forgot_password": "忘记您的密码了？",
@@ -157,9 +157,9 @@
     "settings": "设置"
   },
   "onboarding": {
-    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
-    "onboarding_2": "Learn about the organisms all around you",
-    "onboarding_3": "Earn badges for observing different types of species",
+    "onboarding_1": "使用 Seek 的摄像头来识别植物、动物和真菌。",
+    "onboarding_2": "了解您周围所有生物的情况",
+    "onboarding_3": "观察不同的物种来获得徽章",
     "skip": "下次再说",
     "continue": "继续"
   },
@@ -853,6 +853,10 @@
     "october_2021_challenge_name": "Arachnid Challenge",
     "october_2021_mission_1": "Find 4 arachnids",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?"
+    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?",
+    "november_2021_challenge_name_flight_challenge": "Flight Challenge",
+    "november_2021_mission_1": "Find 5 species in these groups:\n\n-Birds (except flightless groups);\nWinged and Once-winged Insects",
+    "november_2021_description_ability_to_fly": "The ability to fly has evolved independently in birds, insects, and bats. Among birds, some species have become flightless but descend from flying ancestors. The same is true for many insects, and all insects are flightless for at least part of their life cycle.",
+    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?"
   }
 }

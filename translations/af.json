@@ -7,7 +7,7 @@
     "input_location_above_map": "Geen ligging gevind; voer ’n liggingnaam in om die kaart te laai en na naby spesies te soek",
     "error_alert_location_services": "Aktiveer liggingdienste in u toestelinstellings om voort te gaan",
     "species_nearby_requires_location": "Spesies naby vereis u ligging. Aktiveer asb. ligging in instellings\n",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
+    "species_nearby_requires_android_accuracy": "Spesies naby u benodig u ligging. Maak asb. seker u liggingdienste is geaktiveer.",
     "choose_location_on_map": "KIES LIGGING OP KAART"
   },
   "get_started": {
@@ -240,7 +240,7 @@
     "action_april": "Kyk of u naby ’n stad woon wat deel uitmaak van die Stedelike Natuur-uitdaging. Indien wel, wees op die uitkyk vir veldbiologiese aktiwiteite vir stadswildlewe!",
     "action_may": "Word vrywilliger by plaaslike groepe wat die plaaslike groenruimte help onderhou.\n\nDeel u vondse met u gesin, vriende of skoolgemeenskap en open hul oë vir die wildlewe om hulle heen.\n\nRuim u plaaslike groenruimte op van rommel.",
     "action_june": "Gebruik die hulpbronne op ourplanet.com om ’n plaaslike biodiversiteitsaksieprojek in u omgewing te begin om u plaaslike wildlewe bystand te verleen.",
-    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
+    "action_november_2019": "Versamel saad van plaaslike inheemse bome, laat dit ontkiem in potte en plant vervolgens die jong bome.\n\nVertel vriende of gesinsleden van alles wat bome vir ons doen.",
     "action_august": "Plant veldblomme wat voedsel aan bestuiwers kan bied.\n\nMaak ’n ‘insekhotel’ om onderdak te bied aan insekte in u tuin of skoolgrond deur kort hol pypies saam te bondel en elk met klein twygies en stukkies gebroke teël te vul.",
     "action_september": "Hou by hoeveel water u op ’n dag gebruik. Hoe kan u dit verminder om sodoende die druk op varswaterhabitats te verminder?\n\nGaan plaaslike varswaterhabitats na vir swerfafval of ander besoedeling. Kan u ’n plaaslike kampanje loods om hierdie kosbare ekostelsel te beskerm?",
     "action_october": "Voëls benodig brandstof vir hulle lang migrasiereise. Plaas neute, sade en vetbolletjies in u tuin die wintermaande om hulle ’n hupstoot te gee.\n\nPlant bome en struike wat bessies en wortels het vir besoekende voëls.",
@@ -853,6 +853,10 @@
     "october_2021_challenge_name": "Aragnieduitdaging",
     "october_2021_mission_1": "Vind 4 aragniede",
     "october_2021_description": "Het u geweet dat nie alle aragnide spinnekoppe is nie? Buiten spinnekoppe, myte en vlooie, hooiwaens en selfs klein pseudoskerpioene wat oor die hoof gesien kan word, word op elke bewoonde kontinent gevind. Ander minder bekende aragnide soos skerpioene, sweepskerpioene, stertlose sweepskerpioene en baardskeerder-spinnekoppe is meestal te vinde in warmer en/droër dele van die wêreld.",
-    "october_2021_action": "Dink aan die arachniede wat u gevind het. Hoe sou u hul habitats beskryf? Is enige van hulle in dieselfde habitat gevind?"
+    "october_2021_action": "Dink aan die arachniede wat u gevind het. Hoe sou u hul habitats beskryf? Is enige van hulle in dieselfde habitat gevind?",
+    "november_2021_challenge_name_flight_challenge": "Vulguitdaging",
+    "november_2021_mission_1": "Vind 5 spesies in hierdie groepe:\n\n-Voëls (behalwe vluglose groepe);\nGevleuelde en eenmalig-gevleuelde insekten",
+    "november_2021_description_ability_to_fly": "Die vermoë om te vlieg het afsondelik in voëls, insekte en vlêrmuise ontwikkel. Onder voëls het sommige spesies vlugloos geword hoewel hulle voorvaders wel kon vlieg. Dieselfde geld vir talle insekte, en alle inskte is vlugloos vir ten minste ’n gedeelte van hul lewensiklus.",
+    "november_2021_action_were_they_flighted": "Was die diere wat u teëgekom het in die vlieënde deel van hul lewensiklus? Indien wel, waar dink u hat hulle in hul lewens gevlieg? Migreer hulle?"
   }
 }

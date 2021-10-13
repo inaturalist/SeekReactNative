@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator='iPhone 12'",
+    "ios": "react-native run-ios --simulator='iPhone 13'",
     "start": "react-native start",
     "lint": "eslint . --max-warnings 0",
     "flow": "flow",

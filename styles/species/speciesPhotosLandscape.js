@@ -9,21 +9,13 @@ import {
 
 import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const columnWidth = dimensions.width / 3;
-
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   landscapeBackground: {
-    backgroundColor: colors.black,
-    width: columnWidth
+    backgroundColor: colors.black
   },
-  blackBackground: {
+  emptyBackground: {
     backgroundColor: colors.black,
     height: dimensions.height
-  },
-  photoContainer: {
-    backgroundColor: colors.black,
-    height: columnWidth,
-    width: columnWidth
   },
   footer: {
     padding: 100,
@@ -31,12 +23,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   imagePadding: {
     paddingBottom: 20
-  },
-  errorContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.black,
-    height: dimensions.height - 260
   }
 } );
 
@@ -53,21 +39,12 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   },
   ccButtonLandscape: {
     fontFamily: fonts.light
-  },
-  errorText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
-    textAlign: "center"
   }
 } );
 
 const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   image: {
-    height: columnWidth,
-    resizeMode: "cover",
-    width: columnWidth
+    resizeMode: "cover"
   }
 } );
 

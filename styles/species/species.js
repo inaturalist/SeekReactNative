@@ -5,7 +5,6 @@ import { colors, fonts, row, dimensions } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const columnWidth = dimensions.width / 3 * 2;
 const backgroundHeight = dimensions.height;
 const bottomPadding = 100;
 
@@ -24,14 +23,14 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   landscapeBackground: {
     backgroundColor: colors.white,
-    width: columnWidth,
     paddingBottom: bottomPadding
   },
   bottomPadding: {
     paddingBottom: bottomPadding
   },
   twoColumnContainer: {
-    flexWrap: "wrap",
+    flexDirection: "row",
+    justifyContent: "space-between",
     backgroundColor: colors.white
   },
   checkmark: {

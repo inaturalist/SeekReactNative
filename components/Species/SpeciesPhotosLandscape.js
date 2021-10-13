@@ -19,7 +19,8 @@ type Props = {
 };
 
 const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape, width } = useContext( AppOrientationContext );
+  const columnWidth = width / 3;
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
@@ -32,9 +33,21 @@ const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
 
     return (
       <View key={`image${photo.medium_url}`} style={viewStyles.imagePadding}>
-        <Image source={{ uri: photo.medium_url }} style={imageStyles.image} />
+        <Image
+          source={{ uri: photo.medium_url }}
+          style={[
+            imageStyles.image, {
+              width: columnWidth,
+              height: columnWidth
+            }
+          ]}
+        />
         {photo.attribution && (
-          <Text style={[textStyles.ccButtonText, isLandscape && textStyles.ccButtonLandscape]}>
+          <Text style={[
+            textStyles.ccButtonText,
+            isLandscape && textStyles.ccButtonLandscape,
+            { maxWidth: columnWidth }
+          ]}>
             {localizeAttributionsLandscape( photo.attribution, photo.license_code, "SpeciesDetail" )}
           </Text>
         )}
@@ -54,12 +67,12 @@ const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
 
   const renderFooter = ( ) => <View style={viewStyles.footer} />;
 
-  const renderEmptyComponent = ( ) => <View style={viewStyles.blackBackground} />;
+  const renderEmptyComponent = ( ) => <View style={viewStyles.emptyBackground} />;
 
   const renderPhotoList = ( ) => (
     <FlatList
       data={photos}
-      contentContainerStyle={viewStyles.landscapeBackground}
+      contentContainerStyle={[viewStyles.landscapeBackground, { width: columnWidth }]}
       renderItem={renderPhoto}
       keyExtractor={key}
       ListFooterComponent={renderFooter}

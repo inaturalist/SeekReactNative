@@ -75,7 +75,9 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
       && !observation.image.onlineVision
       && imageSelected
     ) {
-      navigation.push( "Drawer", {
+      // changed to navigate from push bc on Android, with RN > 0.65.x, the camera was
+      // popping up over the top of the match screen
+      navigation.navigate( "Drawer", {
         screen: "Match"
       } );
     }

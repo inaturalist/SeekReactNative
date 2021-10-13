@@ -52,8 +52,6 @@ const addCameraFilesAndroid = () => {
     const hasModel = results.find( r => r.name === model );
     const hasSampleModel = results.find( r => r.name === sampleModel );
 
-    console.log( results, "results", model, taxonomy, hasModel );
-
     // Android writes over existing files
     if ( hasModel !== undefined ) {
       copyFilesAndroid( `camera/${model}`, dirModel );

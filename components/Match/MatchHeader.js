@@ -25,6 +25,7 @@ const MatchHeader = ( {
   const { observation } = useContext( ObservationContext );
   const taxon = observation && observation.taxon;
   const image = observation && observation.image;
+  const imageUri = image && image.uri;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
   const { gradientDark, gradientLight } = setGradients( screenType );
@@ -43,20 +44,20 @@ const MatchHeader = ( {
   );
 
   const setCameraPath = ( ) => setNavigationPath( "Camera" );
-  const showSocialSharing = ( ) => setNavigationPath( "Social" );
+  // const showSocialSharing = ( ) => setNavigationPath( "Social" );
 
   const showSpeciesImage = ( taxon && taxon.speciesSeenImage ) && screenType !== "unidentified";
 
   return (
     <LinearGradient colors={[gradientDark, gradientLight]} style={styles.header}>
       <CustomBackArrow handlePress={setCameraPath} style={styles.backButton} />
-      {speciesIdentified && (
+      {/* {speciesIdentified && (
         <TouchableOpacity style={styles.socialIcon} onPress={showSocialSharing}>
           <Image source={icons.iconShare} />
         </TouchableOpacity>
-        )}
+        )} */}
       <View style={[styles.imageContainer, styles.buttonContainer]}>
-        <Image source={{ uri: image.uri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />
+        <Image source={{ uri: imageUri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />
         {showSpeciesImage && (
           <Image
             source={{ uri: taxon.speciesSeenImage }}

@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.9",
-    "@react-native-community/cameraroll": "^4.1.1",
+    "@react-native-community/cameraroll": "github:react-native-cameraroll/react-native-cameraroll#456a34b23907638b597a94d04cb6655d34d8e3b9",
     "@react-native-community/clipboard": "^1.5.1",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/masked-view": "^0.1.11",
@@ -36,6 +36,7 @@
     "@react-navigation/stack": "^6.0.10",
     "date-fns": "^2.25.0",
     "date-fns-tz": "^1.1.6",
+    "i": "^0.3.7",
     "i18n-js": "^3.8.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "react": "^17.0.2",

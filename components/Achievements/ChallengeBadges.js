@@ -47,6 +47,7 @@ const ChallengeBadges = ( ): Node => {
         <BadgeContainer
           data={setOfFive}
           renderItem={renderChallengeBadge}
+          containerKey={`challenge-badges-${index}`}
         />
       </View>
     );

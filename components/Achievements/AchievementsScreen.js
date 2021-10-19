@@ -18,15 +18,9 @@ import { localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import BannerHeader from "../UIComponents/BannerHeader";
 import { useFetchAchievements } from "./hooks/achievementHooks";
-import { LOG } from "../../utility/debugHelpers";
 
 const AchievementsScreen = ( ): Node => {
   const state = useFetchAchievements( );
-  LOG.info( state.badgesEarned, "badges earned, ", state.nextLevelCount, "next level count, ", state.speciesCount, "species count : state in achievements screen" );
-
-  if ( state.level ) {
-    LOG.info( state.level.count, "level count", state.level.earnedIconName, "level earned" );
-  }
   const navigation = useNavigation( );
 
   const navToObservations = useCallback( ( ) => {

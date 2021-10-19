@@ -124,6 +124,7 @@ const GalleryScreen = (): Node => {
   }, [album] );
 
   const onEndReached = useCallback( ( ) => {
+    console.log( "on end reached" );
     if ( hasNextPage && !stillFetching ) {
       fetchPhotos( );
     }
@@ -163,7 +164,9 @@ const GalleryScreen = (): Node => {
     navigation.addListener( "focus", ( ) => {
       setObservation( null );
       requestAndroidPermissions( );
-      initialFetch( );
+      if ( Platform.OS === "ios" ) {
+        initialFetch( );
+      }
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
   }, [navigation, initialFetch, setObservation] );

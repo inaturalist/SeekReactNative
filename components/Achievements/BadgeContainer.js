@@ -7,12 +7,11 @@ import { viewStyles } from "../../styles/badges/achievements";
 
 type Props = {
   data: Array<Object>,
-  renderItem: ( Object ) => any,
-  containerKey: string
+  renderItem: ( Object ) => any
 }
 
-const BadgeContainer = ( { data, renderItem, containerKey }: Props ): React.Node => (
-  <View style={[viewStyles.imageContainer]} key={containerKey}>
+const BadgeContainer = ( { data, renderItem }: Props ): React.Node => (
+  <View style={[viewStyles.imageContainer]}>
     {data.map( item => (
       <View key={item.earnedIconName}>
         {renderItem( item )}

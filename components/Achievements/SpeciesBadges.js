@@ -76,7 +76,6 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
         <BadgeContainer
           data={setOfFive}
           renderItem={renderSpeciesBadge}
-          containerKey={`species-badges-${index}`}
         />
       </View>
     );

@@ -124,7 +124,6 @@ const GalleryScreen = (): Node => {
   }, [album] );
 
   const onEndReached = useCallback( ( ) => {
-    console.log( "on end reached" );
     if ( hasNextPage && !stillFetching ) {
       fetchPhotos( );
     }

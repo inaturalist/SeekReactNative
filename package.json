@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.9",
-    "@react-native-community/cameraroll": "github:react-native-cameraroll/react-native-cameraroll#96dc173c4c5d2ff539cb7f1282480e1287cb3bb1",
+    "@react-native-community/cameraroll": "github:albullington/react-native-cameraroll#12a1d61511e19c083fddc14ecb051651398ddd1b",
     "@react-native-community/clipboard": "^1.5.1",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/masked-view": "^0.1.11",

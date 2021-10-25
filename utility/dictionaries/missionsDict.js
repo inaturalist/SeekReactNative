@@ -268,6 +268,11 @@ const missions = [{
     number: 4,
     types: ["arachnids"]
   }
+}, { // november 2021
+    0: {
+      number: 5,
+      types: ["birds", "Pterygota"]
+    }
 }];
 
 export default missions;

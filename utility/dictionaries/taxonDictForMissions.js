@@ -70,6 +70,7 @@ const taxonIds = {
   Proboscidea: 43691,
   Procellariformes: 67565,
   Prunus: 47351,
+  Pterygota: 184884,
   Pyrus: 58736,
   Rhamnaceae: 49041,
   Rhizophoraceae: 60337,

@@ -5,7 +5,7 @@ platform :ios, '11.0'
 
 target 'Seek' do
   config = use_native_modules!
-  pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools'
+  # pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools'
 
   use_react_native!(
     :path => config[:reactNativePath],

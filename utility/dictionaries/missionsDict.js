@@ -271,7 +271,41 @@ const missions = [{
 }, { // november 2021
     0: {
       number: 5,
-      types: ["birds", "Pterygota"]
+      types: [
+        "Pterygota",
+        "Accipitriformes",
+        "Anseriformes",
+        "Bucerotiformes",
+        "Caprimulgiformes",
+        "Cathartiformes",
+        "Charadriiformes",
+        "Ciconiiformes",
+        "Coliiformes",
+        "Columbiformes",
+        "Coraciiformes",
+        "Cuculiformes",
+        "Falconiformes",
+        "Galbuliformes",
+        "Galliformes",
+        "Gaviiformes",
+        "Gruiformes",
+        "Musophagiformes",
+        "Opisthocomiformes",
+        "Otidiformes",
+        "Passeriformes",
+        "Pelecaniformes",
+        "Phaethontiformes",
+        "Phoenicopteriformes",
+        "Piciformes",
+        "Podicipediformes",
+        "Procellariiformes",
+        "Psittaciformes",
+        "Pterocliformes",
+        "Strigiformes",
+        "Suliformes",
+        "Tinamiformes",
+        "Trogoniformes"
+      ]
     }
 }];
 

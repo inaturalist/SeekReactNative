@@ -4,7 +4,8 @@ import React, {
   useEffect,
   useCallback,
   useReducer,
-  useContext
+  useContext,
+  useRef
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
@@ -46,6 +47,7 @@ const MatchModals = ( {
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
   const taxaId = taxon && taxon.taxaId;
+  let firstRender = useRef( true );
 
   const commonName = useCommonName( taxaId );
 
@@ -66,10 +68,8 @@ const MatchModals = ( {
         return { ...state, levelModal: action.status, levelShown: action.levelShown };
       case "SET_REPLACE_PHOTO_MODAL":
         return { ...state, replacePhotoModal: action.status };
-      case "SET_FIRST_RENDER":
-        return { ...state, firstRender: false };
       default:
-        throw new Error();
+        throw new Error( );
     }
   }, {
     latestLevel: null,
@@ -80,8 +80,7 @@ const MatchModals = ( {
     challengeShown: false,
     challengeModal: false,
     levelModal: false,
-    replacePhotoModal: false,
-    firstRender: true
+    replacePhotoModal: false
   } );
 
   const {
@@ -93,13 +92,12 @@ const MatchModals = ( {
     challengeShown,
     replacePhotoModal,
     levelModal,
-    challengeModal,
-    firstRender
+    challengeModal
   } = state;
 
-  const closeChallengeModal = () => dispatch( { type: "SET_CHALLENGE_MODAL", status: false, challengeShown: true } );
-  const closeReplacePhotoModal = () => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
-  const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
+  const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", status: false, challengeShown: true } );
+  const closeReplacePhotoModal = ( ) => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
+  const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
 
   useEffect( ( ) => {
     if ( levelModal ) {
@@ -112,7 +110,7 @@ const MatchModals = ( {
     }
   }, [levelModal] );
 
-  const navigateTo = useCallback( () => {
+  const navigateTo = useCallback( ( ) => {
     if ( navPath === "Camera" || navPath === "Social" ) {
       setNavigationPath( null );
       navigation.navigate( navPath, navPath === "Social" && { taxon, commonName } );
@@ -125,61 +123,61 @@ const MatchModals = ( {
       navigation.navigate( "Species" );
     } else if ( navPath === "Drawer" ) {
       setNavigationPath( null );
-      navigation.openDrawer();
+      navigation.openDrawer( );
     }
   }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
 
-  const checkBadges = () => {
-    checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
+  const checkBadges = ( ) => {
+    checkForNewBadges( ).then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
       dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
-    } ).catch( () => console.log( "could not check for badges" ) );
+    } ).catch( ( ) => console.log( "could not check for badges" ) );
   };
 
-  const checkChallenges = () => {
-    checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
+  const checkChallenges = ( ) => {
+    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
-    } ).catch( () => console.log( "could not check for challenges" ) );
+    } ).catch( ( ) => console.log( "could not check for challenges" ) );
   };
 
-  const checkModals = useCallback( () => {
+  const checkModals = useCallback( ( ) => {
     if ( challenge && !challengeShown ) {
       dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
     } else if ( latestLevel && !levelShown ) {
       dispatch( { type: "SET_LEVEL_MODAL", status: true, levelShown: false } );
     } else {
-      navigateTo();
+      navigateTo( );
     }
   }, [challenge, challengeShown, latestLevel, levelShown, navigateTo] );
 
-  useEffect( () => {
+  useEffect( ( ) => {
     let isCurrent = true;
     if ( navPath && isCurrent ) {
-      checkModals();
+      checkModals( );
     }
     return ( ) => {
       isCurrent = false;
     };
   }, [navPath, checkModals] );
 
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
       if ( screenType === "newSpecies" && firstRender ) {
-        checkChallenges();
-        checkBadges();
+        checkChallenges( );
+        checkBadges( );
       }
       if ( screenType === "resighted" && firstRender ) {
         dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
       }
     } );
 
-    navigation.addListener( "blur", () => {
-      dispatch( { type: "SET_FIRST_RENDER" } );
+    navigation.addListener( "blur", ( ) => {
+      firstRender.current = false;
       if ( screenType === "newSpecies" ) {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, screenType, firstRender] );
+  }, [navigation, screenType] );
 
   return (
     <>

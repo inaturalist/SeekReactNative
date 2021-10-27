@@ -23,7 +23,8 @@ const MatchHeader = ( {
 }: Props ): Node => {
   const { isLandscape } = useContext( AppOrientationContext );
   const { observation } = useContext( ObservationContext );
-  const { image, taxon } = observation;
+  const taxon = observation && observation.taxon;
+  const image = observation && observation.image;
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
   const { gradientDark, gradientLight } = setGradients( screenType );

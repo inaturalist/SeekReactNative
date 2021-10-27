@@ -353,7 +353,8 @@ const ARCamera = ( ): Node => {
 
   const cameraStyle = {
     // need different styling for android to avoid black line on right side of screen
-    width: Platform.OS === "android" ? width + 100 : width,
+    width,
+    // width: Platform.OS === "android" ? width + 100 : width,
     height
   };
 

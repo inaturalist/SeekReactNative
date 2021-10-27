@@ -61,8 +61,8 @@ const App = ( ): Props => (
         <Stack.Group screenOptions={screenOptions}>
           <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />
           <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
-          <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
           <Stack.Screen name="Camera" component={Camera} options={verticalConfig} />
+          <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
           <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
           <Stack.Screen name="Post" component={Post} options={defaultConfig} />
           <Stack.Screen name="PostStatus" component={PostStatus} options={defaultConfig} />

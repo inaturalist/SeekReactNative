@@ -26,6 +26,9 @@ const MatchScreen = ( ): Node => {
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
 
+  // move this out of state, so can navigate with .navigate instead of .push
+  const screenType = setScreenType( taxon, seenDate );
+
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -40,11 +43,10 @@ const MatchScreen = ( ): Node => {
     }
   }, {
     navPath: null,
-    flagModal: false,
-    screenType: setScreenType( taxon, seenDate )
+    flagModal: false
   } );
 
-  const { navPath, flagModal, screenType } = state;
+  const { navPath, flagModal } = state;
 
   useScrollToTop( scrollView, navigation );
 

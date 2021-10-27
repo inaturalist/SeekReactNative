@@ -14,19 +14,22 @@ import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../../utility/userAgent";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import { createJwtToken } from "../../../utility/helpers";
 
-const ForgotPasswordScreen = (): Node => {
-  const { navigate } = useNavigation();
+const ForgotPasswordScreen = ( ): Node => {
+  const { navigate } = useNavigation( );
   const [email, setEmail] = useState( "" );
   const [error, setError] = useState( false );
+  const token = createJwtToken( );
 
-  const emailForgotPassword = () => {
+  const emailForgotPassword = ( ) => {
 
     const params = { user: { email } };
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent()
+      "User-Agent": createUserAgent( ),
+      "Authorization": token
     };
 
     const site = "https://www.inaturalist.org";
@@ -43,10 +46,10 @@ const ForgotPasswordScreen = (): Node => {
     } ).catch( ( err ) => console.log( err, "error" ) );
   };
 
-  const checkEmail = () => {
+  const checkEmail = ( ) => {
     if ( checkIsEmailValid( email ) ) {
       setError( false );
-      emailForgotPassword();
+      emailForgotPassword( );
     } else {
       setError( true );
     }
@@ -71,7 +74,7 @@ const ForgotPasswordScreen = (): Node => {
         ? <ErrorMessage error="email" />
         : <View style={styles.marginLarge} />}
       <GreenButton
-        handlePress={() => checkEmail()}
+        handlePress={( ) => checkEmail( )}
         login
         text="inat_login.reset"
       />

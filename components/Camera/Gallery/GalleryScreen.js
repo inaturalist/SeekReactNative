@@ -163,7 +163,9 @@ const GalleryScreen = (): Node => {
     navigation.addListener( "focus", ( ) => {
       setObservation( null );
       requestAndroidPermissions( );
-      initialFetch( );
+      if ( Platform.OS === "ios" ) {
+        initialFetch( );
+      }
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
   }, [navigation, initialFetch, setObservation] );

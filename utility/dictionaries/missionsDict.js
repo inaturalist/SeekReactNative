@@ -268,6 +268,45 @@ const missions = [{
     number: 4,
     types: ["arachnids"]
   }
+}, { // november 2021
+    0: {
+      number: 5,
+      types: [
+        "Pterygota",
+        "Accipitriformes",
+        "Anseriformes",
+        "Bucerotiformes",
+        "Caprimulgiformes",
+        "Cathartiformes",
+        "Charadriiformes",
+        "Ciconiiformes",
+        "Coliiformes",
+        "Columbiformes",
+        "Coraciiformes",
+        "Cuculiformes",
+        "Falconiformes",
+        "Galbuliformes",
+        "Galliformes",
+        "Gaviiformes",
+        "Gruiformes",
+        "Musophagiformes",
+        "Opisthocomiformes",
+        "Otidiformes",
+        "Passeriformes",
+        "Pelecaniformes",
+        "Phaethontiformes",
+        "Phoenicopteriformes",
+        "Piciformes",
+        "Podicipediformes",
+        "Procellariiformes",
+        "Psittaciformes",
+        "Pterocliformes",
+        "Strigiformes",
+        "Suliformes",
+        "Tinamiformes",
+        "Trogoniformes"
+      ]
+    }
 }];
 
 export default missions;

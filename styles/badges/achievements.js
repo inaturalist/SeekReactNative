@@ -11,7 +11,8 @@ import {
 
 import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const badgeIconWidth = Math.min( 455, dimensions.width ) / 4;
+// added decimal because this was going off the screen on Android Pixel 4
+const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   center,

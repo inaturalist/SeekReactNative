@@ -30,9 +30,11 @@ const Footer = (): Node => {
   }
 
   useEffect( () => {
+    let isCurrent = true;
     const fetchNotifications = () => {
       Realm.open( realmConfig ).then( ( realm ) => {
         const newNotifications = realm.objects( "NotificationRealm" ).filtered( "viewed == false" ).length;
+        if ( !isCurrent ) { return; }
         if ( newNotifications > 0 ) {
           setNotifications( true );
         } else {
@@ -46,6 +48,9 @@ const Footer = (): Node => {
     navigation.addListener( "focus", () => {
       fetchNotifications();
     } );
+    return ( ) => {
+      isCurrent = false;
+    };
   }, [navigation] );
 
   const navToDrawer = ( ) => {

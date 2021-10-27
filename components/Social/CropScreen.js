@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { View } from "react-native";
-import { CropView } from "react-native-image-crop-tools";
+// import { CropView } from "react-native-image-crop-tools";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { dimensions } from "../../styles/global";
@@ -36,14 +36,14 @@ const CropScreen = ( {
       </View>
       <View />
     </View>
-    <CropView
+    {/* <CropView
       sourceUrl={uri}
       style={viewStyles.cropView}
       ref={cropViewRef}
       onImageCrop={handleImageCrop}
       keepAspectRatio
       aspectRatio={aspectRatio}
-    />
+    /> */}
     <View style={viewStyles.cropFooter}>
       <GreenButton
         width={dimensions.width}

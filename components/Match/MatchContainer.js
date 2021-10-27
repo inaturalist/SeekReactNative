@@ -27,7 +27,7 @@ const MatchContainer = ( {
 }: Props ): Node => {
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation();
-  const { taxon } = observation;
+  const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
   const id = taxon && taxon.taxaId ? taxon.taxaId : 0;
   const commonName = useCommonName( id );
@@ -36,8 +36,11 @@ const MatchContainer = ( {
 
   const { gradientLight } = setGradients( screenType );
 
-  const { image } = observation;
-  const { taxaId, scientificName, rank } = taxon;
+  // android crashes a lot when using object destructuring
+  const image = observation && observation.image;
+  const taxaId = taxon && taxon.taxaId;
+  const scientificName = taxon && taxon.scientificName;
+  const rank = taxon && taxon.rank;
 
   const taxaInfo = {
     // don't pass taxon data in when user has flagged as misidentification
@@ -61,7 +64,7 @@ const MatchContainer = ( {
 
   const greenButtonText = speciesIdentified ? "results.view_species" : "results.take_photo";
 
-  const showSpeciesNearby = ( screenType === "commonAncestor" && rank < 60 ) && image.latitude;
+  const showSpeciesNearby = ( screenType === "commonAncestor" && rank < 60 ) && ( image && image.latitude );
 
   return (
     <View style={styles.marginLarge}>

@@ -345,6 +345,18 @@ const challenges = {
     ],
     availableDate: ( new Date( 2021, 9, 1 ): Date ),
     action: "seek_2021_challenges.october_2021_action"
+  },
+  nov2021: {
+    name: "seek_2021_challenges.november_2021_challenge_name_flight_challenge",
+    description: "seek_2021_challenges.november_2021_description_ability_to_fly",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-november2021",
+    earnedIconName: "badge_inaturalist_november2021",
+    missions: [
+      "seek_2021_challenges.november_2021_mission_1"
+    ],
+    availableDate: ( new Date( 2021, 10, 1 ): Date ),
+    action: "seek_2021_challenges.november_2021_action_were_they_flighted"
   }
 };
 

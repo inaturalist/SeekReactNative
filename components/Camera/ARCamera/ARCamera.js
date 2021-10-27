@@ -147,7 +147,7 @@ const ARCamera = ( ): Node => {
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.image.arCamera && pictureTaken ) {
-      navigation.push( "Drawer", {
+      navigation.navigate( "Drawer", {
         screen: "Match"
       } );
     }

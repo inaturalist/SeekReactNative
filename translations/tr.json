@@ -298,7 +298,7 @@
     "yes_resighted": "Evet, bu tür yanlış tanımlandı",
     "no": "Hayır, doğru",
     "enable_location": "Gözlemleri kaydetmek için konumu etkinleştir",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "KONUMU ETKİNLEŞTİR",
     "error_server": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_image": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
@@ -587,7 +587,7 @@
     "latitude_longitude": "Enlem: {{latitude}}, Boylam: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
     "animals": "Hayvanlar",
-    "protozoans": "Protozoans",
+    "protozoans": "Tek Hücreliler",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {

@@ -271,7 +271,7 @@
     "species_observed": "Gözlemlenen Türler",
     "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
     "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby_internet_error": "Yakındaki türleri bulmak için internete ihtiyacımız var."
   },
   "results": {
     "observed_species": "Yeni bir tür gözlemlediniz!",

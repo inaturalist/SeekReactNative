@@ -6,7 +6,7 @@
     "no_species": "Se pare că nu au fost observate multe specii în apropiere! Încearcă să schimbi locația sau să extinzi filtrul de specii.",
     "input_location_above_map": "Nu a fost găsită nicio poziționare; introduceți o denumire pentru reperul de mai sus pentru a încărca harta și a căuta specii din apropriere",
     "error_alert_location_services": "Pentru a continua, activați serviciile de poziționare disponibile pe dispozitivul dumneavoastră.",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
+    "species_nearby_requires_location": "Speciile din apropiere necesită locația ta. Te rugăm să activezi locația în setări",
     "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
     "choose_location_on_map": "ALEGEȚI POZIȚIA PE HARTĂ"
   },
@@ -672,7 +672,7 @@
     "seasonality": "Sezonalitate",
     "seasonality_option_1": "Afișează sezonalitatea bazată pe observații iNaturalist la nivel mondial",
     "seasonality_option_2": "Afișează sezonalitatea bazată pe observații iNaturalist aproape de locația mea actuală (speciile care nu sunt găsite în apropierea locației mele nu vor avea sezonalitate)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Tă rugăm să vizitezi următorul link pentru a face o donație către Seek"
   },
   "seek_challenges": {
     "badge": "Insignă Seek",

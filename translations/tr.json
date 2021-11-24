@@ -271,7 +271,7 @@
     "species_observed": "Gözlemlenen Türler",
     "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
     "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby_internet_error": "Yakındaki türleri bulmak için internete ihtiyacımız var."
   },
   "results": {
     "observed_species": "Yeni bir tür gözlemlediniz!",
@@ -298,7 +298,7 @@
     "yes_resighted": "Evet, bu tür yanlış tanımlandı",
     "no": "Hayır, doğru",
     "enable_location": "Gözlemleri kaydetmek için konumu etkinleştir",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "KONUMU ETKİNLEŞTİR",
     "error_server": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_image": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
@@ -587,7 +587,7 @@
     "latitude_longitude": "Enlem: {{latitude}}, Boylam: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
     "animals": "Hayvanlar",
-    "protozoans": "Protozoans",
+    "protozoans": "Tek Hücreliler",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
@@ -857,6 +857,10 @@
     "november_2021_challenge_name_flight_challenge": "Uçuş Mücadelesi",
     "november_2021_mission_1": "Bu gruplarda bulunan 5 tür bul:\n\n-Kuşlar (uçamayanlar hariç)\n-Kanatlı ve bir zamanlar kanatlı böcekler",
     "november_2021_description_ability_to_fly": "Uçma becerisi kuşlarda, böceklerde ve yarasalarda birbirlerinden bağımsız bir şekilde evrimleşmiştir. Bazı kuş türleri atalarının uçabilmesine rağmen uçma yetilerini kaybetmiştir. Birçok böcek türü içinde bu geçerlidir ve tüm böcekler yaşamlarının en az bir kısmı boyunca uçamazlar.",
-    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?"
+    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?",
+    "december_2021_challenge_name_vertebrate_challenge": "Vertebrate Land Predator Challenge",
+    "december_2021_mission_1": "Find 2 species of vertebrates from:\n\n-Hawks, Eagles, Kites, and Allies;\n-Falcons and Caracaras;\n-Owls;\n-Mammalian Carnivores;\n-Snakes and Lizards;",
+    "december_2021_description_vertebrate_animals_have": "Vertebrate animals have backbones and internal skeletons. Predators kill and eat prey animals. Like all animals, they are adapted to their diet. For example, many predators have sharp claws, teeth, or beaks that allow them to hold or dismember prey.",
+    "december_2021_action_think_about_predators": "Think about the predators you observed. What adaptations do they have to be good at hunting and killing prey? Do the two species you saw have any similar adaptations for predation?"
   }
 }

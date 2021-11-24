@@ -89,7 +89,7 @@
     "error_no_username": "Chybí uživatelské jméno / e-mail",
     "error_no_password": "Chybí heslo",
     "error_internet": "Bez připojení k Internetu",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Váš požadavek nemohl být dokončen."
   },
   "inat_signup": {
     "welcome": "Vítejte s Seeku!",
@@ -857,6 +857,10 @@
     "november_2021_challenge_name_flight_challenge": "Letecká výzva",
     "november_2021_mission_1": "Najděte 5 druhů v těchto skupinách:\n\n-Ptáci (kromě nelétavých skupin);\nKřídlatí: starokřídlý nebo novokřídlý hmyz",
     "november_2021_description_ability_to_fly": "Schopnost létat se vyvinula nezávisle u ptáků, hmyzu a netopýrů. Mezi ptáky se některé druhy staly nelétavými, ale pocházejí od létajících předků. Totéž platí pro mnohé druhy hmyzu, všechny druhy hmyzu jsou alespoň po část svého životního cyklu nelétavé.",
-    "november_2021_action_were_they_flighted": "Byla zvířata, která jste našli, v létací fázi svého životního cyklu? Pokud ano, kam si myslíte, že letěli během svého života? Stěhují se?"
+    "november_2021_action_were_they_flighted": "Byla zvířata, která jste našli, v létací fázi svého životního cyklu? Pokud ano, kam si myslíte, že letěli během svého života? Stěhují se?",
+    "december_2021_challenge_name_vertebrate_challenge": "Výzva predátorů země – obratlovců",
+    "december_2021_mission_1": "Najděte 2 druhy obratlovců z:\n\n-jestřábovitých: jestřábi, orli, luňáci a káňata;\n-sokolovitých;\n-sov;\n-masožravých savců;\n-hadů a ještěrek;",
+    "december_2021_description_vertebrate_animals_have": "Bezobratlí živočichové mají páteř a vnitřní kosti. Predátoři usmrcují a jedí kořist. Stejně jako všichni živočichové, jsou přizpůsobeni své potravě. Mnoho predátorů má například ostré drápy, zuby nebo zobáky, které jim umožňují držet kořist, nebo ji rozkouskovat.",
+    "december_2021_action_think_about_predators": "Přemýšlejte o predátorech, které jste pozorovali. Jak se adaptovali, aby byli dobří v lovu a zabíjení kořisti? Vykazují oba druhy, které jste viděli, podobné adaptace usnadňující lov?"
   }
 }

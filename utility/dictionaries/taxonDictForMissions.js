@@ -97,6 +97,7 @@ const taxonIds = {
   Sirenians: 46306,
   Sorbus: 48582,
   Sphenisciformes: 67564,
+  Squamata: 26172,
   Strigiformes: 19350,
   Suliformes: 71268,
   Tinamiformes: 20530,

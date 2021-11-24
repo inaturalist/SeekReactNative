@@ -307,6 +307,16 @@ const missions = [{
         "Trogoniformes"
       ]
     }
+}, { // december 2021
+  0: {
+    number: 2,
+    types: [
+      "Accipitriformes",
+      "Falconiformes",
+      "Strigiformes",
+      "carnivora",
+      "Squamata"
+    ]
+  }
 }];
-
 export default missions;

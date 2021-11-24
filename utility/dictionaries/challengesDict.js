@@ -357,6 +357,18 @@ const challenges = {
     ],
     availableDate: ( new Date( 2021, 10, 1 ): Date ),
     action: "seek_2021_challenges.november_2021_action_were_they_flighted"
+  },
+  dec2021: {
+    name: "seek_2021_challenges.december_2021_challenge_name_vertebrate_challenge",
+    description: "seek_2021_challenges.december_2021_description_vertebrate_animals_have",
+    totalSpecies: 2,
+    backgroundName: "img-challengedetail-december2021",
+    earnedIconName: "badge_inaturalist_december2021",
+    missions: [
+      "seek_2021_challenges.december_2021_mission_1"
+    ],
+    availableDate: ( new Date( 2021, 11, 1 ): Date ),
+    action: "seek_2021_challenges.december_2021_action_think_about_predators"
   }
 };
 

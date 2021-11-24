@@ -67,7 +67,8 @@ const badges = {
   badge_inaturalist_august2021: require( "./badges/seekChallenges/badge_inaturalist_august2021.webp" ),
   badge_inaturalist_september2021: require( "./badges/seekChallenges/badge_inaturalist_september2021.webp" ),
   badge_inaturalist_october2021: require( "./badges/seekChallenges/badge_inaturalist_october2021.webp" ),
-  badge_inaturalist_november2021: require( "./badges/seekChallenges/badge_inaturalist_november2021.webp" )
+  badge_inaturalist_november2021: require( "./badges/seekChallenges/badge_inaturalist_november2021.webp" ),
+  badge_inaturalist_december2021: require( "./badges/seekChallenges/badge_inaturalist_december2021.webp" )
 };
 
 export default badges;

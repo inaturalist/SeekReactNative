@@ -46,13 +46,13 @@
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
       "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
+      "two": "已上傳 {{count}} 個觀察紀錄！",
       "few": "{{count}} observations to upload",
       "many": "{{count}} observations to upload",
       "other": "{{count}} observations to upload"
     },
     "upload_now": "立即上傳",
-    "error_internet": "No internet detected. Please try again later.",
+    "error_internet": "沒有網路連線，請稍後再試。",
     "error_downtime": {
       "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",

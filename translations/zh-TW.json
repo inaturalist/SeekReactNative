@@ -4,7 +4,7 @@
     "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
     "no_location": "沒有位置資訊",
     "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "input_location_above_map": "找不到位置資訊；在上面輸入位置名稱，以載入地圖並尋找附近的物種",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
     "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",

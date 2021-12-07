@@ -5,9 +5,9 @@
     "no_location": "沒有位置資訊",
     "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。",
     "input_location_above_map": "找不到位置資訊；在上面輸入位置名稱，以載入地圖並尋找附近的物種",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
+    "error_alert_location_services": "請在您設備的設定中開啟定位功能才能繼續",
+    "species_nearby_requires_location": "附近的物種需要您的位置資訊。請在設定中開啟定位功能",
+    "species_nearby_requires_android_accuracy": "附近的物種需要您的位置資訊。請檢查定位功能是否已開啟。",
     "choose_location_on_map": "挑選在地圖上的位置"
   },
   "get_started": {
@@ -23,7 +23,7 @@
     "continue_challenge": "繼續挑戰",
     "view_all": "查看所有挑戰",
     "new_join": "用探索的照相機加入觀察紀錄來贏得挑戰徽章！",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat 管理員：感謝您測試 Seek！您將在下個月之前看到最新的 iNat 挑戰以進行測試。"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "發佈到 INATURALIST ",
@@ -44,27 +44,27 @@
       "other": "{{count}} 個觀察已上傳！"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
+      "zero": "{{count}} 筆觀察紀錄待上傳",
+      "one": "{{count}} 筆觀察紀錄待上傳",
       "two": "{{count}} 筆觀察紀錄待上傳",
       "few": "{{count}} 筆觀察紀錄待上傳",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "many": "{{count}} 筆觀察紀錄待上傳",
+      "other": "{{count}} 筆觀察紀錄待上傳"
     },
     "upload_now": "立即上傳",
     "error_internet": "沒有網路連線，請稍後再試。",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
+      "one": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
+      "two": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
+      "few": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
+      "many": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
+      "other": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。"
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_unknown": "上傳失敗。錯誤原因：{{errorText}}",
+    "error_login": "登錄令牌失敗。請從 Seek 中的 iNaturalist 或 成就畫面中重新登錄您的 iNaturalist 帳戶。",
+    "error_photo": "無法再在設備上存取照片。",
+    "error_downtime_a_few_hours": "iNaturalist 的服務器正在進行維護。請在幾個小時後再試一次。"
   },
   "notifications": {
     "header": "通知",
@@ -165,7 +165,7 @@
   },
   "location_picker": {
     "species_nearby": "附近物種",
-    "button": "搜尋附近位置",
+    "button": "搜索這附近",
     "undefined": "未定義的位置"
   },
   "taxon_picker": {
@@ -240,7 +240,7 @@
     "action_april": "确認您的居住地所毗鄰的城市是否屬於「城市大自然挑戰」之一部分，如果是，請注意都市野生生物大自然記錄和識別活動！",
     "action_may": "抽空做志工並與當地志工團體幫助維護當地綠色空間。\n\n和您的家人、朋友或是學校同學們分享您找到哪些生物，以開拓他們的眼界來看周圍的野生生物。\n\n在周遭綠地環境中，組織撿垃圾的活動\n\n",
     "action_june": "使用 ourplanet.com 上的資源在您所在區域發起本地生物多樣性行動專案，向您當地的野生生物伸出援手。",
-    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
+    "action_november_2019": "從當地原生的樹上收集種子，將種子放在盆中發芽然後種植樹苗。\n\n告訴朋友及家人樹木為我們所做的一切。",
     "action_august": "種植野花來為傳粉者提供食物。\n\n打造一個「昆蟲旅館」，為您的花園或學校場域中的昆蟲提供棲息之地，只需將一些短的水管綁在一起，然後用小樹枝和碎瓦片填充其中。",
     "action_september": "請記錄您在一整天的用水量。思考如何減少用水量，以緩解淡水棲地的壓力。\n\n查看當地淡水棲地是否有垃圾或其他污染。您能否發起在地的環保活動來保護此寶貴的生態系？",
     "action_october": "鳥兒需要食物才能完成長途遷徏。在冬季，在您的花園中撒播堅果種子和鳥脂肪球讓牠們能補充能量展翅高飛。",
@@ -550,7 +550,7 @@
     "species_saved": "此物种已存儲至您的觀察結果。",
     "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
     "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。",
-    "no_photos_found": "No photos found for this species.",
+    "no_photos_found": "沒有找到此物種的照片。",
     "copied": "已複製！"
   },
   "about": {
@@ -567,7 +567,7 @@
   },
   "posting": {
     "header": "上傳至 iNaturalist",
-    "notes": "在這裡新增註解",
+    "notes": "在這裡新增筆記",
     "date": "日期",
     "location": "地點",
     "geoprivacy": "地理資訊隱私權",
@@ -584,17 +584,17 @@
     "unknown": "未知",
     "ok": "好的",
     "look_up": "依照名字來查找物種",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
+    "latitude_longitude": "緯度：{{latitude}}，經度：{{longitude}}",
     "major_taxa": "主要分類群",
     "animals": "動物",
     "protozoans": "原生動物",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "kelp": "海帶、矽藻及相關生物"
   },
   "posting_status": {
     "posting_to_inat_background": "在後臺中發佈到 INATURALIST",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
+    "posting_to_inat_background_description": "當 Seek 開啟時，會在後台繼續向 iNaturalist 上傳。\n\n您可以在主螢幕上檢查上傳狀態。",
     "no_internet": "沒有網路！",
-    "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
+    "no_internet_description": "您的觀察結果尚未上傳到 iNaturalist，因為您未連上網際網路。\n\n一旦您連上網際網路，您就可以從主螢幕上傳您的觀察結果。"
   },
   "posting_help": {
     "header": "貼文說明",
@@ -637,13 +637,13 @@
     "flag": "標記這個觀察紀錄有誤",
     "back": "回到前一頁面",
     "user_location": "回到您目前的位置",
-    "open_help": "Open camera help screen",
-    "open_posting_help": "Open posting to iNaturalist help screen",
+    "open_help": "開啟相機輔助介面",
+    "open_posting_help": "開啟發佈到 iNaturalist 的輔助介面",
     "take_photo": "點擊拍照",
     "scroll_left": "向左滑動",
     "scroll_right": "向右滑動",
-    "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "warning_modal": "AR 相機警告",
+    "get_started_modal": "入門提示"
   },
   "review": {
     "title": "評價這個App",
@@ -716,7 +716,7 @@
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
     "scavenger": "食腐動物挑戰",
     "mission_1_oct_2020": "Find 4 fungi",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_2_oct_2020": "從下列中找到任何 1 種生物：\n\n鷹形目（鷹、鵰、鳶）；\n美洲鷲目 (禿鷲)；\n食肉目（肉食性動物）",
     "mission_3_oct_2020": "Find 1 Mollusk",
     "mission_4_oct_2020": "Find 1 Arthropod",
     "oct_2020_description": "Scavengers and decomposers are essential to life on our planet. Fungi are decomposers that can break down dead tissue such as wood and leaves. Many types of animals such as vultures, isopods, and some snails can eat dead plants or animals. They help to recycle nutrients so they are available for new growth.",
@@ -853,13 +853,13 @@
     "october_2021_challenge_name": "蛛形綱挑戰",
     "october_2021_mission_1": "尋找 4 種蛛形綱動物",
     "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?",
+    "october_2021_action": "思考一下您發現的蛛形綱動物們。您會如何描述牠們的棲息地？牠們在同一棲息地被發現的嗎？",
     "november_2021_challenge_name_flight_challenge": "飛行挑戰",
-    "november_2021_mission_1": "Find 5 species in these groups:\n\n-Birds (except flightless groups);\nWinged and Once-winged Insects",
+    "november_2021_mission_1": "在這些群體中找到 5 個物種：\n\n-鳥類（不會飛的群體除外）；\n有翅膀和曾經有翅膀的昆蟲 ",
     "november_2021_description_ability_to_fly": "The ability to fly has evolved independently in birds, insects, and bats. Among birds, some species have become flightless but descend from flying ancestors. The same is true for many insects, and all insects are flightless for at least part of their life cycle.",
     "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?",
     "december_2021_challenge_name_vertebrate_challenge": "陸域脊椎動物掠食者挑戰",
-    "december_2021_mission_1": "Find 2 species of vertebrates from:\n\n-Hawks, Eagles, Kites, and Allies;\n-Falcons and Caracaras;\n-Owls;\n-Mammalian Carnivores;\n-Snakes and Lizards;",
+    "december_2021_mission_1": "尋找下列 2 種脊椎動物：\n\n-鷹、鵰、鳶及相關生物；\n-隼和卡拉卡拉鷹；\n- 鴞；\n- 哺乳類食肉動物；\n- 蛇和蜥蜴； ",
     "december_2021_description_vertebrate_animals_have": "Vertebrate animals have backbones and internal skeletons. Predators kill and eat prey animals. Like all animals, they are adapted to their diet. For example, many predators have sharp claws, teeth, or beaks that allow them to hold or dismember prey.",
     "december_2021_action_think_about_predators": "Think about the predators you observed. What adaptations do they have to be good at hunting and killing prey? Do the two species you saw have any similar adaptations for predation?"
   }

@@ -86,7 +86,7 @@
     "error_email": "請輸入有效的 email 位址",
     "error_credentials": "錯誤的帳號或密碼",
     "error_username_taken": "帳號名稱已被其他人使用",
-    "error_no_username": "缺少用戶名稱 / 電子郵件",
+    "error_no_username": "缺少使用者名稱 / 電子郵件",
     "error_no_password": "缺少密碼",
     "error_internet": "沒有網路連線",
     "error_request_could_not_be_completed": "無法完成您的請求。"
@@ -123,8 +123,8 @@
     "guidelines": "社群指南",
     "store_data": "我同意允許讓 iNaturalist 儲存、處理關於我的有限個人資訊，以便管理我的帳號。",
     "learn_more": "了解更多",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
-    "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
+    "learn_more_about_data_storage": "我們會遵守隱私權法規，來儲存像是使用者名稱以及電子郵件地址這類的個人資訊，以便管理在網站上的帳號，因此會需要您勾選此方框來表明您同意上述的個人資訊使用。要了解更多關於我們如何收集以及使用資訊，請查看我們的隱私政策和服務條款。",
+    "learn_more_about_licensing": "如果您想套用創用 CC 姓名標示-非商業性許可到上傳的內容，請勾選此項目。這代表任何人只要有表彰您的貢獻並且不使用在商業用途上，都能複製和重複使用您的照片和/或觀察紀錄，而不需事先洽詢許可。您可在事後移除或挑選其它授權，但這是與研究人員共享的最佳授權方式。",
     "about_personal_information": "關於個人資訊",
     "about_licenses": "關於許可證"
   },
@@ -559,10 +559,10 @@
     "joint_initiative": "iNaturalist 是加州科學院與美國國家地理學會之間的共同專案。",
     "original": "「探索」原先是由 HHMI Tangled Bank Studios 支援下所打造的 app，然後獲得 Netflix 上我們的星球(Our Planet)和世界野生動物基金會(WWF)進一步的支持。",
     "designed_by": "由以下 iNaturalist 團隊成員設計和開發：:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別感謝 Visipedia 的 Grant Van Horn 在電腦視覺技術上的協助，以及 iNaturalist 社群。",
     "version": "版本",
     "help": "需要「探索」的協助和說明，請 email 到 help+seek@inaturalist.org",
-    "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translators": "我們對 crowdin.com 社群的翻譯協助來致上我們的謝意，特別是：Abdelghani Hourani, Carnifex, cgalindo、Daniele Seglie、Eduardo Martínez、Édson Souza Jr.、Galder Gonzalez Larrañaga、Gideon Wentink、Johan Liljeblad、katunchik、Kevin Matthew、Kiara Suzuki、Lekkim、Marcel Hospers、Martin Reith、Monica Nieminen、Nicolae Liviu、Nuwan Wijayaweera、saariko、Sakatur, Sebastian Jasiński、TheKakarinka、Wouter Koch 和 Yulia Lygina。",
     "join_crowdin": "加入「探索」的翻譯團隊，請參見 https://crowdin.com/project/seek"
   },
   "posting": {
@@ -671,8 +671,8 @@
     "species_detail": "物種詳細資訊",
     "seasonality": "季節性",
     "seasonality_option_1": "根據全球的 iNaturalist 觀察紀錄來顯示季節性",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "seasonality_option_2": "依據我目前位置附近愛自然(iNaturalist)的觀察紀錄來顯示季節性(接近我位置附近沒有出現的物種則不會顯示季節性)",
+    "donate_ios": "請點選下列網址來捐款給 Seek："
   },
   "seek_challenges": {
     "badge": "Seek 徽章",
@@ -680,7 +680,7 @@
     "text": "感謝您參與的全球挑戰！Seek 是為了幫助您與我們周圍的所有物種建立聯繫。走出家門，並了解您周圍的大自然吧！",
     "citizen_science": "公民科學挑戰",
     "completed": "您完成了挑戰並贏得挑戰徽章！",
-    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "april_2020_description": "2020年四月是愛自然(iNaturalist)製作的新版 Seek 釋出一週年慶！在過去的一年中，我們成長很多，而且幫助超過百萬人來感受與周圍世界的更多連結。",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
     "backyard": "後院挑戰",
     "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
@@ -749,31 +749,31 @@
     "options": "選項",
     "show_species_id": "顯示物種辨識",
     "share": "分享到 Facebook",
-    "save_to_photo_library": "Save to photo library",
-    "saved_to_photo_library": "Saved to photo library",
+    "save_to_photo_library": "儲存到相簿中",
+    "saved_to_photo_library": "已儲存至相簿中",
     "back_to_id": "返回到辨識",
-    "error_title": "Couldn't save photo",
-    "error": "Please double check that you have the Facebook app installed.",
+    "error_title": "無法儲存照片",
+    "error": "請再次確認您已安裝了 Facebook app。",
     "adjust_square_crop": "裁切成正方形",
     "crop_image": "裁切圖片"
   },
   "natgeo_challenges": {
-    "mar_2021_mission_1": "Find any ten species",
+    "mar_2021_mission_1": "尋找任意十種物種",
     "mar_2021_challenge_name": "NatGeo 自然挑戰",
     "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
     "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
     "mar_2021_photographer": "圖片來源：Tom Matthews / 國家地理",
     "mar_2021_badge_name": "自然徽章",
     "apr_2021_mission_1": "Find any 2 mollusks (bivalves, slugs, snails, chitons) or crustaceans (barnacles, crabs, lobsters, pillbugs)",
-    "apr_2021_mission_2": "Find 6 plants",
-    "apr_2021_mission_3": "Find 2 fungi",
+    "apr_2021_mission_2": "尋找六種植物",
+    "apr_2021_mission_3": "尋找兩種真菌",
     "apr_2021_challenge_name": "復育與復原挑戰",
-    "apr_2021_description": "Climate change, species loss, and plastic pollution are three of the greatest challenges our planet currently faces and all are driven by human activity. This year's theme for Earth Day (April 22nd) is \"Restore our Earth.\" We all need to work together to build a more sustainable future for both communities and wildlife—your individual actions can help to make a difference!",
-    "apr_2021_action": "One of the most widespread human impacts on ecosystems is trash. As you explore nature this month, pay attention to the litter you see and think about where it may have come from. Make a list of things you could do at home to reduce the waste that your family generates, and share this list with the rest of your family - and with us using #NatGeoSeekChallenge on Twitter!",
+    "apr_2021_description": "氣候變遷、物種消失與塑膠污染是目前我們地球上所面臨到三個最大的挑戰，這些都是因為人為活動所導致。今年地球日(四月22日)的主題是「復育我們的地球」。我們大家都需要一起合作來建立一個對人類社會和野生生物更永續的未來—您個人的行動可以幫助我們來改變世界！",
+    "apr_2021_action": "人類對於生態系最廣泛的影響之一為垃圾。當您在這個月探索自然時，留意一下您所看到的垃圾並思考它們可能的來源。列出一份您在家中可減少家庭產生廢棄物的清單，然後和您其他的家人分享這份清單— 並在 Twittter 上使用 #NatGeoSeekChallenge 標籤與我們分享！",
     "apr_2021_badge_name": "復育徽章",
     "apr_2021_photographer": "圖片來源：Enric Sala / 國家地理",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus and Honeysuckle Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
-    "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
+    "may_2021_mission_1": "從下面科別中找尋任五種植物：\n\n菊科 (例：向日葵、雛菊、紫菀和近似的種類等)；\n豆科 (例：黃豆等豆類植物)；\n唇形科 (例：薄荷、仙草)；\n爵床科 (例：爵床)；\n錦葵科 (例：錦葵和朱槿)；\n紫葳科 (例：風鈴木)；\n西番蓮科 (例：百香果)\n\n",
+    "may_2021_mission_2": "尋找兩種節肢動物 (昆蟲、蜘蛛、甲殼類)",
     "may_2021_challenge_name": "健康生態系挑戰",
     "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
@@ -837,8 +837,8 @@
     },
     "logged_in_bullet_1": "You can post observations to iNaturalist by clicking 'Post to iNaturalist' after you make a Seek observation",
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
-    "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
-    "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
+    "logged_in_bullet_3": "您的 Seek 觀察紀錄沒有備份到愛自然(iNaturalist)上。刪除 Seek 將會刪除所有您在此裝置上所有的觀察紀錄。",
+    "upload_and_track_obs_using_inat": "上傳並使用愛自然(iNaturalist) app 來追蹤您的觀察紀錄。\n\n謝謝成為這個社群中的一員！",
     "x_seen_by_user": "{{speciesName}}由{{user}}發現"
   },
   "seek_2021_challenges": {
@@ -860,7 +860,7 @@
     "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?",
     "december_2021_challenge_name_vertebrate_challenge": "陸域脊椎動物掠食者挑戰",
     "december_2021_mission_1": "尋找下列 2 種脊椎動物：\n\n-鷹、鵰、鳶及相關生物；\n-隼和卡拉卡拉鷹；\n- 鴞；\n- 哺乳類食肉動物；\n- 蛇和蜥蜴； ",
-    "december_2021_description_vertebrate_animals_have": "Vertebrate animals have backbones and internal skeletons. Predators kill and eat prey animals. Like all animals, they are adapted to their diet. For example, many predators have sharp claws, teeth, or beaks that allow them to hold or dismember prey.",
-    "december_2021_action_think_about_predators": "Think about the predators you observed. What adaptations do they have to be good at hunting and killing prey? Do the two species you saw have any similar adaptations for predation?"
+    "december_2021_description_vertebrate_animals_have": "脊椎動物有龍骨和內骨骼。掠食者捕殺和吃掉獵物。就像所有的動物一樣，牠們因應牠們的食物而適應(譯註：特化出一些構造並具有功能)。舉例來說，許多掠食者有銳利的爪子、牙齒或是喙，讓牠們可以抓住或分解獵物。",
+    "december_2021_action_think_about_predators": "思考一下您觀察到的略食者。牠們有什麼樣演化上的適應來善於獵殺獵物？您看到兩個物種有任何對於獵捕上相似的適應機制呢？"
   }
 }

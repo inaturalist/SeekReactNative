@@ -726,15 +726,15 @@
     "mission_2_nov_2020": "找到 1 種豆目的植物（豆科植物、遠志科植物等）",
     "mission_3_nov_2020": "找到 1 種蛛形綱動物",
     "mission_4_nov_2020": "找到 2 種昆蟲",
-    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
-    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here.",
+    "nov_2020_description": "隨著全球人口的增長，許多物種已經演化到能適應人類的環境。即使在擁擠的城市，我們也可以發現鳥類、植物和昆蟲生活在我們之中。",
+    "action_nov_2020": "您在您所在的地區常看見的野生物種有哪些？這些物種是原生種、入侵種還是外來種？如果是外來種，看看您能否找出這些物種是如何來到這裡的。",
     "ecosystem": "生態系統挑戰",
     "mission_1_dec_2020": "找出任意 3 種脊椎動物（鳥類、哺乳類、爬蟲類、兩棲類和魚類）",
     "mission_2_dec_2020": "找到 3 種植物",
     "mission_3_dec_2020": "找到 3 種昆蟲",
     "mission_4_dec_2020": "找到 1 種蛛形綱動物",
-    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
-    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
+    "dec_2020_description": "生態系統與所有不同類型和生態區位的生物共同發揮作用。生產者、消費者和分解者得共同努力才得以維持生態系統的平衡。",
+    "action_dec_2020": "研究不同類型的生態系統是如何與分佈在整個食物鏈中的生物們一起運作的。這些生態系統在世界各地和不同生物群系中有何不同？"
   },
   "replace_photo": {
     "header": "更換照片？ ",
@@ -761,7 +761,7 @@
     "mar_2021_mission_1": "尋找任意十種物種",
     "mar_2021_challenge_name": "NatGeo 自然挑戰",
     "mar_2021_description": "We are kicking off four months of National Geographic Society-sponsored challenges focused on understanding how we depend on and affect the natural world.\n\nNature is all around us, and time spent in nature helps to build health and happiness. If possible, we encourage you to pick a place such as a local park, protected area, or your yard that you visit every month as part of your explorations with Seek. For this month's mission: find any ten species that make you feel happy!\n\nTo find resources to help you use Seek and learn more about biodiversity, visit NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Spend some time getting reacquainted with, or learning how to use, Seek. Visit the home screen to see what species live nearby. Let us know your favorite local plant or animal, or one you’d really like to observe using #NatGeoSeekChallenge on Twitter!",
+    "mar_2021_action": "花一點時間重新熟悉或學習如何使用 Seek。到主螢幕上查看附近生活的物種。在 Twitter 上使用 #NatGeoSeekChallenge 告訴我們您最喜歡或者您非常想觀察到的當地動植物！",
     "mar_2021_photographer": "圖片來源：Tom Matthews / 國家地理",
     "mar_2021_badge_name": "自然徽章",
     "apr_2021_mission_1": "找出任意 2 種軟體動物（貝類、蛞蝓、蝸牛、石鱉）或甲殼類動物（藤壺、螃蟹、龍蝦、鼠婦）",
@@ -857,9 +857,9 @@
     "november_2021_challenge_name_flight_challenge": "飛行挑戰",
     "november_2021_mission_1": "在這些群體中找到 5 個物種：\n\n-鳥類（不會飛的群體除外）；\n有翅膀和曾經有翅膀的昆蟲 ",
     "november_2021_description_ability_to_fly": "飛行的能力在鳥類、昆蟲和蝙蝠中獨立演化。在鳥類中，有些物種已經失去飛行能力，但牠們是從會飛行的祖先們那裡演化而來的。許多昆蟲也是如此，而所有昆蟲在其生命週期中至少有一部分是不會飛的。",
-    "november_2021_action_were_they_flighted": "對於您所發現的動物們，在牠們的一生中是否會飛行？如果會，您認為牠們這一生都飛到哪裡去了？牠們會遷徙嗎？",
+    "november_2021_action_were_they_flighted": "對於您所發現的動物們，在牠們的一生中是否會飛行？如果會，您認為牠們這一生都飛到哪兒去了？牠們會遷徙嗎？",
     "december_2021_challenge_name_vertebrate_challenge": "陸域脊椎動物掠食者挑戰",
-    "december_2021_mission_1": "尋找下列 2 種脊椎動物：\n\n-鷹、鵰、鳶等；\n-隼和卡拉卡拉鷹；\n-鴞；\n-肉食性哺乳類動物；\n-蛇和蜥蜴； ",
+    "december_2021_mission_1": "找出下列 2 種脊椎動物：\n\n-鷹、鵰、鳶等；\n-隼和卡拉卡拉鷹；\n-鴞；\n-肉食性哺乳類動物；\n-蛇和蜥蜴； ",
     "december_2021_description_vertebrate_animals_have": "脊椎動物有龍骨和內骨骼。掠食者捕殺和吃掉獵物。就像所有的動物一樣，牠們因應牠們的食物而適應(譯註：特化出一些構造並具有功能)。舉例來說，許多掠食者有銳利的爪子、牙齒或是喙，讓牠們可以抓住或分解獵物。",
     "december_2021_action_think_about_predators": "思考一下您觀察到的略食者。牠們有什麼樣演化上的適應來善於獵殺獵物？您看到兩個物種有任何對於獵捕上相似的適應機制呢？"
   }

@@ -7,7 +7,7 @@
     "input_location_above_map": "Nenhum local encontrado; insira um nome de local acima para carregar o mapa e procurar por espécies nas proximidades",
     "error_alert_location_services": "Para continuar, ative os serviços de localização nas configurações do dispositivo",
     "species_nearby_requires_location": "Para encontrar espécies próximas, é necessário ativar a sua localização. Por favor, ative a localização nas configurações",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
+    "species_nearby_requires_android_accuracy": "Espécie nas proximidades requer sua localização. Por favor, verifique se os serviços de localização estão habilitados.",
     "choose_location_on_map": "ESCOLHA A LOCALIZAÇÃO NO MAPA"
   },
   "get_started": {
@@ -240,7 +240,7 @@
     "action_april": "Verifique se você mora perto de uma cidade que faça parte do Desafio Cidade Natureza e, em caso afirmativo, procure atividades de gravação e identificação de vida silvestre em ambiente urbano!",
     "action_may": "Seja voluntário em grupos locais que ajudam a manter as áreas verdes da cidade.",
     "action_june": "Utilize os recursos de ourplanet.com para iniciar um projeto de ação da biodiversidade da sua região, ajudando a vida silvestre local.",
-    "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
+    "action_november_2019": "Colete sementes de árvores nativas locais, germine-as em vasos e depois plante as mudas.\n\nConverse com seus amigos e familiares sobre tudo que as árvores fazem por nós.",
     "action_august": "Plantar flores silvestres para fornecer comida aos polinizadores.\n\nFaça um \"hotel de insetos\" para fornecer casas para insetos no seu jardim ou na sua escola, agrupando pequenos comprimentos de tubos e recheando cada um com galhos pequenos e pedaços de bloco quebrado.",
     "action_september": "Faça um registro de quanto de água você usa durante o dia. Pense como você poderia reduzir essa quantidade para ajudar a minimizar a sobrecarga dos habitats de água doce.\n\nVerifique os cursos de água para saber se há poluição ou outros tipos de contaminação. Poderia iniciar uma campanha local para proteger este valioso ecossistema?",
     "action_october": "As aves precisam de alimento para as longas viagens que percorrem ao migrar. Nos meses de inverno, deixe nozes, sementes e bolas de gordura no jardim para ajudá-las.\n\nMuitas árvores e arbustos proveem frutos e refúgio para as aves que nos visitam.",
@@ -269,9 +269,9 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Espécies observadas",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby": "ESPÉCIES NAS PROXIMIDADES NESTE DESAFIO",
+    "no_species_nearby": "Não encontramos nenhuma espécie deste desafio nas proximidades que você já não tenha observado",
+    "species_nearby_internet_error": "Precisamos de Internet para gerar as espécies nas proximidades."
   },
   "results": {
     "observed_species": "Você observou uma nova espécie!",
@@ -842,25 +842,25 @@
     "x_seen_by_user": "{{speciesName}} visto por {{user}}"
   },
   "seek_2021_challenges": {
-    "august_2021_challenge_name": "Arthropod Predator Challenge",
-    "august_2021_mission_1": "Find 5 species of arthropods from:\n\n-Insect Order Mantodea (Mantises);\n-Insect Order Odonata (Dragonflies and Damselflies);\n-Insect Order Megaloptera (Alderflies, Dobsonflies, and Fishflies);\n-Insect Order Neuroptera (Antlions, Lacewings, and Allies);\n-Insect Family Coccinellidae (Lady Beetles);\n-Class Chilopoda (Centipedes);\n-Class Arachnida (Arachnids)",
-    "august_2021_description": "Predators are animals that hunt and consume other animals. But you don’t need to go far to find them! Centipedes, spiders, and many other insects and arachnids are probably hunting for smaller prey animals just outside your window—or even indoors. Even most Lady Beetles are predators!",
-    "august_2021_action": "Think about the types of predators you found. What kinds of prey animals do they eat? How do they find, catch, and consume prey?",
-    "september_2021_challenge_name": "Seasonality Challenge",
-    "september_2021_mission_1": "Find 10 new species",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
-    "september_2021_action": "Have there been any extreme weather events near you recently? How did plants, animals, and fungi respond? Try to find past weather data for this month in your area. What kind of changes have occurred and how do you think that might impact the organisms that live there?",
-    "october_2021_challenge_name": "Arachnid Challenge",
-    "october_2021_mission_1": "Find 4 arachnids",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "october_2021_action": "Think about the kinds of arachnids you found. How would you describe their habitats? Were any of them found in the same habitat?",
-    "november_2021_challenge_name_flight_challenge": "Flight Challenge",
-    "november_2021_mission_1": "Find 5 species in these groups:\n\n-Birds (except flightless groups);\nWinged and Once-winged Insects",
-    "november_2021_description_ability_to_fly": "The ability to fly has evolved independently in birds, insects, and bats. Among birds, some species have become flightless but descend from flying ancestors. The same is true for many insects, and all insects are flightless for at least part of their life cycle.",
-    "november_2021_action_were_they_flighted": "For the animals you found, were they in the flighted part of their life cycle? If so, where do you think they have flown during their lives? Do they migrate?",
-    "december_2021_challenge_name_vertebrate_challenge": "Vertebrate Land Predator Challenge",
-    "december_2021_mission_1": "Find 2 species of vertebrates from:\n\n-Hawks, Eagles, Kites, and Allies;\n-Falcons and Caracaras;\n-Owls;\n-Mammalian Carnivores;\n-Snakes and Lizards;",
-    "december_2021_description_vertebrate_animals_have": "Vertebrate animals have backbones and internal skeletons. Predators kill and eat prey animals. Like all animals, they are adapted to their diet. For example, many predators have sharp claws, teeth, or beaks that allow them to hold or dismember prey.",
-    "december_2021_action_think_about_predators": "Think about the predators you observed. What adaptations do they have to be good at hunting and killing prey? Do the two species you saw have any similar adaptations for predation?"
+    "august_2021_challenge_name": "Desafio de Artrópodes Predadores ",
+    "august_2021_mission_1": "Encontre 5 espécies de artrópodes da:\n\n-Ordem de insetos Mantodea (Louva-deus);\n-Ordem de insetos Odonata (Libélulas e Donzelinhas);\n-Ordem de insetos Megaloptera (Lacraias-d'água);\n-Ordem de insetos Neuroptera (Formigas-leão, Crisopas e afins);\n-Ordem de insetos Coccinellidae (Joaninhas);\n-Classe Chilopoda (Lacraias);\n-Classe Arachnida (Aracnídeos)",
+    "august_2021_description": "Os predadores são animais que caçam e consomem outros animais. Mas você não precisa ir muito longe para encontrá-los! Lacraias, aranhas e vários outros insetos e aracnídeos estão provavelmente caçando por animais menores bem debaixo da sua janela—ou até dentro da sua casa. Até as joaninhas são predadoras!",
+    "august_2021_action": "Pense sobre os tipos de predadores que encontrou. Que tipos de presas eles comem? Como eles encontram, capturam e consomem suas presas?",
+    "september_2021_challenge_name": "Desafio das Estações",
+    "september_2021_mission_1": "Encontre 10 novas espécies",
+    "september_2021_description": "As estações estão mudando! Todos os anos existem dois equinócios: um em março e um em setembro. No dia do equinócio, há quase exatamente 12 horas de dia e 12 horas de noite em todos os lugares do mundo. Com a mudança da duração dos dias, as plantas e animais respondem mudando seu crescimento e comportamento.",
+    "september_2021_action": "Houve algum evento climático extremo perto de você recentemente? Como as plantas, animais e fungos responderam? Tente encontrar dados deste mês sobre o clima da sua área. Que tipos de mudanças ocorreram e como você acha que elas podem impactar os organismos que vivem aí?",
+    "october_2021_challenge_name": "Desafio de Aracnídeos",
+    "october_2021_mission_1": "Encontre 4 aracnídeos",
+    "october_2021_description": "Você sabia que nem todos os aracnídeos são aranhas? Além das aranhas, podemos encontrar ácaros, carrapatos, opiliões (também conhecidos como \"boduns\") e até os pequenos e ignorados pseudoescorpiões em todos os continentes habitados. Outros aracnídeos menos conhecidos como escorpiões, escorpiões-vinagre, amblipígios, solífugos são geralmente encontrados em partes mais quentes e/ou secas do mundo.\n",
+    "october_2021_action": "Pense sobre os aracnídeos que encontrou. Como descreveria seus habitats? Quais deles foram encontrados no mesmo habitat?",
+    "november_2021_challenge_name_flight_challenge": "Desafio de Voo",
+    "november_2021_mission_1": "Encontre 5 espécies nestes grupos:\n\n-Aves (exceto grupos que não voam);\nInsetos alados e com ancestrais alados",
+    "november_2021_description_ability_to_fly": "A habilidade de voar evoluiu independentemente em aves, insetos e morcegos. Entre as aves, algumas espécies perderam essa capacidade mas descendem de ancestrais voadores. O mesmo acontece com vários insetos e todos eles são não voadores em alguma parte do seu ciclo de vida.",
+    "november_2021_action_were_they_flighted": "Dos animais que encontrou, eles estavam na parte alada de suas vidas? Se sim, por onde você acha que eles voaram durante sua vida? Eles migram?",
+    "december_2021_challenge_name_vertebrate_challenge": "Desafio de Vertebrados Terrestres Predadores ",
+    "december_2021_mission_1": "Encontre 2 espécies de vertebrados de:\n\n-Gaviões, Águias, Milhafres e afins;\n-Falcões e Carcarás;\n-Corujas;\n-Mamíferos Carnívoros;\n-Serpentes e Lagartos;",
+    "december_2021_description_vertebrate_animals_have": "Animais vertebrados possuem vértebras e esqueleto interno. Predadores matam e comem presas. Como todos os animais, eles estão adaptados à sua dieta. Por exemplo, muitos predadores possuem garras, dentes ou bicos afiados que permitem que prendam e rasguem suas presas.",
+    "december_2021_action_think_about_predators": "Pense sobre os predadores que observou. Que adaptações eles possuem para serem bons em caçar e matar suas presas? As duas espécies que viu têm adaptações para predação similares?"
   }
 }

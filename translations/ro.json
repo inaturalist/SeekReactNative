@@ -862,5 +862,15 @@
     "december_2021_mission_1": "Găsește 2 specii de vertebrate dintre:\n\n-Ulii (Accipitriforme), Vulturi, Zmei și similare;\n-Șoimi (Falconiformes) și Caracara;\n-Bufnițe;\n-Mamifere carnivore;\n-Șerpi și Șopârle;",
     "december_2021_description_vertebrate_animals_have": "Animalele vertebrate au coloană vertebrală și schelete interne. Prădătorii omoară și mănâncă animalele de pradă. Ca toate animalele, ele sunt adaptate la dieta lor. De exemplu, mulți prădători au gheare ascuțite, dinți sau ciocuri care le permit să țină sau să dezmembreze prada.",
     "december_2021_action_think_about_predators": "Gândește-te la prădătorii pe care i-ai observat. Ce adaptări au ca să fie buni la vânătoare și la uciderea prăzii? Cele două specii pe care le-ai văzut au adaptări similare pentru prădare?"
+  },
+  "seek_2022_challenges": {
+    "january_2022_challenge_name_vertebrate_water": "Provocarea Prădătorilor Vertebrați de Apă",
+    "january_2022_mission_1": "Găsește 2 specii de vertebrate din:\n\n-Infraordinul Cetacee (Balene și Delfini);\n-Parvordinul Pinipede (Morse, Foci, Lei de mare);\n-Subfamilia Lutrinae (Vidre);\n-Clasa Actinopterygii (Pești cu aripioare-raze);\n-Clasa Elasmobranchii (Rechini și Pisici de mare);\n-Ordinul Pelecaniformes (Pelicani, Stârci, Ibiși și Similare);\n-Ordinul Coraciiformes (Pescăruși albaștri și Similare);\n-Ordinul Podicipediformes (Corcodei);\n-Suliformes (Corbi de mare albi, Cormorani și Similare);\n-Sphenisciformes (Pinguini)",
+    "january_2022_description_mammals_fishes_birds": "Mamiferele, peștii și păsările au toate unele specii care sunt capabile să vâneze prada în apă sărată (oceane și mări) și unele adaptate la apă dulce (râuri, lacuri și pâraie).Toate au adaptări pentru a detecta, captura și consuma prada în apă.",
+    "january_2022_action_water_habitat": "Ce tip de habitat de apă ai vizitat? Ce tipuri de animale de pradă sunt disponibile acolo pentru ca prădătorii să le mănânce?",
+    "february_2022_challenge_name_life_on_edges": "Provocarea Vieții pe Marginile Apelor",
+    "february_2022_mission_1": "Găsește 2 specii din aceste grupe:\n\n-Clasa Amfibia (Amfibieni - Tritoni obișnuiți, Salamandre cu pete, Broaște);\n-Ordinul Caradriiformelor (Păsări de mal sau limicole și Similare)",
+    "february_2022_description_transitions_between_habitats": "Tranzițiile între un tip de habitat și altul pot fi locuri interesante pentru a găsi animale sălbatice, iar unele specii se bazează pe ele. Marginile iazurilor, lacurilor, râurilor și zonele tidale sunt pline de viață. Multe specii de țărm pot trăi o parte din viață în apă și o parte pe uscat.",
+    "february_2022_action_which_species_excited": "Ce specie ai fost cel mai încântat să găsești? Pe baza a ceea ce ai observat și a cercetărilor suplimentare despre aceasta, fă o listă cu 3 lucruri de care ea are nevoie pentru a supraviețui și 3 lucruri pe care le poți face pentru a-i susține aceste nevoi."
   }
 }

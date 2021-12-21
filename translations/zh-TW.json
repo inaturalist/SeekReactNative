@@ -848,11 +848,11 @@
     "august_2021_action": "想想您發現的掠食者們的類型。牠們吃什麼種類的獵物？牠們是怎麼尋找、捕捉和食用獵物的？",
     "september_2021_challenge_name": "季節性挑戰",
     "september_2021_mission_1": "尋找 10 種新物種",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
+    "september_2021_description": "季節變化！每年有兩次分點：在三月和九月。在分點那天，世界各地的白晝和黑夜幾乎都正好是十二個小時。隨著晝夜長度的變化，植物和動物們的成長或行為也會跟著改變。",
     "september_2021_action": "最近在您附近是否出現過極端天氣？植物、動物和真菌們如何應對？試著找出您所在地區過去這個月的天氣資料。看看發生了什麼變化，您認為這可能對生活在那裡的生物產生什麼影響？",
     "october_2021_challenge_name": "蛛形綱挑戰",
     "october_2021_mission_1": "尋找 4 種蛛形綱動物",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
+    "october_2021_description": "您知道不是所有蛛形綱的動物都是蜘蛛嗎？除了蜘蛛之外，蟎蟲和蜱蟲、盲蛛（也被稱為「長腿爸爸」），甚至是極小、容易被忽略的擬蠍都可以在任何有人居住的大陸上找到。其他鮮為人知的蛛形綱動物像是蝎子、鞭蠍、無尾鞭蠍和避日蛛通常會在世界上較溫暖及/或較乾燥的地區被發現。",
     "october_2021_action": "思考一下您發現的蛛形綱動物們。您會如何描述牠們的棲息地？牠們在同一棲息地被發現的嗎？",
     "november_2021_challenge_name_flight_challenge": "飛行挑戰",
     "november_2021_mission_1": "在這些群體中找到 5 個物種：\n\n-鳥類（不會飛的群體除外）；\n有翅膀和曾經有翅膀的昆蟲 ",
@@ -862,5 +862,15 @@
     "december_2021_mission_1": "找出下列 2 種脊椎動物：\n\n-鷹、鵰、鳶等；\n-隼和卡拉卡拉鷹；\n-鴞；\n-肉食性哺乳類動物；\n-蛇和蜥蜴； ",
     "december_2021_description_vertebrate_animals_have": "脊椎動物有龍骨和內骨骼。掠食者捕殺和吃掉獵物。就像所有的動物一樣，牠們因應牠們的食物而適應(譯註：特化出一些構造並具有功能)。舉例來說，許多掠食者有銳利的爪子、牙齒或是喙，讓牠們可以抓住或分解獵物。",
     "december_2021_action_think_about_predators": "思考一下您觀察到的略食者。牠們有什麼樣演化上的適應來善於獵殺獵物？您看到兩個物種有任何對於獵捕上相似的適應機制呢？"
+  },
+  "seek_2022_challenges": {
+    "january_2022_challenge_name_vertebrate_water": "水域脊椎動物掠食者挑戰",
+    "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Suliformes (Gannets, Cormorants, and Allies);\n-Sphenisciformes (Penguins)",
+    "january_2022_description_mammals_fishes_birds": "Mammals, fishes, and birds all have some species that are able to hunt prey in saltwater (oceans and seas) and some adapted to freshwater (rivers, lakes, and streams). They all have adaptations to detect, capture, and consume prey in the water.",
+    "january_2022_action_water_habitat": "What type of water habitat did you visit? What types of prey animals are available there for predators to eat?",
+    "february_2022_challenge_name_life_on_edges": "邊緣上的生命挑戰",
+    "february_2022_mission_1": "Find 2 species in these groups:\n\n-Class Amphibia (Amphibians);\n-Order Charadriiformes (Shorebirds and Allies)",
+    "february_2022_description_transitions_between_habitats": "Transitions between one kind of habitat and another can be exciting places to find wildlife, and some species rely on them. The edges of ponds, lakes, rivers, and the intertidal zones are full of life. Many edge species may live part of their life in water and part on land.",
+    "february_2022_action_which_species_excited": "Which species were you most excited to find? Based on what you observed about it and additional research about it, make a list of 3 things that it needs to survive and 3 things you can do to support those needs."
   }
 }

@@ -28,7 +28,7 @@ const languages = {
   si: "සිංහල",
   sv: "Svenska",
   tr: "Türkçe",
-  zh: "中文 (台湾)"
+  zh: "中文 (台灣)"
 };
 
 export default languages;

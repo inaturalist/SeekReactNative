@@ -862,5 +862,15 @@
     "december_2021_mission_1": "Hitta 2 arter av ryggradsdjur från:\n\n-Hökartade rovfåglar;\n-Falkfåglar;\n-Ugglor;\n-Köttätande däggdjur;\n-Ormar och ödlor;",
     "december_2021_description_vertebrate_animals_have": "Ryggradsdjur har ryggrad och inre skelett. Rovdjur dödar och äter bytesdjur. Som alla djur är de anpassade för sin kost. Till exempel har många rovdjur vassa klor, tänder eller näbbar så att de kan greppa eller slita itu byten.",
     "december_2021_action_think_about_predators": "Tänk på de rovdjur du såg. Vilka anpassningar har de för att vara bra på att jaga och döda byten? Har de två arter du såg några sådana anpassningar för jakt?"
+  },
+  "seek_2022_challenges": {
+    "january_2022_challenge_name_vertebrate_water": "Utmaning för ryggradsdjur som är rovdjur i vatten",
+    "january_2022_mission_1": "Hitta 2 arter av ryggradsdjur från:\n\n-Infraordning Cetacea (valar och delfiner);\n-Parvordning Pinnipedia (valross, sälar, sjölejon);\n-Underfamilj Lutrinae (uttrar);\n-Klass Actinopterygii (strålfeniga fiskar);\n-Klass Elasmobranchii (hajartade fiskar);\n-Ordning Pelecaniformes (pelikanfåglar);\n-Ordning Coraciiformes (praktfåglar);\n-Order Podicipediformes (doppingfåglar);\n-Suliformes (sulfåglar);\n-Sphenisciformes (pingvinfåglar)",
+    "january_2022_description_mammals_fishes_birds": "Bland däggdjur, fiskar och fåglar finns vissa arter som kan jaga byten i saltvatten (oceaner och hav) och några anpassade till sötvatten (floder, sjöar, och älvar). De har alla anpassningar för att upptäcka, fånga och äta byten i vattnet.",
+    "january_2022_action_water_habitat": "Vilken typ av vattenmiljö besökte du? Vilka typer av bytesdjur finns där för rovdjur att äta?",
+    "february_2022_challenge_name_life_on_edges": "Utmaning för livet på gränsen",
+    "february_2022_mission_1": "Hitta 2 arter i dessa grupper:\n\n-Klass Amphibia (groddjur);\n-Ordning Charadriiformes (vadarfåglar)",
+    "february_2022_description_transitions_between_habitats": "Övergångar mellan en typ av livsmiljö och en annan kan vara spännande platser att hitta djurliv, och vissa arter är beroende av dem. Gränser till dammar, sjöar, floder och tidvattenområden är fulla av liv. Många gränsarter kan leva en del av sitt liv i vatten och en del på land.",
+    "february_2022_action_which_species_excited": "Vilken art tyckte du var mest spännande att hitta? Utifrån det du observerat om den och ytterligare forskning om den, göra en lista med 3 saker som den behöver för att överleva och 3 saker du kan göra för att hjälpa med dessa behov."
   }
 }

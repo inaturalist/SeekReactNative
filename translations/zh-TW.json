@@ -848,11 +848,11 @@
     "august_2021_action": "想想您發現的掠食者們的類型。牠們吃什麼種類的獵物？牠們是怎麼尋找、捕捉和食用獵物的？",
     "september_2021_challenge_name": "季節性挑戰",
     "september_2021_mission_1": "尋找 10 種新物種",
-    "september_2021_description": "Seasons are changing! Each year there are two equinoxes: in March and September. On the day of the equinox, there will be almost exactly 12 hours of daylight and 12 hours of night everywhere in the world. As the length of the days change, plants and animals respond by changing their growth or behavior.",
+    "september_2021_description": "季節變化！每年有兩次分點：在三月和九月。在分點那天，世界各地的白晝和黑夜幾乎都正好是十二個小時。隨著晝夜長度的變化，植物和動物們的成長或行為也會跟著改變。",
     "september_2021_action": "最近在您附近是否出現過極端天氣？植物、動物和真菌們如何應對？試著找出您所在地區過去這個月的天氣資料。看看發生了什麼變化，您認為這可能對生活在那裡的生物產生什麼影響？",
     "october_2021_challenge_name": "蛛形綱挑戰",
     "october_2021_mission_1": "尋找 4 種蛛形綱動物",
-    "october_2021_description": "Did you know that not all arachnids are spiders? In addition to spiders, mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions can be found on all inhabited continents. Other less well-known arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
+    "october_2021_description": "您知道不是所有蛛形綱的動物都是蜘蛛嗎？除了蜘蛛之外，蟎蟲和蜱蟲、盲蛛（也被稱為「長腿爸爸」），甚至是極小、容易被忽略的擬蠍都可以在任何有人居住的大陸上找到。其他鮮為人知的蛛形綱動物像是蝎子、鞭蠍、無尾鞭蠍和避日蛛通常會在世界上較溫暖及/或較乾燥的地區被發現。",
     "october_2021_action": "思考一下您發現的蛛形綱動物們。您會如何描述牠們的棲息地？牠們在同一棲息地被發現的嗎？",
     "november_2021_challenge_name_flight_challenge": "飛行挑戰",
     "november_2021_mission_1": "在這些群體中找到 5 個物種：\n\n-鳥類（不會飛的群體除外）；\n有翅膀和曾經有翅膀的昆蟲 ",
@@ -861,6 +861,16 @@
     "december_2021_challenge_name_vertebrate_challenge": "陸域脊椎動物掠食者挑戰",
     "december_2021_mission_1": "找出下列 2 種脊椎動物：\n\n-鷹、鵰、鳶等；\n-隼和卡拉卡拉鷹；\n-鴞；\n-肉食性哺乳類動物；\n-蛇和蜥蜴； ",
     "december_2021_description_vertebrate_animals_have": "脊椎動物有龍骨和內骨骼。掠食者捕殺和吃掉獵物。就像所有的動物一樣，牠們因應牠們的食物而適應(譯註：特化出一些構造並具有功能)。舉例來說，許多掠食者有銳利的爪子、牙齒或是喙，讓牠們可以抓住或分解獵物。",
-    "december_2021_action_think_about_predators": "思考一下您觀察到的略食者。牠們有什麼樣演化上的適應來善於獵殺獵物？您看到兩個物種有任何對於獵捕上相似的適應機制呢？"
+    "december_2021_action_think_about_predators": "思考一下您觀察到的掠食者們。牠們適應出了什麼樣的方式來幫助自己狩獵？您看到的兩種物種有適應出任何在掠食上的相似之處嗎？"
+  },
+  "seek_2022_challenges": {
+    "january_2022_challenge_name_vertebrate_water": "水域脊椎動物掠食者挑戰",
+    "january_2022_mission_1": "找出下列 2 種脊椎動物：\n\n-鯨下目（鯨魚和海豚）；\n-鰭足亞目（海象、海豹、海獅）；\n-水獺亞科（水獺）；\n-輻鰭魚綱（輻鰭魚）；\n-板鰓亞綱（鯊魚和鰩魚）；\n-鵜形目（鵜鶘、鷺、䴉等）；\n-佛法僧目（翠鳥等）；\n-鷉形目 (鸊鷉);\n-鰹鳥目（塘鵝、鸕鶿等）；\n-企鵝目（企鵝）",
+    "january_2022_description_mammals_fishes_birds": "哺乳類、魚類和鳥類中都有一些能夠在鹹水（海洋）以及適應在淡水（河流、湖泊和溪流）中狩獵的物種。牠們都適應了在水中探測、捕獲和食用獵物。",
+    "january_2022_action_water_habitat": "您拜訪過哪些類型的水域棲息地？ 掠食者可以在那裡捕獲哪些類型的獵物？",
+    "february_2022_challenge_name_life_on_edges": "邊緣上的生命挑戰",
+    "february_2022_mission_1": "在這些群體中找到 2 個物種：\n\n-兩棲綱（兩棲動物）；\n-鴴形目（濱鳥等）",
+    "february_2022_description_transitions_between_habitats": "兩種棲息地之間的過渡帶可能是尋找令人興奮的野生生物的地方，而且有些物種得依賴著過渡帶。池塘、湖泊、河流和潮間帶的邊緣地帶充滿了生機。許多邊緣物種們可能有部分生活在水中，部分生活在陸地上。",
+    "february_2022_action_which_species_excited": "您發現哪個物種時最興奮？根據您對牠的觀察和額外的調查，列出牠生存所需的 3 件事，以及您可以滿足這些需求的 3 件事。"
   }
 }

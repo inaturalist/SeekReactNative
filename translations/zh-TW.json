@@ -861,16 +861,16 @@
     "december_2021_challenge_name_vertebrate_challenge": "陸域脊椎動物掠食者挑戰",
     "december_2021_mission_1": "找出下列 2 種脊椎動物：\n\n-鷹、鵰、鳶等；\n-隼和卡拉卡拉鷹；\n-鴞；\n-肉食性哺乳類動物；\n-蛇和蜥蜴； ",
     "december_2021_description_vertebrate_animals_have": "脊椎動物有龍骨和內骨骼。掠食者捕殺和吃掉獵物。就像所有的動物一樣，牠們因應牠們的食物而適應(譯註：特化出一些構造並具有功能)。舉例來說，許多掠食者有銳利的爪子、牙齒或是喙，讓牠們可以抓住或分解獵物。",
-    "december_2021_action_think_about_predators": "思考一下您觀察到的略食者。牠們有什麼樣演化上的適應來善於獵殺獵物？您看到兩個物種有任何對於獵捕上相似的適應機制呢？"
+    "december_2021_action_think_about_predators": "思考一下您觀察到的掠食者們。牠們適應出了什麼樣的方式來幫助自己狩獵？您看到的兩種物種有適應出任何在掠食上的相似之處嗎？"
   },
   "seek_2022_challenges": {
     "january_2022_challenge_name_vertebrate_water": "水域脊椎動物掠食者挑戰",
-    "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Suliformes (Gannets, Cormorants, and Allies);\n-Sphenisciformes (Penguins)",
-    "january_2022_description_mammals_fishes_birds": "Mammals, fishes, and birds all have some species that are able to hunt prey in saltwater (oceans and seas) and some adapted to freshwater (rivers, lakes, and streams). They all have adaptations to detect, capture, and consume prey in the water.",
-    "january_2022_action_water_habitat": "What type of water habitat did you visit? What types of prey animals are available there for predators to eat?",
+    "january_2022_mission_1": "找出下列 2 種脊椎動物：\n\n-鯨下目（鯨魚和海豚）；\n-鰭足亞目（海象、海豹、海獅）；\n-水獺亞科（水獺）；\n-輻鰭魚綱（輻鰭魚）；\n-板鰓亞綱（鯊魚和鰩魚）；\n-鵜形目（鵜鶘、鷺、䴉等）；\n-佛法僧目（翠鳥等）；\n-鷉形目 (鸊鷉);\n-鰹鳥目（塘鵝、鸕鶿等）；\n-企鵝目（企鵝）",
+    "january_2022_description_mammals_fishes_birds": "哺乳類、魚類和鳥類中都有一些能夠在鹹水（海洋）以及適應在淡水（河流、湖泊和溪流）中狩獵的物種。牠們都適應了在水中探測、捕獲和食用獵物。",
+    "january_2022_action_water_habitat": "您拜訪過哪些類型的水域棲息地？ 掠食者可以在那裡捕獲哪些類型的獵物？",
     "february_2022_challenge_name_life_on_edges": "邊緣上的生命挑戰",
-    "february_2022_mission_1": "Find 2 species in these groups:\n\n-Class Amphibia (Amphibians);\n-Order Charadriiformes (Shorebirds and Allies)",
-    "february_2022_description_transitions_between_habitats": "Transitions between one kind of habitat and another can be exciting places to find wildlife, and some species rely on them. The edges of ponds, lakes, rivers, and the intertidal zones are full of life. Many edge species may live part of their life in water and part on land.",
-    "february_2022_action_which_species_excited": "Which species were you most excited to find? Based on what you observed about it and additional research about it, make a list of 3 things that it needs to survive and 3 things you can do to support those needs."
+    "february_2022_mission_1": "在這些群體中找到 2 個物種：\n\n-兩棲綱（兩棲動物）；\n-鴴形目（濱鳥等）",
+    "february_2022_description_transitions_between_habitats": "兩種棲息地之間的過渡帶可能是尋找令人興奮的野生生物的地方，而且有些物種得依賴著過渡帶。池塘、湖泊、河流和潮間帶的邊緣地帶充滿了生機。許多邊緣物種們可能有部分生活在水中，部分生活在陸地上。",
+    "february_2022_action_which_species_excited": "您發現哪個物種時最興奮？根據您對牠的觀察和額外的調查，列出牠生存所需的 3 件事，以及您可以滿足這些需求的 3 件事。"
   }
 }

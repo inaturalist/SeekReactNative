@@ -672,7 +672,7 @@
     "seasonality": "季節性",
     "seasonality_option_1": "根據全球的 iNaturalist 觀察紀錄來顯示季節性",
     "seasonality_option_2": "根據我目前位置附近的 iNaturalist 觀察紀錄來顯示季節性（接近我位置附近沒有出現的物種則不會顯示季節性）",
-    "donate_ios": "請點選下列網址來捐款給 Seek："
+    "donate_ios": "請到下列網址來捐款給 Seek："
   },
   "seek_challenges": {
     "badge": "Seek 徽章",
@@ -753,7 +753,7 @@
     "saved_to_photo_library": "已儲存至相簿中",
     "back_to_id": "返回到辨識",
     "error_title": "無法儲存照片",
-    "error": "請再次確認您已安裝了 Facebook app。",
+    "error": "請再次確認您是否安裝了 Facebook 應用程式。",
     "adjust_square_crop": "裁切成正方形",
     "crop_image": "裁切圖片"
   },
@@ -765,15 +765,15 @@
     "mar_2021_photographer": "圖片來源：Tom Matthews / 國家地理",
     "mar_2021_badge_name": "自然徽章",
     "apr_2021_mission_1": "找出任意 2 種軟體動物（貝類、蛞蝓、蝸牛、石鱉）或甲殼類動物（藤壺、螃蟹、龍蝦、鼠婦）",
-    "apr_2021_mission_2": "尋找六種植物",
-    "apr_2021_mission_3": "尋找兩種真菌",
+    "apr_2021_mission_2": "找到 6 種植物",
+    "apr_2021_mission_3": "找到 2 種真菌",
     "apr_2021_challenge_name": "復育與復原挑戰",
     "apr_2021_description": "氣候變遷、物種消失與塑膠污染是目前我們地球上所面臨到三個最大的挑戰，這些都是因為人為活動所導致。今年地球日(四月22日)的主題是「復育我們的地球」。我們大家都需要一起合作來建立一個對人類社會和野生生物更永續的未來—您個人的行動可以幫助我們來改變世界！",
     "apr_2021_action": "人類對於生態系最廣泛的影響之一為垃圾。當您在這個月探索自然時，留意一下您所看到的垃圾並思考它們可能的來源。列出一份您在家中可減少家庭產生廢棄物的清單，然後和您其他的家人分享這份清單— 並在 Twittter 上使用 #NatGeoSeekChallenge 標籤與我們分享！",
     "apr_2021_badge_name": "復育徽章",
     "apr_2021_photographer": "圖片來源：Enric Sala / 國家地理",
     "may_2021_mission_1": "從下面科別中找尋任五種植物：\n\n菊科 (例：向日葵、雛菊、紫菀和近似的種類等)；\n豆科 (例：黃豆等豆類植物)；\n唇形科 (例：薄荷、仙草)；\n爵床科 (例：爵床)；\n錦葵科 (例：錦葵和朱槿)；\n紫葳科 (例：風鈴木)；\n西番蓮科 (例：百香果)\n\n",
-    "may_2021_mission_2": "尋找兩種節肢動物 (昆蟲、蜘蛛、甲殼類)",
+    "may_2021_mission_2": "找到 2 種節肢動物 (昆蟲、蜘蛛、甲殼類)",
     "may_2021_challenge_name": "健康生態系挑戰",
     "may_2021_description": "健康的生態系統為我們提供了各種不同的好處，包括洗滌我們的水和空氣、儲存碳元素以及為生物多樣性提供棲息地。某些物種，例如地衣、苔蘚和蜻蛉目（蜻蜓和豆娘）是生態健康的指標。當您看到這些物種時是個好預兆，因為您的生態系統很健康！",
     "may_2021_action": "健康的生態系統對我們自己的健康和福利有很大的好處。在大自然中度過的時光可以幫助人們紓解壓力，改善他們的情緒並讓思維更清晰。在大自然中找一個寧靜的地方，花一個小時專注在您周圍的風景、聲音、氣味和質地。寫下一些您的觀察結果。在大自然中度過的這段時光讓您有什麼感受？在 Twitter 上使用 #NatGeoSeekChallenge 標籤分享您的照片吧！",
@@ -837,8 +837,8 @@
     },
     "logged_in_bullet_1": "您可以在使用 Seek 觀察完後點選「發佈到 iNaturalist 」將觀察結果發佈到 iNaturalist",
     "logged_in_bullet_2": "使用 iNaturalist 的應用程式或網站查看關於您觀察記錄的辨識、評論和其他活動的通知",
-    "logged_in_bullet_3": "您的 Seek 觀察紀錄沒有備份到愛自然(iNaturalist)上。刪除 Seek 將會刪除所有您在此裝置上所有的觀察紀錄。",
-    "upload_and_track_obs_using_inat": "上傳並使用愛自然(iNaturalist) app 來追蹤您的觀察紀錄。\n\n謝謝成為這個社群中的一員！",
+    "logged_in_bullet_3": "您的 Seek 觀察紀錄不會備份到 iNaturalist 上。刪除 Seek 將會刪除您在此裝置上的所有觀察紀錄。",
+    "upload_and_track_obs_using_inat": "使用 iNaturalist 應用程式或到 inaturalist.org 網站上傳和追蹤您的觀察記錄。\n\n 感謝您成為這個社區的一分子！",
     "x_seen_by_user": "{{speciesName}}由{{user}}發現"
   },
   "seek_2021_challenges": {

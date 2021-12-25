@@ -591,8 +591,8 @@
     "kelp": "海帶、矽藻及相關生物"
   },
   "posting_status": {
-    "posting_to_inat_background": "在後臺中上傳到 INATURALIST",
-    "posting_to_inat_background_description": "當 Seek 開啟時，會在後台繼續向 iNaturalist 上傳。\n\n您可以在主螢幕上檢查上傳狀態。",
+    "posting_to_inat_background": "在後臺上傳到 INATURALIST",
+    "posting_to_inat_background_description": "當 Seek 開啟時，會在後臺繼續向 iNaturalist 上傳。\n\n您可以在主螢幕上檢查上傳狀態。",
     "no_internet": "沒有網路！",
     "no_internet_description": "您的觀察結果尚未上傳到 iNaturalist，因為您未連上網際網路。\n\n一旦您連上網際網路，您就可以從主螢幕上傳您的觀察結果。"
   },
@@ -809,7 +809,7 @@
     "get_started_by_downloading_inat": "透過下載安裝 iNaturalist 應用程式或瀏覽 inaturalist.org 來開始。\n\n已經有 iNaturalist 帳戶了嗎？使用您現有的帳戶登入 Seek！ ",
     "we_think_youll_like_inat": "我們認為您會非常喜歡 iNaturalist。",
     "sign_out": "登出 iNaturalist",
-    "log_in_to_post_observations": "登入以將您在 Seek 上的觀察結果發佈到 iNaturalist！",
+    "log_in_to_post_observations": "登入以將您在 Seek 上的觀察結果上傳到 iNaturalist！",
     "log_in_with_inat": "使用 INATURALIST 登錄",
     "use_inat_to": "使用 INATURALIST 來： ",
     "inat_vs_seek": "INATURALIST VS SEEK",
@@ -835,7 +835,7 @@
       "many": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄",
       "other": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄"
     },
-    "logged_in_bullet_1": "您可以在使用 Seek 觀察完後點選「發佈到 iNaturalist 」將觀察結果發佈到 iNaturalist",
+    "logged_in_bullet_1": "您可以在使用 Seek 觀察完後點選「上傳到 iNaturalist 」將觀察結果上傳到 iNaturalist",
     "logged_in_bullet_2": "使用 iNaturalist 的應用程式或網站查看關於您觀察記錄的辨識、評論和其他活動的通知",
     "logged_in_bullet_3": "您的 Seek 觀察紀錄不會備份到 iNaturalist 上。刪除 Seek 將會刪除您在此裝置上的所有觀察紀錄。",
     "upload_and_track_obs_using_inat": "使用 iNaturalist 應用程式或到 inaturalist.org 網站上傳和追蹤您的觀察記錄。\n\n 感謝您成為這個社區的一分子！",

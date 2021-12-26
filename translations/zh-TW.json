@@ -356,7 +356,7 @@
     "error_classifier": "很抱歉，我們無法載入分類器",
     "error_camera": "很抱歉，我們無法開啟相機",
     "error_device": "很抱歉，您使用的裝置並不支援",
-    "error_take": "很報前，我們無法儲存您的照片",
+    "error_take": "很抱歉，我們無法獲取您的照片",
     "error_photos": "在相簿中找不到任何照片。試著選擇不同的相簿看看。",
     "error_version": "探索的 AR 照相機需要 iOS 11.0 以上的版本。您的裝置執行的 OS 版本為 {{OS}}。",
     "error_cameraManager": "抱歉，無法載入相機管理",

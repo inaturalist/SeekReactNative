@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { Dimensions } from "react-native";
+import { Dimensions, I18nManager, Platform } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import type { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
 
@@ -19,16 +19,16 @@ type Props = MaterialTopTabBarProps<TabParamList>;
 
 const Tab = createMaterialTopTabNavigator();
 
-const { width, length } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 const screenOptions = {
   tabBarLabelStyle: textStyles.cameraTabLabel,
   tabBarStyle: viewStyles.cameraTab,
   tabBarIndicatorStyle: viewStyles.indicator,
-  swipeEnabled: false
+  swipeEnabled: ( I18nManager.isRTL && Platform.OS === "ios" ) ? true : false
 };
 
-const initialLayout = { width, length };
+const initialLayout = { width, length: height };
 
 const CameraNav = ( ): Props => (
   <Tab.Navigator

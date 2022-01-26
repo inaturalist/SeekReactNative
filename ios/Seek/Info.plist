@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.13.1</string>
+	<string>2.13.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>232</string>
+	<string>235</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false />
 	<key>LSApplicationQueriesSchemes</key>

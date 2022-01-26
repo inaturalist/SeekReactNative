@@ -130,11 +130,7 @@ GEM
     google-cloud-env (1.5.0)
       faraday (>= 0.17.3, < 2.0)
     google-cloud-errors (1.2.0)
-<<<<<<< HEAD
     google-cloud-storage (1.36.0)
-=======
-    google-cloud-storage (1.35.0)
->>>>>>> main
       addressable (~> 2.8)
       digest-crc (~> 0.4)
       google-apis-iamcredentials_v1 (~> 0.1)

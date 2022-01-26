@@ -381,19 +381,19 @@ const challenges = {
     ],
     availableDate: ( new Date( 2022, 0, 1 ): Date ),
     action: "seek_2022_challenges.january_2022_action_water_habitat"
+  },
+  feb2022: {
+    name: "seek_2022_challenges.february_2022_challenge_name_life_on_edges",
+    description: "seek_2022_challenges.february_2022_description_transitions_between_habitats",
+    totalSpecies: 2,
+    backgroundName: "img-challengedetail-february2022",
+    earnedIconName: "badge_inaturalist_february2022",
+    missions: [
+      "seek_2022_challenges.february_2022_mission_1"
+    ],
+    availableDate: ( new Date( 2022, 1, 1 ): Date ),
+    action: "seek_2022_challenges.february_2022_action_which_species_excited"
   }
-  // feb2022: {
-  //   name: "seek_2022_challenges.february_2022_challenge_name_life_on_edges",
-  //   description: "seek_2022_challenges.february_2022_description_transitions_between_habitats",
-  //   totalSpecies: 2,
-  //   backgroundName: "img-challengedetail-february2022",
-  //   earnedIconName: "badge_inaturalist_february2022",
-  //   missions: [
-  //     "seek_2022_challenges.february_2022_mission_1"
-  //   ],
-  //   availableDate: ( new Date( 2022, 1, 1 ): Date ),
-  //   action: "seek_2022_challenges.february_2022_action_which_species_excited"
-  // }
 };
 
 export default challenges;

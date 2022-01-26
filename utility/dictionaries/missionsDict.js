@@ -318,5 +318,29 @@ const missions = [{
       "Squamata"
     ]
   }
+}, { // jan 2022
+  0: {
+    number: 2,
+    types: [
+      "Cetacea",
+      "Pinnipedia",
+      "Lutrinae",
+      "Actinopterygii",
+      "Elasmobranchii",
+      "Pelecaniformes",
+      "Coraciiformes",
+      "Podicipediformes",
+      "Suliformes",
+      "Sphenisciformes"
+    ]
+  }
+}, { // feb 2022
+  0: {
+    number: 2,
+    types: [
+      "Amphibia",
+      "Charadriiformes"
+    ]
+  }
 }];
 export default missions;

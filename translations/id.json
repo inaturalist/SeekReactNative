@@ -664,7 +664,7 @@
     "scientific_names": "Tampilkan Nama Ilmiah",
     "donate": "Sumbang",
     "donate_header": "Bantu dukung iNaturalist",
-    "donate_description": "Menikmati Seek? Menyumbanglah ke iNaturalist! Kami tergantung pada donasi dari orang-orang sepertimu untuk tetap menyediakan aplikasi secara gratis.",
+    "donate_description": "Menikmati Seek? Menyumbanglah ke iNaturalist! Kami bergantung pada donasi dari orang-orang sepertimu supaya tetap bisa menyediakan aplikasi secara gratis.",
     "language": "Bahasa aplikasi",
     "device_settings": "Gunakan pengaturan bahasa dari perangkat",
     "auto_capture": "Ambil gambar secara otomatis ketika proses identifikasi telah menemukan spesies.",
@@ -835,7 +835,7 @@
       "many": "{{count}} pengamatan diunggah ke iNaturalist melalui Seek",
       "other": "{{count}} pengamatan diunggah ke iNaturalist melalui Seek"
     },
-    "logged_in_bullet_1": "Kamu dapat mengunggah pengamatanmu ke iNaturalist dengan mengeklik 'Unggah Postingan ke iNaturalist' setelah kamu membuat pengamatan Seek",
+    "logged_in_bullet_1": "Kamu dapat mengunggah pengamatanmu ke iNaturalist dengan menekan 'Unggah Postingan ke iNaturalist' setelah kamu membuat pengamatan Seek",
     "logged_in_bullet_2": "Gunakan aplikasi atau situs web iNaturalist untuk membaca pemberitahuan tentang identifikasi, komentar, dan aktivitas lainnya pada pengamatanmu",
     "logged_in_bullet_3": "Pengamatan Seekmu TIDAK memiliki cadangan di iNaturalist. Menghapus Seek akan menghapus semua pengamatanmu di perangkatmu.",
     "upload_and_track_obs_using_inat": "Unggah dan lacak pengamatanmu dengan menggunakan aplikasi iNaturalist atau mengunjungi inaturalist.org.\n\nTerima kasih telah menjadi bagian dari komunitas ini!",

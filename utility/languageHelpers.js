@@ -2,10 +2,12 @@
 
 import * as RNLocalize from "react-native-localize";
 import { I18nManager, Platform } from "react-native";
+import RNRestart from "react-native-restart";
 
 import languages from "./dictionaries/languageDict";
 import i18n from "../i18n";
 import { setupCommonNames } from "./commonNamesHelpers";
+import I18n from "i18n-js";
 
 const deviceLanguageSupported = ( ): boolean => {
   const { languageCode } = RNLocalize.getLocales()[0];
@@ -30,16 +32,27 @@ const localeNoHyphens = ( locale: string ): string => {
   }
 };
 
-const setRTL = ( ) => {
+const checkRTLSettings = async ( ) => {
   // Android takes care of this automatically
   if ( Platform.OS === "android" ) { return; }
 
+  const { isRTL, forceRTL } = I18nManager;
   const locale = localeNoHyphens( i18n.locale );
 
-  if ( locale === "he" || locale === "ar" ) {
-    I18nManager.forceRTL( true );
-  } else {
-    I18nManager.forceRTL( false );
+  try {
+    // we might want to switch to simply storing this in Context, eventually
+    // https://stackoverflow.com/questions/62768878/react-native-app-ltr-to-rtl-change-without-restarting-the-app
+    if ( ( locale === "he" || locale === "ar" ) && !isRTL ) {
+      await forceRTL( true );
+      // this seems more necessary for RTL languages,
+      // as a way to not need to restart the device before the language
+      // will switch
+      RNRestart.Restart( );
+    } else if ( isRTL ) {
+      await forceRTL( false );
+    }
+  } catch ( e ) {
+    console.log( "couldn't switch RTL settings:", e );
   }
 };
 
@@ -48,7 +61,7 @@ const handleLocalizationChange = () => {
   const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
   i18n.locale = languageTag;
-  setRTL( );
+  checkRTLSettings( );
 };
 
 const loadUserLanguagePreference = ( preferredLanguage: string ) => {
@@ -58,7 +71,7 @@ const loadUserLanguagePreference = ( preferredLanguage: string ) => {
   // are not needed immediately
   if ( preferredLanguage !== "device" ) {
     i18n.locale = preferredLanguage;
-    setRTL( );
+    checkRTLSettings( );
   } else {
     handleLocalizationChange();
   }
@@ -74,7 +87,6 @@ const setDisplayLanguage = ( preferredLanguage: string ): string => {
 export {
   setDeviceLanguageOrFallback,
   setLanguageCodeOrFallback,
-  setRTL,
   handleLocalizationChange,
   loadUserLanguagePreference,
   setDisplayLanguage,

@@ -405,12 +405,12 @@
     "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja online-yhteisöön!",
     "achievements": "Saavutukset",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!",
+      "one": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!",
+      "two": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!",
+      "few": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!",
+      "many": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!",
+      "other": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!"
     },
     "observe_max": "Olet saavuttanut Seekin korkeimman tason!",
     "observe_species": "Havainnoi",
@@ -797,9 +797,9 @@
   },
   "about_inat": {
     "inaturalist": "INATURALIST",
-    "you_are_logged_in": "YOU ARE LOGGED IN",
-    "welcome_back": "Welcome back, {{username}}!",
-    "open_inaturalist": "OPEN INATURALIST",
+    "you_are_logged_in": "OLET KIRJAUTUNUT SISÄÄN",
+    "welcome_back": "Tervetuloa takaisin, {{username}}!",
+    "open_inaturalist": "AVAA INATURALIST",
     "dive_deeper_with_inat": "Dive deeper with iNaturalist.",
     "inat_value_prop_1": "Sync your observations across devices",
     "inat_value_prop_2": "Get accurate, location-based identification suggestions",

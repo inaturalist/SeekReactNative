@@ -26,42 +26,42 @@
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "LÄHETÄ INATURALISTIIN",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Lähetetään {{count}} havaintoa",
+      "one": "Lähetetään {{count}} havaintoa",
+      "two": "Lähetetään {{count}} havaintoa",
+      "few": "Lähetetään {{count}} havaintoa",
+      "many": "Lähetetään {{count}} havaintoa",
+      "other": "Lähetetään {{count}} havaintoa"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} havaintoa lähetetty!",
+      "one": "{{count}} havainto lähetetty!",
+      "two": "{{count}} havaintoa lähetetty!",
+      "few": "{{count}} havaintoa lähetetty!",
+      "many": "{{count}} havaintoa lähetetty!",
+      "other": "{{count}} havaintoa lähetetty!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} havaintoa lähetettäväksi!",
+      "one": "{{count}} havainto lähetettäväksi!",
+      "two": "{{count}} havaintoa lähetettäväksi",
+      "few": "{{count}} havaintoa lähetettäväksi",
+      "many": "{{count}} havaintoa lähetettäväksi",
+      "other": "{{count}} havaintoa lähetettäväksi"
     },
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
+    "upload_now": "LÄHETÄ NYT",
+    "error_internet": "Internetiä ei havaittu. Yritä myöhemmin uudelleen.",
     "error_downtime": {
-      "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "zero": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua.",
+      "one": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua.",
+      "two": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua.",
+      "few": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua.",
+      "many": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua.",
+      "other": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua."
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_unknown": "Lähetys epäonnistui. Virhetiedot: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
     "error_photo": "Photo can no longer be accessed on device.",
     "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
@@ -76,7 +76,7 @@
     "view_challenges": "Näytä haaste",
     "none": "Sinulla ei ole vielä ilmoituksia!",
     "about": "Täällä sinulle ilmoitetaan uusista haasteista, kun ne tulevat saataville, päivityksistä Seekiin ja muista asiaankuuluvista tiedoista.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Uusi haaste saatavilla!"
   },
   "login": {
     "log_in": "Kirjaudu sisälle iNaturalistilla",
@@ -86,10 +86,10 @@
     "error_email": "Syötä kelvollinen sähköpostiosoite",
     "error_credentials": "Virheellinen käyttäjänimi tai salasana",
     "error_username_taken": "Tämä käyttäjänimi on jo käytössä",
-    "error_no_username": "Missing username / email",
+    "error_no_username": "Käyttäjätunnus / sähköposti puuttuu",
     "error_no_password": "Puuttuva salasana",
     "error_internet": "Ei verkkoyhteyttä",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Pyyntöäsi ei voitu suorittaa."
   },
   "inat_signup": {
     "welcome": "Tervetuloa Seekiin!",
@@ -119,9 +119,9 @@
     "observations_1": "Seek-havaintosi tallennetaan laitteellesi, EIKÄ niitä varmuuskopioida verkkoon.",
     "observations_2": "Sovelluksen poistaminen poistaa kaikki Seekissä tehdyt havainnot.",
     "observations_3": "Seek ei synkronoi havaintojasi muihin laitteisiin.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
+    "agree_to_terms": "Hyväksyn <terms>{{terms}}</terms> ja <privacy>{{privacy}}</privacy>, ja olen lukenut <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Yhteisön säännöt",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account.",
+    "store_data": "Suostun siihen, että iNaturalist voi tallentaa ja käsitellä rajoitettuja henkilökohtaisia tietoja minusta käyttäjätilini hallintaan.",
     "learn_more": "Lue lisää",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
@@ -131,7 +131,7 @@
   "inat_login": {
     "log_in_with_inat": "Kirjaudu käyttämällä iNaturalist-tiliä",
     "username": "Käyttäjänimi",
-    "username_email": "Username / email",
+    "username_email": "Käyttäjätunnus / sähköposti",
     "username_or_email": "Username or email",
     "password": "Salasana",
     "forgot_password_header": "Unohtunut salasana",
@@ -268,9 +268,9 @@
     "photographer_september": "Photo © Netflix / Silverback Films",
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Kuva © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed",
+    "species_observed": "Lajia havaittu",
     "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
+    "no_species_nearby": "Emme löytäneet lähistöllä yhtään lajia tässä haasteessa, jota et ole jo havainnut",
     "species_nearby_internet_error": "We need the Internet to generate nearby species."
   },
   "results": {
@@ -499,7 +499,7 @@
     "not_seen_insects": "You haven’t observed any insects yet!",
     "not_seen_mollusks": "You haven’t observed any mollusks yet!",
     "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_other": "Et ole vielä havainnut yhtään lajia!"
   },
   "species_detail": {
     "near": "Lähistöllä",

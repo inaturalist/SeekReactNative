@@ -393,6 +393,18 @@ const challenges = {
     ],
     availableDate: ( new Date( 2022, 1, 1 ): Date ),
     action: "seek_2022_challenges.february_2022_action_which_species_excited"
+  },
+  mar2022: {
+    name: "seek_2022_challenges.march_2022_challenge_name_non_flowering_seed",
+    description: "seek_2022_challenges.march_2022_description_reproduce_from_non_flowers",
+    totalSpecies: 3,
+    backgroundName: "img-challengedetail-march2022",
+    earnedIconName: "badge_inaturalist_march2022",
+    missions: [
+      "seek_2022_challenges.march_2022_mission_1"
+    ],
+    availableDate: ( new Date( 2022, 2, 1 ): Date ),
+    action: "seek_2022_challenges.march_2022_action_find_wild_or_intentional"
   }
 };
 

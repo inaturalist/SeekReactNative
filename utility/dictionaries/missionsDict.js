@@ -342,5 +342,14 @@ const missions = [{
       "Charadriiformes"
     ]
   }
+}, { // mar 2022
+  0: {
+    number: 3,
+    types: [
+      "Pinopsida",
+      "Cycadopsida",
+      "Ginkgoopsida"
+    ]
+  }
 }];
 export default missions;

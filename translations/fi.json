@@ -8,12 +8,12 @@
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
     "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "choose_location_on_map": "VALITSE SIJAINTI KARTALTA"
   },
   "get_started": {
     "header": "Aloittaminen",
     "tip_1": "Ota kuvia Seekin kameralla tunnistaaksesi eläviä olentoja kaikkialla ympärilläsi.",
-    "tip_2": "Learn about the species that have been observed around you with Species Nearby.",
+    "tip_2": "Opi lajeista, joita on havaittu lähelläsi \"Lähellä olevat lajit\" avulla.",
     "tip_3": "Ansaitse merkkejä ja etene tasolla tunnistamalla erityyppisiä lajeja ja osallistumalla haasteisiin."
   },
   "challenges_card": {
@@ -125,14 +125,14 @@
     "learn_more": "Lue lisää",
     "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
-    "about_personal_information": "About Personal Information",
-    "about_licenses": "About Licenses"
+    "about_personal_information": "Henkilötiedoista",
+    "about_licenses": "Tietoja lisensseistä"
   },
   "inat_login": {
     "log_in_with_inat": "Kirjaudu käyttämällä iNaturalist-tiliä",
     "username": "Käyttäjänimi",
     "username_email": "Käyttäjätunnus / sähköposti",
-    "username_or_email": "Username or email",
+    "username_or_email": "Käyttäjätunnus tai salasana",
     "password": "Salasana",
     "forgot_password_header": "Unohtunut salasana",
     "forgot_password": "Unohditko salasanasi?",
@@ -227,12 +227,12 @@
     "no_new_challenges": "Ilmoitamme sinulle, kun uusia haasteita on saatavilla.",
     "completed_all": "Olet suorittanut kaikki saatavilla olevat haasteet!",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} havaittu tähän mennessä",
+      "one": "{{count}} havaittu tähän mennessä",
+      "two": "{{count}} havaittu tähän mennessä",
+      "few": "{{count}} havaittu tähän mennessä",
+      "many": "{{count}} havaittu tähän mennessä",
+      "other": "{{count}} havaittu tähän mennessä"
     },
     "how_to": "Suorita kuukauden {{month}} Seek-haaste!",
     "released": "Tämä haaste julkaistaan {{date}}.",
@@ -265,7 +265,7 @@
     "photographer_june": "Kuva © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Kuva © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Kuva © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Kuva © Netflix / Silverback Films",
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Kuva © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Lajia havaittu",
@@ -298,7 +298,7 @@
     "yes_resighted": "Kyllä, tämä laji tunnistettiin väärin",
     "no": "Ei, se on oikein",
     "enable_location": "Ota sijainti käyttöön tallentaaksesi havainnot",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "SALLI SIJAINTI",
     "error_server": "Valitettavasti emme voineet pisteyttää tätä kuvaa. Tarkista Internet-yhteytesi ja yritä uudelleen.",
     "error_image": "Valitettavasti emme voineet prosessoida tätä kuvaa. Tarkista Internet-yhteytesi ja yritä uudelleen.",
     "error_species": "Valitettavasti emme voineet hakea tietoja tämän kuvan lajista. Tarkista Internet-yhteytesi ja yritä uudelleen.",
@@ -321,14 +321,14 @@
   },
   "banner": {
     "view": "View badge",
-    "badge": "Badge",
+    "badge": "Merkki",
     "challenge_progress": "Löysit uuden lajin!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Tarkastele edistymistäsi",
     "level_up": "Pääsit seuraavalle tasolle!",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
+      "zero": "Olet nähnyt {{count}} lajia!",
+      "one": "Olet nähnyt {{count}} lajia!",
+      "two": "Olet nähnyt {{count}} lajia!",
       "few": "You’ve seen {{count}} species!",
       "many": "You’ve seen {{count}} species!",
       "other": "You’ve seen {{count}} species!"
@@ -491,14 +491,14 @@
     "reset_search": "Reset search",
     "not_seen_plants": "You haven’t observed any plants yet!",
     "not_seen_amphibians": "You haven’t observed any amphibians yet!",
-    "not_seen_fungi": "You haven’t observed any fungi yet!",
-    "not_seen_fish": "You haven’t observed any fish yet!",
-    "not_seen_reptiles": "You haven’t observed any reptiles yet!",
-    "not_seen_arachnids": "You haven’t observed any arachnids yet!",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
+    "not_seen_fungi": "Et ole havainnut vielä yhtään sientä!",
+    "not_seen_fish": "Et ole havainnut vielä yhtään kalaa!",
+    "not_seen_reptiles": "Et ole havainnut vielä yhtään matelijaa!",
+    "not_seen_arachnids": "Et ole havainnut vielä yhtään hämähäkkieläintä!",
+    "not_seen_birds": "Et ole havainnut vielä yhtään lintua!",
+    "not_seen_insects": "Et ole havainnut vielä yhtään hyönteistä!",
+    "not_seen_mollusks": "Et ole havainnut vielä yhtään nilviäistä!",
+    "not_seen_mammals": "Et ole havainnut vielä yhtään nisäkästä!",
     "not_seen_other": "Et ole vielä havainnut yhtään lajia!"
   },
   "species_detail": {
@@ -539,8 +539,8 @@
     "similar_no_species": "Näyttää siltä, että lähellä ei ole havaittu monia samanlaisia lajeja!",
     "plant": "kasvi",
     "amphibian": "sammakkoeläin",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "sienet",
+    "fish": "kala",
     "reptile": "matelija",
     "arachnid": "hämähäkkieläin",
     "bird": "lintu",
@@ -554,7 +554,7 @@
     "copied": "COPIED!"
   },
   "about": {
-    "header": "About",
+    "header": "Tietoja",
     "seek": "Seek on iNaturalist-tiimin luoma.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
@@ -586,8 +586,8 @@
     "look_up": "Etsi lajia nimellä",
     "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
     "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
+    "animals": "Eläimet",
+    "protozoans": "Alkueläimet",
     "kelp": "Kelp, Diatoms, & Allies"
   },
   "posting_status": {
@@ -603,9 +603,9 @@
     "date": "Päivämäärä & Sijainti",
     "date_description": "Jokainen iNaturalist-havainto liittyy tiettyyn päivämäärään ja sijaintiin. Tällä tavoin voimme saada kokonaisvaltaisen kuvan siitä, kuinka laji voi maailmanlaajuisesti ajan myötä.",
     "geoprivacy": "Geoyksityisyys",
-    "open_header": "Open: ",
+    "open_header": "Avoin: ",
     "obscured_header": "Piilotettu: ",
-    "closed_header": "Private: ",
+    "closed_header": "Yksityinen: ",
     "yes_header": "Kyllä: ",
     "no_header": "Ei: ",
     "open": "Muut iNaturalist-sivuston käyttäjät näkevät missä tämä laji havaittiin, ja tutkijat voivat käyttää tätä tietoa tutkimukseen.",

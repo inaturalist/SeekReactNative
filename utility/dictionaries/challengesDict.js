@@ -407,16 +407,16 @@ const challenges = {
     action: "seek_2022_challenges.march_2022_action_find_wild_or_intentional"
   },
   apr2022: {
-    name: "seek_2022_challenges.april_2022_challenge_name_non_flowering_seed",
-    description: "seek_2022_challenges.april_2022_description_reproduce_from_non_flowers",
-    totalSpecies: 3,
+    name: "seek_2022_challenges.april_2022_challenge_name_wildflower",
+    description: "seek_2022_challenges.april_2022_description_many_flowers_have_colors_shapes",
+    totalSpecies: 10,
     backgroundName: "img-challengedetail-april2022",
     earnedIconName: "badge_inaturalist_april2022",
     missions: [
       "seek_2022_challenges.april_2022_mission_1"
     ],
     availableDate: ( new Date( 2022, 3, 1 ): Date ),
-    action: "seek_2022_challenges.april_2022_action_find_wild_or_intentional"
+    action: "seek_2022_challenges.april_2022_action_pollen_visible_anther"
   }
 };
 

@@ -351,5 +351,12 @@ const missions = [{
       "Ginkgoopsida"
     ]
   }
+}, { // apr 2022
+  0: {
+    number: 10,
+    types: [
+      "Angiospermae"
+    ]
+  }
 }];
 export default missions;

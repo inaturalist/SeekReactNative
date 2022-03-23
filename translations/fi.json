@@ -4,10 +4,10 @@
     "internet_error": "Tarvitsemme Internettiä lähilajien tuottamiseksi. Napauta yrittääksesi uudelleen.",
     "no_location": "Ei sijaintia",
     "no_species": "Näyttää siltä, että lähellä ei ole havaittu monia lajeja! Yritä muuttaa sijaintiasi tai laajentaa lajisuodatinta.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
-    "error_alert_location_services": "To continue, turn on location services in your device settings",
-    "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
+    "input_location_above_map": "Sijaintia ei löytynyt; syötä sijainnin nimi yläpuolelle ladataksesi kartan ja etsiäksesi lähellä olevia lajeja",
+    "error_alert_location_services": "Jos haluat jatkaa, ota sijaintipalvelut käyttöön laitteesi asetuksissa",
+    "species_nearby_requires_location": "Lähellä olevat lajit -ominaisuus tarvitsee sijaintisi. Ota sijainti käyttöön asetuksissa",
+    "species_nearby_requires_android_accuracy": "Lähellä olevat lajit -ominaisuus tarvitsee sijaintisi. Tarkista, että sijaintipalvelut ovat käytössä.",
     "choose_location_on_map": "VALITSE SIJAINTI KARTALTA"
   },
   "get_started": {
@@ -23,7 +23,7 @@
     "continue_challenge": "Jatka haastetta",
     "view_all": "Näytä kaikki haasteet",
     "new_join": "Lisää havaintoja Seek-kameralla ansaitaksesi Haaste-merkin!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat ylläpito: kiitos, että olet kokeillut Seekiä! Näet uusimmat iNat-haasteet ennen kuukauden alkua testausta varten."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "LÄHETÄ INATURALISTIIN",
@@ -62,9 +62,9 @@
       "other": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen {{count}} tunnin kuluttua."
     },
     "error_unknown": "Lähetys epäonnistui. Virhetiedot: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
-    "error_downtime_a_few_hours": "iNaturalist’s server is undergoing maintenance. Please try again in a few hours."
+    "error_login": "Kirjautuminen epäonnistui. Kirjaudu sisään iNaturalist-tilillesi Seekissä iNaturalistista tai Saavutukset -näytöltä ennen kuin yrität uudelleen.",
+    "error_photo": "Kuvaa ei voi enää käyttää laitteessa.",
+    "error_downtime_a_few_hours": "iNaturalistin palvelimelle tehdään huoltoa. Yritä uudelleen muutaman tunnin kuluttua."
   },
   "notifications": {
     "header": "Ilmoitukset",
@@ -123,7 +123,7 @@
     "guidelines": "Yhteisön säännöt",
     "store_data": "Suostun siihen, että iNaturalist voi tallentaa ja käsitellä rajoitettuja henkilökohtaisia tietoja minusta käyttäjätilini hallintaan.",
     "learn_more": "Lue lisää",
-    "learn_more_about_data_storage": "We store personal information like usernames and email addresses in order to manage accounts on this site, and to comply with privacy laws, we need you to check this box to indicate that you consent to this use of personal information. To learn more about what information we collect and how we use it, please see our Privacy Policy and our Terms of Service.",
+    "learn_more_about_data_storage": "Tallennamme henkilökohtaisia tietoja, kuten käyttäjätunnuksia ja sähköpostiosoitteita, voidaksemme hallita tilejä tällä sivustolla ja noudattaaksemme tietosuojalakeja, sinun täytyy ruksia tämä ruutu osoittaaksesi, että hyväksyt henkilötietojen käytön. Saat lisätietoja keräämistämme tiedoista ja niiden käytöstä tutustumalla tietosuojakäytäntöömme ja käyttöehtoihimme. ",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "Henkilötiedoista",
     "about_licenses": "Tietoja lisensseistä"
@@ -356,19 +356,19 @@
     "error_classifier": "Luokittelijan lataaminen valitettavasti epäonnistui",
     "error_camera": "Kameraa ei valitettavasti voitu ladata",
     "error_device": "Käyttämääsi laitetta ei valitettavasti tueta",
-    "error_take": "Sorry, we weren't able to capture your photo",
+    "error_take": "Valitettavasti emme pystyneet tallentamaan valokuvaa",
     "error_photos": "Tästä valokuva-albumista ei löytynyt valokuvia. Yritä valitsemalla toinen albumi.",
     "error_version": "Seekin AR-kameran vähimmäisvaatimus on iOS 11.0. Laitteessasi on käyttöjärjestelmäversio {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
     "error_photoError": "Sorry, the photo object was not found",
     "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
-    "plant_filter": "Plants only",
+    "plant_filter": "Vain kasvit",
     "non_plant_filter": "Muut kuin kasvit",
     "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Kuvat",
-    "photo_library": "Photo Library"
+    "photo_library": "Kuvagalleria"
   },
   "camera_help": {
     "title": "Seekin kamera",

@@ -418,6 +418,31 @@ const challenges = {
     availableDate: ( new Date( 2022, 3, 1 ): Date ),
     action: "seek_2022_challenges.april_2022_action_pollen_visible_anther"
   }
+  // may2022: {
+  //   name: "seek_2022_challenges.may_2022_challenge_name_bee",
+  //   description: "seek_2022_challenges.may_2022_description_not_all_bees_make_honey",
+  //   totalSpecies: 3,
+  //   backgroundName: "img-challengedetail-may2022",
+  //   earnedIconName: "badge_inaturalist_may2022",
+  //   missions: [
+  //     "seek_2022_challenges.may_2022_mission_1"
+  //   ],
+  //   availableDate: ( new Date( 2022, 4, 1 ): Date ),
+  //   action: "seek_2022_challenges.may_2022_action_see_bees"
+  // }
+  // june2022: {
+  //   name: "seek_2022_challenges.june_2022_challenge_name_wildflower",
+  //   description: "seek_2022_challenges.june_2022_description_most_fruits_and_seeds",
+  //   totalSpecies: 4,
+  //   backgroundName: "img-challengedetail-june2022",
+  //   earnedIconName: "badge_inaturalist_june2022",
+  //   missions: [
+  //     "seek_2022_challenges.june_2022_mission_1",
+  //     "seek_2022_challenges.june_2022_mission_2"
+  //   ],
+  //   availableDate: ( new Date( 2022, 5, 1 ): Date ),
+  //   action: "seek_2022_challenges.june_2022_action_busy_pollinators"
+  // }
 };
 
 export default challenges;

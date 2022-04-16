@@ -599,7 +599,7 @@
   "posting_help": {
     "header": "Segítség",
     "identification": "Fajok meghatározása",
-    "id_description": "As you upload your observation, you can identify the species to whatever taxa you are most confident- from a class such as reptiles, down to a species, like Western Bluebird. After your observation is posted to iNaturalist, our community will help identify the species.\n\nYou can also choose to add optional notes to your observation here.",
+    "id_description": "Amint feltöltötted megfigyelésedet, hozzárendelheted a taxont, amelyet megbízhatóan azonosítottál - osztályt, mint például hüllők, vagy akár fajt, mint például mexikói  kékmadár. Miután megfigyelésedet feltöltötted az iNaturalist-ra, közösségünk segít a faj azonosításában.\n\nItt további megjegyzéseket fűzhetsz megfigyelésedhez.\n",
     "date": "Dátum és Helyszín",
     "date_description": "Every observation on iNaturalist is associated with a certain date and location. This way, we can clearly see a global picture of how a species is doing worldwide over time.",
     "geoprivacy": "Pozíció láthatósága",

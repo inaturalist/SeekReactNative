@@ -13,7 +13,10 @@ const logos = {
   natGeo: require( "./logos/logo-NatGeo.webp" ),
   natGeoBlack: require( "./logos/logo-badgemodal-natgeo.webp" ),
   seekAppIcon: require( "./logos/appicon-Seek-Stats.webp" ),
-  iNatBadge: require( "./logos/img-iNatbadge.webp" )
+  iNatBadge: require( "./logos/img-iNatbadge.webp" ),
+  BeesChallengeBadgeView: require( "./logos/BeesChallenge_BadgeView.webp" ),
+  BeesChallengeChallengeDetail: require( "./logos/BeesChallenge_ChallengeDetail.webp" ),
+  BeesChallengeTopLogo: require( "./logos/BeesChallenge_TopLogo.webp" )
 };
 
 export default logos;

@@ -358,28 +358,28 @@ const missions = [{
       "Angiospermae"
     ]
   }
-// }, { // may 2022
-//   0: {
-//     number: 3,
-//     types: [
-//       "Anthophila"
-//     ]
-//   }
-// }, { // june 2022
-//   0: {
-//     number: 2,
-//     types: [
-//       "Angiospermae"
-//     ]
-//   },
-//   1: {
-//     number: 2,
-//     types: [
-//       "Coleoptera",
-//       "Diptera",
-//       "Lepidoptera",
-//       "Anthophila"
-//     ]
-//   }
+}, { // may 2022
+  0: {
+    number: 3,
+    types: [
+      "Anthophila"
+    ]
+  }
+}, { // june 2022
+  0: {
+    number: 2,
+    types: [
+      "Angiospermae"
+    ]
+  },
+  1: {
+    number: 2,
+    types: [
+      "Coleoptera",
+      "Diptera",
+      "Lepidoptera",
+      "Anthophila"
+    ]
+  }
 }];
 export default missions;

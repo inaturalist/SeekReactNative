@@ -89,7 +89,7 @@
     "error_no_username": "Falta nome de usuário / e-mail",
     "error_no_password": "Falta senha",
     "error_internet": "Sem conexão à internet",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída."
   },
   "inat_signup": {
     "welcome": "Bem-vindo ao Seek!",
@@ -298,7 +298,7 @@
     "yes_resighted": "Sim, esta espécie foi mal identificada",
     "no": "Não, está correto",
     "enable_location": "A sua observação não tem localização",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "ATIVAR LOCALIZAÇÃO",
     "error_server": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_image": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_species": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
@@ -559,10 +559,10 @@
     "joint_initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society.",
     "original": "O Seek foi originalmente criado com o apoio da HHMI Tangled Bank Studios e aprimorado com o apoio da série Nosso Planeta na Netflix e da WWF.",
     "designed_by": "Concebido e desenvolvido pela equipe do iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary e Yaron Budowski. Agradecimentos especiais a Grant Van Horn da Visipedia, pela ajuda com a tecnologia de visão computacional, e à comunidade iNaturalist.",
     "version": "Versão",
     "help": "Para receber ajuda com o Seek, por favor envie um e-mail para help+seek@inaturalist.org.",
-    "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translators": "Agradecemos pela assistência de tradução proporcionada pela comunidade crowdin.com, em particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch e Yulia Lygina.",
     "join_crowdin": "Para se juntar à equipe de tradução do Seek, visite https://crowdin.com/project/seek"
   },
   "posting": {
@@ -772,7 +772,7 @@
     "apr_2021_action": "Um dos impactos humanos mais difundidos nos ecossistemas é o lixo. Enquanto exploramos a natureza este mês, prestamos atenção ao lixo que vemos e pensamos na sua origem. Faça uma lista de coisas que você poderia fazer em casa para reduzir o desperdício que sua família gera, e compartilhe esta lista com o resto da sua família.",
     "apr_2021_badge_name": "Emblema de Restauração",
     "apr_2021_photographer": "Foto de: Enric Sala / National Geographic",
-    "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
+    "may_2021_mission_1": "Encontre 5 plantas de qualquer uma das seguintes famílias:\n\nAsteraceae (Família dos girassóis e margaridas);\nFabaceae (Família das leguminosas e acácias);\nLamiaceae (Família do hortelã, sálvia e orégano);\nAcanthaceae (Família dos acantos);\nMalvaceae (Família dos hibiscos e malvas);\nBignoniaceae (Família do jacarandá);\nFamília Passifloraceae (Família do maracujá e similares)",
     "may_2021_mission_2": "Encontre 2 artrópodes (insetos, aracnídeos, crustáceos)",
     "may_2021_challenge_name": "Desafio Ecossistemas Saudáveis",
     "may_2021_description": "Os ecossistemas saudáveis proporcionam-nos muitos benefícios diversos, incluindo a limpeza da nossa água e do ar, o armazenamento de carbono e a criação de habitats para apoiar a biodiversidade. Algumas espécies como liquens, mosquitos e odonatos (libélulas e libelinhas) são conhecidos por serem indicadores de saúde ecológica. Quando você vê essas espécies, é um bom sinal de que o seu ecossistema é saudável!",
@@ -864,21 +864,21 @@
     "december_2021_action_think_about_predators": "Pense sobre os predadores que observou. Que adaptações eles possuem para serem bons em caçar e matar suas presas? As duas espécies que viu têm adaptações para predação similares?"
   },
   "seek_2022_challenges": {
-    "january_2022_challenge_name_vertebrate_water": "Vertebrate Water Predator Challenge",
-    "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Order Suliformes (Gannets, Cormorants, and Allies);\n-Order Sphenisciformes (Penguins)",
-    "january_2022_description_mammals_fishes_birds": "Mammals, fishes, and birds all have some species that are able to hunt prey in saltwater (oceans and seas) and some adapted to freshwater (rivers, lakes, and streams). They all have adaptations to detect, capture, and consume prey in the water.",
-    "january_2022_action_water_habitat": "What type of water habitat did you visit? What types of prey animals are available there for predators to eat?",
-    "february_2022_challenge_name_life_on_edges": "Life on the Edges Challenge",
-    "february_2022_mission_1": "Find 2 species in these groups:\n\n-Class Amphibia (Amphibians);\n-Order Charadriiformes (Shorebirds and Allies)",
-    "february_2022_description_transitions_between_habitats": "Transitions between one kind of habitat and another can be exciting places to find wildlife, and some species rely on them. The edges of ponds, lakes, rivers, and the intertidal zones are full of life. Many edge species may live part of their life in water and part on land.",
-    "february_2022_action_which_species_excited": "Which species were you most excited to find? Based on what you observed about it and additional research about it, make a list of 3 things that it needs to survive and 3 things you can do to support those needs.",
-    "march_2022_challenge_name_non_flowering_seed": "Non-Flowering Seed Plants Challenge",
-    "march_2022_mission_1": "Find 3 plant species in these groups:\n\n-Class Conifers;\n-Class Cycads;\n-Class Ginkgos",
-    "march_2022_description_reproduce_from_non_flowers": "Conifers, cycads, and ginkgos all reproduce from structures other than flowers. Conifers have cones and both cycads and ginkgos have cone-like structures that release or receive pollen. Many of these flowerless species are commonly cultivated for their appearance or wood products (for conifers).",
-    "march_2022_action_find_wild_or_intentional": "Did you find wild plants, or were they intentionally planted by people? If it was planted, what characteristics do you think made it desirable for planting?",
-    "april_2022_challenge_name_wildflower": "Wildflower Challenge",
-    "april_2022_mission_1": "Find 10 species of flowering plants (Subphylum Angiospermae)",
-    "april_2022_description_many_flowers_have_colors_shapes": "Many flowers have colors and shapes that attract insects to visit the flowers. Flowers produce pollen that can be transferred from one flower to another by animals, wind, or water.",
-    "april_2022_action_pollen_visible_anther": "Sometimes pollen is visible on the anther of the flower. If you touch your finger to it, can you see pollen on your finger? What do you think pollinates this species?"
+    "january_2022_challenge_name_vertebrate_water": "Desafio dos Predadores Vertebrados Aquáticos",
+    "january_2022_mission_1": "Encontre 2 espécies de vertebrados de:\n\n-Infraordem Cetacea (baleias e golfinhos);\n-Parvordem Pinnipedia (morsas, focas, leões-marinhos);\n-Subfamília Lutrinae (lontras);\n-Classe Actinopterygii (peixes ósseos com espinhas nas barbatanas);\n-Classe Elasmobranchii (tubarões e arraias);\n-Ordem Pelecaniformes (pelicanos, garças, grous, íbis e similares);\n-Ordem Coraciiformes (martim-pescador e similares);\n-Ordem Podicipediformes (mergulhões e zampulhões);\n-Ordem Suliformes (albatrozes, cormorões e similares);\n-Ordem Esfenisciformes (pinguins)",
+    "january_2022_description_mammals_fishes_birds": "Os mamíferos, os peixes e as aves contam com algumas espécies que conseguem caçar presas em água salgada (oceanos e mares) e outras adaptadas a fazer isso em água doce (rios, lagos e riachos). Todos apresentam adaptações para detectar, capturar e consumir presas na água.",
+    "january_2022_action_water_habitat": "Que tipo de habitat aquático você visitou? Que tipos de presa estão disponíveis para os predadores?",
+    "february_2022_challenge_name_life_on_edges": "Desafio da Vida aos Limites",
+    "february_2022_mission_1": "Encontre 2 espécies nestes grupos:\n\n-Classe Amphibia (anfíbios);\n-Ordem Charadriiformes (aves limícolas e similares)",
+    "february_2022_description_transitions_between_habitats": "As transições entre um habitat e outro podem ser lugares interessantes para encontrar a vida selvagem, e algumas espécies dependem delas. As bordas das lagoas, lagos, rios e zonas intertidais estão cheias de vida. Muitas espécies de ponta podem viver parte da sua vida na água e em parte na terra.",
+    "february_2022_action_which_species_excited": "Que espécies você estava mais animado em encontrar? Com base no que você observou e em pesquisas adicionais que realizou, faça uma lista de 3 coisas de que precisa para sobreviver e 3 coisas que você pode fazer para satisfazer essas necessidades.",
+    "march_2022_challenge_name_non_flowering_seed": "Desafio de plantas com sementes sem flores",
+    "march_2022_mission_1": "Encontre 3 espécies de plantas nestes grupos:\n\n-Classe Coníferas;\n-Classe Cicadófitas;\n-Classe Ginkgoaceae",
+    "march_2022_description_reproduce_from_non_flowers": "As coníferas, as cicadófitas e os ginkgos se reproduzem a partir de estruturas distintas das flores. As coníferas têm cones e tanto as cicadófitas como os ginkgos têm estruturas parecidas com o cone que liberam ou recebem o pólen. Muitas dessas espécies sem flores são normalmente cultivadas pela sua aparência ou para fabricação de produtos de madeira (no caso das coníferas).",
+    "march_2022_action_find_wild_or_intentional": "Você já encontrou plantas silvestres ou que foram intencionalmente plantadas pelas pessoas? Se foi plantado, que características considera que as fazem interessante para a sua plantação?",
+    "april_2022_challenge_name_wildflower": "Desafio de Flores Silvestres",
+    "april_2022_mission_1": "Encontre 10 espécies de plantas com flores (Subfilo Angiospermas)",
+    "april_2022_description_many_flowers_have_colors_shapes": "Muitas flores têm cores e formas que atraem insetos para visitar as flores. As flores produzem pólen que podem ser transferidos de uma flor a outra por animais, vento ou água.",
+    "april_2022_action_pollen_visible_anther": "Às vezes, o pólen é visível na antera da flor. Se você tocar com o dedo, será que consegue ver o pólen? O que acha que poliniza esta espécie?"
   }
 }

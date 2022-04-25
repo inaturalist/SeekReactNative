@@ -4,14 +4,13 @@ import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
+import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeDetails";
 import i18n from "../../../i18n";
 import logos from "../../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import GreenText from "../../UIComponents/GreenText";
 import SpeciesObserved from "./SpeciesObserved";
 import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
-
 type Props = {
   challenge: {
     percentComplete: number,
@@ -61,6 +60,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
             </Text>
           </>
         )}
+        {challenge.secondLogo === "BeesChallengeChallengeDetail" && <Image source={logos[challenge.secondLogo]} style={imageStyles.myGardenContainer} />}
         <View style={viewStyles.marginMedium} />
         <Text
           onPress={navToChallenges}

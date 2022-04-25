@@ -430,21 +430,21 @@ const challenges = {
     availableDate: ( new Date( 2022, 4, 1 ): Date ),
     action: "seek_2022_challenges.may_2022_action_see_bees",
     badgeName: "challenges.badge_name_my_garden_2022"
-  },
-  june2022: {
-    name: "seek_2022_challenges.june_2022_challenge_name_wildflower",
-    description: "seek_2022_challenges.june_2022_description_most_fruits_and_seeds",
-    totalSpecies: 4,
-    backgroundName: "img-challengedetail-june2022",
-    earnedIconName: "badge_my_garden_june2022",
-    missions: [
-      "seek_2022_challenges.june_2022_mission_1",
-      "seek_2022_challenges.june_2022_mission_2"
-    ],
-    availableDate: ( new Date( 2022, 5, 1 ): Date ),
-    action: "seek_2022_challenges.june_2022_action_busy_pollinators",
-    badgeName: "challenges.badge_name_my_garden_2022"
   }
+  // june2022: {
+  //   name: "seek_2022_challenges.june_2022_challenge_name_wildflower",
+  //   description: "seek_2022_challenges.june_2022_description_most_fruits_and_seeds",
+  //   totalSpecies: 4,
+  //   backgroundName: "img-challengedetail-june2022",
+  //   earnedIconName: "badge_my_garden_june2022",
+  //   missions: [
+  //     "seek_2022_challenges.june_2022_mission_1",
+  //     "seek_2022_challenges.june_2022_mission_2"
+  //   ],
+  //   availableDate: ( new Date( 2022, 5, 1 ): Date ),
+  //   action: "seek_2022_challenges.june_2022_action_busy_pollinators",
+  //   badgeName: "challenges.badge_name_my_garden_2022"
+  // }
 };
 
 export default challenges;

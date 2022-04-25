@@ -85,6 +85,17 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   natGeoLogo: {
     width: 142,
     height: 41
+  },
+  myGardenLogo: {
+    width: 145,
+    height: 48
+  },
+  myGardenContainer: {
+    alignSelf: "center",
+    width: "100%",
+    height: 85,
+    marginTop: 23,
+    resizeMode: "contain"
   }
 } );
 

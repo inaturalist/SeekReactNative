@@ -181,6 +181,12 @@ const setChallengeDetails = ( date: Date ) => {
       secondLogo: "natGeoBlack",
       sponsorName: "NatGeo"
     };
+  } else if ( year === 2022 && ( month === 4 || month === 5 ) ) {
+    return {
+      logo: "BeesChallengeTopLogo",
+      secondLogo: "BeesChallengeChallengeDetail",
+      sponsorName: "My Garden"
+    };
   } else {
     return {
       logo: "iNatWhite",

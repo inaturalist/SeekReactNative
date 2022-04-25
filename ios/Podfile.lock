@@ -317,7 +317,7 @@ PODS:
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
-  - RealmJS (10.9.0):
+  - RealmJS (10.14.0):
     - GCDWebServer
     - React
   - RNCAsyncStorage (1.15.9):
@@ -353,7 +353,7 @@ PODS:
     - React-Core
   - RNSVG (12.1.1):
     - React
-  - SDWebImage/Core (5.12.1)
+  - SDWebImage/Core (5.12.5)
   - SDWebImageWebPCoder (0.8.4):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
@@ -607,7 +607,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 33a949a51bec5f8a3c9e8d8092deb259600d761e
   ReactCommon: 620442811dc6f707b4bf5e3b27d4f19c12d5a821
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
-  RealmJS: 24740378e6bfd853348405eca7f9d38482bc2696
+  RealmJS: 5a939376f3bdd94708abe2326d33d8f935b9fb37
   RNCAsyncStorage: 26f25150da507524a7815f2ada06ca0967f65633
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
@@ -624,10 +624,10 @@ SPEC CHECKSUMS:
   RNShare: 0fec82bd2e67d09f895937ccb4f5a097e714dec2
   RNStoreReview: d7d2a006e14030fe101cac9da487a17f98d73eff
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
-  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
 
 PODFILE CHECKSUM: a91b93967bf9975a3656526b13b2cc96ca5b614a
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

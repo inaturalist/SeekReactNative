@@ -271,7 +271,8 @@
     "species_observed": "Lajia havaittu",
     "species_nearby": "LAJIT LÄHELLÄ TÄSSÄ HAASTEESSA",
     "no_species_nearby": "Emme löytäneet lähistöllä yhtään lajia tässä haasteessa, jota et ole jo havainnut",
-    "species_nearby_internet_error": "Tarvitsemme internetyhteyden lähistöllä olevien lajien tuottamiseksi."
+    "species_nearby_internet_error": "Tarvitsemme internetyhteyden lähistöllä olevien lajien tuottamiseksi.",
+    "badge_name_my_garden_2022": "PUUTARHANI-MERKKI"
   },
   "results": {
     "observed_species": "Havaitsit uuden lajin!",
@@ -402,7 +403,7 @@
   },
   "badges": {
     "your_level": "Sinun tasosi",
-    "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja online-yhteisöön!",
+    "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja verkkoyhteisöön!",
     "achievements": "Saavutukset",
     "observe_plural": {
       "zero": "Havainnoi {{count}} lajia päästäksesi seuraavalle tasolle!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Luonnonkukat-haaste",
     "april_2022_mission_1": "Etsi 10 lajia kukkivia kasveja (alajakso Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Useilla kukilla on värejä ja muotoja, jotka houkuttelevat hyönteisiä vierailulle kukkiin. Kukat tuottavat siitepölyä, jota voidaan siirtää kukasta toiseen eläinten, tuulen, tai veden avulla.",
-    "april_2022_action_pollen_visible_anther": "Toisinaan siitepölyä on näkyvissä kukan ponnella. Jos kosketat sormellasi sitä, näetkö siitepölyä sormellasi? Minkä luulet pölyttävän tätä lajia?"
+    "april_2022_action_pollen_visible_anther": "Toisinaan siitepölyä on näkyvissä kukan ponnella. Jos kosketat sormellasi sitä, näetkö siitepölyä sormellasi? Minkä luulet pölyttävän tätä lajia?",
+    "may_2022_challenge_name_bee": "Mehiläishaaste",
+    "may_2022_mission_1": "Etsi 3 lajia mehiläisiä (Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Tiesitkö, etteivät kaikki mehiläiset tee hunajaa eivätkä elä kennoissa? Useimmat mehiläiset elävät yksin, mutta ne ovat silti välttämättömiä kukkien ja puiden pölyttäjiä. Jos pysyt rauhallisena ja annat tilaa, kun ne käyvät kukissa, mehiläisten ei pitäisi vaivata sinua.",
+    "may_2022_action_see_bees": "Näe mehiläiset uusin silmin uudessa PBS:n luontoelokuvassa My Garden of a Thousand Bees. Ja istuta itse villikukkia nähdäksesi, mitä pölyttäjiä ne houkuttelevat. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Pölyttäjähaaste",
+    "june_2022_mission_1": "Kaksi lajia kukkivia kasveja (alajakso Angiospermae)",
+    "june_2022_mission_2": "Kaksi lajia seuraavista:\n\n-lahko Coleoptera (kovakuoriaiset);\n-lahko Diptera (kärpäset);\n-lahko Lepidoptera (perhoset)\n-Anthophila (mehiläiset)",
+    "june_2022_description_most_fruits_and_seeds": "Useimmat hedelmät ja siemenet, jotka huomaat luonnossa ovat seurausta onnistuneesta pölytyksestä. Mehiläiset eivät ole ainoita hyönteisiä, jotka toimivat pölyttäjinä! Pölytyksen jälkeen kukasta kehittyy hedelmä, joka sisältää siemeniä. Näitkö kasveja, joissa olisi kehittymässä hedelmiä?",
+    "june_2022_action_busy_pollinators": "Kiireiset pölyttäjät kuten mehiläiset ja muut hyönteiset pitävät paikallisen kasvipopulaatiomme terveenä ja monimuotoisena. Opi lisää mehiläisten salaisista elämistä katsomalla uusi elokuva My Garden of a Thousand Bees PBS Nature-palvelussa. Ja istuta itse villikukkia nähdäksesi, mitä pölyttäjiä ne houkuttelevat. #PlantWildflowers"
   }
 }

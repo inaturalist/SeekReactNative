@@ -271,7 +271,8 @@
     "species_observed": "Spesies Yang Diamati",
     "species_nearby": "SPESIES DI SEKITAR DALAM TANTANGAN INI",
     "no_species_nearby": "Kami tidak menemukan spesies di dekatmu yang belum kamu amati di tantangan ini ",
-    "species_nearby_internet_error": "Kami memerlukan Internet untuk menghasilkan spesies di dekatmu."
+    "species_nearby_internet_error": "Kami memerlukan Internet untuk menghasilkan spesies di dekatmu.",
+    "badge_name_my_garden_2022": "LENCANA TAMAN SAYA"
   },
   "results": {
     "observed_species": "Kamu mengamati spesies baru!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Tantangan Bunga Liar",
     "april_2022_mission_1": "Temukan 10 spesies tanaman berbunga (Subfilum Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Banyak bunga memiliki warna dan bentuk yang menarik serangga untuk mengunjungi bunga-bunga tersebut. Bunga menghasilkan serbuk sari yang dapat berpindah dari satu bunga ke bunga lainnya melalui hewan, angin, atau air.",
-    "april_2022_action_pollen_visible_anther": "Terkadang serbuk sari juga dapat ditemukan pada kepala sari bunga. Jika kamu menyentuhnya, dapatkah kamu melihat serbuk sari di jarimu? Menurutmu, binatang apa yang menyerbuki spesies ini?"
+    "april_2022_action_pollen_visible_anther": "Terkadang serbuk sari juga dapat ditemukan pada kepala sari bunga. Jika kamu menyentuhnya, dapatkah kamu melihat serbuk sari di jarimu? Menurutmu, binatang apa yang menyerbuki spesies ini?",
+    "may_2022_challenge_name_bee": "Tantangan Lebah",
+    "may_2022_mission_1": "Temukan 3 spesies lebah (Epifamili Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Tahukah kamu tidak semua lebah membuat madu atau hidup di dalam sarang? Kebanyakan lebah asli malah hidup sendiri, tetapi tetap menjadi penyerbuk bunga dan pohon yang penting. Jika kamu tetap tenang dan memberikan mereka ruang saat mereka mengunjungi sebuah bunga, mereka tidak akan mengganggumu.",
+    "may_2022_action_see_bees": "Lihatlah lebah dari perspektif yang berbeda di film PBS Nature My Garden of a Thousand Bees. Dan tanamlah bunga asli dari daerahmu untuk melihat apa yang menarik penyerbuk. #TanamBungaLiar",
+    "june_2022_challenge_name_wildflower": "Tantangan Penyerbukan",
+    "june_2022_mission_1": "Dua spesies tanaman berbunga (Subfilum Angiospermae)",
+    "june_2022_mission_2": "Dua spesies dalam: \n\n-Order Coleoptera (Kumbang);\n-Order Diptera (Lalat);\n-Order Lepidoptera (Kupu-kupu dan Ngengat)\n-Epifamili Anthophila (Lebah)",
+    "june_2022_description_most_fruits_and_seeds": "Kebanyakan buah dan biji-bijian yang kamu temukan di alam merupakan hasil dari penyerbukan. Lebah bukan satu-satunya serangga yang bertindak sebagai penyerbuk! Setelah penyerbukan, bunga berkembang menjadi buah berbiji. Apakah kamu melihat tanaman yang sedang berbuah?",
+    "june_2022_action_busy_pollinators": "Penyerbuk yang sibuk seperti lebah dan serangga lainnya menjaga populasi tanaman lokal kita tetap sehat dan beragam. Pelajari lebih lanjut tentang kehidupan rahasia para lebah dengan menonton film baru My Garden of a Thousand Bees di PBS Nature. Dan tanamlah bunga liarmu sendiri untuk melihat apa penyerbuk yang dilirik mereka.\n#TanamBungaLiar"
   }
 }

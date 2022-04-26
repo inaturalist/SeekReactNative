@@ -96,7 +96,7 @@
     "enter_birthday": "Indtast venligst din fødselsdato",
     "permission": "Du skal være mindst 13 år for at oprette en konto.",
     "privacy": "Privatlivspolitik",
-    "continue": "Forsæt",
+    "continue": "Fortsæt",
     "enter_email": "Angiv venligst dine forældres e-mail",
     "parent_email": "Forældre/værges email",
     "under_13": "Da du er under 13 år, har vi brug for dine forældres eller værges tilladelse før oprettelse af en konto.",
@@ -158,10 +158,10 @@
   },
   "onboarding": {
     "onboarding_1": "Bruge kameraet i Seek til at identificere planter, dyr og svampe",
-    "onboarding_2": "Lær om organismerne der er overalt omkring dig",
+    "onboarding_2": "Lær om de organismer, der findes omkring dig",
     "onboarding_3": "Optjen duelighedsmærker ved at observere forskellige arter",
     "skip": "Spring over for nu",
-    "continue": "Forsæt"
+    "continue": "Fortsæt"
   },
   "location_picker": {
     "species_nearby": "Arter i nærheden",
@@ -271,7 +271,8 @@
     "species_observed": "Arter observeret",
     "species_nearby": "ARTER I NÆRHEDEN I DENNE UDFORDRING",
     "no_species_nearby": "Vi fandt ingen arter i nærheden i denne udfordring, som du ikke allerede har observeret",
-    "species_nearby_internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden."
+    "species_nearby_internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden.",
+    "badge_name_my_garden_2022": "MIT HAVE-DUELIGHEDSMÆRKE"
   },
   "results": {
     "observed_species": "Du observerede en ny art!",
@@ -383,7 +384,7 @@
     "tip_1": "Vær altid opmærksom på dine omgivelser og pas på dig selv!",
     "tip_2": "Spis ikke hvad som helst du finder i naturen.",
     "tip_3": "Gå ikke ind på privat grund.",
-    "tip_4": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide."
+    "tip_4": "Vær respektfuld overfor levende ting ved ikke at forstyrre eller røre dem. Nogle kan stikke eller bide."
   },
   "confirm": {
     "identify": "Identificer dette foto?",
@@ -626,8 +627,8 @@
     "remember": "Husk",
     "tip_1": "Vær altid opmærksom på dine omgivelser, pas på dig selv og begå ikke ulovlig indtrængen.",
     "tip_2": "Spis ikke alt du finder i naturen.",
-    "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide.",
-    "tip_4": "Børn kan have behov for voksent tilsyn."
+    "tip_3": "Vær respektfuld overfor levende ting ved ikke at forstyrre eller røre dem. Nogle kan stikke eller bide.",
+    "tip_4": "Børn kan have behov for voksent opsyn."
   },
   "accessibility": {
     "menu": "Åbn menu",
@@ -667,7 +668,7 @@
     "donate_description": "Glad for Seek? Overvej en donation til iNaturalist! Vi er afhængige af donationer fra folk som dig for at vores apps fortsat kan tilbydes gratis.",
     "language": "App-sprog",
     "device_settings": "Benyt enhedens sprogindstilling",
-    "auto_capture": "Tag automatisk et billede hvis identifikationen når frem til art.",
+    "auto_capture": "Tag automatisk et billede, når identifikationen finder frem til art.",
     "species_detail": "Artsdetaljer",
     "seasonality": "Sæsonudsving",
     "seasonality_option_1": "Vis sæsonudsving baseret på verdensomspændende iNaturalist-observationer",
@@ -823,7 +824,7 @@
     "seek_bullet_3": "Identifikationer forlader ikke din enhed eller kræver internettet for at virke, men bekræftes heller ikke af iNaturalist-fællesskabet",
     "your_obs_could_make_difference": "DIN OBSERVATION KAN GØRE EN FORSKEL",
     "everyday_obs_help_scientists": "Hverdagsobservationer foretaget af naturalister som dig selv kan hjælpe forskere med at lære mere om, hvor og hvornår organismer findes og endda føre til nye opdagelser!",
-    "faqs": "FAQs (Ofte stillede spørgsmål)",
+    "faqs": "Ofte stillede spørgsmål",
     "faq_1": "Du skal være 13+ eller have en forælders tilladelse til at oprette en iNaturalist-konto",
     "faq_2": "Seek og iNaturalist bruger den samme identifikationsmodel, men kun iNaturalist-observationer bekræftes af fællesskabet",
     "logged_in_as": "LOGGET IND SOM",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Vildblomst-udfordring",
     "april_2022_mission_1": "Find 10 arter af blomstrende planter (rækken Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Mange blomster har farver og former, der lokker insekter til at besøge blomsterne. Blomster producerer pollen, der kan overføres fra en blomst til en anden af dyr, vind eller vand.",
-    "april_2022_action_pollen_visible_anther": "Nogle gange pollen er synlig på blomstens støvdrager. Hvis du rører den med fingeren, kan du så se pollen på din finger? Hvad tror du bestøver denne art?"
+    "april_2022_action_pollen_visible_anther": "Nogle gange pollen er synlig på blomstens støvdrager. Hvis du rører den med fingeren, kan du så se pollen på din finger? Hvad tror du bestøver denne art?",
+    "may_2022_challenge_name_bee": "Bi-udfordring",
+    "may_2022_mission_1": "Find 3 arter af bier (Overfamilien Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Vidste du, at ikke alle bier laver honning eller bor i bistader? De fleste hjemmehørende bier lever alene, men er stadig vigtige bestøvere af blomster og træer. Hvis du forholder dig roligt og giver dem plads, mens de besøger blomster, vil bier ikke genere dig.",
+    "may_2022_action_see_bees": "Se bier, som du aldrig har set dem før i den nye PBS-naturfilm My Garden of a Thousand Bees. Og plant dine egne hjemmehørende, vilde blomster for at se, hvilke bestøvere de tiltrækker. #Plantvildeblomster",
+    "june_2022_challenge_name_wildflower": "Bestøver-udfordring",
+    "june_2022_mission_1": "To arter af blomstrende planter (Underrække Angiospermae)",
+    "june_2022_mission_2": "To arter i:\n\n-Orden Coleoptera (Biller);\n-Orden Diptera (Fluer);\n-Orden Lepidoptera (Sommerfugle og natsværmere)\nOverfamilie Anthophila (Bier)",
+    "june_2022_description_most_fruits_and_seeds": "De fleste frugter og frø, du finder i naturen, er resultatet af en vellykket bestøvning. Bier er ikke de eneste insekter, der fungerer som bestøvere! Efter bestøvning udvikler blomsten sig til en frugt, der indeholder frø. Har du set nogen planter med udviklede frugter?",
+    "june_2022_action_busy_pollinators": "Flittige bestøvere som bier og andre insekter holder vores lokale plantesamfund sunde og alsidige. Læs mere om biernes hemmelige liv ved at se den nye film My Garden of a Thousand Bees på PBS Nature. Og plant dine egne hjemmehørende, vilde blomster for at se, hvilke bestøvere de tiltrækker. #Plantvildeblomster"
   }
 }

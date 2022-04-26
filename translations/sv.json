@@ -271,7 +271,8 @@
     "species_observed": "Observerade arter",
     "species_nearby": "NÄRLIGGANDE ARTER I DENNA UTMANING",
     "no_species_nearby": "Vi hittade inga arter i närheten i denna utmaning som du inte redan har observerat",
-    "species_nearby_internet_error": "Vi behöver internet för att generera arter i närheten."
+    "species_nearby_internet_error": "Vi behöver internet för att generera arter i närheten.",
+    "badge_name_my_garden_2022": "MIN TRÄDGÅRDSUTMÄRKELSE"
   },
   "results": {
     "observed_species": "Du observerade en ny art!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Vilda blommors utmaning",
     "april_2022_mission_1": "Hitta 10 arter blomväxter (underdivision Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Många blommor har färger och former som lockar insekter att besöka blommorna. Blommor producerar pollen som kan överföras från en blomma till en annan av djur, vind eller vatten.",
-    "april_2022_action_pollen_visible_anther": "Ibland är pollen synligt på blommans ståndare. Om du vidrör det med fingret, ser du pollen på ditt finger? Vad tror du pollinerar denna art?"
+    "april_2022_action_pollen_visible_anther": "Ibland är pollen synligt på blommans ståndare. Om du vidrör det med fingret, ser du pollen på ditt finger? Vad tror du pollinerar denna art?",
+    "may_2022_challenge_name_bee": "Biutmaning",
+    "may_2022_mission_1": "Hitta 3 arter bin (epifamilj Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Visste du att inte alla bin gör honung eller lever i bikupor? De flesta inhemska bin lever ensamma, men är fortfarande viktiga pollinatörer av blommor och träd. Om du är lugn och ger dem utrymme när de besöker blommor, borde inte bina störa dig.",
+    "may_2022_action_see_bees": "Se bin som du aldrig sett dem förut i den nya PBS Nature-filmen My Garden of a Thousand Bees. Och plantera dina egna vilda blommor för att se vilka pollinatörer de lockar till sig. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Pollinatörsutmaning",
+    "june_2022_mission_1": "Två arter blomväxter (underfylum Angiospermae)",
+    "june_2022_mission_2": "Två arter i:\n\n-Ordning Coleoptera (skalbaggar);\n-Ordning Diptera (tvåvingar);\n-Ordning Lepidoptera (fjärilar)\nEpifamilj Anthophila (bin)",
+    "june_2022_description_most_fruits_and_seeds": "De flesta frukter och frön du upptäcker i naturen är resultatet av framgångsrik pollinering. Bin är inte de enda insekter som fungerar som pollinatörer! Efter pollinering utvecklas blomman till en frukt som innehåller frön. Såg du några växter med att växande frukter?",
+    "june_2022_action_busy_pollinators": "Flitiga pollinatörer som bin och andra insekter håller våra lokala växtpopulationer friska och varierade. Läs mer om binas hemliga liv genom att titta på den nya filmen My Garden of a Thousand Bees på PBS Nature. Och plantera dina egna vilda blommor för att se vilka pollinatörer de lockar till sig. #PlantWildflowers"
   }
 }

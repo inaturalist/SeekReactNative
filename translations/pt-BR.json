@@ -18,11 +18,11 @@
   },
   "challenges_card": {
     "header": "Desafios",
-    "join": "Entre no desafio da observação global e acompanhe no Nosso Planeta, na Netflix!",
+    "join": "Adicione observações com a câmera do Seek para ganhar o distintivo da série Nossa Planeta!",
     "take_challenge": "Aceitar o desafio",
     "continue_challenge": "Continuar desafio",
     "view_all": "Ver todos os desafios",
-    "new_join": "Entre no desafio da observação global e acompanhe na Nosso Planeta, na Netflix!",
+    "new_join": "Adicione observações com a câmera do Seek para ganhar o distintivo do Desafio!",
     "inat_admin": "Administradores do iNat: Obrigado por testar o Seek! Você está vendo o último desafio do iNat antes do início do mês para fins de teste."
   },
   "post_to_inat_card": {
@@ -871,7 +871,7 @@
     "january_2022_action_water_habitat": "Que tipo de habitat aquático você visitou? Que tipos de presa estão disponíveis para os predadores?",
     "february_2022_challenge_name_life_on_edges": "Desafio da Vida aos Limites",
     "february_2022_mission_1": "Encontre 2 espécies nestes grupos:\n\n-Classe Amphibia (anfíbios);\n-Ordem Charadriiformes (aves limícolas e similares)",
-    "february_2022_description_transitions_between_habitats": "As transições entre um habitat e outro podem ser lugares interessantes para encontrar a vida selvagem, e algumas espécies dependem delas. As bordas das lagoas, lagos, rios e zonas intertidais estão cheias de vida. Muitas espécies de ponta podem viver parte da sua vida na água e em parte na terra.",
+    "february_2022_description_transitions_between_habitats": "As zonas de transição entre um habitat e outro podem ser lugares interessantes para encontrar a vida selvagem, e algumas espécies dependem delas. As bordas de lagoas, lagos, rios e regiões costeiras estão repletas de vida. Muitas espécies podem viver parte da sua vida em água e parte em terra.",
     "february_2022_action_which_species_excited": "Que espécies você estava mais animado em encontrar? Com base no que você observou e em pesquisas adicionais que realizou, faça uma lista de 3 coisas de que precisa para sobreviver e 3 coisas que você pode fazer para satisfazer essas necessidades.",
     "march_2022_challenge_name_non_flowering_seed": "Desafio de plantas com sementes sem flores",
     "march_2022_mission_1": "Encontre 3 espécies de plantas nestes grupos:\n\n-Classe Coníferas;\n-Classe Cicadófitas;\n-Classe Ginkgoaceae",
@@ -879,7 +879,7 @@
     "march_2022_action_find_wild_or_intentional": "Você já encontrou plantas silvestres ou que foram intencionalmente plantadas pelas pessoas? Se foi plantado, que características considera que as fazem interessante para a sua plantação?",
     "april_2022_challenge_name_wildflower": "Desafio de Flores Silvestres",
     "april_2022_mission_1": "Encontre 10 espécies de plantas com flores (Subfilo Angiospermas)",
-    "april_2022_description_many_flowers_have_colors_shapes": "Muitas flores têm cores e formas que atraem insetos para visitar as flores. As flores produzem pólen que podem ser transferidos de uma flor a outra por animais, vento ou água.",
+    "april_2022_description_many_flowers_have_colors_shapes": "Muitas flores têm cores e formas que atraem insetos. As flores produzem pólen que pode ser transportado de uma flor a outra pelos animais, pelo vento ou pela água.",
     "april_2022_action_pollen_visible_anther": "Às vezes, o pólen é visível na antera da flor. Se você tocar com o dedo, será que consegue ver o pólen? O que acha que poliniza esta espécie?",
     "may_2022_challenge_name_bee": "Desafio de Abelhas",
     "may_2022_mission_1": "Encontre 3 espécies de abelhas (Epifamília Anthophila)",

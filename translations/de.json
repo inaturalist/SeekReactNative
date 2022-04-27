@@ -272,7 +272,7 @@
     "species_nearby": "ARTEN IN DER UMGEBUNG FÜR DIESE MISSION",
     "no_species_nearby": "Wir haben für diese Mission keine Arten in der Nähe gefunden, die du noch nicht gesehen hast",
     "species_nearby_internet_error": "Wir brauchen eine Internetverbindung, um Arten in der Nähe anzuzeigen.",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "Mein Garten-Abzeichen"
   },
   "results": {
     "observed_species": "Du hast eine neue Art beobachtet!",
@@ -881,14 +881,14 @@
     "april_2022_mission_1": "Finde 10 Arten von Blütenpflanzen (Subphylum Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Viele Blumen haben Farben und Formen, die Insekten anlockwn, um ihre Blüten zu besuchen. Blüten produzieren Pollen, die von einer Pflanze zur anderen durch Tiere, Wind oder Wasser übertragen werden können.",
     "april_2022_action_pollen_visible_anther": "Manchmal ist der Pollen auf den Staubbeuteln der Blume sichtbar. Wenn du sie mit deinem Finger berührst, kannst du Pollen auf deinem Finger sehen? Was denks du, auf welche Weise wird diese Art bestäubt?",
-    "may_2022_challenge_name_bee": "Bee Challenge",
-    "may_2022_mission_1": "Find 3 species of bees (Epifamily Anthophila)",
-    "may_2022_description_not_all_bees_make_honey": "Did you know that not all bees make honey or live in hives? Most native bees live alone, but are still essential pollinators of flowers and trees. If you stay calm and give them space while they visit flowers, bees should not bother you.",
-    "may_2022_action_see_bees": "See bees as you've never seen them before in the new PBS Nature film My Garden of a Thousand Bees. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers",
-    "june_2022_challenge_name_wildflower": "Pollination Challenge",
-    "june_2022_mission_1": "Two species of flowering plants (Subphylum Angiospermae)",
-    "june_2022_mission_2": "Two species in:\n\n-Order Coleoptera (Beetles);\n-Order Diptera (Flies);\n-Order Lepidoptera (Butterflies and Moths)\nEpifamily Anthophila (Bees)",
-    "june_2022_description_most_fruits_and_seeds": "Most fruits and seeds you discover in nature are the result of successful pollination. Bees are not the only insects that act as pollinators! After pollination, the flower develops into a fruit that contains seeds. Did you see any plants with developing fruits?",
-    "june_2022_action_busy_pollinators": "Busy pollinators like bees and other insects keep our local plant populations healthy and diverse. Learn more about the secret lives of bees by watching the new film My Garden of a Thousand Bees on PBS Nature. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers"
+    "may_2022_challenge_name_bee": "Bienen-Mission",
+    "may_2022_mission_1": "Finde 3 Bienenarten (Epifamilie Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Wusstest du, dass nicht alle Bienen Honig produzieren oder in Bienenstöcken leben? Die meisten einheimischen Bienen leben allein, sind aber noch immer wesentliche Bestäuber von Blumen und Bäumen. Wenn du gelassen bleibst und sie in Ruhe Blumen besuchen lässt, sollten die Bienen dich nicht stören.",
+    "may_2022_action_see_bees": "Sehen Bienen wie du sie noch nie zuvor gesehen hast - im neuen PBS Nature Film \"My Garden of a Thousand Bees\". Und pflanze deine eigenen Wildblumen um zu sehen, welche Bestäuber sie anziehen. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Bestäuber-Mission",
+    "june_2022_mission_1": "Zwei Arten von Blütenpflanzen (Unterstamm Angiospermae)",
+    "june_2022_mission_2": "Zwei Arten von:\n\n- Ordnung Coleoptera (Käfer);\n- Ordnung Diptera (Zweiflügler);\n- Ordnung Lepidoptera (Schmetterlinge)\n- Epifamilie Anthophila (Bienen)",
+    "june_2022_description_most_fruits_and_seeds": "Die meisten Früchte und Samen, die du in der Natur findest, sind das Ergebnis erfolgreicher Bestäubung. Bienen sind nicht die einzigen Insekten, die als Bestäuber fungieren! Nach der Bestäubung entwickelt sich die Blüte zu einer Frucht, die Samen enthält. Hast du Pflanzen mit Fruchtansätzen entdeckt?",
+    "june_2022_action_busy_pollinators": "Fleißige Bestäuber wie Bienen und andere Insekten halten unsere lokale Pflanzenpopulation gesund und vielfältig. Erfahre mehr über das geheime Leben der Bienen durch den neuen Film \"My Garden of a Thousand Bees\" auf PBS Nature. Und pflanze deine eigenen Wildblumen um zu sehen, welche Bestäuber sie anziehen. #PlantWildflowers"
   }
 }

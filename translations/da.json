@@ -564,7 +564,7 @@
     "version": "Version",
     "help": "For hjælp med Seek, send venligst en email til help+seek@inaturalist.org.",
     "translators": "Vi er taknemmelige for den oversættelseshjælp, der er ydet af crowdin.com-fællesskabet, især: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch og Yulia Lygina.",
-    "join_crowdin": "Bliv en del af Seek-oversættelsesholdet ved at besøge https://crowdin.com/project/seek"
+    "join_crowdin": "Bliv en del af Seek-oversætterholdet ved at besøge https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Tilføj til iNaturalist",

@@ -272,7 +272,7 @@
     "species_nearby": "IN HIERDIE UITDAGING: SPESIES NABY",
     "no_species_nearby": "Ons het geen spesies naby in hierdie uitgaging gevind wat u nog nie waargeneem het nie",
     "species_nearby_internet_error": "Ons benodig die Internet om nabygeleë spesies te genereer.",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "MY TUIN-WAPEN"
   },
   "results": {
     "observed_species": "U het ’n nuwe spesie waargeneem!",
@@ -859,14 +859,14 @@
     "november_2021_mission_1": "Vind 5 spesies in hierdie groepe:\n\n-Voëls (behalwe vluglose groepe);\nGevleuelde en eenmalig-gevleuelde insekten",
     "november_2021_description_ability_to_fly": "Die vermoë om te vlieg het afsondelik in voëls, insekte en vlêrmuise ontwikkel. Onder voëls het sommige spesies vlugloos geword hoewel hulle voorvaders wel kon vlieg. Dieselfde geld vir talle insekte, en alle inskte is vlugloos vir ten minste ’n gedeelte van hul lewensiklus.",
     "november_2021_action_were_they_flighted": "Was die diere wat u teëgekom het in die vlieënde deel van hul lewensiklus? Indien wel, waar dink u hat hulle in hul lewens gevlieg? Migreer hulle?",
-    "december_2021_challenge_name_vertebrate_challenge": "Vertebrate Land Predator Challenge",
+    "december_2021_challenge_name_vertebrate_challenge": "Gewerwelde landroofdieruitdaging",
     "december_2021_mission_1": "Vind 2 spesies gewerweldes uit:\n\n-Hawikke, arende, woue en verwante\n-Valke en karakaras\n-Uile\n-Vleisvretende soogdiere\n-Slange en akkedisse",
-    "december_2021_description_vertebrate_animals_have": "Vertebrate animals have backbones and internal skeletons. Predators kill and eat prey animals. Like all animals, they are adapted to their diet. For example, many predators have sharp claws, teeth, or beaks that allow them to hold or dismember prey.",
-    "december_2021_action_think_about_predators": "Think about the predators you observed. What adaptations do they have to be good at hunting and killing prey? Do the two species you saw have any similar adaptations for predation?"
+    "december_2021_description_vertebrate_animals_have": "Gewerwelde diere het rugwerwels en interne skelette. Roofdiere dood en eet prooidiere. Soos alle diere is hulle aangepas vir hulle dieet. Talle roofdiere het byvoorbeeld skerp kloue, tande of bekke wat hulle in staat stel om prooi as te hou of te verskeur.",
+    "december_2021_action_think_about_predators": "Dink aan die roofdiere wat u waargeneem het. Welke aanpassings het hulle om te jag en te dood? Het die twee spesies wat u gesien het vergelykbare aanpassings vir die jag?"
   },
   "seek_2022_challenges": {
-    "january_2022_challenge_name_vertebrate_water": "Vertebrate Water Predator Challenge",
-    "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Order Suliformes (Gannets, Cormorants, and Allies);\n-Order Sphenisciformes (Penguins)",
+    "january_2022_challenge_name_vertebrate_water": "Gewerwelde waterroofdieruitdaging",
+    "january_2022_mission_1": "Vind 2 spesies gewerseldes uit:\n\n-Infraorder Cetacea (Walvisse en dolfyne);\n-Parvorder Pinnipedia (Walrusse, seehonde, seeleeus);\n-Subfamilie Lutrinae (Otters);\n-Klasse Actinopterygii (Straalgevindes);\n-Klasse Elasmobranchii (Haaie en rôe);\n-Orde Pelecaniformes (Pelikane, reiers, ibisse en verwant);\n-Orde Coraciiformes (Visvangers, byeters en verwant);\n-Orde Podicipediformes (Fute);\n-Orde Suliformes (Gente, seerawe en fregatvoëls);\n-Orde Sphenisciformes (Pikkewyne)",
     "january_2022_description_mammals_fishes_birds": "Mammals, fishes, and birds all have some species that are able to hunt prey in saltwater (oceans and seas) and some adapted to freshwater (rivers, lakes, and streams). They all have adaptations to detect, capture, and consume prey in the water.",
     "january_2022_action_water_habitat": "What type of water habitat did you visit? What types of prey animals are available there for predators to eat?",
     "february_2022_challenge_name_life_on_edges": "Life on the Edges Challenge",

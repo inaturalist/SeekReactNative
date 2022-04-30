@@ -18,11 +18,11 @@
   },
   "challenges_card": {
     "header": "Desafios",
-    "join": "Adicione observações com a câmera do Seek para ganhar o distintivo da série Nossa Planeta!",
+    "join": "Adicione observações com a câmera do Seek para ganhar a insígnia da série Nossa Planeta!",
     "take_challenge": "Aceitar o desafio",
     "continue_challenge": "Continuar desafio",
     "view_all": "Ver todos os desafios",
-    "new_join": "Adicione observações com a câmera do Seek para ganhar o distintivo do Desafio!",
+    "new_join": "Adicione observações com a câmera do Seek para ganhar a insígnia do Desafio!",
     "inat_admin": "Administradores do iNat: Obrigado por testar o Seek! Você está vendo o último desafio do iNat antes do início do mês para fins de teste."
   },
   "post_to_inat_card": {
@@ -69,7 +69,7 @@
   "notifications": {
     "header": "Notificações",
     "learn_more": "Saiba mais sobre o iNaturalist",
-    "earned_badges": "Você ganhou muitos distintivos! Talvez goste do iNaturalist!",
+    "earned_badges": "Você ganhou muitas insígnias! Talvez goste do iNaturalist!",
     "almost_finished": "Está quase a concluir o seu desafio!",
     "view_progress": "Ver o seu progresso",
     "challenge_completed": "Parabéns! Você concluiu um desafio",
@@ -159,7 +159,7 @@
   "onboarding": {
     "onboarding_1": "Use a Câmera de Seek para identificar plantas, animais e fungos",
     "onboarding_2": "Saiba mais sobre os organismos ao seu redor",
-    "onboarding_3": "Ganhe distintivos por observar diferentes espécies",
+    "onboarding_3": "Ganhe insígnias por observar diferentes espécies",
     "skip": "Ignorar por enquanto",
     "continue": "Continuar"
   },
@@ -211,7 +211,7 @@
     "april_description": "Não estamos sós no nosso planeta! A vida selvagem está sempre ao nosso redor, queiramos ou não. Nas nossas casas, jardins, cidades e vilas há mundos escondidos para descobrir. Procure na sua casa e ao redor dela, e será surpreendido pela quantidade de vizinhos que encontrará.\n\nProcure plantas, fungos, insetos, aves e outros animais. Vá à procura de sinais de formas de vida mais discretas, pois dejetos, peles, ninhos, caminhos e teias podem dar-nos pistas para outras criaturas que compartilham a sua casa.",
     "start_challenge": "Iniciar o desafio",
     "open_camera": "Abrir câmera",
-    "view_badge": "Ver distintivo",
+    "view_badge": "Ver insígnia",
     "your_mission": "A sua missão:",
     "mission_1_may": "Encontre 4 aves, mamíferos, répteis, anfíbios ou peixes diferentes",
     "mission_2_may": "Encontre 4 insetos diferentes",
@@ -272,7 +272,7 @@
     "species_nearby": "ESPÉCIES NAS PROXIMIDADES NESTE DESAFIO",
     "no_species_nearby": "Não encontramos nenhuma espécie deste desafio nas proximidades que você já não tenha observado",
     "species_nearby_internet_error": "Precisamos de Internet para gerar as espécies nas proximidades.",
-    "badge_name_my_garden_2022": "DISTINTIVO MEU JARDIM"
+    "badge_name_my_garden_2022": "INSÍGNIA MEU JARDIM"
   },
   "results": {
     "observed_species": "Você observou uma nova espécie!",
@@ -321,7 +321,7 @@
     "social": "Compartilhar na rede social"
   },
   "banner": {
-    "view": "Ver distintivo",
+    "view": "Ver insígnia",
     "badge": "Distintivo",
     "challenge_progress": "Você encontrou mais uma espécie!",
     "challenge_view": "Ver o seu progresso",

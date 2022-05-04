@@ -14,11 +14,11 @@
     "header": "Iniciar",
     "tip_1": "Tire fotos com a câmera do Seek para identificar os seres vivos ao seu redor.",
     "tip_2": "Tire foto de uma planta, um animal ou qualquer ser vivo usando a câmera e o Seek ajudará você a identificá-lo!",
-    "tip_3": "Aceite um desafio patrocinado pela série Nosso Planeta e pela WWF e encontre espécies na comunidade mundial do Seek!"
+    "tip_3": "Ganhe insígnias e aumente o seu nível ao identificar diferentes tipos de espécies e participar de desafios."
   },
   "challenges_card": {
     "header": "Desafios",
-    "join": "Adicione observações com a câmera do Seek para ganhar a insígnia da série Nossa Planeta!",
+    "join": "Adicione observações com a câmera do Seek para ganhar a insígnia da série Nosso Planeta!",
     "take_challenge": "Aceitar o desafio",
     "continue_challenge": "Continuar desafio",
     "view_all": "Ver todos os desafios",
@@ -79,7 +79,7 @@
     "new_challenge": "Há um novo desafio disponível!"
   },
   "login": {
-    "log_in": "Entrar com o iNaturalist",
+    "log_in": "Entrar no iNaturalist",
     "sign_up": "Inscrever-se no iNaturalist",
     "about": "Ao fazer login com o iNaturalist, você pode publicar observações na comunidade online através do Seek.",
     "skip_login": "Continuar sem se inscrever",
@@ -188,7 +188,7 @@
     "not_started": "Não iniciado",
     "completed": "Concluído",
     "challenge": "Desafio",
-    "badge": "Distintivo",
+    "badge": "Insígnia",
     "connectivity": "Desafio de conectividade",
     "biodiversity": "Desafio de biodiversidade",
     "productivity": "Desafio da Comunidade",
@@ -317,12 +317,12 @@
     "error_timeout": "A sua localização demorou muito para recuperar. A sua observação foi salva, mas sem localização, você não poderá ver informações detalhadas como mapas da área de distribuição. Por favor, tente novamente mais tarde.",
     "nearby": "Espécies próximas deste táxon",
     "nothing_nearby": "Parece que não foram observadas muitas espécies deste táxon nas proximidades! Tente tirar outra foto ou publicá-la no iNaturalist.",
-    "tap": "Toque para carregar espécies ao redor",
+    "tap": "Toque para carregar espécies próximas",
     "social": "Compartilhar na rede social"
   },
   "banner": {
     "view": "Ver insígnia",
-    "badge": "Distintivo",
+    "badge": "Insígnia",
     "challenge_progress": "Você encontrou mais uma espécie!",
     "challenge_view": "Ver o seu progresso",
     "level_up": "Você subiu de nível!",
@@ -415,10 +415,10 @@
     },
     "observe_max": "Você atingiu o nível máximo no Seek!",
     "observe_species": "Observe",
-    "species_badges": "Distintivos de espécie",
-    "challenge_badges": "Distintivos de desafio",
+    "species_badges": "Insígnias de espécie",
+    "challenge_badges": "Insígnias de desafio",
     "observed": "Espécies observadas",
-    "earned": "Distintivos conquistados",
+    "earned": "Insígnias\nconquistadas",
     "you_found": "Você encontrou",
     "bird_1": "1 ave!",
     "bird_5": "5 aves!",
@@ -458,7 +458,7 @@
     "name_amphibian_15": "Distintivo de Anfíbio de Ouro",
     "name_reptile_1": "Distintivo de Réptil de Bronze",
     "name_reptile_5": "Distintivo de Réptil de Prata",
-    "name_reptile_15": "Distintivo de Réptil de Ouro",
+    "name_reptile_15": "Insígnia de Réptil de Ouro",
     "name_mammal_1": "Distintivo de Mamífero de Bronze",
     "name_mammal_5": "Distintivo de Mamífero de Prata",
     "name_mammal_15": "Distintivo de Mamífero de Ouro",
@@ -619,7 +619,7 @@
   },
   "delete": {
     "header": "Apagar espécie?",
-    "description": "Deseja apagar esta espécie das suas observações? Isto pode afetar os seus desafios e distintivos.",
+    "description": "Deseja apagar esta espécie das suas observações? Isto pode afetar os seus desafios e insígnias.",
     "yes": "Sim, apague-o das minhas observações",
     "no": "Cancelar"
   },
@@ -676,11 +676,11 @@
     "donate_ios": "Por favor, visite o seguinte link para fazer uma doação ao Seek:"
   },
   "seek_challenges": {
-    "badge": "Distintivo do Seek",
+    "badge": "Insígnia do Seek",
     "header": "Você concluiu o desafio do Seek de {{date}}!",
     "text": "Obrigado por participar do desafio global! O Seek está aqui para ajudá-lo a se conectar a todas as espécies que nos rodeiam. Saia, explore e aprenda sobre a natureza ao seu redor!",
     "citizen_science": "Desafio Ciência Cidadã",
-    "completed": "Você concluiu o desafio e ganhou o distintivo do desafio!",
+    "completed": "Você concluiu o desafio e ganhou a insígnia do desafio!",
     "april_2020_description": "Abril de 2020 é o aniversário do lançamento do novo Seek pelo iNaturalist! No ano passado, crescemos muito e ajudamos mais de um milhão de pessoas a sentir-se mais conectadas ao mundo ao seu redor. A natureza está ao seu redor, você só precisa procurá-la!\n\nPara começar a nossa próxima rodada de desafios, veja se você consegue encontrar 10 espécies que ainda não observou.",
     "action_april_2020": "Abril é o mês da Ciência Cidadã! Você pode contribuir para a compreensão científica da biodiversidade como um cientista cidadão publicando suas observações do Seek no iNaturalist.\n\nSe você tiver 13 anos ou mais (ou tiver permissão dos pais), você pode criar uma conta no iNaturalist e publicar e compartilhar as observações com uma comunidade mais ampla, incluindo cientistas!",
     "backyard": "Desafio do Quintal",
@@ -811,7 +811,7 @@
     "we_think_youll_like_inat": "Acreditamos que você vai gostar do iNaturalist.",
     "sign_out": "Sair do iNaturalist",
     "log_in_to_post_observations": "Faça login para publicar suas observações do Seek no iNaturalist!",
-    "log_in_with_inat": "ENTRAR COM INATURALIST",
+    "log_in_with_inat": "ENTRAR NO INATURALIST",
     "use_inat_to": "UTILIZAR INATURALIST PARA:",
     "inat_vs_seek": "INATURALIST X SEEK",
     "inat_is_an_online_community": "iNaturalist é uma comunidade online para naturalistas",

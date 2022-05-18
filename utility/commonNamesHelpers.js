@@ -2,6 +2,7 @@
 import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";
+import { getVersion } from "react-native-device-info";
 
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
@@ -44,12 +45,19 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         const locale = setDisplayLanguage( preferredLanguage );
         // need to remove hyphens for pt-BR and es-MX
         const seekLocale = localeNoHyphens( locale );
-        const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
+        // const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
-        // if common names for desired locale already exist in realm, do nothing
-        // note: early Seek adopters will have multiple languages stored in their realm
-        if ( realmLocale.length > 0 ) {
+        const userSettings = realm.objects( "UserSettingsRealm" )[0];
+        const prevAppVersion = userSettings.appVersion;
+        const currentAppVersion = getVersion( );
+
+        console.log( prevAppVersion, "prev app version", currentAppVersion );
+
+        // only reload common names when the app version changes, not on each app launch
+        if ( prevAppVersion === currentAppVersion ) {
           return;
+        } else {
+          userSettings.appVersion = currentAppVersion;
         }
 
         // otherwise, delete all existing common names from Realm and update with preferred language

@@ -45,7 +45,6 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         const locale = setDisplayLanguage( preferredLanguage );
         // need to remove hyphens for pt-BR and es-MX
         const seekLocale = localeNoHyphens( locale );
-        // const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
         const userSettings = realm.objects( "UserSettingsRealm" )[0];
         const prevAppVersion = userSettings.appVersion;
@@ -100,6 +99,8 @@ const setupCommonNames = ( preferredLanguage: string ) => {
           require( "./commonNames/commonNamesDict-16" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-17" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-18" ).default, seekLocale );
       } );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );

@@ -271,7 +271,8 @@
     "species_observed": "Waargenomen soorten",
     "species_nearby": "IN DEZE UITDAGING: SOORTEN IN DE OMGEVING",
     "no_species_nearby": "We hebben voor deze uitdaging geen soorten gevonden in de omgeving die je nog niet hebt waargenomen",
-    "species_nearby_internet_error": "Internet is nodig om soorten in de omgeving te genereren."
+    "species_nearby_internet_error": "Internet is nodig om soorten in de omgeving te genereren.",
+    "badge_name_my_garden_2022": "MIJN TUIN BADGE"
   },
   "results": {
     "observed_species": "Je hebt een nieuwe soort waargenomen!",
@@ -761,7 +762,7 @@
     "mar_2021_mission_1": "Vind tien willekeurige soorten",
     "mar_2021_challenge_name": "NatGeo Natuur Uitdaging",
     "mar_2021_description": "We beginnen met vier maanden door National Geographic Society gesponsorde uitdagingen die zijn gericht op het begrijpen van de afhankelijkheid van en de invloed op de natuur.\n\nDe natuur is overal om ons heen en de tijd die in de natuur wordt besteed verbetert je gezondheid en verhoogt je geluk. Kies een plaats zoals een lokaal park, beschermd gebied of jouw erf die je elke maand bezoekt als onderdeel van je verkenning met Seek. De missie van deze maand: vind tien soorten die je gelukkig maken!\n\nOm hulpmiddelen te vinden die je helpen Seek te gebruiken en meer te leren over biodiversiteit, bezoek NatGeoEd.org/BioBlitz.",
-    "mar_2021_action": "Maak tijd vrij om Seek te leren gebruiken of te leren kennen. Bezoek het startscherm om te zien welke soorten in de buurt leven. Laat ons jouw favoriete lokale plant of dier weten of eentje die jij in het echt zou willen zien door #NatGeoSeekChallenge te gebruiken op Twitter?",
+    "mar_2021_action": "Maak tijd vrij om Seek te leren gebruiken of te leren kennen. Bezoek het startscherm om te zien welke soorten in de buurt leven. Laat ons jouw favoriete lokale plant of dier weten of eentje die jij in het echt zou willen zien door #NatGeoSeekChallenge te gebruiken op Twitter!",
     "mar_2021_photographer": "Foto door: Tom Matthews / National Geographic",
     "mar_2021_badge_name": "Natuur Badge",
     "apr_2021_mission_1": "Vind 2 weekdieren (tweekleppigen, naaktslakken, huisjesslakken of keverslakken) of kreeftachtigen (zeepokken, krabben, kreeften, krill, pissebedden)",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Wilde Bloemen Uitdaging",
     "april_2022_mission_1": "Vind 10 soorten bloeiende planten (subfylum Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Veel bloemen hebben kleuren en vormen die aantrekkelijk zijn voor insecten om de bloemen te bezoeken. Bloemen produceren stuifmeel dat overgebracht kan worden van de ene bloem naar de andere door dieren, wind of water.",
-    "april_2022_action_pollen_visible_anther": "Soms is stuifmeel te zien op de helmknop van de bloem. Als je die met je vinger aanraakt, kun je dan het stuifmeel op je vinger zien? Wat denk je dat deze soort bestuift?"
+    "april_2022_action_pollen_visible_anther": "Soms is stuifmeel te zien op de helmknop van de bloem. Als je die met je vinger aanraakt, kun je dan het stuifmeel op je vinger zien? Wat denk je dat deze soort bestuift?",
+    "may_2022_challenge_name_bee": "Bijen Uitdaging",
+    "may_2022_mission_1": "Vind 3 bijensoorten (Epifamily Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Wist je dat niet alle bijen honing maken of in bijenkorven wonen? De meeste inheemse bijen leven alleen maar zijn nog steeds essentiële bestuivers van bloemen en bomen. Als je rustig blijft en ze ruimte geeft terwijl ze bloemen bezoeken, zullen ze jou niet lastig vallen.",
+    "may_2022_action_see_bees": "Bekijk bijen zoals je ze nog nooit eerder hebt gezien in de nieuwe PBS Nature film My Garden of a Thousand Bees. En plant je eigen wilde bloemen om te zien welke bestuivers ze aantrekken. #PlantWildflowers #PlantWildeBloemen",
+    "june_2022_challenge_name_wildflower": "Bestuivers Uitdaging",
+    "june_2022_mission_1": "Vind twee soorten bloeiende planten (subfylum Angiospermae)",
+    "june_2022_mission_2": "Twee soorten in:\n\n-Orde Coleoptera (Kevers);\n-Orde Diptera (Vliegen);\n-Orde Lepidoptera (Dag- en nachtvlinders)\nEpifamily Anthophila (Bijen)",
+    "june_2022_description_most_fruits_and_seeds": "De meeste vruchten en zaden die jij in de natuur ontdekt zijn het resultaat van succesvolle bestuiving. Bijen zijn niet de enige insecten die fungeren als bestuivers! Na de bestuiving ontwikkelt de bloem zich tot een fruit dat zaden bevat. Heb jij planten gezien waar vruchten aan komen?",
+    "june_2022_action_busy_pollinators": "Drukke bestuivers zoals bijen en andere insecten houden onze lokale plantenpopulaties gezond en divers. Leer meer over de geheime levens van bijen door de nieuwe film te zien van My Garden of a Thousand Bees op PBS Natuur. En plant je eigen wilde bloemen om te zien welke bestuivers ze aantrekken. #PlantWildflowers #PlantWildeBloemen"
   }
 }

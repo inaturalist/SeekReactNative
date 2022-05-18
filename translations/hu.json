@@ -271,7 +271,8 @@
     "species_observed": "Megfigyelt fajok",
     "species_nearby": "E KIHÍVÁS KÖZELI FAJAI",
     "no_species_nearby": "Ebben a kihívásban nem találtunk olyan közeli fajt, amelyet még nem figyeltél meg.",
-    "species_nearby_internet_error": "Internetkapcsolat szükséges a közeli fajok lekérdezéséhez."
+    "species_nearby_internet_error": "Internetkapcsolat szükséges a közeli fajok lekérdezéséhez.",
+    "badge_name_my_garden_2022": "KERTEM JELVÉNY"
   },
   "results": {
     "observed_species": "Új fajt fedeztél fel!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Vadvirág Kihívás",
     "april_2022_mission_1": "Találj 10 fajt a virágos növényekből (Angiospermae: zárvatermők altörzse)",
     "april_2022_description_many_flowers_have_colors_shapes": "Számos virág olyan színekkel és formákkal rendelkezik, amely vonzza a rovarokat. A virágok pollent termelnek, amely állatok, szél vagy víz által kerül egyik virágról a másikra. ",
-    "april_2022_action_pollen_visible_anther": "Megesik, hogy a virágpor látható a virág porzóján. Ha hozzáérsz az ujjaddal, látsz pollent az ujjadon? Mit gondolsz, mi porozza be ezt a fajt?"
+    "april_2022_action_pollen_visible_anther": "Megesik, hogy a virágpor látható a virág porzóján. Ha hozzáérsz az ujjaddal, látsz pollent az ujjadon? Mit gondolsz, mi porozza be ezt a fajt?",
+    "may_2022_challenge_name_bee": "Méh kihívás",
+    "may_2022_mission_1": "Találj 3 méhfajt (Anthophila epifamilia)",
+    "may_2022_description_not_all_bees_make_honey": "Tudtad, hogy nem minden méh készít mézet, vagy lakik kaptárban? A legtöbb őshonos méhfaj egyedül él, de fontos beporzói a virágoknak és fáknak. Ha nyugodt maradsz, és nem zavarod őket, amíg a virágokat látogatják, a méhek sem zavarnak téged.",
+    "may_2022_action_see_bees": "Lásd úgy a méheket, ahogy még soha, a PBS Nature új filméjében, amely a My Garden of a Thousand Bees (Ezer méh kertje) címmel jelent meg. Ültess őshonos vadvirágokat, hogy lásd milyen méheket vonzanak. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Beporzó kihívás",
+    "june_2022_mission_1": "Két faj a virágos növények közül (Angiospermae: zárvatermők altörzse)",
+    "june_2022_mission_2": "Két faj az alábbiakból:\n\n-Coleoptera (bogarak) osztálya;\n-Diptera (kétszárnyúak: legyek) osztálya;\n-Lepidoptera (lepkék és molyok) osztálya\nAnthophila (méhek) epifamiliája",
+    "june_2022_description_most_fruits_and_seeds": "A gyümölcsök és magvak, amelyeket a természetben felfedezel, sikeres beporzás eredményei. Nem csak a méhek végeznek beporzást! A beporzást követően a virágból gyümölcs fejlődik, amely magokat hordoz. Láttál olyan növényt, amely gyümölcsöt érlel?",
+    "june_2022_action_busy_pollinators": "A szorgos beporzók, mint a méhek és más rovarok, tartják fenn a helyi növényvilág egészségét és diverzitását. Többet is megtudhatsz a méhek titkos életéről a PBS Nature új fimjéből, amely a My Garden of a Thousand Bees (Ezer méh kertje) címmel jelent meg. Ültess őshonos vadvirágokat, hogy lásd milyen méheket vonzanak. #PlantWildflowers"
   }
 }

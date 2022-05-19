@@ -659,6 +659,10 @@
   "debug": {
     "logs": "Send debug logs by email"
   },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
+  },
   "settings": {
     "header": "Seek Camera",
     "common_names": "Display Common Names",

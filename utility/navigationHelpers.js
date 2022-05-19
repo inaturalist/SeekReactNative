@@ -3,13 +3,17 @@ import { Platform, DeviceEventEmitter } from "react-native";
 import QuickActions from "react-native-quick-actions";
 import { CommonActions } from "@react-navigation/native";
 
+import i18n from "../i18n";
+
+const seekCameraTitle = Platform.OS === "android" ? i18n.t( "shortcut.seek_camera" ) : "Seek Camera";
+
 const setQuickActions = () => {
   // this creates the quick action button on Android
   if ( Platform.OS === "android" ) {
     QuickActions.setShortcutItems( [{
-      type: "Seek AR Camera", // Required
-      title: "Seek AR Camera", // Optional, if empty, `type` will be used instead
-      subtitle: "For quick identifications",
+      type: seekCameraTitle, // Required
+      title: seekCameraTitle, // Optional, if empty, `type` will be used instead
+      subtitle: i18n.t( "shortcut.subtitle" ),
       icon: "camerabutton", // Icons instructions below
       userInfo: {
         url: "app://Camera" // Provide any custom data like deep linking URL
@@ -21,7 +25,7 @@ const setQuickActions = () => {
 const checkForHotStarts = ( navToCamera: ( ) => void ) => {
   // this addresses hot starts (i.e. app is already open)
   DeviceEventEmitter.addListener( "quickActionShortcut", ( { title } ) => {
-    if ( title === "Seek AR Camera" ) {
+    if ( title === seekCameraTitle ) {
       navToCamera( );
     }
   } );
@@ -32,7 +36,7 @@ const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( stri
   try {
     const { title } = await QuickActions.popInitialAction( );
 
-    if ( title === "Seek AR Camera" ) {
+    if ( title === seekCameraTitle ) {
       navToCamera( );
     } else {
       resetRouter( "Drawer" );

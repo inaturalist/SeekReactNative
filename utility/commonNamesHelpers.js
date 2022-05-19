@@ -50,8 +50,6 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         const prevAppVersion = userSettings.appVersion;
         const currentAppVersion = getVersion( );
 
-        console.log( prevAppVersion, "prev app version", currentAppVersion );
-
         // only reload common names when the app version changes, not on each app launch
         if ( prevAppVersion === currentAppVersion ) {
           return;

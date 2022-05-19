@@ -23,25 +23,14 @@ type Props = {
   +navigation: any
 }
 
-type State = {
-  email: string,
-  licensePhotos: boolean,
-  username: string,
-  password: string,
-  error: ?string
-}
-
-class SignUpScreen extends Component<Props, State> {
+class SignUpScreen extends Component<Props> {
   constructor( { route }: Props ) {
-    super();
+    super( );
 
-    const { licensePhotos, email } = route.params;
+    const { user } = route.params;
 
     this.state = {
-      email,
-      licensePhotos,
-      username: "",
-      password: "",
+      user: { ...user },
       error: null
     };
   }
@@ -50,19 +39,19 @@ class SignUpScreen extends Component<Props, State> {
     this.setState( { error } );
   }
 
-  retrieveOAuthToken( username: string, password: string, user: Object ) {
+  retrieveOAuthToken( login: string, password: string, user: Object ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
       // grant_type: "password",
-      username,
+      login,
       password,
       locale: i18n.locale
     };
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent()
+      "User-Agent": createUserAgent( )
     };
 
     const site = "https://www.inaturalist.org";
@@ -72,7 +61,7 @@ class SignUpScreen extends Component<Props, State> {
       body: JSON.stringify( params ),
       headers
     } )
-      .then( response => response.json() )
+      .then( response => response.json( ) )
       .then( ( responseJson ) => {
         const errorDescription = responseJson.error_description;
         if ( errorDescription ) {
@@ -84,49 +73,41 @@ class SignUpScreen extends Component<Props, State> {
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
         user.updateLogin( );
-        this.resetForm();
-        this.submitSuccess();
-      } ).catch( () => {
+        this.resetForm( );
+        this.submitSuccess( );
+      } ).catch( ( ) => {
         this.setErrorOrMessage( null );
       } );
   }
-  resetForm() {
+  resetForm( ) {
+    const { user } = this.state;
     this.setState( {
-      username: "",
-      password: ""
+      ...user,
+      login: "",
+      password: "",
+      password_confirmation: ""
     } );
   }
-  submitSuccess() {
+  submitSuccess( ) {
     const { navigation } = this.props;
     navigation.navigate( "LoginSuccess" );
   }
-  createNewiNatUser( user: Object ) {
-    const {
-      email,
-      licensePhotos,
-      username,
-      password
-    } = this.state;
-    const token = createJwtToken();
+  createNewiNatUser( newUser: Object ) {
+    const { user } = this.state;
+    const token = createJwtToken( );
     const params = {
       user: {
-        login: username,
-        email,
-        password,
-        password_confirmation: password,
+        ...user,
         locale: i18n.locale,
-        time_zone: RNLocalize.getTimeZone()
+        time_zone: RNLocalize.getTimeZone( )
       }
     };
-    if ( licensePhotos ) {
-      // $FlowFixMe
-      params.user.preferred_observation_license = "CC-BY-NC";
-      // $FlowFixMe
-      params.user.preferred_photo_license = "CC-BY-NC";
-    }
+
+    console.log( params, "params in create new user" );
+
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent(),
+      "User-Agent": createUserAgent( ),
       "Authorization": token
     };
     const site = "https://www.inaturalist.org";
@@ -135,7 +116,7 @@ class SignUpScreen extends Component<Props, State> {
       body: JSON.stringify( params ),
       headers
     } )
-      .then( response => response.json() )
+      .then( response => response.json( ) )
       .then( ( responseJson ) => {
         const { errors, id, message } = responseJson;
 
@@ -145,47 +126,71 @@ class SignUpScreen extends Component<Props, State> {
         } else if ( errors?.length > 0 ) {
           this.setErrorOrMessage( errors[0] );
         } else if ( id ) {
-          this.retrieveOAuthToken( username, password, user );
+          this.retrieveOAuthToken( user.login, user.password, newUser );
         }
       } ).catch( ( err ) => {
         this.setErrorOrMessage( err );
       } );
   }
 
-  submit( user: Object ) {
-    this.createNewiNatUser( user );
+  submit( newUser: Object ) {
+    this.createNewiNatUser( newUser );
   }
 
-  render(): Node {
-    const { username, password, error } = this.state;
+  updateUsername( value ) {
+    const { user } = this.state;
+
+    this.setState( {
+      user: {
+        ...user,
+        login: value
+      }
+    } );
+  }
+
+  updatePassword( value ) {
+    const { user } = this.state;
+
+    this.setState( {
+      user: {
+        ...user,
+        password: value,
+        // note: we don't have a UI for password confirmation
+        password_confirmation: value
+      }
+    } );
+  }
+
+  render( ): Node {
+    const { error, user } = this.state;
 
     return (
       <UserContext.Consumer>
-        {user => (
+        {userContext => (
           <ScrollWithHeader header="login.sign_up">
             <View style={styles.leftTextMargins}>
               <GreenText allowFontScaling={false} smaller text="inat_login.username" />
             </View>
             <InputField
-              handleTextChange={value => this.setState( { username: value } )}
+              handleTextChange={( value ) => this.updateUsername( value )}
               placeholder={i18n.t( "inat_login.username" )}
-              text={username}
+              text={user.login}
               type="username"
             />
             <View style={styles.leftTextMargins}>
               <GreenText allowFontScaling={false} smaller text="inat_login.password" />
             </View>
             <InputField
-              handleTextChange={value => this.setState( { password: value } )}
+              handleTextChange={( value ) => this.updatePassword( value )}
               placeholder="*********"
-              text={password}
+              text={user.password}
               type="password"
             />
             {error
               ? <ErrorMessage error={formatError( error )} />
               : <View style={styles.greenButtonMargin} />}
             <GreenButton
-              handlePress={() => this.submit( user )}
+              handlePress={( ) => this.submit( userContext )}
               login
               text="inat_signup.sign_up"
             />

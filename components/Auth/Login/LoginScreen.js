@@ -1,4 +1,4 @@
-/ @flow
+// @flow
 
 import React, { useState, useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
@@ -57,6 +57,9 @@ const LoginScreen = ( ): Node => {
             setError( true );
             setErrorMessage( errorDescription );
             return;
+          } else if ( responseJson.error === 400 ) {
+            setError( true );
+            setErrorMessage( i18n.t( "inat_login.authentication_failed" ) );
           }
           const accessToken = responseJson.access_token;
           if ( !accessToken ) {

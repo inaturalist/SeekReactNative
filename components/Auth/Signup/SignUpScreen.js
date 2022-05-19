@@ -75,10 +75,12 @@ class SignUpScreen extends Component<Props, State> {
       .then( response => response.json() )
       .then( ( responseJson ) => {
         const errorDescription = responseJson.error_description;
-          if ( errorDescription ) {
-            this.setError( errorDescription );
-            return;
-          }
+        if ( errorDescription ) {
+          this.setError( errorDescription );
+        } else if ( responseJson.error === 400 ) {
+          this.setError( i18n.t( "inat_login.authentication_failed" ) );
+        }
+
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
         user.updateLogin( );
@@ -136,6 +138,7 @@ class SignUpScreen extends Component<Props, State> {
       .then( response => response.json() )
       .then( ( responseJson ) => {
         const { errors, id } = responseJson;
+
         const message = responseJson && responseJson.message;
 
         if ( message ) {

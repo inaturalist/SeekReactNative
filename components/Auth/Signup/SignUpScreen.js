@@ -11,7 +11,7 @@ import styles from "../../../styles/auth/signup";
 import InputField from "../../UIComponents/InputField";
 import GreenText from "../../UIComponents/GreenText";
 import ErrorMessage from "../ErrorMessage";
-import { checkIsUsernameValid, saveAccessToken, formatError } from "../../../utility/loginHelpers";
+import { saveAccessToken, formatError } from "../../../utility/loginHelpers";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../../utility/userAgent";
 import { createJwtToken } from "../../../utility/helpers";
@@ -46,7 +46,7 @@ class SignUpScreen extends Component<Props, State> {
     };
   }
 
-  setError( error: ?string ) {
+  setErrorOrMessage( error: ?string ) {
     this.setState( { error } );
   }
 
@@ -76,9 +76,9 @@ class SignUpScreen extends Component<Props, State> {
       .then( ( responseJson ) => {
         const errorDescription = responseJson.error_description;
         if ( errorDescription ) {
-          this.setError( errorDescription );
+          this.setErrorOrMessage( errorDescription );
         } else if ( responseJson.error === 400 ) {
-          this.setError( i18n.t( "inat_login.authentication_failed" ) );
+          this.setErrorOrMessage( i18n.t( "inat_login.authentication_failed" ) );
         }
 
         const accessToken = responseJson.access_token;
@@ -87,7 +87,7 @@ class SignUpScreen extends Component<Props, State> {
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {
-        this.setError( null );
+        this.setErrorOrMessage( null );
       } );
   }
   resetForm() {
@@ -137,29 +137,23 @@ class SignUpScreen extends Component<Props, State> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
-        const { errors, id } = responseJson;
+        const { errors, id, message } = responseJson;
 
-        const message = responseJson && responseJson.message;
-
-        if ( message ) {
-          this.setError( message );
-        } else if ( errors && errors.length > 0 ) {
-          this.setError( errors[0].toString() );
+        if ( responseJson.status === 201 ) {
+          // message for the user to check their email confirmation
+          this.setErrorOrMessage( message );
+        } else if ( errors?.length > 0 ) {
+          this.setErrorOrMessage( errors[0] );
         } else if ( id ) {
           this.retrieveOAuthToken( username, password, user );
         }
       } ).catch( ( err ) => {
-        this.setError( err );
+        this.setErrorOrMessage( err );
       } );
   }
 
   submit( user: Object ) {
-    const { username } = this.state;
-    if ( checkIsUsernameValid( username ) ) {
-      this.createNewiNatUser( user );
-    } else {
-      this.setError( "username" );
-    }
+    this.createNewiNatUser( user );
   }
 
   render(): Node {

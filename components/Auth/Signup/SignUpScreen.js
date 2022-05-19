@@ -54,9 +54,10 @@ class SignUpScreen extends Component<Props, State> {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
-      grant_type: "password",
+      // grant_type: "password",
       username,
-      password
+      password,
+      locale: i18n.locale
     };
 
     const headers = {
@@ -73,6 +74,11 @@ class SignUpScreen extends Component<Props, State> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
+        const errorDescription = responseJson.error_description;
+          if ( errorDescription ) {
+            this.setError( errorDescription );
+            return;
+          }
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
         user.updateLogin( );
@@ -82,19 +88,16 @@ class SignUpScreen extends Component<Props, State> {
         this.setError( null );
       } );
   }
-
   resetForm() {
     this.setState( {
       username: "",
       password: ""
     } );
   }
-
   submitSuccess() {
     const { navigation } = this.props;
     navigation.navigate( "LoginSuccess" );
   }
-
   createNewiNatUser( user: Object ) {
     const {
       email,
@@ -102,35 +105,29 @@ class SignUpScreen extends Component<Props, State> {
       username,
       password
     } = this.state;
-
     const token = createJwtToken();
-
     const params = {
       user: {
         login: username,
         email,
         password,
         password_confirmation: password,
-        locale: i18n.currentLocale(),
+        locale: i18n.locale,
         time_zone: RNLocalize.getTimeZone()
       }
     };
-
     if ( licensePhotos ) {
       // $FlowFixMe
       params.user.preferred_observation_license = "CC-BY-NC";
       // $FlowFixMe
       params.user.preferred_photo_license = "CC-BY-NC";
     }
-
     const headers = {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent(),
       "Authorization": token
     };
-
     const site = "https://www.inaturalist.org";
-
     fetch( `${site}/users.json`, {
       method: "POST",
       body: JSON.stringify( params ),
@@ -139,7 +136,11 @@ class SignUpScreen extends Component<Props, State> {
       .then( response => response.json() )
       .then( ( responseJson ) => {
         const { errors, id } = responseJson;
-        if ( errors && errors.length > 0 ) {
+        const message = responseJson && responseJson.message;
+
+        if ( message ) {
+          this.setError( message );
+        } else if ( errors && errors.length > 0 ) {
           this.setError( errors[0].toString() );
         } else if ( id ) {
           this.retrieveOAuthToken( username, password, user );

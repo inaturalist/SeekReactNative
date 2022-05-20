@@ -19,9 +19,10 @@ import { UserContext } from "../../UserContext";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 type Props = {
-  +route: any,
-  +navigation: any
+  route: any,
+  navigation: any
 }
+const site = "https://www.inaturalist.org";
 
 class SignUpScreen extends Component<Props> {
   constructor( { route }: Props ) {
@@ -39,13 +40,31 @@ class SignUpScreen extends Component<Props> {
     this.setState( { error } );
   }
 
-  retrieveOAuthToken( login: string, password: string, user: Object ) {
+  resetForm( ) {
+    const { user } = this.state;
+    this.setState( {
+      user: {
+        ...user,
+        login: "",
+        password: "",
+        password_confirmation: ""
+      }
+    } );
+  }
+
+  submitSuccess( ) {
+    const { navigation } = this.props;
+    navigation.navigate( "LoginSuccess" );
+  }
+
+  retrieveOAuthToken( newUser: Object ) {
+    const { user } = this.state;
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
-      // grant_type: "password",
-      login,
-      password,
+      grant_type: "password",
+      username: user.login,
+      password: user.password,
       locale: i18n.locale
     };
 
@@ -53,8 +72,6 @@ class SignUpScreen extends Component<Props> {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent( )
     };
-
-    const site = "https://www.inaturalist.org";
 
     fetch( `${site}/oauth/token`, {
       method: "POST",
@@ -72,26 +89,15 @@ class SignUpScreen extends Component<Props> {
 
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
-        user.updateLogin( );
+        newUser.updateLogin( );
         this.resetForm( );
         this.submitSuccess( );
-      } ).catch( ( ) => {
+      } ).catch( ( e ) => {
+        console.log( e, "couldn't get /oauth/token" );
         this.setErrorOrMessage( null );
       } );
   }
-  resetForm( ) {
-    const { user } = this.state;
-    this.setState( {
-      ...user,
-      login: "",
-      password: "",
-      password_confirmation: ""
-    } );
-  }
-  submitSuccess( ) {
-    const { navigation } = this.props;
-    navigation.navigate( "LoginSuccess" );
-  }
+
   createNewiNatUser( newUser: Object ) {
     const { user } = this.state;
     const token = createJwtToken( );
@@ -103,14 +109,12 @@ class SignUpScreen extends Component<Props> {
       }
     };
 
-    console.log( params, "params in create new user" );
-
     const headers = {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent( ),
       "Authorization": token
     };
-    const site = "https://www.inaturalist.org";
+
     fetch( `${site}/users.json`, {
       method: "POST",
       body: JSON.stringify( params ),
@@ -126,7 +130,7 @@ class SignUpScreen extends Component<Props> {
         } else if ( errors?.length > 0 ) {
           this.setErrorOrMessage( errors[0] );
         } else if ( id ) {
-          this.retrieveOAuthToken( user.login, user.password, newUser );
+          this.retrieveOAuthToken( newUser );
         }
       } ).catch( ( err ) => {
         this.setErrorOrMessage( err );

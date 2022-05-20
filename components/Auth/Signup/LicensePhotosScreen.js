@@ -18,6 +18,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
 import WhiteModal from "../../UIComponents/Modals/WhiteModal";
+import Padding from "../../UIComponents/Padding";
 
 const LicensePhotosScreen = ( ): Node => {
   const { navigate } = useNavigation( );
@@ -31,8 +32,6 @@ const LicensePhotosScreen = ( ): Node => {
   } );
 
   const { email } = user;
-
-  console.log( user, "user in license photos screen" );
 
   const [error, setError] = useState( false );
   const [agreeTerms, setAgreeTerms] = useState( false );
@@ -143,7 +142,7 @@ const LicensePhotosScreen = ( ): Node => {
   const licensePhotos = user.preferred_observation_license ? true : false;
 
   return (
-    <ScrollWithHeader header="login.sign_up">
+    <ScrollWithHeader header="login.sign_up" style={styles.bottomPadding}>
       <View style={styles.leftTextMargins}>
         <GreenText allowFontScaling={false} smaller text="inat_signup.email" />
       </View>
@@ -213,6 +212,7 @@ const LicensePhotosScreen = ( ): Node => {
         text="inat_signup.next"
         disabled={disableButton}
       />
+      <View style={styles.bottomPadding} />
     </ScrollWithHeader>
   );
 };

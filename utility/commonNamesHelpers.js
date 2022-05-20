@@ -47,7 +47,7 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         const seekLocale = localeNoHyphens( locale );
 
         const userSettings = realm.objects( "UserSettingsRealm" )[0];
-        const prevAppVersion = userSettings.appVersion;
+        const prevAppVersion = userSettings?.appVersion;
         const currentAppVersion = getVersion( );
 
         // only reload common names when the app version changes, not on each app launch

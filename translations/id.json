@@ -3,6 +3,7 @@
     "header": "Spesies sekitar",
     "internet_error": "Kami memerlukan akses Internet untuk bisa menampilkan spesies di sekitarmu. Ketuk untuk mencoba lagi.",
     "no_location": "Tidak Ada Lokasi",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "Sepertinya belum ada banyak spesies yang diamati di sekitarmu! Cobalah mengganti lokasimu atau memperluas filter spesiesmu.",
     "input_location_above_map": "Lokasi tidak ditemukan; masukkan suatu nama lokasi di atas untuk memuat peta dan mencari spesies di dekatmu",
     "error_alert_location_services": "Untuk melanjutkan, harap menyalakan layanan lokasi di pengaturan perangkatmu",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Kami menyimpan informasi pribadi seperti nama pengguna dan alamat email untuk mengelola akun-akun di situs ini, dan untuk mematuhi undang-undang privasi, kami meminta Anda untuk mencentang kotak ini untuk menunjukkan bahwa Anda mengizinkan penggunaan informasi pribadi ini. Untuk mempelajari lebih lanjut tentang informasi apa yang kami kumpulkan dan bagaimana kami menggunakannya, Anda bisa melihat Kebijakan Privasi serta Syarat dan Ketentuan Layanan kami.",
     "learn_more_about_licensing": "Tandai kotak ini jika Anda ingin mengajukan lisensi Creative Commons Atribusi-NonKomersial untuk konten yang diunggah. Ini berarti semua orang dapat menyalin maupun menggunakan kembali foto-foto Anda dan/atau pengamatan Anda tanpa perlu meminta izin selama mereka memberi kredit kepada Anda dan tidak memakai karyamu untuk tujuan komersial. Anda dapat memilih jenis lisensi yang berbeda atau mencabut lisensi Anda nantinya, tetapi lisensi ini merupakan yang terbaik untuk berbagi dengan peneliti lainnya.",
     "about_personal_information": "Tentang Informasi Pribadi",
-    "about_licenses": "Tentang Lisensi"
+    "about_licenses": "Tentang Lisensi",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "Masuk dengan akun iNaturalist Anda",
@@ -142,7 +148,8 @@
     "reset": "Setel ulang kata sandi saya",
     "check_email": "Periksa email Anda!",
     "reset_instructions": "Kami sudah mengirimkan petunjuk pengaturan ulang kata sandi ke emailmu.",
-    "return_login": "Kembali ke Halaman Masuk"
+    "return_login": "Kembali ke Halaman Masuk",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "Kebijakan Privasi"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Kirim log debug melalui email"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Kamera Seek",

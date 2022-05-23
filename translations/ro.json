@@ -3,6 +3,7 @@
     "header": "Specii din apropiere",
     "internet_error": "Avem nevoie de internet ca să generăm specii din apropiere. Atinge pentru a încerca din nou.",
     "no_location": "Fără Locație",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "Se pare că nu au fost observate multe specii în apropiere! Încearcă să schimbi locația sau să extinzi filtrul de specii.",
     "input_location_above_map": "Nu a fost găsită nicio poziționare; introduceți o denumire pentru reperul de mai sus pentru a încărca harta și a căuta specii din apropriere",
     "error_alert_location_services": "Pentru a continua, activați serviciile de poziționare disponibile pe dispozitivul dumneavoastră.",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Stocăm informații personale precum nume de utilizator și adrese de e-mail pentru a gestiona conturile de pe acest site, și pentru a respecta legile de confidențialitate, trebuie să bifezi această casetă pentru a indica faptul că dai acordul acestei utilizări a informațiilor personale. Pentru a afla mai multe despre ce informații colectăm și cum le folosim, te rugăm să consulți Politica noastră de confidențialitate și Termenii și condițiile noastre.",
     "learn_more_about_licensing": "Bifează această casetă dacă dorești să aplici o licență \"Creative Commons Attribution-NonCommercial\" pentru conținutul încărcat. Acest lucru înseamnă că oricine poate copia și reutiliza fotografiile și/sau observațiile fără a cere permisiunea, atâta timp cât îți acordă credit și nu utilizează lucrările în scopuri comerciale. Poți alege o altă licență sau poți elimina licența mai târziu, dar aceasta este cea mai bună licență pentru partajarea cu cercetătorii.",
     "about_personal_information": "Despre Informații Personale",
-    "about_licenses": "Despre Licențe"
+    "about_licenses": "Despre Licențe",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "Conectează-te cu contul tău iNaturalist",
@@ -142,7 +148,8 @@
     "reset": "Resetați-mi parola",
     "check_email": "Verifică-ți e-mailul!",
     "reset_instructions": "V-am trimis instrucțiuni de resetare a parolei prin e-mail.",
-    "return_login": "Înapoi la Conectare"
+    "return_login": "Înapoi la Conectare",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "Politica Intimității"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Trimite jurnale de depanare prin e-mail"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Camera Seek",

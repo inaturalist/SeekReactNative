@@ -271,7 +271,8 @@
     "species_observed": "Especies observadas",
     "species_nearby": "ESPECIES CIERCANAS EN ESTE DESAFIO",
     "no_species_nearby": "No encontramos especies cercanas en este desafío que no hayas observado",
-    "species_nearby_internet_error": "Necesitamos Internet para generar especies cercanas."
+    "species_nearby_internet_error": "Necesitamos Internet para generar especies cercanas.",
+    "badge_name_my_garden_2022": "INSIGNIA MI JARDÍN"
   },
   "results": {
     "observed_species": "¡Has observado una nueva especie!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Desafío de Flores Silvestres",
     "april_2022_mission_1": "Encuentra 10 especies de plantas con flor (Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Muchas flores tienen colores y formas que atraen insectos para visitarlas. Las flores producen polen que pueden ser transferidos de una flor a otra por animales, viento o agua.",
-    "april_2022_action_pollen_visible_anther": "A veces el polen es visible en la antera de la flor. Si tocas el dedo, ¿puedes ver el polen en el dedo? ¿Qué piensas que poliniza esta especie?"
+    "april_2022_action_pollen_visible_anther": "A veces el polen es visible en la antera de la flor. Si tocas el dedo, ¿puedes ver el polen en el dedo? ¿Qué piensas que poliniza esta especie?",
+    "may_2022_challenge_name_bee": "Desafío de Abejas",
+    "may_2022_mission_1": "Encuentra 3 especies de abejas (Epifamilia Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "¿Sabías que no todas las abejas hacen miel o viven en colmenas? La mayoría de las abejas nativas viven solas, pero siguen siendo polinizadores esenciales de flores y árboles. Si te quedas tranquilo y les das espacio mientras visitan las flores, las abejas no van a molestarte.",
+    "may_2022_action_see_bees": "Mira a las abejas como nunca las has visto en la nueva película de la naturaleza de PBS My Garden of a Thousand Bees (Mi Jardín de Mil Abejas). Planta tus propias flores silvestres nativas para ver qué polinizadores atraen. #PlantWildflowers #PlantaFloresSilvestres",
+    "june_2022_challenge_name_wildflower": "Desafío de Polinización",
+    "june_2022_mission_1": "Dos especies de plantas con flores (Angiospermae)",
+    "june_2022_mission_2": "Dos especies en:\n\n-Orden Coleoptera (Escarabajos);\n-Orden Diptera (Moscas y parientes);\n-Orden Lepidoptera (Mariposas y Polillas)\nEpifamily Anthophila (Abejas)",
+    "june_2022_description_most_fruits_and_seeds": "La mayoría de los frutos y semillas que usted descubre en la naturaleza son el resultado de la polinización exitosa. ¡Las abejas no son los únicos insectos que actúan como polinizadores! Después de la polinización, la flor se convierte en un fruto que contiene semillas. ¿Has visto alguna planta frutos en desarrollo?",
+    "june_2022_action_busy_pollinators": "Los polinizadores atareados como las abejas y otros insectos mantienen a nuestras poblaciones vegetales locales sanas y diversas. Aprende más sobre las vidas secretas de las abejas viendo la nueva película My Garden of a Thousand Bees (Mi Jardín de las Mil Abejas) en PBS Nature. Planta tus propias flores naturales nativas para ver qué polinizadores atraen. #PlantWildflowers #PlantaFloresSilvestres"
   }
 }

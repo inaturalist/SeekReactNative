@@ -271,7 +271,8 @@
     "species_observed": "Espèces Observées",
     "species_nearby": "ESPÈCES À PROXIMITÉ DANS CE DÉFI",
     "no_species_nearby": "Nous n'avons trouvé aucune espèce à proximité dans ce défi que vous n'avez pas déjà observée.",
-    "species_nearby_internet_error": "Pour proposer les espèces à proximité, nous avons besoin d’une connexion internet."
+    "species_nearby_internet_error": "Pour proposer les espèces à proximité, nous avons besoin d’une connexion internet.",
+    "badge_name_my_garden_2022": "BADGE MON JARDIN"
   },
   "results": {
     "observed_species": " Vous avez observé une nouvelle espèce !",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Défi des fleurs sauvages",
     "april_2022_mission_1": "Trouvez 10 espèces de plantes à fleurs (sous-embranchement des Angiospermes)",
     "april_2022_description_many_flowers_have_colors_shapes": "De nombreuses fleurs ont une couleur et une forme qui attirent les insectes. Les fleurs produisent du pollen qui peut être transporté d'une fleur à l'autre par des animaux, par le vent ou par l'eau.",
-    "april_2022_action_pollen_visible_anther": "Parfois, le pollen est visible sur l'anthère de la fleur. Si vous la touchez du doigt, voyez-vous du pollen sur votre doigt? À votre avis, qu'est-ce qui pollinise cette espèce?"
+    "april_2022_action_pollen_visible_anther": "Parfois, le pollen est visible sur l'anthère de la fleur. Si vous la touchez du doigt, voyez-vous du pollen sur votre doigt? À votre avis, qu'est-ce qui pollinise cette espèce?",
+    "may_2022_challenge_name_bee": "Défi des abeilles",
+    "may_2022_mission_1": "Trouvez 3 espèces d'abeilles (clade Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Saviez-vous que les abeilles ne produisent pas toutes du miel et ne vivent pas toutes dans des ruches ? Beaucoup d'abeilles sont solitaires, mais sont néanmoins des pollinisateurs essentiels des fleurs et des arbres. Si vous restez calme et que vous gardez vos distances pendant qu'elles butinent, les abeilles ne devraient pas vous déranger.",
+    "may_2022_action_see_bees": "Voyez les abeilles comme vous ne les avez jamais vues dans le nouveau film de PBS Nature My Garden of a Thousand Bees. Et plantez vos propres fleurs sauvages indigènes pour voir quels pollinisateurs elles attirent. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Défi de la pollinisation",
+    "june_2022_mission_1": "Deux espèces de plantes à fleurs (sous-embranchement des Angiospermes)",
+    "june_2022_mission_2": "Deux espèces de :\n\n- l'ordre des coléoptères (Coleoptera) ;\n- l'ordre des diptères (Diptera) ;\n- l'ordre des lépidoptères (Lepidoptera), les papillons ;\n- le clade des abeilles (Anthophila).",
+    "june_2022_description_most_fruits_and_seeds": "La plupart des fruits et graines que vous découvrez dans la nature sont le résultat d'une pollinisation réussie. Les abeilles ne sont pas les seuls insectes qui pollinisent ! Après la pollinisation, la fleur se transforme en un fruit qui contient des graines. Avez-vous vu des plantes avec des fruits qui se formaient ?",
+    "june_2022_action_busy_pollinators": "Les pollinisateurs qui s'affairent, comme les abeilles et d'autres insectes, contribuent à la santé et à la diversité des populations végétales. Découvrez la vie secrète des abeilles en regardant le nouveau film My Garden of a Thousand Bees sur PBS Nature. Et plantez vos propres fleurs sauvages indigènes pour voir quels pollinisateurs elles attirent. #PlantWildflowers"
   }
 }

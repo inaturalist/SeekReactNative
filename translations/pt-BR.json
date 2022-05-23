@@ -14,15 +14,15 @@
     "header": "Iniciar",
     "tip_1": "Tire fotos com a câmera do Seek para identificar os seres vivos ao seu redor.",
     "tip_2": "Tire foto de uma planta, um animal ou qualquer ser vivo usando a câmera e o Seek ajudará você a identificá-lo!",
-    "tip_3": "Aceite um desafio patrocinado pela série Nosso Planeta e pela WWF e encontre espécies na comunidade mundial do Seek!"
+    "tip_3": "Ganhe insígnias e aumente o seu nível ao identificar diferentes tipos de espécies e participar de desafios."
   },
   "challenges_card": {
     "header": "Desafios",
-    "join": "Entre no desafio da observação global e acompanhe no Nosso Planeta, na Netflix!",
+    "join": "Adicione observações com a câmera do Seek para ganhar a insígnia da série Nosso Planeta!",
     "take_challenge": "Aceitar o desafio",
     "continue_challenge": "Continuar desafio",
     "view_all": "Ver todos os desafios",
-    "new_join": "Entre no desafio da observação global e acompanhe na Nosso Planeta, na Netflix!",
+    "new_join": "Adicione observações com a câmera do Seek para ganhar a insígnia do Desafio!",
     "inat_admin": "Administradores do iNat: Obrigado por testar o Seek! Você está vendo o último desafio do iNat antes do início do mês para fins de teste."
   },
   "post_to_inat_card": {
@@ -69,7 +69,7 @@
   "notifications": {
     "header": "Notificações",
     "learn_more": "Saiba mais sobre o iNaturalist",
-    "earned_badges": "Você ganhou muitos distintivos! Talvez goste do iNaturalist!",
+    "earned_badges": "Você ganhou muitas insígnias! Talvez goste do iNaturalist!",
     "almost_finished": "Está quase a concluir o seu desafio!",
     "view_progress": "Ver o seu progresso",
     "challenge_completed": "Parabéns! Você concluiu um desafio",
@@ -79,7 +79,7 @@
     "new_challenge": "Há um novo desafio disponível!"
   },
   "login": {
-    "log_in": "Entrar com o iNaturalist",
+    "log_in": "Entrar no iNaturalist",
     "sign_up": "Inscrever-se no iNaturalist",
     "about": "Ao fazer login com o iNaturalist, você pode publicar observações na comunidade online através do Seek.",
     "skip_login": "Continuar sem se inscrever",
@@ -159,7 +159,7 @@
   "onboarding": {
     "onboarding_1": "Use a Câmera de Seek para identificar plantas, animais e fungos",
     "onboarding_2": "Saiba mais sobre os organismos ao seu redor",
-    "onboarding_3": "Ganhe distintivos por observar diferentes espécies",
+    "onboarding_3": "Ganhe insígnias por observar diferentes espécies",
     "skip": "Ignorar por enquanto",
     "continue": "Continuar"
   },
@@ -188,7 +188,7 @@
     "not_started": "Não iniciado",
     "completed": "Concluído",
     "challenge": "Desafio",
-    "badge": "Distintivo",
+    "badge": "Insígnia",
     "connectivity": "Desafio de conectividade",
     "biodiversity": "Desafio de biodiversidade",
     "productivity": "Desafio da Comunidade",
@@ -211,7 +211,7 @@
     "april_description": "Não estamos sós no nosso planeta! A vida selvagem está sempre ao nosso redor, queiramos ou não. Nas nossas casas, jardins, cidades e vilas há mundos escondidos para descobrir. Procure na sua casa e ao redor dela, e será surpreendido pela quantidade de vizinhos que encontrará.\n\nProcure plantas, fungos, insetos, aves e outros animais. Vá à procura de sinais de formas de vida mais discretas, pois dejetos, peles, ninhos, caminhos e teias podem dar-nos pistas para outras criaturas que compartilham a sua casa.",
     "start_challenge": "Iniciar o desafio",
     "open_camera": "Abrir câmera",
-    "view_badge": "Ver distintivo",
+    "view_badge": "Ver insígnia",
     "your_mission": "A sua missão:",
     "mission_1_may": "Encontre 4 aves, mamíferos, répteis, anfíbios ou peixes diferentes",
     "mission_2_may": "Encontre 4 insetos diferentes",
@@ -271,7 +271,8 @@
     "species_observed": "Espécies observadas",
     "species_nearby": "ESPÉCIES NAS PROXIMIDADES NESTE DESAFIO",
     "no_species_nearby": "Não encontramos nenhuma espécie deste desafio nas proximidades que você já não tenha observado",
-    "species_nearby_internet_error": "Precisamos de Internet para gerar as espécies nas proximidades."
+    "species_nearby_internet_error": "Precisamos de Internet para gerar as espécies nas proximidades.",
+    "badge_name_my_garden_2022": "INSÍGNIA MEU JARDIM"
   },
   "results": {
     "observed_species": "Você observou uma nova espécie!",
@@ -316,12 +317,12 @@
     "error_timeout": "A sua localização demorou muito para recuperar. A sua observação foi salva, mas sem localização, você não poderá ver informações detalhadas como mapas da área de distribuição. Por favor, tente novamente mais tarde.",
     "nearby": "Espécies próximas deste táxon",
     "nothing_nearby": "Parece que não foram observadas muitas espécies deste táxon nas proximidades! Tente tirar outra foto ou publicá-la no iNaturalist.",
-    "tap": "Toque para carregar espécies ao redor",
+    "tap": "Toque para carregar espécies próximas",
     "social": "Compartilhar na rede social"
   },
   "banner": {
-    "view": "Ver distintivo",
-    "badge": "Distintivo",
+    "view": "Ver insígnia",
+    "badge": "Insígnia",
     "challenge_progress": "Você encontrou mais uma espécie!",
     "challenge_view": "Ver o seu progresso",
     "level_up": "Você subiu de nível!",
@@ -414,10 +415,10 @@
     },
     "observe_max": "Você atingiu o nível máximo no Seek!",
     "observe_species": "Observe",
-    "species_badges": "Distintivos de espécie",
-    "challenge_badges": "Distintivos de desafio",
+    "species_badges": "Insígnias de espécie",
+    "challenge_badges": "Insígnias de desafio",
     "observed": "Espécies observadas",
-    "earned": "Distintivos conquistados",
+    "earned": "Insígnias\nconquistadas",
     "you_found": "Você encontrou",
     "bird_1": "1 ave!",
     "bird_5": "5 aves!",
@@ -457,7 +458,7 @@
     "name_amphibian_15": "Distintivo de Anfíbio de Ouro",
     "name_reptile_1": "Distintivo de Réptil de Bronze",
     "name_reptile_5": "Distintivo de Réptil de Prata",
-    "name_reptile_15": "Distintivo de Réptil de Ouro",
+    "name_reptile_15": "Insígnia de Réptil de Ouro",
     "name_mammal_1": "Distintivo de Mamífero de Bronze",
     "name_mammal_5": "Distintivo de Mamífero de Prata",
     "name_mammal_15": "Distintivo de Mamífero de Ouro",
@@ -618,7 +619,7 @@
   },
   "delete": {
     "header": "Apagar espécie?",
-    "description": "Deseja apagar esta espécie das suas observações? Isto pode afetar os seus desafios e distintivos.",
+    "description": "Deseja apagar esta espécie das suas observações? Isto pode afetar os seus desafios e insígnias.",
     "yes": "Sim, apague-o das minhas observações",
     "no": "Cancelar"
   },
@@ -675,11 +676,11 @@
     "donate_ios": "Por favor, visite o seguinte link para fazer uma doação ao Seek:"
   },
   "seek_challenges": {
-    "badge": "Distintivo do Seek",
+    "badge": "Insígnia do Seek",
     "header": "Você concluiu o desafio do Seek de {{date}}!",
     "text": "Obrigado por participar do desafio global! O Seek está aqui para ajudá-lo a se conectar a todas as espécies que nos rodeiam. Saia, explore e aprenda sobre a natureza ao seu redor!",
     "citizen_science": "Desafio Ciência Cidadã",
-    "completed": "Você concluiu o desafio e ganhou o distintivo do desafio!",
+    "completed": "Você concluiu o desafio e ganhou a insígnia do desafio!",
     "april_2020_description": "Abril de 2020 é o aniversário do lançamento do novo Seek pelo iNaturalist! No ano passado, crescemos muito e ajudamos mais de um milhão de pessoas a sentir-se mais conectadas ao mundo ao seu redor. A natureza está ao seu redor, você só precisa procurá-la!\n\nPara começar a nossa próxima rodada de desafios, veja se você consegue encontrar 10 espécies que ainda não observou.",
     "action_april_2020": "Abril é o mês da Ciência Cidadã! Você pode contribuir para a compreensão científica da biodiversidade como um cientista cidadão publicando suas observações do Seek no iNaturalist.\n\nSe você tiver 13 anos ou mais (ou tiver permissão dos pais), você pode criar uma conta no iNaturalist e publicar e compartilhar as observações com uma comunidade mais ampla, incluindo cientistas!",
     "backyard": "Desafio do Quintal",
@@ -810,7 +811,7 @@
     "we_think_youll_like_inat": "Acreditamos que você vai gostar do iNaturalist.",
     "sign_out": "Sair do iNaturalist",
     "log_in_to_post_observations": "Faça login para publicar suas observações do Seek no iNaturalist!",
-    "log_in_with_inat": "ENTRAR COM INATURALIST",
+    "log_in_with_inat": "ENTRAR NO INATURALIST",
     "use_inat_to": "UTILIZAR INATURALIST PARA:",
     "inat_vs_seek": "INATURALIST X SEEK",
     "inat_is_an_online_community": "iNaturalist é uma comunidade online para naturalistas",
@@ -870,7 +871,7 @@
     "january_2022_action_water_habitat": "Que tipo de habitat aquático você visitou? Que tipos de presa estão disponíveis para os predadores?",
     "february_2022_challenge_name_life_on_edges": "Desafio da Vida aos Limites",
     "february_2022_mission_1": "Encontre 2 espécies nestes grupos:\n\n-Classe Amphibia (anfíbios);\n-Ordem Charadriiformes (aves limícolas e similares)",
-    "february_2022_description_transitions_between_habitats": "As transições entre um habitat e outro podem ser lugares interessantes para encontrar a vida selvagem, e algumas espécies dependem delas. As bordas das lagoas, lagos, rios e zonas intertidais estão cheias de vida. Muitas espécies de ponta podem viver parte da sua vida na água e em parte na terra.",
+    "february_2022_description_transitions_between_habitats": "As zonas de transição entre um habitat e outro podem ser lugares interessantes para encontrar a vida selvagem, e algumas espécies dependem delas. As bordas de lagoas, lagos, rios e regiões costeiras estão repletas de vida. Muitas espécies podem viver parte da sua vida em água e parte em terra.",
     "february_2022_action_which_species_excited": "Que espécies você estava mais animado em encontrar? Com base no que você observou e em pesquisas adicionais que realizou, faça uma lista de 3 coisas de que precisa para sobreviver e 3 coisas que você pode fazer para satisfazer essas necessidades.",
     "march_2022_challenge_name_non_flowering_seed": "Desafio de plantas com sementes sem flores",
     "march_2022_mission_1": "Encontre 3 espécies de plantas nestes grupos:\n\n-Classe Coníferas;\n-Classe Cicadófitas;\n-Classe Ginkgoaceae",
@@ -878,7 +879,16 @@
     "march_2022_action_find_wild_or_intentional": "Você já encontrou plantas silvestres ou que foram intencionalmente plantadas pelas pessoas? Se foi plantado, que características considera que as fazem interessante para a sua plantação?",
     "april_2022_challenge_name_wildflower": "Desafio de Flores Silvestres",
     "april_2022_mission_1": "Encontre 10 espécies de plantas com flores (Subfilo Angiospermas)",
-    "april_2022_description_many_flowers_have_colors_shapes": "Muitas flores têm cores e formas que atraem insetos para visitar as flores. As flores produzem pólen que podem ser transferidos de uma flor a outra por animais, vento ou água.",
-    "april_2022_action_pollen_visible_anther": "Às vezes, o pólen é visível na antera da flor. Se você tocar com o dedo, será que consegue ver o pólen? O que acha que poliniza esta espécie?"
+    "april_2022_description_many_flowers_have_colors_shapes": "Muitas flores têm cores e formas que atraem insetos. As flores produzem pólen que pode ser transportado de uma flor a outra pelos animais, pelo vento ou pela água.",
+    "april_2022_action_pollen_visible_anther": "Às vezes, o pólen é visível na antera da flor. Se você tocar com o dedo, será que consegue ver o pólen? O que acha que poliniza esta espécie?",
+    "may_2022_challenge_name_bee": "Desafio de Abelhas",
+    "may_2022_mission_1": "Encontre 3 espécies de abelhas (Epifamília Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Você sabia que nem todas as abelhas fazem mel ou vivem em colmeias? A maioria das abelhas nativas vivem sozinhas, mas continuam sendo polinizadores essenciais de flores e árvores. Se você ficar tranquilo e lhes der espaço enquanto visitam as flores, as abelhas não vão incomodar você.",
+    "may_2022_action_see_bees": "Veja abelhas como você nunca viu antes no novo filme da PBS Nature chamado Meu Jardim de Mil Abelhas. Plante suas próprias flores silvestres nativas para ver quais polinizadores atraem. #PlantaFloresSilvestres",
+    "june_2022_challenge_name_wildflower": "Desafio de Polinização",
+    "june_2022_mission_1": "Duas espécies de plantas com flores (Subfilo Angiospermae)",
+    "june_2022_mission_2": "Duas espécies em:\n\n-Ordem Coleoptera (besouros);\n-Ordem Diptera (moscas e similares);\n-Ordem Lepidoptera (borboletas e mariposas)\nEpifamília Anthophila (abelhas)",
+    "june_2022_description_most_fruits_and_seeds": "A maioria dos frutos e sementes que você encontra na natureza é o resultado de uma polinização bem sucedida. As abelhas não são os únicos insetos que atuam como polinizadores! Depois da polinização, a flor se desenvolve em um fruto que contém sementes. Você já viu alguma planta com frutos em desenvolvimento?",
+    "june_2022_action_busy_pollinators": "Os polinizadores atarefados como abelhas e outros insetos mantêm as nossas populações de plantas locais saudáveis e diversificadas. Saiba mais sobre a vida secreta das abelhas assistindo ao novo filme Meu Jardim de Mil Abelhas (My Garden of a Thousand Bees) da PBS Nature. Plante suas próprias flores silvestres nativas para ver quais polinizadores atraem. #PlantaFloresSilvestres"
   }
 }

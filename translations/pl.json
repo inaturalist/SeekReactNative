@@ -3,6 +3,7 @@
     "header": "Gatunki w pobliżu",
     "internet_error": "Potrzebujemy połączenia internetowego, aby wygenerować gatunki w pobliżu. Dotknij, aby spróbować ponownie.",
     "no_location": "Brak lokalizacji",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "Wygląda na to, że w pobliżu nie zaobserwowano zbyt wielu gatunków! Spróbuj zmienić swoje położenie lub rozszerzyć filtr gatunków.",
     "input_location_above_map": "Nie znaleziono lokalizacji; wprowadź nazwę lokalizacji powyżej, aby załadować mapę i szukać gatunków w pobliżu",
     "error_alert_location_services": "Aby kontynuować, włącz usługi lokalizacji w ustawieniach urządzenia",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Przechowujemy dane osobiste takie jak nazwy użytkowników i adresy e-mail w celu zarządzania kontami na tej stronie, i aby przestrzegać przepisów o ochronie prywatności, musisz zaznaczyć to pole, aby wskazać, że wyrażasz zgodę na korzystanie z twoich danych osobowych. Aby dowiedzieć się więcej o tym, jakie informacje zbieramy i jak je używamy, zapoznaj się z naszą Polityką Prywatności i Warunkami Usługi.",
     "learn_more_about_licensing": "Zaznacz tutaj, jeśli chcesz dodać licencję \nUznanie autorstwa - Użytek niekomercyjny do przesłanej zawartości. Oznacza to, że każdy może skopiować i użyć ponownie twoich zdjęć i/lub obserwacji bez pytania cię o pozwolenie, o ile uznają twoje autorstwo i nie wykorzystają utworów w sposób komercyjny. Możesz wybrać inną licencję lub usunąć licencję później, jednak miej na uwadze, że to najlepszy rodzaj licencji do dzielenia się z naukowcami.",
     "about_personal_information": "O informacjach osobistych",
-    "about_licenses": "O Licencjach"
+    "about_licenses": "O Licencjach",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "Zaloguj się do swojego konta iNaturalist",
@@ -142,7 +148,8 @@
     "reset": "Zresetuj moje hasło",
     "check_email": "Sprawdź swoją pocztę e-mail!",
     "reset_instructions": "Wysłaliśmy instrukcje resetowania hasła na twój adres e-mail.",
-    "return_login": "Powrót do logowania"
+    "return_login": "Powrót do logowania",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "Polityka prywatności"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Wyślij dzienniki debugowania przez e-mail"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Aparat Seek",

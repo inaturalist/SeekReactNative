@@ -3,6 +3,7 @@
     "header": "מינים הנמצאים בסביבה",
     "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר מינים בסביבה. הקישו לנסות שוב.",
     "no_location": "חסר מיקום",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "נראה שלא נצפו מינים בסביבה! נסו לשנות מיקום או להרחיב את פילטר המינים.",
     "input_location_above_map": "לא נמצא מיקום; יש להכניס מיקום על מנת לנעלות את המפה ולחפש מינים בסביבה",
     "error_alert_location_services": "על מנת להמשיך, יש להפעיל את אפשרויות המיקום בהגדרות המכשיר",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "אנו שומרים מידע אישי כגון שמות משתמש וכתובות דואל על מנת לנהל את המשתמשים באתר, ועל מנת לשמור על חוקי הפרטיות, אנו זקוקים לאישור כי אתם מאשרים לנו להשתמש במידע פרטי זה. על מנת ללמוד עוד איזה מידע אנו אוספים ואיך אנו עושים בו שימוש, בבקשה קראו את הודעת הפרטיות שלנו ואת תנאי האתר.",
     "learn_more_about_licensing": "סמן תיבה זו אם ברצונך לקבל רשיון קריאטיב קומונס לתוכן. המשמעות היא כי כל אחד יכול להעתיק ולהשתמש בתמונות וגם/או בתצפיות ללא קבלת אישור כל עוד הם נותנים קרדיט לך ולא עושים שימוש מסחרי. ניתן לבחור רשיון אחר או להסיר רשיון זה מאוחר יותר, אבל זוהי הצורה הטובה ביותר לשיתוף מידע עם חוקרים.",
     "about_personal_information": "אודות מידע אישי",
-    "about_licenses": "אודות רישיונות"
+    "about_licenses": "אודות רישיונות",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "התחברו עם חשבון ה iNaturalist",
@@ -142,7 +148,8 @@
     "reset": "אפס את הסיסמה שלי",
     "check_email": "בדקו את תיבת המייל!",
     "reset_instructions": "שלחנו הוראות לאיפוס סיסמא לדואל שלכם.",
-    "return_login": "חזרה לדף הכניסה"
+    "return_login": "חזרה לדף הכניסה",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "מדיניות הפרטיות"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "שלחו קבצי ניפוי (debug)"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "מצלמת Seek",

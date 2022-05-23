@@ -3,6 +3,7 @@
     "header": "Arter i nærheten",
     "internet_error": "Vi trenger internettet for å generere arter i nærheten. Trykk for å prøve igjen.",
     "no_location": "Ingen posisjon",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "Det ser ut som det ikke har blitt observert mange arter i nærheten! Prøv å endre din posisjon eller utvide artsfilteret.",
     "input_location_above_map": "Ingen posisjon funnet; oppgi et stedsnavn over for å laste opp kartet og søke etter arter i nærheten",
     "error_alert_location_services": "For å fortsette, slå på stedstilgang i enhetensinnstillingene",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Vi lagrer personlige opplysninger som brukernavn og e-postadresser for å kunne administrere kontoer på dette nettstedet, og for å overholde personvernlovgivningen trenger vi at du krysser av denne boksen for å vise at du samtykker til denne bruken av personopplysninger. For å lære mer om hvilken informasjon vi samler inn og hvordan vi bruker den, vennligst se våre retningslinjer for personvern og våre vilkår for bruk.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "Om Personlig Informasjon",
-    "about_licenses": "Om Lisenser"
+    "about_licenses": "Om Lisenser",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "Logg på med din iNaturalist-konto",
@@ -142,7 +148,8 @@
     "reset": "Tilbakestill passordet mitt",
     "check_email": "Sjekk din e-post!",
     "reset_instructions": "Vi har sendt instrukser til tilbakestilling av passord på din e-post.",
-    "return_login": "Tilbake til innloggingsside"
+    "return_login": "Tilbake til innloggingsside",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "Personvern"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Send debug logs by email"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Seek kamera",

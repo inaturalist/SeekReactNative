@@ -3,7 +3,7 @@
     "header": "Espèces à proximité",
     "internet_error": "Afin de générer les espèces à proximité, nous avons besoin d’une connexion internet. Appuyez pour réessayer.",
     "no_location": "Localisation inconnue",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Aucun signal GPS trouvé. Veuillez vérifier que le GPS est activé",
     "no_species": "Il semble que peu d’espèces aient été observées à proximité ! Essayez de changer votre position ou d'élargir le filtre des espèces.",
     "input_location_above_map": "Aucune localisation trouvé ; saisissez un nom de lieu ci-dessus pour charger la carte et rechercher des espèces à proximité",
     "error_alert_location_services": "Pour continuer, activez les services de localisation dans les paramètres de votre appareil",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "Cochez cette case si vous voulez mettre le contenu téléchargé sous licence Creative Commons Attribution - Utilisation non commerciale. Cela veut dire que quiconque peut copier et réutiliser vos photos ou vos observations sans vous en demander l'autorisation, à condition d'indiquer que vous en êtes l'auteur et de ne pas utiliser votre travail à des fins commerciales. Vous pouvez choisir une autre licence ou supprimer la licence plus tard, mais cette licence est la meilleure pour mettre votre travail à la disposition des chercheurs.",
     "about_personal_information": "À propos des informations personnelles",
     "about_licenses": "À propos des licences",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "J'autorise le transfert aux États-Unis de mes données à caractère personnel",
+    "learn_more_about_data_transfer": "Certaines règles de droit relatives à la confidentialité des données, comme le Règlement général sur la protection des données (RGPD) de l'Union européenne, exigent que l'utilisateur consente explicitement au transfert de ses données à caractère personnel vers des territoires où la protection juridique de ces données n'est pas jugée adéquate. Depuis 2020, l'Union européenne ne considère plus que les États-Unis fournissent une protection juridique adéquate des données à caractère personnel, en particulier en raison de la possibilité pour le gouvernement américain de surveiller l'entrée des données aux États-Unis. Il est possible que d'autres pays partagent cet avis.",
+    "learn_more_about_data_transfer_2": "L'utilisation d'iNaturalist nécessite le stockage de données à caractère personnel telles que votre adresse e-mail. Toutes les données iNaturalist sont stockées aux États-Unis et nous ne pouvons pas savoir sur quel territoire vous vous trouvez au regard de la loi lorsque vous utilisez iNaturalist. Pour nous conformer aux lois relatives à la protection de la vie privée comme le RGPD, nous devons vous demander d'attester que vous comprenez et acceptez ce risque et que vous consentez au transfert de vos données à caractère personnel aux serveurs d'iNaturalist aux États-Unis.",
+    "learn_more_about_data_transfer_3": "Pour en savoir plus sur les informations que nous recueillons et la façon dont nous les utilisons, veuillez consulter notre <privacy>{{privacy}}</privacy> et <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Il n'est pas possible d'avoir un compte iNaturalist sans que des données à caractère personnel soient stockées. La seule façon de revenir sur ce consentement est de supprimer votre compte."
   },
   "inat_login": {
     "log_in_with_inat": "Se connecter avec votre compte iNaturalist",
@@ -149,7 +149,7 @@
     "check_email": "Consultez vos e-mails !",
     "reset_instructions": " Nous avons envoyé les instructions de réinitialisation du mot de passe à votre adresse électronique.",
     "return_login": "Revenir à la page de connexion",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Échec de l'authentification"
   },
   "privacy": {
     "header": " Politique de confidentialité"
@@ -667,8 +667,8 @@
     "logs": "Envoyer les journaux de débogage par mail"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Caméra de Seek",
+    "subtitle": "Pour des identifications rapides"
   },
   "settings": {
     "header": "La caméra de Seek",

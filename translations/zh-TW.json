@@ -3,10 +3,10 @@
     "header": "附近物種",
     "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
     "no_location": "沒有位置資訊",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "未找到 GPS 訊號。請仔細檢查您是否開啟了 GPS",
     "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。",
     "input_location_above_map": "找不到位置資訊；在上面輸入位置名稱，以載入地圖並尋找附近的物種",
-    "error_alert_location_services": "請在您設備的設定中開啟定位功能才能繼續",
+    "error_alert_location_services": "請在您裝置的設定中開啟定位功能才能繼續",
     "species_nearby_requires_location": "附近的物種需要您的位置資訊。請在設定中開啟定位功能",
     "species_nearby_requires_android_accuracy": "附近的物種需要您的位置資訊。請檢查定位功能是否已開啟。",
     "choose_location_on_map": "挑選在地圖上的位置"
@@ -55,17 +55,17 @@
     "upload_now": "立即上傳",
     "error_internet": "沒有網路連線，請稍後再試。",
     "error_downtime": {
-      "zero": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
-      "one": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
-      "two": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
-      "few": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
-      "many": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。",
-      "other": "iNaturalist 的服務器正在進行維護。請在 {{count}} 小時後重試。"
+      "zero": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。",
+      "one": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。",
+      "two": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。",
+      "few": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。",
+      "many": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。",
+      "other": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。"
     },
     "error_unknown": "上傳失敗。錯誤原因：{{errorText}}",
     "error_login": "登錄令牌失敗。請從 Seek 中的 iNaturalist 或 成就畫面中重新登錄您的 iNaturalist 帳戶。",
-    "error_photo": "無法再在設備上存取照片。",
-    "error_downtime_a_few_hours": "iNaturalist 的服務器正在進行維護。請在幾個小時後再試一次。"
+    "error_photo": "無法再在裝置上存取照片。",
+    "error_downtime_a_few_hours": "iNaturalist 的伺服器正在進行維護。請在幾個小時後再試一次。"
   },
   "notifications": {
     "header": "通知",
@@ -119,7 +119,7 @@
     "observations": "在此裝置中儲存的觀察紀錄",
     "observations_1": "您在「探索」中建立的觀察紀錄只會儲存在您的裝置上，並不會備份到網路上。",
     "observations_2": "刪除此 app 將會移除您在「探索」中所建立的所有觀察紀錄。",
-    "observations_3": "「探索」並不會將您的觀察紀錄同步至其他的裝置上。",
+    "observations_3": "Seek 並不會將您的觀察紀錄同步至其他的裝置上。",
     "agree_to_terms": "我同意<terms>{{terms}}</terms>和<privacy>{{privacy}}</privacy>，而且已審閱過<guidelines>{{guidelines}}</guidelines>    。",
     "guidelines": "社群指南",
     "store_data": "我同意允許讓 iNaturalist 儲存、處理關於我的有限個人資訊，以便管理我的帳號。",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "如果您想套用創用 CC 姓名標示-非商業性許可到上傳的內容，請勾選此項目。這代表任何人只要有表彰您的貢獻並且不使用在商業用途上，都能複製和重複使用您的照片和/或觀察紀錄，而不需事先洽詢許可。您可在事後移除或挑選其它授權，但這是與研究人員共享的最佳授權方式。",
     "about_personal_information": "關於個人資訊",
     "about_licenses": "關於授權",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "我同意允許將我的個人資訊傳送至美國",
+    "learn_more_about_data_transfer": "一些資料隱私法，如歐盟的《一般資料保護規則》（GDPR），要求明確的同意將個人資訊從其管轄區轉移到被認為對該資訊的法律保護不足的其他管轄區。自 2020 年起，歐盟不再將美國視為對個人資訊提供充分法律保護的司法管轄區，特別是因為美國政府可能會監視進入美國的資料。其他司法管轄區可能也有相同的看法。",
+    "learn_more_about_data_transfer_2": "使用 iNaturalist 需要存儲您的電子郵件地址等個人資訊，所有 iNaturalist 資料都存儲在美國，我們無法得知您使用 iNaturalist 時處於哪個法律管轄區，因此為了遵守 GDPR 等隱私權法，您必須承認您了解並接受此風險，並同意將您的個人資訊傳送至美國的 iNaturalist 伺服器。",
+    "learn_more_about_data_transfer_3": "要了解更多關於我們收集哪些資訊以及如何使用這些資訊，請參閱我們的<privacy>{{privacy}}</privacy>和<terms>{{terms}}</terms>。",
+    "learn_more_about_data_transfer_4": "如果不存儲個人資訊，就無法擁有 iNaturalist 帳號，因此撤銷此同意的唯一方法是刪除您的帳戶。"
   },
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",
@@ -149,7 +149,7 @@
     "check_email": "檢查你的電子郵件！",
     "reset_instructions": "我們已把重設密碼的指示送到你的電子郵件信箱中。",
     "return_login": "回到登入畫面",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "身份認證失敗"
   },
   "privacy": {
     "header": "隱私政策"
@@ -279,7 +279,7 @@
     "species_nearby": "此挑戰中附近的物種",
     "no_species_nearby": "我們在此挑戰中沒有發現有您尚未觀察到的物種",
     "species_nearby_internet_error": "我們必須使用網路來顯示您附近的物種。",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "我的花園徽章"
   },
   "results": {
     "observed_species": "你已觀察到新的物種！",
@@ -320,7 +320,7 @@
       "other": "服務暫時無法使用，請於{{count}}小時後再試。"
     },
     "error_few": "一些",
-    "error_gps": "無法取得你的GPS位置，請嘗試移動到看的到天空的區域並且開啟你的裝置GPS位置功能，確認後再儲存這筆觀察記錄",
+    "error_gps": "Seek 無法取得您的 GPS 位置。已儲存您的觀察結果，但如果沒有位置資訊，您將無法查看範圍地圖等詳細資訊。試著移動到一個可以看到天空的地方，並檢查您裝置的定位功能是否已開啟。",
     "error_timeout": "您的位置資訊花了太久的時間來存取。您的觀察記錄已儲存，但沒有位置資訊，您無法閱覽詳細的資訊像是範圍地圖。請稍後再試試看。",
     "nearby": "在此分類群中附近的物種",
     "nothing_nearby": "看起來此分類群中附近還沒有觀察到許多物種！試著拍其他張不同角度的照片，或是上傳至 iNaturalist 上讓其他人協助辨識。",
@@ -580,7 +580,7 @@
     "location": "地點",
     "geoprivacy": "地理資訊隱私權",
     "open": "公開座標",
-    "obscured": "遮蔽座標",
+    "obscured": "隱藏座標",
     "private": "私有座標",
     "yes": "是",
     "no": "否",
@@ -612,12 +612,12 @@
     "date_description": "每一筆在 iNaturalist 上的觀察紀錄都會關聯到一筆日期和地點。透過此方式，我們可以清楚地看到一個物種在如何從時間軸上在世界分布的全球樣貌。",
     "geoprivacy": "地理資訊隱私權",
     "open_header": "開啟：",
-    "obscured_header": "遮蔽：",
+    "obscured_header": "隱藏：",
     "closed_header": "私人：",
     "yes_header": "是: ",
     "no_header": "否: ",
     "open": "在 iNaturalist 上的其他使用者可以觀看此物種在什麼地方被觀察到，而且科學家也能使用此資料來進行研究。",
-    "obscured": "此觀察紀錄的精確地點在 iNaturalist 上將會對其他的使用者隱藏起來，而且顯示在較大的區域範圍內(所有受到滅絕威脅和瀕危物種的座標都會自動遮蔽)。",
+    "obscured": "此觀察紀錄的精確地點在 iNaturalist 上將會對其他的使用者隱藏起來，而且顯示在較大的區域範圍內。（所有受到滅絕威脅和瀕危物種的座標都會自動隱藏）",
     "closed": "此觀察記錄的地點在 iNaturalist 上將不會和其他的使用者分享。",
     "captive": "圈養/栽培?",
     "no": "此生物原本就自然地存在野外，而且不是被人類帶來此地點的。",
@@ -667,8 +667,8 @@
     "logs": "以電子郵件傳送除錯日誌"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Seek 相機",
+    "subtitle": "用來快速辨識"
   },
   "settings": {
     "header": "Seek 相機",
@@ -693,7 +693,7 @@
     "citizen_science": "公民科學挑戰",
     "completed": "您完成了挑戰並贏得挑戰徽章！",
     "april_2020_description": "2020年四月是愛自然(iNaturalist)製作的新版 Seek 釋出一週年慶！在過去的一年中，我們成長很多，而且幫助超過百萬人來感受與周圍世界的更多連結。",
-    "action_april_2020": "四月是公民科學月！您可以將您的 Seek 觀察結果上傳到 iNaturalist 為公民科學家們對生物多樣性的科學了解做出貢獻。\n\n如果您年滿 13 歲（或獲得父母的許可），您就可以建立一個 iNaturalist 帳號並將觀察結果上傳到 iNaturalist 讓所有人，甚至是科學家分們享您的觀察結果！",
+    "action_april_2020": "四月是公民科學月！您可以將您的 Seek 觀察結果上傳到 iNaturalist 為公民科學家們對生物多樣性的科學了解做出貢獻。\n\n如果您年滿 13 歲（或獲得父母的許可），您就可以建立一個 iNaturalist 帳戶並將觀察結果上傳到 iNaturalist 讓所有人，甚至是科學家分們享您的觀察結果！",
     "backyard": "後院挑戰",
     "may_2020_description": "大自然就在您的周圍，您不需要走很遠就能到達。即使只是在您的後院或社區，您也可以找到與您一起生活的植物、鳥類及昆蟲。",
     "action_may_2020": "使用 Seek 主螢幕上的附近物種來認識您周圍能觀察到的所有鳥類、植物和昆蟲並查看牠們的物種頁面。牠們在一年之中的什麼時候被觀察到最多次？然後嘗試探索新的地點：您能在開羅、巴黎或雅加達附近找到什麼物種呢？",
@@ -832,7 +832,7 @@
     "seek_is_an_id_app": "Seek 是個能讓任何人認識他們周遭物種的辨識應用程式",
     "seek_bullet_1": "儲存在您裝置中的 Seek 觀察紀錄 ",
     "seek_bullet_2": "不會從已登出的使用者那裡收集個人識別資訊",
-    "seek_bullet_3": "辨識結果並不會離開您的設備或要求網路才能使用，但也不會得到 iNaturalist 社群的鑑定",
+    "seek_bullet_3": "辨識結果並不會離開您的裝置或要求網路才能使用，但也不會得到 iNaturalist 社群的鑑定",
     "your_obs_could_make_difference": "您的觀察記錄可以帶來改善",
     "everyday_obs_help_scientists": "像您這樣的自然主義者進行的日常觀察幫助科學家們了解發現生物的地點和時間，甚至能帶來新的發現！",
     "faqs": "常見問題",

@@ -3,7 +3,7 @@
     "header": "Arter i närheten",
     "internet_error": "Vi behöver internet för att generera arter i närheten. Tryck för att försöka igen.",
     "no_location": "Ingen plats",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Ingen GPS-signal hittades. Dubbelkolla att du har GPS påslagen",
     "no_species": "Det ser ut som att väldigt få arter har observeras i närheten! Försök att ändra din fyndplats eller utöka artfiltret.",
     "input_location_above_map": "Ingen fyndplats hittades; ange ett platsnamn ovan för att ladda kartan och söka efter arter i närheten",
     "error_alert_location_services": "För att fortsätta, aktivera platstjänster i enhetsinställningarna",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "Markera denna ruta om du vill tillämpa en Creative Commons Erkännande Ickekommersiell-licens för uppladdat innehåll. Detta innebär att vem som helst kan kopiera och återanvända dina bilder och/eller fynd utan att be om tillstånd så länge de anger dig som upphovsman och inte använder verken kommersiellt. Du kan välja en annan licens eller ta bort licensen senare, men detta är den bästa licensen för att dela med forskare.",
     "about_personal_information": "Om personuppgifter",
     "about_licenses": "Om licenser",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "Jag samtycker till att mina personuppgifter får överföras till USA",
+    "learn_more_about_data_transfer": "Vissa dataskyddslagar, som Europeiska unionens allmänna dataskyddsförordning (GDPR), kräver uttryckligt samtycke för att överföra personuppgifter från deras jurisdiktioner till andra jurisdiktioner där det rättsliga skyddet för denna information inte anses vara tillräckligt. Från och med 2020 anser EU inte längre att USA är en jurisdiktion som ger ett adekvat rättsligt skydd för personuppgifter, särskilt på grund av möjligheten för den amerikanska regeringen att övervaka uppgifter som kommer in i USA. Det är möjligt att andra jurisdiktioner kan ha samma åsikt.",
+    "learn_more_about_data_transfer_2": "Att använda iNaturalist kräver lagring av personuppgifter som din e-postadress, all iNaturalist-data lagras i USA, och vi kan inte vara säkra på vilken jurisdiktion du är i när du använder iNaturalist, så för att följa sekretesslagar som GDPR, du måste bekräfta att du förstår och accepterar denna risk och samtycker till att dina personuppgifter överförs till iNaturalists servrar i USA.",
+    "learn_more_about_data_transfer_3": "För att läsa mer om vilken information vi samlar in och hur vi använder den, se vår <privacy>{{privacy}}</privacy> och <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Det är inte möjligt att ha ett iNaturalist-konto utan att spara personlig information, så det enda sättet att återkalla detta samtycke är att ta bort ditt konto."
   },
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",
@@ -149,7 +149,7 @@
     "check_email": "Kolla din e-post!",
     "reset_instructions": "Vi skickade instruktioner för återställning av lösenord till din e-post.",
     "return_login": "Tillbaka till inloggningssidan",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Autentisering misslyckades"
   },
   "privacy": {
     "header": "Integritetspolicy"
@@ -667,8 +667,8 @@
     "logs": "Skicka felsökningsloggar via e-post"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Seek-kameran",
+    "subtitle": "För snabba bestämningar"
   },
   "settings": {
     "header": "Seek-kamera",

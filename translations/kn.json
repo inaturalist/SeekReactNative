@@ -3,6 +3,7 @@
     "header": "ಸಮೀಪದ ಜೀವಿವರ್ಗ",
     "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "ಸ್ಥಳ ಇಲ್ಲ",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter.",
     "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
     "error_alert_location_services": "ಮುಂದುವರೆಯಲು, ನಿಮ್ಮ ಸಾಧನದ ಸಂಯೋಜನೆಗಳಲ್ಲಿ ಸ್ಥಳ ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "ನಾವು ಬಳಕೆದಾರರ ಹೆಸರು ಮತ್ತು ಮಿಂಚೆ ವಿಳಾಸಗಳಂತಹ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಗಳನ್ನು ಈ ತಾಣದಲ್ಲಿ ಖಾತೆ ನಿರ್ವಹಣೆಗಾಗಿ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ, ಹಾಗೂ ಗೋಪ್ಯತಾ ನೀತಿಗಳ ಅನುಸರಣೆಗಾಗಿ ಈ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಗಳ ಬಳಕೆಗೆ ಈ ಚೆಕ್‍ಬಾಕ್ಸ್ ಅನ್ನು ಆರಿಸುವುದರ ಮೂಲಕ ನಮಗೆ ನಿಮ್ಮ ಸಮ್ಮತಿಯ ಅಗತ್ಯವಿದೆ. ನಾವು ಯಾವ ಮಾಹಿತಿಗಳನ್ನು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ ಮತ್ತು ಅವುಗಳನ್ನು ಹೇಗೆ ಬಳಸುತ್ತೇವೆ ಎಂಬುದರ ಬಗ್ಗೆ ಹೆಚ್ಚಿನ ವಿವರ ತಿಳಿಯಲು ದಯವಿಟ್ಟು ನಮ್ಮ ಗೌಪ್ಯತಾ ನೀತಿ ಮತ್ತು ಸೇವಾ ನಿಯಮಗಳನ್ನು ಗಮನಿಸಿ.",
     "learn_more_about_licensing": "Check this box if you want to apply a Creative Commons Attribution-NonCommercial license to uploaded content. This means anyone can copy and reuse your photos and/or observations without asking for permission as long as they give you credit and don't use the works commercially. You can choose a different license or remove the license later, but this is the best license for sharing with researchers.",
     "about_personal_information": "ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ ಬಗ್ಗೆ",
-    "about_licenses": "ಪರವಾನಿಗೆಯ ಬಗ್ಗೆ"
+    "about_licenses": "ಪರವಾನಿಗೆಯ ಬಗ್ಗೆ",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalist ಖಾತೆಯೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ",
@@ -142,7 +148,8 @@
     "reset": "ನನ್ನ ಗುಪ್ತಪದವನ್ನು ಮರುಹೊಂದಿಸಿ",
     "check_email": "ನಿಮ್ಮ ಮಿಂಚೆ ಪರಿಶೀಲಿಸಿ",
     "reset_instructions": "ನಾವು ಗುಪ್ತಪದ ಮರುಹೊಂದಿಕೆ ಸೂಚನೆಗಳನ್ನು ನಿಮ್ಮ ಮಿಂಚೆಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ.",
-    "return_login": "ಲಾಗಿನ್‍ಗೆ ಹಿಂದಿರುಗಿ"
+    "return_login": "ಲಾಗಿನ್‍ಗೆ ಹಿಂದಿರುಗಿ",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "ಗೌಪ್ಯತಾ ನೀತಿ"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "ಡೀಬಗ್ ಲಾಗ್‍ಗಳನ್ನು ಮಿಂಚೆಯ ಮೂಲಕ ಕಳುಹಿಸಿ"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Seek ನ ಕ್ಯಾಮೆರಾ",

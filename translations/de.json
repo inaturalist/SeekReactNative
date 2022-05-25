@@ -3,6 +3,7 @@
     "header": "Arten in der Nähe",
     "internet_error": "Wir brauchen eine Internetverbindung, um Arten in der Nähe anzuzeigen. Tippe, um es erneut zu versuchen.",
     "no_location": "Kein Standort",
+    "no_gps": "Kein GPS-Signal gefunden. Bitte überprüfe, ob das GPS eingeschaltet ist",
     "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuche, deinen Standort zu ändern oder den Artenfilter zu erweitern.",
     "input_location_above_map": "Kein Standort gefunden; gib einen Ortsnamen ein, um die Karte zu laden und nach Arten in der Nähe zu suchen",
     "error_alert_location_services": "Um fortzufahren, aktiviere den Standortdienst in deinen Geräteeinstellungen",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Wir speichern personenbezogene Daten wie Benutzernamen und E-Mail-Adressen, um Benutzerkonten auf dieser Website zu verwalten. Um die Datenschutzgesetze einzuhalten, benötigen wir deine Einwilligung in diese Nutzung personenbezogener Daten, indem du dieses Kästchen ankreuzt. Um mehr darüber zu erfahren, welche Informationen wir sammeln und wie wir sie verwenden, lese bitte unsere Datenschutzrichtlinie und Geschäftsbedingungen.",
     "learn_more_about_licensing": "Wähle dies aus, wenn Du Deine Fotos unter die Creative Commons - Namensnennung-NichtKommerziell - Lizenz stellen möchtest. Das bedeutet, dass jeder Deine Fotos und/oder Beobachtungen kopieren und wiederverwenden kann, ohne um Erlaubnis zu bitten, solange eine Namensnennung erfolgt und die Werke nicht kommerziell genutzt werden. Du kannst eine andere Lizenz wählen oder die Lizenz später entfernen, aber dies ist die beste Lizenz für die Weitergabe an Forscher.",
     "about_personal_information": "Über personenbezogene Daten",
-    "about_licenses": "Über Lizenzen"
+    "about_licenses": "Über Lizenzen",
+    "transfer_data": "Ich stimme zu, dass meine persönlichen Daten in die Vereinigten Staaten übertragen werden dürfen",
+    "learn_more_about_data_transfer": "Einige Datenschutzgesetze, wie die Datenschutz-Grundverordnung (DSGVO) der Europäischen Union, bedürfen der ausdrücklichen Zustimmung zur Weitergabe persönlicher Informationen aus ihren Zuständigkeitsbereichen an andere Gerichtsbarkeiten, wenn der rechtliche Schutz dieser Informationen nicht als ausreichend angesehen wird. Ab 2020 betrachtet die Europäische Union die Vereinigten Staaten nicht mehr als eine Gerichtsbarkeit, die einen angemessenen rechtlichen Schutz personenbezogener Daten gewährleistet, insbesondere wegen der Möglichkeit, dass die US-Regierung in die USA übertragene Daten überwachen kann. Es ist möglich, dass andere Gerichtsbarkeiten die gleiche Meinung haben.",
+    "learn_more_about_data_transfer_2": "Die Verwendung von iNaturalist erfordert die Speicherung persönlicher Daten wie deiner E-Mail-Adresse, alle iNaturalist-Daten werden in den Vereinigten Staaten gespeichert, und wir können nicht sicher sein, in welcher rechtlichen Gerichtsbarkeit du dich befindest, wenn du iNaturalist verwendest. Um die Datenschutzgesetze wie die DSGVO einzuhalten, musst du anerkennen, dass du dieses Risiko verstehst und akzeptierst sowie damit einverstanden bist, persönlichen Daten auf die Server von iNaturalist in den USA zu übertragen.",
+    "learn_more_about_data_transfer_3": "Um mehr darüber zu erfahren, welche Informationen wir sammeln und wie wir sie verwenden, lies  bitte unsere <privacy>{{privacy}}</privacy> und <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Es gibt keine Möglichkeit, ein iNaturalist-Konto zu haben, ohne persönliche Daten zu speichern - sodass die einzige Möglichkeit, diese Einwilligung zu widerrufen ist, das Konto zu löschen."
   },
   "inat_login": {
     "log_in_with_inat": "Mit deinem iNaturalist-Konto anmelden",
@@ -142,7 +148,8 @@
     "reset": "Kennwort zurücksetzen",
     "check_email": "Überprüfe dein E-Mail-Postfach!",
     "reset_instructions": "Wir haben eine Anleitung zum Zurücksetzen des Kontos an deine E-Mail-Adresse gesendet.",
-    "return_login": "Zurück zur Anmeldung"
+    "return_login": "Zurück zur Anmeldung",
+    "authentication_failed": "Authentifizierung fehlgeschlagen"
   },
   "privacy": {
     "header": "Datenschutzrichtlinie"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Debug-Logs per E-Mail senden"
+  },
+  "shortcut": {
+    "seek_camera": "Seek-Kamera",
+    "subtitle": "Für schnelle Bestimmungenn"
   },
   "settings": {
     "header": "Seek-Kamera",

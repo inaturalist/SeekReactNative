@@ -3,6 +3,7 @@
     "header": "附近的物种",
     "internet_error": "我们需要网络才能整合附近的物种信息。点击再试一次。",
     "no_location": "无位置信息",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "看上去附近没有太多物种被观察到！尝试换一处或者更改过滤条件。",
     "input_location_above_map": "未找到位置；在上方输入位置名称以加载地图并搜索附近的物种。",
     "error_alert_location_services": "要继续，请在您的设备设置中开启位置服务",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "我们需要储存用户名称以及电子邮箱地址之类的个人信息来管理在网站上的账号，因要符合隐私法规的要求，需要您勾选此方框來表明您同意上述的个人信息使用。要了解更多关于我们如何收集以及使用信息，请查看我们的隐私政策和服务条款。",
     "learn_more_about_licensing": "如果您想要应用知识共享许可（署名-非商业性），请选中此项。 这意味着只要保持诚信且不商业使用作品，任何人都可以复制和重新使用您的照片和/或观察记录，而无需请求许可。 您可以稍后选择一个不同的许可证或删除许可证，但这是与研究人员分享的最佳许可证。",
     "about_personal_information": "关于个人信息",
-    "about_licenses": "关于许可证"
+    "about_licenses": "关于许可证",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "使用您的 iNaturalist 帐户登录",
@@ -142,7 +148,8 @@
     "reset": "重设我的密码",
     "check_email": "请检查您的邮箱！",
     "reset_instructions": "我们已将密码重置的操作说明发送到您的电子邮件地址。",
-    "return_login": "返回登录页面"
+    "return_login": "返回登录页面",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "隐私条款"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Send debug logs by email"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Seek Camera",

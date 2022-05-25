@@ -64,7 +64,7 @@
     },
     "error_unknown": "上傳失敗。錯誤原因：{{errorText}}",
     "error_login": "登錄令牌失敗。請從 Seek 中的 iNaturalist 或 成就畫面中重新登錄您的 iNaturalist 帳戶。",
-    "error_photo": "無法再在裝置上存取照片。",
+    "error_photo": "無法使用裝置上的照片。 ",
     "error_downtime_a_few_hours": "iNaturalist 的伺服器正在進行維護。請在幾個小時後再試一次。"
   },
   "notifications": {

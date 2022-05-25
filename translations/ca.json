@@ -271,7 +271,8 @@
     "species_observed": "Espècies Observades",
     "species_nearby": "ESPÈCIES PROPERES EN AQUEST REPTE",
     "no_species_nearby": "No hem trobat espècies properes en aquest repte que no hagis observat ja",
-    "species_nearby_internet_error": "Necessitem Internet per generar les espècies pròperes"
+    "species_nearby_internet_error": "Necessitem Internet per generar les espècies pròperes",
+    "badge_name_my_garden_2022": "INSÍGNIA DEL MEU JARDÍ"
   },
   "results": {
     "observed_species": "Has observat una nova espècie!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Repte de Flors Silvestres",
     "april_2022_mission_1": "Troba 10 espècies de plantes amb flor (Subfílum Angiospermes)",
     "april_2022_description_many_flowers_have_colors_shapes": "Moltes flors tenen colors i formes que atreuen els insectes per visitar les flors. Les flors produeixen pol·len que es pot transferir d'una flor a una altra, per animals, el vent o l'aigua.",
-    "april_2022_action_pollen_visible_anther": "De vegades, el pol·len és visible a l'antera de la flor. Si la toques amb el teu dit, pots veure el pol·len en ell? Com penses que es pol·linitza aquesta espècie?"
+    "april_2022_action_pollen_visible_anther": "De vegades, el pol·len és visible a l'antera de la flor. Si la toques amb el teu dit, pots veure el pol·len en ell? Com penses que es pol·linitza aquesta espècie?",
+    "may_2022_challenge_name_bee": "Repte d'abelles",
+    "may_2022_mission_1": "Troba 3 espècies d'abelles (Epifamília Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Sabies que no totes les abelles fan mel ni viuen en arnes? La majoria de les espècies natives són solitàries, però també són pol·linitzadores essencials de les flors i els arbres. Si et mantens tranquil i els hi dones espai mentre visiten les flors, les abelles no et picaran.",
+    "may_2022_action_see_bees": "Pots veure abelles que no havies vist abans a la pel·lícula de PBS Nature \"My Garden of a Thousand Bees\". Pots plantar les teves flors silvestres per veure quins pol·linitzadors atreuen. #PlantaFlorsSilvestres",
+    "june_2022_challenge_name_wildflower": "Repte Pol·linització",
+    "june_2022_mission_1": "Dues espècies de plantes amb flors (Subtipus Angiospermes)",
+    "june_2022_mission_2": "Dues espècies de:\n\n-Ordre Coleòpters (Escarabats)\n-Ordre Dípters (Mosques)\n-Ordre Lepidòpters (Papallones i Arnes)\n-Epifamília Antòfils (Abelles) ",
+    "june_2022_description_most_fruits_and_seeds": "Molts dels fruits i llavors que pots descobrir a la natura són el resultat d'una pol·linització exitosa. Les Abelles no són els únics insectes que actuen com pol·linitzadors! Després de la pol·linització, les flors es transformen en un fruit que conté llavors. Has vist plantes que estiguin desenvolupant els fruits?",
+    "june_2022_action_busy_pollinators": "Els ocupats pol·linitzadors, com les abelles i altres insectes, mantenen les nostres poblacions locals de plantes saludables i diverses. Pots aprendre més sobre la vida secreta de les abelles veient la nova pel·lícula \"My Garden of a Thousand Bees\" de PBS Nature. Planta les teves flors silvestres per veure quins pol·linitzadors atreuen. #PlantaFlorsSilvestres"
   }
 }

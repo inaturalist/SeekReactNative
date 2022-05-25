@@ -271,7 +271,8 @@
     "species_observed": "Species Observed",
     "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
     "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species."
+    "species_nearby_internet_error": "We need the Internet to generate nearby species.",
+    "badge_name_my_garden_2022": "MY GARDEN BADGE"
   },
   "results": {
     "observed_species": "新しい種を観察しました！",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Wildflower Challenge",
     "april_2022_mission_1": "Find 10 species of flowering plants (Subphylum Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Many flowers have colors and shapes that attract insects to visit the flowers. Flowers produce pollen that can be transferred from one flower to another by animals, wind, or water.",
-    "april_2022_action_pollen_visible_anther": "Sometimes pollen is visible on the anther of the flower. If you touch your finger to it, can you see pollen on your finger? What do you think pollinates this species?"
+    "april_2022_action_pollen_visible_anther": "Sometimes pollen is visible on the anther of the flower. If you touch your finger to it, can you see pollen on your finger? What do you think pollinates this species?",
+    "may_2022_challenge_name_bee": "Bee Challenge",
+    "may_2022_mission_1": "Find 3 species of bees (Epifamily Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Did you know that not all bees make honey or live in hives? Most native bees live alone, but are still essential pollinators of flowers and trees. If you stay calm and give them space while they visit flowers, bees should not bother you.",
+    "may_2022_action_see_bees": "See bees as you've never seen them before in the new PBS Nature film My Garden of a Thousand Bees. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Pollination Challenge",
+    "june_2022_mission_1": "Two species of flowering plants (Subphylum Angiospermae)",
+    "june_2022_mission_2": "Two species in:\n\n-Order Coleoptera (Beetles);\n-Order Diptera (Flies);\n-Order Lepidoptera (Butterflies and Moths)\nEpifamily Anthophila (Bees)",
+    "june_2022_description_most_fruits_and_seeds": "Most fruits and seeds you discover in nature are the result of successful pollination. Bees are not the only insects that act as pollinators! After pollination, the flower develops into a fruit that contains seeds. Did you see any plants with developing fruits?",
+    "june_2022_action_busy_pollinators": "Busy pollinators like bees and other insects keep our local plant populations healthy and diverse. Learn more about the secret lives of bees by watching the new film My Garden of a Thousand Bees on PBS Nature. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers"
   }
 }

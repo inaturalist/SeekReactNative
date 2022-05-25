@@ -271,7 +271,8 @@
     "species_observed": "觀察到的物種",
     "species_nearby": "此挑戰中附近的物種",
     "no_species_nearby": "我們在此挑戰中沒有發現有您尚未觀察到的物種",
-    "species_nearby_internet_error": "我們必須使用網路來顯示您附近的物種。"
+    "species_nearby_internet_error": "我們必須使用網路來顯示您附近的物種。",
+    "badge_name_my_garden_2022": "MY GARDEN BADGE"
   },
   "results": {
     "observed_species": "你已觀察到新的物種！",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "野花挑戰",
     "april_2022_mission_1": "找出 10 種開花植物（被子植物亞門）",
     "april_2022_description_many_flowers_have_colors_shapes": "許多花朵的顏色及形狀都能吸引昆蟲們來訪。花產生的花粉能透過動物、風或水從一朵花傳遞至另一朵花。",
-    "april_2022_action_pollen_visible_anther": "有時可以看見花粉在花的花葯上。如果你用手指碰它，你能看到手指上的花粉嗎？你覺得是什麼幫這個物種授粉的呢？"
+    "april_2022_action_pollen_visible_anther": "有時可以看見花粉在花的花葯上。如果你用手指碰它，你能看到手指上的花粉嗎？你覺得是什麼幫這個物種授粉的呢？",
+    "may_2022_challenge_name_bee": "蜜蜂挑戰",
+    "may_2022_mission_1": "找到 3 種蜜蜂（花蜂類）",
+    "may_2022_description_not_all_bees_make_honey": "你知道不是所有的蜜蜂都會釀蜜或住在蜂巢裡嗎？大多數原生的蜜蜂都是獨自生活的，但仍然是花卉和樹木重要的授粉者。如果你保持鎮定，在牠們拜訪花朵時給牠們空間，蜜蜂應該就不會打擾你。",
+    "may_2022_action_see_bees": "在新的 PBS Nature 電影《My Garden of a Thousand Bees》中，您可以看到以前從未見過的蜜蜂。並種植您自己的原生野花，看看它們會吸引哪些授粉者前來。#PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "授粉挑戰",
+    "june_2022_mission_1": "兩種開花植物（被子植物亞門）",
+    "june_2022_mission_2": "兩種：\n\n- 鞘翅目（甲蟲）；\n- 雙翅目（蒼蠅）；\n- 鱗翅目（蝴蝶和蛾）\n花蜂類（蜜蜂）",
+    "june_2022_description_most_fruits_and_seeds": "你在自然界中發現的大多數水果和種子都是成功授粉的結果。蜜蜂並非唯一飾演著授粉者角色的昆蟲！授粉後，花朵發育成含有種子的果實。你有沒有見過任何發育果實中的植物？",
+    "june_2022_action_busy_pollinators": "像蜜蜂和其他昆蟲等繁忙的授粉者們，都維持了我們當地植物族群的健康和多樣性。透過觀看 PBS Nature 上的新電影《My Garden of a Thousand Bees》來了解更多關於蜜蜂的秘密生活。並種植您自己的原生野花，看看它們會吸引哪些授粉者前來。#PlantWildflowers"
   }
 }

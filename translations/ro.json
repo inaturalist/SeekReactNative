@@ -271,7 +271,8 @@
     "species_observed": "Specii Observate",
     "species_nearby": "SPECII DIN APROPIERE ÎN ACEASTĂ PROVOCARE",
     "no_species_nearby": "În această provocare, nu am găsit nicio specie din apropiere pe care nu ai observat-o deja",
-    "species_nearby_internet_error": "Avem nevoie de Internet pentru a genera specii din apropiere."
+    "species_nearby_internet_error": "Avem nevoie de Internet pentru a genera specii din apropiere.",
+    "badge_name_my_garden_2022": "INSIGNA MEA DE GRĂDINĂ"
   },
   "results": {
     "observed_species": "Ai observat o specie nouă!",
@@ -879,6 +880,15 @@
     "april_2022_challenge_name_wildflower": "Provocarea Florilor Sălbatice",
     "april_2022_mission_1": "Găsește 10 specii de plante cu flori (Subphylum Angiospermae)",
     "april_2022_description_many_flowers_have_colors_shapes": "Multe flori au culori și forme care atrag insectele să le viziteze. Florile produc polen care poate fi transferat de la o floare la alta de către animale, vânt sau apă.",
-    "april_2022_action_pollen_visible_anther": "Uneori, polenul este vizibil pe anterele florii. Dacă îți atingi degetul de ea, poți vedea polenul pe degetul tău? Ce crezi că polenizează această specie?"
+    "april_2022_action_pollen_visible_anther": "Uneori, polenul este vizibil pe anterele florii. Dacă îți atingi degetul de ea, poți vedea polenul pe degetul tău? Ce crezi că polenizează această specie?",
+    "may_2022_challenge_name_bee": "Provocarea Albinelor",
+    "may_2022_mission_1": "Găsește 3 specii de albine (Epifamilia Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Știai că nu toate albinele produc miere sau trăiesc în stupi? Cele mai multe albine indigene trăiesc singure, dar sunt totuși polenizatori esențiali pentru flori și copaci. Dacă îți păstrezi calmul și le oferi spațiu în timp ce vizitează florile, albinele nu ar trebui să te deranjeze.",
+    "may_2022_action_see_bees": "Privește albinele așa cum nu le-ai mai văzut până acum în noul film PBS Nature, „My Garden of a Thousand Bees” (Grădina mea cu o mie de albine). Și plantează-ți propriile flori sălbatice native pentru a vedea ce polenizatori atrag. #PlantWildflowers #PlanteazăFloriSălbatice",
+    "june_2022_challenge_name_wildflower": "Provocarea Polenizării",
+    "june_2022_mission_1": "Două specii de plante cu flori (Subphylum Angiospermae)",
+    "june_2022_mission_2": "Două specii din:\n\n-Ordinul Coleoptera (Scarabei);\n-Ordinul Diptera (Muște);\n-Ordinul Lepidoptera (Fluturi și Molii).\nEpifamilia Anthophila (Albine)",
+    "june_2022_description_most_fruits_and_seeds": "Majoritatea fructelor și semințelor pe care le descoperi în natură sunt rezultatul unei polenizări reușite. Albinele nu sunt singurele insecte care acționează ca polenizatori! După polenizare, floarea se transformă într-un fruct care conține semințe. Ai văzut vreo plantă cu fructe în dezvoltare?",
+    "june_2022_action_busy_pollinators": "Polenizatorii, cum ar fi albinele și alte insecte, mențin populațiile locale de plante sănătoase și diverse. Află mai multe despre viața secretă a albinelor vizionând noul film „My Garden of a Thousand Bees” (Grădina mea cu o mie de albine) pe PBS Nature. Și plantează-ți propriile flori sălbatice native pentru a vedea ce polenizatori atrag. #PlantWildflowers #PlanteazăFloriSălbatice"
   }
 }

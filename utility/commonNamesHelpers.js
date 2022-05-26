@@ -47,13 +47,15 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         const locale = setDisplayLanguage( preferredLanguage );
         // need to remove hyphens for pt-BR and es-MX
         const seekLocale = localeNoHyphens( locale );
+        const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
         const userSettings = realm.objects( "UserSettingsRealm" )[0];
         const prevAppVersion = userSettings?.appVersion;
         const currentAppVersion = getVersion( );
 
-        // only reload common names when the app version changes, not on each app launch
-        if ( prevAppVersion === currentAppVersion ) {
+        // only reload common names when the app version changes or when the
+        // user's desired locale changes, not on each app launch
+        if ( prevAppVersion === currentAppVersion && realmLocale.length > 0 ) {
           return;
         } else {
           userSettings.appVersion = currentAppVersion;

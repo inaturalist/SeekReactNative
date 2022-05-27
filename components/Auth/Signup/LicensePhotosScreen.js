@@ -1,10 +1,11 @@
 // @flow
 
 import React, { useState } from "react";
-import { View, Text, Alert } from "react-native";
+import { View, Text, Alert, ScrollView } from "react-native";
 import HTML from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
+import Modal from "react-native-modal";
 
 import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
@@ -16,23 +17,50 @@ import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
+import WhiteModal from "../../UIComponents/Modals/WhiteModal";
+import Padding from "../../UIComponents/Padding";
 
-const LicensePhotosScreen = (): Node => {
-  const { navigate } = useNavigation();
-  const [email, setEmail] = useState( "" );
-  const [licensePhotos, setLicensePhotos] = useState( true );
+const LicensePhotosScreen = ( ): Node => {
+  const { navigate } = useNavigation( );
+
+  const [user, setUser] = useState( {
+    email: "",
+    preferred_observation_license: false,
+    preferred_photo_license: false,
+    pi_consent: false,
+    data_transfer_consent: false
+  } );
+
+  const { email } = user;
+
   const [error, setError] = useState( false );
-  const [storeData, setStoreData] = useState( false );
   const [agreeTerms, setAgreeTerms] = useState( false );
+  const [showModal, setShowModal] = useState( false );
 
-  const toggleLicensePhotos = () => setLicensePhotos( !licensePhotos );
-  const toggleAgreeTerms = () => setAgreeTerms( !agreeTerms );
-  const toggleStoreData = () => setStoreData( !storeData );
+  const closeModal = ( ) => setShowModal( false );
 
-  const submit = () => {
+  const toggleLicensePhotos = ( ) => setUser( {
+    ...user,
+    preferred_observation_license: !user.preferred_observation_license ? "CC-BY-NC" : null,
+    preferred_photo_license: !user.preferred_photo_license ? "CC-BY-NC" : null
+ } );
+
+  const toggleAgreeTerms = ( ) => setAgreeTerms( !agreeTerms );
+
+  const togglePIConsent = ( ) => setUser( {
+    ...user,
+    pi_consent: !user.pi_consent
+ } );
+
+  const toggleDataTransferConsent = ( ) => setUser( {
+    ...user,
+    data_transfer_consent: !user.data_transfer_consent
+ } );
+
+  const submit = ( ) => {
     if ( checkIsEmailValid( email ) ) {
       setError( false );
-      navigate( "Signup", { email, licensePhotos } );
+      navigate( "Signup", { user } );
     } else {
       setError( true );
     }
@@ -43,7 +71,12 @@ const LicensePhotosScreen = (): Node => {
       <Text
         key={text}
         allowFontScaling={false}
-        onPress={() => navigate( screen )}
+        onPress={( ) => {
+          navigate( screen );
+          if ( showModal ) {
+            setShowModal( false );
+          }
+        }}
         style={styles.linkText}
       >
         {i18n.t( `inat_signup.${text}` )}
@@ -51,9 +84,12 @@ const LicensePhotosScreen = (): Node => {
     );
   };
 
-  const html = `<p>${i18n.t( "inat_signup.agree_to_terms" )}</p>`;
+  const agreeToTermsHTML = `<p>${i18n.t( "inat_signup.agree_to_terms" )}</p>`;
 
-  const handleEmailInput = value => setEmail( value );
+  const handleEmailInput = value => setUser( {
+    ...user,
+    email: value
+  } );
 
   const showLicensingAlert = ( ) => (
     Alert.alert(
@@ -62,15 +98,51 @@ const LicensePhotosScreen = (): Node => {
     )
   );
 
-  const showDataStorageAlert = ( ) => (
+  const showPIConsentAlert = ( ) => (
     Alert.alert(
       i18n.t( "inat_signup.about_personal_information" ),
       i18n.t( "inat_signup.learn_more_about_data_storage" )
     )
   );
 
+  const dataTransferLearnMoreHTML = `<p>${i18n.t( "inat_signup.learn_more_about_data_transfer" )}</p>
+    <p><p>${i18n.t( "inat_signup.learn_more_about_data_transfer_2" )}</p>
+    <p><p>${i18n.t( "inat_signup.learn_more_about_data_transfer_3" )}</p>
+    <p><p>${i18n.t( "inat_signup.learn_more_about_data_transfer_4" )}</p>
+    <p><p><p><p><p>`;
+
+  const dataTransferHTML = ( ) => (
+    <HTML
+      source={{ html: dataTransferLearnMoreHTML }}
+      tagsStyles={{ p: styles.licenseText }}
+      renderers={{
+        privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
+        terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" }
+      }}
+    />
+  );
+
+  const renderDataTransferModal = ( ) => (
+    <Modal
+      isVisible={showModal}
+      onBackdropPress={closeModal}
+      useNativeDriverForBackdrop
+      useNativeDriver
+    >
+      <WhiteModal closeModal={closeModal}>
+        <ScrollView style={styles.scrollView}>
+          {dataTransferHTML( )}
+        </ScrollView>
+      </WhiteModal>
+    </Modal>
+  );
+
+  const disableButton = !agreeTerms || !user.pi_consent || !user.data_transfer_consent;
+
+  const licensePhotos = user.preferred_observation_license ? true : false;
+
   return (
-    <ScrollWithHeader header="login.sign_up">
+    <ScrollWithHeader header="login.sign_up" style={styles.bottomPadding}>
       <View style={styles.leftTextMargins}>
         <GreenText allowFontScaling={false} smaller text="inat_signup.email" />
       </View>
@@ -97,23 +169,36 @@ const LicensePhotosScreen = (): Node => {
         toggleCheckbox={toggleAgreeTerms}
         children={(
           <HTML
-            source={{ html }}
+            source={{ html: agreeToTermsHTML }}
             tagsStyles={{ p: styles.licenseText }}
             renderers={{
-              terms: { renderer: () => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
-              privacy: { renderer: () => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
-              guidelines: { renderer: () => renderLink( "CommunityGuidelines", "guidelines" ), wrapper: "Text" }
+              terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
+              privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
+              guidelines: { renderer: ( ) => renderLink( "CommunityGuidelines", "guidelines" ), wrapper: "Text" }
             }}
           />
         )}
       />
       <CheckboxRow
-        isChecked={storeData}
-        toggleCheckbox={toggleStoreData}
+        isChecked={user.pi_consent}
+        toggleCheckbox={togglePIConsent}
         children={(
           <Text style={styles.licenseText}>
             {`${i18n.t( "inat_signup.store_data" )} `}
-            <Text style={styles.linkText} onPress={showDataStorageAlert}>
+            <Text style={styles.linkText} onPress={showPIConsentAlert}>
+              {i18n.t( "inat_signup.learn_more" )}
+            </Text>
+          </Text>
+        )}
+      />
+      {renderDataTransferModal( )}
+      <CheckboxRow
+        isChecked={user.data_transfer_consent}
+        toggleCheckbox={toggleDataTransferConsent}
+        children={(
+          <Text style={styles.licenseText}>
+            {`${i18n.t( "inat_signup.transfer_data" )} `}
+            <Text style={styles.linkText} onPress={( ) => setShowModal( true )}>
               {i18n.t( "inat_signup.learn_more" )}
             </Text>
           </Text>
@@ -121,12 +206,13 @@ const LicensePhotosScreen = (): Node => {
       />
       {error ? <ErrorMessage error="email" /> : <View style={styles.marginTopSmall} />}
       <GreenButton
-        color={( !agreeTerms || !storeData ) && colors.seekTransparent}
+        color={( disableButton ) && colors.seekTransparent}
         handlePress={submit}
         login
         text="inat_signup.next"
-        disabled={!agreeTerms || !storeData}
+        disabled={disableButton}
       />
+      <View style={styles.bottomPadding} />
     </ScrollWithHeader>
   );
 };

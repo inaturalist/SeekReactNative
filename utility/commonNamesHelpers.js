@@ -1,7 +1,10 @@
 // @flow
+import semver from "semver";
+
 import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";
+import { getVersion } from "react-native-device-info";
 
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
@@ -46,10 +49,16 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         const seekLocale = localeNoHyphens( locale );
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
-        // if common names for desired locale already exist in realm, do nothing
-        // note: early Seek adopters will have multiple languages stored in their realm
-        if ( realmLocale.length > 0 ) {
+        const userSettings = realm.objects( "UserSettingsRealm" )[0];
+        const prevAppVersion = userSettings?.appVersion;
+        const currentAppVersion = getVersion( );
+
+        // only reload common names when the app version changes or when the
+        // user's desired locale changes, not on each app launch
+        if ( prevAppVersion === currentAppVersion && realmLocale.length > 0 ) {
           return;
+        } else {
+          userSettings.appVersion = currentAppVersion;
         }
 
         // otherwise, delete all existing common names from Realm and update with preferred language
@@ -92,6 +101,8 @@ const setupCommonNames = ( preferredLanguage: string ) => {
           require( "./commonNames/commonNamesDict-16" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-17" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-18" ).default, seekLocale );
       } );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );

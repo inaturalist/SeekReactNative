@@ -12,6 +12,12 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
+  scrollView: {
+    paddingTop: 40
+  },
+  bottomPadding: {
+    paddingBottom: dimensions.height / 2
+  },
   buttonText: {
     color: colors.white,
     fontFamily: fonts.semibold,

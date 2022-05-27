@@ -15,7 +15,7 @@ import {
   NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
@@ -340,10 +340,23 @@ const ARCamera = ( ): Node => {
       checkForFirstCameraLaunch( );
       requestAndroidPermissions( );
       checkCameraHardware( );
-      // reset posting to iNat
-      savePostingSuccess( false );
     } );
   }, [navigation, requestAndroidPermissions, setObservation] );
+
+  useFocusEffect(
+    useCallback( ( ) => {
+      let isActive = true;
+
+      if ( isActive ) {
+        // reset user ability to post to iNat from Match Screen
+        savePostingSuccess( false );
+      }
+
+      return ( ) => {
+        isActive = false;
+      };
+    }, [] )
+  );
 
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );

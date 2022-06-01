@@ -3,6 +3,7 @@
     "header": "Druhy poblíž",
     "internet_error": "K vygenerování okolních druhů potřebujeme internet. Klepnutím to zkusíte znovu.",
     "no_location": "Neznámá poloha",
+    "no_gps": "Nenalezen žádný signál GPS. Zkontrolujte prosím, že máte zapnutou GPS",
     "no_species": "Zdá se, že v blízkosti nebylo pozorováno mnoho druhů! Zkuste změnit polohu nebo rozšířit filtr druhů.",
     "input_location_above_map": "Žádné místo nebylo nalezeno; pro načtení mapy a vyhledání druhů v okolí zadejte název místa výše",
     "error_alert_location_services": "Chcete-li pokračovat, zapněte službu určování polohy v nastavení zařízení",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Osobní údaje, jako jsou uživatelská jména a e-mailové adresy, ukládáme kvůli spravování účtů na tomto webu. V souladu se zákony na ochranu soukromí\nmusíte zaškrtnout toto políčko, abyste potvrdili, že souhlasíte s použitím těchto\nosobních údajů. Chcete-li se dozvědět více o tom, jaké informace shromažďujeme a\njak je používáme, podívejte se na naše Zásady ochrany osobních údajů a naše Smluvní podmínky.",
     "learn_more_about_licensing": "Označte toto pole, pokud chcete pro své soubory použít licenci Creative Commons Uveďte autora & neužívejte komerčně. To znamená, že dokud vás uvede jako autora/autorku a nebude používat dílo komerčně, může kdokoliv kopírovat a používat vaše fotografie a pozorování, aniž by se ptal na souhlas. Můžete si zvolit jinou licenci nebo licenci později zrušit, tato licence je však nejvhodnější pro sdílení s výzkumníky.",
     "about_personal_information": "O osobní údajích",
-    "about_licenses": "O licencích"
+    "about_licenses": "O licencích",
+    "transfer_data": "Souhlasím s tím, aby byly mé osobní údaje předávány do Spojených států amerických",
+    "learn_more_about_data_transfer": "Některé právní předpisy týkající se ochrany osobních údajů, například Obecné nařízení Evropské unie o ochraně osobních údajů (GDPR), požadují výslovný souhlas s předáváním osobních informací z jejich jurisdikcí do jiných jurisdikcí, kde není právní ochrana těchto informací považována za přiměřenou. Od roku 2020 již Evropská unie nepovažuje Spojené státy za jurisdikci, která poskytuje odpovídající právní ochranu osobních informací, zejména z důvodu možnosti vlády USA kontrolovat údaje vstupující do USA. Tentýž názor mohou mít i jiné jurisdikce.",
+    "learn_more_about_data_transfer_2": "Používání iNaturalist vyžaduje ukládání osobních údajů, jako je vaše e-mailová adresa, všechna data iNaturalist jsou uložena ve Spojených státech, a nemůžeme si být jisti, v jaké právní jurisdikci se nacházíte, když používáte iNaturalist. Za účelem dosažení souladu s právními předpisy na ochranu soukromí, jako je GDPR, musíte tedy potvrdit, že rozumíte tomuto riziku a přijímáte ho a souhlasíte s přenosem vašich osobních údajů na servery iNaturalist v USA.",
+    "learn_more_about_data_transfer_3": "Chcete-li se dozvědět více o tom, jaké informace shromažďujeme a jak je používáme, podívejte se prosím na naše <privacy>{{privacy}}</privacy> a <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Neexistuje způsob, jak mít účet iNaturalist bez uložení osobních informací, takže jediným způsobem, jak zrušit tento souhlas, je smazat váš účet."
   },
   "inat_login": {
     "log_in_with_inat": "Přihlaste se pomocí svého účtu iNaturalist",
@@ -142,7 +148,8 @@
     "reset": "Obnovit heslo",
     "check_email": "Zkontrolujte svůj email!",
     "reset_instructions": "Na váš email jsme zaslali pokyny pro obnovení hesla.",
-    "return_login": "Návrat na přihlášení"
+    "return_login": "Návrat na přihlášení",
+    "authentication_failed": "Ověření selhalo"
   },
   "privacy": {
     "header": "Zásady ochrany osobních údajů"
@@ -272,7 +279,7 @@
     "species_nearby": "DRUHY POBLÍŽ V TÉTO VÝZVĚ",
     "no_species_nearby": "V této výzvě jsme nenašli žádné druhy poblíž, které jste ještě nezaznamenali",
     "species_nearby_internet_error": "K vygenerování druhů poblíž potřebujeme internet.",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "ODZNAK MOJE ZAHRADA"
   },
   "results": {
     "observed_species": "Zaznamenali jste nový druh!",
@@ -659,6 +666,10 @@
   "debug": {
     "logs": "Odeslat ladící protokoly e-mailem"
   },
+  "shortcut": {
+    "seek_camera": "Seek fotoaparát",
+    "subtitle": "Pro rychlou identifikaci"
+  },
   "settings": {
     "header": "Seek fotoaparát",
     "common_names": "Zobrazit obecné názvy",
@@ -881,14 +892,14 @@
     "april_2022_mission_1": "Najděte 10 druhů kvetoucích rostlin (Podkmen Angiospermae, krytosemenné)",
     "april_2022_description_many_flowers_have_colors_shapes": "Mnoho květin má barvy a tvary, které lákají hmyz k jejich návštěvě. Květiny produkují pyl, který mohou zvířata, vítr nebo voda přenášet z jedné květiny na druhou.",
     "april_2022_action_pollen_visible_anther": "Někdy je na prašníku květu viditelný pyl. Když se ho dotknete prstem, vidíte na prstu pyl? Co si myslíte, že opyluje tento druh?",
-    "may_2022_challenge_name_bee": "Bee Challenge",
-    "may_2022_mission_1": "Find 3 species of bees (Epifamily Anthophila)",
-    "may_2022_description_not_all_bees_make_honey": "Did you know that not all bees make honey or live in hives? Most native bees live alone, but are still essential pollinators of flowers and trees. If you stay calm and give them space while they visit flowers, bees should not bother you.",
-    "may_2022_action_see_bees": "See bees as you've never seen them before in the new PBS Nature film My Garden of a Thousand Bees. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers",
-    "june_2022_challenge_name_wildflower": "Pollination Challenge",
-    "june_2022_mission_1": "Two species of flowering plants (Subphylum Angiospermae)",
-    "june_2022_mission_2": "Two species in:\n\n-Order Coleoptera (Beetles);\n-Order Diptera (Flies);\n-Order Lepidoptera (Butterflies and Moths)\nEpifamily Anthophila (Bees)",
-    "june_2022_description_most_fruits_and_seeds": "Most fruits and seeds you discover in nature are the result of successful pollination. Bees are not the only insects that act as pollinators! After pollination, the flower develops into a fruit that contains seeds. Did you see any plants with developing fruits?",
-    "june_2022_action_busy_pollinators": "Busy pollinators like bees and other insects keep our local plant populations healthy and diverse. Learn more about the secret lives of bees by watching the new film My Garden of a Thousand Bees on PBS Nature. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers"
+    "may_2022_challenge_name_bee": "Výzva včel",
+    "may_2022_mission_1": "Najděte 3 druhy včel (epičeleď Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Věděli jste, že ne všechny včely produkují med nebo žijí v úlech? Většina původních včel žije sama, ale stále je nezbytným opylovačem květin a stromů. Pokud zůstanete v klidu a dáte jim prostor, když navštěvují květiny, pak by vás včely neměly obtěžovat.",
+    "may_2022_action_see_bees": "Podívejte se na včely tak, jak jste je nikdy neviděli v novém filmu Moje zahrada tisíců včel na PBS Nature. A zasaďte své vlastní divoké květiny, abyste zjistili, jaké přitahují opylovače. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Výzva opylovaných",
+    "june_2022_mission_1": "Dva druhy kvetoucích rostlin (podkmen Angiospermae, krytosemenné)",
+    "june_2022_mission_2": "Dva druhy v:\n\n-řádu Coleoptera (brouci);\n-řádu Diptera (mouchy);\n-řádu Lepidoptera (motýli)\nepičeledi Anthophila (včely)",
+    "june_2022_description_most_fruits_and_seeds": "Většina ovoce a semen, které v přírodě objevíte, je výsledkem úspěšného opylování. Včely nejsou jediným hmyzem, který působí jako opylovači! Po opylení se květina mění v plod, který obsahuje semínka. Viděli jste nějaké rostliny s rozvíjejícími se plody ovoce?",
+    "june_2022_action_busy_pollinators": "Pracovití opylovači, jako jsou včely a další hmyz, udržují naši místní rostlinnou populaci zdravou a rozmanitou. Zjistěte více o tajném životě včel shlédnutím nového filmu Moje zahrada tisíců včel na PBS Nature. A zasaďte své vlastní divoké květiny, abyste zjistili, jaké přitahují opylovače. #PlantWildflowers"
   }
 }

@@ -1,7 +1,6 @@
 // @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import inatjs from "inaturalistjs";
-// import { Alert } from "react-native";
 
 import { fetchJSONWebToken } from "./uploadHelpers";
 import createUserAgent from "./userAgent";
@@ -9,15 +8,6 @@ import createUserAgent from "./userAgent";
 const checkIsEmailValid = ( email: string ): boolean => {
   if ( email && email.length > 5 ) {
     if ( email.includes( "@" ) && email.includes( "." ) ) {
-      return true;
-    }
-  }
-  return false;
-};
-
-const checkIsUsernameValid = ( username: string ): boolean => {
-  if ( username && ( username.length >= 3 && username.length <= 40 ) ) {
-    if ( typeof ( username.charAt( 0 ) ) !== "number" ) {
       return true;
     }
   }
@@ -115,10 +105,8 @@ export {
   fetchAccessToken,
   removeAccessToken,
   checkIsEmailValid,
-  checkIsUsernameValid,
   savePostingSuccess,
   fetchPostingSuccess,
   formatError,
   fetchUserProfile
-  // fetchUserId
 };

@@ -22,7 +22,8 @@ const MatchScreen = ( ): Node => {
   const { observation } = useContext( ObservationContext );
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
-  const { scientificNames } = useFetchUserSettings( );
+  const settings = useFetchUserSettings( );
+  const scientificNames = settings?.scientificNames;
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
 

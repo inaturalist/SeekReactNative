@@ -3,6 +3,7 @@
     "header": "Soorten in de buurt",
     "internet_error": "We hebben het internet nodig om om soorten in de buurt te genereren. Tik om het opnieuw te proberen.",
     "no_location": "Geen locatie",
+    "no_gps": "Geen gps-signaal gevonden. Controleer alsjeblieft of je gps hebt ingeschakeld",
     "no_species": "Zo te zien zijn er nog niet veel soorten in de buurt waargenomen! Probeer je locatie te wijzigen of breid het soortenfilter uit.",
     "input_location_above_map": "Geen locatie gevonden; voer een gebiedsnaam in om de kaart te laden en te zoeken naar soorten in de buurt",
     "error_alert_location_services": "Schakel locatiediensten in de instellingen van je apparaat in om door te gaan",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Wij slaan persoonlijke informatie zoals gebruikersnamen en e-mailadressen op om accounts op deze site te beheren. Om te voldoen aan de privacywetgeving moet jij dit selectievakje aanvinken om aan te geven dat je akkoord gaat met dit gebruik jouw persoonlijke gegevens. Voor meer informatie over welke informatie we verzamelen en hoe we deze gebruiken, zie ons Privacybeleid en onze Gebruiksvoorwaarden.",
     "learn_more_about_licensing": "Vink dit selectievakje aan als jij een Creative Commons Naamsvermelding-NietCommerciële licentie wilt toepassen op geüploade inhoud. Dit betekent dat iedereen je foto's en waarnemingen kan kopiëren en hergebruiken zonder toestemming te vragen zolang ze je naam vermelden en het werk niet commercieel gebruiken. Je kunt een andere licentie kiezen of de licentie later verwijderen maar deze licentie is de beste licentie voor het delen met onderzoekers.",
     "about_personal_information": "Over persoonlijke gegevens",
-    "about_licenses": "Over licenties"
+    "about_licenses": "Over licenties",
+    "transfer_data": "Ik sta toe dat mijn persoonlijke gegevens naar de Verenigde Staten van Amerika worden verzonden",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Er is geen manier om een iNaturalist account te hebben zonder persoonlijke informatie op te slaan, dus de enige manier om deze toestemming in te trekken is het verwijderen van je account."
   },
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",
@@ -142,7 +148,8 @@
     "reset": "Mijn wachtwoord opnieuw instellen",
     "check_email": "Controleer je e-mail!",
     "reset_instructions": "We hebben instructies voor het resetten van het wachtwoord naar je e-mail gestuurd.",
-    "return_login": "Keer terug naar aanmelden"
+    "return_login": "Keer terug naar aanmelden",
+    "authentication_failed": "Authenticatie mislukt"
   },
   "privacy": {
     "header": "Privacybeleid"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Stuur debug logs via e-mail"
+  },
+  "shortcut": {
+    "seek_camera": "Seek camera",
+    "subtitle": "Voor snelle identificaties"
   },
   "settings": {
     "header": "Seek's Camera",

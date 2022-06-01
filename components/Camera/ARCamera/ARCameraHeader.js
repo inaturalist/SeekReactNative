@@ -22,7 +22,8 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
   const { isLandscape } = useContext( AppOrientationContext );
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
-  const { scientificNames } = useFetchUserSettings( );
+  const settings = useFetchUserSettings( );
+  const scientificNames = settings?.scientificNames;
   const showScientificName = scientificNames || !commonName;
 
   let id = null;

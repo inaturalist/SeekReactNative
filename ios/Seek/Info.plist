@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.13.6</string>
+	<string>2.14.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>243</string>
+	<string>247</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false />
 	<key>LSApplicationQueriesSchemes</key>
@@ -65,7 +65,7 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeCapturePhoto</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Seek AR Camera</string>
+			<string>Seek Camera</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).CameraAction</string>
 		</dict>

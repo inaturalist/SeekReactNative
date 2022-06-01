@@ -3,6 +3,7 @@
     "header": "Види поблизу",
     "internet_error": "Для того, щоб показати види поблизу необхідно підключення до Інтернету. Натисніть, аби спробувати ще раз.",
     "no_location": "Місцезнаходження не вказано",
+    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
     "no_species": "Схоже, поблизу немає багато видів! Спробуйте змінити своє місцезнаходження або розширити фільтр видів.",
     "input_location_above_map": "Місцезнаходження не знайдено. Введіть назву місцевості, щоб завантажити карту та знайти види поблизу",
     "error_alert_location_services": "Щоб продовжити, увімкніть можливість визначення місцезнаходження у налаштуваннях вашого пристрою",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Ми зберігаємо особисту інформацію, таку як імена користувачів та адреси електронної пошти для того, щоб керувати обліковими записами на цьому сайті. Щоб дотримати вимоги законодавства щодо конфіденційності, ми потребуємо, щоб ви засвідчили свою згоду на використання особистої інформації, виставивши цей прапорець. Щоб дізнатися більше про те, яку інформацію ми збираємо та як ми її використовуємо, будь ласка, ознайомтеся з нашою Політикою конфіденційності та нашими Умовами надання послуг.",
     "learn_more_about_licensing": "Встановіть цей прапорець, якщо ви хочете застосувати ліцензію Creative Commons - не комерційну - із зазначенням авторства до завантажуваного контенту. Це означає, що кожен може копіювати та повторно використовувати ваші фото або спостереження, не питаючи про дозвіл, за умови посилання на вас, як на автора та виключно у некомерційних цілях. Ви можете обрати інший тип ліцензії або видалити її пізніше, але це найкраща ліцензія для спільного використання у дослідженнях.",
     "about_personal_information": "Персональні дані",
-    "about_licenses": "Про ліцензії"
+    "about_licenses": "Про ліцензії",
+    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
+    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
+    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "Увійдіть за допомогою вашого облікового запису iNaturalist",
@@ -142,7 +148,8 @@
     "reset": "Скинути пароль",
     "check_email": "Перевірте вашу електронну пошту!",
     "reset_instructions": "Ми надіслали інструкції для скидання пароля на вашу електронну пошту.",
-    "return_login": "Повернутися до входу"
+    "return_login": "Повернутися до входу",
+    "authentication_failed": "Authentication failed"
   },
   "privacy": {
     "header": "Політика конфіденційності"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Send debug logs by email"
+  },
+  "shortcut": {
+    "seek_camera": "Seek Camera",
+    "subtitle": "For quick identifications"
   },
   "settings": {
     "header": "Seek Camera",

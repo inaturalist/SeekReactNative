@@ -23,6 +23,7 @@ const LoginScreen = ( ): Node => {
   const [username, setUsername] = useState( "" );
   const [password, setPassword] = useState( "" );
   const [error, setError] = useState( false );
+  const [errorMessage, setErrorMessage] = useState( "" );
 
   const retrieveOAuthToken = ( ) => {
     const params = {
@@ -30,7 +31,8 @@ const LoginScreen = ( ): Node => {
       client_secret: config.appSecret,
       grant_type: "password",
       username,
-      password
+      password,
+      locale: i18n.locale
     };
 
     const headers = {
@@ -50,6 +52,15 @@ const LoginScreen = ( ): Node => {
       } )
         .then( response => response.json( ) )
         .then( ( responseJson ) => {
+          const errorDescription = responseJson.error_description;
+          if ( errorDescription ) {
+            setError( true );
+            setErrorMessage( errorDescription );
+            return;
+          } else if ( responseJson.error === 400 ) {
+            setError( true );
+            setErrorMessage( i18n.t( "inat_login.authentication_failed" ) );
+          }
           const accessToken = responseJson.access_token;
           if ( !accessToken ) {
             setError( true );
@@ -91,6 +102,8 @@ const LoginScreen = ( ): Node => {
     return errorText;
   };
 
+  console.log( errorMessage, "error message" );
+
   return (
     <ScrollWithHeader header="login.log_in">
       <View style={styles.leftTextMargins}>
@@ -119,7 +132,7 @@ const LoginScreen = ( ): Node => {
           {i18n.t( "inat_login.forgot_password" )}
         </Text>
       </TouchableOpacity>
-      {error ? <ErrorMessage error={setErrorText( )} /> : <View style={styles.greenButtonMargin} />}
+      {error ? <ErrorMessage error={errorMessage || setErrorText( )} /> : <View style={styles.greenButtonMargin} />}
       <GreenButton
         handlePress={retrieveOAuthToken}
         login

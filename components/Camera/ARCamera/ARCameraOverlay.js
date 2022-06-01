@@ -68,7 +68,8 @@ const ARCameraOverlay = ( {
   const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
-  const { autoCapture } = useFetchUserSettings( );
+  const userSettings = useFetchUserSettings( );
+  const autoCapture = userSettings?.autoCapture;
   const [filterIndex, setFilterIndex] = useState( null );
 
   const shutterButtonPositionLandscape = height / 2 - 65 - 31;

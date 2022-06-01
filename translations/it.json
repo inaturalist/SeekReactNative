@@ -3,6 +3,7 @@
     "header": "Specie nelle vicinanze",
     "internet_error": "Ci serve Internet per generare le specie nelle vicinanze. Tocca per riprovare.",
     "no_location": "Nessuna Posizione",
+    "no_gps": "Nessun segnale GPS trovato. Si prega di controllare di aver attivato il GPS",
     "no_species": "Sembra non ci siano molte specie osservate nelle vicinanze! Prova a cambiare la tua posizione o ad ampliare il filtro delle specie.",
     "input_location_above_map": "Nessuna posizione trovata; inserisci un nome per caricare la mappa e cercare le specie nelle vicinanze",
     "error_alert_location_services": "Per continuare, attiva i servizi di localizzazione nelle impostazioni del tuo dispositivo",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Conserviamo informazioni personali quali nomi utente e indirizzi email per gestire i profili su questo sito e rispettare le leggi sulla privacy, abbiamo bisogno che tu spunti questa casella per indicare che acconsenti a quest'uso delle informazioni personali. Per scoprire di più su quali informazioni raccogliamo e come le usiamo, sei pregato di visualizzare la nostra Politica sulla Privacy e i nostri Termini di Servizio.",
     "learn_more_about_licensing": "Spunta questa casella se vuoi applicare una licenza Creative Commons Attribution-NonCommercial al contenuto caricato. Ciò significa che chiunque possa copiare e riutilizzare le tue foto e/od osservazioni senza chiedere il permesso finché ti danno credito e non usano le opere commercialmente. Puoi scegliere una licenza differente o rimuoverla in seguito, ma questa è la migliore per la condivisione coi ricercatori.",
     "about_personal_information": "Sulle Informazioni Personali",
-    "about_licenses": "Sulle Licenze"
+    "about_licenses": "Sulle Licenze",
+    "transfer_data": "Acconsento al trasferimento delle mie informazioni personali negli Stati Uniti d'America",
+    "learn_more_about_data_transfer": "Alcune leggi sulla privacy dei dati, come il regolamento generale dell'Unione europea sulla protezione dei dati (GDPR), richiede il consenso esplicito per trasferire informazioni personali dalle loro giurisdizioni ad altre giurisdizioni qualora la protezione giuridica di tali informazioni non sia ritenuta adeguata. A partire dal 2020, l'Unione europea non considera più gli Stati Uniti una giurisdizione che garantisca un'adeguata protezione giuridica delle informazioni personali, specificamente a causa della possibilità che il governo statunitense controlli i dati che entrano negli Stati Uniti. È possibile che altre giurisdizioni abbiano lo stesso parere.",
+    "learn_more_about_data_transfer_2": "L'utilizzo di iNaturalist richiede la memorizzazione di informazioni personali come il tuo indirizzo email, tutti i dati iNaturalist sono memorizzati negli Stati Uniti, e non possiamo essere sicuri di quale giurisdizione legale si è in quando si utilizza iNaturalist, così al fine di rispettare le leggi sulla privacy come il GDPR, è necessario riconoscere di comprendere e accettare questo rischio e acconsentire al trasferimento dei dati personali ai server di iNaturalist negli Stati Uniti.",
+    "learn_more_about_data_transfer_3": "Per saperne di più su quali informazioni raccogliamo e come le utilizziamo, consulta la nostra <privacy>{{privacy}}</privacy> e i nostri <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Non c'è modo di avere un account iNaturalist senza memorizzare le informazioni personali, quindi l'unico modo per revocare questo consenso è quello di eliminare il tuo account."
   },
   "inat_login": {
     "log_in_with_inat": "Accedi col tuo profilo di iNaturalist",
@@ -142,7 +148,8 @@
     "reset": "Ripristina la mia password",
     "check_email": "Controlla la tua casella email!",
     "reset_instructions": "Abbiamo inviato le istruzioni di ripristino della password alla tua email.",
-    "return_login": "Torna all'Accesso"
+    "return_login": "Torna all'Accesso",
+    "authentication_failed": "Autenticazione fallita"
   },
   "privacy": {
     "header": "Politica sulla Privacy"
@@ -272,7 +279,7 @@
     "species_nearby": "SPECIE NELLE VICINANZE IN QUESTA SFIDA",
     "no_species_nearby": "Non abbiamo trovato alcuna specie nelle vicinanze in questa sfida, che non hai già osservato",
     "species_nearby_internet_error": "Necessitiamo di Internet per generare le specie nelle vicinanze.",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "IL MIO DISTINTIVO GIARDINO"
   },
   "results": {
     "observed_species": "Hai osservato una nuova specie!",
@@ -659,6 +666,10 @@
   "debug": {
     "logs": "Invia i registri di debug via email"
   },
+  "shortcut": {
+    "seek_camera": "Fotocamera di Seek",
+    "subtitle": "Per identificazioni rapide"
+  },
   "settings": {
     "header": "Fotocamera di Seek",
     "common_names": "Mostra i Nomi Comuni",
@@ -877,18 +888,18 @@
     "march_2022_mission_1": "Trova 3 specie vegetali in questi gruppi:\n\n-Classe Conifere;\n-Classe Cycadopsida;\n-Classe Ginkgoopsida",
     "march_2022_description_reproduce_from_non_flowers": "Conifere, Cycadopsida e Ginkgoopsida si riproducono tutte a partire da strutture diverse dai fiori. Le conifere hanno coni edsia le Cycadopsida che le Ginkgoopsida hanno strutture simili a cono che rilasciano o ricevono polline. Molte di queste specie senza fiore sono comunemente coltivate per il loro aspetto o per i prodotti del legno (per le conifere).",
     "march_2022_action_find_wild_or_intentional": "Hai trovato piante selvatiche, o sono state piantate intenzionalmente da persone? Se sono state piantate, quali caratteristiche pensi le abbia rese desiderabili?",
-    "april_2022_challenge_name_wildflower": "Wildflower Challenge",
-    "april_2022_mission_1": "Find 10 species of flowering plants (Subphylum Angiospermae)",
-    "april_2022_description_many_flowers_have_colors_shapes": "Many flowers have colors and shapes that attract insects to visit the flowers. Flowers produce pollen that can be transferred from one flower to another by animals, wind, or water.",
-    "april_2022_action_pollen_visible_anther": "Sometimes pollen is visible on the anther of the flower. If you touch your finger to it, can you see pollen on your finger? What do you think pollinates this species?",
-    "may_2022_challenge_name_bee": "Bee Challenge",
-    "may_2022_mission_1": "Find 3 species of bees (Epifamily Anthophila)",
-    "may_2022_description_not_all_bees_make_honey": "Did you know that not all bees make honey or live in hives? Most native bees live alone, but are still essential pollinators of flowers and trees. If you stay calm and give them space while they visit flowers, bees should not bother you.",
-    "may_2022_action_see_bees": "See bees as you've never seen them before in the new PBS Nature film My Garden of a Thousand Bees. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers",
-    "june_2022_challenge_name_wildflower": "Pollination Challenge",
-    "june_2022_mission_1": "Two species of flowering plants (Subphylum Angiospermae)",
-    "june_2022_mission_2": "Two species in:\n\n-Order Coleoptera (Beetles);\n-Order Diptera (Flies);\n-Order Lepidoptera (Butterflies and Moths)\nEpifamily Anthophila (Bees)",
-    "june_2022_description_most_fruits_and_seeds": "Most fruits and seeds you discover in nature are the result of successful pollination. Bees are not the only insects that act as pollinators! After pollination, the flower develops into a fruit that contains seeds. Did you see any plants with developing fruits?",
-    "june_2022_action_busy_pollinators": "Busy pollinators like bees and other insects keep our local plant populations healthy and diverse. Learn more about the secret lives of bees by watching the new film My Garden of a Thousand Bees on PBS Nature. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers"
+    "april_2022_challenge_name_wildflower": "Sfida Fiori Selvatici",
+    "april_2022_mission_1": "Trova 10 specie di piante da fiore (Subphylum Angiospermae)",
+    "april_2022_description_many_flowers_have_colors_shapes": "Molti fiori hanno colori e forme che attraggono gli insetti. I fiori producono polline che può essere trasferito da un fiore all'altro da animali, vento o acqua.",
+    "april_2022_action_pollen_visible_anther": "A volte il polline è visibile sull'antera del fiore. Se tocchi la tocchi col dito, riesci a vedere il polline? Cosa pensi impollini questa specie?",
+    "may_2022_challenge_name_bee": "Sfida Api",
+    "may_2022_mission_1": "Trova 3 specie di api (Epifamillia Anthophila)",
+    "may_2022_description_not_all_bees_make_honey": "Lo sapevate che non tutte le api producono miele o vivono in alveare? La maggior parte delle api autoctone vivono da sole, ma sono ancora impollinatori essenziali di fiori e alberi. Se rimanete calmi e date loro spazio mentre visitano i fiori, le api non dovrebbero preoccuparvi.",
+    "may_2022_action_see_bees": "Vedi le api come non le hai mai viste nel nuovo film PBS Nature \"My Garden of a Thousand Bees\". E pianta i tuoi fiori selvatici nativi per vedere quali impollinatori attraggono. #PlantWildflowers",
+    "june_2022_challenge_name_wildflower": "Sfida Impollinatori",
+    "june_2022_mission_1": "Due specie di piante da fiore (Subphylum Angiospermae)",
+    "june_2022_mission_2": "Due specie in:\n\n-Ordine Coleoptera (Coleotteri);\n-Ordine Diptera (Mosche);\n-Ordine Lepidoptera (Farfalle e Falene)\n-Epifamilia Anthophila (Api)",
+    "june_2022_description_most_fruits_and_seeds": "La maggior parte dei frutti e dei semi che si trova in natura è il risultato di un'impollinazione di successo. Le api non sono gli unici insetti che agiscono da impollinatori! Dopo l'impollinazione, il fiore si sviluppa in un frutto che contiene semi. Avete visto delle piante con frutti in sviluppo?",
+    "june_2022_action_busy_pollinators": "Impollinatori indaffarati come api e altri insetti mantengono le nostre popolazioni di piante locali sane e diverse. Scopri di più sulla vita segreta delle api guardando il nuovo film \"My Garden of a Thousand Bees\" su PBS Nature. E pianta i tuoi fiori selvatici nativi per vedere quali impollinatori attraggono. #PlantWildflowers"
   }
 }

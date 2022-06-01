@@ -3,6 +3,7 @@
     "header": "Arter i nærheden",
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden. Tryk for at prøve igen.",
     "no_location": "Ingen placering",
+    "no_gps": "Der blev ikke fundet noget GPS-signal. Kontrollér venligst, at GPS er slået til.",
     "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret.",
     "input_location_above_map": "Ingen placering fundet; indtast et stednavn ovenfor for at indlæse kortet og søge efter arter i nærheden",
     "error_alert_location_services": "For at fortsætte skal du aktivere placeringstjenester i dine enhedsindstillinger",
@@ -126,7 +127,12 @@
     "learn_more_about_data_storage": "Vi opbevarer personlig information såsom brugernavne og e-mailadresser med henblik på kontihåndtering på dette websted, og for at overholde persondataloven beder vi dig afkrydse dette felt for at indikere, at du accepterer denne brug af personlig information. Se mere om, hvilken information vi indsamler, samt hvorledes vi anvender den i vores Fortrolighedspolitik\nog Tjenestevilkår.",
     "learn_more_about_licensing": "Markér dette felt, hvis du vil anvende en Creative Commons Kreditering-Ikkekommerciel licens\ntil uploadet indhold. Det betyder, at alle kan kopiere eller genanvende din fotos og/eller observationer uden at spørge om lov, så længe at du krediteres og indholdet ikke bruges kommercielt. Du kan altid vælge en anden licens eller fjerne licensen senere, men dette er den bedste licens til deling med forskere.",
     "about_personal_information": "Om personlig information",
-    "about_licenses": "Om licenser"
+    "about_licenses": "Om licenser",
+    "transfer_data": "Jeg giver samtykke til, at mine personlige oplysninger overføres til USA",
+    "learn_more_about_data_transfer": "Visse databeskyttelseslove, såsom EUs Generelle Databeskyttelsesforordning (GDPR), kræver udtrykkeligt samtykke til at overføre personlige oplysninger fra deres jurisdiktioner til andre jurisdiktioner, hvor den retlige beskyttelse af disse oplysninger ikke anses for tilstrækkelig. Fra 2020 anser Den Europæiske Union ikke længere USA for at være en jurisdiktion, der yder tilstrækkelig retlig beskyttelse af personlige oplysninger, navnlig grundet muligheden for, at den amerikanske regering kan overvåge data, der kommer ind i USA. Det er muligt andre jurisdiktioner kan have den samme opfattelse.",
+    "learn_more_about_data_transfer_2": "Brug af iNaturalist kræver opbevaring af personlige oplysninger som din e-mail-adresse. Alle iNaturalist-data gemmes i USA. Eftersom vi ikke kan være sikre på, hvilken juridisk jurisdiktion du befinder dig i, når du bruger iNaturalist, skal vi for at overholde fortrolighedslove såsom GDPR bede dig om at erklære, at du forstår og accepterer denne risiko og giver samtykke til at overføre dine personlige oplysninger til iNaturalists servere i USA.",
+    "learn_more_about_data_transfer_3": "For at få mere at vide om, hvilke oplysninger vi indsamler og hvordan vi bruger dem, se venligst vores <privacy>{{privacy}}</privacy> og <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Det er ikke muligt at have en iNaturalist-konto uden at gemme personlige oplysninger, så den eneste måde at tilbagekalde dette samtykke på er at slette din konto."
   },
   "inat_login": {
     "log_in_with_inat": "Log ind med din iNaturalist-konto",
@@ -142,7 +148,8 @@
     "reset": "Nulstil min adgangskode",
     "check_email": "Tjek din e-mail!",
     "reset_instructions": "Vi har sendt e-mail med instruktioner til at nulstille din adgangskode.",
-    "return_login": "Vend tilbage til log ind"
+    "return_login": "Vend tilbage til log ind",
+    "authentication_failed": "Godkendelse mislykkedes"
   },
   "privacy": {
     "header": "Privatlivspolitik"
@@ -658,6 +665,10 @@
   },
   "debug": {
     "logs": "Send fejlloggen med e-mail"
+  },
+  "shortcut": {
+    "seek_camera": "Seek-kamera",
+    "subtitle": "Til hurtige identifikationer"
   },
   "settings": {
     "header": "Seek-kamera",

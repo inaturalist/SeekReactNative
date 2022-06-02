@@ -129,10 +129,10 @@
     "about_personal_information": "Informazio pertsonalaren inguruan",
     "about_licenses": "Lizentziei buruz",
     "transfer_data": "Baimentzen dut nire informazio pertsonala Ameriketako Estatu Batuetara bidaltzea",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "learn_more_about_data_transfer": "Datu-pribatatutasunerako legedi batzuk, hala nola Europear Batasuneko Datuen Babeserako Erregulazio Orokorrak (GDPR), informazio pertsonala norbere jurisdikziotik informazio honen babesa ez egokitzat hartzen den beste jurisdikzio batera bidaltzeko baimen esplizitua ematea exijitzen dute. 2020etik Europear Batasunak iritzi du AEBetako jurisdikzioa informazio pertsonalaren beharbesteko babesa ez duela ematen, bereziki AEBetako gobernuak bertan sartzen diren datuak zelatzatzeko aukera dela eta. Baliteke beste jurisdikzio batzuk ere iritzi bera izatea.",
+    "learn_more_about_data_transfer_2": "Inaturalist erabiltzeko bertako datu guztiak Ameriketako Estatu Batuetan gordetzea behar du, helbide elektronikoa bezalako zure informazio pertsonala barne, eta ezin dugu ziurtatu zein den iNaturalist erabiltzen ari zaren lekuan aplikatzen den jurisdikzioa; ondorioz, GDPRa bezalako pribatutasun legeak betetze aldera, arriskua ulertu eta onartzen duzula egiaztatu behar dugu zure informazio pertsonala iNaturalist-eko AEBetako zerbitzarietara bidaltzeko.",
+    "learn_more_about_data_transfer_3": "Biltzen dugun informazioaren eta nola erabiltzen dugunaren inguruan gehiago jakiteko, irakurri itzazu gure <privacy>{{privacy}}</privacy> eta <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Ezin da iNaturalist konturik eduki informazio pertsonalik gorde gabe, eta beraz baimen hau ukatzeko modu bakarra zure kontua ezabatzea da."
   },
   "inat_login": {
     "log_in_with_inat": "Hasi saioa zure iNaturalist kontuarekin",
@@ -149,7 +149,7 @@
     "check_email": "Zure e-posta berrikusi!",
     "reset_instructions": "Zure e-postara pasahitza berrezartzeko instrukzioak bidali dizkizugu.",
     "return_login": "Izen ematera itzuli",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Autentifikazioak huts egin du"
   },
   "privacy": {
     "header": "Pribatutasun politika"
@@ -667,8 +667,8 @@
     "logs": "Bidali debug txostenak e-posta bidez"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Seek Kamera",
+    "subtitle": "Identifikazio azkarretarako"
   },
   "settings": {
     "header": "Seek Kamera",
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "Two species of flowering plants (Subphylum Angiospermae)",
     "june_2022_mission_2": "Two species in:\n\n-Order Coleoptera (Beetles);\n-Order Diptera (Flies);\n-Order Lepidoptera (Butterflies and Moths)\nEpifamily Anthophila (Bees)",
     "june_2022_description_most_fruits_and_seeds": "Most fruits and seeds you discover in nature are the result of successful pollination. Bees are not the only insects that act as pollinators! After pollination, the flower develops into a fruit that contains seeds. Did you see any plants with developing fruits?",
-    "june_2022_action_busy_pollinators": "Busy pollinators like bees and other insects keep our local plant populations healthy and diverse. Learn more about the secret lives of bees by watching the new film My Garden of a Thousand Bees on PBS Nature. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers"
+    "june_2022_action_busy_pollinators": "Busy pollinators like bees and other insects keep our local plant populations healthy and diverse. Learn more about the secret lives of bees by watching the new film My Garden of a Thousand Bees on PBS Nature. And plant your own native wildflowers to see what pollinators they attract. #PlantWildflowers",
+    "july_2022_challenge_name_exoskeleton": "Exoskeleton Challenge",
+    "july_2022_mission_1": "Find 5 species of arthropods",
+    "july_2022_description_insects_crustaceans": "Insects, crustaceans, arachnids, centipedes, and millipedes all have exoskeletons, or “outer skeletons”. Unlike humans and other vertebrates, they do not have an internal skeleton, so muscles attach inside the exoskeleton and enable movement. Exoskeletons also offer protection from drying out and they have sensing organs analogous to human skin.",
+    "july_2022_action_molted_exoskeleton": "Have you ever found an empty, molted exoskeleton? Exoskeletons do not grow with the animal, so they must molt as they grow."
   }
 }

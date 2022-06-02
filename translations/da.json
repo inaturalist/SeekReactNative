@@ -23,7 +23,7 @@
     "take_challenge": "Tag imod udfordringen",
     "continue_challenge": "Fortsæt udfordring",
     "view_all": "Se alle udfordringer",
-    "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!",
+    "new_join": "Tilføj observationer med Seek-kameraet for at modtage udfordringsmærket!",
     "inat_admin": "iNat-administratorer: Tak for at teste Seek! Du ser den nyeste iNat-udfordring inden begyndelsen af måneden for at kunne teste."
   },
   "post_to_inat_card": {
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "To arter af blomstrende planter (Underrække Angiospermae)",
     "june_2022_mission_2": "To arter i:\n\n-Orden Coleoptera (Biller);\n-Orden Diptera (Fluer);\n-Orden Lepidoptera (Sommerfugle og natsværmere)\nOverfamilie Anthophila (Bier)",
     "june_2022_description_most_fruits_and_seeds": "De fleste frugter og frø, du finder i naturen, er resultatet af en vellykket bestøvning. Bier er ikke de eneste insekter, der fungerer som bestøvere! Efter bestøvning udvikler blomsten sig til en frugt, der indeholder frø. Så du nogen planter med frugter under udvikling?",
-    "june_2022_action_busy_pollinators": "Flittige bestøvere som bier og andre insekter holder vores lokale plantesamfund sunde og mangfoldige. Lær mere om biernes hemmelige liv ved at se den nye film My Garden of a Thousand Bees på PBS Nature. Og plant dine egne hjemmehørende, vilde blomster for at se, hvilke bestøvere de tiltrækker. #Plantvildeblomster"
+    "june_2022_action_busy_pollinators": "Flittige bestøvere som bier og andre insekter holder vores lokale plantesamfund sunde og mangfoldige. Lær mere om biernes hemmelige liv ved at se den nye film My Garden of a Thousand Bees på PBS Nature. Og plant dine egne hjemmehørende, vilde blomster for at se, hvilke bestøvere de tiltrækker. #Plantvildeblomster",
+    "july_2022_challenge_name_exoskeleton": "Exoskelet-udfordring",
+    "july_2022_mission_1": "Find 5 arter af leddyr",
+    "july_2022_description_insects_crustaceans": "Insekter, krebsdyr, spindlere, skolopendre og tusindben har alle exoskeletter eller “ydre skeletter”. I modsætning til mennesker og andre hvirveldyr har de ikke et indre skelet, så muskler vedhæfter inde i exoskelettet og muliggøre bevægelse. Exoskeletter giver også beskyttelse mod udtørring, og de har sanseorganer svarende til menneskelig hud.",
+    "july_2022_action_molted_exoskeleton": "Har du nogensinde fundet et tomt exoskelet efter et hamskifte? Exoskeletter vokser ikke sammen med resten af dyret, så de skal udskiftes når dyret vokser."
   }
 }

@@ -276,7 +276,7 @@
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Espécies observadas",
-    "species_nearby": "ESPÉCIES NAS PROXIMIDADES NESTE DESAFIO",
+    "species_nearby": "ESPÉCIES PRÓXIMAS RELACIONADAS A ESTE DESAFIO",
     "no_species_nearby": "Não encontramos nenhuma espécie deste desafio nas proximidades que você já não tenha observado",
     "species_nearby_internet_error": "Precisamos de Internet para gerar as espécies nas proximidades.",
     "badge_name_my_garden_2022": "INSÍGNIA MEU JARDIM"
@@ -805,7 +805,7 @@
     "june_2021_photographer": "Foto de: Keith Ladzinski / National Geographic"
   },
   "challenges_all": {
-    "you_completed_sponsor_challenge": "VOCÊ CONCLUIU O DESAFIO {{sponsorName}} PARA {{date}}!"
+    "you_completed_sponsor_challenge": "VOCÊ CONCLUIU O DESAFIO {{sponsorName}} DE {{date}}!"
   },
   "about_inat": {
     "inaturalist": "INATURALIST",
@@ -868,9 +868,9 @@
     "october_2021_action": "Pense sobre os aracnídeos que encontrou. Como descreveria seus habitats? Quais deles foram encontrados no mesmo habitat?",
     "november_2021_challenge_name_flight_challenge": "Desafio de Voo",
     "november_2021_mission_1": "Encontre 5 espécies nestes grupos:\n\n-Aves (exceto grupos que não voam);\nInsetos alados e com ancestrais alados",
-    "november_2021_description_ability_to_fly": "A habilidade de voar evoluiu independentemente em aves, insetos e morcegos. Entre as aves, algumas espécies perderam essa capacidade mas descendem de ancestrais voadores. O mesmo acontece com vários insetos e todos eles são não voadores em alguma parte do seu ciclo de vida.",
-    "november_2021_action_were_they_flighted": "Dos animais que encontrou, eles estavam na parte alada de suas vidas? Se sim, por onde você acha que eles voaram durante sua vida? Eles migram?",
-    "december_2021_challenge_name_vertebrate_challenge": "Desafio de Vertebrados Terrestres Predadores ",
+    "november_2021_description_ability_to_fly": "A habilidade de voar evoluiu de formas diferentes em aves, insetos e morcegos. Entre as aves, algumas espécies perderam essa capacidade mas descendem de ancestrais voadores. O mesmo acontece com vários insetos que não são voadores em alguma parte do seu ciclo de vida.",
+    "november_2021_action_were_they_flighted": "Dos animais que você encontrou, eles estavam na fase alada (com asas)? Se sim, por onde acha que eles voaram durante sua vida? Eles migram?",
+    "december_2021_challenge_name_vertebrate_challenge": "Desafio dos Predadores Vertebrados Terrestres",
     "december_2021_mission_1": "Encontre 2 espécies de vertebrados de:\n\n-Gaviões, Águias, Milhafres e afins;\n-Falcões e Carcarás;\n-Corujas;\n-Mamíferos Carnívoros;\n-Serpentes e Lagartos;",
     "december_2021_description_vertebrate_animals_have": "Animais vertebrados possuem vértebras e esqueleto interno. Predadores matam e comem presas. Como todos os animais, eles estão adaptados à sua dieta. Por exemplo, muitos predadores possuem garras, dentes ou bicos afiados que permitem que prendam e rasguem suas presas.",
     "december_2021_action_think_about_predators": "Pense sobre os predadores que observou. Que adaptações eles possuem para serem bons em caçar e matar suas presas? As duas espécies que viu têm adaptações para predação similares?"

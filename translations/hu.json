@@ -149,7 +149,7 @@
     "check_email": "Nézd meg az e-mailjeid!",
     "reset_instructions": "A jelszóvisszaállításhoz szükséges teendőket elküldtük az e-mail címedre.",
     "return_login": "Visszatérés a Belépéshez",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Sikertelen hitelesítés"
   },
   "privacy": {
     "header": "Adatvédelmi Szabályzat"
@@ -667,7 +667,7 @@
     "logs": "Hibanapló küldése emailben"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
+    "seek_camera": "Seek Kamera",
     "subtitle": "For quick identifications"
   },
   "settings": {

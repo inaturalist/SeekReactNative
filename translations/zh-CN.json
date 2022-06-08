@@ -3,7 +3,7 @@
     "header": "附近的物种",
     "internet_error": "我们需要网络才能整合附近的物种信息。点击再试一次。",
     "no_location": "无位置信息",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "未找到GPS信号。请重新检查是否开启GPS。",
     "no_species": "看上去附近没有太多物种被观察到！尝试换一处或者更改过滤条件。",
     "input_location_above_map": "未找到位置；在上方输入位置名称以加载地图并搜索附近的物种。",
     "error_alert_location_services": "要继续，请在您的设备设置中开启位置服务",

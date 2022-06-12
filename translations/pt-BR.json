@@ -3,7 +3,7 @@
     "header": "Espécies nas proximidades",
     "internet_error": "Precisamos de acesso à internet para gerar as espécies da sua região. Toque para tentar novamente.",
     "no_location": "Sem localização",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Nenhum sinal de GPS foi encontrado. Por favor, verifique se o GPS está ativado",
     "no_species": "Aparentemente, não foram observadas muitas espécies na região! Tente alterar sua localização ou ampliar o filtro de espécies.",
     "input_location_above_map": "Nenhum local encontrado; insira um nome de local acima para carregar o mapa e procurar por espécies nas proximidades",
     "error_alert_location_services": "Para continuar, ative os serviços de localização nas configurações do dispositivo",
@@ -132,7 +132,7 @@
     "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "learn_more_about_data_transfer_4": "Não há como ter uma conta iNaturalist sem armazenar informações pessoais, então a única forma de revogar esse consentimento é excluindo sua conta."
   },
   "inat_login": {
     "log_in_with_inat": "Entrar com a sua conta no iNaturalist",
@@ -149,7 +149,7 @@
     "check_email": "Verifique o seu e-mail!",
     "reset_instructions": "Enviamos instruções de redefinição de senha para o seu e-mail.",
     "return_login": "Voltar à página de login.",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Falha na autenticação"
   },
   "privacy": {
     "header": "Política de privacidade"
@@ -667,7 +667,7 @@
     "logs": "Enviar relatórios por email"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
+    "seek_camera": "Câmera do Seek",
     "subtitle": "For quick identifications"
   },
   "settings": {
@@ -901,7 +901,7 @@
     "june_2022_mission_2": "Duas espécies em:\n\n-Ordem Coleoptera (besouros);\n-Ordem Diptera (moscas e similares);\n-Ordem Lepidoptera (borboletas e mariposas)\nEpifamília Anthophila (abelhas)",
     "june_2022_description_most_fruits_and_seeds": "A maioria dos frutos e sementes que você encontra na natureza é o resultado de uma polinização bem sucedida. As abelhas não são os únicos insetos que atuam como polinizadores! Depois da polinização, a flor se desenvolve em um fruto que contém sementes. Você já viu alguma planta com frutos em desenvolvimento?",
     "june_2022_action_busy_pollinators": "Os polinizadores atarefados como abelhas e outros insetos mantêm as nossas populações de plantas locais saudáveis e diversificadas. Saiba mais sobre a vida secreta das abelhas assistindo ao novo filme Meu Jardim de Mil Abelhas (My Garden of a Thousand Bees) da PBS Nature. Plante suas próprias flores silvestres nativas para ver quais polinizadores atraem. #PlantaFloresSilvestres",
-    "july_2022_challenge_name_exoskeleton": "Exoskeleton Challenge",
+    "july_2022_challenge_name_exoskeleton": "Desafio de Exoesqueleto",
     "july_2022_mission_1": "Find 5 species of arthropods",
     "july_2022_description_insects_crustaceans": "Insects, crustaceans, arachnids, centipedes, and millipedes all have exoskeletons, or “outer skeletons”. Unlike humans and other vertebrates, they do not have an internal skeleton, so muscles attach inside the exoskeleton and enable movement. Exoskeletons also offer protection from drying out and they have sensing organs analogous to human skin.",
     "july_2022_action_molted_exoskeleton": "Have you ever found an empty, molted exoskeleton? Exoskeletons do not grow with the animal, so they must molt as they grow."

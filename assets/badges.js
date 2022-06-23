@@ -75,7 +75,7 @@ const badges = {
   badge_inaturalist_april2022: require( "./badges/seekChallenges/badge_inaturalist_april2022.webp" ),
   badge_my_garden_may2022: require( "./badges/myGardenChallenges/badge_my_garden_may2022.webp" ),
   badge_my_garden_june2022: require( "./badges/myGardenChallenges/badge_my_garden_june2022.webp" ),
-  badge_inaturalist_july2022: require( "./badges/myGardenChallenges/badge_inaturalist_july2022.webp" )
+  badge_inaturalist_july2022: require( "./badges/seekChallenges/badge_inaturalist_july2022.webp" )
 };
 
 export default badges;

@@ -381,5 +381,12 @@ const missions = [{
       "Anthophila"
     ]
   }
+}, { // july 2022
+  0: {
+    number: 5,
+    types: [
+      "Arthropoda"
+    ]
+  }
 }];
 export default missions;

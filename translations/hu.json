@@ -3,7 +3,7 @@
     "header": "Közelben lévő fajok",
     "internet_error": "A közeli fajok generálásához Internet szükséges. Próbáld újra!",
     "no_location": "Nincs helyszín",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Nincs GPS jel. Ellenőrizd, kérlek, hogy a GPS működik",
     "no_species": "Úgy tűnik, a közelben még sok faj nincs felfedezve! Változtasd meg a helyed vagy szélesítsd a faj szűrő beállításait.",
     "input_location_above_map": "Nem található hely; írd be a hely nevét a térkép betöltéséhez és a közelben található fajok kereséséhez",
     "error_alert_location_services": "A folytatáshoz kapcsold be a helyszolgáltatásokat az eszközöd beállításaiban",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "Jelöld be ezt a négyzetet, ha a Creative Commons Attribution-NonCommercial licencet szeretnéd alkalmazni a feltöltött tartalmakra. Ez azt jelenti, hogy bárki lemásolhatja, és felhasználhatja fotóidat és/vagy megfigyeléseidet anélkül, hogy erre engedélyt kérne, azzal a feltétellel, hogy feltünteti a forrást és nem használja kereskedelmi célra. Később módosíthatja vagy visszavonhatja a licencet, de ez a legalkalmasabb licenc kutatókkal való megosztáshoz.",
     "about_personal_information": "A személyes információkról",
     "about_licenses": "A licencekről",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "Engedélyezem, hogy személyes adataimat át lehessen vinni az Amerikai Egyesült Államokba",
+    "learn_more_about_data_transfer": "Egyes adatvédelmi jogszabályok, mint az Európai Úniós GDPR (általános adatvédelmi rendelet), előzetes hozzájáruláshoz köti a személyes adatok továbbítását olyan országokba, ahol az adatok védelme nem megfelelő. 2020-tól az Európai Únió nem tekinti az Egyesült Államokat olyan országnak, ahol a személyes adatok védelme megfelelő, különösen, mivel az Egyesült Államok kormánya megfigyelheti az országba érkező adatokat. Lehetséges, hogy más joghatóságok is hasonlóan vélekednek.",
+    "learn_more_about_data_transfer_2": "Az iNaturalist használata személyes adatok, például az e-mail címed tárolását igényli, az iNaturalist összes adatát az Egyesült Államokban tároljuk, és mivel nem tudhatjuk, hogy az iNaturalist használata során hol tartózkodsz, ezért az adatvédelmi törvényeknek, például a GDPR-nak való megfelelés érdekében előzetesen el kell ismerned, hogy megértetted és elfogadod ezt a kockázatot, és beleegyezel abba, hogy személyes adataidat az iNaturalist amerikai szervereire továbbítsuk.",
+    "learn_more_about_data_transfer_3": "Ha többet szeretnél megtudni arról, hogy milyen adatokat gyűjtünk és hogyan használjuk fel, kérjük, nézd meg <privacy>{{privacy}}</privacy> , <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Nincs iNaturalist fiók személyes adatok nélkül,  így a hozzájárulás visszavonásának egyetlen módja a fiók törlése."
   },
   "inat_login": {
     "log_in_with_inat": "Bejelentkezés iNaturalist fiókkal",
@@ -149,7 +149,7 @@
     "check_email": "Nézd meg az e-mailjeid!",
     "reset_instructions": "A jelszóvisszaállításhoz szükséges teendőket elküldtük az e-mail címedre.",
     "return_login": "Visszatérés a Belépéshez",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Sikertelen hitelesítés"
   },
   "privacy": {
     "header": "Adatvédelmi Szabályzat"
@@ -667,8 +667,8 @@
     "logs": "Hibanapló küldése emailben"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Seek Kamera",
+    "subtitle": "Gyors határozáshoz"
   },
   "settings": {
     "header": "Seek Kamera",
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "Két faj a virágos növények közül (Angiospermae: zárvatermők altörzse)",
     "june_2022_mission_2": "Két faj az alábbiakból:\n\n-Coleoptera (bogarak) osztálya;\n-Diptera (kétszárnyúak: legyek) osztálya;\n-Lepidoptera (lepkék és molyok) osztálya\nAnthophila (méhek) epifamiliája",
     "june_2022_description_most_fruits_and_seeds": "A gyümölcsök és magvak, amelyeket a természetben felfedezel, sikeres beporzás eredményei. Nem csak a méhek végeznek beporzást! A beporzást követően a virágból gyümölcs fejlődik, amely magokat hordoz. Láttál olyan növényt, amely gyümölcsöt érlel?",
-    "june_2022_action_busy_pollinators": "A szorgos beporzók, mint a méhek és más rovarok, tartják fenn a helyi növényvilág egészségét és diverzitását. Többet is megtudhatsz a méhek titkos életéről a PBS Nature új fimjéből, amely a My Garden of a Thousand Bees (Ezer méh kertje) címmel jelent meg. Ültess őshonos vadvirágokat, hogy lásd milyen méheket vonzanak. #PlantWildflowers"
+    "june_2022_action_busy_pollinators": "A szorgos beporzók, mint a méhek és más rovarok, tartják fenn a helyi növényvilág egészségét és diverzitását. Többet is megtudhatsz a méhek titkos életéről a PBS Nature új fimjéből, amely a My Garden of a Thousand Bees (Ezer méh kertje) címmel jelent meg. Ültess őshonos vadvirágokat, hogy lásd milyen méheket vonzanak. #PlantWildflowers",
+    "july_2022_challenge_name_exoskeleton": "Exoszkeleton Kihívás",
+    "july_2022_mission_1": "Találj 5 ízeltlábú fajt",
+    "july_2022_description_insects_crustaceans": "Rovarok, rákok, pókszabásúak, százlábúak és ezerlábúak exoszkeletonnal vagyis \"külső vázzal\" rendelkeznek. Az emberrel és más gerincesekkel ellentétben nincs belső csontvázuk, így az izmok a külső vázhoz rögzülnek, így teszik lehetővé a mozgást. A külső váz védelmet nyújt a kiszáradás ellen is, és az emberi bőrhöz hasonlóan érzékszervekkel rendelkezik.",
+    "july_2022_action_molted_exoskeleton": "Találtál már üres, levedlett exoszkeletont? A külső váz nem nő az állattal együtt, ezért növekedés során vedleni kell."
   }
 }

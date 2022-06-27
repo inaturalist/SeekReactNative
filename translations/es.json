@@ -3,7 +3,7 @@
     "header": "Especies próximas",
     "internet_error": "Necesitamos acceso a internet para generar las especies próximas. Pulsa para intentarlo de nuevo.",
     "no_location": "Sin ubicación",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "No se ha encontrado señal GPS. Por favor, compruebe que tiene el GPS encendido",
     "no_species": "¡Parece que no han habido muchas especies observadas en las cercanías! Intenta cambiar tu ubicación o ampliar el filtro de especies.",
     "input_location_above_map": "No se ha encontrado ninguna ubicación; introduce una ubicación arriba para cargar el mapa y buscar especies cercanas",
     "error_alert_location_services": "Para continuar, activa los servicios de localización en la configuración de tu dispositivo",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "Marque esta casilla si desea utilizar una licencia de Creative Commons Atribución-No Comercial al contenido subido. Esto significa que cualquiera puede copiar y reutilizar tus fotos y/o observaciones sin pedir permiso, siempre y cuando te den crédito y no utilicen las obras comercialmente. Puedes elegir una licencia diferente o eliminar la licencia más adelante, pero esta es la mejor licencia para compartir con los investigadores.",
     "about_personal_information": "Sobre la información personal",
     "about_licenses": "Acerca de las licencias",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "Doy mi consentimiento para que mi información personal sea transferida a los Estados Unidos de América",
+    "learn_more_about_data_transfer": "Algunas leyes de privacidad de datos, como el Reglamento General de Protección de Datos de la Unión Europea (RPD), requieren el consentimiento explícito para transferir información personal de sus jurisdicciones a otras jurisdicciones en las que la protección legal de esta información no sea considerada como tal. A partir de 2020, la Unión Europea ya no considera que los Estados Unidos sean una jurisdicción que proporcione una protección jurídica adecuada de la información personal. específicamente debido a la posibilidad de que el gobierno de Estados Unidos vigile los datos que entran en ese país. Es posible que otras jurisdicciones tengan la misma opinión.",
+    "learn_more_about_data_transfer_2": "El uso de iNaturalist requiere el almacenamiento de información personal como tu dirección de correo electrónico, todos los datos de iNaturalist se almacenan en los Estados Unidos, y no podemos estar seguros de la jurisdicción legal en la que estás usando iNaturalist, así para cumplir con las leyes de privacidad como el RGPD, debe reconocer que comprende y acepta este riesgo y consentimiento para transferir su información personal a los servidores de iNaturalist en los Estados Unidos.",
+    "learn_more_about_data_transfer_3": "Para obtener más información sobre qué información recopilamos y cómo la usamos, por favor consulte nuestros <privacy>{{privacy}}</privacy> y <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "No hay forma de tener una cuenta de iNaturalist sin almacenar información personal, así que la única forma de revocar este consentimiento es eliminar su cuenta."
   },
   "inat_login": {
     "log_in_with_inat": "Inicia la sesión en tu cuenta de iNaturalist",
@@ -149,7 +149,7 @@
     "check_email": "Revisa tu correo electrónico",
     "reset_instructions": "Hemos enviado las instrucciones para restablecer la contraseña a tu correo electrónico.",
     "return_login": "Volver al inicio de sesión",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Error de autenticación"
   },
   "privacy": {
     "header": "Política de Privacidad"
@@ -667,8 +667,8 @@
     "logs": "Enviar registros vía email"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Cámara de Seek",
+    "subtitle": "Para identificaciones rápidas"
   },
   "settings": {
     "header": "Cámara de Seek",
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "Dos especies de plantas con flores (Subtipo Angiospermas)",
     "june_2022_mission_2": "Dos especies de:\n\n-Orden Coleópteros (Escarabajos);\n-Orden Dípteros (Moscas);\n-Orden Lepidópteros (Mariposas y polillas)\n-Epifamilia Antófilos (Abejas)",
     "june_2022_description_most_fruits_and_seeds": "La mayoría de los frutos y semillas que observas en la naturaleza son el resultado de una polinización exitosa. ¡Las abejas no son los únicos insectos que actúan como polinizadores! Después de la polinización, la flor se convierte en un fruto que contiene semillas. ¿Has visto alguna planta con frutas desarrollándose?",
-    "june_2022_action_busy_pollinators": "Los polinizadores ocupados, como las abejas y otros insectos mantienen nuestras poblaciones vegetales locales sanas y diversas. Aprende más sobre la vida secreta de las abejas viendo la nueva película \"My Garden of a Thousand Bees\" de PBS Nature. Planta tus propias flores naturales silvestres para ver qué polinizadores atraen. #PlantaFloresSilvestres"
+    "june_2022_action_busy_pollinators": "Los polinizadores ocupados, como las abejas y otros insectos mantienen nuestras poblaciones vegetales locales sanas y diversas. Aprende más sobre la vida secreta de las abejas viendo la nueva película \"My Garden of a Thousand Bees\" de PBS Nature. Planta tus propias flores naturales silvestres para ver qué polinizadores atraen. #PlantaFloresSilvestres",
+    "july_2022_challenge_name_exoskeleton": "Desafío de Exoesqueletos",
+    "july_2022_mission_1": "Encuentra 5 especies de artrópodos",
+    "july_2022_description_insects_crustaceans": "Insectos, crustáceos, arácnidos, ciempiés y milpiés tienen exosqueletos, o \"esqueletos exteriores\". A diferencia de los humanos y otros vertebrados, no tienen un esqueleto interno, por lo que los músculos se fijan por dentro al exosqueleto y les permiten el movimiento. Los exosqueletos también ofrecen protección contra la sequedad y tienen órganos sensibles análogos a la piel humana.",
+    "july_2022_action_molted_exoskeleton": "¿Alguna vez has encontrado un exosqueleto vacío mudado? Los exosqueletos no crecen con el animal, así que deben mudarlos a medida que crecen."
   }
 }

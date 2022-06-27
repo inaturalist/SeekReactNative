@@ -23,7 +23,7 @@
     "take_challenge": "參加挑戰",
     "continue_challenge": "繼續挑戰",
     "view_all": "查看所有挑戰",
-    "new_join": "用探索的照相機加入觀察紀錄來贏得挑戰徽章！",
+    "new_join": "使用 Seek 的相機新增觀察紀錄來贏得挑戰徽章！",
     "inat_admin": "iNat 管理員：感謝您測試 Seek！您將在下個月之前看到最新的 iNat 挑戰以進行測試。"
   },
   "post_to_inat_card": {
@@ -107,7 +107,7 @@
     "email": "電子郵件信箱",
     "username": "使用者名稱",
     "password": "密碼",
-    "release_photos": "是，授權我的照片讓科學家可使用我的資料！",
+    "release_photos": "是，授權我的照片與觀察記錄讓科學家們能使用我的資料！（建議）",
     "create_account": "建立我的帳戶",
     "thanks": "謝謝你！",
     "parent_instructions": "我們已將附有說明的電子郵件寄給您的家長或監護人。",
@@ -614,7 +614,7 @@
     "open_header": "開啟：",
     "obscured_header": "隱藏：",
     "closed_header": "私人：",
-    "yes_header": "是: ",
+    "yes_header": "是：",
     "no_header": "否: ",
     "open": "在 iNaturalist 上的其他使用者可以觀看此物種在什麼地方被觀察到，而且科學家也能使用此資料來進行研究。",
     "obscured": "此觀察紀錄的精確地點在 iNaturalist 上將會對其他的使用者隱藏起來，而且顯示在較大的區域範圍內。（所有受到滅絕威脅和瀕危物種的座標都會自動隱藏）",
@@ -627,7 +627,7 @@
   "delete": {
     "header": "刪除物種？",
     "description": "您想要從您的觀察記錄中移除此物種嗎？這會影響到您的挑戰和徽章。",
-    "yes": "好喔！從我的觀察紀錄中刪除這筆紀錄",
+    "yes": "是，從我的觀察紀錄中刪除這筆紀錄",
     "no": "取消"
   },
   "warning": {

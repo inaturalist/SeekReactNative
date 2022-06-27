@@ -38,7 +38,8 @@ const backgrounds = {
   "img-challengedetail-march2022": require( "./backgrounds/challenges/img-challengedetail-march2022.webp" ),
   "img-challengedetail-april2022": require( "./backgrounds/challenges/img-challengedetail-april2022.webp" ),
   "img-challengedetail-may2022": require( "./backgrounds/challenges/img-challengedetail-may2022.webp" ),
-  "img-challengedetail-june2022": require( "./backgrounds/challenges/img-challengedetail-june2022.webp" )
+  "img-challengedetail-june2022": require( "./backgrounds/challenges/img-challengedetail-june2022.webp" ),
+  "img-challengedetail-july2022": require( "./backgrounds/challenges/img-challengedetail-july2022.webp" )
 };
 
 export default backgrounds;

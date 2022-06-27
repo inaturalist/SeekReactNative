@@ -444,6 +444,18 @@ const challenges = {
     availableDate: ( new Date( 2022, 5, 1 ): Date ),
     action: "seek_2022_challenges.june_2022_action_busy_pollinators",
     badgeName: "challenges.badge_name_my_garden_2022"
+  },
+  july2022: {
+    name: "seek_2022_challenges.july_2022_challenge_name_exoskeleton",
+    description: "seek_2022_challenges.july_2022_description_insects_crustaceans",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-july2022",
+    earnedIconName: "badge_inaturalist_july2022",
+    missions: [
+      "seek_2022_challenges.july_2022_mission_1"
+    ],
+    availableDate: ( new Date( 2022, 6, 1 ): Date ),
+    action: "seek_2022_challenges.july_2022_action_molted_exoskeleton"
   }
 };
 

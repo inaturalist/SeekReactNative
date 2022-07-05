@@ -3,7 +3,7 @@
     "header": "Spesies naby",
     "internet_error": "Ons benodig die Internet om nabygeleë spesies te genereer. Tik om weer te probeer.",
     "no_location": "Geen Ligging",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Geen GPS-sein gevind. Maak seker dat u GPS aangeskakel is",
     "no_species": "Daar blyk nie baie spesies naby waargeneem te wees nie! Probeer u ligging verander of om die spesiefilter te verbreed.",
     "input_location_above_map": "Geen ligging gevind; voer ’n liggingnaam in om die kaart te laai en na naby spesies te soek",
     "error_alert_location_services": "Aktiveer liggingdienste in u toestelinstellings om voort te gaan",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "Merk die kassie indien u ’n Creative Commons Naamvermelding-NieKommersiële lisensie op opgelaaide inhoud wil toepas. Dit beteken dat enigeen u foto’s en/of waarnemings kan kopieer en hergebruik sonder om toestemming te vra mits u erkenning kry en dit nie kommersieel gebruik word nie. U kan ’n ander lisensie kies of die lisensie later verwyder, maar dit is die beste lisensie om met navorsers te deel.",
     "about_personal_information": "Oor persoonlike inligting",
     "about_licenses": "Oor lisensies",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "Ek staan toe dat my persoonlike inligting na die Verenigde State van Amerika gestuur mag word",
+    "learn_more_about_data_transfer": "’n Aantal privaatheidswette, soos die Europese Unie se Algemene Verordening op Databeskerming (AVD) vereis eksplisiete toestemming om persoonlike inligting van hul jurisdiksie aan ander jurisdiksies oor te dra waar die regsbeskerming van hierdie inligting as onvoldoende geag word. Vanaf 2020 beskou die Europese Unie die Verenigde State nie meer as ’n jurisdiksie wat voldoende wetlike beskerming van persoonlike inligting bied nie. Spesifiek vanweë die moontlikheid dat die Amerikaanse regering ondersoek doen na data wat die VS binnekom. Dit is moontlik dat ’n mens vir ander jurisdiksies dieselfde mening huldig.",
+    "learn_more_about_data_transfer_2": "Die gebruik van iNaturalist vereis dat u persoonlike inligting soos u e-posadres bewaar word, alle iNaturalist-data word in die Verenigde State bewaar en ons kan nie seker wees in welke juridiese jurisdiksie u is wanneer u iNaturalist gebruik nie, dus om te voldoen aan privaaatheidwetgewing soos die AVD moet u erkennen dat u die risiko begryp en aanvaar en daartoe instem dat u persoonlike inligting oorgedra word na iNaturalist se bedieners in die VS.",
+    "learn_more_about_data_transfer_3": "Om meer te leer oor welke inligting ons versamel en hoe dit gebruik word kan u ons <privacy>{{privacy}}</privacy> en <terms>{{terms}}</terms> sien.",
+    "learn_more_about_data_transfer_4": "Daar is geen manier om ’n iNaturalist-rekening te hê sonder om persoonlike inligting te bewaar nie, dus die enigste manier om die toestemming in te trek is om u rekening te skrap."
   },
   "inat_login": {
     "log_in_with_inat": "Teken aan met u iNaturalist-rekening",
@@ -149,7 +149,7 @@
     "check_email": "Gaan u e-pos na!",
     "reset_instructions": "Ons het wagwoordterugstelinstruksies na u e-pos gestuur.",
     "return_login": "Terug na Aantekening",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Waarmerking het misluk"
   },
   "privacy": {
     "header": "Privaatheidsbeleid"
@@ -667,8 +667,8 @@
     "logs": "Stuur ontfoutlogs per e-pos"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Seek-kamera",
+    "subtitle": "Vir kitsidentifisering"
   },
   "settings": {
     "header": "Seek-kamera",
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "Twee blomplantspesies (subfilum Angiospermae)",
     "june_2022_mission_2": "Twee spesies in:\n\n-Orde Coleoptera (Kewers);\n-Orde Diptera (Vlieë);\n-Orde Lepidoptera (Vlinders en motte)\nEpifamily Anthophila (Bye)",
     "june_2022_description_most_fruits_and_seeds": "Die meeste vrugte en sade wat u in die natuur ontdek is die resultaat van suksesvolle bestuiwing. Bye is nie die enigste insekte wat as bestuiwers optree nie! Na bestuiwing ontwikkel die bloem in ’n vrug wat sade bevat. Het u plante gesien waaraan vrugte groei?",
-    "june_2022_action_busy_pollinators": "Besige bestuiwers soos by en ander insekte hou ons plaaslike plantpopulasies gesond en divers. Leer meer oor die geheime lewens van bye deur die nuwe rolprent My Garden of a Thousand Bees op PBS Nature te kyk. En plant u eie inheemse wilde blomme om te kyk watter bestuiwers dit lok. #PlantWildeBlomme"
+    "june_2022_action_busy_pollinators": "Besige bestuiwers soos by en ander insekte hou ons plaaslike plantpopulasies gesond en divers. Leer meer oor die geheime lewens van bye deur die nuwe rolprent My Garden of a Thousand Bees op PBS Nature te kyk. En plant u eie inheemse wilde blomme om te kyk watter bestuiwers dit lok. #PlantWildeBlomme",
+    "july_2022_challenge_name_exoskeleton": "Eksoskelet-uitdaging",
+    "july_2022_mission_1": "Vind 5 spesies geleedpotiges",
+    "july_2022_description_insects_crustaceans": "Insekte, skaaldiere, aragnide, honderdpote en duisendpote het almal eksoskelette, of “buite geraamtes”. Anders as mense en ander gewerweldes het hulle nie ’n interne geraamte nie daarom heg spiere binne die eksoskelet en laat beweging toe. Eksoskelette boed ook beskerming teen uitdroging en hulle het sensoriese organe ooreenkomstig met die mens se vel.",
+    "july_2022_action_molted_exoskeleton": "Het u al ooit ’n leë, vervelde eksoskelet gevind? Eksoskelette groei nie saam met die dier nie, daarom vervel hulle soos hulle groei."
   }
 }

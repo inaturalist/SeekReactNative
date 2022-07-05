@@ -3,7 +3,7 @@
     "header": "Espècies Properes",
     "internet_error": "Necessitem accés a internet per generar les espècies properes. Toca per intentar-ho de nou.",
     "no_location": "Sense ubicació",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "No s'ha trobat senyal del GPS. Si us plau, comproveu que té el GPS engegat.",
     "no_species": "Sembla que no s'han observat moltes espècies properes! Intenta canviar d'ubicació o amplia el filtre d'espècies.",
     "input_location_above_map": "No s'ha trobat cap ubicació; introdueix una ubicació a sobre per carregar el mapa i cercar espècies properes.",
     "error_alert_location_services": "Per continua, activa els serveis d'ubicació a la configuració del teu dispositiu",
@@ -128,11 +128,11 @@
     "learn_more_about_licensing": "Seleccioneu aquest botó si voleu aplicar una Llicència de Reconeixement No Comercial de Creative Commons al contingut que heu penjat. Això significa que qualsevol pot copiar i reutilitzar les teves fotos o observacions sense demanar-te permís, indicant només la vostra autoria i sempre que no l'utilitzi per explotar-la comercialment. Podeu escollir una llicència diferent o retirar la llicència més tard, però aquesta és la millor llicència per compartir amb investigadors.",
     "about_personal_information": "Quant a la informació personal",
     "about_licenses": "Sobre les llicències",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "transfer_data": "Dono el meu consentiment per transmetre la meva informació personal als Estats Units d'Amèrica.",
+    "learn_more_about_data_transfer": "Algunes lleis de privacitat de dades, com el Reglament General de Protecció de Dades de la Unió Europea (RGPD), requereixen el consentiment explícit per transferir informació personal de les seves jurisdiccions a altres jurisdiccions en les quals la protecció legal d'aquesta informació no es considera adequada. A partir del 2020, la Unió Europea ja no considera que els Estats Units siguin una jurisdicció que proporcioni una protecció jurídica adequada de la informació personal, en especial a causa de la possibilitat que el govern dels Estats Units vigili les dades que entren en aquest país. És possible que altres jurisdiccions tinguin la mateixa opinió.",
+    "learn_more_about_data_transfer_2": "L'ús d'iNaturalist requereix emmagatzemar informació personal, com ara la vostra adreça de correu electrònic, totes les dades d'iNaturalist s'emmagatzemen als Estats Units i no podem estar segurs sobre a quina jurisdicció legal us trobeu quan feu servir iNaturalist, per tal de complir amb les lleis de privadesa com el RGPD, heu de reconèixer que enteneu i accepteu aquest risc i consentiu la transferència de la vostra informació personal als servidors d'iNaturalist als EUA.",
+    "learn_more_about_data_transfer_3": "Per obtenir més informació sobre quina informació recopilem i com la utilitzem, si us plau, consulteu les nostres <privacy>{{privacy}}</privacy> i <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "No es pot tenir un compte d'iNaturalist sense emmagatzemar informació personal, així que l'única forma de revocar aquest consentiment és eliminar el vostre compte."
   },
   "inat_login": {
     "log_in_with_inat": "Inicieu sessió al vostre compte d'iNaturalist",
@@ -149,7 +149,7 @@
     "check_email": "Comprova el teu correu electrònic!",
     "reset_instructions": "T'hem enviat les instruccions per restablir la contrasenya al teu correu electrònic.",
     "return_login": "Torna a l'inici de sessió",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Ha fallat l'autenticació"
   },
   "privacy": {
     "header": "Política de privadesa"
@@ -667,8 +667,8 @@
     "logs": "Envia registres de debug per e-mail"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Càmera de Seek",
+    "subtitle": "Per a identificacions ràpides"
   },
   "settings": {
     "header": "Càmera de Seek",
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "Dues espècies de plantes amb flors (Subtipus Angiospermes)",
     "june_2022_mission_2": "Dues espècies de:\n\n-Ordre Coleòpters (Escarabats)\n-Ordre Dípters (Mosques)\n-Ordre Lepidòpters (Papallones i Arnes)\n-Epifamília Antòfils (Abelles) ",
     "june_2022_description_most_fruits_and_seeds": "Molts dels fruits i llavors que pots descobrir a la natura són el resultat d'una pol·linització exitosa. Les Abelles no són els únics insectes que actuen com pol·linitzadors! Després de la pol·linització, les flors es transformen en un fruit que conté llavors. Has vist plantes que estiguin desenvolupant els fruits?",
-    "june_2022_action_busy_pollinators": "Els ocupats pol·linitzadors, com les abelles i altres insectes, mantenen les nostres poblacions locals de plantes saludables i diverses. Pots aprendre més sobre la vida secreta de les abelles veient la nova pel·lícula \"My Garden of a Thousand Bees\" de PBS Nature. Planta les teves flors silvestres per veure quins pol·linitzadors atreuen. #PlantaFlorsSilvestres"
+    "june_2022_action_busy_pollinators": "Els ocupats pol·linitzadors, com les abelles i altres insectes, mantenen les nostres poblacions locals de plantes saludables i diverses. Pots aprendre més sobre la vida secreta de les abelles veient la nova pel·lícula \"My Garden of a Thousand Bees\" de PBS Nature. Planta les teves flors silvestres per veure quins pol·linitzadors atreuen. #PlantaFlorsSilvestres",
+    "july_2022_challenge_name_exoskeleton": "Repte d'Exoesquelets",
+    "july_2022_mission_1": "Troba cinc espècies d'artròpodes",
+    "july_2022_description_insects_crustaceans": "Els insectes, crustacis, aràcnids, centpeus i milpeus, tots ells tenen exoesquelets, o \"esquelets exteriors\". Al contrari dels humans i altres vertebrats, no tenen un esquelet intern, per tant, els músculs es fixen a la part interior de l'exoesquelet i faciliten el moviment. L'exoesquelet també ofereix protecció enfront de la sequedat i tenen òrgans sensorials anàlegs a la pell humana.",
+    "july_2022_action_molted_exoskeleton": "Has trobat alguna vegada un exoesquelet buit i mudat? Els exoesquelets no creixen amb l'animal, per això han de mudar-lo a mesura que creixen."
   }
 }

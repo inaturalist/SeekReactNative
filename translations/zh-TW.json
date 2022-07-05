@@ -23,7 +23,7 @@
     "take_challenge": "參加挑戰",
     "continue_challenge": "繼續挑戰",
     "view_all": "查看所有挑戰",
-    "new_join": "用探索的照相機加入觀察紀錄來贏得挑戰徽章！",
+    "new_join": "使用 Seek 的相機新增觀察紀錄來贏得挑戰徽章！",
     "inat_admin": "iNat 管理員：感謝您測試 Seek！您將在下個月之前看到最新的 iNat 挑戰以進行測試。"
   },
   "post_to_inat_card": {
@@ -63,7 +63,7 @@
       "other": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。"
     },
     "error_unknown": "上傳失敗。錯誤原因：{{errorText}}",
-    "error_login": "登錄令牌失敗。請從 Seek 中的 iNaturalist 或 成就畫面中重新登錄您的 iNaturalist 帳戶。",
+    "error_login": "登錄權杖失敗。請從 Seek 中的 iNaturalist 或成就畫面中重新登錄您的 iNaturalist 帳戶。",
     "error_photo": "無法使用裝置上的照片。 ",
     "error_downtime_a_few_hours": "iNaturalist 的伺服器正在進行維護。請在幾個小時後再試一次。"
   },
@@ -107,13 +107,13 @@
     "email": "電子郵件信箱",
     "username": "使用者名稱",
     "password": "密碼",
-    "release_photos": "是，授權我的照片讓科學家可使用我的資料！",
+    "release_photos": "是，授權我的照片與觀察記錄讓科學家們能使用我的資料！（建議）",
     "create_account": "建立我的帳戶",
     "thanks": "謝謝你！",
     "parent_instructions": "我們已將附有說明的電子郵件寄給您的家長或監護人。",
     "continue_no_log_in": "不登入直接繼續",
     "terms": "服務條款",
-    "linked_account": "您已連結 iNaturalist 的帳號到「探索」了！",
+    "linked_account": "您已將 iNaturalist 帳戶連接到了 Seek！",
     "posting": "正在上傳至 iNaturalist",
     "posting_details": "當加入至您的觀察紀錄後，您可以立刻上傳在「探索」建立的觀察紀錄至 iNaturalist。如果您想要稍後再上傳到 iNaturalist，請使用 iNaturalist app 或是網站。",
     "observations": "在此裝置中儲存的觀察紀錄",
@@ -132,7 +132,7 @@
     "learn_more_about_data_transfer": "一些資料隱私法，如歐盟的《一般資料保護規則》（GDPR），要求明確的同意將個人資訊從其管轄區轉移到被認為對該資訊的法律保護不足的其他管轄區。自 2020 年起，歐盟不再將美國視為對個人資訊提供充分法律保護的司法管轄區，特別是因為美國政府可能會監視進入美國的資料。其他司法管轄區可能也有相同的看法。",
     "learn_more_about_data_transfer_2": "使用 iNaturalist 需要存儲您的電子郵件地址等個人資訊，所有 iNaturalist 資料都存儲在美國，我們無法得知您使用 iNaturalist 時處於哪個法律管轄區，因此為了遵守 GDPR 等隱私權法，您必須承認您了解並接受此風險，並同意將您的個人資訊傳送至美國的 iNaturalist 伺服器。",
     "learn_more_about_data_transfer_3": "要了解更多關於我們收集哪些資訊以及如何使用這些資訊，請參閱我們的<privacy>{{privacy}}</privacy>和<terms>{{terms}}</terms>。",
-    "learn_more_about_data_transfer_4": "如果不存儲個人資訊，就無法擁有 iNaturalist 帳號，因此撤銷此同意的唯一方法是刪除您的帳戶。"
+    "learn_more_about_data_transfer_4": "如果不存儲個人資訊，就無法擁有 iNaturalist 帳戶，因此撤銷此同意的唯一方法是刪除您的帳戶。"
   },
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",
@@ -202,7 +202,7 @@
     "resilience": "森林挑戰",
     "farming": "草原挑戰",
     "flow": "淡水挑戰",
-    "hotspots": "《公海(High Seas)》挑戰",
+    "hotspots": "公海挑戰",
     "ice": "氣候挑戰",
     "badge_name_april": "連線徽章",
     "badge_name_may": "生物多樣性徽章",
@@ -513,7 +513,7 @@
     "near": "附近的",
     "about": "關於",
     "range_map": "範圍圖",
-    "range_about": "在 iNaturalist 上看到的此物种的觀察結果圖。",
+    "range_about": "在 iNaturalist 上看到此物種的觀察結果地圖。",
     "view_map": "檢視範圍圖",
     "legend": "圖例",
     "current_location": "目前位置",
@@ -614,7 +614,7 @@
     "open_header": "開啟：",
     "obscured_header": "隱藏：",
     "closed_header": "私人：",
-    "yes_header": "是: ",
+    "yes_header": "是：",
     "no_header": "否: ",
     "open": "在 iNaturalist 上的其他使用者可以觀看此物種在什麼地方被觀察到，而且科學家也能使用此資料來進行研究。",
     "obscured": "此觀察紀錄的精確地點在 iNaturalist 上將會對其他的使用者隱藏起來，而且顯示在較大的區域範圍內。（所有受到滅絕威脅和瀕危物種的座標都會自動隱藏）",
@@ -627,7 +627,7 @@
   "delete": {
     "header": "刪除物種？",
     "description": "您想要從您的觀察記錄中移除此物種嗎？這會影響到您的挑戰和徽章。",
-    "yes": "好喔！從我的觀察紀錄中刪除這筆紀錄",
+    "yes": "是，從我的觀察紀錄中刪除這筆紀錄",
     "no": "取消"
   },
   "warning": {
@@ -900,6 +900,10 @@
     "june_2022_mission_1": "兩種開花植物（被子植物亞門）",
     "june_2022_mission_2": "兩種：\n\n- 鞘翅目（甲蟲）；\n- 雙翅目（蒼蠅）；\n- 鱗翅目（蝴蝶和蛾）\n花蜂類（蜜蜂）",
     "june_2022_description_most_fruits_and_seeds": "你在自然界中發現的大多數水果和種子都是成功授粉的結果。蜜蜂並非唯一飾演著授粉者角色的昆蟲！授粉後，花朵發育成含有種子的果實。你有沒有見過任何發育果實中的植物？",
-    "june_2022_action_busy_pollinators": "像蜜蜂和其他昆蟲等繁忙的授粉者們，都維持了我們當地植物族群的健康和多樣性。透過觀看 PBS Nature 上的新電影《My Garden of a Thousand Bees》來了解更多關於蜜蜂的秘密生活。並種植您自己的原生野花，看看它們會吸引哪些授粉者前來。#PlantWildflowers"
+    "june_2022_action_busy_pollinators": "像蜜蜂和其他昆蟲等繁忙的授粉者們，都維持了我們當地植物族群的健康和多樣性。透過觀看 PBS Nature 上的新電影《My Garden of a Thousand Bees》來了解更多關於蜜蜂的秘密生活。並種植您自己的原生野花，看看它們會吸引哪些授粉者前來。#PlantWildflowers",
+    "july_2022_challenge_name_exoskeleton": "外骨骼挑戰",
+    "july_2022_mission_1": "找到 5 種節肢動物",
+    "july_2022_description_insects_crustaceans": "昆蟲、甲殼類、蛛形綱動物、蜈蚣和馬陸都有外骨骼或「外骨架」。 與人類和其他脊椎動物不同，牠們沒有內部骨骼，所以肌肉是附著在外骨骼內部運動的。外骨骼還能保濕，而且牠們具有類似人類皮膚的感覺器官。",
+    "july_2022_action_molted_exoskeleton": "你有沒有發現過一個空的、蛻下來的外骨骼？外骨骼不會和動物一起生長，因此牠們必須在生長過程中蛻皮。"
   }
 }

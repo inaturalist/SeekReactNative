@@ -63,11 +63,11 @@ const MatchModals = ( {
           challengeInProgress: action.challengeInProgress
         };
       case "SET_CHALLENGE_MODAL":
-        return { ...state, challengeModal: action.status, challengeShown: action.challengeShown };
+        return { ...state, challengeModal: action.challengeModal, challengeShown: action.challengeShown };
       case "SET_LEVEL_MODAL":
-        return { ...state, levelModal: action.status, levelShown: action.levelShown };
+        return { ...state, levelModal: action.levelModal, levelShown: action.levelShown };
       case "SET_REPLACE_PHOTO_MODAL":
-        return { ...state, replacePhotoModal: action.status };
+        return { ...state, replacePhotoModal: action.replacePhotoModal };
       default:
         throw new Error( );
     }
@@ -95,9 +95,9 @@ const MatchModals = ( {
     challengeModal
   } = state;
 
-  const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", status: false, challengeShown: true } );
-  const closeReplacePhotoModal = ( ) => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
-  const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
+  const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: false, challengeShown: true } );
+  const closeReplacePhotoModal = ( ) => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: false } );
+  const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", levelModal: false, levelShown: true } );
 
   useEffect( ( ) => {
     if ( levelModal ) {
@@ -129,12 +129,14 @@ const MatchModals = ( {
 
   const checkBadges = ( ) => {
     checkForNewBadges( ).then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
+      if ( !latestLevel && !latestBadge ) { return; }
       dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
     } ).catch( ( ) => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = ( ) => {
     checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
+      if ( !challengeComplete && !challengeInProgress ) { return; }
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( ( ) => console.log( "could not check for challenges" ) );
@@ -142,9 +144,9 @@ const MatchModals = ( {
 
   const checkModals = useCallback( ( ) => {
     if ( challenge && !challengeShown ) {
-      dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
+      dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: true, challengeShown: false } );
     } else if ( latestLevel && !levelShown ) {
-      dispatch( { type: "SET_LEVEL_MODAL", status: true, levelShown: false } );
+      dispatch( { type: "SET_LEVEL_MODAL", levelModal: true, levelShown: false } );
     } else {
       navigateTo( );
     }
@@ -165,9 +167,10 @@ const MatchModals = ( {
       if ( screenType === "newSpecies" && firstRender ) {
         checkChallenges( );
         checkBadges( );
+        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: false } );
       }
       if ( screenType === "resighted" && firstRender ) {
-        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
+        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: true } );
       }
     } );
 

@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.14.1",
+  "version": "2.14.2",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -8,8 +8,7 @@
     "ios": "react-native run-ios --simulator='iPhone 13'",
     "start": "react-native start",
     "lint": "eslint . --max-warnings 0",
-    "flow": "flow",
-    "test": "jest"
+    "flow": "flow"
   },
   "husky": {
     "hooks": {
@@ -85,20 +84,12 @@
     "@babel/preset-flow": "^7.14.5",
     "@babel/runtime": "^7.15.4",
     "@react-native-community/eslint-config": "^3.0.1",
-    "@testing-library/jest-native": "^4.0.2",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/react-native": "^7.2.0",
-    "babel-jest": "^27.2.5",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^7.32.0",
-    "eslint-plugin-jest": "^24.4.0",
     "flow-bin": "^0.158.0",
     "husky": "^7.0.2",
-    "jest": "^27.2.5",
-    "jest-fetch-mock": "^3.0.3",
     "lint-staged": "^11.2.3",
     "metro-react-native-babel-preset": "^0.66.2",
-    "react-native-clean-project": "^3.6.7",
-    "react-test-renderer": "^17.0.1"
+    "react-native-clean-project": "^3.6.7"
   }
 }

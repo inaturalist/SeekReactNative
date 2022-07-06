@@ -19,8 +19,6 @@ type Props = {
   closeModal: Function
 }
 
-const aspectRatio = { width: 16, height: 16 };
-
 const CropScreen = ( {
   saveCrop,
   uri,

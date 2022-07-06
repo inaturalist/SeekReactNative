@@ -18,7 +18,6 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
 import WhiteModal from "../../UIComponents/Modals/WhiteModal";
-import Padding from "../../UIComponents/Padding";
 
 const LicensePhotosScreen = ( ): Node => {
   const { navigate } = useNavigation( );

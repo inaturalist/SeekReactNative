@@ -9,7 +9,6 @@ import GreenButton from "./Buttons/GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
 import { dirDebugLogs } from "../../utility/dirStorage";
 import ViewWithHeader from "./Screens/ViewWithHeader";
-import i18n from "../../i18n";
 
 const DebugEmailScreen = ( ): React.Node => {
   const appVersion = getVersion( );

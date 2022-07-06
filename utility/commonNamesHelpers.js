@@ -1,6 +1,4 @@
 // @flow
-import semver from "semver";
-
 import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";

@@ -7,7 +7,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPhone 13'",
     "start": "react-native start",
-    "lint": "npm run lint:eslint && npm run lint:flow",
+    "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:flow": "flow check",
     "prepare": "husky install"

@@ -16,7 +16,8 @@ const SpeciesDetailProvider = ( { children }: Props ): Node => {
   const speciesDetailValue = {
     id,
     region,
-    setId
+    setId,
+    setRegion
   };
 
   return (

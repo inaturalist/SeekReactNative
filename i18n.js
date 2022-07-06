@@ -82,7 +82,7 @@ i18n.fallbacks = true;
     var n = normalizeCount( count, locale ) || 0;
     var mod10 = n % 10;
     var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( mod10 === 1 && mod100 !== 11 ) {
       return ["one"];
     }
@@ -104,7 +104,7 @@ i18n.fallbacks = true;
 
   function westSlavic( count, locale ) {
     var n = normalizeCount( count, locale ) || 0;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 1 ) {return ["one"];}
     if ( n >= 2 && n <= 4 && isWhole ) {return ["few"];}
     return ["other"];
@@ -112,7 +112,7 @@ i18n.fallbacks = true;
 
   function oneUptoTwoOther( count, locale ) {
     var n = normalizeCount( count, locale ) || 0;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     return n && n >= 0 && n < 2 && isWhole ? ["one"] : ["other"];
   }
 
@@ -133,7 +133,7 @@ i18n.fallbacks = true;
   i18n.pluralization.ar = function ( count ) {
     var n = normalizeCount( count, "ar" ) || 0;
     var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 0 ) {
       return ["zero"];
     }
@@ -172,7 +172,7 @@ i18n.fallbacks = true;
     var n = normalizeCount( count, "lt" ) || 0;
     var mod10 = n % 10;
     var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if (
       mod10 === 1
       && !( mod100 >= 11 && mod100 <= 19 )
@@ -192,7 +192,7 @@ i18n.fallbacks = true;
   };
   i18n.pluralization.mk = function ( count ) {
     var n = normalizeCount( count, "mk" ) || 0;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if (
       n % 10 === 1
       && n !== 11
@@ -206,7 +206,7 @@ i18n.fallbacks = true;
     var n = normalizeCount( count, "pl" ) || 0;
     var mod10 = n % 10;
     var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 1 ) {
       return ["one"];
     }
@@ -228,7 +228,7 @@ i18n.fallbacks = true;
   i18n.pluralization.ro = function ( count ) {
     var n = normalizeCount( count, "ro" ) || 0;
     var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n;
+    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 1 ) {
       return ["one"];
     }

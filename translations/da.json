@@ -599,8 +599,8 @@
     "kelp": "Brunalger, kiselalger og beslægtede"
   },
   "posting_status": {
-    "posting_to_inat_background": "PUBLICERER TIL INATURALIST I BAGGRUNDEN",
-    "posting_to_inat_background_description": "Publicering på iNaturalist vil fortsætte i baggrunden, mens Seek er åben.\n\nDu kan tjekke status for uploads på startskærmen.",
+    "posting_to_inat_background": "OPRETTER PÅ INATURALIST I BAGGRUNDEN",
+    "posting_to_inat_background_description": "Oprettelse på iNaturalist vil fortsætte i baggrunden, mens Seek er åben.\n\nDu kan tjekke status for uploads på startskærmen.",
     "no_internet": "INTET INTERNET",
     "no_internet_description": "Din observation er ikke blevet uploadet til iNaturalist, da du ikke er forbundet til internettet.\n\nDu kan uploade din observation fra startskærmen, når du igen er forbundet til internettet."
   },

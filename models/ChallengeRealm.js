@@ -1,4 +1,6 @@
-class ChallengeRealm {}
+import Realm from "realm";
+
+class ChallengeRealm extends Realm.Object {}
 ChallengeRealm.schema = {
   name: "ChallengeRealm",
   primaryKey: "name",

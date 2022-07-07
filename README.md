@@ -34,3 +34,12 @@ Most third-party libraries use autolinking as of [React Native 0.60.0](https://f
 
 ## Translations
 We do our translations on Crowdin. Head over to https://crowdin.com/project/seek and create an account, and you can start suggesting translations there. We regularly export translations from Crowdin and import them to this project.
+
+## Adding New Locales
+1. Import translation files into `i18n.js`.
+2. Add localized names to `utility/dictionaries/languageDict.js` for users to be able to choose a locale in settings.
+3. Import languages in `utility/dateHelpers.js` so date strings can be correctly translated.
+4. Use staging to add new locales to `seek_common_names.rb`.
+5. Generate a compressed `commonNames.tar.gz` directory via staging and copy it to your local machine
+6. Spot check that common name translations look correct, then overwrite existing files in `utility/commonNames`.
+7. If needed, load additional files via `addCommonNamesFromFile` function in `utility/commonNamesHelpers.js`.

@@ -1,4 +1,6 @@
-class TaxonRealm {}
+import Realm from "realm";
+
+class TaxonRealm extends Realm.Object {}
 TaxonRealm.schema = {
   name: "TaxonRealm",
   primaryKey: "id",

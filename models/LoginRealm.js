@@ -1,4 +1,6 @@
-class LoginRealm {}
+import Realm from "realm";
+
+class LoginRealm extends Realm.Object {}
 LoginRealm.schema = {
   name: "LoginRealm",
   properties: {

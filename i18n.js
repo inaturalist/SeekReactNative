@@ -15,11 +15,13 @@ import eu from "./translations/eu.json";
 import fi from "./translations/fi.json";
 import fr from "./translations/fr.json";
 import he from "./translations/he.json";
+import hu from "./translations/hu.json";
 import id from "./translations/id.json";
 import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
 import nb from "./translations/nb.json";
+import no from "./translations/no.json";
 import pl from "./translations/pl.json";
 import ptBR from "./translations/pt-BR.json";
 import ro from "./translations/ro.json";
@@ -27,6 +29,7 @@ import ru from "./translations/ru.json";
 import si from "./translations/si.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
+import zhCN from "./translations/zh-CN.json";
 import zh from "./translations/zh-TW.json";
 
 i18n.translations = {
@@ -44,11 +47,13 @@ i18n.translations = {
   fi,
   fr,
   he,
+  hu,
   id,
   it,
   ja,
   nl,
   nb,
+  no,
   pl,
   "pt-BR": ptBR,
   ro,
@@ -56,6 +61,7 @@ i18n.translations = {
   si,
   sv,
   tr,
+  "zh-CN": zhCN,
   zh
 };
 i18n.fallbacks = true;

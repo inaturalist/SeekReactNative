@@ -1,4 +1,6 @@
-class PhotoRealm {}
+import Realm from "realm";
+
+class PhotoRealm extends Realm.Object {}
 PhotoRealm.schema = {
   name: "PhotoRealm",
   properties: {

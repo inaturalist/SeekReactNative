@@ -1,4 +1,6 @@
-class NotificationRealm {}
+import Realm from "realm";
+
+class NotificationRealm extends Realm.Object {}
 NotificationRealm.schema = {
   name: "NotificationRealm",
   primaryKey: "index",

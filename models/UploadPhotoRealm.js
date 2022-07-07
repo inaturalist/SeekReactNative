@@ -1,4 +1,6 @@
-class UploadPhotoRealm {}
+import Realm from "realm";
+
+class UploadPhotoRealm extends Realm.Object {}
 UploadPhotoRealm.schema = {
   name: "UploadPhotoRealm",
   properties: {

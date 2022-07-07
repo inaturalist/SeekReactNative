@@ -19,10 +19,12 @@ const DatePicker = ( {
 }: Props ): React.Node => {
   const colorScheme = Appearance.getColorScheme();
 
+  const customHeader = ( ) => <></>;
+
   return (
     <DateTimePicker
       display="spinner"
-      customHeaderIOS={() => <></>}
+      customHeaderIOS={customHeader}
       isDarkModeEnabled={colorScheme === "dark"}
       isVisible={isDateTimePickerVisible}
       maximumDate={new Date()}

@@ -239,7 +239,7 @@ PODS:
     - React-Core
   - react-native-netinfo (6.0.2):
     - React-Core
-  - react-native-pager-view (5.4.7):
+  - react-native-pager-view (5.4.25):
     - React-Core
   - react-native-restart (0.0.24):
     - React-Core
@@ -247,7 +247,7 @@ PODS:
     - React-Core
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (11.22.4):
+  - react-native-webview (11.22.5):
     - React-Core
   - React-perflogger (0.66.1)
   - React-RCTActionSheet (0.66.1):
@@ -349,7 +349,7 @@ PODS:
     - React-RCTImage
   - RNShare (7.1.2):
     - React-Core
-  - RNStoreReview (0.2.0):
+  - RNStoreReview (0.2.1):
     - React-Core
   - RNSVG (12.3.0):
     - React-Core
@@ -421,7 +421,7 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNShare (from `../node_modules/react-native-share`)
-  - RNStoreReview (from `../node_modules/react-native-store-review/ios`)
+  - RNStoreReview (from `../node_modules/react-native-store-review`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -553,7 +553,7 @@ EXTERNAL SOURCES:
   RNShare:
     :path: "../node_modules/react-native-share"
   RNStoreReview:
-    :path: "../node_modules/react-native-store-review/ios"
+    :path: "../node_modules/react-native-store-review"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -589,11 +589,11 @@ SPEC CHECKSUMS:
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 8b8bfada2c86205a7f5a07dd1f92f29b33ea83aa
   react-native-netinfo: 92e6e4476eb8bf6fc2d7c0a6ca0a1406f663d73a
-  react-native-pager-view: 741e7606ee2f6e399fc7da777f5519454a4b38c5
+  react-native-pager-view: da490aa1f902c9a5aeecf0909cc975ad0e92e53e
   react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
-  react-native-webview: a1ed211d50a5047a4fe54e07140991e277cd66e6
+  react-native-webview: 28557a39f4c1f3f8faa69dae22858335ba63e7f9
   React-perflogger: fcac6090a80e3d967791b4c7f1b1a017f9d4a398
   React-RCTActionSheet: caf5913d9f9e605f5467206cf9d1caa6d47d7ad6
   React-RCTAnimation: 6539e3bf594f6a529cd861985ba6548286ae1ead
@@ -622,7 +622,7 @@ SPEC CHECKSUMS:
   RNReanimated: 514a11da3a2bcc6c3dfd9de32b38e2b9bf101926
   RNScreens: 2a71d74b4e530f051f5684c8111d7591176722cf
   RNShare: 0fec82bd2e67d09f895937ccb4f5a097e714dec2
-  RNStoreReview: d7d2a006e14030fe101cac9da487a17f98d73eff
+  RNStoreReview: e05edbbf426563070524cec384ac0b8df69be801
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
   SDWebImageWebPCoder: 3dc350894112feab5375cfba9ce0986544a66a69

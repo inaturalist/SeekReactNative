@@ -235,7 +235,7 @@ PODS:
     - React
   - react-native-mail (6.1.1):
     - React-Core
-  - react-native-maps (0.31.1):
+  - react-native-maps (1.0.0):
     - React-Core
   - react-native-netinfo (6.2.1):
     - React-Core
@@ -587,7 +587,7 @@ SPEC CHECKSUMS:
   react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
-  react-native-maps: 8b8bfada2c86205a7f5a07dd1f92f29b33ea83aa
+  react-native-maps: 16bcde48c1f8038cf6643de92683048c62832279
   react-native-netinfo: 3d3769f0d65de15c83a9bf1346f8be71de5a24bf
   react-native-pager-view: da490aa1f902c9a5aeecf0909cc975ad0e92e53e
   react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e

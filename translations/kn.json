@@ -149,7 +149,7 @@
     "check_email": "ನಿಮ್ಮ ಮಿಂಚೆ ಪರಿಶೀಲಿಸಿ",
     "reset_instructions": "ನಾವು ಗುಪ್ತಪದ ಮರುಹೊಂದಿಕೆ ಸೂಚನೆಗಳನ್ನು ನಿಮ್ಮ ಮಿಂಚೆಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ.",
     "return_login": "ಲಾಗಿನ್‍ಗೆ ಹಿಂದಿರುಗಿ",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "ದೃಢೀಕರಣ ವಿಫಲವಾಗಿದೆ"
   },
   "privacy": {
     "header": "ಗೌಪ್ಯತಾ ನೀತಿ"
@@ -667,7 +667,7 @@
     "logs": "ಡೀಬಗ್ ಲಾಗ್‍ಗಳನ್ನು ಮಿಂಚೆಯ ಮೂಲಕ ಕಳುಹಿಸಿ"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
+    "seek_camera": "Seek ನ ಕ್ಯಾಮೆರಾ",
     "subtitle": "For quick identifications"
   },
   "settings": {

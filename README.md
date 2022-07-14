@@ -15,6 +15,7 @@
     2. On Android, these files are named `small_inception_tf1.tflite` and `small_export_tax.csv`. Create a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`) and place the files there. 
     3. On iOS, these files are named `small_inception_tf1.mlmodel` and `small_export_tax.json` and should be added to the Resources folder in XCode.
 4. Add files to `utility/commonNames` to allow the AR camera to load common names in localized languages. The latest files are attached assets named `commonNames.tar.gz` in the [latest Seek release page](https://github.com/inaturalist/SeekReactNative/releases).
+5. For Fastlane, add `.env` file and corresponding JSON_KEY_ANDROID file, following example in `.env.example`.
 
 ## Run build
 1. Run `npm start`

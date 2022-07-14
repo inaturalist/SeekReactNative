@@ -904,6 +904,23 @@
     "july_2022_challenge_name_exoskeleton": "Eksoskelet-uitdaging",
     "july_2022_mission_1": "Vind 5 spesies geleedpotiges",
     "july_2022_description_insects_crustaceans": "Insekte, skaaldiere, aragnide, honderdpote en duisendpote het almal eksoskelette, of “buite geraamtes”. Anders as mense en ander gewerweldes het hulle nie ’n interne geraamte nie daarom heg spiere binne die eksoskelet en laat beweging toe. Eksoskelette boed ook beskerming teen uitdroging en hulle het sensoriese organe ooreenkomstig met die mens se vel.",
-    "july_2022_action_molted_exoskeleton": "Het u al ooit ’n leë, vervelde eksoskelet gevind? Eksoskelette groei nie saam met die dier nie, daarom vervel hulle soos hulle groei."
+    "july_2022_action_molted_exoskeleton": "Het u al ooit ’n leë, vervelde eksoskelet gevind? Eksoskelette groei nie saam met die dier nie, daarom vervel hulle soos hulle groei.",
+    "august_2022_challenge_name_seed_dispersal": "Seed Dispersal Challenge",
+    "august_2022_mission_1": "Find 3 species from:\n\n-Class Pinopsida (Conifers);\nSubphylum Angiospermae (Flowering plants)",
+    "august_2022_mission_2": "Find 3 species from:\n\n-Class Aves (Birds);\nClass Mammalia (Mammals)\nFamily Formicidae (Ants)",
+    "august_2022_description_seeds_are_a_lifestage": "Seeds are a lifestage of plants that can be easily moved. Many conifers and flowering plants have adapted fruits and seeds to be transported by wind, water, or animals. Many species of birds, mammals, and even ants can disperse seeds.",
+    "august_2022_action_largest_species_seed_dispersing": "What is the largest species of seed dispersing animal near you? What kinds of seeds can it disperse? When animals swallow seeds whole, you may be able to find seeds in scat (also known as poop). Observations of scat count as evidence of an organism, but sometimes scat can be difficult to identify.",
+    "september_2022_challenge_name_photosynthesis": "Photosynthesis Challenge",
+    "september_2022_mission_1": "Find 5 plants",
+    "september_2022_description_plants_convert_light": "Plants convert light energy into sugars through photosynthesis. Leaf color is shaped by the different plant pigments that capture different wavelengths of light. When leaves change color, the chlorophylls (green pigments) fade and carotenoids (yellow pigments) and Anthocyanins (red and purple pigments) are visible.",
+    "september_2022_action_photosynthesis": "Photosynthesis converts carbon dioxide from the atmosphere into other molecules needed for sustaining life. Respiration is the chemical process of releasing the energy originally stored in photosynthesis.",
+    "october_2022_challenge_name_parasite": "Parasite Challenge",
+    "october_2022_mission_1": "Find 3 species from:\n\nOrder Ixodida (Ticks);\nFamily Culicidae (Mosquitos);\nOrder Siphonaptera (Fleas);\nParvorder Phthiraptera (Lice);\nOrder Santalales (Mistletoes);\nGenus Cuscuta (Dodders);\nFamily Orobanchaceae (Broomrapes)",
+    "october_2022_description_parasitic_organisms": "Parasitic organisms feed on other organisms without killing them. Arthropods like ticks, mosquitos, fleas, and lice have adapted to feed on vertebrates, including humans and/or domestic animals. There are also parasitic plants that do not photosynthesize because they rely on sugar produced by their host plant.",
+    "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
+    "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
+    "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
+    "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
+    "november_2022_action_change_location": "Change the location for “species seen nearby” to search a city far from you. What species are seen near there? Are any of them the same or similar to species seen near you?"
   }
 }

@@ -55,19 +55,38 @@ const MatchModals = ( {
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
       case "SET_BADGES":
-        return { ...state, latestLevel: action.latestLevel, badge: action.latestBadge };
+        return {
+          ...state,
+          latestLevel: action.latestLevel,
+          badge: action.latestBadge,
+          replacePhotoModal: false
+        };
       case "SET_CHALLENGES":
         return {
           ...state,
           challenge: action.challenge,
-          challengeInProgress: action.challengeInProgress
+          challengeInProgress: action.challengeInProgress,
+          replacePhotoModal: false
         };
       case "SET_CHALLENGE_MODAL":
-        return { ...state, challengeModal: action.challengeModal, challengeShown: action.challengeShown };
+        return {
+          ...state,
+          challengeModal: action.challengeModal,
+          challengeShown: action.challengeShown,
+          replacePhotoModal: false
+        };
       case "SET_LEVEL_MODAL":
-        return { ...state, levelModal: action.levelModal, levelShown: action.levelShown };
+        return {
+          ...state,
+          levelModal: action.levelModal,
+          levelShown: action.levelShown,
+          replacePhotoModal: false
+        };
       case "SET_REPLACE_PHOTO_MODAL":
-        return { ...state, replacePhotoModal: action.replacePhotoModal };
+        return {
+          ...state,
+          replacePhotoModal: action.replacePhotoModal
+        };
       default:
         throw new Error( );
     }
@@ -164,12 +183,11 @@ const MatchModals = ( {
 
   useEffect( ( ) => {
     navigation.addListener( "focus", ( ) => {
-      if ( screenType === "newSpecies" && firstRender ) {
+      if ( screenType === "newSpecies" && firstRender.current ) {
         checkChallenges( );
         checkBadges( );
-        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: false } );
       }
-      if ( screenType === "resighted" && firstRender ) {
+      if ( screenType === "resighted" && firstRender.current ) {
         dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: true } );
       }
     } );
@@ -184,7 +202,7 @@ const MatchModals = ( {
 
   return (
     <>
-      {firstRender && (
+      {firstRender.current && (
         <>
           <Toasts badge={badge} challenge={challengeInProgress} />
           {challenge && <RNModal

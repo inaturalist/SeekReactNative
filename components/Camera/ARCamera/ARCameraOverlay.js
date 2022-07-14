@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
 import {
   View,
   Text,
@@ -31,30 +31,6 @@ type Props = {
   filterByTaxonId: Function
 }
 
-const settings = [
-  {
-    negativeFilter: true,
-    taxonId: null,
-    text: i18n.t( "camera.filters_off" ),
-    icon: icons.plantFilterOff,
-    color: colors.cameraFilterGray
-  },
-  {
-    negativeFilter: false,
-    taxonId: "47126",
-    text: i18n.t( "camera.plant_filter" ),
-    icon: icons.plantsFilter,
-    color: null
-  },
-  {
-    negativeFilter: true,
-    taxonId: "47126",
-    text: i18n.t( "camera.non_plant_filter" ),
-    icon: icons.nonPlantsFilter,
-    color: colors.seekTeal
-  }
-];
-
 const isAndroid = Platform.OS === "android";
 
 const ARCameraOverlay = ( {
@@ -75,6 +51,30 @@ const ARCameraOverlay = ( {
   const shutterButtonPositionLandscape = height / 2 - 65 - 31;
   const helpButtonPositionLandscape = height / 2 + 50;
 
+  const settings = useMemo( ( ) => ( [
+    {
+      negativeFilter: true,
+      taxonId: null,
+      text: i18n.t( "camera.filters_off" ),
+      icon: icons.plantFilterOff,
+      color: colors.cameraFilterGray
+    },
+    {
+      negativeFilter: false,
+      taxonId: "47126",
+      text: i18n.t( "camera.plant_filter" ),
+      icon: icons.plantsFilter,
+      color: null
+    },
+    {
+      negativeFilter: true,
+      taxonId: "47126",
+      text: i18n.t( "camera.non_plant_filter" ),
+      icon: icons.nonPlantsFilter,
+      color: colors.seekTeal
+    }
+  ] ), [] );
+
   const toggleFilterIndex = ( ) => {
     if ( filterIndex === null ) {
       setFilterIndex( 1 );
@@ -93,7 +93,7 @@ const ARCameraOverlay = ( {
     return ( ) => {
       isCurrent = false;
     };
-  }, [filterIndex, filterByTaxonId] );
+  }, [filterIndex, filterByTaxonId, settings] );
 
   useEffect( ( ) => {
     let isCurrent = true;

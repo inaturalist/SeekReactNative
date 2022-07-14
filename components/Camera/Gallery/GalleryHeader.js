@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -17,23 +17,22 @@ type Props = {
   updateAlbum: ( ?string ) => mixed
 }
 
-const cameraRoll = [{
-  label: i18n.t( "gallery.photo_library" ).toLocaleUpperCase( ),
-  value: "All"
-}];
-
 const GalleryHeader = ( { updateAlbum }: Props ): Node => {
   const navigation = useNavigation( );
 
+  const cameraRoll = useMemo( ( ) => ( [{
+    label: i18n.t( "gallery.photo_library" ).toLocaleUpperCase( ),
+    value: "All"
+  }] ), [] );
+
   const [albumNames, setAlbumNames] = useState( cameraRoll );
 
-  const fetch = async ( ) => setAlbumNames( await fetchAlbums( cameraRoll ) );
-
   useEffect( ( ) => {
+    const fetch = async ( ) => setAlbumNames( await fetchAlbums( cameraRoll ) );
     if ( albumNames.length === 1 ) {
       fetch( );
     }
-  }, [albumNames] );
+  }, [albumNames, cameraRoll] );
 
   const handleBackNav = useCallback( ( ) => resetRouter( navigation ), [navigation] );
 

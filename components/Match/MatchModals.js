@@ -148,14 +148,12 @@ const MatchModals = ( {
 
   const checkBadges = ( ) => {
     checkForNewBadges( ).then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
-      if ( !latestLevel && !latestBadge ) { return; }
       dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
     } ).catch( ( ) => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = ( ) => {
     checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
-      if ( !challengeComplete && !challengeInProgress ) { return; }
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( ( ) => console.log( "could not check for challenges" ) );

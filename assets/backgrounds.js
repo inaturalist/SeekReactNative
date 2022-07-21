@@ -39,7 +39,11 @@ const backgrounds = {
   "img-challengedetail-april2022": require( "./backgrounds/challenges/img-challengedetail-april2022.webp" ),
   "img-challengedetail-may2022": require( "./backgrounds/challenges/img-challengedetail-may2022.webp" ),
   "img-challengedetail-june2022": require( "./backgrounds/challenges/img-challengedetail-june2022.webp" ),
-  "img-challengedetail-july2022": require( "./backgrounds/challenges/img-challengedetail-july2022.webp" )
+  "img-challengedetail-july2022": require( "./backgrounds/challenges/img-challengedetail-july2022.webp" ),
+  "img-challengedetail-august2022": require( "./backgrounds/challenges/img-challengedetail_august2022.webp" ),
+  "img-challengedetail-september2022": require( "./backgrounds/challenges/img-challengedetail_september2022.webp" ),
+  "img-challengedetail-october2022": require( "./backgrounds/challenges/img-challengedetail_october2022.webp" ),
+  "img-challengedetail-november2022": require( "./backgrounds/challenges/img-challengedetail_november2022.webp" )
 };
 
 export default backgrounds;

@@ -372,7 +372,8 @@
     "error_selected_photos": "Wenn deine Berechtigungen auf 'Ausgewählte Fotos' gesetzt sind, musst du Seek vielleicht neu starten oder unter iOS-Einstellungen > Seek > Fotos > Ausgewählte Fotos entscheiden, welche Fotos hier angezeigt werden sollen.",
     "plant_filter": "Nur Pflanzen",
     "non_plant_filter": "Nur Nicht-Pflanzen",
-    "filters_off": "Filter aus"
+    "filters_off": "Filter aus",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Fotos",

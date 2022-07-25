@@ -372,7 +372,8 @@
     "error_selected_photos": "如果您的權限設定為「所選的照片」，那麼您可能需要重新啟動 Seek，或者到 iOS 設定 > Seek > 照片 > 所選的照片，來選擇要在此處顯示的照片。",
     "plant_filter": "篩選器僅允許植物",
     "non_plant_filter": "篩選器僅允許非植物",
-    "filters_off": "關閉篩選器"
+    "filters_off": "關閉篩選器",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "照片",

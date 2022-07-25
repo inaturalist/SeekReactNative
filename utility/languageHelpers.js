@@ -7,7 +7,6 @@ import RNRestart from "react-native-restart";
 import languages from "./dictionaries/languageDict";
 import i18n from "../i18n";
 import { setupCommonNames } from "./commonNamesHelpers";
-import I18n from "i18n-js";
 
 const deviceLanguageSupported = ( ): boolean => {
   const { languageCode } = RNLocalize.getLocales()[0];

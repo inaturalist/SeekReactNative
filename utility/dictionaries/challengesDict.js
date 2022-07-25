@@ -456,6 +456,55 @@ const challenges = {
     ],
     availableDate: ( new Date( 2022, 6, 1 ): Date ),
     action: "seek_2022_challenges.july_2022_action_molted_exoskeleton"
+  },
+  august2022: {
+    name: "seek_2022_challenges.august_2022_challenge_name_seed_dispersal",
+    description: "seek_2022_challenges.august_2022_description_seeds_are_a_lifestage",
+    totalSpecies: 6,
+    backgroundName: "img-challengedetail-august2022",
+    earnedIconName: "badge_inaturalist_august2022",
+    missions: [
+      "seek_2022_challenges.august_2022_mission_1",
+      "seek_2022_challenges.august_2022_mission_2"
+    ],
+    availableDate: ( new Date( 2022, 7, 1 ): Date ),
+    action: "seek_2022_challenges.august_2022_action_largest_species_seed_dispersing"
+  },
+  september2022: {
+    name: "seek_2022_challenges.september_2022_challenge_name_photosynthesis",
+    description: "seek_2022_challenges.september_2022_description_plants_convert_light",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-september2022",
+    earnedIconName: "badge_inaturalist_september2022",
+    missions: [
+      "seek_2022_challenges.september_2022_mission_1"
+    ],
+    availableDate: ( new Date( 2022, 8, 1 ): Date ),
+    action: "seek_2022_challenges.september_2022_action_photosynthesis"
+  },
+  october2022: {
+    name: "seek_2022_challenges.october_2022_challenge_name_parasite",
+    description: "seek_2022_challenges.october_2022_description_parasitic_organisms",
+    totalSpecies: 3,
+    backgroundName: "img-challengedetail-october2022",
+    earnedIconName: "badge_inaturalist_october2022",
+    missions: [
+      "seek_2022_challenges.october_2022_mission_1"
+    ],
+    availableDate: ( new Date( 2022, 9, 1 ): Date ),
+    action: "october_2022_action_parasites"
+  },
+  november2022: {
+    name: "seek_2022_challenges.november_2022_challenge_name_urban_nature",
+    description: "seek_2022_challenges.november_2022_description_some_species_well_adapted",
+    totalSpecies: 4,
+    backgroundName: "img-challengedetail-november2022",
+    earnedIconName: "badge_inaturalist_november2022",
+    missions: [
+      "seek_2022_challenges.november_2022_mission_1"
+    ],
+    availableDate: ( new Date( 2022, 10, 1 ): Date ),
+    action: "november_2022_action_change_location"
   }
 };
 

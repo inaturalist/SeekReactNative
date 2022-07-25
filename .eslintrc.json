@@ -1,8 +1,5 @@
 {
   "extends": "@react-native-community",
-  "env": {
-    "jest": true
-  },
   "rules": {
     "quotes": [2, "double"],
     "comma-dangle": [2, "never"],

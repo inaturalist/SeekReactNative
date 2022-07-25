@@ -1,4 +1,6 @@
-class BadgeRealm {}
+import Realm from "realm";
+
+class BadgeRealm extends Realm.Object {}
 BadgeRealm.schema = {
   name: "BadgeRealm",
   primaryKey: "name",

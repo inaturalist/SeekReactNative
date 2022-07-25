@@ -1,4 +1,6 @@
-class CommonNamesRealm {}
+import Realm from "realm";
+
+class CommonNamesRealm extends Realm.Object {}
 CommonNamesRealm.schema = {
   name: "CommonNamesRealm",
   properties: {

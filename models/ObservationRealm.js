@@ -1,4 +1,6 @@
-class ObservationRealm {}
+import Realm from "realm";
+
+class ObservationRealm extends Realm.Object {}
 ObservationRealm.schema = {
   name: "ObservationRealm",
   primaryKey: "uuidString",

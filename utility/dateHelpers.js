@@ -30,6 +30,7 @@ import {
   fi,
   fr,
   he,
+  hu,
   id,
   it,
   ja,
@@ -37,10 +38,12 @@ import {
   ptBR,
   nb,
   nl,
+  no,
   ro,
   ru,
   sv,
   tr,
+  zhCN,
   zhTW
 } from "date-fns/locale";
 
@@ -63,17 +66,20 @@ const locales = {
   fi,
   fr,
   he,
+  hu,
   id,
   it,
   ja,
   nb,
   nl,
+  no,
   pl,
   "pt-BR": ptBR,
   ro,
   ru,
   sv,
   tr,
+  "zh-CN": zhCN,
   zh: zhTW
 };
 

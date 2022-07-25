@@ -31,7 +31,7 @@ const missions = [{
   },
   1: {
     number: 3,
-    types: ["Orthoptera", "Lepidoptera", "Camelids", "Ruminantia", "Mysticeti", "Proboscidea", "Diprotodontia", "Perissodactyla", "Lagomorpha", "Rodents", "Sirenians"]
+    types: ["Orthoptera", "Lepidoptera", "Camelids", "Ruminantia", "Mysticeti", "Proboscidea", "Diprotodontia", "Perissodactyla", "Lagomorpha", "Rodentia", "Sirenians"]
   },
   2: {
     number: 2,
@@ -386,6 +386,58 @@ const missions = [{
     number: 5,
     types: [
       "Arthropoda"
+    ]
+  }
+}, { // august 2022
+  0: {
+    number: 3,
+    types: [
+      "Pinopsida",
+      "Angiospermae"
+    ]
+  },
+  1: {
+    number: 3,
+    types: [
+      "birds",
+      "mammals",
+      "Formicidae"
+    ]
+  }
+}, { // sept 2022
+  0: {
+    number: 5,
+    types: [
+      "plants"
+    ]
+  }
+}, { // oct 2022
+  0: {
+    number: 3,
+    types: [
+      "Ixodida",
+      "Culicidae",
+      "Siphonaptera",
+      "Phthiraptera",
+      "Santalales",
+      "Cuscuta",
+      "Orobanchaceae"
+    ]
+  }
+}, { // nov 2022
+  0: {
+    number: 4,
+    types: [
+      "Brassicaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Blattodea",
+      "Rodentia",
+      "Columbiformes",
+      "Corvidae",
+      "Passer",
+      "Acridotheres",
+      "Gekkota"
     ]
   }
 }];

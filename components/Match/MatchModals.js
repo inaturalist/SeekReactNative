@@ -55,19 +55,38 @@ const MatchModals = ( {
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
       case "SET_BADGES":
-        return { ...state, latestLevel: action.latestLevel, badge: action.latestBadge };
+        return {
+          ...state,
+          latestLevel: action.latestLevel,
+          badge: action.latestBadge,
+          replacePhotoModal: false
+        };
       case "SET_CHALLENGES":
         return {
           ...state,
           challenge: action.challenge,
-          challengeInProgress: action.challengeInProgress
+          challengeInProgress: action.challengeInProgress,
+          replacePhotoModal: false
         };
       case "SET_CHALLENGE_MODAL":
-        return { ...state, challengeModal: action.status, challengeShown: action.challengeShown };
+        return {
+          ...state,
+          challengeModal: action.challengeModal,
+          challengeShown: action.challengeShown,
+          replacePhotoModal: false
+        };
       case "SET_LEVEL_MODAL":
-        return { ...state, levelModal: action.status, levelShown: action.levelShown };
+        return {
+          ...state,
+          levelModal: action.levelModal,
+          levelShown: action.levelShown,
+          replacePhotoModal: false
+        };
       case "SET_REPLACE_PHOTO_MODAL":
-        return { ...state, replacePhotoModal: action.status };
+        return {
+          ...state,
+          replacePhotoModal: action.replacePhotoModal
+        };
       default:
         throw new Error( );
     }
@@ -95,9 +114,9 @@ const MatchModals = ( {
     challengeModal
   } = state;
 
-  const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", status: false, challengeShown: true } );
-  const closeReplacePhotoModal = ( ) => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
-  const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
+  const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: false, challengeShown: true } );
+  const closeReplacePhotoModal = ( ) => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: false } );
+  const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", levelModal: false, levelShown: true } );
 
   useEffect( ( ) => {
     if ( levelModal ) {
@@ -142,9 +161,9 @@ const MatchModals = ( {
 
   const checkModals = useCallback( ( ) => {
     if ( challenge && !challengeShown ) {
-      dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
+      dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: true, challengeShown: false } );
     } else if ( latestLevel && !levelShown ) {
-      dispatch( { type: "SET_LEVEL_MODAL", status: true, levelShown: false } );
+      dispatch( { type: "SET_LEVEL_MODAL", levelModal: true, levelShown: false } );
     } else {
       navigateTo( );
     }
@@ -162,12 +181,12 @@ const MatchModals = ( {
 
   useEffect( ( ) => {
     navigation.addListener( "focus", ( ) => {
-      if ( screenType === "newSpecies" && firstRender ) {
+      if ( screenType === "newSpecies" && firstRender.current ) {
         checkChallenges( );
         checkBadges( );
       }
-      if ( screenType === "resighted" && firstRender ) {
-        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
+      if ( screenType === "resighted" && firstRender.current ) {
+        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: true } );
       }
     } );
 
@@ -181,7 +200,7 @@ const MatchModals = ( {
 
   return (
     <>
-      {firstRender && (
+      {firstRender.current && (
         <>
           <Toasts badge={badge} challenge={challengeInProgress} />
           {challenge && <RNModal

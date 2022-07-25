@@ -1,6 +1,4 @@
 // @flow
-import semver from "semver";
-
 import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";
@@ -9,8 +7,9 @@ import { getVersion } from "react-native-device-info";
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
-const getTaxonCommonName = ( taxonID: number ): any => (
+const getTaxonCommonName = ( taxonID?: number ): any => (
   new Promise<any>( ( resolve ) => {
+    if ( !taxonID ) { return; }
     Realm.open( realmConfig.default ).then( ( realm ) => {
       // need this because realm isn't guaranteed to only contain
       // one locale; we could solve this by deleting the realm database each time

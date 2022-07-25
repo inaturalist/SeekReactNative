@@ -1,7 +1,7 @@
 PODS:
   - boost (1.76.0)
-  - BVLinearGradient (2.5.6):
-    - React
+  - BVLinearGradient (2.6.2):
+    - React-Core
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.66.1)
   - FBReactNativeSpec (0.66.1):
@@ -227,7 +227,7 @@ PODS:
     - React-Core
   - react-native-geocoder (0.5.1):
     - React
-  - react-native-geolocation-service (5.2.0):
+  - react-native-geolocation-service (5.3.0):
     - React
   - react-native-image-resizer (1.4.5):
     - React-Core
@@ -235,19 +235,19 @@ PODS:
     - React
   - react-native-mail (6.1.1):
     - React-Core
-  - react-native-maps (0.29.3):
+  - react-native-maps (1.0.0):
     - React-Core
   - react-native-netinfo (6.0.2):
     - React-Core
-  - react-native-pager-view (5.4.7):
+  - react-native-pager-view (5.4.25):
     - React-Core
-  - react-native-restart (0.0.23):
+  - react-native-restart (0.0.24):
     - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (11.13.0):
+  - react-native-webview (11.22.7):
     - React-Core
   - React-perflogger (0.66.1)
   - React-RCTActionSheet (0.66.1):
@@ -317,7 +317,7 @@ PODS:
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
-  - RealmJS (10.9.0):
+  - RealmJS (10.19.5):
     - GCDWebServer
     - React
   - RNCAsyncStorage (1.15.9):
@@ -349,14 +349,14 @@ PODS:
     - React-RCTImage
   - RNShare (7.1.2):
     - React-Core
-  - RNStoreReview (0.2.0):
+  - RNStoreReview (0.2.1):
     - React-Core
-  - RNSVG (12.1.1):
-    - React
-  - SDWebImage/Core (5.12.5)
-  - SDWebImageWebPCoder (0.8.4):
+  - RNSVG (12.3.0):
+    - React-Core
+  - SDWebImage/Core (5.13.0)
+  - SDWebImageWebPCoder (0.9.0):
     - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.10)
+    - SDWebImage/Core (~> 5.13)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -421,7 +421,7 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNShare (from `../node_modules/react-native-share`)
-  - RNStoreReview (from `../node_modules/react-native-store-review/ios`)
+  - RNStoreReview (from `../node_modules/react-native-store-review`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -553,7 +553,7 @@ EXTERNAL SOURCES:
   RNShare:
     :path: "../node_modules/react-native-share"
   RNStoreReview:
-    :path: "../node_modules/react-native-store-review/ios"
+    :path: "../node_modules/react-native-store-review"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -561,7 +561,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
+  BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: 500821d196c3d1bd10e7e828bc93ce075234080f
   FBReactNativeSpec: 74c869e2cffa2ffec685cd1bac6788c021da6005
@@ -583,17 +583,17 @@ SPEC CHECKSUMS:
   React-logger: bfddd3418dc1d45b77b822958f3e31422e2c179b
   react-native-cameraroll: 60ac50a5209777cbccfe8d7a62d0743a9da87060
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
-  react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
+  react-native-geolocation-service: f32ef48fa665bd710207a3ac39bc127cac9cb993
   react-native-image-resizer: 506412a2bdd70dde64a61e13505ce10f61a04369
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
-  react-native-maps: 41d01d8e0afcebe32bec9eea3bd945adc1b18f7a
+  react-native-maps: cf88ba5e5b9d7ef75b8c92f43e79aaa0644ffd20
   react-native-netinfo: 8917788f12f8c422d16a56f840a1b06faa56e2b6
-  react-native-pager-view: a1486db1a8c9956437fc3a87cf2b56f44095a193
-  react-native-restart: 841a166b7fd9243c86ae36148f329e6666967a1f
+  react-native-pager-view: fc311e95f8ba2b710deae6cb0a21f2102fb49d99
+  react-native-restart: 8af4579c94638f38bd9074ec477ebf087de87dc5
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
-  react-native-webview: b176c6404ad40d10cfc818be41c053f85a72d751
+  react-native-webview: 816f607f377c1e760c4f93f03215d73e701774be
   React-perflogger: fcac6090a80e3d967791b4c7f1b1a017f9d4a398
   React-RCTActionSheet: caf5913d9f9e605f5467206cf9d1caa6d47d7ad6
   React-RCTAnimation: 6539e3bf594f6a529cd861985ba6548286ae1ead
@@ -607,7 +607,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 33a949a51bec5f8a3c9e8d8092deb259600d761e
   ReactCommon: 620442811dc6f707b4bf5e3b27d4f19c12d5a821
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
-  RealmJS: 24740378e6bfd853348405eca7f9d38482bc2696
+  RealmJS: 400aac2267a47b25fcc2b6321e8a419282719d16
   RNCAsyncStorage: d599364c12b1ddb042cc2d7ab6f8258962b83097
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCMaskedView: f127cd9652acfa31b91dcff613e07ba18b774db6
@@ -622,10 +622,10 @@ SPEC CHECKSUMS:
   RNReanimated: 514a11da3a2bcc6c3dfd9de32b38e2b9bf101926
   RNScreens: 2a71d74b4e530f051f5684c8111d7591176722cf
   RNShare: 0fec82bd2e67d09f895937ccb4f5a097e714dec2
-  RNStoreReview: d7d2a006e14030fe101cac9da487a17f98d73eff
-  RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
-  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
-  SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
+  RNStoreReview: e05edbbf426563070524cec384ac0b8df69be801
+  RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
+  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+  SDWebImageWebPCoder: 3dc350894112feab5375cfba9ce0986544a66a69
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
 
 PODFILE CHECKSUM: a91b93967bf9975a3656526b13b2cc96ca5b614a

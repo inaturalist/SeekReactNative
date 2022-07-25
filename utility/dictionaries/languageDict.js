@@ -16,11 +16,13 @@ const languages = {
   fi: "Suomi",
   fr: "Français",
   he: "עברית",
+  hu: "Magyar",
   id: "Bahasa Indonesia",
   it: "Italiano",
   ja: "日本語",
+  nb: "Norsk Bokmål",
   nl: "Nederlands",
-  nb: "Norsk",
+  no: "Norsk",
   pl: "Polski",
   "pt-BR": "Português (Brazil)",
   ro: "Română",
@@ -28,6 +30,7 @@ const languages = {
   si: "සිංහල",
   sv: "Svenska",
   tr: "Türkçe",
+  "zh-CN": "中文 (中国)",
   zh: "中文 (台灣)"
 };
 

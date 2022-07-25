@@ -94,10 +94,6 @@ const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolea
   }
 };
 
-const saveToAsyncStorage = ( key: string, value: string ) => {
-  AsyncStorage.setItem( key, value );
-};
-
 const fetchFromAsyncStorage = async ( key: string ): Promise<?string> => {
   try {
     return await AsyncStorage.getItem( key );

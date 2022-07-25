@@ -372,7 +372,8 @@
     "error_selected_photos": "Eğer izinlerin 'Seçilen Fotoğraflar' olarak ayarlandıysa, Seek'i yeniden başlatman gerekebilir veya burada gösterilecek fotoğrafları seçmek için iOS Ayarları > Seek > Fotoğraflar > Seçilen Fotoğraflar kısmından düzenleyebilirsin.",
     "plant_filter": "Yalnızca bitkiler",
     "non_plant_filter": "Yalnızca bitki olmayanlar",
-    "filters_off": "Filtreler kapalı"
+    "filters_off": "Filtreler kapalı",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Fotoğraflar",

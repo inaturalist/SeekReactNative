@@ -372,7 +372,8 @@
     "error_selected_photos": "אם ההרשאות הן 'תמונות נבחרות', ייתכן שיש להתחיל את Seek מחדש או לבדוק את הגדרות > Seek > תמונות > תמונות נבחרות ולבחור אילו תמונות לאשר כאן.",
     "plant_filter": "צמחים בלבד",
     "non_plant_filter": "רק לא צמחים",
-    "filters_off": "ללא פילטרים"
+    "filters_off": "ללא פילטרים",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "תמונות",

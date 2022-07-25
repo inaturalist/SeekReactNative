@@ -372,7 +372,8 @@
     "error_selected_photos": "Hvis dine tilladelser er sat til 'Valgte billeder', skal du muligvis genstarte Seek eller gå til iOS-indstillinger > Seek > Billeder > Valgte Billeder for at vælge, hvilke billeder der skal vises her.",
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
-    "filters_off": "Filtre fra"
+    "filters_off": "Filtre fra",
+    "error_save": "Kunne ikke gemme foto."
   },
   "gallery": {
     "label": "Fotos",

@@ -372,7 +372,8 @@
     "error_selected_photos": "Si els teus permisos s'han configurat com a 'Fotos Seleccionades', pots necessitar reiniciar Seek o visitar la Configuració d'iOS > Seek > Fotos > Fotos Seleccionades per seleccionar quines fotos s'han de mostrar aquí.",
     "plant_filter": "Únicament plantes",
     "non_plant_filter": "Únicament No plantes",
-    "filters_off": "Filtres apagats"
+    "filters_off": "Filtres apagats",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Fotos",

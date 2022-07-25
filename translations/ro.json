@@ -372,7 +372,8 @@
     "error_selected_photos": "Dacă permisiunile tale sunt setate pe „Fotografii selectate”, poate fi necesar să repornești Seek sau să vizitezi Setări iOS > Seek > Fotografii > Fotografii selectate, pentru a alege ce fotografii să fie afișate aici.",
     "plant_filter": "Numai plante",
     "non_plant_filter": "Numai non-plante",
-    "filters_off": "Filtre dezactivate"
+    "filters_off": "Filtre dezactivate",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Fotografii",

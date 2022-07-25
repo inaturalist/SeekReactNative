@@ -372,7 +372,8 @@
     "error_selected_photos": "Ha az engedély a 'Selected Photos'-ra lett beállítva, akkor a Seek újraindítása javasolt, vagy az iOS Settings > Seek > Photos > Selected Photos állíts be, hogy milyen fotó jelenjen meg itt.",
     "plant_filter": "Csak növények",
     "non_plant_filter": "Csak nem-növények",
-    "filters_off": "Szűrők kikapcsolva"
+    "filters_off": "Szűrők kikapcsolva",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Fényképek",

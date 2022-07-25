@@ -372,7 +372,8 @@
     "error_selected_photos": "Jos käyttöoikeutesi on asetettu 'Valitut kuvat', saatat joutua käynnistämään Seekin uudelleen tai vieraile iOS Asetukset > Seek > Kuvat > Valitut Kuvat valitaksesi mitkä kuvat näytetään tässä.",
     "plant_filter": "Vain kasvit",
     "non_plant_filter": "Muut kuin kasvit",
-    "filters_off": "Ei rajauksia"
+    "filters_off": "Ei rajauksia",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Kuvat",

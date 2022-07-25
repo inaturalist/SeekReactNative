@@ -372,7 +372,8 @@
     "error_selected_photos": "Om dina behörigheter är inställda på 'Valda bilder', kan du behöva starta om Seek eller gå till iOS-inställningar > Seek > Bilder > Valda bilder för att välja vilka bilder som ska visas här.",
     "plant_filter": "Endast växter",
     "non_plant_filter": "Endast icke-växter",
-    "filters_off": "Filter av"
+    "filters_off": "Filter av",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Bilder",

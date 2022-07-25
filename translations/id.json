@@ -372,7 +372,8 @@
     "error_selected_photos": "Jika izinmu diatur ke 'Foto Tertentu', kamu mungkin harus memulai ulang Seek atau mengunjungi Pengaturan iOS > Seek > Foto > Foto Tertentu untuk memilih foto apa yang akan ditampilkan di sini.",
     "plant_filter": "Tumbuhan saja",
     "non_plant_filter": "Bukan tumbuhan saja",
-    "filters_off": "Matikan saringan"
+    "filters_off": "Matikan saringan",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Foto",

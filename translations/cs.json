@@ -372,7 +372,8 @@
     "error_selected_photos": "Pokud jsou vaše oprávnění nastavena na 'Vybrané fotografie', možná budete muset restartovat Seek nebo navštívit nastavení iOS > Seek > Fotky > Vybrané fotky, abyste si mohli vybrat, které fotky se zobrazí zde.",
     "plant_filter": "Pouze rostliny",
     "non_plant_filter": "Bez rostlin",
-    "filters_off": "Filtry vypnuty"
+    "filters_off": "Filtry vypnuty",
+    "error_save": "Fotku nelze uložit."
   },
   "gallery": {
     "label": "Fotografie",

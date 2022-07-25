@@ -372,7 +372,8 @@
     "error_selected_photos": "Als je toestemmingen zijn ingesteld op \"Geselecteerd foto's\" moet je mogelijk Seek herstarten of naar iOS  Instellingen > Seek > Foto's > Geselecteerde foto's gaan om te kiezen welke foto's hier moeten worden getoond.",
     "plant_filter": "Alleen planten",
     "non_plant_filter": "Alleen niet-planten",
-    "filters_off": "Filters uit"
+    "filters_off": "Filters uit",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Foto’s",

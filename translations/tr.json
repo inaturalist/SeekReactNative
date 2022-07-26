@@ -373,7 +373,7 @@
     "plant_filter": "Yalnızca bitkiler",
     "non_plant_filter": "Yalnızca bitki olmayanlar",
     "filters_off": "Filtreler kapalı",
-    "error_save": "Could not save photo."
+    "error_save": "Fotoğraf kaydedilemedi."
   },
   "gallery": {
     "label": "Fotoğraflar",

@@ -373,7 +373,7 @@
     "plant_filter": "Alleen planten",
     "non_plant_filter": "Alleen niet-planten",
     "filters_off": "Filters uit",
-    "error_save": "Could not save photo."
+    "error_save": "Kan foto niet opslaan."
   },
   "gallery": {
     "label": "Foto’s",

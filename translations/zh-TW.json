@@ -373,7 +373,7 @@
     "plant_filter": "篩選器僅允許植物",
     "non_plant_filter": "篩選器僅允許非植物",
     "filters_off": "關閉篩選器",
-    "error_save": "Could not save photo."
+    "error_save": "無法儲存照片。"
   },
   "gallery": {
     "label": "照片",

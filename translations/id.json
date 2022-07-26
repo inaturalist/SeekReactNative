@@ -373,7 +373,7 @@
     "plant_filter": "Tumbuhan saja",
     "non_plant_filter": "Bukan tumbuhan saja",
     "filters_off": "Matikan saringan",
-    "error_save": "Could not save photo."
+    "error_save": "Tidak dapat menyimpan foto."
   },
   "gallery": {
     "label": "Foto",

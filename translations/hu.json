@@ -373,7 +373,7 @@
     "plant_filter": "Csak növények",
     "non_plant_filter": "Csak nem-növények",
     "filters_off": "Szűrők kikapcsolva",
-    "error_save": "Could not save photo."
+    "error_save": "A fénykép mentése sikertelen."
   },
   "gallery": {
     "label": "Fényképek",

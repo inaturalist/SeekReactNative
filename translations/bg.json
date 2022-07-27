@@ -373,7 +373,7 @@
     "plant_filter": "Plants only",
     "non_plant_filter": "Non-plants only",
     "filters_off": "Filters off",
-    "error_save": "Could not save photo."
+    "error_save": "Неуспешно запазване на снимка."
   },
   "gallery": {
     "label": "Снимки",

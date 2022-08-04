@@ -373,7 +373,7 @@
     "plant_filter": "Solo plantas",
     "non_plant_filter": "Sólo no-plantas",
     "filters_off": "Filtros deshabilitados",
-    "error_save": "Could not save photo."
+    "error_save": "No se ha podido guardar la foto."
   },
   "gallery": {
     "label": "Fotos",
@@ -906,22 +906,22 @@
     "july_2022_mission_1": "Encuentra 5 especies de artrópodos",
     "july_2022_description_insects_crustaceans": "Insectos, crustáceos, arácnidos, ciempiés y milpiés tienen exosqueletos, o \"esqueletos exteriores\". A diferencia de los humanos y otros vertebrados, no tienen un esqueleto interno, por lo que los músculos se fijan por dentro al exosqueleto y les permiten el movimiento. Los exosqueletos también ofrecen protección contra la sequedad y tienen órganos sensibles análogos a la piel humana.",
     "july_2022_action_molted_exoskeleton": "¿Alguna vez has encontrado un exosqueleto vacío mudado? Los exosqueletos no crecen con el animal, así que deben mudarlos a medida que crecen.",
-    "august_2022_challenge_name_seed_dispersal": "Seed Dispersal Challenge",
-    "august_2022_mission_1": "Find 3 species from:\n\n-Class Pinopsida (Conifers);\nSubphylum Angiospermae (Flowering plants)",
-    "august_2022_mission_2": "Find 3 species from:\n\n-Class Aves (Birds);\nClass Mammalia (Mammals);\nFamily Formicidae (Ants)",
-    "august_2022_description_seeds_are_a_lifestage": "Seeds are a lifestage of plants that can be easily moved. Many conifers and flowering plants have adapted fruits and seeds to be transported by wind, water, or animals. Many species of birds, mammals, and even ants can disperse seeds.",
-    "august_2022_action_largest_species_seed_dispersing": "What is the largest species of seed dispersing animal near you? What kinds of seeds can it disperse? When animals swallow seeds whole, you may be able to find seeds in scat (also known as poop). Observations of scat count as evidence of an organism, but sometimes scat can be difficult to identify.",
-    "september_2022_challenge_name_photosynthesis": "Photosynthesis Challenge",
-    "september_2022_mission_1": "Find 5 plants",
-    "september_2022_description_plants_convert_light": "Plants convert light energy into sugars through photosynthesis. Leaf color is shaped by the different plant pigments that capture different wavelengths of light. When leaves change color, the chlorophylls (green pigments) fade and carotenoids (yellow pigments) and Anthocyanins (red and purple pigments) are visible.",
-    "september_2022_action_photosynthesis": "Photosynthesis converts carbon dioxide from the atmosphere into other molecules needed for sustaining life. Respiration is the chemical process of releasing the energy originally stored in photosynthesis.",
-    "october_2022_challenge_name_parasite": "Parasite Challenge",
-    "october_2022_mission_1": "Find 3 species from:\n\nOrder Ixodida (Ticks);\nFamily Culicidae (Mosquitos);\nOrder Siphonaptera (Fleas);\nParvorder Phthiraptera (Lice);\nOrder Santalales (Mistletoes);\nGenus Cuscuta (Dodders);\nFamily Orobanchaceae (Broomrapes)",
-    "october_2022_description_parasitic_organisms": "Parasitic organisms feed on other organisms without killing them. Arthropods like ticks, mosquitos, fleas, and lice have adapted to feed on vertebrates, including humans and/or domestic animals. There are also parasitic plants that do not photosynthesize because they rely on sugar produced by their host plant.",
-    "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
-    "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
-    "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
-    "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
-    "november_2022_action_change_location": "Change the location for “species seen nearby” to search a city far from you. What species are seen near there? Are any of them the same or similar to species seen near you?"
+    "august_2022_challenge_name_seed_dispersal": "Desafío de dispersión de semillas",
+    "august_2022_mission_1": "Encuentre 3 especies de:\n\n-Clase Pinopsida (Coníferas);\nSubfilo Angiospermae (plantas con flor)",
+    "august_2022_mission_2": "Encuentra 3 especies de:\n\n-Clase Aves (pájaros);\nClase Mammalia (mamíferos);\nFamilia Formicidae (hormigas)",
+    "august_2022_description_seeds_are_a_lifestage": "Las semillas son una fase en la vida de las plantas en la que se pueden moverse fácilmente. Muchas coníferas y plantas con flor han adaptado frutas y semillas para ser transportadas por viento, agua o animales. Muchas especies de aves, mamíferos e incluso hormigas pueden dispersar semillas.",
+    "august_2022_action_largest_species_seed_dispersing": "¿Cuál es la especie de animal con mayor dispersión de semillas cerca de tí? Cuando los animales ingieren semillas enteras, puedes encontrar semillas en heces (también conocido como excrementos). Las observaciones de heces cuentan como evidencia de un organismo, pero a veces pueden ser difíciles de identificar.",
+    "september_2022_challenge_name_photosynthesis": "Desafío fotosintético",
+    "september_2022_mission_1": "Encuentra 5 plantas",
+    "september_2022_description_plants_convert_light": "Las plantas convierten la energía de la luz en azúcares a través de la fotosíntesis. El color de la hoja está formado por los diferentes pigmentos de la planta que capturan diferentes longitudes de onda de la luz. Cuando las hojas cambian de color, las clorofilas (pigmentos verdes) se desvanecen y los carotenoides (pigmentos amarillos) y las antocianinas (pigmentos rojos y morados) son visibles.",
+    "september_2022_action_photosynthesis": "La fotosíntesis convierte el dióxido de carbono de la atmósfera en otras moléculas necesarias para mantener la vida. La respiración es el proceso químico de liberación de energía originalmente almacenada por la fotosíntesis.",
+    "october_2022_challenge_name_parasite": "Desafío parásito",
+    "october_2022_mission_1": "Encuentre 3 especies de:\n\nOrden Ixodida (Garrapatas);\nFamilia Culicidae (Mosquitos);\nOrden Siphonaptera (Pulgas);\nParvorder Phthiraptera (Piojos);\nOrden Santalales (Muérdagos);\nGénero Cuscuta (Cabellos de Ángel);\nFamiliar Orobanchaceae (Jopos, Chupamieles, Eufrasias Y Parientes)",
+    "october_2022_description_parasitic_organisms": "Los organismos parasíticos se alimentan de otros organismos sin matarlos. Los artrópodos como garrapatas, mosquitos, pulgas y piojos se han adaptado para alimentarse de vertebrados, incluidos humanos y/o animales domésticos. También hay plantas parásitas que no realizan la fotosíntesis porque dependen del azúcar producido por su planta anfitriona.",
+    "october_2022_action_parasites": "Los parásitos también pueden transmitir enfermedades mientras se desplazan del un anfitrión a otro. ¿Qué enfermedades pueden propagarse por parásitos en tu zona? ¿Qué medidas puedes tomar para protegerte de la infección?",
+    "november_2022_challenge_name_urban_nature": "Desafío de naturaleza urbana",
+    "november_2022_mission_1": "Encuentre 4 especies de:\n\nFamilia Brassicáceas (Mostazas);\nFamilia Lamiáceas (Mentas);\nFamilia Poaceae (Pastos y Cereales);\nOrden Blattodea (Cucarachas y Termitas);\nOrden Rodentia (Roedores);\nOrdenar Columbiformes (Palomas);\nFamilia Corvidae (Cuervos, Urracas, Charas, Arrendajos Y Cascanueces);\nGénero Passerr (Gorriones);\nGenus Acridotheres (Mainás);\nInfraorden Gekkota (Gecos)",
+    "november_2022_description_some_species_well_adapted": "Algunas especies están bien adaptadas a las zonas desarrolladas. Incluso en las ciudades, se puede encontrar biodiversidad silvestre en las aceras, aparcamientos vacíos, jardines e incluso en nuestros hogares (tal vez como visitantes no deseados).",
+    "november_2022_action_change_location": "Cambia la ubicación de \"especies vistas cerca\" para buscar en una ciudad lejos de ti. ¿Qué especies se ven cerca de allí? ¿Alguna de ellas es igual o similar a las especies que se ven cerca de ti?"
   }
 }

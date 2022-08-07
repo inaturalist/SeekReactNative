@@ -373,7 +373,7 @@
     "plant_filter": "Únicament plantes",
     "non_plant_filter": "Únicament No plantes",
     "filters_off": "Filtres apagats",
-    "error_save": "Could not save photo."
+    "error_save": "No es pot guardar la foto"
   },
   "gallery": {
     "label": "Fotos",
@@ -906,22 +906,22 @@
     "july_2022_mission_1": "Troba cinc espècies d'artròpodes",
     "july_2022_description_insects_crustaceans": "Els insectes, crustacis, aràcnids, centpeus i milpeus, tots ells tenen exoesquelets, o \"esquelets exteriors\". Al contrari dels humans i altres vertebrats, no tenen un esquelet intern, per tant, els músculs es fixen a la part interior de l'exoesquelet i faciliten el moviment. L'exoesquelet també ofereix protecció enfront de la sequedat i tenen òrgans sensorials anàlegs a la pell humana.",
     "july_2022_action_molted_exoskeleton": "Has trobat alguna vegada un exoesquelet buit i mudat? Els exoesquelets no creixen amb l'animal, per això han de mudar-lo a mesura que creixen.",
-    "august_2022_challenge_name_seed_dispersal": "Seed Dispersal Challenge",
-    "august_2022_mission_1": "Find 3 species from:\n\n-Class Pinopsida (Conifers);\nSubphylum Angiospermae (Flowering plants)",
-    "august_2022_mission_2": "Find 3 species from:\n\n-Class Aves (Birds);\nClass Mammalia (Mammals);\nFamily Formicidae (Ants)",
-    "august_2022_description_seeds_are_a_lifestage": "Seeds are a lifestage of plants that can be easily moved. Many conifers and flowering plants have adapted fruits and seeds to be transported by wind, water, or animals. Many species of birds, mammals, and even ants can disperse seeds.",
-    "august_2022_action_largest_species_seed_dispersing": "What is the largest species of seed dispersing animal near you? What kinds of seeds can it disperse? When animals swallow seeds whole, you may be able to find seeds in scat (also known as poop). Observations of scat count as evidence of an organism, but sometimes scat can be difficult to identify.",
-    "september_2022_challenge_name_photosynthesis": "Photosynthesis Challenge",
-    "september_2022_mission_1": "Find 5 plants",
-    "september_2022_description_plants_convert_light": "Plants convert light energy into sugars through photosynthesis. Leaf color is shaped by the different plant pigments that capture different wavelengths of light. When leaves change color, the chlorophylls (green pigments) fade and carotenoids (yellow pigments) and Anthocyanins (red and purple pigments) are visible.",
-    "september_2022_action_photosynthesis": "Photosynthesis converts carbon dioxide from the atmosphere into other molecules needed for sustaining life. Respiration is the chemical process of releasing the energy originally stored in photosynthesis.",
-    "october_2022_challenge_name_parasite": "Parasite Challenge",
-    "october_2022_mission_1": "Find 3 species from:\n\nOrder Ixodida (Ticks);\nFamily Culicidae (Mosquitos);\nOrder Siphonaptera (Fleas);\nParvorder Phthiraptera (Lice);\nOrder Santalales (Mistletoes);\nGenus Cuscuta (Dodders);\nFamily Orobanchaceae (Broomrapes)",
-    "october_2022_description_parasitic_organisms": "Parasitic organisms feed on other organisms without killing them. Arthropods like ticks, mosquitos, fleas, and lice have adapted to feed on vertebrates, including humans and/or domestic animals. There are also parasitic plants that do not photosynthesize because they rely on sugar produced by their host plant.",
-    "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
-    "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
-    "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
-    "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
-    "november_2022_action_change_location": "Change the location for “species seen nearby” to search a city far from you. What species are seen near there? Are any of them the same or similar to species seen near you?"
+    "august_2022_challenge_name_seed_dispersal": "Repte de Dispersió de Llavors",
+    "august_2022_mission_1": "Troba 3 espècies de\n-Classe Pinòpsids (Coniferes)\nSubfílum Angiospermes (Plantes amb Flors)",
+    "august_2022_mission_2": "Troba 3 espècies de:\n-Classe Aves (Aus)\n-Classe Mammalia (Mamífers)\n-Família Formicidae (Formigues)\n",
+    "august_2022_description_seeds_are_a_lifestage": "Les llavors són una etapa de la vida de les plantes a la qual es poden moure fàcilment. Moltes coníferes i plantes amb flors tenen fruits i llavors adaptades per ser transportades pel vent, l'aigua o els animals. Moltes espècies d'ocells, mamífers i, fins i tot, formigues poden dispersar les llavors.",
+    "august_2022_action_largest_species_seed_dispersing": "Quina és l'espècie més gran d'animal que dispersa llavors a prop teu? Quin tipus de llavors pot dispersar? Quan els animals s'empassen les llavors senceres pots trobar-les als excrements (el que es coneix com la caca). Les observacions d'excrements es comptabilitzen com evidència de la presència d'un organisme, però sovint els excrements poden ser difícils d'identificar.",
+    "september_2022_challenge_name_photosynthesis": "Repte de la Fotosíntesi",
+    "september_2022_mission_1": "Troba 5 plantes",
+    "september_2022_description_plants_convert_light": "Les plantes transformen l'energia lluminosa en sucres a través de la fotosíntesi. El color de les fulles està format per la presència de diferents pigments de la planta, els quals captures diferents longituds d'ona de la llum. Quan les fulles canvien de color, les clorofil·les (pigments verds) s'esvaeixen i els carotenoides (pigments grocs) i les antocianines (pigments de color vermell i morat) són visibles.",
+    "september_2022_action_photosynthesis": "La Fotosíntesi converteix el diòxid de carboni de l'atmosfera en altres molècules necessàries per sostenir la vida. La Respiració és el procés químic pel qual s'allibera l'energia originalment emmagatzemada a la fotosíntesi.",
+    "october_2022_challenge_name_parasite": "Repte dels Paràsits",
+    "october_2022_mission_1": "Troba 3 espècies de:\n\nOrdre Ixodida (Paparres);\nFamília Culicidae (Mosquits);\nOrdre Sifonaptera (Puces);\nParvordre Phthiraptera (Polls);\nOrdre Santalales (Vescs);\nGènere Cuscuta (Cabells d'Àngel);\nFamília Orobanchaceae (Orobanques o Frares)",
+    "october_2022_description_parasitic_organisms": "Els organismes paràsits s'alimenten d'altres organismes sense matar-los. Els artròpodes com les paparres, els mosquits, les puces o els polls s'han adaptat per alimentar-se de vertebrats, inclosos humans i/o els animals domèstics. També hi ha plantes paràsites que no fan la fotosíntesi perquè depenen del sucre produït per la planta hoste.",
+    "october_2022_action_parasites": "Els paràsits també poden propagar malalties mentre arran de traslladar-se d'un hoste a un altre. Quines malalties poden transmetre els paràsits a la vostra zona? Quines mesures pots prendre per protegir-te de les seves infeccions?",
+    "november_2022_challenge_name_urban_nature": "Repte de Natura Urbana",
+    "november_2022_mission_1": "Troba 4 espècies de:\n\nFamília Brassicaceae (Mostasses);\nFamília Lamiaceae (Mentes);\nFamília Poaceae (Gespes);\nOrdre Blattodea (Paneroles i Tèrmits);\nOrdre Rodentia (Rosegadors);\nOrdre Columbiformes (Coloms);\nFamília Corvidae (Corbs, Garalles i Garses);\nGènere Passer (Pardals);\nGènere Acridotheres (Mynas);\nInfraordre Gekkota (Geckos)",
+    "november_2022_description_some_species_well_adapted": "Algunes espècies estan ben adaptades a zones urbanitzades. Fins i tot a les ciutats, podeu trobar biodiversitat salvatge a les esquerdes del paviment, als solars buits, visitant jardins i fins i tot a casa vostra (potser com a visitants no desitjats).",
+    "november_2022_action_change_location": "Canvieu la ubicació d'espècies \"vistes a prop\" per cercar una ciutat lluny de vosaltres. Quines espècies s'hi veuen a prop? Alguna d'elles és igual o semblant a les espècies que es veuen a prop teu?"
   }
 }

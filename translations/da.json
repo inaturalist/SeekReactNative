@@ -373,7 +373,7 @@
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre fra",
-    "error_save": "Foto kunne ikke gemmes."
+    "error_save": "Kunne ikke gemme foto."
   },
   "gallery": {
     "label": "Fotos",

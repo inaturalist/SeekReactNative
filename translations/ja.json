@@ -27,7 +27,7 @@
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "INATURALISTに投稿する",
     "uploading_x_observations": {
       "zero": "Uploading {{count}} observations",
       "one": "Uploading {{count}} observation",
@@ -52,15 +52,15 @@
       "many": "{{count}} observations to upload",
       "other": "{{count}} observations to upload"
     },
-    "upload_now": "UPLOAD NOW",
+    "upload_now": "今すぐアップロード",
     "error_internet": "No internet detected. Please try again later.",
     "error_downtime": {
       "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
-      "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "one": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。",
+      "two": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。",
+      "few": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。",
+      "many": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。",
+      "other": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。"
     },
     "error_unknown": "Upload failed. Error details: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
@@ -89,8 +89,8 @@
     "error_username_taken": "このユーザー名は既に使用されています。",
     "error_no_username": "Missing username / email",
     "error_no_password": "パスワードがありません",
-    "error_internet": "No internet connection",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_internet": "インターネット未接続",
+    "error_request_could_not_be_completed": "リクエストを完了できませんでした。"
   },
   "inat_signup": {
     "welcome": "Seekへようこそ！",
@@ -127,7 +127,7 @@
     "learn_more_about_data_storage": "ウェブサイトでアカウントを管理するために、ユーザー名やメールアドレスなどの個人情報を私たちが保管する必要があります。プライバシー関連の法律を順守するため、この個人情報の取り扱いに同意することを示すボックスを選択する必要があります。私たちがどのように収集し取り扱うかについて詳しくは、プライバシーポリシーとサービス利用規約を参照してください。",
     "learn_more_about_licensing": "あなたがアップロードしたコンテンツに CC 表示-非営利ライセンスを適用したい場合は、このボックスを選択します。これは、クレジットを与え、作品を商業的に使用しない限り、誰でも許可を求めなくてもあなたの写真や観察をコピーして再利用できることを意味します。後で別のライセンスを再選択したり、ライセンスを削除できますが、これは研究者と共有するための最良のライセンスです。",
     "about_personal_information": "個人情報について",
-    "about_licenses": "About Licenses",
+    "about_licenses": "ライセンスについて",
     "transfer_data": "個人情報を米国へ転送することを許可・同意します",
     "learn_more_about_data_transfer": "欧州連合の「一般データ保護規則」(GDPR)のような一部のプライバシーに関連する法律は、この情報の法的保護が適切ではないと考えられる管轄区域から他の管轄区域に個人情報を転送するために明示的な同意を必要とします。2020年現在、EUは米国を個人情報に対する十分な法的保護を提供する管轄区域とみなしなくなりました。米国政府が米国に転送されるデータを監視する可能性があるためです。他の管轄区域も同じ意見を持っている可能性があります。",
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
@@ -325,7 +325,7 @@
     "nearby": "この分類群に入る近くの生き物",
     "nothing_nearby": "この分類群に入る生き物があまり観察されていないようです！もう一回写真を撮る又はiNaturalistに投稿してください。",
     "tap": "タップして近くの生き物をロードしてください。",
-    "social": "Share on social"
+    "social": "ソーシャルメディアで共有"
   },
   "banner": {
     "view": "バッジを表示",
@@ -373,7 +373,7 @@
     "plant_filter": "Plants only",
     "non_plant_filter": "Non-plants only",
     "filters_off": "Filters off",
-    "error_save": "Could not save photo."
+    "error_save": "写真を保存できませんでした。"
   },
   "gallery": {
     "label": "写真",

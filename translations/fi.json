@@ -373,7 +373,7 @@
     "plant_filter": "Vain kasvit",
     "non_plant_filter": "Muut kuin kasvit",
     "filters_off": "Ei rajauksia",
-    "error_save": "Could not save photo."
+    "error_save": "Kuvan tallentaminen epäonnistui."
   },
   "gallery": {
     "label": "Kuvat",

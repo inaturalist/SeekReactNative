@@ -501,14 +501,14 @@
     "not_seen_plants": "You haven’t observed any plants yet!",
     "not_seen_amphibians": "両生類を観察していません！",
     "not_seen_fungi": "菌類を観察していません！",
-    "not_seen_fish": "魚を観察していません！",
+    "not_seen_fish": "魚類を観察していません！",
     "not_seen_reptiles": "爬虫類を観察していません！",
     "not_seen_arachnids": "クモ型類節足動物をまだ観察していません！",
-    "not_seen_birds": "You haven’t observed any birds yet!",
-    "not_seen_insects": "You haven’t observed any insects yet!",
-    "not_seen_mollusks": "You haven’t observed any mollusks yet!",
-    "not_seen_mammals": "You haven’t observed any mammals yet!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_birds": "鳥類を観察していません！",
+    "not_seen_insects": "昆虫を観察していません！",
+    "not_seen_mollusks": "軟体動物を観察していません！",
+    "not_seen_mammals": "哺乳類を観察していません！",
+    "not_seen_other": "その他の種を観察していません！"
   },
   "species_detail": {
     "near": "この付近で",
@@ -593,16 +593,16 @@
     "unknown": "不明",
     "ok": "OK",
     "look_up": "名前で種を検索",
-    "latitude_longitude": "Lat: {{latitude}}, Long: {{longitude}}",
-    "major_taxa": "MAJOR TAXA",
-    "animals": "Animals",
-    "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "latitude_longitude": "緯度: {{latitude}}, 経度: {{longitude}}",
+    "major_taxa": "主要分類",
+    "animals": "動物",
+    "protozoans": "原生動物",
+    "kelp": "褐藻、珪藻、その他藻類"
   },
   "posting_status": {
-    "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",
-    "posting_to_inat_background_description": "Posting to iNaturalist will continue in the background while Seek is open.\n\nYou can check the status of uploads on the home screen.",
-    "no_internet": "NO INTERNET!",
+    "posting_to_inat_background": "バックグラウンドで INATURALIST に投稿",
+    "posting_to_inat_background_description": "Seek を開いている間、iNaturalist への投稿はバックグラウンドで続行されます。\n\nホーム画面でアップロードの進捗状況を確認できます。",
+    "no_internet": "インターネットなし！",
     "no_internet_description": "Your observation has not been uploaded to iNaturalist because you're not connected to the internet.\n\nYou can upload your observation from the home screen once you have internet."
   },
   "posting_help": {
@@ -636,7 +636,7 @@
     "tip_1": "常に周りに注意を配り、安全を第一に考え、不法侵入はしないでください。",
     "tip_2": "野外で見つけたものを食べるのは危険です。",
     "tip_3": "他の生き物を大切にしましょう。触ったり、いじめないでください。刺したり、咬む生き物もいます。",
-    "tip_4": "Children may require adult supervision."
+    "tip_4": "子供は大人の監視が必要になることがあります。"
   },
   "accessibility": {
     "menu": "メニューを開ける",
@@ -646,7 +646,7 @@
     "flag": "「この判定が誤っている」とフラグを付ける",
     "back": "戻る",
     "user_location": "現在地に戻る",
-    "open_help": "Open camera help screen",
+    "open_help": "カメラのヘルプ画面を開く",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "タップして写真を撮れます。",
     "scroll_left": "タップすると、左へスクロールできます。",
@@ -665,7 +665,7 @@
     "some": "著作権一部所有"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "デバッグログをメールで送信"
   },
   "shortcut": {
     "seek_camera": "Seek Camera",

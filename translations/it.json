@@ -373,7 +373,7 @@
     "plant_filter": "Solo piante",
     "non_plant_filter": "Solo non vegetali",
     "filters_off": "Filtri disattivati",
-    "error_save": "Could not save photo."
+    "error_save": "Impossibile salvare la foto."
   },
   "gallery": {
     "label": "Foto",

@@ -6,7 +6,7 @@
     "no_gps": "Geen gps-signaal gevonden. Controleer alsjeblieft of je gps hebt ingeschakeld",
     "no_species": "Zo te zien zijn er nog niet veel soorten in de buurt waargenomen! Probeer je locatie te wijzigen of breid het soortenfilter uit.",
     "input_location_above_map": "Geen locatie gevonden; voer een gebiedsnaam in om de kaart te laden en te zoeken naar soorten in de buurt",
-    "error_alert_location_services": "Schakel locatiediensten in de instellingen van je apparaat in om door te gaan",
+    "error_alert_location_services": "Zet locatiediensten aan in de instellingen van je apparaat om door te gaan",
     "species_nearby_requires_location": "Soorten in de buurt vereist je locatie. Activeer de locatiediensten in je instellingen",
     "species_nearby_requires_android_accuracy": "Soorten in de buurt heeft jouw locatie nodig. Controleer of locatieservices zijn ingeschakeld.",
     "choose_location_on_map": "KIES LOCATIE OP MAP"
@@ -372,7 +372,8 @@
     "error_selected_photos": "Als je toestemmingen zijn ingesteld op \"Geselecteerd foto's\" moet je mogelijk Seek herstarten of naar iOS  Instellingen > Seek > Foto's > Geselecteerde foto's gaan om te kiezen welke foto's hier moeten worden getoond.",
     "plant_filter": "Alleen planten",
     "non_plant_filter": "Alleen niet-planten",
-    "filters_off": "Filters uit"
+    "filters_off": "Filters uit",
+    "error_save": "Kan foto niet opslaan."
   },
   "gallery": {
     "label": "Foto’s",

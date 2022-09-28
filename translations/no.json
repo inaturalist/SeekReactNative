@@ -372,7 +372,8 @@
     "error_selected_photos": "Hvis dine rettigheter er satt til 'Valgte bilder', kan du bli nødt til å starte Seek på nytt eller gå til iOS Innstillinger > Søke > Bilder > Valgte Bilder for å velge hvilke bilder du vil vise her.",
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
-    "filters_off": "Filtre av"
+    "filters_off": "Filtre av",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Bilder",

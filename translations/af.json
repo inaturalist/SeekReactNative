@@ -372,7 +372,8 @@
     "error_selected_photos": "Indien u toestemmings ingestel is op ‘Geselekteerde foto’s’ moet u dalk Seek herbegin of na iOS Instellings > Seek > Foto’s > Geselekteerde foto’s gaan om te kies welke foto’s vertoon mag word.",
     "plant_filter": "Slegs plante",
     "non_plant_filter": "Slegs nie-plante",
-    "filters_off": "Filters af"
+    "filters_off": "Filters af",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Foto’s",

@@ -372,7 +372,8 @@
     "error_selected_photos": "Se suas permissões estiverem definidas para 'Fotos Selecionadas', você pode precisar reiniciar o Seek ou visitar as Configurações do iOS > Busca > Fotos > Fotos selecionadas para escolher quais fotos exibir aqui.",
     "plant_filter": "Somente plantas",
     "non_plant_filter": "Somente espécies que não sejam plantas",
-    "filters_off": "Filtros desativados"
+    "filters_off": "Filtros desativados",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Fotos",

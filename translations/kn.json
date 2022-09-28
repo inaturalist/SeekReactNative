@@ -372,7 +372,8 @@
     "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "ಗಿಡಗಳು ಮಾತ್ರ",
     "non_plant_filter": "ಸಸ್ಯವರ್ಗಕ್ಕೆ ಸೇರದವುಗಳು ಮಾತ್ರ",
-    "filters_off": "Filters off"
+    "filters_off": "Filters off",
+    "error_save": "ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ."
   },
   "gallery": {
     "label": "ಚಿತ್ರಗಳು",

@@ -372,7 +372,8 @@
     "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
     "plant_filter": "Μόνο φυτά",
     "non_plant_filter": "Μόνο μη φυτά",
-    "filters_off": "Φίλτρα απενεργοποιημένα"
+    "filters_off": "Φίλτρα απενεργοποιημένα",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Φωτογραφίες",

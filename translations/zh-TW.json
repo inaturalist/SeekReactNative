@@ -69,8 +69,8 @@
   },
   "notifications": {
     "header": "通知",
-    "learn_more": "學習有關iNaturalist的更多資訊",
-    "earned_badges": "你已經獲得許多徽章！你可能會喜歡iNaturalist！",
+    "learn_more": "了解更多有關 iNaturalist 的資訊",
+    "earned_badges": "您已經獲得許多徽章！您可能會喜歡 iNaturalist！",
     "almost_finished": "你快要完成你的挑戰了！",
     "view_progress": "檢視你的進度",
     "challenge_completed": "恭賀！您已完成挑戰",
@@ -372,7 +372,8 @@
     "error_selected_photos": "如果您的權限設定為「所選的照片」，那麼您可能需要重新啟動 Seek，或者到 iOS 設定 > Seek > 照片 > 所選的照片，來選擇要在此處顯示的照片。",
     "plant_filter": "篩選器僅允許植物",
     "non_plant_filter": "篩選器僅允許非植物",
-    "filters_off": "關閉篩選器"
+    "filters_off": "關閉篩選器",
+    "error_save": "無法儲存照片。"
   },
   "gallery": {
     "label": "照片",

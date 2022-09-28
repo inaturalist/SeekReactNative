@@ -372,7 +372,8 @@
     "error_selected_photos": "Zure baimenetan 'Aukeratutako Argazkiak' aukeratuz gero, baliteke Seek berrabiarazi behar izatea edo joan iOS Ezarpenak > Seek > Argazkiak > Aukeratutako Argazkiak hemen erakutsi beharreko argazkiak aukeratzeko.",
     "plant_filter": "Landareak baino ez",
     "non_plant_filter": "Landare ez direnak baino ez",
-    "filters_off": "Iragazkirik gabe"
+    "filters_off": "Iragazkirik gabe",
+    "error_save": "Could not save photo."
   },
   "gallery": {
     "label": "Argazkiak",

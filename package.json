@@ -41,7 +41,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-image-marker": "^0.6.3",
     "react-native-image-resizer": "^1.4.5",
-    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera#react-native-66 ",
+    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-localize": "^2.1.5",

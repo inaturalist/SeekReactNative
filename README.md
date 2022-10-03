@@ -8,7 +8,7 @@
 3. If building for iOS, run `npx pod-install` from within the `ios` directory.
 
 ## Setup files
-1. Go to `android/app/src/main/res/values` and rename `config.xml.example` to `config.xml` (and change its values to match your API keys)
+1. Go to `android/app/src/main/res/values` and rename `config.example.xml` to `config.xml` (and change its values to match your API keys)
 2. Rename `config.example.js` to `config.js` and change the JWT secret.
 3. Add AR Camera model and taxonomy files.
     1. The sample model files are available in this [`small_model.zip`](https://github.com/inaturalist/SeekReactNative/releases/tag/v2.9.1-138) file.

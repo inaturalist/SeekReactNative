@@ -4,7 +4,7 @@
 
 ## Installation
 1. Make sure you're running the Node version specified in `.nvmrc`. Realm only works with certain versions of Node, so you will need this for local data storage.
-2. Install dependences with `npm install`
+2. Install dependencies with `npm install`
 3. If building for iOS, run `npx pod-install` from within the `ios` directory.
 
 ## Setup files

@@ -49,29 +49,37 @@ const MatchHeader = ( {
   const showSpeciesImage = ( taxon && taxon.speciesSeenImage ) && screenType !== "unidentified";
 
   return (
-    <LinearGradient colors={[gradientDark, gradientLight]} style={styles.header}>
-      <CustomBackArrow handlePress={setCameraPath} style={styles.backButton} />
-      {/* {speciesIdentified && (
-        <TouchableOpacity style={styles.socialIcon} onPress={showSocialSharing}>
-          <Image source={icons.iconShare} />
-        </TouchableOpacity>
-        )} */}
-      <View style={[styles.imageContainer, styles.buttonContainer]}>
-        <Image source={{ uri: imageUri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />
-        {showSpeciesImage && (
+    <View style={styles.container}>
+      <LinearGradient
+        colors={[gradientDark, gradientLight]}
+        style={styles.header}
+      >
+        <CustomBackArrow
+          handlePress={setCameraPath}
+          style={styles.backButton}
+        />
+        <View style={styles.imageContainer}>
           <Image
-            source={{ uri: taxon.speciesSeenImage }}
-            style={[
-              styles.imageCell,
-              styles.marginLeft,
-              isLandscape && styles.landscapeImage,
-              isLandscape && styles.largeMargin
-            ]}
+            source={{ uri: imageUri }}
+            style={[styles.imageCell, isLandscape && styles.landscapeImage]}
           />
-        )}
-        {isLandscape && !showSpeciesImage && <View style={[styles.landscapeImage, styles.largeMargin]} />}
-      </View>
-    </LinearGradient>
+          {showSpeciesImage && (
+            <Image
+              source={{ uri: taxon.speciesSeenImage }}
+              style={[
+                styles.imageCell,
+                styles.marginLeft,
+                isLandscape && styles.landscapeImage,
+                isLandscape && styles.largeMargin
+              ]}
+            />
+          )}
+          {isLandscape && !showSpeciesImage && (
+            <View style={[styles.landscapeImage, styles.largeMargin]} />
+          )}
+        </View>
+      </LinearGradient>
+    </View>
   );
 };
 

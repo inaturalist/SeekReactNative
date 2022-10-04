@@ -30,7 +30,7 @@ export default StyleSheet.create( {
     flex: 0
   },
   header: {
-    height: "86%",
+    height: 152,
     overflow: "visible"
   },
   headerText: {

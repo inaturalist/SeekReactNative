@@ -21,10 +21,6 @@ export default StyleSheet.create( {
   buttonBlue: {
     backgroundColor: colors.seekTeal
   },
-  buttonContainer: {
-    marginBottom: 10,
-    marginTop: 44
-  },
   center,
   container: {
     backgroundColor: colors.white,
@@ -60,7 +56,8 @@ export default StyleSheet.create( {
     alignItems: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: 44
   },
   linkText: {
     alignSelf: "center",

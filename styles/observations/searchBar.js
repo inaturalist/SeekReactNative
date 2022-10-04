@@ -32,7 +32,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     height: 37,
     width: "88%",
     marginLeft: 12,
-    paddingLeft: 15
+    paddingLeft: 15,
+    paddingTop: 0,
+    paddingBottom: 0
   }
 } );
 

@@ -67,7 +67,7 @@ export default StyleSheet.create( {
     textDecorationLine: "underline"
   },
   marginLarge: {
-    marginTop: 28
+    marginTop: 70
   },
   marginLeft: {
     marginLeft: dimensions.width < 350 ? 15 : 47

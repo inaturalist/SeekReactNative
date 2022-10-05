@@ -492,7 +492,7 @@ const challenges = {
       "seek_2022_challenges.october_2022_mission_1"
     ],
     availableDate: ( new Date( 2022, 9, 1 ): Date ),
-    action: "october_2022_action_parasites"
+    action: "seek_2022_challenges.october_2022_action_parasites"
   },
   november2022: {
     name: "seek_2022_challenges.november_2022_challenge_name_urban_nature",
@@ -504,7 +504,7 @@ const challenges = {
       "seek_2022_challenges.november_2022_mission_1"
     ],
     availableDate: ( new Date( 2022, 10, 1 ): Date ),
-    action: "november_2022_action_change_location"
+    action: "seek_2022_challenges.november_2022_action_change_location"
   }
 };
 

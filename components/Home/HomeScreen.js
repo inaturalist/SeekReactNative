@@ -52,7 +52,8 @@ const HomeScreen = ( ): Node => {
   useFocusEffect(
     useCallback( ( ) => {
       const onBackPress = ( ) => {
-        return true; // following custom Android back behavior template in React Navigation
+        // Do not react to back button press => let react-navigation handle it, i.e. since we are on home srceen it closes the app
+        return false;
       };
 
       BackHandler.addEventListener( "hardwareBackPress", onBackPress );

@@ -69,6 +69,9 @@ export default StyleSheet.create( {
   marginLarge: {
     marginTop: 70
   },
+  marginLandscape: {
+    marginTop: 37
+  },
   marginLeft: {
     marginLeft: dimensions.width < 350 ? 15 : 47
   },

@@ -12,7 +12,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useCommonName } from "../../utility/customHooks";
-import { ObservationContext } from "../UserContext";
+import { AppOrientationContext, ObservationContext } from "../UserContext";
 
 type Props = {
   setNavigationPath: Function,
@@ -25,6 +25,7 @@ const MatchContainer = ( {
   setNavigationPath,
   scientificNames
 }: Props ): Node => {
+  const { isLandscape } = useContext( AppOrientationContext );
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation();
   const taxon = observation && observation.taxon;
@@ -67,7 +68,7 @@ const MatchContainer = ( {
   const showSpeciesNearby = ( screenType === "commonAncestor" && rank < 60 ) && ( image && image.latitude );
 
   return (
-    <View style={styles.marginLarge}>
+    <View style={[styles.marginLarge, isLandscape && styles.marginLandscape]}>
       <View style={styles.textContainer}>
         <Text style={[styles.headerText, { color: gradientLight }]}>{headerText}</Text>
         {screenType !== "unidentified" && (

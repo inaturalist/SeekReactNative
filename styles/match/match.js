@@ -76,7 +76,7 @@ export default StyleSheet.create( {
     marginLeft: dimensions.width < 350 ? 15 : 47
   },
   largeMargin: {
-    marginLeft: dimensions.width / 2 - 190
+    marginLeft: dimensions.width * 0.35
   },
   marginMedium: {
     marginBottom: 28

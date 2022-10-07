@@ -29,28 +29,28 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALISTに投稿する",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "{{count}} 件の観察記録をアップロード中",
+      "one": "{{count}} 件の観察記録をアップロード中",
+      "two": "{{count}} 件の観察記録をアップロード中",
+      "few": "{{count}} 件の観察記録をアップロード中",
+      "many": "{{count}} 件の観察記録をアップロード中",
+      "other": "{{count}} 件の観察記録をアップロード中"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} 件の観察記録をアップロードしました！",
+      "one": "{{count}} 件の観察記録をアップロードしました！",
+      "two": "{{count}} 件の観察記録をアップロードしました！",
+      "few": "{{count}} 件の観察記録をアップロードしました！",
+      "many": "{{count}} 件の観察記録をアップロードしました！",
+      "other": "{{count}} 件の観察記録をアップロードしました！"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "one": "{{count}} 件の観察記録をアップロードする",
+      "two": "{{count}} 件の観察記録をアップロードする",
+      "few": "{{count}} 件の観察記録をアップロードする",
+      "many": "{{count}} 件の観察記録をアップロードする",
+      "other": "{{count}} 件の観察記録をアップロードする"
     },
     "upload_now": "今すぐアップロード",
     "error_internet": "インターネット未検出。後でもう一度やり直してください。",
@@ -62,9 +62,9 @@
       "many": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。",
       "other": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。"
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_unknown": "アップロードは失敗しました。エラーの詳細: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
+    "error_photo": "デバイスで写真にアクセスできなくなりました。",
     "error_downtime_a_few_hours": "iNaturalistのサーバはメンテナンス中です。数時間後にやり直してください。"
   },
   "notifications": {
@@ -681,14 +681,14 @@
     "language": "App内言語",
     "device_settings": "デバイスの言語設定を反映",
     "auto_capture": "Automatically take a picture when the identification reaches species.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
+    "species_detail": "種の詳細",
+    "seasonality": "季節性",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
     "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
+    "badge": "Seekバッジ",
     "header": "You completed the Seek Challenge for {{date}}!",
     "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
     "citizen_science": "「市民科学」チャレンジ",
@@ -919,9 +919,9 @@
     "october_2022_mission_1": "以下から3種を見つける\n\nマダニ亜目 (マダニ);\nカ科 (蚊);\nノミ目 (ノミ);\nシラミ小目 (シラミ);\nビャクダン目 (ヤドリギ);\nネナシカズラ属 (Dodder);\nハマウツボ科 (Broomrape)",
     "october_2022_description_parasitic_organisms": "寄生生物は他の生物を殺さずに養分にします。 ダニ、蚊、ノミ、シラミなどは人類を含む脊椎動物を養分にするよう適応してきました。 宿主植物の糖分に依存するため、光合成を行わない寄生植物もいます。",
     "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
-    "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
+    "november_2022_challenge_name_urban_nature": "「都会の自然」チャレンジ",
     "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
-    "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
+    "november_2022_description_some_species_well_adapted": "いくつかの種は先進地域によく適応されています。 都市部でさえ、舗装の亀裂、空き地、庭園を訪れたり、私たちの家でさえ(おそらく望まれない訪問者として)野生の生物多様性を見つけることができます。",
     "november_2022_action_change_location": "Change the location for “species seen nearby” to search a city far from you. What species are seen near there? Are any of them the same or similar to species seen near you?"
   }
 }

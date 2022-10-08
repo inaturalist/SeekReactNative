@@ -111,7 +111,9 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
-def pass = getPassword("iNaturalist.org","inaturalist-android")
+// If global gradle.properties has SEEK_RELEASE_KEY_PASSWORD defined, use it, otherwise use the keychain
+// Do not add the keychain password to android/app/gradle.properties to not add it to version control instead use global
+def pass = project.hasProperty('SEEK_RELEASE_KEY_PASSWORD') ? project.property('SEEK_RELEASE_KEY_PASSWORD') : getPassword("iNaturalist.org","inaturalist-android");
 
 /**
  * The preferred build flavor of JavaScriptCore.

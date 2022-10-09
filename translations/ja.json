@@ -838,7 +838,7 @@
     "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
     "faqs": "FAQS",
     "faq_1": "You must be 13+ or have a parent’s permission to create an iNaturalist account",
-    "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
+    "faq_2": "SeekとiNaturalistは同じ識別モデルを使用しますが、iNaturalistの観察記録のみコミュニティによって確認されます。",
     "logged_in_as": "LOGGED IN AS",
     "x_observations_posted_to_inat": {
       "zero": "{{count}} observations posted to iNaturalist with Seek",

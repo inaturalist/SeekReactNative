@@ -669,7 +669,7 @@
   },
   "shortcut": {
     "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "subtitle": "すばやく判定するために"
   },
   "settings": {
     "header": "Seek Camera",
@@ -680,7 +680,7 @@
     "donate_description": "Seekをお楽しみいただけていますか？iNaturalistへの寄付を検討してみてください！アプリを無料で維持するためにあなたのような人たちからの寄付に頼っています。",
     "language": "App内言語",
     "device_settings": "デバイスの言語設定を反映",
-    "auto_capture": "Automatically take a picture when the identification reaches species.",
+    "auto_capture": "種まで判定できた時に自動で写真を撮ります。",
     "species_detail": "種の詳細",
     "seasonality": "季節性",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",

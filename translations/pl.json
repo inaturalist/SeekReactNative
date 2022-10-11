@@ -3,12 +3,12 @@
     "header": "Gatunki w pobliżu",
     "internet_error": "Potrzebujemy połączenia internetowego, aby wygenerować gatunki w pobliżu. Dotknij, aby spróbować ponownie.",
     "no_location": "Brak lokalizacji",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Nie znaleziono sygnału GPS. Sprawdź, czy GPS został włączony",
     "no_species": "Wygląda na to, że w pobliżu nie zaobserwowano zbyt wielu gatunków! Spróbuj zmienić swoje położenie lub rozszerzyć filtr gatunków.",
     "input_location_above_map": "Nie znaleziono lokalizacji; wprowadź nazwę lokalizacji powyżej, aby załadować mapę i szukać gatunków w pobliżu",
     "error_alert_location_services": "Aby kontynuować, włącz usługi lokalizacji w ustawieniach urządzenia",
     "species_nearby_requires_location": "Funkcja gatunki w pobliżu wymaga Twojej lokalizacji. Proszę włączyć lokalizację w ustawieniach",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
+    "species_nearby_requires_android_accuracy": "Gatunek w pobliżu wymaga Twojej lokalizacji. Proszę sprawdzić, czy usługi lokalizacji są włączone.",
     "choose_location_on_map": "WYBIERZ LOKACJĘ NA MAPIE"
   },
   "get_started": {
@@ -128,7 +128,7 @@
     "learn_more_about_licensing": "Zaznacz tutaj, jeśli chcesz dodać licencję \nUznanie autorstwa - Użytek niekomercyjny do przesłanej zawartości. Oznacza to, że każdy może skopiować i użyć ponownie twoich zdjęć i/lub obserwacji bez pytania cię o pozwolenie, o ile uznają twoje autorstwo i nie wykorzystają utworów w sposób komercyjny. Możesz wybrać inną licencję lub usunąć licencję później, jednak miej na uwadze, że to najlepszy rodzaj licencji do dzielenia się z naukowcami.",
     "about_personal_information": "O informacjach osobistych",
     "about_licenses": "O Licencjach",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
+    "transfer_data": "Wyrażam zgodę na przekazanie moich danych osobowych do Stanów Zjednoczonych Ameryki",
     "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
@@ -149,7 +149,7 @@
     "check_email": "Sprawdź swoją pocztę e-mail!",
     "reset_instructions": "Wysłaliśmy instrukcje resetowania hasła na twój adres e-mail.",
     "return_login": "Powrót do logowania",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Autoryzacja nie powiodła się"
   },
   "privacy": {
     "header": "Polityka prywatności"
@@ -276,9 +276,9 @@
     "photographer_october": "Zdjęcie © Netflix / Silverback Films",
     "photographer_december": "Zdjęcie © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "Gatunki zaobserwowane",
-    "species_nearby": "SPECIES NEARBY IN THIS CHALLENGE",
-    "no_species_nearby": "We found no species nearby in this challenge that you haven't already observed",
-    "species_nearby_internet_error": "We need the Internet to generate nearby species.",
+    "species_nearby": "POBLISKIE GATUNKI W TYM WYZWANIU",
+    "no_species_nearby": "W tym wyzwaniu nie znaleźliśmy w pobliżu żadnego gatunku, którego nie obserwowałeś",
+    "species_nearby_internet_error": "Potrzebujemy Internetu, aby pokazać pobliskie gatunki.",
     "badge_name_my_garden_2022": "MY GARDEN BADGE"
   },
   "results": {
@@ -291,11 +291,11 @@
     "sorry": "Przepraszamy za to, ale Seek nadal się uczy!\n\nMożesz sprawdzić pod innym kątem, przybliżyć lub spróbować uzyskać wyraźniejsze zdjęcie organizmu.",
     "take_photo": "Zrób kolejne zdjęcie",
     "common_ancestor": "Jednak Seek nie był w stanie zidentyfikować dokładnego gatunku.\n\nMożesz sprawdzić pod innym kątem, przybliżyć lub spróbować uzyskać wyraźniejsze zdjęcie organizmu.",
-    "believe": "We believe this is a member of",
-    "genus": "We believe this is a member of the genus",
-    "family": "We believe this is a member of the family",
-    "order": "We believe this is a member of the order",
-    "class": "We believe this is a member of the class",
+    "believe": "Uważamy, że jest to członek",
+    "genus": "Uważamy, że jest to członek rodzaju",
+    "family": "Uważamy, że jest to członek rodziny",
+    "order": "Uważamy, że jest to członek rzędu",
+    "class": "Uważamy, że jest to członek gromady",
     "resighted": "Ponownie zaobserwowałeś gatunek!",
     "date_observed": "Pierwszy raz zaobserwowano:\n{{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
@@ -306,7 +306,7 @@
     "yes_resighted": "Czy gatunek został źle zidentyfikowany",
     "no": "Nie, to jest poprawne",
     "enable_location": "Włącz usługi lokalizacji aby zapisywać obserwacje",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "WŁĄCZ LOKALIZACJĘ",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
@@ -344,7 +344,7 @@
   },
   "camera": {
     "label": "Kamera",
-    "on": "on",
+    "on": "włącz",
     "off": "wył.",
     "scan": "Kontynuuj skanowanie środowiska w poszukiwaniu organizmów!",
     "scan_class": "Spróbuj pod różnymi kątami, aż do uzyskania identyfikacji gatunków!",
@@ -495,11 +495,11 @@
     "no_obs": "Nie masz jeszcze żadnych obserwacji!",
     "help": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will help you identify it!",
     "open_camera": "Uruchom aparat",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
+    "search": "Szukaj obserwacji",
+    "search_empty": "Nie znaleziono żadnych obserwacji z tym hasłem wyszukiwania.",
     "reset_search": "Resetuj wyszukiwanie",
     "not_seen_plants": "Nie zaobserwowałeś jeszcze żadnych roślin!",
-    "not_seen_amphibians": "You haven’t observed any amphibians yet!",
+    "not_seen_amphibians": "Nie zaobserwowałeś jeszcze żadnych gadów!",
     "not_seen_fungi": "Nie zaobserwowałeś jeszcze żadnych grzybów!",
     "not_seen_fish": "Nie zaobserwowałeś jeszcze żadnych ryb!",
     "not_seen_reptiles": "Nie zaobserwowałeś jeszcze żadnych gadów!",
@@ -508,7 +508,7 @@
     "not_seen_insects": "Nie zaobserwowałeś jeszcze żadnych owadów!",
     "not_seen_mollusks": "Nie zaobserwowałeś jeszcze żadnych mięczaków!",
     "not_seen_mammals": "Nie zaobserwowałeś jeszcze żadnych ssaków!",
-    "not_seen_other": "You haven’t observed any other species yet!"
+    "not_seen_other": "Nie obserwowałeś jeszcze żadnego innego gatunku!"
   },
   "species_detail": {
     "near": "W pobliżu",
@@ -523,7 +523,7 @@
     "cc": "CC",
     "license": "Licencja",
     "taxonomy": "Taksonomia",
-    "taxonomy_about": "The organism's classification at each level on the tree of life.",
+    "taxonomy_about": "Klasyfikacja organizmu na każdym poziomie na drzewie życia.",
     "inat_obs": "Obserwacje iNaturalist",
     "inat_obs_about": "The total number of iNaturalist observations created of this species nearby and worldwide.",
     "monthly_obs": "Sezonowość",

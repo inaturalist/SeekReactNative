@@ -29,28 +29,28 @@
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALISTに投稿する",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "{{count}} 件の観察記録をアップロード中",
+      "one": "{{count}} 件の観察記録をアップロード中",
+      "two": "{{count}} 件の観察記録をアップロード中",
+      "few": "{{count}} 件の観察記録をアップロード中",
+      "many": "{{count}} 件の観察記録をアップロード中",
+      "other": "{{count}} 件の観察記録をアップロード中"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} 件の観察記録をアップロードしました！",
+      "one": "{{count}} 件の観察記録をアップロードしました！",
+      "two": "{{count}} 件の観察記録をアップロードしました！",
+      "few": "{{count}} 件の観察記録をアップロードしました！",
+      "many": "{{count}} 件の観察記録をアップロードしました！",
+      "other": "{{count}} 件の観察記録をアップロードしました！"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "one": "{{count}} 件の観察記録をアップロードする",
+      "two": "{{count}} 件の観察記録をアップロードする",
+      "few": "{{count}} 件の観察記録をアップロードする",
+      "many": "{{count}} 件の観察記録をアップロードする",
+      "other": "{{count}} 件の観察記録をアップロードする"
     },
     "upload_now": "今すぐアップロード",
     "error_internet": "インターネット未検出。後でもう一度やり直してください。",
@@ -62,9 +62,9 @@
       "many": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。",
       "other": "iNaturalistのサーバーはメンテナンス中です。 {{count}} 時間後にやり直してください。"
     },
-    "error_unknown": "Upload failed. Error details: {{errorText}}",
+    "error_unknown": "アップロードは失敗しました。エラーの詳細: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
+    "error_photo": "デバイスで写真にアクセスできなくなりました。",
     "error_downtime_a_few_hours": "iNaturalistのサーバはメンテナンス中です。数時間後にやり直してください。"
   },
   "notifications": {
@@ -149,7 +149,7 @@
     "check_email": "メールをご確認ください。",
     "reset_instructions": "ご登録のアドレスにパスワードリセット方法を送信しました。",
     "return_login": "ログインに戻る",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "認証失敗"
   },
   "privacy": {
     "header": "プライバシー ポリシー"
@@ -306,7 +306,7 @@
     "yes_resighted": "はい、この種は誤った生物判定をされています。",
     "no": "いいえ、正しいです。",
     "enable_location": "観察を保存するには、位置情報サービスをオンにしてください。",
-    "enable_location_button": "ENABLE LOCATION",
+    "enable_location_button": "位置情報を有効にする",
     "error_server": "申しわけございません。画像を処理することができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_image": "申しわけございません。画像を処理することができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_species": "申しわけございません。この写真の種の詳細を読み込むことができませんでした。インターネット接続を確認して、もう一度お試しください。",
@@ -363,13 +363,13 @@
     "please_permissions": "Please enable permissions in settings",
     "error_classifier": "申し訳ございません。判定ツールをを起動することができませんでした。",
     "error_camera": "Sorry, we weren't able to load the camera",
-    "error_device": "Sorry, the device you are using is not supported",
+    "error_device": "申し訳ありませんが、使用しているデバイスはサポートされていません",
     "error_take": "Sorry, we weren't able to capture your photo",
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
     "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
-    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_cameraManager": "申し訳ありませんが、カメラマネージャの読み込みに失敗しました",
     "error_photoError": "Sorry, the photo object was not found",
-    "error_selected_photos": "If your permissions are set to 'Selected Photos', you may need to restart Seek or visit iOS Settings > Seek > Photos > Selected Photos to choose which photos to display here.",
+    "error_selected_photos": "権限が「選択した写真」に設定されていて、ここに表示する写真を選択したい場合は、Seekを再起動するか、「設定」アプリ＞「Seek」＞「写真」＞「選択した写真」を確認する必要があります。",
     "plant_filter": "植物のみ",
     "non_plant_filter": "植物以外のみ",
     "filters_off": "フィルターオフ",
@@ -496,7 +496,7 @@
     "help": "植物や動物など、生き物ならなんでもSeekで写真を撮りましょう。SeekのAIのモデルが種判定をしてくれます！",
     "open_camera": "カメラを起動",
     "search": "観察記録を検索",
-    "search_empty": "No observations found with that search term.",
+    "search_empty": "検索語句の観察記録はありません。",
     "reset_search": "検索をリセット",
     "not_seen_plants": "You haven’t observed any plants yet!",
     "not_seen_amphibians": "両生類を観察していません！",
@@ -652,7 +652,7 @@
     "scroll_left": "タップすると、左へスクロールできます。",
     "scroll_right": "タップすると、右へスクロールできます。",
     "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "get_started_modal": "始めるにあたる注意点"
   },
   "review": {
     "title": "このアプリを評価する",
@@ -669,30 +669,30 @@
   },
   "shortcut": {
     "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "subtitle": "すばやく判定するために"
   },
   "settings": {
     "header": "Seek Camera",
     "common_names": "和名を表示",
     "scientific_names": "学名を表示",
     "donate": "寄付する",
-    "donate_header": "Help support iNaturalist",
+    "donate_header": "iNaturalistを支援する",
     "donate_description": "Seekをお楽しみいただけていますか？iNaturalistへの寄付を検討してみてください！アプリを無料で維持するためにあなたのような人たちからの寄付に頼っています。",
     "language": "App内言語",
     "device_settings": "デバイスの言語設定を反映",
-    "auto_capture": "Automatically take a picture when the identification reaches species.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
+    "auto_capture": "種まで判定できた時に自動で写真を撮ります。",
+    "species_detail": "種の詳細",
+    "seasonality": "季節性",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
     "donate_ios": "Please visit the following link to make a donation to Seek:"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
-    "header": "You completed the Seek Challenge for {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "badge": "Seekバッジ",
+    "header": "{{date}} 月のSeekチャレンジを達成しました！",
+    "text": "グローバルチャレンジにご参加いただきありがとうございます！Seekは私たちを取り巻くすべての種とあなたがつながることをお手伝いいたします。外に出て、探検し、あなたの周りの自然について学びましょう!",
     "citizen_science": "「市民科学」チャレンジ",
-    "completed": "You completed the challenge and earned the challenge badge!",
+    "completed": "チャレンジを達成し、チャレンジバッジを獲得しました！",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
     "backyard": "「裏庭」チャレンジ",
@@ -757,18 +757,18 @@
   },
   "social": {
     "share_observation": "Share observation",
-    "square": "Square",
-    "original": "Original",
+    "square": "スクエア",
+    "original": "オリジナル",
     "options": "Options",
     "show_species_id": "Show species identification",
     "share": "Facebookで共有",
     "save_to_photo_library": "フォトライブラリに保存",
     "saved_to_photo_library": "Saved to photo library",
     "back_to_id": "Back to Identification",
-    "error_title": "Couldn't save photo",
-    "error": "Please double check that you have the Facebook app installed.",
-    "adjust_square_crop": "Adjust square crop",
-    "crop_image": "Crop image"
+    "error_title": "写真を保存できませんでした",
+    "error": "Facebookアプリがインストールされていることを再確認してください。",
+    "adjust_square_crop": "スクエアトリミングの調整",
+    "crop_image": "画像をトリミング"
   },
   "natgeo_challenges": {
     "mar_2021_mission_1": "Find any ten species",
@@ -821,9 +821,9 @@
     "learn_more_about_inat": "iNaturalistについて詳しく知る",
     "get_started_by_downloading_inat": "iNaturalistアプリをダウンロードしたり、inaturalist.orgにアクセスすると始められます。\n\nすでにiNaturalistアカウントをお持ちの場合は既存のアカウントでSeekにログインしてください！",
     "we_think_youll_like_inat": "We think you’ll really like iNaturalist.",
-    "sign_out": "Sign out of iNaturalist",
+    "sign_out": "iNaturalistからサインアウト",
     "log_in_to_post_observations": "Log in to post your Seek observations to iNaturalist!",
-    "log_in_with_inat": "LOG IN WITH INATURALIST",
+    "log_in_with_inat": "INATURALISTでログイン",
     "use_inat_to": "INATURALISTを使うと:",
     "inat_vs_seek": "INATURALISTとSEEKの違い",
     "inat_is_an_online_community": "iNaturalistは動植物学者のためのオンラインコミュニティです",
@@ -836,9 +836,9 @@
     "seek_bullet_3": "Identifications do not leave your device or require internet to work, but aren’t confirmed by the iNaturalist community",
     "your_obs_could_make_difference": "YOUR OBSERVATION COULD MAKE A DIFFERENCE",
     "everyday_obs_help_scientists": "Everyday observations made by naturalists like you can help scientists learn about where and when organisms are found, and even lead to new discoveries!",
-    "faqs": "FAQS",
+    "faqs": "よくある質問",
     "faq_1": "You must be 13+ or have a parent’s permission to create an iNaturalist account",
-    "faq_2": "Seek and iNaturalist use the same identification model, but only iNaturalist observations are confirmed by the community",
+    "faq_2": "SeekとiNaturalistは同じ識別モデルを使用しますが、iNaturalistの観察記録のみコミュニティによって確認されます。",
     "logged_in_as": "LOGGED IN AS",
     "x_observations_posted_to_inat": {
       "zero": "{{count}} observations posted to iNaturalist with Seek",
@@ -919,9 +919,9 @@
     "october_2022_mission_1": "以下から3種を見つける\n\nマダニ亜目 (マダニ);\nカ科 (蚊);\nノミ目 (ノミ);\nシラミ小目 (シラミ);\nビャクダン目 (ヤドリギ);\nネナシカズラ属 (Dodder);\nハマウツボ科 (Broomrape)",
     "october_2022_description_parasitic_organisms": "寄生生物は他の生物を殺さずに養分にします。 ダニ、蚊、ノミ、シラミなどは人類を含む脊椎動物を養分にするよう適応してきました。 宿主植物の糖分に依存するため、光合成を行わない寄生植物もいます。",
     "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
-    "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
+    "november_2022_challenge_name_urban_nature": "「都会の自然」チャレンジ",
     "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
-    "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
+    "november_2022_description_some_species_well_adapted": "いくつかの種は先進地域によく適応されています。 都市部でさえ、舗装の亀裂、空き地、庭園を訪れたり、私たちの家でさえ(おそらく望まれない訪問者として)野生の生物多様性を見つけることができます。",
     "november_2022_action_change_location": "Change the location for “species seen nearby” to search a city far from you. What species are seen near there? Are any of them the same or similar to species seen near you?"
   }
 }

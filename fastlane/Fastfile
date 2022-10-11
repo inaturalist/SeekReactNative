@@ -19,9 +19,51 @@ end
 
 default_platform(:android)
 
+ANDROID_CAMERA_PATH = File.join( "android", "app", "src", "main", "assets", "camera" )
+IOS_CAMERA_PATH = File.join( "ios" )
+
+def android_taxonomy_present?
+  path = File.join( ANDROID_CAMERA_PATH, "taxonomy.csv" )
+  unless File.exist?( path )
+    UI.abort_with_message! "Android production taxonomy file is missing at #{path}"
+  end
+end
+
+def ios_taxonomy_present?
+  path = File.join( IOS_CAMERA_PATH, "taxonomy.csv" )
+  unless File.exist?( path )
+    UI.abort_with_message! "iOS production taxonomy file is missing at #{path}"
+  end
+end
+
+def android_model_present?
+  path = File.join( ANDROID_CAMERA_PATH, "optimized_model.tflite" )
+  unless File.exist?( path )
+    UI.abort_with_message! "Android production vision model file is missing at #{path}"
+  end
+end
+
+def ios_model_present?
+  path = File.join( IOS_CAMERA_PATH, "optimized_model.tflite" )
+  unless File.exist?( path )
+    UI.abort_with_message! "iOS production vision model file is missing at #{path}"
+  end
+end
+
+def required_android_files_present?
+  android_taxonomy_present?
+  android_model_present?
+end
+
+def required_ios_files_present?
+  ios_taxonomy_present?
+  ios_model_present?
+end
+
 platform :ios do
   desc "Distributes a beta version of Seek on TestFlight"
   lane :beta do
+    required_ios_files_present?
     # xcode_select("/Applications/Xcode-beta.app")
     get_certificates(username: ENV["USERNAME"]) # invokes cert
     get_provisioning_profile(username: ENV["USERNAME"],
@@ -88,6 +130,7 @@ end
 platform :android do
  desc "Distributes an Android bundle to the Play Store beta track"
  lane :beta do
+    required_android_files_present?
     gradle(task: "bundle", build_type: "Release", project_dir: "android" )
     upload_to_play_store(track: "beta", package_name: ENV["PACKAGE_NAME"], skip_upload_apk: true)
     slack(

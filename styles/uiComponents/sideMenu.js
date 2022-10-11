@@ -53,12 +53,13 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
+    flex: 1,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    maxWidth: 226,
-    paddingTop: padding.iOSButtonPadding
+    paddingTop: padding.iOSButtonPadding,
+    paddingEnd: 4
   }
 } );
 

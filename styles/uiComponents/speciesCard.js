@@ -35,8 +35,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "wrap",
     fontFamily: fonts.book,
-    fontSize: 21,
-    lineHeight: 21
+    fontSize: 21
   },
   scientificNameText: {
     color: colors.black,

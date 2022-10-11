@@ -23,11 +23,11 @@ export default StyleSheet.create( {
     marginHorizontal: 24
   },
   headerText: {
+    alignSelf: "center",
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 18,
-    letterSpacing: 1.0,
-    marginTop: Platform.OS === "ios" ? 6 : 0
+    letterSpacing: 1.0
   },
   margin: {
     marginLeft: 15,
@@ -40,8 +40,7 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 18,
-    letterSpacing: 0.78,
-    marginTop: Platform.OS === "ios" ? 4 : 0
+    letterSpacing: 0.78
   },
   row
 } );

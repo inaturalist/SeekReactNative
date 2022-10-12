@@ -28,9 +28,11 @@ const Button = ( { index }: Props ): React.Node => {
             </Text>
           </View>
         ) : (
-          <Text allowFontScaling={false} style={[textStyles.skipText, textStyles.buttonHeight]}>
-            {i18n.t( "onboarding.skip" )}
-          </Text>
+          <View style={viewStyles.buttonUncolored}>
+            <Text allowFontScaling={false} style={[textStyles.skipText, textStyles.buttonHeight]}>
+              {i18n.t( "onboarding.skip" )}
+            </Text>
+          </View>
         )}
     </TouchableOpacity>
   );

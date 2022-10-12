@@ -15,6 +15,7 @@ import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import { createJwtToken } from "../../../utility/helpers";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import createUserAgent from "../../../utility/userAgent";
+import { colors } from "../../../styles/global";
 
 type Props = {
   +navigation: any

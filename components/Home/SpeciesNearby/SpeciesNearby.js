@@ -195,7 +195,7 @@ const SpeciesNearby = ( ): Node => {
     <>
       <View style={viewStyles.speciesNearbyContainer}>
         {loading
-          ? <LoadingWheel color={colors.black} />
+          ? <LoadingWheel color={colors.white} />
           : <SpeciesNearbyList taxa={speciesNearby.taxa} />}
       </View>
       <View style={viewStyles.speciesNearbyPadding} />

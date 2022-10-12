@@ -114,8 +114,8 @@ class ParentalConsentScreen extends Component<Props, State> {
           type="emailAddress"
         />
         <View style={styles.center}>
-          {loading ? <LoadingWheel /> : null}
           {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
+          {loading ? <LoadingWheel color={colors.seekForestGreen} /> : null}
         </View>
         <GreenButton
           handlePress={() => {

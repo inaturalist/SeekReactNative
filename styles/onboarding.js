@@ -27,6 +27,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
     width: 293
   },
+  buttonUncolored: {
+    height: 50,
+    justifyContent: "center",
+    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null
+  },
   buttonContainer: {
     marginBottom: 51
   },

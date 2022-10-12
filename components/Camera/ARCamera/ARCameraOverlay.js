@@ -132,7 +132,7 @@ const ARCameraOverlay = ( {
 
   return (
     <>
-      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
+      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
       <ARCameraHeader ranks={ranks} />
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (

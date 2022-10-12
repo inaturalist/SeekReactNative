@@ -110,7 +110,7 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
     } else if ( loading ) {
       return (
         <View style={viewStyles.loadingWheelContainer}>
-          <LoadingWheel color={colors.darkGray} />
+          <LoadingWheel color={colors.seekForestGreen} />
         </View>
       );
     } else {

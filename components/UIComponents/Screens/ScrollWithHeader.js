@@ -57,7 +57,7 @@ const ScrollWithHeader = ( {
       <GreenHeader header={header} route={route} />
       {loading ? (
         <View style={[styles.loadingWheel, styles.containerWhite]}>
-          <LoadingWheel color={colors.darkGray} />
+          <LoadingWheel color={colors.seekForestGreen} />
         </View>
       ) : (
         <ScrollView

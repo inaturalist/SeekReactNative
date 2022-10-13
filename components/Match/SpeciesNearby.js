@@ -52,7 +52,7 @@ const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
     } else if ( loading ) {
       return (
         <View style={[viewStyles.speciesNearbyContainer, viewStyles.center]}>
-          <LoadingWheel color={colors.black} />
+          <LoadingWheel color={colors.white} />
         </View>
       );
     }

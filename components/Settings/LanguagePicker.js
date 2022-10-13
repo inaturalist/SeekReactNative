@@ -44,7 +44,8 @@ const LanguagePicker = (): Node => {
       return;
     }
 
-    Alert.alert( null, i18n.t( "settings.change_language" ), [
+    const valueLabel = languages[value];
+    Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
       {
         text: i18n.t( "delete.no" ),
         onPress: ( ) => null

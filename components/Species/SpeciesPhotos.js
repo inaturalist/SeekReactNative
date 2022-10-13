@@ -15,6 +15,7 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { localizeAttributions } from "../../utility/photoHelpers";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
+import { colors } from "../../styles/global";
 
 type Props = {
   +photos: Array<Object>,
@@ -96,7 +97,7 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
     } else if ( photoList.length === 0 ) {
       return (
         <View style={viewStyles.photoContainer}>
-          <LoadingWheel color="white" />
+          <LoadingWheel color={colors.white} />
         </View>
       );
     } else {

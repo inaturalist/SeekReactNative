@@ -49,7 +49,7 @@ const LanguagePicker = (): Node => {
         text: i18n.t( "delete.no" ),
         onPress: ( ) => null
       }, {
-        text: i18n.t( "posting.ok" ),
+        text: i18n.t( "settings.confirm" ),
         onPress: ( ) => {
           // this changes translations on Settings screen in real-time
           i18n.locale = value;

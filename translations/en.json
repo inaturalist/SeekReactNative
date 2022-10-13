@@ -685,7 +685,8 @@
     "seasonality": "Seasonality",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Please visit the following link to make a donation to Seek:",
+    "change_language": "Do you want to change the language?"
   },
   "seek_challenges": {
     "badge": "Seek badge",

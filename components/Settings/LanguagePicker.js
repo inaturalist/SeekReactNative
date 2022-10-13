@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext, useCallback, useMemo } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Alert } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
@@ -44,11 +44,21 @@ const LanguagePicker = (): Node => {
       return;
     }
 
-    // this changes translations on Settings screen in real-time
-    i18n.locale = value;
+    Alert.alert( null, i18n.t( "settings.change_language" ), [
+      {
+        text: i18n.t( "delete.no" ),
+        onPress: ( ) => null
+      }, {
+        text: i18n.t( "posting.ok" ),
+        onPress: ( ) => {
+          // this changes translations on Settings screen in real-time
+          i18n.locale = value;
 
-    toggleLanguage( value );
-    toggleLanguagePreference();
+          toggleLanguage( value );
+          toggleLanguagePreference();
+        }
+      }
+    ] );
   }, [displayLanguage, preferredLanguage, toggleLanguagePreference] );
 
   const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );

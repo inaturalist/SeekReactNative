@@ -48,7 +48,8 @@ const LanguagePicker = (): Node => {
     Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
       {
         text: i18n.t( "delete.no" ),
-        onPress: ( ) => null
+        onPress: ( ) => null,
+        style: "cancel"
       }, {
         text: i18n.t( "settings.confirm" ),
         onPress: ( ) => {

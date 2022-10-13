@@ -2,6 +2,9 @@
 
 [Seek](https://www.inaturalist.org/pages/seek_app) is an app for identifying plants and animals. It is available on iOS and Android.
 
+## Requirements
+* [Android and iOS environment setup](https://reactnative.dev/docs/environment-setup) described in the RN docs
+* [Android NDK and cmake setup](https://developer.android.com/studio/projects/install-ndk) described in the Android developer docs
 ## Installation
 1. Make sure you're running the Node version specified in `.nvmrc`. Realm only works with certain versions of Node, so you will need this for local data storage.
 2. Install dependencies with `npm install`

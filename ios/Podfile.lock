@@ -12,9 +12,6 @@ PODS:
     - React-jsi (= 0.66.4)
     - ReactCommon/turbomodule/core (= 0.66.4)
   - fmt (6.2.1)
-  - GCDWebServer (3.5.4):
-    - GCDWebServer/Core (= 3.5.4)
-  - GCDWebServer/Core (3.5.4)
   - glog (0.3.5)
   - libwebp (1.2.1):
     - libwebp/demux (= 1.2.1)
@@ -317,8 +314,7 @@ PODS:
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
-  - RealmJS (10.21.1):
-    - GCDWebServer
+  - RealmJS (10.20.0-beta.2):
     - React
   - RNCAsyncStorage (1.17.10):
     - React-Core
@@ -342,8 +338,33 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (1.13.4):
+  - RNReanimated (2.10.0):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - glog
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
     - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
@@ -428,7 +449,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - fmt
-    - GCDWebServer
     - libwebp
     - SDWebImage
     - SDWebImageWebPCoder
@@ -566,7 +586,6 @@ SPEC CHECKSUMS:
   FBLazyVector: e5569e42a1c79ca00521846c223173a57aca1fe1
   FBReactNativeSpec: fe08c1cd7e2e205718d77ad14b34957cce949b58
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
@@ -607,7 +626,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: dec32ee6f2e2a26e13e58152271535fadff5455a
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
-  RealmJS: 96af0fcb0bf79530e090067df590650917c27b20
+  RealmJS: 8ac5e506db083da32923a5e38c86e69c6b9f195d
   RNCAsyncStorage: 0c357f3156fcb16c8589ede67cc036330b6698ca
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
@@ -619,7 +638,7 @@ SPEC CHECKSUMS:
   RNImageMarker: 76cd113306bcfad2f74f78d83d5accfd50b4434a
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
+  RNReanimated: f9055ab75a49358b30f99155637f95d77727e7dc
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
   RNShare: be91a5c149585affb02c25b351bd07ba927c7006
   RNStoreReview: e05edbbf426563070524cec384ac0b8df69be801

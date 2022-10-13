@@ -4,17 +4,19 @@ module.exports = ( api ) => {
     "@babel/preset-flow"
   ];
   const plugins = [
-    "transform-remove-console",
-    "@babel/plugin-transform-flow-strip-types"
+    "@babel/plugin-transform-flow-strip-types",
+    "react-native-reanimated/plugin" // Reanimated 2 plugin has to be listed last
   ];
+  const productionPlugins = ["transform-remove-console"].concat( plugins );
 
   if ( api.env( "production" ) ) {
     return {
       presets,
-      plugins
+      plugins: productionPlugins
     };
   }
   return {
-    presets
+    presets,
+    plugins
   };
 };

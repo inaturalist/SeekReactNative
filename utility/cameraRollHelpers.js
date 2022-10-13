@@ -8,7 +8,7 @@ const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
     first: 28,
     assetType: "Photos",
     groupTypes: ( album === null ) ? "All" : "Album",
-    include: ["location"]
+    include: ["location"] // This has a large performance impact on Android
   };
 
   if ( album ) { // append for cases where album isn't null

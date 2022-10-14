@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-check-app-install/android/build.gradle b/node_modules/react-native-check-app-install/android/build.gradle
+index d374b27..38d9215 100644
+--- a/node_modules/react-native-check-app-install/android/build.gradle
++++ b/node_modules/react-native-check-app-install/android/build.gradle
+@@ -43,5 +43,5 @@ repositories {
+ }
+ 
+ dependencies {
+-    compile 'com.facebook.react:react-native:+'
++    implementation 'com.facebook.react:react-native:+'
+ }

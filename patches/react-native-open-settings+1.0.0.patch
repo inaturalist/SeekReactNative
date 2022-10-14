@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-open-settings/android/build.gradle b/node_modules/react-native-open-settings/android/build.gradle
+index 1adb927..103c6c9 100644
+--- a/node_modules/react-native-open-settings/android/build.gradle
++++ b/node_modules/react-native-open-settings/android/build.gradle
+@@ -17,5 +17,5 @@ android {
+ }
+ 
+ dependencies {
+-    compile 'com.facebook.react:react-native:+'
++    implementation 'com.facebook.react:react-native:+'
+ }

@@ -1,7 +1,9 @@
 // @flow
 
+import StyledText from "../../UIComponents/StyledText";
+
 import React from "react";
-import { View, TouchableOpacity, Text, ImageBackground } from "react-native";
+import { View, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -49,12 +51,12 @@ const ChallengeCard = ( ): Node => {
           handlePress={navToChallengeDetails}
           text={buttonText}
         />
-        <Text
+        <StyledText
           onPress={navToChallenges}
           style={textStyles.viewText}
         >
           {i18n.t( "challenges_card.view_all" )}
-        </Text>
+        </StyledText>
       </ImageBackground>
     );
   };

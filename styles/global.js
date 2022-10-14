@@ -71,6 +71,10 @@ export const center = {
   justifyContent: "center"
 };
 
+export const startAlign = {
+  alignSelf: "flex-start"
+};
+
 export const row = {
   alignItems: "center",
   flexDirection: "row",

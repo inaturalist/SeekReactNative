@@ -39,7 +39,6 @@ public class MainActivity extends ReactActivity {
         }
         @Override
         protected ReactRootView createRootView() {
-            // Official RN theme would use next line
             ReactRootView reactRootView = new ReactRootView(getContext());
 
             // If you opted-in for the New Architecture, we enable the Fabric Renderer.

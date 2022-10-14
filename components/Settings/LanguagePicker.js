@@ -44,6 +44,15 @@ const LanguagePicker = (): Node => {
       return;
     }
 
+    // if the user selects language to be set to device language don't show alert
+    if ( value === "device" ) {
+      // this changes translations on Settings screen in real-time
+      i18n.locale = value;
+      toggleLanguage( value );
+      toggleLanguagePreference();
+      return;
+    }
+
     const valueLabel = languages[value];
     Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
       {

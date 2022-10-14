@@ -71,8 +71,8 @@ export const center = {
   justifyContent: "center"
 };
 
-export const startAlign = {
-  alignSelf: "flex-start"
+export const leftText = {
+  textAlign: "left"
 };
 
 export const row = {

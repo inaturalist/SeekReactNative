@@ -30,8 +30,8 @@
     "fbjs": "^3.0.4",
     "i18n-js": "^3.9.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
-    "react": "^17.0.2",
-    "react-native": "^0.66.1",
+    "react": "17.0.2",
+    "react-native": "0.68.4",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^8.4.1",
@@ -81,7 +81,7 @@
     "eslint-plugin-jest": "^27.0.4",
     "flow-bin": "^0.158.0",
     "husky": "^8.0.1",
-    "metro-react-native-babel-preset": "^0.66.2",
+    "metro-react-native-babel-preset": "^0.67.0",
     "react-native-clean-project": "^4.0.1"
   }
 }

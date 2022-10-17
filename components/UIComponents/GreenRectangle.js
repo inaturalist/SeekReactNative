@@ -1,8 +1,9 @@
 // @flow
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import { viewStyles, textStyles } from "../../styles/uiComponents/greenRectangle";
+import StyledText from "./StyledText";
 
 type Props = {
   text: string,
@@ -16,13 +17,13 @@ const GreenRectangle = ( { text, color, letterSpacing, textColor }: Props ): Rea
     viewStyles.greenButton,
     color && { backgroundColor: color }
   ]}>
-    <Text style={[
+    <StyledText style={[
       textStyles.greenButtonText,
       { letterSpacing },
       textColor && { color: textColor }
     ]}>
       {text.toLocaleUpperCase()}
-    </Text>
+    </StyledText>
   </View>
 );
 

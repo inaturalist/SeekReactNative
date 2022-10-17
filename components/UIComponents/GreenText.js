@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from "react";
-import StyledText from "./StyledText";
 
 import styles from "../../styles/uiComponents/greenText";
 import i18n from "../../i18n";
+import StyledText from "./StyledText";
+
 
 type Props = {
   +text: string,

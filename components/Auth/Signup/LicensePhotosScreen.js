@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState } from "react";
-import { View, Text, Alert, ScrollView } from "react-native";
+import { View, Alert, ScrollView } from "react-native";
 import HTML from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -18,6 +18,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
 import WhiteModal from "../../UIComponents/Modals/WhiteModal";
+import StyledText from "../../UIComponents/StyledText";
 
 const LicensePhotosScreen = ( ): Node => {
   const { navigate } = useNavigation( );
@@ -67,7 +68,7 @@ const LicensePhotosScreen = ( ): Node => {
 
   const renderLink = ( screen, text ) => {
     return (
-      <Text
+      <StyledText
         key={text}
         allowFontScaling={false}
         onPress={( ) => {
@@ -79,7 +80,7 @@ const LicensePhotosScreen = ( ): Node => {
         style={styles.linkText}
       >
         {i18n.t( `inat_signup.${text}` )}
-      </Text>
+      </StyledText>
     );
   };
 
@@ -155,12 +156,12 @@ const LicensePhotosScreen = ( ): Node => {
         isChecked={licensePhotos}
         toggleCheckbox={toggleLicensePhotos}
         children={(
-          <Text style={styles.licenseText}>
+          <StyledText style={styles.licenseText}>
             {`${i18n.t( "inat_signup.release_photos" )} `}
-            <Text style={styles.linkText} onPress={showLicensingAlert}>
+            <StyledText style={styles.linkText} onPress={showLicensingAlert}>
               {i18n.t( "inat_signup.learn_more" )}
-            </Text>
-          </Text>
+            </StyledText>
+          </StyledText>
         )}
       />
       <CheckboxRow
@@ -182,12 +183,12 @@ const LicensePhotosScreen = ( ): Node => {
         isChecked={user.pi_consent}
         toggleCheckbox={togglePIConsent}
         children={(
-          <Text style={styles.licenseText}>
+          <StyledText style={styles.licenseText}>
             {`${i18n.t( "inat_signup.store_data" )} `}
-            <Text style={styles.linkText} onPress={showPIConsentAlert}>
+            <StyledText style={styles.linkText} onPress={showPIConsentAlert}>
               {i18n.t( "inat_signup.learn_more" )}
-            </Text>
-          </Text>
+            </StyledText>
+          </StyledText>
         )}
       />
       {renderDataTransferModal( )}
@@ -195,12 +196,12 @@ const LicensePhotosScreen = ( ): Node => {
         isChecked={user.data_transfer_consent}
         toggleCheckbox={toggleDataTransferConsent}
         children={(
-          <Text style={styles.licenseText}>
+          <StyledText style={styles.licenseText}>
             {`${i18n.t( "inat_signup.transfer_data" )} `}
-            <Text style={styles.linkText} onPress={( ) => setShowModal( true )}>
+            <StyledText style={styles.linkText} onPress={( ) => setShowModal( true )}>
               {i18n.t( "inat_signup.learn_more" )}
-            </Text>
-          </Text>
+            </StyledText>
+          </StyledText>
         )}
       />
       {error ? <ErrorMessage error="email" /> : <View style={styles.marginTopSmall} />}

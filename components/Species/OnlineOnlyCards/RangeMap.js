@@ -1,6 +1,6 @@
 // @flow
 import React, { useState, useEffect } from "react";
-import { Image, TouchableOpacity, Text } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -12,6 +12,7 @@ import icons from "../../../assets/icons";
 import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
+import StyledText from "../../UIComponents/StyledText";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -105,9 +106,9 @@ const RangeMap = (): Node => {
         onPress={openModal}
         style={viewStyles.legend}
       >
-        <Text style={textStyles.whiteText}>
+        <StyledText style={textStyles.whiteText}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
       </TouchableOpacity>
       {user.latitude && (
         <TouchableOpacity

@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeDetails";
@@ -11,6 +11,7 @@ import ChallengeMissionCard from "./ChallengeMissionCard";
 import GreenText from "../../UIComponents/GreenText";
 import SpeciesObserved from "./SpeciesObserved";
 import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
+import StyledText from "../../UIComponents/StyledText";
 type Props = {
   challenge: {
     percentComplete: number,
@@ -36,7 +37,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
       <View style={viewStyles.textContainer}>
         {challenge.startedDate && <ChallengeMissionCard challenge={challenge} />}
         <View style={viewStyles.marginSmall} />
-        <Text style={textStyles.descriptionText}>{i18n.t( challenge.description )}</Text>
+        <StyledText style={textStyles.descriptionText}>{i18n.t( challenge.description )}</StyledText>
         <View style={viewStyles.marginLarge} />
       </View>
       <SpeciesNearbyChallenge challenge={challenge} />
@@ -49,25 +50,25 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
           }
         />
         <View style={viewStyles.marginSmall} />
-        <Text style={textStyles.descriptionText}>
+        <StyledText style={textStyles.descriptionText}>
           {i18n.t( challenge.action )}
-        </Text>
+        </StyledText>
         {challenge.photographer && (
           <>
             {photographerLogo && <Image source={photographerLogo} style={viewStyles.opContainer} />}
-            <Text style={[textStyles.descriptionText, textStyles.photographerText]}>
+            <StyledText style={[textStyles.descriptionText, textStyles.photographerText]}>
               {i18n.t( challenge.photographer )}
-            </Text>
+            </StyledText>
           </>
         )}
         {challenge.secondLogo === "BeesChallengeChallengeDetail" && <Image source={logos[challenge.secondLogo]} style={imageStyles.myGardenContainer} />}
         <View style={viewStyles.marginMedium} />
-        <Text
+        <StyledText
           onPress={navToChallenges}
           style={textStyles.viewText}
         >
           {i18n.t( "challenges_card.view_all" )}
-        </Text>
+        </StyledText>
         <View style={viewStyles.marginMedium} />
       </View>
     </View>

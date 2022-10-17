@@ -3,7 +3,6 @@
 import React, { useContext } from "react";
 import {
   Image,
-  Text,
   View,
   TouchableOpacity
 } from "react-native";
@@ -17,6 +16,7 @@ import i18n from "../i18n";
 import { AppOrientationContext, UserContext } from "./UserContext";
 import ScrollWithHeader from "./UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "./UIComponents/PrivacyAndTerms";
+import StyledText from "./UIComponents/StyledText";
 
 const AboutScreen = (): Node => {
   const navigation = useNavigation();
@@ -33,23 +33,23 @@ const AboutScreen = (): Node => {
       <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <Image source={logos.iNat} />
         <View style={viewStyles.marginSmall} />
-        <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek" )}</Text>
-        <Text style={textStyles.text}>{i18n.t( "about.joint_initiative" )}</Text>
+        <StyledText style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek" )}</StyledText>
+        <StyledText style={textStyles.text}>{i18n.t( "about.joint_initiative" )}</StyledText>
         <View style={viewStyles.block} />
         <Image source={logos.casNatGeo} style={imageStyles.image} />
         <View style={viewStyles.marginLarge} />
-        <Text style={textStyles.text}>{i18n.t( "about.original" )}</Text>
+        <StyledText style={textStyles.text}>{i18n.t( "about.original" )}</StyledText>
         <View style={viewStyles.margin} />
         <Image source={logos.wwfop} style={imageStyles.wwfop} />
         <View style={viewStyles.marginSmall} />
         <Image source={logos.hhmi} />
         <View style={viewStyles.margin} />
-        <Text style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
-        <Text style={textStyles.text}>{i18n.t( "about.inat_team_credits" )}</Text>
+        <StyledText style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.designed_by" )}</StyledText>
+        <StyledText style={textStyles.text}>{i18n.t( "about.inat_team_credits" )}</StyledText>
         <View style={viewStyles.marginSmallest} />
-        <Text style={textStyles.text}>{i18n.t( "about.translators" )}</Text>
+        <StyledText style={textStyles.text}>{i18n.t( "about.translators" )}</StyledText>
         <View style={viewStyles.marginSmallest} />
-        <Text style={textStyles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+        <StyledText style={textStyles.text}>{i18n.t( "about.join_crowdin" )}</StyledText>
         {login && <PrivacyAndTerms />}
         <TouchableOpacity
           onPress={navToDebug}
@@ -57,14 +57,14 @@ const AboutScreen = (): Node => {
           disabled={disabled}
           testID="debug"
         >
-          <Text style={textStyles.greenText}>
+          <StyledText style={textStyles.greenText}>
             {i18n.t( "about.version" ).toLocaleUpperCase()}
             {` ${appVersion} (${buildVersion})`}
-          </Text>
+          </StyledText>
         </TouchableOpacity>
-        <Text style={textStyles.text}>
+        <StyledText style={textStyles.text}>
           {i18n.t( "about.help" )}
-        </Text>
+        </StyledText>
         <View style={viewStyles.block} />
       </View>
     </ScrollWithHeader>

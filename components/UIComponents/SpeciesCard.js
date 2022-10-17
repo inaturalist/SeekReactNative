@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import {
-  Text,
   Image,
   TouchableOpacity,
   View,
@@ -12,6 +11,7 @@ import {
 import { viewStyles, textStyles } from "../../styles/uiComponents/speciesCard";
 import iconicTaxa from "../../assets/iconicTaxa";
 import i18n from "../../i18n";
+import StyledText from "./StyledText";
 
 type Props = {
   handlePress?: Function,
@@ -48,15 +48,15 @@ const SpeciesCard = ( {
         </ImageBackground>
       ) : <Image source={photo} style={viewStyles.image} />}
       <View style={viewStyles.speciesNameContainer}>
-        <Text allowFontScaling={allowFontScaling} style={textStyles.commonNameText}>
+        <StyledText allowFontScaling={allowFontScaling} style={textStyles.commonNameText}>
           {( preferredCommonName || name )
             ? preferredCommonName || name
             : i18n.t( "posting.unknown" )}
-        </Text>
+        </StyledText>
         {name && (
-          <Text allowFontScaling={allowFontScaling} style={textStyles.scientificNameText}>
+          <StyledText allowFontScaling={allowFontScaling} style={textStyles.scientificNameText}>
             {name}
-          </Text>
+          </StyledText>
         )}
       </View>
     </TouchableOpacity>

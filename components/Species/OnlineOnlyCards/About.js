@@ -1,6 +1,5 @@
 // @flow
 import React, { useContext } from "react";
-import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HTML from "react-native-render-html";
 import type { Node } from "react";
@@ -10,6 +9,7 @@ import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { textStyles } from "../../../styles/species/species";
 import { useCommonName } from "../../../utility/customHooks";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +about: ?string,
@@ -41,20 +41,18 @@ const About = ( {
     <SpeciesDetailCard text="species_detail.about">
       {about && (
         <>
-          <HTML
-            baseFontStyle={textStyles.text}
-            source={{ html }}
-          />
-          <Text style={textStyles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
+          <HTML baseFontStyle={textStyles.text} source={{ html }} />
+          <StyledText style={textStyles.text}>
+            {"\n("}
+            {i18n.t( "species_detail.wikipedia" )}
+            {")"}
+          </StyledText>
         </>
       )}
-      {( login && id !== 43584 ) && (
-        <Text
-          onPress={navToWikipediaView}
-          style={textStyles.linkText}
-        >
+      {login && id !== 43584 && (
+        <StyledText onPress={navToWikipediaView} style={textStyles.linkText}>
           {commonName || scientificName}
-        </Text>
+        </StyledText>
       )}
     </SpeciesDetailCard>
   );

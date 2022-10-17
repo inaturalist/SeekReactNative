@@ -1,10 +1,11 @@
 // @flow
 import * as React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { viewStyles, textStyles } from "../../styles/onboarding";
 import i18n from "../../i18n";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   index: number
@@ -23,15 +24,15 @@ const Button = ( { index }: Props ): React.Node => {
       {index === 2
         ? (
           <View style={viewStyles.button}>
-            <Text allowFontScaling={false} style={textStyles.continue}>
+            <StyledText allowFontScaling={false} style={textStyles.continue}>
               {i18n.t( "onboarding.continue" ).toLocaleUpperCase( )}
-            </Text>
+            </StyledText>
           </View>
         ) : (
           <View style={viewStyles.buttonUncolored}>
-            <Text allowFontScaling={false} style={[textStyles.skipText, textStyles.buttonHeight]}>
+            <StyledText allowFontScaling={false} style={[textStyles.skipText, textStyles.buttonHeight]}>
               {i18n.t( "onboarding.skip" )}
-            </Text>
+            </StyledText>
           </View>
         )}
     </TouchableOpacity>

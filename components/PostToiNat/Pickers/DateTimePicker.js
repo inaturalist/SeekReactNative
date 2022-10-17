@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import {
   Image,
-  Text,
   TouchableOpacity,
   View
 } from "react-native";
@@ -15,6 +14,7 @@ import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   dateToDisplay: ?string,
@@ -48,10 +48,10 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
       >
         <Image source={posting.date} />
         <View style={styles.row}>
-          <Text style={styles.greenText}>
+          <StyledText style={styles.greenText}>
             {i18n.t( "posting.date" ).toLocaleUpperCase( )}
-          </Text>
-          <Text style={styles.text}>{displayDate( )}</Text>
+          </StyledText>
+          <StyledText style={styles.text}>{displayDate( )}</StyledText>
         </View>
         {/* $FlowFixMe */}
         <Image

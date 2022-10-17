@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import {
-  Text,
   View,
   TouchableOpacity,
   Image
@@ -18,6 +17,7 @@ import icons from "../../../assets/icons";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { dimensions } from "../../../styles/global";
 import { useFetchUserLocation } from "../hooks/postingHooks";
+import StyledText from "../../UIComponents/StyledText";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
@@ -120,7 +120,7 @@ const LocationPicker = ( {
         >
           <Image source={icons.backButton} />
         </TouchableOpacity>
-        <Text style={textStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
+        <StyledText style={textStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</StyledText>
       </View>
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>

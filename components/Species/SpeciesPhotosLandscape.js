@@ -2,7 +2,6 @@
 import React, { useEffect, useContext } from "react";
 import {
   View,
-  Text,
   Image,
   FlatList
 } from "react-native";
@@ -12,6 +11,7 @@ import { AppOrientationContext } from "../UserContext";
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
 import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +photos: Array<Object>,
@@ -43,13 +43,13 @@ const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
           ]}
         />
         {photo.attribution && (
-          <Text style={[
+          <StyledText style={[
             textStyles.ccButtonText,
             isLandscape && textStyles.ccButtonLandscape,
             { maxWidth: columnWidth }
           ]}>
             {localizeAttributionsLandscape( photo.attribution, photo.license_code, "SpeciesDetail" )}
-          </Text>
+          </StyledText>
         )}
       </View>
     );

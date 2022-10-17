@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeMission";
@@ -11,6 +11,7 @@ import PercentCircle from "../../UIComponents/PercentCircle";
 import GreenText from "../../UIComponents/GreenText";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { useFetchMissions } from "../hooks/challengeHooks";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +challenge: Object
@@ -39,23 +40,23 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
     const list = subBullets.map( ( bullet, i ) => (
       <View key={i.toString()} style={viewStyles.missionRow}>
         <Image source={icons.grayBullet} style={viewStyles.subBullets} />
-        <Text style={textStyles.secondLevelBulletText}>{bullet.split( "-" )}</Text>
+        <StyledText style={textStyles.secondLevelBulletText}>{bullet.split( "-" )}</StyledText>
       </View>
     ) );
 
     const observedCount = (
-      <Text style={[textStyles.text, textStyles.greenText]}>
+      <StyledText style={[textStyles.text, textStyles.greenText]}>
         {i18n.t( "challenges.number_observed_plural", { count: item.observations || 0 } )}
-      </Text>
+      </StyledText>
     );
 
     return (
       <>
         {missionDetails[missionIndex] && missionDetails[missionIndex].number === item.observations
           ? <Image source={icons.checklist} style={imageStyles.checklist} />
-          : <Text allowFontScaling={false} style={textStyles.bullets}>&#8226;</Text>}
+          : <StyledText allowFontScaling={false} style={textStyles.bullets}>&#8226;</StyledText>}
         <View style={viewStyles.textContainer}>
-          <Text style={textStyles.text}>{missionNoSubBullets || header}</Text>
+          <StyledText style={textStyles.text}>{missionNoSubBullets || header}</StyledText>
           {header.length > 0 && <View style={viewStyles.marginTop} />}
           {subBullets.length > 0 && list}
           {observedCount}

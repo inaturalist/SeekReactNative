@@ -3,7 +3,6 @@
 import React from "react";
 import {
   View,
-  Text,
   TouchableOpacity,
   Image
 } from "react-native";
@@ -13,6 +12,7 @@ import { colors } from "../../../styles/global";
 import { viewStyles, textStyles, imageStyles } from "../../../styles/home/speciesNearby";
 import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   openLocationPicker: ( ) => void,
@@ -35,9 +35,9 @@ const LocationPickerButton = ( {
       {/* $FlowFixMe */}
       <Image source={posting.location} tintColor={colors.white} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
-        <Text style={textStyles.buttonText}>
+        <StyledText style={textStyles.buttonText}>
           {locationText.toLocaleUpperCase( )}
-        </Text>
+        </StyledText>
       </View>
     </TouchableOpacity>
   );

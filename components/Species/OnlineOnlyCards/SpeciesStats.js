@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   TouchableOpacity,
   Alert
 } from "react-native";
@@ -12,6 +11,7 @@ import type { Node } from "react";
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/species/speciesStats";
 import createUserAgent from "../../../utility/userAgent";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +stats: Object,
@@ -87,7 +87,7 @@ const SpeciesStats = ( { stats, region, id, seenDate }: Props ): Node => {
             style={viewStyles.tag}
             key={tag}
           >
-            <Text style={textStyles.tagText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</Text>
+            <StyledText style={textStyles.tagText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</StyledText>
           </TouchableOpacity>
         ) )}
       </View>

@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import SpeciesStats from "./OnlineOnlyCards/SpeciesStats";
 import SimilarSpecies from "./OnlineOnlyCards/SimilarSpecies";
@@ -20,6 +20,7 @@ import {
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../utility/customHooks";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +details: Object,
@@ -50,7 +51,7 @@ const OnlineSpeciesContainer = ( {
 
   const renderHumanCard = ( ) => (
     <View style={viewStyles.textContainer}>
-      <Text style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+      <StyledText style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</StyledText>
       <Padding />
     </View>
   );

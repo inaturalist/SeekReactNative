@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image,
   ScrollView,
   ImageBackground
@@ -16,6 +15,7 @@ import logoImages from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import Button from "../UIComponents/Buttons/Button";
 import { enabledLargeFonts } from "../../utility/textHelpers";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +navigation: any
@@ -62,9 +62,9 @@ const LoginOrSignupScreen = ( { navigation }: Props ): React.Node => {
           login
         />
         <View style={viewStyles.margin} />
-        <Text style={textStyles.text}>
+        <StyledText style={textStyles.text}>
           {i18n.t( "login.about" )}
-        </Text>
+        </StyledText>
       </ScrollView>
     </ImageBackground>
   );

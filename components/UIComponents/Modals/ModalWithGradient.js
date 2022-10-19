@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image,
   ImageBackground,
   TouchableOpacity
@@ -15,6 +14,7 @@ import icons from "../../../assets/icons";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/modals/modalWithGradient";
 import { colors } from "../../../styles/global";
 import iconicTaxa from "../../../assets/iconicTaxa";
+import StyledText from "../StyledText";
 
 type Props = {
   +children: any,
@@ -40,11 +40,11 @@ const ModalWithGradient = ( {
       style={viewStyles.header}
     >
       <View style={[viewStyles.headerTextContainer, viewStyles.row]}>
-        <Text allowFontScaling={false} style={textStyles.buttonText}>
+        <StyledText allowFontScaling={false} style={textStyles.buttonText}>
           {color === "green"
             ? i18n.t( "replace_photo.header" ).toLocaleUpperCase()
             : i18n.t( "results.flag" ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
         <TouchableOpacity
           onPress={closeModal}
           style={viewStyles.backButton}
@@ -78,7 +78,7 @@ const ModalWithGradient = ( {
           )}
           {displayDate && (
             <View style={viewStyles.grayButton}>
-              <Text style={textStyles.grayButtonText}>{displayDate}</Text>
+              <StyledText style={textStyles.grayButtonText}>{displayDate}</StyledText>
             </View>
           )}
         </View>

@@ -1,6 +1,6 @@
 // @flow
 import React, { useState, useEffect } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import type { Node } from "react";
 
 import { capitalizeNames } from "../../utility/helpers";
@@ -9,6 +9,7 @@ import { viewStyles, textStyles } from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
 import i18n from "../../i18n";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +ancestors: ?Array<Object>,
@@ -84,18 +85,18 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
           >
             <Image source={icons.greenDot} style={viewStyles.bullet} />
             <View>
-              <Text style={[
+              <StyledText style={[
                 textStyles.taxonomyHeader,
                 ancestor.rank === "species" && textStyles.speciesTaxonomyHeader
               ]}>
                 {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
-              </Text>
-              <Text style={[textStyles.taxonomyText, !ancestor.preferred_common_name && textStyles.scientificName]}>
+              </StyledText>
+              <StyledText style={[textStyles.taxonomyText, !ancestor.preferred_common_name && textStyles.scientificName]}>
                 {ancestor.preferred_common_name
                   ? capitalizeNames( ancestor.preferred_common_name )
                   : ancestor.name}
-              </Text>
+              </StyledText>
             </View>
           </View>
         );

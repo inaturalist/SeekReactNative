@@ -1,11 +1,12 @@
 // @flow
 
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
 import i18n from "../../../i18n";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   error: string
@@ -28,7 +29,7 @@ const SpeciesNearbyChallengeError = ( { error }: Props ): Node => {
 
   return (
     <View style={viewStyles.loadingWheelContainer}>
-      <Text style={textStyles.speciesNearbyErrorText}>{setErrorText( )}</Text>
+      <StyledText style={textStyles.speciesNearbyErrorText}>{setErrorText( )}</StyledText>
     </View>
   );
 };

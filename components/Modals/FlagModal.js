@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/modals/flagModal";
@@ -10,6 +10,7 @@ import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
 import { ObservationContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   taxon: Object,
@@ -47,10 +48,10 @@ const FlagModal = ( {
       userImage={image.uri}
       originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
     >
-      <Text allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
+      <StyledText allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
         {showScientificName ? scientificName : commonName}
-      </Text>
-      <Text allowFontScaling={false} style={textStyles.text}>{i18n.t( "results.incorrect" )}</Text>
+      </StyledText>
+      <StyledText allowFontScaling={false} style={textStyles.text}>{i18n.t( "results.incorrect" )}</StyledText>
       <View style={viewStyles.marginSmall} />
       <Button
         handlePress={handlePress}

@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useContext, useMemo } from "react";
 import {
   View,
-  Text,
   Image,
   TouchableOpacity,
   Platform
@@ -22,6 +21,7 @@ import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
 import { AppOrientationContext } from "../../UserContext";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   takePicture: Function,
@@ -144,7 +144,7 @@ const ARCameraOverlay = ( {
         />
       )}
       <View style={setTaxonomicRankColorStyles( )}>
-        <Text style={[textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</Text>
+        <StyledText style={[textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>
       {isAndroid && (
         <TouchableOpacity

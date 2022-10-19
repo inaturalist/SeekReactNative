@@ -1,12 +1,13 @@
 // @flow
 
 import * as React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/uiComponents/emptyState";
 import GreenButton from "./Buttons/GreenButton";
+import StyledText from "./StyledText";
 
 const EmptyState = (): React.Node => {
   const navigation = useNavigation();
@@ -15,16 +16,16 @@ const EmptyState = (): React.Node => {
 
   return (
     <View style={viewStyles.container}>
-      <Text style={textStyles.headerText}>
+      <StyledText style={textStyles.headerText}>
         {obsScreen
           ? i18n.t( "observations.no_obs" ).toLocaleUpperCase()
           : i18n.t( "notifications.none" ).toLocaleUpperCase()}
-      </Text>
-      <Text style={textStyles.text}>
+      </StyledText>
+      <StyledText style={textStyles.text}>
         {obsScreen
           ? i18n.t( "observations.help" )
           : i18n.t( "notifications.about" )}
-      </Text>
+      </StyledText>
       {obsScreen && (
         <View style={viewStyles.greenButtonMargin}>
           <GreenButton

@@ -4,7 +4,6 @@ import React, { useReducer, useEffect, useCallback, useRef, useContext } from "r
 import {
   View,
   Image,
-  Text,
   ImageBackground,
   Modal,
   TouchableOpacity,
@@ -27,6 +26,7 @@ import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
 import CropScreen from "./CropScreen";
 import { ObservationContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 const SocialScreen = ( ): Node => {
   const { observation } = useContext( ObservationContext );
@@ -198,9 +198,9 @@ const SocialScreen = ( ): Node => {
           style={viewStyles.greenButton}
         >
           <Image source={icons.cropIconWhite} />
-          <Text style={textStyles.buttonText}>
+          <StyledText style={textStyles.buttonText}>
             {i18n.t( "social.crop_image" ).toLocaleUpperCase( )}
-          </Text>
+          </StyledText>
         </TouchableOpacity>
       );
     }
@@ -284,7 +284,7 @@ const SocialScreen = ( ): Node => {
         {tab === "square" ? showSquareImage( ) : showOriginalRatioImage( )}
         {!noWatermark && (
           <>
-            <Text style={textStyles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</Text>
+            <StyledText style={textStyles.optionsText}>{i18n.t( "social.options" ).toLocaleUpperCase( )}</StyledText>
             <View style={[viewStyles.row, viewStyles.checkboxRow]}>
               <Checkbox
                 checkBoxColor={colors.checkboxColor}
@@ -292,7 +292,7 @@ const SocialScreen = ( ): Node => {
                 onClick={toggleWatermark}
                 style={viewStyles.checkbox}
               />
-              <Text style={textStyles.speciesIdText}>{i18n.t( "social.show_species_id" )}</Text>
+              <StyledText style={textStyles.speciesIdText}>{i18n.t( "social.show_species_id" )}</StyledText>
             </View>
           </>
         )}

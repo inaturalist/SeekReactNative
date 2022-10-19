@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { Text, Image, StatusBar, View } from "react-native";
+import { Image, StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
@@ -10,6 +10,7 @@ import { viewStyles, textStyles } from "../../styles/posting/postModal";
 import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { useInternetStatus } from "../../utility/customHooks";
+import StyledText from "../UIComponents/StyledText";
 
 const PostStatus = ( ): React.Node => {
   const navigation = useNavigation( );
@@ -46,9 +47,9 @@ const PostStatus = ( ): React.Node => {
       <StatusBar barStyle="dark-content" />
       <View style={viewStyles.content}>
         {!internet && <Image source={posting.internet} />}
-        <Text style={textStyles.headerText}>{i18n.t( setHeaderText( ) )}</Text>
+        <StyledText style={textStyles.headerText}>{i18n.t( setHeaderText( ) )}</StyledText>
         <Image style={viewStyles.uploadImage} source={setImage( )} />
-        <Text style={textStyles.text}>{setText( )}</Text>
+        <StyledText style={textStyles.text}>{setText( )}</StyledText>
       </View>
       <View style={viewStyles.greenButton}>
         <GreenButton

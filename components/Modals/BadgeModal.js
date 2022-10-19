@@ -3,7 +3,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import {
   View,
-  Text,
   Image,
   ImageBackground,
   FlatList,
@@ -19,6 +18,7 @@ import LargeProgressCircle from "../UIComponents/LargeProgressCircle";
 import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   badges: Array<Object>,
@@ -88,9 +88,9 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
           : badgeImages.badge_empty}
         style={imageStyles.smallImage}
       />
-      <Text style={[textStyles.bullets, index !== scrollIndex && textStyles.transparent]}>
+      <StyledText style={[textStyles.bullets, index !== scrollIndex && textStyles.transparent]}>
         &#8226;
-      </Text>
+      </StyledText>
     </TouchableOpacity>
   ) );
 
@@ -117,11 +117,11 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
         allowFontScaling={false}
       />
       <View style={viewStyles.margin} />
-      <Text allowFontScaling={false} style={textStyles.nameText}>
+      <StyledText allowFontScaling={false} style={textStyles.nameText}>
         {i18n.t( "badges.observe_species" )}
         {" "}
         {i18n.t( item.infoText )}
-      </Text>
+      </StyledText>
     </View>
   );
 

@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image
 } from "react-native";
 
@@ -11,6 +10,7 @@ import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/rangeMap";
 import icons from "../../assets/icons";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +closeModal: Function
@@ -18,17 +18,17 @@ type Props = {
 
 const Legend = ( { closeModal }: Props ): React.Node => {
   const renderText = ( text ) => (
-    <Text style={textStyles.text}>
+    <StyledText style={textStyles.text}>
       {text}
-    </Text>
+    </StyledText>
   );
 
   return (
     <WhiteModal closeModal={closeModal}>
       <View style={viewStyles.legendHeader}>
-        <Text style={textStyles.whiteText}>
+        <StyledText style={textStyles.whiteText}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
       </View>
       <View>
         <View style={viewStyles.marginSmall} />

@@ -1,11 +1,12 @@
 // @flow
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/uiComponents/privacyAndTerms";
+import StyledText from "./StyledText";
 
 const PrivacyAndTerms = (): React.Node => {
   const { navigate } = useNavigation();
@@ -24,21 +25,21 @@ const PrivacyAndTerms = (): React.Node => {
 
   return (
     <View style={[viewStyles.center, viewStyles.row]}>
-      <Text
+      <StyledText
         allowFontScaling={false}
         onPress={navToPrivacy}
         style={linkStyles}
       >
         {i18n.t( "inat_signup.privacy" )}
-      </Text>
+      </StyledText>
       <View style={viewStyles.marginLeft} />
-      <Text
+      <StyledText
         allowFontScaling={false}
         onPress={navToTerms}
         style={linkStyles}
       >
         {i18n.t( "inat_signup.terms" )}
-      </Text>
+      </StyledText>
     </View>
   );
 };

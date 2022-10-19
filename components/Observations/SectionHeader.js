@@ -3,7 +3,6 @@
 import React, { useEffect, useCallback, useState } from "react";
 import {
   View,
-  Text,
   Image,
   TouchableOpacity
 } from "react-native";
@@ -17,6 +16,7 @@ import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import realmConfig from "../../models/index";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   section: Object,
@@ -54,11 +54,11 @@ const SectionHeader = ( { section, open, toggleSection }: Props ): Node => {
       onPress={() => toggleSection( id )}
       style={[styles.header, styles.row]}
     >
-      <Text allowFontScaling={false} style={styles.headerText}>
+      <StyledText allowFontScaling={false} style={styles.headerText}>
         {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
-      </Text>
+      </StyledText>
       <View style={styles.row}>
-        <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
+        <StyledText style={styles.numberText} allowFontScaling={false}>{data.length}</StyledText>
         {id !== 1 && ( // $FlowFixMe
           <Image
             source={noBadge ? badges.badge_empty_small : badge}

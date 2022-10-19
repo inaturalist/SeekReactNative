@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import { viewStyles, textStyles } from "../../styles/iNaturalist/bulletedList";
 import i18n from "../../i18n";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   text: string
@@ -12,12 +13,12 @@ type Props = {
 
 const BulletedList = ( { text }: Props ): React.Node => (
   <View key={text} style={viewStyles.bulletContainer}>
-    <Text style={textStyles.bulletPoints}>
+    <StyledText style={textStyles.bulletPoints}>
       &#8226;
-    </Text>
-    <Text style={[textStyles.text, textStyles.bulletText]}>
+    </StyledText>
+    <StyledText style={[textStyles.text, textStyles.bulletText]}>
       {i18n.t( text )}
-    </Text>
+    </StyledText>
   </View>
 );
 

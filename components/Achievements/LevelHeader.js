@@ -4,7 +4,6 @@ import React, { useState, useCallback } from "react";
 import {
   View,
   Image,
-  Text,
   TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -17,6 +16,7 @@ import { textStyles, viewStyles, imageStyles } from "../../styles/badges/achieve
 import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modals/Modal";
 import { localizeNumber } from "../../utility/helpers";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +level: Object,
@@ -55,13 +55,13 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ): Node => 
           <>
             <Image source={badgeImages[level.earnedIconName]} style={imageStyles.levelImage} />
             <View style={viewStyles.textContainer}>
-              <Text style={textStyles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</Text>
-              <Text style={textStyles.headerText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
-              <Text style={textStyles.text}>
+              <StyledText style={textStyles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</StyledText>
+              <StyledText style={textStyles.headerText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
+              <StyledText style={textStyles.text}>
                 {level.count >= 150
                   ? i18n.t( "badges.observe_max" )
                   : i18n.t( "badges.observe_plural", { count: localizeNumber( nextLevelCount ) } )}
-              </Text>
+              </StyledText>
             </View>
           </>
         )}

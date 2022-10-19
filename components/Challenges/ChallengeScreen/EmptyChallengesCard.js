@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import { viewStyles, textStyles } from "../../../styles/challenges/emptyChallenges";
 import i18n from "../../../i18n";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   type: string
@@ -12,9 +13,9 @@ type Props = {
 
 const EmptyChallengesCard = ( { type }: Props ): React.Node => (
   <View style={[viewStyles.noChallengeContainer, viewStyles.center]}>
-    <Text style={textStyles.noChallengeText}>{i18n.t( `challenges.${type}` )}</Text>
+    <StyledText style={textStyles.noChallengeText}>{i18n.t( `challenges.${type}` )}</StyledText>
     {type === "no_new_challenges_header" && (
-      <Text style={textStyles.lightText}>{i18n.t( "challenges.no_new_challenges" )}</Text>
+      <StyledText style={textStyles.lightText}>{i18n.t( "challenges.no_new_challenges" )}</StyledText>
     )}
   </View>
 );

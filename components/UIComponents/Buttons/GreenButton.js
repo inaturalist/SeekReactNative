@@ -2,10 +2,11 @@
 // @flow
 
 import * as React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/greenButton";
+import StyledText from "../StyledText";
 
 type Props = {
   +color?: ?Object,
@@ -48,12 +49,12 @@ const GreenButton = ( {
       disabled={disabled}
       testID="greenButton"
     >
-      <Text
+      <StyledText
         style={[textStyles.buttonText, { letterSpacing }, { fontSize }]}
         allowFontScaling={allowFontScaling}
       >
         {i18n.t( text ).toLocaleUpperCase()}
-      </Text>
+      </StyledText>
     </TouchableOpacity>
   );
 };

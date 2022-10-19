@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
@@ -11,6 +11,7 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
 import { fetchSpeciesNearby } from "../../utility/apiCalls";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +ancestorId:number,
@@ -61,9 +62,9 @@ const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
 
   return (
     <>
-      <Text style={textStyles.headerText}>
+      <StyledText style={textStyles.headerText}>
         {i18n.t( "results.nearby" ).toLocaleUpperCase( )}
-      </Text>
+      </StyledText>
       {renderSpecies( )}
     </>
   );

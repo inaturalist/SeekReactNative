@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useCallback, useReducer, useContext, useEffect } from "react";
-import { View, Platform, Text, Modal } from "react-native";
+import { View, Platform, Modal } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../../styles/home/speciesNearby";
@@ -18,6 +18,8 @@ import { colors } from "../../../styles/global";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
 import createUserAgent from "../../../utility/userAgent";
+
+import StyledText from "../../UIComponents/StyledText";
 
 const SpeciesNearby = ( ): Node => {
   const { speciesNearby, setSpeciesNearby } = useContext( SpeciesNearbyContext );
@@ -205,9 +207,9 @@ const SpeciesNearby = ( ): Node => {
   return (
     <View style={viewStyles.container}>
       {renderModal( )}
-      <Text style={[textStyles.headerText, viewStyles.header]}>
+      <StyledText style={[textStyles.headerText, viewStyles.header]}>
         {i18n.t( "species_nearby.header" ).toLocaleUpperCase( )}
-      </Text>
+      </StyledText>
       <LocationPickerButton
         disabled={disabled}
         location={speciesNearby.location}

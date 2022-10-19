@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
@@ -12,6 +12,7 @@ import { replacePhoto } from "../../utility/photoHelpers";
 import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { ObservationContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   closeModal: Function,
@@ -58,10 +59,10 @@ const ReplacePhotoModal = ( {
       originalImage={currentUserPhoto ? currentUserPhoto.uri : null}
       displayDate={displayDate}
     >
-      <Text allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
+      <StyledText allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
         {showScientificName ? scientificName : commonName}
-      </Text>
-      <Text allowFontScaling={false} style={textStyles.text}>{i18n.t( "replace_photo.description" )}</Text>
+      </StyledText>
+      <StyledText allowFontScaling={false} style={textStyles.text}>{i18n.t( "replace_photo.description" )}</StyledText>
       <View style={viewStyles.marginMedium} />
       <Button
         handlePress={setNewPhoto}

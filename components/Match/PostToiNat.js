@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -10,6 +10,7 @@ import styles from "../../styles/match/match";
 import { fetchPostingSuccess } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { UserContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +color: string,
@@ -41,9 +42,9 @@ const PostToiNat = ( { color, taxaInfo }: Props ): Node => {
   if ( login && !postingSuccess ) {
     return (
       <>
-        <Text style={styles.text}>
+        <StyledText style={styles.text}>
           {i18n.t( "results.post_inat" )}
-        </Text>
+        </StyledText>
         <View style={styles.marginMedium} />
         <GreenButton
           color={color}

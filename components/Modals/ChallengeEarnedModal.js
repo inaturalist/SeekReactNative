@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image,
   ImageBackground
 } from "react-native";
@@ -17,6 +16,7 @@ import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import backgrounds from "../../assets/backgrounds";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   closeModal: ( ) => void,
@@ -53,25 +53,25 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
           source={icons.badgeBanner}
           style={imageStyles.seekBanner}
         >
-          <Text style={[textStyles.bannerText, is2020OrAfterChallenge && textStyles.seekBannerText]}>
+          <StyledText style={[textStyles.bannerText, is2020OrAfterChallenge && textStyles.seekBannerText]}>
             {i18n.t( challenge.badgeName ).toLocaleUpperCase( )}
-          </Text>
+          </StyledText>
         </ImageBackground>
       </ImageBackground>
       <View style={viewStyles.marginTop} />
-      <Text style={textStyles.headerText}>
+      <StyledText style={textStyles.headerText}>
         {i18n.t( "challenges_all.you_completed_sponsor_challenge", {
           sponsorName: challenge.sponsorName.toLocaleUpperCase( ),
           date: challenge.sponsorName === "Our Planet"
             ? formatMonth( challenge.availableDate ).toLocaleUpperCase( )
             : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( )
         } )}
-      </Text>
-      <Text style={textStyles.text}>
+      </StyledText>
+      <StyledText style={textStyles.text}>
         {is2020OrAfterChallenge
           ? i18n.t( "seek_challenges.text" )
           : i18n.t( "challenges.thanks" )}
-      </Text>
+      </StyledText>
       <View style={viewStyles.marginTop} />
       <Image
         source={logos[challenge.secondLogo]}

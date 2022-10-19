@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   TouchableOpacity,
   Image
 } from "react-native";
@@ -13,6 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +navigation: any,
@@ -37,7 +37,7 @@ const WikipediaView = ( { navigation, route }: Props ): React.Node => {
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={viewStyles.header}>
-        <Text style={textStyles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</Text>
+        <StyledText style={textStyles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</StyledText>
         <TouchableOpacity onPress={navBack} style={viewStyles.back}>
           <Image source={icons.closeWhite} />
         </TouchableOpacity>

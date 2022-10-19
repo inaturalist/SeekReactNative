@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useState, useRef } from "react";
-import { View, Text, Image, Animated, Pressable } from "react-native";
+import { View, Image, Animated, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -14,6 +14,7 @@ import { useInternetStatus } from "../../utility/customHooks";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 import { resetRouter } from "../../utility/navigationHelpers";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   successfulUploads: number,
@@ -148,9 +149,9 @@ const UploadStatus = ( {
         <View style={[viewStyles.row, viewStyles.center]}>
           <Image source={logos.iNatAppIcon} style={viewStyles.iNatIcon} />
           <View>
-            <Text style={textStyles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</Text>
+            <StyledText style={textStyles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</StyledText>
             <View style={viewStyles.row}>
-              {internet !== null && <Text style={textStyles.text}>{setUploadText( )}</Text>}
+              {internet !== null && <StyledText style={textStyles.text}>{setUploadText( )}</StyledText>}
               {successfulUploads > 0 && <Image source={icons.checklist} style={imageStyles.checkmark} />}
             </View>
           </View>
@@ -162,7 +163,7 @@ const UploadStatus = ( {
               handlePress={retryUploads}
               text="post_to_inat_card.upload_now"
             />
-            <Text style={textStyles.errorText}>{setErrorText( )}</Text>
+            <StyledText style={textStyles.errorText}>{setErrorText( )}</StyledText>
           </View>
         )}
         {( internet === true && !error ) && (

@@ -3,12 +3,12 @@
     "header": "Види поблизу",
     "internet_error": "Для того, щоб показати види поблизу необхідно підключення до Інтернету. Натисніть, аби спробувати ще раз.",
     "no_location": "Місцезнаходження не вказано",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Немає GPS сигналу. Будь ласка, двічі перевірте, чи ввімкнено GPS",
     "no_species": "Схоже, поблизу немає багато видів! Спробуйте змінити своє місцезнаходження або розширити фільтр видів.",
     "input_location_above_map": "Місцезнаходження не знайдено. Введіть назву місцевості, щоб завантажити карту та знайти види поблизу",
     "error_alert_location_services": "Щоб продовжити, увімкніть можливість визначення місцезнаходження у налаштуваннях вашого пристрою",
     "species_nearby_requires_location": "Функція \"Види поблизу\" запитує про ваше місцезнаходження. Будь ласка, увімкніть місцезнаходження у налаштуваннях",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
+    "species_nearby_requires_android_accuracy": "Види неподалік вимагають вашого розташування. Будь ласка, перевірте чи ввімкнено служби геолокації.",
     "choose_location_on_map": "ОБЕРІТЬ МІСЦЕЗНАХОДЖЕННЯ НА КАРТІ"
   },
   "get_started": {
@@ -89,8 +89,8 @@
     "error_username_taken": "Це ім'я користувача вже використовується.",
     "error_no_username": "Відсутнє ім'я користувача / електронна пошта",
     "error_no_password": "Відсутній пароль",
-    "error_internet": "No internet connection",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_internet": "Немає з’єднання з Інтернетом",
+    "error_request_could_not_be_completed": "Не можливо виконати ваш запит."
   },
   "inat_signup": {
     "welcome": "Ласкаво просимо до Seek!",

@@ -174,6 +174,10 @@ const GalleryScreen = (): Node => {
     if ( error ) {
       return <CameraError error={error} errorEvent={errorEvent} album={album} />;
     }
+    // If there are no photos, render a loading wheel
+    if ( photos.length === 0 ) {
+      return <LoadingWheel color={colors.seekForestGreen} />;
+    }
     return <GalleryImageList onEndReached={onEndReached} photos={photos} setLoading={setLoading} />;
   };
 

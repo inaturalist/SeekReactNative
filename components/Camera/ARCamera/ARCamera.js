@@ -14,7 +14,7 @@ import {
   Platform,
   NativeModules
 } from "react-native";
-import CameraRoll from "@react-native-community/cameraroll";
+import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";

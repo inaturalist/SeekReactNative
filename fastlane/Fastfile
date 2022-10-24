@@ -19,8 +19,8 @@ end
 
 default_platform(:android)
 
-ANDROID_CAMERA_PATH = File.join( "android", "app", "src", "main", "assets", "camera" )
-IOS_CAMERA_PATH = File.join( "ios" )
+ANDROID_CAMERA_PATH = File.join( "..", "android", "app", "src", "main", "assets", "camera" )
+IOS_CAMERA_PATH = File.join( "..", "ios" )
 
 def android_taxonomy_present?
   path = File.join( ANDROID_CAMERA_PATH, "taxonomy.csv" )
@@ -30,7 +30,7 @@ def android_taxonomy_present?
 end
 
 def ios_taxonomy_present?
-  path = File.join( IOS_CAMERA_PATH, "taxonomy.csv" )
+  path = File.join( IOS_CAMERA_PATH, "taxonomy.json" )
   unless File.exist?( path )
     UI.abort_with_message! "iOS production taxonomy file is missing at #{path}"
   end
@@ -44,7 +44,7 @@ def android_model_present?
 end
 
 def ios_model_present?
-  path = File.join( IOS_CAMERA_PATH, "optimized_model.tflite" )
+  path = File.join( IOS_CAMERA_PATH, "optimized_model.mlmodel" )
   unless File.exist?( path )
     UI.abort_with_message! "iOS production vision model file is missing at #{path}"
   end

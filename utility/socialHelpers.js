@@ -1,6 +1,6 @@
 // @flow
 
-import CameraRoll from "@react-native-community/cameraroll";
+import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import Share from "react-native-share";
 import { Platform, Alert, Image, Linking } from "react-native";
 import Marker from "react-native-image-marker";

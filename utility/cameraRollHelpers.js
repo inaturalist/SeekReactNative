@@ -1,7 +1,10 @@
 // @flow
 
-import CameraRoll from "@react-native-community/cameraroll";
-import type { GetPhotosParams, PhotoIdentifiersPage } from "@react-native-community/cameraroll";
+import { CameraRoll } from "@react-native-camera-roll/camera-roll";
+import type {
+  GetPhotosParams,
+  PhotoIdentifiersPage
+} from "@react-native-camera-roll/camera-roll";
 
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   const options: GetPhotosParams = {

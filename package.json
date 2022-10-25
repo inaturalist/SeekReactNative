@@ -31,8 +31,8 @@
     "fbjs": "^3.0.4",
     "i18n-js": "^3.9.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
-    "react": "18.0.0",
-    "react-native": "^0.69.6",
+    "react": "18.1.0",
+    "react-native": "0.70.0",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^8.4.1",
@@ -71,7 +71,7 @@
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
     "react-native-webview": "^11.22.5",
-    "realm": "^11.0.0-rc.1"
+    "realm": "^11.0.0-rc.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -82,7 +82,7 @@
     "eslint-plugin-jest": "^27.0.4",
     "flow-bin": "^0.158.0",
     "husky": "^8.0.1",
-    "metro-react-native-babel-preset": "^0.70.3",
+    "metro-react-native-babel-preset": "^0.72.1",
     "patch-package": "^6.4.7",
     "react-native-clean-project": "^4.0.1"
   }

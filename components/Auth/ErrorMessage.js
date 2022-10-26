@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image
 } from "react-native";
 import { useNetInfo } from "@react-native-community/netinfo";
@@ -12,6 +11,7 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import { textStyles, viewStyles, imageStyles } from "../../styles/auth/error";
 import { colors } from "../../styles/global";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +error: string
@@ -47,7 +47,7 @@ const ErrorMessage = ( { error }: Props ): React.Node => {
       {/* $FlowFixMe */}
       <Image source={icons.error} style={imageStyles.image} tintColor={colors.seekiNatGreen} />
       <View style={viewStyles.textContainer}>
-        <Text allowFontScaling={false} style={textStyles.text} testID="loginError">{message}</Text>
+        <StyledText allowFontScaling={false} style={textStyles.text} testID="loginError">{message}</StyledText>
       </View>
     </View>
   );

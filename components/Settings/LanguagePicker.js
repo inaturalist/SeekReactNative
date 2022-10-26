@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext, useCallback, useMemo } from "react";
-import { Text, View, Alert } from "react-native";
+import { View, Alert } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
@@ -14,6 +14,7 @@ import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
+import StyledText from "../UIComponents/StyledText";
 
 const localeList = Object.keys( languages ).map( ( locale ) => (
   { value: locale, label: languages[locale].toLocaleUpperCase() }
@@ -86,13 +87,13 @@ const LanguagePicker = (): Node => {
         onClick={setDeviceLanguage}
         style={viewStyles.checkBox}
       />
-      <Text style={[textStyles.text, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
+      <StyledText style={[textStyles.text, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</StyledText>
     </View>
   ), [isChecked, setDeviceLanguage] );
 
   return (
     <View style={viewStyles.donateMarginBottom}>
-      <Text style={textStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
+      <StyledText style={textStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</StyledText>
       {deviceLanguageSupported( ) && renderDeviceCheckbox}
       <RNPickerSelect
         hideIcon

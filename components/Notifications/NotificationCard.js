@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import {
-  Text,
   Image,
   TouchableOpacity,
   View
@@ -16,6 +15,7 @@ import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
 import { markNotificationAsSeen } from "../../utility/notificationHelpers";
 import { ChallengeContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +item: Object
@@ -50,12 +50,12 @@ const NotificationCard = ( { item }: Props ): React.Node => {
     >
       <Image source={image} style={imageStyles.image} />
       <View style={viewStyles.textContainer}>
-        <Text style={textStyles.titleText}>
+        <StyledText style={textStyles.titleText}>
           {i18n.t( item.title )}
-        </Text>
-        <Text style={textStyles.messageText}>
+        </StyledText>
+        <StyledText style={textStyles.messageText}>
           {i18n.t( item.message )}
-        </Text>
+        </StyledText>
       </View>
       {!item.seen && <View style={viewStyles.greenDot} />}
     </TouchableOpacity>

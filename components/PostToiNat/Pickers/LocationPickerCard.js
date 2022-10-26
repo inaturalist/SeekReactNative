@@ -3,7 +3,6 @@
 import React, { useState, useCallback } from "react";
 import {
   Image,
-  Text,
   TouchableOpacity,
   View,
   Modal
@@ -17,6 +16,7 @@ import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
 import LocationPicker from "./LocationPicker";
 import { truncateCoordinates } from "../../../utility/locationHelpers";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   location: ?string,
@@ -67,13 +67,13 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
       >
         <Image source={posting.location} style={styles.extraMargin} />
         <View style={styles.row}>
-          <Text style={styles.greenText}>
+          <StyledText style={styles.greenText}>
             {i18n.t( "posting.location" ).toLocaleUpperCase( )}
-          </Text>
-          <Text style={styles.text}>
+          </StyledText>
+          <StyledText style={styles.text}>
             {location || i18n.t( "location_picker.undefined" )}
-          </Text>
-          {coordinateString && <Text style={styles.coordsText}>{coordinateString}</Text>}
+          </StyledText>
+          {coordinateString && <StyledText style={styles.coordsText}>{coordinateString}</StyledText>}
         </View>
         {/* $FlowFixMe */}
         <Image

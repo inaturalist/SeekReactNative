@@ -168,7 +168,7 @@ const Observations = ( ): Node => {
       </Modal>
       <View style={styles.whiteContainer}>
         {loading
-          ? <LoadingWheel color={colors.darkGray} />
+          ? <LoadingWheel color={colors.seekForestGreen} />
           : (
             <ObsList
               fetchFilteredObservations={fetchFilteredObservations}

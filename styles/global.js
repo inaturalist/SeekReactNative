@@ -71,6 +71,10 @@ export const center = {
   justifyContent: "center"
 };
 
+export const leftText = {
+  textAlign: "left"
+};
+
 export const row = {
   alignItems: "center",
   flexDirection: "row",

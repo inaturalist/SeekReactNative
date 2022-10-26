@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useCallback } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -18,6 +18,7 @@ import { localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import BannerHeader from "../UIComponents/BannerHeader";
 import { useFetchAchievements } from "./hooks/achievementHooks";
+import StyledText from "../UIComponents/StyledText";
 
 const AchievementsScreen = ( ): Node => {
   const state = useFetchAchievements( );
@@ -35,9 +36,9 @@ const AchievementsScreen = ( ): Node => {
       disabled={disabled}
     >
       <GreenText center smaller text={headerText} />
-      <Text style={textStyles.number}>
+      <StyledText style={textStyles.number}>
         {text && localizeNumber( text )}
-      </Text>
+      </StyledText>
     </TouchableOpacity>
   );
 

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useCallback } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -12,6 +12,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
+import StyledText from "../../UIComponents/StyledText";
 
 const AgeVerifyScreen = (): Node => {
   const { navigate } = useNavigation();
@@ -39,18 +40,18 @@ const AgeVerifyScreen = (): Node => {
   return (
     <ViewWithHeader header="login.sign_up" footer={false}>
       <View style={[styles.flexCenter, styles.whiteContainer]}>
-        <Text style={styles.header} allowFontScaling={false}>
+        <StyledText style={styles.header} allowFontScaling={false}>
           {i18n.t( "inat_signup.enter_birthday" )}
-        </Text>
-        <Text style={styles.text} allowFontScaling={false}>
+        </StyledText>
+        <StyledText style={styles.text} allowFontScaling={false}>
           {i18n.t( "inat_signup.permission" )}
-        </Text>
+        </StyledText>
         <View style={styles.marginLarge} />
         <TouchableOpacity
           onPress={openPicker}
           style={[styles.dateButton, styles.center]}
         >
-          <Text style={styles.buttonText}>{date}</Text>
+          <StyledText style={styles.buttonText}>{date}</StyledText>
         </TouchableOpacity>
         {isPickerVisible && (
           <DateTimePicker

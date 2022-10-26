@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   Alert,
   Image,
   TouchableOpacity
@@ -15,6 +14,8 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { localizeAttributions } from "../../utility/photoHelpers";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
+import { colors } from "../../styles/global";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +photos: Array<Object>,
@@ -40,9 +41,9 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
           onPress={showLicense}
           style={viewStyles.ccButton}
         >
-          <Text style={textStyles.ccButtonText}>
+          <StyledText style={textStyles.ccButtonText}>
             {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
-          </Text>
+          </StyledText>
         </TouchableOpacity>
       </View>
     );
@@ -90,13 +91,13 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
     if ( error ) {
       return (
         <View style={viewStyles.errorContainer}>
-          <Text style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</Text>
+          <StyledText style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</StyledText>
         </View>
       );
     } else if ( photoList.length === 0 ) {
       return (
         <View style={viewStyles.photoContainer}>
-          <LoadingWheel color="white" />
+          <LoadingWheel color={colors.white} />
         </View>
       );
     } else {

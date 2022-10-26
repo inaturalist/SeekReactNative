@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 
 import { viewStyles, textStyles } from "../../styles/social/social";
 import i18n from "../../i18n";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   tab: string,
@@ -14,9 +15,9 @@ type Props = {
 const SocialTabs = ( { tab, toggleTab }: Props ): React.Node => {
   const renderTab = selectedTab => (
     <TouchableOpacity onPress={toggleTab}>
-      <Text style={[textStyles.photoSizeText, tab === selectedTab && textStyles.selectedPhotoSizeText]}>
+      <StyledText style={[textStyles.photoSizeText, tab === selectedTab && textStyles.selectedPhotoSizeText]}>
         {i18n.t( `social.${selectedTab}` ).toLocaleUpperCase( )}
-      </Text>
+      </StyledText>
     </TouchableOpacity>
   );
 

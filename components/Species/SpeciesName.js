@@ -1,12 +1,12 @@
 // @flow
 
 import React from "react";
-import { Text } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../styles/species/species";
 import { useCommonName } from "../../utility/customHooks";
 import CopyButton from "../UIComponents/Buttons/CopyButton";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   taxon: Object,
@@ -21,16 +21,16 @@ const SpeciesName = ( { taxon, id, selectedText, highlightSelectedText }: Props 
 
   return (
     <>
-      <Text style={textStyles.commonNameText}>{commonName || scientificName}</Text>
+      <StyledText style={textStyles.commonNameText}>{commonName || scientificName}</StyledText>
       <CopyButton stringToCopy={scientificName} handleHighlight={highlightSelectedText}>
-        <Text
+        <StyledText
           style={[
             textStyles.scientificNameText,
             selectedText && viewStyles.selectedPressableArea
           ]}
         >
           {scientificName}
-        </Text>
+        </StyledText>
       </CopyButton>
     </>
   );

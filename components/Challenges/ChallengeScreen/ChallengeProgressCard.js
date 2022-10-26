@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import {
-  Text,
   Image,
   TouchableOpacity,
   View
@@ -17,6 +16,7 @@ import icons from "../../../assets/icons";
 import { formatMonthYear } from "../../../utility/dateHelpers";
 import badges from "../../../assets/badges";
 import { ChallengeContext } from "../../UserContext";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +challenge: {
@@ -68,7 +68,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
     rightIcon = <PercentCircle challenge={challenge} />;
   } else if ( fetchChallenges ) {
     rightIcon = (
-      <Text
+      <StyledText
         accessibilityLabel={`${i18n.t( "challenges.start_now" )}${name}`}
         accessible
         allowFontScaling={false}
@@ -76,7 +76,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
         style={textStyles.startText}
       >
         {i18n.t( "challenges.start_now" ).toLocaleUpperCase( )}
-      </Text>
+      </StyledText>
     );
   }
 
@@ -87,14 +87,14 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
     >
       <Image source={leftIcon} style={imageStyles.challengeBadgeIcon} />
       <View style={viewStyles.textContainer}>
-        <Text style={textStyles.titleText}>
+        <StyledText style={textStyles.titleText}>
           {i18n.t( name ).toLocaleUpperCase( ).replace( /(- |-)/g, "-\n" )}
-        </Text>
-        <Text style={textStyles.messageText}>
+        </StyledText>
+        <StyledText style={textStyles.messageText}>
           {challenge.sponsorName}
           {" - "}
           {formatMonthYear( availableDate )}
-        </Text>
+        </StyledText>
       </View>
       <View style={viewStyles.startButton}>
         {rightIcon}

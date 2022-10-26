@@ -1,13 +1,14 @@
 // @flow
 
 import React, { useContext } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import { textStyles, viewStyles } from "../../styles/species/species";
 import { AppOrientationContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   iconicTaxonId: number
@@ -19,9 +20,9 @@ const IconicTaxaName = ( { iconicTaxonId }: Props ): Node => {
   return (
     <>
     {isLandscape && <View style={viewStyles.topRibbon} />}
-    <Text style={[textStyles.iconicTaxaText, isLandscape && textStyles.largerPadding]}>
+    <StyledText style={[textStyles.iconicTaxaText, isLandscape && textStyles.largerPadding]}>
       {iconicTaxonId && i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase( )}
-    </Text>
+    </StyledText>
     </>
   );
 };

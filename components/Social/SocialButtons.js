@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useContext, useEffect } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -11,6 +11,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import i18n from "../../i18n";
 import { shareToFacebook, saveToCameraRoll } from "../../utility/socialHelpers";
 import { UserContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   image: ?string,
@@ -75,7 +76,7 @@ const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
         color={disabled && colors.seekTransparent}
       />
       <TouchableOpacity onPress={navigateBack}>
-        <Text style={textStyles.linkText}>{i18n.t( "social.back_to_id" )}</Text>
+        <StyledText style={textStyles.linkText}>{i18n.t( "social.back_to_id" )}</StyledText>
       </TouchableOpacity>
     </View>
   );

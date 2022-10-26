@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from "react";
-import { Text } from "react-native";
 
 import styles from "../../styles/uiComponents/descriptionText";
+import StyledText from "./StyledText";
 
 type Props = {
   +text: string,
@@ -11,9 +11,9 @@ type Props = {
 }
 
 const DescriptionText = ( { text, allowFontScaling }: Props ): React.Node => (
-  <Text allowFontScaling={allowFontScaling} style={styles.text}>
+  <StyledText allowFontScaling={allowFontScaling} style={styles.text}>
     {text}
-  </Text>
+  </StyledText>
 );
 
 DescriptionText.defaultProps = {

@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   TouchableOpacity,
   Image,
   ImageBackground
@@ -17,6 +16,7 @@ import backgrounds from "../../../assets/backgrounds";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 import { SpeciesNearbyContext } from "../../UserContext";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   error: string,
@@ -68,11 +68,11 @@ const SpeciesNearbyError = ( {
       >
         <View style={viewStyles.row}>
           <Image source={error === "internet_error" ? icons.internet : icons.error} />
-          <Text style={textStyles.text}>
+          <StyledText style={textStyles.text}>
             {error === "downtime"
               ? i18n.t( "results.error_downtime_plural", { count: i18n.t( "results.error_few" ) } )
               : i18n.t( `species_nearby.${error}` )}
-          </Text>
+          </StyledText>
         </View>
         {error === "species_nearby_requires_location" && showButton( )}
       </ImageBackground>

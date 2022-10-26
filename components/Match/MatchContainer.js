@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -13,6 +13,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useCommonName } from "../../utility/customHooks";
 import { AppOrientationContext, ObservationContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   setNavigationPath: Function,
@@ -70,13 +71,13 @@ const MatchContainer = ( {
   return (
     <View style={[styles.marginLarge, isLandscape && styles.marginLandscape]}>
       <View style={styles.textContainer}>
-        <Text style={[styles.headerText, { color: gradientLight }]}>{headerText}</Text>
+        <StyledText style={[styles.headerText, { color: gradientLight }]}>{headerText}</StyledText>
         {screenType !== "unidentified" && (
-          <Text style={[styles.speciesText, showScientificName && styles.scientificName]}>
+          <StyledText style={[styles.speciesText, showScientificName && styles.scientificName]}>
             {showScientificName ? scientificName : commonName}
-          </Text>
+          </StyledText>
         )}
-        <Text style={styles.text}>{text}</Text>
+        <StyledText style={styles.text}>{text}</StyledText>
         <View style={styles.marginMedium} />
         <GreenButton
           color={gradientLight}
@@ -94,7 +95,7 @@ const MatchContainer = ( {
       <View style={styles.textContainer}>
         {speciesIdentified && (
           <TouchableOpacity onPress={setCameraPath}>
-            <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
+            <StyledText style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</StyledText>
           </TouchableOpacity>
         )}
         <PostToiNat color={gradientLight} taxaInfo={taxaInfo} />

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext, useCallback, useMemo } from "react";
-import { View } from "react-native";
+import { View, Alert } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
@@ -45,11 +45,32 @@ const LanguagePicker = (): Node => {
       return;
     }
 
-    // this changes translations on Settings screen in real-time
-    i18n.locale = value;
+    // if the user selects language to be set to device language don't show alert
+    if ( value === "device" ) {
+      // this changes translations on Settings screen in real-time
+      i18n.locale = value;
+      toggleLanguage( value );
+      toggleLanguagePreference();
+      return;
+    }
 
-    toggleLanguage( value );
-    toggleLanguagePreference();
+    const valueLabel = languages[value];
+    Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
+      {
+        text: i18n.t( "delete.no" ),
+        onPress: ( ) => null,
+        style: "cancel"
+      }, {
+        text: i18n.t( "settings.confirm" ),
+        onPress: ( ) => {
+          // this changes translations on Settings screen in real-time
+          i18n.locale = value;
+
+          toggleLanguage( value );
+          toggleLanguagePreference();
+        }
+      }
+    ] );
   }, [displayLanguage, preferredLanguage, toggleLanguagePreference] );
 
   const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );

@@ -327,16 +327,20 @@ PODS:
     - React-Core
   - react-native-maps (1.3.2):
     - React-Core
-  - react-native-netinfo (6.2.1):
+  - react-native-netinfo (9.3.6):
     - React-Core
-  - react-native-pager-view (5.4.25):
+  - react-native-pager-view (6.0.1):
     - React-Core
   - react-native-render-html (5.1.1):
     - React-Core
   - react-native-restart (0.0.24):
     - React-Core
-  - react-native-safe-area-context (3.4.1):
+  - react-native-safe-area-context (4.4.1):
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - ReactCommon/turbomodule/core
   - react-native-uuid-generator (6.1.1):
     - React
   - react-native-webview (11.23.1):
@@ -422,7 +426,7 @@ PODS:
     - React-Core
   - RNDateTimePicker (6.5.2):
     - React-Core
-  - RNDeviceInfo (8.7.1):
+  - RNDeviceInfo (10.3.0):
     - React-Core
   - RNFS (2.20.0):
     - React-Core
@@ -774,11 +778,11 @@ SPEC CHECKSUMS:
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 085f614cf14d3637b2048bb9752da5b1c27c2886
-  react-native-netinfo: 3d3769f0d65de15c83a9bf1346f8be71de5a24bf
-  react-native-pager-view: da490aa1f902c9a5aeecf0909cc975ad0e92e53e
+  react-native-netinfo: f80db8cac2151405633324cb645c60af098ee461
+  react-native-pager-view: 3051346698a0ba0c4e13e40097cc11b00ee03cca
   react-native-render-html: 012780b92993ab33b3ae0240b90e585d00c70808
   react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e
-  react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
+  react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
   react-native-webview: d33e2db8925d090871ffeb232dfa50cb3a727581
   React-perflogger: 082b4293f0b3914ff41da35a6c06ac4490fcbcc8
@@ -800,7 +804,7 @@ SPEC CHECKSUMS:
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
   RNCPicker: 0bf8ef8f7800524f32d2bb2a8bcadd53eda0ecd1
   RNDateTimePicker: 3f32aa2247836c12618d346113e5e82ea60ddd9c
-  RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
+  RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
   RNImageMarker: 76cd113306bcfad2f74f78d83d5accfd50b4434a

@@ -424,7 +424,7 @@ PODS:
     - React-Core
   - RNCPicker (2.4.8):
     - React-Core
-  - RNDateTimePicker (6.5.2):
+  - RNDateTimePicker (6.5.3):
     - React-Core
   - RNDeviceInfo (10.3.0):
     - React-Core
@@ -438,7 +438,7 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (2.11.0):
+  - RNReanimated (2.12.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -803,14 +803,14 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
   RNCPicker: 0bf8ef8f7800524f32d2bb2a8bcadd53eda0ecd1
-  RNDateTimePicker: 3f32aa2247836c12618d346113e5e82ea60ddd9c
+  RNDateTimePicker: 400fc87d26052d1ac76d05935e0f8d0fd4c78f13
   RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
   RNImageMarker: 76cd113306bcfad2f74f78d83d5accfd50b4434a
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: 610c02d7d5d7de93e69601a14985df9a4196c4df
+  RNReanimated: 2a91e85fcd343f8af3c58d3425b99fdd285590a5
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNShare: a5dc3b9c53ddc73e155b8cd9a94c70c91913c43c
   RNStoreReview: 18cf6adbd193eadb049d2f6c37ef2ab3d5a28706

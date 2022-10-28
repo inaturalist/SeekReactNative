@@ -569,7 +569,7 @@ const challenges = {
       "seek_challenges.mission_3_sept_2020"
     ],
     availableDate: ( new Date( 2023, 5, 1 ): Date ),
-    action: "seek_challenges.action_sept_2020"
+    action: "seek_2023_challenges.june_2023_action"
   },
   july2023: {
     name: "seek_2023_challenges.july_2023_challenge_name_food_web",

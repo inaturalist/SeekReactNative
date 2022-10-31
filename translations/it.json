@@ -922,6 +922,36 @@
     "november_2022_challenge_name_urban_nature": "Sfida della Natura Urbana",
     "november_2022_mission_1": "Trova 4 specie da:\n\nFamiglia Brassicaceae (Senape);\nFamiglia Lamiaceae (Menta);\nFamiglia Poaceae (Erbe);\nOrdine Blattodea (Scarafaggi e Termiti);\nOrdine Rodentia (Roditori);\nOrdine Columbiformes (Piccioni e Colombe);\nFamiglia Corvidae (Corvi, Cornacchie e Gazze);\nGenere Passer (Passeri);\nGenere Acridotheres (Merli);\nInfraordine Gekkota (Gechi)",
     "november_2022_description_some_species_well_adapted": "Alcune specie sono ben adattate alle zone urbanizzate. Anche nelle città è possibile trovare la biodiversità selvatica nelle fessure dei marciapiedi, in lotti vuoti, visitando i giardini, e anche nelle nostre case (forse come visitatori indesiderati).",
-    "november_2022_action_change_location": "Cambia la posizione per “specie viste nelle vicinanze” per cercare una città lontana da te. Quali specie sono state viste nelle vicinanze? Qualcuna di loro è la stessa o simile a quelle viste vicino a te?"
+    "november_2022_action_change_location": "Cambia la posizione per “specie viste nelle vicinanze” per cercare una città lontana da te. Quali specie sono state viste nelle vicinanze? Qualcuna di loro è la stessa o simile a quelle viste vicino a te?",
+    "december_2022_challenge_name_decomposers": "Sfida dei Decompositori"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Sfida degli Habitat",
+    "february_2023_challenge_name_climate_change": "Sfida del Cambiamento Climatico",
+    "february_2023_description_climate_change": "Il cambiamento climatico non sta influenzando solo i le aree ghiacciate ai poli del nostro pianeta. Le temperature in aumento e i cambiamenti degli schemi meteorologici possono causare la fuga delle specie dagli habitat diventati inospitali, verso nuove aree. Può anche significare che i cambiamenti collegati alle stagioni (noti come 'fenologia'), come la caduta delle foglie, la germinazione e la fioritura, inizino ad avvenire in periodi diversi. Questo potrebbe causare problemi per altre specie, che sono difficili da predire. Cerca la tua flora locale e osserva come il tuo ambiente locale potrebbe star cambiando.",
+    "february_2023_action_climate_change": "Cerca la tua pianta preferita sul sito iNaturalist ed esplora il grafico “fenologia vegetale” sulla sua pagina del taxon. Questi grafici provengono da “annotazioni” per boccioli di fiori, fiori o frutti sulle osservazioni postate a iNaturalist. Puoi anche aiutarli ad aggiungerli!",
+    "march_2023_challenge_name_lakes_ponds": "Sfida dei Laghi e degli Stagni",
+    "april_2023_challenge_name_nature": "Sfida della Natura",
+    "april_2023_description_nature": "Non siamo soli sul nostro pianeta! La fauna selvatica è sempre intorno a noi sia che la notiamo o meno. Nelle nostre case, giardini, paesi e città ci sono mondi nascosti da scoprire. Cercate dentro e intorno a casa vostra, e potreste essere sorpresi da quanti vicini selvatici troverete.",
+    "april_2023_action_nature": "Cerca piante, funghi, insetti, uccelli e animali. Attenzione ai segni di vita più sfuggenti – feci (popò), pelliccia, nidi, tracce, e ragnatele possono dare indizi sulle altre creature che condividono la tua casa.",
+    "may_2023_challenge_name_protected_areas": "Sfida delle Aree Protette",
+    "may_2023_description_protected_areas": "Dalla foresta più profonda al più piccolo parco, condividiamo il nostro pianeta con un'incredibile varietà di esseri viventi, ognuna adatta al particolare ambiente in cui vive. Cerca un luogo naturale locale e vedere quanti diversi tipi di esseri viventi puoi trovare. Lungo la strada, imparerai che caratteristi rendono questi diversi gruppi di organismi differenti tra loro!",
+    "june_2023_challenge_name_plant_eaters": "Sfida delle Piante Carnivore",
+    "june_2023_action": "Che tipo di piante mangi? Da quali parti della pianta provengono? A che tipo di animali piace anche mangiare quelle piante?",
+    "july_2023_challenge_name_food_web": "Sfida della Catena Alimentare",
+    "july_2023_description_plant_eaters": "Ogni specie in una comunità è collegata in una rete trofica. I produttori catturano energia dal sole, gli erbivori mangiano piante, i carnivori mangiano altri animali e i decompositori consumano organismi morti. Cerca livelli diversi nella tua rete locale della vita, e impara come ogni specie permette ad altre di sopravvivere.",
+    "july_2023_action_plant_eaters": "Hai visto degli erbivori in azione, come un bruco che mangia una foglia o un uccello che mangia dei semi? Avete visto dei carnivori in azione, forse un ragno o una mantide con prede?",
+    "august_2023_challenge_name_insect": "Sfida degli Insetti",
+    "august_2023_description_insect": "Le popolazioni di insetti stanno diminuendo nel nostro pianeta, in parte perché le colture e gli edifici sostituiscono i loro habitat e vengono poi spruzzati con pesticidi che uccidono gli insetti. Abbiamo bisogno di insetti impollinatori per le nostre colture e piante selvatiche per prosperare, e molti anfibi, rettili, uccelli e mammiferi dipendono da insetti per il cibo. Cerca gli insetti intorno a te e mostra loro un po' di amore!",
+    "august_2023_action_insect": "Gli insetti hanno esoscheletri e possono essere distinti dai loro parenti artropodi per le loro 6 gambe. Dove sei stato in grado di trovare insetti? Sono a rischio di perdita di habitat o per i pesticidi?",
+    "september_2023_challenge_name_equinox": "Sfida Dell'Equinozio",
+    "october_2023_challenge_name_migration": "Sfida della Migrazione",
+    "october_2023_description_migration": "Milioni di uccelli migrano da un paese all'altro per sfuggire al freddo e trovare cibo. Mantenere traccia di quando la fauna selvatica migra può aiutarci a capire come il cambiamento climatico stia influenzando il mondo naturale. Cerca gli uccelli che visitano la tua zona e scopri dove passano il loro tempo.",
+    "october_2023_action_migration": "Gli uccelli hanno bisogno di combustibile per i lunghi viaggi che intraprendono per migrare. È possibile aiutare le loro esigenze alimentari sostenendo le aree protette e utilizzando alberi autoctoni e arbusti nel paesaggio che forniscono bacche e posatoi per gli uccelli di passaggio.",
+    "november_2023_challenge_name_trees": "Sfida degli Alberi",
+    "november_2023_description_trees": "Gli umani dipendono da alberi e foreste per laria, cibo, rifugio e legna. Prendono il carbonio dall'aria e lo bloccano nella loro legna o nel suolo. Passare tempo fra gli alberi ci fa sentire meglio nella mente e nel corpo. Ne abbiamo bisogno più che mai, così come un enorme quantità di altri esseri viventi. Cerca gli alberi nella tua area locale e sentine i benefici!",
+    "november_2023_action_trees": "Hai un tipo di albero preferito, o anche un singolo albero preferito? Leggi di più su di esso. In che modo le persone ne traggono beneficio? Come ne traggono beneficio altre piante o animali?",
+    "december_2023_challenge_name_ecology": "Sfida dell'Ecologia",
+    "december_2023_description_ecology": "Molti tipi diversi di interazioni influenzano gli ecosistemi e i loro organismi. L'ecologia è lo studio degli organismi (biotici) e del loro ambiente fisico (abiotico). Le interazioni biotiche sono tra le cose viventi e le interazioni abiotiche includono i fattori non viventi come temperatura, acqua, luce e suolo."
   }
 }

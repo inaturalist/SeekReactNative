@@ -43,7 +43,20 @@ const backgrounds = {
   "img-challengedetail-august2022": require( "./backgrounds/challenges/img-challengedetail_august2022.webp" ),
   "img-challengedetail-september2022": require( "./backgrounds/challenges/img-challengedetail_september2022.webp" ),
   "img-challengedetail-october2022": require( "./backgrounds/challenges/img-challengedetail_october2022.webp" ),
-  "img-challengedetail-november2022": require( "./backgrounds/challenges/img-challengedetail_november2022.webp" )
+  "img-challengedetail-november2022": require( "./backgrounds/challenges/img-challengedetail_november2022.webp" ),
+  "img-challengedetail-december2022": require( "./backgrounds/challenges/img-challengedetail_december2022.webp" ),
+  "img-challengedetail-january2023": require( "./backgrounds/challenges/img-challengedetail_january2023.webp" ),
+  "img-challengedetail-february2023": require( "./backgrounds/challenges/img-challengedetail_february2023.webp" ),
+  "img-challengedetail-march2023": require( "./backgrounds/challenges/img-challengedetail_march2023.webp" ),
+  "img-challengedetail-april2023": require( "./backgrounds/challenges/img-challengedetail_april2023.webp" ),
+  "img-challengedetail-may2023": require( "./backgrounds/challenges/img-challengedetail_may2023.webp" ),
+  "img-challengedetail-june2023": require( "./backgrounds/challenges/img-challengedetail_june2023.webp" ),
+  "img-challengedetail-july2023": require( "./backgrounds/challenges/img-challengedetail_july2023.webp" ),
+  "img-challengedetail-august2023": require( "./backgrounds/challenges/img-challengedetail_august2023.webp" ),
+  "img-challengedetail-september2023": require( "./backgrounds/challenges/img-challengedetail_september2023.webp" ),
+  "img-challengedetail-october2023": require( "./backgrounds/challenges/img-challengedetail_october2023.webp" ),
+  "img-challengedetail-november2023": require( "./backgrounds/challenges/img-challengedetail_november2023.webp" ),
+  "img-challengedetail-december2023": require( "./backgrounds/challenges/img-challengedetail_december2023.webp" )
 };
 
 export default backgrounds;

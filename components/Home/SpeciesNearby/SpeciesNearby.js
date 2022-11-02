@@ -2,6 +2,7 @@
 
 import React, { useCallback, useReducer, useContext, useEffect } from "react";
 import { View, Platform, Modal } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../../styles/home/speciesNearby";
@@ -186,10 +187,12 @@ const SpeciesNearby = ( ): Node => {
 
   const renderModal = ( ) => (
     <Modal visible={showModal}>
-      <LocationPicker
-        closeLocationPicker={closeLocationPicker}
-        updateLatLng={updateLatLng}
-      />
+      <SafeAreaProvider>
+        <LocationPicker
+          closeLocationPicker={closeLocationPicker}
+          updateLatLng={updateLatLng}
+        />
+      </SafeAreaProvider>
     </Modal>
   );
 

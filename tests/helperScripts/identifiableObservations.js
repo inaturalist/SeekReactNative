@@ -1,0 +1,30 @@
+// A list of inaturalist observations in the browser that should ID to species in the camera
+
+const plantObs = [
+  "https://www.inaturalist.org/observations/122541881",
+  "https://www.inaturalist.org/observations/3485073",
+  "https://www.inaturalist.org/observations/139053635",
+  "https://www.inaturalist.org/observations/139966307",
+  "https://www.inaturalist.org/observations/140003855",
+  "https://www.inaturalist.org/observations/137834274"
+];
+
+const insectObs = [
+  "https://www.inaturalist.org/observations/140247122",
+  "https://www.inaturalist.org/observations/4953316",
+  "https://www.inaturalist.org/observations/64221",
+  "https://www.inaturalist.org/observations/1685980"
+];
+
+const birdsObs = [
+  "https://www.inaturalist.org/observations/2643958",
+  "https://www.inaturalist.org/observations/126012542",
+  "https://www.inaturalist.org/observations/4832742",
+  "https://www.inaturalist.org/observations/68803218"
+];
+
+const arachnidObs = [
+  "https://www.inaturalist.org/observations/96447963"
+];
+
+

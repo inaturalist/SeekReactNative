@@ -7,6 +7,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPhone 13'",
     "start": "react-native start",
+    "clean": "npx react-native clean-project-auto && npx pod-install && watchman watch-del-all && npm start",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:flow": "flow check",

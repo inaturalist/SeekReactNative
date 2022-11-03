@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:device": "react-native run-android --variant release",
     "ios": "react-native run-ios --simulator='iPhone 13'",
+    "ios:device": "react-native run-ios --device --configuration Release",
     "start": "react-native start",
     "clean": "npx react-native clean-project-auto && npx pod-install && watchman watch-del-all && npm start",
     "lint": "npm run lint:eslint",

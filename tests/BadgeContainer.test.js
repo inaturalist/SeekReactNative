@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 import BadgeContainer from "../components/Achievements/BadgeContainer";
 
 test( "test", () => {

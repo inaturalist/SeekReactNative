@@ -13,7 +13,7 @@ function renderButton( user ) {
 
 test( "that sign out button renders", () => {
   renderButton();
-  expect( screen.getByText( "SIGN OUT OF INATURALIST" ) );
+  expect( screen.getByText( "SIGN OUT OF INATURALIST" ) ).toBeTruthy();
 } );
 
 test( "that sign out button press signs the user out", () => {

@@ -15,7 +15,7 @@ const INatSignOut = ( ): Node => {
 
   const logUserOut = async ( ) => {
     const loggedOut = await removeAccessToken( );
-    if ( loggedOut === null ) {
+    if ( loggedOut !== false ) {
       updateLogin( );
     }
   };

@@ -17,7 +17,7 @@ import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
 import LoginCard from "../UIComponents/Login/LoginCard";
 import StyledText from "../UIComponents/StyledText";
 
-const INatDetails = ( ): Node => {
+const INatStats = ( ): Node => {
   const { login } = useContext( UserContext );
   const { isTablet } = useContext( AppOrientationContext );
 
@@ -61,4 +61,4 @@ const INatDetails = ( ): Node => {
   );
 };
 
-export default INatDetails;
+export default INatStats;

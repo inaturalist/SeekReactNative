@@ -22,6 +22,10 @@ jobs:
     - name: Check out Git repository
       uses: actions/checkout@v3
 
+    - name: Setup repo
+      run: cp config.example.js config.js
+      shell: bash
+
     - name: Install Node.js, NPM and Yarn
       uses: actions/setup-node@v3
       with:

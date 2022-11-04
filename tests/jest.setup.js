@@ -15,3 +15,11 @@ jest.mock( "react-native-fs", () => {
 
   return RNFS;
 } );
+
+const mockConfig = {
+  jwtSecret: "some_secret",
+  appId: "some_id",
+  appSecret: "some_secret",
+  redirectURI: ""
+};
+jest.mock( "../config", () => mockConfig );

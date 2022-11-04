@@ -20,6 +20,6 @@ const mockConfig = {
   jwtSecret: "some_secret",
   appId: "some_id",
   appSecret: "some_secret",
-  redirectURI: ""
+  redirectURI: "some_uri"
 };
 jest.mock( "../config", () => mockConfig );

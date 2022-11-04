@@ -12,5 +12,5 @@ function renderButton() {
 }
 
 test( "that sign out button renders", () => {
-  renderButton( );
+  renderButton();
 } );

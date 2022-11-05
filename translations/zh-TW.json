@@ -14,7 +14,7 @@
   "get_started": {
     "header": "開始",
     "tip_1": "請在上方「附近物種」選項中查看你附近常見的物種。請用位置資訊或特定分類進行搜尋！",
-    "tip_2": "利用我們的相機拍攝一植物、動物，或任何生物照片，Seek就會幫助你加以辨識！",
+    "tip_2": "透過附近物種來了解您在周圍觀察到的物種。",
     "tip_3": "接受 Our Planet 及 WWF 所贊助的挑戰，並與全球 Seek 社群共同尋找物種！"
   },
   "challenges_card": {
@@ -932,8 +932,8 @@
     "february_2023_action_climate_change": "到 iNaturalist 網站上查詢您最喜歡的植物，並在其分類頁面上瀏覽「植物物候」圖。這些圖資來自於張貼到 iNaturalist 上觀察記錄中的花芽、花朵或果實的「註記」。您可以登入 iNaturalist 網站來幫忙新增它們。",
     "march_2023_challenge_name_lakes_ponds": "湖泊及池塘挑戰",
     "april_2023_challenge_name_nature": "自然挑戰",
-    "april_2023_description_nature": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns, and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.",
-    "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
+    "april_2023_description_nature": "我們在這行星上並不孤單！不論有沒有注意到，野生生物總是在我們身邊。在我們家裡、花園、城鎮中，都隱藏著另一個世界等著我們去發覺。在您家內外四處尋找，您可能會驚訝的發現您有很多野生的鄰居。",
+    "april_2023_action_nature": "尋找植物、菌物、昆蟲、鳥類與其他動物。小心注意其它暗藏的生命跡象 – 大恭（便便）、毛髮、巢穴、蹤跡以及殘網，這些都可能是與您同居的生物所留下的線索。",
     "may_2023_challenge_name_protected_areas": "保護區挑戰",
     "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
     "june_2023_challenge_name_plant_eaters": "植食者挑戰",

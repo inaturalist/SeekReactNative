@@ -1,4 +1,5 @@
 {
+  "plugins": ["testing-library"],
   "extends": "@react-native-community",
   "rules": {
     "quotes": [2, "double"],

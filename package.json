@@ -86,6 +86,7 @@
     "@testing-library/react-native": "^11.4.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-testing-library": "^5.9.1",
     "flow-bin": "^0.158.0",
     "husky": "^8.0.1",
     "jest": "^29.2.2",
@@ -96,7 +97,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": ["<rootDir>/tests/jest.setup.js"],
+    "setupFiles": [
+      "<rootDir>/tests/jest.setup.js"
+    ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ]

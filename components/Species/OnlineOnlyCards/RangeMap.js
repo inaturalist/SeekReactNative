@@ -84,6 +84,7 @@ const RangeMap = (): Node => {
       <MapView
         provider={PROVIDER_DEFAULT}
         region={mapRegion}
+        onRegionChangeComplete={setMapRegion}
         style={viewStyles.map}
         zoomEnabled
       >

@@ -26,6 +26,7 @@ test( "that sign out button press signs the user out", () => {
   };
   renderButton( user );
   fireEvent.press( screen.getByText( "SIGN OUT OF INATURALIST" ) );
+  // TODO: test that the user is signed out
 } );
 
 

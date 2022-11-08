@@ -64,6 +64,7 @@ const useTaxonDetails = ( id: number ): any => {
 
         setTaxonDetails( {
           taxon: {
+            id: taxa.id,
             scientificName,
             iconicTaxonId: taxa.iconic_taxon_id
           },

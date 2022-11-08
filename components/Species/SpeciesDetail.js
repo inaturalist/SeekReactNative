@@ -191,10 +191,10 @@ const SpeciesDetail = ( ): Node => {
     </SafeAreaView>
   );
 
-  return (
-    <ScrollNoHeader>
-      {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
-    </ScrollNoHeader>
+  return isLandscape ? (
+    renderLandscapeMode()
+  ) : (
+    <ScrollNoHeader>{renderPortraitMode()}</ScrollNoHeader>
   );
 };
 

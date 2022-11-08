@@ -7,8 +7,9 @@ import React, {
   useCallback,
   useContext
 } from "react";
-import { ScrollView, Platform, View } from "react-native";
+import { ScrollView, Platform, View, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { viewStyles } from "../../styles/species/species";
@@ -24,6 +25,8 @@ import { useCommonName, useInternetStatus } from "../../utility/customHooks";
 import { AppOrientationContext, SpeciesDetailContext } from "../UserContext";
 import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
+
+import styles from "../../styles/uiComponents/scrollWithHeader";
 
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
@@ -157,13 +160,13 @@ const SpeciesDetail = ( ): Node => {
     </ScrollView>
   );
 
-  // TODO: add a loading state for landscape mode
-  const renderLandscapeMode = ( ) => (
-    <>
+  const renderLandscapeMode = () => (
+    <SafeAreaView style={styles.container} edges={["top"]}>
+      <StatusBar barStyle="light-content" />
       <GreenHeader plainText={commonName || scientificName} />
       <View style={viewStyles.twoColumnContainer}>
         <View style={{ width: columnWidth }}>
-          <SpeciesPhotosLandscape photos={photos} id={id} />
+          <SpeciesPhotosLandscape loading={loading} photos={photos} id={id} />
         </View>
         <ScrollView
           ref={scrollView}
@@ -171,17 +174,21 @@ const SpeciesDetail = ( ): Node => {
           onScrollBeginDrag={clearSelectedText}
           bounces={false}
         >
-          <IconicTaxaName iconicTaxonId={taxon && taxon.iconicTaxonId} />
+          <IconicTaxaName
+            loading={loading}
+            iconicTaxonId={taxon && taxon.iconicTaxonId}
+          />
           <SpeciesName
+            loading={loading}
             id={id}
             taxon={taxon}
             selectedText={selectedText}
             highlightSelectedText={highlightSelectedText}
           />
-          {renderOnlineOrOfflineContent( )}
+          {renderOnlineOrOfflineContent()}
         </ScrollView>
       </View>
-    </>
+    </SafeAreaView>
   );
 
   return (

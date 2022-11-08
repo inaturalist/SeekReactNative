@@ -12,6 +12,8 @@ import { viewStyles, textStyles, imageStyles } from "../../styles/species/specie
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
 import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
+import LoadingWheel from "../UIComponents/LoadingWheel";
+import { colors } from "../../styles/global";
 
 type Props = {
   +photos: Array<Object>,
@@ -69,17 +71,31 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
 
   const renderEmptyComponent = ( ) => <View style={viewStyles.emptyBackground} />;
 
-  const renderPhotoList = ( ) => (
-    <FlatList
-      data={photos}
-      contentContainerStyle={[viewStyles.landscapeBackground, { width: columnWidth }]}
-      renderItem={renderPhoto}
-      keyExtractor={key}
-      ListFooterComponent={renderFooter}
-      bounces={false}
-      ListEmptyComponent={renderEmptyComponent}
-    />
-  );
+  const renderPhotoList = () => {
+    if ( loading ) {
+      return (
+        <View style={viewStyles.emptyBackground}>
+          <LoadingWheel color={colors.white} />
+        </View>
+      );
+    } else {
+      return (
+        <FlatList
+          data={photos}
+          contentContainerStyle={[
+            viewStyles.landscapeBackground,
+            { width: columnWidth }
+          ]}
+          renderItem={renderPhoto}
+          keyExtractor={key}
+          ListFooterComponent={renderFooter}
+          bounces={false}
+          ListEmptyComponent={renderEmptyComponent}
+        />
+      );
+    }
+  };
+
 
   return renderPhotoList( );
 };

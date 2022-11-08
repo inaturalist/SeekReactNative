@@ -18,7 +18,7 @@ type Props = {
   +id: number
 };
 
-const SpeciesPhotosLandscape = ( { photos, id }: Props ): Node => {
+const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
   const { isLandscape, width } = useContext( AppOrientationContext );
   const columnWidth = width / 3;
   const seenTaxa = useSeenTaxa( id );

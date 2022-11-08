@@ -15,13 +15,13 @@ type Props = {
   highlightSelectedText: ( ) => void
 }
 
-const SpeciesName = ( { taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
+const SpeciesName = ( { loading, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
   const commonName = useCommonName( id );
   const scientificName = taxon && taxon.scientificName;
 
   return (
     <>
-      <StyledText style={textStyles.commonNameText}>{commonName || scientificName}</StyledText>
+      <StyledText style={textStyles.commonNameText}>{!loading ? ( commonName || scientificName ) : null}</StyledText>
       <CopyButton stringToCopy={scientificName} handleHighlight={highlightSelectedText}>
         <StyledText
           style={[
@@ -29,7 +29,7 @@ const SpeciesName = ( { taxon, id, selectedText, highlightSelectedText }: Props 
             selectedText && viewStyles.selectedPressableArea
           ]}
         >
-          {scientificName}
+          {!loading ? scientificName : null}
         </StyledText>
       </CopyButton>
     </>

@@ -20,7 +20,7 @@ type Props = {
   +seenDate: ?string
 };
 
-const SpeciesStats = ( { stats, region, id, seenDate }: Props ): Node => {
+const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ): Node => {
   const [tagsToShow, setTagsToShow] = useState( [] );
 
   const showAlert = ( type ) => {
@@ -76,7 +76,7 @@ const SpeciesStats = ( { stats, region, id, seenDate }: Props ): Node => {
     return () => { isFocused = false; };
   }, [region, id, stats] );
 
-  if ( tagsToShow.length === 0 ) {
+  if ( loading || tagsToShow.length === 0 ) {
     return <View style={viewStyles.noTags} />;
   } else {
     return (

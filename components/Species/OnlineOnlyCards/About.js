@@ -19,6 +19,7 @@ type Props = {
 }
 
 const About = ( {
+  loading,
   about,
   wikiUrl,
   id,
@@ -39,21 +40,23 @@ const About = ( {
 
   return (
     <SpeciesDetailCard text="species_detail.about">
-      {about && (
-        <>
-          <HTML baseFontStyle={textStyles.text} source={{ html }} />
-          <StyledText style={textStyles.text}>
-            {"\n("}
-            {i18n.t( "species_detail.wikipedia" )}
-            {")"}
+      {!loading ? <>
+        {about && (
+          <>
+            <HTML baseFontStyle={textStyles.text} source={{ html }} />
+            <StyledText style={textStyles.text}>
+              {"\n("}
+              {i18n.t( "species_detail.wikipedia" )}
+              {")"}
+            </StyledText>
+          </>
+        )}
+        {login && id !== 43584 && (
+          <StyledText onPress={navToWikipediaView} style={textStyles.linkText}>
+            {commonName || scientificName}
           </StyledText>
-        </>
-      )}
-      {login && id !== 43584 && (
-        <StyledText onPress={navToWikipediaView} style={textStyles.linkText}>
-          {commonName || scientificName}
-        </StyledText>
-      )}
+        )}
+      </> : null}
     </SpeciesDetailCard>
   );
 };

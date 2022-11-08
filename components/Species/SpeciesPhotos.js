@@ -22,7 +22,7 @@ type Props = {
   +id: number
 };
 
-const SpeciesPhotos = ( { photos, id }: Props ): Node => {
+const SpeciesPhotos = ( { loading, photos, id }: Props ): Node => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
   const [photoList, setPhotoList] = useState( [] );
@@ -94,7 +94,7 @@ const SpeciesPhotos = ( { photos, id }: Props ): Node => {
           <StyledText style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</StyledText>
         </View>
       );
-    } else if ( photoList.length === 0 ) {
+    } else if ( loading || photoList.length === 0 ) {
       return (
         <View style={viewStyles.photoContainer}>
           <LoadingWheel color={colors.white} />

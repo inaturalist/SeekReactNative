@@ -37,6 +37,9 @@ const SpeciesDetail = ( ): Node => {
   const commonName = useCommonName( id );
   const taxonDetails = useTaxonDetails( id );
 
+  const fetchedTaxonID = taxonDetails?.taxon?.id;
+  const loading = fetchedTaxonID !== id;
+
   const photos = taxonDetails ? taxonDetails.photos : [];
   const taxon = taxonDetails && taxonDetails.taxon;
   const details = taxonDetails && taxonDetails.details;
@@ -126,6 +129,7 @@ const SpeciesDetail = ( ): Node => {
     if ( taxon && Object.keys( taxon ).length > 0 && !error ) {
       return (
         <OnlineSpeciesContainer
+          loading={loading}
           details={details}
           scientificName={scientificName}
           id={id}
@@ -142,6 +146,7 @@ const SpeciesDetail = ( ): Node => {
       onScrollBeginDrag={clearSelectedText}
     >
       <SpeciesHeader
+        loading={loading}
         id={id}
         taxon={taxon}
         photos={photos}
@@ -152,6 +157,7 @@ const SpeciesDetail = ( ): Node => {
     </ScrollView>
   );
 
+  // TODO: add a loading state for landscape mode
   const renderLandscapeMode = ( ) => (
     <>
       <GreenHeader plainText={commonName || scientificName} />

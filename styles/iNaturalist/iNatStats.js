@@ -58,6 +58,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   linearGradientTextContainer: {
     marginLeft: 16,
     marginVertical: 29
+  },
+  errorImage: {
+    marginEnd: 20
   }
 } );
 

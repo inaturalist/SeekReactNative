@@ -2,6 +2,7 @@
 
 import React from "react";
 import { View, Image } from "react-native";
+import { useNetInfo } from "@react-native-community/netinfo";
 import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
@@ -11,6 +12,9 @@ import { useFetchPhotos } from "./hooks/inatHooks";
 import StyledText from "../UIComponents/StyledText";
 
 const INatStatsPhotos = ( ): Node => {
+  const netInfo = useNetInfo();
+  const { isConnected } = netInfo;
+
   const photos = useFetchPhotos( );
 
   const renderPhotos = ( ) => photos.map( ( photo ) => (
@@ -29,7 +33,7 @@ const INatStatsPhotos = ( ): Node => {
 
   return (
     <View style={viewStyles.photoMargins}>
-      <HorizontalScroll photoList={photoList} />
+      {( !isConnected || photos.length === 0 ) ? null : <HorizontalScroll photoList={photoList} />}
     </View>
   );
 };

@@ -18,6 +18,7 @@ const useFetchPhotos = ( ): any => {
   const [photos, setPhotos] = useState( [] );
 
   useEffect( ( ) => {
+    if ( !isConnected ) {return;}
     let isCurrent = true;
 
     const fetchProjectPhotos = ( ) => {

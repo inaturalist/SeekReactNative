@@ -16,7 +16,7 @@ type Props = {
   count?: number
 }
 
-const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
+const ProfileImageAndLogin = ( { count, reload }: Props ): React.Node => {
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
@@ -28,11 +28,10 @@ const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
   const username = "@" + userProfile.login;
 
   const handlePress = () => {
-    // TODO: Tapping this refreshes the screen and loads user details
+    reload( );
   };
 
-  // TODO: this has to be a coombination of no internet and no data, other wise no data will look like no internet
-  if ( !isConnected ) {
+  if ( !isHomeScreen && ( !isConnected || count === null ) ) {
     return (
       <TouchableOpacity onPress={handlePress}>
         <View style={viewStyles.center}>
@@ -49,10 +48,6 @@ const ProfileImageAndLogin = ( { count }: Props ): React.Node => {
         </View>
       </TouchableOpacity>
     );
-  }
-
-  if ( !isHomeScreen && count === null ) {
-    return null;
   }
 
   return (

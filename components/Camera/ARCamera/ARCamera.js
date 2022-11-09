@@ -365,9 +365,7 @@ const ARCamera = ( ): Node => {
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
   const cameraStyle = {
-    // need different styling for android to avoid black line on right side of screen
     width,
-    // width: Platform.OS === "android" ? width + 100 : width,
     height
   };
 

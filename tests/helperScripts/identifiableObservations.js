@@ -20,7 +20,8 @@ const birdsObs = [
   "https://www.inaturalist.org/observations/2643958",
   "https://www.inaturalist.org/observations/126012542",
   "https://www.inaturalist.org/observations/4832742",
-  "https://www.inaturalist.org/observations/68803218"
+  "https://www.inaturalist.org/observations/68803218",
+  "https://www.inaturalist.org/observations/141564545"
 ];
 
 const arachnidObs = [

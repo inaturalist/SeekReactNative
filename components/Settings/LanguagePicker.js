@@ -103,7 +103,7 @@ const LanguagePicker = (): Node => {
         placeholder={placeholder}
         useNativeAndroidPickerStyle={false}
         value={displayLanguage}
-        testId="picker"
+        touchableWrapperProps={{ testID: "picker" }}
         disabled={!displayLanguage}
         style={pickerStyles}
       />

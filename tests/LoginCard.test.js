@@ -11,12 +11,14 @@ function renderLoginCard( ) {
   );
 }
 
-test( "that login card renders button based on user status", () => {
-  renderLoginCard();
-  const signInButton = screen.getByText( "LOG IN WITH INATURALIST" );
-  expect( signInButton ).toBeTruthy();
-  fireEvent.press( signInButton );
-  // const signOutButton = screen.getByText( "SIGN OUT OF INATURALIST" );
-  // TODO: test that pressing the sign-in button signs the user in
-  // expect( signOutButton ).toBeTruthy();
+describe( "LoginCard", () => {
+  test( "that login card renders button based on user status", () => {
+    renderLoginCard();
+    const signInButton = screen.getByText( "LOG IN WITH INATURALIST" );
+    expect( signInButton ).toBeTruthy();
+    fireEvent.press( signInButton );
+    // const signOutButton = screen.getByText( "SIGN OUT OF INATURALIST" );
+    // TODO: test that pressing the sign-in button signs the user in
+    // expect( signOutButton ).toBeTruthy();
+  } );
 } );

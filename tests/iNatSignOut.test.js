@@ -11,22 +11,26 @@ function renderButton( user ) {
   );
 }
 
-test( "that sign out button renders", () => {
-  renderButton();
-  expect( screen.getByText( "SIGN OUT OF INATURALIST" ) ).toBeTruthy();
+describe( "iNatSignOut", () => {
+  test( "renders", () => {
+    renderButton();
+    expect( screen.getByText( "SIGN OUT OF INATURALIST" ) ).toBeTruthy();
+  } );
+
+  test( "press signs the user out", () => {
+    const user = {
+      login: "some_token",
+      userProfile: {
+        login: "some_name",
+        icon: "some_photo"
+      }
+    };
+    renderButton( user );
+    fireEvent.press( screen.getByText( "SIGN OUT OF INATURALIST" ) );
+    // TODO: test that the user is signed out
+  } );
 } );
 
-test( "that sign out button press signs the user out", () => {
-  const user = {
-    login: "some_token",
-    userProfile: {
-      login: "some_name",
-      icon: "some_photo"
-    }
-  };
-  renderButton( user );
-  fireEvent.press( screen.getByText( "SIGN OUT OF INATURALIST" ) );
-  // TODO: test that the user is signed out
-} );
+
 
 

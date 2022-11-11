@@ -1,7 +1,7 @@
 // @flow
 
-import React, { useContext, useCallback, useMemo } from "react";
-import { View, Alert } from "react-native";
+import React, { useContext, useCallback, useMemo, useState } from "react";
+import { View, Alert, Platform } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
@@ -32,6 +32,8 @@ const LanguagePicker = (): Node => {
   const displayLanguage = setDisplayLanguage( preferredLanguage );
   const isChecked = preferredLanguage === "device" || displayLanguage === languageCode;
 
+  const [pickerValue, setPickerValue] = useState( displayLanguage );
+
   const handleValueChange = useCallback( ( value ) => {
     // this prevents the double render on new Android install
     // without this, the user changes the language
@@ -53,7 +55,10 @@ const LanguagePicker = (): Node => {
       toggleLanguagePreference();
       return;
     }
+    Platform.OS === "ios" ? setPickerValue( value ) : showAlert( value );
+  }, [displayLanguage, preferredLanguage, toggleLanguagePreference, showAlert] );
 
+  const showAlert = useCallback( ( value ) => {
     const valueLabel = languages[value];
     Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
       {
@@ -65,13 +70,16 @@ const LanguagePicker = (): Node => {
         onPress: ( ) => {
           // this changes translations on Settings screen in real-time
           i18n.locale = value;
-
           toggleLanguage( value );
           toggleLanguagePreference();
         }
       }
     ] );
-  }, [displayLanguage, preferredLanguage, toggleLanguagePreference] );
+  }, [toggleLanguagePreference] );
+
+  const onDonePress = useCallback( ( ) => {
+    showAlert( pickerValue );
+  }, [showAlert, pickerValue] );
 
   const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );
 
@@ -100,9 +108,10 @@ const LanguagePicker = (): Node => {
         Icon={showIcon}
         items={localeList}
         onValueChange={handleValueChange}
+        onDonePress={onDonePress}
         placeholder={placeholder}
         useNativeAndroidPickerStyle={false}
-        value={displayLanguage}
+        value={Platform.OS === "ios" ? pickerValue : displayLanguage}
         touchableWrapperProps={{ testID: "picker" }}
         disabled={!displayLanguage}
         style={pickerStyles}

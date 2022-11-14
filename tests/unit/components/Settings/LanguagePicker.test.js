@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react-native";
-import { LanguageContext } from "../components/UserContext";
 import { Alert } from "react-native";
 
-import LanguagePicker from "../components/Settings/LanguagePicker";
+import { LanguageContext } from "../../../../components/UserContext";
+import LanguagePicker from "../../../../components/Settings/LanguagePicker";
 
 const renderPicker = ( ) => {
   render(
@@ -20,6 +20,8 @@ describe( "LanguagePicker", ( ) => {
     renderPicker();
     const picker = screen.getByTestId( "picker" );
     expect( picker ).toBeTruthy( );
+    expect( screen.findByText( "Use device language settings" ) ).toBeTruthy();
+    expect( screen ).toMatchSnapshot( );
   } );
 
   test( "should open alert on done pressed and not before on iOS", () => {

@@ -82,6 +82,7 @@ const RangeMap = (): Node => {
         modal={<Legend closeModal={closeModal} />}
       />
       <MapView
+        testID="range-map"
         provider={PROVIDER_DEFAULT}
         region={mapRegion}
         onRegionChangeComplete={setMapRegion}
@@ -115,6 +116,7 @@ const RangeMap = (): Node => {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.user_location" )}
           accessible
+          testID="user-location-button"
           onPress={updateMap}
           style={viewStyles.locationIcon}
         >

@@ -33,5 +33,7 @@ describe( "LanguagePicker", ( ) => {
     // Press done, show confirmation alert
     fireEvent( picker, "onDonePress" );
     expect( alertSpy ).toHaveBeenCalled();
+    // TODO: this works with the iOS picker, but not with the Android one
+    // because Platform.OS always returns "ios" in the test environment
   } );
 } );

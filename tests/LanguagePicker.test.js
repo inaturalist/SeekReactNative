@@ -4,12 +4,6 @@ import { Alert } from "react-native";
 
 import LanguagePicker from "../components/Settings/LanguagePicker";
 
-import nodeUtil from "util";
-
-function inspect( target ) {
-  return nodeUtil.inspect( target, false, null, true );
-}
-
 const renderPicker = ( ) => {
   render(
     <LanguageContext.Provider value={{

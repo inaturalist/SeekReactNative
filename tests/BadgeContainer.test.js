@@ -6,7 +6,7 @@ describe( "BadgeContainer", () => {
     const data = [{ name: "test", earnedIconName: "test" }];
     const mockFn = jest.fn();
 
-    const wrapper = render( <BadgeContainer data={data} renderItem={mockFn} /> );
+    render( <BadgeContainer data={data} renderItem={mockFn} /> );
 
   } );
 } );

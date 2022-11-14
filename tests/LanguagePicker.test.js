@@ -23,14 +23,14 @@ const renderPicker = ( ) => {
 
 describe( "LanguagePicker", ( ) => {
   test( "should render correctly", ( ) => {
-    const wrapper = renderPicker();
+    renderPicker();
     const picker = screen.getByTestId( "picker" );
     expect( picker ).toBeTruthy( );
   } );
 
   test( "should open alert on done pressed and not before on iOS", () => {
     const alertSpy = jest.spyOn( Alert, "alert" );
-    const wrapper = renderPicker();
+    renderPicker();
     const picker = screen.getByTestId( "picker" );
 
     // Change language to "es" no alert should be shown

@@ -1,5 +1,6 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react-native";
-import RangeMap from "../components/Species/OnlineOnlyCards/RangeMap";
+import { render, screen } from "@testing-library/react-native";
+
+import RangeMap from "../../../../../components/Species/OnlineOnlyCards/RangeMap";
 
 jest.mock( "@react-navigation/native", () => {
   const actualNav = jest.requireActual( "@react-navigation/native" );
@@ -33,15 +34,7 @@ describe( "RangeMap", () => {
     render( <RangeMap /> );
     // renders the map
     screen.getByTestId( "range-map" );
-  } );
-
-  test( "should render a location button when user has a location correctly", async () => {
-    render( <RangeMap /> );
-    // // renders the map
-    const map = screen.getByTestId( "range-map" );
-    expect( map.props.region.latitude ).toBe( 42 );
-    // renders the user location button, expecting to be there async, as a lot of state updates happen
-    const locationButton = await screen.findByTestId( "user-location-button" );
-    expect( locationButton ).toBeTruthy();
+    // Create snapshot
+    expect( screen ).toMatchSnapshot();
   } );
 } );

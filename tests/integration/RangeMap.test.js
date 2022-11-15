@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react-native";
+import { fireEvent, render, screen } from "@testing-library/react-native";
 
 import RangeMap from "../../components/Species/OnlineOnlyCards/RangeMap";
 
@@ -32,15 +32,25 @@ jest.mock( "@react-navigation/native", () => {
 describe( "RangeMap", () => {
   test( "should render a location button when user has a location", async () => {
     render( <RangeMap /> );
-    // // renders the map
+    // renders the map container
+    screen.findByTestId( "range-map-container" );
+
+    // renders the map with location passed in navigation props
+    screen.findByTestId( "range-map" );
     const map = screen.getByTestId( "range-map" );
     expect( map.props.region.latitude ).toBe( 42 );
-    // renders the user location button, expecting to be there async, as a lot of state updates happen
-    const locationButton = await screen.findByTestId( "user-location-button" );
+
+    // renders the user location button
+    await screen.findByTestId( "user-location-button" );
+    const locationButton = screen.getByTestId( "user-location-button" );
     expect( locationButton ).toBeTruthy();
 
+    // Create snapshot
+    expect( screen ).toMatchSnapshot();
+
     // Press the location button and expect the map to update
-    // await waitFor( () => fireEvent.press( locationButton ) );
+    // TODO: this is not working, the fireEvent is triggering the onPress but the map is not updating, but taking forever to finish the test
+    // fireEvent.press( locationButton );
     // expect( map.props.region.latitude ).toBe( 42.42 );
   } );
 } );

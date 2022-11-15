@@ -33,7 +33,7 @@ describe( "RangeMap", () => {
   test( "should render correctly", () => {
     render( <RangeMap /> );
     // renders the map
-    screen.getByTestId( "range-map" );
+    screen.findByTestId( "range-map-container" );
     // Create snapshot
     expect( screen ).toMatchSnapshot();
   } );

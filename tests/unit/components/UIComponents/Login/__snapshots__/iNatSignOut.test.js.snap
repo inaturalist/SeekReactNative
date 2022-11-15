@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iNatSignOut should render correctly 1`] = `
+[
+  <Text
+    style={
+      [
+        {
+          "textAlign": "left",
+        },
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "Whitney-Book",
+            "fontSize": 16,
+            "lineHeight": 21,
+          },
+          {
+            "marginBottom": 33,
+            "marginTop": 19,
+          },
+        ],
+      ]
+    }
+  >
+    Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.
+
+Thanks for being part of this community!
+  </Text>,
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "center",
+        "backgroundColor": "#38976d",
+        "borderRadius": 34,
+        "height": 79,
+        "justifyContent": "center",
+        "maxWidth": 317,
+        "opacity": 1,
+        "width": 317,
+      }
+    }
+    testID="greenButton"
+  >
+    <Text
+      allowFontScaling={true}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Whitney-Semibold",
+              "fontSize": 18,
+              "letterSpacing": 1,
+              "paddingTop": 3,
+              "textAlign": "center",
+            },
+            {
+              "letterSpacing": 1,
+            },
+            {
+              "fontSize": 18,
+            },
+          ],
+        ]
+      }
+    >
+      SIGN OUT OF INATURALIST
+    </Text>
+  </View>,
+]
+`;

@@ -18,7 +18,7 @@ const SeekYearInReviewCard = ( ): Node => {
   const { navigate } = useNavigation();
   const { isLandscape } = React.useContext( AppOrientationContext );
 
-  const navToSeekYearInReview = () => navigate( "Donation" );
+  const navToSeekYearInReview = () => navigate( "SeekYearInReview" );
 
   return (
     <View style={viewStyles.whiteContainer}>

@@ -12,13 +12,13 @@ const SeekYearInReviewScreen = (): Node => {
   const { isTablet } = useContext( AppOrientationContext );
 
   return (
-    <ScrollWithHeader header="about.header" footer>
+    <ScrollWithHeader header="seek_year_in_review.header" footer>
       <View
         style={[
           viewStyles.textContainer,
           isTablet && viewStyles.tabletContainer
         ]}
-       />
+      />
     </ScrollWithHeader>
   );
 };

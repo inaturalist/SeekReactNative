@@ -15,6 +15,7 @@ import { AppOrientationContext } from "../../UserContext";
 
 const SeekYearInReviewCard = ( ): Node => {
   // TODO: add logic to show this card only if it is December to January
+  // TODO: add logic to show this card only if the user has made observations
   const { navigate } = useNavigation();
   const { isLandscape } = React.useContext( AppOrientationContext );
 

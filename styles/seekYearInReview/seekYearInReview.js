@@ -1,14 +1,16 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { colors, fonts, row } from "../global";
+import { colors, fonts, row, center, dimensions } from "../global";
 
 import type {
   ViewStyleProp,
-  TextStyleProp
+  TextStyleProp,
+  ImageStyleProp
 } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+  center,
   row,
   textContainer: {
     alignItems: "center",
@@ -18,11 +20,34 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   tabletContainer: {
     maxWidth: 455,
     alignSelf: "center"
+  },
+  photoMargins: {
+    marginVertical: 33
   }
 } );
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center"
+  }
 } );
 
-export { viewStyles, textStyles };
+const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+  levelImage: {
+    height: 117,
+    resizeMode: "contain",
+    width: 117
+  },
+  image: {
+    height: 286,
+    resizeMode: "cover",
+    width: dimensions.width
+  }
+} );
+
+
+export { viewStyles, textStyles, imageStyles };

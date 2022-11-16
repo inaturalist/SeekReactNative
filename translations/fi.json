@@ -922,6 +922,41 @@
     "november_2022_challenge_name_urban_nature": "Kaupunkiluontohaaste",
     "november_2022_mission_1": "Etsi 4 lajia seuraavista eliöryhmistä:\n\nheimo Brassicaceae (ristikukkaiskasvit);\nheimo Lamiaceae (huulikukkaiskasvit);\nheimo Poaceae (heinäkasvit);\nlahko Blattodea (torakat);\nlahko Rodentia (jyrsijät);\nlahko Columbiformes (kyyhkylinnut);\nheimo Corvidae (varikset);\nsuku Passer (varpuset);",
     "november_2022_description_some_species_well_adapted": "Jotkut lajit ovat sopeutuneet hyvin urbaaneille alueille. Jopa kaupungeissa voit löytää luonnon monimuotoisuutta päällysteen halkeamissa, tyhjillä tonteilla, puutarhoissa ja jopa kodeissamme (ehkä ei-toivottuina vierailijoina).",
-    "november_2022_action_change_location": "Vaihda ”lähellä olevat lajit”-sijainniksi jokin kaukana oleva kaupunki. Mitä lajeja siellä on havaittu? Onko mikään niistä samanlainen tai samankaltainen kuin lähelläsi olevat lajit?"
+    "november_2022_action_change_location": "Vaihda ”lähellä olevat lajit”-sijainniksi jokin kaukana oleva kaupunki. Mitä lajeja siellä on havaittu? Onko mikään niistä samanlainen tai samankaltainen kuin lähelläsi olevat lajit?",
+    "december_2022_challenge_name_decomposers": "Hajottajahaaste"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Elinympäristöhaaste",
+    "february_2023_challenge_name_climate_change": "Ilmastonmuutoshaaste",
+    "february_2023_description_climate_change": "Ilmastonmuutos ei vaikuta vain planeettamme napojen jäätyneisiin maailmoihin. Nousevat lämpötilat ja muuttuvat sääolot voivat ajaa lajit siirtymään pois epämukaviksi muuttuvista luontotyypeistä uusille alueille. Se voi myös tarkoittaa, että vuodenaikoihin liittyvät muutokset (tunnetaan nimellä \"fenologia\"), kuten lehtien putoaminen, silmujen puhkeaminen ja kukinta, alkavat tapahtua eri aikoina. Tämä voi aiheuttaa muille lajeille vaikeasti ennustettavia ongelmia. Tutki paikallista kasvielämää ja tarkkaile, miten paikallinen ympäristösi voi olla muuttumassa.",
+    "february_2023_action_climate_change": "Etsi lempikasvisi iNaturalist-verkkosivuilta ja tutkia “Kasvin fenologia”-kaaviota sen taksonisivulla. Nämä kaaviot luodaan iNaturalistiin lähetettyihin havaintoihin tehtyjen merkintöjen \"nuppuja\", \"kukkia\", tai \"hedelmiä\" perusteella. Voit auttaa lisäämällä niitä myös!",
+    "march_2023_challenge_name_lakes_ponds": "Järvet ja lammet -haaste",
+    "april_2023_challenge_name_nature": "Luontohaaste",
+    "april_2023_description_nature": "Emme ole yksin planeetallamme! Luonto on aina ympärillämme riippumatta siitä, huomaammeko sen vai emme. Kodeissamme, puutarhoissaja kaupungeissa on piilotettuja maailmoja, jotka on löydettävä. Tutkikaa kotianne ja ympäristöänne ja voitte yllättyä, kuinka monta villiä naapuria löydätte.",
+    "april_2023_action_nature": "Etsikää kasveja, sieniä, ötököitä, lintuja ja muita eläimiä. Tarkkaile merkkejä piilossa olevasta elämästä – jätökset, karvat, pesät, jäljet ja verkot voivat kaikki antaa vihjeitä muista olennoista, jotka jakavat kotiasi.",
+    "may_2023_challenge_name_protected_areas": "Suojelualuehaaste",
+    "may_2023_description_protected_areas": "Syvimmästä viidakosta pienimpään puistoon jaamme planeettamme uskomattoman monenlaisten elävien kanssa, joista kukin on mukautunut siihen erityiseen ympäristöön, jossa ne asuvat. Etsi paikallinen suosittu luontokohde ja katso kuinka monta erityyppistä elävää löydät. Matkan varrella opit, mitkä ominaisuudet tekevät näistä erilaisista organismeista toisistaan eroavat!",
+    "june_2023_challenge_name_plant_eaters": "Kasvinsyöjähaaste",
+    "june_2023_action": "Millaisia kasveja syötte? Mitä kasvinosia ne ovat? Mitkä eläimet myös mielellään syövät noita kasveja?",
+    "july_2023_challenge_name_food_web": "Ravintoverkkohaaste",
+    "july_2023_description_plant_eaters": "Yhteisön jokainen laji on kytketty ravintoverkkoon. Tuottajat ottavat energiaa auringosta, kasvinsyöjät syövät kasveja, lihansyöjät syövät muita eläimiä, ja hajottajat kuluttavat kuolleita eliöitä. Etsikää eri tasoja paikallisessa elämän verkossanne ja oppikaa, miten muut lajit selviytyvät.",
+    "july_2023_action_plant_eaters": "Näitkö jonkun kasvinsyöjän vauhdissa, kuten toukan syömässä lehteä tai lintuja syömässä siemeniä? Entä jonkun lihansyöjän, ehkä hämähäkin saaliin kanssa?",
+    "august_2023_challenge_name_insect": "Hyönteishaaste",
+    "august_2023_description_insect": "Hyönteispopulaatiot pienenevät ympäri planeettaa osittain siksi, koska viljelykasvit korvaavat niiden elinympäristön ja ne ruiskutetaan sitten ötököitä tappavilla torjunta-aineilla. Tarvitsemme hyönteispölyttäjiä viljelykasviemme ja luonnonvaraisten kasvien kukoistamiseksi, ja monet sammakkoeläimet, matelijat, linnut ja nisäkkäät ovat riippuvaisia hyönteisruoasta. Etsi hyönteisiä ympäriltäsi ja osoita niille rakkautta!",
+    "august_2023_action_insect": "Hyönteisillä on ulkoinen tukiranka, exoskeleton ja ne voidaan erottaa niiden niveljalkaisista sukulaisista siitä, että niillä on 6 jalkaa. Mistä löysit hyönteisiä? Ovatko ne vaarassa luontotyyppien häviämisen tai torjunta-aineiden vuoksi?",
+    "september_2023_challenge_name_equinox": "Päiväntasaushaaste",
+    "october_2023_challenge_name_migration": "Muuttohaaste",
+    "october_2023_description_migration": "Miljoonat linnut muuttavat maasta toiseen paetakseen kylmää säätä ja löytääkseen ruokaa. Sen seuraaminen, milloin luonnonvaraiset eläimet muuttavat maasta, voi auttaa meitä ymmärtämään, miten ilmastonmuutos vaikuttaa luonnolliseen maailmaan. Etsikää lintuja, jotka ovat vierailulla alueellanne ja selvittäkää missä muualla ne viettävät aikaansa.",
+    "october_2023_action_migration": "Linnut tarvitsevat polttoainetta pitkiin muuttomatkoihinsa. Voit auttaa niitä tukemalla alueiden suojelua ja käyttämällä maisemoinnissa kotoperäisiä puita ja pensaita, jotka tarjoavat marjoja ja oksia vieraileville linnuille.",
+    "november_2023_challenge_name_trees": "Puuhaaste",
+    "november_2023_description_trees": "Ihmiset ovat aina olleet riippuvaisia puista ja metsistä selviytyäkseen. Ne antavat meille puhdasta ilmaa, ruokaa, suojaa ja puuta. Ne ottavat hiiltä ilmasta ja sitovat sen puuhun tai maaperään. Ajan viettäminen puiden keskellä saa meidät tuntemaan olomme paremmaksi niin mieleltämme kuin ruumiiltamme. Tarvitsemme niitä nyt jopa enemmän kuin koskaan, samoin kuin valtava määrä muita eläviä. Etsi paikallisen alueesi puita ja koe itse hyödyt!",
+    "november_2023_action_trees": "Onko sinulla suosikkipuulaji tai jopa tietty yksittäinen puu? Lue lisää siitä. Millä tavoin ihmiset hyötyvät siitä? Miten muut kasvit tai eläimet hyötyvät?",
+    "december_2023_challenge_name_ecology": "Ekologiahaaste",
+    "december_2023_description_ecology": "Monet erilaiset vuorovaikutukset vaikuttavat ekosysteemeihin ja niiden organismeihin. Ekologia on eliöiden (bioottinen) ja niiden fyysisen ympäristön (abioottinen) tutkiminen. Bioottiset vuorovaikutukset ovat eläviä asioita ja abioottisia vuorovaikutuksia ovat elottomat tekijät, kuten lämpötila, vesi, valo ja maaperä."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

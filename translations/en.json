@@ -953,5 +953,10 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "Ecology Challenge",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

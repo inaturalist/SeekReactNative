@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react-native";
 
 import RangeMap from "../../../../../components/Species/OnlineOnlyCards/RangeMap";

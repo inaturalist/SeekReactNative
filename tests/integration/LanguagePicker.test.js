@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import { Alert } from "react-native";
 
@@ -47,5 +48,5 @@ describe( "LanguagePicker", () => {
     // TODO: Text should be in Spanish
     // expect( screen.findByText( "Usar las opciones de idioma del móvil" ) ).toBeTruthy();
     // expect( screen ).toMatchSnapshot();
-    } );
+  } );
 } );

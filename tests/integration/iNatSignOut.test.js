@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 
 import UserLoginProvider from "../../components/Providers/UserLoginProvider";
@@ -8,7 +9,7 @@ function renderButton( user ) {
     <UserLoginProvider value={user}>
       <INatSignOut />
     </UserLoginProvider>
-);
+  );
 }
 
 describe( "iNatSignOut", () => {
@@ -25,6 +26,5 @@ describe( "iNatSignOut", () => {
     const button = screen.getByText( "SIGN OUT OF INATURALIST" );
     fireEvent.press( button );
     // TODO: test that the user is signed out
-
   } );
 } );

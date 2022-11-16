@@ -1,9 +1,10 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 
 import UserLoginProvider from "../components/Providers/UserLoginProvider";
 import LoginCard from "../components/UIComponents/Login/LoginCard";
 
-function renderLoginCard( ) {
+function renderLoginCard() {
   return render(
     <UserLoginProvider>
       <LoginCard />

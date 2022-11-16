@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react-native";
 import BadgeContainer from "../../../../components/Achievements/BadgeContainer";
 

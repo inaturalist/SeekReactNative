@@ -9,6 +9,7 @@ import { BackHandler, Platform } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
+import SeekYearInReviewCard from "./SeekYearInReview/SeekYearInReviewCard";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
 import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./Challenges/ChallengeCard";
@@ -107,6 +108,7 @@ const HomeScreen = ( ): Node => {
             closeCard={closeCard}
           />
         )}
+        <SeekYearInReviewCard />
         <SpeciesNearby />
         <ChallengeCard />
         <INatCard />

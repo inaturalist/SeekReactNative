@@ -32,6 +32,7 @@ import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Notifications from "../Notifications/Notifications";
 import Social from "../Social/SocialScreen";
+import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
 
 type Props = {
   +props: any,
@@ -79,7 +80,8 @@ const App = ( ): Props => (
             <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
             <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
             <Stack.Screen name="Social" component={Social} options={defaultConfig} />
-          </Stack.Group>
+            <Stack.Screen name="SeekYearInReview" component={SeekYearInReview} options={defaultConfig}/>
+        </Stack.Group>
           <Stack.Group screenOptions={modal}>
             {/* Removed Footer from Notification screen because animation from right
             doesn't work if it's in drawer, but this screen would also need access to open the drawer

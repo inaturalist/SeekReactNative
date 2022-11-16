@@ -245,7 +245,7 @@
     "released": "Tantangan ini akan diluncurkan pada {{date}}.",
     "get_involved": "Ikut terlibat",
     "action_april": "Check if you live close to a city that's part of the City Nature Challenge, and if so look out for nature recording and identification activities for urban wildlife!",
-    "action_may": "Volunteer your time with local groups that help maintain your local greenspaces.\n\nShare your findings with your family, friends or school community to open their eyes to the wildlife around them.\n\nOrganise a litter pick in a local greenspace.",
+    "action_may": "Volunteer your time with local groups that help maintain your local parks.\n\nShare your findings with your family, friends, or school community to open their eyes to the wildlife around them. Organise an event to pick up litter in a local park.",
     "action_june": "Use the resources on ourplanet.com to start a local biodiversity action project in your area to give your local wildlife a helping hand.",
     "action_november_2019": "Collect seeds from local native trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
     "action_august": "Plant wildflowers to provide food for pollinators.\n\nMake a ‘bug hotel’ to provide homes for insects in your garden or schoolground by bundling short lengths of pipe together and stuffing each with small twigs and pieces of broken tile.",
@@ -922,6 +922,41 @@
     "november_2022_challenge_name_urban_nature": "Tantangan Alam Kota",
     "november_2022_mission_1": "Temukan 4 spesies dari:\n\nFamili Brassicaceae (Kubis-kubisan);\nFamili Lamiaceae (Mint);\nFamili Poaceae (Rerumputan);\nOrdo Blattodea (Kecoak dan Rayap);\nOrdo Rodentia (Tikus);\nOrdo Columbiformes (Burung Dara dan Merpati);\nFamili Corvidae (Burung Gagak, Jay, dan Murai);\nGenus Passer (Burung Pipit);\nGenus Acridotheres (Burung Kerak Ungu);\nInfraordo Gekkota (Tokek)",
     "november_2022_description_some_species_well_adapted": "Beberapa spesies telah beradaptasi dengan daerah-daerah yang telah dibangun. Meskipun di dalam kota, kamu bisa menemukan keanekaragaman hayati di celah-celah trotoar, tempat parkir yang kosong, taman-taman, maupun di dalam rumah kita (mungkin sebagai tamu yang tidak diundang).",
-    "november_2022_action_change_location": "Ubah lokasi \"spesies yang terlihat di dekatmu\" dan carilah sebuah kota yang jauh darimu. Spesies apa yang terlihat di sekitar sana? Apakah ada yang sama atau mirip dengan spesies yang terlihat di dekatmu?"
+    "november_2022_action_change_location": "Ubah lokasi \"spesies yang terlihat di dekatmu\" dan carilah sebuah kota yang jauh darimu. Spesies apa yang terlihat di sekitar sana? Apakah ada yang sama atau mirip dengan spesies yang terlihat di dekatmu?",
+    "december_2022_challenge_name_decomposers": "Tantangan Pengurai"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Tantangan Habitat",
+    "february_2023_challenge_name_climate_change": "Tantangan Perubahan Iklim",
+    "february_2023_description_climate_change": "Perubahan iklim tidak hanya memengaruhi dunia es di kutub planet kita. Peningkatan suhu dan perubahan pola cuaca dapat mengakibatkan spesies-spesies berpindah dari habitat yang menjadi tidak nyaman ke kawasan baru. Ini dapat juga berarti bahwa perubahan-perubahan yang berkaitan dengan musim (disebut sebagai \"fenologi\") seperti jatuhnya dedaunan dan munculnya bunga-bunga mulai terjadi pada waktu yang berbeda. Ini dapat mengakibatkan masalah bagi spesies lain yang susah untuk diprediksi. Jelajahi kehidupan tumbuhan lokal kamu dan lihatlah bagaimana lingkungan lokal kamu berubah.",
+    "february_2023_action_climate_change": "Carilah tanaman favoritmu di situs web iNaturalist dan jelajahi grafik 'fenologi tumbuhan' pada halaman taksonnya. Grafik-grafik ini didapat dari 'anotasi' untuk kuncup bunga, bunga, dan buah pada pengamatan yang di-posting ke iNaturalist. Kamu bisa membantu menambahkannya juga!",
+    "march_2023_challenge_name_lakes_ponds": "Tantangan Danau dan Kolam",
+    "april_2023_challenge_name_nature": "Tantangan Alam",
+    "april_2023_description_nature": "Lihatlah... Alam di sekelilingmu\n\nKita tidak sendiri di planet ini! Margasatwa selalu ada di sekitar kita, mau kamu perhatikan maupun tidak. Di dalam rumah kita, taman-taman, desa, dan kota, selalu ada dunia-dunia tersembunyi yang dapat ditemukan. Lihatlah di dalam dan di sekitar rumahmu, dan kamu mungkin akan kaget dengan berapa banyak tetangga liar yang kamu akan temukan.",
+    "april_2023_action_nature": "Carilah tanaman, jamur, kumbang, burung, dan binatang. Selidiki tanda-tanda kehidupan yang agak susah untuk ditemukan – tahi, bulu, sarang, jejak, dan jaring dapat memberikan petunjuk pada makhluk-makhluk yang berbagi rumah denganmu.",
+    "may_2023_challenge_name_protected_areas": "Tantangan Kawasan Terlindung",
+    "may_2023_description_protected_areas": "Dari hutan yang paling dalam hingga taman yang paling kecil, kita berbagi planet ini dengan berbagai macam makhluk hidup, masing-masing sudah beradaptasi dengan lingkungan tempat mereka hidup. Carilah titik panas lokal alam dan lihatlah berapa banyak jenis makhluk hidup yang dapat kamu temukan. Di sepanjang perjalanan ini, kamu dapat belajar apa ciri-ciri yang membuat kelompok-kelompok organisme ini berbeda satu dengan yang lain!",
+    "june_2023_challenge_name_plant_eaters": "Tantangan Pemakan Tanaman",
+    "june_2023_action": "Tanaman jenis apa yang kamu makan? Dari bagian tumbuhan mana mereka didapatkan? Apa saja hewan yang juga suka memakan tanaman-tanaman tersebut?",
+    "july_2023_challenge_name_food_web": "Tantangan Jaringan Makanan",
+    "july_2023_description_plant_eaters": "Setiap spesies dalam suatu komunitas terhubung dalam sebuah jaringan makanan. Produsen menangkap energi dari matahari, herbivora memakan tumbuhan, karnivora memakan hewan lain, dan pengurai mengonsumsi organisme yang sudah mati. Carilah tingkatan-tingkatan yang berbeda dalam jaringan makanan lokal kamu, dan pelajari bagaimana setiap tingkat mengizinkan spesies lain untuk bertahan hidup.",
+    "july_2023_action_plant_eaters": "Apakah kamu melihat herbivora yang sedang melakukan sesuatu, seperti ulat yang sedang memakan daun atau burung yang sedang memakan biji? Apakah kamu melihat karnivora yang sedang melakukan sesuatu, mungkin seekor laba-laba atau belalang sembah dengan mangsanya?",
+    "august_2023_challenge_name_insect": "Tantangan Serangga",
+    "august_2023_description_insect": "Populasi serangga sedang menurun di seluruh planet kita, karena perkebunan dan bangunan-bangunan menggantikan habitat mereka dan mereka kemudian disemprot dengan pestisida pembasmi serangga. Kita memerlukan para penyerbuk supaya tanaman pangan dan tanaman liar bisa berkembang, dan banyak amfibi, reptil, burung-burung serta mamalia bergantung pada serangga sebagai makanannya. Carilah serangga di sekitar kamu dan berikan kepada mereka sedikit cinta!",
+    "august_2023_action_insect": "Serangga memiliki eksoskeleton dan dapat dibedakan dengan saudara artropodanya dari kakinya yang berjumlah 6. Di mana kamu dapat menemukan serangga? Apakah mereka terancam kehilangan habitatnya atau terancam pestisida?",
+    "september_2023_challenge_name_equinox": "Tantangan Ekuinoks",
+    "october_2023_challenge_name_migration": "Tantangan Migrasi",
+    "october_2023_description_migration": "Jutaan burung bermigrasi dari satu negara ke negara lain untuk menghindari cuaca dingin dan mencari makanan. Dengan melacak kapan satwa-satwa bermigrasi, kita dapat lebih memahami bagaimana perubahan iklim memengaruhi dunia alam. Carilah burung-burung yanh mengunjungi daerahmu dan selidikilah di mana lagi mereka menghabiskan waktu mereka.",
+    "october_2023_action_migration": "Burung-burung memerlukan bahan bakar untuk perjalanan panjang yang mereka ambil untuk bermigrasi. Kamu dapat mendukung kebutuhan makanan mereka dengan mendorong pembukaan kawasan terlindung dan penanaman pepohonan dan tetumbuhan asli pada kebun-kebun yang menyediakan buah beri dan tempat bertengger bagi burung-burung yang datang.",
+    "november_2023_challenge_name_trees": "Tantangan Pepohonan",
+    "november_2023_description_trees": "Manusia bergantung kepada pepohonan dan hutan untuk udara bersih, makanan, tempat tinggal, dan kayu. Pepohonan dan hutan menyerap karbon dari udara dan menyimpannya di dalam kayu atau tanah. Menghabiskan waktu di sekitar pepohonan membuat kita merasa lebih baik, begitu juga dengan makhluk hidup yang lain. Carilah pepohonan di daerahmu dan rasakan manfaatnya sendiri!",
+    "november_2023_action_trees": "Apakah kamu memiliki jenis pohon favorit, atau bahkan spesies pohon favorit? Bacalah lebih lanjut tentangnya. Dalam hal apa orang-orang merasakan manfaatnya? Bagaimana cara tanaman atau binatang lain merasakan manfaatnya?",
+    "december_2023_challenge_name_ecology": "Tantangan Ekologi",
+    "december_2023_description_ecology": "Berbagai jenis interaksi memengaruhi ekosistem-ekosistem beserta organisme di dalamnya. Ekologi adalah ilmu yang mempelajari organisme (biotik) dan lingkungan fisiknya (abiotik). Interaksi biotik adalah interaksi antara makhluk hidup dan interaksi abiotik termasuk faktor-faktor yang tidak hidup seperti suhu, air, cahaya, dan tanah."
+  },
+  "seek_year_in_review": {
+    "header": "Kilas Balik Satu Tahun Seek",
+    "description": "Terima kasih sudah menggunakan Seek tahun ini! Cek Kilas Balik Anda Tahun Ini di sini:",
+    "button": "Lihat Kilas Balik Seek Anda"
   }
 }

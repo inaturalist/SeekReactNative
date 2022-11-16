@@ -953,5 +953,10 @@
     "november_2023_action_trees": "Har du någon sorts favoritträd, eller t.o.m. ett enskilt favoritträd? Läs mer om det. På vilka sätt gynnas människor av det? Hur gynnas andra växter eller djur?",
     "december_2023_challenge_name_ecology": "Ekologiutmaning",
     "december_2023_description_ecology": "Många olika typer av interaktioner påverkar ekosystemen och deras organismer. Ekologi är studiet av organismer (biotiska) och deras fysiska miljö (aboitisk). Biotiska interaktioner är mellan levande ting medan aboitiska interaktioner innefattar icke-levande faktorer som temperatur, vatten, ljus och jord."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

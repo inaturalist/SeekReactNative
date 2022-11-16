@@ -108,8 +108,8 @@ const HomeScreen = ( ): Node => {
             closeCard={closeCard}
           />
         )}
-        <SeekYearInReviewCard />
         <SpeciesNearby />
+        <SeekYearInReviewCard />
         <ChallengeCard />
         <INatCard />
         <DonateCard />

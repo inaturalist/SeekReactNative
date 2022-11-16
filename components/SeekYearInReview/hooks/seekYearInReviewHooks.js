@@ -49,6 +49,7 @@ const useFetchStats = ( year ): any => {
     countBadgesThisYear: null,
     speciesCount: null,
     countObservationsThisYear: undefined,
+    observationsThisYear: [],
     topThreeIconicTaxonIds: [],
     topThreeSpeciesBadges: [],
     randomObservations: []
@@ -76,11 +77,11 @@ const useFetchStats = ( year ): any => {
         console.log( "observations", observations );
         console.log( "observations[0].taxon", observations[0].taxon );
 
-        // Get five random observations from this year
+        // Get ten random observations from this year
         // TODO: observations do not have photos in realm, so we have to take it from taxon, but that could lead to doublettes if multiple observations are saved per taxon
         const randomObservations = [];
-        if ( countObservationsThisYear > 5 ) {
-          for ( let i = 0; i < 5; i += 1 ) {
+        if ( countObservationsThisYear > 10 ) {
+          for ( let i = 0; i < 10; i += 1 ) {
             // TODO?: There is a tiny chance that the same observation is picked twice
             const randomIndex = Math.floor(
               Math.random() * observationsThisYear.length
@@ -138,6 +139,7 @@ const useFetchStats = ( year ): any => {
           countBadgesThisYear,
           speciesCount,
           countObservationsThisYear,
+          observationsThisYear,
           topThreeIconicTaxonIds,
           topThreeSpeciesBadges,
           randomObservations

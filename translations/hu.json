@@ -953,5 +953,10 @@
     "november_2023_action_trees": "Van kedvenc fafajtád, esetleg kedvenc fád? Tudj meg többet róla. Hogyan vesszük hasznát? Hogyan van hasznára más növényeknek vagy állatoknak?",
     "december_2023_challenge_name_ecology": "Ökológia Kihívás",
     "december_2023_description_ecology": "Sokféle hatás éri az ökoszisztémákat, és az abban résztvevő előlényeket. Az ökológia az élőlényeket (biotikus) és élettelen (abiotikus) környezetüket tanulmányozza. Az élőlények között biotikus kölcsönhatások vannak, abiotikus tényezők például a hőmérséklet, víz, fény és talaj."
+  },
+  "seek_year_in_review": {
+    "header": "Seek évértékelő",
+    "description": "Köszönjük, hogy használtad a Seek-et ebben az évben! Kérlek tekintsd meg személyes évértékelődet:",
+    "button": "Seek évértékelőm megtekintése"
   }
 }

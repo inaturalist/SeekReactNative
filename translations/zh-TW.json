@@ -95,7 +95,7 @@
   "inat_signup": {
     "welcome": "歡迎來到 Seek！",
     "enter_birthday": "請輸入你的生日",
-    "permission": "你必須至少滿13歲方可建立帳戶。",
+    "permission": "您至少要滿 13 歲才可以建立帳戶。",
     "privacy": "隱私政策",
     "continue": "繼續",
     "enter_email": "請輸入你家長的電子郵件信箱",
@@ -953,5 +953,10 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "生態環境挑戰",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek 年度回顧",
+    "description": "感謝您今年使用 Seek！到這邊查看為您特製的個人年度回顧吧：",
+    "button": "檢視我的 Seek 回顧"
   }
 }

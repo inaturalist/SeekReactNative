@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { View } from "react-native";
 import type { Node } from "react";
 
-import { viewStyles } from "../../styles/about";
+import { viewStyles } from "../../styles/seekYearInReview/seekYearInReview";
 import { AppOrientationContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 

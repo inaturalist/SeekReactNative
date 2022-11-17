@@ -23,6 +23,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   photoMargins: {
     marginVertical: 33
+  },
+  map: {
+    height: 189,
+    marginBottom: 20
   }
 } );
 

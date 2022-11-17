@@ -15,6 +15,7 @@ import { AppOrientationContext, UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { useFetchObservationCount, useFetchStats, useCountObservationsForYear } from "./hooks/seekYearInReviewHooks";
 import badgeImages from "../../assets/badges";
+import i18n from "../../i18n";
 // TODO: refactor into component folder
 import SpeciesBadges from "../Achievements/SpeciesBadges";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
@@ -74,10 +75,17 @@ const SeekYearInReviewScreen = (): Node => {
         </Text>
       )}
       {state.level && (
-        <Image
-          source={badgeImages[state.level.earnedIconName]}
-          style={imageStyles.levelImage}
-        />
+        <>
+          <Image
+            source={badgeImages[state.level.earnedIconName]}
+            style={imageStyles.levelImage}
+          />
+          <View style={viewStyles.textContainer}>
+            <Text style={textStyles.headerText}>
+              {i18n.t( state.level.intlName ).toLocaleUpperCase()}
+            </Text>
+          </View>
+        </>
       )}
       {state.topThreeIconicTaxonIds && (
         <Text style={textStyles.text}>

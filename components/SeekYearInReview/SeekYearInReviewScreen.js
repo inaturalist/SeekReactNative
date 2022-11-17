@@ -113,6 +113,7 @@ const SeekYearInReviewScreen = (): Node => {
       <View style={viewStyles.photoMargins}>
         <HorizontalScroll photoList={photoList} />
       </View>
+      {/* TODO: map needs to have an optimal initial region to show based on the distribution of observation coords */}
       <SeekYearInReviewMap observations={state.observationsThisYear} />
       <SeekYearInReviewChart data={state.histogram} />
       <SeekYearInReviewChallengeBadges />

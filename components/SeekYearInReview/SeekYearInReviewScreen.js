@@ -19,6 +19,7 @@ import i18n from "../../i18n";
 // TODO: refactor into component folder
 import SpeciesBadges from "../Achievements/SpeciesBadges";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
+import SeekYearInReviewMap from "./SeekYearInReviewMap";
 
 const SeekYearInReviewScreen = (): Node => {
   const { setId } = React.useContext( SpeciesDetailContext );
@@ -107,6 +108,7 @@ const SeekYearInReviewScreen = (): Node => {
       <View style={viewStyles.photoMargins}>
         <HorizontalScroll photoList={photoList} />
       </View>
+      <SeekYearInReviewMap observations={state.observationsThisYear} />
     </ScrollWithHeader>
   );
 };

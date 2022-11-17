@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import type { Node } from "react";
@@ -24,7 +24,7 @@ const SeekYearInReviewScreen = (): Node => {
   const navigation = useNavigation();
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
-  const count = useFetchObservationCount( login, userProfile.login );
+  const count = useFetchObservationCount( login, userProfile?.login );
   // TODO: replace with real year
   const state = useFetchStats( 2022 );
   const countObservationsThisYear = useCountObservationsForYear( 2022 );

@@ -24,6 +24,7 @@ import SeekYearInReviewMap from "./SeekYearInReviewMap";
 import SeekYearInReviewChart from "./SeekYearInReviewChart";
 // TODO: this a copy from ChallengeBadges, with only the data fetching hook swaped out. Could be refactored into dumb component with only styling, and data as prop
 import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
+import { SpeciesDetailContext } from "../UserContext";
 
 const SeekYearInReviewScreen = (): Node => {
   const { setId } = React.useContext( SpeciesDetailContext );

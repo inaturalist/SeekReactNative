@@ -33,6 +33,14 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     textAlign: "center"
+  },
+  headerText: {
+    // TODO: changed from acchievements to year in review
+    // color: colors.white,
+    color: colors.black,
+    fontFamily: fonts.semibold,
+    fontSize: 23,
+    letterSpacing: 1.0
   }
 } );
 

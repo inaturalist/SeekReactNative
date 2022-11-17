@@ -2,6 +2,8 @@
 
 import React, { useContext } from "react";
 import { View, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import type { Node } from "react";
 
 import {
@@ -18,6 +20,8 @@ import SpeciesBadges from "../Achievements/SpeciesBadges";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 
 const SeekYearInReviewScreen = (): Node => {
+  const { setId } = React.useContext( SpeciesDetailContext );
+  const navigation = useNavigation();
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
   const count = useFetchObservationCount( login, userProfile.login );
@@ -25,18 +29,26 @@ const SeekYearInReviewScreen = (): Node => {
   const state = useFetchStats( 2022 );
   const countObservationsThisYear = useCountObservationsForYear( 2022 );
 
+  const navToSpecies = ( obs ) => {
+    if ( !obs?.taxon?.id ) {return;}
+    setId( obs.taxon.id );
+      navigation.push( "Drawer", { screen: "Species" } );
+  };
+
+  // TODO: replace the photo url from realm with the one given by the useUserPhoto hook
   const renderPhotos = () =>
     state.randomObservations.map( ( obs ) => (
-      <View
+      <Pressable
         key={`image${obs.taxon.defaultPhoto.mediumUrl}`}
         style={viewStyles.center}
+        onPress={() => navToSpecies( obs )}
       >
         <Image
           source={{ uri: obs.taxon.defaultPhoto.mediumUrl }}
           style={imageStyles.image}
         />
         {console.log( obs.taxon.defaultPhoto.mediumUrl ) ? null : null}
-      </View>
+      </Pressable>
     ) );
 
   const photoList = renderPhotos();

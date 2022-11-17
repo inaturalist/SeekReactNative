@@ -11,7 +11,7 @@ import {
 } from "../../styles/seekYearInReview/seekYearInReview";
 import { AppOrientationContext, UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { useFetchObservationCount, useFetchStats } from "./hooks/seekYearInReviewHooks";
+import { useFetchObservationCount, useFetchStats, useCountObservationsForYear } from "./hooks/seekYearInReviewHooks";
 import badgeImages from "../../assets/badges";
 // TODO: refactor into component folder
 import SpeciesBadges from "../Achievements/SpeciesBadges";
@@ -23,6 +23,7 @@ const SeekYearInReviewScreen = (): Node => {
   const count = useFetchObservationCount( login, userProfile.login );
   // TODO: replace with real year
   const state = useFetchStats( 2022 );
+  const countObservationsThisYear = useCountObservationsForYear( 2022 );
 
   const renderPhotos = () =>
     state.randomObservations.map( ( obs ) => (
@@ -49,10 +50,10 @@ const SeekYearInReviewScreen = (): Node => {
         ]}
       />
       {/* TODO: replace all instances of text with StyledText after v2.14.5 is merged */}
-      {/* {state.countObservationsThisYear > 0 && ( */}
+      {/* {countObservationsThisYear > 0 && ( */}
       {
         <Text style={textStyles.text}>
-          {state.countObservationsThisYear} observations made this year
+          {countObservationsThisYear} observations made this year
         </Text>
       }
       {login && (

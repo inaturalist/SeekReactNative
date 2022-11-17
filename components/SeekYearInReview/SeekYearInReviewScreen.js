@@ -20,6 +20,8 @@ import i18n from "../../i18n";
 import SpeciesBadges from "../Achievements/SpeciesBadges";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import SeekYearInReviewMap from "./SeekYearInReviewMap";
+// TODO: this a copy from SpeciesChart. Could be refactored into dumb component with onl styling, and data as prop
+import SeekYearInReviewChart from "./SeekYearInReviewChart";
 
 const SeekYearInReviewScreen = (): Node => {
   const { setId } = React.useContext( SpeciesDetailContext );
@@ -109,6 +111,7 @@ const SeekYearInReviewScreen = (): Node => {
         <HorizontalScroll photoList={photoList} />
       </View>
       <SeekYearInReviewMap observations={state.observationsThisYear} />
+      <SeekYearInReviewChart data={state.histogram} />
     </ScrollWithHeader>
   );
 };

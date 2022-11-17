@@ -88,7 +88,6 @@ const SpeciesChart = ( { id, region }: Props ): Node => {
       />
     );
   }, [data] );
-
   return (
     <SpeciesDetailCard text="species_detail.monthly_obs" hide={data.length === 0}>
       <View style={styles.chartContainer}>

@@ -21,6 +21,7 @@ import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from
 import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
 import INatCard from "./INatCard/iNatCard";
 import DonateCard from "../UIComponents/Cards/DonateCard";
+import { useCountObservationsForYear } from "../SeekYearInReview/hooks/seekYearInReviewHooks";
 
 const HomeScreen = ( ): Node => {
   const navigation = useNavigation( );
@@ -29,6 +30,7 @@ const HomeScreen = ( ): Node => {
   const [successfulUploads, setSuccessfulUploads] = useState( 0 );
   const [numPendingUploads, setNumPendingUploads] = useState( 0 );
 
+  const countObservationsThisYear = useCountObservationsForYear( 2022 );
   const openModal = ( ) => setModal( true );
   const closeModal = ( ) => setModal( false );
   const closeCard = useCallback( ( ) => setShowUploadCard( false ), [] );
@@ -93,6 +95,9 @@ const HomeScreen = ( ): Node => {
     }
   }, [successfulUploads] );
 
+  // TODO: add a check for correct timestamp
+  const showYIR = !!countObservationsThisYear && countObservationsThisYear > 0;
+
   return (
     <ScrollNoHeader showUploadCard={showUploadCard}>
       <RNModal
@@ -109,7 +114,7 @@ const HomeScreen = ( ): Node => {
           />
         )}
         <SpeciesNearby />
-        <SeekYearInReviewCard />
+        {showYIR && ( <SeekYearInReviewCard /> )}
         <ChallengeCard />
         <INatCard />
         <DonateCard />

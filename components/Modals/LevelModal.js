@@ -44,7 +44,7 @@ const LevelModal = ( {
         source={badgeImages[level.earnedIconName]}
         style={imageStyles.image}
       />
-      <StyledText style={textStyles.nameStyledText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={textStyles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
     </LinearGradient>
     <StyledText style={textStyles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</StyledText>
   </WhiteModal>

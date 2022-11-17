@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
+import { addMonths, isEqual } from "date-fns";
 
 import createUserAgent from "../../../utility/userAgent";
 import realmConfig from "../../../models";
@@ -42,17 +43,45 @@ const useFetchObservationCount = ( login: ?string, username: string ): any => {
   return observationCount;
 };
 
+const useCountObservationsForYear = ( year ): any => {
+  const [countObservationsThisYear, setCountObservationsThisYear] = useState( null );
+
+  useEffect( () => {
+    const fetchCount = async () => {
+      try {
+        const firstOfYear = () => new Date( year, 0, 1, 0, 0, 0, 0 );
+        const lastOfYear = () => new Date( year, 11, 31, 23, 59, 59 );
+
+        const realm = await Realm.open( realmConfig );
+        const observations = realm.objects( "ObservationRealm" );
+        const observationsThisYear = observations.filtered(
+          "date >= $0 && date < $1",
+          firstOfYear( year ),
+          lastOfYear( year )
+        );
+        // TODO: Refactor this count out of this hook into seperate hook, because needed in home screen as well
+        const count = observationsThisYear.length;
+        setCountObservationsThisYear( count );
+      } catch ( e ) {
+        console.log( e, "couldn't open realm for counting observations for year" );
+      }
+    };
+    fetchCount();
+  }, [year] );
+
+  return countObservationsThisYear;
+};
+
 const useFetchStats = ( year ): any => {
   const [state, setState] = useState( {
     level: null,
-    nextLevelCount: 0,
     countBadgesThisYear: null,
     speciesCount: null,
-    countObservationsThisYear: undefined,
     observationsThisYear: [],
     topThreeIconicTaxonIds: [],
     topThreeSpeciesBadges: [],
-    randomObservations: []
+    randomObservations: [],
+    histogram: []
   } );
 
   useEffect( () => {
@@ -70,12 +99,7 @@ const useFetchStats = ( year ): any => {
           firstOfYear( year ),
           lastOfYear( year )
         );
-        // TODO: Refactor this count out of this hook into seperate hook, because needed in home screen as well
         const countObservationsThisYear = observationsThisYear.length;
-        console.log( "observationsThisYear", observationsThisYear );
-
-        console.log( "observations", observations );
-        console.log( "observations[0].taxon", observations[0].taxon );
 
         // Get ten random observations from this year
         // TODO: observations do not have photos in realm, so we have to take it from taxon, but that could lead to doublettes if multiple observations are saved per taxon
@@ -99,16 +123,8 @@ const useFetchStats = ( year ): any => {
           return iconicTaxa;
         }, {} );
         const topThreeIconicTaxonIds = Object.keys( reduced ).sort( ( a, b ) => reduced[b] - reduced[a] ).slice( 0, 3 );
-        console.log( "topThreeIconicTaxonIds", topThreeIconicTaxonIds );
-
 
         const badges = realm.objects( "BadgeRealm" );
-        const badgesThisYear = badges.filtered(
-          "earnedDate >= $0 && earnedDate < $1",
-          firstOfYear( year ),
-          lastOfYear( year )
-          );
-        console.log( "badgesThisYear", badgesThisYear );
         const countBadgesThisYear = badges.filtered(
           "iconicTaxonName != null AND earned == true"
         ).length;
@@ -129,23 +145,31 @@ const useFetchStats = ( year ): any => {
         const levelsEarned = badges
           .filtered( "iconicTaxonName == null AND earned == true" )
           .sorted( "count", true );
-        const nextLevel = badges
-          .filtered( "iconicTaxonName == null AND earned == false" )
-          .sorted( "index" );
+
+        // Get histogram data
+        const histogram = observationsThisYear.reduce( ( data, observation ) => {
+          const month = observation.date.getMonth();
+          data[month] = { count: data[month]?.count + 1 || 1, month: month + 1  };
+          return data;
+        }, [] );
+        for ( let i = 0; i < 12; i++ ) {
+          if ( histogram[i] === undefined ) {
+            histogram[i] = { count: 0, month: i + 1 };
+          }
+        }
 
         setState( {
           level: levelsEarned[0],
-          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
           countBadgesThisYear,
           speciesCount,
-          countObservationsThisYear,
           observationsThisYear,
           topThreeIconicTaxonIds,
           topThreeSpeciesBadges,
-          randomObservations
+          randomObservations,
+          histogram
         } );
       } catch ( e ) {
-        console.log( e, "couldn't open realm: achievements" );
+        console.log( e, "couldn't open realm for fetching year in review stats" );
       }
     };
     fetchStatsFromRealm();
@@ -154,5 +178,73 @@ const useFetchStats = ( year ): any => {
   return state;
 };
 
+const useFetchChallenges = ( year ): any => {
+  const [challengeBadges, setChallengeBadges] = useState( [] );
 
-export { useFetchObservationCount, useFetchStats };
+  useEffect( () => {
+    const createBadge = ( latestBadge, numOfMonths ) => ( {
+      name: "",
+      availableDate: addMonths( latestBadge.availableDate, numOfMonths ),
+      index: latestBadge.index + numOfMonths
+    } );
+
+    const createPlaceholderBadges = ( badges ) => {
+      const remainderOfBadges = badges.length % 5;
+
+      if ( remainderOfBadges === 0 || remainderOfBadges === 3 ) {
+        // no placeholders needed
+        return badges;
+      }
+
+      const badgePlaceholders = badges;
+      const latestBadge = badges[badges.length - 1];
+
+      let nextBadge = createBadge( latestBadge, 1 );
+
+      // next challenge after June 2021 will be released Aug 2021
+      if ( isEqual( new Date( 2021, 5, 1 ), new Date( latestBadge.availableDate ) ) ) {
+        nextBadge = createBadge( latestBadge, 2 );
+      }
+
+      const badgeAfterNext = createBadge( nextBadge, 1 );
+
+      if ( remainderOfBadges === 2 || remainderOfBadges === 4 ) {
+        badgePlaceholders.push( nextBadge );
+      }
+
+      if ( remainderOfBadges === 1 ) {
+        badgePlaceholders.push( nextBadge, badgeAfterNext );
+      }
+
+      return badgePlaceholders;
+    };
+
+    const fetchChallenges = async () => {
+      try {
+        // TODO: refactor into useCallbacks
+        const firstOfYear = () => new Date( year, 0, 1, 0, 0, 0, 0 );
+        const lastOfYear = () => new Date( year, 11, 31, 23, 59, 59 );
+
+        const realm = await Realm.open( realmConfig );
+        const challenges = realm
+          .objects( "ChallengeRealm" )
+          .filtered(
+            "completedDate >= $0 && completedDate < $1",
+            firstOfYear( year ),
+            lastOfYear( year )
+          )
+          .sorted( "availableDate", false );
+        const badges = challenges.map( ( challenge ) => challenge );
+        const badgesWithPlaceholders = createPlaceholderBadges( badges );
+        setChallengeBadges( badgesWithPlaceholders );
+      } catch ( e ) {
+        console.log( e, "couldn't open realm: for fetching challenges for year in review" );
+      }
+    };
+    fetchChallenges();
+  }, [year] );
+
+  return challengeBadges;
+};
+
+export { useFetchObservationCount, useFetchStats, useCountObservationsForYear, useFetchChallenges };

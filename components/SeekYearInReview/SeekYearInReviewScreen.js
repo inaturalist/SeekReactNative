@@ -22,6 +22,8 @@ import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import SeekYearInReviewMap from "./SeekYearInReviewMap";
 // TODO: this a copy from SpeciesChart. Could be refactored into dumb component with onl styling, and data as prop
 import SeekYearInReviewChart from "./SeekYearInReviewChart";
+// TODO: this a copy from ChallengeBadges, with only the data fetching hook swaped out. Could be refactored into dumb component with only styling, and data as prop
+import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
 
 const SeekYearInReviewScreen = (): Node => {
   const { setId } = React.useContext( SpeciesDetailContext );
@@ -112,6 +114,7 @@ const SeekYearInReviewScreen = (): Node => {
       </View>
       <SeekYearInReviewMap observations={state.observationsThisYear} />
       <SeekYearInReviewChart data={state.histogram} />
+      <SeekYearInReviewChallengeBadges />
     </ScrollWithHeader>
   );
 };

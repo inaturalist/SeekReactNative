@@ -1,0 +1,10 @@
+/* Localized versions of Info.plist keys */
+/* Permissions */
+"NSCameraUsageDescription" = "Vi bruger kameraet, så du kan få identifikationer af dine naturbilleder.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Vi bruger din placering til at foreslå planter og dyr, som du kan finde i nærheden af dig.";
+"NSLocationAlwaysUsageDescription" = "Vi bruger din placering til at foreslå planter og dyr, som du kan finde i nærheden af dig.";
+"NSLocationWhenInUseUsageDescription" = "Vi bruger din placering til at foreslå planter og dyr, som du kan finde i nærheden af dig.";
+"NSPhotoLibraryAddUsageDescription" = "Vi bruger fotobiblioteket, så du kan få identifikationer af dine naturbilleder.";
+"NSPhotoLibraryUsageDescription" = "Vi bruger fotobiblioteket, så du kan få identifikationer af dine naturbilleder.";
+/* Shortcut Items */
+"Seek Camera" = "Seek-kamera";

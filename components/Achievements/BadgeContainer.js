@@ -11,7 +11,7 @@ type Props = {
 }
 
 const BadgeContainer = ( { data, renderItem }: Props ): React.Node => (
-  <View style={[viewStyles.imageContainer]}>
+  <View testID="badge-container" style={[viewStyles.imageContainer]}>
     {data.map( item => (
       <View key={`${item.name}-${item.earnedIconName}`}>
         {renderItem( item )}

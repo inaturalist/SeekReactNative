@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
@@ -15,6 +15,8 @@ import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import { createJwtToken } from "../../../utility/helpers";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import createUserAgent from "../../../utility/userAgent";
+import { colors } from "../../../styles/global";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +navigation: any
@@ -97,12 +99,12 @@ class ParentalConsentScreen extends Component<Props, State> {
     return (
       <ScrollWithHeader header="login.sign_up">
         <View style={styles.margin} />
-        <Text allowFontScaling={false} style={styles.header}>
+        <StyledText allowFontScaling={false} style={styles.header}>
           {i18n.t( "inat_signup.enter_email" )}
-        </Text>
-        <Text allowFontScaling={false} style={[styles.text, styles.keyboardText]}>
+        </StyledText>
+        <StyledText allowFontScaling={false} style={[styles.text, styles.keyboardText]}>
           {i18n.t( "inat_signup.under_13" )}
-        </Text>
+        </StyledText>
         <View style={styles.margin} />
         <View style={styles.leftTextMargins}>
           <GreenText allowFontScaling={false} smaller text="inat_signup.parent_email" />
@@ -114,8 +116,8 @@ class ParentalConsentScreen extends Component<Props, State> {
           type="emailAddress"
         />
         <View style={styles.center}>
-          {loading ? <LoadingWheel /> : null}
           {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
+          {loading ? <LoadingWheel color={colors.seekForestGreen} /> : null}
         </View>
         <GreenButton
           handlePress={() => {

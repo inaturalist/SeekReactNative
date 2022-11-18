@@ -2,3 +2,6 @@ files:
   - source: /translations/en.json
     translation: /translations/%two_letters_code%.json
     update_option: update_as_unapproved
+  - source: /ios/Seek/en.lproj/InfoPlist.strings
+    translation: ios/Seek/%two_letters_code%.lproj/InfoPlist.strings
+    update_option: update_as_unapproved

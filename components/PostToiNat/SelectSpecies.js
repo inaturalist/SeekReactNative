@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import {
-  Text,
   View,
   StatusBar,
   Image,
@@ -25,6 +24,7 @@ import Padding from "../UIComponents/Padding";
 import { useSearchSpecies } from "./hooks/postingHooks";
 import { iconicTaxaNames, iconicScientificNames } from "../../utility/dictionaries/iconicTaxonDictSelectSpecies";
 import { capitalizeNames } from "../../utility/helpers";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   toggleSpeciesModal: Function,
@@ -128,9 +128,9 @@ const SelectSpecies = ( {
         >
           <Image source={icons.backButton} />
         </TouchableOpacity>
-        <Text style={textStyles.topHeader}>
+        <StyledText style={textStyles.topHeader}>
           {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
       </View>
       <View style={viewStyles.photoContainer}>
         <Image source={userPhoto} style={imageStyles.image} />

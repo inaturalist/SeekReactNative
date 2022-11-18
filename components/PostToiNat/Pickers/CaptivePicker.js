@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../../i18n";
@@ -8,6 +8,7 @@ import styles from "../../../styles/posting/postToiNat";
 import posting from "../../../assets/posting";
 import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   updateObservation: ( string, any ) => void,
@@ -37,12 +38,12 @@ const CaptivePicker = ( { updateObservation, captive }: Props ): React.Node => {
       <View style={styles.thinCard}>
         <Image source={posting.captive} />
         <View style={styles.row}>
-          <Text style={styles.greenText}>
+          <StyledText style={styles.greenText}>
             {i18n.t( "posting.captive" ).toLocaleUpperCase()}
-          </Text>
-          <Text style={styles.text}>
+          </StyledText>
+          <StyledText style={styles.text}>
             {captive ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
-          </Text>
+          </StyledText>
         </View>
         {/* $FlowFixMe */}
         <Image

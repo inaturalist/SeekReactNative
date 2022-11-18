@@ -72,7 +72,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 30,
     letterSpacing: 0.3,
-    lineHeight: 31,
     marginTop: 23,
     marginHorizontal: 28
   },

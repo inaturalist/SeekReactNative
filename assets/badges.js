@@ -79,7 +79,20 @@ const badges = {
   badge_inaturalist_august2022: require( "./badges/seekChallenges/badge_inat_august2022.webp" ),
   badge_inaturalist_september2022: require( "./badges/seekChallenges/badge_inat_september2022.webp" ),
   badge_inaturalist_october2022: require( "./badges/seekChallenges/badge_inat_october2022.webp" ),
-  badge_inaturalist_november2022: require( "./badges/seekChallenges/badge_inat_november2022.webp" )
+  badge_inaturalist_november2022: require( "./badges/seekChallenges/badge_inat_november2022.webp" ),
+  badge_inaturalist_december2022: require( "./badges/seekChallenges/badge_inat_december2022.webp" ),
+  badge_inaturalist_january2023: require( "./badges/seekChallenges/badge_inat_january2023.webp" ),
+  badge_inaturalist_february2023: require( "./badges/seekChallenges/badge_inat_february2023.webp" ),
+  badge_inaturalist_march2023: require( "./badges/seekChallenges/badge_inat_march2023.webp" ),
+  badge_inaturalist_april2023: require( "./badges/seekChallenges/badge_inat_april2023.webp" ),
+  badge_inaturalist_may2023: require( "./badges/seekChallenges/badge_inat_may2023.webp" ),
+  badge_inaturalist_june2023: require( "./badges/seekChallenges/badge_inat_june2023.webp" ),
+  badge_inaturalist_july2023: require( "./badges/seekChallenges/badge_inat_july2023.webp" ),
+  badge_inaturalist_august2023: require( "./badges/seekChallenges/badge_inat_august2023.webp" ),
+  badge_inaturalist_september2023: require( "./badges/seekChallenges/badge_inat_september2023.webp" ),
+  badge_inaturalist_october2023: require( "./badges/seekChallenges/badge_inat_october2023.webp" ),
+  badge_inaturalist_november2023: require( "./badges/seekChallenges/badge_inat_november2023.webp" ),
+  badge_inaturalist_december2023: require( "./badges/seekChallenges/badge_inat_december2023.webp" )
 };
 
 export default badges;

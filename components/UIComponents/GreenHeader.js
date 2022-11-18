@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   TouchableOpacity,
   Image
 } from "react-native";
@@ -13,6 +12,7 @@ import i18n from "../../i18n";
 import { textStyles, viewHeaderStyles } from "../../styles/uiComponents/greenHeader";
 import BackArrow from "./Buttons/BackArrow";
 import posting from "../../assets/posting";
+import StyledText from "./StyledText";
 
 type Props = {
   +header?: ?string,
@@ -28,14 +28,14 @@ const GreenHeader = ( { header, route, plainText }: Props ): React.Node => {
     <View style={[viewHeaderStyles.container, viewHeaderStyles.center]}>
       {name !== "LoginSuccess" && <BackArrow route={route} />}
       {header && (
-        <Text allowFontScaling={false} style={textStyles.text}>
+        <StyledText allowFontScaling={false} style={textStyles.text}>
           {i18n.t( header ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
       )}
       {plainText && (
-        <Text allowFontScaling={false} style={textStyles.text}>
+        <StyledText allowFontScaling={false} style={textStyles.text}>
           {plainText.toLocaleUpperCase( )}
-        </Text>
+        </StyledText>
       )}
       {name === "Post" && (
         <TouchableOpacity

@@ -1,15 +1,20 @@
 // @flow
 
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
+import { useNetInfo } from "@react-native-community/netinfo";
 import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import { useFetchPhotos } from "./hooks/inatHooks";
+import StyledText from "../UIComponents/StyledText";
 
 const INatStatsPhotos = ( ): Node => {
+  const netInfo = useNetInfo();
+  const { isConnected } = netInfo;
+
   const photos = useFetchPhotos( );
 
   const renderPhotos = ( ) => photos.map( ( photo ) => (
@@ -18,9 +23,9 @@ const INatStatsPhotos = ( ): Node => {
         source={{ uri: photo.photoUrl }}
         style={imageStyles.image}
       />
-      <Text style={[textStyles.text, textStyles.caption]}>
+      <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "about_inat.x_seen_by_user", { speciesName: photo.commonName, user: photo.attribution } )}
-      </Text>
+      </StyledText>
     </View>
   ) );
 
@@ -28,7 +33,7 @@ const INatStatsPhotos = ( ): Node => {
 
   return (
     <View style={viewStyles.photoMargins}>
-      <HorizontalScroll photoList={photoList} />
+      {( !isConnected || photos.length === 0 ) ? null : <HorizontalScroll photoList={photoList} />}
     </View>
   );
 };

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useRef, useMemo } from "react";
-import { View, SectionList, Text, Keyboard } from "react-native";
+import { View, SectionList, Keyboard } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
@@ -12,6 +12,7 @@ import ObservationCard from "./ObsCard";
 import SectionHeader from "./SectionHeader";
 import SearchBar from "./SearchBar";
 import SearchEmpty from "./SearchEmpty";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   fetchFilteredObservations: Function,
@@ -83,9 +84,9 @@ const ObsList = ( {
 
     if ( data.length === 0 ) {
       return (
-        <Text style={[styles.text, styles.emptyText]}>
+        <StyledText style={[styles.text, styles.emptyText]}>
           {i18n.t( `observations.not_seen_${iconicTaxon}` )}
-        </Text>
+        </StyledText>
       );
     }
 

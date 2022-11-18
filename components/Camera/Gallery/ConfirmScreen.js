@@ -66,7 +66,7 @@ const ConfirmScreen = ( ): Node => {
       <View style={viewStyles.imageContainer}>
         {clicked && (
           <View style={viewStyles.loadingWheel}>
-            <LoadingWheel color="white" />
+            <LoadingWheel color={colors.white} />
           </View>
         )}
         <Image

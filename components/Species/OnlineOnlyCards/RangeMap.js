@@ -1,6 +1,6 @@
 // @flow
 import React, { useState, useEffect } from "react";
-import { Image, TouchableOpacity, Text } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -12,6 +12,7 @@ import icons from "../../../assets/icons";
 import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
+import StyledText from "../../UIComponents/StyledText";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -74,15 +75,17 @@ const RangeMap = (): Node => {
   }
 
   return (
-    <ViewWithHeader header="species_detail.range_map" footer={false}>
+    <ViewWithHeader testID="range-map-container" header="species_detail.range_map" footer={false}>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
         modal={<Legend closeModal={closeModal} />}
       />
       <MapView
+        testID="range-map"
         provider={PROVIDER_DEFAULT}
         region={mapRegion}
+        onRegionChangeComplete={setMapRegion}
         style={viewStyles.map}
         zoomEnabled
       >
@@ -105,14 +108,15 @@ const RangeMap = (): Node => {
         onPress={openModal}
         style={viewStyles.legend}
       >
-        <Text style={textStyles.whiteText}>
+        <StyledText style={textStyles.whiteText}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
       </TouchableOpacity>
       {user.latitude && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.user_location" )}
           accessible
+          testID="user-location-button"
           onPress={updateMap}
           style={viewStyles.locationIcon}
         >

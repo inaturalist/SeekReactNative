@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useState, useCallback } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
@@ -16,6 +16,7 @@ import i18n from "../../../i18n";
 import SpeciesNearbyChallengeError from "./SpeciesNearbyChallengeError";
 import { useInternetStatus } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   challenge: Object
@@ -110,13 +111,13 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
     } else if ( loading ) {
       return (
         <View style={viewStyles.loadingWheelContainer}>
-          <LoadingWheel color={colors.darkGray} />
+          <LoadingWheel color={colors.seekForestGreen} />
         </View>
       );
     } else {
       return (
         <View style={viewStyles.loadingWheelContainer}>
-          <Text style={textStyles.text}>{i18n.t( "challenges.no_species_nearby" )}</Text>
+          <StyledText style={textStyles.text}>{i18n.t( "challenges.no_species_nearby" )}</StyledText>
         </View>
       );
     }

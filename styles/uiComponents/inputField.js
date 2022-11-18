@@ -14,7 +14,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     color: colors.black,
     height: 37,
     marginHorizontal: dimensions.height > 570 ? 34 : 20,
-    paddingLeft: 15
+    paddingHorizontal: 15
   }
 } );
 

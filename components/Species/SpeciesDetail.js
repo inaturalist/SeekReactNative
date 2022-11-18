@@ -7,8 +7,9 @@ import React, {
   useCallback,
   useContext
 } from "react";
-import { ScrollView, Platform, View } from "react-native";
+import { ScrollView, Platform, View, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { viewStyles } from "../../styles/species/species";
@@ -25,6 +26,8 @@ import { AppOrientationContext, SpeciesDetailContext } from "../UserContext";
 import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 
+import styles from "../../styles/uiComponents/scrollWithHeader";
+
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
   const { id } = useContext( SpeciesDetailContext );
@@ -36,6 +39,9 @@ const SpeciesDetail = ( ): Node => {
   const { params } = useRoute( );
   const commonName = useCommonName( id );
   const taxonDetails = useTaxonDetails( id );
+
+  const fetchedTaxonID = taxonDetails?.taxon?.id;
+  const loading = fetchedTaxonID !== id;
 
   const photos = taxonDetails ? taxonDetails.photos : [];
   const taxon = taxonDetails && taxonDetails.taxon;
@@ -126,6 +132,7 @@ const SpeciesDetail = ( ): Node => {
     if ( taxon && Object.keys( taxon ).length > 0 && !error ) {
       return (
         <OnlineSpeciesContainer
+          loading={loading}
           details={details}
           scientificName={scientificName}
           id={id}
@@ -142,6 +149,7 @@ const SpeciesDetail = ( ): Node => {
       onScrollBeginDrag={clearSelectedText}
     >
       <SpeciesHeader
+        loading={loading}
         id={id}
         taxon={taxon}
         photos={photos}
@@ -152,12 +160,13 @@ const SpeciesDetail = ( ): Node => {
     </ScrollView>
   );
 
-  const renderLandscapeMode = ( ) => (
-    <>
+  const renderLandscapeMode = () => (
+    <SafeAreaView style={styles.container} edges={["top"]}>
+      <StatusBar barStyle="light-content" />
       <GreenHeader plainText={commonName || scientificName} />
       <View style={viewStyles.twoColumnContainer}>
         <View style={{ width: columnWidth }}>
-          <SpeciesPhotosLandscape photos={photos} id={id} />
+          <SpeciesPhotosLandscape loading={loading} photos={photos} id={id} />
         </View>
         <ScrollView
           ref={scrollView}
@@ -165,23 +174,27 @@ const SpeciesDetail = ( ): Node => {
           onScrollBeginDrag={clearSelectedText}
           bounces={false}
         >
-          <IconicTaxaName iconicTaxonId={taxon && taxon.iconicTaxonId} />
+          <IconicTaxaName
+            loading={loading}
+            iconicTaxonId={taxon && taxon.iconicTaxonId}
+          />
           <SpeciesName
+            loading={loading}
             id={id}
             taxon={taxon}
             selectedText={selectedText}
             highlightSelectedText={highlightSelectedText}
           />
-          {renderOnlineOrOfflineContent( )}
+          {renderOnlineOrOfflineContent()}
         </ScrollView>
       </View>
-    </>
+    </SafeAreaView>
   );
 
-  return (
-    <ScrollNoHeader>
-      {isLandscape ? renderLandscapeMode( ) : renderPortraitMode( )}
-    </ScrollNoHeader>
+  return isLandscape ? (
+    renderLandscapeMode()
+  ) : (
+    <ScrollNoHeader>{renderPortraitMode()}</ScrollNoHeader>
   );
 };
 

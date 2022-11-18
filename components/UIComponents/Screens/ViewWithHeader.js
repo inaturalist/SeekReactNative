@@ -9,13 +9,14 @@ import GreenHeader from "../GreenHeader";
 import Footer from "../Footer";
 
 type Props = {
+  testID?: string,
   children: any,
   header: string,
   footer?: boolean
 };
 
-const ViewWithHeader = ( { children, header, footer = true }: Props ): React.Node => (
-  <SafeAreaView style={styles.container} edges={["top"]}>
+const ViewWithHeader = ( { testID, children, header, footer = true }: Props ): React.Node => (
+  <SafeAreaView testID={testID} style={styles.container} edges={["top"]}>
     <StatusBar barStyle="light-content" />
     <GreenHeader header={header} />
     {children}

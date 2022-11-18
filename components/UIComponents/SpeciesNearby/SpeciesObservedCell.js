@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image,
   ImageBackground,
   TouchableOpacity
@@ -18,6 +17,7 @@ import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName, useSeenTaxa, useUserPhoto } from "../../../utility/customHooks";
 import { SpeciesDetailContext } from "../../UserContext";
+import StyledText from "../StyledText";
 
 type Props = {
   +item: Object
@@ -54,11 +54,11 @@ const SpeciesObservedCell = ( { item }: Props ): Node => {
             <Image source={icons.speciesObserved} style={viewStyles.checkbox} />
           </ImageBackground>
           <View style={viewStyles.cellTitle}>
-            <Text numberOfLines={3} style={[textStyles.cellTitleText, !commonName && textStyles.scientificName]}>
+            <StyledText numberOfLines={3} style={[textStyles.cellTitleText, !commonName && textStyles.scientificName]}>
             {commonName
               ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
               : taxon.name}
-            </Text>
+            </StyledText>
           </View>
         </>
       )}

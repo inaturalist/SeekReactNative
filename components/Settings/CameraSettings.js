@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import { View, Text, Switch } from "react-native";
+import { View, Switch } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
 import type { Node } from "react";
@@ -11,6 +11,7 @@ import { viewStyles, textStyles } from "../../styles/settings";
 import { updateUserSetting } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
 import realmConfig from "../../models";
+import StyledText from "../UIComponents/StyledText";
 
 const CameraSettings = ( ): Node => {
   const [settings, setSettings] = useState( {} );
@@ -63,8 +64,8 @@ const CameraSettings = ( ): Node => {
 
   return (
     <>
-      <Text style={textStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
-      <View style={viewStyles.radioButtonSmallMargin}>
+      <StyledText style={textStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
             key={`${obj.label}${i}`}
@@ -96,7 +97,7 @@ const CameraSettings = ( ): Node => {
             />
           </RadioButton>
         ) )}
-      </View>
+      </StyledText>
       <View style={[viewStyles.row, viewStyles.radioButtonSmallMargin]}>
         <Switch
           style={viewStyles.switch}
@@ -106,9 +107,9 @@ const CameraSettings = ( ): Node => {
           accessible
           accessibilityLabel={settings.autoCapture ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
         />
-        <Text style={textStyles.autoCaptureText}>
+        <StyledText style={textStyles.autoCaptureText}>
           {i18n.t( "settings.auto_capture" )}
-        </Text>
+        </StyledText>
       </View>
     </>
   );

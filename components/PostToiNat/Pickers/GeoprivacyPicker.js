@@ -2,7 +2,6 @@
 import * as React from "react";
 import {
   Image,
-  Text,
   View
 } from "react-native";
 
@@ -12,6 +11,7 @@ import posting from "../../../assets/posting";
 import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 import Picker from "../../UIComponents/Picker";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   updateObservation: ( string, any ) => void,
@@ -40,12 +40,12 @@ const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ): React.Nod
     <View style={styles.thinCard}>
         <Image source={posting.geoprivacy} />
         <View style={styles.row}>
-          <Text style={styles.greenText}>
+          <StyledText style={styles.greenText}>
             {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
-          </Text>
-          <Text style={styles.text}>
+          </StyledText>
+          <StyledText style={styles.text}>
             {geoprivacyText}
-          </Text>
+          </StyledText>
         </View>
         {/* $FlowFixMe */}
         <Image

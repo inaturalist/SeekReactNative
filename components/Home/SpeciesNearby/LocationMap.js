@@ -1,13 +1,14 @@
 // @flow
 
 import * as React from "react";
-import { View, Image, TouchableOpacity, Text } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
 import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import icons from "../../../assets/icons";
 import postingIcons from "../../../assets/posting";
 import i18n from "../../../i18n";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   region: {
@@ -41,9 +42,9 @@ const LocationMap = ( {
       />
     ) : (
       <View style={viewStyles.textContainer}>
-        <Text style={textStyles.text}>
+        <StyledText style={textStyles.text}>
           {i18n.t( "species_nearby.input_location_above_map" )}
-        </Text>
+        </StyledText>
       </View>
     )}
     <View pointerEvents="none" style={viewStyles.pinFixed}>

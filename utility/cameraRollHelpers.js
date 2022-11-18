@@ -1,14 +1,17 @@
 // @flow
 
-import CameraRoll from "@react-native-community/cameraroll";
-import type { GetPhotosParams, PhotoIdentifiersPage } from "@react-native-community/cameraroll";
+import { CameraRoll } from "@react-native-camera-roll/camera-roll";
+import type {
+  GetPhotosParams,
+  PhotoIdentifiersPage
+} from "@react-native-camera-roll/camera-roll";
 
 const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   const options: GetPhotosParams = {
     first: 28,
     assetType: "Photos",
     groupTypes: ( album === null ) ? "All" : "Album",
-    include: ["location"]
+    include: ["location"] // This has a large performance impact on Android
   };
 
   if ( album ) { // append for cases where album isn't null

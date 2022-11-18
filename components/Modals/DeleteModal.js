@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image,
   TouchableOpacity
 } from "react-native";
@@ -16,6 +15,7 @@ import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import Button from "../UIComponents/Buttons/Button";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   closeModal: Function,
@@ -55,9 +55,9 @@ const DeleteModal = ( {
         style={viewStyles.flagHeader}
       >
         <View style={[viewStyles.flagTextContainer, viewStyles.row]}>
-          <Text allowFontScaling={false} style={textStyles.buttonText}>
+          <StyledText allowFontScaling={false} style={textStyles.buttonText}>
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
-          </Text>
+          </StyledText>
           <TouchableOpacity
             onPress={closeModal}
             style={viewStyles.flagBackButton}
@@ -77,7 +77,7 @@ const DeleteModal = ( {
         photo={photo}
       />
       <View style={viewStyles.margin} />
-      <Text allowFontScaling={false} style={textStyles.text}>{i18n.t( "delete.description" )}</Text>
+      <StyledText allowFontScaling={false} style={textStyles.text}>{i18n.t( "delete.description" )}</StyledText>
       <View style={viewStyles.marginSmall} />
       <Button
         handlePress={deleteObs}

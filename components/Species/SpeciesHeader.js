@@ -21,7 +21,7 @@ type Props = {
   highlightSelectedText: ( ) => void
 }
 
-const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
+const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
   const navigation = useNavigation( );
 
   const iconicTaxonId = taxon && taxon.iconicTaxonId;
@@ -52,9 +52,10 @@ const SpeciesHeader = ( { photos, taxon, id, selectedText, highlightSelectedText
   return (
     <>
       <CustomBackArrow handlePress={backAction} style={viewStyles.backButton} />
-      <SpeciesPhotos photos={photos} id={id} />
-      <IconicTaxaName iconicTaxonId={iconicTaxonId} />
+      <SpeciesPhotos loading={loading} photos={photos} id={id} />
+      <IconicTaxaName loading={loading} iconicTaxonId={iconicTaxonId} />
       <SpeciesName
+        loading={loading}
         id={id}
         taxon={taxon}
         selectedText={selectedText}

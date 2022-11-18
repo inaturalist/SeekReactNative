@@ -3,12 +3,12 @@
 
 import * as React from "react";
 import {
-  Text,
   TouchableOpacity
 } from "react-native";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/button";
+import StyledText from "../StyledText";
 
 type Props = {
   +color?: ?Object,
@@ -38,9 +38,9 @@ const Button = ( {
       login && viewStyles.login
     ]}
   >
-    <Text style={[textStyles.buttonText, greenText && textStyles.greenText]}>
+    <StyledText style={[textStyles.buttonText, greenText && textStyles.greenText]}>
       {i18n.t( text ).toLocaleUpperCase()}
-    </Text>
+    </StyledText>
   </TouchableOpacity>
 );
 

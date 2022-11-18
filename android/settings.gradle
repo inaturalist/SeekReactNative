@@ -1,4 +1,6 @@
 rootProject.name = 'Seek'
+include ':@react-native-camera-roll_camera-roll'
+project(':@react-native-camera-roll_camera-roll').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-camera-roll/camera-roll/android')
 include ':react-native-inat-camera'
 project(':react-native-inat-camera').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-inat-camera/android')
 include ':react-native-check-app-install'
@@ -8,3 +10,10 @@ project(':RNSendIntentModule').projectDir = new File(rootProject.projectDir, '..
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 
 include ':app'
+includeBuild('../node_modules/react-native-gradle-plugin')
+if (settings.hasProperty("newArchEnabled") && settings.newArchEnabled == "true") {
+    include(":ReactAndroid")
+    project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
+    include(":ReactAndroid:hermes-engine")
+    project(":ReactAndroid:hermes-engine").projectDir = file('../node_modules/react-native/ReactAndroid/hermes-engine')    
+}

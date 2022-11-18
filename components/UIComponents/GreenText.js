@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from "react";
-import { Text } from "react-native";
 
 import styles from "../../styles/uiComponents/greenText";
 import i18n from "../../i18n";
+import StyledText from "./StyledText";
+
 
 type Props = {
   +text: string,
@@ -21,7 +22,7 @@ const GreenText = ( {
   color,
   allowFontScaling
 }: Props ): React.Node => (
-  <Text
+  <StyledText
     style={[
       styles.greenHeaderText,
       smaller && styles.smallerText,
@@ -31,7 +32,7 @@ const GreenText = ( {
     allowFontScaling={allowFontScaling}
   >
     {i18n.t( text ).toLocaleUpperCase()}
-  </Text>
+  </StyledText>
 );
 
 GreenText.defaultProps = {

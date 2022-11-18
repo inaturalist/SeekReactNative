@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -15,6 +15,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../../utility/userAgent";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import { createJwtToken } from "../../../utility/helpers";
+import StyledText from "../../UIComponents/StyledText";
 
 const ForgotPasswordScreen = ( ): Node => {
   const { navigate } = useNavigation( );
@@ -58,9 +59,9 @@ const ForgotPasswordScreen = ( ): Node => {
   return (
     <ScrollWithHeader header="inat_login.forgot_password_header">
       <View style={styles.margin} />
-      <Text allowFontScaling={false} style={[styles.header, styles.marginHorizontal]}>
+      <StyledText allowFontScaling={false} style={[styles.header, styles.marginHorizontal]}>
         {i18n.t( "inat_login.no_worries" )}
-      </Text>
+      </StyledText>
       <View style={[styles.leftTextMargins, styles.marginExtraLarge]}>
         <GreenText allowFontScaling={false} smaller text="inat_login.email" />
       </View>

@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
+import StyledText from "../../UIComponents/StyledText";
 import { isAfter } from "date-fns";
 
 import i18n from "../../../i18n";
@@ -40,9 +41,16 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ): React.Node => {
     <View style={[viewStyles.row, viewStyles.center]}>
       {challenge && showBadge( )}
       <View style={viewStyles.marginMiddle} />
-      <Text style={[large ? textStyles.text : textStyles.textSmall, longText && textStyles.longText]}>
+      <StyledText
+        style={[
+          large
+            ? textStyles.text
+            : textStyles.textSmall,
+          longText && textStyles.longText
+        ]}
+      >
         {text}
-      </Text>
+      </StyledText>
     </View>
   );
 };

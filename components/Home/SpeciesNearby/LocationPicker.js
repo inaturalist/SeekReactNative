@@ -2,7 +2,6 @@
 
 import React, { useState, useContext } from "react";
 import {
-  Text,
   View,
   TextInput,
   Image,
@@ -20,6 +19,7 @@ import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locati
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
 import { SpeciesNearbyContext } from "../../UserContext";
+import StyledText from "../../UIComponents/StyledText";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -114,9 +114,9 @@ const LocationPicker = ( {
       <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
         <View style={viewStyles.marginLarge} />
-        <Text style={textStyles.headerText}>
+        <StyledText style={textStyles.headerText}>
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
         <View style={[viewStyles.row, viewStyles.inputRow]}>
           {/* $FlowFixMe */}
           <Image source={posting.location} tintColor={colors.white} style={imageStyles.white} />

@@ -685,7 +685,9 @@
     "seasonality": "ಋತುಲಭ್ಯತೆ",
     "seasonality_option_1": "ಪ್ರಪಂಚದಾದ್ಯಂತದ  iNaturalist ವೀಕ್ಷಣೆಗಳ ಆಧಾರದ ಮೇಲೆ ಋತುಲಭ್ಯತೆ ಯನ್ನು ಪ್ರದರ್ಶಿಸಿ",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Seek ಗೆ ದೇಣಿಗೆ ನೀಡಲು ದಯವಿಟ್ಟು ಈ ಕೆಳಗಿನ ಕೊಂಡಿಗೆ ಭೇಟಿಕೊಡಿ:"
+    "donate_ios": "Seek ಗೆ ದೇಣಿಗೆ ನೀಡಲು ದಯವಿಟ್ಟು ಈ ಕೆಳಗಿನ ಕೊಂಡಿಗೆ ಭೇಟಿಕೊಡಿ:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seek ಬ್ಯಾಡ್ಜ್",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{user}} ರಿಂದ ವೀಕ್ಷಣೆಯಾದ {{speciesName}}"
+    "x_seen_by_user": "{{user}} ರಿಂದ ವೀಕ್ಷಣೆಯಾದ {{speciesName}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",

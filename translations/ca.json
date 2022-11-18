@@ -685,7 +685,9 @@
     "seasonality": "Estacionalitat",
     "seasonality_option_1": "Mostrar estacionalitat basada en les observacions mundials d'iNaturalist",
     "seasonality_option_2": "Mostrar estacionalitat basada en les observacions d'iNaturalist properes a la meva ubicació actual (les espècies que no es troben prop de la meva localització no tenen estacionalitat)",
-    "donate_ios": "Visita el següent enllaç per fer un donatiu a Seek:"
+    "donate_ios": "Visita el següent enllaç per fer un donatiu a Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Utilitza l'App iNaturalist o el seu lloc web per veure notificacions d'identificacions, comentaris o altres activitats de les teves observacions",
     "logged_in_bullet_3": "Les teves observacions NO es copien a iNaturalist. Si esborres Seek esborraràs totes les observacions del teu dispositiu.",
     "upload_and_track_obs_using_inat": "Puja i manté el registre de les teves observacions utilitzant l'App d'iNaturalist o visitant inaturalist.org.\n\nGràcies per formar part d'aquesta comunitat!",
-    "x_seen_by_user": "{{speciesName}} vist per {{user}}"
+    "x_seen_by_user": "{{speciesName}} vist per {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Repte d'Artròpodes Depredadors",

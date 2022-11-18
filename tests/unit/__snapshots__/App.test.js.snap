@@ -2,6 +2,6 @@
 
 exports[`App container should render correctly 1`] = `
 <View
-  testID="test-added-app-stack"
+  testID="test-app"
 />
 `;

@@ -9,11 +9,13 @@ jest.mock( "../../components/Navigation/RootStack", () =>
   jest.fn().mockReturnValue( null )
 );
 
+const testID = "test-app";
 describe( "App", () => {
-  test( "container should render correctly", () => {
-    RootStack.mockReturnValue( <View testID="test-added-app-stack" /> );
+  test( "container should render correctly", async () => {
+    RootStack.mockReturnValue( <View testID={testID} /> );
     render( <SeekApp /> );
-    expect( screen.findByTestId( "test-added-app-stack" ) ).toBeTruthy();
+    await screen.findByTestId( testID );
+    expect( screen.getByTestId( testID ) ).toBeTruthy();
     expect( screen ).toMatchSnapshot();
   } );
 } );

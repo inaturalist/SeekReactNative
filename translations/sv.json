@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist är ett gemensamt initiativ av California Academy of Sciences och National Geographic Society.",
     "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Designad & utvecklad av iNaturalist-teamet:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary och Yaron Budowski. Särskilt tack till Grant Van Horn från Visipedia för hjälp med bildigenkänningsteknologi, and iNaturalist-communityn.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein och Yaron Budowski. Särskilt tack till Grant Van Horn från Visipedia för hjälp med bildigenkänningsteknologi, och iNaturalist-communityn.",
     "version": "Version",
     "help": "För hjälp med Seek, vänligen mejla help+seek@inaturalist.org.",
     "translators": "Vi är tacksamma för översättningshjälpen från crowdin.com-communityn, särskilt: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch och Yulia Lygina.",
@@ -685,7 +685,9 @@
     "seasonality": "Säsongsvariation",
     "seasonality_option_1": "Visa säsongsvariation baserat på iNaturalist-fynd från hela världen",
     "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-fynd nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)",
-    "donate_ios": "Följ denna länk för att göra en donation till Seek:"
+    "donate_ios": "Följ denna länk för att göra en donation till Seek:",
+    "change_language": "Byt språk i appen till {{language}}?",
+    "confirm": "Bekräfta"
   },
   "seek_challenges": {
     "badge": "Seek-utmärkelse",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Använd iNaturalist-appen eller -webbplatsen för att se aviseringar om bestämningar, kommentarer och annan aktivitet på dina fynd",
     "logged_in_bullet_3": "Dina Seek-fynd är INTE säkerhetskopierade till iNaturalist. Tar du bort Seek kommer alla fynd på din enhet att raderas.",
     "upload_and_track_obs_using_inat": "Ladda upp och håll koll på dina fynd med iNaturalist-appen eller besök inaturalist.se.\n\nTack för att du är en del av denna community!",
-    "x_seen_by_user": "{{speciesName}} sedd av {{user}}"
+    "x_seen_by_user": "{{speciesName}} sedd av {{user}}",
+    "about_inat_internet_error": "Du är inloggad på iNaturalist, men vi behöver internet för att visa detaljer. Tryck för att försöka igen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Utmaning för rovlevande leddjur",
@@ -955,8 +958,8 @@
     "december_2023_description_ecology": "Många olika typer av interaktioner påverkar ekosystemen och deras organismer. Ekologi är studiet av organismer (biotiska) och deras fysiska miljö (aboitisk). Biotiska interaktioner är mellan levande ting medan aboitiska interaktioner innefattar icke-levande faktorer som temperatur, vatten, ljus och jord."
   },
   "seek_year_in_review": {
-    "header": "Seek Year in Review",
-    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review"
+    "header": "Seek-året som gått",
+    "description": "Tack för att du använt Seek i år! Kolla in ditt personliga Året som gått här:",
+    "button": "Visa min Seek-sammanfattning"
   }
 }

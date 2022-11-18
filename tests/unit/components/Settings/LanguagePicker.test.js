@@ -18,19 +18,22 @@ const renderPicker = () => {
   );
 };
 
+const pickerID = "picker";
 describe( "LanguagePicker", () => {
   test( "should render correctly", () => {
     renderPicker();
-    const picker = screen.getByTestId( "picker" );
+    screen.findByTestId( pickerID );
+    const picker = screen.getByTestId( pickerID );
     expect( picker ).toBeTruthy();
-    expect( screen.findByText( "Use device language settings" ) ).toBeTruthy();
+    expect( screen.getByText( "Use device language settings" ) ).toBeTruthy();
     expect( screen ).toMatchSnapshot();
   } );
 
   test( "should open alert on done pressed and not before on iOS", () => {
     const alertSpy = jest.spyOn( Alert, "alert" );
     renderPicker();
-    const picker = screen.getByTestId( "picker" );
+    screen.findByTestId( pickerID );
+    const picker = screen.getByTestId( pickerID );
 
     // Change language to "es" no alert should be shown
     fireEvent( picker, "onValueChange", "es" );
@@ -44,7 +47,8 @@ describe( "LanguagePicker", () => {
 
   test( "should change the language to Spanish", () => {
     renderPicker();
-    const picker = screen.getByTestId( "picker" );
+    screen.findByTestId( pickerID );
+    const picker = screen.getByTestId( pickerID );
 
     // Change language to "es" no alert should be shown
     fireEvent( picker, "onValueChange", "es" );

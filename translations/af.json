@@ -685,7 +685,9 @@
     "seasonality": "Seisoensgebonde",
     "seasonality_option_1": "Toon seisoensgebondenheid gebaseer op wêreldwye iNaturalis-waarnemings",
     "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)",
-    "donate_ios": "Besoek die volgende skakel om aan Seek te skenk:"
+    "donate_ios": "Besoek die volgende skakel om aan Seek te skenk:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Gebruik die iNaturalist-toep of -webwerf om kennisgewings of identifikasies, kommentaar en ander aktiwiteit op u waarnemings  te sien",
     "logged_in_bullet_3": "U Seek-waarnemings word na in iNaturalist gerugsteun nie. Deur Seek te skrap word u waarnemings op u toestel ook geskrap.",
     "upload_and_track_obs_using_inat": "Laai u waarnemings op na iNaturalist en hou dit dop op die toep of gaan na inaturalist.org.\n\nDankie dat u deel van die gemeensap is!",
-    "x_seen_by_user": "{{speciesName}} gesien deur {{user}}"
+    "x_seen_by_user": "{{speciesName}} gesien deur {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Geleedpotige Roofdier-uitdaging",

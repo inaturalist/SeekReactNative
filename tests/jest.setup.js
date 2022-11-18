@@ -58,3 +58,27 @@ jest.mock( "react-native-geolocation-service", () => ( {
   } ),
   requestAuthorization: jest.fn().mockImplementation( () => Promise.resolve( true ) )
 } ) );
+
+jest.mock( "react-native-geocoder", () => ( {
+  geocodePosition: jest.fn().mockImplementation( ( { lat, lng } ) => {
+    return new Promise( ( resolve, reject ) => {
+      resolve( [
+        {
+          adminArea: "CA",
+          country: "United States",
+          countryCode: "US",
+          feature: "771 Bush St",
+          formattedAddress:
+            "771 Bush St, San Francisco, CA  94108, United States",
+          locality: "San Francisco",
+          position: { lat: 37.79, lng: -122.41 },
+          postalCode: "94108",
+          streetName: "Bush St",
+          streetNumber: "771",
+          subAdminArea: "San Francisco",
+          subLocality: "Union Square"
+        }
+      ] );
+    } );
+  } )
+} ) );

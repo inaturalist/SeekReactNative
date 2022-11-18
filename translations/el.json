@@ -568,7 +568,7 @@
     "joint_initiative": "Το iNaturalist είναι μια κοινή πρωτοβουλία της Ακαδημίας Επιστημών της Καλιφόρνια και του National Geographic Society",
     "original": "Το Seek δημιουργήθηκε αρχικά με υποστήριξη από τα HHMI Tangled Bank Studios και εμπλουτίστηκε με υποστήριξη από το Our Planet στο Netflix και την WWF.",
     "designed_by": "Σχεδιασμένο & αναπτυγμένο από την ομάδα του iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Έκδοση",
     "help": "Για βοήθεια με το Seek, στείλτε email στο help+seek@inaturalist.org.",
     "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -685,7 +685,9 @@
     "seasonality": "Εποχικότητα",
     "seasonality_option_1": "Εμφάνιση εποχικότητας βασισμένη σε παγκόσμιες παρατηρήσεις του iNaturalist",
     "seasonality_option_2": "Εμφάνιση εποχικότητας με βάση τις παρατηρήσεις iNaturalist κοντά στην τρέχουσα τοποθεσία μου (είδη που δεν βρέθηκαν κοντά στην τοποθεσία μου θα έχουν καμία εποχικότητα)",
-    "donate_ios": "Παρακαλούμε επισκεφθείτε τον παρακάτω σύνδεσμο για να κάνετε μια δωρεά στο Seek:"
+    "donate_ios": "Παρακαλούμε επισκεφθείτε τον παρακάτω σύνδεσμο για να κάνετε μια δωρεά στο Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Έμβλημα του Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Χρησιμοποιήστε την εφαρμογή ή την ιστοσελίδα του iNaturalist για να δείτε τις ειδοποιήσεις των ταυτοποιήσεων, των σχολίων και άλλων δραστηριοτήτων πάνω στις παρατηρήσεις σας",
     "logged_in_bullet_3": "Οι παρατηρήσεις σας με το Seek δεν αποθηκεύονται στο iNaturalist. Διαγράφοντας το Seek θα διαγράψετε όλες σας τις παρατηρήσεις μέσα στην συσκευή.",
     "upload_and_track_obs_using_inat": "Μεταφορτώστε και παρακολουθείστε τις παρατηρήσεις σας χρησιμοποιώντας την εφαρμογή iNaturalist ή επισκεφθείτε το inaturalist.org.\n\nΕυχαριστούμε που είστε μέλος αυτής της κοινότητας!",
-    "x_seen_by_user": "{{speciesName}} προβλήθηκε από {{user}}"
+    "x_seen_by_user": "{{speciesName}} προβλήθηκε από {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Πρόκληση Θηρευτών Αρθρόποδων",

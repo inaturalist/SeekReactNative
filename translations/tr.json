@@ -685,7 +685,9 @@
     "seasonality": "Mevsimsellik",
     "seasonality_option_1": "Dünya çapındaki iNaturalist gözlemlerine göre mevsimselliği görüntüleyin",
     "seasonality_option_2": "Mevcut konumumun yakınındaki iNaturalist gözlemlerine dayalı mevsimselliği görüntüleyin (konumumun yakınında bulunmayan türlerin mevsimselliği bulunmaz)",
-    "donate_ios": "Seek'e bağış yapmak için lütfen aşağıdaki bağlantıyı ziyaret edin:"
+    "donate_ios": "Seek'e bağış yapmak için lütfen aşağıdaki bağlantıyı ziyaret edin:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seek Rozeti",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Gözlemlerinin tanımlamalarının bildirimlerini, yorumları ve diğer etkinlikleri iNaturalist uygulaması veya websitesi üzerinden görüntüleyebilirsin",
     "logged_in_bullet_3": "Seek gözlemlerin iNaturalist üzerinde YEDEKLENMEZ. Seek'i silersen cihazındaki tüm gözlemler silinir.",
     "upload_and_track_obs_using_inat": "iNaturalist uygulamasını kullanarak veya inaturalist.org sitesini ziyaret ederek gözlemlerini yükleyebilir ve izleyebilirsin.\n\nTopluluğun parçası olduğun için teşekkürler!",
-    "x_seen_by_user": "{{speciesName}} {{user}} tarafından görüldü"
+    "x_seen_by_user": "{{speciesName}} {{user}} tarafından görüldü",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Eklembacaklı Yırtıcı Mücadelesi",

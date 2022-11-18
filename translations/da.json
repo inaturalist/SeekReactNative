@@ -685,7 +685,9 @@
     "seasonality": "Sæsonudsving",
     "seasonality_option_1": "Vis sæsonudsving baseret på iNaturalist-observationer fra hele verden",
     "seasonality_option_2": "Vis sæsonudsving baseret på iNaturalist-observationer nær min aktuelle placering (arter som ikke er fundet i nærheden, vil ikke have nogen sæsonudsving)",
-    "donate_ios": "Besøg følgende link for at donere til Seek:"
+    "donate_ios": "Besøg følgende link for at donere til Seek:",
+    "change_language": "Skift sproget i appen til {{language}}?",
+    "confirm": "Bekræft"
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Brug iNaturalist-appen eller hjemmesiden til at se meddelelser om identifikationer, kommentarer og anden aktivitet på dine observationer",
     "logged_in_bullet_3": "Din Seek-observationer er IKKE sikkerhedskopieret til iNaturalist. Sletning af Seek vil slette alle observationerne på din enhed.",
     "upload_and_track_obs_using_inat": "Upload og hold styr på dine observationer ved hjælp af iNaturalist-appen eller besøg inaturalist.org.\n\nTak fordi du er en del af dette fællesskab!",
-    "x_seen_by_user": "{{speciesName}} set af {{user}}"
+    "x_seen_by_user": "{{speciesName}} set af {{user}}",
+    "about_inat_internet_error": "Du er logget ind på iNaturalist, men vi har brug for internettet for at vise detaljer. Tryk for at prøve igen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Rovleddyrsudfordring",

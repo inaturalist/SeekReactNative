@@ -55,5 +55,6 @@ jest.mock( "react-native-geolocation-service", () => ( {
       }
     };
     successCallback( position );
-  } )
+  } ),
+  requestAuthorization: jest.fn().mockImplementation( () => Promise.resolve( true ) )
 } ) );

@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Zaprojektowane i rozwijane przez zespół iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Wersja",
     "help": "Aby uzyskać pomoc dotyczącą aplikacji Seek, napisz na adres help+seek@inaturalist.org.",
     "translators": "Jesteśmy wdzięczni za pomoc w tłumaczeniach ze strony społeczności crowdin.com, zwłaszcza: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martiţnez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, i Yulia Lygina.",
@@ -685,7 +685,9 @@
     "seasonality": "Sezonowość",
     "seasonality_option_1": "Wyświetl sezonowość w oparciu o obserwacje iNaturalist na całym świecie",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Please visit the following link to make a donation to Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Odznaka Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Użyj aplikacji iNaturalist lub strony internetowej, aby wyświetlić powiadomienia o identyfikacjach, komentarzach i innych aktywnościach dotyczących twoich obserwacji",
     "logged_in_bullet_3": "Twoje obserwacje Seek NIE są przesyłane do iNaturalist. Usunięcie Seek usunie wszystkie obserwacje na twoim urządzeniu.",
     "upload_and_track_obs_using_inat": "Prześlij i śledź swoje obserwacje za pomocą aplikacji iNaturalist lub poprzez inaturalist.org.\n\nDziękujemy za uczestnictwo w tej społeczności!",
-    "x_seen_by_user": "{{speciesName}} zaobserwowany przez {{user}}"
+    "x_seen_by_user": "{{speciesName}} zaobserwowany przez {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",

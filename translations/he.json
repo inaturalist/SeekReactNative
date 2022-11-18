@@ -685,7 +685,9 @@
     "seasonality": "עונתיות",
     "seasonality_option_1": "הצגת עונתיות על בסיס תצפיות עולמיות של iNaturalist",
     "seasonality_option_2": "הצגת עונתיות על בסיס תצפיות iNaturalist בקרבת המיקום הנוכחי שלי (מינים שלא נמצאים באיזור שלי יהיו ללא פירוט עונתיות)",
-    "donate_ios": "נא ללחוץ על הקישור הבא כדי לתרום ל-Seek:"
+    "donate_ios": "נא ללחוץ על הקישור הבא כדי לתרום ל-Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "תג של Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "השתמשו באתר או באפליקציה של iNaturalist כדי לראות התראות על זיהויים, הערות ופעילות אחרת על התצפיות שלכם",
     "logged_in_bullet_3": "תצפיות ה-Seek שלך אינן מגובות באתר iNaturalist. מחיקת אפליקציית Seek תמחק את כל התצפיות שבמכשירך.",
     "upload_and_track_obs_using_inat": "אפשר להעלות את התצפיות שלך ולעקוב אחריהן באמצעות אפליקציית iNaturalist או באתר inaturalist.org.\n\nתודה על השתתפותך בקהילה!",
-    "x_seen_by_user": "{{speciesName}} נצפה על ידי {{user}}"
+    "x_seen_by_user": "{{speciesName}} נצפה על ידי {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "אתגר פרוקי-רגליים טורפים",

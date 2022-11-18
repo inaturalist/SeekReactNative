@@ -13,7 +13,9 @@ const insectObs = [
   "https://www.inaturalist.org/observations/140247122",
   "https://www.inaturalist.org/observations/4953316",
   "https://www.inaturalist.org/observations/64221",
-  "https://www.inaturalist.org/observations/1685980"
+  "https://www.inaturalist.org/observations/1685980",
+  "https://www.inaturalist.org/observations/142296027",
+  "https://www.inaturalist.org/observations/142284141"
 ];
 
 const birdsObs = [

@@ -30,28 +30,32 @@ jest.mock( "@react-navigation/native", () => {
   };
 } );
 
+const containerID = "range-map-container";
+const mapID = "range-map";
+const buttonID = "user-location-button";
+
 describe( "RangeMap", () => {
   test( "should render correctly", () => {
     render( <RangeMap /> );
     // renders the map
-    screen.findByTestId( "range-map-container" );
+    screen.findByTestId( containerID );
     // Create snapshot
     expect( screen ).toMatchSnapshot();
   } );
 
-  test( "should render a location button when user has a location", async () => {
+  test( "should render a location button when location in props", async () => {
     render( <RangeMap /> );
     // renders the map container
-    screen.findByTestId( "range-map-container" );
+    screen.findByTestId( containerID );
 
     // renders the map with location passed in navigation props
-    screen.findByTestId( "range-map" );
-    const map = screen.getByTestId( "range-map" );
+    screen.findByTestId( mapID );
+    const map = screen.getByTestId( mapID );
     expect( map.props.region.latitude ).toBe( 42 );
 
     // renders the user location button
-    await screen.findByTestId( "user-location-button" );
-    const locationButton = screen.getByTestId( "user-location-button" );
+    await screen.findByTestId( buttonID );
+    const locationButton = screen.getByTestId( buttonID );
     expect( locationButton ).toBeTruthy();
 
     // Create snapshot
@@ -62,5 +66,4 @@ describe( "RangeMap", () => {
     // fireEvent.press( locationButton );
     // expect( map.props.region.latitude ).toBe( 42.42 );
   } );
-
 } );

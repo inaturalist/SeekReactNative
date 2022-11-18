@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RangeMap should render a location button when user has a location 1`] = `
+exports[`RangeMap should render a location button when location in props 1`] = `
 <RNCSafeAreaView
   edges={
     [

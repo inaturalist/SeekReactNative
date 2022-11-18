@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RangeMap should render a location button when location in props 1`] = `
+exports[`RangeMap should change map region to user's location when button is pressed 1`] = `
 <RNCSafeAreaView
   edges={
     [
@@ -126,8 +126,8 @@ exports[`RangeMap should render a location button when location in props 1`] = `
     onRegionChangeComplete={[Function]}
     region={
       {
-        "latitude": 42,
-        "longitude": 42,
+        "latitude": 42.1234567,
+        "longitude": 42.1234567,
       }
     }
     style={
@@ -146,8 +146,8 @@ exports[`RangeMap should render a location button when location in props 1`] = `
     <AIRMapMarker
       coordinate={
         {
-          "latitude": 42,
-          "longitude": 42,
+          "latitude": 42.1234567,
+          "longitude": 42.1234567,
         }
       }
       onPress={[Function]}
@@ -400,8 +400,8 @@ exports[`RangeMap should render correctly 1`] = `
     onRegionChangeComplete={[Function]}
     region={
       {
-        "latitude": 42,
-        "longitude": 42,
+        "latitude": 42.1234567,
+        "longitude": 42.1234567,
       }
     }
     style={
@@ -420,8 +420,8 @@ exports[`RangeMap should render correctly 1`] = `
     <AIRMapMarker
       coordinate={
         {
-          "latitude": 42,
-          "longitude": 42,
+          "latitude": 42.1234567,
+          "longitude": 42.1234567,
         }
       }
       onPress={[Function]}

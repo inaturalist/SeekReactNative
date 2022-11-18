@@ -20,8 +20,8 @@ jest.mock( "@react-navigation/native", () => {
     useRoute: () => ( {
       params: {
         region: {
-          latitude: 42,
-          longitude: 42
+          latitude: 42.1234567,
+          longitude: 42.1234567
         },
         id: "some_id",
         seenDate: "some_date"
@@ -29,6 +29,18 @@ jest.mock( "@react-navigation/native", () => {
     } )
   };
 } );
+
+jest.mock( "../../../../../utility/locationHelpers", () => ( {
+  __esModule: true,
+  fetchTruncatedUserLocation: ( ) => {
+    return new Promise( ( resolve ) => {
+      resolve( {
+        latitude: 42.42,
+        longitude: 42.42
+      } );
+    } );
+  }
+} ) );
 
 const containerID = "range-map-container";
 const mapID = "range-map";
@@ -43,15 +55,23 @@ describe( "RangeMap", () => {
     expect( screen ).toMatchSnapshot();
   } );
 
-  test( "should render a location button when location in props", async () => {
+  test( "should render the map with region as given in props", async () => {
     render( <RangeMap /> );
     // renders the map container
     screen.findByTestId( containerID );
 
     // renders the map with location passed in navigation props
-    screen.findByTestId( mapID );
+    await screen.findByTestId( mapID );
     const map = screen.getByTestId( mapID );
-    expect( map.props.region.latitude ).toBe( 42 );
+
+    // Expect location given by props
+    expect( map.props.region.latitude ).toBe( 42.1234567 );
+    expect( map.props.region.longitude ).toBe( 42.1234567 );
+  } );
+
+  test( "should change map region to user's location when button is pressed", async () => {
+    render( <RangeMap /> );
+    const map = screen.getByTestId( mapID );
 
     // renders the user location button
     await screen.findByTestId( buttonID );
@@ -62,7 +82,7 @@ describe( "RangeMap", () => {
     expect( screen ).toMatchSnapshot();
 
     // Press the location button and expect the map to update
-    // TODO: this is not working, the fireEvent is triggering the onPress but the map is not updating, but taking forever to finish the test
+    // TODO: thios button press takes forever, the fireEvent is triggering the onPress but the map is not updating, but taking forever to finish the test
     // fireEvent.press( locationButton );
     // expect( map.props.region.latitude ).toBe( 42.42 );
   } );

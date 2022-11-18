@@ -1,1 +1,1 @@
- describe( "Jest setup", () => { test( "that Jest is working", () => { expect( true ).toBeTruthy(); } ); } );
+ describe( "Jest setup", () => { test( "should pass", () => { expect( true ).toBeTruthy(); } ); } );

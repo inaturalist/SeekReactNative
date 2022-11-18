@@ -685,7 +685,9 @@
     "seasonality": "季節性",
     "seasonality_option_1": "根據全球的 iNaturalist 觀察紀錄來顯示季節性",
     "seasonality_option_2": "根據我目前位置附近的 iNaturalist 觀察紀錄來顯示季節性（接近我位置附近沒有出現的物種則不會顯示季節性）",
-    "donate_ios": "請到下列網址來捐款給 Seek："
+    "donate_ios": "請到下列網址來捐款給 Seek：",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seek 徽章",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "使用 iNaturalist 的應用程式或網站查看關於您觀察記錄的辨識、評論和其他活動的通知",
     "logged_in_bullet_3": "您的 Seek 觀察紀錄不會備份到 iNaturalist 上。刪除 Seek 將會刪除您在此裝置上的所有觀察紀錄。",
     "upload_and_track_obs_using_inat": "使用 iNaturalist 應用程式或到 inaturalist.org 網站上傳和追蹤您的觀察記錄。\n\n 感謝您成為這個社群中的一員！",
-    "x_seen_by_user": "{{speciesName}}由{{user}}發現"
+    "x_seen_by_user": "{{speciesName}}由{{user}}發現",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "節肢動物掠食者挑戰",

@@ -71,7 +71,7 @@ describe( "RangeMap", () => {
 
   test( "should change map region to user's location when button is pressed", async () => {
     render( <RangeMap /> );
-    const map = screen.getByTestId( mapID );
+    screen.findByTestId( containerID );
 
     // renders the user location button
     await screen.findByTestId( buttonID );
@@ -84,6 +84,7 @@ describe( "RangeMap", () => {
     // Press the location button and expect the map to update
     // TODO: thios button press takes forever, the fireEvent is triggering the onPress but the map is not updating, but taking forever to finish the test
     // fireEvent.press( locationButton );
+    // const map = screen.getByTestId( mapID );
     // expect( map.props.region.latitude ).toBe( 42.42 );
   } );
 } );

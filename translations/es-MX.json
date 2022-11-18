@@ -685,7 +685,9 @@
     "seasonality": "Estacionalidad",
     "seasonality_option_1": "Mostrar estacionalidad basada en observaciones mundiales de iNaturalist",
     "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi ubicación actual (especies no encontradas cerca de mi ubicación no tendrán estacionalidad)",
-    "donate_ios": "Por favor visita el siguiente enlace para hacer una donación a Seek:"
+    "donate_ios": "Por favor visita el siguiente enlace para hacer una donación a Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Ver insignia",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Utiliza la App iNaturalist o el sitio web para ver notificaciones de identificaciones, comentarios u otras actividades sobre tus observaciones",
     "logged_in_bullet_3": "Tus observaciones de Seek NO están copiadas en iNaturalist. Si borras Seek se borrarán todas las observaciones de tu dispositivo.",
     "upload_and_track_obs_using_inat": "Sube y da seguimiento a tus observaciones usando la aplicación iNaturalist o visitando inaturalist.org.\n\n¡Gracias por ser parte de esta comunidad!",
-    "x_seen_by_user": "{{speciesName}} visto por {{user}}"
+    "x_seen_by_user": "{{speciesName}} visto por {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Desafio de Artrópodos Depredadores",

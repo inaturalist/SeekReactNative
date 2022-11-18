@@ -685,7 +685,9 @@
     "seasonality": "Szezonalitás",
     "seasonality_option_1": "Szezonalitás megjelenítése az iNaturalist globális megfigyelései alapján",
     "seasonality_option_2": "Szezonalitás megjelenítése az iNaturalist közeli megfigyelései alapján (ha a faj nem volt megfigyelhető a közelben, akkor nincs szezonalitás)",
-    "donate_ios": "Látogass el a következő linkre, hogy támogasd a Seek-et:"
+    "donate_ios": "Látogass el a következő linkre, hogy támogasd a Seek-et:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Megerősítés"
   },
   "seek_challenges": {
     "badge": "Seek jelvény",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Használd az iNaturalist appot vagy weboldalt, hogy megnézd a határozásokkal kapcsolatos értesítéseket, megjegyzéseket, és a megfigyeléseddel kapcsolatos egyéb tevékenységeket",
     "logged_in_bullet_3": "A Seek megfigyeléseid NEM kerültek elmentésre az iNaturalist-ra. A Seek törlése egyben megfigyeléseidet is törli készülékedről.",
     "upload_and_track_obs_using_inat": "Töltsd fel és kövesd megfigyeléseidet az iNaturalist appal vagy az inaturalist.org oldalon.\n\nKöszönjük, hogy a közösség tagja vagy!",
-    "x_seen_by_user": "{{user}} megfigyelte: {{speciesName}}"
+    "x_seen_by_user": "{{user}} megfigyelte: {{speciesName}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Ízeltlábú Ragadozó Kihívás",

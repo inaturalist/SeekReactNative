@@ -1,0 +1,528 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideMenu should render correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#38976d",
+      "flex": 1,
+      "flexGrow": 1,
+      "justifyContent": "center",
+    }
+  }
+  testID="side-menu"
+>
+  <View
+    accessibilityLabel="Home"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/logos/logo-seek-splash-2020.webp",
+        }
+      }
+      style={
+        {
+          "alignSelf": "center",
+          "height": 79,
+          "marginVertical": 41,
+          "resizeMode": "contain",
+          "width": 223,
+        }
+      }
+    />
+  </View>
+  <View
+    accessibilityLabel="HOME"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        {
+          "borderBottomColor": "#63d4ab",
+          "borderBottomWidth": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-menu-home.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      HOME
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="ACHIEVEMENTS"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        {
+          "borderBottomColor": "#63d4ab",
+          "borderBottomWidth": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/badges/observations/icon-badge-gold.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      ACHIEVEMENTS
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="CHALLENGES"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        {
+          "borderBottomColor": "#63d4ab",
+          "borderBottomWidth": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-menu-challenges.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      CHALLENGES
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="MY OBSERVATIONS"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        {
+          "borderBottomColor": "#63d4ab",
+          "borderBottomWidth": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-menu-observations.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      MY OBSERVATIONS
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="INATURALIST"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        {
+          "borderBottomColor": "#63d4ab",
+          "borderBottomWidth": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/logos/iNatStatsSpeciesDetail-Bird.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      INATURALIST
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="ABOUT"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        {
+          "borderBottomColor": "#63d4ab",
+          "borderBottomWidth": 1,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-menu-seek.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      ABOUT
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="SETTINGS"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-start",
+          "paddingVertical": 21,
+        },
+        false,
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-menu-settings.webp",
+        }
+      }
+      style={
+        {
+          "height": 25,
+          "marginHorizontal": 25,
+          "resizeMode": "contain",
+          "tintColor": "#63d4ab",
+          "width": 27,
+        }
+      }
+      tintColor="#63d4ab"
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "flex": 1,
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingEnd": 4,
+            "paddingTop": 3,
+          },
+        ]
+      }
+    >
+      SETTINGS
+    </Text>
+  </View>
+</View>
+`;

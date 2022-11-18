@@ -58,7 +58,7 @@ const SideMenu = ( { navigation }: Props ): React.Node => {
   } );
 
   return (
-    <View style={viewStyles.container}>
+    <View testID="side-menu" style={viewStyles.container}>
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible

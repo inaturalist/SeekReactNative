@@ -686,8 +686,8 @@
     "seasonality_option_1": "Mostra la stagionalità in base alle osservazioni globali di iNaturalist",
     "seasonality_option_2": "Mostra la stagionalità in base alle osservazioni di iNaturalist vicine alla mia posizione corrente (le specie non trovate vicino alla mia posizione, non avranno la stagionalità)",
     "donate_ios": "Visita il seguente link per fare una donazione a Seek:",
-    "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "change_language": "Cambia la lingua in-app in {{language}}?",
+    "confirm": "Conferma"
   },
   "seek_challenges": {
     "badge": "Distintivo di Seek",
@@ -855,7 +855,7 @@
     "logged_in_bullet_3": "Le tue osservazioni di Seek NON sono salvate su iNaturalist. Eliminare Seek eliminerà tutte le osservazioni sul tuo dispositivo.",
     "upload_and_track_obs_using_inat": "Carica e tieni traccia delle tue osservazioni usando l'app di iNaturalist o visitando inaturalist.org.\n\nGrazie per esser parte di questa community!",
     "x_seen_by_user": "{{speciesName}} vista da {{user}}",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "Sei connesso a iNaturalist, ma abbiamo bisogno di internet per mostrare i dettagli. Tocca per riprovare."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Sfida degli Artropodi Predatori",

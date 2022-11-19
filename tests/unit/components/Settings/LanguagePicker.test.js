@@ -25,19 +25,19 @@ const renderPicker = () => {
 const pickerID = "picker";
 const newLanguage = "es";
 describe( "LanguagePicker", () => {
-  test( "should render correctly", () => {
+  test( "should render correctly", async () => {
     renderPicker();
-    screen.findByTestId( pickerID );
+    await screen.findByTestId( pickerID );
     const picker = screen.getByTestId( pickerID );
     expect( picker ).toBeTruthy();
     expect( screen.getByText( "Use device language settings" ) ).toBeTruthy();
     expect( screen ).toMatchSnapshot();
   } );
 
-  test( "should on iOS open alert on Done pressed but not before", () => {
+  test( "should on iOS open alert on Done pressed but not before", async () => {
     const alertSpy = jest.spyOn( Alert, "alert" );
     renderPicker();
-    screen.findByTestId( pickerID );
+    await screen.findByTestId( pickerID );
     const picker = screen.getByTestId( pickerID );
 
     // Change language to "es" no alert should be shown
@@ -50,9 +50,9 @@ describe( "LanguagePicker", () => {
     // because Platform.OS always returns "ios" in the test environment
   } );
 
-  test( "should call the language change hook with the new language", () => {
+  test( "should call the language change hook with the new language", async () => {
     renderPicker();
-    screen.findByTestId( pickerID );
+    await screen.findByTestId( pickerID );
     const picker = screen.getByTestId( pickerID );
 
     // Change language to "es" no alert should be shown

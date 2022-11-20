@@ -1,10 +1,10 @@
 /* Localized versions of Info.plist keys */
 /* Permissions */
-"NSCameraUsageDescription" = "We use the camera so you can get identifications of your nature photos.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationAlwaysUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSPhotoLibraryAddUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
-"NSPhotoLibraryUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
+"NSCameraUsageDescription" = "我們要使用相機，這樣才可以辨識您拍攝自然界的照片。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "我們使用您的位置資訊來建議您附近能找到的植物和動物。";
+"NSLocationAlwaysUsageDescription" = "我們使用您的位置資訊來建議您附近能找到的植物和動物。";
+"NSLocationWhenInUseUsageDescription" = "我們使用您的位置資訊來建議您附近能找到的植物和動物。";
+"NSPhotoLibraryAddUsageDescription" = "我們要使用相簿，這樣才可以辨識您拍攝自然界的照片。";
+"NSPhotoLibraryUsageDescription" = "我們要使用相簿，這樣才可以辨識您拍攝自然界的照片。";
 /* Shortcut Items */
-"Seek Camera" = "Seek Camera";
+"Seek Camera" = "Seek 相機";

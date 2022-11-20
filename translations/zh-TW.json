@@ -118,7 +118,7 @@
     "posting_details": "當 Seek 中的觀察紀錄新增完成，您就可以立即將其張貼到 iNaturalist。如果您想稍後再張貼到 iNaturalist，請使用 iNaturalist 應用程式或網站。",
     "observations": "在此裝置中儲存的觀察紀錄",
     "observations_1": "您在 Seek 中建立的觀察結果只會存儲在您的裝置上，並不會備份到網路上。",
-    "observations_2": "刪除此 app 將會移除您在「探索」中所建立的所有觀察紀錄。",
+    "observations_2": "刪除此應用程式將會移除您在 Seek 中建立的所有觀察紀錄。",
     "observations_3": "Seek 並不會將您的觀察紀錄同步至其他的裝置上。",
     "agree_to_terms": "我同意<terms>{{terms}}</terms>和<privacy>{{privacy}}</privacy>，而且已審閱過<guidelines>{{guidelines}}</guidelines>    。",
     "guidelines": "社群指南",
@@ -228,10 +228,10 @@
     "may_description": "從叢林的最深處到最小的公園內，我們都跟令人驚豔的豐富生物共同分享這顆行星；每一種生物都針對他們所生存的環境做出了不同的適應。尋找當地的生物熱點，並且看看你能找到多少種不同的生物。一路上，你會學到這些不同有機物之間的什麼特色，讓它們截然不同！",
     "congrats": "您完成了 {{month}} 的 Our Planet 挑戰！",
     "thanks": "感謝您的參與！我們都可以助大自然一臂之力。一起加入 Netflix 的 Our Planet 之旅，並在 ourplanet.com 上了解更多資訊。",
-    "no_completed_challenges": "你已經完成的挑戰將顯示於此。",
+    "no_completed_challenges": "您已完成的挑戰會顯示在這裡。",
     "no_challenges_in_progress": "開始下方的新挑戰以獲取徽章！",
     "no_new_challenges_header": "您沒有新的挑戰。",
-    "no_new_challenges": "我們將會在新的挑戰出現時通知您。",
+    "no_new_challenges": "我們會在有新的挑戰時通知您。",
     "completed_all": "您已完成了現有的所有挑戰！",
     "number_observed_plural": {
       "zero": "到目前為止觀察到 {{count}} 種",
@@ -282,7 +282,7 @@
     "badge_name_my_garden_2022": "我的花園徽章"
   },
   "results": {
-    "observed_species": "你已觀察到新的物種！",
+    "observed_species": "您已觀察到新的物種！",
     "learn_more": "已新增至您的觀察記錄。\n在這裡了解更多有關此物種的資訊：",
     "learn_more_no_location": "在這裡可以學習到更多關於此物種的資訊：",
     "view_species": "檢視物種",
@@ -358,7 +358,7 @@
     "genus": "屬",
     "species": "種",
     "error_permissions": "我們需要存取相機權限才能幫助您鑑定物種！",
-    "error_gallery": "我們需要存取您的膠卷才能儲存您拍攝的照片！",
+    "error_gallery": "我們需要存取您的相簿才能儲存您拍攝的照片！",
     "permissions": "在設定中啟用權限",
     "please_permissions": "請在設定中啟用權限",
     "error_classifier": "很抱歉，我們無法載入分類器",
@@ -558,7 +558,7 @@
     "mammal": "哺乳動物",
     "species_saved": "此物種已儲存至您的觀察記錄。",
     "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
-    "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。",
+    "internet_error": "我們需要使用網路來產生物種的詳情頁面。按一下重試看看。",
     "no_photos_found": "沒有找到此物種的照片。",
     "copied": "已複製！"
   },
@@ -655,8 +655,8 @@
     "get_started_modal": "入門提示"
   },
   "review": {
-    "title": "評價這個App",
-    "rate": "如果您喜歡 %s，請花點時間在play商店為其評分。感謝您的支持！",
+    "title": "為這個應用程式評分",
+    "rate": "如果您喜歡這個應用程式，請花點時間在 Play 商店中給它評分。感謝您的支持！",
     "rate_now": "立刻評分",
     "later": "以後再說"
   },
@@ -678,7 +678,7 @@
     "donate": "捐款",
     "donate_header": "協助支持 iNaturalist",
     "donate_description": "喜歡 Seek 嗎？考慮捐款給 iNaturalist！我們靠大眾的捐款來讓應用程式保持免費。",
-    "language": "app 內的語言",
+    "language": "應用程式的語言",
     "device_settings": "使用裝置的語言設定",
     "auto_capture": "當鑑定達到物種階層時自動拍照。",
     "species_detail": "物種詳細資訊",
@@ -686,8 +686,8 @@
     "seasonality_option_1": "根據全球的 iNaturalist 觀察紀錄來顯示季節性",
     "seasonality_option_2": "根據我目前位置附近的 iNaturalist 觀察紀錄來顯示季節性（接近我位置附近沒有出現的物種則不會顯示季節性）",
     "donate_ios": "請到下列網址來捐款給 Seek：",
-    "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "change_language": "要將應用程式的語言切換為「{{language}}」？",
+    "confirm": "確認"
   },
   "seek_challenges": {
     "badge": "Seek 徽章",
@@ -855,7 +855,7 @@
     "logged_in_bullet_3": "您的 Seek 觀察紀錄不會備份到 iNaturalist 上。刪除 Seek 將會刪除您在此裝置上的所有觀察紀錄。",
     "upload_and_track_obs_using_inat": "使用 iNaturalist 應用程式或到 inaturalist.org 網站上傳和追蹤您的觀察記錄。\n\n 感謝您成為這個社群中的一員！",
     "x_seen_by_user": "{{speciesName}}由{{user}}發現",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "您已登入 iNaturalist，但我們需要網路才能顯示詳細資訊。按一下重試看看。"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "節肢動物掠食者挑戰",

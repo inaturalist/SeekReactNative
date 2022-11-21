@@ -1,0 +1,10 @@
+/* Localized versions of Info.plist keys */
+/* Permissions */
+"NSCameraUsageDescription" = "Arra használjuk a kamerát, hogy természetfotóidat azonosíthasd. ";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Arra használjuk a helymeghatározást, hogy a közelben található növényeket és állatokat javasoljunk.";
+"NSLocationAlwaysUsageDescription" = "Arra használjuk a helymeghatározást, hogy a közelben található növényeket és állatokat javasoljunk.";
+"NSLocationWhenInUseUsageDescription" = "Arra használjuk a helymeghatározást, hogy a közelben található növényeket és állatokat javasoljunk.";
+"NSPhotoLibraryAddUsageDescription" = "Arra használjuk a képgalériát, hogy természetfotóidat azonosíthasd. ";
+"NSPhotoLibraryUsageDescription" = "Arra használjuk a képgalériát, hogy természetfotóidat azonosíthasd. ";
+/* Shortcut Items */
+"Seek Camera" = "Seek Kamera";

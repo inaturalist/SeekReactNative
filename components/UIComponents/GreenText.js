@@ -16,6 +16,7 @@ type Props = {
 }
 
 const GreenText = ( {
+  style,
   smaller,
   text,
   center,
@@ -28,7 +29,8 @@ const GreenText = ( {
       styles.greenHeaderText,
       smaller && styles.smallerText,
       center && styles.center,
-      color && { color }
+      color && { color },
+      style
     ]}
     allowFontScaling={allowFontScaling}
   >

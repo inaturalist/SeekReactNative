@@ -24,6 +24,18 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingTop: 25,
     width: 167
   },
+  badgesTextContainer: {
+    justifyContent: "center",
+    alignSelf: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: badgeIconWidth * 3 + 12 * 3
+  },
+  badgeTextContainer: {
+    resizeMode: "contain",
+    width: badgeIconWidth,
+    marginHorizontal: 6
+  },
   textContainer: {
     alignItems: "center",
     marginHorizontal: 26,

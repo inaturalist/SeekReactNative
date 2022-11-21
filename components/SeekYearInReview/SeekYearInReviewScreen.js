@@ -107,18 +107,21 @@ const SeekYearInReviewScreen = (): Node => {
           <SpeciesBadges speciesBadges={state.topThreeSpeciesBadges} />
           <View style={[viewStyles.badgesTextContainer]}>
             <GreenText
+              style={viewStyles.badgeTextContainer}
               center
               smaller
               noTranslation
               text={state.topThreeSpeciesBadges[0].count}
             />
             <GreenText
+              style={viewStyles.badgeTextContainer}
               center
               smaller
               noTranslation
               text={state.topThreeSpeciesBadges[1].count}
             />
             <GreenText
+              style={viewStyles.badgeTextContainer}
               center
               smaller
               noTranslation
@@ -126,17 +129,32 @@ const SeekYearInReviewScreen = (): Node => {
             />
           </View>
           <View style={[viewStyles.badgesTextContainer]}>
-            <StyledText style={textStyles.iconicTaxaNameText}>
+            <StyledText
+              style={[
+                viewStyles.badgeTextContainer,
+                textStyles.iconicTaxaNameText
+              ]}
+            >
               {i18n
                 .t( state.topThreeSpeciesBadges[0].iconicTaxonName )
                 .toLocaleUpperCase()}
             </StyledText>
-            <StyledText style={textStyles.iconicTaxaNameText}>
+            <StyledText
+              style={[
+                viewStyles.badgeTextContainer,
+                textStyles.iconicTaxaNameText
+              ]}
+            >
               {i18n
                 .t( state.topThreeSpeciesBadges[1].iconicTaxonName )
                 .toLocaleUpperCase()}
             </StyledText>
-            <StyledText style={textStyles.iconicTaxaNameText}>
+            <StyledText
+              style={[
+                viewStyles.badgeTextContainer,
+                textStyles.iconicTaxaNameText
+              ]}
+            >
               {i18n
                 .t( state.topThreeSpeciesBadges[2].iconicTaxonName )
                 .toLocaleUpperCase()}

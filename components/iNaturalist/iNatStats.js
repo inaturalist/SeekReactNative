@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useContext } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../styles/iNaturalist/iNatStats";
@@ -15,8 +15,9 @@ import AppIconSubHeader from "./AppIconSubHeader";
 import INatHeaderLoggedOut from "./iNatHeaderLoggedOut";
 import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
 import LoginCard from "../UIComponents/Login/LoginCard";
+import StyledText from "../UIComponents/StyledText";
 
-const INatDetails = ( ): Node => {
+const INatStats = ( ): Node => {
   const { login } = useContext( UserContext );
   const { isTablet } = useContext( AppOrientationContext );
 
@@ -47,7 +48,7 @@ const INatDetails = ( ): Node => {
         <BulletedList text="about_inat.seek_bullet_3" />
         <View style={viewStyles.sectionMargin} />
         <GreenText text="about_inat.your_obs_could_make_difference" />
-        <Text style={[textStyles.text, textStyles.everydayObs]}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</Text>
+        <StyledText style={[textStyles.text, textStyles.everydayObs]}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</StyledText>
       </View>
       <INatPhotos />
       <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
@@ -60,4 +61,4 @@ const INatDetails = ( ): Node => {
   );
 };
 
-export default INatDetails;
+export default INatStats;

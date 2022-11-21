@@ -1,8 +1,9 @@
 // @flow
 import * as React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import Drawer from "./SideDrawer";
 import Splash from "../Splash";
@@ -55,50 +56,52 @@ const modal = { presentation: "modal" };
 const Stack = createStackNavigator( );
 
 const App = ( ): Props => (
-  <SafeAreaProvider>
-    <NavigationContainer>
-      <Stack.Navigator >
-        <Stack.Group screenOptions={screenOptions}>
-          <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />
-          <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
-          <Stack.Screen name="Camera" component={Camera} options={verticalConfig} />
-          <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
-          <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
-          <Stack.Screen name="Post" component={Post} options={defaultConfig} />
-          <Stack.Screen name="PostStatus" component={PostStatus} options={defaultConfig} />
-          <Stack.Screen name="LoginOrSignup" component={LoginOrSignupScreen} options={defaultConfig} />
-          <Stack.Screen name="Age" component={AgeVerifyScreen} options={defaultConfig} />
-          <Stack.Screen name="Login" component={LoginScreen} options={defaultConfig} />
-          <Stack.Screen name="Forgot" component={ForgotPasswordScreen} options={defaultConfig} />
-          <Stack.Screen name="PasswordEmail" component={PasswordEmailScreen} options={defaultConfig} />
-          <Stack.Screen name="ParentCheck" component={ParentCheckEmailScreen} options={defaultConfig} />
-          <Stack.Screen name="LoginSuccess" component={LoginSuccessScreen} options={defaultConfig} />
-          <Stack.Screen name="Parent" component={ParentalConsentScreen} options={defaultConfig} />
-          <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
-          <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
-          <Stack.Screen name="Social" component={Social} options={defaultConfig} />
-        </Stack.Group>
-         <Stack.Group screenOptions={modal}>
-          {/* Removed Footer from Notification screen because animation from right
-          doesn't work if it's in drawer, but this screen would also need access to open the drawer
-          if the footer is shown */}
-          <Stack.Screen name="Notifications" component={Notifications} options={notificationsConfig} />
-          <Stack.Screen name="RangeMap" component={RangeMap} options={defaultConfig} />
-          <Stack.Screen name="Wikipedia" component={Wikipedia} options={verticalConfig} />
-          <Stack.Screen name="CameraHelp" component={CameraHelp} options={defaultConfig} />
-          <Stack.Screen name="Donation" component={Donation} options={verticalConfig} />
-          <Stack.Screen name="PostingHelp" component={PostingHelp} options={defaultConfig} />
-          <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} options={defaultConfig} />
-          <Stack.Screen name="TermsOfService" component={TermsOfServiceScreen} options={defaultConfig} />
-          <Stack.Screen
-            name="CommunityGuidelines"
-            component={CommunityGuidelines}
-            options={defaultConfig}
-          />
-        </Stack.Group>
-      </Stack.Navigator>
-    </NavigationContainer>
-  </SafeAreaProvider>
+  <GestureHandlerRootView style={{ flex: 1 }}>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator >
+          <Stack.Group screenOptions={screenOptions}>
+            <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />
+            <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
+            <Stack.Screen name="Camera" component={Camera} options={verticalConfig} />
+            <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
+            <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
+            <Stack.Screen name="Post" component={Post} options={defaultConfig} />
+            <Stack.Screen name="PostStatus" component={PostStatus} options={defaultConfig} />
+            <Stack.Screen name="LoginOrSignup" component={LoginOrSignupScreen} options={defaultConfig} />
+            <Stack.Screen name="Age" component={AgeVerifyScreen} options={defaultConfig} />
+            <Stack.Screen name="Login" component={LoginScreen} options={defaultConfig} />
+            <Stack.Screen name="Forgot" component={ForgotPasswordScreen} options={defaultConfig} />
+            <Stack.Screen name="PasswordEmail" component={PasswordEmailScreen} options={defaultConfig} />
+            <Stack.Screen name="ParentCheck" component={ParentCheckEmailScreen} options={defaultConfig} />
+            <Stack.Screen name="LoginSuccess" component={LoginSuccessScreen} options={defaultConfig} />
+            <Stack.Screen name="Parent" component={ParentalConsentScreen} options={defaultConfig} />
+            <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
+            <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
+            <Stack.Screen name="Social" component={Social} options={defaultConfig} />
+          </Stack.Group>
+          <Stack.Group screenOptions={modal}>
+            {/* Removed Footer from Notification screen because animation from right
+            doesn't work if it's in drawer, but this screen would also need access to open the drawer
+            if the footer is shown */}
+            <Stack.Screen name="Notifications" component={Notifications} options={notificationsConfig} />
+            <Stack.Screen name="RangeMap" component={RangeMap} options={defaultConfig} />
+            <Stack.Screen name="Wikipedia" component={Wikipedia} options={verticalConfig} />
+            <Stack.Screen name="CameraHelp" component={CameraHelp} options={defaultConfig} />
+            <Stack.Screen name="Donation" component={Donation} options={verticalConfig} />
+            <Stack.Screen name="PostingHelp" component={PostingHelp} options={defaultConfig} />
+            <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} options={defaultConfig} />
+            <Stack.Screen name="TermsOfService" component={TermsOfServiceScreen} options={defaultConfig} />
+            <Stack.Screen
+              name="CommunityGuidelines"
+              component={CommunityGuidelines}
+              options={defaultConfig}
+            />
+          </Stack.Group>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  </GestureHandlerRootView>
 );
 
 export default App;

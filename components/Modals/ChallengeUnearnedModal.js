@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image,
   ImageBackground
 } from "react-native";
@@ -19,6 +18,7 @@ import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import { ChallengeContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   closeModal: ( ) => void,
@@ -69,9 +69,9 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node 
           allowFontScaling={false}
         />
       </View>
-      <Text allowFontScaling={false} style={textStyles.nameText}>
+      <StyledText allowFontScaling={false} style={textStyles.nameText}>
         {i18n.t( "challenges.how_to", { month: formatMonth( challenge.availableDate ) } )}
-      </Text>
+      </StyledText>
       {checkIfChallengeAvailable( challenge.availableDate ) ? (
         <View style={viewStyles.container}>
           <GreenButton
@@ -81,9 +81,9 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node 
           />
         </View>
       ) : (
-        <Text allowFontScaling={false} style={textStyles.italicText}>
+        <StyledText allowFontScaling={false} style={textStyles.italicText}>
           {i18n.t( "challenges.released", { date: formatMonthYear( challenge.availableDate ) } )}
-        </Text>
+        </StyledText>
       )}
     </WhiteModal>
   );

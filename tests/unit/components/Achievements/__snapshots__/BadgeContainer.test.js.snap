@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeContainer should render correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "alignSelf": "center",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
+        "width": 377.20734908136484,
+      },
+    ]
+  }
+  testID="badge-container"
+>
+  <View />
+</View>
+`;

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useContext } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -16,6 +16,7 @@ import config from "../../../config";
 import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../../UIComponents/StyledText";
 
 const LoginScreen = ( ): Node => {
   const { navigate } = useNavigation( );
@@ -128,9 +129,9 @@ const LoginScreen = ( ): Node => {
         onPress={navToForgotPassword}
         style={styles.rightTextContainer}
       >
-        <Text allowFontScaling={false} style={styles.forgotPasswordText}>
+        <StyledText allowFontScaling={false} style={styles.forgotPasswordText}>
           {i18n.t( "inat_login.forgot_password" )}
-        </Text>
+        </StyledText>
       </TouchableOpacity>
       {error ? <ErrorMessage error={errorMessage || setErrorText( )} /> : <View style={styles.greenButtonMargin} />}
       <GreenButton

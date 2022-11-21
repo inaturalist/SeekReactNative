@@ -1,11 +1,12 @@
 // @flow
 
 import * as React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import logos from "../../assets/logos";
 import { AppOrientationContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   icon: string,
@@ -27,14 +28,14 @@ const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
         source={icon === "inat" ? logos.iNatAppIcon : logos.seekAppIcon}
         style={largeIcon ? imageStyles.largeIcon : imageStyles.smallIcon}
       />
-      <Text style={[
+      <StyledText style={[
         textStyles.secondHeaderText,
         largeIcon && textStyles.smallerTextWidth,
         isTablet && viewStyles.tabletContainer,
         ( isTablet && largeIcon ) && viewStyles.landscapeContainerLargeIcon
       ]}>
         {text}
-      </Text>
+      </StyledText>
     </View>
   );
 };

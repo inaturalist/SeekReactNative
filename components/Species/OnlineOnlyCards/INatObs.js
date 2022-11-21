@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   Image,
   TouchableOpacity
 } from "react-native";
@@ -16,6 +15,7 @@ import logos from "../../../assets/logos";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import createUserAgent from "../../../utility/userAgent";
 import { localizeNumber } from "../../../utility/helpers";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +id: ?number,
@@ -72,24 +72,24 @@ const INatObs = ( { id, timesSeen, region }: Props ): Node => {
             <View style={viewStyles.textContainer}>
               {region.latitude && (
                 <>
-                  <Text style={textStyles.secondHeaderText}>
+                  <StyledText style={textStyles.secondHeaderText}>
                     {i18n.t( "species_detail.near" )}
-                  </Text>
-                  <Text style={textStyles.number}>
+                  </StyledText>
+                  <StyledText style={textStyles.number}>
                     {localizeNumber( nearbySpeciesCount )}
-                  </Text>
+                  </StyledText>
                 </>
               )}
-              <Text style={[
+              <StyledText style={[
                 textStyles.secondHeaderText,
                 region.latitude && viewStyles.margin
               ]}
               >
                 {i18n.t( "species_detail.worldwide" )}
-              </Text>
-              <Text style={textStyles.number}>
+              </StyledText>
+              <StyledText style={textStyles.number}>
                 {localizeNumber( timesSeen )}
-              </Text>
+              </StyledText>
             </View>
           </View>
         </SpeciesDetailCard>

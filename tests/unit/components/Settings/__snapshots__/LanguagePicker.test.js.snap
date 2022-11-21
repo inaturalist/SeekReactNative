@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguagePicker should render correctly 1`] = `
+<View
+  style={
+    {
+      "paddingTop": 16,
+    }
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "textAlign": "left",
+        },
+        {
+          "color": "#38976d",
+          "fontFamily": "Whitney-Semibold",
+          "fontSize": 19,
+          "letterSpacing": 1.12,
+        },
+      ]
+    }
+  >
+    IN-APP LANGUAGE
+  </Text>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+        },
+        {
+          "marginTop": 17,
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "paddingRight": 10.3,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../react-native-check-box/img/ic_check_box.png",
+            }
+          }
+          style={
+            {
+              "tintColor": "#979797",
+            }
+          }
+        />
+      </View>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "Whitney-Book",
+              "fontSize": 16,
+              "lineHeight": 21,
+            },
+            {
+              "paddingTop": 5,
+            },
+          ],
+        ]
+      }
+    >
+      Use device language settings
+    </Text>
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignSelf": "stretch",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="picker"
+    >
+      <View
+        pointerEvents="box-only"
+        style={
+          {
+            "alignItems": "center",
+            "paddingVertical": 19,
+          }
+        }
+      >
+        <TextInput
+          editable={false}
+          style={
+            [
+              {
+                "backgroundColor": "#38976d",
+                "borderRadius": 6,
+                "color": "#ffffff",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 20,
+                "letterSpacing": 1.11,
+                "paddingBottom": 11,
+                "paddingHorizontal": 18,
+                "paddingTop": 12,
+                "textAlign": "center",
+              },
+              {},
+            ]
+          }
+          testID="text_input"
+          value="ENGLISH"
+        />
+        <View
+          style={
+            [
+              {
+                "position": "absolute",
+                "right": 0,
+              },
+              undefined,
+            ]
+          }
+          testID="icon_container"
+        />
+      </View>
+    </View>
+    <Modal
+      hardwareAccelerated={false}
+      onOrientationChange={[Function]}
+      supportedOrientations={
+        [
+          "portrait",
+          "landscape",
+        ]
+      }
+      testID="ios_modal"
+      transparent={true}
+      visible={false}
+    />
+  </View>
+</View>
+`;

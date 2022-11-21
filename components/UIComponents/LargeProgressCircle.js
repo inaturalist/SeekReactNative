@@ -1,12 +1,13 @@
 // @flow
 
 import * as React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
 import { viewStyles, textStyles } from "../../styles/uiComponents/percentCircle";
 import { colors } from "../../styles/global";
 import { calculatePercent } from "../../utility/challengeHelpers";
+import StyledText from "./StyledText";
 
 type Props = {
   +badge: Object,
@@ -24,11 +25,11 @@ const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ): React.Node
       radius={113 / 2}
       shadowColor={colors.circleGray}
     >
-      <Text allowFontScaling={false} style={textStyles.largeCircleText}>
+      <StyledText allowFontScaling={false} style={textStyles.largeCircleText}>
         {iconicSpeciesCount}
         {"/"}
         {badge.count}
-      </Text>
+      </StyledText>
     </ProgressCircle>
   </View>
 );

@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   Image,
-  Text,
   View
 } from "react-native";
 import type { Node } from "react";
@@ -12,6 +11,7 @@ import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/onboarding";
 import Swiper from "./Swiper";
 import icons from "../../assets/icons";
+import StyledText from "../UIComponents/StyledText";
 
 const OnboardingScreen = ( ): Node => (
   <Swiper>
@@ -19,9 +19,9 @@ const OnboardingScreen = ( ): Node => (
       <View key={`${item}`} style={viewStyles.image}>
         <Image source={icons[`onboarding${item}`]} />
         <View style={viewStyles.margin} />
-        <Text allowFontScaling={false} style={[textStyles.text, viewStyles.center]}>
+        <StyledText allowFontScaling={false} style={[textStyles.text, viewStyles.center]}>
           {i18n.t( `onboarding.onboarding_${item}` )}
-        </Text>
+        </StyledText>
       </View>
     ) )}
   </Swiper>

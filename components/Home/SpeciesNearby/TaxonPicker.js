@@ -2,7 +2,6 @@
 
 import React, { useContext, useMemo, useCallback } from "react";
 import {
-  Text,
   TouchableOpacity,
   Image,
   View
@@ -14,6 +13,7 @@ import icons from "../../../assets/icons";
 import { viewStyles, textStyles, imageStyles } from "../../../styles/home/speciesNearby";
 import Picker from "../../../components/UIComponents/Picker";
 import { SpeciesNearbyContext } from "../../UserContext";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +updateTaxaType: Function,
@@ -39,9 +39,9 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
     <TouchableOpacity style={[viewStyles.row, viewStyles.marginLeft]}>
       <Image source={icons.filter} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
-        <Text style={textStyles.buttonText}>
+        <StyledText style={textStyles.buttonText}>
           {i18n.t( `taxon_picker.${taxaType}` ).toLocaleUpperCase()}
-        </Text>
+        </StyledText>
       </View>
     </TouchableOpacity>
   ), [taxaType] );

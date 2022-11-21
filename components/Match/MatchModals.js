@@ -47,7 +47,6 @@ const MatchModals = ( {
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
   const taxaId = taxon && taxon.taxaId;
-  let firstRender = useRef( true );
 
   const commonName = useCommonName( taxaId );
 
@@ -181,17 +180,16 @@ const MatchModals = ( {
 
   useEffect( ( ) => {
     navigation.addListener( "focus", ( ) => {
-      if ( screenType === "newSpecies" && firstRender.current ) {
+      if ( screenType === "newSpecies" ) {
         checkChallenges( );
         checkBadges( );
       }
-      if ( screenType === "resighted" && firstRender.current ) {
+      if ( screenType === "resighted" ) {
         dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: true } );
       }
     } );
 
     navigation.addListener( "blur", ( ) => {
-      firstRender.current = false;
       if ( screenType === "newSpecies" ) {
         setChallengeProgress( "none" );
       }
@@ -200,45 +198,44 @@ const MatchModals = ( {
 
   return (
     <>
-      {firstRender.current && (
-        <>
-          <Toasts badge={badge} challenge={challengeInProgress} />
-          {challenge && <RNModal
-            showModal={challengeModal}
-            closeModal={closeChallengeModal}
-            modal={<ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
-          />}
-          <RNModal
-            showModal={levelModal}
-            closeModal={closeLevelModal}
-            modal={(
-              <LevelModal
-                level={latestLevel}
-                speciesCount={latestLevel ? latestLevel.count : 0}
-                closeModal={closeLevelModal}
-              />
-            )}
-          />
-          <Modal
-            isVisible={replacePhotoModal}
-            useNativeDriverForBackdrop
-            useNativeDriver
-          >
-            <ReplacePhotoModal
-              seenDate={seenDate}
-              closeModal={closeReplacePhotoModal}
-              commonName={commonName}
-              scientificNames={scientificNames}
-              taxon={taxon}
+      <Toasts badge={badge} challenge={challengeInProgress} />
+      {challenge && (
+        <RNModal
+          showModal={challengeModal}
+          closeModal={closeChallengeModal}
+          modal={
+            <ChallengeEarnedModal
+              challenge={challenge}
+              closeModal={closeChallengeModal}
             />
-          </Modal>
-        </>
+          }
+        />
       )}
+      <RNModal
+        showModal={levelModal}
+        closeModal={closeLevelModal}
+        modal={
+          <LevelModal
+            level={latestLevel}
+            speciesCount={latestLevel ? latestLevel.count : 0}
+            closeModal={closeLevelModal}
+          />
+        }
+      />
       <Modal
-        isVisible={flagModal}
+        isVisible={replacePhotoModal}
         useNativeDriverForBackdrop
         useNativeDriver
       >
+        <ReplacePhotoModal
+          seenDate={seenDate}
+          closeModal={closeReplacePhotoModal}
+          commonName={commonName}
+          scientificNames={scientificNames}
+          taxon={taxon}
+        />
+      </Modal>
+      <Modal isVisible={flagModal} useNativeDriverForBackdrop useNativeDriver>
         <FlagModal
           taxon={taxon}
           seenDate={seenDate}

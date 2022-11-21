@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import SpeciesStats from "./OnlineOnlyCards/SpeciesStats";
 import SimilarSpecies from "./OnlineOnlyCards/SimilarSpecies";
@@ -20,6 +20,7 @@ import {
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../utility/customHooks";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +details: Object,
@@ -29,6 +30,7 @@ type Props = {
 }
 
 const OnlineSpeciesContainer = ( {
+  loading,
   id,
   details,
   predictions,
@@ -48,15 +50,16 @@ const OnlineSpeciesContainer = ( {
   const coords = useTruncatedUserCoords( granted );
   const region = useRegion( coords, seenTaxa );
 
-  const renderHumanCard = ( ) => (
-    <View style={viewStyles.textContainer}>
-      <Text style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</Text>
-      <Padding />
-    </View>
-  );
+  const renderHumanCard = ( ) => {
+    return !loading ?
+      <View style={viewStyles.textContainer}>
+        <StyledText style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</StyledText>
+        <Padding />
+      </View> : null;
+  };
 
-  const renderSpeciesCards = ( ) => (
-    <>
+  const renderSpeciesCards = ( ) => {
+    return !loading ? <>
       <SpeciesMap id={id} seenDate={seenDate} region={region} />
       {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} id={id} />}
       {/* there's certainly a better way to do this, but adding about prop to make sure
@@ -70,14 +73,14 @@ const OnlineSpeciesContainer = ( {
           <SimilarSpecies id={id} />
         </>
       )}
-    </>
-  );
+    </> : null;
+  };
 
   return (
     <>
-      <SpeciesStats stats={stats} id={id} region={region} seenDate={seenDate} />
-      {seenDate && <SeenDate seenDate={seenDate} />}
-      <About about={about} wikiUrl={wikiUrl} id={id} scientificName={scientificName} />
+      <SpeciesStats loading={loading} stats={stats} id={id} region={region} seenDate={seenDate} />
+      {seenDate && <SeenDate loading={loading} seenDate={seenDate} />}
+      <About loading={loading} about={about} wikiUrl={wikiUrl} id={id} scientificName={scientificName} />
       {id !== 43584 ? renderSpeciesCards( ) : renderHumanCard( )}
     </>
   );

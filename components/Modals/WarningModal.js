@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image
 } from "react-native";
 
@@ -13,6 +12,7 @@ import { dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   closeModal: ( ) => void
@@ -26,9 +26,9 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
     accessibilityLabel={i18n.t( "accessibility.warning_modal" )}
   >
     <View style={viewStyles.header}>
-      <Text allowFontScaling={false} style={textStyles.headerText}>
+      <StyledText allowFontScaling={false} style={textStyles.headerText}>
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
-      </Text>
+      </StyledText>
     </View>
     <View style={viewStyles.marginTop} />
     <View>
@@ -38,18 +38,18 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
           <React.Fragment key={warning}>
             <View style={viewStyles.row}>
               <Image source={iconName} style={imageStyles.image} />
-              <Text allowFontScaling={false} style={textStyles.text}>
+              <StyledText allowFontScaling={false} style={textStyles.text}>
                 {i18n.t( `warning.tip_${warning}` )}
-              </Text>
+              </StyledText>
             </View>
             {warning !== 3 && <View style={viewStyles.margin} />}
           </React.Fragment>
         );
       } )}
       <View style={viewStyles.marginSmall} />
-      <Text allowFontScaling={false} style={[textStyles.text, textStyles.wideText]}>
+      <StyledText allowFontScaling={false} style={[textStyles.text, textStyles.wideText]}>
         {i18n.t( "warning.tip_4" )}
-      </Text>
+      </StyledText>
     </View>
     <View style={viewStyles.button}>
       <GreenButton

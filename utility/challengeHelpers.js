@@ -209,6 +209,8 @@ const setupChallenges = async ( isAdmin: boolean ): Promise<any> => {
   try {
     const realm = await Realm.open( realmConfig );
     const dict = Object.keys( challengesDict );
+    // Used to show the admin alert only once
+    let adminAlertShown = false;
 
     realm.write( ( ) => {
       dict.forEach( ( challengesType, i ) => {
@@ -220,8 +222,9 @@ const setupChallenges = async ( isAdmin: boolean ): Promise<any> => {
         if ( isAvailable || process.env.NODE_ENV === "development" || isAdmin ) {
           const { logo, secondLogo, sponsorName } = setChallengeDetails( challenge.availableDate );
 
-          if ( isAdmin && isDateInFuture( challenge.availableDate ) ) {
+          if ( isAdmin && isDateInFuture( challenge.availableDate ) && !adminAlertShown ) {
             showAdminAlert( );
+            adminAlertShown = true;
           }
 
           realm.create( "ChallengeRealm", {

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
+import { useNetInfo } from "@react-native-community/netinfo";
 
 import i18n from "../../../i18n";
 import { capitalizeNames, shuffleList } from "../../../utility/helpers";
@@ -11,9 +12,13 @@ import createUserAgent from "../../../utility/userAgent";
 import realmConfig from "../../../models";
 
 const useFetchPhotos = ( ): any => {
+  const netInfo = useNetInfo();
+  const { isConnected } = netInfo;
+
   const [photos, setPhotos] = useState( [] );
 
   useEffect( ( ) => {
+    if ( !isConnected ) {return;}
     let isCurrent = true;
 
     const fetchProjectPhotos = ( ) => {
@@ -70,12 +75,12 @@ const useFetchPhotos = ( ): any => {
     return ( ) => {
       isCurrent = false;
     };
-  }, [] );
+  }, [isConnected] );
 
   return photos;
 };
 
-const useFetchObservationCount = ( login: ?string, username: string ): any => {
+const useFetchObservationCount = ( login: ?string, username: string, triggerReload: Boolean ): any => {
   const [observationCount, setObservationCount] = useState( null );
 
   const updateSavedLogin = async ( newCount ) => {
@@ -122,7 +127,7 @@ const useFetchObservationCount = ( login: ?string, username: string ): any => {
     return ( ) => {
       isCurrent = false;
     };
-  }, [login, username] );
+  }, [login, username, triggerReload] );
 
   return observationCount;
 };

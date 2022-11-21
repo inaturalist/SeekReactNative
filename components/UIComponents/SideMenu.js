@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { Image, Text, Pressable, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 
 import i18n from "../../i18n";
 import { viewStyles, imageStyles, textStyles } from "../../styles/uiComponents/sideMenu";
@@ -10,6 +10,7 @@ import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
 import { resetRouter } from "../../utility/navigationHelpers";
 import { colors } from "../../styles/global";
+import StyledText from "./StyledText";
 
 type Props = {
   navigation: any
@@ -51,13 +52,13 @@ const SideMenu = ( { navigation }: Props ): React.Node => {
           style={imageStyles.icon}
           tintColor={colors.menuItems}
         />
-        <Text allowFontScaling={false} style={textStyles.text}>{name}</Text>
+        <StyledText allowFontScaling={false} style={textStyles.text}>{name}</StyledText>
       </Pressable>
     );
   } );
 
   return (
-    <View style={viewStyles.container}>
+    <View testID="side-menu" style={viewStyles.container}>
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible

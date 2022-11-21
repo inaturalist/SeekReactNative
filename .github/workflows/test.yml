@@ -1,0 +1,49 @@
+##
+# Run tests
+##
+name: Tests
+on:
+  pull_request:
+  push:
+
+jobs:
+  pre_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fkirc/skip-duplicate-actions@master
+        with:
+          github_token: ${{ github.token }}
+          cancel_others: true
+  test:
+    name: Run Tests
+    needs: pre_build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v3
+
+    - name: Setup repo
+      run: cp config.example.js config.js
+      shell: bash
+
+    - name: Install Node.js, NPM and Yarn
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install deps
+      run: npm install
+    - run: npm run lint
+    - run: npm test
+
+  notify:
+    name: Notify Slack
+    needs: test
+    if: ${{ success() || failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: iRoachie/slack-github-actions@v2.3.0
+        if: env.SLACK_WEBHOOK_URL != null
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BUILDS_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

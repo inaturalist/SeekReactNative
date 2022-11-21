@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import { View, Text, Platform } from "react-native";
+import { View, Platform } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
 import type { Node } from "react";
@@ -12,6 +12,7 @@ import { updateUserSetting } from "../../utility/settingsHelpers";
 import { useLocationPermission } from "../../utility/customHooks";
 import { colors } from "../../styles/global";
 import realmConfig from "../../models";
+import StyledText from "../UIComponents/StyledText";
 
 const SpeciesDetail = ( ): Node => {
   const granted = useLocationPermission( );
@@ -54,9 +55,9 @@ const SpeciesDetail = ( ): Node => {
 
   return (
     <View style={viewStyles.margin}>
-      <Text style={textStyles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</Text>
+      <StyledText style={textStyles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</StyledText>
       <View style={viewStyles.marginSmall} />
-      <Text style={textStyles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</Text>
+      <StyledText style={textStyles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</StyledText>
       <View style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton

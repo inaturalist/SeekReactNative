@@ -21,6 +21,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+ios/.xcode.env.local
 project.xcworkspace
 
 # Android/IntelliJ
@@ -64,8 +65,9 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-# CocoaPods
+# Ruby / CocoaPods
 /ios/Pods/
+/vendor/bundle/
 
 # config
 config.js

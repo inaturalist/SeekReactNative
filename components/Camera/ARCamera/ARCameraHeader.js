@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
@@ -13,6 +13,7 @@ import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
 import { AppOrientationContext } from "../../UserContext";
+import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   +ranks: Object
@@ -106,9 +107,9 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
               textColor={setTaxonomicRankColor( )}
             />
           </View>
-          <Text style={[textStyles.predictions, showScientificName && textStyles.scientificName]}>
+          <StyledText style={[textStyles.predictions, showScientificName && textStyles.scientificName]}>
             {showScientificName ? ranks[rankToRender][0].name : commonName}
-          </Text>
+          </StyledText>
           <View style={[viewStyles.row, viewStyles.center]}>
             {isLandscape ? showLandscapeModeDots( ) : showPortraitModeDots( )}
           </View>

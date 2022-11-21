@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from "react";
-import { Text, TouchableOpacity, Image } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
 import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
@@ -11,6 +11,7 @@ import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
 import { SpeciesDetailContext } from "../../UserContext";
+import StyledText from "../StyledText";
 
 type Props = {
   +item: Object
@@ -59,7 +60,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
     <TouchableOpacity onPress={navToNextScreen} style={viewStyles.gridCell}>
       {photo && renderSpeciesImage( )}
       {seenTaxa && <Image source={icons.speciesObserved} style={[viewStyles.checkbox, viewStyles.speciesImageCheckbox]} />}
-      <Text
+      <StyledText
         numberOfLines={3}
         style={[
           textStyles.speciesNameText,
@@ -69,7 +70,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName
           : item.name}
-      </Text>
+      </StyledText>
     </TouchableOpacity>
   );
 };

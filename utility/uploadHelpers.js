@@ -7,7 +7,7 @@ import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
-import { handleServerError } from "./helpers";
+import { fetchJSONWebToken } from "./tokenHelpers";
 import i18n from "../i18n";
 
 // this was causing some users to only see internet errors, so removing this for the moment
@@ -46,46 +46,6 @@ const saveUploadFailed = async ( id: number ) => {
 
 const resizeImageForUpload = async ( uri: string, outputPath?: string ): Promise<string> => {
   return await resizeImage( uri, 2048, 2048, outputPath );
-};
-
-const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
-  const headers = {
-    "Content-Type": "application/json",
-    "User-Agent": createUserAgent( ),
-    "Authorization": `Bearer ${loginToken}`
-  };
-
-  const site = "https://www.inaturalist.org";
-
-  try {
-    const r = await fetch( `${site}/users/api_token`, { headers } );
-    const parsedResponse = await r.json( );
-    return parsedResponse.api_token;
-  } catch ( e ) {
-    if ( e.response && e.response.status && e.response.status === 503 ) {
-      // not 100% sure if this is working
-      return {
-        error: {
-          type: "downtime",
-          errorText: e.message,
-          numOfHours: handleServerError( e )
-        }
-      };
-    }
-    if ( e.message === "timeout" ) {
-      return {
-        error: {
-          type: "timeout"
-        }
-      };
-    }
-    return {
-      error: {
-        type: "login",
-        errorText: e.message
-      }
-    };
-  }
 };
 
 const appendPhotoToObservation = async ( photo: {
@@ -362,57 +322,12 @@ const checkForUploads = async ( ): Promise<any> => {
   return realm.objects( "UploadObservationRealm" );
 };
 
-// const clearSeekUploadsFolderEvery7Days = ( ) => {
-//   RNFS.readDir( dirPhotosForUpload ).then( photos => {
-//     photos.forEach( ( { ctime, name, path, size } ) => {
-//       // on android, these are 1.1 MB after resizing
-//       console.log( ctime, name, path, size, "items in seek uploads folder" );
-//       if ( !isWithin7Days( ctime ) ) {
-//         console.log( "is older than 7 days" );
-//       }
-//     } );
-//       // RNFS.unlink( dirDebugLogs )
-//       //   .then( () => {
-//       //     console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
-//       //   } ).catch( ( err ) => {
-//       //     console.log( err.message );
-//       //   } );
-//     // }
-//   } ).catch( e => console.log( e, "directory does not exist" ) );
-// };
-
-// const createFakeUploadData = ( ): Object => {
-//   return {
-//     "captive_flag": false,
-//     "description": null,
-//     "geoprivacy": "open",
-//     "latitude": 37.838835309609536,
-//     "longitude": -122.30571209495892,
-//     "observed_on_string": "2021-03-11T10:26:38-08:00",
-//     "place_guess": "Emeryville",
-//     "positional_accuracy": 65,
-//     "taxon_id": 366346
-//   };
-// };
-
-// const createAndroidSeekUploadsDirectory = ( ) => {
-//   if ( Platform.OS === "ios" ) { return; }
-//   // on Android, we need to create this before saving a resized URL to this directory
-//   RNFS.mkdir( dirPhotosForUpload )
-//     .then( ( ) => { } )
-//     .catch( e => console.log( e, "couldn't create SeekUploads directory" ) );
-// };
-
 export {
   resizeImageForUpload,
-  fetchJSONWebToken,
   saveObservationToRealm,
   checkForNumSuccessfulUploads,
   markUploadsAsSeen,
-  // createFakeUploadData,
   checkForUploads,
   uploadObservation,
   markCurrentUploadAsSeen
-  // createAndroidSeekUploadsDirectory,
-  // clearSeekUploadsFolderEvery7Days
 };

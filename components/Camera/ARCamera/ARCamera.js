@@ -14,7 +14,7 @@ import {
   Platform,
   NativeModules
 } from "react-native";
-import CameraRoll from "@react-native-community/cameraroll";
+import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
@@ -365,9 +365,7 @@ const ARCamera = ( ): Node => {
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
   const cameraStyle = {
-    // need different styling for android to avoid black line on right side of screen
     width,
-    // width: Platform.OS === "android" ? width + 100 : width,
     height
   };
 

@@ -1,7 +1,7 @@
 // @flow
 
-import React, { useContext, useCallback, useMemo } from "react";
-import { Text, View } from "react-native";
+import React, { useContext, useCallback, useMemo, useState } from "react";
+import { View, Alert, Platform } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
@@ -14,6 +14,7 @@ import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
+import StyledText from "../UIComponents/StyledText";
 
 const localeList = Object.keys( languages ).map( ( locale ) => (
   { value: locale, label: languages[locale].toLocaleUpperCase() }
@@ -31,6 +32,8 @@ const LanguagePicker = (): Node => {
   const displayLanguage = setDisplayLanguage( preferredLanguage );
   const isChecked = preferredLanguage === "device" || displayLanguage === languageCode;
 
+  const [pickerValue, setPickerValue] = useState( displayLanguage );
+
   const handleValueChange = useCallback( ( value ) => {
     // this prevents the double render on new Android install
     // without this, the user changes the language
@@ -44,12 +47,39 @@ const LanguagePicker = (): Node => {
       return;
     }
 
-    // this changes translations on Settings screen in real-time
-    i18n.locale = value;
+    // if the user selects language to be set to device language don't show alert
+    if ( value === "device" ) {
+      // this changes translations on Settings screen in real-time
+      i18n.locale = value;
+      toggleLanguage( value );
+      toggleLanguagePreference();
+      return;
+    }
+    Platform.OS === "ios" ? setPickerValue( value ) : showAlert( value );
+  }, [displayLanguage, preferredLanguage, toggleLanguagePreference, showAlert] );
 
-    toggleLanguage( value );
-    toggleLanguagePreference();
-  }, [displayLanguage, preferredLanguage, toggleLanguagePreference] );
+  const showAlert = useCallback( ( value ) => {
+    const valueLabel = languages[value];
+    Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
+      {
+        text: i18n.t( "delete.no" ),
+        onPress: ( ) => null,
+        style: "cancel"
+      }, {
+        text: i18n.t( "settings.confirm" ),
+        onPress: ( ) => {
+          // this changes translations on Settings screen in real-time
+          i18n.locale = value;
+          toggleLanguage( value );
+          toggleLanguagePreference();
+        }
+      }
+    ] );
+  }, [toggleLanguagePreference] );
+
+  const onDonePress = useCallback( ( ) => {
+    showAlert( pickerValue );
+  }, [showAlert, pickerValue] );
 
   const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );
 
@@ -65,23 +95,24 @@ const LanguagePicker = (): Node => {
         onClick={setDeviceLanguage}
         style={viewStyles.checkBox}
       />
-      <Text style={[textStyles.text, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
+      <StyledText style={[textStyles.text, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</StyledText>
     </View>
   ), [isChecked, setDeviceLanguage] );
 
   return (
     <View style={viewStyles.donateMarginBottom}>
-      <Text style={textStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
+      <StyledText style={textStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</StyledText>
       {deviceLanguageSupported( ) && renderDeviceCheckbox}
       <RNPickerSelect
         hideIcon
         Icon={showIcon}
         items={localeList}
         onValueChange={handleValueChange}
+        onDonePress={onDonePress}
         placeholder={placeholder}
         useNativeAndroidPickerStyle={false}
-        value={displayLanguage}
-        testId="picker"
+        value={Platform.OS === "ios" ? pickerValue : displayLanguage}
+        touchableWrapperProps={{ testID: "picker" }}
         disabled={!displayLanguage}
         style={pickerStyles}
       />

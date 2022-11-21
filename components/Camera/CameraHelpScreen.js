@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import {
-  Text,
   View,
   Image
 } from "react-native";
@@ -11,6 +10,7 @@ import { imageStyles, viewStyles, textStyles } from "../../styles/camera/help";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../UIComponents/StyledText";
 
 const CameraHelpScreen = ( ): React.Node => {
   const tips = [
@@ -24,21 +24,21 @@ const CameraHelpScreen = ( ): React.Node => {
     <ScrollWithHeader header="camera_help.title" route="Camera">
       <Image source={icons.cameraHelpTop} style={imageStyles.topImage} />
       <View style={viewStyles.textContainer}>
-        <Text style={textStyles.text}>{i18n.t( "camera_help.explanation_1" )}</Text>
-        <Text style={textStyles.headerText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>
-        <Text style={textStyles.text}>{i18n.t( "camera_help.explanation_2" )}</Text>
-        <Text style={textStyles.headerText}>{i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}</Text>
+        <StyledText style={textStyles.text}>{i18n.t( "camera_help.explanation_1" )}</StyledText>
+        <StyledText style={textStyles.headerText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</StyledText>
+        <StyledText style={textStyles.text}>{i18n.t( "camera_help.explanation_2" )}</StyledText>
+        <StyledText style={textStyles.headerText}>{i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}</StyledText>
         <View style={viewStyles.row}>
-          <Text style={[textStyles.text, viewStyles.howText]}>{i18n.t( "camera_help.how_works" )}</Text>
+          <StyledText style={[textStyles.text, viewStyles.howText]}>{i18n.t( "camera_help.how_works" )}</StyledText>
           <Image source={icons.cameraHelpTree} />
         </View>
-        <Text style={textStyles.headerText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
-        <Text style={textStyles.text}>{i18n.t( "camera_help.tips" )}</Text>
-        <Text style={textStyles.headerText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
+        <StyledText style={textStyles.headerText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</StyledText>
+        <StyledText style={textStyles.text}>{i18n.t( "camera_help.tips" )}</StyledText>
+        <StyledText style={textStyles.headerText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</StyledText>
         {tips.map( ( tip: string ) => (
           <View key={`${tip}`} style={viewStyles.tips}>
-            <Text style={textStyles.bullets}>&#8226;</Text>
-            <Text style={[textStyles.text, viewStyles.tipContainer]}>{tip}</Text>
+            <StyledText style={textStyles.bullets}>&#8226;</StyledText>
+            <StyledText style={[textStyles.text, viewStyles.tipContainer]}>{tip}</StyledText>
           </View>
         ) )}
       </View>

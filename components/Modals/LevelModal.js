@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   View,
-  Text,
   Image
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -14,6 +13,7 @@ import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
 import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import StyledText from "../UIComponents/StyledText";
 
 type Props = {
   +level: Object,
@@ -44,9 +44,9 @@ const LevelModal = ( {
         source={badgeImages[level.earnedIconName]}
         style={imageStyles.image}
       />
-      <Text style={textStyles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
+      <StyledText style={textStyles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
     </LinearGradient>
-    <Text style={textStyles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</Text>
+    <StyledText style={textStyles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</StyledText>
   </WhiteModal>
 );
 

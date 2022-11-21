@@ -12,17 +12,33 @@ import {
 } from "../../../styles/home/seekYearInReview";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { AppOrientationContext } from "../../UserContext";
+import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
+
 
 const SeekYearInReviewCard = ( ): Node => {
-  // TODO: add logic to show this card only if it is December to January
-  // TODO: add logic to show this card only if the user has made observations
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+
   const { navigate } = useNavigation();
   const { isLandscape } = React.useContext( AppOrientationContext );
+  const countObservationsThisYear = useCountObservationsForYear( year );
 
   const navToSeekYearInReview = () => navigate( "SeekYearInReview" );
 
+  // TODO: replace with real check for isAdmin
+  const isAdmin = true;
+  const isDecember = month === 11;
+  const hasObservations =
+    !!countObservationsThisYear && countObservationsThisYear > 0;
+  const showCard = isAdmin || ( isDecember && hasObservations );
+
+  if ( !showCard ) {
+    return null;
+  }
+
   return (
-    <View style={viewStyles.whiteContainer}>
+    <View testID="yir-card" style={viewStyles.whiteContainer}>
       <Text style={textStyles.header}>
         {i18n.t( "seek_year_in_review.header" ).toLocaleUpperCase()}
       </Text>

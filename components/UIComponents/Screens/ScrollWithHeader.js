@@ -30,6 +30,7 @@ type Props = {
 };
 
 const ScrollWithHeader = ( {
+  testID,
   children,
   header,
   route,
@@ -52,7 +53,7 @@ const ScrollWithHeader = ( {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
+    <SafeAreaView testID={testID} style={styles.container} edges={["top"]}>
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
       {loading ? (

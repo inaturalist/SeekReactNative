@@ -399,9 +399,11 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         style={
           [
             {
-              "alignItems": "space-between",
+              "alignSelf": "center",
               "flexDirection": "row",
-              "justifyContent": "space-between",
+              "flexWrap": "wrap",
+              "justifyContent": "center",
+              "width": 377.20734908136484,
             },
           ]
         }
@@ -430,6 +432,11 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   "textAlign": "center",
                 },
                 null,
+                {
+                  "marginHorizontal": 6,
+                  "resizeMode": "contain",
+                  "width": 113.73578302712161,
+                },
               ],
             ]
           }
@@ -460,6 +467,11 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   "textAlign": "center",
                 },
                 null,
+                {
+                  "marginHorizontal": 6,
+                  "resizeMode": "contain",
+                  "width": 113.73578302712161,
+                },
               ],
             ]
           }
@@ -490,6 +502,11 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   "textAlign": "center",
                 },
                 null,
+                {
+                  "marginHorizontal": 6,
+                  "resizeMode": "contain",
+                  "width": 113.73578302712161,
+                },
               ],
             ]
           }
@@ -501,9 +518,11 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         style={
           [
             {
-              "alignItems": "space-between",
+              "alignSelf": "center",
               "flexDirection": "row",
-              "justifyContent": "space-between",
+              "flexWrap": "wrap",
+              "justifyContent": "center",
+              "width": 377.20734908136484,
             },
           ]
         }
@@ -514,13 +533,20 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Medium",
-                "fontSize": 19,
-                "lineHeight": 24,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "marginHorizontal": 6,
+                  "resizeMode": "contain",
+                  "width": 113.73578302712161,
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -532,13 +558,20 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Medium",
-                "fontSize": 19,
-                "lineHeight": 24,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "marginHorizontal": 6,
+                  "resizeMode": "contain",
+                  "width": 113.73578302712161,
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -550,13 +583,20 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Medium",
-                "fontSize": 19,
-                "lineHeight": 24,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "marginHorizontal": 6,
+                  "resizeMode": "contain",
+                  "width": 113.73578302712161,
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -640,6 +680,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               false,
               false,
               null,
+              undefined,
             ],
           ]
         }
@@ -715,6 +756,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               false,
               false,
               null,
+              undefined,
             ],
           ]
         }
@@ -778,6 +820,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               false,
               false,
               null,
+              undefined,
             ],
           ]
         }

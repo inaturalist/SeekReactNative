@@ -57,10 +57,10 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
     return (
       <TouchableOpacity
         onPress={() => fetchBadgesByIconicId( item.iconicTaxonId )}
-        accessible
-        accessibilityLabel={i18n.t( item.infoText )}
       >
         <Image
+          accessible
+          accessibilityLabel={i18n.t( item.infoText )}
           source={imageSrc}
           style={imageStyles.badgeIcon}
         />

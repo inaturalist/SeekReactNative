@@ -443,6 +443,32 @@ exports[`RangeMap should render correctly 1`] = `
         }
       />
     </AIRMapMarker>
+    <AIRMapMarker
+      coordinate={
+        {
+          "latitude": 42.42,
+          "longitude": 42.42,
+        }
+      }
+      onPress={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "position": "absolute",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/icon-location-onmap.webp",
+          }
+        }
+      />
+    </AIRMapMarker>
   </AIRMap>
   <View
     accessible={true}
@@ -488,6 +514,36 @@ exports[`RangeMap should render correctly 1`] = `
     >
       LEGEND
     </Text>
+  </View>
+  <View
+    accessibilityLabel="Return to your current location"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "bottom": 19,
+        "opacity": 1,
+        "position": "absolute",
+        "right": 19,
+      }
+    }
+    testID="user-location-button"
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-locationindicator.webp",
+        }
+      }
+    />
   </View>
 </RNCSafeAreaView>
 `;

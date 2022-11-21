@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import LinearGradient from "react-native-linear-gradient";
 
 import type { Node } from "react";
 
@@ -11,9 +12,10 @@ import {
   textStyles,
   imageStyles
 } from "../../styles/seekYearInReview/seekYearInReview";
+import { colors } from "../../styles/global";
 import { AppOrientationContext, UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { useFetchObservationCount, useFetchStats, useCountObservationsForYear } from "./hooks/seekYearInReviewHooks";
+import { useUploadedObservationCount, useFetchStats, useCountObservationsForYear } from "./hooks/seekYearInReviewHooks";
 import badgeImages from "../../assets/badges";
 import i18n from "../../i18n";
 // TODO: refactor into component folder
@@ -25,16 +27,23 @@ import SeekYearInReviewChart from "./SeekYearInReviewChart";
 // TODO: this a copy from ChallengeBadges, with only the data fetching hook swaped out. Could be refactored into dumb component with only styling, and data as prop
 import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
 import { SpeciesDetailContext } from "../UserContext";
+import StyledText from "../UIComponents/StyledText";
+import BannerHeader from "../UIComponents/BannerHeader";
+import GreenText from "../UIComponents/GreenText";
 
 const SeekYearInReviewScreen = (): Node => {
+  // TODO: replace with real year
+  const year = 2022;
+
   const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation();
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
-  const count = useFetchObservationCount( login, userProfile?.login );
+  const count = useUploadedObservationCount( login, userProfile?.login, year );
   // TODO: replace with real year
-  const state = useFetchStats( 2022 );
-  const countObservationsThisYear = useCountObservationsForYear( 2022 );
+  const state = useFetchStats( year );
+  const countObservationsThisYear = useCountObservationsForYear( year );
+
 
   const navToSpecies = ( obs ) => {
     if ( !obs?.taxon?.id ) {return;}
@@ -59,37 +68,79 @@ const SeekYearInReviewScreen = (): Node => {
     ) );
 
   const photoList = renderPhotos();
-
   return (
-    <ScrollWithHeader header="seek_year_in_review.header" footer={false}>
-      <View
-        style={[
-          viewStyles.textContainer,
-          isTablet && viewStyles.tabletContainer
-        ]}
-      />
+    <ScrollWithHeader
+      testID="seek-yir-screen-container"
+      header="seek_year_in_review.header"
+      footer={false}
+    >
       {/* TODO: replace all instances of text with StyledText after v2.14.5 is merged */}
-      {/* {countObservationsThisYear > 0 && ( */}
-      {
-        <Text style={textStyles.text}>
-          {countObservationsThisYear} observations made this year
-        </Text>
-      }
-      {login && (
-        <Text style={textStyles.text}>
-          {count} observations posted to iNaturalist this year
-        </Text>
-      )}
-      {state.level && (
+      <LinearGradient
+        colors={[colors.greenGradientDark, colors.greenGradientLight]}
+        style={[viewStyles.header, viewStyles.center, viewStyles.row]}
+      >
+        {!!state.level && (
+          <>
+            <View style={viewStyles.levelTextContainer}>
+              <StyledText style={textStyles.lightText}>
+                {/* {i18n.t( "badges.your_level" ).toLocaleUpperCase()} */}
+                In {year}, you observed
+              </StyledText>
+              <StyledText style={textStyles.headerText}>
+                {/* {i18n.t( state.level.intlName ).toLocaleUpperCase()} */}
+                {countObservationsThisYear} new species
+              </StyledText>
+            </View>
+            <Image
+              source={badgeImages[state.level.earnedIconName]}
+              style={imageStyles.levelImage}
+            />
+          </>
+        )}
+      </LinearGradient>
+      {state.topThreeSpeciesBadges.length > 0 && (
         <>
-          <Image
-            source={badgeImages[state.level.earnedIconName]}
-            style={imageStyles.levelImage}
+          <BannerHeader
+            text={"top species"}
+            // text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()}
           />
-          <View style={viewStyles.textContainer}>
-            <Text style={textStyles.headerText}>
-              {i18n.t( state.level.intlName ).toLocaleUpperCase()}
-            </Text>
+          <SpeciesBadges speciesBadges={state.topThreeSpeciesBadges} />
+          <View style={[viewStyles.badgesTextContainer]}>
+            <GreenText
+              center
+              smaller
+              noTranslation
+              text={state.topThreeSpeciesBadges[0].count}
+            />
+            <GreenText
+              center
+              smaller
+              noTranslation
+              text={state.topThreeSpeciesBadges[1].count}
+            />
+            <GreenText
+              center
+              smaller
+              noTranslation
+              text={state.topThreeSpeciesBadges[2].count}
+            />
+          </View>
+          <View style={[viewStyles.badgesTextContainer]}>
+            <StyledText style={textStyles.iconicTaxaNameText}>
+              {i18n
+                .t( state.topThreeSpeciesBadges[0].iconicTaxonName )
+                .toLocaleUpperCase()}
+            </StyledText>
+            <StyledText style={textStyles.iconicTaxaNameText}>
+              {i18n
+                .t( state.topThreeSpeciesBadges[1].iconicTaxonName )
+                .toLocaleUpperCase()}
+            </StyledText>
+            <StyledText style={textStyles.iconicTaxaNameText}>
+              {i18n
+                .t( state.topThreeSpeciesBadges[2].iconicTaxonName )
+                .toLocaleUpperCase()}
+            </StyledText>
           </View>
         </>
       )}

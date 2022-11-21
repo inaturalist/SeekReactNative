@@ -8,19 +8,19 @@ import { addMonths, isEqual } from "date-fns";
 import createUserAgent from "../../../utility/userAgent";
 import realmConfig from "../../../models";
 
-const useFetchObservationCount = ( login: ?string, username: string ): any => {
+// TODO: copy of useFetchObservationCount
+const useUploadedObservationCount = ( login: ?string, username: string, year ): any => {
   const [observationCount, setObservationCount] = useState( null );
 
   useEffect( () => {
     let isCurrent = true;
 
-    const fetchObservationsMadeViaSeekThisYear = async () => {
+    const fetchObservationsMadeViaSeekThisYear = async ( ) => {
       // TODO: rewrite to not use API request but local data only, otherwise data from other phones (but same login) would also show here
       const params = {
         oauth_application_id: 333,
         user_id: username,
-        // TODO: replace with current year, but make sure if phone is opened in January 2023 it still shows 2022
-        year: 2022
+        year
       };
       const options = { user_agent: createUserAgent() };
       const response = await inatjs.observations.search( params, options );
@@ -38,7 +38,7 @@ const useFetchObservationCount = ( login: ?string, username: string ): any => {
     return () => {
       isCurrent = false;
     };
-  }, [login, username] );
+  }, [login, username, year] );
 
   return observationCount;
 };
@@ -76,9 +76,7 @@ const useFetchStats = ( year ): any => {
   const [state, setState] = useState( {
     level: null,
     countBadgesThisYear: null,
-    speciesCount: null,
     observationsThisYear: [],
-    topThreeIconicTaxonIds: [],
     topThreeSpeciesBadges: [],
     randomObservations: [],
     histogram: []
@@ -91,8 +89,6 @@ const useFetchStats = ( year ): any => {
         const lastOfYear = () => new Date( year, 11, 31, 23, 59, 59 );
 
         const realm = await Realm.open( realmConfig );
-        // TODO: TaxonRealm has no observedTime property so we have to check observations Realm instead
-        const speciesCount = realm.objects( "TaxonRealm" ).length;
         const observations = realm.objects( "ObservationRealm" );
         const observationsThisYear = observations.filtered(
           "date >= $0 && date < $1",
@@ -161,9 +157,7 @@ const useFetchStats = ( year ): any => {
         setState( {
           level: levelsEarned[0],
           countBadgesThisYear,
-          speciesCount,
           observationsThisYear,
-          topThreeIconicTaxonIds,
           topThreeSpeciesBadges,
           randomObservations,
           histogram
@@ -247,4 +241,4 @@ const useFetchChallenges = ( year ): any => {
   return challengeBadges;
 };
 
-export { useFetchObservationCount, useFetchStats, useCountObservationsForYear, useFetchChallenges };
+export { useUploadedObservationCount, useFetchStats, useCountObservationsForYear, useFetchChallenges };

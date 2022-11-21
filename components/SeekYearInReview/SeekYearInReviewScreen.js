@@ -162,29 +162,36 @@ const SeekYearInReviewScreen = (): Node => {
           </View>
         </>
       )}
-      {state.topThreeIconicTaxonIds && (
+      <BannerHeader
+        text={"observations"}
+        // text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()}
+      />
+      <GreenText text="observations by month" />
+      <SeekYearInReviewChart data={state.histogram} />
+      <GreenText text="observations map" />
+      {/* TODO: map needs to have an optimal initial region to show based on the distribution of observation coords */}
+      <SeekYearInReviewMap observations={state.observationsThisYear} />
+      <GreenText text="iNaturalist" />
+      {login && (
         <Text style={textStyles.text}>
-          [{state.topThreeIconicTaxonIds}] top three taxa IDs
+          You posted {count} observations to iNaturalist using Seek in {year}.
+          Thank you for contributing to our community!
         </Text>
       )}
-      <SpeciesBadges speciesBadges={state.topThreeSpeciesBadges} />
-      {state.countBadgesThisYear && (
-        <Text style={textStyles.text}>
-          {state.countBadgesThisYear} badges earned this year
-        </Text>
-      )}
-      {state.randomObservations &&
-        state.randomObservations.map( ( obs ) => (
-          <Text style={textStyles.text}>
-            {obs.uuidString} is a random observation
-          </Text>
-        ) )}
       <View style={viewStyles.photoMargins}>
         <HorizontalScroll photoList={photoList} />
       </View>
-      {/* TODO: map needs to have an optimal initial region to show based on the distribution of observation coords */}
-      <SeekYearInReviewMap observations={state.observationsThisYear} />
-      <SeekYearInReviewChart data={state.histogram} />
+      <BannerHeader
+        text={"badges"}
+        // text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()}
+      />
+      {state.countBadgesThisYear && (
+        <Text style={textStyles.text}>
+          You earned {state.countBadgesThisYear} species and challenge badges
+          this year
+        </Text>
+      )}
+
       <SeekYearInReviewChallengeBadges />
     </ScrollWithHeader>
   );

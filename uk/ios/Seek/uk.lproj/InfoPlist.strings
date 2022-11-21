@@ -1,0 +1,10 @@
+/* Localized versions of Info.plist keys */
+/* Permissions */
+"NSCameraUsageDescription" = "Ми використовуємо камеру, щоб ви могли ідентифікувати свої фотографії природи.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Ми використовуємо ваше місцезнаходження, щоб показувати рослини та тварини поблизу вас.";
+"NSLocationAlwaysUsageDescription" = "Ми використовуємо ваше місцезнаходження, щоб показувати рослини та тварини поблизу вас.";
+"NSLocationWhenInUseUsageDescription" = "Ми використовуємо ваше місцезнаходження, щоб показувати рослини та тварини поблизу вас.";
+"NSPhotoLibraryAddUsageDescription" = "Ми використовуємо галерею, щоб ви могли ідентифікувати свої фотографії природи.";
+"NSPhotoLibraryUsageDescription" = "Ми використовуємо галерею, щоб ви могли ідентифікувати свої фотографії природи.";
+/* Shortcut Items */
+"Seek Camera" = "Камера Seek";

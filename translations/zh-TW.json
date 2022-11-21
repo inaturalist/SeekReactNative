@@ -14,7 +14,7 @@
   "get_started": {
     "header": "開始",
     "tip_1": "請在上方「附近物種」選項中查看你附近常見的物種。請用位置資訊或特定分類進行搜尋！",
-    "tip_2": "利用我們的相機拍攝一植物、動物，或任何生物照片，Seek就會幫助你加以辨識！",
+    "tip_2": "透過附近物種來了解您在周圍觀察到的物種。",
     "tip_3": "接受 Our Planet 及 WWF 所贊助的挑戰，並與全球 Seek 社群共同尋找物種！"
   },
   "challenges_card": {
@@ -27,22 +27,22 @@
     "inat_admin": "iNat 管理員：感謝您測試 Seek！您將在下個月之前看到最新的 iNat 挑戰以進行測試。"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "發布到 INATURALIST ",
+    "post_to_inaturalist": "張貼到 INATURALIST ",
     "uploading_x_observations": {
-      "zero": "正在上傳 {{count}} 個觀察",
-      "one": "正在上傳 {{count}} 個觀察",
-      "two": "正在上傳 {{count}} 個觀察",
-      "few": "正在上傳 {{count}} 個觀察",
-      "many": "正在上傳 {{count}} 個觀察",
-      "other": "正在上傳 {{count}} 個觀察"
+      "zero": "正在上傳 {{count}} 筆觀察紀錄",
+      "one": "正在上傳 {{count}} 筆觀察紀錄",
+      "two": "正在上傳 {{count}} 筆觀察紀錄",
+      "few": "正在上傳 {{count}} 筆觀察紀錄",
+      "many": "正在上傳 {{count}} 筆觀察紀錄",
+      "other": "正在上傳 {{count}} 筆觀察紀錄"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} 個觀察已上傳！",
-      "one": "{{count}} 個觀察已上傳！",
-      "two": "{{count}} 個觀察已上傳！",
-      "few": "{{count}} 個觀察已上傳！",
-      "many": "{{count}} 個觀察已上傳！",
-      "other": "{{count}} 個觀察已上傳！"
+      "zero": "已上傳 {{count}} 筆觀察紀錄！",
+      "one": "已上傳 {{count}} 筆觀察紀錄！",
+      "two": "已上傳 {{count}} 筆觀察紀錄！",
+      "few": "已上傳 {{count}} 筆觀察紀錄！",
+      "many": "已上傳 {{count}} 筆觀察紀錄！",
+      "other": "已上傳 {{count}} 筆觀察紀錄！"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} 筆觀察紀錄待上傳",
@@ -63,7 +63,7 @@
       "other": "iNaturalist 的伺服器正在進行維護。請在 {{count}} 小時後重試。"
     },
     "error_unknown": "上傳失敗。錯誤原因：{{errorText}}",
-    "error_login": "登錄權杖失敗。請從 Seek 中的 iNaturalist 或成就畫面中重新登錄您的 iNaturalist 帳戶。",
+    "error_login": "登入權杖失敗。請從 Seek 中的 iNaturalist 或成就畫面中重新登入您的 iNaturalist 帳戶。",
     "error_photo": "無法使用裝置上的照片。 ",
     "error_downtime_a_few_hours": "iNaturalist 的伺服器正在進行維護。請在幾個小時後再試一次。"
   },
@@ -82,7 +82,7 @@
   "login": {
     "log_in": "利用iNaturalist帳號登入",
     "sign_up": "註冊iNaturalist帳號",
-    "about": "登入iNaturalist，您可以在不同裝置上同步您的觀察並且在線上社群中貼文。",
+    "about": "登入 iNaturalist，您就可以透過 Seek 將觀察記錄張貼到線上社群中。",
     "skip_login": "不登入直接繼續",
     "error_email": "請輸入有效的 email 位址",
     "error_credentials": "錯誤的帳號或密碼",
@@ -95,7 +95,7 @@
   "inat_signup": {
     "welcome": "歡迎來到 Seek！",
     "enter_birthday": "請輸入你的生日",
-    "permission": "你必須至少滿13歲方可建立帳戶。",
+    "permission": "您至少要滿 13 歲才可以建立帳戶。",
     "privacy": "隱私政策",
     "continue": "繼續",
     "enter_email": "請輸入你家長的電子郵件信箱",
@@ -114,11 +114,11 @@
     "continue_no_log_in": "不登入直接繼續",
     "terms": "服務條款",
     "linked_account": "您已將 iNaturalist 帳戶連接到了 Seek！",
-    "posting": "正在上傳至 iNaturalist",
-    "posting_details": "當加入至您的觀察紀錄後，您可以立刻上傳在「探索」建立的觀察紀錄至 iNaturalist。如果您想要稍後再上傳到 iNaturalist，請使用 iNaturalist app 或是網站。",
+    "posting": "正在張貼至 iNaturalist",
+    "posting_details": "當 Seek 中的觀察紀錄新增完成，您就可以立即將其張貼到 iNaturalist。如果您想稍後再張貼到 iNaturalist，請使用 iNaturalist 應用程式或網站。",
     "observations": "在此裝置中儲存的觀察紀錄",
     "observations_1": "您在 Seek 中建立的觀察結果只會存儲在您的裝置上，並不會備份到網路上。",
-    "observations_2": "刪除此 app 將會移除您在「探索」中所建立的所有觀察紀錄。",
+    "observations_2": "刪除此應用程式將會移除您在 Seek 中建立的所有觀察紀錄。",
     "observations_3": "Seek 並不會將您的觀察紀錄同步至其他的裝置上。",
     "agree_to_terms": "我同意<terms>{{terms}}</terms>和<privacy>{{privacy}}</privacy>，而且已審閱過<guidelines>{{guidelines}}</guidelines>    。",
     "guidelines": "社群指南",
@@ -228,10 +228,10 @@
     "may_description": "從叢林的最深處到最小的公園內，我們都跟令人驚豔的豐富生物共同分享這顆行星；每一種生物都針對他們所生存的環境做出了不同的適應。尋找當地的生物熱點，並且看看你能找到多少種不同的生物。一路上，你會學到這些不同有機物之間的什麼特色，讓它們截然不同！",
     "congrats": "您完成了 {{month}} 的 Our Planet 挑戰！",
     "thanks": "感謝您的參與！我們都可以助大自然一臂之力。一起加入 Netflix 的 Our Planet 之旅，並在 ourplanet.com 上了解更多資訊。",
-    "no_completed_challenges": "你已經完成的挑戰將顯示於此。",
+    "no_completed_challenges": "您已完成的挑戰會顯示在這裡。",
     "no_challenges_in_progress": "開始下方的新挑戰以獲取徽章！",
     "no_new_challenges_header": "您沒有新的挑戰。",
-    "no_new_challenges": "我們將會在新的挑戰出現時通知您。",
+    "no_new_challenges": "我們會在有新的挑戰時通知您。",
     "completed_all": "您已完成了現有的所有挑戰！",
     "number_observed_plural": {
       "zero": "到目前為止觀察到 {{count}} 種",
@@ -282,7 +282,7 @@
     "badge_name_my_garden_2022": "我的花園徽章"
   },
   "results": {
-    "observed_species": "你已觀察到新的物種！",
+    "observed_species": "您已觀察到新的物種！",
     "learn_more": "已新增至您的觀察記錄。\n在這裡了解更多有關此物種的資訊：",
     "learn_more_no_location": "在這裡可以學習到更多關於此物種的資訊：",
     "view_species": "檢視物種",
@@ -299,7 +299,7 @@
     "resighted": "您再度觀察到一個物種！",
     "date_observed": "你第一次觀察到這物種是在\n{{seenDate}}",
     "post_inat": "如果您實地拍攝此生物的照片，您可以把這張照片上傳 iNaturalist 來訓練「探索」來認得此物種。在 iNaturalist 網站上，社群朋友將會幫忙鑑定並在未來的版本中改進辨識能力。",
-    "post": "上傳至 iNaturalist",
+    "post": "張貼至 iNaturalist",
     "flag": "誤鑑定",
     "incorrect": "這個物種鑑定有誤嗎？",
     "yes": "是的，從我的觀察紀錄中刪除這筆紀錄",
@@ -358,7 +358,7 @@
     "genus": "屬",
     "species": "種",
     "error_permissions": "我們需要存取相機權限才能幫助您鑑定物種！",
-    "error_gallery": "我們需要存取您的膠卷才能儲存您拍攝的照片！",
+    "error_gallery": "我們需要存取您的相簿才能儲存您拍攝的照片！",
     "permissions": "在設定中啟用權限",
     "please_permissions": "請在設定中啟用權限",
     "error_classifier": "很抱歉，我們無法載入分類器",
@@ -411,7 +411,7 @@
   },
   "badges": {
     "your_level": "您的等級",
-    "login": "登入至 iNaturalist 來上傳觀察紀錄至線上社群！",
+    "login": "登入 iNaturalist，將觀察紀錄張貼到線上社群！",
     "achievements": "成就",
     "observe_plural": {
       "zero": "觀察 {{count}} 個物種來升到下一級！",
@@ -558,7 +558,7 @@
     "mammal": "哺乳動物",
     "species_saved": "此物種已儲存至您的觀察記錄。",
     "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
-    "internet_error": "我們需要使用網路來顯示物種的詳細頁面。點按並重試看看。",
+    "internet_error": "我們需要使用網路來產生物種的詳情頁面。按一下重試看看。",
     "no_photos_found": "沒有找到此物種的照片。",
     "copied": "已複製！"
   },
@@ -575,24 +575,24 @@
     "join_crowdin": "加入「探索」的翻譯團隊，請參見 https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "上傳至 iNaturalist",
+    "header": "張貼至 iNaturalist",
     "notes": "在這裡新增筆記",
     "date": "日期",
     "location": "地點",
-    "geoprivacy": "地理資訊隱私權",
+    "geoprivacy": "地理資訊隱私",
     "open": "公開座標",
     "obscured": "隱藏座標",
     "private": "私有座標",
     "yes": "是",
     "no": "否",
-    "captive": "圈養/栽培",
-    "what_seen": "您看到什麼？",
+    "captive": "圈養／栽培",
+    "what_seen": "您看到了什麼？",
     "id": "Seek 的鑑定",
     "edit_location": "編輯地點",
     "save_location": "儲存地點",
     "unknown": "未知",
     "ok": "好的",
-    "look_up": "依照名字來查找物種",
+    "look_up": "依照名稱來查詢物種",
     "latitude_longitude": "緯度：{{latitude}}，經度：{{longitude}}",
     "major_taxa": "主要分類群",
     "animals": "動物",
@@ -600,29 +600,29 @@
     "kelp": "海帶、矽藻及相關生物"
   },
   "posting_status": {
-    "posting_to_inat_background": "在後臺上傳到 INATURALIST",
-    "posting_to_inat_background_description": "當 Seek 開啟時，會在後臺繼續向 iNaturalist 上傳。\n\n您可以在主螢幕上檢查上傳狀態。",
+    "posting_to_inat_background": "在後臺張貼到 INATURALIST",
+    "posting_to_inat_background_description": "當 Seek 開啟時，會在後臺繼續向 iNaturalist 張貼。\n\n您可以在主螢幕上檢查上傳狀態。",
     "no_internet": "沒有網路！",
-    "no_internet_description": "您的觀察結果尚未上傳到 iNaturalist，因為您未連上網際網路。\n\n一旦您連上網際網路，您就可以從主螢幕上傳您的觀察結果。"
+    "no_internet_description": "您的觀察紀錄尚未上傳到 iNaturalist，因為您未連上網際網路。\n\n一旦您連上網際網路，您就可以從主畫面上傳您的觀察紀錄。"
   },
   "posting_help": {
-    "header": "貼文說明",
+    "header": "張貼說明",
     "identification": "物種鑑定",
     "id_description": "若您上傳您的觀察紀錄，您可以鑑定最有自信的任一分類群的物種，從爬行綱動物至物種，像是西藍鴝。當您的觀察紀錄上傳至 iNaturalist 後，我們的社群成員會協助來鑑定物種。\n",
     "date": "日期與位置",
     "date_description": "每一筆在 iNaturalist 上的觀察紀錄都會關聯到一筆日期和地點。透過此方式，我們可以清楚地看到一個物種在如何從時間軸上在世界分布的全球樣貌。",
     "geoprivacy": "地理資訊隱私權",
-    "open_header": "開啟：",
-    "obscured_header": "隱藏：",
-    "closed_header": "私人：",
+    "open_header": "公開座標：",
+    "obscured_header": "隱藏座標：",
+    "closed_header": "私有座標：",
     "yes_header": "是：",
     "no_header": "否：",
     "open": "在 iNaturalist 上的其他使用者可以觀看此物種在什麼地方被觀察到，而且科學家也能使用此資料來進行研究。",
     "obscured": "此觀察紀錄的精確地點在 iNaturalist 上將會對其他的使用者隱藏起來，而且顯示在較大的區域範圍內。（所有受到滅絕威脅和瀕危物種的座標都會自動隱藏）",
     "closed": "此觀察記錄的地點在 iNaturalist 上將不會和其他的使用者分享。",
-    "captive": "圈養/栽培?",
-    "no": "此生物原本就自然地存在野外，而且不是被人類帶來此地點的。",
-    "yes": "這種生物是被人帶到這個地點的。這適用於像是花園植物，寵物和動物園內的動物等。",
+    "captive": "圈養／栽培？",
+    "no": "此生物原本就自然地存在於野外，並非被人類所帶來此地點的。",
+    "yes": "此生物是被人類帶到這個地點的。此選項適用於像是花園植物，寵物和動物園內的動物等。",
     "addendum": "* Seek 不支援新增觀察記錄至專案中。如果您想要把您的觀察記錄加到某專案中，請使用 iNaturalist.org 或是 iNaturalist 應用程式。"
   },
   "delete": {
@@ -647,7 +647,7 @@
     "back": "回到前一頁面",
     "user_location": "回到您目前的位置",
     "open_help": "開啟相機輔助介面",
-    "open_posting_help": "開啟上傳到 iNaturalist 的輔助介面",
+    "open_posting_help": "開啟張貼到 iNaturalist 的說明畫面",
     "take_photo": "點擊拍照",
     "scroll_left": "向左滑動",
     "scroll_right": "向右滑動",
@@ -655,8 +655,8 @@
     "get_started_modal": "入門提示"
   },
   "review": {
-    "title": "評價這個App",
-    "rate": "如果您喜歡 %s，請花點時間在play商店為其評分。感謝您的支持！",
+    "title": "為這個應用程式評分",
+    "rate": "如果您喜歡這個應用程式，請花點時間在 Play 商店中給它評分。感謝您的支持！",
     "rate_now": "立刻評分",
     "later": "以後再說"
   },
@@ -678,14 +678,16 @@
     "donate": "捐款",
     "donate_header": "協助支持 iNaturalist",
     "donate_description": "喜歡 Seek 嗎？考慮捐款給 iNaturalist！我們靠大眾的捐款來讓應用程式保持免費。",
-    "language": "app 內的語言",
+    "language": "應用程式的語言",
     "device_settings": "使用裝置的語言設定",
     "auto_capture": "當鑑定達到物種階層時自動拍照。",
     "species_detail": "物種詳細資訊",
     "seasonality": "季節性",
     "seasonality_option_1": "根據全球的 iNaturalist 觀察紀錄來顯示季節性",
     "seasonality_option_2": "根據我目前位置附近的 iNaturalist 觀察紀錄來顯示季節性（接近我位置附近沒有出現的物種則不會顯示季節性）",
-    "donate_ios": "請到下列網址來捐款給 Seek："
+    "donate_ios": "請到下列網址來捐款給 Seek：",
+    "change_language": "要將應用程式的語言切換為「{{language}}」？",
+    "confirm": "確認"
   },
   "seek_challenges": {
     "badge": "Seek 徽章",
@@ -694,7 +696,7 @@
     "citizen_science": "公民科學挑戰",
     "completed": "您完成了挑戰並贏得挑戰徽章！",
     "april_2020_description": "2020年四月是愛自然(iNaturalist)製作的新版 Seek 釋出一週年慶！在過去的一年中，我們成長很多，而且幫助超過百萬人來感受與周圍世界的更多連結。",
-    "action_april_2020": "四月是公民科學月！您可以將您的 Seek 觀察結果上傳到 iNaturalist 為公民科學家們對生物多樣性的科學了解做出貢獻。\n\n如果您年滿 13 歲（或獲得父母的許可），您就可以建立一個 iNaturalist 帳戶並將觀察結果上傳到 iNaturalist 讓所有人，甚至是科學家分們享您的觀察結果！",
+    "action_april_2020": "四月是公民科學月！您可以將您的 Seek 觀察紀錄張貼到 iNaturalist 為公民科學家們對生物多樣性的科學認知做出貢獻。\n\n如果您年滿 13 歲（或獲得父母的許可），您就可以建立一個 iNaturalist 帳戶並將觀察紀錄張貼到 iNaturalist 讓所有人，甚至是科學家分們享您的觀察紀錄！",
     "backyard": "後院挑戰",
     "may_2020_description": "大自然就在您的周圍，您不需要走很遠就能到達。即使只是在您的後院或社區，您也可以找到與您一起生活的植物、鳥類及昆蟲。",
     "action_may_2020": "使用 Seek 主螢幕上的附近物種來認識您周圍能觀察到的所有鳥類、植物和昆蟲並查看牠們的物種頁面。牠們在一年之中的什麼時候被觀察到最多次？然後嘗試探索新的地點：您能在開羅、巴黎或雅加達附近找到什麼物種呢？",
@@ -822,11 +824,11 @@
     "get_started_by_downloading_inat": "透過下載安裝 iNaturalist 應用程式或瀏覽 inaturalist.org 來開始。\n\n已經有 iNaturalist 帳戶了嗎？使用您現有的帳戶登入 Seek！ ",
     "we_think_youll_like_inat": "我們認為您會非常喜歡 iNaturalist。",
     "sign_out": "登出 iNaturalist",
-    "log_in_to_post_observations": "登入以將您在 Seek 上的觀察結果上傳到 iNaturalist！",
-    "log_in_with_inat": "使用 INATURALIST 登錄",
+    "log_in_to_post_observations": "登入以將您在 Seek 上的觀察結果張貼到 iNaturalist！",
+    "log_in_with_inat": "使用 INATURALIST 登入",
     "use_inat_to": "使用 INATURALIST 來： ",
     "inat_vs_seek": "INATURALIST VS SEEK",
-    "inat_is_an_online_community": "iNaturalist 是一個線上的自然主義者社區 ",
+    "inat_is_an_online_community": "iNaturalist 是一個線上的自然主義者社區",
     "inat_bullet_1": "iNaturalist 的觀察結果是公開的且能為科學做出貢獻",
     "inat_bullet_2": "每筆觀察紀錄都包含您的使用者名稱、日期及觀察位置",
     "inat_bullet_3": "iNaturalist 社群能幫忙辨識和確認觀察結果",
@@ -841,18 +843,19 @@
     "faq_2": "Seek 和 iNaturalist 使用相同的辨識模型，但只有 iNaturalist 觀察結果是由社群確認的",
     "logged_in_as": "登入的身份",
     "x_observations_posted_to_inat": {
-      "zero": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄",
-      "one": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄",
-      "two": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄",
-      "few": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄",
-      "many": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄",
-      "other": "{{count}} 筆從 Seek 發佈到 iNaturalist 的觀察紀錄"
+      "zero": "{{count}} 筆從 Seek 張貼到 iNaturalist 的觀察紀錄",
+      "one": "{{count}} 筆從 Seek 張貼到 iNaturalist 的觀察紀錄",
+      "two": "{{count}} 筆從 Seek 張貼到 iNaturalist 的觀察紀錄",
+      "few": "{{count}} 筆從 Seek 張貼到 iNaturalist 的觀察紀錄",
+      "many": "{{count}} 筆從 Seek 張貼到 iNaturalist 的觀察紀錄",
+      "other": "{{count}} 筆從 Seek 張貼到 iNaturalist 的觀察紀錄"
     },
-    "logged_in_bullet_1": "您可以在使用 Seek 觀察完後點選「上傳到 iNaturalist 」將觀察結果上傳到 iNaturalist",
+    "logged_in_bullet_1": "您可以在使用 Seek 觀察完後點選「張貼到 iNaturalist 」將觀察紀錄張貼到 iNaturalist",
     "logged_in_bullet_2": "使用 iNaturalist 的應用程式或網站查看關於您觀察記錄的辨識、評論和其他活動的通知",
     "logged_in_bullet_3": "您的 Seek 觀察紀錄不會備份到 iNaturalist 上。刪除 Seek 將會刪除您在此裝置上的所有觀察紀錄。",
-    "upload_and_track_obs_using_inat": "使用 iNaturalist 應用程式或到 inaturalist.org 網站上傳和追蹤您的觀察記錄。\n\n 感謝您成為這個社區的一分子！",
-    "x_seen_by_user": "{{speciesName}}由{{user}}發現"
+    "upload_and_track_obs_using_inat": "使用 iNaturalist 應用程式或到 inaturalist.org 網站上傳和追蹤您的觀察記錄。\n\n 感謝您成為這個社群中的一員！",
+    "x_seen_by_user": "{{speciesName}}由{{user}}發現",
+    "about_inat_internet_error": "您已登入 iNaturalist，但我們需要網路才能顯示詳細資訊。按一下重試看看。"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "節肢動物掠食者挑戰",
@@ -928,12 +931,12 @@
   "seek_2023_challenges": {
     "january_2023_challenge_name_habitats": "棲息地挑戰",
     "february_2023_challenge_name_climate_change": "氣候變化挑戰",
-    "february_2023_description_climate_change": "Climate change is not just affecting the frozen worlds at our planet’s poles. Rising temperatures and changing weather patterns can cause species to move out of habitats that become uncomfortable and into new areas. It can also mean that changes linked to seasons (known as “phenology”) such as leaf fall and flowering start to take place at different times. This may cause problems for other species that are hard to predict. Seek out your local plant life and see how your local environment may be changing.",
-    "february_2023_action_climate_change": "Look up your favorite plant on the iNaturalist website and explore the “plant phenology” graph on its taxon page. These charts come from “annotations” for flower buds, flowers, or fruits on the observations posted to iNaturalist. You can help add them by logging in on the iNaturalist website.",
+    "february_2023_description_climate_change": "氣候變化不只是影響我們星球上南北兩極的冰凍世界。全球升溫和不斷變化的天氣模式會迫使一些物種從變得不舒服的棲息地遷出到新的區域。也就是說，與季節相關的變化（稱為「物候現象」）如落葉和開花，開始在與以往不同的時段發生。這可能會給其他物種帶來難以預測的問題。探索您當地的植物壽命，看看您當地的環境可能會發生怎樣的變化。",
+    "february_2023_action_climate_change": "到 iNaturalist 網站上查詢您最喜歡的植物，並在其分類頁面上瀏覽「植物物候」圖。這些圖資來自於張貼到 iNaturalist 上觀察記錄中的花芽、花朵或果實的「註記」。您可以登入 iNaturalist 網站來幫忙新增它們。",
     "march_2023_challenge_name_lakes_ponds": "湖泊及池塘挑戰",
     "april_2023_challenge_name_nature": "自然挑戰",
-    "april_2023_description_nature": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns, and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.",
-    "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
+    "april_2023_description_nature": "我們在這行星上並不孤單！不論有沒有注意到，野生生物總是在我們身邊。在我們家裡、花園、城鎮中，都隱藏著另一個世界等著我們去發覺。在您家內外四處尋找，您可能會驚訝的發現您有很多野生的鄰居。",
+    "april_2023_action_nature": "尋找植物、菌物、昆蟲、鳥類與其他動物。小心注意其它暗藏的生命跡象 – 大恭（便便）、毛髮、巢穴、蹤跡以及殘網，這些都可能是與您同居的生物所留下的線索。",
     "may_2023_challenge_name_protected_areas": "保護區挑戰",
     "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
     "june_2023_challenge_name_plant_eaters": "植食者挑戰",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "生態環境挑戰",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek 年度回顧",
+    "description": "感謝您今年使用 Seek！到這邊查看為您特製的個人年度回顧吧：",
+    "button": "檢視我的 Seek 回顧"
   }
 }

@@ -685,7 +685,9 @@
     "seasonality": "Saisonnalité",
     "seasonality_option_1": "Afficher la saisonnalité basée sur les observations iNaturalist du monde entier",
     "seasonality_option_2": "Afficher la saisonnalité basée sur les observations iNaturalist près de ma localisation (les espèces absentes de ma région n'auront pas de saisonnalité)",
-    "donate_ios": "Suivez le lien suivant pour faire un don à Seek :"
+    "donate_ios": "Suivez le lien suivant pour faire un don à Seek :",
+    "change_language": "Voulez-vous que la langue dans l'application soit la langue suivante : {{language}}?",
+    "confirm": "Confirmer"
   },
   "seek_challenges": {
     "badge": "Badge Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Utilisez l'application ou le site Web iNaturalist pour voir les notifications à propos des identifications, des commentaires et d'autres activités concernant vos observations",
     "logged_in_bullet_3": "Vos observations dans Seek NE sont PAS sauvegardées sur iNaturalist. Si vous supprimez Seek, vous supprimerez également toutes les observations qui se trouvent sur votre appareil.",
     "upload_and_track_obs_using_inat": "Téléchargez et gardez une trace de vos observations en utilisant l'application iNaturalist ou en visitant inaturalist.org.\n\nMerci de faire partie de cette communauté !",
-    "x_seen_by_user": "{{speciesName}} vu par {{user}}"
+    "x_seen_by_user": "{{speciesName}} vu par {{user}}",
+    "about_inat_internet_error": "Vous avez ouvert une connexion sur iNaturalist, mais nous avons besoin d'Internet pour afficher les détails. Appuyez pour réessayer."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Défi des prédateurs arthropodes",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Avez-vous une essence d'arbre favorite, ou même un arbre favori ? Renseignez-vous à son sujet. De quelle manière les gens en bénéficient-ils ? Comment les autres plantes ou animaux en bénéficient-ils ?",
     "december_2023_challenge_name_ecology": "Défi de l'écologie",
     "december_2023_description_ecology": "De nombreux types d'interactions exercent une influence sur les écosystèmes et leurs organismes. L’écologie est l’étude des organismes (facteurs biotiques) et de leur environnement physique (facteurs aboitiques). Les interactions biotiques ont lieu entre êtres vivants et les interactions aboitiques concernent les facteurs non vivants comme la température, l'eau, la lumière et le sol."
+  },
+  "seek_year_in_review": {
+    "header": "Revue de l'année Seek",
+    "description": "Merci d'avoir utilisé Seek cette année ! Consultez ici votre revue personnalisée de l'année :",
+    "button": "Voir ma revue Seek"
   }
 }

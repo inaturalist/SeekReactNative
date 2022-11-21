@@ -685,7 +685,9 @@
     "seasonality": "Kausivaihtelu",
     "seasonality_option_1": "Näytä kausivaihtelu perustuen maailmanlaajuisiin iNaturalist-havaintoihin",
     "seasonality_option_2": "Näytä kausivaihtelu perustuen iNaturalist-havaintoihin lähellä sijaintiani (lajeilla, joita ei löydy lähellä sijaintiani ei ole kausivaihtelua)",
-    "donate_ios": "Vieraile seuraavassa linkissä tehdäksesi lahjoituksen Seekille:"
+    "donate_ios": "Vieraile seuraavassa linkissä tehdäksesi lahjoituksen Seekille:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seek-merkki",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Käytä iNaturalist-sovellusta tai -verkkosivustoa tarkastellaksesi havaintoihisi liittyviä tunnistuksia, kommentteja ja muuta toimintaa",
     "logged_in_bullet_3": "Seek-havaintojasi EI ole varmuuskopioitu iNaturalistiin. Seekin poistaminen poistaa kaikki havainnot laitteestasi.",
     "upload_and_track_obs_using_inat": "Lataa ja seuraa havaintojasi käyttämällä iNaturalist-sovellusta tai vierailemalla osoitteessa inaturalist.laji.fi.\n\nKiitos, että olet osa tätä yhteisöä!",
-    "x_seen_by_user": "{{speciesName}} nähnyt {{user}}"
+    "x_seen_by_user": "{{speciesName}} nähnyt {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Niveljalkainen saalistaja -haaste",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Onko sinulla suosikkipuulaji tai jopa tietty yksittäinen puu? Lue lisää siitä. Millä tavoin ihmiset hyötyvät siitä? Miten muut kasvit tai eläimet hyötyvät?",
     "december_2023_challenge_name_ecology": "Ekologiahaaste",
     "december_2023_description_ecology": "Monet erilaiset vuorovaikutukset vaikuttavat ekosysteemeihin ja niiden organismeihin. Ekologia on eliöiden (bioottinen) ja niiden fyysisen ympäristön (abioottinen) tutkiminen. Bioottiset vuorovaikutukset ovat eläviä asioita ja abioottisia vuorovaikutuksia ovat elottomat tekijät, kuten lämpötila, vesi, valo ja maaperä."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

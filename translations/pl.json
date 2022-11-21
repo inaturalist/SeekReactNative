@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Zaprojektowane i rozwijane przez zespół iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Wersja",
     "help": "Aby uzyskać pomoc dotyczącą aplikacji Seek, napisz na adres help+seek@inaturalist.org.",
     "translators": "Jesteśmy wdzięczni za pomoc w tłumaczeniach ze strony społeczności crowdin.com, zwłaszcza: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martiţnez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, i Yulia Lygina.",
@@ -685,7 +685,9 @@
     "seasonality": "Sezonowość",
     "seasonality_option_1": "Wyświetl sezonowość w oparciu o obserwacje iNaturalist na całym świecie",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Please visit the following link to make a donation to Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Odznaka Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Użyj aplikacji iNaturalist lub strony internetowej, aby wyświetlić powiadomienia o identyfikacjach, komentarzach i innych aktywnościach dotyczących twoich obserwacji",
     "logged_in_bullet_3": "Twoje obserwacje Seek NIE są przesyłane do iNaturalist. Usunięcie Seek usunie wszystkie obserwacje na twoim urządzeniu.",
     "upload_and_track_obs_using_inat": "Prześlij i śledź swoje obserwacje za pomocą aplikacji iNaturalist lub poprzez inaturalist.org.\n\nDziękujemy za uczestnictwo w tej społeczności!",
-    "x_seen_by_user": "{{speciesName}} zaobserwowany przez {{user}}"
+    "x_seen_by_user": "{{speciesName}} zaobserwowany przez {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",
@@ -932,15 +935,15 @@
     "february_2023_action_climate_change": "Look up your favorite plant on the iNaturalist website and explore the “plant phenology” graph on its taxon page. These charts come from “annotations” for flower buds, flowers, or fruits on the observations posted to iNaturalist. You can help add them by logging in on the iNaturalist website.",
     "march_2023_challenge_name_lakes_ponds": "Lakes and Ponds Challenge",
     "april_2023_challenge_name_nature": "Nature Challenge",
-    "april_2023_description_nature": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns, and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.",
+    "april_2023_description_nature": "Nie jesteśmy samotni na naszej planecie! Dzika przyroda jest zawsze wokół nas bez względu na to, czy ją zauważymy, czy nie. W naszych domach, ogrodach, miasteczkach i miastach można odkryć ukryte światy. Szukaj w domu i wokół niego i możesz być zaskoczony tym, ilu dzikich sąsiadów znalazłeś.",
     "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
     "may_2023_challenge_name_protected_areas": "Protected Areas Challenge",
     "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
     "june_2023_challenge_name_plant_eaters": "Plant Eaters Challenge",
-    "june_2023_action": "What kinds of plants do you eat? What parts of the plant do they come from? What kinds of animals also like to eat those plants?",
+    "june_2023_action": "Jakiego rodzaju rośliny jesz? Które części tych roślin są jadalne? Jakie zwierzęta również lubią jeść te rośliny?",
     "july_2023_challenge_name_food_web": "Food Web Challenge",
-    "july_2023_description_plant_eaters": "Every species in a community is connected in a food web. Producers capture energy from the sun, herbivores eat plants, carnivores eat other animals, and decomposers consume dead organisms. Seek out different levels in your local web of life, and learn how each one enables other species to survive.",
-    "july_2023_action_plant_eaters": "Did you see any herbivores in action, such as a caterpillar eating a leaf or a bird eating seeds? Did you see any carnivores in action, perhaps a spider or a mantis with prey?",
+    "july_2023_description_plant_eaters": "Każdy gatunek w społeczności jest połączony w sieci pokarmowej. Producenci wychwytują energię z słońca, roślinożercy jedzą rośliny, mięsożercy inne zwierzęta, a dekompozytorzy zużywają martwe organizmy. Szukaj różnych poziomów w lokalnej sieci życia i dowiedz się, jak każdy z nich umożliwia innym gatunkom przetrwanie.",
+    "july_2023_action_plant_eaters": "Czy widziałeś jakieś zwierzęta roślinożerne, takie jak gąsienicę zjadającą liść lub ptaka jedzącego nasiona? Czy widziałeś jakieś mięsożerców w działaniu, być może pająka lub modliszkę z ofiarą?",
     "august_2023_challenge_name_insect": "Insect Challenge",
     "august_2023_description_insect": "Insects populations are declining around our planet, partly because crops and buildings replace their habitats and are then sprayed with bug-killing pesticides. We need insect pollinators for our crops and wild plants to flourish, and many amphibians, reptiles, birds, and mammals depend on insects for food. Seek out the insects around you and show them some love!",
     "august_2023_action_insect": "Insects have exoskeletons and can be distinguished from their arthropod relatives by their 6 legs. Where were you able to find insects? Are they at risk from habitat loss or pesticides?",
@@ -951,7 +954,12 @@
     "november_2023_challenge_name_trees": "Trees Challenge",
     "november_2023_description_trees": "Humans rely on trees and forests for clean air, food, shelter, and wood. They take in carbon from the air and lock it away in their wood or the soil. Spending time among trees makes us feel better in mind and body. We need them now even more than ever, and so do a huge number of other living things. Seek out the trees in your local area and feel the benefits for yourself!",
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
-    "december_2023_challenge_name_ecology": "Ecology Challenge",
+    "december_2023_challenge_name_ecology": "Wyzwanie Ekologiczne",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

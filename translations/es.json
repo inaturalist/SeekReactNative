@@ -685,7 +685,9 @@
     "seasonality": "Estacionalidad",
     "seasonality_option_1": "Mostrar la estacionalidad basándose en las observaciones mundiales de iNaturalist",
     "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi localización actual (las especies que no se han observado cerca de tu ubicación no tendrán estacionalidad)",
-    "donate_ios": "Visite este enlace para realizar un donativo a Seek:"
+    "donate_ios": "Visite este enlace para realizar un donativo a Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Insignia de Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Utiliza la App iNaturalist o el sitio web para ver notificaciones de identificaciones, comentarios u otras actividades sobre tus observaciones",
     "logged_in_bullet_3": "Tus observaciones de Seek NO están copiadas en iNaturalist. Si borras Seek se borrarán todas las observaciones de tu dispositivo.",
     "upload_and_track_obs_using_inat": "Sube y mantén un seguimiento de tus observaciones usando la aplicación iNaturalist o visitando inaturalist.org.\n\n¡Gracias por ser parte de esta comunidad!",
-    "x_seen_by_user": "{{speciesName}} visto por {{user}}"
+    "x_seen_by_user": "{{speciesName}} visto por {{user}}",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Desafío de Artrópodos Depredadores",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "Ecology Challenge",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

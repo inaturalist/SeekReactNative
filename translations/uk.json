@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist є спільною ініціативою Каліфорнійської академії наук та Національного географічного товариства.",
     "original": "Seek був створений за підтримки HHMI Tangled Bank Studios та розширений за підтримки Our Planet на Netflix та WWF.",
     "designed_by": "Розроблено командою iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Особлива подяка Grant Van Horn з Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein and Yaron Budowski. Особлива подяка Grant Van Horn з Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
     "version": "Версія",
     "help": "Для отримання допомоги в роботі з Seek, будь ласка, напишіть на електронну пошту help+seek@inaturalist.org.",
     "translators": "Ми вдячні за допомогу в перекладі, спільноті crowdin.com, зокрема: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -685,7 +685,9 @@
     "seasonality": "Сезонність",
     "seasonality_option_1": "Відображення сезонності на основі всесвітніх спостережень iNaturalist",
     "seasonality_option_2": "Показати сезонність на основі спостережень iNaturalist поблизу мого поточного місцезнаходження (види, які не знайдені поблизу мого місцезнаходження, не матимуть сезонності)",
-    "donate_ios": "Перейдіть за цим посиланням, щоб зробити пожертву на Seek:"
+    "donate_ios": "Перейдіть за цим посиланням, щоб зробити пожертву на Seek:",
+    "change_language": "Змінити мову в додатку на {{language}}?",
+    "confirm": "Підтвердити"
   },
   "seek_challenges": {
     "badge": "Значок Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Використовуйте додаток або сайт iNaturalist, щоб переглядати сповіщення про ідентифікацію, коментарі та іншу активність щодо ваших спостережень",
     "logged_in_bullet_3": "Ваші спостереження у програмі Seek НЕ зберігаються у резервній копії в iNaturalist. Видалення Seek призведе до видалення всіх спостережень на вашому пристрої.",
     "upload_and_track_obs_using_inat": "Завантажуйте та відстежуйте свої спостереження за допомогою додатку iNaturalist або на сайті inaturalist.org.\n\nДякуємо, що є частиною цієї спільноти!",
-    "x_seen_by_user": "{{speciesName}} знайшов {{user}}"
+    "x_seen_by_user": "{{speciesName}} знайшов {{user}}",
+    "about_inat_internet_error": "Ви ввійшли в iNaturalist, але нам потрібен Інтернет, щоб показати деталі. Натисніть, щоб повторити спробу."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Виклик \"Членистоногі Хижаки\"",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Чи є у вас улюблена порода дерев, або навіть улюблене окреме дерево? Прочитайте про це докладніше. Яку користь воно приносить людям? Яку користь отримують інші рослини чи тварини?",
     "december_2023_challenge_name_ecology": "Виклик \"Екологія\"",
     "december_2023_description_ecology": "На екосистеми та їхні організми впливає багато різних видів взаємодій. Екологія вивчає організми (біотичні) та їх фізичне середовище (абіотичне). Біотичні взаємодії відбуваються між живими істотами, а абіотичні взаємодії включають неживі фактори, такі як температура, вода, світло та ґрунт."
+  },
+  "seek_year_in_review": {
+    "header": "Огляд року в Seek",
+    "description": " Дякуємо за використання Seek цього року! Перегляньте свій персоналізований огляд року тут:",
+    "button": "Переглянути мій огляд Seek"
   }
 }

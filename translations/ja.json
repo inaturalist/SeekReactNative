@@ -366,7 +366,7 @@
     "error_device": "申し訳ありませんが、使用しているデバイスはサポートされていません",
     "error_take": "Sorry, we weren't able to capture your photo",
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
+    "error_version": "SeekのARカメラはiOS 11.0以上が必要です。お使いのデバイスはOSバージョン {{OS}}を実行しています。",
     "error_cameraManager": "申し訳ありませんが、カメラマネージャの読み込みに失敗しました",
     "error_photoError": "Sorry, the photo object was not found",
     "error_selected_photos": "権限が「選択した写真」に設定されていて、ここに表示する写真を選択したい場合は、Seekを再起動するか、「設定」アプリ＞「Seek」＞「写真」＞「選択した写真」を確認する必要があります。",
@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。",
     "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "iNaturalistチームによってデザイン・開発されました：",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "バージョン",
     "help": "Seekのサポートが必要ならば、help+seek@inaturalist.orgまでメールをお送りください。",
     "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -672,7 +672,7 @@
     "subtitle": "すばやく判定するために"
   },
   "settings": {
-    "header": "Seek Camera",
+    "header": "Seekカメラ",
     "common_names": "和名を表示",
     "scientific_names": "学名を表示",
     "donate": "寄付する",
@@ -685,7 +685,9 @@
     "seasonality": "季節性",
     "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:"
+    "donate_ios": "Please visit the following link to make a donation to Seek:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seekバッジ",
@@ -753,10 +755,10 @@
     "header": "Replace Photo?",
     "description": "Would you like to replace the photo of your resighted observation?",
     "new": "Use new photo",
-    "old": "Keep old photo"
+    "old": "古い写真を残す"
   },
   "social": {
-    "share_observation": "Share observation",
+    "share_observation": "観察記録を共有",
     "square": "スクエア",
     "original": "オリジナル",
     "options": "オプション",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Use the iNaturalist app or website to view notifications of identifications, comments, and other activity on your observations",
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
-    "x_seen_by_user": "{{speciesName}}：{{user}}さんが観察"
+    "x_seen_by_user": "{{speciesName}}：{{user}}さんが観察",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",
@@ -877,7 +880,7 @@
     "december_2021_action_think_about_predators": "Think about the predators you observed. What adaptations do they have to be good at hunting and killing prey? Do the two species you saw have any similar adaptations for predation?"
   },
   "seek_2022_challenges": {
-    "january_2022_challenge_name_vertebrate_water": "Vertebrate Water Predator Challenge",
+    "january_2022_challenge_name_vertebrate_water": "「水辺の脊椎動物捕食者」チャレンジ",
     "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Order Suliformes (Gannets, Cormorants, and Allies);\n-Order Sphenisciformes (Penguins)",
     "january_2022_description_mammals_fishes_birds": "Mammals, fishes, and birds all have some species that are able to hunt prey in saltwater (oceans and seas) and some adapted to freshwater (rivers, lakes, and streams). They all have adaptations to detect, capture, and consume prey in the water.",
     "january_2022_action_water_habitat": "What type of water habitat did you visit? What types of prey animals are available there for predators to eat?",
@@ -939,7 +942,7 @@
     "june_2023_challenge_name_plant_eaters": "Plant Eaters Challenge",
     "june_2023_action": "What kinds of plants do you eat? What parts of the plant do they come from? What kinds of animals also like to eat those plants?",
     "july_2023_challenge_name_food_web": "Food Web Challenge",
-    "july_2023_description_plant_eaters": "Every species in a community is connected in a food web. Producers capture energy from the sun, herbivores eat plants, carnivores eat other animals, and decomposers consume dead organisms. Seek out different levels in your local web of life, and learn how each one enables other species to survive.",
+    "july_2023_description_plant_eaters": "群生内のすべての種は食物網でつながっています。植物は太陽からエネルギーを吸収し、草食動物は植物を食べ、肉食動物は他の動物を食べ、分解者は生物の死体を分解します。地元の生活網でさまざまな段階を探し、それぞれが他の種が生き残ることを可能にする方法を学習しましょう。",
     "july_2023_action_plant_eaters": "Did you see any herbivores in action, such as a caterpillar eating a leaf or a bird eating seeds? Did you see any carnivores in action, perhaps a spider or a mantis with prey?",
     "august_2023_challenge_name_insect": "Insect Challenge",
     "august_2023_description_insect": "Insects populations are declining around our planet, partly because crops and buildings replace their habitats and are then sprayed with bug-killing pesticides. We need insect pollinators for our crops and wild plants to flourish, and many amphibians, reptiles, birds, and mammals depend on insects for food. Seek out the insects around you and show them some love!",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "Ecology Challenge",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

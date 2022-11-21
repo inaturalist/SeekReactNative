@@ -685,7 +685,9 @@
     "seasonality": "Jahreszeitliche Verteilung",
     "seasonality_option_1": "Zeige die jahreszeitliche Verteilung basierend auf weltweiten iNaturalist Beobachtungen",
     "seasonality_option_2": "Zeige die jahreszeitliche Verteilung basierend auf iNaturalist-Beobachtungen in der Nähe meines aktuellen Standortes (bei nicht in der Nähe meines Standortes gefundenen Arten wird diese Verteilung nicht angezeigt)",
-    "donate_ios": "Bitte besuchen den folgenden Link, um an Seek zu spenden:"
+    "donate_ios": "Bitte besuchen den folgenden Link, um an Seek zu spenden:",
+    "change_language": "Die In-App-Sprache auf {{language}} umschalten?",
+    "confirm": "Bestätigen"
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Verwende die iNaturalist-App oder die Website, um Benachrichtigungen über Identifikationen, Kommentare und andere Aktivitäten zu deinen Beobachtungen zu erhalten",
     "logged_in_bullet_3": "Deine Seek-Beobachtungen sind NICHT über iNaturalist gesichert. Das Löschen von Seek löscht alle Beobachtungen auf deinem Gerät.",
     "upload_and_track_obs_using_inat": "Hochladen und verfolgen deiner Beobachtungen mit der iNaturalist-App oder über inaturalist.org.\n\nDanke, dass du Teil dieser Gemeinschaft bist!",
-    "x_seen_by_user": "{{speciesName}} beobachtet von {{user}}"
+    "x_seen_by_user": "{{speciesName}} beobachtet von {{user}}",
+    "about_inat_internet_error": "Du bist bei iNaturalist angemeldet, aber wir benötigen eine Internetverbindung, um Details anzuzeigen. Tippe hier, um es erneut zu versuchen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Räuberische Arthropoden-Mission",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Hast du eine Lieblings-Baumart oder sogar einen einzelnen Lieblingsbaum? Wie profitieren die Menschen von diesem Baum? Wie nützt er anderen Lebewesen?",
     "december_2023_challenge_name_ecology": "Ökologie-Mission",
     "december_2023_description_ecology": "Viele unterschiedliche Arten von Wechselwirkungen beeinflussen Ökosysteme und ihre Lebewesen. Die Ökologie ist die Untersuchung von Organismen (biotisch) und ihrer physischen Umwelt (abiotisch). Biotische Wechselwirkungen finden zwischen Lebewesen statt, und abiotische Interaktionen umfassen unbelebte Faktoren wie Temperatur, Wasser, Licht und Boden."
+  },
+  "seek_year_in_review": {
+    "header": "Seek-Jahresrückblick",
+    "description": "Vielen Dank für die Verwendung von Seek in diesem Jahr! Hier geht's zum personalisierten Jahresrückblick:",
+    "button": "Seek-Jahresrückblick ansehen"
   }
 }

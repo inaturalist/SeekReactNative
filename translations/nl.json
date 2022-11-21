@@ -685,7 +685,9 @@
     "seasonality": "Seizoensgebonden",
     "seasonality_option_1": "Geef seizoensgebondenheid weer op basis van wereldwijde iNaturalist waarnemingen",
     "seasonality_option_2": "Seizoensgebonden weergave op basis van iNaturalist waarnemingen bij mijn huidige locatie (soorten die niet gevonden zijn in de buurt van mijn locatie zullen geen seizoensgebonden karakter hebben)",
-    "donate_ios": "Bezoek de volgende link om een donatie aan Seek te doen:"
+    "donate_ios": "Bezoek de volgende link om een donatie aan Seek te doen:",
+    "change_language": "Wissel de taal van de app naar {{language}}?",
+    "confirm": "Bevestig"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Gebruik de iNaturalist app of website om meldingen van determinaties, opmerkingen en andere activiteiten op jouw waarnemingen te bekijken",
     "logged_in_bullet_3": "Je Seek waarnemingen zijn NIET geback-upt in iNaturalist. Als je Seek verwijdert worden alle waarnemingen van je apparaat verwijderd.",
     "upload_and_track_obs_using_inat": "Upload en houd jouw waarnemingen bij met behulp van de iNaturalist app of bezoek inaturalist.org.\n\nBedankt dat je deel uit maakt van deze gemeenschap!",
-    "x_seen_by_user": "{{speciesName}} gezien door {{user}}"
+    "x_seen_by_user": "{{speciesName}} gezien door {{user}}",
+    "about_inat_internet_error": "Je bent aangemeld bij iNaturalist, maar we hebben internet nodig om details te tonen. Tik om het opnieuw te proberen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Geleedpotige Roofdier Uitdaging",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Heb je een favoriete boomsoort of zelfs een favoriete individuele boom? Lees er meer over. Op welke manier profiteert de mens hiervan? Hoe profiteren andere planten of dieren ervan?",
     "december_2023_challenge_name_ecology": "Ecologie Uitdaging",
     "december_2023_description_ecology": "Veel verschillende soorten interacties zijn van invloed op ecosystemen en hun organismen. Ecologie is het onderzoek van organismen (biologisch) en hun fysieke omgeving (abotisch). Biotische interacties tussen levende wezens en abotisch interacties omvatten niet-levende factoren als temperatuur, water, licht en bodem."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Jaaroverzicht",
+    "description": "Bedankt voor het gebruiken van Seek dit jaar! Bekijk hier uw eigen Jaaroverzicht:",
+    "button": "Bekijk mijn Seek Jaaroverzicht"
   }
 }

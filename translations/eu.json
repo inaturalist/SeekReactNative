@@ -685,7 +685,9 @@
     "seasonality": "Urtarokotasuna",
     "seasonality_option_1": "Mundu osoko iNaturalist behaketen urtarokotasuna erakutsi",
     "seasonality_option_2": "Nire uneko kokapenetik gertu egindako iNaturalist behaketetan oinarritutako urtarokotasuna erakutsi (nire kokapenetik gertu aurkitu ez diren espezieek ez dute zertan urtarokotasuna izan behar)",
-    "donate_ios": "Egin klik mesedez hurrengo estekan Seek-eri donazio bat egiteko:"
+    "donate_ios": "Egin klik mesedez hurrengo estekan Seek-eri donazio bat egiteko:",
+    "change_language": "Switch the in-app language to {{language}}?",
+    "confirm": "Confirm"
   },
   "seek_challenges": {
     "badge": "Seek Txapa",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Erabili ezazu iNaturalist-eko app edo webgunea behaketen jakinarazpenak eta iruzkinak ikusteko, baita zure behaketen inguruko bestelako aktibitatea ere.",
     "logged_in_bullet_3": "Zure Seek-eko behaketen segurtasun-kopia ez da iNaturalist-en egiten ari. Seek ezabatzean zure gailuan dauden behaketa guztiak ezabatuko dira.",
     "upload_and_track_obs_using_inat": "Igo eta egin jarraipena zure behaketeei iNaturalist-eko app-a erabilita edo inaturalist.org webgunea bisitatuz.\n\nEskerrik asko komunitate honetako kidea izateagatik!",
-    "x_seen_by_user": "{{user}} erabiltzaileak ikusitako {{speciesName}} "
+    "x_seen_by_user": "{{user}} erabiltzaileak ikusitako {{speciesName}} ",
+    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Artropodo Harraparien Erronka",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "Ecology Challenge",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Year in Review",
+    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "button": "View my Seek Review"
   }
 }

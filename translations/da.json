@@ -685,7 +685,9 @@
     "seasonality": "Sæsonudsving",
     "seasonality_option_1": "Vis sæsonudsving baseret på iNaturalist-observationer fra hele verden",
     "seasonality_option_2": "Vis sæsonudsving baseret på iNaturalist-observationer nær min aktuelle placering (arter som ikke er fundet i nærheden, vil ikke have nogen sæsonudsving)",
-    "donate_ios": "Besøg følgende link for at donere til Seek:"
+    "donate_ios": "Besøg følgende link for at donere til Seek:",
+    "change_language": "Skift sproget i appen til {{language}}?",
+    "confirm": "Bekræft"
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Brug iNaturalist-appen eller hjemmesiden til at se meddelelser om identifikationer, kommentarer og anden aktivitet på dine observationer",
     "logged_in_bullet_3": "Din Seek-observationer er IKKE sikkerhedskopieret til iNaturalist. Sletning af Seek vil slette alle observationerne på din enhed.",
     "upload_and_track_obs_using_inat": "Upload og hold styr på dine observationer ved hjælp af iNaturalist-appen eller besøg inaturalist.org.\n\nTak fordi du er en del af dette fællesskab!",
-    "x_seen_by_user": "{{speciesName}} set af {{user}}"
+    "x_seen_by_user": "{{speciesName}} set af {{user}}",
+    "about_inat_internet_error": "Du er logget ind på iNaturalist, men vi har brug for internettet for at vise detaljer. Tryk for at prøve igen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Rovleddyrsudfordring",
@@ -953,5 +956,10 @@
     "november_2023_action_trees": "Har du en favorittræart eller endda et individuelt yndlingstræ? Læs mere om det. På hvilke måder har folk gavn af det? Hvordan har andre planter eller dyr gavn af det?",
     "december_2023_challenge_name_ecology": "Økologiudfordring",
     "december_2023_description_ecology": "Mange forskellige former for interaktioner påvirker økosystemerne og deres organismer. Økologi er studiet af organismer (biotiske) og deres fysiske miljø (aboitisk). Biotiske vekselvirkninger er mellem levende væsener, og aboitiske vekselvirkninger omfatter ikke-levende faktorer som temperatur, vand, lys og jordbund."
+  },
+  "seek_year_in_review": {
+    "header": "Seek-året der gik",
+    "description": "Tak for at bruge Seek i år! Tjek din personlige Året der gik her:",
+    "button": "Se min Seek-gennemgang"
   }
 }

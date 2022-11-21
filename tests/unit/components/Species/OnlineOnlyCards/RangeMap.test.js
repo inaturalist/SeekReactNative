@@ -47,19 +47,16 @@ const mapID = "range-map";
 const buttonID = "user-location-button";
 
 describe( "RangeMap", () => {
-  test( "should render correctly", () => {
+  test( "should render correctly", async () => {
     render( <RangeMap /> );
     // renders the map
-    screen.findByTestId( containerID );
+    await screen.findByTestId( containerID );
     // Create snapshot
     expect( screen ).toMatchSnapshot();
   } );
 
   test( "should render the map with region as given in props", async () => {
     render( <RangeMap /> );
-    // renders the map container
-    screen.findByTestId( containerID );
-
     // renders the map with location passed in navigation props
     await screen.findByTestId( mapID );
     const map = screen.getByTestId( mapID );
@@ -71,8 +68,6 @@ describe( "RangeMap", () => {
 
   test( "should change map region to user's location when button is pressed", async () => {
     render( <RangeMap /> );
-    screen.findByTestId( containerID );
-
     // renders the user location button
     await screen.findByTestId( buttonID );
     const locationButton = screen.getByTestId( buttonID );

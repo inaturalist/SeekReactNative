@@ -1,9 +1,10 @@
 // A list of inaturalist observations in the browser that should ID to species in the camera
 
 const plantObs = [
+  "https://www.inaturalist.org/observations/53860842",
   "https://www.inaturalist.org/observations/122541881",
-  "https://www.inaturalist.org/observations/3485073",
   "https://www.inaturalist.org/observations/139053635",
+  "https://www.inaturalist.org/observations/3485073",
   "https://www.inaturalist.org/observations/139966307",
   "https://www.inaturalist.org/observations/140003855",
   "https://www.inaturalist.org/observations/137834274"

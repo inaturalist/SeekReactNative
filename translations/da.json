@@ -685,7 +685,9 @@
     "seasonality": "Sæsonudsving",
     "seasonality_option_1": "Vis sæsonudsving baseret på iNaturalist-observationer fra hele verden",
     "seasonality_option_2": "Vis sæsonudsving baseret på iNaturalist-observationer nær min aktuelle placering (arter som ikke er fundet i nærheden, vil ikke have nogen sæsonudsving)",
-    "donate_ios": "Besøg følgende link for at donere til Seek:"
+    "donate_ios": "Besøg følgende link for at donere til Seek:",
+    "change_language": "Skift sproget i appen til {{language}}?",
+    "confirm": "Bekræft"
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Brug iNaturalist-appen eller hjemmesiden til at se meddelelser om identifikationer, kommentarer og anden aktivitet på dine observationer",
     "logged_in_bullet_3": "Din Seek-observationer er IKKE sikkerhedskopieret til iNaturalist. Sletning af Seek vil slette alle observationerne på din enhed.",
     "upload_and_track_obs_using_inat": "Upload og hold styr på dine observationer ved hjælp af iNaturalist-appen eller besøg inaturalist.org.\n\nTak fordi du er en del af dette fællesskab!",
-    "x_seen_by_user": "{{speciesName}} set af {{user}}"
+    "x_seen_by_user": "{{speciesName}} set af {{user}}",
+    "about_inat_internet_error": "Du er logget ind på iNaturalist, men vi har brug for internettet for at vise detaljer. Tryk for at prøve igen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Rovleddyrsudfordring",
@@ -922,6 +925,41 @@
     "november_2022_challenge_name_urban_nature": "Bynatur-udfordring",
     "november_2022_mission_1": "Find 4 arter fra:\n\nFamilie Brassicaceae (korsblomster);\nFamilie Lamiaceae (læbeblomster);\nFamilie Poaceae (græsser);\nOrden Blattodea (kakerlakker og termitter);\nOrden Rodentia (gnavere);\nOrden Columbiformes (duer);\nFamilie Corvidae (krager, skovskade og husskade);\nSlægt Passager (gråspurv og skovspurv);\nSlægt Acridotheres (en del af stærfamilien);\nInfraorden Gekkota (gekkoer)",
     "november_2022_description_some_species_well_adapted": "Nogle arter er veltilpassede til livet i byområder. Selv i byerne kan du således finde vild biodiversitet i revner i fortovet, på tomme grunde, i haver og endda inde i vores hjem (måske som uønskede gæster).",
-    "november_2022_action_change_location": "Skift placeringen for “Arter i nærheden” for at søge i en by langt fra dig. Hvilke arter er set i nærheden der? Er nogen af dem de samme, eller minder de om arter set nær dig?"
+    "november_2022_action_change_location": "Skift placeringen for “Arter i nærheden” for at søge i en by langt fra dig. Hvilke arter er set i nærheden der? Er nogen af dem de samme, eller minder de om arter set nær dig?",
+    "december_2022_challenge_name_decomposers": "Nedbryderudfording"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Levestedsudfordring",
+    "february_2023_challenge_name_climate_change": "Klimaændringudfordring",
+    "february_2023_description_climate_change": "Klimaændringer påvirker ikke kun de frosne verdener ved vores planets poler. Stigende temperaturer og ændrede vejrmønstre kan tvinge arter til at forlade deres levesteder, som bliver ubeboelige, for at søge mod nye områder. Det kan også medføre ændringer i årstiderne (kaldet for 'fænologi') såsom tidspunktet for løvfald og blomstring. Dette kan give problemer for andre arter, som er svære at forudsige. Udforsk dit lokale planteliv og se hvordan dit lokale miljø måske er under forandring.",
+    "february_2023_action_climate_change": "Slå din favoritplante op på iNaturalist hjemmeside og udforsk ‘plantefænologi’-grafen på dens taksonside. Disse diagrammer kommer fra ‘anmærkninger’ til blomsterknopper, blomster eller frugter på observationerne tilføjet iNaturalist. Du kan også hjælpe med at tilføje dem!",
+    "march_2023_challenge_name_lakes_ponds": "Sø- og vandhulsudfordring",
+    "april_2023_challenge_name_nature": "Naturudfordring",
+    "april_2023_description_nature": "Seek ... Natur overalt\n\nVi er ikke alene på vores planet! Der er altid vilde dyr omkring os, uanset om vi bemærker det eller ej. I vores hjem, haver og byer er der skjulte verdener, der kan udforskes. Søg i og omkring dit hjem, og du vil blive overrasket over, hvor mange vilde naboer du finder.",
+    "april_2023_action_nature": "Find planter, svampe, insekter, fugle og andre dyr. Hold udkig efter tegn på mere flygtigt liv - ekskrementer (lort), pels, reder, spor og spindelvæv kan alle være fingerpeg om, hvilke andre skabninger du deler hjem med.",
+    "may_2023_challenge_name_protected_areas": "Beskyttede Områder Udfordring",
+    "may_2023_description_protected_areas": "Hvad enten det gælder de dybeste jungler eller små parker, deler vi vores planet med en fantastisk mangfoldighed af andre levende organismer, som hver især er tilpasset det miljø, de lever i. Find et lokalt natur-hotspot og se, hvor mange forskellige former for liv du kan finde. Undervejs vil du lære mere om, hvilke karakteristika der adskiller disse forskellige grupper af organismer fra hinanden!",
+    "june_2023_challenge_name_plant_eaters": "Planteæderudfordring",
+    "june_2023_action": "Hvilke slags planter spiser du? Hvilke dele af planten kommer de fra? Hvilke slags dyr kan også lide at spise disse planter?",
+    "july_2023_challenge_name_food_web": "Fødenetudfordring",
+    "july_2023_description_plant_eaters": "Alle arter i et samfund er forbundet i et fødenet. Producenterne indfanger energi fra solen, planteædere spiser planter, kødædere spiser andre dyr, og nedbrydere spiser døde organismer. Find de forskellige niveauer i dit lokale net af liv, og lær, hvordan de hver især gør det muligt for andre arter at overleve.",
+    "july_2023_action_plant_eaters": "Har du set planteædere i aktion, f.eks. en larve, der spiser et blad, eller en fugl, der spiser frø? Så du nogle kødædere i aktion, f.eks. en edderkop eller en knæler med et bytte?",
+    "august_2023_challenge_name_insect": "Insektudfordring",
+    "august_2023_description_insect": "Insekternes bestande er faldende rundt omkring på vores planet, til dels fordi afgrøder og bygninger erstatter deres levesteder og derefter sprøjtes med insektdræbende pesticider. Vi har brug for insektbestøvere, for at vores afgrøder og vilde planter kan trives, og mange padder, krybdyr, fugle og pattedyr er afhængige af insekter som føde. Opsøg insekterne omkring dig og vis dem lidt kærlighed!",
+    "august_2023_action_insect": "Insekter har et eksoskelet og kan skelnes fra deres slægtninge af leddyr på deres 6 ben. Hvor fandt du insekter? Er de i fare for at mistet deres levested eller på grund af pesticider?",
+    "september_2023_challenge_name_equinox": "Jævndøgnsudfordring",
+    "october_2023_challenge_name_migration": "Migrationsudfordring",
+    "october_2023_description_migration": "Millioner af fugle trækker fra et land til et andet for at undslippe koldt vejr og for at finde føde. Ved at holde styr på, hvornår dyrelivet vandrer, kan vi bedre forstå, hvordan klimaændringerne påvirker naturen. Find fugle, der besøger dit lokale område og find ud af, hvor de ellers tilbringer deres tid.",
+    "october_2023_action_migration": "Fugle har brug for brændstof til de lange træk, de foretager. Du kan støtte deres fødebehov ved at støtte beskyttede områder og ved at fremme brugen af hjemmehørende træer og buske i landskabet, som giver bær og rastepladser til fugle, der besøger området.",
+    "november_2023_challenge_name_trees": "Træudfordring",
+    "november_2023_description_trees": "Mennesker er afhængige af træer og skove for at få ren luft, mad, husly og træ. De optager kulstof fra luften og lagrer det i deres ved eller i jorden. Når vi tilbringer tid blandt træer, får vi det bedre i sind og krop. Vi har brug for dem nu mere end nogensinde før, og det samme har en lang række andre levende væsener. Opsøg træerne i dit lokalområde, og mærk selv fordelene ved dem!",
+    "november_2023_action_trees": "Har du en favorittræart eller endda et individuelt yndlingstræ? Læs mere om det. På hvilke måder har folk gavn af det? Hvordan har andre planter eller dyr gavn af det?",
+    "december_2023_challenge_name_ecology": "Økologiudfordring",
+    "december_2023_description_ecology": "Mange forskellige former for interaktioner påvirker økosystemerne og deres organismer. Økologi er studiet af organismer (biotiske) og deres fysiske miljø (aboitisk). Biotiske vekselvirkninger er mellem levende væsener, og aboitiske vekselvirkninger omfatter ikke-levende faktorer som temperatur, vand, lys og jordbund."
+  },
+  "seek_year_in_review": {
+    "header": "Seek-året der gik",
+    "description": "Tak for at bruge Seek i år! Tjek din personlige Året der gik her:",
+    "button": "Se min Seek-gennemgang"
   }
 }

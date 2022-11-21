@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist är ett gemensamt initiativ av California Academy of Sciences och National Geographic Society.",
     "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Designad & utvecklad av iNaturalist-teamet:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary och Yaron Budowski. Särskilt tack till Grant Van Horn från Visipedia för hjälp med bildigenkänningsteknologi, and iNaturalist-communityn.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein och Yaron Budowski. Särskilt tack till Grant Van Horn från Visipedia för hjälp med bildigenkänningsteknologi, och iNaturalist-communityn.",
     "version": "Version",
     "help": "För hjälp med Seek, vänligen mejla help+seek@inaturalist.org.",
     "translators": "Vi är tacksamma för översättningshjälpen från crowdin.com-communityn, särskilt: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch och Yulia Lygina.",
@@ -685,7 +685,9 @@
     "seasonality": "Säsongsvariation",
     "seasonality_option_1": "Visa säsongsvariation baserat på iNaturalist-fynd från hela världen",
     "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-fynd nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)",
-    "donate_ios": "Följ denna länk för att göra en donation till Seek:"
+    "donate_ios": "Följ denna länk för att göra en donation till Seek:",
+    "change_language": "Byt språk i appen till {{language}}?",
+    "confirm": "Bekräfta"
   },
   "seek_challenges": {
     "badge": "Seek-utmärkelse",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Använd iNaturalist-appen eller -webbplatsen för att se aviseringar om bestämningar, kommentarer och annan aktivitet på dina fynd",
     "logged_in_bullet_3": "Dina Seek-fynd är INTE säkerhetskopierade till iNaturalist. Tar du bort Seek kommer alla fynd på din enhet att raderas.",
     "upload_and_track_obs_using_inat": "Ladda upp och håll koll på dina fynd med iNaturalist-appen eller besök inaturalist.se.\n\nTack för att du är en del av denna community!",
-    "x_seen_by_user": "{{speciesName}} sedd av {{user}}"
+    "x_seen_by_user": "{{speciesName}} sedd av {{user}}",
+    "about_inat_internet_error": "Du är inloggad på iNaturalist, men vi behöver internet för att visa detaljer. Tryck för att försöka igen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Utmaning för rovlevande leddjur",
@@ -922,6 +925,41 @@
     "november_2022_challenge_name_urban_nature": "Stadsnatursutmaning",
     "november_2022_mission_1": "Hitta 4 arter från:\n\nFamilj Brassicaceae (korsblommiga);\nFamilj Lamiaceae (kransblommiga);\nFamilj Poaceae (gräs);\nOrdning Blattodea (kackerlackor och termiter);\nOrdning Rodentia (gnagare);\nOrdning Columbiformes (duvfåglar);\nFamilj Corvidae (kråkfåglar);\nSläkte Passer (sparvar);\nSläkte Acridotheres (majnor);\nInfraordning Gekkota (geckoödlor)",
     "november_2022_description_some_species_well_adapted": "Vissa arter är väl anpassade till bebyggda områden. Även i städer kan du hitta vild biologisk mångfald i trottoarsprickor, tomma tomter, som besökare i trädgårdar och t.o.m. i våra hem (kanske som oönskade gäster).",
-    "november_2022_action_change_location": "Ändra platsen för “arter i närheten” för att söka i en stad långt ifrån dig. Vilka arter ses i närheten där? Är någon av dem samma eller liknande de arter som ses nära dig?"
+    "november_2022_action_change_location": "Ändra platsen för “arter i närheten” för att söka i en stad långt ifrån dig. Vilka arter ses i närheten där? Är någon av dem samma eller liknande de arter som ses nära dig?",
+    "december_2022_challenge_name_decomposers": "Nedbrytarutmaning"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Habitatutmaning",
+    "february_2023_challenge_name_climate_change": "Klimatförändringsutmaning",
+    "february_2023_description_climate_change": "Klimatförändringarna påverkar inte bara den frusna världen vid vår planets poler. Stigande temperaturer och förändrade vädermönster kan få arter att flytta ut ur miljöer som blir obekväma och in i nya områden. Det kan också innebära att förändringar kopplade till årstider (känt som ”fenologi”) såsom lövfällning och blomning börjar äga rum vid andra tidpunkter. Detta kan orsaka problem för andra arter, som är svåra att förutse. Sök upp ditt lokala växtliv och se hur din lokala miljö kan komma att förändras.",
+    "february_2023_action_climate_change": "Leta upp din favoritväxt på iNaturalists webbplats och utforska “växtfenologi”-grafen på dess taxonsida. Dessa diagram kommer från “anteckningar” om blomknoppar, blommor eller frukter för fynd som publicerats på iNaturalist. Du kan hjälpa med att lägga till dem genom att logga in på iNaturalists webbplats.",
+    "march_2023_challenge_name_lakes_ponds": "Sjö- och dammutmaning",
+    "april_2023_challenge_name_nature": "Naturutmaning",
+    "april_2023_description_nature": "Vi är inte ensamma på vår planet! Djurlivet finns alltid omkring oss oavsett om vi märker det eller inte. I våra hem, trädgårdar, samhällen och städer finns dolda världar att upptäcka. Sök i och runt ditt hem, så blir du kanske förvånad över hur många vilda grannar du hittar.",
+    "april_2023_action_nature": "Sök efter växter, svampar, insekter, fåglar och djur. Se upp för tecken på mer svårfångat liv – spillning (bajs), päls, bon, spår och nät kan alla ge ledtrådar till andra varelser som du delar ditt hem med.",
+    "may_2023_challenge_name_protected_areas": "Utmaning för skyddade områden",
+    "may_2023_description_protected_areas": "Från den djupaste skogen till den minsta parken delar vi vår planet med en otrolig variation av levande ting, vart och ett anpassat till den speciella miljö där de bor. Sök upp en lokal natur-hotspot och se hur många olika typer av levande ting du kan hitta. Längs med vägen lär du dig vilka egenskaper som gör att dessa olika grupper av organismer skiljer sig från varandra!",
+    "june_2023_challenge_name_plant_eaters": "Växtätarutmaning",
+    "june_2023_action": "Vilka slags växter äter du? Vilka delar av växten kommer de ifrån? Vilka typer av djur gillar också att äta dessa växter?",
+    "july_2023_challenge_name_food_web": "Näringsvävsutmaning",
+    "july_2023_description_plant_eaters": "Varje art i ett samhälle är hopkopplad i en näringsväv. Producenter fångar energi från solen, växtätare äter växter, köttätare äter andra djur och nedbrytare förtär döda organismer. Leta reda på olika nivåer i din lokala livsväv, och lär dig hur var och en gör det möjligt för andra arter att överleva.",
+    "july_2023_action_plant_eaters": "Såg du några växtätare i aktion, såsom en larv som äter ett löv eller en fågel som äter frön? Såg du några rovdjur i aktion, kanske en spindel eller en bönsyrsa med byte?",
+    "august_2023_challenge_name_insect": "Insektsutmaning",
+    "august_2023_description_insect": "Insektspopulationer minskar runt vår planet, delvis på grund av att planteringar och byggnader ersätter deras livsmiljöer och sedan besprutas med insektsdödande bekämpningsmedel. Vi behöver insektspollinatörer för att våra grödor och vilda växter ska blomstra, och många groddjur, kräldjur, fåglar och däggdjur är beroende av insekter som mat. Leta reda på insekterna runt omkring dig och visa dem lite kärlek!",
+    "august_2023_action_insect": "Insekter har exoskelett och kan särskiljas från sina leddjurssläktingar genom sina 6 ben. Var lyckades du hitta insekter? Riskerar de förlora livsmiljöer eller utsättas för bekämpningsmedel?",
+    "september_2023_challenge_name_equinox": "Höstdagjämningsutmaning",
+    "october_2023_challenge_name_migration": "Flyttutmaning",
+    "october_2023_description_migration": "Miljontals fåglar flyttar från ett land till ett annat för att fly kallt väder och hitta mat. Att hålla reda på när djur flyttar kan hjälpa oss att förstå hur klimatförändringarna påverkar naturen. Leta reda på fåglar från ditt närområde och ta reda på var de annars tillbringar sin tid.",
+    "october_2023_action_migration": "Fåglar behöver bränsle för de långa resor de gör när de flyttar. Du kan stödja deras matbehov genom att förespråka skyddade områden och planterandet av inhemska träd och buskar som ger bär och skydd för besökande fåglar.",
+    "november_2023_challenge_name_trees": "Trädutmaning",
+    "november_2023_description_trees": "Människor förlitar sig på träd och skogar för ren luft, mat, skydd och virke. De tar kol från luften och låser bort det som virke eller i jorden. Att spendera tid bland träd gör att vi mår bättre till kropp och själ. Vi behöver dem nu ännu mer än någonsin, och det gör också ett stort antal andra levande ting. Leta upp träden i ditt närområde och känn fördelarna för dig själv!",
+    "november_2023_action_trees": "Har du någon sorts favoritträd, eller t.o.m. ett enskilt favoritträd? Läs mer om det. På vilka sätt gynnas människor av det? Hur gynnas andra växter eller djur?",
+    "december_2023_challenge_name_ecology": "Ekologiutmaning",
+    "december_2023_description_ecology": "Många olika typer av interaktioner påverkar ekosystemen och deras organismer. Ekologi är studiet av organismer (biotiska) och deras fysiska miljö (aboitisk). Biotiska interaktioner är mellan levande ting medan aboitiska interaktioner innefattar icke-levande faktorer som temperatur, vatten, ljus och jord."
+  },
+  "seek_year_in_review": {
+    "header": "Seek-året som gått",
+    "description": "Tack för att du använt Seek i år! Kolla in ditt personliga Året som gått här:",
+    "button": "Visa min Seek-sammanfattning"
   }
 }

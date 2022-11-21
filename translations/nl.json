@@ -245,7 +245,7 @@
     "released": "Deze uitdaging zal worden vrijgegeven {{date}}.",
     "get_involved": "Doe mee",
     "action_april": "Kijk of je dichtbij een stad woont die deel uitmaakt van de City Nature Challenge. Als dat zo is, zoek dan naar veldbiologische activiteiten in de urbane stadsnatuur!",
-    "action_may": "Wordt vrijwilliger bij lokale groepen die de lokale natuur helpen te behouden. Deel je vondsten met je familie, vrienden of schoolvrienden en open hun ogen voor de natuur om ze heen. Ruim met je buurt het zwerfafval op in het lokale groen.",
+    "action_may": "Wordt vrijwilliger bij lokale groepen die de lokale parken helpen te onderhouden. Deel je vondsten met je familie, vrienden of schoolvrienden en open hun ogen voor de natuur om ze heen. Organiseer een activiteit met je buurt om het zwerfafval op te ruimen in het lokale park.",
     "action_june": "Gebruik de hulpmiddelen op ourplanet.com om een lokaal actieproject voor biodiversiteit in jouw omgeving te starten om je lokale natuur een handje te helpen.",
     "action_november_2019": "Verzamel zaad van lokale inheemse bomen, laat ze kiemen in potten en plant vervolgens de jonge bomen.\n\nVertel vrienden of familieleden over alle dingen die bomen voor ons doen.",
     "action_august": "Plant wilde bloemen die voedsel kunnen leveren aan bestuivers.\n\nMaak een 'insectenhotel' om onderdak te bieden aan insecten in je tuin of schoolgrond door korte holle pijpjes te bundelen en elk te vullen met kleine twijgjes en stukjes gebroken tegel.",
@@ -255,7 +255,7 @@
     "june_description": "Elke soort in een koraalrif is belangrijk voor de andere wilde dieren van de biocoenose of het nu gaat om voedsel voor andere wezens of een roofdier dat andere populaties onder controle houdt. Voedselketens kunnen delicaat en complex zijn en dat is het geval in ieder ecosysteem op onze planeet. Zoek de verschillende niveaus in jouw lokale web van het leven en leer hoe elk niveau in staat stelt andere soorten te overleven.",
     "november_description": "Mensen zijn altijd van bomen en bossen afhankelijk geweest voor hun overleving. Ze geven ons schone lucht, voedsel, onderdak en hout. Ze nemen koolstofdioxide op uit de lucht en leggen het in hout of bodem vast Door tijd door te brengen tussen bomen voelen we ons beter in geest en lichaam. We hebben ze nu nog meer dan ooit nodig net als veel andere levende wezens. Seek! de bomen in jouw omgeving en geniet van de voordelen!",
     "august_description": "Grote dieren uit de prairievlakten verliezen hun woonplaats aan landbouwgrond maar ze zijn niet het enige wilde leven dat door onze voedselproductie wordt getroffen. Insectenaantallen nemen dramatisch af op onze planeet, deels omdat landbouwgewassen hun habitats vervangen en vervolgens worden besproeid met \n gewasbeschermingsmiddelen. We hebben insectenbestuivers nodig om onze gewassen en wilde planten tot bloei te laten komen en veel amfibieën, reptielen, vogels, een paar planten en zoogdieren zijn afhankelijk van insecten voor voedsel. Zoek de insecten om je heen en toon ze wat liefde!",
-    "september_description": "Zoet water is essentieel voor al het landleven en zoetwaterhabitats zijn het biotoop van meer dan 10 procent van alle bekende dieren en bijna de helft van alle bekende vissoorten. Rivieren, stroompjes en meren maken het dieren mogelijk om grote afstanden te reizen om hun levenscyclus te voltooien. Seek! vijvers, beken, rivieren en meren in jouw omgeving en kijk welke zoetwatersoorten je kunt vinden.",
+    "september_description": "Zoet water is essentieel voor al het landleven en zoetwaterhabitats zijn het thuis van meer dan 10 procent van alle bekende dieren en bijna de helft van alle bekende vissoorten. Rivieren, stroompjes en meren maken het dieren mogelijk om grote afstanden te reizen om hun levenscyclus te voltooien. Seek! vijvers, beken, rivieren en meren in jouw omgeving en kijk welke zoetwatersoorten je kunt vinden.",
     "october_description": "De zeeën bedekken enorme delen van onze planeet en zonder moderne technologie zouden mensen het heel moeilijk vinden om deze enorme uitgestrekte vlakten te doorkruisen. Veel vogelsoorten doen dit echter elk jaar. Miljoenen vogels trekken van het ene land naar het andere om te ontsnappen aan koud weer en voedsel te vinden. Door bij te houden wanneer dieren trekken kan het ons helpen te begrijpen hoe de klimaatverandering de natuurlijke wereld beïnvloedt. Zoek vogels die je eigen omgeving bezoeken en ontdek waar ze hun tijd doorbrengen.",
     "december_description": "Klimaatverandering is niet alleen gevolgen voor de bevroren werelden op onze planeet Polen. Stijgende temperaturen en veranderende weerpatronen kunnen leiden tot de soorten te verplaatsen uit habitats die ongemakkelijk worden en in gebieden die ze eerder niet kon steunen. Het kan ook betekenen dat wijzigingen gelinkt aan seizoenen (bekend als 'fenologie') zoals bladval, ontploffende bloemknoppen en de bloei op verschillende tijdstippen plaatsvindt en verschilt per plaats. Andere soorten kunnen hierdoor problemen krijgen die moeilijk te voorspellen zijn. Seek! naar het lokale plantenleven en zie hoe je lokale omgeving verandert.",
     "mission_1_june": "Vind 6 verschillende planten (producenten)",
@@ -685,7 +685,9 @@
     "seasonality": "Seizoensgebonden",
     "seasonality_option_1": "Geef seizoensgebondenheid weer op basis van wereldwijde iNaturalist waarnemingen",
     "seasonality_option_2": "Seizoensgebonden weergave op basis van iNaturalist waarnemingen bij mijn huidige locatie (soorten die niet gevonden zijn in de buurt van mijn locatie zullen geen seizoensgebonden karakter hebben)",
-    "donate_ios": "Bezoek de volgende link om een donatie aan Seek te doen:"
+    "donate_ios": "Bezoek de volgende link om een donatie aan Seek te doen:",
+    "change_language": "Wissel de taal van de app naar {{language}}?",
+    "confirm": "Bevestig"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Gebruik de iNaturalist app of website om meldingen van determinaties, opmerkingen en andere activiteiten op jouw waarnemingen te bekijken",
     "logged_in_bullet_3": "Je Seek waarnemingen zijn NIET geback-upt in iNaturalist. Als je Seek verwijdert worden alle waarnemingen van je apparaat verwijderd.",
     "upload_and_track_obs_using_inat": "Upload en houd jouw waarnemingen bij met behulp van de iNaturalist app of bezoek inaturalist.org.\n\nBedankt dat je deel uit maakt van deze gemeenschap!",
-    "x_seen_by_user": "{{speciesName}} gezien door {{user}}"
+    "x_seen_by_user": "{{speciesName}} gezien door {{user}}",
+    "about_inat_internet_error": "Je bent aangemeld bij iNaturalist, maar we hebben internet nodig om details te tonen. Tik om het opnieuw te proberen."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Geleedpotige Roofdier Uitdaging",
@@ -922,6 +925,41 @@
     "november_2022_challenge_name_urban_nature": "Stadsnatuur Uitdaging",
     "november_2022_mission_1": "Vind 4 soorten uit de:\n\nFamilie Brassicaceae (Kruisbloemenfamilie);\nFamilie Lamiaceae (Lipbloemenfamilie);\nFamilie Poaceae (Grassen);\nOrde Blattodea (Kakkerlakken en Termieten);\nOrde Rodentia (Knaagdieren );\nOrde Columbiformes (Duifachtigen);\nFamilie Corvidae (Kraaien);\nGenus Passer (Mussen);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Gekko's)",
     "november_2022_description_some_species_well_adapted": "Sommige soorten zijn goed aangepast aan ontwikkelde gebieden. Zelfs in steden is er sprake van een wilde biodiversiteit in barsten in de stoep, braakliggende terreinen, bezoeken van tuinen en zelfs in onze huizen (misschien als ongewenste bezoekers).",
-    "november_2022_action_change_location": "Verander de locatie voor \"Soorten in de buurt\" om een stad ver van jou te doorzoeken. Welke soorten worden er in de buurt gezien? Is één van hen hetzelfde of vergelijkbaar met soorten in de jouw buurt?"
+    "november_2022_action_change_location": "Verander de locatie voor \"Soorten in de buurt\" om een stad ver van jou te doorzoeken. Welke soorten worden er in de buurt gezien? Is één van hen hetzelfde of vergelijkbaar met soorten in de jouw buurt?",
+    "december_2022_challenge_name_decomposers": "Afbraak Uitdaging"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Habitat Uitdaging",
+    "february_2023_challenge_name_climate_change": "Klimaatveranderings Uitdaging",
+    "february_2023_description_climate_change": "Klimaatverandering heeft niet alleen gevolgen voor de bevroren werelden op de polen van onze planeet. Stijgende temperaturen en veranderende weerpatronen kunnen ervoor zorgen dat soorten vertrekken uit habitats die niet meer geschikt zijn naar nieuwe gebieden. Het kan ook betekenen dat veranderingen die verband houden met seizoenen (bekend als 'fenologie') zoals bladval en bloei op andere tijdstippen plaatsvinden. Dit kan problemen veroorzaken voor andere soorten die moeilijk te voorspellen zijn. Zoek uit hoe het met het lokale plantenleven zit en kijk hoe je lokale omgeving misschien aan het veranderen is.",
+    "february_2023_action_climate_change": "Zoek je favoriete plant op de iNaturalist website en bekijk de grafiek \"plantenfenologie\" op zijn taxonpagina. Deze grafieken komen van \"aantekeningen\" voor bloemenknoppen, bloemen of vruchten op de waarnemingen die op iNaturalist zijn geplaatst. Je kunt helpen door ze toe te toevoegen als je bent ingelogd in de iNaturalist website!",
+    "march_2023_challenge_name_lakes_ponds": "Meren en vijver Uitdaging",
+    "april_2023_challenge_name_nature": "Natuur Uitdaging",
+    "april_2023_description_nature": "Seek... de natuur overal om je heen\n\nWe zijn niet alleen op onze planeet! Flora en fauna is altijd om ons heen of we het opmerken of niet. In onze huizen, tuinen, steden en steden zijn verborgen werelden te ontdekken. Zoek in en om je huis en je zult verbaasd zijn over hoeveel wilde buren je tegenkomt.",
+    "april_2023_action_nature": "Zoek naar planten, schimmels, kranswieren, beestjes, vogels en dieren. Let op tekenen van ongrijpbaarder leven – uitwerpselen (poep), bont, nesten, sporen en spinnenwebben kunnen allemaal aanwijzingen zijn dat er andere wezens zijn die met jou je huis delen.",
+    "may_2023_challenge_name_protected_areas": "Beschermde gebieden Uitdaging",
+    "may_2023_description_protected_areas": "Van de diepste jungle tot het kleinste park delen we onze planeet met een ongelooflijke verscheidenheid aan levende wezens, elk aangepast aan het specifieke milieu waarin ze leven. Zoek een lokale natuurhotspot en kijk eens hoeveel verschillende soorten wezens je kunt vinden. Ondertussen leer je welke kenmerken deze verschillende groepen van organismen het verschil tussen hen maakt!",
+    "june_2023_challenge_name_plant_eaters": "Planteneters Uitdaging",
+    "june_2023_action": "Van welke soorten planten eet je? Van welke delen van de plant komen ze? Welke soorten dieren eten die planten ook?",
+    "july_2023_challenge_name_food_web": "Voedselweb Uitdaging",
+    "july_2023_description_plant_eaters": "Elke soort in een gemeenschap is verbonden met een voedselweb. Producenten vangen energie van de zon op, herbivoren eten planten, carnivoren eten andere dieren en decomponisten consumeren dode organismen. Zoek naar verschillende niveaus in je lokale web van leven en leer hoe elk niveau er voor zorgt dat andere soorten kunnen overleven.",
+    "july_2023_action_plant_eaters": "Zie je planteneters in actie, zoals een rups die een blad of een vogel die zaad eet? Heb je  carnivoren in actie gezien, misschien een spin of een bidsprinkhaan met prooi?",
+    "august_2023_challenge_name_insect": "Insect Uitdaging",
+    "august_2023_description_insect": "De insectenpopulaties nemen overal af op onze planeet, deels omdat gewassen en gebouwen hun habitats vervangen en vervolgens worden besproeid met ongediertedodende bestrijdingsmiddelen. We hebben insectenbestuivers nodig om onze gewassen en wilde planten te laten gedijen en veel amfibieën, reptielen, vogels en zoogdieren zijn voor voedsel afhankelijk van insecten. Zoek de insecten om je heen en laat ze wat liefde zien!",
+    "august_2023_action_insect": "Insecten hebben exoskeletten en onderscheiden zich van hun geleedpotige familieleden (Arthropoda) door hun zes poten. Waar kon jij insecten vinden? Worden ze bedreigd door het verlies van habitat of door pesticiden?",
+    "september_2023_challenge_name_equinox": "Equinox Uitdaging",
+    "october_2023_challenge_name_migration": "Migratie Uitdaging",
+    "october_2023_description_migration": "Miljoenen vogels trekken van het ene land naar het andere om te ontsnappen aan koud weer en om voedsel te vinden. Het bijhouden van het moment dat wilde dieren gaan trekken kan ons helpen te begrijpen hoe klimaatverandering de natuurlijke wereld beïnvloedt. Zoek vogels die jouw lokale omgeving bezoeken en ontdek waar ze hun tijd doorbrengen.",
+    "october_2023_action_migration": "Vogels hebben brandstof nodig voor de lange reizen die ze ondernemen om te migreren. Je kunt hun voedselbehoefte ondersteunen door te pleiten voor beschermde gebieden en het gebruik van inheemse bomen en struiken in landschappen die bessen voortbrengen en roestplaatsen verschaffen voor bezoekende vogels.",
+    "november_2023_challenge_name_trees": "Bomen Uitdaging",
+    "november_2023_description_trees": "Mensen zijn altijd van bomen en bossen afhankelijk geweest voor schone lucht, voedsel, onderdak en hout. Ze nemen koolstofdioxide op uit de lucht en leggen het in hout of in de bodem vast. Door tijd door te brengen tussen bomen voelen we ons beter in geest en lichaam. We hebben ze nu nog meer dan ooit nodig net als veel andere levende wezens. Seek! de bomen in jouw omgeving en geniet van de voordelen!",
+    "november_2023_action_trees": "Heb je een favoriete boomsoort of zelfs een favoriete individuele boom? Lees er meer over. Op welke manier profiteert de mens hiervan? Hoe profiteren andere planten of dieren ervan?",
+    "december_2023_challenge_name_ecology": "Ecologie Uitdaging",
+    "december_2023_description_ecology": "Veel verschillende soorten interacties zijn van invloed op ecosystemen en hun organismen. Ecologie is het onderzoek van organismen (biologisch) en hun fysieke omgeving (abotisch). Biotische interacties tussen levende wezens en abotisch interacties omvatten niet-levende factoren als temperatuur, water, licht en bodem."
+  },
+  "seek_year_in_review": {
+    "header": "Seek Jaaroverzicht",
+    "description": "Bedankt voor het gebruiken van Seek dit jaar! Bekijk hier uw eigen Jaaroverzicht:",
+    "button": "Bekijk mijn Seek Jaaroverzicht"
   }
 }

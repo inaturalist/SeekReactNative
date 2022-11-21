@@ -685,7 +685,9 @@
     "seasonality": "Saisonnalité",
     "seasonality_option_1": "Afficher la saisonnalité basée sur les observations iNaturalist du monde entier",
     "seasonality_option_2": "Afficher la saisonnalité basée sur les observations iNaturalist près de ma localisation (les espèces absentes de ma région n'auront pas de saisonnalité)",
-    "donate_ios": "Suivez le lien suivant pour faire un don à Seek :"
+    "donate_ios": "Suivez le lien suivant pour faire un don à Seek :",
+    "change_language": "Voulez-vous que la langue dans l'application soit la langue suivante : {{language}}?",
+    "confirm": "Confirmer"
   },
   "seek_challenges": {
     "badge": "Badge Seek",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Utilisez l'application ou le site Web iNaturalist pour voir les notifications à propos des identifications, des commentaires et d'autres activités concernant vos observations",
     "logged_in_bullet_3": "Vos observations dans Seek NE sont PAS sauvegardées sur iNaturalist. Si vous supprimez Seek, vous supprimerez également toutes les observations qui se trouvent sur votre appareil.",
     "upload_and_track_obs_using_inat": "Téléchargez et gardez une trace de vos observations en utilisant l'application iNaturalist ou en visitant inaturalist.org.\n\nMerci de faire partie de cette communauté !",
-    "x_seen_by_user": "{{speciesName}} vu par {{user}}"
+    "x_seen_by_user": "{{speciesName}} vu par {{user}}",
+    "about_inat_internet_error": "Vous avez ouvert une connexion sur iNaturalist, mais nous avons besoin d'Internet pour afficher les détails. Appuyez pour réessayer."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Défi des prédateurs arthropodes",
@@ -922,6 +925,41 @@
     "november_2022_challenge_name_urban_nature": "Défi Nature urbaine",
     "november_2022_mission_1": "Trouvez 4 espèces parmi les taxons suivants :\n\nfamille des brassicacées (moutardes) ;\nfamille des lamiacées (menthes) ;\nfamille des graminées (herbes) ;\nordre des blattoptères (blattes et termites) ;\nordre Rodentia (rongeurs) ;\nordre Columbiformes (pigeons et tourterelles) ;\nfamille des corvidés (corneilles, geais et pies) ;\ngenre Passer (moineaux) ;\ngenre Acridotheres (martins) ;\ninfra-ordre Gekkota (geckos).",
     "november_2022_description_some_species_well_adapted": "Certaines espèces sont bien adaptées aux zones urbanisées. Même dans les villes, la biodiversité est présente à l'état sauvage dans les fissures des trottoirs, les terrains vagues, les jardins et même les maisons (peut-être sous la forme de visiteurs indésirables).",
-    "november_2022_action_change_location": "Changez le lieu utilisé pour les « espèces à proximité » et choisissez une ville éloignée. Quelles espèces peut-on y observer ? Certaines de ces espèces sont-elles identiques ou comparables celles qu'on observe près de chez vous ?"
+    "november_2022_action_change_location": "Changez le lieu utilisé pour les « espèces à proximité » et choisissez une ville éloignée. Quelles espèces peut-on y observer ? Certaines de ces espèces sont-elles identiques ou comparables celles qu'on observe près de chez vous ?",
+    "december_2022_challenge_name_decomposers": "Défi des décomposeurs"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Défi des habitats",
+    "february_2023_challenge_name_climate_change": "Défi des changements climatiques",
+    "february_2023_description_climate_change": "Les changements climatiques ne concernent pas seulement les mondes de glace aux pôles de notre planète. Le réchauffement et les variations climatiques peuvent pousser les espèces à quitter leurs habitats devenus inhospitaliers et à s’installer dans d’autres qu’elles n’occupaient pas auparavant. Cela veut également dire que les changements qui interviennent durant les saisons (ce qu’on appelle la phénologie) tels que la chute des feuilles et la floraison interviennent à une période de l’année différente. Cela peut causer des problèmes difficiles à prévoir pour d’autres espèces. Observez la flore de votre région et les changements environnementaux qui peuvent y être perçus.",
+    "february_2023_action_climate_change": "Cherchez votre plante préférée sur le site web iNaturalist et explorez le graphique de la « phénologie végétale » sur sa page de taxon. Ces graphiques proviennent des annotations pour les bourgeons, les fleurs ou les fruits dans les observations publiées sur iNaturalist. Vous pouvez les ajouter aussi !",
+    "march_2023_challenge_name_lakes_ponds": "Défi des lacs et des étangs",
+    "april_2023_challenge_name_nature": "Défi de la nature",
+    "april_2023_description_nature": "Cherchez... la nature tout autour de nous\n\nNous ne sommes pas seuls sur notre planète ! Le monde sauvage est toujours autour de nous, que nous le remarquions ou non. Dans nos maisons, nos jardins, nos villes et nos agglomérations, il y a des mondes cachés à découvrir. Cherchez chez vous et autour de votre maison... Le nombre de voisins sauvages que vous trouverez vous surprendra peut-être.",
+    "april_2023_action_nature": "Cherchez des plantes, des champignons, des insectes, des oiseaux et des animaux. Faites attention aux signes de vie plus insaisissables : les déjections (excréments), la fourrure, les nids, les empreintes et les toiles peuvent donner des indices concernant d'autres créatures qui partagent votre logement.",
+    "may_2023_challenge_name_protected_areas": "Défi des aires protégées",
+    "may_2023_description_protected_areas": "De la forêt la plus profonde au plus petit des parcs, nous partageons notre planète avec une multitude d'être vivants, chacun adapté à l'environnement spécifique dans lequel il vit. Trouvez un coin de nature dans votre région et comptez les différents types d'êtres vivants que vous pouvez y observer. En passant, vous découvrirez les caractéristiques qui différencient ces groupes d'organismes les uns des autres !",
+    "june_2023_challenge_name_plant_eaters": "Défi des phytophages",
+    "june_2023_action": "Quels types de plantes mangez-vous? Quelles parties de ces plantes sont comestibles ? Quels types d'animaux mangent eux aussi ces plantes ?",
+    "july_2023_challenge_name_food_web": "Défi du réseau trophique",
+    "july_2023_description_plant_eaters": "Chaque espèce d'une communauté est connectée dans un réseau trophique. Les organismes autotrophes captent l'énergie du soleil, les herbivores mangent des plantes, les carnivores mangent d'autres animaux et les décomposeurs consomment des organismes morts. Cherchez différents niveaux dans votre réseau local du vivant et découvrez comment chaque niveau permet à d'autres espèces de survivre.",
+    "july_2023_action_plant_eaters": "Avez-vous vu des herbivores en action, comme une chenille en train de manger une feuille ou un oiseau en train de manger des graines ? Avez-vous vu des carnivores en action, peut-être une araignée ou une mante avec une proie ?",
+    "august_2023_challenge_name_insect": "Défi des insectes",
+    "august_2023_description_insect": "Les populations d'insectes déclinent partout dans le monde, en partie parce que leurs habitats sont remplacés par des bâtiments et des cultures traitées avec des pesticides. Nous avons besoin d'insectes pollinisateurs pour que nos cultures et les plantes sauvages puissent prospérer, et beaucoup d'amphibiens, de reptiles, d'oiseaux et de mammifères dépendent des insectes pour leur alimentation. Cherchez des insectes autour de vous et montrez-leur un peu d'amour !",
+    "august_2023_action_insect": "Les insectes ont un exosquelette et se distinguent de leurs cousins les arthropodes par leurs 6 pattes. Où avez-vous trouvé des insectes ? Sont-ils menacés par la disparition des habitats ou par les pesticides ?",
+    "september_2023_challenge_name_equinox": "Défi de l'équinoxe",
+    "october_2023_challenge_name_migration": "Défi de la migration",
+    "october_2023_description_migration": "Des millions d'oiseaux migrent d'un pays à l'autre pour échapper au froid et trouver de la nourriture. Le suivi du moment des migrations de la faune sauvage peut nous aider à comprendre les répercussions des changements climatiques sur le monde naturel. Cherchez les oiseaux de passage dans votre région et découvrez où ils passent le reste de leur temps.",
+    "october_2023_action_migration": "Les oiseaux ont besoin d'énergie pour les longs trajets qu'ils effectuent pour migrer. Vous pouvez les aider à répondre à leurs besoins alimentaires en militant pour des zones protégées et pour l'utilisation dans l'aménagement paysager d'arbres et d'arbustes indigènes qui fournissent des baies et des dortoirs pour les oiseaux de passage.",
+    "november_2023_challenge_name_trees": "Défi des arbres",
+    "november_2023_description_trees": "Les êtres humains dépendent des arbres et des forêts qui leur fournissent de l'air pur, de la nourriture, un abri et du bois. Ils absorbent le carbone de l'air et l’emprisonnent dans le bois ou le sol. Passer du temps entouré d’arbres nous permet de nous sentir mieux dans notre corps et dans notre esprit. Comme un grand nombre d’autres espèces, nous avons besoin des forêts aujourd’hui plus que jamais. Allez vers les arbres de votre région et ressentez vous-mêmes les bienfaits !",
+    "november_2023_action_trees": "Avez-vous une essence d'arbre favorite, ou même un arbre favori ? Renseignez-vous à son sujet. De quelle manière les gens en bénéficient-ils ? Comment les autres plantes ou animaux en bénéficient-ils ?",
+    "december_2023_challenge_name_ecology": "Défi de l'écologie",
+    "december_2023_description_ecology": "De nombreux types d'interactions exercent une influence sur les écosystèmes et leurs organismes. L’écologie est l’étude des organismes (facteurs biotiques) et de leur environnement physique (facteurs aboitiques). Les interactions biotiques ont lieu entre êtres vivants et les interactions aboitiques concernent les facteurs non vivants comme la température, l'eau, la lumière et le sol."
+  },
+  "seek_year_in_review": {
+    "header": "Revue de l'année Seek",
+    "description": "Merci d'avoir utilisé Seek cette année ! Consultez ici votre revue personnalisée de l'année :",
+    "button": "Voir ma revue Seek"
   }
 }

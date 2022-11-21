@@ -1,0 +1,10 @@
+/* Localized versions of Info.plist keys */
+/* Permissions */
+"NSCameraUsageDescription" = "我們要使用相機，這樣才可以辨識您拍攝自然界的照片。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "我們使用您的位置資訊來建議您附近能找到的植物和動物。";
+"NSLocationAlwaysUsageDescription" = "我們使用您的位置資訊來建議您附近能找到的植物和動物。";
+"NSLocationWhenInUseUsageDescription" = "我們使用您的位置資訊來建議您附近能找到的植物和動物。";
+"NSPhotoLibraryAddUsageDescription" = "我們要使用相簿，這樣才可以辨識您拍攝自然界的照片。";
+"NSPhotoLibraryUsageDescription" = "我們要使用相簿，這樣才可以辨識您拍攝自然界的照片。";
+/* Shortcut Items */
+"Seek Camera" = "Seek 相機";

@@ -685,7 +685,9 @@
     "seasonality": "Szezonalitás",
     "seasonality_option_1": "Szezonalitás megjelenítése az iNaturalist globális megfigyelései alapján",
     "seasonality_option_2": "Szezonalitás megjelenítése az iNaturalist közeli megfigyelései alapján (ha a faj nem volt megfigyelhető a közelben, akkor nincs szezonalitás)",
-    "donate_ios": "Látogass el a következő linkre, hogy támogasd a Seek-et:"
+    "donate_ios": "Látogass el a következő linkre, hogy támogasd a Seek-et:",
+    "change_language": "Átváltod az alkalmazás nyelvét erre? {{language}}",
+    "confirm": "Megerősítés"
   },
   "seek_challenges": {
     "badge": "Seek jelvény",
@@ -852,7 +854,8 @@
     "logged_in_bullet_2": "Használd az iNaturalist appot vagy weboldalt, hogy megnézd a határozásokkal kapcsolatos értesítéseket, megjegyzéseket, és a megfigyeléseddel kapcsolatos egyéb tevékenységeket",
     "logged_in_bullet_3": "A Seek megfigyeléseid NEM kerültek elmentésre az iNaturalist-ra. A Seek törlése egyben megfigyeléseidet is törli készülékedről.",
     "upload_and_track_obs_using_inat": "Töltsd fel és kövesd megfigyeléseidet az iNaturalist appal vagy az inaturalist.org oldalon.\n\nKöszönjük, hogy a közösség tagja vagy!",
-    "x_seen_by_user": "{{user}} megfigyelte: {{speciesName}}"
+    "x_seen_by_user": "{{user}} megfigyelte: {{speciesName}}",
+    "about_inat_internet_error": "Bej vagy jelentkezve az iNaturalist-ra, de a részletek megjelenítéséhez internet kapcsolat szükséges. Próbáld újra!"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Ízeltlábú Ragadozó Kihívás",
@@ -922,6 +925,41 @@
     "november_2022_challenge_name_urban_nature": "Városi Természet Kihívás",
     "november_2022_mission_1": "Találj 4 fajt az alábbiak közül:\n\nBrassicaceae (káposztafélék) családja;\nLamiaceae (árvacsalánfélék) családja;\nPoaceaemily (perjefélék) családja;\nBlattodea (csótányok és termeszek) rendje;\nRodentia (rágcsálók) rendje;\nColumbiformes (galambalakúak) rendje;\nCorvidae (varjúfélék: varjak, szajkók, szarkák) családja;\nPasser (verebek) nemzetsége;\nAcridotheres (majnák) nemzetsége;\nGekkota (gekkók) alrendága",
     "november_2022_description_some_species_well_adapted": "Egyes fajok jól alkalmazkodtak a lakott területekhez. Még a nagyvárosokban is találkozhatunk a biodiverzitással, a járdák repedéseiben, elhagyott telkeken, kertünkben és otthonunkban (esetleg nemkívánatos látogatóként).",
-    "november_2022_action_change_location": "Módosítsd a helyszínt egy távoli városra, hogy lásd a \"közelben lévő fajok\"-at. Milyen fajok találhatók arrafelé? Van köztük olyan, amely a közeledben található fajokkal megegyező vagy hozzájuk hasonló?"
+    "november_2022_action_change_location": "Módosítsd a helyszínt egy távoli városra, hogy lásd a \"közelben lévő fajok\"-at. Milyen fajok találhatók arrafelé? Van köztük olyan, amely a közeledben található fajokkal megegyező vagy hozzájuk hasonló?",
+    "december_2022_challenge_name_decomposers": "Lebontók Kihívás"
+  },
+  "seek_2023_challenges": {
+    "january_2023_challenge_name_habitats": "Élőhelyek Kihívás",
+    "february_2023_challenge_name_climate_change": "Klímaváltozás Kihívás",
+    "february_2023_description_climate_change": "A klímaváltozás nem csak bolygónk sarkköreinek jeges világát változtatja meg. Az emelkedő hőmérséklet és az időjárás változásai arra kényszeríthetnek egyes fajokat, hogy elhagyják kényelmetlenné váló élőhelyeiket és olyan helyeken telepedjenek le, amelyek korábban nem voltak élhetőek számukra. Ez egyben azt jelenti, hogy az évszakos változások (fenológia), mint a lombhullás, rügyfakadás, virágzás ideje is megváltozik. Egyes fajok esetében ez váratlan problémákat okozhat. Mérd fel a helyi növényvilágot és figyeld meg hogyan változik. ",
+    "february_2023_action_climate_change": "Keresd meg kedvenc növényfajodat az iNaturalist weboldalon és figyeld meg a növényfenológia ábrát a taxon oldalon. Ez az ábra azokon a megfigyeléseken alapul, amelyeket a rügyek, virágok vagy termések \"megjegyzéssel\" töltöttek fel az iNaturalist-ra. Te is feltölthetsz ilyeneket, ha bejelentkezel az iNaturalist-ba.",
+    "march_2023_challenge_name_lakes_ponds": "Tavak Kihívás",
+    "april_2023_challenge_name_nature": "Természet Kihívás",
+    "april_2023_description_nature": "Nem vagyunk egyedül a bolygónkon! Az élővilág mindenütt körülvesz bennünket, akár tudomásul vesszük, akár nem. Otthonunkban, kertünkben, falvainkban és városainkban egy rejtett világ vár, hogy felfedezzük. Nézz körül lakóhelyeden, és meglepődsz mennyi élőlényt találhatsz.",
+    "april_2023_action_nature": "Keress növényeket, gombákat, bogarakat, madarakat és állatokat. Figyeld meg az élet közvetett jeleit – ürülék (kaka), szőr, fészkek, nyomok, hálók, amelyek azt bizonyítják, hogy más teremtményekkel osztozol otthonodon.",
+    "may_2023_challenge_name_protected_areas": "Védett területek Kihívás",
+    "may_2023_description_protected_areas": "A legnagyobb erdőtől a legkisebb parkig hihetetlenül sok élőlénnyel osztozunk a bolygónkon, és mindegyik alkalmazkodott a különleges környezethez, amelyben élnek. Tegyél látogatást a természetbe, és nézd meg, milyen különböző élőlényekre lelhetsz. Az út során tanulni fogsz azokról a jellemzőikről is, amelyek könnyen megkülönböztethetővé teszik egymástól őket!",
+    "june_2023_challenge_name_plant_eaters": "Növényevők Kihívás",
+    "june_2023_action": "Milyen növényi táplálékot eszel? A növény mely részeiből származnak? Milyen állatok szeretik enni ugyanezeket a növényeket?",
+    "july_2023_challenge_name_food_web": "Tápláléklánc Kihívás",
+    "july_2023_description_plant_eaters": "A közösség minden faja a tápláléklánc részét képezi. A termelők a napból nyernek energiát, a növényevők növényeket esznek, a ragadozók más állatokat, és a lebontók az elhalt élőlényeket fogyasztják. Fedezd fel a helyi élővilágban a tápláléklánc szintjeit, és figyeld meg, az egyes fajok hogyan teszik lehetővé más fajok túlélését.",
+    "july_2023_action_plant_eaters": "Megfigyeltél már növényevőket táplálkozás közben, ahogy a hernyó levelet eszik vagy a madár magokat? Láttál már ragadozót vadászni, esetleg pókot vagy imádkozósáskát a prédájával?",
+    "august_2023_challenge_name_insect": "Rovar Kihívás",
+    "august_2023_description_insect": "Rovarpopulációk hanyatlása figyelhető meg világszerte, egyrészt gabonaföldek és épületek foglalják el korábbi élőhelyeiket, másrészt rovarirtószerekkel permetezzük. Terményeinknek és a vadon élő virágos növényeknek szükségük van a beporzó rovarokra, és számos kétéltű, hüllő, madár és emlős tápláléka függ a rovaroktól. Keresd meg a körülötted élő rovarokat, és mutasd ki szeretetedet irántuk!",
+    "august_2023_action_insect": "A rovarok külső vázzal rendelkeznek és ízeltlábú rokonaiktól 6 lábuk különbözteti meg őket. Hol találkozhatsz rovarokkal? Fenyegeti őket élőhelyük elvesztése vagy rovaritók?",
+    "september_2023_challenge_name_equinox": "Egyenlítő Kihívás",
+    "october_2023_challenge_name_migration": "Vándorlás Kihívás",
+    "october_2023_description_migration": "Milliónyi madár vándorol országról-országra a hideg elől, élelmet keresve. A vadvilág vándorlását nyomon követve megérthetjük hogyan hat a klímaváltozás a természetre. Figyeld meg a környékeden megjelenő madarakat, és járj utána hol töltik még idejük.",
+    "october_2023_action_migration": "A madaraknak sok energiára van szükségük hosszú vándorlásuk során. Segítheted őket azzal, hogy őshonos fákat és cserjéket telepítesz, amelyek védelmet, pihenőhelyet és bogyókat biztosítanak számukra.",
+    "november_2023_challenge_name_trees": "Fák Kihívás",
+    "november_2023_description_trees": "A fák és az erdők tiszta levegőt, élelmet, menedéket és faanyagot biztosítanak az emberek számára. Szenet vonnak ki a légkörből és a fában vagy a talaljban kötik meg. A fák között töltött idő javítja testi, lelki közérzetünket. Nagyobb szükségünk van rájuk, mint korábban bármikor és nem csak nekünk, hanem számos más élőlénynek is. Keresd fel a helyi erdőket, hogy magad is megtapasztalt jótékony hatásukat!",
+    "november_2023_action_trees": "Van kedvenc fafajtád, esetleg kedvenc fád? Tudj meg többet róla. Hogyan vesszük hasznát? Hogyan van hasznára más növényeknek vagy állatoknak?",
+    "december_2023_challenge_name_ecology": "Ökológia Kihívás",
+    "december_2023_description_ecology": "Sokféle hatás éri az ökoszisztémákat, és az abban résztvevő előlényeket. Az ökológia az élőlényeket (biotikus) és élettelen (abiotikus) környezetüket tanulmányozza. Az élőlények között biotikus kölcsönhatások vannak, abiotikus tényezők például a hőmérséklet, víz, fény és talaj."
+  },
+  "seek_year_in_review": {
+    "header": "Seek évértékelő",
+    "description": "Köszönjük, hogy használtad a Seek-et ebben az évben! Kérlek tekintsd meg személyes évértékelődet:",
+    "button": "Seek évértékelőm megtekintése"
   }
 }

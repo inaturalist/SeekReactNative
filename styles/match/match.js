@@ -21,10 +21,6 @@ export default StyleSheet.create( {
   buttonBlue: {
     backgroundColor: colors.seekTeal
   },
-  buttonContainer: {
-    marginBottom: 10,
-    marginTop: 44
-  },
   center,
   container: {
     backgroundColor: colors.white,
@@ -60,7 +56,8 @@ export default StyleSheet.create( {
     alignItems: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: 44
   },
   linkText: {
     alignSelf: "center",
@@ -70,13 +67,16 @@ export default StyleSheet.create( {
     textDecorationLine: "underline"
   },
   marginLarge: {
-    marginTop: 50
+    marginTop: 70
+  },
+  marginLandscape: {
+    marginTop: 37
   },
   marginLeft: {
     marginLeft: dimensions.width < 350 ? 15 : 47
   },
   largeMargin: {
-    marginLeft: dimensions.width / 2 - 190
+    marginLeft: dimensions.width * 0.35
   },
   marginMedium: {
     marginBottom: 28

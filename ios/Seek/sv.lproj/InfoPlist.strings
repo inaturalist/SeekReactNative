@@ -1,7 +1,10 @@
 /* Localized versions of Info.plist keys */
-"NSCameraUsageDescription" = "We use the camera so you can get identifications of your nature photos.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationAlwaysUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSPhotoLibraryAddUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
-"NSPhotoLibraryUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
+/* Permissions */
+"NSCameraUsageDescription" = "Vi använder kameran så att du kan få bestämningar av dina naturbilder.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Vi använder din plats för att föreslå växter och djur som du kan hitta nära dig.";
+"NSLocationAlwaysUsageDescription" = "Vi använder din plats för att föreslå växter och djur som du kan hitta nära dig.";
+"NSLocationWhenInUseUsageDescription" = "Vi använder din plats för att föreslå växter och djur som du kan hitta nära dig.";
+"NSPhotoLibraryAddUsageDescription" = "Vi använder oss av bildbiblioteket så att du kan få bestämningar av dina naturbilder.";
+"NSPhotoLibraryUsageDescription" = "Vi använder oss av bildbiblioteket så att du kan få bestämningar av dina naturbilder.";
+/* Shortcut Items */
+"Seek Camera" = "Seek-kameran";

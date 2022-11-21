@@ -1,0 +1,949 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeekYearInReviewScreen should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    [
+      "top",
+    ]
+  }
+  style={
+    {
+      "backgroundColor": "#38976d",
+      "flex": 1,
+    }
+  }
+  testID="seek-yir-screen-container"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#38976d",
+          "flexDirection": "row",
+          "paddingBottom": 18,
+          "paddingTop": 20.5,
+        },
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="Go back to previous screen"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "left": 0,
+          "opacity": 1,
+          "paddingHorizontal": 23,
+          "paddingVertical": 18,
+          "position": "absolute",
+          "transform": [
+            {
+              "scaleX": 1,
+            },
+          ],
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/back.webp",
+          }
+        }
+        style={false}
+        tintColor={false}
+      />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "maxWidth": 650,
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
+      SEEK YEAR IN REVIEW
+    </Text>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "backgroundColor": "#ffffff",
+      }
+    }
+    keyboardDismissMode="none"
+    onScroll={[Function]}
+    scrollEventThrottle={0}
+  >
+    <View>
+      <BVLinearGradient
+        colors={
+          [
+            4280449101,
+            4281898861,
+          ]
+        }
+        endPoint={
+          {
+            "x": 0.5,
+            "y": 1,
+          }
+        }
+        locations={null}
+        startPoint={
+          {
+            "x": 0.5,
+            "y": 0,
+          }
+        }
+        style={
+          [
+            {
+              "minHeight": 168,
+            },
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "marginLeft": 22,
+              "paddingBottom": 26,
+              "paddingTop": 25,
+              "width": 167,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#ffffff",
+                  "fontFamily": "Whitney-Light",
+                  "fontSize": 18,
+                  "letterSpacing": 0.78,
+                  "marginBottom": 10,
+                },
+              ]
+            }
+          >
+            In 
+            2022
+            , you observed
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#ffffff",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 23,
+                  "letterSpacing": 1,
+                },
+              ]
+            }
+          >
+            100
+             new species
+          </Text>
+        </View>
+        <Image
+          source={
+            {
+              "testUri": "../../../assets/badges/naturalist/levelbadge-3.webp",
+            }
+          }
+          style={
+            {
+              "height": 117,
+              "resizeMode": "contain",
+              "width": 117,
+            }
+          }
+        />
+      </BVLinearGradient>
+      <View
+        accessibilityIgnoresInvertColors={true}
+        style={
+          [
+            {
+              "alignSelf": "center",
+              "height": 48,
+              "marginBottom": 32,
+              "marginTop": 40,
+              "paddingTop": 8,
+              "width": 284,
+            },
+            false,
+          ]
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../../assets/icons/img-titlebanner.webp",
+            }
+          }
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "height": 48,
+                "width": 284,
+              },
+              undefined,
+            ]
+          }
+        />
+        <Text
+          allowFontScaling={false}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#ffffff",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 19,
+                "letterSpacing": 1.12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          top species
+        </Text>
+      </View>
+      <View>
+        <View
+          style={
+            [
+              {
+                "alignSelf": "center",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "center",
+                "width": 377.20734908136484,
+              },
+            ]
+          }
+          testID="badge-container"
+        >
+          <View>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Image
+                accessibilityLabel="1 plant!"
+                accessible={true}
+                source={
+                  {
+                    "testUri": "../../../assets/badges/species/badge_plant_1.webp",
+                  }
+                }
+                style={
+                  {
+                    "height": 113.73578302712161,
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Image
+                accessibilityLabel="1 bird!"
+                accessible={true}
+                source={
+                  {
+                    "testUri": "../../../assets/badges/species/badge_bird_1.webp",
+                  }
+                }
+                style={
+                  {
+                    "height": 113.73578302712161,
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Image
+                accessibilityLabel="1 mammal!"
+                accessible={true}
+                source={
+                  {
+                    "testUri": "../../../assets/badges/species/badge_mammal_1.webp",
+                  }
+                }
+                style={
+                  {
+                    "height": 113.73578302712161,
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "marginTop": 12,
+          }
+        }
+      />
+      <View
+        style={
+          [
+            {
+              "alignItems": "space-between",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={true}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "color": "#38976d",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "lineHeight": 23,
+                },
+                {
+                  "fontSize": 18,
+                  "letterSpacing": 1,
+                  "lineHeight": 24,
+                },
+                {
+                  "textAlign": "center",
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          24
+        </Text>
+        <Text
+          allowFontScaling={true}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "color": "#38976d",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "lineHeight": 23,
+                },
+                {
+                  "fontSize": 18,
+                  "letterSpacing": 1,
+                  "lineHeight": 24,
+                },
+                {
+                  "textAlign": "center",
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          23
+        </Text>
+        <Text
+          allowFontScaling={true}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "color": "#38976d",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "lineHeight": 23,
+                },
+                {
+                  "fontSize": 18,
+                  "letterSpacing": 1,
+                  "lineHeight": 24,
+                },
+                {
+                  "textAlign": "center",
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          22
+        </Text>
+      </View>
+      <View
+        style={
+          [
+            {
+              "alignItems": "space-between",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Medium",
+                "fontSize": 19,
+                "lineHeight": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          PLANTS
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Medium",
+                "fontSize": 19,
+                "lineHeight": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          BIRDS
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Medium",
+                "fontSize": 19,
+                "lineHeight": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          MAMMALS
+        </Text>
+      </View>
+      <View
+        accessibilityIgnoresInvertColors={true}
+        style={
+          [
+            {
+              "alignSelf": "center",
+              "height": 48,
+              "marginBottom": 32,
+              "marginTop": 40,
+              "paddingTop": 8,
+              "width": 284,
+            },
+            false,
+          ]
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../../assets/icons/img-titlebanner.webp",
+            }
+          }
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "height": 48,
+                "width": 284,
+              },
+              undefined,
+            ]
+          }
+        />
+        <Text
+          allowFontScaling={false}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#ffffff",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 19,
+                "letterSpacing": 1.12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          observations
+        </Text>
+      </View>
+      <Text
+        allowFontScaling={true}
+        style={
+          [
+            {
+              "textAlign": "left",
+            },
+            [
+              {
+                "color": "#38976d",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 19,
+                "letterSpacing": 1.12,
+                "lineHeight": 23,
+              },
+              false,
+              false,
+              null,
+            ],
+          ]
+        }
+      >
+        [MISSING "EN.OBSERVATIONS BY MONTH" TRANSLATION]
+      </Text>
+      <View
+        style={
+          {
+            "flex": 1,
+            "height": 150,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "borderBottomColor": "#297f87",
+              "borderBottomWidth": 2,
+              "flex": 1,
+              "marginBottom": 10,
+            }
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={
+              {
+                "flex": 1,
+              }
+            }
+          />
+        </View>
+        <View>
+          <View
+            onLayout={[Function]}
+            style={
+              {
+                "flexGrow": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "fontFamily": undefined,
+                  "fontSize": 18,
+                  "fontWeight": undefined,
+                  "opacity": 0,
+                }
+              }
+            >
+              J
+            </Text>
+          </View>
+        </View>
+      </View>
+      <Text
+        allowFontScaling={true}
+        style={
+          [
+            {
+              "textAlign": "left",
+            },
+            [
+              {
+                "color": "#38976d",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 19,
+                "letterSpacing": 1.12,
+                "lineHeight": 23,
+              },
+              false,
+              false,
+              null,
+            ],
+          ]
+        }
+      >
+        [MISSING "EN.OBSERVATIONS MAP" TRANSLATION]
+      </Text>
+      <AIRMap
+        initialRegion={{}}
+        onChange={[Function]}
+        onMapReady={[Function]}
+        region={{}}
+        style={
+          {
+            "height": 189,
+            "marginBottom": 20,
+          }
+        }
+      >
+        <AIRMapMarker
+          coordinate={
+            {
+              "latitude": 42.42,
+              "longitude": 42.42,
+            }
+          }
+          onPress={[Function]}
+          style={
+            [
+              {
+                "backgroundColor": "transparent",
+                "position": "absolute",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/icons/icon-location-onmap.webp",
+              }
+            }
+          />
+        </AIRMapMarker>
+      </AIRMap>
+      <Text
+        allowFontScaling={true}
+        style={
+          [
+            {
+              "textAlign": "left",
+            },
+            [
+              {
+                "color": "#38976d",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 19,
+                "letterSpacing": 1.12,
+                "lineHeight": 23,
+              },
+              false,
+              false,
+              null,
+            ],
+          ]
+        }
+      >
+        [MISSING "EN.INATURALIST" TRANSLATION]
+      </Text>
+      <View
+        style={
+          {
+            "marginVertical": 33,
+          }
+        }
+      >
+        <RCTScrollView
+          bounces={false}
+          contentContainerStyle={
+            {
+              "backgroundColor": "#000000",
+              "height": 250,
+            }
+          }
+          data={[]}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          getItemLayout={[Function]}
+          horizontal={true}
+          indicatorStyle="white"
+          initialNumToRender={1}
+          keyExtractor={[Function]}
+          onContentSizeChange={[Function]}
+          onLayout={[Function]}
+          onMomentumScrollBegin={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          onViewableItemsChanged={[Function]}
+          pagingEnabled={true}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsHorizontalScrollIndicator={false}
+          stickyHeaderIndices={[]}
+          viewabilityConfig={
+            {
+              "viewAreaCoveragePercentThreshold": 95,
+              "waitForInteraction": true,
+            }
+          }
+          viewabilityConfigCallbackPairs={
+            [
+              {
+                "onViewableItemsChanged": [Function],
+                "viewabilityConfig": {
+                  "viewAreaCoveragePercentThreshold": 95,
+                  "waitForInteraction": true,
+                },
+              },
+            ]
+          }
+        >
+          <View />
+        </RCTScrollView>
+      </View>
+      <View
+        accessibilityIgnoresInvertColors={true}
+        style={
+          [
+            {
+              "alignSelf": "center",
+              "height": 48,
+              "marginBottom": 32,
+              "marginTop": 40,
+              "paddingTop": 8,
+              "width": 284,
+            },
+            false,
+          ]
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../../assets/icons/img-titlebanner.webp",
+            }
+          }
+          style={
+            [
+              {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "height": 48,
+                "width": 284,
+              },
+              undefined,
+            ]
+          }
+        />
+        <Text
+          allowFontScaling={false}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#ffffff",
+                "fontFamily": "Whitney-Semibold",
+                "fontSize": 19,
+                "letterSpacing": 1.12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          badges
+        </Text>
+      </View>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "fontFamily": "Whitney-Book",
+            "fontSize": 16,
+            "lineHeight": 21,
+            "textAlign": "center",
+          }
+        }
+      >
+        You earned 
+        10
+         species and challenge badges this year
+      </Text>
+      <View
+        style={
+          {
+            "marginTop": 42,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "paddingBottom": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "bottom": -1000,
+            "height": 1050,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaView>
+`;

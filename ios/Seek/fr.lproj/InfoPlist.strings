@@ -1,7 +1,10 @@
 /* Localized versions of Info.plist keys */
-"NSCameraUsageDescription" = "We use the camera so you can get identifications of your nature photos.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationAlwaysUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSPhotoLibraryAddUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
-"NSPhotoLibraryUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
+/* Permissions */
+"NSCameraUsageDescription" = "Nous utilisons l'appareil photo pour que vous puissiez obtenir des identifications de vos photos de la nature.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Nous utilisons votre emplacement pour suggérer des plantes et des animaux à trouver à proximité du lieu où vous vous trouvez.";
+"NSLocationAlwaysUsageDescription" = "Nous utilisons votre emplacement pour suggérer des plantes et des animaux à trouver à proximité du lieu où vous vous trouvez.";
+"NSLocationWhenInUseUsageDescription" = "Nous utilisons votre emplacement pour suggérer des plantes et des animaux à trouver à proximité du lieu où vous vous trouvez.";
+"NSPhotoLibraryAddUsageDescription" = "Nous utilisons la photothèque pour que vous puissiez obtenir des identifications de vos photos de la nature.";
+"NSPhotoLibraryUsageDescription" = "Nous utilisons la photothèque pour que vous puissiez obtenir des identifications de vos photos de la nature.";
+/* Shortcut Items */
+"Seek Camera" = "Appareil photo de Seek";

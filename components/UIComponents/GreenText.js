@@ -20,7 +20,8 @@ const GreenText = ( {
   text,
   center,
   color,
-  allowFontScaling
+  allowFontScaling,
+  noTranslation
 }: Props ): React.Node => (
   <StyledText
     style={[
@@ -31,7 +32,7 @@ const GreenText = ( {
     ]}
     allowFontScaling={allowFontScaling}
   >
-    {i18n.t( text ).toLocaleUpperCase()}
+    {noTranslation ? text : i18n.t( text ).toLocaleUpperCase()}
   </StyledText>
 );
 

@@ -11,7 +11,7 @@ import {
   textStyles
 } from "../../../styles/home/seekYearInReview";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import { AppOrientationContext } from "../../UserContext";
+import { AppOrientationContext, UserContext } from "../../UserContext";
 import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
 
 
@@ -21,17 +21,17 @@ const SeekYearInReviewCard = ( ): Node => {
   const month = now.getMonth();
 
   const { navigate } = useNavigation();
+
   const { isLandscape } = React.useContext( AppOrientationContext );
+  const { userProfile } = React.useContext( UserContext );
   const countObservationsThisYear = useCountObservationsForYear( year );
 
   const navToSeekYearInReview = () => navigate( "SeekYearInReview" );
 
-  // TODO: replace with real check for isAdmin
-  const isAdmin = true;
   const isDecember = month === 11;
   const hasObservations =
     !!countObservationsThisYear && countObservationsThisYear > 0;
-  const showCard = isAdmin || ( isDecember && hasObservations );
+  const showCard = userProfile?.isAdmin || ( isDecember && hasObservations );
 
   if ( !showCard ) {
     return null;

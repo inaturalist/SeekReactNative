@@ -88,7 +88,8 @@ const UserLoginProvider = ( { children }: Props ): Node => {
       const profileObj = {
         login: savedLogin[0].username,
         // icon_url is higher resolution than icon
-        icon: savedLogin[0].profilePhoto
+        icon: savedLogin[0].profilePhoto,
+        isAdmin: savedLogin[0].isAdmin
       };
       setUserProfile( profileObj );
       setupChallenges( savedLogin[0].isAdmin );

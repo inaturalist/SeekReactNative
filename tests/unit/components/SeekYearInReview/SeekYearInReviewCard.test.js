@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react-native";
 
 import SeekYearInReviewCard from "../../../../components/Home/SeekYearInReview/SeekYearInReviewCard";
-import { AppOrientationContext } from "../../../../components/UserContext";
+import { AppOrientationContext, UserContext } from "../../../../components/UserContext";
 import { useCountObservationsForYear } from "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks";
 
 jest.mock(
@@ -16,7 +16,9 @@ jest.mock(
 const renderCard = () => {
   render(
     <AppOrientationContext.Provider value={{}} >
-      <SeekYearInReviewCard />
+      <UserContext.Provider value={{}} >
+        <SeekYearInReviewCard />
+      </UserContext.Provider>
     </AppOrientationContext.Provider>
   );
 };

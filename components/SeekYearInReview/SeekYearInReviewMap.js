@@ -10,6 +10,7 @@ import {
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../utility/customHooks";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { getBounds, getCenterOfBounds } from "geolib";
 
 type Props = {
@@ -53,35 +54,45 @@ const SeekYearInReviewMap = ( { observations }: Props ): React.Node => {
   );
 
   return (
-    <MapView
-      //   maxZoomLevel={7}
-      provider={PROVIDER_DEFAULT}
-      initialRegion={initialRegion}
-      region={region}
-      //   rotateEnabled={false}
-      //   scrollEnabled={false}
-      style={viewStyles.map}
-      //   zoomEnabled={false}
-    >
-      {
-        // Map over observations and display a marker for each one
-        filteredObservations.map( ( obs ) => {
-          const { latitude, longitude, uuidString } = obs;
-          return (
-            <Marker key={uuidString} coordinate={{ latitude, longitude }}>
-              <Image source={icons.cameraOnMap} />
-            </Marker>
-          );
-        } )
-      }
-      {userCoords?.latitude && (
-        <Marker
-          coordinate={{ latitude: userCoords.latitude, longitude: userCoords.longitude }}
-        >
-          <Image source={icons.locationPin} />
-        </Marker>
-      )}
-    </MapView>
+    <>
+      <MapView
+        onPress={navToObsMap}
+        provider={PROVIDER_DEFAULT}
+        initialRegion={centerRegion()}
+        region={centerRegion()}
+        rotateEnabled={false}
+        scrollEnabled={false}
+        style={viewStyles.map}
+        zoomEnabled={false}
+      >
+        {
+          // Map over observations and display a marker for each one
+          observations.length > 0 &&
+            observations.map( ( obs ) => {
+              const { latitude, longitude, uuidString } = obs;
+              return (
+                <Marker key={uuidString} coordinate={{ latitude, longitude }}>
+                  <Image source={icons.cameraOnMap} />
+                </Marker>
+              );
+            } )
+        }
+        {userCoords?.latitude && (
+          <Marker
+            coordinate={{
+              latitude: userCoords.latitude,
+              longitude: userCoords.longitude
+            }}
+          >
+            <Image source={icons.locationPin} />
+          </Marker>
+        )}
+      </MapView>
+      <GreenButton
+        handlePress={navToObsMap}
+        text="seek_year_in_review.view_observations_map"
+      />
+    </>
   );
 };
 

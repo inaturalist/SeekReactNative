@@ -72,7 +72,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
-  iconicTaxaNameText: {
+  bigText: {
     color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 19,

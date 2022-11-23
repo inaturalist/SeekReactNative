@@ -34,7 +34,7 @@ const SeekYearInReviewMapScreen = (): Node => {
 
   // TODO: refactor this hook. Currently, has many properties in state that are not used here but only on main screen component
   const state = useFetchStats( year );
-  const observationsWithLocation = state.observationsThisYear.filter(
+  const observationsWithLocation = state?.observationsThisYear.filter(
     ( observation ) => observation.latitude && observation.longitude
   );
 

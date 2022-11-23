@@ -14,7 +14,7 @@ const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   header: {
-    minHeight: 117 + 25 + 26
+    minHeight: 136 + 25 + 26
   },
   center,
   row,
@@ -22,7 +22,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     marginLeft: 22,
     paddingBottom: 26,
     paddingTop: 25,
-    width: 167
+    width: 170
   },
   badgesTextContainer: {
     justifyContent: "center",
@@ -37,9 +37,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     marginHorizontal: 6
   },
   textContainer: {
-    alignItems: "center",
-    marginHorizontal: 26,
-    marginTop: 31
+    marginHorizontal: 26
   },
   tabletContainer: {
     maxWidth: 455,
@@ -93,9 +91,9 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
 
 const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
   levelImage: {
-    height: 117,
     resizeMode: "contain",
-    width: 117
+    height: 136,
+    width: 136
   },
   image: {
     height: 286,

@@ -15,6 +15,7 @@ import Match from "../Match/MatchScreen";
 import DebugEmailScreen from "../UIComponents/DebugEmailScreen";
 import Home from "../Home/HomeScreen";
 import Species from "../Species/SpeciesDetail";
+import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
 type DrawerParamList = {
   Home: void;
   Achievements: void;
@@ -36,7 +37,7 @@ const drawerContent = props => <SideMenu {...props} />;
 const config = { headerShown: false };
 const screenOptions = { ...config, drawerType: "front" };
 
-const SideMenuDrawer = ( ): Props => (
+const SideMenuDrawer = (): Props => (
   <Drawer.Navigator
     initialRouteName="Drawer"
     drawerContent={drawerContent}
@@ -55,6 +56,7 @@ const SideMenuDrawer = ( ): Props => (
     <Drawer.Screen name="Match" component={Match} />
     <Drawer.Screen name="Species" component={Species} />
     <Drawer.Screen name="DebugEmailScreen" component={DebugEmailScreen} />
+    <Drawer.Screen name="SeekYearInReview" component={SeekYearInReview} />
   </Drawer.Navigator>
 );
 

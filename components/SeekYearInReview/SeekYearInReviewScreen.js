@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import LinearGradient from "react-native-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 import type { Node } from "react";
 
@@ -20,16 +21,16 @@ import badgeImages from "../../assets/badges";
 import i18n from "../../i18n";
 // TODO: refactor into component folder
 import SpeciesBadges from "../Achievements/SpeciesBadges";
-import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import SeekYearInReviewMap from "./SeekYearInReviewMap";
 // TODO: this a copy from SpeciesChart. Could be refactored into dumb component with onl styling, and data as prop
 import SeekYearInReviewChart from "./SeekYearInReviewChart";
 // TODO: this a copy from ChallengeBadges, with only the data fetching hook swaped out. Could be refactored into dumb component with only styling, and data as prop
 import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
-import { SpeciesDetailContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
 import BannerHeader from "../UIComponents/BannerHeader";
 import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+
 const SubstringStyledText = ( { text, greenText } ) => {
   // Split the text into an array using whitespace
   const substringsArray = text.split( " " );
@@ -53,6 +54,7 @@ const now = new Date();
 const year = now.getFullYear();
 
 const SeekYearInReviewScreen = (): Node => {
+  const { navigate } = useNavigation();
 
   const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation();
@@ -62,6 +64,7 @@ const SeekYearInReviewScreen = (): Node => {
   const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
 
+  const navToDonation = () => navigate( "Donation" );
 
   const observationsWithLocation = state.observationsThisYear.filter(
     ( observation ) => observation.latitude && observation.longitude
@@ -169,12 +172,52 @@ const SeekYearInReviewScreen = (): Node => {
             <View style={viewStyles.divider} />
           </>
         )}
+        {login && (
+          <>
+            <GreenText text="seek_year_in_review.iNaturalist" />
+            <View style={viewStyles.smallDivider} />
+            <SubstringStyledText
+              text={i18n.t( "seek_year_in_review.uploaded_observations_text", {
+                count,
+                year
+              } )}
+              greenText={count}
             />
           </>
         )}
+      </View>
+      <View
+        style={[
+          viewStyles.textContainer,
+          isTablet && viewStyles.tabletContainer
+        ]}
+      >
+        {challengeBadges?.length > 0 && (
+          <>
+            <BannerHeader
+              text={i18n
+                .t( "seek_year_in_review.challenges" )
+                .toLocaleUpperCase()}
+            />
+            <SubstringStyledText
+              text={i18n.t( "seek_year_in_review.challenges_earned_text", {
+                count: challengeBadges.length,
+                year
+              } )}
+              greenText={challengeBadges.length}
             />
             />
-            />
+          </>
+        )}
+        <StyledText style={textStyles.text}>
+          {i18n.t( "seek_year_in_review.thank_you" )}
+        </StyledText>
+        <View style={viewStyles.smallDivider} />
+        <StyledText style={textStyles.text}>
+          {i18n.t( "seek_year_in_review.consider_donation" )}
+        </StyledText>
+        <View style={viewStyles.divider} />
+        <GreenButton text="settings.donate" handlePress={navToDonation} />
       </View>
     </ScrollWithHeader>
   );

@@ -30,6 +30,24 @@ import { SpeciesDetailContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
 import BannerHeader from "../UIComponents/BannerHeader";
 import GreenText from "../UIComponents/GreenText";
+const SubstringStyledText = ( { text, greenText } ) => {
+  // Split the text into an array using whitespace
+  const substringsArray = text.split( " " );
+  return (
+    <StyledText style={textStyles.bigText}>
+      {substringsArray.map( ( t, index ) => {
+        if ( greenText && t === greenText.toString() ) {
+          return <GreenText key={`${t}_${index}`} noTranslation text={`${t} `} />;
+        }
+        return (
+          <StyledText key={`${t}_${index}`} style={textStyles.bigText}>
+            {index === substringsArray.length ? t : `${t} `}
+          </StyledText>
+        );
+      } )}
+    </StyledText>
+  );
+};
 
 const SeekYearInReviewScreen = (): Node => {
   // TODO: replace with real year

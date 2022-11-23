@@ -14,39 +14,45 @@ import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
+import { useLocationName } from "../../utility/customHooks";
 
-const SeekYearInReviewPhotos = ( { observations } ): Node => {
+const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
   const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation();
+  const locationName = useLocationName( observation.latitude, observation.longitude );
 
-  const navToSpecies = ( obs ) => {
-    if ( !obs?.taxon?.id ) { return; }
-    setId( obs.taxon.id );
+  const navToSpecies = ( ) => {
+    if ( !observation?.taxon?.id ) {
+      return;
+    }
+    setId( observation.taxon.id );
     navigation.push( "Drawer", { screen: "Species" } );
   };
 
+  return (
+    <Pressable
+      key={`image${observation.taxon.defaultPhoto.mediumUrl}`}
+      style={[viewStyles.center, viewStyles.sliderItem]}
+      onPress={() => navToSpecies()}
+    >
+      <Image
+        source={{ uri: observation.taxon.defaultPhoto.mediumUrl }}
+        style={imageStyles.image}
+      />
+      <StyledText style={[textStyles.text, textStyles.caption]}>
+        {i18n.t( "seek_year_in_review.observed_in", {
+          speciesName: observation?.taxon?.preferredCommonName,
+          place: locationName || i18n.t( "location_picker.undefined" )
+        } )}
+      </StyledText>
+    </Pressable>
+  );
+};
+
+const SeekYearInReviewPhotos = ( { observations } ): Node => {
   // TODO: replace the photo url from realm with the one given by the useUserPhoto hook
   const renderPhotos = () =>
-    observations.map( ( obs ) => (
-      <Pressable
-        key={`image${obs.taxon.defaultPhoto.mediumUrl}`}
-        style={[viewStyles.center, viewStyles.sliderItem]}
-        onPress={() => navToSpecies( obs )}
-      >
-        <Image
-          source={{ uri: obs.taxon.defaultPhoto.mediumUrl }}
-          style={imageStyles.image}
-        />
-        <StyledText style={[textStyles.text, textStyles.caption]}>
-          {i18n.t( "seek_year_in_review.observed_in", {
-            // TODO: get common name from realm
-            speciesName: obs?.taxon?.name,
-            // TODO: reverseGeocode those coordinates {obs.latitude, obs.longitude}
-            place: obs.attribution
-          } )}
-        </StyledText>
-      </Pressable>
-    ) );
+    observations.map( ( obs ) => <SeekYearInReviewPhotoItem observation={obs} /> );
   const photoList = renderPhotos();
 
   return (

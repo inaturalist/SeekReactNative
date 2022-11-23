@@ -11,10 +11,8 @@ import { imageStyles, viewStyles } from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modals/Modal";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "../Achievements/BadgeContainer";
-import { useFetchChallenges } from "./hooks/seekYearInReviewHooks";
 
-const ChallengeBadges = ( ): Node => {
-  const challengeBadges = useFetchChallenges( 2022 );
+const SeekYearInReviewChallengeBadges = ( { challengeBadges } ): Node => {
   const [showModal, setModal] = useState( false );
   const [selectedChallenge, setChallenge] = useState( null );
 
@@ -77,4 +75,4 @@ const ChallengeBadges = ( ): Node => {
   );
 };
 
-export default ChallengeBadges;
+export default SeekYearInReviewChallengeBadges;

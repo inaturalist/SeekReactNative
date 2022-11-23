@@ -16,7 +16,13 @@ import {
 import { colors } from "../../styles/global";
 import { AppOrientationContext, UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { useUploadedObservationCount, useFetchStats, useCountObservationsForYear } from "./hooks/seekYearInReviewHooks";
+import {
+  useUploadedObservationCount,
+  useFetchStats,
+  useCountObservationsForYear,
+  useFetchChallenges
+} from "./hooks/seekYearInReviewHooks";
+
 import badgeImages from "../../assets/badges";
 import i18n from "../../i18n";
 // TODO: refactor into component folder
@@ -56,13 +62,13 @@ const year = now.getFullYear();
 const SeekYearInReviewScreen = (): Node => {
   const { navigate } = useNavigation();
 
-  const { setId } = React.useContext( SpeciesDetailContext );
-  const navigation = useNavigation();
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
+
   const count = useUploadedObservationCount( login, userProfile?.login, year );
   const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
+  const challengeBadges = useFetchChallenges( year );
 
   const navToDonation = () => navigate( "Donation" );
 
@@ -206,6 +212,8 @@ const SeekYearInReviewScreen = (): Node => {
               } )}
               greenText={challengeBadges.length}
             />
+            <SeekYearInReviewChallengeBadges
+              challengeBadges={challengeBadges}
             />
           </>
         )}

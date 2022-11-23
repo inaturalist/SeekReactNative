@@ -74,10 +74,36 @@ const SeekYearInReviewScreen = (): Node => {
       header="seek_year_in_review.header"
       footer
     >
-      {/* TODO: replace all instances of text with StyledText after v2.14.5 is merged */}
-      <LinearGradient
-        colors={[colors.greenGradientDark, colors.greenGradientLight]}
-        style={[viewStyles.header, viewStyles.center, viewStyles.row]}
+      {!!state.level && countObservationsThisYear !== null && (
+        <LinearGradient
+          colors={[colors.greenGradientDark, colors.greenGradientLight]}
+          style={[viewStyles.header, viewStyles.center, viewStyles.row]}
+        >
+          <View style={viewStyles.levelTextContainer}>
+            <StyledText style={textStyles.lightText}>
+              {i18n
+                .t( "seek_year_in_review.in_year_observed", { year } )
+                .toLocaleUpperCase()}
+            </StyledText>
+            <StyledText style={textStyles.headerText}>
+              {i18n
+                .t( "seek_year_in_review.x_new_species", {
+                  count: countObservationsThisYear
+                } )
+                .toLocaleUpperCase()}
+            </StyledText>
+          </View>
+          <Image
+            source={badgeImages[state.level.earnedIconName]}
+            style={imageStyles.levelImage}
+          />
+        </LinearGradient>
+      )}
+      <View
+        style={[
+          viewStyles.textContainer,
+          isTablet && viewStyles.tabletContainer
+        ]}
       >
         {state.topThreeSpeciesBadges.length > 0 && (
           <>

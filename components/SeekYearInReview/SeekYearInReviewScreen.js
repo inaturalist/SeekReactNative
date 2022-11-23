@@ -213,6 +213,7 @@ const SeekYearInReviewScreen = (): Node => {
               } )}
               greenText={challengeBadges.length}
             />
+            <View style={viewStyles.divider} />
             <SeekYearInReviewChallengeBadges
               challengeBadges={challengeBadges}
             />

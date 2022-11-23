@@ -45,29 +45,10 @@ const SeekYearInReviewScreen = (): Node => {
   const countObservationsThisYear = useCountObservationsForYear( year );
 
 
-  const navToSpecies = ( obs ) => {
-    if ( !obs?.taxon?.id ) {return;}
-    setId( obs.taxon.id );
-      navigation.push( "Drawer", { screen: "Species" } );
-  };
+  const observationsWithLocation = state.observationsThisYear.filter(
+    ( observation ) => observation.latitude && observation.longitude
+  );
 
-  // TODO: replace the photo url from realm with the one given by the useUserPhoto hook
-  const renderPhotos = () =>
-    state.randomObservations.map( ( obs ) => (
-      <Pressable
-        key={`image${obs.taxon.defaultPhoto.mediumUrl}`}
-        style={viewStyles.center}
-        onPress={() => navToSpecies( obs )}
-      >
-        <Image
-          source={{ uri: obs.taxon.defaultPhoto.mediumUrl }}
-          style={imageStyles.image}
-        />
-        {console.log( obs.taxon.defaultPhoto.mediumUrl ) ? null : null}
-      </Pressable>
-    ) );
-
-  const photoList = renderPhotos();
   return (
     <ScrollWithHeader
       testID="seek-yir-screen-container"
@@ -162,6 +143,13 @@ const SeekYearInReviewScreen = (): Node => {
         <View style={viewStyles.smallDivider} />
         <SeekYearInReviewChart data={state.histogram} />
         <View style={viewStyles.divider} />
+        {observationsWithLocation.length > 0 && (
+          <>
+            <GreenText text="seek_year_in_review.observations_map" />
+            <View style={viewStyles.smallDivider} />
+            <View style={viewStyles.divider} />
+          </>
+        )}
             />
           </>
         )}

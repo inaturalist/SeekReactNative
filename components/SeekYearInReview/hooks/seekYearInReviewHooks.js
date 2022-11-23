@@ -75,7 +75,6 @@ const useCountObservationsForYear = ( year ): any => {
 const useFetchStats = ( year ): any => {
   const [state, setState] = useState( {
     level: null,
-    countBadgesThisYear: null,
     observationsThisYear: [],
     topThreeSpeciesBadges: [],
     randomObservations: [],
@@ -97,19 +96,27 @@ const useFetchStats = ( year ): any => {
         );
         const countObservationsThisYear = observationsThisYear.length;
 
-        // Get ten random observations from this year
-        // TODO: observations do not have photos in realm, so we have to take it from taxon, but that could lead to doublettes if multiple observations are saved per taxon
-        const randomObservations = [];
-        if ( countObservationsThisYear > 10 ) {
-          for ( let i = 0; i < 10; i += 1 ) {
-            // TODO?: There is a tiny chance that the same observation is picked twice
-            const randomIndex = Math.floor(
-              Math.random() * observationsThisYear.length
-            );
-            randomObservations.push( observationsThisYear[randomIndex] );
+        function getRandom( arr, n ) {
+          let len = arr.length;
+          const result = new Array( n ),
+            taken = new Array( len );
+          if ( n > len )
+            {throw new RangeError(
+              "getRandom: more elements taken than available"
+            );}
+          while ( n-- ) {
+            const x = Math.floor( Math.random() * len );
+            result[n] = arr[x in taken ? taken[x] : x];
+            taken[x] = --len in taken ? taken[len] : len;
           }
+          return result;
+        }
+        // Get ten random observations from this year
+        let randomObservations = [];
+        if ( countObservationsThisYear > 10 ) {
+          randomObservations = getRandom( observationsThisYear, 10 );
         } else {
-          randomObservations.push( ...observationsThisYear );
+          randomObservations = observationsThisYear;
         }
 
         // Get the top three of iconicTaxa observed over the year

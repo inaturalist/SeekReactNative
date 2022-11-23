@@ -49,16 +49,16 @@ const SubstringStyledText = ( { text, greenText } ) => {
   );
 };
 
+const now = new Date();
+const year = now.getFullYear();
+
 const SeekYearInReviewScreen = (): Node => {
-  // TODO: replace with real year
-  const year = 2022;
 
   const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation();
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
   const count = useUploadedObservationCount( login, userProfile?.login, year );
-  // TODO: replace with real year
   const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
 

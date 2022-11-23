@@ -72,7 +72,7 @@ const SeekYearInReviewScreen = (): Node => {
     <ScrollWithHeader
       testID="seek-yir-screen-container"
       header="seek_year_in_review.header"
-      footer={false}
+      footer
     >
       {/* TODO: replace all instances of text with StyledText after v2.14.5 is merged */}
       <LinearGradient

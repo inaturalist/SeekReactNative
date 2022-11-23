@@ -86,6 +86,12 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     textAlign: "center"
+  },
+  caption: {
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: "center",
+    width: 245
   }
 } );
 

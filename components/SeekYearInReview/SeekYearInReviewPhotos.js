@@ -30,7 +30,7 @@ const SeekYearInReviewPhotos = ( { observations } ): Node => {
     observations.map( ( obs ) => (
       <Pressable
         key={`image${obs.taxon.defaultPhoto.mediumUrl}`}
-        style={viewStyles.center}
+        style={[viewStyles.center, viewStyles.sliderItem]}
         onPress={() => navToSpecies( obs )}
       >
         <Image

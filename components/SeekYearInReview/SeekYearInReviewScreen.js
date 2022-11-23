@@ -147,6 +147,7 @@ const SeekYearInReviewScreen = (): Node => {
           <>
             <GreenText text="seek_year_in_review.observations_map" />
             <View style={viewStyles.smallDivider} />
+            <SeekYearInReviewMap observations={observationsWithLocation} />
             <View style={viewStyles.divider} />
           </>
         )}

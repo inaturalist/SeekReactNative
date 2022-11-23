@@ -79,7 +79,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     lineHeight: 24,
     textAlign: "center"
   },
-
   text: {
     color: colors.black,
     fontFamily: fonts.book,

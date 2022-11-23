@@ -120,20 +120,20 @@ const useFetchStats = ( year ): any => {
         }
 
         // Get the top three of iconicTaxa observed over the year
-        const reduced = observationsThisYear.reduce( ( iconicTaxa, observation ) => {
-          const iconicTaxonId = observation.taxon.iconicTaxonId;
-          iconicTaxa[iconicTaxonId] = iconicTaxa[iconicTaxonId] + 1 || 1;
-          return iconicTaxa;
-        }, {} );
-        const topThreeIconicTaxonIds = Object.keys( reduced ).sort( ( a, b ) => reduced[b] - reduced[a] ).slice( 0, 3 );
-
-        const badges = realm.objects( "BadgeRealm" );
-        const countBadgesThisYear = badges.filtered(
-          "iconicTaxonName != null AND earned == true"
-        ).length;
+        const reduced = observationsThisYear.reduce(
+          ( iconicTaxa, observation ) => {
+            const iconicTaxonId = observation.taxon.iconicTaxonId;
+            iconicTaxa[iconicTaxonId] = iconicTaxa[iconicTaxonId] + 1 || 1;
+            return iconicTaxa;
+          },
+          {}
+        );
+        const topThreeIconicTaxonIds = Object.keys( reduced )
+          .sort( ( a, b ) => reduced[b] - reduced[a] )
+          .slice( 0, 3 );
 
         const topThreeSpeciesBadges = [];
-
+        const badges = realm.objects( "BadgeRealm" );
         topThreeIconicTaxonIds.forEach( ( id ) => {
           if ( id === null ) {
             return;
@@ -166,7 +166,6 @@ const useFetchStats = ( year ): any => {
 
         setState( {
           level: levelsEarned[0],
-          countBadgesThisYear,
           observationsThisYear,
           topThreeSpeciesBadges,
           randomObservations,

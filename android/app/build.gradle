@@ -157,8 +157,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 262
-        versionName "2.14.5"
+        versionCode 263
+        versionName "2.14.6"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {

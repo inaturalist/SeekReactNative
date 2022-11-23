@@ -30,7 +30,11 @@ const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSel
     const routeName = await getRoute( );
     if ( routeName ) {
       // ChallengeDetails, Observations, Home, or Match
-      navigation.navigate( routeName );
+      if ( routeName === "SideMenu" ) {
+        resetRouter( navigation );
+      } else {
+        navigation.navigate( routeName );
+      }
     } else {
       resetRouter( navigation );
     }

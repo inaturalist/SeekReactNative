@@ -1,15 +1,16 @@
 // @flow
-import * as React from "react";
+import React, { useCallback } from "react";
 import { Image } from "react-native";
 import MapView, { PROVIDER_DEFAULT, Marker } from "react-native-maps";
+import { useNavigation } from "@react-navigation/native";
 
 import icons from "../../assets/icons";
 import { viewStyles } from "../../styles/seekYearInReview/seekYearInReview";
 import {
-  useRegion,
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../utility/customHooks";
+import { getBounds, getCenterOfBounds } from "geolib";
 
 type Props = {
   +region: Object,
@@ -18,24 +19,39 @@ type Props = {
 };
 
 const SeekYearInReviewMap = ( { observations }: Props ): React.Node => {
-    const granted = useLocationPermission();
-    const userCoords = useTruncatedUserCoords( granted );
-    // const region = useRegion( userCoords, seenTaxa );
-    const region = useRegion( userCoords, userCoords );
+  const navigation = useNavigation();
 
-  const initialRegion = region || {
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta: 0,
-    longitudeDelta: 0
-  };
+  const granted = useLocationPermission();
+  const userCoords = useTruncatedUserCoords( granted );
 
-  // TODO: Do this filtering higher up, as to not show a map with no markers
-  const filteredObservations = observations.filter(
-    ( observation ) => observation.latitude && observation.longitude
+  const centerRegion = useCallback(
+    () => {
+      const coordsArray = observations.map( ( observation ) => {
+        const { latitude, longitude } = observation;
+        return { latitude, longitude };
+      } );
+      const bounds = getBounds( coordsArray );
+      userCoords && coordsArray.push( userCoords );
+      const center = getCenterOfBounds( coordsArray );
+      return {
+        latitude: center.latitude,
+        longitude: center.longitude,
+        latitudeDelta: Math.abs(
+          ( center.latitude - Math.min( bounds.maxLat, bounds.minLat ) ) * 2
+        ),
+        longitudeDelta: Math.abs(
+          ( center.longitude - Math.min( bounds.maxLng, bounds.minLng ) ) * 2
+        )
+      };
+    },
+    [observations, userCoords],
   );
 
-  // TODO: Optimize shown region based on markers
+  const navToObsMap = useCallback(
+    () => navigation.navigate( "SeekYearInReviewMapScreen", { region: centerRegion() } ),
+    [navigation, centerRegion]
+  );
+
   return (
     <MapView
       //   maxZoomLevel={7}

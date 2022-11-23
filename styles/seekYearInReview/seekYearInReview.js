@@ -44,7 +44,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     alignSelf: "center"
   },
   photoMargins: {
-    marginVertical: 33
+    marginVertical: 33,
+    height: 350
   },
   map: {
     height: 189,
@@ -55,6 +56,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   smallDivider: {
     height: 18
+  },
+  sliderItem: {
+    height: 300,
+    backgroundColor: colors.white
   }
 } );
 
@@ -90,7 +95,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginBottom: 20,
     marginTop: 20,
     textAlign: "center",
-    width: 245
+    maxWidth: 245
   }
 } );
 

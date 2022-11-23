@@ -26,7 +26,7 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
       return;
     }
     setId( observation.taxon.id );
-    navigation.push( "Drawer", { screen: "Species" } );
+    navigation.navigate( "Species" );
   };
 
   return (

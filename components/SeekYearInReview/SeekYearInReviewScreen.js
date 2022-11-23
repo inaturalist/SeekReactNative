@@ -1,8 +1,7 @@
 // @flow
 
 import React, { useContext } from "react";
-import { View, Text, Image, Pressable } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { View, Image } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
@@ -35,6 +34,7 @@ import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
 import StyledText from "../UIComponents/StyledText";
 import BannerHeader from "../UIComponents/BannerHeader";
 import GreenText from "../UIComponents/GreenText";
+import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 const SubstringStyledText = ( { text, greenText } ) => {

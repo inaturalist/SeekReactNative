@@ -192,6 +192,7 @@ const SeekYearInReviewScreen = (): Node => {
           </>
         )}
       </View>
+      <SeekYearInReviewPhotos observations={state.randomObservations} />
       <View
         style={[
           viewStyles.textContainer,

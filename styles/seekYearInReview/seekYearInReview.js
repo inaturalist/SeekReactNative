@@ -51,6 +51,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   map: {
     height: 189,
     marginBottom: 20
+  },
+  divider: {
+    height: 45
+  },
+  smallDivider: {
+    height: 18
   }
 } );
 

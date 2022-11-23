@@ -72,7 +72,7 @@ const SeekYearInReviewScreen = (): Node => {
 
   const navToDonation = () => navigate( "Donation" );
 
-  const observationsWithLocation = state.observationsThisYear.filter(
+  const observationsWithLocation = state?.observationsThisYear.filter(
     ( observation ) => observation.latitude && observation.longitude
   );
 

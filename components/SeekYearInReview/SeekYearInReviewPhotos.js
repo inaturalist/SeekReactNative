@@ -41,7 +41,7 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
       />
       <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "seek_year_in_review.observed_in", {
-          speciesName: observation?.taxon?.preferredCommonName,
+          speciesName: observation?.taxon?.preferredCommonName || observation?.taxon?.name,
           place: locationName || i18n.t( "location_picker.undefined" )
         } )}
       </StyledText>

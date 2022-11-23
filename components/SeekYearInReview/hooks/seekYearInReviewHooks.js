@@ -135,7 +135,10 @@ const useFetchStats = ( year ): any => {
             .filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
             .sorted( "index", true )
             .sorted( "earned", true );
-          topThreeSpeciesBadges.push( highestEarned[0] );
+          const highestEarnedBadge = highestEarned[0];
+          // Add the number of observations for this year to the badge info
+          highestEarnedBadge.observationsThisYear = reduced[id];
+          topThreeSpeciesBadges.push( highestEarnedBadge );
         } );
 
         const levelsEarned = badges

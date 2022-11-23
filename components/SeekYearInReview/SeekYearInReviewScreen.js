@@ -79,21 +79,56 @@ const SeekYearInReviewScreen = (): Node => {
         colors={[colors.greenGradientDark, colors.greenGradientLight]}
         style={[viewStyles.header, viewStyles.center, viewStyles.row]}
       >
-        {!!state.level && (
+        {state.topThreeSpeciesBadges.length > 0 && (
           <>
-            <View style={viewStyles.levelTextContainer}>
-              <StyledText style={textStyles.lightText}>
-                {/* {i18n.t( "badges.your_level" ).toLocaleUpperCase()} */}
-                In {year}, you observed
+            <BannerHeader
+              text={i18n
+                .t( "seek_year_in_review.top_species" )
+                .toLocaleUpperCase()}
+            />
+            <SpeciesBadges speciesBadges={state.topThreeSpeciesBadges} />
+            <View style={[viewStyles.badgesTextContainer]}>
+              <GreenText
+                style={viewStyles.badgeTextContainer}
+                center
+                smaller
+                noTranslation
+                text={state.topThreeSpeciesBadges[0].observationsThisYear}
+              />
+              <GreenText
+                style={viewStyles.badgeTextContainer}
+                center
+                smaller
+                noTranslation
+                text={state.topThreeSpeciesBadges[1].observationsThisYear}
+              />
+              <GreenText
+                style={viewStyles.badgeTextContainer}
+                center
+                smaller
+                noTranslation
+                text={state.topThreeSpeciesBadges[2].observationsThisYear}
+              />
+            </View>
+            <View style={[viewStyles.badgesTextContainer]}>
+              <StyledText
+                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+              >
+                {i18n.t( state.topThreeSpeciesBadges[0].iconicTaxonName )}
               </StyledText>
-              <StyledText style={textStyles.headerText}>
-                {/* {i18n.t( state.level.intlName ).toLocaleUpperCase()} */}
-                {countObservationsThisYear} new species
+              <StyledText
+                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+              >
+                {i18n.t( state.topThreeSpeciesBadges[1].iconicTaxonName )}
+              </StyledText>
+              <StyledText
+                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+              >
+                {i18n.t( state.topThreeSpeciesBadges[2].iconicTaxonName )}
               </StyledText>
             </View>
-            <Image
-              source={badgeImages[state.level.earnedIconName]}
-              style={imageStyles.levelImage}
+          </>
+        )}
             />
           </>
         )}

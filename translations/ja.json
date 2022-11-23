@@ -929,8 +929,8 @@
     "december_2022_challenge_name_decomposers": "Decomposers Challenge"
   },
   "seek_2023_challenges": {
-    "january_2023_challenge_name_habitats": "Habitats Challenge",
-    "february_2023_challenge_name_climate_change": "Climate Change Challenge",
+    "january_2023_challenge_name_habitats": "「生息地」チャレンジ",
+    "february_2023_challenge_name_climate_change": "「気候変動」チャレンジ",
     "february_2023_description_climate_change": "Climate change is not just affecting the frozen worlds at our planet’s poles. Rising temperatures and changing weather patterns can cause species to move out of habitats that become uncomfortable and into new areas. It can also mean that changes linked to seasons (known as “phenology”) such as leaf fall and flowering start to take place at different times. This may cause problems for other species that are hard to predict. Seek out your local plant life and see how your local environment may be changing.",
     "february_2023_action_climate_change": "Look up your favorite plant on the iNaturalist website and explore the “plant phenology” graph on its taxon page. These charts come from “annotations” for flower buds, flowers, or fruits on the observations posted to iNaturalist. You can help add them by logging in on the iNaturalist website.",
     "march_2023_challenge_name_lakes_ponds": "Lakes and Ponds Challenge",
@@ -939,8 +939,8 @@
     "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
     "may_2023_challenge_name_protected_areas": "Protected Areas Challenge",
     "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
-    "june_2023_challenge_name_plant_eaters": "Plant Eaters Challenge",
-    "june_2023_action": "What kinds of plants do you eat? What parts of the plant do they come from? What kinds of animals also like to eat those plants?",
+    "june_2023_challenge_name_plant_eaters": "「草食者」チャレンジ",
+    "june_2023_action": "あなたはどんな種類の植物を食べますか？それは植物のどの部分からのものでしょうか？それらの植物が好きな動物は何でしょうか？",
     "july_2023_challenge_name_food_web": "Food Web Challenge",
     "july_2023_description_plant_eaters": "群生内のすべての種は食物網でつながっています。植物は太陽からエネルギーを吸収し、草食動物は植物を食べ、肉食動物は他の動物を食べ、分解者は生物の死体を分解します。地元の生活網でさまざまな段階を探し、それぞれが他の種が生き残ることを可能にする方法を学習しましょう。",
     "july_2023_action_plant_eaters": "Did you see any herbivores in action, such as a caterpillar eating a leaf or a bird eating seeds? Did you see any carnivores in action, perhaps a spider or a mantis with prey?",
@@ -960,6 +960,27 @@
   "seek_year_in_review": {
     "header": "Seek Year in Review",
     "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review"
+    "button": "View my Seek Review",
+    "in_year_observed": "In {{year}}, you observed",
+    "x_new_species": {
+      "one": "{{count}} new species",
+      "two": "{{count}} new species",
+      "few": "{{count}} new species",
+      "many": "{{count}} new species",
+      "other": "{{count}} new species"
+    },
+    "top_species": "Top Species",
+    "observations": "Observations",
+    "observations_by_month": "Observations by Month",
+    "observations_map": "Observations Map",
+    "view_observations_map": "View Observations Map",
+    "iNaturalist": "iNaturalist",
+    "uploaded_observations_text": "You posted {{count}} observations to iNaturalist using Seek in {{year}}. Thank you for contributing to our community!",
+    "observed_in": "{{speciesName}} observed in {{place}}",
+    "challenges": "Challenges",
+    "challenges_earned_text": "You earned {{count}} challenge badges in {{year}}.",
+    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
+    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
+    "donate": "Donate"
   }
 }

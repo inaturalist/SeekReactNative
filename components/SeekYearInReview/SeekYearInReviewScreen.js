@@ -155,105 +155,20 @@ const SeekYearInReviewScreen = (): Node => {
             </View>
           </>
         )}
+        <BannerHeader
+          text={i18n.t( "seek_year_in_review.observations" ).toLocaleUpperCase()}
+        />
+        <GreenText text="seek_year_in_review.observations_by_month" />
+        <View style={viewStyles.smallDivider} />
+        <SeekYearInReviewChart data={state.histogram} />
+        <View style={viewStyles.divider} />
             />
           </>
         )}
-      </LinearGradient>
-      {state.topThreeSpeciesBadges.length > 0 && (
-        <>
-          <BannerHeader
-            text={"top species"}
-            // text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()}
-          />
-          <SpeciesBadges speciesBadges={state.topThreeSpeciesBadges} />
-          <View style={[viewStyles.badgesTextContainer]}>
-            <GreenText
-              style={viewStyles.badgeTextContainer}
-              center
-              smaller
-              noTranslation
-              text={state.topThreeSpeciesBadges[0].count}
             />
-            <GreenText
-              style={viewStyles.badgeTextContainer}
-              center
-              smaller
-              noTranslation
-              text={state.topThreeSpeciesBadges[1].count}
             />
-            <GreenText
-              style={viewStyles.badgeTextContainer}
-              center
-              smaller
-              noTranslation
-              text={state.topThreeSpeciesBadges[2].count}
             />
-          </View>
-          <View style={[viewStyles.badgesTextContainer]}>
-            <StyledText
-              style={[
-                viewStyles.badgeTextContainer,
-                textStyles.iconicTaxaNameText
-              ]}
-            >
-              {i18n
-                .t( state.topThreeSpeciesBadges[0].iconicTaxonName )
-                .toLocaleUpperCase()}
-            </StyledText>
-            <StyledText
-              style={[
-                viewStyles.badgeTextContainer,
-                textStyles.iconicTaxaNameText
-              ]}
-            >
-              {i18n
-                .t( state.topThreeSpeciesBadges[1].iconicTaxonName )
-                .toLocaleUpperCase()}
-            </StyledText>
-            <StyledText
-              style={[
-                viewStyles.badgeTextContainer,
-                textStyles.iconicTaxaNameText
-              ]}
-            >
-              {i18n
-                .t( state.topThreeSpeciesBadges[2].iconicTaxonName )
-                .toLocaleUpperCase()}
-            </StyledText>
-          </View>
-        </>
-      )}
-      <BannerHeader
-        text={"observations"}
-        // text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()}
-      />
-      <GreenText text="observations by month" />
-      <SeekYearInReviewChart data={state.histogram} />
-      <GreenText text="observations map" />
-      {/* TODO: map needs to have an optimal initial region to show based on the distribution of observation coords */}
-      <SeekYearInReviewMap observations={state.observationsThisYear} />
-      <GreenText text="iNaturalist" />
-      {login && (
-        <Text style={textStyles.text}>
-          You posted {count} observations to iNaturalist using Seek in {year}.
-          Thank you for contributing to our community!
-        </Text>
-      )}
-      <View style={viewStyles.photoMargins}>
-        <HorizontalScroll photoList={photoList} />
       </View>
-      <BannerHeader
-        text={"badges"}
-        // text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()}
-      />
-      {state.countBadgesThisYear && (
-        <Text style={textStyles.text}>
-          You earned {state.countBadgesThisYear} species and challenge badges
-          this year
-        </Text>
-      )}
-
-      <SeekYearInReviewChallengeBadges />
     </ScrollWithHeader>
   );
 };

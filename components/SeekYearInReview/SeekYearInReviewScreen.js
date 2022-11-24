@@ -130,20 +130,24 @@ const SeekYearInReviewScreen = (): Node => {
                 noTranslation
                 text={state.topThreeSpeciesBadges[0].observationsThisYear}
               />
-              <GreenText
-                style={viewStyles.badgeTextContainer}
-                center
-                smaller
-                noTranslation
-                text={state.topThreeSpeciesBadges[1].observationsThisYear}
-              />
-              <GreenText
-                style={viewStyles.badgeTextContainer}
-                center
-                smaller
-                noTranslation
-                text={state.topThreeSpeciesBadges[2].observationsThisYear}
-              />
+              {state.topThreeSpeciesBadges[1] && (
+                <GreenText
+                  style={viewStyles.badgeTextContainer}
+                  center
+                  smaller
+                  noTranslation
+                  text={state.topThreeSpeciesBadges[1].observationsThisYear}
+                />
+              )}
+              {state.topThreeSpeciesBadges[2] && (
+                <GreenText
+                  style={viewStyles.badgeTextContainer}
+                  center
+                  smaller
+                  noTranslation
+                  text={state.topThreeSpeciesBadges[2].observationsThisYear}
+                />
+              )}
             </View>
             <View style={[viewStyles.badgesTextContainer]}>
               <StyledText
@@ -151,16 +155,20 @@ const SeekYearInReviewScreen = (): Node => {
               >
                 {i18n.t( state.topThreeSpeciesBadges[0].iconicTaxonName )}
               </StyledText>
-              <StyledText
-                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
-              >
-                {i18n.t( state.topThreeSpeciesBadges[1].iconicTaxonName )}
-              </StyledText>
-              <StyledText
-                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
-              >
-                {i18n.t( state.topThreeSpeciesBadges[2].iconicTaxonName )}
-              </StyledText>
+              {state.topThreeSpeciesBadges[1] && (
+                <StyledText
+                  style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                >
+                  {i18n.t( state.topThreeSpeciesBadges[1].iconicTaxonName )}
+                </StyledText>
+              )}
+              {state.topThreeSpeciesBadges[2] && (
+                <StyledText
+                  style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                >
+                  {i18n.t( state.topThreeSpeciesBadges[2].iconicTaxonName )}
+                </StyledText>
+              )}
             </View>
           </>
         )}

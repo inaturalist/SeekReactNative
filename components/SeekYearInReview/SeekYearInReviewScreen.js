@@ -198,10 +198,12 @@ const SeekYearInReviewScreen = (): Node => {
               } )}
               greenText={count}
             />
-            <View style={viewStyles.smallDivider} />
-            <StyledText style={textStyles.bigText}>
-              {i18n.t( "seek_year_in_review.uploaded_observations_text_2" )}
-            </StyledText>
+            {!!count && <>
+              <View style={viewStyles.smallDivider} />
+              <StyledText style={textStyles.bigText}>
+                {i18n.t( "seek_year_in_review.uploaded_observations_text_2" )}
+              </StyledText>
+            </>}
           </>
         )}
       </View>

@@ -1,10 +1,10 @@
 /* Localized versions of Info.plist keys */
 /* Permissions */
-"NSCameraUsageDescription" = "We use the camera so you can get identifications of your nature photos.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationAlwaysUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSLocationWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSPhotoLibraryAddUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
-"NSPhotoLibraryUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
+"NSCameraUsageDescription" = "Doğa fotoğraflarını tanımlayabilmen için kamera kullanıyoruz.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Yakınında bulabileceğin bitki ve hayvanları önermek için konumunu kullanıyoruz.";
+"NSLocationAlwaysUsageDescription" = "Yakınında bulabileceğin bitki ve hayvanları önermek için konumunu kullanıyoruz.";
+"NSLocationWhenInUseUsageDescription" = "Yakınında bulabileceğin bitki ve hayvanları önermek için konumunu kullanıyoruz.";
+"NSPhotoLibraryAddUsageDescription" = "Doğa fotoğraflarının tanımlamalarını alabilmen için fotoğraf kütüphanesini kullanıyoruz.";
+"NSPhotoLibraryUsageDescription" = "Doğa fotoğraflarının tanımlamalarını alabilmen için fotoğraf kütüphanesini kullanıyoruz.";
 /* Shortcut Items */
-"Seek Camera" = "Seek Camera";
+"Seek Camera" = "Seek Kamerası";

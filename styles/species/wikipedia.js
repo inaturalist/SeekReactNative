@@ -47,7 +47,12 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     fontFamily: fonts.book,
     paddingHorizontal: 24,
     paddingTop: 24,
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "normal",
+    fontStyle: "normal",
+    lineHeight: 21,
+    letterSpacing: 0
   },
   donateText: {
     top: 19,

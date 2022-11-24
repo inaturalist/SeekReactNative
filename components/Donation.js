@@ -21,11 +21,16 @@ type Props = {
   +navigation: any
 };
 
-const Donation = ( { navigation }: Props ): React.Node => {
+const Donation = ( { navigation, route }: Props ): React.Node => {
   const goBack = ( ) => navigation.goBack( );
+
   const [selectedText, setSelectedText] = React.useState( false );
 
-  const donationPage = `${urls.DONORBOX}&utm_source=android`;
+  const { params } = route;
+
+  const standardCampaign = `${urls.DONORBOX}${urls.DONORBOX_STANDARD_CAMPAIGN}&utm_source=android`;
+  const seekYearInReviewCampaign = `${urls.DONORBOX}&utm_campaign=${params?.utmCampaign}&utm_source=android`;
+  const donationPage = params?.utmCampaign ? seekYearInReviewCampaign : standardCampaign;
   const redirectForiOS = "inaturalist.org/donate-seek";
 
   const highlightSelectedText = ( ) => setSelectedText( true );

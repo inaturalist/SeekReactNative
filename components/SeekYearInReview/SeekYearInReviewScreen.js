@@ -70,7 +70,8 @@ const SeekYearInReviewScreen = (): Node => {
   const countObservationsThisYear = useCountObservationsForYear( year );
   const challengeBadges = useFetchChallenges( year );
 
-  const navToDonation = () => navigate( "Donation" );
+  const navToDonation = () =>
+    navigate( "Donation", { utmCampaign: `${year}-year-in-review` } );
 
   const observationsWithLocation = state?.observationsThisYear.filter(
     ( observation ) => observation.latitude && observation.longitude

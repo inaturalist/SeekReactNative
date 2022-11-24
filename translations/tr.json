@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Society'nin ortak bir girişimidir.",
     "original": "Seek aslında Netflix'teki Gezegenimiz, WWF ve HHMI Tangled Bank Studios'taki destekle yaratıldı.",
     "designed_by": "iNaturalist ekibi tarafından tasarlandı ve geliştirildi:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'dan Grant Van Horn'a ve iNaturalist topluluğuna bilgisayar görü teknolojisindeki yardımları için özel teşekkürler.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein ve Yaron Budowski. Bilgisayar görü teknolojisi konusundaki yardımları için Visipedia'dan Grant Van Horn'a ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
     "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
     "translators": "Crowdin.com topluluğu tarafından sağlanan çeviri yardımı için minnettarız, özellikle: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, ve Yulia Lygina.",
@@ -686,8 +686,8 @@
     "seasonality_option_1": "Dünya çapındaki iNaturalist gözlemlerine göre mevsimselliği görüntüleyin",
     "seasonality_option_2": "Mevcut konumumun yakınındaki iNaturalist gözlemlerine dayalı mevsimselliği görüntüleyin (konumumun yakınında bulunmayan türlerin mevsimselliği bulunmaz)",
     "donate_ios": "Seek'e bağış yapmak için lütfen aşağıdaki bağlantıyı ziyaret edin:",
-    "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "change_language": "Uygulama dili {{language}} olarak değiştirilsin mi?",
+    "confirm": "Onayla"
   },
   "seek_challenges": {
     "badge": "Seek Rozeti",
@@ -855,7 +855,7 @@
     "logged_in_bullet_3": "Seek gözlemlerin iNaturalist üzerinde YEDEKLENMEZ. Seek'i silersen cihazındaki tüm gözlemler silinir.",
     "upload_and_track_obs_using_inat": "iNaturalist uygulamasını kullanarak veya inaturalist.org sitesini ziyaret ederek gözlemlerini yükleyebilir ve izleyebilirsin.\n\nTopluluğun parçası olduğun için teşekkürler!",
     "x_seen_by_user": "{{speciesName}} {{user}} tarafından görüldü",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "iNaturalist'te oturum açtın ancak ayrıntıları göstermek için internete ihtiyacımız var. Tekrar denemek için dokun."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Eklembacaklı Yırtıcı Mücadelesi",
@@ -958,29 +958,30 @@
     "december_2023_description_ecology": "Birçok farklı etkileşim türü, ekosistemleri ve onların organizmalarını etkiler. Ekoloji, organizmalar (biyotik) ve onların fiziksel çevrelerinin (abiyotik) incelenmesidir. Biyotik etkileşimler canlılar arasındadır ve abiyotik etkileşimler sıcaklık, su, ışık ve toprak gibi cansız etkenleri içerir."
   },
   "seek_year_in_review": {
-    "header": "Seek Year in Review",
-    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review",
-    "in_year_observed": "In {{year}}, you observed",
+    "header": "Seek Yıl Değerlendirmesi",
+    "description": "Bu yıl Seek'i kullandığın için teşekkürler! Kişiselleştirilmiş Yıl Değerlendirmene şuradan göz at:",
+    "button": "Seek Değerlendirmemi Görüntüle",
+    "in_year_observed": "{{year}} yılında, gözlemledin",
     "x_new_species": {
-      "one": "{{count}} new species",
-      "two": "{{count}} new species",
-      "few": "{{count}} new species",
-      "many": "{{count}} new species",
-      "other": "{{count}} new species"
+      "one": "{{count}} yeni tür",
+      "two": "{{count}} yeni tür",
+      "few": "{{count}} yeni tür",
+      "many": "{{count}} yeni tür",
+      "other": "{{count}} yeni tür"
     },
-    "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
+    "top_species": "Zirvedeki Türler",
+    "observations": "Gözlemler",
+    "observations_by_month": "Aya Göre Gözlemler",
+    "observations_map": "Gözlem Haritası",
+    "view_observations_map": "Gözlem Haritasını Görüntüle",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text": "You posted {{count}} observations to iNaturalist using Seek in {{year}}. Thank you for contributing to our community!",
-    "observed_in": "{{speciesName}} observed in {{place}}",
-    "challenges": "Challenges",
-    "challenges_earned_text": "You earned {{count}} challenge badges in {{year}}.",
-    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "uploaded_observations_text_1": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+    "uploaded_observations_text_2": "Thank you for contributing to our community!",
+    "observed_in": "{{speciesName}}, {{place}} konumunda gözlemlendi",
+    "challenges": "Mücadeleler",
+    "challenges_earned_text": "{{year}} yılında {{count}} mücadele rozeti kazandın.",
+    "thank_you": "Seek'i kullandığın için teşekkür ederiz! Umarız bu sana bu yıl tanıştığın tüm ilginç türleri anımsatır.",
+    "consider_donation": "Küçük bir ekip olarak, Seek'e olan sevgin ve hevesin için çok teşekkür ederiz. Büyürken bize destek olmak istersen, lütfen iNaturalist'e bağış yapmayı düşün:",
+    "donate": "Bağış Yap"
   }
 }

@@ -14,12 +14,12 @@ import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
-import { useLocationName } from "../../utility/customHooks";
+// import { useLocationName } from "../../utility/customHooks";
 
 const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
   const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation();
-  const locationName = useLocationName( observation.latitude, observation.longitude );
+  // const locationName = useLocationName( observation.latitude, observation.longitude );
 
   const navToSpecies = ( ) => {
     if ( !observation?.taxon?.id ) {
@@ -40,11 +40,18 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
         style={imageStyles.image}
       />
       <StyledText style={[textStyles.text, textStyles.caption]}>
+        {i18n.t( "seek_year_in_review.observed_on", {
+          speciesName:
+            observation?.taxon?.preferredCommonName || observation?.taxon?.name,
+          date: observation?.date?.toLocaleDateString( i18n.locale )
+        } )}
+      </StyledText>
+      {/* <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "seek_year_in_review.observed_in", {
           speciesName: observation?.taxon?.preferredCommonName || observation?.taxon?.name,
           place: locationName || i18n.t( "location_picker.undefined" )
         } )}
-      </StyledText>
+      </StyledText> */}
     </Pressable>
   );
 };

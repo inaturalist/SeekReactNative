@@ -53,7 +53,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     top: 19,
     fontSize: 18,
     letterSpacing: 1.0,
-    color: colors.black,
+    color: colors.greenGradientLight,
     fontFamily: fonts.book,
     paddingHorizontal: 24,
     marginVertical: 14,

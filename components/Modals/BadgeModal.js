@@ -39,6 +39,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
   const scroll = ( index ) => {
+    setScrollIndex( index );
     if ( flatList && flatList.current !== null ) {
       flatList.current.scrollToIndex( { index, animated: true } );
     }

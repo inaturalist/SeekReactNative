@@ -39,6 +39,9 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 const SubstringStyledText = ( { text, greenText } ) => {
   // Split the text into an array using whitespace
+  if ( typeof text !== "string" ) {
+    return null;
+  }
   const substringsArray = text.split( " " );
   return (
     <StyledText style={textStyles.bigText}>

@@ -37,7 +37,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     zIndex: 1
   },
   carousel: {
-    alignItems: "center"
+    alignItems: "center",
+    width:
+      dimensions.width > 350
+        ? dimensions.width - dimensions.width * 0.1
+        : dimensions.width
   },
   leftArrow: {
     left: 0,

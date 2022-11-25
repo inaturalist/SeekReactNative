@@ -978,6 +978,7 @@
     "uploaded_observations_text_1": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
     "uploaded_observations_text_2": "Thank you for contributing to our community!",
     "observed_in": "{{speciesName}} observed in {{place}}",
+    "observed_on": "{{speciesName}} observed on {{date}}",
     "challenges": "Виклики",
     "challenges_earned_text": "You earned {{count}} challenge badges in {{year}}.",
     "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",

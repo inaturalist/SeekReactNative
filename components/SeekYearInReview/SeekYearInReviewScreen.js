@@ -1,7 +1,7 @@
 // @flow
 
-import React, { useContext } from "react";
-import { View, Image } from "react-native";
+import React, { useContext, useState, useCallback } from "react";
+import { View, Image, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
@@ -36,6 +36,8 @@ import BannerHeader from "../UIComponents/BannerHeader";
 import GreenText from "../UIComponents/GreenText";
 import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import Modal from "../UIComponents/Modals/Modal";
+import LevelModal from "../Modals/LevelModal";
 
 const SubstringStyledText = ( { text, greenText } ) => {
   // Split the text into an array using whitespace
@@ -65,6 +67,11 @@ const year = now.getFullYear();
 const SeekYearInReviewScreen = (): Node => {
   const { navigate } = useNavigation();
 
+  const [showModal, setModal] = useState( false );
+
+  const openModal = useCallback( () => setModal( true ), [] );
+  const closeModal = useCallback( () => setModal( false ), [] );
+
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
 
@@ -80,6 +87,15 @@ const SeekYearInReviewScreen = (): Node => {
     ( observation ) => observation.latitude && observation.longitude
   );
 
+  const renderModalContent = (
+    <LevelModal
+      level={state.level}
+      screen="achievements"
+      speciesCount={state.speciesCount}
+      closeModal={closeModal}
+    />
+  );
+
   return (
     <ScrollWithHeader
       testID="seek-yir-screen-container"
@@ -87,29 +103,37 @@ const SeekYearInReviewScreen = (): Node => {
       footer
     >
       {!!state.level && countObservationsThisYear !== null && (
-        <LinearGradient
-          colors={[colors.greenGradientDark, colors.greenGradientLight]}
-          style={[viewStyles.header, viewStyles.center, viewStyles.row]}
-        >
-          <View style={viewStyles.levelTextContainer}>
-            <StyledText style={textStyles.lightText}>
-              {i18n
-                .t( "seek_year_in_review.in_year_observed", { year } )
-                .toLocaleUpperCase()}
-            </StyledText>
-            <StyledText style={textStyles.headerText}>
-              {i18n
-                .t( "seek_year_in_review.x_new_species", {
-                  count: countObservationsThisYear
-                } )
-                .toLocaleUpperCase()}
-            </StyledText>
-          </View>
-          <Image
-            source={badgeImages[state.level.earnedIconName]}
-            style={imageStyles.levelImage}
+        <TouchableOpacity onPress={openModal}>
+          <Modal
+            showModal={showModal}
+            closeModal={closeModal}
+            modal={renderModalContent}
           />
-        </LinearGradient>
+
+          <LinearGradient
+            colors={[colors.greenGradientDark, colors.greenGradientLight]}
+            style={[viewStyles.header, viewStyles.center, viewStyles.row]}
+          >
+            <View style={viewStyles.levelTextContainer}>
+              <StyledText style={textStyles.lightText}>
+                {i18n
+                  .t( "seek_year_in_review.in_year_observed", { year } )
+                  .toLocaleUpperCase()}
+              </StyledText>
+              <StyledText style={textStyles.headerText}>
+                {i18n
+                  .t( "seek_year_in_review.x_new_species", {
+                    count: countObservationsThisYear
+                  } )
+                  .toLocaleUpperCase()}
+              </StyledText>
+            </View>
+            <Image
+              source={badgeImages[state.level.earnedIconName]}
+              style={imageStyles.levelImage}
+            />
+          </LinearGradient>
+        </TouchableOpacity>
       )}
       <View
         style={[
@@ -195,18 +219,23 @@ const SeekYearInReviewScreen = (): Node => {
             <GreenText text="seek_year_in_review.iNaturalist" />
             <View style={viewStyles.smallDivider} />
             <SubstringStyledText
-              text={i18n.t( "seek_year_in_review.x_uploaded_observations_text_1", {
-                count,
-                year
-              } )}
+              text={i18n.t(
+                "seek_year_in_review.x_uploaded_observations_text_1",
+                {
+                  count,
+                  year
+                }
+              )}
               greenText={count}
             />
-            {!!count && <>
-              <View style={viewStyles.smallDivider} />
-              <StyledText style={textStyles.bigText}>
-                {i18n.t( "seek_year_in_review.uploaded_observations_text_2" )}
-              </StyledText>
-            </>}
+            {!!count && (
+              <>
+                <View style={viewStyles.smallDivider} />
+                <StyledText style={textStyles.bigText}>
+                  {i18n.t( "seek_year_in_review.uploaded_observations_text_2" )}
+                </StyledText>
+              </>
+            )}
           </>
         )}
       </View>

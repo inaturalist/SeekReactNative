@@ -192,7 +192,7 @@ const SeekYearInReviewScreen = (): Node => {
             <GreenText text="seek_year_in_review.iNaturalist" />
             <View style={viewStyles.smallDivider} />
             <SubstringStyledText
-              text={i18n.t( "seek_year_in_review.uploaded_observations_text_1", {
+              text={i18n.t( "seek_year_in_review.x_uploaded_observations_text_1", {
                 count,
                 year
               } )}
@@ -222,7 +222,7 @@ const SeekYearInReviewScreen = (): Node => {
                 .toLocaleUpperCase()}
             />
             <SubstringStyledText
-              text={i18n.t( "seek_year_in_review.challenges_earned_text", {
+              text={i18n.t( "seek_year_in_review.x_challenges_earned_text", {
                 count: challengeBadges.length,
                 year
               } )}

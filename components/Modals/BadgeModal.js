@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useRef, useCallback, useLayoutEffect } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import {
   View,
   Image,
@@ -33,17 +33,6 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
     waitForInteraction: true,
     viewAreaCoveragePercentThreshold: 95
   } );
-
-  useLayoutEffect( () => {
-    const earnedBadges = badges.filter( badge => badge.earned );
-    // Assuming the badges are sorted by count
-    const highestCount = earnedBadges[earnedBadges.length - 1].count;
-    const index = earnedBadges.findIndex( badge => badge.count === highestCount );
-    // The scroll did not fire immediately, so we need to have a short timeout
-    setTimeout( () => {
-      scroll( index );
-    }, 100 );
-  }, [badges] );
 
   const length = badges.length - 1;
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
@@ -112,29 +101,27 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
       style={viewStyles.carousel}
     >
       {item.earned ? (
-        <Image
-          source={badgeImages[item.earnedIconName]}
-          style={imageStyles.badgeIcon}
-        />
+        <Image source={badgeImages[item.earnedIconName]} style={imageStyles.badgeIcon} />
       ) : (
         <ImageBackground
           imageStyle={imageStyles.imageStyle}
           source={badgeImages.badge_empty}
           style={imageStyles.badgeIcon}
         >
-          <LargeProgressCircle
-            badge={item}
-            iconicSpeciesCount={iconicSpeciesCount}
-          />
+          <LargeProgressCircle badge={item} iconicSpeciesCount={iconicSpeciesCount} />
         </ImageBackground>
       )}
       <GreenText
-        text={item.earned ? item.intlName : "badges.to_earn"}
+        text={item.earned
+          ? item.intlName
+          : "badges.to_earn"}
         allowFontScaling={false}
       />
       <View style={viewStyles.margin} />
       <StyledText allowFontScaling={false} style={textStyles.nameText}>
-        {i18n.t( "badges.observe_species" )} {i18n.t( item.infoText )}
+        {i18n.t( "badges.observe_species" )}
+        {" "}
+        {i18n.t( item.infoText )}
       </StyledText>
     </View>
   );
@@ -157,12 +144,6 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
         pagingEnabled
         renderItem={renderBadge}
         showsHorizontalScrollIndicator={false}
-        getItemLayout={( data, index ) => ( {
-          length: viewStyles.carousel.width,
-          offset: viewStyles.carousel.width * index,
-          index
-        } )}
-        onScrollToIndexFailed={() => setScrollIndex( 0 )}
       />
       {scrollIndex > 0 && renderLeftArrow( )}
       {scrollIndex < 2 && renderRightArrow( )}

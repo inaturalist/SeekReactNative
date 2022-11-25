@@ -488,7 +488,7 @@
     "name_plant_1": "植物銅牌",
     "name_plant_5": "植物銀牌",
     "name_plant_20": "植物金牌",
-    "to_earn": "為了贏取獎牌："
+    "to_earn": "要獲得此徽章需要："
   },
   "observations": {
     "header": "我的觀察紀錄",
@@ -961,27 +961,28 @@
     "header": "Seek 年度回顧",
     "description": "感謝您今年使用 Seek！到這邊查看為您特製的個人年度回顧吧：",
     "button": "檢視我的 Seek 回顧",
-    "in_year_observed": "In {{year}}, you observed",
+    "in_year_observed": "在 {{year}} 年，您觀察到了",
     "x_new_species": {
-      "one": "{{count}} new species",
-      "two": "{{count}} new species",
-      "few": "{{count}} new species",
-      "many": "{{count}} new species",
-      "other": "{{count}} new species"
+      "one": "{{count}} 個新物種",
+      "two": "{{count}} 個新物種",
+      "few": "{{count}} 個新物種",
+      "many": "{{count}} 個新物種",
+      "other": "{{count}} 個新物種"
     },
-    "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
+    "top_species": "熱門物種",
+    "observations": "觀察紀錄",
+    "observations_by_month": "逐月的觀察紀錄",
+    "observations_map": "觀察記錄地圖",
+    "view_observations_map": "檢視觀察記錄地圖",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
-    "observed_in": "{{speciesName}} observed in {{place}}",
-    "challenges": "Challenges",
-    "challenges_earned_text": "You earned {{count}} challenge badges in {{year}}.",
-    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "uploaded_observations_text_1": "您在 {{year}} 時使用 Seek 向 iNaturalist 張貼了 {{count}} 筆觀察記錄。",
+    "uploaded_observations_text_2": "感謝您為我們的社群做出貢獻！",
+    "observed_in": "在 {{place}} 觀察到的 {{speciesName}}",
+    "observed_on": "在 {{date}} 觀察到的 {{speciesName}}",
+    "challenges": "挑戰",
+    "challenges_earned_text": "您在 {{year}} 獲得了 {{count}} 個挑戰徽章。",
+    "thank_you": "感謝您使用 Seek！我們希望這能讓您憶起今年遇到的所有有趣的物種。",
+    "consider_donation": "我們整個小型團隊都非常感謝您對 Seek 的愛戴及熱忱。如果您願意在我們成長的過程中支持我們，請考慮向 iNaturalist 捐款：",
+    "donate": "捐款"
   }
 }

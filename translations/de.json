@@ -975,12 +975,24 @@
     "observations_map": "Karte der Beobachtungen",
     "view_observations_map": "Beobachtungen auf der Karte anzeigen",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "Du hast {{count}} Beobachtungen an iNaturalist mit Seek in {{year}} übermittelt.",
+    "x_uploaded_observations_text_1": {
+      "one": "Du hast {{count}} Beobachtung an iNaturalist per Seek in {{year}} übermittelt.",
+      "two": "Du hast {{count}} Beobachtungen an iNaturalist per Seek in {{year}} übermittelt.",
+      "few": "Du hast {{count}} Beobachtungen an iNaturalist per Seek in {{year}} übermittelt.",
+      "many": "Du hast {{count}} Beobachtungen an iNaturalist per Seek in {{year}} übermittelt.",
+      "other": "Du hast {{count}} Beobachtungen an iNaturalist per Seek in {{year}} übermittelt."
+    },
     "uploaded_observations_text_2": "Vielen Dank für deinen Beitrag zu unserer Community!",
     "observed_in": "{{speciesName}} beobachtet in {{place}}",
     "observed_on": "{{speciesName}} observed on {{date}}",
     "challenges": "Missionen",
-    "challenges_earned_text": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",
+    "x_challenges_earned_text": {
+      "one": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",
+      "two": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",
+      "few": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",
+      "many": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",
+      "other": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient."
+    },
     "thank_you": "Vielen Dank für die Verwendung von Seek! Wir hoffen, dass du dich an alle interessanten Arten erinnert, die du in diesem Jahr getroffen hast.",
     "consider_donation": "Als kleines Team schätzen wir deine Leidenschaft und Begeisterung für Seek. Wenn du uns beim Wachstum unterstützen möchtest, überlege doch an iNaturalist zu spenden:",
     "donate": "Spenden"

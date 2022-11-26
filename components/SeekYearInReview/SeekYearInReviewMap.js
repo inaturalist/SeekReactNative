@@ -19,7 +19,7 @@ type Props = {
   +seenDate: ?string,
 };
 
-const SeekYearInReviewMap = ( { observations }: Props ): React.Node => {
+const SeekYearInReviewMap = ( { year, observations }: Props ): React.Node => {
   const navigation = useNavigation();
 
   const granted = useLocationPermission();
@@ -49,8 +49,8 @@ const SeekYearInReviewMap = ( { observations }: Props ): React.Node => {
   );
 
   const navToObsMap = useCallback(
-    () => navigation.navigate( "SeekYearInReviewMapScreen", { region: centerRegion() } ),
-    [navigation, centerRegion]
+    () => navigation.navigate( "SeekYearInReviewMapScreen", { year, region: centerRegion() } ),
+    [navigation, year, centerRegion]
   );
 
   return (

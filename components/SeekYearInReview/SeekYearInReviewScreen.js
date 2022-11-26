@@ -61,10 +61,15 @@ const SubstringStyledText = ( { text, greenText } ) => {
   );
 };
 
-const now = new Date();
-const year = now.getFullYear();
-
 const SeekYearInReviewScreen = (): Node => {
+  // The year to show stats for
+  const now = new Date();
+  let year = now.getFullYear();
+  // If it's January, show stats for the previous year
+  if ( now.getMonth() === 0 ) {
+    year -= 1;
+  }
+
   const { navigate } = useNavigation();
 
   const [showModal, setModal] = useState( false );
@@ -210,7 +215,10 @@ const SeekYearInReviewScreen = (): Node => {
           <>
             <GreenText text="seek_year_in_review.observations_map" />
             <View style={viewStyles.smallDivider} />
-            <SeekYearInReviewMap observations={observationsWithLocation} />
+            <SeekYearInReviewMap
+              year={year}
+              observations={observationsWithLocation}
+            />
             <View style={viewStyles.divider} />
           </>
         )}

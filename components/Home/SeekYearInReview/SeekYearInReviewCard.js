@@ -16,10 +16,14 @@ import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYe
 
 
 const SeekYearInReviewCard = ( ): Node => {
+  // The year to show stats for
   const now = new Date();
-  const year = now.getFullYear();
+  let year = now.getFullYear();
   const month = now.getMonth();
-
+  // If it's January, show stats for the previous year
+  if ( month === 0 ) {
+    year -= 1;
+  }
   const { navigate } = useNavigation();
 
   const { isLandscape } = React.useContext( AppOrientationContext );

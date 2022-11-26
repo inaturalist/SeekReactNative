@@ -18,13 +18,10 @@ import { useFetchStats } from "./hooks/seekYearInReviewHooks";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-const now = new Date();
-const year = now.getFullYear();
-
-const SeekYearInReviewMapScreen = (): Node => {
+const SeekYearInReviewMapScreen = ( ): Node => {
   const navigation = useNavigation();
   const { params } = useRoute();
-  const { region } = params;
+  const { year, region } = params;
   const [showModal, setModal] = useState( false );
   const [user, setUser] = useState( {} );
   const [mapRegion, setMapRegion] = useState( region );

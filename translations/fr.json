@@ -975,12 +975,24 @@
     "observations_map": "Carte des observations",
     "view_observations_map": "Voir la carte des observations",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}.",
+    "x_uploaded_observations_text_1": {
+      "one": "Vous avez publié {{count}} observation sur iNaturalist en utilisant Seek en {{year}}.",
+      "two": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}.",
+      "few": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}.",
+      "many": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}.",
+      "other": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}."
+    },
     "uploaded_observations_text_2": "Merci d'avoir contribué à notre communauté !",
     "observed_in": "Espèce {{speciesName}} observée à l'endroit suivant : {{place}}",
     "observed_on": "{{speciesName}} observed on {{date}}",
     "challenges": "Défis",
-    "challenges_earned_text": "Vous avez gagné {{count}} badges de défi en {{year}}.",
+    "x_challenges_earned_text": {
+      "one": "Vous avez gagné {{count}} badge de défi en {{year}}.",
+      "two": "Vous avez gagné {{count}} badges de défi en {{year}}.",
+      "few": "Vous avez gagné {{count}} badges de défi en {{year}}.",
+      "many": "Vous avez gagné {{count}} badges de défi en {{year}}.",
+      "other": "Vous avez gagné {{count}} badges de défi en {{year}}."
+    },
     "thank_you": "Merci d'avoir utilisé Seek ! Nous espérons que cela vous rappelle toutes les espèces intéressantes que vous avez rencontrées cette année.",
     "consider_donation": "Nous sommes une petite équipe et nous apprécions énormément l'attachement et l'enthousiasme dont vous témoignez pour Seek. Si vous souhaitez nous soutenir et nous aider à grandir, vous pouvez faire un don à iNaturalist :",
     "donate": "Faire un don"

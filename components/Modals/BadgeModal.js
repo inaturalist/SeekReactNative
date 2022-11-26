@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import {
   View,
   Image,
@@ -33,6 +33,19 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
     waitForInteraction: true,
     viewAreaCoveragePercentThreshold: 95
   } );
+
+  useEffect( () => {
+    const earnedBadges = badges.filter( ( badge ) => badge.earned );
+    // Assuming the badges are sorted by count
+    const highestCount = earnedBadges[earnedBadges.length - 1].count;
+    const index = earnedBadges.findIndex(
+      ( badge ) => badge.count === highestCount
+    );
+    // The scroll did not fire immediately, so we need to have a short timeout
+    setTimeout( () => {
+      scroll( index );
+    }, 100 );
+  }, [badges] );
 
   const length = badges.length - 1;
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;

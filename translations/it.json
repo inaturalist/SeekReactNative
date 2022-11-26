@@ -975,12 +975,24 @@
     "observations_map": "Mappa delle Osservazioni",
     "view_observations_map": "Visualizza Mappa delle Osservazioni",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "Hai pubblicato {{count}} osservazioni su iNaturalist usando Seek nel {{year}}.",
+    "x_uploaded_observations_text_1": {
+      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+    },
     "uploaded_observations_text_2": "Grazie per aver contribuito alla nostra comunità!",
     "observed_in": "{{speciesName}} osservata in {{place}}",
     "observed_on": "{{speciesName}} osservata il {{date}}",
     "challenges": "Sfide",
-    "challenges_earned_text": "Hai guadagnato {{count}} distintivi delle sfide in {{year}}.",
+    "x_challenges_earned_text": {
+      "one": "You earned {{count}} challenge badge in {{year}}.",
+      "two": "You earned {{count}} challenge badges in {{year}}.",
+      "few": "You earned {{count}} challenge badges in {{year}}.",
+      "many": "You earned {{count}} challenge badges in {{year}}.",
+      "other": "You earned {{count}} challenge badges in {{year}}."
+    },
     "thank_you": "Grazie per aver usato Seek! Ci auguriamo che questo ti aiuti a ricordare tutte le specie interessanti che hai incontrato quest'anno.",
     "consider_donation": "Come piccola squadra, apprezziamo molto tutto il vostro amore e il vostro entusiasmo per Seek. Se desideri supportarci mentre cresciamo, prendi in considerazione la possibilità di donare ad iNaturalist:",
     "donate": "Dona"

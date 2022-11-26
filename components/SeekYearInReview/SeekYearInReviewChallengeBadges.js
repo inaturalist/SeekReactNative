@@ -29,14 +29,15 @@ const SeekYearInReviewChallengeBadges = ( { challengeBadges } ): Node => {
         openModal();
         setChallenge( item );
       };
-
+      const isComplete = item.percentComplete === 100;
+      const Container = isComplete ? TouchableOpacity : View;
       return (
-        <TouchableOpacity onPress={openChallengeBadgeModal} key={item.earnedIconName}>
+        <Container onPress={openChallengeBadgeModal} key={item.earnedIconName}>
           <Image
-            source={item.percentComplete === 100 ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
+            source={isComplete ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
             style={imageStyles.badgeIcon}
           />
-        </TouchableOpacity>
+        </Container>
       );
     };
 
@@ -50,23 +51,22 @@ const SeekYearInReviewChallengeBadges = ( { challengeBadges } ): Node => {
     );
   } ), [challengeBadges, sets, openModal] );
 
+  const isCompletedChallenge = selectedChallenge.percentComplete === 100;
+
   return (
     <>
       {selectedChallenge && (
         <Modal
-          showModal={showModal}
+          showModal={isCompletedChallenge ? showModal : false}
           closeModal={closeModal}
-          modal={selectedChallenge.percentComplete === 100 ? (
-            <ChallengeModal
-              challenge={selectedChallenge}
-              closeModal={closeModal}
-            />
-          ) : (
-            <ChallengeUnearnedModal
-              challenge={selectedChallenge}
-              closeModal={closeModal}
-            />
-          )}
+          modal={
+            isCompletedChallenge ? (
+              <ChallengeModal
+                challenge={selectedChallenge}
+                closeModal={closeModal}
+              />
+            ) : null
+          }
         />
       )}
       {challengeBadges.length > 0 && renderChallengesGrid}

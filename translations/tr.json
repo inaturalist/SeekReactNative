@@ -975,12 +975,24 @@
     "observations_map": "Gözlem Haritası",
     "view_observations_map": "Gözlem Haritasını Görüntüle",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
+    "x_uploaded_observations_text_1": {
+      "one": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin.",
+      "two": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin.",
+      "few": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin.",
+      "many": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin.",
+      "other": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin."
+    },
+    "uploaded_observations_text_2": "Topluluğumuza katkıda bulunduğun için teşekkür ederiz!",
     "observed_in": "{{speciesName}}, {{place}} konumunda gözlemlendi",
-    "observed_on": "{{speciesName}} observed on {{date}}",
+    "observed_on": "{{speciesName}}, {{date}} tarihinde gözlemlendi",
     "challenges": "Mücadeleler",
-    "challenges_earned_text": "{{year}} yılında {{count}} mücadele rozeti kazandın.",
+    "x_challenges_earned_text": {
+      "one": "{{year}} yılında {{count}} mücadele rozeti kazandın.",
+      "two": "{{year}} yılında {{count}} mücadele rozeti kazandın.",
+      "few": "{{year}} yılında {{count}} mücadele rozeti kazandın.",
+      "many": "{{year}} yılında {{count}} mücadele rozeti kazandın.",
+      "other": "{{year}} yılında {{count}} mücadele rozeti kazandın."
+    },
     "thank_you": "Seek'i kullandığın için teşekkür ederiz! Umarız bu sana bu yıl tanıştığın tüm ilginç türleri anımsatır.",
     "consider_donation": "Küçük bir ekip olarak, Seek'e olan sevgin ve hevesin için çok teşekkür ederiz. Büyürken bize destek olmak istersen, lütfen iNaturalist'e bağış yapmayı düşün:",
     "donate": "Bağış Yap"

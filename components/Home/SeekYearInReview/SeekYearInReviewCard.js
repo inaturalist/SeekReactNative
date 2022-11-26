@@ -28,10 +28,10 @@ const SeekYearInReviewCard = ( ): Node => {
 
   const navToSeekYearInReview = () => navigate( "SeekYearInReview" );
 
-  const isDecember = month === 11;
+  const isTime = month === 0 || month === 11;
   const hasObservations =
     !!countObservationsThisYear && countObservationsThisYear > 0;
-  const showCard = userProfile?.isAdmin || ( isDecember && hasObservations );
+  const showCard = userProfile?.isAdmin || ( isTime && hasObservations );
 
   if ( !showCard ) {
     return null;

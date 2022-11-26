@@ -31,15 +31,23 @@ describe( "SeekYearInReviewCard", () => {
         expect( screen.queryByTestId( cardID ) ).toBeNull();
     } );
 
-    test( "should not render before December", async () => {
-      jest.useFakeTimers().setSystemTime( new Date( "2022-6-15" ) );
+    test( "should not render outside December and January", async () => {
+      jest.useFakeTimers().setSystemTime( new Date( "2020-6-15" ) );
       renderCard();
       jest.useRealTimers();
       expect( screen.queryByTestId( cardID ) ).toBeNull();
     } );
 
     test( "should render in December with observations", async () => {
-      jest.useFakeTimers().setSystemTime( new Date( "2022-12-15" ) );
+      jest.useFakeTimers().setSystemTime( new Date( "2020-12-15" ) );
+      renderCard();
+      jest.useRealTimers();
+      await screen.findByTestId( cardID );
+      expect( screen ).toMatchSnapshot();
+    } );
+
+    test( "should render in January with observations", async () => {
+      jest.useFakeTimers().setSystemTime( new Date( "2020-01-15" ) );
       renderCard();
       jest.useRealTimers();
       await screen.findByTestId( cardID );

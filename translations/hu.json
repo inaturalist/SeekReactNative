@@ -975,12 +975,24 @@
     "observations_map": "Megfigyelési térkép",
     "view_observations_map": "Megfigyelési térkép megtekintése",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",
+    "x_uploaded_observations_text_1": {
+      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+    },
     "uploaded_observations_text_2": "Köszönjük közösségi hozzájárulásodat!",
     "observed_in": "{{speciesName}} megfigyelve itt: {{place}}",
     "observed_on": "{{speciesName}} megfigyelve ekkor: {{date}}",
     "challenges": "Kihívások",
-    "challenges_earned_text": "{{count}} jelvényt szereztél {{year}} évi kihívásokban.",
+    "x_challenges_earned_text": {
+      "one": "You earned {{count}} challenge badge in {{year}}.",
+      "two": "You earned {{count}} challenge badges in {{year}}.",
+      "few": "You earned {{count}} challenge badges in {{year}}.",
+      "many": "You earned {{count}} challenge badges in {{year}}.",
+      "other": "You earned {{count}} challenge badges in {{year}}."
+    },
     "thank_you": "Köszönjük, hogy a Seek-et használod! Reméljük ez emlékeztet mindazokra az érdekes fajokra, amelyekkel ebben az évben találkoztál.",
     "consider_donation": "Kis csapatunk nagyra értékeli a Seek iránt érzett szereteted és lelkesedésed. Ha szeretnéd támogatni fejlődésünket, támogasd adományoddal az iNaturalist-ot:",
     "donate": "Támogatás"

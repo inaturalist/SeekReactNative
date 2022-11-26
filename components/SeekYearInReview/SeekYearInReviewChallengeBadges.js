@@ -51,7 +51,7 @@ const SeekYearInReviewChallengeBadges = ( { challengeBadges } ): Node => {
     );
   } ), [challengeBadges, sets, openModal] );
 
-  const isCompletedChallenge = selectedChallenge.percentComplete === 100;
+  const isCompletedChallenge = selectedChallenge?.percentComplete === 100;
 
   return (
     <>

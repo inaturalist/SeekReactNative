@@ -187,8 +187,9 @@ const useFetchStats = ( year ): any => {
   return state;
 };
 
-const useFetchChallenges = ( year ): any => {
+const useFetchChallengesForYear = ( year ): any => {
   const [challengeBadges, setChallengeBadges] = useState( [] );
+  const [badgeCount, setBadgeCount] = useState( undefined );
 
   useEffect( () => {
     const createBadge = ( latestBadge, numOfMonths ) => ( {
@@ -244,6 +245,7 @@ const useFetchChallenges = ( year ): any => {
           )
           .sorted( "availableDate", false );
         const badges = challenges.map( ( challenge ) => challenge );
+        setBadgeCount( badges.length );
         const badgesWithPlaceholders = createPlaceholderBadges( badges );
         setChallengeBadges( badgesWithPlaceholders );
       } catch ( e ) {
@@ -253,7 +255,12 @@ const useFetchChallenges = ( year ): any => {
     fetchChallenges();
   }, [year] );
 
-  return challengeBadges;
+  return {challengeBadges, badgeCount};
 };
 
-export { useUploadedObservationCount, useFetchStats, useCountObservationsForYear, useFetchChallenges };
+export {
+  useUploadedObservationCount,
+  useFetchStats,
+  useCountObservationsForYear,
+  useFetchChallengesForYear
+};

@@ -19,7 +19,7 @@ import {
   useUploadedObservationCount,
   useFetchStats,
   useCountObservationsForYear,
-  useFetchChallenges
+  useFetchChallengesForYear
 } from "./hooks/seekYearInReviewHooks";
 
 import badgeImages from "../../assets/badges";
@@ -83,7 +83,7 @@ const SeekYearInReviewScreen = (): Node => {
   const count = useUploadedObservationCount( login, userProfile?.login, year );
   const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
-  const challengeBadges = useFetchChallenges( year );
+  const {challengeBadges, badgeCount} = useFetchChallengesForYear( year );
 
   const navToDonation = () =>
     navigate( "Donation", { utmCampaign: `${year}-year-in-review` } );
@@ -254,7 +254,7 @@ const SeekYearInReviewScreen = (): Node => {
           isTablet && viewStyles.tabletContainer
         ]}
       >
-        {challengeBadges?.length > 0 && (
+        {badgeCount > 0 && (
           <>
             <BannerHeader
               text={i18n
@@ -263,10 +263,10 @@ const SeekYearInReviewScreen = (): Node => {
             />
             <SubstringStyledText
               text={i18n.t( "seek_year_in_review.x_challenges_earned_text", {
-                count: challengeBadges.length,
+                count: badgeCount,
                 year
               } )}
-              greenText={challengeBadges.length}
+              greenText={badgeCount}
             />
             <View style={viewStyles.divider} />
             <SeekYearInReviewChallengeBadges

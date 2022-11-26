@@ -843,12 +843,12 @@
     "faq_2": "Seek en iNaturalist gebruiken hetzelfde identificatiemodel maar alleen iNaturalist waarnemingen worden bevestigd door de gemeenschap",
     "logged_in_as": "AANGEMELD ALS",
     "x_observations_posted_to_inat": {
-      "zero": "{{count}} waarnemingen zijn geplaatst op iNaturalist met Seek",
+      "zero": "{{count}} waarnemingen zijn met Seek op iNaturalist geplaatst",
       "one": "{{count}} waarneming is geplaatst op iNaturalist met Seek",
-      "two": "{{count}} waarnemingen zijn geplaatst op iNaturalist met Seek",
-      "few": "{{count}} waarnemingen zijn geplaatst op iNaturalist met Seek",
-      "many": "{{count}} waarnemingen zijn geplaatst op iNaturalist met Seek",
-      "other": "{{count}} waarnemingen zijn geplaatst op iNaturalist met Seek"
+      "two": "{{count}} waarnemingen zijn met Seek op iNaturalist geplaatst",
+      "few": "{{count}} waarnemingen zijn met Seek op iNaturalist geplaatst",
+      "many": "{{count}} waarnemingen zijn met Seek op iNaturalist geplaatst",
+      "other": "{{count}} waarnemingen zijn met Seek op iNaturalist geplaatst"
     },
     "logged_in_bullet_1": "Je kunt waarnemingen op iNaturalist plaatsen door te klikken op 'Stuur naar iNaturalist' nadat je een Seek waarneming hebt gedaan",
     "logged_in_bullet_2": "Gebruik de iNaturalist app of website om meldingen van determinaties, opmerkingen en andere activiteiten op jouw waarnemingen te bekijken",
@@ -975,12 +975,24 @@
     "observations_map": "Waarnemingen op de Kaart",
     "view_observations_map": "Toon Waarnemingen op de Kaart",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "Je hebt {{count}} waarnemingen geplaatst op iNaturalist met behulp van Seek in {{year}}.",
+    "x_uploaded_observations_text_1": {
+      "one": "Je hebt {{count}} waarneming met Seek op iNaturalist geplaatst in {{year}}.",
+      "two": "Je hebt {{count}} waarnemingen met Seek op iNaturalist geplaatst in {{year}}.",
+      "few": "Je hebt {{count}} waarnemingen met Seek op iNaturalist geplaatst in {{year}}.",
+      "many": "Je hebt {{count}} waarnemingen met Seek op iNaturalist geplaatst in {{year}}.",
+      "other": "Je hebt {{count}} waarnemingen met Seek op iNaturalist geplaatst in {{year}}."
+    },
     "uploaded_observations_text_2": "Bedankt voor jouw bijdrage aan onze gemeenschap!",
     "observed_in": "{{speciesName}} waargenomen in {{place}}",
     "observed_on": "{{speciesName}} waargenomen op {{date}}",
     "challenges": "Uitdagingen",
-    "challenges_earned_text": "Je hebt {{count}} badges verdiend in {{year}}.",
+    "x_challenges_earned_text": {
+      "one": "Je hebt {{count}} challenge badge verdiend in {{year}}.",
+      "two": "Je hebt {{count}} badges verdiend in {{year}}.",
+      "few": "Je hebt {{count}} badges verdiend in {{year}}.",
+      "many": "Je hebt {{count}} badges verdiend in {{year}}.",
+      "other": "Je hebt {{count}} badges verdiend in {{year}}."
+    },
     "thank_you": "Bedankt voor het gebruik van Seek! We hopen dat dit jou herinnert aan alle interessante soorten die je dit jaar hebt gevonden.",
     "consider_donation": "Als klein team waarderen we heel erg veel al jullie liefde en enthousiasme voor Seek. Als je ons wilt steunen om te kunnen groeien, doneer dan aan iNaturalist:",
     "donate": "Doneer"

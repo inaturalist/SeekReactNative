@@ -5,7 +5,6 @@ import { View, Image, TouchableOpacity } from "react-native";
 import type { Node } from "react";
 
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
-import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import badgeImages from "../../assets/badges";
 import { imageStyles, viewStyles } from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modals/Modal";

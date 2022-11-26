@@ -27,6 +27,7 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
 
   const isStatsScreen = name === "iNatStats";
   const isSpeciesScreen = name === "Species";
+  const isYearInReviewScreen = name === "SeekYearInReview";
 
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
@@ -65,7 +66,9 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
         bounces={false}
         viewabilityConfig={viewConfigRef.current}
         onViewableItemsChanged={onViewRef.current}
-        contentContainerStyle={isStatsScreen ? styles.photoContainer : styles.speciesPhotoContainer}
+        contentContainerStyle={
+          isStatsScreen ? styles.photoContainer : styles.speciesPhotoContainer
+        }
         data={photoList}
         getItemLayout={getItemLayout}
         horizontal
@@ -80,7 +83,11 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
           accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
           accessible
           onPress={scrollLeft}
-          style={[styles.leftArrow, isSpeciesScreen && styles.speciesLeftArrow]}
+          style={[
+            styles.leftArrow,
+            ( isSpeciesScreen || isYearInReviewScreen ) &&
+              styles.speciesLeftArrow
+          ]}
         >
           <Image source={icons.swipeRight} style={styles.rotate} />
         </TouchableOpacity>
@@ -90,7 +97,11 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
           accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
           accessible
           onPress={scrollRight}
-          style={[styles.rightArrow, isSpeciesScreen && styles.speciesRightArrow]}
+          style={[
+            styles.rightArrow,
+            ( isSpeciesScreen || isYearInReviewScreen ) &&
+              styles.speciesRightArrow
+          ]}
         >
           <Image source={icons.swipeRight} style={styles.rotateRTL} />
         </TouchableOpacity>

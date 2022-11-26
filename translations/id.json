@@ -975,12 +975,24 @@
     "observations_map": "Peta Pengamatan",
     "view_observations_map": "Lihat Peta Pengamatan",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+    "x_uploaded_observations_text_1": {
+      "one": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "two": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "few": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "many": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "other": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}."
+    },
     "uploaded_observations_text_2": "Terima kasih sudah berkontribusi kepada komunitas kami!",
     "observed_in": "{{speciesName}} diamati di {{place}}",
     "observed_on": "{{speciesName}} diamati pada {{date}}",
     "challenges": "Tantangan",
-    "challenges_earned_text": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+    "x_challenges_earned_text": {
+      "one": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "two": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "few": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "many": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "other": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}."
+    },
     "thank_you": "Terima kasih sudah menggunakan Seek! Kami harap ini mengingatkan kamu semua akan spesies-spesies menarik yang telah kamu temui tahun ini.",
     "consider_donation": "Sebagai tim kecil, kami sangat mengapresiasi dukungan dan antusiasme kalian untuk Seek. Jika kamu ingin mendukung kami seiring perkembangan kami, pertimbangkan untuk menyumbang kepada iNaturalist:",
     "donate": "Sumbang"

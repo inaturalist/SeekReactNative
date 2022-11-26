@@ -975,12 +975,24 @@
     "observations_map": "Observationskort",
     "view_observations_map": "Se observationer på kort",
     "iNaturalist": "iNaturalist",
-    "uploaded_observations_text_1": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+    "x_uploaded_observations_text_1": {
+      "one": "Du tilføjede {{count}} observation til iNaturalist ved hjælp af Seek i {{year}}.",
+      "two": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+      "few": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+      "many": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+      "other": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}."
+    },
     "uploaded_observations_text_2": "Tak for at bidrage til vores fællesskab!",
     "observed_in": "{{speciesName}} observeret i {{place}}",
     "observed_on": "{{speciesName}} observeret {{date}}",
     "challenges": "Udfordringer",
-    "challenges_earned_text": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+    "x_challenges_earned_text": {
+      "one": "Du optjente {{count}} udfordringsmærke i {{year}}.",
+      "two": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+      "few": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+      "many": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+      "other": "Du optjente {{count}} udfordringsmærker i {{year}}."
+    },
     "thank_you": "Tak fordi du bruger Seek! Vi håber, at dette vil minde dig om alle de interessante arter, du mødte i år.",
     "consider_donation": "Som et lille team sætter vi stor pris på al din kærlighed og entusiasme for Seek. Hvis du gerne vil støtte os i vores vækst, så overvej at donere til iNaturalist:",
     "donate": "Donér"

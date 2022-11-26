@@ -11,6 +11,7 @@ import type {
 
 // added decimal because this was going off the screen on Android Pixel 4
 const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
+const landscapeMaxWidth = 455;
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   header: {
@@ -40,7 +41,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     marginHorizontal: 26
   },
   tabletContainer: {
-    maxWidth: 455,
+    width: landscapeMaxWidth,
     alignSelf: "center"
   },
   photoMargins: {

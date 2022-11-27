@@ -976,25 +976,25 @@
     "view_observations_map": "Переглянути Карту Спостережень",
     "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
-      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+      "one": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}.",
+      "two": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}.",
+      "few": "Ви опублікували {{count}} спостережень в iNaturalist за допомогою Seek у {{year}}.",
+      "many": "Ви опублікували {{count}} спостережень в iNaturalist за допомогою Seek у {{year}}.",
+      "other": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}."
     },
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
-    "observed_in": "{{speciesName}} observed in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
+    "uploaded_observations_text_2": "Дякуємо за внесок у нашу спільноту!",
+    "observed_in": "{{speciesName}} спостерігався у {{place}}",
+    "observed_on": "{{speciesName}} було спостережено {{date}}",
     "challenges": "Виклики",
     "x_challenges_earned_text": {
-      "one": "You earned {{count}} challenge badge in {{year}}.",
-      "two": "You earned {{count}} challenge badges in {{year}}.",
-      "few": "You earned {{count}} challenge badges in {{year}}.",
-      "many": "You earned {{count}} challenge badges in {{year}}.",
-      "other": "You earned {{count}} challenge badges in {{year}}."
+      "one": "За {{year}} ви отримали {{count}} значок випробувань.",
+      "two": "За {{year}} ви отримали {{count}} значки випробувань.",
+      "few": "За {{year}} ви отримали {{count}} значків випробувань.",
+      "many": "За {{year}} ви отримали {{count}} значків випробувань.",
+      "other": "За {{year}} ви отримали {{count}} значків випробувань."
     },
-    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
+    "thank_you": "Дякуємо за використання Seek! Сподіваємось, це нагадає вам про всі цікаві види, які ви зустріли цього року.",
+    "consider_donation": "Як невелика команда, ми дуже цінуємо вашу любов і ентузіазм до Seek. Якщо ви хочете підтримати нас, коли ми розвиваємося, будь ласка, зробіть пожертву iNaturalist:",
     "donate": "Підтримати"
   }
 }

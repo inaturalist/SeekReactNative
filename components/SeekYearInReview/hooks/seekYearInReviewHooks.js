@@ -72,6 +72,32 @@ const useCountObservationsForYear = ( year ): any => {
   return countObservationsThisYear;
 };
 
+const useObservationsForYear = ( year ): any => {
+  const [observationsForYear, setObservationsThisYear] = useState( null );
+  useEffect( () => {
+    const fetchObservations = async () => {
+      try {
+        const firstOfYear = () => new Date( year, 0, 1, 0, 0, 0, 0 );
+        const lastOfYear = () => new Date( year, 11, 31, 23, 59, 59 );
+
+        const realm = await Realm.open( realmConfig );
+        const observations = realm.objects( "ObservationRealm" );
+        const observationsYear = observations.filtered(
+          "date >= $0 && date < $1",
+          firstOfYear( year ),
+          lastOfYear( year )
+        );
+        setObservationsThisYear( observationsYear );
+      } catch ( e ) {
+        console.log( e, "couldn't open realm for fetching observations for year" );
+      }
+    };
+    fetchObservations();
+  }, [year] );
+
+  return observationsForYear;
+};
+
 const useFetchStats = ( year ): any => {
   const [state, setState] = useState( {
     level: null,
@@ -93,6 +119,7 @@ const useFetchStats = ( year ): any => {
 
         const speciesCount = realm.objects( "TaxonRealm" ).length;
 
+        // TODO: get observations from above useObservationsForYear hook
         const observations = realm.objects( "ObservationRealm" );
         const observationsThisYear = observations.filtered(
           "date >= $0 && date < $1",
@@ -262,5 +289,6 @@ export {
   useUploadedObservationCount,
   useFetchStats,
   useCountObservationsForYear,
+  useObservationsForYear,
   useFetchChallengesForYear
 };

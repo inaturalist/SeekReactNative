@@ -13,7 +13,7 @@ import Legend from "../Modals/LegendModal";
 import Modal from "../UIComponents/Modals/Modal";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import StyledText from "../UIComponents/StyledText";
-import { useFetchStats } from "./hooks/seekYearInReviewHooks";
+import { useObservationsForYear } from "./hooks/seekYearInReviewHooks";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -29,9 +29,8 @@ const SeekYearInReviewMapScreen = ( ): Node => {
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
 
-  // TODO: refactor this hook. Currently, has many properties in state that are not used here but only on Seek YIR screen component
-  const state = useFetchStats( year );
-  const observationsWithLocation = state?.observationsThisYear.filter(
+  const observationsThisYear = useObservationsForYear( year );
+  const observationsWithLocation = observationsThisYear?.filter(
     ( observation ) => observation.latitude && observation.longitude
   );
 
@@ -102,7 +101,7 @@ const SeekYearInReviewMapScreen = ( ): Node => {
       >
         {
           // Map over observations and display a marker for each one
-          observationsWithLocation.map( ( obs ) => {
+          observationsWithLocation?.map( ( obs ) => {
             const { latitude, longitude, uuidString } = obs;
             return (
               <Marker key={uuidString} coordinate={{ latitude, longitude }}>

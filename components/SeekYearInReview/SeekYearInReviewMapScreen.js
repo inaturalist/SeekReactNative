@@ -29,7 +29,7 @@ const SeekYearInReviewMapScreen = ( ): Node => {
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
 
-  // TODO: refactor this hook. Currently, has many properties in state that are not used here but only on main screen component
+  // TODO: refactor this hook. Currently, has many properties in state that are not used here but only on Seek YIR screen component
   const state = useFetchStats( year );
   const observationsWithLocation = state?.observationsThisYear.filter(
     ( observation ) => observation.latitude && observation.longitude

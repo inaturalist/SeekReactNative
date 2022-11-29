@@ -14,9 +14,13 @@ import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
+import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
 // import { useLocationName } from "../../utility/customHooks";
 
 const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
+  const seenTaxa = useSeenTaxa( observation?.taxon?.id );
+  const userPhoto = useUserPhoto( seenTaxa );
+
   const { setId } = React.useContext( SpeciesDetailContext );
   const navigation = useNavigation();
   // const locationName = useLocationName( observation.latitude, observation.longitude );
@@ -35,10 +39,7 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
       style={[viewStyles.center, viewStyles.sliderItem]}
       onPress={() => navToSpecies()}
     >
-      <Image
-        source={{ uri: observation.taxon.defaultPhoto.mediumUrl }}
-        style={imageStyles.image}
-      />
+      <Image source={userPhoto} style={imageStyles.image} />
       <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "seek_year_in_review.observed_on", {
           speciesName:
@@ -57,7 +58,6 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
 };
 
 const SeekYearInReviewPhotos = ( { observations } ): Node => {
-  // TODO: replace the photo url from realm with the one given by the useUserPhoto hook
   const renderPhotos = () =>
     observations.map( ( obs ) => <SeekYearInReviewPhotoItem observation={obs} /> );
   const photoList = renderPhotos();

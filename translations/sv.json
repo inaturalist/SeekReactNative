@@ -961,40 +961,40 @@
     "header": "Seek-året som gått",
     "description": "Tack för att du använt Seek i år! Kolla in ditt personliga Året som gått här:",
     "button": "Visa min Seek-sammanfattning",
-    "in_year_observed": "In {{year}}, you observed",
+    "in_year_observed": " Under {{year}} observerade du",
     "x_new_species": {
-      "one": "{{count}} new species",
-      "two": "{{count}} new species",
-      "few": "{{count}} new species",
-      "many": "{{count}} new species",
-      "other": "{{count}} new species"
+      "one": "{{count}} ny art",
+      "two": "{{count}} nya arter",
+      "few": "{{count}} nya arter",
+      "many": "{{count}} nya arter",
+      "other": "{{count}} nya arter"
     },
-    "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
+    "top_species": "Topparter",
+    "observations": "Fynd",
+    "observations_by_month": "Fynd per månad",
+    "observations_map": "Fyndkarta",
+    "view_observations_map": "Visa fyndkarta",
     "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
-      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+      "one": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "two": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "few": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "many": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "other": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}."
     },
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
-    "observed_in": "{{speciesName}} observed in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
-    "challenges": "Challenges",
+    "uploaded_observations_text_2": "Tack för att du bidrar till vår community!",
+    "observed_in": "{{speciesName}} observerades i {{place}}",
+    "observed_on": "{{speciesName}} observerades den {{date}}",
+    "challenges": "Utmaningar",
     "x_challenges_earned_text": {
-      "one": "You earned {{count}} challenge badge in {{year}}.",
-      "two": "You earned {{count}} challenge badges in {{year}}.",
-      "few": "You earned {{count}} challenge badges in {{year}}.",
-      "many": "You earned {{count}} challenge badges in {{year}}.",
-      "other": "You earned {{count}} challenge badges in {{year}}."
+      "one": "Du förtjänade {{count}} utmaningsutmärkelse under {{year}}.",
+      "two": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}.",
+      "few": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}.",
+      "many": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}.",
+      "other": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}."
     },
-    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "thank_you": "Tack för att du använder Seek! Vi hoppas att detta påminner dig om alla intressanta arter du träffat i år.",
+    "consider_donation": "Ett litet team, som vi är, uppskattar vi verkligen all din kärlek och entusiasm för Seek. Om du vill stödja oss när vi växer, överväg att donera till iNaturalist:",
+    "donate": "Donera"
   }
 }

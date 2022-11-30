@@ -3,7 +3,7 @@
     "header": "Arter i nærheten",
     "internet_error": "Vi trenger internettet for å generere arter i nærheten. Trykk for å prøve igjen.",
     "no_location": "Ingen posisjon",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "Fant ingen GPS-signal. Vennligst sjekk at GPS er skrudd på.",
     "no_species": "Det ser ut som det ikke har blitt observert mange arter i nærheten! Prøv å endre din posisjon eller utvide artsfilteret.",
     "input_location_above_map": "Ingen posisjon funnet; oppgi et stedsnavn over for å laste opp kartet og søke etter arter i nærheten",
     "error_alert_location_services": "For å fortsette, slå på stedstilgang i enhetensinnstillingene",
@@ -149,7 +149,7 @@
     "check_email": "Sjekk din e-post!",
     "reset_instructions": "Vi har sendt instrukser til tilbakestilling av passord på din e-post.",
     "return_login": "Tilbake til innloggingsside",
-    "authentication_failed": "Authentication failed"
+    "authentication_failed": "Autentisering feilet"
   },
   "privacy": {
     "header": "Personvern"
@@ -373,7 +373,7 @@
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre av",
-    "error_save": "Could not save photo."
+    "error_save": "Kunne ikke lagre bilde."
   },
   "gallery": {
     "label": "Bilder",
@@ -535,9 +535,9 @@
     "native": "Hjemmehørende",
     "threatened": "Truet",
     "introduced": "Introdusert",
-    "endangered_about": "This species is in danger of going extinct throughout all or a significant portion of its range.",
-    "endemic_about": "This species naturally occurs in this area and isn’t found anywhere else.",
-    "native_about": "This species naturally occurs in this area and was not brought here by humans.",
+    "endangered_about": "Denne arten er i fare for å bli utryddet i hele eller en betydelig del av sin utbredelse.",
+    "endemic_about": "Denne arten forekommer naturlig i dette området og finnes ikke noe annet sted.",
+    "native_about": "Denne arten forekommer naturlig i dette området og ble ikke brakt hit av mennesker.",
     "threatened_about": "This species is likely to become in danger of extinction in the future.",
     "introduced_about": "Denne arten ble brakt til dette området av mennesker og forekommer ikke naturlig her.",
     "got_it": "Skjønner!",
@@ -558,7 +558,7 @@
     "mammal": "pattedyr",
     "species_saved": "Denne arten er lagret i dine observasjoner.",
     "you": "Se der, det er deg! Kom deg ut og finn noen ville arter for å lære enda mer om de.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again.",
+    "internet_error": "Vi trenger internett for å generere artsdetaljeskjermen. Trykk for å prøve på nytt.",
     "no_photos_found": "Ingen bilder funnet for denne arten.",
     "copied": "KOPIERT!"
   },
@@ -646,7 +646,7 @@
     "flag": "Marker denne observasjonen ukorrekt",
     "back": "Gå tilbake til forrige skjerm",
     "user_location": "Gå tilbake til nåværende posisjon",
-    "open_help": "Open camera help screen",
+    "open_help": "Åpne kamera hjelp-skjerm",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Trykk for å ta bilde",
     "scroll_left": "Trykk for å scrolle til venstre",
@@ -668,8 +668,8 @@
     "logs": "Send debug logs by email"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
-    "subtitle": "For quick identifications"
+    "seek_camera": "Seek kamera",
+    "subtitle": "For hurtigidentifikasjoner"
   },
   "settings": {
     "header": "Seek kamera",
@@ -683,11 +683,11 @@
     "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten.",
     "species_detail": "Artsdetaljer",
     "seasonality": "Sesongavhengighet",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_1": "Vis sesongmønster basert på verdensomspennende iNaturalist-observasjoner",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
     "donate_ios": "Besøk følgende link for å donere til Seek:",
     "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "confirm": "Bekreft"
   },
   "seek_challenges": {
     "badge": "Seek merke",

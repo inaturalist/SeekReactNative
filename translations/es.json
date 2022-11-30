@@ -687,7 +687,7 @@
     "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi localización actual (las especies que no se han observado cerca de tu ubicación no tendrán estacionalidad)",
     "donate_ios": "Visite este enlace para realizar un donativo a Seek:",
     "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "confirm": "Confirmar"
   },
   "seek_challenges": {
     "badge": "Insignia de Seek",
@@ -970,10 +970,10 @@
       "other": "{{count}} new species"
     },
     "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
+    "observations": "Observaciones",
+    "observations_by_month": "Observaciones por mes",
+    "observations_map": "Mapa de observaciones",
+    "view_observations_map": "Ver mapa de observaciones",
     "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
@@ -982,7 +982,7 @@
       "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
       "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
     },
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
+    "uploaded_observations_text_2": "¡Gracias por contribuir a nuestra comunidad!",
     "observed_in": "{{speciesName}} observed in {{place}}",
     "observed_on": "{{speciesName}} observed on {{date}}",
     "challenges": "Challenges",
@@ -995,6 +995,6 @@
     },
     "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
     "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "donate": "Donar"
   }
 }

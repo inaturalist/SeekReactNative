@@ -101,7 +101,7 @@ jest.mock(
       ]
     } ) ),
     useCountObservationsForYear: jest.fn( () => 100 ),
-    useFetchChallenges: jest.fn( () => [] )
+    useFetchChallengesForYear: jest.fn( () => [] )
   } )
 );
 

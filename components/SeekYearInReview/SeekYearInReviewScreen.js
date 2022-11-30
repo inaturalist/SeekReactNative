@@ -82,7 +82,7 @@ const SeekYearInReviewScreen = (): Node => {
   const { isTablet } = useContext( AppOrientationContext );
   const { userProfile, login } = useContext( UserContext );
 
-  const count = useUploadedObservationCount( login, userProfile?.login, year );
+  const count = useUploadedObservationCount( { login, username: userProfile?.login, year } );
   const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
   const {challengeBadges, challengeCount} = useFetchChallengesForYear( year );

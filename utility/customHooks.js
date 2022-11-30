@@ -375,11 +375,11 @@ const useFetchUserSettings = ( ): Object => {
 };
 
 // TODO: copy of useFetchObservationCount
-const useUploadedObservationCount = (
-  login: ?string,
-  username: string,
+const useUploadedObservationCount = ( {
+  login,
+  username,
   year
-): any => {
+} ): any => {
   const [observationCount, setObservationCount] = useState( null );
 
   useEffect( () => {

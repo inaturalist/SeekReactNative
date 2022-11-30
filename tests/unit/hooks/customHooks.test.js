@@ -7,9 +7,12 @@ jest.mock( "inaturalistjs", () => ( {
   __esModule: true,
   default: {
     observations: {
-      search: jest.fn( () => ( {
-        total_results: 42
-      } ) )
+      search: jest.fn( ( params, options ) => {
+        const total_results = params?.year === 2021 ? 42 : 142;
+        return {
+          total_results
+        };
+      } )
     }
   }
 } ) );
@@ -19,21 +22,21 @@ const username = "some-username";
 const year = 2021;
 
 describe( "useUploadedObservationCount", () => {
-  test( "returns null if params not given", () => {
-    const { result } = renderHook( () => useUploadedObservationCount() );
-    expect( result.current ).toBeNull();
+  test( "should error if params not given", () => {
+    expect( () => useUploadedObservationCount() ).toThrow();
   } );
 
-  test( "returns null if year not given", () => {
+  test( "should return number of uploaded observations correctly", async () => {
     const { result } = renderHook( () =>
-      useUploadedObservationCount( login, username )
+      useUploadedObservationCount( {login, username} )
     );
-    expect( result.current ).toBeNull();
+    await act( () => result.current );
+    expect( result.current ).toBe( 142 );
   } );
 
-  test( "returns number of uploaded observations correctly", async () => {
+  test( "should return number of uploaded observations for one year correctly", async () => {
     const { result } = renderHook( () =>
-      useUploadedObservationCount( login, username, year )
+      useUploadedObservationCount( {login, username, year} )
     );
     await act( () => result.current );
     expect( result.current ).toBe( 42 );

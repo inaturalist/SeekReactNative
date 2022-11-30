@@ -374,27 +374,54 @@ const useFetchUserSettings = ( ): Object => {
   return settings;
 };
 
-// TODO: copy of useFetchObservationCount
 const useUploadedObservationCount = ( {
   login,
   username,
-  year
+  year,
+  triggerReload
+}: {
+  login: ?string,
+  username: string,
+  year: number,
+  triggerReload: Boolean
 } ): any => {
   const [observationCount, setObservationCount] = useState( null );
+
+  const updateSavedLogin = async ( newCount ) => {
+    try {
+      const realm = await Realm.open( realmConfig );
+      const savedLogin = realm.objects( "LoginRealm" );
+
+      if ( savedLogin[0].observationCount !== newCount ) {
+        realm.write( () => {
+          savedLogin[0].observationCount = newCount;
+        } );
+      }
+      return savedLogin[0].observationCount;
+    } catch ( e ) {
+      console.log( "couldn't update saved login" );
+    }
+  };
 
   useEffect( () => {
     let isCurrent = true;
 
-    const fetchObservationsMadeViaSeekThisYear = async () => {
+    const fetchObservationsMadeViaSeek = async () => {
       // TODO: rewrite to not use API request but local data only, otherwise data from other phones (but same login) would also show here
-      const params = {
+      let params = {
         oauth_application_id: 333,
-        user_id: username,
-        year
+        user_id: username
       };
+      if ( year ) {
+        params = {...params, year};
+      }
       const options = { user_agent: createUserAgent() };
       const response = await inatjs.observations.search( params, options );
-      const count = response.total_results;
+
+      let count = response.total_results;
+      if ( !year ) {
+        count = await updateSavedLogin( count );
+      }
 
       if ( isCurrent ) {
         setObservationCount( count );
@@ -402,13 +429,13 @@ const useUploadedObservationCount = ( {
     };
 
     if ( login ) {
-      fetchObservationsMadeViaSeekThisYear();
+      fetchObservationsMadeViaSeek();
     }
 
     return () => {
       isCurrent = false;
     };
-  }, [login, username, year] );
+  }, [login, username, year, triggerReload] );
 
   return observationCount;
 };

@@ -1,7 +1,11 @@
 // @flow
 
 import React from "react";
-import { View, Image, Pressable } from "react-native";
+import {
+  View,
+  Image,
+  Pressable
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -34,10 +38,10 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
   return (
     <Pressable
       key={`image${observation.taxon.defaultPhoto.mediumUrl}`}
-      style={[viewStyles.center, viewStyles.sliderItem]}
+      style={viewStyles.center}
       onPress={() => navToSpecies()}
     >
-      <Image source={userPhoto} style={imageStyles.image} />
+      <Image style={imageStyles.image} source={userPhoto} />
       <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "seek_year_in_review.observed_on", {
           speciesName:

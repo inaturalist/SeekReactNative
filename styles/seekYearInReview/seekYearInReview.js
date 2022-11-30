@@ -57,10 +57,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   smallDivider: {
     height: 18
-  },
-  sliderItem: {
-    height: 300,
-    backgroundColor: colors.white
   }
 } );
 

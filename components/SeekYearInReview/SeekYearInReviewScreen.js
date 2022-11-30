@@ -83,7 +83,7 @@ const SeekYearInReviewScreen = (): Node => {
   const count = useUploadedObservationCount( login, userProfile?.login, year );
   const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
-  const {challengeBadges, badgeCount} = useFetchChallengesForYear( year );
+  const {challengeBadges, challengeCount} = useFetchChallengesForYear( year );
 
   const navToDonation = () =>
     navigate( "Donation", { utmCampaign: `${year}-year-in-review` } );
@@ -254,7 +254,7 @@ const SeekYearInReviewScreen = (): Node => {
           isTablet && viewStyles.tabletContainer
         ]}
       >
-        {badgeCount > 0 && (
+        {challengeCount > 0 ? (
           <>
             <BannerHeader
               text={i18n

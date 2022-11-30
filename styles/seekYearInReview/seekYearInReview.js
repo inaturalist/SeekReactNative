@@ -44,10 +44,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     width: landscapeMaxWidth,
     alignSelf: "center"
   },
-  photoMargins: {
-    marginVertical: 33,
-    height: 310
-  },
   map: {
     height: 189,
     marginBottom: 20
@@ -89,8 +85,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     textAlign: "center"
   },
   caption: {
-    marginBottom: 20,
-    marginTop: 20,
+    marginTop: 16,
     textAlign: "center",
     maxWidth: 245
   }
@@ -103,9 +98,9 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
     width: 136
   },
   image: {
-    height: 286,
-    resizeMode: "cover",
-    width: dimensions.width
+    height: 186,
+    width: dimensions.width,
+    resizeMode: "cover"
   }
 } );
 

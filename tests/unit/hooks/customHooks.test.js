@@ -1,7 +1,5 @@
 import { renderHook, act } from "@testing-library/react-native";
-import {
-  useUploadedObservationCount
-} from "../../../utility/customHooks";
+import { useUploadedObservationCount } from "../../../utility/customHooks";
 
 jest.mock( "inaturalistjs", () => ( {
   __esModule: true,
@@ -17,33 +15,39 @@ jest.mock( "inaturalistjs", () => ( {
   }
 } ) );
 
+jest.mock( "realm", () => {
+  const actualRealm = jest.requireActual( "realm" );
+  actualRealm.open = jest.fn( ( config ) => new Promise( ( resolve ) =>  {
+    resolve( {
+      objects: jest.fn( ( ) => [{ observationCount: 142 }] ),
+      write: jest.fn( ( ) => { } )
+    } );
+  } ) );
+  return actualRealm;
+} );
+
 const login = "some-token";
 const username = "some-username";
 const year = 2021;
-
-describe( " ", () => {
-} );
 
 describe( "useUploadedObservationCount", () => {
   test( "should error if params not given", () => {
     expect( () => useUploadedObservationCount() ).toThrow();
   } );
 
-  // TODO: these tests below should pass if realm is mocked
-  // test("should return number of uploaded observations correctly", async () => {
-  //   const { result } = renderHook(() =>
-  //     useUploadedObservationCount({ login, username })
-  //   );
-  //   await act(() => result.current);
-  //   expect(result.current).toBe(142);
-  // });
+  test( "should return number of uploaded observations correctly", async () => {
+    const { result } = renderHook( () =>
+      useUploadedObservationCount( { login, username } )
+    );
+    await act( () => result.current );
+    expect( result.current ).toBe( 142 );
+  } );
 
-  // TODO: these tests below should pass if realm is mocked
-  // test("should return number of uploaded observations for one year correctly", async () => {
-  //   const { result } = renderHook(() =>
-  //     useUploadedObservationCount({ login, username, year })
-  //   );
-  //   await act(() => result.current);
-  //   expect(result.current).toBe(42);
-  // });
+  test( "should return number of uploaded observations for one year correctly", async () => {
+    const { result } = renderHook( () =>
+      useUploadedObservationCount( { login, username, year } )
+    );
+    await act( () => result.current );
+    expect( result.current ).toBe( 42 );
+  } );
 } );

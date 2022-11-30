@@ -42,6 +42,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   speciesRightArrow: {
     top: 100
+  },
+  yearInReviewArrow: {
+    top: 70
   }
 } );
 

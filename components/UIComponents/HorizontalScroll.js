@@ -59,6 +59,12 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
     index
   } ), [width] );
 
+  const contentContainerStyle = isYearInReviewScreen ? null : (
+    isStatsScreen
+      ? styles.photoContainer
+      : styles.speciesPhotoContainer
+  );
+
   return (
     <>
       <FlatList
@@ -66,9 +72,7 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
         bounces={false}
         viewabilityConfig={viewConfigRef.current}
         onViewableItemsChanged={onViewRef.current}
-        contentContainerStyle={
-          isStatsScreen ? styles.photoContainer : styles.speciesPhotoContainer
-        }
+        contentContainerStyle={contentContainerStyle}
         data={photoList}
         getItemLayout={getItemLayout}
         horizontal
@@ -85,8 +89,8 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
           onPress={scrollLeft}
           style={[
             styles.leftArrow,
-            ( isSpeciesScreen || isYearInReviewScreen ) &&
-              styles.speciesLeftArrow
+            isSpeciesScreen && styles.speciesLeftArrow,
+            isYearInReviewScreen && styles.yearInReviewArrow
           ]}
         >
           <Image source={icons.swipeRight} style={styles.rotate} />
@@ -99,8 +103,8 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
           onPress={scrollRight}
           style={[
             styles.rightArrow,
-            ( isSpeciesScreen || isYearInReviewScreen ) &&
-              styles.speciesRightArrow
+            isSpeciesScreen && styles.speciesRightArrow,
+            isYearInReviewScreen && styles.yearInReviewArrow
           ]}
         >
           <Image source={icons.swipeRight} style={styles.rotateRTL} />

@@ -1,47 +1,10 @@
 // @flow
 
 import { useState, useEffect } from "react";
-import inatjs from "inaturalistjs";
 import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
 
-import createUserAgent from "../../../utility/userAgent";
 import realmConfig from "../../../models";
-
-// TODO: copy of useFetchObservationCount
-const useUploadedObservationCount = ( login: ?string, username: string, year ): any => {
-  const [observationCount, setObservationCount] = useState( null );
-
-  useEffect( () => {
-    let isCurrent = true;
-
-    const fetchObservationsMadeViaSeekThisYear = async ( ) => {
-      // TODO: rewrite to not use API request but local data only, otherwise data from other phones (but same login) would also show here
-      const params = {
-        oauth_application_id: 333,
-        user_id: username,
-        year
-      };
-      const options = { user_agent: createUserAgent() };
-      const response = await inatjs.observations.search( params, options );
-      const count = response.total_results;
-
-      if ( isCurrent ) {
-        setObservationCount( count );
-      }
-    };
-
-    if ( login ) {
-      fetchObservationsMadeViaSeekThisYear();
-    }
-
-    return () => {
-      isCurrent = false;
-    };
-  }, [login, username, year] );
-
-  return observationCount;
-};
 
 const useCountObservationsForYear = ( year ): any => {
   const [countObservationsThisYear, setCountObservationsThisYear] = useState( null );
@@ -286,7 +249,6 @@ const useFetchChallengesForYear = ( year ): any => {
 };
 
 export {
-  useUploadedObservationCount,
   useFetchStats,
   useCountObservationsForYear,
   useObservationsForYear,

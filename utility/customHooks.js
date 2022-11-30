@@ -6,6 +6,8 @@ import RNFS from "react-native-fs";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
 import DeviceInfo from "react-native-device-info";
+import inatjs from "inaturalistjs";
+
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -14,6 +16,7 @@ import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 import { createRegion } from "./locationHelpers";
+import createUserAgent from "./userAgent";
 
 const useScrollToTop = (
   scrollView: {
@@ -371,6 +374,45 @@ const useFetchUserSettings = ( ): Object => {
   return settings;
 };
 
+// TODO: copy of useFetchObservationCount
+const useUploadedObservationCount = (
+  login: ?string,
+  username: string,
+  year
+): any => {
+  const [observationCount, setObservationCount] = useState( null );
+
+  useEffect( () => {
+    let isCurrent = true;
+
+    const fetchObservationsMadeViaSeekThisYear = async () => {
+      // TODO: rewrite to not use API request but local data only, otherwise data from other phones (but same login) would also show here
+      const params = {
+        oauth_application_id: 333,
+        user_id: username,
+        year
+      };
+      const options = { user_agent: createUserAgent() };
+      const response = await inatjs.observations.search( params, options );
+      const count = response.total_results;
+
+      if ( isCurrent ) {
+        setObservationCount( count );
+      }
+    };
+
+    if ( login ) {
+      fetchObservationsMadeViaSeekThisYear();
+    }
+
+    return () => {
+      isCurrent = false;
+    };
+  }, [login, username, year] );
+
+  return observationCount;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -382,5 +424,6 @@ export {
   useRegion,
   useInternetStatus,
   useEmulator,
-  useFetchUserSettings
+  useFetchUserSettings,
+  useUploadedObservationCount
 };

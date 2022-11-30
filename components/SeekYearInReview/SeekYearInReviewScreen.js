@@ -16,11 +16,13 @@ import { colors } from "../../styles/global";
 import { AppOrientationContext, UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import {
-  useUploadedObservationCount,
   useFetchStats,
   useCountObservationsForYear,
   useFetchChallengesForYear
 } from "./hooks/seekYearInReviewHooks";
+import {
+  useUploadedObservationCount
+} from "../../utility/customHooks";
 
 import badgeImages from "../../assets/badges";
 import i18n from "../../i18n";

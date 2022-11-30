@@ -34,6 +34,7 @@ describe( "SeekYearInReviewCard", () => {
     test( "should not render outside December and January", async () => {
       jest.useFakeTimers().setSystemTime( new Date( 2020, 5, 15 ) );
       renderCard();
+      jest.runOnlyPendingTimers();
       jest.useRealTimers();
       expect( screen.queryByTestId( cardID ) ).toBeNull();
     } );
@@ -41,6 +42,7 @@ describe( "SeekYearInReviewCard", () => {
     test( "should render in December with observations", async () => {
       jest.useFakeTimers().setSystemTime( new Date( 2020, 11, 15 ) );
       renderCard();
+      jest.runOnlyPendingTimers();
       jest.useRealTimers();
       await screen.findByTestId( cardID );
       expect( screen ).toMatchSnapshot();
@@ -49,6 +51,7 @@ describe( "SeekYearInReviewCard", () => {
     test( "should render in January with observations", async () => {
       jest.useFakeTimers().setSystemTime( new Date( 2020, 0, 15 ) );
       renderCard();
+      jest.runOnlyPendingTimers();
       jest.useRealTimers();
       await screen.findByTestId( cardID );
       expect( screen ).toMatchSnapshot();

@@ -247,6 +247,7 @@ const SeekYearInReviewScreen = (): Node => {
           </>
         )}
       </View>
+      <View style={viewStyles.divider} />
       <SeekYearInReviewPhotos observations={state.randomObservations} />
       <View
         style={[
@@ -263,16 +264,18 @@ const SeekYearInReviewScreen = (): Node => {
             />
             <SubstringStyledText
               text={i18n.t( "seek_year_in_review.x_challenges_earned_text", {
-                count: badgeCount,
+                count: challengeCount,
                 year
               } )}
-              greenText={badgeCount}
+              greenText={challengeCount}
             />
             <View style={viewStyles.divider} />
             <SeekYearInReviewChallengeBadges
               challengeBadges={challengeBadges}
             />
           </>
+        ) : (
+          <View style={viewStyles.divider} />
         )}
         <StyledText style={textStyles.text}>
           {i18n.t( "seek_year_in_review.thank_you" )}

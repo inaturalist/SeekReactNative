@@ -118,6 +118,7 @@ const renderScreen = () => {
 };
 
 const containerID = "seek-yir-screen-container";
+
 describe( "SeekYearInReviewScreen", () => {
   test( "should render correctly", async () => {
     const {unmount} = renderScreen();

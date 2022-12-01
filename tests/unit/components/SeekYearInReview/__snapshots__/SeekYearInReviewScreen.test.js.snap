@@ -1110,7 +1110,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           <Image
             source={
               {
-                "testUri": "../../../assets/navbar/Notifications.webp",
+                "testUri": "../../../assets/navbar/Notifications-inactive.webp",
               }
             }
           />

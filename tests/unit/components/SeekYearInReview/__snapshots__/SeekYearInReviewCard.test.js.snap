@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeekYearInReviewCard should render in December with observations 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "paddingTop": 35,
+    }
+  }
+  testID="yir-card"
+>
+  <Text
+    style={
+      {
+        "color": "#38976d",
+        "fontFamily": "Whitney-Semibold",
+        "fontSize": 19,
+        "letterSpacing": 1.12,
+        "paddingLeft": 22,
+      }
+    }
+  >
+    SEEK YEAR IN REVIEW
+  </Text>
+  <View
+    style={
+      {
+        "paddingHorizontal": 33,
+        "paddingTop": 21,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "Whitney-Book",
+            "fontSize": 16,
+            "lineHeight": 21,
+          },
+          undefined,
+        ]
+      }
+    >
+      Thanks for using Seek this year! Check out your personalized Year in Review here:
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "marginTop": 33,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "center",
+        "backgroundColor": "#38976d",
+        "borderRadius": 34,
+        "height": 79,
+        "justifyContent": "center",
+        "maxWidth": 317,
+        "opacity": 1,
+        "width": 317,
+      }
+    }
+    testID="greenButton"
+  >
+    <Text
+      allowFontScaling={true}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Whitney-Semibold",
+              "fontSize": 18,
+              "letterSpacing": 1,
+              "paddingTop": 3,
+              "textAlign": "center",
+            },
+            {
+              "letterSpacing": 1,
+            },
+            {
+              "fontSize": 18,
+            },
+          ],
+        ]
+      }
+    >
+      VIEW MY SEEK REVIEW
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "marginTop": 48,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`SeekYearInReviewCard should render in January with observations 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "paddingTop": 35,
+    }
+  }
+  testID="yir-card"
+>
+  <Text
+    style={
+      {
+        "color": "#38976d",
+        "fontFamily": "Whitney-Semibold",
+        "fontSize": 19,
+        "letterSpacing": 1.12,
+        "paddingLeft": 22,
+      }
+    }
+  >
+    SEEK YEAR IN REVIEW
+  </Text>
+  <View
+    style={
+      {
+        "paddingHorizontal": 33,
+        "paddingTop": 21,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "Whitney-Book",
+            "fontSize": 16,
+            "lineHeight": 21,
+          },
+          undefined,
+        ]
+      }
+    >
+      Thanks for using Seek this year! Check out your personalized Year in Review here:
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "marginTop": 33,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "center",
+        "backgroundColor": "#38976d",
+        "borderRadius": 34,
+        "height": 79,
+        "justifyContent": "center",
+        "maxWidth": 317,
+        "opacity": 1,
+        "width": 317,
+      }
+    }
+    testID="greenButton"
+  >
+    <Text
+      allowFontScaling={true}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Whitney-Semibold",
+              "fontSize": 18,
+              "letterSpacing": 1,
+              "paddingTop": 3,
+              "textAlign": "center",
+            },
+            {
+              "letterSpacing": 1,
+            },
+            {
+              "fontSize": 18,
+            },
+          ],
+        ]
+      }
+    >
+      VIEW MY SEEK REVIEW
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "marginTop": 48,
+      }
+    }
+  />
+</View>
+`;

@@ -126,8 +126,10 @@ exports[`RangeMap should change map region to user's location when button is pre
     onRegionChangeComplete={[Function]}
     region={
       {
-        "latitude": 42.1234567,
-        "longitude": 42.1234567,
+        "latitude": 42.42,
+        "latitudeDelta": 0.2,
+        "longitude": 42.42,
+        "longitudeDelta": 0.2,
       }
     }
     style={
@@ -443,6 +445,32 @@ exports[`RangeMap should render correctly 1`] = `
         }
       />
     </AIRMapMarker>
+    <AIRMapMarker
+      coordinate={
+        {
+          "latitude": 42.42,
+          "longitude": 42.42,
+        }
+      }
+      onPress={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "position": "absolute",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/icon-location-onmap.webp",
+          }
+        }
+      />
+    </AIRMapMarker>
   </AIRMap>
   <View
     accessible={true}
@@ -488,6 +516,36 @@ exports[`RangeMap should render correctly 1`] = `
     >
       LEGEND
     </Text>
+  </View>
+  <View
+    accessibilityLabel="Return to your current location"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "bottom": 19,
+        "opacity": 1,
+        "position": "absolute",
+        "right": 19,
+      }
+    }
+    testID="user-location-button"
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/icon-locationindicator.webp",
+        }
+      }
+    />
   </View>
 </RNCSafeAreaView>
 `;

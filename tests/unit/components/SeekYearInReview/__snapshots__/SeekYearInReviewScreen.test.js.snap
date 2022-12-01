@@ -1,0 +1,1122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeekYearInReviewScreen should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    [
+      "top",
+    ]
+  }
+  style={
+    {
+      "backgroundColor": "#38976d",
+      "flex": 1,
+    }
+  }
+  testID="seek-yir-screen-container"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#38976d",
+          "flexDirection": "row",
+          "paddingBottom": 18,
+          "paddingTop": 20.5,
+        },
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="Go back to previous screen"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "left": 0,
+          "opacity": 1,
+          "paddingHorizontal": 23,
+          "paddingVertical": 18,
+          "position": "absolute",
+          "transform": [
+            {
+              "scaleX": 1,
+            },
+          ],
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/back.webp",
+          }
+        }
+        style={false}
+        tintColor={false}
+      />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "maxWidth": 650,
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
+      SEEK YEAR IN REVIEW
+    </Text>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "backgroundColor": "#ffffff",
+      }
+    }
+    keyboardDismissMode="none"
+    onScroll={[Function]}
+    scrollEventThrottle={0}
+  >
+    <View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <Modal
+          animationType="none"
+          deviceHeight={null}
+          deviceWidth={null}
+          hardwareAccelerated={false}
+          hideModalContentWhileAnimating={false}
+          onBackdropPress={[Function]}
+          onModalHide={[Function]}
+          onModalWillHide={[Function]}
+          onModalWillShow={[Function]}
+          onRequestClose={[Function]}
+          onSwipeComplete={[Function]}
+          panResponderThreshold={4}
+          scrollHorizontal={false}
+          scrollOffset={0}
+          scrollOffsetMax={0}
+          scrollTo={null}
+          statusBarTranslucent={false}
+          supportedOrientations={
+            [
+              "portrait",
+              "landscape",
+            ]
+          }
+          swipeDirection="down"
+          swipeThreshold={100}
+          transparent={true}
+          useNativeDriverForBackdrop={true}
+          visible={false}
+        />
+        <BVLinearGradient
+          colors={
+            [
+              4280449101,
+              4281898861,
+            ]
+          }
+          endPoint={
+            {
+              "x": 0.5,
+              "y": 1,
+            }
+          }
+          locations={null}
+          startPoint={
+            {
+              "x": 0.5,
+              "y": 0,
+            }
+          }
+          style={
+            [
+              {
+                "minHeight": 187,
+              },
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "flexWrap": "nowrap",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "marginLeft": 22,
+                "paddingBottom": 26,
+                "paddingTop": 25,
+                "width": 170,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Whitney-Light",
+                    "fontSize": 18,
+                    "letterSpacing": 0.78,
+                    "marginBottom": 10,
+                  },
+                ]
+              }
+            >
+              IN 2022, YOU OBSERVED
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 23,
+                    "letterSpacing": 1,
+                  },
+                ]
+              }
+            >
+              100 NEW SPECIES
+            </Text>
+          </View>
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/badges/naturalist/levelbadge-3.webp",
+              }
+            }
+            style={
+              {
+                "height": 136,
+                "resizeMode": "contain",
+                "width": 136,
+              }
+            }
+          />
+        </BVLinearGradient>
+      </View>
+      <View
+        style={
+          [
+            {
+              "marginHorizontal": 26,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            [
+              {
+                "alignSelf": "center",
+                "height": 48,
+                "marginBottom": 32,
+                "marginTop": 40,
+                "paddingTop": 8,
+                "width": 284,
+              },
+              false,
+            ]
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/icons/img-titlebanner.webp",
+              }
+            }
+            style={
+              [
+                {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                {
+                  "height": 48,
+                  "width": 284,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            allowFontScaling={false}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#ffffff",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            TOP SPECIES
+          </Text>
+        </View>
+        <View>
+          <View
+            style={
+              [
+                {
+                  "alignSelf": "center",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "center",
+                  "width": 377.20734908136484,
+                },
+              ]
+            }
+            testID="badge-container"
+          >
+            <View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  accessibilityLabel="1 plant!"
+                  accessible={true}
+                  source={
+                    {
+                      "testUri": "../../../assets/badges/species/badge_plant_1.webp",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 113.73578302712161,
+                      "marginHorizontal": 6,
+                      "resizeMode": "contain",
+                      "width": 113.73578302712161,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  accessibilityLabel="1 bird!"
+                  accessible={true}
+                  source={
+                    {
+                      "testUri": "../../../assets/badges/species/badge_bird_1.webp",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 113.73578302712161,
+                      "marginHorizontal": 6,
+                      "resizeMode": "contain",
+                      "width": 113.73578302712161,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  accessibilityLabel="1 mammal!"
+                  accessible={true}
+                  source={
+                    {
+                      "testUri": "../../../assets/badges/species/badge_mammal_1.webp",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 113.73578302712161,
+                      "marginHorizontal": 6,
+                      "resizeMode": "contain",
+                      "width": 113.73578302712161,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "marginTop": 12,
+            }
+          }
+        />
+        <View
+          style={
+            [
+              {
+                "alignSelf": "center",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "center",
+                "width": 377.20734908136484,
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 19,
+                    "letterSpacing": 1.12,
+                    "lineHeight": 23,
+                  },
+                  {
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                  null,
+                  {
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  },
+                ],
+              ]
+            }
+          />
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 19,
+                    "letterSpacing": 1.12,
+                    "lineHeight": 23,
+                  },
+                  {
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                  null,
+                  {
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  },
+                ],
+              ]
+            }
+          />
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 19,
+                    "letterSpacing": 1.12,
+                    "lineHeight": 23,
+                  },
+                  {
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                  null,
+                  {
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  },
+                ],
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            [
+              {
+                "alignSelf": "center",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "center",
+                "width": 377.20734908136484,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  },
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Whitney-Medium",
+                    "fontSize": 19,
+                    "lineHeight": 24,
+                    "textAlign": "center",
+                  },
+                ],
+              ]
+            }
+          >
+            plants
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  },
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Whitney-Medium",
+                    "fontSize": 19,
+                    "lineHeight": 24,
+                    "textAlign": "center",
+                  },
+                ],
+              ]
+            }
+          >
+            birds
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "marginHorizontal": 6,
+                    "resizeMode": "contain",
+                    "width": 113.73578302712161,
+                  },
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Whitney-Medium",
+                    "fontSize": 19,
+                    "lineHeight": 24,
+                    "textAlign": "center",
+                  },
+                ],
+              ]
+            }
+          >
+            mammals
+          </Text>
+        </View>
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            [
+              {
+                "alignSelf": "center",
+                "height": 48,
+                "marginBottom": 32,
+                "marginTop": 40,
+                "paddingTop": 8,
+                "width": 284,
+              },
+              false,
+            ]
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/icons/img-titlebanner.webp",
+              }
+            }
+            style={
+              [
+                {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                {
+                  "height": 48,
+                  "width": 284,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            allowFontScaling={false}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#ffffff",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            OBSERVATIONS
+          </Text>
+        </View>
+        <Text
+          allowFontScaling={true}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "color": "#38976d",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "lineHeight": 23,
+                },
+                false,
+                false,
+                null,
+                undefined,
+              ],
+            ]
+          }
+        >
+          OBSERVATIONS BY MONTH
+        </Text>
+        <View
+          style={
+            {
+              "height": 18,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "flex": 1,
+              "height": 150,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "borderBottomColor": "#297f87",
+                "borderBottomWidth": 2,
+                "flex": 1,
+                "marginBottom": 10,
+              }
+            }
+          >
+            <View
+              onLayout={[Function]}
+              style={
+                {
+                  "flex": 1,
+                }
+              }
+            />
+          </View>
+          <View>
+            <View
+              onLayout={[Function]}
+              style={
+                {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontFamily": undefined,
+                    "fontSize": 18,
+                    "fontWeight": undefined,
+                    "opacity": 0,
+                  }
+                }
+              >
+                J
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "height": 45,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          {
+            "height": 45,
+          }
+        }
+      />
+      <View />
+      <View
+        style={
+          [
+            {
+              "marginHorizontal": 26,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "height": 45,
+            }
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Book",
+                "fontSize": 16,
+                "lineHeight": 21,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.
+        </Text>
+        <View
+          style={
+            {
+              "height": 18,
+            }
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Book",
+                "fontSize": 16,
+                "lineHeight": 21,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:
+        </Text>
+        <View
+          style={
+            {
+              "height": 45,
+            }
+          }
+        />
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignSelf": "center",
+              "backgroundColor": "#38976d",
+              "borderRadius": 34,
+              "height": 79,
+              "justifyContent": "center",
+              "maxWidth": 317,
+              "opacity": 1,
+              "width": 317,
+            }
+          }
+          testID="greenButton"
+        >
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "paddingTop": 3,
+                    "textAlign": "center",
+                  },
+                  {
+                    "letterSpacing": 1,
+                  },
+                  {
+                    "fontSize": 18,
+                  },
+                ],
+              ]
+            }
+          >
+            DONATE
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "paddingBottom": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "bottom": -1000,
+            "height": 1050,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+  <RNCSafeAreaView
+    edges={
+      [
+        "right",
+        "bottom",
+        "left",
+      ]
+    }
+    style={
+      {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        {
+          "height": 74,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/backgrounds/img-navbar.webp",
+          }
+        }
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "height": 74,
+              "width": undefined,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#ffffff",
+              "height": 70,
+              "justifyContent": "space-between",
+            },
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+            },
+            {
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "height": -3,
+                "width": 0,
+              },
+              "shadowOpacity": 0.2,
+              "shadowRadius": 2,
+            },
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Open menu"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "left": 10,
+              "opacity": 1,
+              "padding": 20,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/navbar/Menu.webp",
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="Open camera"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "marginBottom": 50,
+              "marginLeft": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/navbar/icon-camerabutton.webp",
+              }
+            }
+            style={
+              {
+                "height": 94,
+                "width": 94,
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="View notifications"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "padding": 24,
+              "right": 10,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/navbar/Notifications-inactive.webp",
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </RNCSafeAreaView>
+</RNCSafeAreaView>
+`;

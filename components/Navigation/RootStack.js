@@ -79,8 +79,8 @@ const App = ( ): Props => (
             <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
             <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
             <Stack.Screen name="Social" component={Social} options={defaultConfig} />
-          </Stack.Group>
-          <Stack.Group screenOptions={modal}>
+        </Stack.Group>
+         <Stack.Group screenOptions={modal}>
             {/* Removed Footer from Notification screen because animation from right
             doesn't work if it's in drawer, but this screen would also need access to open the drawer
             if the footer is shown */}

@@ -10,18 +10,18 @@ import { colors } from "../../styles/global";
 import BulletedList from "./BulletedList";
 import OpenINatButton from "../UIComponents/Buttons/OpenINatButton";
 import ProfileImageAndLogin from "./ProfileImageAndLogin";
-import { useFetchObservationCount } from "./hooks/inatHooks";
+import { useUploadedObservationCount } from "../../utility/customHooks";
 import { AppOrientationContext, UserContext } from "../UserContext";
 
 const INatHeaderLoggedIn = ( ): Node => {
   const [triggerReload, setTriggerReload] = useState( false );
   const { userProfile, login } = useContext( UserContext );
   const { isTablet } = useContext( AppOrientationContext );
-  const count = useFetchObservationCount(
+  const count = useUploadedObservationCount( {
     login,
-    userProfile.login,
+    username: userProfile.login,
     triggerReload
-  );
+  } );
 
   const reload = () => { setTriggerReload( !triggerReload ); };
 

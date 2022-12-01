@@ -80,59 +80,6 @@ const useFetchPhotos = ( ): any => {
   return photos;
 };
 
-const useFetchObservationCount = ( login: ?string, username: string, triggerReload: Boolean ): any => {
-  const [observationCount, setObservationCount] = useState( null );
-
-  const updateSavedLogin = async ( newCount ) => {
-    try {
-      const realm = await Realm.open( realmConfig );
-      const savedLogin = realm.objects( "LoginRealm" );
-
-      if ( savedLogin[0].observationCount !== newCount ) {
-        realm.write( ( ) => {
-          savedLogin[0].observationCount = newCount;
-        } );
-      }
-      return savedLogin[0].observationCount;
-    } catch ( e ) {
-      console.log( "couldn't update saved login" );
-    }
-  };
-
-  useEffect( ( ) => {
-    let isCurrent = true;
-
-    const fetchObservationsMadeViaSeek = async ( ) => {
-      const params = {
-        oauth_application_id: 333,
-        user_id: username
-      };
-
-      const options = { user_agent: createUserAgent( ) };
-
-      const response = await inatjs.observations.search( params, options );
-      const results = response.total_results;
-
-      const savedCount = await updateSavedLogin( results );
-
-      if ( isCurrent ) {
-        setObservationCount( savedCount );
-      }
-    };
-
-    if ( login ) {
-      fetchObservationsMadeViaSeek( );
-    }
-
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [login, username, triggerReload] );
-
-  return observationCount;
-};
-
 export {
-  useFetchPhotos,
-  useFetchObservationCount
+  useFetchPhotos
 };

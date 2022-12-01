@@ -16,22 +16,25 @@ type Props = {
 }
 
 const GreenText = ( {
+  style,
   smaller,
   text,
   center,
   color,
-  allowFontScaling
+  allowFontScaling,
+  noTranslation
 }: Props ): React.Node => (
   <StyledText
     style={[
       styles.greenHeaderText,
       smaller && styles.smallerText,
       center && styles.center,
-      color && { color }
+      color && { color },
+      style
     ]}
     allowFontScaling={allowFontScaling}
   >
-    {i18n.t( text ).toLocaleUpperCase()}
+    {noTranslation ? text : i18n.t( text ).toLocaleUpperCase()}
   </StyledText>
 );
 

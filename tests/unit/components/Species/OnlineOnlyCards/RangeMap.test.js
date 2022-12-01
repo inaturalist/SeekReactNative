@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react-native";
+import { render, screen, fireEvent } from "@testing-library/react-native";
 
 import RangeMap from "../../../../../components/Species/OnlineOnlyCards/RangeMap";
 
@@ -47,44 +47,42 @@ const mapID = "range-map";
 const buttonID = "user-location-button";
 
 describe( "RangeMap", () => {
-  test( "should render correctly", () => {
-    render( <RangeMap /> );
+  test( "should render correctly", async () => {
+    const { unmount } = render( <RangeMap /> );
+
     // renders the map
-    screen.findByTestId( containerID );
+    await screen.findByTestId( containerID );
     // Create snapshot
     expect( screen ).toMatchSnapshot();
+    unmount();
   } );
 
   test( "should render the map with region as given in props", async () => {
-    render( <RangeMap /> );
-    // renders the map container
-    screen.findByTestId( containerID );
+    const { unmount } =  render( <RangeMap /> );
 
     // renders the map with location passed in navigation props
     await screen.findByTestId( mapID );
     const map = screen.getByTestId( mapID );
-
     // Expect location given by props
     expect( map.props.region.latitude ).toBe( 42.1234567 );
     expect( map.props.region.longitude ).toBe( 42.1234567 );
+    unmount();
   } );
 
   test( "should change map region to user's location when button is pressed", async () => {
-    render( <RangeMap /> );
-    screen.findByTestId( containerID );
+    const { unmount } = render( <RangeMap /> );
 
     // renders the user location button
     await screen.findByTestId( buttonID );
     const locationButton = screen.getByTestId( buttonID );
     expect( locationButton ).toBeTruthy();
+    // Press the location button and expect the map to update
+    fireEvent.press( locationButton );
 
+    const map = screen.getByTestId( mapID );
+    expect( map.props.region.latitude ).toBe( 42.42 );
     // Create snapshot
     expect( screen ).toMatchSnapshot();
-
-    // Press the location button and expect the map to update
-    // TODO: thios button press takes forever, the fireEvent is triggering the onPress but the map is not updating, but taking forever to finish the test
-    // fireEvent.press( locationButton );
-    // const map = screen.getByTestId( mapID );
-    // expect( map.props.region.latitude ).toBe( 42.42 );
+    unmount();
   } );
 } );

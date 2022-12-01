@@ -6,6 +6,8 @@ import RNFS from "react-native-fs";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
 import DeviceInfo from "react-native-device-info";
+import inatjs from "inaturalistjs";
+
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -14,6 +16,7 @@ import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 import { createRegion } from "./locationHelpers";
+import createUserAgent from "./userAgent";
 
 const useScrollToTop = (
   scrollView: {
@@ -371,6 +374,72 @@ const useFetchUserSettings = ( ): Object => {
   return settings;
 };
 
+const useUploadedObservationCount = ( {
+  login,
+  username,
+  year,
+  triggerReload
+}: {
+  login: ?string,
+  username: string,
+  year: number,
+  triggerReload: Boolean
+} ): any => {
+  const [observationCount, setObservationCount] = useState( null );
+
+  const updateSavedLogin = async ( newCount ) => {
+    try {
+      const realm = await Realm.open( realmConfig );
+      const savedLogin = realm.objects( "LoginRealm" );
+
+      if ( savedLogin[0].observationCount !== newCount ) {
+        realm.write( () => {
+          savedLogin[0].observationCount = newCount;
+        } );
+      }
+      return savedLogin[0].observationCount;
+    } catch ( e ) {
+      console.log( "couldn't update saved login" );
+    }
+  };
+
+  useEffect( () => {
+    let isCurrent = true;
+
+    const fetchObservationsMadeViaSeek = async () => {
+      // TODO: rewrite to not use API request but local data only, otherwise data from other phones (but same login) would also show here
+      let params = {
+        oauth_application_id: 333,
+        user_id: username
+      };
+      if ( year ) {
+        params = {...params, year};
+      }
+      const options = { user_agent: createUserAgent() };
+      const response = await inatjs.observations.search( params, options );
+
+      let count = response.total_results;
+      if ( !year ) {
+        count = await updateSavedLogin( count );
+      }
+
+      if ( isCurrent ) {
+        setObservationCount( count );
+      }
+    };
+
+    if ( login ) {
+      fetchObservationsMadeViaSeek();
+    }
+
+    return () => {
+      isCurrent = false;
+    };
+  }, [login, username, year, triggerReload] );
+
+  return observationCount;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -382,5 +451,6 @@ export {
   useRegion,
   useInternetStatus,
   useEmulator,
-  useFetchUserSettings
+  useFetchUserSettings,
+  useUploadedObservationCount
 };

@@ -13,9 +13,9 @@ function renderButton( user ) {
 }
 
 describe( "iNatSignOut", () => {
-  test( "should render correctly", () => {
+  test( "should render correctly", async () => {
     renderButton();
-    screen.findByText( "SIGN OUT OF INATURALIST" );
+    await screen.findByText( "SIGN OUT OF INATURALIST" );
     expect( screen ).toMatchSnapshot();
   } );
 

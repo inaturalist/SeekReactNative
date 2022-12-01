@@ -32,6 +32,7 @@ describe( "useUploadedObservationCount", () => {
       useUploadedObservationCount( { login, username } )
     );
     await act( () => result.current );
+
     expect( result.current ).toBe( 42 );
   } );
 
@@ -40,6 +41,7 @@ describe( "useUploadedObservationCount", () => {
       useUploadedObservationCount( { login, username, year } )
     );
     await act( () => result.current );
+
     expect( result.current ).toBe( 12 );
   } );
 } );
@@ -48,6 +50,7 @@ describe( "useSpeciesCount", () => {
   test( "should return number of recorded species correctly", async () => {
     const { result } = renderHook( () => useSpeciesCount( ) );
     await act( () => result.current );
+
     expect( result.current ).toBe( 42 );
   } );
 } );

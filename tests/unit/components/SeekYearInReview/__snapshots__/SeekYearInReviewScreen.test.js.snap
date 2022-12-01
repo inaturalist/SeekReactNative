@@ -495,7 +495,9 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 ],
               ]
             }
-          />
+          >
+            24
+          </Text>
           <Text
             allowFontScaling={true}
             style={
@@ -528,7 +530,9 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 ],
               ]
             }
-          />
+          >
+            23
+          </Text>
           <Text
             allowFontScaling={true}
             style={
@@ -561,7 +565,9 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 ],
               ]
             }
-          />
+          >
+            22
+          </Text>
         </View>
         <View
           style={
@@ -801,6 +807,495 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
             }
           }
         />
+        <Text
+          allowFontScaling={true}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "color": "#38976d",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "lineHeight": 23,
+                },
+                false,
+                false,
+                null,
+                undefined,
+              ],
+            ]
+          }
+        >
+          OBSERVATIONS MAP
+        </Text>
+        <View
+          style={
+            {
+              "height": 18,
+            }
+          }
+        />
+        <AIRMap
+          initialRegion={
+            {
+              "latitude": 0.21,
+              "latitudeDelta": 84.42,
+              "longitude": 0.21,
+              "longitudeDelta": 84.42,
+            }
+          }
+          onChange={[Function]}
+          onMapReady={[Function]}
+          onPress={[Function]}
+          region={
+            {
+              "latitude": 0.21,
+              "latitudeDelta": 84.42,
+              "longitude": 0.21,
+              "longitudeDelta": 84.42,
+            }
+          }
+          rotateEnabled={false}
+          scrollEnabled={false}
+          style={
+            {
+              "height": 189,
+              "marginBottom": 20,
+            }
+          }
+          zoomEnabled={false}
+        >
+          <AIRMapMarker
+            coordinate={
+              {
+                "latitude": 42,
+                "longitude": -42,
+              }
+            }
+            onPress={[Function]}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "position": "absolute",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../assets/icons/icon-camerabutton-onmap.webp",
+                }
+              }
+            />
+          </AIRMapMarker>
+          <AIRMapMarker
+            coordinate={
+              {
+                "latitude": -42,
+                "longitude": 42,
+              }
+            }
+            onPress={[Function]}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "position": "absolute",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../assets/icons/icon-camerabutton-onmap.webp",
+                }
+              }
+            />
+          </AIRMapMarker>
+          <AIRMapMarker
+            coordinate={
+              {
+                "latitude": 42,
+                "longitude": 42,
+              }
+            }
+            onPress={[Function]}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "position": "absolute",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../assets/icons/icon-camerabutton-onmap.webp",
+                }
+              }
+            />
+          </AIRMapMarker>
+          <AIRMapMarker
+            coordinate={
+              {
+                "latitude": 42.42,
+                "longitude": 42.42,
+              }
+            }
+            onPress={[Function]}
+            style={
+              [
+                {
+                  "backgroundColor": "transparent",
+                  "position": "absolute",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../assets/icons/icon-location-onmap.webp",
+                }
+              }
+            />
+          </AIRMapMarker>
+        </AIRMap>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignSelf": "center",
+              "backgroundColor": "#38976d",
+              "borderRadius": 34,
+              "height": 79,
+              "justifyContent": "center",
+              "maxWidth": 317,
+              "opacity": 1,
+              "width": 317,
+            }
+          }
+          testID="greenButton"
+        >
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "paddingTop": 3,
+                    "textAlign": "center",
+                  },
+                  {
+                    "letterSpacing": 1,
+                  },
+                  {
+                    "fontSize": 18,
+                  },
+                ],
+              ]
+            }
+          >
+            VIEW OBSERVATIONS MAP
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "height": 45,
+            }
+          }
+        />
+        <Text
+          allowFontScaling={true}
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "color": "#38976d",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "lineHeight": 23,
+                },
+                false,
+                false,
+                null,
+                undefined,
+              ],
+            ]
+          }
+        >
+          INATURALIST
+        </Text>
+        <View
+          style={
+            {
+              "height": 18,
+            }
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Medium",
+                "fontSize": 19,
+                "lineHeight": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            You 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            posted 
+          </Text>
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 19,
+                    "letterSpacing": 1.12,
+                    "lineHeight": 23,
+                  },
+                  false,
+                  false,
+                  null,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            60 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            observations 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            to 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            iNaturalist 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            using 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Seek 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            in 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            2022. 
+          </Text>
+        </Text>
+        <View
+          style={
+            {
+              "height": 18,
+            }
+          }
+        />
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Medium",
+                "fontSize": 19,
+                "lineHeight": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Thank you for contributing to our community!
+        </Text>
       </View>
       <View
         style={

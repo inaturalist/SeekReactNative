@@ -14,14 +14,16 @@ import ChallengeBadges from "./ChallengeBadges";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/Login/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
-import { localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import BannerHeader from "../UIComponents/BannerHeader";
-import { useFetchAchievements } from "./hooks/achievementHooks";
 import StyledText from "../UIComponents/StyledText";
+import { useFetchAchievements } from "./hooks/achievementHooks";
+import { localizeNumber, setRoute } from "../../utility/helpers";
+import { useSpeciesCount } from "../../utility/customHooks";
 
 const AchievementsScreen = ( ): Node => {
   const state = useFetchAchievements( );
+  const speciesCount = useSpeciesCount();
   const navigation = useNavigation( );
 
   const navToObservations = useCallback( ( ) => {
@@ -45,7 +47,7 @@ const AchievementsScreen = ( ): Node => {
   const renderFooter = ( ) => (
     <View style={viewStyles.center}>
       <View style={viewStyles.row}>
-        {renderStats( false, "badges.observed", state.speciesCount )}
+        {renderStats( false, "badges.observed", speciesCount )}
         {renderStats( true, "badges.earned", state.badgesEarned )}
       </View>
       <View style={viewStyles.loginCardMargin} />
@@ -63,7 +65,7 @@ const AchievementsScreen = ( ): Node => {
       <LevelHeader
         level={state.level}
         nextLevelCount={state.nextLevelCount}
-        speciesCount={state.speciesCount}
+        speciesCount={speciesCount}
       />
       <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
       <SpeciesBadges speciesBadges={state.speciesBadges} />

@@ -12,15 +12,13 @@ const useFetchAchievements = ( ): any => {
     speciesBadges: [],
     level: null,
     nextLevelCount: 0,
-    badgesEarned: null,
-    speciesCount: null
+    badgesEarned: null
   } );
 
   useEffect( ( ) => {
     const fetchAchievements = async ( ) => {
       try {
         const realm = await Realm.open( realmConfig );
-        const speciesCount = realm.objects( "TaxonRealm" ).length;
         const badges = realm.objects( "BadgeRealm" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
         const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
@@ -43,8 +41,7 @@ const useFetchAchievements = ( ): any => {
           speciesBadges,
           level: levelsEarned[0],
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-          badgesEarned,
-          speciesCount
+          badgesEarned
         } );
       } catch ( e ) {
         console.log( e, "couldn't open realm: achievements" );

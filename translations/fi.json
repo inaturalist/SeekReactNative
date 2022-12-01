@@ -958,9 +958,9 @@
     "december_2023_description_ecology": "Monet erilaiset vuorovaikutukset vaikuttavat ekosysteemeihin ja niiden organismeihin. Ekologia on eliöiden (bioottinen) ja niiden fyysisen ympäristön (abioottinen) tutkiminen. Bioottiset vuorovaikutukset ovat eläviä asioita ja abioottisia vuorovaikutuksia ovat elottomat tekijät, kuten lämpötila, vesi, valo ja maaperä."
   },
   "seek_year_in_review": {
-    "header": "Seek Year in Review",
-    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review",
+    "header": "Seekin vuosikatsaus",
+    "description": "Kiitos, että käytit Seekiä tänä vuonna! Tutustu henkilökohtaiseen vuosikatsaukseesi täällä:",
+    "button": "Näytä vuosikatsaukseni",
     "in_year_observed": "Vuonna {{year}}, havaitsit",
     "x_new_species": {
       "one": "{{count}} uusi laji",
@@ -976,22 +976,22 @@
     "view_observations_map": "Näytä havainnot kartalla",
     "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
-      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+      "one": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}.",
+      "two": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}.",
+      "few": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}.",
+      "many": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}.",
+      "other": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}."
     },
     "uploaded_observations_text_2": "Kiitos osallistumisesta!",
     "observed_in": "{{speciesName}} havaittu paikassa {{place}}",
     "observed_on": "{{speciesName}} havaittu {{date}}",
     "challenges": "Haasteet",
     "x_challenges_earned_text": {
-      "one": "You earned {{count}} challenge badge in {{year}}.",
-      "two": "You earned {{count}} challenge badges in {{year}}.",
-      "few": "You earned {{count}} challenge badges in {{year}}.",
-      "many": "You earned {{count}} challenge badges in {{year}}.",
-      "other": "You earned {{count}} challenge badges in {{year}}."
+      "one": "Ansaitsit {{count}} haastemerkkiä vuonna {{year}}.",
+      "two": "Ansaitsit {{count}} haastemerkkiä vuonna {{year}}.",
+      "few": "Ansaitsit {{count}} haastemerkkiä vuonna {{year}}.",
+      "many": "Ansaitsit {{count}} haastemerkkiä vuonna {{year}}.",
+      "other": "Ansaitsit {{count}} haastemerkkiä vuonna {{year}}."
     },
     "thank_you": "Kiitos, että käytät Seekiä! Toivomme, että tämä yhteenveto toi mieleen kaikki mielenkiintoiset havainnot, jotka teit tänä vuonna.",
     "consider_donation": "Olemme pieni tiimi ja arvostamme suuresti innostustasi Seekiin. Jos haluat tukea meitä, harkitse lahjoittamista iNaturalistille:",

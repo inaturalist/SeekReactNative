@@ -100,7 +100,7 @@ const SeekYearInReviewScreen = (): Node => {
     <LevelModal
       level={state.level}
       screen="achievements"
-      speciesCount={state.speciesCount}
+      speciesCount={speciesCount}
       closeModal={closeModal}
     />
   );

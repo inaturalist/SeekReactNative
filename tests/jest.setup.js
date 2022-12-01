@@ -94,7 +94,18 @@ jest.mock( "realm", () => {
               case "LoginRealm":
                 return [{ observationCount: 42 }];
               case "NotificationRealm":
-                return [];
+                return [
+                  {
+                    challengeIndex: 36,
+                    iconName: "badge_empty",
+                    index: 0,
+                    message: "notifications.view_challenges",
+                    nextScreen: "ChallengeDetails",
+                    seen: true,
+                    title: "notifications.new_challenge",
+                    viewed: true
+                  }
+                ];
               case "TaxonRealm":
                 return new Array( 42 );
               default:

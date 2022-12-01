@@ -106,7 +106,7 @@ jest.mock(
 );
 
 const renderScreen = () => {
-  render(
+  return render(
     <UserContext.Provider value={{}} >
       <AppOrientationContext.Provider value={{}} >
         <SpeciesDetailContext.Provider value={{}} >
@@ -120,17 +120,21 @@ const renderScreen = () => {
 const containerID = "seek-yir-screen-container";
 describe( "SeekYearInReviewScreen", () => {
   test( "should render correctly", async () => {
-    renderScreen();
+    const {unmount} = renderScreen();
+
     await screen.findByTestId( containerID );
     expect( screen.queryByTestId( containerID ) ).toBeTruthy();
     // Create snapshot
     expect( screen ).toMatchSnapshot();
+    unmount();
   } );
 
   test( "should show number of new observations for this year correctly", async () => {
-    renderScreen();
+    const { unmount } = renderScreen();
+
     const newObservationsText = await screen.findByText( /100 new species/i );
     expect( newObservationsText ).toBeTruthy();
+    unmount();
   } );
 
   test( "should show badge image correctly", async () => {
@@ -139,7 +143,8 @@ describe( "SeekYearInReviewScreen", () => {
   } );
 
   test( "should show top three badges information correctly", async () => {
-    renderScreen();
+    const { unmount } = renderScreen();
+
     const plantsBadge = await screen.findByLabelText( "1 plant!" );
     expect( plantsBadge ).toBeTruthy();
     const birdsBadge = await screen.findByLabelText( "1 bird!" );
@@ -159,6 +164,7 @@ describe( "SeekYearInReviewScreen", () => {
     expect( birds ).toBeTruthy();
     const mammals = await screen.findByText( /mammals/i );
     expect( mammals ).toBeTruthy();
+    unmount();
   } );
 
   test( "should show histogram correctly", async () => {

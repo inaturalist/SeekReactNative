@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist ಕ್ಯಾಲಿಫೋರ್ನಿಯಾ ಅಕಾಡೆಮಿ ಆಫ್ ಸೈನ್ಸಸ್ ಮತ್ತು ನ್ಯಾಷನಲ್ ಜಿಯೋಗ್ರಾಫಿಕ್ ಸೊಸೈಟಿಯ ಜಂಟಿ ಪ್ರಯತ್ನ.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "iNaturalist ತಂಡದಿಂದ ವಿನ್ಯಾಸ ಹಾಗು ಅಭಿವೃದ್ಧಿಪಡಿಸಲಾಗಿದೆ:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ಮತ್ತು Yaron Budowski. ಕಂಪ್ಯೂಟರ್ ವಿಷನ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ನೆರವು ನೀಡಿದ ವಿಸಿಪೇಡಿಯಾದ Grant Van Horn ಮತ್ತು iNaturalist ಸಮುದಾಯಕ್ಕೆ ವಿಶೇಷ ಧನ್ಯವಾದಗಳು.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, ಮತ್ತು Yaron Budowski. ಕಂಪ್ಯೂಟರ್ ವಿಷನ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ನೆರವು ನೀಡಿದ ವಿಸಿಪೇಡಿಯಾದ Grant Van Horn ಮತ್ತು iNaturalist ಸಮುದಾಯಕ್ಕೆ ವಿಶೇಷ ಧನ್ಯವಾದಗಳು.",
     "version": "ಆವೃತ್ತಿ",
     "help": "Seek ಜೊತೆಗಿನ ಸಹಾಯಕ್ಕಾಗಿ, ದಯವಿಟ್ಟು help+seek@inaturalist.org ಗೆ ಮಿಂಚೆ ಕಳುಹಿಸಿ.",
     "translators": "ಅನುವಾದ ಕಾರ್ಯದಲ್ಲಿ ನೆರವು ನೀಡಿದ crowdin.com ಸಮುದಾಯಕ್ಕೆ ನಾವು ಚಿರಋಣಿಗಳಾಗಿರುತ್ತೇವೆ, ವಿಶೇಷವಾಗಿ : Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, ಮತ್ತು Yulia Lygina ಅವರುಗಳಿಗೆ.",
@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Seek Year in Review",
     "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review"
+    "button": "View my Seek Review",
+    "in_year_observed": "In {{year}}, you observed",
+    "x_new_species": {
+      "one": "{{count}} new species",
+      "two": "{{count}} new species",
+      "few": "{{count}} new species",
+      "many": "{{count}} new species",
+      "other": "{{count}} new species"
+    },
+    "top_species": "Top Species",
+    "observations": "Observations",
+    "observations_by_month": "Observations by Month",
+    "observations_map": "Observations Map",
+    "view_observations_map": "View Observations Map",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+    },
+    "uploaded_observations_text_2": "Thank you for contributing to our community!",
+    "observed_in": "{{speciesName}} observed in {{place}}",
+    "observed_on": "{{speciesName}} observed on {{date}}",
+    "challenges": "Challenges",
+    "x_challenges_earned_text": {
+      "one": "You earned {{count}} challenge badge in {{year}}.",
+      "two": "You earned {{count}} challenge badges in {{year}}.",
+      "few": "You earned {{count}} challenge badges in {{year}}.",
+      "many": "You earned {{count}} challenge badges in {{year}}.",
+      "other": "You earned {{count}} challenge badges in {{year}}."
+    },
+    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
+    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
+    "donate": "Donate"
   }
 }

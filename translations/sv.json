@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Seek-året som gått",
     "description": "Tack för att du använt Seek i år! Kolla in ditt personliga Året som gått här:",
-    "button": "Visa min Seek-sammanfattning"
+    "button": "Visa min Seek-sammanfattning",
+    "in_year_observed": " Under {{year}} observerade du",
+    "x_new_species": {
+      "one": "{{count}} ny art",
+      "two": "{{count}} nya arter",
+      "few": "{{count}} nya arter",
+      "many": "{{count}} nya arter",
+      "other": "{{count}} nya arter"
+    },
+    "top_species": "Topparter",
+    "observations": "Fynd",
+    "observations_by_month": "Fynd per månad",
+    "observations_map": "Fyndkarta",
+    "view_observations_map": "Visa fyndkarta",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "two": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "few": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "many": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
+      "other": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}."
+    },
+    "uploaded_observations_text_2": "Tack för att du bidrar till vår community!",
+    "observed_in": "{{speciesName}} observerades i {{place}}",
+    "observed_on": "{{speciesName}} observerades den {{date}}",
+    "challenges": "Utmaningar",
+    "x_challenges_earned_text": {
+      "one": "Du förtjänade {{count}} utmaningsutmärkelse under {{year}}.",
+      "two": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}.",
+      "few": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}.",
+      "many": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}.",
+      "other": "Du förtjänade {{count}} utmaningsutmärkelser under {{year}}."
+    },
+    "thank_you": "Tack för att du använder Seek! Vi hoppas att detta påminner dig om alla intressanta arter du träffat i år.",
+    "consider_donation": "Ett litet team, som vi är, uppskattar vi verkligen all din kärlek och entusiasm för Seek. Om du vill stödja oss när vi växer, överväg att donera till iNaturalist:",
+    "donate": "Donera"
   }
 }

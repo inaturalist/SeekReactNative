@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Anno di Seek in Sintesi",
     "description": "Grazie per aver utilizzato Seek quest'anno! Scopri il tuo Anno personalizzato in Revisione, qui:",
-    "button": "Visualizza la mia Revisione di Seek"
+    "button": "Visualizza la mia Revisione di Seek",
+    "in_year_observed": "In {{year}}, hai osservato",
+    "x_new_species": {
+      "one": "{{count}} nuova specie",
+      "two": "{{count}} nuove specie",
+      "few": "{{count}} nuove specie",
+      "many": "{{count}} nuove specie",
+      "other": "{{count}} nuove specie"
+    },
+    "top_species": "Specie più osservate",
+    "observations": "Osservazioni",
+    "observations_by_month": "Osservazioni per Mese",
+    "observations_map": "Mappa delle Osservazioni",
+    "view_observations_map": "Visualizza Mappa delle Osservazioni",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+    },
+    "uploaded_observations_text_2": "Grazie per aver contribuito alla nostra comunità!",
+    "observed_in": "{{speciesName}} osservata in {{place}}",
+    "observed_on": "{{speciesName}} osservata il {{date}}",
+    "challenges": "Sfide",
+    "x_challenges_earned_text": {
+      "one": "You earned {{count}} challenge badge in {{year}}.",
+      "two": "You earned {{count}} challenge badges in {{year}}.",
+      "few": "You earned {{count}} challenge badges in {{year}}.",
+      "many": "You earned {{count}} challenge badges in {{year}}.",
+      "other": "You earned {{count}} challenge badges in {{year}}."
+    },
+    "thank_you": "Grazie per aver usato Seek! Ci auguriamo che questo ti aiuti a ricordare tutte le specie interessanti che hai incontrato quest'anno.",
+    "consider_donation": "Come piccola squadra, apprezziamo molto tutto il vostro amore e il vostro entusiasmo per Seek. Se desideri supportarci mentre cresciamo, prendi in considerazione la possibilità di donare ad iNaturalist:",
+    "donate": "Dona"
   }
 }

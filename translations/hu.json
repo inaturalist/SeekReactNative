@@ -568,7 +568,7 @@
     "joint_initiative": "Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése.",
     "original": "A Seek a HHMI Tangled Bank Studios, a Netflix Our Planet - Bolygónk Csodái és a WFF támogatásával jött létre.",
     "designed_by": "Tervezte és feljesztette az iNaturalist csapata:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary és Yaron Budowski. Külön köszönet Grant Van Horn-nak a Visipedia-tól a computer vision technológia terén nyújtott segítségért, és az iNaturalist közösségének.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein és Yaron Budowski. Külön köszönet Grant Van Horn-nak a Visipedia-tól a számítógépes látás terén nyújtott segítségért, és az iNaturalist közösségének.",
     "version": "Verzió",
     "help": "A Seek használatával kapcsolatos segítségért írjon a help+seek@inaturalist.org címre.",
     "translators": "Hálásak vagyunk a honosításban nyújtott segítségért a crowdin.com közösségnek, különösen: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -686,7 +686,7 @@
     "seasonality_option_1": "Szezonalitás megjelenítése az iNaturalist globális megfigyelései alapján",
     "seasonality_option_2": "Szezonalitás megjelenítése az iNaturalist közeli megfigyelései alapján (ha a faj nem volt megfigyelhető a közelben, akkor nincs szezonalitás)",
     "donate_ios": "Látogass el a következő linkre, hogy támogasd a Seek-et:",
-    "change_language": "Átváltod az alkalmazás nyelvét erre? {{language}}",
+    "change_language": "Átváltod az alkalmazás nyelvét erre: {{language}}?",
     "confirm": "Megerősítés"
   },
   "seek_challenges": {
@@ -855,7 +855,7 @@
     "logged_in_bullet_3": "A Seek megfigyeléseid NEM kerültek elmentésre az iNaturalist-ra. A Seek törlése egyben megfigyeléseidet is törli készülékedről.",
     "upload_and_track_obs_using_inat": "Töltsd fel és kövesd megfigyeléseidet az iNaturalist appal vagy az inaturalist.org oldalon.\n\nKöszönjük, hogy a közösség tagja vagy!",
     "x_seen_by_user": "{{user}} megfigyelte: {{speciesName}}",
-    "about_inat_internet_error": "Bej vagy jelentkezve az iNaturalist-ra, de a részletek megjelenítéséhez internet kapcsolat szükséges. Próbáld újra!"
+    "about_inat_internet_error": "Be vagy jelentkezve az iNaturalist-ra, de a részletek megjelenítéséhez internet kapcsolat szükséges. Próbáld újra!"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Ízeltlábú Ragadozó Kihívás",
@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Seek évértékelő",
     "description": "Köszönjük, hogy használtad a Seek-et ebben az évben! Kérlek tekintsd meg személyes évértékelődet:",
-    "button": "Seek évértékelőm megtekintése"
+    "button": "Seek évértékelőm megtekintése",
+    "in_year_observed": "{{year}} évben megfigyeltél",
+    "x_new_species": {
+      "one": "{{count}} új faj",
+      "two": "{{count}} új faj",
+      "few": "{{count}} új faj",
+      "many": "{{count}} új faj",
+      "other": "{{count}} új faj"
+    },
+    "top_species": "Top fajok",
+    "observations": "Megfigyelések",
+    "observations_by_month": "Megfigyelések havonta",
+    "observations_map": "Megfigyelési térkép",
+    "view_observations_map": "Megfigyelési térkép megtekintése",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+    },
+    "uploaded_observations_text_2": "Köszönjük közösségi hozzájárulásodat!",
+    "observed_in": "{{speciesName}} megfigyelve itt: {{place}}",
+    "observed_on": "{{speciesName}} megfigyelve ekkor: {{date}}",
+    "challenges": "Kihívások",
+    "x_challenges_earned_text": {
+      "one": "You earned {{count}} challenge badge in {{year}}.",
+      "two": "You earned {{count}} challenge badges in {{year}}.",
+      "few": "You earned {{count}} challenge badges in {{year}}.",
+      "many": "You earned {{count}} challenge badges in {{year}}.",
+      "other": "You earned {{count}} challenge badges in {{year}}."
+    },
+    "thank_you": "Köszönjük, hogy a Seek-et használod! Reméljük ez emlékeztet mindazokra az érdekes fajokra, amelyekkel ebben az évben találkoztál.",
+    "consider_donation": "Kis csapatunk nagyra értékeli a Seek iránt érzett szereteted és lelkesedésed. Ha szeretnéd támogatni fejlődésünket, támogasd adományoddal az iNaturalist-ot:",
+    "donate": "Támogatás"
   }
 }

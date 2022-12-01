@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society.",
     "original": "Seek blev oprindeligt til med støtte fra OurPlanet på Netflix og HHMI Tangled Bank Studios.",
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Grant Van Horn fra Visipedia for hjælp med teknologien til computer-billedgenkendelse og iNaturalist-fællesskabet.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, og Yaron Budowski. En særlig tak til Grant Van Horn fra Visipedia for hjælp med teknologien til computer-billedgenkendelse og iNaturalist-fællesskabet.",
     "version": "Version",
     "help": "Har du brug for hjælp med Seek, kan du sende en e-mail til help+seek@inaturalist.org.",
     "translators": "Vi er taknemmelige for den oversættelseshjælp, der er ydet af crowdin.com-fællesskabet, især: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch og Yulia Lygina.",
@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Seek-året der gik",
     "description": "Tak for at bruge Seek i år! Tjek din personlige Året der gik her:",
-    "button": "Se min Seek-gennemgang"
+    "button": "Se min Seek-gennemgang",
+    "in_year_observed": "I {{year}} observerede du",
+    "x_new_species": {
+      "one": "{{count}} nye arter",
+      "two": "{{count}} nye arter",
+      "few": "{{count}} nye arter",
+      "many": "{{count}} nye arter",
+      "other": "{{count}} nye arter"
+    },
+    "top_species": "Toparter",
+    "observations": "Observationer",
+    "observations_by_month": "Observationer efter måned",
+    "observations_map": "Observationskort",
+    "view_observations_map": "Se observationer på kort",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "Du tilføjede {{count}} observation til iNaturalist ved hjælp af Seek i {{year}}.",
+      "two": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+      "few": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+      "many": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",
+      "other": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}."
+    },
+    "uploaded_observations_text_2": "Tak for at bidrage til vores fællesskab!",
+    "observed_in": "{{speciesName}} observeret i {{place}}",
+    "observed_on": "{{speciesName}} observeret {{date}}",
+    "challenges": "Udfordringer",
+    "x_challenges_earned_text": {
+      "one": "Du optjente {{count}} udfordringsmærke i {{year}}.",
+      "two": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+      "few": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+      "many": "Du optjente {{count}} udfordringsmærker i {{year}}.",
+      "other": "Du optjente {{count}} udfordringsmærker i {{year}}."
+    },
+    "thank_you": "Tak fordi du bruger Seek! Vi håber, at dette vil minde dig om alle de interessante arter, du mødte i år.",
+    "consider_donation": "Som et lille team sætter vi stor pris på al din kærlighed og entusiasme for Seek. Hvis du gerne vil støtte os i vores vækst, så overvej at donere til iNaturalist:",
+    "donate": "Donér"
   }
 }

@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Обзор года в Seek",
     "description": "Спасибо за использование Seek в этом году! Ознакомьтесь с вашим персональным обзором за год здесь:",
-    "button": "Посмотреть мой обзор Seek"
+    "button": "Посмотреть мой обзор Seek",
+    "in_year_observed": "В {{year}} году вы наблюдали",
+    "x_new_species": {
+      "one": "{{count}} новый вид",
+      "two": "{{count}} новых вида",
+      "few": "{{count}} новых видов",
+      "many": "{{count}} новых видов",
+      "other": "{{count}} новых видов"
+    },
+    "top_species": "Больше всего видов",
+    "observations": "Наблюдения",
+    "observations_by_month": "Наблюдения по месяцам",
+    "observations_map": "Карта наблюдений",
+    "view_observations_map": "Посмотреть карту наблюдений",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдение iNaturalist",
+      "two": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдения iNaturalist",
+      "few": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдений iNaturalist",
+      "many": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдений iNaturalist",
+      "other": "С помощью Seek вы опубликовали в {{year}} году наблюдений iNaturalist: {{count}}"
+    },
+    "uploaded_observations_text_2": "Спасибо за вклад в наше сообщество!",
+    "observed_in": "{{speciesName}} наблюдался в {{place}}",
+    "observed_on": "Наблюдение {{speciesName}} произошло {{date}}",
+    "challenges": "Испытания",
+    "x_challenges_earned_text": {
+      "one": "В {{year}} году вы заработали {{count}} значок испытаний.",
+      "two": "В {{year}} году вы заработали {{count}} значка испытаний.",
+      "few": "В {{year}} году вы заработали {{count}} значков испытаний.",
+      "many": "В {{year}} году вы заработали {{count}} значков испытаний.",
+      "other": "В {{year}} году вы заработали {{count}} значков испытаний."
+    },
+    "thank_you": "Спасибо, что использовали Seek! Надеемся, что это напомнит вам все интересные виды, которые вы встретили в этом году.",
+    "consider_donation": "Будучи небольшой командой, мы очень ценим вашу любовь и энтузиазм в Seek. Если вы хотите поддержать нас по мере нашего роста, пожалуйста, поддержите iNaturalist:",
+    "donate": "Поддержать"
   }
 }

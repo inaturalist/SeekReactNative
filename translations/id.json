@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist adalah inisiatif gabungan dari California Academy of Sciences dan National Geographic Society.",
     "original": "Seek pada awalnya dibuat dengan dukungan HHMI Tangled Bank Studios dan ditingkatkan dengan dukungan dari Our Planet di Netflix dan WWF.",
     "designed_by": "Didesain & dikembangkan oleh tim iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, dan Yaron Budowski. Terima kasih khususnya kepada Grant Van Horn dari Visipedia untuk bantuannya atas teknologi penglihatan komputer, dan juga komunitas iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, dan Yaron Budowski. Terima kasih khususnya kepada Grant Van Horn dari Visipedia untuk bantuannya atas teknologi penglihatan komputer, dan juga komunitas iNaturalist.",
     "version": "Versi",
     "help": "Untuk bantuan tentang Seek, silakan email help+seek@inaturalist.org.",
     "translators": "Kami berterima kasih atas bantuan terjemahan yang diberikan oleh komunitas crowdin.com, khususnya: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, dan Yulia Lygina.",
@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Kilas Balik Satu Tahun Seek",
     "description": "Terima kasih sudah menggunakan Seek tahun ini! Cek Kilas Balik Anda Tahun Ini di sini:",
-    "button": "Lihat Kilas Balik Seek Anda"
+    "button": "Lihat Kilas Balik Seek Anda",
+    "in_year_observed": "Pada {{year}}, kamu mengamati",
+    "x_new_species": {
+      "one": "{{count}} spesies baru",
+      "two": "{{count}} spesies baru",
+      "few": "{{count}} spesies baru",
+      "many": "{{count}} spesies baru",
+      "other": "{{count}} spesies baru"
+    },
+    "top_species": "Spesies Teratas",
+    "observations": "Pengamatan",
+    "observations_by_month": "Pengamatan / Bulan",
+    "observations_map": "Peta Pengamatan",
+    "view_observations_map": "Lihat Peta Pengamatan",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "two": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "few": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "many": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
+      "other": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}."
+    },
+    "uploaded_observations_text_2": "Terima kasih sudah berkontribusi kepada komunitas kami!",
+    "observed_in": "{{speciesName}} diamati di {{place}}",
+    "observed_on": "{{speciesName}} diamati pada {{date}}",
+    "challenges": "Tantangan",
+    "x_challenges_earned_text": {
+      "one": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "two": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "few": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "many": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}.",
+      "other": "Kamu telah mendapatkan {{count}} lencana tantangan pada {{year}}."
+    },
+    "thank_you": "Terima kasih sudah menggunakan Seek! Kami harap ini mengingatkan kamu semua akan spesies-spesies menarik yang telah kamu temui tahun ini.",
+    "consider_donation": "Sebagai tim kecil, kami sangat mengapresiasi dukungan dan antusiasme kalian untuk Seek. Jika kamu ingin mendukung kami seiring perkembangan kami, pertimbangkan untuk menyumbang kepada iNaturalist:",
+    "donate": "Sumbang"
   }
 }

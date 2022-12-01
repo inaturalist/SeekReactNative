@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist є спільною ініціативою Каліфорнійської академії наук та Національного географічного товариства.",
     "original": "Seek був створений за підтримки HHMI Tangled Bank Studios та розширений за підтримки Our Planet на Netflix та WWF.",
     "designed_by": "Розроблено командою iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein and Yaron Budowski. Особлива подяка Grant Van Horn з Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, i Yaron Budowski. Особлива подяка Grant Van Horn з Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
     "version": "Версія",
     "help": "Для отримання допомоги в роботі з Seek, будь ласка, напишіть на електронну пошту help+seek@inaturalist.org.",
     "translators": "Ми вдячні за допомогу в перекладі, спільноті crowdin.com, зокрема: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Огляд року в Seek",
     "description": " Дякуємо за використання Seek цього року! Перегляньте свій персоналізований огляд року тут:",
-    "button": "Переглянути мій огляд Seek"
+    "button": "Переглянути мій огляд Seek",
+    "in_year_observed": "В {{year}}, ви спостерігали",
+    "x_new_species": {
+      "one": "{{count}} новий вид",
+      "two": "{{count}} нові види",
+      "few": "{{count}} нових видів",
+      "many": "{{count}} нових видів",
+      "other": "{{count}} нові види"
+    },
+    "top_species": "Топ види",
+    "observations": "Спостереження",
+    "observations_by_month": "Спостережень за Місяць",
+    "observations_map": "Карта Спостережень",
+    "view_observations_map": "Переглянути Карту Спостережень",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}.",
+      "two": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}.",
+      "few": "Ви опублікували {{count}} спостережень в iNaturalist за допомогою Seek у {{year}}.",
+      "many": "Ви опублікували {{count}} спостережень в iNaturalist за допомогою Seek у {{year}}.",
+      "other": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}."
+    },
+    "uploaded_observations_text_2": "Дякуємо за внесок у нашу спільноту!",
+    "observed_in": "{{speciesName}} спостерігався у {{place}}",
+    "observed_on": "{{speciesName}} було спостережено {{date}}",
+    "challenges": "Виклики",
+    "x_challenges_earned_text": {
+      "one": "За {{year}} ви отримали {{count}} значок випробувань.",
+      "two": "За {{year}} ви отримали {{count}} значки випробувань.",
+      "few": "За {{year}} ви отримали {{count}} значків випробувань.",
+      "many": "За {{year}} ви отримали {{count}} значків випробувань.",
+      "other": "За {{year}} ви отримали {{count}} значків випробувань."
+    },
+    "thank_you": "Дякуємо за використання Seek! Сподіваємось, це нагадає вам про всі цікаві види, які ви зустріли цього року.",
+    "consider_donation": "Як невелика команда, ми дуже цінуємо вашу любов і ентузіазм до Seek. Якщо ви хочете підтримати нас, коли ми розвиваємося, будь ласка, зробіть пожертву iNaturalist:",
+    "donate": "Підтримати"
   }
 }

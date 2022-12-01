@@ -568,7 +568,7 @@
     "joint_initiative": "iNaturalist on Kalifornian tiedeakatemian ja National Geographic Societyn yhteishanke.",
     "original": "Seek on alun perin luotu HHMI Tangled Bank Studios -tuella ja sitä on paranneltu Netflixin Our Planet -sarjan ja WWF:n tuella.",
     "designed_by": "INaturalist-tiimin suunnittelema ja kehittämä:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ja Yaron Budowski. Erityiset kiitokset Visipedian Grant Van Hornille avusta konenäköteknologian kanssa ja iNaturalist-yhteisölle.",
+    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, ja Yaron Budowski. Erityiset kiitokset Visipedian Grant Van Hornille avusta konenäköteknologian kanssa ja iNaturalist-yhteisölle.",
     "version": "Versio",
     "help": "Jos tarvitset apua Seekin kanssa, lähetä sähköpostia osoitteeseen help+seek@inaturalist.org.",
     "translators": "Olemme kiitollisia crowdin.com-yhteisön tarjoamasta käännösavusta, erityisesti: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr. Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch ja Yulia Lygina.",
@@ -960,6 +960,41 @@
   "seek_year_in_review": {
     "header": "Seek Year in Review",
     "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review"
+    "button": "View my Seek Review",
+    "in_year_observed": "Vuonna {{year}}, havaitsit",
+    "x_new_species": {
+      "one": "{{count}} uusi laji",
+      "two": "{{count}} uutta lajia",
+      "few": "{{count}} uutta lajia",
+      "many": "{{count}} uutta lajia",
+      "other": "{{count}} uutta lajia"
+    },
+    "top_species": "Parhaat lajit",
+    "observations": "Havaintoa",
+    "observations_by_month": "Havainnot kuukausittain",
+    "observations_map": "Havainnot kartalla",
+    "view_observations_map": "Näytä havainnot kartalla",
+    "iNaturalist": "iNaturalist",
+    "x_uploaded_observations_text_1": {
+      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
+      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+    },
+    "uploaded_observations_text_2": "Kiitos osallistumisesta!",
+    "observed_in": "{{speciesName}} havaittu paikassa {{place}}",
+    "observed_on": "{{speciesName}} havaittu {{date}}",
+    "challenges": "Haasteet",
+    "x_challenges_earned_text": {
+      "one": "You earned {{count}} challenge badge in {{year}}.",
+      "two": "You earned {{count}} challenge badges in {{year}}.",
+      "few": "You earned {{count}} challenge badges in {{year}}.",
+      "many": "You earned {{count}} challenge badges in {{year}}.",
+      "other": "You earned {{count}} challenge badges in {{year}}."
+    },
+    "thank_you": "Kiitos, että käytät Seekiä! Toivomme, että tämä yhteenveto toi mieleen kaikki mielenkiintoiset havainnot, jotka teit tänä vuonna.",
+    "consider_donation": "Olemme pieni tiimi ja arvostamme suuresti innostustasi Seekiin. Jos haluat tukea meitä, harkitse lahjoittamista iNaturalistille:",
+    "donate": "Lahjoita"
   }
 }

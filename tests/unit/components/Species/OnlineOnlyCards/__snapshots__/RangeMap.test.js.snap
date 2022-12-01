@@ -126,8 +126,10 @@ exports[`RangeMap should change map region to user's location when button is pre
     onRegionChangeComplete={[Function]}
     region={
       {
-        "latitude": 42.1234567,
-        "longitude": 42.1234567,
+        "latitude": 42.42,
+        "latitudeDelta": 0.2,
+        "longitude": 42.42,
+        "longitudeDelta": 0.2,
       }
     }
     style={

@@ -92,9 +92,11 @@ jest.mock( "realm", () => {
           objects: jest.fn( ( table ) => {
             switch ( table ) {
               case "LoginRealm":
-                return [{ observationCount: 142 }];
+                return [{ observationCount: 42 }];
               case "NotificationRealm":
                 return [];
+              case "TaxonRealm":
+                return new Array( 42 );
               default:
                 break;
             }

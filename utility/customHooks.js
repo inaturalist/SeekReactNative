@@ -440,6 +440,25 @@ const useUploadedObservationCount = ( {
   return observationCount;
 };
 
+// TODO: this is the same as in useFetchAchievements
+const useSpeciesCount = (): any => {
+  const [speciesCount, setSpeciesCount] = useState( null );
+  useEffect( () => {
+    const fetchSpeciesCount = async () => {
+      try {
+        const realm = await Realm.open( realmConfig );
+        const count = realm.objects( "TaxonRealm" ).length;
+        setSpeciesCount( count );
+      } catch ( e ) {
+        console.log( e, "couldn't open realm for fetching species count" );
+      }
+    };
+    fetchSpeciesCount();
+  }, [] );
+
+  return speciesCount;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -452,5 +471,6 @@ export {
   useInternetStatus,
   useEmulator,
   useFetchUserSettings,
-  useUploadedObservationCount
+  useUploadedObservationCount,
+  useSpeciesCount
 };

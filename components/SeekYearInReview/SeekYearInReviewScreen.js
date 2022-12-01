@@ -21,7 +21,8 @@ import {
   useFetchChallengesForYear
 } from "./hooks/seekYearInReviewHooks";
 import {
-  useUploadedObservationCount
+  useUploadedObservationCount,
+  useSpeciesCount
 } from "../../utility/customHooks";
 
 import badgeImages from "../../assets/badges";
@@ -83,9 +84,10 @@ const SeekYearInReviewScreen = (): Node => {
   const { userProfile, login } = useContext( UserContext );
 
   const count = useUploadedObservationCount( { login, username: userProfile?.login, year } );
-  const state = useFetchStats( year );
   const countObservationsThisYear = useCountObservationsForYear( year );
   const {challengeBadges, challengeCount} = useFetchChallengesForYear( year );
+  const state = useFetchStats( year );
+  const speciesCount = useSpeciesCount( );
 
   const navToDonation = () =>
     navigate( "Donation", { utmCampaign: `${year}-year-in-review` } );

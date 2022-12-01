@@ -67,9 +67,7 @@ const useFetchStats = ( year ): any => {
     observationsThisYear: [],
     topThreeSpeciesBadges: [],
     randomObservations: [],
-    histogram: [],
-    // TODO: this is the same as in useFetchAchievements, refactor out
-    speciesCount: null
+    histogram: []
   } );
 
   useEffect( () => {
@@ -79,8 +77,6 @@ const useFetchStats = ( year ): any => {
         const lastOfYear = () => new Date( year, 11, 31, 23, 59, 59 );
 
         const realm = await Realm.open( realmConfig );
-
-        const speciesCount = realm.objects( "TaxonRealm" ).length;
 
         // TODO: get observations from above useObservationsForYear hook
         const observations = realm.objects( "ObservationRealm" );
@@ -164,8 +160,7 @@ const useFetchStats = ( year ): any => {
           observationsThisYear,
           topThreeSpeciesBadges,
           randomObservations,
-          histogram,
-          speciesCount
+          histogram
         } );
       } catch ( e ) {
         console.log( e, "couldn't open realm for fetching year in review stats" );

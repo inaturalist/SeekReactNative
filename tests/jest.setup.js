@@ -82,3 +82,24 @@ jest.mock( "react-native-geocoder", () => ( {
     } );
   } )
 } ) );
+
+jest.mock( "realm", () => {
+  const actualRealm = jest.requireActual( "realm" );
+  actualRealm.open = jest.fn(
+    ( config ) =>
+      new Promise( ( resolve ) => {
+        resolve( {
+          objects: jest.fn( ( table ) => {
+            switch ( table ) {
+              case "LoginRealm":
+                return [{ observationCount: 142 }];
+              default:
+                break;
+            }
+          } ),
+          write: jest.fn( () => {} )
+        } );
+      } )
+  );
+  return actualRealm;
+} );

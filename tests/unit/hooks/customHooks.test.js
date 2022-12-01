@@ -15,17 +15,6 @@ jest.mock( "inaturalistjs", () => ( {
   }
 } ) );
 
-jest.mock( "realm", () => {
-  const actualRealm = jest.requireActual( "realm" );
-  actualRealm.open = jest.fn( ( config ) => new Promise( ( resolve ) =>  {
-    resolve( {
-      objects: jest.fn( ( ) => [{ observationCount: 142 }] ),
-      write: jest.fn( ( ) => { } )
-    } );
-  } ) );
-  return actualRealm;
-} );
-
 const login = "some-token";
 const username = "some-username";
 const year = 2021;

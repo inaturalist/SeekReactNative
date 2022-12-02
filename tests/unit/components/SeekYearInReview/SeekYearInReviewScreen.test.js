@@ -14,7 +14,7 @@ import {
 import { useUploadedObservationCount } from "../../../../utility/customHooks";
 
 const mockNavigate = {
-  navigate: jest.fn( )
+  navigate: jest.fn()
 };
 
 jest.mock( "@react-navigation/native", () => {

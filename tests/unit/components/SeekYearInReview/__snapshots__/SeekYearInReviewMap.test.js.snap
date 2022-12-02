@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeekYearInReviewScreen should render correctly 1`] = `
+[
+  <AIRMap
+    initialRegion={
+      {
+        "latitude": 0.21,
+        "latitudeDelta": 84.42,
+        "longitude": 0.21,
+        "longitudeDelta": 84.42,
+      }
+    }
+    onChange={[Function]}
+    onMapReady={[Function]}
+    onPress={[Function]}
+    region={
+      {
+        "latitude": 0.21,
+        "latitudeDelta": 84.42,
+        "longitude": 0.21,
+        "longitudeDelta": 84.42,
+      }
+    }
+    rotateEnabled={false}
+    scrollEnabled={false}
+    style={
+      {
+        "height": 189,
+        "marginBottom": 20,
+      }
+    }
+    zoomEnabled={false}
+  >
+    <AIRMapMarker
+      coordinate={
+        {
+          "latitude": 42,
+          "longitude": -42,
+        }
+      }
+      onPress={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "position": "absolute",
+          },
+          undefined,
+        ]
+      }
+      testID="some-uuid1"
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/icon-camerabutton-onmap.webp",
+          }
+        }
+      />
+    </AIRMapMarker>
+    <AIRMapMarker
+      coordinate={
+        {
+          "latitude": -42,
+          "longitude": 42,
+        }
+      }
+      onPress={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "position": "absolute",
+          },
+          undefined,
+        ]
+      }
+      testID="some-uuid2"
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/icon-camerabutton-onmap.webp",
+          }
+        }
+      />
+    </AIRMapMarker>
+    <AIRMapMarker
+      coordinate={
+        {
+          "latitude": 42,
+          "longitude": 42,
+        }
+      }
+      onPress={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "position": "absolute",
+          },
+          undefined,
+        ]
+      }
+      testID="some-uuid3"
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/icon-camerabutton-onmap.webp",
+          }
+        }
+      />
+    </AIRMapMarker>
+    <AIRMapMarker
+      coordinate={
+        {
+          "latitude": 42.42,
+          "longitude": 42.42,
+        }
+      }
+      onPress={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "position": "absolute",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/icon-location-onmap.webp",
+          }
+        }
+      />
+    </AIRMapMarker>
+  </AIRMap>,
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "center",
+        "backgroundColor": "#38976d",
+        "borderRadius": 34,
+        "height": 79,
+        "justifyContent": "center",
+        "maxWidth": 317,
+        "opacity": 1,
+        "width": 317,
+      }
+    }
+    testID="greenButton"
+  >
+    <Text
+      allowFontScaling={true}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Whitney-Semibold",
+              "fontSize": 18,
+              "letterSpacing": 1,
+              "paddingTop": 3,
+              "textAlign": "center",
+            },
+            {
+              "letterSpacing": 1,
+            },
+            {
+              "fontSize": 18,
+            },
+          ],
+        ]
+      }
+    >
+      VIEW OBSERVATIONS MAP
+    </Text>
+  </View>,
+]
+`;

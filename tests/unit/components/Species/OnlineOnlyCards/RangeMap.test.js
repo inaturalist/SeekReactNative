@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react-native";
+import { render, screen, fireEvent } from "tests/jest-utils";
 
 import RangeMap from "../../../../../components/Species/OnlineOnlyCards/RangeMap";
 

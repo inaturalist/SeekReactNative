@@ -1,12 +1,12 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react-native";
+import { render, screen, fireEvent } from "tests/jest-utils";
 
 import UserLoginProvider from "../../../../../components/Providers/UserLoginProvider";
 import INatSignOut from "../../../../../components/UIComponents/Login/iNatSignOut";
 
-function renderButton( user ) {
+function renderWithoutUser() {
   return render(
-    <UserLoginProvider value={user}>
+    <UserLoginProvider value={{}}>
       <INatSignOut />
     </UserLoginProvider>
   );
@@ -14,23 +14,15 @@ function renderButton( user ) {
 
 describe( "iNatSignOut", () => {
   test( "should render correctly", async () => {
-    renderButton();
+    renderWithoutUser();
     await screen.findByText( "SIGN OUT OF INATURALIST" );
     expect( screen ).toMatchSnapshot();
   } );
 
   test( "press signs the user out", () => {
-    const user = {
-      login: "some_token",
-      userProfile: {
-        login: "some_name",
-        icon: "some_photo"
-      }
-    };
-
-    renderButton( user );
+    render( <INatSignOut /> );
     const button = screen.getByText( "SIGN OUT OF INATURALIST" );
     fireEvent.press( button );
-    // TODO: test that the user is signed out
+    // TODO: should mock the sign out function and test that it was called
   } );
 } );

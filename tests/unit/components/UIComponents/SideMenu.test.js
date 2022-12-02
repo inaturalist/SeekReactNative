@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react-native";
+import { render, screen } from "tests/jest-utils";
 
 import SideMenu from "../../../../components/UIComponents/SideMenu";
 

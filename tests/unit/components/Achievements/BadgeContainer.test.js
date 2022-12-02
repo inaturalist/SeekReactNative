@@ -1,5 +1,6 @@
 import React from "react";
-import { render, screen } from "@testing-library/react-native";
+import { render, screen } from "tests/jest-utils";
+
 import BadgeContainer from "../../../../components/Achievements/BadgeContainer";
 
 const containerID = "badge-container";

@@ -1,25 +1,15 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react-native";
+import { render, screen, fireEvent } from "tests/jest-utils";
 import { Alert } from "react-native";
 
 import LanguagePicker from "../../../../components/Settings/LanguagePicker";
-import { LanguageContext } from "../../../../components/UserContext";
 import { toggleLanguage } from "../../../../utility/settingsHelpers";
 
 // Mock the hooks
 jest.mock( "../../../../utility/settingsHelpers" );
 
 const renderPicker = () => {
-  render(
-    <LanguageContext.Provider
-      value={{
-        preferredLanguage: "en",
-        toggleLanguagePreference: jest.fn()
-      }}
-    >
-      <LanguagePicker />
-    </LanguageContext.Provider>
-  );
+  render( <LanguagePicker /> );
 };
 
 const pickerID = "picker";

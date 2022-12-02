@@ -1,10 +1,8 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react-native";
+import { render, screen, fireEvent } from "tests/jest-utils";
 
 import SeekYearInReviewScreen from "../../../../components/SeekYearInReview/SeekYearInReviewScreen";
 import {
-  SpeciesDetailContext,
-  AppOrientationContext,
   UserContext
 } from "../../../../components/UserContext";
 import {
@@ -223,11 +221,7 @@ const renderScreen = ( {
     } ) => {
   return render(
     <UserContext.Provider value={{ login }} >
-      <AppOrientationContext.Provider value={{}} >
-        <SpeciesDetailContext.Provider value={{}} >
-          <SeekYearInReviewScreen />
-        </SpeciesDetailContext.Provider>
-      </AppOrientationContext.Provider>
+      <SeekYearInReviewScreen />
     </UserContext.Provider>
   );
 };

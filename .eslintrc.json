@@ -10,5 +10,10 @@
   // need this so jest doesn't show as undefined in jest.setup.js
   "env": {
     "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": { "allowExistingDirectories": true }
+    }
   }
 }

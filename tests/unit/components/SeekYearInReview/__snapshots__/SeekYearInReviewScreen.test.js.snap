@@ -1316,9 +1316,347 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         }
       >
         <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            [
+              {
+                "alignSelf": "center",
+                "height": 48,
+                "marginBottom": 32,
+                "marginTop": 40,
+                "paddingTop": 8,
+                "width": 284,
+              },
+              false,
+            ]
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/icons/img-titlebanner.webp",
+              }
+            }
+            style={
+              [
+                {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                {
+                  "height": 48,
+                  "width": 284,
+                },
+                undefined,
+              ]
+            }
+          />
+          <Text
+            allowFontScaling={false}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#ffffff",
+                  "fontFamily": "Whitney-Semibold",
+                  "fontSize": 19,
+                  "letterSpacing": 1.12,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            CHALLENGES
+          </Text>
+        </View>
+        <Text
+          style={
+            [
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#000000",
+                "fontFamily": "Whitney-Medium",
+                "fontSize": 19,
+                "lineHeight": 24,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            You 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            earned 
+          </Text>
+          <Text
+            allowFontScaling={true}
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Whitney-Semibold",
+                    "fontSize": 19,
+                    "letterSpacing": 1.12,
+                    "lineHeight": 23,
+                  },
+                  false,
+                  false,
+                  null,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            3 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            challenge 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            badges 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            in 
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Medium",
+                  "fontSize": 19,
+                  "lineHeight": 24,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            2022. 
+          </Text>
+        </Text>
+        <View
           style={
             {
               "height": 45,
+            }
+          }
+        />
+        <View>
+          <View
+            style={
+              [
+                {
+                  "alignSelf": "center",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "center",
+                  "width": 377.20734908136484,
+                },
+              ]
+            }
+            testID="badge-container"
+          >
+            <View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    {
+                      "testUri": "../../../assets/badges/challenges/badge_ourplanet_april.webp",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 113.73578302712161,
+                      "marginHorizontal": 6,
+                      "resizeMode": "contain",
+                      "width": 113.73578302712161,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    {
+                      "testUri": "../../../assets/badges/challenges/badge_ourplanet_may.webp",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 113.73578302712161,
+                      "marginHorizontal": 6,
+                      "resizeMode": "contain",
+                      "width": 113.73578302712161,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    {
+                      "testUri": "../../../assets/badges/challenges/badge_ourplanet_june.webp",
+                    }
+                  }
+                  style={
+                    {
+                      "height": 113.73578302712161,
+                      "marginHorizontal": 6,
+                      "resizeMode": "contain",
+                      "width": 113.73578302712161,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "marginTop": 42,
             }
           }
         />

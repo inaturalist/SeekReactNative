@@ -7,15 +7,22 @@ import {
   AppOrientationContext,
   UserContext
 } from "../../../../components/UserContext";
-import { useFetchStats } from "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks";
+import {
+  useFetchStats,
+  useFetchChallengesForYear
+} from "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks";
 import { useUploadedObservationCount } from "../../../../utility/customHooks";
+
+const mockNavigate = {
+  navigate: jest.fn( )
+};
 
 jest.mock( "@react-navigation/native", () => {
   const actualNav = jest.requireActual( "@react-navigation/native" );
   return {
     ...actualNav,
     useNavigation: () => ( {
-      navigate: jest.fn(),
+      ...mockNavigate,
       dispatch: jest.fn(),
       // To intercept on focus listener
       addListener: ( event, callback ) => {
@@ -28,11 +35,11 @@ jest.mock( "@react-navigation/native", () => {
   };
 } );
 
-const state = {
+const mockState = {
   level: {
     count: 3,
     earned: true,
-    earnedDate: "2022-11-16T16:43:25.157Z",
+    earnedDate: new Date( "2022-11-16T16:43:25.157Z" ),
     earnedIconName: "levelbadge-3",
     iconicTaxonId: 0,
     iconicTaxonName: null,
@@ -66,7 +73,7 @@ const state = {
     {
       count: 5,
       earned: true,
-      earnedDate: "2022-11-16T12:08:56.328Z",
+      earnedDate: new Date( "2022-11-16T12:08:56.328Z" ),
       earnedIconName: "badge_plant_1",
       iconicTaxonId: 47126,
       iconicTaxonName: "taxon_picker.plants",
@@ -79,7 +86,7 @@ const state = {
     {
       count: 5,
       earned: true,
-      earnedDate: "2022-11-16T16:43:42.920Z",
+      earnedDate: new Date( "2022-11-16T16:43:42.920Z" ),
       earnedIconName: "badge_bird_1",
       iconicTaxonId: 3,
       iconicTaxonName: "taxon_picker.birds",
@@ -92,7 +99,7 @@ const state = {
     {
       count: 5,
       earned: true,
-      earnedDate: "2022-11-16T16:43:48.679Z",
+      earnedDate: new Date( "2022-11-16T16:43:48.679Z" ),
       earnedIconName: "badge_mammal_1",
       iconicTaxonId: 40151,
       iconicTaxonName: "taxon_picker.mammals",
@@ -120,13 +127,79 @@ const state = {
   ]
 };
 
+const mockChallenges = {
+  challengeBadges: [
+    {
+      "action": "challenges.action_april",
+      "availableDate": new Date( "2019-03-31T22:00:00.000Z" ),
+      "backgroundName": "img-challengedetail-april",
+      "badgeName": "challenges.badge_name_april",
+      "completedDate": new Date( "2022-04-31T22:00:00.000Z" ),
+      "description": "challenges.april_description",
+      "earnedIconName": "badge_ourplanet_april",
+      "index": 0,
+      "logo": "op",
+      "missions": [],
+      "name": "challenges.connectivity",
+      "numbersObserved": [],
+      "percentComplete": 100,
+      "photographer": "challenges.photographer_april",
+      "secondLogo": "wwfop",
+      "sponsorName": "Our Planet",
+      "startedDate": new Date( "2022-03-31T22:00:00.000Z" ),
+      "totalSpecies": 10
+    },
+    {
+      "action": "challenges.action_may",
+      "availableDate": new Date( "2019-04-30T22:00:00.000Z" ),
+      "backgroundName": "img-challengedetail-may",
+      "badgeName": "challenges.badge_name_may",
+      "completedDate": new Date( "2022-04-31T22:00:00.000Z" ),
+      "description": "challenges.may_description",
+      "earnedIconName": "badge_ourplanet_may",
+      "index": 1,
+      "logo": "op",
+      "missions": [],
+      "name": "challenges.biodiversity",
+      "numbersObserved": [],
+      "percentComplete": 100,
+      "photographer": "challenges.photographer_may",
+      "secondLogo": "wwfop",
+      "sponsorName": "Our Planet",
+      "startedDate": new Date( "2022-03-31T22:00:00.000Z" ),
+      "totalSpecies": 20
+    },
+    {
+      "action": "challenges.action_june",
+      "availableDate": new Date( "2019-05-31T22:00:00.000Z" ),
+      "backgroundName": "img-challengedetail-june",
+      "badgeName": "challenges.badge_name_june",
+      "completedDate": new Date( "2022-04-31T22:00:00.000Z" ),
+      "description": "challenges.june_description",
+      "earnedIconName": "badge_ourplanet_june",
+      "index": 2,
+      "logo": "op",
+      "missions": [],
+      "name": "challenges.productivity",
+      "numbersObserved": [],
+      "percentComplete": 100,
+      "photographer": "challenges.photographer_june",
+      "secondLogo": "wwfop",
+      "sponsorName": "Our Planet",
+      "startedDate": new Date( "2022-03-31T22:00:00.000Z" ),
+      "totalSpecies": 13
+    }
+  ],
+  challengeCount: 3
+};
+
 jest.mock(
   "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks",
   () => ( {
     __esModule: true,
-    useFetchStats: jest.fn( () => state ),
+    useFetchStats: jest.fn( () => mockState ),
     useCountObservationsForYear: jest.fn( () => 100 ),
-    useFetchChallengesForYear: jest.fn( () => [] )
+    useFetchChallengesForYear: jest.fn( () => mockChallenges )
   } )
 );
 
@@ -179,8 +252,12 @@ describe( "SeekYearInReviewScreen", () => {
     const iNatText2 = await screen.findByText( "Thank you for contributing to our community!" );
     expect( iNatText2 ).toBeTruthy();
     // Should show the donate section
-    const donateText2 = await screen.findByText( /Thank you for using Seek!/ );
+    const donateText1 = await screen.findByText( /Thank you for using Seek!/ );
+    expect( donateText1 ).toBeTruthy();
+    const donateText2 = await screen.findByText( /As a small team, we greatly appreciate/ );
     expect( donateText2 ).toBeTruthy();
+    const donateButton = await screen.findByText( "DONATE" );
+    expect( donateButton ).toBeTruthy();
     // Create snapshot
     expect( screen ).toMatchSnapshot();
 
@@ -234,7 +311,7 @@ describe( "SeekYearInReviewScreen", () => {
   } );
 
   test( "should not show top three badges information if there are no badges", async () => {
-    useFetchStats.mockReturnValue( { ...state, topThreeSpeciesBadges: [] } );
+    useFetchStats.mockReturnValue( { ...mockState, topThreeSpeciesBadges: [] } );
     const { unmount } = renderScreen();
     await screen.findByTestId( containerID );
 
@@ -248,12 +325,12 @@ describe( "SeekYearInReviewScreen", () => {
     expect( plants ).toBeNull();
 
     unmount();
-    useFetchStats.mockReturnValue( state );
+    useFetchStats.mockReturnValue( mockState );
   } );
 
   test( "should not show small observations map section with observations without coordinates", async () => {
     useFetchStats.mockReturnValue( {
-      ...state,
+      ...mockState,
       observationsThisYear: [
         {
           latitude: undefined,
@@ -270,7 +347,7 @@ describe( "SeekYearInReviewScreen", () => {
     expect( text ).toBeNull();
 
     unmount();
-    useFetchStats.mockReturnValue( state );
+    useFetchStats.mockReturnValue( mockState );
   } );
 
   test( "should not show iNaturalist section without login", async () => {
@@ -283,7 +360,7 @@ describe( "SeekYearInReviewScreen", () => {
     unmount();
   } );
 
-  test( "should show count of uploaded observations in iNaturalist section correctly", async () => {
+  test( "should show count of uploaded observations correctly", async () => {
     const { unmount } = renderScreen();
     await screen.findByTestId( containerID );
 
@@ -298,13 +375,48 @@ describe( "SeekYearInReviewScreen", () => {
     const { unmount } = renderScreen();
     await screen.findByTestId( containerID );
 
-    const text = await screen.queryByText( "60" );
-    expect( text ).toBeNull();
+    const uploadedCountText = await screen.queryByText( "60" );
+    expect( uploadedCountText ).toBeNull();
 
     unmount();
     useUploadedObservationCount.mockReturnValue( 60 );
   } );
 
-  // TODO: continue after SeekPhotos component
+  test( "should show count of challenge badges correctly", async () => {
+    const { unmount } = renderScreen();
+    await screen.findByTestId( containerID );
 
+    const challengesCountText = await screen.findByText( "3" );
+    expect( challengesCountText ).toBeTruthy();
+
+    unmount();
+  } );
+
+  test( "should not show challenges section without completed challenges", async () => {
+    useFetchChallengesForYear.mockReturnValue( {
+      challengeBadges: [],
+      challengeCount: 0
+    } );
+    const { unmount } = renderScreen();
+    await screen.findByTestId( containerID );
+
+    const challengesBanner = await screen.queryByText( "CHALLENGES" );
+    expect( challengesBanner ).toBeNull();
+
+    unmount();
+    useFetchChallengesForYear.mockReturnValue( mockChallenges );
+  } );
+
+  test( "should navigate to donate screen from button", async () => {
+    const { unmount } = renderScreen();
+    await screen.findByTestId( containerID );
+
+    const donateButton = await screen.findByText( "DONATE" );
+    fireEvent.press( donateButton );
+
+    const navigateSpy = jest.spyOn( mockNavigate, "navigate" );
+    expect( navigateSpy ).toHaveBeenCalledWith( "Donation", {"utmCampaign": "2022-year-in-review"} );
+
+    unmount();
+  } );
 } );

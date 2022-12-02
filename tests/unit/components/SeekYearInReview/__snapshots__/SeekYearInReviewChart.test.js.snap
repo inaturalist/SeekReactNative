@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeekYearInReviewChart should render correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "height": 150,
+    }
+  }
+  testID="year-in-review-chart-container"
+>
+  <View
+    style={
+      {
+        "borderBottomColor": "#297f87",
+        "borderBottomWidth": 2,
+        "flex": 1,
+        "marginBottom": 10,
+      }
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={
+        {
+          "flexGrow": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontFamily": undefined,
+            "fontSize": 18,
+            "fontWeight": undefined,
+            "opacity": 0,
+          }
+        }
+      >
+        J
+      </Text>
+    </View>
+  </View>
+</View>
+`;

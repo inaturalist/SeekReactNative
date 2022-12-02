@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeekYearInReviewPhotos should render correctly 1`] = `
+<View
+  testID="year-in-review-photos-container"
+>
+  <RCTScrollView
+    bounces={false}
+    contentContainerStyle={
+      {
+        "backgroundColor": "#000000",
+        "height": 250,
+      }
+    }
+    data={
+      [
+        <SeekYearInReviewPhotoItem
+          observation={
+            {
+              "date": 2022-12-02T10:19:54.000Z,
+              "latitude": 42,
+              "longitude": 42,
+              "taxon": {
+                "ancestorIds": [
+                  1,
+                  2,
+                  3,
+                ],
+                "defaultPhoto": {
+                  "backupUri": "some_uri",
+                  "lastUpdated": null,
+                  "mediumUrl": "some_medium_url",
+                },
+                "iconicTaxonId": 1,
+                "id": 4242,
+                "name": "some_name_1",
+                "preferredCommonName": "some_common_name_1",
+              },
+              "uuidString": "some_uuid_2",
+            }
+          }
+        />,
+        <SeekYearInReviewPhotoItem
+          observation={
+            {
+              "date": 2022-12-01T10:19:54.000Z,
+              "latitude": 42,
+              "longitude": 42,
+              "taxon": {
+                "ancestorIds": [
+                  1,
+                  2,
+                  3,
+                ],
+                "defaultPhoto": {
+                  "backupUri": "some_uri",
+                  "lastUpdated": null,
+                  "mediumUrl": "some_medium_url",
+                },
+                "iconicTaxonId": 1,
+                "id": 4242,
+                "name": "some_name_2",
+                "preferredCommonName": null,
+              },
+              "uuidString": "some_uuid_2",
+            }
+          }
+        />,
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={[Function]}
+    horizontal={true}
+    indicatorStyle="white"
+    initialNumToRender={1}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onViewableItemsChanged={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsHorizontalScrollIndicator={false}
+    stickyHeaderIndices={[]}
+    testID="horizontal-scroll"
+    viewabilityConfig={
+      {
+        "viewAreaCoveragePercentThreshold": 95,
+        "waitForInteraction": true,
+      }
+    }
+    viewabilityConfigCallbackPairs={
+      [
+        {
+          "onViewableItemsChanged": [Function],
+          "viewabilityConfig": {
+            "viewAreaCoveragePercentThreshold": 95,
+            "waitForInteraction": true,
+          },
+        },
+      ]
+    }
+  >
+    <View>
+      <View
+        style={
+          [
+            {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "some_uri",
+              }
+            }
+            style={
+              {
+                "height": 186,
+                "resizeMode": "cover",
+                "width": 750,
+              }
+            }
+          />
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Whitney-Book",
+                    "fontSize": 16,
+                    "lineHeight": 21,
+                    "textAlign": "center",
+                  },
+                  {
+                    "marginTop": 16,
+                    "maxWidth": 245,
+                    "textAlign": "center",
+                  },
+                ],
+              ]
+            }
+          >
+            some_common_name_1 observed on 12/2/2022
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "width": 750,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+  <View
+    accessibilityLabel="Scroll right"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+        "paddingLeft": 20,
+        "paddingRight": 5,
+        "paddingVertical": 20,
+        "position": "absolute",
+        "right": 0,
+        "top": 1010,
+        "zIndex": 1,
+      }
+    }
+    testID="right-arrow"
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/icons/img-swipearrow-right.webp",
+        }
+      }
+      style={
+        {
+          "transform": [
+            {
+              "rotate": "0deg",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;

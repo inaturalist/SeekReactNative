@@ -71,7 +71,7 @@ const SeekYearInReviewMap = ( { year, observations }: Props ): React.Node => {
             observations.map( ( obs ) => {
               const { latitude, longitude, uuidString } = obs;
               return (
-                <Marker key={uuidString} coordinate={{ latitude, longitude }}>
+                <Marker testID={uuidString} key={uuidString} coordinate={{ latitude, longitude }}>
                   <Image source={icons.cameraOnMap} />
                 </Marker>
               );

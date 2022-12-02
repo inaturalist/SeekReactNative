@@ -886,6 +886,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 undefined,
               ]
             }
+            testID="some-uuid1"
           >
             <Image
               source={
@@ -912,6 +913,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 undefined,
               ]
             }
+            testID="some-uuid2"
           >
             <Image
               source={
@@ -938,6 +940,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 undefined,
               ]
             }
+            testID="some-uuid3"
           >
             <Image
               source={

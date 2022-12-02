@@ -84,6 +84,7 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
       />
       {scrollIndex > 0 && (
         <TouchableOpacity
+          testID="left-arrow"
           accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
           accessible
           onPress={scrollLeft}
@@ -98,6 +99,7 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
       )}
       {scrollIndex < length && (
         <TouchableOpacity
+          testID="right-arrow"
           accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
           accessible
           onPress={scrollRight}

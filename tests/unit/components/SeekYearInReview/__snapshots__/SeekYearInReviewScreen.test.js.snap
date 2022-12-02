@@ -1307,7 +1307,9 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           }
         }
       />
-      <View />
+      <View
+        testID="year-in-review-photos-container"
+      />
       <View
         style={
           [

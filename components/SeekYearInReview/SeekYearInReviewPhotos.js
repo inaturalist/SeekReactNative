@@ -59,7 +59,7 @@ const SeekYearInReviewPhotos = ( { observations } ): Node => {
   const photoList = renderPhotos();
 
   return (
-    <View>
+    <View testID="year-in-review-photos-container">
       {photoList.length === 0 ? null : (
         <HorizontalScroll photoList={photoList} />
       )}

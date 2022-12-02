@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SeekYearInReviewScreen should render correctly 1`] = `
+exports[`SeekYearInReviewMap should render correctly 1`] = `
 [
   <AIRMap
     initialRegion={

@@ -46,7 +46,7 @@ const renderMap = () => {
   return render( <SeekYearInReviewMap year={year} observations={mockObservations} /> );
 };
 
-describe( "SeekYearInReviewScreen", () => {
+describe( "SeekYearInReviewMap", () => {
   test( "should render correctly", async () => {
     renderMap();
 

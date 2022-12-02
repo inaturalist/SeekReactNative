@@ -26,7 +26,14 @@ const AllTheProviders = ( { children } ) => {
         }}
       >
         <AppOrientationContext.Provider value={{}}>
-          <SpeciesDetailContext.Provider value={{}}>
+          <SpeciesDetailContext.Provider
+            value={{
+              id: 1,
+              region: {},
+              setId: jest.fn(),
+              setRegion: jest.fn()
+            }}
+          >
             {children}
           </SpeciesDetailContext.Provider>
         </AppOrientationContext.Provider>

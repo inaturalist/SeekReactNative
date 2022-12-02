@@ -108,6 +108,45 @@ jest.mock( "realm", () => {
                 ];
               case "TaxonRealm":
                 return new Array( 42 );
+              case "ObservationRealm":
+                return [
+                  {
+                    date: new Date( "2022-12-02T10:19:54.000Z" ),
+                    latitude: 42,
+                    longitude: 42,
+                    taxon: {
+                      ancestorIds: [1, 2, 3],
+                      defaultPhoto: {
+                        backupUri: "some_uri",
+                        lastUpdated: null,
+                        mediumUrl: "some_medium_url"
+                      },
+                      iconicTaxonId: 1,
+                      id: 4242,
+                      name: "some_name_1",
+                      preferredCommonName: "some_common_name_1"
+                    },
+                    uuidString: "some_uuid_2"
+                  },
+                  {
+                    date: new Date( "2022-12-02T10:19:54.000Z" ),
+                    latitude: 42,
+                    longitude: 42,
+                    taxon: {
+                      ancestorIds: [1, 2, 3],
+                      defaultPhoto: {
+                        backupUri: "some_uri",
+                        lastUpdated: null,
+                        mediumUrl: "some_medium_url"
+                      },
+                      iconicTaxonId: 1,
+                      id: 4242,
+                      name: "some_name_2",
+                      preferredCommonName: null
+                    },
+                    uuidString: "some_uuid_2"
+                  }
+                ];
               default:
                 break;
             }

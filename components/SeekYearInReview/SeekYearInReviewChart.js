@@ -52,7 +52,10 @@ const SeekYearInReviewChart = ( { data }: Props ): Node => {
   }, [data] );
 
   return (
-    <View style={styles.chartContainer}>
+    <View
+      testID="year-in-review-chart-container"
+      style={styles.chartContainer}
+    >
       <LineChart
         contentInset={styles.chartInset}
         data={data}

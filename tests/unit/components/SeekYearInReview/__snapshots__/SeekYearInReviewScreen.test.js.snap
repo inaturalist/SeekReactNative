@@ -756,6 +756,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               "height": 150,
             }
           }
+          testID="year-in-review-chart-container"
         >
           <View
             style={

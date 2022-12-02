@@ -68,6 +68,7 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
   return (
     <>
       <FlatList
+        testID="horizontal-scroll"
         ref={flatList}
         bounces={false}
         viewabilityConfig={viewConfigRef.current}

@@ -686,8 +686,8 @@
     "seasonality_option_1": "Mostrar estacionalidad basada en observaciones mundiales de iNaturalist",
     "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi ubicación actual (especies no encontradas cerca de mi ubicación no tendrán estacionalidad)",
     "donate_ios": "Por favor visita el siguiente enlace para hacer una donación a Seek:",
-    "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "change_language": "¿Cambiar el idioma de la aplicación a {{language}}?",
+    "confirm": "Confirmar"
   },
   "seek_challenges": {
     "badge": "Ver insignia",
@@ -855,7 +855,7 @@
     "logged_in_bullet_3": "Tus observaciones de Seek NO están copiadas en iNaturalist. Si borras Seek se borrarán todas las observaciones de tu dispositivo.",
     "upload_and_track_obs_using_inat": "Sube y da seguimiento a tus observaciones usando la aplicación iNaturalist o visitando inaturalist.org.\n\n¡Gracias por ser parte de esta comunidad!",
     "x_seen_by_user": "{{speciesName}} visto por {{user}}",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "Estás conectado a iNaturalist, pero necesitamos Internet para mostrar detalles. Pulsa para intentarlo de nuevo."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Desafio de Artrópodos Depredadores",
@@ -926,16 +926,16 @@
     "november_2022_mission_1": "Encuentre 4 especies de:\n\nFamilia Brassicaceae (Mostazas);\nFamilia Lamiaceae (Mentas);\nFamilia Poaceae (Pastos);\nOrden Blattodea (Cucarachas y Termitas);\nOrden Rodentia (Roedores);\nOrden Columbiformes (Palomas y parientes);\nFamilia Corvidae (Cuervos, Charas y parientes);\nGénero Passer (Gorriones);\nGénero Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
     "november_2022_description_some_species_well_adapted": "Algunas especies están bien adaptadas a las zonas desarrolladas. Incluso en las ciudades, se puede encontrar biodiversidad silvestre en grietas en el pavimento, lotes vacíos, al visitar jardines e incluso en nuestros hogares (tal vez como visitantes no deseados).",
     "november_2022_action_change_location": "Cambia la ubicación de \"especies cercas vistas\" para buscar en una ciudad lejos de ti. ¿Qué especies se ven cerca de allí? ¿Alguna de ellas es igual o similar a las especies que se ven cerca de ti?",
-    "december_2022_challenge_name_decomposers": "Decomposers Challenge"
+    "december_2022_challenge_name_decomposers": "Desafío de Descomponedores"
   },
   "seek_2023_challenges": {
-    "january_2023_challenge_name_habitats": "Habitats Challenge",
-    "february_2023_challenge_name_climate_change": "Climate Change Challenge",
-    "february_2023_description_climate_change": "Climate change is not just affecting the frozen worlds at our planet’s poles. Rising temperatures and changing weather patterns can cause species to move out of habitats that become uncomfortable and into new areas. It can also mean that changes linked to seasons (known as “phenology”) such as leaf fall and flowering start to take place at different times. This may cause problems for other species that are hard to predict. Seek out your local plant life and see how your local environment may be changing.",
-    "february_2023_action_climate_change": "Look up your favorite plant on the iNaturalist website and explore the “plant phenology” graph on its taxon page. These charts come from “annotations” for flower buds, flowers, or fruits on the observations posted to iNaturalist. You can help add them by logging in on the iNaturalist website.",
-    "march_2023_challenge_name_lakes_ponds": "Lakes and Ponds Challenge",
-    "april_2023_challenge_name_nature": "Nature Challenge",
-    "april_2023_description_nature": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns, and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.",
+    "january_2023_challenge_name_habitats": "Desafío de Hábitats",
+    "february_2023_challenge_name_climate_change": "Desafío de Cambio Climático",
+    "february_2023_description_climate_change": "El Cambio Climático no sólo está afectando a los lugares congelados en los polos de nuestro planeta. El aumento de las temperaturas y el cambio de los patrones meteorológicos pueden hacer que las especies salgan de los hábitats que se vuelven inadecuados y se muevan a nuevas zonas. También puede significar que los cambios relacionados con las estaciones (conocidos como “fenología”) como la caída de las hojas y la floración comienzan a producirse en diferentes momentos. Esto puede causar problemas que son dificiles de predecir a otras especies. Busca en tus plantas locales  y mira cómo su ambiente puede estar cambiando.",
+    "february_2023_action_climate_change": "Busca tu planta favorita en el sitio web de iNaturalist y explora la gráfica de “fenología de la Planta” en su página de taxón. Estos gráficos provienen de “anotaciones” para yemas florales, flores o frutos en las observaciones publicadas a iNaturalist. Puedes ayudarlos a añadirlos iniciando sesión en el sitio web de iNaturalist.",
+    "march_2023_challenge_name_lakes_ponds": "Desafío de Lagos y Estanques",
+    "april_2023_challenge_name_nature": "Desafío de la Naturaleza",
+    "april_2023_description_nature": "¡No estamos solos en nuestro planeta! La vida silvestre siempre está a nuestro alrededor si no la vemos. En nuestras casas, jardines, pueblos y ciudades hay mundos ocultos por descubrir. Busque dentro y alrededor de tu casa, y puede sorprenderte cuántos vecinos silvestres encuentras.",
     "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
     "may_2023_challenge_name_protected_areas": "Protected Areas Challenge",
     "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",

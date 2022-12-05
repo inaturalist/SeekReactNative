@@ -16,7 +16,10 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky install",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "e2e:build": "npx detox build --configuration ios.sim.release",
+    "e2e:test": "npx detox test --configuration ios.sim.release",
+    "e2e" : "npm run e2e:build && npm run e2e:test"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
@@ -88,6 +91,7 @@
     "@testing-library/react-native": "^11.4.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "detox": "^20.0.3",
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-plugin-jest": "^27.0.4",
     "eslint-plugin-testing-library": "^5.9.1",

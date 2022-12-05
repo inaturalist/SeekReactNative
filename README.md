@@ -28,6 +28,33 @@
 ## Manual Linking
 Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). Any exceptions are listed in the `react-native.config.js` file. Currently, [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) on Android is manually linked.
 
+## Tests
+We currently have three kinds of tests:
+
+1. `tests/integration`: Tests the integration of multiple modules, e.g. a list of observation that makes requests to a mocked API, persists the response data in local storage, retrieves the data from local storage and renders components.
+2. `tests/unit`: Tests only specific modules, like a single component, or a hook.
+3. `e2e`: Tests user interactions on the finished app build running on the iOS simulator (see below).
+
+### Unit tests & integration tests
+We're using [Jest](https://jestjs.io/) and [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) for most of our tests.
+
+```bash
+# Run all tests
+npm test
+```
+
+### E2E tests
+We're using [Detox](https://wix.github.io/Detox/docs/19.x/) for E2E tests. If you want to run the e2e tests on your local machine (MacOS only), make sure you fulfill the RN development requirements, see above, and also follow the test-specific [environment setup](https://wix.github.io/Detox/docs/19.x/introduction/ios-dev-env/).
+
+```bash
+# Build the app and run the tests
+npm run e2e
+```
+
+If you have built the app already for a previous test, and just want to run an updated test without changing the app code, you can run `npm run e2e:test`.
+
+If you are running into some issues after the tests have been working for some time, try updating `applesimutils` with `brew update && brew upgrade applesimutils`.
+
 ## Troubleshooting
 1. One common issue in React Native involves libraries not being found by the bundler. If this happens, try `npx react-native clean-project` to clear caches and reinstall node_modules and pods.
 

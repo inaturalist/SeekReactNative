@@ -5,7 +5,8 @@ import {
   SpeciesDetailContext,
   AppOrientationContext,
   UserContext,
-  LanguageContext
+  LanguageContext,
+  ChallengeContext
 } from "../components/UserContext";
 
 const AllTheProviders = ( { children } ) => {
@@ -34,7 +35,9 @@ const AllTheProviders = ( { children } ) => {
               setRegion: jest.fn()
             }}
           >
-            {children}
+            <ChallengeContext.Provider value={{}}>
+              {children}
+            </ChallengeContext.Provider>
           </SpeciesDetailContext.Provider>
         </AppOrientationContext.Provider>
       </UserContext.Provider>

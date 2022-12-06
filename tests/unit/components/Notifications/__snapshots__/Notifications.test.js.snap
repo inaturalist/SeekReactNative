@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationsScreen should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    [
+      "top",
+    ]
+  }
+  style={
+    {
+      "backgroundColor": "#38976d",
+      "flex": 1,
+    }
+  }
+  testID="notifications-screen-container"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#38976d",
+          "flexDirection": "row",
+          "paddingBottom": 18,
+          "paddingTop": 20.5,
+        },
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="Go back to previous screen"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "left": 0,
+          "opacity": 1,
+          "paddingHorizontal": 23,
+          "paddingVertical": 18,
+          "position": "absolute",
+          "transform": [
+            {
+              "scaleX": 1,
+            },
+          ],
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/back.webp",
+          }
+        }
+        style={false}
+        tintColor={false}
+      />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "maxWidth": 650,
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
+      NOTIFICATIONS
+    </Text>
+  </View>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    ListFooterComponent={[Function]}
+    contentContainerStyle={
+      [
+        {
+          "backgroundColor": "#ffffff",
+        },
+        {
+          "flexGrow": 1,
+        },
+      ]
+    }
+    data={
+      [
+        {
+          "challengeIndex": 37,
+          "iconName": "badge_empty",
+          "index": 0,
+          "message": "notifications.view_challenges",
+          "nextScreen": "ChallengeDetails",
+          "seen": false,
+          "title": "notifications.new_challenge",
+          "viewed": false,
+        },
+        {
+          "challengeIndex": 36,
+          "iconName": "badge_empty",
+          "index": 0,
+          "message": "notifications.view_challenges",
+          "nextScreen": "ChallengeDetails",
+          "seen": true,
+          "title": "notifications.new_challenge",
+          "viewed": true,
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "height": 112,
+              "justifyContent": "flex-start",
+              "marginHorizontal": 22,
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/badges/Badge_Empty.webp",
+              }
+            }
+            style={
+              {
+                "height": 72,
+                "marginRight": 24,
+                "resizeMode": "contain",
+                "width": 72,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "width": 589,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "fontFamily": "Whitney-Medium",
+                    "fontSize": 16,
+                    "lineHeight": 21,
+                    "marginBottom": 6,
+                  },
+                ]
+              }
+            >
+              There's a new challenge available!
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "fontFamily": "Whitney-Book",
+                    "fontSize": 14,
+                    "lineHeight": 21,
+                  },
+                ]
+              }
+            >
+              View challenge
+            </Text>
+          </View>
+          <View
+            style={
+              {
+                "backgroundColor": "#77b300",
+                "borderRadius": 5.5,
+                "height": 11,
+                "width": 11,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            {
+              "backgroundColor": "#d8d8d8",
+              "height": 1,
+              "marginHorizontal": 23,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "height": 112,
+              "justifyContent": "flex-start",
+              "marginHorizontal": 22,
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/badges/Badge_Empty.webp",
+              }
+            }
+            style={
+              {
+                "height": 72,
+                "marginRight": 24,
+                "resizeMode": "contain",
+                "width": 72,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "width": 589,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "fontFamily": "Whitney-Medium",
+                    "fontSize": 16,
+                    "lineHeight": 21,
+                    "marginBottom": 6,
+                  },
+                ]
+              }
+            >
+              There's a new challenge available!
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "fontFamily": "Whitney-Book",
+                    "fontSize": 14,
+                    "lineHeight": 21,
+                  },
+                ]
+              }
+            >
+              View challenge
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "paddingBottom": 60,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "backgroundColor": "#ffffff",
+              "bottom": -1000,
+              "height": 1050,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaView>
+`;

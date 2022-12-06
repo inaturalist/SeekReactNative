@@ -122,6 +122,7 @@
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
-    ]
+    ],
+    "testMatch": ["<rootDir>/tests/**/*.test.js"]
   }
 }

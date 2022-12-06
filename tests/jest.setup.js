@@ -1,5 +1,6 @@
 // include this line for mocking react-native-gesture-handler
 import "react-native-gesture-handler/jestSetup";
+import "@shopify/flash-list/jestSetup";
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
 import mockRNLocalize from "react-native-localize/mock";

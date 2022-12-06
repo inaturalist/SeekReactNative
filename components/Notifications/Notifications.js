@@ -1,7 +1,8 @@
 // @flow
 
 import React, { useEffect, useRef } from "react";
-import { FlatList, View } from "react-native";
+import { View } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import { useNavigation, useScrollToTop } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -40,9 +41,10 @@ const NotificationsScreen = ( ): Node => {
 
   return (
     <ViewWithHeader testID="notifications-screen-container" header="notifications.header" footer={false}>
-      <FlatList
+      <FlashList
         ref={scrollView}
-        contentContainerStyle={[viewStyles.containerWhite, viewStyles.flexGrow]}
+        estimatedItemSize={106}
+        contentContainerStyle={viewStyles.containerWhite}
         data={notifications}
         keyExtractor={extractKey}
         ListFooterComponent={renderFooter}

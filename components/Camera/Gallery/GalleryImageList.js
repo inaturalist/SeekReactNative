@@ -1,7 +1,8 @@
 // @flow
 
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { FlatList, Platform } from "react-native";
+import { Platform } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import type { Node } from "react";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -122,7 +123,9 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
 
   return (
-    <FlatList
+    <FlashList
+      testID="gallery-image-list"
+      estimatedItemSize={97}
       data={photos}
       contentContainerStyle={viewStyles.grayContainer}
       getItemLayout={getItemLayout}

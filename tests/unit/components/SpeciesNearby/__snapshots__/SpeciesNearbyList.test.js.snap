@@ -1,0 +1,642 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpeciesNearbyList should render correctly 1`] = `
+<View
+  style={{}}
+>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    alwaysBounceHorizontal={true}
+    applyWindowCorrection={[Function]}
+    bounces={true}
+    canChangeSize={true}
+    contentContainerStyle={
+      {
+        "backgroundColor": undefined,
+        "minHeight": 1,
+        "minWidth": 1,
+        "paddingBottom": 0,
+        "paddingTop": 29,
+      }
+    }
+    contentHeight={871}
+    contentWidth={130}
+    data={
+      [
+        {
+          "ancestor_ids": [
+            48460,
+            1,
+            2,
+            355675,
+            3,
+            71261,
+            5067,
+            5179,
+            5212,
+          ],
+          "ancestry": "48460/1/2/355675/3/71261/5067/5179",
+          "atlas_id": null,
+          "complete_rank": "subspecies",
+          "complete_species_count": null,
+          "created_at": "2008-03-13T02:47:36+00:00",
+          "current_synonymous_taxon_ids": null,
+          "default_photo": {
+            "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+            "flags": [],
+            "id": 101327658,
+            "license_code": "cc-by-nc-nd",
+            "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+            "original_dimensions": [
+              {},
+            ],
+            "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+            "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+          },
+          "english_common_name": "Red-tailed Hawk",
+          "extinct": false,
+          "flag_counts": {
+            "resolved": 5,
+            "unresolved": 0,
+          },
+          "iconic_taxon_id": 3,
+          "iconic_taxon_name": "Aves",
+          "id": 5212,
+          "is_active": true,
+          "min_species_ancestry": "48460,1,2,355675,3,71261,5067,5179,5212",
+          "min_species_taxon_id": 5212,
+          "name": "Buteo jamaicensis",
+          "observations_count": 164650,
+          "parent_id": 5179,
+          "photos_locked": false,
+          "preferred_common_name": "Red-tailed Hawk",
+          "rank": "species",
+          "rank_level": 10,
+          "taxon_changes_count": 2,
+          "taxon_photos": [
+            {
+              "photo": {
+                "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+                "flags": [],
+                "id": 101327658,
+                "large_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/large.jpg",
+                "license_code": "cc-by-nc-nd",
+                "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+                "native_page_url": null,
+                "native_photo_id": null,
+                "original_dimensions": [
+                  {},
+                ],
+                "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/original.jpg",
+                "small_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/small.jpg",
+                "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+                "type": "LocalPhoto",
+                "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+              },
+              "taxon_id": 5212,
+            },
+          ],
+          "taxon_schemes_count": 9,
+          "universal_search_rank": 164650,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Red-tailed_hawk",
+        },
+      ]
+    }
+    dataProvider={
+      DataProvider {
+        "_data": [
+          {
+            "ancestor_ids": [
+              48460,
+              1,
+              2,
+              355675,
+              3,
+              71261,
+              5067,
+              5179,
+              5212,
+            ],
+            "ancestry": "48460/1/2/355675/3/71261/5067/5179",
+            "atlas_id": null,
+            "complete_rank": "subspecies",
+            "complete_species_count": null,
+            "created_at": "2008-03-13T02:47:36+00:00",
+            "current_synonymous_taxon_ids": null,
+            "default_photo": {
+              "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+              "flags": [],
+              "id": 101327658,
+              "license_code": "cc-by-nc-nd",
+              "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+              "original_dimensions": [
+                {},
+              ],
+              "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+              "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+            },
+            "english_common_name": "Red-tailed Hawk",
+            "extinct": false,
+            "flag_counts": {
+              "resolved": 5,
+              "unresolved": 0,
+            },
+            "iconic_taxon_id": 3,
+            "iconic_taxon_name": "Aves",
+            "id": 5212,
+            "is_active": true,
+            "min_species_ancestry": "48460,1,2,355675,3,71261,5067,5179,5212",
+            "min_species_taxon_id": 5212,
+            "name": "Buteo jamaicensis",
+            "observations_count": 164650,
+            "parent_id": 5179,
+            "photos_locked": false,
+            "preferred_common_name": "Red-tailed Hawk",
+            "rank": "species",
+            "rank_level": 10,
+            "taxon_changes_count": 2,
+            "taxon_photos": [
+              {
+                "photo": {
+                  "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+                  "flags": [],
+                  "id": 101327658,
+                  "large_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/large.jpg",
+                  "license_code": "cc-by-nc-nd",
+                  "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+                  "native_page_url": null,
+                  "native_photo_id": null,
+                  "original_dimensions": [
+                    {},
+                  ],
+                  "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/original.jpg",
+                  "small_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/small.jpg",
+                  "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+                  "type": "LocalPhoto",
+                  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+                },
+                "taxon_id": 5212,
+              },
+            ],
+            "taxon_schemes_count": 9,
+            "universal_search_rank": 164650,
+            "wikipedia_url": "https://en.wikipedia.org/wiki/Red-tailed_hawk",
+          },
+        ],
+        "_firstIndexToProcess": 0,
+        "_hasStableIds": true,
+        "_requiresDataChangeHandling": false,
+        "_size": 1,
+        "getStableId": [Function],
+        "rowHasChanged": [Function],
+      }
+    }
+    disableRecycling={false}
+    estimatedItemSize={130}
+    extendedState={{}}
+    externalScrollView={[Function]}
+    finalRenderAheadOffset={250}
+    forceNonDeterministicRendering={true}
+    getItemLayout={[Function]}
+    getItemType={[Function]}
+    horizontal={true}
+    initialNumToRender={3}
+    initialOffset={0}
+    initialRenderIndex={0}
+    isHorizontal={true}
+    keyExtractor={[Function]}
+    layoutProvider={
+      GridLayoutProviderWithProps {
+        "_acceptableRelayoutDelta": 1,
+        "_getHeightOrWidth": [Function],
+        "_getLayoutTypeForIndex": [Function],
+        "_getSpan": [Function],
+        "_hasExpired": false,
+        "_isHorizontal": true,
+        "_lastLayoutManager": GridLayoutManager {
+          "_acceptableRelayoutDelta": 1,
+          "_getSpan": [Function],
+          "_isGridHorizontal": true,
+          "_isHorizontal": true,
+          "_layoutProvider": [Circular],
+          "_layouts": [
+            {
+              "height": 871,
+              "type": "not-observed",
+              "width": 130,
+              "x": 0,
+              "y": 0,
+            },
+          ],
+          "_maxSpan": 1,
+          "_renderWindowSize": {
+            "height": 871,
+            "width": 400,
+          },
+          "_totalHeight": 871,
+          "_totalWidth": 130,
+          "_window": {
+            "height": 871,
+            "width": 400,
+          },
+        },
+        "_maxSpan": 1,
+        "_renderWindowSize": {
+          "height": 871,
+          "width": 400,
+        },
+        "_setLayoutForType": [Function],
+        "_tempDim": {
+          "height": 0,
+          "width": 0,
+        },
+        "averageWindow": AverageWindow {
+          "currentAverage": 130,
+          "currentCount": 1,
+          "inputValues": [
+            130,
+            ,
+            ,
+            ,
+            ,
+            ,
+          ],
+          "nextIndex": 1,
+        },
+        "defaultEstimatedItemSize": 100,
+        "layoutObject": {
+          "size": undefined,
+          "span": undefined,
+        },
+        "props": {
+          "ListEmptyComponent": [Function],
+          "alwaysBounceHorizontal": true,
+          "bounces": true,
+          "contentContainerStyle": {
+            "paddingLeft": 23,
+            "paddingTop": 29,
+          },
+          "data": [
+            {
+              "ancestor_ids": [
+                48460,
+                1,
+                2,
+                355675,
+                3,
+                71261,
+                5067,
+                5179,
+                5212,
+              ],
+              "ancestry": "48460/1/2/355675/3/71261/5067/5179",
+              "atlas_id": null,
+              "complete_rank": "subspecies",
+              "complete_species_count": null,
+              "created_at": "2008-03-13T02:47:36+00:00",
+              "current_synonymous_taxon_ids": null,
+              "default_photo": {
+                "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+                "flags": [],
+                "id": 101327658,
+                "license_code": "cc-by-nc-nd",
+                "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+                "original_dimensions": [
+                  {},
+                ],
+                "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+                "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+              },
+              "english_common_name": "Red-tailed Hawk",
+              "extinct": false,
+              "flag_counts": {
+                "resolved": 5,
+                "unresolved": 0,
+              },
+              "iconic_taxon_id": 3,
+              "iconic_taxon_name": "Aves",
+              "id": 5212,
+              "is_active": true,
+              "min_species_ancestry": "48460,1,2,355675,3,71261,5067,5179,5212",
+              "min_species_taxon_id": 5212,
+              "name": "Buteo jamaicensis",
+              "observations_count": 164650,
+              "parent_id": 5179,
+              "photos_locked": false,
+              "preferred_common_name": "Red-tailed Hawk",
+              "rank": "species",
+              "rank_level": 10,
+              "taxon_changes_count": 2,
+              "taxon_photos": [
+                {
+                  "photo": {
+                    "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+                    "flags": [],
+                    "id": 101327658,
+                    "large_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/large.jpg",
+                    "license_code": "cc-by-nc-nd",
+                    "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+                    "native_page_url": null,
+                    "native_photo_id": null,
+                    "original_dimensions": [
+                      {},
+                    ],
+                    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/original.jpg",
+                    "small_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/small.jpg",
+                    "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+                    "type": "LocalPhoto",
+                    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+                  },
+                  "taxon_id": 5212,
+                },
+              ],
+              "taxon_schemes_count": 9,
+              "universal_search_rank": 164650,
+              "wikipedia_url": "https://en.wikipedia.org/wiki/Red-tailed_hawk",
+            },
+          ],
+          "estimatedItemSize": 130,
+          "getItemLayout": [Function],
+          "getItemType": [Function],
+          "horizontal": true,
+          "initialNumToRender": 3,
+          "keyExtractor": [Function],
+          "numColumns": 1,
+          "renderItem": [Function],
+          "testID": "species-nearby-list",
+        },
+        "renderWindowInsets": {
+          "height": -29,
+          "width": 0,
+        },
+        "shouldRefreshWithAnchoring": true,
+      }
+    }
+    maxRenderAhead={750}
+    numColumns={1}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0}
+    onEndReachedThresholdRelative={0}
+    onItemLayout={[Function]}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onSizeChanged={[Function]}
+    onVisibleIndicesChanged={[Function]}
+    removeClippedSubviews={false}
+    renderAheadOffset={0}
+    renderAheadStep={250}
+    renderContentContainer={[Function]}
+    renderItem={[Function]}
+    renderItemContainer={[Function]}
+    rowRenderer={[Function]}
+    scrollEventThrottle={16}
+    scrollThrottle={16}
+    scrollViewProps={
+      {
+        "contentContainerStyle": {
+          "backgroundColor": undefined,
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingBottom": 0,
+          "paddingTop": 29,
+        },
+        "onLayout": [Function],
+        "onScrollBeginDrag": [Function],
+        "refreshControl": undefined,
+        "style": {
+          "minHeight": 1,
+          "minWidth": 1,
+        },
+      }
+    }
+    style={
+      {
+        "minHeight": 1,
+        "minWidth": 1,
+      }
+    }
+    suppressBoundedSizeException={true}
+    testID="species-nearby-list"
+    windowCorrectionConfig={
+      {
+        "applyToInitialOffset": true,
+        "applyToItemScroll": true,
+        "value": {
+          "endCorrection": 0,
+          "startCorrection": 0,
+          "windowShift": -0,
+        },
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "paddingLeft": 23,
+              "paddingTop": 29,
+            }
+          }
+        />
+        <View
+          style={
+            [
+              undefined,
+              undefined,
+            ]
+          }
+        />
+        <AutoLayoutView
+          enableInstrumentation={false}
+          horizontal={true}
+          onBlankAreaEvent={[Function]}
+          onLayout={[Function]}
+          renderAheadOffset={0}
+          scrollOffset={0}
+          style={
+            {
+              "height": 871,
+              "width": 130,
+            }
+          }
+          windowSize={400}
+        >
+          <CellContainer
+            index={0}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "row",
+                "height": 871,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "marginRight": 23,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    {
+                      "uri": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+                    }
+                  }
+                  style={
+                    {
+                      "borderRadius": 54,
+                      "height": 108,
+                      "width": 108,
+                    }
+                  }
+                />
+                <Text
+                  numberOfLines={3}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      [
+                        {
+                          "color": "#ffffff",
+                          "fontFamily": "Whitney-Medium",
+                          "fontSize": 16,
+                          "lineHeight": 21,
+                          "paddingTop": 13,
+                          "textAlign": "center",
+                          "width": 108,
+                        },
+                        false,
+                        false,
+                      ],
+                    ]
+                  }
+                >
+                  Red-tailed Hawk
+                </Text>
+              </View>
+            </View>
+          </CellContainer>
+        </AutoLayoutView>
+        <CellContainer
+          index={-1}
+          style={
+            [
+              undefined,
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            {
+              "paddingBottom": 0,
+              "paddingRight": 0,
+            }
+          }
+        />
+        <View
+          pointerEvents="none"
+          style={
+            {
+              "opacity": 0,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginRight": 23,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 54,
+                  "height": 108,
+                  "width": 108,
+                }
+              }
+            />
+            <Text
+              numberOfLines={3}
+              style={
+                [
+                  {
+                    "textAlign": "left",
+                  },
+                  [
+                    {
+                      "color": "#ffffff",
+                      "fontFamily": "Whitney-Medium",
+                      "fontSize": 16,
+                      "lineHeight": 21,
+                      "paddingTop": 13,
+                      "textAlign": "center",
+                      "width": 108,
+                    },
+                    false,
+                    false,
+                  ],
+                ]
+              }
+            >
+              Red-tailed Hawk
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

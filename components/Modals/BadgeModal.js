@@ -37,10 +37,14 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
   useEffect( () => {
     const earnedBadges = badges.filter( ( badge ) => badge.earned );
     // Assuming the badges are sorted by count
-    const highestCount = earnedBadges[earnedBadges.length - 1].count;
+    const highestCount = earnedBadges[earnedBadges.length - 1]?.count;
     const index = earnedBadges.findIndex(
       ( badge ) => badge.count === highestCount
     );
+    // If no badges are earned, we don't want to scroll
+    if ( index === -1 ) {
+      return;
+    }
     // The scroll did not fire immediately, so we need to have a short timeout
     setTimeout( () => {
       scroll( index );

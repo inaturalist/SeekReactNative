@@ -117,7 +117,7 @@ describe( "SeekYearInReviewPhotos", () => {
   test( "should show second photo after scroll", async () => {
     renderPhotos();
 
-    // Scroll FlatList to second photo
+    // Scroll list to second photo
     const horizontalScroll = await screen.findByTestId( "horizontal-scroll" );
     fireEvent.scroll( horizontalScroll, scrollEventData );
 

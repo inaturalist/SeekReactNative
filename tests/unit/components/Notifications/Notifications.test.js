@@ -3,29 +3,6 @@ import { render, screen } from "tests/jest-utils";
 
 import NotificationsScreen from "../../../../components/notifications/Notifications";
 
-const mockNavigate = {
-  navigate: jest.fn()
-};
-
-jest.mock( "@react-navigation/native", () => {
-  const actualNav = jest.requireActual( "@react-navigation/native" );
-  return {
-    ...actualNav,
-    useNavigation: () => ( {
-      ...mockNavigate,
-      dispatch: jest.fn(),
-      // To intercept on focus listener
-      addListener: ( event, callback ) => {
-        if ( event === "focus" ) {
-          callback();
-        }
-      }
-    } ),
-    useRoute: () => ( {} ),
-    useScrollToTop: () => jest.fn()
-  };
-} );
-
 const mockNotifications = [
   {
     challengeIndex: 37,

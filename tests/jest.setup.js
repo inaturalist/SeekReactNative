@@ -41,8 +41,16 @@ jest.mock( "@react-navigation/native", () => {
     ...actualNav,
     useNavigation: () => ( {
       navigate: jest.fn(),
-      dispatch: jest.fn()
-    } )
+      dispatch: jest.fn(),
+      // To intercept on focus listener
+      addListener: ( event, callback ) => {
+        if ( event === "focus" ) {
+          callback();
+        }
+      }
+    } ),
+    useRoute: () => ( {} ),
+    useScrollToTop: () => jest.fn()
   };
 } );
 

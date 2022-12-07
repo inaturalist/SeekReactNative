@@ -3,22 +3,6 @@ import { render, screen } from "tests/jest-utils";
 
 import SpeciesNearbyList from "../../../../components/UIComponents/SpeciesNearby/SpeciesNearbyList";
 
-const mockNavigate = {
-  navigate: jest.fn()
-};
-
-jest.mock( "@react-navigation/native", () => {
-  const actualNav = jest.requireActual( "@react-navigation/native" );
-  return {
-    ...actualNav,
-    useNavigation: () => ( {
-      ...mockNavigate,
-      dispatch: jest.fn()
-    } ),
-    useRoute: () => ( {} )
-  };
-} );
-
 const mockTaxa = [
   {
     ancestor_ids: [48460, 1, 2, 355675, 3, 71261, 5067, 5179, 5212],

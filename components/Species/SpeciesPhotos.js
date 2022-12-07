@@ -59,7 +59,7 @@ const SpeciesPhotos = ( { loading, photos, id }: Props ): Node => {
 
     if ( userPhoto ) {
       list.push(
-        <View key="user-image">
+        <View>
           <Image source={userPhoto} style={imageStyles.image} />
         </View>
       );

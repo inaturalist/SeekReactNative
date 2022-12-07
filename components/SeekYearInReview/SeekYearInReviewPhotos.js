@@ -20,7 +20,7 @@ import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
 import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
 
-const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
+const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );
   const userPhoto = useUserPhoto( seenTaxa );
 
@@ -37,7 +37,7 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
 
   return (
     <Pressable
-      key={`image${observation.taxon.defaultPhoto.mediumUrl}`}
+      key={index}
       style={viewStyles.center}
       onPress={() => navToSpecies()}
     >
@@ -55,7 +55,7 @@ const SeekYearInReviewPhotoItem = ( { observation } ): Node => {
 
 const SeekYearInReviewPhotos = ( { observations } ): Node => {
   const renderPhotos = () =>
-    observations.map( ( obs ) => <SeekYearInReviewPhotoItem observation={obs} /> );
+    observations.map( ( obs, index ) => <SeekYearInReviewPhotoItem observation={obs} index={index} /> );
   const photoList = renderPhotos();
 
   return (

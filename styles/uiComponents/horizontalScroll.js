@@ -15,9 +15,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     top: 1010,
     zIndex: 1
   },
-  photoContainer: {
-    height: 375
-  },
   rightArrow: {
     paddingLeft: 20,
     paddingRight: 5,
@@ -37,8 +34,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     top: 100
   },
   speciesPhotoContainer: {
-    backgroundColor: colors.black,
-    height: 250
+    backgroundColor: colors.black
   },
   speciesRightArrow: {
     top: 100

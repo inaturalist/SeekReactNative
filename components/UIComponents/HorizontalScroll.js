@@ -1,7 +1,8 @@
 // @flow
 
 import React, { useRef, useState, useCallback } from "react";
-import { Image, FlatList, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import { useRoute } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -59,16 +60,13 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
     index
   } ), [width] );
 
-  const contentContainerStyle = isYearInReviewScreen ? null : (
-    isStatsScreen
-      ? styles.photoContainer
-      : styles.speciesPhotoContainer
-  );
+  const contentContainerStyle = !isYearInReviewScreen && !isStatsScreen && styles.speciesPhotoContainer;
 
   return (
     <>
-      <FlatList
+      <FlashList
         testID="horizontal-scroll"
+        estimatedItemSize={350}
         ref={flatList}
         bounces={false}
         viewabilityConfig={viewConfigRef.current}

@@ -121,7 +121,7 @@ describe( "SeekYearInReviewPhotos", () => {
     const horizontalScroll = await screen.findByTestId( "horizontal-scroll" );
     fireEvent.scroll( horizontalScroll, scrollEventData );
 
-    const description2 = await screen.findByText( "some_name_2 observed on 12/1/2022" );
+    const description2 = await screen.findAllByText( "some_name_2 observed on 12/1/2022" );
     expect( description2 ).toBeTruthy();
   } );
 

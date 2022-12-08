@@ -1,0 +1,1987 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectSpecies should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    [
+      "top",
+    ]
+  }
+  style={
+    {
+      "backgroundColor": "#38976d",
+      "flex": 1,
+    }
+  }
+  testID="select-species-container"
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#38976d",
+        "height": 55,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Go back to previous screen"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "left": 23,
+          "opacity": 1,
+          "paddingBottom": 18,
+          "paddingTop": 18,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/back.webp",
+          }
+        }
+      />
+    </View>
+    <Text
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "alignSelf": "center",
+            "color": "#ffffff",
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "paddingTop": 20,
+            "position": "absolute",
+          },
+        ]
+      }
+    >
+      WHAT DID YOU SEE?
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#000000",
+        "height": 155,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "some_image",
+        }
+      }
+      style={
+        {
+          "height": 155,
+          "resizeMode": "contain",
+          "width": 750,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#38976d",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+        "height": 63,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/posting/icon-search-green.webp",
+        }
+      }
+      style={
+        {
+          "height": 20,
+          "resizeMode": "contain",
+          "tintColor": "#ffffff",
+          "width": 20,
+        }
+      }
+      tintColor="#ffffff"
+    />
+    <TextInput
+      defaultValue={null}
+      onChangeText={[Function]}
+      placeholder="Look up a species by name"
+      placeholderTextColor="#828282"
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 40,
+          "color": "#000000",
+          "fontFamily": "Whitney-Book",
+          "fontSize": 15,
+          "height": 37,
+          "marginLeft": 11,
+          "paddingBottom": 0,
+          "paddingLeft": 16,
+          "paddingTop": 0,
+          "width": 679,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      ListFooterComponent={[Function]}
+      applyWindowCorrection={[Function]}
+      canChangeSize={true}
+      contentContainerStyle={
+        {
+          "backgroundColor": "#ffffff",
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+        }
+      }
+      contentHeight={1600}
+      contentWidth={400}
+      data={
+        [
+          {
+            "header": "posting.id",
+            "type": "header",
+          },
+          {
+            "commonName": "some_common_name",
+            "iconicTaxonId": null,
+            "id": 49322,
+            "image": "some_image",
+            "scientificName": "some_name",
+          },
+          {
+            "header": "posting.major_taxa",
+            "type": "header",
+          },
+          {
+            "commonName": "Plants",
+            "iconicTaxonId": 47126,
+            "id": 47126,
+            "scientificName": "Plantae",
+          },
+          {
+            "commonName": "Animals",
+            "iconicTaxonId": 1,
+            "id": 1,
+            "scientificName": "Animalia",
+          },
+          {
+            "commonName": "Fungi",
+            "iconicTaxonId": 47170,
+            "id": 47170,
+            "scientificName": "Fungi",
+          },
+          {
+            "commonName": "Birds",
+            "iconicTaxonId": 3,
+            "id": 3,
+            "scientificName": "Aves",
+          },
+          {
+            "commonName": "Insects",
+            "iconicTaxonId": 47158,
+            "id": 47158,
+            "scientificName": "Insecta",
+          },
+          {
+            "commonName": "Arachnids",
+            "iconicTaxonId": 47119,
+            "id": 47119,
+            "scientificName": "Arachnida",
+          },
+          {
+            "commonName": "Mammals",
+            "iconicTaxonId": 40151,
+            "id": 40151,
+            "scientificName": "Mammalia",
+          },
+          {
+            "commonName": "Amphibians",
+            "iconicTaxonId": 20978,
+            "id": 20978,
+            "scientificName": "Amphibia",
+          },
+          {
+            "commonName": "Reptiles",
+            "iconicTaxonId": 26036,
+            "id": 26036,
+            "scientificName": "Reptilia",
+          },
+          {
+            "commonName": "Fish",
+            "iconicTaxonId": 47178,
+            "id": 47178,
+            "scientificName": "Actinopterygii",
+          },
+          {
+            "commonName": "Mollusks",
+            "iconicTaxonId": 47115,
+            "id": 47115,
+            "scientificName": "Mollusca",
+          },
+          {
+            "commonName": "Protozoans",
+            "iconicTaxonId": 47686,
+            "id": 47686,
+            "scientificName": "Protozoa",
+          },
+          {
+            "commonName": "Kelp, Diatoms, & Allies",
+            "iconicTaxonId": 48222,
+            "id": 48222,
+            "scientificName": "Chromista",
+          },
+        ]
+      }
+      dataProvider={
+        DataProvider {
+          "_data": [
+            {
+              "header": "posting.id",
+              "type": "header",
+            },
+            {
+              "commonName": "some_common_name",
+              "iconicTaxonId": null,
+              "id": 49322,
+              "image": "some_image",
+              "scientificName": "some_name",
+            },
+            {
+              "header": "posting.major_taxa",
+              "type": "header",
+            },
+            {
+              "commonName": "Plants",
+              "iconicTaxonId": 47126,
+              "id": 47126,
+              "scientificName": "Plantae",
+            },
+            {
+              "commonName": "Animals",
+              "iconicTaxonId": 1,
+              "id": 1,
+              "scientificName": "Animalia",
+            },
+            {
+              "commonName": "Fungi",
+              "iconicTaxonId": 47170,
+              "id": 47170,
+              "scientificName": "Fungi",
+            },
+            {
+              "commonName": "Birds",
+              "iconicTaxonId": 3,
+              "id": 3,
+              "scientificName": "Aves",
+            },
+            {
+              "commonName": "Insects",
+              "iconicTaxonId": 47158,
+              "id": 47158,
+              "scientificName": "Insecta",
+            },
+            {
+              "commonName": "Arachnids",
+              "iconicTaxonId": 47119,
+              "id": 47119,
+              "scientificName": "Arachnida",
+            },
+            {
+              "commonName": "Mammals",
+              "iconicTaxonId": 40151,
+              "id": 40151,
+              "scientificName": "Mammalia",
+            },
+            {
+              "commonName": "Amphibians",
+              "iconicTaxonId": 20978,
+              "id": 20978,
+              "scientificName": "Amphibia",
+            },
+            {
+              "commonName": "Reptiles",
+              "iconicTaxonId": 26036,
+              "id": 26036,
+              "scientificName": "Reptilia",
+            },
+            {
+              "commonName": "Fish",
+              "iconicTaxonId": 47178,
+              "id": 47178,
+              "scientificName": "Actinopterygii",
+            },
+            {
+              "commonName": "Mollusks",
+              "iconicTaxonId": 47115,
+              "id": 47115,
+              "scientificName": "Mollusca",
+            },
+            {
+              "commonName": "Protozoans",
+              "iconicTaxonId": 47686,
+              "id": 47686,
+              "scientificName": "Protozoa",
+            },
+            {
+              "commonName": "Kelp, Diatoms, & Allies",
+              "iconicTaxonId": 48222,
+              "id": 48222,
+              "scientificName": "Chromista",
+            },
+          ],
+          "_firstIndexToProcess": 0,
+          "_hasStableIds": true,
+          "_requiresDataChangeHandling": false,
+          "_size": 16,
+          "getStableId": [Function],
+          "rowHasChanged": [Function],
+        }
+      }
+      disableRecycling={false}
+      estimatedItemSize={100}
+      extendedState={{}}
+      externalScrollView={[Function]}
+      finalRenderAheadOffset={250}
+      forceNonDeterministicRendering={true}
+      getItemType={[Function]}
+      horizontal={false}
+      initialNumToRender={5}
+      initialOffset={0}
+      initialRenderIndex={0}
+      isHorizontal={false}
+      keyExtractor={[Function]}
+      keyboardDismissMode="on-drag"
+      layoutProvider={
+        GridLayoutProviderWithProps {
+          "_acceptableRelayoutDelta": 1,
+          "_getHeightOrWidth": [Function],
+          "_getLayoutTypeForIndex": [Function],
+          "_getSpan": [Function],
+          "_hasExpired": false,
+          "_isHorizontal": false,
+          "_lastLayoutManager": GridLayoutManager {
+            "_acceptableRelayoutDelta": 1,
+            "_getSpan": [Function],
+            "_isGridHorizontal": false,
+            "_isHorizontal": false,
+            "_layoutProvider": [Circular],
+            "_layouts": [
+              {
+                "height": 100,
+                "type": "header",
+                "width": 400,
+                "x": 0,
+                "y": 0,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 100,
+              },
+              {
+                "height": 100,
+                "type": "header",
+                "width": 400,
+                "x": 0,
+                "y": 200,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 300,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 400,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 500,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 600,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 700,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 800,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 900,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 1000,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 1100,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 1200,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 1300,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 1400,
+              },
+              {
+                "height": 100,
+                "type": "suggestion",
+                "width": 400,
+                "x": 0,
+                "y": 1500,
+              },
+            ],
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_totalHeight": 1600,
+            "_totalWidth": 400,
+            "_window": {
+              "height": 900,
+              "width": 400,
+            },
+          },
+          "_maxSpan": 1,
+          "_renderWindowSize": {
+            "height": 900,
+            "width": 400,
+          },
+          "_setLayoutForType": [Function],
+          "_tempDim": {
+            "height": 0,
+            "width": 0,
+          },
+          "averageWindow": AverageWindow {
+            "currentAverage": 100,
+            "currentCount": 1,
+            "inputValues": [
+              100,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+            ],
+            "nextIndex": 1,
+          },
+          "defaultEstimatedItemSize": 100,
+          "layoutObject": {
+            "size": undefined,
+            "span": undefined,
+          },
+          "props": {
+            "ListFooterComponent": [Function],
+            "contentContainerStyle": {
+              "backgroundColor": "#ffffff",
+            },
+            "data": [
+              {
+                "header": "posting.id",
+                "type": "header",
+              },
+              {
+                "commonName": "some_common_name",
+                "iconicTaxonId": null,
+                "id": 49322,
+                "image": "some_image",
+                "scientificName": "some_name",
+              },
+              {
+                "header": "posting.major_taxa",
+                "type": "header",
+              },
+              {
+                "commonName": "Plants",
+                "iconicTaxonId": 47126,
+                "id": 47126,
+                "scientificName": "Plantae",
+              },
+              {
+                "commonName": "Animals",
+                "iconicTaxonId": 1,
+                "id": 1,
+                "scientificName": "Animalia",
+              },
+              {
+                "commonName": "Fungi",
+                "iconicTaxonId": 47170,
+                "id": 47170,
+                "scientificName": "Fungi",
+              },
+              {
+                "commonName": "Birds",
+                "iconicTaxonId": 3,
+                "id": 3,
+                "scientificName": "Aves",
+              },
+              {
+                "commonName": "Insects",
+                "iconicTaxonId": 47158,
+                "id": 47158,
+                "scientificName": "Insecta",
+              },
+              {
+                "commonName": "Arachnids",
+                "iconicTaxonId": 47119,
+                "id": 47119,
+                "scientificName": "Arachnida",
+              },
+              {
+                "commonName": "Mammals",
+                "iconicTaxonId": 40151,
+                "id": 40151,
+                "scientificName": "Mammalia",
+              },
+              {
+                "commonName": "Amphibians",
+                "iconicTaxonId": 20978,
+                "id": 20978,
+                "scientificName": "Amphibia",
+              },
+              {
+                "commonName": "Reptiles",
+                "iconicTaxonId": 26036,
+                "id": 26036,
+                "scientificName": "Reptilia",
+              },
+              {
+                "commonName": "Fish",
+                "iconicTaxonId": 47178,
+                "id": 47178,
+                "scientificName": "Actinopterygii",
+              },
+              {
+                "commonName": "Mollusks",
+                "iconicTaxonId": 47115,
+                "id": 47115,
+                "scientificName": "Mollusca",
+              },
+              {
+                "commonName": "Protozoans",
+                "iconicTaxonId": 47686,
+                "id": 47686,
+                "scientificName": "Protozoa",
+              },
+              {
+                "commonName": "Kelp, Diatoms, & Allies",
+                "iconicTaxonId": 48222,
+                "id": 48222,
+                "scientificName": "Chromista",
+              },
+            ],
+            "estimatedItemSize": 100,
+            "getItemType": [Function],
+            "initialNumToRender": 5,
+            "keyExtractor": [Function],
+            "keyboardDismissMode": "on-drag",
+            "numColumns": 1,
+            "onScroll": [Function],
+            "renderItem": [Function],
+            "stickySectionHeadersEnabled": false,
+          },
+          "renderWindowInsets": {
+            "height": 0,
+            "width": 0,
+          },
+          "shouldRefreshWithAnchoring": true,
+        }
+      }
+      maxRenderAhead={750}
+      numColumns={1}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0}
+      onEndReachedThresholdRelative={0}
+      onItemLayout={[Function]}
+      onLayout={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onSizeChanged={[Function]}
+      onVisibleIndicesChanged={[Function]}
+      removeClippedSubviews={false}
+      renderAheadOffset={0}
+      renderAheadStep={250}
+      renderContentContainer={[Function]}
+      renderItem={[Function]}
+      renderItemContainer={[Function]}
+      rowRenderer={[Function]}
+      scrollEventThrottle={16}
+      scrollThrottle={16}
+      scrollViewProps={
+        {
+          "contentContainerStyle": {
+            "backgroundColor": "#ffffff",
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          },
+          "onLayout": [Function],
+          "onScrollBeginDrag": [Function],
+          "refreshControl": undefined,
+          "style": {
+            "minHeight": 1,
+            "minWidth": 1,
+          },
+        }
+      }
+      stickySectionHeadersEnabled={false}
+      style={
+        {
+          "minHeight": 1,
+          "minWidth": 1,
+        }
+      }
+      suppressBoundedSizeException={true}
+      windowCorrectionConfig={
+        {
+          "applyToInitialOffset": true,
+          "applyToItemScroll": true,
+          "value": {
+            "endCorrection": 0,
+            "startCorrection": 0,
+            "windowShift": -0,
+          },
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            {
+              "flexDirection": "column",
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "paddingLeft": 0,
+                "paddingTop": 0,
+              }
+            }
+          />
+          <View
+            style={
+              [
+                undefined,
+                undefined,
+              ]
+            }
+          />
+          <AutoLayoutView
+            enableInstrumentation={false}
+            horizontal={false}
+            onBlankAreaEvent={[Function]}
+            onLayout={[Function]}
+            renderAheadOffset={0}
+            scrollOffset={0}
+            style={
+              {
+                "height": 1600,
+                "width": 400,
+              }
+            }
+            windowSize={900}
+          >
+            <CellContainer
+              index={0}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                      "marginTop": 27,
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={true}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 19,
+                            "letterSpacing": 1.12,
+                            "lineHeight": 23,
+                          },
+                          false,
+                          false,
+                          null,
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    SEEK'S IDENTIFICATION
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={1}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 100,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        {
+                          "uri": "some_image",
+                        }
+                      }
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    />
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        some_common_name
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        some_name
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={2}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 200,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                      "marginTop": 27,
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={true}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 19,
+                            "letterSpacing": 1.12,
+                            "lineHeight": 23,
+                          },
+                          false,
+                          false,
+                          null,
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    MAJOR TAXA
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={3}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 300,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityIgnoresInvertColors={true}
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/iconicTaxa/img-nullobs-plant.webp",
+                          }
+                        }
+                        style={
+                          [
+                            {
+                              "bottom": 0,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            },
+                            {
+                              "height": 80,
+                              "width": 80,
+                            },
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            },
+                          ]
+                        }
+                      />
+                      <Image
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        Plants
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        Plantae
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={4}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 400,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityIgnoresInvertColors={true}
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/iconicTaxa/img-nullobs-unknown.webp",
+                          }
+                        }
+                        style={
+                          [
+                            {
+                              "bottom": 0,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            },
+                            {
+                              "height": 80,
+                              "width": 80,
+                            },
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            },
+                          ]
+                        }
+                      />
+                      <Image
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        Animals
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        Animalia
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={5}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 500,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityIgnoresInvertColors={true}
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/iconicTaxa/img-nullobs-fungi.webp",
+                          }
+                        }
+                        style={
+                          [
+                            {
+                              "bottom": 0,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            },
+                            {
+                              "height": 80,
+                              "width": 80,
+                            },
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            },
+                          ]
+                        }
+                      />
+                      <Image
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        Fungi
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        Fungi
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={6}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 600,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityIgnoresInvertColors={true}
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/iconicTaxa/img-nullobs-bird.webp",
+                          }
+                        }
+                        style={
+                          [
+                            {
+                              "bottom": 0,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            },
+                            {
+                              "height": 80,
+                              "width": 80,
+                            },
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            },
+                          ]
+                        }
+                      />
+                      <Image
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        Birds
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        Aves
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={7}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 700,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityIgnoresInvertColors={true}
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/iconicTaxa/img-nullobs-insect.webp",
+                          }
+                        }
+                        style={
+                          [
+                            {
+                              "bottom": 0,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            },
+                            {
+                              "height": 80,
+                              "width": 80,
+                            },
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            },
+                          ]
+                        }
+                      />
+                      <Image
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        Insects
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        Insecta
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={8}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 800,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 18,
+                      "marginLeft": 24,
+                    }
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "opacity": 1,
+                        "width": 750,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityIgnoresInvertColors={true}
+                      style={
+                        {
+                          "borderRadius": 40,
+                          "height": 80,
+                          "marginRight": 24,
+                          "width": 80,
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/iconicTaxa/img-nullobs-arachnid.webp",
+                          }
+                        }
+                        style={
+                          [
+                            {
+                              "bottom": 0,
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            },
+                            {
+                              "height": 80,
+                              "width": 80,
+                            },
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            },
+                          ]
+                        }
+                      />
+                      <Image
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      />
+                    </View>
+                    <View
+                      style={
+                        {
+                          "maxWidth": 220,
+                        }
+                      }
+                    >
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-Book",
+                              "fontSize": 21,
+                            },
+                          ]
+                        }
+                      >
+                        Arachnids
+                      </Text>
+                      <Text
+                        allowFontScaling={true}
+                        style={
+                          [
+                            {
+                              "textAlign": "left",
+                            },
+                            {
+                              "color": "#000000",
+                              "flexDirection": "row",
+                              "flexWrap": "wrap",
+                              "fontFamily": "Whitney-BookItalic",
+                              "fontSize": 16,
+                              "marginTop": 12,
+                            },
+                          ]
+                        }
+                      >
+                        Arachnida
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+          </AutoLayoutView>
+          <CellContainer
+            index={-1}
+            style={
+              [
+                undefined,
+                undefined,
+              ]
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#ffffff",
+                  "paddingBottom": 60,
+                }
+              }
+            />
+          </CellContainer>
+          <View
+            style={
+              {
+                "paddingBottom": 0,
+                "paddingRight": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</RNCSafeAreaView>
+`;

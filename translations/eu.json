@@ -132,7 +132,8 @@
     "learn_more_about_data_transfer": "Datu-pribatatutasunerako legedi batzuk, hala nola Europear Batasuneko Datuen Babeserako Erregulazio Orokorrak (GDPR), informazio pertsonala norbere jurisdikziotik informazio honen babesa ez egokitzat hartzen den beste jurisdikzio batera bidaltzeko baimen esplizitua ematea exijitzen dute. 2020etik Europear Batasunak iritzi du AEBetako jurisdikzioa informazio pertsonalaren beharbesteko babesa ez duela ematen, bereziki AEBetako gobernuak bertan sartzen diren datuak zelatzatzeko aukera dela eta. Baliteke beste jurisdikzio batzuk ere iritzi bera izatea.",
     "learn_more_about_data_transfer_2": "Inaturalist erabiltzeko bertako datu guztiak Ameriketako Estatu Batuetan gordetzea behar du, helbide elektronikoa bezalako zure informazio pertsonala barne, eta ezin dugu ziurtatu zein den iNaturalist erabiltzen ari zaren lekuan aplikatzen den jurisdikzioa; ondorioz, GDPRa bezalako pribatutasun legeak betetze aldera, arriskua ulertu eta onartzen duzula egiaztatu behar dugu zure informazio pertsonala iNaturalist-eko AEBetako zerbitzarietara bidaltzeko.",
     "learn_more_about_data_transfer_3": "Biltzen dugun informazioaren eta nola erabiltzen dugunaren inguruan gehiago jakiteko, irakurri itzazu gure <privacy>{{privacy}}</privacy> eta <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "Ezin da iNaturalist konturik eduki informazio pertsonalik gorde gabe, eta beraz baimen hau ukatzeko modu bakarra zure kontua ezabatzea da."
+    "learn_more_about_data_transfer_4": "Ezin da iNaturalist konturik eduki informazio pertsonalik gorde gabe, eta beraz baimen hau ukatzeko modu bakarra zure kontua ezabatzea da.",
+    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_login": {
     "log_in_with_inat": "Hasi saioa zure iNaturalist kontuarekin",

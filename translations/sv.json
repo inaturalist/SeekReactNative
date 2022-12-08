@@ -132,7 +132,8 @@
     "learn_more_about_data_transfer": "Vissa dataskyddslagar, som Europeiska unionens allmänna dataskyddsförordning (GDPR), kräver uttryckligt samtycke för att överföra personuppgifter från deras jurisdiktioner till andra jurisdiktioner där det rättsliga skyddet för denna information inte anses vara tillräckligt. Från och med 2020 anser EU inte längre att USA är en jurisdiktion som ger ett adekvat rättsligt skydd för personuppgifter, särskilt på grund av möjligheten för den amerikanska regeringen att övervaka uppgifter som kommer in i USA. Det är möjligt att andra jurisdiktioner kan ha samma åsikt.",
     "learn_more_about_data_transfer_2": "Att använda iNaturalist kräver lagring av personuppgifter som din e-postadress, all iNaturalist-data lagras i USA, och vi kan inte vara säkra på vilken jurisdiktion du är i när du använder iNaturalist, så för att följa sekretesslagar som GDPR, du måste bekräfta att du förstår och accepterar denna risk och samtycker till att dina personuppgifter överförs till iNaturalists servrar i USA.",
     "learn_more_about_data_transfer_3": "För att läsa mer om vilken information vi samlar in och hur vi använder den, se vår <privacy>{{privacy}}</privacy> och <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "Det är inte möjligt att ha ett iNaturalist-konto utan att spara personlig information, så det enda sättet att återkalla detta samtycke är att ta bort ditt konto."
+    "learn_more_about_data_transfer_4": "Det är inte möjligt att ha ett iNaturalist-konto utan att spara personlig information, så det enda sättet att återkalla detta samtycke är att ta bort ditt konto.",
+    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",

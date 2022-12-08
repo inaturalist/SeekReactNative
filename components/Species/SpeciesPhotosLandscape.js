@@ -2,9 +2,9 @@
 import React, { useEffect, useContext } from "react";
 import {
   View,
-  Image,
-  FlatList
+  Image
 } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import type { Node } from "react";
 
 import { AppOrientationContext } from "../UserContext";
@@ -34,7 +34,7 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
     }
 
     return (
-      <View key={`image${photo.medium_url}`} style={viewStyles.imagePadding}>
+      <View style={viewStyles.imagePadding}>
         <Image
           source={{ uri: photo.medium_url }}
           style={[
@@ -80,12 +80,11 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
       );
     } else {
       return (
-        <FlatList
+        <FlashList
+          testID="species-photos-landscape"
+          estimatedItemSize={470}
           data={photos}
-          contentContainerStyle={[
-            viewStyles.landscapeBackground,
-            { width: columnWidth }
-          ]}
+          contentContainerStyle={viewStyles.landscapeBackground}
           renderItem={renderPhoto}
           keyExtractor={key}
           ListFooterComponent={renderFooter}
@@ -95,7 +94,6 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
       );
     }
   };
-
 
   return renderPhotoList( );
 };

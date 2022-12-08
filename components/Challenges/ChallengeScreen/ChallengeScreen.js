@@ -1,7 +1,7 @@
 // @flow
-
 import React, { useRef } from "react";
-import { View, SectionList } from "react-native";
+import { View } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import type { Node } from "react";
 
 import styles from "../../../styles/challenges/challenges";
@@ -14,65 +14,45 @@ import { useFetchChallenges } from "../hooks/challengeHooks";
 
 const ChallengeScreen = ( ): Node => {
   const list = useFetchChallenges( );
-  const sectionList = useRef( null );
 
-  const renderSectionHeader = ( { section } ) => {
-    const { id } = section;
-
-    if ( list.length === 2 && id === 0 ) {
-      return null;
-    } else {
-      return (
-        <View style={styles.header}>
-          <GreenText text={section.header} />
-        </View>
-      );
-    }
-  };
-
-  const renderItem = ( { item, section, index } ) => (
-    <ChallengeProgressCard
-      key={`${item.name}`}
-      challenge={item}
-    />
-  );
-
-  const renderSectionFooter = ( { section } ) => {
-    const { data, id } = section;
-
-    if ( data.length !== 0 ) {
-      return null;
-    } else if ( list.length === 2 && id === 0 ) {
-      return (
-        <View style={styles.noChallenges}>
-          <NoChallenges />
-        </View>
-      );
-    } else {
-      return (
-        <EmptyChallengesCard type={section.empty} />
-      );
-    }
-  };
-
-  const renderSectionSeparator = ( ) => <View style={styles.separator} />;
-
+  console.log( "list :>> ", list );
   const extractKey = ( item, index ) => item + index;
 
   return (
-    <ViewWithHeader header="challenges.header">
-      <SectionList
-        ref={sectionList}
+    <ViewWithHeader testID="challenge-screen-container" header="challenges.header">
+      <FlashList
+        estimatedItemSize={100}
         scrollEventThrottle={1}
         contentContainerStyle={styles.challengeList}
-        sections={list}
-        initialNumToRender={5}
-        stickySectionHeadersEnabled={false}
+        data={list}
         keyExtractor={extractKey}
-        renderSectionHeader={renderSectionHeader}
-        renderSectionFooter={renderSectionFooter}
-        SectionSeparatorComponent={renderSectionSeparator}
-        renderItem={renderItem}
+        renderItem={( { item } ) => {
+          if ( item.type === "header" ) {
+            // Render header
+            return <View style={styles.header}>
+              <GreenText text={item.header} />
+            </View>;
+          } else if ( item.type === "empty" ) {
+            // Render empty card
+            return <EmptyChallengesCard type={item.empty} />;
+          } else if ( item.type === "noChallenges" ) {
+            // Render no challenges text
+            return <View style={styles.noChallenges}>
+              <NoChallenges />
+            </View>;
+          } else {
+            // Render item
+            return <ChallengeProgressCard
+              challenge={item}
+            />;
+          }
+        }}
+        getItemType={( item ) => {
+          if ( item.hasOwnProperty( "type" ) ) {
+            return item.type;
+          }
+          return "challenge";
+        }}
         removeClippedSubviews
       />
     </ViewWithHeader>

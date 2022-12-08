@@ -15,7 +15,6 @@ import { useFetchChallenges } from "../hooks/challengeHooks";
 const ChallengeScreen = ( ): Node => {
   const list = useFetchChallenges( );
 
-  console.log( "list :>> ", list );
   const extractKey = ( item, index ) => item + index;
 
   return (

@@ -11,6 +11,7 @@ import {
   Keyboard
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { colors } from "../../styles/global";
@@ -141,6 +142,7 @@ const SelectSpecies = ( {
           source={posting.searchGreen}
           tintColor={colors.white}
           style={imageStyles.search}
+    <SafeAreaProvider>
         />
         <TextInput
           onChangeText={handleTextChange}
@@ -164,6 +166,7 @@ const SelectSpecies = ( {
         onScroll={dismissKeyboard}
       />
     </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

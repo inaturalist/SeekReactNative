@@ -90,7 +90,9 @@
     "error_no_username": "Falta nome de usuário / e-mail",
     "error_no_password": "Falta senha",
     "error_internet": "Sem conexão à internet",
-    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída."
+    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Bem-vindo ao Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Não há como ter uma conta iNaturalist sem armazenar informações pessoais, então a única forma de revogar esse consentimento é excluindo sua conta.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "A concessão de autorização fornecida é inválida, expirada, revogada, não corresponde ao URI de redirecionamento usado na solicitação de autorização ou foi emitida para outro cliente."
   },
   "inat_login": {
     "log_in_with_inat": "Entrar com a sua conta no iNaturalist",

@@ -90,7 +90,9 @@
     "error_no_username": "Manca nom d'usuari/e-mail",
     "error_no_password": "Manca la contrasenya",
     "error_internet": "Sense connexió a internet",
-    "error_request_could_not_be_completed": "La teva sol·licitud no s'ha pogut completar."
+    "error_request_could_not_be_completed": "La teva sol·licitud no s'ha pogut completar.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "L'ús d'iNaturalist requereix emmagatzemar informació personal, com ara la vostra adreça de correu electrònic, totes les dades d'iNaturalist s'emmagatzemen als Estats Units i no podem estar segurs sobre a quina jurisdicció legal us trobeu quan feu servir iNaturalist, per tal de complir amb les lleis de privadesa com el RGPD, heu de reconèixer que enteneu i accepteu aquest risc i consentiu la transferència de la vostra informació personal als servidors d'iNaturalist als EUA.",
     "learn_more_about_data_transfer_3": "Per obtenir més informació sobre quina informació recopilem i com la utilitzem, si us plau, consulteu les nostres <privacy>{{privacy}}</privacy> i <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "No es pot tenir un compte d'iNaturalist sense emmagatzemar informació personal, així que l'única forma de revocar aquest consentiment és eliminar el vostre compte.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "L''autorització proporcionada és nul·la, ha expirat, ha estat revocada, no s''ajusta a la redirecció URI utilitzada a la petició d''autorització, o ha estat emesa per a un altre client."
   },
   "inat_login": {
     "log_in_with_inat": "Inicieu sessió al vostre compte d'iNaturalist",

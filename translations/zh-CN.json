@@ -90,7 +90,9 @@
     "error_no_username": "缺少用户名 / 电子邮件",
     "error_no_password": "缺少密码",
     "error_internet": "没有网络连接",
-    "error_request_could_not_be_completed": "您的请求无法完成。"
+    "error_request_could_not_be_completed": "您的请求无法完成。",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "欢迎来到 Seek ！",

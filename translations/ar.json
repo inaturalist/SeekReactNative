@@ -90,7 +90,9 @@
     "error_no_username": "Missing username / email",
     "error_no_password": "Missing password",
     "error_internet": "No internet connection",
-    "error_request_could_not_be_completed": "Your request could not be completed."
+    "error_request_could_not_be_completed": "Your request could not be completed.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "مرحبا بك في Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "إن منحة الترخيص المقدمة غير صالحة، أو منتهية الصلاحية، أو تم إبطالها، أو لا تتطابق مع إعادة توجيه URI المستخدم في طلب التفويض، أو تم إصدارها إلى عميل آخر."
   },
   "inat_login": {
     "log_in_with_inat": "تسجيل الدخول لحسابك باستخدام iNaturalist",

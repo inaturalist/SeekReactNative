@@ -90,7 +90,9 @@
     "error_no_username": "Benutzername / E-Mail fehlt",
     "error_no_password": "Passwort fehlt",
     "error_internet": "Keine Internet-Verbindung",
-    "error_request_could_not_be_completed": "Die Anfrage konnte nicht abgeschlossen werden."
+    "error_request_could_not_be_completed": "Die Anfrage konnte nicht abgeschlossen werden.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Willkommen bei Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Die Verwendung von iNaturalist erfordert die Speicherung persönlicher Daten wie deiner E-Mail-Adresse, alle iNaturalist-Daten werden in den Vereinigten Staaten gespeichert, und wir können nicht sicher sein, in welcher rechtlichen Gerichtsbarkeit du dich befindest, wenn du iNaturalist verwendest. Um die Datenschutzgesetze wie die DSGVO einzuhalten, musst du anerkennen, dass du dieses Risiko verstehst und akzeptierst sowie damit einverstanden bist, persönlichen Daten auf die Server von iNaturalist in den USA zu übertragen.",
     "learn_more_about_data_transfer_3": "Um mehr darüber zu erfahren, welche Informationen wir sammeln und wie wir sie verwenden, lies  bitte unsere <privacy>{{privacy}}</privacy> und <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Es gibt keine Möglichkeit, ein iNaturalist-Konto zu haben, ohne persönliche Daten zu speichern - sodass die einzige Möglichkeit, diese Einwilligung zu widerrufen ist, das Konto zu löschen.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "Die beigefügte Bewilligung der Autorisierung ist ungültig, abgelaufen, wurde widerrufen, an einen anderen Client ausgestellt oder der Weiterleitungs-URI stimmt nicht mit der Autorisierungs-Anfrage überein."
   },
   "inat_login": {
     "log_in_with_inat": "Mit deinem iNaturalist-Konto anmelden",
@@ -985,7 +987,7 @@
     },
     "uploaded_observations_text_2": "Vielen Dank für deinen Beitrag zu unserer Community!",
     "observed_in": "{{speciesName}} beobachtet in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
+    "observed_on": "{{speciesName}} beobachtet am {{date}}",
     "challenges": "Missionen",
     "x_challenges_earned_text": {
       "one": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",

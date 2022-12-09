@@ -91,8 +91,8 @@
     "error_no_password": "缺少密碼",
     "error_internet": "沒有網路連線",
     "error_request_could_not_be_completed": "無法完成您的請求。",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "出於是未知的客戶端、沒有包含到客戶端驗證、或是未支援的驗證方式，導致客戶端驗證失敗。",
+    "error_grant_invalid": "提供的授權授予為無效、逾期、被撤銷，不符合使用於授權請求的重新導向 URI，或是被發送到其他客戶端。"
   },
   "inat_signup": {
     "welcome": "歡迎來到 Seek！",
@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "一些資料隱私法，如歐盟的《一般資料保護規則》（GDPR），要求明確的同意將個人資訊從其管轄區轉移到被認為對該資訊的法律保護不足的其他管轄區。自 2020 年起，歐盟不再將美國視為對個人資訊提供充分法律保護的司法管轄區，特別是因為美國政府可能會監視進入美國的資料。其他司法管轄區可能也有相同的看法。",
     "learn_more_about_data_transfer_2": "使用 iNaturalist 需要存儲您的電子郵件地址等個人資訊，所有 iNaturalist 資料都存儲在美國，我們無法得知您使用 iNaturalist 時處於哪個法律管轄區，因此為了遵守 GDPR 等隱私權法，您必須承認您了解並接受此風險，並同意將您的個人資訊傳送至美國的 iNaturalist 伺服器。",
     "learn_more_about_data_transfer_3": "要了解更多關於我們收集哪些資訊以及如何使用這些資訊，請參閱我們的<privacy>{{privacy}}</privacy>和<terms>{{terms}}</terms>。",
-    "learn_more_about_data_transfer_4": "如果不存儲個人資訊，就無法擁有 iNaturalist 帳戶，因此撤銷此同意的唯一方法是刪除您的帳戶。",
-    "login_error_auth_grant_invalid": "提供的授權授予為無效、逾期、被撤銷，不符合使用於授權請求的重新導向 URI，或是被發送到其他客戶端。"
+    "learn_more_about_data_transfer_4": "如果不存儲個人資訊，就無法擁有 iNaturalist 帳戶，因此撤銷此同意的唯一方法是刪除您的帳戶。"
   },
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",

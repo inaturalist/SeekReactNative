@@ -91,8 +91,8 @@
     "error_no_password": "Mangler passord",
     "error_internet": "Ingen internett-tilkobling",
     "error_request_could_not_be_completed": "Forespørselen din kunne ikke fullføres.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Autentisering av klient mislykket på grunn av ukjent klient, ingen autorisering av klient inkludert, eller autentiseringsmetode som ikke støttes.",
+    "error_grant_invalid": "Den oppgitte autentiseringen er ugyldig, utløpt, trukket, matcher ikke omredigerings-URI-en brukt i autentiseringsforespørselen, eller ble utgitt til en annen klient."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account.",
-    "login_error_auth_grant_invalid": "Den oppgitte autentiseringen er ugyldig, utløpt, trukket, matcher ikke omredigerings-URI-en brukt i autentiseringsforespørselen, eller ble utgitt til en annen klient."
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "Logg på med din iNaturalist-konto",

@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "חוקי פרטיות נתונים מסוימים, כמו בקרת הגנת הנתונים הכללית של האיחוד האירופאי (GDPR), דורשים הסכמה מפורשת להעברה של מידע אישי מתחום השיפוט שלהם אל תחומי שיפוט אחרים שבהם ההגנה המשפטית על המידע אינה נחשבת מספקת. נכון לשנת 2020, האיחוד האירופאי כבר לא מגדירה את ארה\"ב כתחום שיפוט שנותן הגנה משפטית מספקת על מידע אישי, בפרט עקב האפשרות שממשלת ארה\"ב עוקבת אחרי נתונים הנכנסים לארה\"ב. יתכן כי סמכויות שיפוט אחרות מחזיקות באותה הדעה.",
     "learn_more_about_data_transfer_2": "השימוש ב-iNaturalist מצריך אחסון של מידע אישי כמו כתובת הדוא\"ל שלך. כל נתוני iNaturalist מאוחסנים בארה\"ב ואין ביכולתנו לדעת תחת איזו סמכות שיפוטית את.ה נמצא.ת בזמן השימוש ב-iNaturalist, לכן בכדי לעמוד בחוקי פרטיות כמו ה-GDPR, עליך להכיר בזאת שהבנת וקיבלת את סיכון זה ומסכימ.ה להעביר את המידע האישי שלך לשרתי iNaturalist בארה\"ב.",
     "learn_more_about_data_transfer_3": "לפרטים נוספים אודות המידע הנאסף על-ידינו ואופן השימוש בו, נא לעיין ב<privacy>{{privacy}}</privacy> ו<terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "אין דרך להחזיק חשבון iNaturalist מבלי לאחסן מידע אישי, לכן הדרך היחידה לבטל הסכמה זו היא למחוק את חשבונך.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "learn_more_about_data_transfer_4": "אין דרך להחזיק חשבון iNaturalist מבלי לאחסן מידע אישי, לכן הדרך היחידה לבטל הסכמה זו היא למחוק את חשבונך."
   },
   "inat_login": {
     "log_in_with_inat": "כניסה באמצעות חשבונן ה-iNaturalist שלך",

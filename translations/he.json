@@ -90,7 +90,9 @@
     "error_no_username": "חסר שם משתמש / דוא\"ל",
     "error_no_password": "חסרה סיסמה",
     "error_internet": "אין חיבור אינטרנט",
-    "error_request_could_not_be_completed": "לא היה ניתן לבצע את בקשתך."
+    "error_request_could_not_be_completed": "לא היה ניתן לבצע את בקשתך.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "ברוכות.ים הבאות.ים ל-Seek!",

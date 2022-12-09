@@ -90,7 +90,9 @@
     "error_no_username": "Nome utente / email mancante",
     "error_no_password": "Password mancante",
     "error_internet": "Nessuna connessione a Internet",
-    "error_request_could_not_be_completed": "Impossibile completare la tua richiesta."
+    "error_request_could_not_be_completed": "Impossibile completare la tua richiesta.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Benvenuto su Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "L'utilizzo di iNaturalist richiede la memorizzazione di informazioni personali come il tuo indirizzo email, tutti i dati iNaturalist sono memorizzati negli Stati Uniti, e non possiamo essere sicuri di quale giurisdizione legale si è in quando si utilizza iNaturalist, così al fine di rispettare le leggi sulla privacy come il GDPR, è necessario riconoscere di comprendere e accettare questo rischio e acconsentire al trasferimento dei dati personali ai server di iNaturalist negli Stati Uniti.",
     "learn_more_about_data_transfer_3": "Per saperne di più su quali informazioni raccogliamo e come le utilizziamo, consulta la nostra <privacy>{{privacy}}</privacy> e i nostri <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Non c'è modo di avere un account iNaturalist senza memorizzare le informazioni personali, quindi l'unico modo per revocare questo consenso è quello di eliminare il tuo account.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "Il rilascio di autorizzazione fornito è invalido, scaduto, revocato, non corrisponde l''URI di reindirizzamento usato nella richiesta di autorizzazione, o è stato rilasciato da un altro cliente."
   },
   "inat_login": {
     "log_in_with_inat": "Accedi col tuo profilo di iNaturalist",

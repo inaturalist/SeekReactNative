@@ -90,7 +90,9 @@
     "error_no_username": "Manglende brugernavn / e-mail",
     "error_no_password": "Mangler adgangskode",
     "error_internet": "Ingen Internetforbindelse",
-    "error_request_could_not_be_completed": "Din anmodning kunne ikke fuldføres."
+    "error_request_could_not_be_completed": "Din anmodning kunne ikke fuldføres.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Brug af iNaturalist kræver opbevaring af personlige oplysninger som din e-mail-adresse. Alle iNaturalist-data gemmes i USA. Eftersom vi ikke kan være sikre på, hvilken juridisk jurisdiktion du befinder dig i, når du bruger iNaturalist, skal vi for at overholde fortrolighedslove såsom GDPR bede dig om at erklære, at du forstår og accepterer denne risiko og giver samtykke til at overføre dine personlige oplysninger til iNaturalists servere i USA.",
     "learn_more_about_data_transfer_3": "For at få mere at vide om, hvilke oplysninger vi indsamler og hvordan vi bruger dem, se venligst vores <privacy>{{privacy}}</privacy> og <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Det er ikke muligt at have en iNaturalist-konto uden at gemme personlige oplysninger, så den eneste måde at tilbagekalde dette samtykke på er at slette din konto.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "Den angivne godkendelsesbevilling er ugyldig, udløbet, tilbagekaldt, passer ikke til den omdirigerings-URI, der blev brugt i anmodningen om godkendelse, eller er udstedt til en anden klient."
   },
   "inat_login": {
     "log_in_with_inat": "Log ind med din iNaturalist-konto",

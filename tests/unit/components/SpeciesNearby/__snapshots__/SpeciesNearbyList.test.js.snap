@@ -503,8 +503,10 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
                 onStartShouldSetResponder={[Function]}
                 style={
                   {
+                    "height": 205,
                     "marginRight": 23,
                     "opacity": 1,
+                    "width": 108,
                   }
                 }
               >
@@ -537,7 +539,6 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
                           "lineHeight": 21,
                           "paddingTop": 13,
                           "textAlign": "center",
-                          "width": 108,
                         },
                         false,
                         false,
@@ -589,8 +590,10 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
+                "height": 205,
                 "marginRight": 23,
                 "opacity": 1,
+                "width": 108,
               }
             }
           >
@@ -623,7 +626,6 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
                       "lineHeight": 21,
                       "paddingTop": 13,
                       "textAlign": "center",
-                      "width": 108,
                     },
                     false,
                     false,

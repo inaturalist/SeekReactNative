@@ -90,7 +90,9 @@
     "error_no_username": "Hiányzó felhasználónév / jelszó",
     "error_no_password": "Hiányzó jelszó",
     "error_internet": "Nincs internetkapcsolat",
-    "error_request_could_not_be_completed": "Ez a kérés sajnos nem teljesíthető."
+    "error_request_could_not_be_completed": "Ez a kérés sajnos nem teljesíthető.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Üdvözlünk a Seek-ben!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Az iNaturalist használata személyes adatok, például az e-mail címed tárolását igényli, az iNaturalist összes adatát az Egyesült Államokban tároljuk, és mivel nem tudhatjuk, hogy az iNaturalist használata során hol tartózkodsz, ezért az adatvédelmi törvényeknek, például a GDPR-nak való megfelelés érdekében előzetesen el kell ismerned, hogy megértetted és elfogadod ezt a kockázatot, és beleegyezel abba, hogy személyes adataidat az iNaturalist amerikai szervereire továbbítsuk.",
     "learn_more_about_data_transfer_3": "Ha többet szeretnél megtudni arról, hogy milyen adatokat gyűjtünk és hogyan használjuk fel, kérjük, nézd meg <privacy>{{privacy}}</privacy> , <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Nincs iNaturalist fiók személyes adatok nélkül,  így a hozzájárulás visszavonásának egyetlen módja a fiók törlése.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "A megadott hitelesítés érvénytelen, lejárt, visszavont, vagy nem egyezik a hitelesítési kérésben használt URI-val, vagy más kliensnek címezték."
   },
   "inat_login": {
     "log_in_with_inat": "Bejelentkezés iNaturalist fiókkal",

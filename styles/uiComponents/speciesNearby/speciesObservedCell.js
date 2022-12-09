@@ -10,7 +10,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     borderRadius: 108 / 2,
     height: 108,
     width: 108
-    // backgroundColor: colors.skeletonGray
   },
   cellTitle: {
     flexDirection: "row",
@@ -31,7 +30,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     bottom: 91
   },
   gridCell: {
-    marginRight: 23
+    marginRight: 23,
+    width: 108,
+    height: 205
   }
 } );
 
@@ -48,7 +49,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   },
   speciesNameText: {
     paddingTop: 13,
-    width: 108,
     color: colors.white,
     fontFamily: fonts.medium,
     fontSize: 16,

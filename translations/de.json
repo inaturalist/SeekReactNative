@@ -91,8 +91,8 @@
     "error_no_password": "Passwort fehlt",
     "error_internet": "Keine Internet-Verbindung",
     "error_request_could_not_be_completed": "Die Anfrage konnte nicht abgeschlossen werden.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Die Klientauthentifizierung ist fehlgeschlagen, weil ein unbekannter Klient, keine Klientauthentifizierung oder eine nicht unterstützte Authentifizierungsmethode enthalten ist.",
+    "error_grant_invalid": "Die beigefügte Bewilligung der Autorisierung ist ungültig, abgelaufen, wurde widerrufen, an einen anderen Client ausgestellt oder der Weiterleitungs-URI stimmt nicht mit der Autorisierungs-Anfrage überein."
   },
   "inat_signup": {
     "welcome": "Willkommen bei Seek!",
@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "Einige Datenschutzgesetze, wie die Datenschutz-Grundverordnung (DSGVO) der Europäischen Union, bedürfen der ausdrücklichen Zustimmung zur Weitergabe persönlicher Informationen aus ihren Zuständigkeitsbereichen an andere Gerichtsbarkeiten, wenn der rechtliche Schutz dieser Informationen nicht als ausreichend angesehen wird. Ab 2020 betrachtet die Europäische Union die Vereinigten Staaten nicht mehr als eine Gerichtsbarkeit, die einen angemessenen rechtlichen Schutz personenbezogener Daten gewährleistet, insbesondere wegen der Möglichkeit, dass die US-Regierung in die USA übertragene Daten überwachen kann. Es ist möglich, dass andere Gerichtsbarkeiten die gleiche Meinung haben.",
     "learn_more_about_data_transfer_2": "Die Verwendung von iNaturalist erfordert die Speicherung persönlicher Daten wie deiner E-Mail-Adresse, alle iNaturalist-Daten werden in den Vereinigten Staaten gespeichert, und wir können nicht sicher sein, in welcher rechtlichen Gerichtsbarkeit du dich befindest, wenn du iNaturalist verwendest. Um die Datenschutzgesetze wie die DSGVO einzuhalten, musst du anerkennen, dass du dieses Risiko verstehst und akzeptierst sowie damit einverstanden bist, persönlichen Daten auf die Server von iNaturalist in den USA zu übertragen.",
     "learn_more_about_data_transfer_3": "Um mehr darüber zu erfahren, welche Informationen wir sammeln und wie wir sie verwenden, lies  bitte unsere <privacy>{{privacy}}</privacy> und <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "Es gibt keine Möglichkeit, ein iNaturalist-Konto zu haben, ohne persönliche Daten zu speichern - sodass die einzige Möglichkeit, diese Einwilligung zu widerrufen ist, das Konto zu löschen.",
-    "login_error_auth_grant_invalid": "Die beigefügte Bewilligung der Autorisierung ist ungültig, abgelaufen, wurde widerrufen, an einen anderen Client ausgestellt oder der Weiterleitungs-URI stimmt nicht mit der Autorisierungs-Anfrage überein."
+    "learn_more_about_data_transfer_4": "Es gibt keine Möglichkeit, ein iNaturalist-Konto zu haben, ohne persönliche Daten zu speichern - sodass die einzige Möglichkeit, diese Einwilligung zu widerrufen ist, das Konto zu löschen."
   },
   "inat_login": {
     "log_in_with_inat": "Mit deinem iNaturalist-Konto anmelden",

@@ -90,7 +90,9 @@
     "error_no_username": "Falta nombre de usuario / email",
     "error_no_password": "Falta la contraseña",
     "error_internet": "Sin conexión al internet",
-    "error_request_could_not_be_completed": "Tu solicitud no se ha podido completar."
+    "error_request_could_not_be_completed": "Tu solicitud no se ha podido completar.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "El uso de iNaturalist requiere el almacenamiento de información personal como tu dirección de correo electrónico, todos los datos de iNaturalist se almacenan en los Estados Unidos, y no podemos estar seguros de la jurisdicción legal en la que estás usando iNaturalist, así para cumplir con las leyes de privacidad como el RGPD, debe reconocer que comprende y acepta este riesgo y consentimiento para transferir su información personal a los servidores de iNaturalist en los Estados Unidos.",
     "learn_more_about_data_transfer_3": "Para obtener más información sobre qué información recopilamos y cómo la usamos, por favor consulte nuestros <privacy>{{privacy}}</privacy> y <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "No hay forma de tener una cuenta de iNaturalist sin almacenar información personal, así que la única forma de revocar este consentimiento es eliminar su cuenta.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "La autorización proporcionada es inválida, expiró, ha sido revocada, no coincide con la dirección URI utilizada en el pedido de autorización, o fue emitida para otro cliente."
   },
   "inat_login": {
     "log_in_with_inat": "Inicia la sesión en tu cuenta de iNaturalist",

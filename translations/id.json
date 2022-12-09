@@ -90,7 +90,9 @@
     "error_no_username": "Nama pengguna / email belum dimasukkan",
     "error_no_password": "Kata sandi belum dimasukkan",
     "error_internet": "Tidak ada koneksi internet",
-    "error_request_could_not_be_completed": "Permintaan Anda tidak dapat diselesaikan."
+    "error_request_could_not_be_completed": "Permintaan Anda tidak dapat diselesaikan.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Selamat datang di Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "iNaturalist menggunakan penyimpanan informasi pribadi seperti \nalamat email. Semua data iNaturalist disimpan di Amerika Serikat dan \nkami tidak dapat memastikan tempat yurisdiksi hukum Anda saat Anda \nmenggunakan iNaturalist sehingga, untuk dapat mematuhi hukum privasi \nseperti GDPR, Anda harus mengakui bahwa Anda mengerti dan menerima \nrisiko ini dan mengizinkan pemindahan informasi pribadi Anda ke server \niNaturalist di AS.",
     "learn_more_about_data_transfer_3": "Untuk mengetahui lebih lanjut tentang informasi apa saja yang kami \nkumpulkan dan bagaimana kami menggunakannya, \nsilakan mengunjungi <privacy>{{privacy}}</privacy> dan <terms>{{terms}}</terms> kami.",
     "learn_more_about_data_transfer_4": "Tidak mungkin membuka akun iNaturalist tanpa menyimpan informasi \npribadi, jadi satu-satunya cara untuk mencabut izin ini adalah dengan \nmenghapus akun Anda.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "Pemberian otorisasi yang disediakan tidak valid, sudah kedaluwarsa, dicabut, tidak cocok dengan URI pengalihan yang digunakan pada permintaan otorisasi, atau diberikan untuk client lain."
   },
   "inat_login": {
     "log_in_with_inat": "Masuk dengan akun iNaturalist Anda",

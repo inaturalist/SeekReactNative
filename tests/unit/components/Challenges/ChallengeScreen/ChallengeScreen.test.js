@@ -155,7 +155,10 @@ const containerID = "challenge-screen-container";
 
 describe( "ChallengeScreen", () => {
   test( "should render correctly", async () => {
+    jest.useFakeTimers().setSystemTime( new Date( 2020, 5, 15 ) );
     renderScreen();
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
 
     const container = await screen.findByTestId( containerID );
     expect( container ).toBeTruthy();

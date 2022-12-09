@@ -7,7 +7,7 @@ const mockChallenges = [
   { header: "challenges.in_progress", id: 0, type: "header" },
   {
     action: "seek_2023_challenges.october_2023_action_migration",
-    availableDate: new Date( 2023, 9, 1, 0, 0, 0, 0, 0 ),
+    availableDate: new Date( Date.UTC( 2023, 9, 1, 0, 0, 0, 0, 0 ) ),
     backgroundName: "img-challengedetail-october2023",
     badgeName: "seek_challenges.badge",
     completedDate: null,
@@ -27,7 +27,7 @@ const mockChallenges = [
   },
   {
     action: "seek_2021_challenges.september_2021_action",
-    availableDate: new Date( 2023, 8, 1, 0, 0, 0, 0, 0 ),
+    availableDate: new Date( Date.UTC( 2023, 8, 1, 0, 0, 0, 0, 0 ) ),
     backgroundName: "img-challengedetail-september2023",
     badgeName: "seek_challenges.badge",
     completedDate: null,
@@ -52,7 +52,7 @@ const mockChallenges = [
   },
   {
     action: "seek_challenges.action_dec_2020",
-    availableDate: new Date( 2023, 11, 1, 0, 0, 0, 0, 0 ),
+    availableDate: new Date( Date.UTC( 2023, 11, 1, 0, 0, 0, 0, 0 ) ),
     backgroundName: "img-challengedetail-december2023",
     badgeName: "seek_challenges.badge",
     completedDate: null,
@@ -72,7 +72,7 @@ const mockChallenges = [
   },
   {
     action: "seek_2023_challenges.august_2023_action_insect",
-    availableDate: new Date( 2023, 7, 1, 0, 0, 0, 0, 0 ),
+    availableDate: new Date( Date.UTC( 2023, 7, 1, 0, 0, 0, 0, 0 ) ),
     backgroundName: "img-challengedetail-august2023",
     badgeName: "seek_challenges.badge",
     completedDate: null,
@@ -97,7 +97,7 @@ const mockChallenges = [
   },
   {
     action: "challenges.action_october",
-    availableDate: new Date( 2019, 9, 1, 0, 0, 0, 0, 0 ),
+    availableDate: new Date( Date.UTC( 2019, 9, 1, 0, 0, 0, 0, 0 ) ),
     backgroundName: "img-challengedetail-october",
     badgeName: "challenges.badge_name_october",
     completedDate: new Date( "2022-12-09T12:38:04.813Z" ),
@@ -117,7 +117,7 @@ const mockChallenges = [
   },
   {
     action: "challenges.action_september",
-    availableDate: new Date( 2019, 8, 1, 0, 0, 0, 0, 0 ),
+    availableDate: new Date( Date.UTC( 2019, 8, 1, 0, 0, 0, 0, 0 ) ),
     backgroundName: "img-challengedetail-september",
     badgeName: "challenges.badge_name_september",
     completedDate: new Date( "2022-12-09T12:38:04.813Z" ),

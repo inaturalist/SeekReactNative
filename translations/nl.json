@@ -90,7 +90,9 @@
     "error_no_username": "Ontbrekende gebruikersnaam / e-mail",
     "error_no_password": "Wachtwoord ontbreekt",
     "error_internet": "Geen internetverbinding",
-    "error_request_could_not_be_completed": "Jouw verzoek kon niet worden voltooid."
+    "error_request_could_not_be_completed": "Jouw verzoek kon niet worden voltooid.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Welkom bij Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Het gebruik van iNaturalist vereist de opslag van persoonlijke informatie zoals jouw e-mailadres, alle iNaturalist gegevens worden opgeslagen in de Verenigde Staten en we kunnen niet zeker zijn in welke juridische jurisdictie je zit wanneer je iNaturalist gebruikt, dus om te voldoen aan privacywetgeving zoals de AVG moet je erkennen dat je dit risico begrijpt en accepteert en ermee akkoord gaat dat jouw persoonlijke gegevens worden overgebracht naar de servers van iNaturalist in de VS.",
     "learn_more_about_data_transfer_3": "Lees voor meer informatie over welke informatie we verzamelen en hoe we het gebruiken onze <privacy>{{privacy}}</privacy> en <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Er is geen manier om een iNaturalist account te hebben zonder persoonlijke informatie op te slaan, dus de enige manier om deze toestemming in te trekken is het verwijderen van je account.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "De verstrekte autorisatietoekenning is ongeldig, verlopen, ingetrokken, komt niet overeen met de omleidings-URI die is gebruikt in het autorisatieverzoek of is uitgegeven aan een andere client."
   },
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",

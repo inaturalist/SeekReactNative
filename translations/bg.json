@@ -90,7 +90,9 @@
     "error_no_username": "Липсващо потребителско име / имейл\n",
     "error_no_password": "Липсваща парола.",
     "error_internet": "Няма интернет връзка",
-    "error_request_could_not_be_completed": "Вашата заявка не можа да бъде изпълнена."
+    "error_request_could_not_be_completed": "Вашата заявка не можа да бъде изпълнена.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Добре дошли в Seek!",

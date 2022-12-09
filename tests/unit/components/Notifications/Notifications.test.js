@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "tests/jest-utils";
 
-import NotificationsScreen from "../../../../components/notifications/Notifications";
+import NotificationsScreen from "../../../../components/Notifications/Notifications";
 
 const mockNotifications = [
   {

@@ -90,7 +90,9 @@
     "error_no_username": "Användarnamn / e-postadress saknas",
     "error_no_password": "Lösenord saknas",
     "error_internet": "Ingen internetanslutning",
-    "error_request_could_not_be_completed": "Din begäran kunde inte slutföras."
+    "error_request_could_not_be_completed": "Din begäran kunde inte slutföras.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Välkommen till Seek!",
@@ -133,7 +135,7 @@
     "learn_more_about_data_transfer_2": "Att använda iNaturalist kräver lagring av personuppgifter som din e-postadress, all iNaturalist-data lagras i USA, och vi kan inte vara säkra på vilken jurisdiktion du är i när du använder iNaturalist, så för att följa sekretesslagar som GDPR, du måste bekräfta att du förstår och accepterar denna risk och samtycker till att dina personuppgifter överförs till iNaturalists servrar i USA.",
     "learn_more_about_data_transfer_3": "För att läsa mer om vilken information vi samlar in och hur vi använder den, se vår <privacy>{{privacy}}</privacy> och <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Det är inte möjligt att ha ett iNaturalist-konto utan att spara personlig information, så det enda sättet att återkalla detta samtycke är att ta bort ditt konto.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "login_error_auth_grant_invalid": "Den angivna beviljade behörigheten är ogiltig, har löpt ut, återkallats, matchar inte den omdirigerings-URI som används i begäran om behörighet eller utfärdades till en annan klient."
   },
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",

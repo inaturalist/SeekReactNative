@@ -90,7 +90,9 @@
     "error_no_username": "ユーザ名 / メールアドレスが入力されていません",
     "error_no_password": "パスワードがありません",
     "error_internet": "インターネット未接続",
-    "error_request_could_not_be_completed": "リクエストを完了できませんでした。"
+    "error_request_could_not_be_completed": "リクエストを完了できませんでした。",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Seekへようこそ！",

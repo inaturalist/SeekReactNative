@@ -90,7 +90,9 @@
     "error_no_username": "Ontbrekende gebruikersnaam / e-mail",
     "error_no_password": "Wachtwoord ontbreekt",
     "error_internet": "Geen internetverbinding",
-    "error_request_could_not_be_completed": "Jouw verzoek kon niet worden voltooid."
+    "error_request_could_not_be_completed": "Jouw verzoek kon niet worden voltooid.",
+    "error_no_client": "Clientverificatie is mislukt vanwege onbekende client, geen clientverificatie opgenomen of een niet-ondersteunde verificatiemethode.",
+    "error_grant_invalid": "De verstrekte autorisatietoekenning is ongeldig, verlopen, ingetrokken, komt niet overeen met de omleidings-URI die is gebruikt in het autorisatieverzoek of is uitgegeven aan een andere client."
   },
   "inat_signup": {
     "welcome": "Welkom bij Seek!",

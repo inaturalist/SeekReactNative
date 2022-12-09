@@ -90,7 +90,9 @@
     "error_no_username": "Kullanıcı adı / eposta eksik",
     "error_no_password": "Eksik şifre",
     "error_internet": "Internet bağlantısı yok",
-    "error_request_could_not_be_completed": "İstek tamamlanamadı."
+    "error_request_could_not_be_completed": "İstek tamamlanamadı.",
+    "error_no_client": "Kullanıcı kimlik doğrulaması, bilinmeyen kullanıcı, dahil edilmeyen kullanıcı kimlik doğrulaması, veya desteklenmeyen kimlik doğrulama yöntemi nedeniyle başarısız oldu.",
+    "error_grant_invalid": "Sağlanan yetkilendirme onayı geçersiz, süresi dolmuş, iptal edilmiş, yetkilendirme isteğinde kullanılan yönlendirme URI'si ile eşleşmiyor veya başka bir kullanıcıya verilmiş."
   },
   "inat_signup": {
     "welcome": "Seek'e hoş geldin!",

@@ -90,7 +90,9 @@
     "error_no_username": "Nedostaje korisničko ime / e-pošta",
     "error_no_password": "Nedostaje lozinka",
     "error_internet": "Nema internetske veze",
-    "error_request_could_not_be_completed": "Nismo mogli izvršiti tvoj zahtjev."
+    "error_request_could_not_be_completed": "Nismo mogli izvršiti tvoj zahtjev.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Dobrodošao/la u Seek!",

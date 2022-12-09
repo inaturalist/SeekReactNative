@@ -90,7 +90,9 @@
     "error_no_username": "缺少使用者名稱 / 電子郵件",
     "error_no_password": "缺少密碼",
     "error_internet": "沒有網路連線",
-    "error_request_could_not_be_completed": "無法完成您的請求。"
+    "error_request_could_not_be_completed": "無法完成您的請求。",
+    "error_no_client": "出於是未知的客戶端、沒有包含到客戶端驗證、或是未支援的驗證方式，導致客戶端驗證失敗。",
+    "error_grant_invalid": "提供的授權授予為無效、逾期、被撤銷，不符合使用於授權請求的重新導向 URI，或是被發送到其他客戶端。"
   },
   "inat_signup": {
     "welcome": "歡迎來到 Seek！",

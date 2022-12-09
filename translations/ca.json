@@ -90,7 +90,9 @@
     "error_no_username": "Manca nom d'usuari/e-mail",
     "error_no_password": "Manca la contrasenya",
     "error_internet": "Sense connexió a internet",
-    "error_request_could_not_be_completed": "La teva sol·licitud no s'ha pogut completar."
+    "error_request_could_not_be_completed": "La teva sol·licitud no s'ha pogut completar.",
+    "error_no_client": "L''autenticació del client ha fallat a causa d''un client desconegut, manca d''autenticació del client o per un mètode d''autenticació no suportat.",
+    "error_grant_invalid": "L''autorització proporcionada és nul·la, ha expirat, ha estat revocada, no s''ajusta a la redirecció URI utilitzada a la petició d''autorització, o ha estat emesa per a un altre client."
   },
   "inat_signup": {
     "welcome": "Benvingut a Seek!",

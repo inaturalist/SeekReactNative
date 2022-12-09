@@ -90,7 +90,9 @@
     "error_no_username": "Falta nome de usuário / e-mail",
     "error_no_password": "Falta senha",
     "error_internet": "Sem conexão à internet",
-    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída."
+    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída.",
+    "error_no_client": "A autenticação do cliente falhou devido a um cliente desconhecido, nenhuma autenticação de cliente incluída ou método de autenticação não suportado.",
+    "error_grant_invalid": "A concessão de autorização fornecida é inválida, expirada, revogada, não corresponde ao URI de redirecionamento usado na solicitação de autorização ou foi emitida para outro cliente."
   },
   "inat_signup": {
     "welcome": "Bem-vindo ao Seek!",

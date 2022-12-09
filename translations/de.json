@@ -90,7 +90,9 @@
     "error_no_username": "Benutzername / E-Mail fehlt",
     "error_no_password": "Passwort fehlt",
     "error_internet": "Keine Internet-Verbindung",
-    "error_request_could_not_be_completed": "Die Anfrage konnte nicht abgeschlossen werden."
+    "error_request_could_not_be_completed": "Die Anfrage konnte nicht abgeschlossen werden.",
+    "error_no_client": "Die Klientauthentifizierung ist fehlgeschlagen, weil ein unbekannter Klient, keine Klientauthentifizierung oder eine nicht unterstützte Authentifizierungsmethode enthalten ist.",
+    "error_grant_invalid": "Die beigefügte Bewilligung der Autorisierung ist ungültig, abgelaufen, wurde widerrufen, an einen anderen Client ausgestellt oder der Weiterleitungs-URI stimmt nicht mit der Autorisierungs-Anfrage überein."
   },
   "inat_signup": {
     "welcome": "Willkommen bei Seek!",
@@ -984,7 +986,7 @@
     },
     "uploaded_observations_text_2": "Vielen Dank für deinen Beitrag zu unserer Community!",
     "observed_in": "{{speciesName}} beobachtet in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
+    "observed_on": "{{speciesName}} beobachtet am {{date}}",
     "challenges": "Missionen",
     "x_challenges_earned_text": {
       "one": "Du hast {{count}} Missions-Abzeichen in {{year}} verdient.",

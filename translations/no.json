@@ -90,7 +90,9 @@
     "error_no_username": "Manglende brukernavn / e-post",
     "error_no_password": "Mangler passord",
     "error_internet": "Ingen internett-tilkobling",
-    "error_request_could_not_be_completed": "Forespørselen din kunne ikke fullføres."
+    "error_request_could_not_be_completed": "Forespørselen din kunne ikke fullføres.",
+    "error_no_client": "Autentisering av klient mislykket på grunn av ukjent klient, ingen autorisering av klient inkludert, eller autentiseringsmetode som ikke støttes.",
+    "error_grant_invalid": "Den oppgitte autentiseringen er ugyldig, utløpt, trukket, matcher ikke omredigerings-URI-en brukt i autentiseringsforespørselen, eller ble utgitt til en annen klient."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -720,7 +722,7 @@
     "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
     "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
     "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "mission_4_aug_2020": "Find 2 insekter fra ordenerne:\n\nHymenoptera (maur, bier og veps);\nLepidoptera (sommerfugler);\nBiller (Coleoptera);\nFluer (Diptera)",
     "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
     "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?",
     "herbivore": "Planteeter-utfordring",

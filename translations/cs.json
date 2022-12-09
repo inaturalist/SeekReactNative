@@ -90,7 +90,9 @@
     "error_no_username": "Chybí uživatelské jméno / e-mail",
     "error_no_password": "Chybí heslo",
     "error_internet": "Bez připojení k Internetu",
-    "error_request_could_not_be_completed": "Váš požadavek nemohl být dokončen."
+    "error_request_could_not_be_completed": "Váš požadavek nemohl být dokončen.",
+    "error_no_client": "Autentizace klienta se nezdařila z důvodu neznámého klienta nebo proto, že neobsahuje žádné ověřování klienta, nebo z důvodu nepodporované metody ověřování.",
+    "error_grant_invalid": "Poskytnuté oprávnění je neplatné, vypršelo, je zrušeno, neodpovídá identifikátoru URI přesměrování použitého v žádosti o autorizaci nebo bylo doručeno jinému klientovi."
   },
   "inat_signup": {
     "welcome": "Vítejte s Seeku!",

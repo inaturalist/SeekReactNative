@@ -90,7 +90,9 @@
     "error_no_username": "Användarnamn / e-postadress saknas",
     "error_no_password": "Lösenord saknas",
     "error_internet": "Ingen internetanslutning",
-    "error_request_could_not_be_completed": "Din begäran kunde inte slutföras."
+    "error_request_could_not_be_completed": "Din begäran kunde inte slutföras.",
+    "error_no_client": "Klientautentisering misslyckades på grund av okänd klient, ingen inkluderad klientautentisering eller en autentiseringsmetod som inte stöds.",
+    "error_grant_invalid": "Den angivna beviljade behörigheten är ogiltig, har löpt ut, återkallats, matchar inte den omdirigerings-URI som används i begäran om behörighet eller utfärdades till en annan klient."
   },
   "inat_signup": {
     "welcome": "Välkommen till Seek!",

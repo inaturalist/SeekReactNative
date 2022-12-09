@@ -90,7 +90,9 @@
     "error_no_username": "Hiányzó felhasználónév / jelszó",
     "error_no_password": "Hiányzó jelszó",
     "error_internet": "Nincs internetkapcsolat",
-    "error_request_could_not_be_completed": "Ez a kérés sajnos nem teljesíthető."
+    "error_request_could_not_be_completed": "Ez a kérés sajnos nem teljesíthető.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "A megadott hitelesítés érvénytelen, lejárt, visszavont, vagy nem egyezik a hitelesítési kérésben használt URI-val, vagy más kliensnek címezték."
   },
   "inat_signup": {
     "welcome": "Üdvözlünk a Seek-ben!",

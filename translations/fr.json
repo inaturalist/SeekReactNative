@@ -90,7 +90,9 @@
     "error_no_username": "Nom d'utilisateur/email manquant",
     "error_no_password": "Mot de passe manquant",
     "error_internet": "Aucune connexion internet",
-    "error_request_could_not_be_completed": "Votre demande n'a pas pu être traitée."
+    "error_request_could_not_be_completed": "Votre demande n'a pas pu être traitée.",
+    "error_no_client": "L’authentification du client a échoué du fait d’un client inconnu, ou parce qu''il n’y a pas d’authentification du client incluse, ou à cause d''une  méthode d’authentification non supportée.",
+    "error_grant_invalid": "Le droit d’autorisation fourni n’est pas valide, a expiré, est révoqué, ne correspond pas à l’URI de redirection utilisée dans la requête d’autorisation, ou a été remis à un autre client."
   },
   "inat_signup": {
     "welcome": " Bienvenue sur Seek !",

@@ -90,7 +90,9 @@
     "error_no_username": "Manglende brugernavn / e-mail",
     "error_no_password": "Mangler adgangskode",
     "error_internet": "Ingen Internetforbindelse",
-    "error_request_could_not_be_completed": "Din anmodning kunne ikke fuldføres."
+    "error_request_could_not_be_completed": "Din anmodning kunne ikke fuldføres.",
+    "error_no_client": "Klientgodkendelsen mislykkedes på grund af ukendt klient, ingen klientgodkendelse inkluderet eller ikke-understøttet godkendelsesmetode.",
+    "error_grant_invalid": "Den angivne godkendelsesbevilling er ugyldig, udløbet, tilbagekaldt, passer ikke til den omdirigerings-URI, der blev brugt i anmodningen om godkendelse, eller er udstedt til en anden klient."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",

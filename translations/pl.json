@@ -90,7 +90,9 @@
     "error_no_username": "Brak nazwy użytkownika / adresu e-mail",
     "error_no_password": "Brak hasła",
     "error_internet": "Brak połączenia z Internetem",
-    "error_request_could_not_be_completed": "Twoja prośba nie mogła zostać zakończona."
+    "error_request_could_not_be_completed": "Twoja prośba nie mogła zostać zakończona.",
+    "error_no_client": "Uwierzytelnienie klienta nie powiodło się z powodu nieznanego klienta, nieuwzględnienia uwierzytelnienia klienta lub nieobsługiwanej metody uwierzytelniania.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Witaj w Seek!",

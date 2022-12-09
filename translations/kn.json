@@ -90,7 +90,9 @@
     "error_no_username": "ಕಾಣೆಯಾದ ಬಳಕೆದಾರರ ಹೆಸರು / ಮಿಂಚೆ",
     "error_no_password": "ಕಾಣೆಯಾದ ಗುಪ್ತಪದ",
     "error_internet": "ಅಂತರ್ಜಾಲದ ಸಂಪರ್ಕವಿಲ್ಲ",
-    "error_request_could_not_be_completed": "ನಿಮ್ಮ ಕೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣ ಮಾಡಲಾಗಲಿಲ್ಲ."
+    "error_request_could_not_be_completed": "ನಿಮ್ಮ ಕೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣ ಮಾಡಲಾಗಲಿಲ್ಲ.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Seek ಗೆ ಸುಸ್ವಾಗತ!",
@@ -132,7 +134,8 @@
     "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account.",
+    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalist ಖಾತೆಯೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ",
@@ -687,7 +690,7 @@
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
     "donate_ios": "Seek ಗೆ ದೇಣಿಗೆ ನೀಡಲು ದಯವಿಟ್ಟು ಈ ಕೆಳಗಿನ ಕೊಂಡಿಗೆ ಭೇಟಿಕೊಡಿ:",
     "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "confirm": "ಖಚಿತಪಡಿಸಿ"
   },
   "seek_challenges": {
     "badge": "Seek ಬ್ಯಾಡ್ಜ್",
@@ -915,7 +918,7 @@
     "august_2022_description_seeds_are_a_lifestage": "Seeds are a lifestage of plants that can be easily moved. Many conifers and flowering plants have adapted fruits and seeds to be transported by wind, water, or animals. Many species of birds, mammals, and even ants can disperse seeds.",
     "august_2022_action_largest_species_seed_dispersing": "What is the largest species of seed dispersing animal near you? What kinds of seeds can it disperse? When animals swallow seeds whole, you may be able to find seeds in scat (also known as poop). Observations of scat count as evidence of an organism, but sometimes scat can be difficult to identify.",
     "september_2022_challenge_name_photosynthesis": "Photosynthesis Challenge",
-    "september_2022_mission_1": "Find 5 plants",
+    "september_2022_mission_1": "5 ಸಸ್ಯಗಳನ್ನು ಹುಡುಕಿ",
     "september_2022_description_plants_convert_light": "Plants convert light energy into sugars through photosynthesis. Leaf color is shaped by the different plant pigments that capture different wavelengths of light. When leaves change color, the chlorophylls (green pigments) fade and carotenoids (yellow pigments) and Anthocyanins (red and purple pigments) are visible.",
     "september_2022_action_photosynthesis": "Photosynthesis converts carbon dioxide from the atmosphere into other molecules needed for sustaining life. Respiration is the chemical process of releasing the energy originally stored in photosynthesis.",
     "october_2022_challenge_name_parasite": "Parasite Challenge",
@@ -930,7 +933,7 @@
   },
   "seek_2023_challenges": {
     "january_2023_challenge_name_habitats": "Habitats Challenge",
-    "february_2023_challenge_name_climate_change": "Climate Change Challenge",
+    "february_2023_challenge_name_climate_change": "ಹವಾಮಾನ ಬದಲಾವಣೆ ಸವಾಲು",
     "february_2023_description_climate_change": "Climate change is not just affecting the frozen worlds at our planet’s poles. Rising temperatures and changing weather patterns can cause species to move out of habitats that become uncomfortable and into new areas. It can also mean that changes linked to seasons (known as “phenology”) such as leaf fall and flowering start to take place at different times. This may cause problems for other species that are hard to predict. Seek out your local plant life and see how your local environment may be changing.",
     "february_2023_action_climate_change": "Look up your favorite plant on the iNaturalist website and explore the “plant phenology” graph on its taxon page. These charts come from “annotations” for flower buds, flowers, or fruits on the observations posted to iNaturalist. You can help add them by logging in on the iNaturalist website.",
     "march_2023_challenge_name_lakes_ponds": "Lakes and Ponds Challenge",
@@ -944,7 +947,7 @@
     "july_2023_challenge_name_food_web": "Food Web Challenge",
     "july_2023_description_plant_eaters": "Every species in a community is connected in a food web. Producers capture energy from the sun, herbivores eat plants, carnivores eat other animals, and decomposers consume dead organisms. Seek out different levels in your local web of life, and learn how each one enables other species to survive.",
     "july_2023_action_plant_eaters": "Did you see any herbivores in action, such as a caterpillar eating a leaf or a bird eating seeds? Did you see any carnivores in action, perhaps a spider or a mantis with prey?",
-    "august_2023_challenge_name_insect": "Insect Challenge",
+    "august_2023_challenge_name_insect": "ಕೀಟಗಳ ಸವಾಲು",
     "august_2023_description_insect": "Insects populations are declining around our planet, partly because crops and buildings replace their habitats and are then sprayed with bug-killing pesticides. We need insect pollinators for our crops and wild plants to flourish, and many amphibians, reptiles, birds, and mammals depend on insects for food. Seek out the insects around you and show them some love!",
     "august_2023_action_insect": "Insects have exoskeletons and can be distinguished from their arthropod relatives by their 6 legs. Where were you able to find insects? Are they at risk from habitat loss or pesticides?",
     "september_2023_challenge_name_equinox": "Equinox Challenge",
@@ -963,18 +966,18 @@
     "button": "View my Seek Review",
     "in_year_observed": "In {{year}}, you observed",
     "x_new_species": {
-      "one": "{{count}} new species",
-      "two": "{{count}} new species",
-      "few": "{{count}} new species",
-      "many": "{{count}} new species",
-      "other": "{{count}} new species"
+      "one": "{{count}} ಹೊಸ ಪ್ರಭೇದಗಳು",
+      "two": "{{count}} ಹೊಸ ಪ್ರಭೇದಗಳು",
+      "few": "{{count}} ಹೊಸ ಪ್ರಭೇದಗಳು",
+      "many": "{{count}} ಹೊಸ ಪ್ರಭೇದಗಳು",
+      "other": "{{count}} ಹೊಸ ಪ್ರಭೇದಗಳು"
     },
     "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
-    "iNaturalist": "iNaturalist",
+    "observations": "ವೀಕ್ಷಣೆಗಳು",
+    "observations_by_month": "ಮಾಸಿಕ ವೀಕ್ಷಣೆಗಳು",
+    "observations_map": "ವೀಕ್ಷಣೆಗಳ ಭೂಪಟ ",
+    "view_observations_map": "ವೀಕ್ಷಣೆಗಳ ಭೂಪಟವನ್ನು ವೀಕ್ಷಿಸಿ",
+    "iNaturalist": "ಐನ್ಯಾಚುರಲಿಸ್ಟ್",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
@@ -982,10 +985,10 @@
       "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
       "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
     },
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
+    "uploaded_observations_text_2": "ನಮ್ಮ ಬಳಗಕ್ಕೆ ನಿಮ್ಮ ಕೊಡುಗೆಗಾಗಿ ಧನ್ಯವಾದಗಳು",
     "observed_in": "{{speciesName}} observed in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
-    "challenges": "Challenges",
+    "observed_on": "{{speciesName}} ಅನ್ನು {{date}} ರಂದು ವೀಕ್ಷಿಸಲಾಗಿದೆ",
+    "challenges": "ಸವಾಲುಗಳು",
     "x_challenges_earned_text": {
       "one": "You earned {{count}} challenge badge in {{year}}.",
       "two": "You earned {{count}} challenge badges in {{year}}.",
@@ -995,6 +998,6 @@
     },
     "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
     "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "donate": "ದೇಣಿಗೆ ನೀಡಿ"
   }
 }

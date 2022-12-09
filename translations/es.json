@@ -91,7 +91,7 @@
     "error_no_password": "Falta la contraseña",
     "error_internet": "Sin conexión al internet",
     "error_request_could_not_be_completed": "Tu solicitud no se ha podido completar.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_no_client": "La autenticación del cliente ha fallado debido a cliente desconocido, autenticación de cliente no incluída, o método de autenticación no soportado.",
     "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "Algunas leyes de privacidad de datos, como el Reglamento General de Protección de Datos de la Unión Europea (RPD), requieren el consentimiento explícito para transferir información personal de sus jurisdicciones a otras jurisdicciones en las que la protección legal de esta información no sea considerada como tal. A partir de 2020, la Unión Europea ya no considera que los Estados Unidos sean una jurisdicción que proporcione una protección jurídica adecuada de la información personal. específicamente debido a la posibilidad de que el gobierno de Estados Unidos vigile los datos que entran en ese país. Es posible que otras jurisdicciones tengan la misma opinión.",
     "learn_more_about_data_transfer_2": "El uso de iNaturalist requiere el almacenamiento de información personal como tu dirección de correo electrónico, todos los datos de iNaturalist se almacenan en los Estados Unidos, y no podemos estar seguros de la jurisdicción legal en la que estás usando iNaturalist, así para cumplir con las leyes de privacidad como el RGPD, debe reconocer que comprende y acepta este riesgo y consentimiento para transferir su información personal a los servidores de iNaturalist en los Estados Unidos.",
     "learn_more_about_data_transfer_3": "Para obtener más información sobre qué información recopilamos y cómo la usamos, por favor consulte nuestros <privacy>{{privacy}}</privacy> y <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "No hay forma de tener una cuenta de iNaturalist sin almacenar información personal, así que la única forma de revocar este consentimiento es eliminar su cuenta.",
-    "login_error_auth_grant_invalid": "La autorización proporcionada es inválida, expiró, ha sido revocada, no coincide con la dirección URI utilizada en el pedido de autorización, o fue emitida para otro cliente."
+    "learn_more_about_data_transfer_4": "No hay forma de tener una cuenta de iNaturalist sin almacenar información personal, así que la única forma de revocar este consentimiento es eliminar su cuenta."
   },
   "inat_login": {
     "log_in_with_inat": "Inicia la sesión en tu cuenta de iNaturalist",

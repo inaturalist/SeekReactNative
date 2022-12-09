@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "欧州連合の「一般データ保護規則」(GDPR)のような一部のプライバシーに関連する法律は、この情報の法的保護が適切ではないと考えられる管轄区域から他の管轄区域に個人情報を転送するために明示的な同意を必要とします。2020年現在、EUは米国を個人情報に対する十分な法的保護を提供する管轄区域とみなしなくなりました。米国政府が米国に転送されるデータを監視する可能性があるためです。他の管轄区域も同じ意見を持っている可能性があります。",
     "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
     "learn_more_about_data_transfer_3": "私たちがどのような情報を収集し使うかについて、詳しくは<privacy>{{privacy}}</privacy>と<terms>{{terms}}</terms>を参照してください。",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account.",
-    "login_error_auth_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalistアカウントでログインする",

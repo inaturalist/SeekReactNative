@@ -91,8 +91,8 @@
     "error_no_password": "Eksik şifre",
     "error_internet": "Internet bağlantısı yok",
     "error_request_could_not_be_completed": "İstek tamamlanamadı.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Kullanıcı kimlik doğrulaması, bilinmeyen kullanıcı, dahil edilmeyen kullanıcı kimlik doğrulaması, veya desteklenmeyen kimlik doğrulama yöntemi nedeniyle başarısız oldu.",
+    "error_grant_invalid": "Sağlanan yetkilendirme onayı geçersiz, süresi dolmuş, iptal edilmiş, yetkilendirme isteğinde kullanılan yönlendirme URI'si ile eşleşmiyor veya başka bir kullanıcıya verilmiş."
   },
   "inat_signup": {
     "welcome": "Seek'e hoş geldin!",
@@ -134,8 +134,7 @@
     "learn_more_about_data_transfer": "Avrupa Birliği'nin Genel Veri Koruma Yönetmeliği (GDPR) gibi bazı veri gizliliği yasaları, kişisel bilgilerin kendi yetki alanlarından bu bilgilerin yasal olarak korunmasının yeterli görülmediği diğer yetki alanlarına aktarılması için açık rıza gerektirir. 2020 itibariyle Avrupa Birliği, özellikle ABD hükümetinin ABD'ye giren verileri gözetleme olasılığı nedeniyle, ABD'yi artık kişisel bilgilerin yeterli yasal korumasını sağlayan bir otorite olarak görmemektedir. Diğer otoritelerin de aynı görüşte olması olasıdır.",
     "learn_more_about_data_transfer_2": "iNaturalist'i kullanmak e-posta adresiniz gibi kişisel bilgilerin saklanmasını gerektirir, tüm iNaturalist verileri ABD'de saklanır ve iNaturalist'i kullanırken hangi yasal yetki alanında olduğunuzdan emin olamayız, bu nedenle GDPR gibi gizlilik yasalarına uymak için bu riski anladığınızı ve kabul ettiğinizi ve kişisel bilgilerinizin iNaturalist'in ABD'deki sunucularına aktarılmasına izin verdiğinizi onaylamanız gerekir.",
     "learn_more_about_data_transfer_3": "Hangi bilgileri topladığımız ve bunları nasıl kullandığımız hakkında daha çok bilgi için lütfen <privacy>{{privacy}}</privacy> ve <terms>{{terms}}</terms> bakın.",
-    "learn_more_about_data_transfer_4": "Kişisel bilgileri saklamadan bir iNaturalist hesabına sahip olmanın bir yolu yoktur, bu nedenle bu izni iptal etmenin tek yolu hesabınızı silmektir.",
-    "login_error_auth_grant_invalid": "Sağlanan yetkilendirme onayı geçersiz, süresi dolmuş, iptal edilmiş, yetkilendirme isteğinde kullanılan yönlendirme URI'si ile eşleşmiyor veya başka bir kullanıcıya verilmiş."
+    "learn_more_about_data_transfer_4": "Kişisel bilgileri saklamadan bir iNaturalist hesabına sahip olmanın bir yolu yoktur, bu nedenle bu izni iptal etmenin tek yolu hesabınızı silmektir."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalist hesabın ile giriş yap",

@@ -90,7 +90,9 @@
     "error_no_username": "ಕಾಣೆಯಾದ ಬಳಕೆದಾರರ ಹೆಸರು / ಮಿಂಚೆ",
     "error_no_password": "ಕಾಣೆಯಾದ ಗುಪ್ತಪದ",
     "error_internet": "ಅಂತರ್ಜಾಲದ ಸಂಪರ್ಕವಿಲ್ಲ",
-    "error_request_could_not_be_completed": "ನಿಮ್ಮ ಕೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣ ಮಾಡಲಾಗಲಿಲ್ಲ."
+    "error_request_could_not_be_completed": "ನಿಮ್ಮ ಕೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣ ಮಾಡಲಾಗಲಿಲ್ಲ.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Seek ಗೆ ಸುಸ್ವಾಗತ!",

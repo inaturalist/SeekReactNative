@@ -90,7 +90,9 @@
     "error_no_username": "Lipsește numele de utilizator / adresa de e-mail",
     "error_no_password": "Parola dumneavoastră lipsește",
     "error_internet": "Nu există conexiune la rețeaua de date.",
-    "error_request_could_not_be_completed": "Solicitarea ta nu a putut fi finalizată."
+    "error_request_could_not_be_completed": "Solicitarea ta nu a putut fi finalizată.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "Bun venit la Seek!",

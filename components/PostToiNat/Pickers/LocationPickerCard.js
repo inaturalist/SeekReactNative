@@ -17,6 +17,7 @@ import icons from "../../../assets/icons";
 import LocationPicker from "./LocationPicker";
 import { truncateCoordinates } from "../../../utility/locationHelpers";
 import StyledText from "../../UIComponents/StyledText";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 type Props = {
   location: ?string,
@@ -50,30 +51,30 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
 
   return (
     <>
-      <Modal
-        onRequestClose={closeModal}
-        visible={showModal}
-      >
-        <LocationPicker
-          latitude={observation.latitude}
-          longitude={observation.longitude}
-          closeLocationPicker={closeModal}
-          updateLocation={updateLocation}
-        />
+      <Modal onRequestClose={closeModal} visible={showModal}>
+        <SafeAreaProvider>
+          <LocationPicker
+            latitude={observation.latitude}
+            longitude={observation.longitude}
+            closeLocationPicker={closeModal}
+            updateLocation={updateLocation}
+          />
+        </SafeAreaProvider>
       </Modal>
-      <TouchableOpacity
-        onPress={openModal}
-        style={styles.thinCard}
-      >
+      <TouchableOpacity onPress={openModal} style={styles.thinCard}>
         <Image source={posting.location} style={styles.extraMargin} />
         <View style={styles.row}>
           <StyledText style={styles.greenText}>
-            {i18n.t( "posting.location" ).toLocaleUpperCase( )}
+            {i18n.t( "posting.location" ).toLocaleUpperCase()}
           </StyledText>
           <StyledText style={styles.text}>
             {location || i18n.t( "location_picker.undefined" )}
           </StyledText>
-          {coordinateString && <StyledText style={styles.coordsText}>{coordinateString}</StyledText>}
+          {coordinateString && (
+            <StyledText style={styles.coordsText}>
+              {coordinateString}
+            </StyledText>
+          )}
         </View>
         {/* $FlowFixMe */}
         <Image

@@ -4,191 +4,678 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
 <View
   testID="year-in-review-photos-container"
 >
-  <RCTScrollView
-    bounces={false}
-    contentContainerStyle={
-      {
-        "backgroundColor": "#000000",
-        "height": 250,
-      }
-    }
-    data={
-      [
-        <SeekYearInReviewPhotoItem
-          observation={
-            {
-              "date": 2022-12-02T10:19:54.000Z,
-              "latitude": 42,
-              "longitude": 42,
-              "taxon": {
-                "ancestorIds": [
-                  1,
-                  2,
-                  3,
-                ],
-                "defaultPhoto": {
-                  "backupUri": "some_uri",
-                  "lastUpdated": null,
-                  "mediumUrl": "some_medium_url",
-                },
-                "iconicTaxonId": 1,
-                "id": 4242,
-                "name": "some_name_1",
-                "preferredCommonName": "some_common_name_1",
-              },
-              "uuidString": "some_uuid_2",
-            }
-          }
-        />,
-        <SeekYearInReviewPhotoItem
-          observation={
-            {
-              "date": 2022-12-01T10:19:54.000Z,
-              "latitude": 42,
-              "longitude": 42,
-              "taxon": {
-                "ancestorIds": [
-                  1,
-                  2,
-                  3,
-                ],
-                "defaultPhoto": {
-                  "backupUri": "some_uri",
-                  "lastUpdated": null,
-                  "mediumUrl": "some_medium_url",
-                },
-                "iconicTaxonId": 1,
-                "id": 4242,
-                "name": "some_name_2",
-                "preferredCommonName": null,
-              },
-              "uuidString": "some_uuid_2",
-            }
-          }
-        />,
-      ]
-    }
-    getItem={[Function]}
-    getItemCount={[Function]}
-    getItemLayout={[Function]}
-    horizontal={true}
-    indicatorStyle="white"
-    initialNumToRender={1}
-    keyExtractor={[Function]}
-    onContentSizeChange={[Function]}
-    onLayout={[Function]}
-    onMomentumScrollBegin={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    onViewableItemsChanged={[Function]}
-    pagingEnabled={true}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    showsHorizontalScrollIndicator={false}
-    stickyHeaderIndices={[]}
-    testID="horizontal-scroll"
-    viewabilityConfig={
-      {
-        "viewAreaCoveragePercentThreshold": 95,
-        "waitForInteraction": true,
-      }
-    }
-    viewabilityConfigCallbackPairs={
-      [
-        {
-          "onViewableItemsChanged": [Function],
-          "viewabilityConfig": {
-            "viewAreaCoveragePercentThreshold": 95,
-            "waitForInteraction": true,
-          },
-        },
-      ]
-    }
+  <View
+    style={{}}
   >
-    <View>
-      <View
-        style={
-          [
-            {
-              "flexDirection": "row",
-            },
-            null,
-          ]
+    <RCTScrollView
+      applyWindowCorrection={[Function]}
+      bounces={false}
+      canChangeSize={true}
+      contentContainerStyle={
+        {
+          "backgroundColor": "#000000",
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingBottom": 0,
+          "paddingTop": 0,
         }
-      >
+      }
+      contentHeight={900}
+      contentWidth={700}
+      data={
+        [
+          <SeekYearInReviewPhotoItem
+            index={0}
+            observation={
+              {
+                "date": 2022-12-02T10:19:54.000Z,
+                "latitude": 42,
+                "longitude": 42,
+                "taxon": {
+                  "ancestorIds": [
+                    1,
+                    2,
+                    3,
+                  ],
+                  "defaultPhoto": {
+                    "backupUri": "some_uri",
+                    "lastUpdated": null,
+                    "mediumUrl": "some_medium_url",
+                  },
+                  "iconicTaxonId": 1,
+                  "id": 4242,
+                  "name": "some_name_1",
+                  "preferredCommonName": "some_common_name_1",
+                },
+                "uuidString": "some_uuid_2",
+              }
+            }
+          />,
+          <SeekYearInReviewPhotoItem
+            index={1}
+            observation={
+              {
+                "date": 2022-12-01T10:19:54.000Z,
+                "latitude": 42,
+                "longitude": 42,
+                "taxon": {
+                  "ancestorIds": [
+                    1,
+                    2,
+                    3,
+                  ],
+                  "defaultPhoto": {
+                    "backupUri": "some_uri",
+                    "lastUpdated": null,
+                    "mediumUrl": "some_medium_url",
+                  },
+                  "iconicTaxonId": 1,
+                  "id": 4242,
+                  "name": "some_name_2",
+                  "preferredCommonName": null,
+                },
+                "uuidString": "some_uuid_2",
+              }
+            }
+          />,
+        ]
+      }
+      dataProvider={
+        DataProvider {
+          "_data": [
+            <SeekYearInReviewPhotoItem
+              index={0}
+              observation={
+                {
+                  "date": 2022-12-02T10:19:54.000Z,
+                  "latitude": 42,
+                  "longitude": 42,
+                  "taxon": {
+                    "ancestorIds": [
+                      1,
+                      2,
+                      3,
+                    ],
+                    "defaultPhoto": {
+                      "backupUri": "some_uri",
+                      "lastUpdated": null,
+                      "mediumUrl": "some_medium_url",
+                    },
+                    "iconicTaxonId": 1,
+                    "id": 4242,
+                    "name": "some_name_1",
+                    "preferredCommonName": "some_common_name_1",
+                  },
+                  "uuidString": "some_uuid_2",
+                }
+              }
+            />,
+            <SeekYearInReviewPhotoItem
+              index={1}
+              observation={
+                {
+                  "date": 2022-12-01T10:19:54.000Z,
+                  "latitude": 42,
+                  "longitude": 42,
+                  "taxon": {
+                    "ancestorIds": [
+                      1,
+                      2,
+                      3,
+                    ],
+                    "defaultPhoto": {
+                      "backupUri": "some_uri",
+                      "lastUpdated": null,
+                      "mediumUrl": "some_medium_url",
+                    },
+                    "iconicTaxonId": 1,
+                    "id": 4242,
+                    "name": "some_name_2",
+                    "preferredCommonName": null,
+                  },
+                  "uuidString": "some_uuid_2",
+                }
+              }
+            />,
+          ],
+          "_firstIndexToProcess": 0,
+          "_hasStableIds": false,
+          "_requiresDataChangeHandling": false,
+          "_size": 2,
+          "getStableId": [Function],
+          "rowHasChanged": [Function],
+        }
+      }
+      disableRecycling={false}
+      estimatedItemSize={350}
+      extendedState={{}}
+      externalScrollView={[Function]}
+      finalRenderAheadOffset={250}
+      forceNonDeterministicRendering={true}
+      getItemLayout={[Function]}
+      horizontal={true}
+      indicatorStyle="white"
+      initialNumToRender={1}
+      initialOffset={0}
+      initialRenderIndex={0}
+      isHorizontal={true}
+      layoutProvider={
+        GridLayoutProviderWithProps {
+          "_acceptableRelayoutDelta": 1,
+          "_getHeightOrWidth": [Function],
+          "_getLayoutTypeForIndex": [Function],
+          "_getSpan": [Function],
+          "_hasExpired": false,
+          "_isHorizontal": true,
+          "_lastLayoutManager": GridLayoutManager {
+            "_acceptableRelayoutDelta": 1,
+            "_getSpan": [Function],
+            "_isGridHorizontal": true,
+            "_isHorizontal": true,
+            "_layoutProvider": [Circular],
+            "_layouts": [
+              {
+                "height": 900,
+                "type": 0,
+                "width": 350,
+                "x": 0,
+                "y": 0,
+              },
+              {
+                "height": 900,
+                "type": 0,
+                "width": 350,
+                "x": 350,
+                "y": 0,
+              },
+            ],
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_totalHeight": 900,
+            "_totalWidth": 700,
+            "_window": {
+              "height": 900,
+              "width": 400,
+            },
+          },
+          "_maxSpan": 1,
+          "_renderWindowSize": {
+            "height": 900,
+            "width": 400,
+          },
+          "_setLayoutForType": [Function],
+          "_tempDim": {
+            "height": 0,
+            "width": 0,
+          },
+          "averageWindow": AverageWindow {
+            "currentAverage": 350,
+            "currentCount": 1,
+            "inputValues": [
+              350,
+              ,
+              ,
+              ,
+              ,
+              ,
+            ],
+            "nextIndex": 1,
+          },
+          "defaultEstimatedItemSize": 100,
+          "layoutObject": {
+            "size": undefined,
+            "span": undefined,
+          },
+          "props": {
+            "bounces": false,
+            "contentContainerStyle": {
+              "backgroundColor": "#000000",
+            },
+            "data": [
+              <SeekYearInReviewPhotoItem
+                index={0}
+                observation={
+                  {
+                    "date": 2022-12-02T10:19:54.000Z,
+                    "latitude": 42,
+                    "longitude": 42,
+                    "taxon": {
+                      "ancestorIds": [
+                        1,
+                        2,
+                        3,
+                      ],
+                      "defaultPhoto": {
+                        "backupUri": "some_uri",
+                        "lastUpdated": null,
+                        "mediumUrl": "some_medium_url",
+                      },
+                      "iconicTaxonId": 1,
+                      "id": 4242,
+                      "name": "some_name_1",
+                      "preferredCommonName": "some_common_name_1",
+                    },
+                    "uuidString": "some_uuid_2",
+                  }
+                }
+              />,
+              <SeekYearInReviewPhotoItem
+                index={1}
+                observation={
+                  {
+                    "date": 2022-12-01T10:19:54.000Z,
+                    "latitude": 42,
+                    "longitude": 42,
+                    "taxon": {
+                      "ancestorIds": [
+                        1,
+                        2,
+                        3,
+                      ],
+                      "defaultPhoto": {
+                        "backupUri": "some_uri",
+                        "lastUpdated": null,
+                        "mediumUrl": "some_medium_url",
+                      },
+                      "iconicTaxonId": 1,
+                      "id": 4242,
+                      "name": "some_name_2",
+                      "preferredCommonName": null,
+                    },
+                    "uuidString": "some_uuid_2",
+                  }
+                }
+              />,
+            ],
+            "estimatedItemSize": 350,
+            "getItemLayout": [Function],
+            "horizontal": true,
+            "indicatorStyle": "white",
+            "initialNumToRender": 1,
+            "numColumns": 1,
+            "onViewableItemsChanged": [Function],
+            "pagingEnabled": true,
+            "renderItem": [Function],
+            "showsHorizontalScrollIndicator": false,
+            "testID": "horizontal-scroll",
+            "viewabilityConfig": {
+              "viewAreaCoveragePercentThreshold": 95,
+              "waitForInteraction": true,
+            },
+          },
+          "renderWindowInsets": {
+            "height": 0,
+            "width": 0,
+          },
+          "shouldRefreshWithAnchoring": true,
+        }
+      }
+      maxRenderAhead={750}
+      numColumns={1}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0}
+      onEndReachedThresholdRelative={0}
+      onItemLayout={[Function]}
+      onLayout={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onSizeChanged={[Function]}
+      onViewableItemsChanged={[Function]}
+      onVisibleIndicesChanged={[Function]}
+      pagingEnabled={true}
+      removeClippedSubviews={false}
+      renderAheadOffset={0}
+      renderAheadStep={250}
+      renderContentContainer={[Function]}
+      renderItem={[Function]}
+      renderItemContainer={[Function]}
+      rowRenderer={[Function]}
+      scrollEventThrottle={16}
+      scrollThrottle={16}
+      scrollViewProps={
+        {
+          "contentContainerStyle": {
+            "backgroundColor": "#000000",
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingBottom": 0,
+            "paddingTop": 0,
+          },
+          "onLayout": [Function],
+          "onScrollBeginDrag": [Function],
+          "refreshControl": undefined,
+          "style": {
+            "minHeight": 1,
+            "minWidth": 1,
+          },
+        }
+      }
+      showsHorizontalScrollIndicator={false}
+      style={
+        {
+          "minHeight": 1,
+          "minWidth": 1,
+        }
+      }
+      suppressBoundedSizeException={true}
+      testID="horizontal-scroll"
+      viewabilityConfig={
+        {
+          "viewAreaCoveragePercentThreshold": 95,
+          "waitForInteraction": true,
+        }
+      }
+      windowCorrectionConfig={
+        {
+          "applyToInitialOffset": true,
+          "applyToItemScroll": true,
+          "value": {
+            "endCorrection": 0,
+            "startCorrection": 0,
+            "windowShift": -0,
+          },
+        }
+      }
+    >
+      <View>
         <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "flexDirection": "row",
             }
           }
         >
-          <Image
-            source={
-              {
-                "uri": "some_uri",
-              }
-            }
+          <View
             style={
               {
-                "height": 186,
-                "resizeMode": "cover",
-                "width": 750,
+                "paddingLeft": 0,
+                "paddingTop": 0,
               }
             }
           />
-          <Text
+          <View
             style={
               [
-                {
-                  "textAlign": "left",
-                },
-                [
-                  {
-                    "color": "#000000",
-                    "fontFamily": "Whitney-Book",
-                    "fontSize": 16,
-                    "lineHeight": 21,
-                    "textAlign": "center",
-                  },
-                  {
-                    "marginTop": 16,
-                    "maxWidth": 245,
-                    "textAlign": "center",
-                  },
-                ],
+                undefined,
+                undefined,
               ]
             }
+          />
+          <AutoLayoutView
+            enableInstrumentation={false}
+            horizontal={true}
+            onBlankAreaEvent={[Function]}
+            onLayout={[Function]}
+            renderAheadOffset={0}
+            scrollOffset={0}
+            style={
+              {
+                "height": 900,
+                "width": 700,
+              }
+            }
+            windowSize={400}
           >
-            some_common_name_1 observed on 12/2/2022
-          </Text>
+            <CellContainer
+              index={0}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "row",
+                  "height": 900,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "uri": "some_uri",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 186,
+                        "resizeMode": "cover",
+                        "width": 750,
+                      }
+                    }
+                  />
+                  <Text
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#000000",
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 16,
+                            "lineHeight": 21,
+                            "textAlign": "center",
+                          },
+                          {
+                            "marginTop": 16,
+                            "maxWidth": 245,
+                            "textAlign": "center",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    some_common_name_1 observed on 12/2/2022
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={1}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "row",
+                  "height": 900,
+                  "left": 350,
+                  "position": "absolute",
+                  "top": 0,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "uri": "some_uri",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 186,
+                        "resizeMode": "cover",
+                        "width": 750,
+                      }
+                    }
+                  />
+                  <Text
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#000000",
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 16,
+                            "lineHeight": 21,
+                            "textAlign": "center",
+                          },
+                          {
+                            "marginTop": 16,
+                            "maxWidth": 245,
+                            "textAlign": "center",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    some_name_2 observed on 12/1/2022
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+          </AutoLayoutView>
+          <CellContainer
+            index={-1}
+            style={
+              [
+                undefined,
+                undefined,
+              ]
+            }
+          />
+          <View
+            style={
+              {
+                "paddingBottom": 0,
+                "paddingRight": 0,
+              }
+            }
+          />
+          <View
+            pointerEvents="none"
+            style={
+              {
+                "opacity": 0,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Image
+                source={
+                  {
+                    "uri": "some_uri",
+                  }
+                }
+                style={
+                  {
+                    "height": 186,
+                    "resizeMode": "cover",
+                    "width": 750,
+                  }
+                }
+              />
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "marginTop": 16,
+                        "maxWidth": 245,
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+              >
+                some_name_2 observed on 12/1/2022
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
-      <View
-        style={
-          {
-            "width": 750,
-          }
-        }
-      />
-    </View>
-  </RCTScrollView>
+    </RCTScrollView>
+  </View>
   <View
     accessibilityLabel="Scroll right"
     accessible={true}

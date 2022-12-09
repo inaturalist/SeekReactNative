@@ -1,0 +1,2195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChallengeScreen should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    [
+      "top",
+    ]
+  }
+  style={
+    {
+      "backgroundColor": "#38976d",
+      "flex": 1,
+    }
+  }
+  testID="challenge-screen-container"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#38976d",
+          "flexDirection": "row",
+          "paddingBottom": 18,
+          "paddingTop": 20.5,
+        },
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="Go back to previous screen"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "left": 0,
+          "opacity": 1,
+          "paddingHorizontal": 23,
+          "paddingVertical": 18,
+          "position": "absolute",
+          "transform": [
+            {
+              "scaleX": 1,
+            },
+          ],
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/icons/back.webp",
+          }
+        }
+        style={false}
+        tintColor={false}
+      />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        [
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#ffffff",
+            "fontFamily": "Whitney-Semibold",
+            "fontSize": 18,
+            "letterSpacing": 1,
+            "maxWidth": 650,
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
+      CHALLENGES
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      applyWindowCorrection={[Function]}
+      canChangeSize={true}
+      contentContainerStyle={
+        {
+          "backgroundColor": "#ffffff",
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+        }
+      }
+      contentHeight={900}
+      contentWidth={400}
+      data={
+        [
+          {
+            "header": "challenges.in_progress",
+            "id": 0,
+            "type": "header",
+          },
+          {
+            "action": "seek_2023_challenges.october_2023_action_migration",
+            "availableDate": 2023-10-01T00:00:00.000Z,
+            "backgroundName": "img-challengedetail-october2023",
+            "badgeName": "seek_challenges.badge",
+            "completedDate": null,
+            "description": "seek_2023_challenges.october_2023_description_migration",
+            "earnedIconName": "badge_inaturalist_october2023",
+            "index": 47,
+            "logo": "iNatWhite",
+            "missions": [],
+            "name": "seek_2023_challenges.october_2023_challenge_name_migration",
+            "numbersObserved": [],
+            "percentComplete": 0,
+            "photographer": null,
+            "secondLogo": "iNat",
+            "sponsorName": "Seek",
+            "startedDate": 2022-12-08T12:38:04.813Z,
+            "totalSpecies": 5,
+          },
+          {
+            "action": "seek_2021_challenges.september_2021_action",
+            "availableDate": 2023-09-01T00:00:00.000Z,
+            "backgroundName": "img-challengedetail-september2023",
+            "badgeName": "seek_challenges.badge",
+            "completedDate": null,
+            "description": "seek_2021_challenges.september_2021_description",
+            "earnedIconName": "badge_inaturalist_september2023",
+            "index": 46,
+            "logo": "iNatWhite",
+            "missions": [],
+            "name": "seek_2023_challenges.september_2023_challenge_name_equinox",
+            "numbersObserved": [],
+            "percentComplete": 50,
+            "photographer": null,
+            "secondLogo": "iNat",
+            "sponsorName": "Seek",
+            "startedDate": 2022-12-08T12:59:06.180Z,
+            "totalSpecies": 10,
+          },
+          {
+            "header": "challenges.not_started",
+            "id": 1,
+            "type": "header",
+          },
+          {
+            "action": "seek_challenges.action_dec_2020",
+            "availableDate": 2023-12-01T00:00:00.000Z,
+            "backgroundName": "img-challengedetail-december2023",
+            "badgeName": "seek_challenges.badge",
+            "completedDate": null,
+            "description": "seek_2023_challenges.december_2023_description_ecology",
+            "earnedIconName": "badge_inaturalist_december2023",
+            "index": 49,
+            "logo": "iNatWhite",
+            "missions": [],
+            "name": "seek_2023_challenges.december_2023_challenge_name_ecology",
+            "numbersObserved": [],
+            "percentComplete": 0,
+            "photographer": null,
+            "secondLogo": "iNat",
+            "sponsorName": "Seek",
+            "startedDate": null,
+            "totalSpecies": 10,
+          },
+          {
+            "action": "seek_2023_challenges.august_2023_action_insect",
+            "availableDate": 2023-08-01T00:00:00.000Z,
+            "backgroundName": "img-challengedetail-august2023",
+            "badgeName": "seek_challenges.badge",
+            "completedDate": null,
+            "description": "seek_2023_challenges.august_2023_description_insect",
+            "earnedIconName": "badge_inaturalist_august2023",
+            "index": 45,
+            "logo": "iNatWhite",
+            "missions": [],
+            "name": "seek_2023_challenges.august_2023_challenge_name_insect",
+            "numbersObserved": [],
+            "percentComplete": 0,
+            "photographer": null,
+            "secondLogo": "iNat",
+            "sponsorName": "Seek",
+            "startedDate": null,
+            "totalSpecies": 10,
+          },
+          {
+            "header": "challenges.completed",
+            "id": 2,
+            "type": "header",
+          },
+          {
+            "action": "challenges.action_october",
+            "availableDate": 2019-10-01T00:00:00.000Z,
+            "backgroundName": "img-challengedetail-october",
+            "badgeName": "challenges.badge_name_october",
+            "completedDate": 2022-12-09T12:38:04.813Z,
+            "description": "challenges.october_description",
+            "earnedIconName": "badge_ourplanet_october",
+            "index": 5,
+            "logo": "op",
+            "missions": [],
+            "name": "challenges.hotspots",
+            "numbersObserved": [],
+            "percentComplete": 100,
+            "photographer": "challenges.photographer_october",
+            "secondLogo": "wwfop",
+            "sponsorName": "Our Planet",
+            "startedDate": 2022-12-08T12:38:04.813Z,
+            "totalSpecies": 5,
+          },
+          {
+            "action": "challenges.action_september",
+            "availableDate": 2019-09-01T00:00:00.000Z,
+            "backgroundName": "img-challengedetail-september",
+            "badgeName": "challenges.badge_name_september",
+            "completedDate": 2022-12-09T12:38:04.813Z,
+            "description": "challenges.september_description",
+            "earnedIconName": "badge_ourplanet_september",
+            "index": 4,
+            "logo": "op",
+            "missions": [],
+            "name": "challenges.flow",
+            "numbersObserved": [],
+            "percentComplete": 100,
+            "photographer": "challenges.photographer_september",
+            "secondLogo": "wwfop",
+            "sponsorName": "Our Planet",
+            "startedDate": 2022-12-08T12:38:04.813Z,
+            "totalSpecies": 10,
+          },
+        ]
+      }
+      dataProvider={
+        DataProvider {
+          "_data": [
+            {
+              "header": "challenges.in_progress",
+              "id": 0,
+              "type": "header",
+            },
+            {
+              "action": "seek_2023_challenges.october_2023_action_migration",
+              "availableDate": 2023-10-01T00:00:00.000Z,
+              "backgroundName": "img-challengedetail-october2023",
+              "badgeName": "seek_challenges.badge",
+              "completedDate": null,
+              "description": "seek_2023_challenges.october_2023_description_migration",
+              "earnedIconName": "badge_inaturalist_october2023",
+              "index": 47,
+              "logo": "iNatWhite",
+              "missions": [],
+              "name": "seek_2023_challenges.october_2023_challenge_name_migration",
+              "numbersObserved": [],
+              "percentComplete": 0,
+              "photographer": null,
+              "secondLogo": "iNat",
+              "sponsorName": "Seek",
+              "startedDate": 2022-12-08T12:38:04.813Z,
+              "totalSpecies": 5,
+            },
+            {
+              "action": "seek_2021_challenges.september_2021_action",
+              "availableDate": 2023-09-01T00:00:00.000Z,
+              "backgroundName": "img-challengedetail-september2023",
+              "badgeName": "seek_challenges.badge",
+              "completedDate": null,
+              "description": "seek_2021_challenges.september_2021_description",
+              "earnedIconName": "badge_inaturalist_september2023",
+              "index": 46,
+              "logo": "iNatWhite",
+              "missions": [],
+              "name": "seek_2023_challenges.september_2023_challenge_name_equinox",
+              "numbersObserved": [],
+              "percentComplete": 50,
+              "photographer": null,
+              "secondLogo": "iNat",
+              "sponsorName": "Seek",
+              "startedDate": 2022-12-08T12:59:06.180Z,
+              "totalSpecies": 10,
+            },
+            {
+              "header": "challenges.not_started",
+              "id": 1,
+              "type": "header",
+            },
+            {
+              "action": "seek_challenges.action_dec_2020",
+              "availableDate": 2023-12-01T00:00:00.000Z,
+              "backgroundName": "img-challengedetail-december2023",
+              "badgeName": "seek_challenges.badge",
+              "completedDate": null,
+              "description": "seek_2023_challenges.december_2023_description_ecology",
+              "earnedIconName": "badge_inaturalist_december2023",
+              "index": 49,
+              "logo": "iNatWhite",
+              "missions": [],
+              "name": "seek_2023_challenges.december_2023_challenge_name_ecology",
+              "numbersObserved": [],
+              "percentComplete": 0,
+              "photographer": null,
+              "secondLogo": "iNat",
+              "sponsorName": "Seek",
+              "startedDate": null,
+              "totalSpecies": 10,
+            },
+            {
+              "action": "seek_2023_challenges.august_2023_action_insect",
+              "availableDate": 2023-08-01T00:00:00.000Z,
+              "backgroundName": "img-challengedetail-august2023",
+              "badgeName": "seek_challenges.badge",
+              "completedDate": null,
+              "description": "seek_2023_challenges.august_2023_description_insect",
+              "earnedIconName": "badge_inaturalist_august2023",
+              "index": 45,
+              "logo": "iNatWhite",
+              "missions": [],
+              "name": "seek_2023_challenges.august_2023_challenge_name_insect",
+              "numbersObserved": [],
+              "percentComplete": 0,
+              "photographer": null,
+              "secondLogo": "iNat",
+              "sponsorName": "Seek",
+              "startedDate": null,
+              "totalSpecies": 10,
+            },
+            {
+              "header": "challenges.completed",
+              "id": 2,
+              "type": "header",
+            },
+            {
+              "action": "challenges.action_october",
+              "availableDate": 2019-10-01T00:00:00.000Z,
+              "backgroundName": "img-challengedetail-october",
+              "badgeName": "challenges.badge_name_october",
+              "completedDate": 2022-12-09T12:38:04.813Z,
+              "description": "challenges.october_description",
+              "earnedIconName": "badge_ourplanet_october",
+              "index": 5,
+              "logo": "op",
+              "missions": [],
+              "name": "challenges.hotspots",
+              "numbersObserved": [],
+              "percentComplete": 100,
+              "photographer": "challenges.photographer_october",
+              "secondLogo": "wwfop",
+              "sponsorName": "Our Planet",
+              "startedDate": 2022-12-08T12:38:04.813Z,
+              "totalSpecies": 5,
+            },
+            {
+              "action": "challenges.action_september",
+              "availableDate": 2019-09-01T00:00:00.000Z,
+              "backgroundName": "img-challengedetail-september",
+              "badgeName": "challenges.badge_name_september",
+              "completedDate": 2022-12-09T12:38:04.813Z,
+              "description": "challenges.september_description",
+              "earnedIconName": "badge_ourplanet_september",
+              "index": 4,
+              "logo": "op",
+              "missions": [],
+              "name": "challenges.flow",
+              "numbersObserved": [],
+              "percentComplete": 100,
+              "photographer": "challenges.photographer_september",
+              "secondLogo": "wwfop",
+              "sponsorName": "Our Planet",
+              "startedDate": 2022-12-08T12:38:04.813Z,
+              "totalSpecies": 10,
+            },
+          ],
+          "_firstIndexToProcess": 0,
+          "_hasStableIds": true,
+          "_requiresDataChangeHandling": false,
+          "_size": 9,
+          "getStableId": [Function],
+          "rowHasChanged": [Function],
+        }
+      }
+      disableRecycling={false}
+      estimatedItemSize={100}
+      extendedState={{}}
+      externalScrollView={[Function]}
+      finalRenderAheadOffset={250}
+      forceNonDeterministicRendering={true}
+      getItemType={[Function]}
+      horizontal={false}
+      initialOffset={0}
+      initialRenderIndex={0}
+      isHorizontal={false}
+      keyExtractor={[Function]}
+      layoutProvider={
+        GridLayoutProviderWithProps {
+          "_acceptableRelayoutDelta": 1,
+          "_getHeightOrWidth": [Function],
+          "_getLayoutTypeForIndex": [Function],
+          "_getSpan": [Function],
+          "_hasExpired": false,
+          "_isHorizontal": false,
+          "_lastLayoutManager": GridLayoutManager {
+            "_acceptableRelayoutDelta": 1,
+            "_getSpan": [Function],
+            "_isGridHorizontal": false,
+            "_isHorizontal": false,
+            "_layoutProvider": [Circular],
+            "_layouts": [
+              {
+                "height": 100,
+                "type": "header",
+                "width": 400,
+                "x": 0,
+                "y": 0,
+              },
+              {
+                "height": 100,
+                "type": "challenge",
+                "width": 400,
+                "x": 0,
+                "y": 100,
+              },
+              {
+                "height": 100,
+                "type": "challenge",
+                "width": 400,
+                "x": 0,
+                "y": 200,
+              },
+              {
+                "height": 100,
+                "type": "header",
+                "width": 400,
+                "x": 0,
+                "y": 300,
+              },
+              {
+                "height": 100,
+                "type": "challenge",
+                "width": 400,
+                "x": 0,
+                "y": 400,
+              },
+              {
+                "height": 100,
+                "type": "challenge",
+                "width": 400,
+                "x": 0,
+                "y": 500,
+              },
+              {
+                "height": 100,
+                "type": "header",
+                "width": 400,
+                "x": 0,
+                "y": 600,
+              },
+              {
+                "height": 100,
+                "type": "challenge",
+                "width": 400,
+                "x": 0,
+                "y": 700,
+              },
+              {
+                "height": 100,
+                "type": "challenge",
+                "width": 400,
+                "x": 0,
+                "y": 800,
+              },
+            ],
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_totalHeight": 900,
+            "_totalWidth": 400,
+            "_window": {
+              "height": 900,
+              "width": 400,
+            },
+          },
+          "_maxSpan": 1,
+          "_renderWindowSize": {
+            "height": 900,
+            "width": 400,
+          },
+          "_setLayoutForType": [Function],
+          "_tempDim": {
+            "height": 0,
+            "width": 0,
+          },
+          "averageWindow": AverageWindow {
+            "currentAverage": 100,
+            "currentCount": 1,
+            "inputValues": [
+              100,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+            ],
+            "nextIndex": 1,
+          },
+          "defaultEstimatedItemSize": 100,
+          "layoutObject": {
+            "size": undefined,
+            "span": undefined,
+          },
+          "props": {
+            "contentContainerStyle": {
+              "backgroundColor": "#ffffff",
+            },
+            "data": [
+              {
+                "header": "challenges.in_progress",
+                "id": 0,
+                "type": "header",
+              },
+              {
+                "action": "seek_2023_challenges.october_2023_action_migration",
+                "availableDate": 2023-10-01T00:00:00.000Z,
+                "backgroundName": "img-challengedetail-october2023",
+                "badgeName": "seek_challenges.badge",
+                "completedDate": null,
+                "description": "seek_2023_challenges.october_2023_description_migration",
+                "earnedIconName": "badge_inaturalist_october2023",
+                "index": 47,
+                "logo": "iNatWhite",
+                "missions": [],
+                "name": "seek_2023_challenges.october_2023_challenge_name_migration",
+                "numbersObserved": [],
+                "percentComplete": 0,
+                "photographer": null,
+                "secondLogo": "iNat",
+                "sponsorName": "Seek",
+                "startedDate": 2022-12-08T12:38:04.813Z,
+                "totalSpecies": 5,
+              },
+              {
+                "action": "seek_2021_challenges.september_2021_action",
+                "availableDate": 2023-09-01T00:00:00.000Z,
+                "backgroundName": "img-challengedetail-september2023",
+                "badgeName": "seek_challenges.badge",
+                "completedDate": null,
+                "description": "seek_2021_challenges.september_2021_description",
+                "earnedIconName": "badge_inaturalist_september2023",
+                "index": 46,
+                "logo": "iNatWhite",
+                "missions": [],
+                "name": "seek_2023_challenges.september_2023_challenge_name_equinox",
+                "numbersObserved": [],
+                "percentComplete": 50,
+                "photographer": null,
+                "secondLogo": "iNat",
+                "sponsorName": "Seek",
+                "startedDate": 2022-12-08T12:59:06.180Z,
+                "totalSpecies": 10,
+              },
+              {
+                "header": "challenges.not_started",
+                "id": 1,
+                "type": "header",
+              },
+              {
+                "action": "seek_challenges.action_dec_2020",
+                "availableDate": 2023-12-01T00:00:00.000Z,
+                "backgroundName": "img-challengedetail-december2023",
+                "badgeName": "seek_challenges.badge",
+                "completedDate": null,
+                "description": "seek_2023_challenges.december_2023_description_ecology",
+                "earnedIconName": "badge_inaturalist_december2023",
+                "index": 49,
+                "logo": "iNatWhite",
+                "missions": [],
+                "name": "seek_2023_challenges.december_2023_challenge_name_ecology",
+                "numbersObserved": [],
+                "percentComplete": 0,
+                "photographer": null,
+                "secondLogo": "iNat",
+                "sponsorName": "Seek",
+                "startedDate": null,
+                "totalSpecies": 10,
+              },
+              {
+                "action": "seek_2023_challenges.august_2023_action_insect",
+                "availableDate": 2023-08-01T00:00:00.000Z,
+                "backgroundName": "img-challengedetail-august2023",
+                "badgeName": "seek_challenges.badge",
+                "completedDate": null,
+                "description": "seek_2023_challenges.august_2023_description_insect",
+                "earnedIconName": "badge_inaturalist_august2023",
+                "index": 45,
+                "logo": "iNatWhite",
+                "missions": [],
+                "name": "seek_2023_challenges.august_2023_challenge_name_insect",
+                "numbersObserved": [],
+                "percentComplete": 0,
+                "photographer": null,
+                "secondLogo": "iNat",
+                "sponsorName": "Seek",
+                "startedDate": null,
+                "totalSpecies": 10,
+              },
+              {
+                "header": "challenges.completed",
+                "id": 2,
+                "type": "header",
+              },
+              {
+                "action": "challenges.action_october",
+                "availableDate": 2019-10-01T00:00:00.000Z,
+                "backgroundName": "img-challengedetail-october",
+                "badgeName": "challenges.badge_name_october",
+                "completedDate": 2022-12-09T12:38:04.813Z,
+                "description": "challenges.october_description",
+                "earnedIconName": "badge_ourplanet_october",
+                "index": 5,
+                "logo": "op",
+                "missions": [],
+                "name": "challenges.hotspots",
+                "numbersObserved": [],
+                "percentComplete": 100,
+                "photographer": "challenges.photographer_october",
+                "secondLogo": "wwfop",
+                "sponsorName": "Our Planet",
+                "startedDate": 2022-12-08T12:38:04.813Z,
+                "totalSpecies": 5,
+              },
+              {
+                "action": "challenges.action_september",
+                "availableDate": 2019-09-01T00:00:00.000Z,
+                "backgroundName": "img-challengedetail-september",
+                "badgeName": "challenges.badge_name_september",
+                "completedDate": 2022-12-09T12:38:04.813Z,
+                "description": "challenges.september_description",
+                "earnedIconName": "badge_ourplanet_september",
+                "index": 4,
+                "logo": "op",
+                "missions": [],
+                "name": "challenges.flow",
+                "numbersObserved": [],
+                "percentComplete": 100,
+                "photographer": "challenges.photographer_september",
+                "secondLogo": "wwfop",
+                "sponsorName": "Our Planet",
+                "startedDate": 2022-12-08T12:38:04.813Z,
+                "totalSpecies": 10,
+              },
+            ],
+            "estimatedItemSize": 100,
+            "getItemType": [Function],
+            "keyExtractor": [Function],
+            "numColumns": 1,
+            "removeClippedSubviews": true,
+            "renderItem": [Function],
+            "scrollEventThrottle": 1,
+          },
+          "renderWindowInsets": {
+            "height": 0,
+            "width": 0,
+          },
+          "shouldRefreshWithAnchoring": true,
+        }
+      }
+      maxRenderAhead={750}
+      numColumns={1}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0}
+      onEndReachedThresholdRelative={0}
+      onItemLayout={[Function]}
+      onLayout={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onSizeChanged={[Function]}
+      onVisibleIndicesChanged={[Function]}
+      removeClippedSubviews={false}
+      renderAheadOffset={0}
+      renderAheadStep={250}
+      renderContentContainer={[Function]}
+      renderItem={[Function]}
+      renderItemContainer={[Function]}
+      rowRenderer={[Function]}
+      scrollEventThrottle={1}
+      scrollThrottle={16}
+      scrollViewProps={
+        {
+          "contentContainerStyle": {
+            "backgroundColor": "#ffffff",
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          },
+          "onLayout": [Function],
+          "onScrollBeginDrag": [Function],
+          "refreshControl": undefined,
+          "style": {
+            "minHeight": 1,
+            "minWidth": 1,
+          },
+        }
+      }
+      style={
+        {
+          "minHeight": 1,
+          "minWidth": 1,
+        }
+      }
+      suppressBoundedSizeException={true}
+      windowCorrectionConfig={
+        {
+          "applyToInitialOffset": true,
+          "applyToItemScroll": true,
+          "value": {
+            "endCorrection": 0,
+            "startCorrection": 0,
+            "windowShift": -0,
+          },
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            {
+              "flexDirection": "column",
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "paddingLeft": 0,
+                "paddingTop": 0,
+              }
+            }
+          />
+          <View
+            style={
+              [
+                undefined,
+                undefined,
+              ]
+            }
+          />
+          <AutoLayoutView
+            enableInstrumentation={false}
+            horizontal={false}
+            onBlankAreaEvent={[Function]}
+            onLayout={[Function]}
+            renderAheadOffset={0}
+            scrollOffset={0}
+            style={
+              {
+                "height": 900,
+                "width": 400,
+              }
+            }
+            windowSize={900}
+          >
+            <CellContainer
+              index={0}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 10,
+                      "marginLeft": 22,
+                      "marginTop": 26,
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={true}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 19,
+                            "letterSpacing": 1.12,
+                            "lineHeight": 23,
+                          },
+                          false,
+                          false,
+                          null,
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    IN PROGRESS
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={1}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 100,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "opacity": 1,
+                      "paddingVertical": 12,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 60,
+                        "marginHorizontal": 25,
+                        "resizeMode": "contain",
+                        "width": 60,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      {
+                        "width": 530,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 16,
+                            "letterSpacing": 0.89,
+                            "lineHeight": 20,
+                            "marginBottom": 1,
+                          },
+                        ]
+                      }
+                    >
+                      MIGRATION CHALLENGE
+                    </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 14,
+                            "lineHeight": 21,
+                          },
+                        ]
+                      }
+                    >
+                      Seek
+                       - 
+                      October 2023
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      {
+                        "alignItems": "center",
+                        "marginHorizontal": 25,
+                        "width": 59,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        [
+                          {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          {
+                            "backgroundColor": "#f0f0f0",
+                            "borderRadius": 29.5,
+                            "height": 59,
+                            "width": 59,
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          [
+                            {
+                              "left": 0,
+                              "position": "absolute",
+                              "top": 0,
+                            },
+                            {
+                              "height": 59,
+                              "width": 29.5,
+                            },
+                          ]
+                        }
+                      >
+                        <View
+                          style={
+                            [
+                              {
+                                "borderBottomRightRadius": 0,
+                                "borderTopRightRadius": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                              },
+                              {
+                                "backgroundColor": "#77b300",
+                                "borderRadius": 29.5,
+                                "height": 59,
+                                "overflow": "hidden",
+                                "transform": [
+                                  {
+                                    "translateX": 14.75,
+                                  },
+                                  {
+                                    "rotate": "0deg",
+                                  },
+                                  {
+                                    "translateX": -14.75,
+                                  },
+                                ],
+                                "width": 29.5,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          [
+                            {
+                              "left": 0,
+                              "position": "absolute",
+                              "top": 0,
+                            },
+                            {
+                              "height": 59,
+                              "width": 29.5,
+                            },
+                          ]
+                        }
+                      >
+                        <View
+                          style={
+                            [
+                              {
+                                "borderBottomRightRadius": 0,
+                                "borderTopRightRadius": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                              },
+                              {
+                                "backgroundColor": "#f0f0f0",
+                                "borderRadius": 29.5,
+                                "height": 59,
+                                "overflow": "hidden",
+                                "transform": [
+                                  {
+                                    "translateX": 14.75,
+                                  },
+                                  {
+                                    "rotate": "0deg",
+                                  },
+                                  {
+                                    "translateX": -14.75,
+                                  },
+                                ],
+                                "width": 29.5,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          [
+                            {
+                              "alignItems": "center",
+                              "justifyContent": "center",
+                              "overflow": "hidden",
+                            },
+                            {
+                              "backgroundColor": "#ffffff",
+                              "borderRadius": 26.5,
+                              "height": 53,
+                              "width": 53,
+                            },
+                          ]
+                        }
+                      >
+                        <Text
+                          allowFontScaling={false}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "fontFamily": "Whitney-Book",
+                                "fontSize": 20,
+                                "paddingTop": 3,
+                              },
+                            ]
+                          }
+                        >
+                          0%
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={2}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 200,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "opacity": 1,
+                      "paddingVertical": 12,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 60,
+                        "marginHorizontal": 25,
+                        "resizeMode": "contain",
+                        "width": 60,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      {
+                        "width": 530,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 16,
+                            "letterSpacing": 0.89,
+                            "lineHeight": 20,
+                            "marginBottom": 1,
+                          },
+                        ]
+                      }
+                    >
+                      EQUINOX CHALLENGE
+                    </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 14,
+                            "lineHeight": 21,
+                          },
+                        ]
+                      }
+                    >
+                      Seek
+                       - 
+                      September 2023
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      {
+                        "alignItems": "center",
+                        "marginHorizontal": 25,
+                        "width": 59,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        [
+                          {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          {
+                            "backgroundColor": "#f0f0f0",
+                            "borderRadius": 29.5,
+                            "height": 59,
+                            "width": 59,
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          [
+                            {
+                              "left": 0,
+                              "position": "absolute",
+                              "top": 0,
+                            },
+                            {
+                              "height": 59,
+                              "width": 29.5,
+                            },
+                          ]
+                        }
+                      >
+                        <View
+                          style={
+                            [
+                              {
+                                "borderBottomRightRadius": 0,
+                                "borderTopRightRadius": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                              },
+                              {
+                                "backgroundColor": "#77b300",
+                                "borderRadius": 29.5,
+                                "height": 59,
+                                "overflow": "hidden",
+                                "transform": [
+                                  {
+                                    "translateX": 14.75,
+                                  },
+                                  {
+                                    "rotate": "180deg",
+                                  },
+                                  {
+                                    "translateX": -14.75,
+                                  },
+                                ],
+                                "width": 29.5,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          [
+                            {
+                              "left": 0,
+                              "position": "absolute",
+                              "top": 0,
+                            },
+                            {
+                              "height": 59,
+                              "width": 29.5,
+                            },
+                          ]
+                        }
+                      >
+                        <View
+                          style={
+                            [
+                              {
+                                "borderBottomRightRadius": 0,
+                                "borderTopRightRadius": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "top": 0,
+                              },
+                              {
+                                "backgroundColor": "#f0f0f0",
+                                "borderRadius": 29.5,
+                                "height": 59,
+                                "overflow": "hidden",
+                                "transform": [
+                                  {
+                                    "translateX": 14.75,
+                                  },
+                                  {
+                                    "rotate": "0deg",
+                                  },
+                                  {
+                                    "translateX": -14.75,
+                                  },
+                                ],
+                                "width": 29.5,
+                              },
+                            ]
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          [
+                            {
+                              "alignItems": "center",
+                              "justifyContent": "center",
+                              "overflow": "hidden",
+                            },
+                            {
+                              "backgroundColor": "#ffffff",
+                              "borderRadius": 26.5,
+                              "height": 53,
+                              "width": 53,
+                            },
+                          ]
+                        }
+                      >
+                        <Text
+                          allowFontScaling={false}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "fontFamily": "Whitney-Book",
+                                "fontSize": 20,
+                                "paddingTop": 3,
+                              },
+                            ]
+                          }
+                        >
+                          50%
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={3}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 300,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 10,
+                      "marginLeft": 22,
+                      "marginTop": 26,
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={true}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 19,
+                            "letterSpacing": 1.12,
+                            "lineHeight": 23,
+                          },
+                          false,
+                          false,
+                          null,
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    NOT STARTED
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={4}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 400,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "opacity": 1,
+                      "paddingVertical": 12,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 60,
+                        "marginHorizontal": 25,
+                        "resizeMode": "contain",
+                        "width": 60,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      {
+                        "width": 530,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 16,
+                            "letterSpacing": 0.89,
+                            "lineHeight": 20,
+                            "marginBottom": 1,
+                          },
+                        ]
+                      }
+                    >
+                      ECOLOGY CHALLENGE
+                    </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 14,
+                            "lineHeight": 21,
+                          },
+                        ]
+                      }
+                    >
+                      Seek
+                       - 
+                      December 2023
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      {
+                        "alignItems": "center",
+                        "marginHorizontal": 25,
+                        "width": 59,
+                      }
+                    }
+                  >
+                    <Text
+                      accessibilityLabel="Start nowseek_2023_challenges.december_2023_challenge_name_ecology"
+                      accessible={true}
+                      allowFontScaling={false}
+                      onPress={[Function]}
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 14,
+                            "lineHeight": 17,
+                            "textAlign": "center",
+                          },
+                        ]
+                      }
+                    >
+                      START NOW
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={5}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 500,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "opacity": 1,
+                      "paddingVertical": 12,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 60,
+                        "marginHorizontal": 25,
+                        "resizeMode": "contain",
+                        "width": 60,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      {
+                        "width": 530,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 16,
+                            "letterSpacing": 0.89,
+                            "lineHeight": 20,
+                            "marginBottom": 1,
+                          },
+                        ]
+                      }
+                    >
+                      INSECT CHALLENGE
+                    </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 14,
+                            "lineHeight": 21,
+                          },
+                        ]
+                      }
+                    >
+                      Seek
+                       - 
+                      August 2023
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      {
+                        "alignItems": "center",
+                        "marginHorizontal": 25,
+                        "width": 59,
+                      }
+                    }
+                  >
+                    <Text
+                      accessibilityLabel="Start nowseek_2023_challenges.august_2023_challenge_name_insect"
+                      accessible={true}
+                      allowFontScaling={false}
+                      onPress={[Function]}
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 14,
+                            "lineHeight": 17,
+                            "textAlign": "center",
+                          },
+                        ]
+                      }
+                    >
+                      START NOW
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={6}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 600,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "marginBottom": 10,
+                      "marginLeft": 22,
+                      "marginTop": 26,
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={true}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 19,
+                            "letterSpacing": 1.12,
+                            "lineHeight": 23,
+                          },
+                          false,
+                          false,
+                          null,
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    COMPLETED
+                  </Text>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={7}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 700,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "opacity": 1,
+                      "paddingVertical": 12,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/challenges/badge_ourplanet_october.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 60,
+                        "marginHorizontal": 25,
+                        "resizeMode": "contain",
+                        "width": 60,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      {
+                        "width": 530,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 16,
+                            "letterSpacing": 0.89,
+                            "lineHeight": 20,
+                            "marginBottom": 1,
+                          },
+                        ]
+                      }
+                    >
+                      HIGH SEAS CHALLENGE
+                    </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 14,
+                            "lineHeight": 21,
+                          },
+                        ]
+                      }
+                    >
+                      Our Planet
+                       - 
+                      October 2019
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      {
+                        "alignItems": "center",
+                        "marginHorizontal": 25,
+                        "width": 59,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        {
+                          "testUri": "../../../assets/icons/icon-completed.webp",
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+            <CellContainer
+              index={8}
+              onLayout={[Function]}
+              style={
+                {
+                  "alignItems": "stretch",
+                  "flexDirection": "column",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 800,
+                  "width": 400,
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "flexDirection": "column",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "opacity": 1,
+                      "paddingVertical": 12,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/challenges/badge_ourplanet_september.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "height": 60,
+                        "marginHorizontal": 25,
+                        "resizeMode": "contain",
+                        "width": 60,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      {
+                        "width": 530,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "#38976d",
+                            "fontFamily": "Whitney-Semibold",
+                            "fontSize": 16,
+                            "letterSpacing": 0.89,
+                            "lineHeight": 20,
+                            "marginBottom": 1,
+                          },
+                        ]
+                      }
+                    >
+                      FRESHWATER CHALLENGE
+                    </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "fontFamily": "Whitney-Book",
+                            "fontSize": 14,
+                            "lineHeight": 21,
+                          },
+                        ]
+                      }
+                    >
+                      Our Planet
+                       - 
+                      September 2019
+                    </Text>
+                  </View>
+                  <View
+                    style={
+                      {
+                        "alignItems": "center",
+                        "marginHorizontal": 25,
+                        "width": 59,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        {
+                          "testUri": "../../../assets/icons/icon-completed.webp",
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </CellContainer>
+          </AutoLayoutView>
+          <CellContainer
+            index={-1}
+            style={
+              [
+                undefined,
+                undefined,
+              ]
+            }
+          />
+          <View
+            style={
+              {
+                "paddingBottom": 0,
+                "paddingRight": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <RNCSafeAreaView
+    edges={
+      [
+        "right",
+        "bottom",
+        "left",
+      ]
+    }
+    style={
+      {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        {
+          "height": 74,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "testUri": "../../../assets/backgrounds/img-navbar.webp",
+          }
+        }
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            {
+              "height": 74,
+              "width": undefined,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#ffffff",
+              "height": 70,
+              "justifyContent": "space-between",
+            },
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+            },
+            {
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "height": -3,
+                "width": 0,
+              },
+              "shadowOpacity": 0.2,
+              "shadowRadius": 2,
+            },
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Open menu"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "left": 10,
+              "opacity": 1,
+              "padding": 20,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/navbar/Menu.webp",
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="Open camera"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "marginBottom": 50,
+              "marginLeft": 8,
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/navbar/icon-camerabutton.webp",
+              }
+            }
+            style={
+              {
+                "height": 94,
+                "width": 94,
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="View notifications"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "padding": 24,
+              "right": 10,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "testUri": "../../../assets/navbar/Notifications-inactive.webp",
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </RNCSafeAreaView>
+</RNCSafeAreaView>
+`;

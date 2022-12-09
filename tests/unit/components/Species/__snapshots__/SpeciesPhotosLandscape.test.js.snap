@@ -1,0 +1,368 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpeciesPhotosLandscape should render correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    ListFooterComponent={[Function]}
+    applyWindowCorrection={[Function]}
+    bounces={false}
+    canChangeSize={true}
+    contentContainerStyle={
+      {
+        "backgroundColor": "#000000",
+        "minHeight": 1,
+        "minWidth": 1,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+      }
+    }
+    contentHeight={470}
+    contentWidth={400}
+    data={
+      [
+        {
+          "attribution": null,
+          "license_code": null,
+          "medium_url": "some_uri",
+        },
+        {
+          "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+          "flags": [],
+          "id": 101327658,
+          "license_code": "cc-by-nc-nd",
+          "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+          "original_dimensions": [
+            {},
+          ],
+          "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+        },
+      ]
+    }
+    dataProvider={
+      DataProvider {
+        "_data": [
+          {
+            "attribution": null,
+            "license_code": null,
+            "medium_url": "some_uri",
+          },
+          {
+            "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+            "flags": [],
+            "id": 101327658,
+            "license_code": "cc-by-nc-nd",
+            "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+            "original_dimensions": [
+              {},
+            ],
+            "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+            "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+          },
+        ],
+        "_firstIndexToProcess": 0,
+        "_hasStableIds": true,
+        "_requiresDataChangeHandling": false,
+        "_size": 1,
+        "getStableId": [Function],
+        "rowHasChanged": [Function],
+      }
+    }
+    disableRecycling={false}
+    estimatedItemSize={470}
+    extendedState={{}}
+    externalScrollView={[Function]}
+    finalRenderAheadOffset={250}
+    forceNonDeterministicRendering={true}
+    horizontal={false}
+    initialOffset={0}
+    initialRenderIndex={0}
+    isHorizontal={false}
+    keyExtractor={[Function]}
+    layoutProvider={
+      GridLayoutProviderWithProps {
+        "_acceptableRelayoutDelta": 1,
+        "_getHeightOrWidth": [Function],
+        "_getLayoutTypeForIndex": [Function],
+        "_getSpan": [Function],
+        "_hasExpired": false,
+        "_isHorizontal": false,
+        "_lastLayoutManager": GridLayoutManager {
+          "_acceptableRelayoutDelta": 1,
+          "_getSpan": [Function],
+          "_isGridHorizontal": false,
+          "_isHorizontal": false,
+          "_layoutProvider": [Circular],
+          "_layouts": [
+            {
+              "height": 470,
+              "type": 0,
+              "width": 400,
+              "x": 0,
+              "y": 0,
+            },
+          ],
+          "_maxSpan": 1,
+          "_renderWindowSize": {
+            "height": 900,
+            "width": 400,
+          },
+          "_totalHeight": 470,
+          "_totalWidth": 400,
+          "_window": {
+            "height": 900,
+            "width": 400,
+          },
+        },
+        "_maxSpan": 1,
+        "_renderWindowSize": {
+          "height": 900,
+          "width": 400,
+        },
+        "_setLayoutForType": [Function],
+        "_tempDim": {
+          "height": 0,
+          "width": 0,
+        },
+        "averageWindow": AverageWindow {
+          "currentAverage": 470,
+          "currentCount": 1,
+          "inputValues": [
+            470,
+            ,
+            ,
+            ,
+            ,
+            ,
+          ],
+          "nextIndex": 1,
+        },
+        "defaultEstimatedItemSize": 100,
+        "layoutObject": {
+          "size": undefined,
+          "span": undefined,
+        },
+        "props": {
+          "ListEmptyComponent": [Function],
+          "ListFooterComponent": [Function],
+          "bounces": false,
+          "contentContainerStyle": {
+            "backgroundColor": "#000000",
+          },
+          "data": [
+            {
+              "attribution": null,
+              "license_code": null,
+              "medium_url": "some_uri",
+            },
+            {
+              "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
+              "flags": [],
+              "id": 101327658,
+              "license_code": "cc-by-nc-nd",
+              "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+              "original_dimensions": [
+                {},
+              ],
+              "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+              "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+            },
+          ],
+          "estimatedItemSize": 470,
+          "keyExtractor": [Function],
+          "numColumns": 1,
+          "renderItem": [Function],
+          "testID": "species-photos-landscape",
+        },
+        "renderWindowInsets": {
+          "height": 0,
+          "width": 0,
+        },
+        "shouldRefreshWithAnchoring": true,
+      }
+    }
+    maxRenderAhead={750}
+    numColumns={1}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0}
+    onEndReachedThresholdRelative={0}
+    onItemLayout={[Function]}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onSizeChanged={[Function]}
+    onVisibleIndicesChanged={[Function]}
+    removeClippedSubviews={false}
+    renderAheadOffset={0}
+    renderAheadStep={250}
+    renderContentContainer={[Function]}
+    renderItem={[Function]}
+    renderItemContainer={[Function]}
+    rowRenderer={[Function]}
+    scrollEventThrottle={16}
+    scrollThrottle={16}
+    scrollViewProps={
+      {
+        "contentContainerStyle": {
+          "backgroundColor": "#000000",
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+        },
+        "onLayout": [Function],
+        "onScrollBeginDrag": [Function],
+        "refreshControl": undefined,
+        "style": {
+          "minHeight": 1,
+          "minWidth": 1,
+        },
+      }
+    }
+    style={
+      {
+        "minHeight": 1,
+        "minWidth": 1,
+      }
+    }
+    suppressBoundedSizeException={true}
+    testID="species-photos-landscape"
+    windowCorrectionConfig={
+      {
+        "applyToInitialOffset": true,
+        "applyToItemScroll": true,
+        "value": {
+          "endCorrection": 0,
+          "startCorrection": 0,
+          "windowShift": -0,
+        },
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "paddingLeft": 0,
+              "paddingTop": 0,
+            }
+          }
+        />
+        <View
+          style={
+            [
+              undefined,
+              undefined,
+            ]
+          }
+        />
+        <AutoLayoutView
+          enableInstrumentation={false}
+          horizontal={false}
+          onBlankAreaEvent={[Function]}
+          onLayout={[Function]}
+          renderAheadOffset={0}
+          scrollOffset={0}
+          style={
+            {
+              "height": 470,
+              "width": 400,
+            }
+          }
+          windowSize={900}
+        >
+          <CellContainer
+            index={0}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    {
+                      "uri": "some_uri",
+                    }
+                  }
+                  style={
+                    [
+                      {
+                        "resizeMode": "cover",
+                      },
+                      {
+                        "height": NaN,
+                        "width": NaN,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </CellContainer>
+        </AutoLayoutView>
+        <CellContainer
+          index={-1}
+          style={
+            [
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#000000",
+                "padding": 100,
+              }
+            }
+          />
+        </CellContainer>
+        <View
+          style={
+            {
+              "paddingBottom": 0,
+              "paddingRight": 0,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

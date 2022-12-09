@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { FlatList, Platform } from "react-native";
+import { Platform, FlatList } from "react-native";
 import type { Node } from "react";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -123,6 +123,8 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
 
   return (
     <FlatList
+      testID="gallery-image-list"
+      // estimatedItemSize={97}
       data={photos}
       contentContainerStyle={viewStyles.grayContainer}
       getItemLayout={getItemLayout}

@@ -17,8 +17,8 @@ const INatStatsPhotos = ( ): Node => {
 
   const photos = useFetchPhotos( );
 
-  const renderPhotos = ( ) => photos.map( ( photo ) => (
-    <View key={`image${photo.photoUrl}`} style={viewStyles.center}>
+  const renderPhotos = ( ) => photos.map( ( photo, index ) => (
+    <View key={index} style={viewStyles.center}>
       <Image
         source={{ uri: photo.photoUrl }}
         style={imageStyles.image}

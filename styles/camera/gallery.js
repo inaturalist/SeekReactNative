@@ -31,8 +31,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   center,
   grayContainer: {
-    backgroundColor: colors.lightGray,
-    flexGrow: 1
+    backgroundColor: colors.lightGray
   },
   header: {
     backgroundColor: colors.white,

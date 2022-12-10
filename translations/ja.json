@@ -987,7 +987,7 @@
     "uploaded_observations_text_2": "Thank you for contributing to our community!",
     "observed_in": "{{speciesName}} observed in {{place}}",
     "observed_on": "{{speciesName}} observed on {{date}}",
-    "challenges": "Challenges",
+    "challenges": "チャレンジ",
     "x_challenges_earned_text": {
       "one": "You earned {{count}} challenge badge in {{year}}.",
       "two": "You earned {{count}} challenge badges in {{year}}.",
@@ -997,6 +997,6 @@
     },
     "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
     "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "donate": "寄付"
   }
 }

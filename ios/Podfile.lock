@@ -329,7 +329,7 @@ PODS:
     - React-Core
   - react-native-netinfo (9.3.6):
     - React-Core
-  - react-native-pager-view (6.0.1):
+  - react-native-pager-view (6.1.2):
     - React-Core
   - react-native-render-html (5.1.1):
     - React-Core
@@ -343,7 +343,7 @@ PODS:
     - ReactCommon/turbomodule/core
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (11.23.1):
+  - react-native-webview (11.26.0):
     - React-Core
   - React-perflogger (0.70.6)
   - React-RCTActionSheet (0.70.6):
@@ -784,12 +784,12 @@ SPEC CHECKSUMS:
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 085f614cf14d3637b2048bb9752da5b1c27c2886
   react-native-netinfo: f80db8cac2151405633324cb645c60af098ee461
-  react-native-pager-view: 3051346698a0ba0c4e13e40097cc11b00ee03cca
+  react-native-pager-view: 54bed894cecebe28cede54c01038d9d1e122de43
   react-native-render-html: 012780b92993ab33b3ae0240b90e585d00c70808
   react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
-  react-native-webview: d33e2db8925d090871ffeb232dfa50cb3a727581
+  react-native-webview: 994b9f8fbb504d6314dc40d83f94f27c6831b3bf
   React-perflogger: 8c79399b0500a30ee8152d0f9f11beae7fc36595
   React-RCTActionSheet: 7316773acabb374642b926c19aef1c115df5c466
   React-RCTAnimation: 5341e288375451297057391227f691d9b2326c3d

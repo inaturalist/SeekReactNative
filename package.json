@@ -62,7 +62,7 @@
     "react-native-modal": "^13.0.1",
     "react-native-modal-datetime-picker": "^14.0.0",
     "react-native-open-settings": "github:albullington/react-native-open-settings",
-    "react-native-pager-view": "^6.0.1",
+    "react-native-pager-view": "^6.1.2",
     "react-native-picker-select": "^8.0.4",
     "react-native-progress-circle": "^2.1.0",
     "react-native-quick-actions": "^0.3.13",
@@ -80,7 +80,7 @@
     "react-native-tab-view": "^3.3.0",
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
-    "react-native-webview": "^11.23.1",
+    "react-native-webview": "^11.26.0",
     "realm": "^11.2.0"
   },
   "devDependencies": {

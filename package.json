@@ -75,7 +75,7 @@
     "react-native-share": "^7.9.1",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-store-review": "^0.3.0",
-    "react-native-svg": "^12.4.4",
+    "react-native-svg": "^13.6.0",
     "react-native-svg-charts": "github:agris-visikon/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.3.0",
     "react-native-uuid-generator": "^6.1.1",

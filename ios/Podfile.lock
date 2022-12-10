@@ -414,7 +414,7 @@ PODS:
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
-  - RealmJS (11.0.0):
+  - RealmJS (11.2.0):
     - React
   - RNCAsyncStorage (1.17.11):
     - React-Core
@@ -440,7 +440,7 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (2.12.0):
+  - RNReanimated (2.13.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -803,7 +803,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 7401c4a40f8728fd89df4a56104541b760876117
   ReactCommon: c9246996e73bf75a2c6c3ff15f1e16707cdc2da9
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
-  RealmJS: 55a0d0d600a0da7d5f0cf42ecbabcd09708c7601
+  RealmJS: d0e94d35363a3a9ebd27981d9ac0aa4b63f66c85
   RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
@@ -816,7 +816,7 @@ SPEC CHECKSUMS:
   RNImageMarker: 76cd113306bcfad2f74f78d83d5accfd50b4434a
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: 2a91e85fcd343f8af3c58d3425b99fdd285590a5
+  RNReanimated: ce445c233a6ff5600223484a88ad5704945d972a
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNShare: a5dc3b9c53ddc73e155b8cd9a94c70c91913c43c
   RNStoreReview: 18cf6adbd193eadb049d2f6c37ef2ab3d5a28706

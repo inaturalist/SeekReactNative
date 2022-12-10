@@ -19,7 +19,7 @@
     "postinstall": "patch-package",
     "e2e:build": "npx detox build --configuration ios.sim.release",
     "e2e:test": "npx detox test --configuration ios.sim.release",
-    "e2e" : "npm run e2e:build && npm run e2e:test"
+    "e2e": "npm run e2e:build && npm run e2e:test"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
@@ -124,6 +124,8 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
-    "testMatch": ["<rootDir>/tests/**/*.test.js"]
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ]
   }
 }

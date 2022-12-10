@@ -41,6 +41,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   yearInReviewArrow: {
     top: 70
+  },
+  bigContainer: {
+    height: 375
+  },
+  smallContainer: {
+    height: 250
   }
 } );
 

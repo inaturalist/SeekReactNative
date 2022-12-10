@@ -327,7 +327,7 @@ PODS:
     - React-Core
   - react-native-maps (1.3.2):
     - React-Core
-  - react-native-netinfo (9.3.6):
+  - react-native-netinfo (9.3.7):
     - React-Core
   - react-native-pager-view (6.1.2):
     - React-Core
@@ -424,7 +424,7 @@ PODS:
     - React-Core
   - RNCPicker (2.4.8):
     - React-Core
-  - RNDateTimePicker (6.5.3):
+  - RNDateTimePicker (6.7.1):
     - React-Core
   - RNDeviceInfo (10.3.0):
     - React-Core
@@ -783,7 +783,7 @@ SPEC CHECKSUMS:
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 085f614cf14d3637b2048bb9752da5b1c27c2886
-  react-native-netinfo: f80db8cac2151405633324cb645c60af098ee461
+  react-native-netinfo: 2517ad504b3d303e90d7a431b0fcaef76d207983
   react-native-pager-view: 54bed894cecebe28cede54c01038d9d1e122de43
   react-native-render-html: 012780b92993ab33b3ae0240b90e585d00c70808
   react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e
@@ -808,7 +808,7 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
   RNCPicker: 0bf8ef8f7800524f32d2bb2a8bcadd53eda0ecd1
-  RNDateTimePicker: 400fc87d26052d1ac76d05935e0f8d0fd4c78f13
+  RNDateTimePicker: 0530a73a6f3a1a85814cbde0802736993b9e675e
   RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
   RNFlashList: 399bf6a0db68f594ad2c86aaff3ea39564f39f8a
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688

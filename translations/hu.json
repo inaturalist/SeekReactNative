@@ -91,7 +91,7 @@
     "error_no_password": "Hiányzó jelszó",
     "error_internet": "Nincs internetkapcsolat",
     "error_request_could_not_be_completed": "Ez a kérés sajnos nem teljesíthető.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_no_client": "A kliens hitelesítése megszakadt, mert ismeretlen a kliens, a kliens nem küldött hitelesítést, vagy a hitelesítés módja nem támogatott.",
     "error_grant_invalid": "A megadott hitelesítés érvénytelen, lejárt, visszavont, vagy nem egyezik a hitelesítési kérésben használt URI-val, vagy más kliensnek címezték."
   },
   "inat_signup": {

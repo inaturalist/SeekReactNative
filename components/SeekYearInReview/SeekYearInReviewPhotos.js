@@ -19,6 +19,7 @@ import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
 import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
+import { formatDateToDisplayShort } from "../../utility/dateHelpers";
 
 const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );
@@ -46,7 +47,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
         {i18n.t( "seek_year_in_review.observed_on", {
           speciesName:
             observation?.taxon?.preferredCommonName || observation?.taxon?.name,
-          date: observation?.date?.toLocaleDateString( i18n.locale )
+          date: formatDateToDisplayShort( observation?.date )
         } )}
       </StyledText>
     </Pressable>

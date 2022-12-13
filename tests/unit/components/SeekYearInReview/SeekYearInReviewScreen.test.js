@@ -230,7 +230,7 @@ const containerID = "seek-yir-screen-container";
 
 describe( "SeekYearInReviewScreen", () => {
   test( "should render correctly", async () => {
-    const {unmount} = renderScreen();
+    renderScreen();
 
     const container = await screen.findByTestId( containerID );
     expect( container ).toBeTruthy();
@@ -255,20 +255,20 @@ describe( "SeekYearInReviewScreen", () => {
     // Create snapshot
     expect( screen ).toMatchSnapshot();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should show number of new observations for this year correctly", async () => {
-    const { unmount } = renderScreen();
+    renderScreen();
 
     const newObservationsText = await screen.findByText( /100 new species/i );
     expect( newObservationsText ).toBeTruthy();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should show level modal after tap", async () => {
-    const { unmount } = renderScreen();
+    renderScreen();
 
     const newObservationsText = await screen.findByText( /100 new species/i );
     fireEvent.press( newObservationsText );
@@ -276,11 +276,11 @@ describe( "SeekYearInReviewScreen", () => {
     const levelBadge = await screen.findByText( /cub/i );
     expect( levelBadge ).toBeTruthy();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should show top three badges information correctly", async () => {
-    const { unmount } = renderScreen();
+    renderScreen();
 
     const plantsBadge = await screen.findByLabelText( "1 plant!" );
     expect( plantsBadge ).toBeTruthy();
@@ -301,12 +301,12 @@ describe( "SeekYearInReviewScreen", () => {
     const mammals = await screen.findByText( /mammals/i );
     expect( mammals ).toBeTruthy();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should not show top three badges information if there are no badges", async () => {
     useFetchStats.mockReturnValue( { ...mockState, topThreeSpeciesBadges: [] } );
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const topThreeBanner = screen.queryByText( /Top Species/i );
@@ -318,7 +318,7 @@ describe( "SeekYearInReviewScreen", () => {
     const plants = screen.queryByText( /plants/i );
     expect( plants ).toBeNull();
 
-    unmount();
+    screen.unmount();
     useFetchStats.mockReturnValue( mockState );
   } );
 
@@ -334,56 +334,56 @@ describe( "SeekYearInReviewScreen", () => {
         }
       ]
     } );
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const text = await screen.queryByText( "OBSERVATIONS MAP" );
     expect( text ).toBeNull();
 
-    unmount();
+    screen.unmount();
     useFetchStats.mockReturnValue( mockState );
   } );
 
   test( "should not show iNaturalist section without login", async () => {
-    const { unmount } = renderScreen( { login: null } );
+    renderScreen( { login: null } );
     await screen.findByTestId( containerID );
 
     const text = await screen.queryByText( "INATURALIST" );
     expect( text ).toBeNull();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should show count of uploaded observations correctly", async () => {
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const observationCount = await screen.findByText( "60" );
     expect( observationCount ).toBeTruthy();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should not show uploaded observations text without uploaded observations", async () => {
     useUploadedObservationCount.mockReturnValue( 0 );
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const uploadedCountText = await screen.queryByText( "60" );
     expect( uploadedCountText ).toBeNull();
 
-    unmount();
+    screen.unmount();
     useUploadedObservationCount.mockReturnValue( 60 );
   } );
 
   test( "should show count of challenge badges correctly", async () => {
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const challengesCountText = await screen.findByText( "3" );
     expect( challengesCountText ).toBeTruthy();
 
-    unmount();
+    screen.unmount();
   } );
 
   test( "should not show challenges section without completed challenges", async () => {
@@ -391,18 +391,18 @@ describe( "SeekYearInReviewScreen", () => {
       challengeBadges: [],
       challengeCount: 0
     } );
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const challengesBanner = await screen.queryByText( "CHALLENGES" );
     expect( challengesBanner ).toBeNull();
 
-    unmount();
+    screen.unmount();
     useFetchChallengesForYear.mockReturnValue( mockChallenges );
   } );
 
   test( "should navigate to donate screen from button", async () => {
-    const { unmount } = renderScreen();
+    renderScreen();
     await screen.findByTestId( containerID );
 
     const donateButton = await screen.findByText( "DONATE" );
@@ -411,6 +411,6 @@ describe( "SeekYearInReviewScreen", () => {
     const navigateSpy = jest.spyOn( mockNavigate, "navigate" );
     expect( navigateSpy ).toHaveBeenCalledWith( "Donation", {"utmCampaign": "2022-year-in-review"} );
 
-    unmount();
+    screen.unmount();
   } );
 } );

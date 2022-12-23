@@ -103,13 +103,13 @@ describe( "SeekYearInReviewPhotos", () => {
     const container = await screen.findByTestId( containerID );
     expect( container ).toBeTruthy();
     // First obs photo should be visible
-    const description1 = await screen.findByText( "some_common_name_1 observed on 12/2/2022" );
+    const description1 = await screen.findByText( "some_common_name_1 observed on Dec 2, 2022, 11:19 AM" );
     expect( description1 ).toBeTruthy();
     // Right arrow should be visible
     const rightArrow = await screen.findByTestId( "right-arrow" );
     expect( rightArrow ).toBeTruthy();
     // Second obs photo should not be visible
-    const description2 = screen.queryByText( "some_name_2 observed on 12/2/2022" );
+    const description2 = screen.queryByText( "some_name_2 observed on Dec 1, 2022, 11:19 AM" );
     expect( description2 ).toBeNull();
     expect( screen ).toMatchSnapshot();
   } );
@@ -121,14 +121,14 @@ describe( "SeekYearInReviewPhotos", () => {
     const horizontalScroll = await screen.findByTestId( "horizontal-scroll" );
     fireEvent.scroll( horizontalScroll, scrollEventData );
 
-    const description2 = await screen.findAllByText( "some_name_2 observed on 12/1/2022" );
+    const description2 = await screen.findAllByText( "some_name_2 observed on Dec 1, 2022, 11:19 AM" );
     expect( description2 ).toBeTruthy();
   } );
 
   test( "should navigate to species detail on photo press", async () => {
     renderPhotos();
 
-    const description1 = await screen.findByText( "some_common_name_1 observed on 12/2/2022" );
+    const description1 = await screen.findByText( "some_common_name_1 observed on Dec 2, 2022, 11:19 AM" );
     fireEvent.press( description1 );
 
     expect( mockNavigate.navigate ).toHaveBeenCalledWith( "Species" );

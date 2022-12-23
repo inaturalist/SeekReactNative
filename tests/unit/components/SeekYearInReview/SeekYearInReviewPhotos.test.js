@@ -21,7 +21,7 @@ jest.mock( "@react-navigation/native", () => {
 
 const mockObservations = [
   {
-    date: new Date( "2022-12-02T10:19:54.000" ),
+    date: new Date( "2022-12-02T10:19:54.000Z" ),
     latitude: 42,
     longitude: 42,
     taxon: {
@@ -39,7 +39,7 @@ const mockObservations = [
     uuidString: "some_uuid_2"
   },
   {
-    date: new Date( "2022-12-01T10:19:54.000" ),
+    date: new Date( "2022-12-01T10:19:54.000Z" ),
     latitude: 42,
     longitude: 42,
     taxon: {
@@ -57,7 +57,7 @@ const mockObservations = [
     uuidString: "some_uuid_2"
   },
   {
-    date: new Date( "2022-12-03T10:19:54.000" ),
+    date: new Date( "2022-12-03T10:19:54.000Z" ),
     latitude: 42,
     longitude: 42,
     taxon: {
@@ -121,13 +121,13 @@ describe( "SeekYearInReviewPhotos", () => {
     const container = await screen.findByTestId( containerID );
     expect( container ).toBeTruthy();
     // First obs photo should be visible
-    const description1 = await screen.findByText( "some_common_name_1 observed on Dec 2, 2022, 10:19 AM" );
+    const description1 = await screen.findByText( "some_common_name_1 observed on Dec 2, 2022, 11:19 AM" );
     expect( description1 ).toBeTruthy();
     // Right arrow should be visible
     const rightArrow = await screen.findByTestId( "right-arrow" );
     expect( rightArrow ).toBeTruthy();
     // Second obs photo should not be visible
-    const description2 = screen.queryByText( "some_name_3 observed on Dec 3, 2022, 10:19 AM" );
+    const description2 = screen.queryByText( "some_name_3 observed on Dec 3, 2022, 11:19 AM" );
     expect( description2 ).toBeNull();
     expect( screen ).toMatchSnapshot();
   } );
@@ -139,14 +139,14 @@ describe( "SeekYearInReviewPhotos", () => {
     const horizontalScroll = await screen.findByTestId( "horizontal-scroll" );
     fireEvent.scroll( horizontalScroll, scrollEventData );
 
-    const description2 = await screen.findAllByText( "some_name_3 observed on Dec 3, 2022, 10:19 AM" );
+    const description2 = await screen.findAllByText( "some_name_3 observed on Dec 3, 2022, 11:19 AM" );
     expect( description2 ).toBeTruthy();
   } );
 
   test( "should navigate to species detail on photo press", async () => {
     renderPhotos();
 
-    const description1 = await screen.findByText( "some_common_name_1 observed on Dec 2, 2022, 10:19 AM" );
+    const description1 = await screen.findByText( "some_common_name_1 observed on Dec 2, 2022, 11:19 AM" );
     fireEvent.press( description1 );
 
     expect( mockNavigate.navigate ).toHaveBeenCalledWith( "Species" );

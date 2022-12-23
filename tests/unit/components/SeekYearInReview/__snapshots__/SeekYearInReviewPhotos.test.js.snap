@@ -35,7 +35,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
               index={0}
               observation={
                 {
-                  "date": 2022-12-02T09:19:54.000Z,
+                  "date": 2022-12-02T10:19:54.000Z,
                   "latitude": 42,
                   "longitude": 42,
                   "taxon": {
@@ -62,7 +62,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
               index={1}
               observation={
                 {
-                  "date": 2022-12-01T09:19:54.000Z,
+                  "date": 2022-12-01T10:19:54.000Z,
                   "latitude": 42,
                   "longitude": 42,
                   "taxon": {
@@ -89,7 +89,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
               index={2}
               observation={
                 {
-                  "date": 2022-12-03T09:19:54.000Z,
+                  "date": 2022-12-03T10:19:54.000Z,
                   "latitude": 42,
                   "longitude": 42,
                   "taxon": {
@@ -121,7 +121,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                 index={0}
                 observation={
                   {
-                    "date": 2022-12-02T09:19:54.000Z,
+                    "date": 2022-12-02T10:19:54.000Z,
                     "latitude": 42,
                     "longitude": 42,
                     "taxon": {
@@ -148,7 +148,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                 index={1}
                 observation={
                   {
-                    "date": 2022-12-01T09:19:54.000Z,
+                    "date": 2022-12-01T10:19:54.000Z,
                     "latitude": 42,
                     "longitude": 42,
                     "taxon": {
@@ -175,7 +175,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                 index={2}
                 observation={
                   {
-                    "date": 2022-12-03T09:19:54.000Z,
+                    "date": 2022-12-03T10:19:54.000Z,
                     "latitude": 42,
                     "longitude": 42,
                     "taxon": {
@@ -307,7 +307,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                   index={0}
                   observation={
                     {
-                      "date": 2022-12-02T09:19:54.000Z,
+                      "date": 2022-12-02T10:19:54.000Z,
                       "latitude": 42,
                       "longitude": 42,
                       "taxon": {
@@ -334,7 +334,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                   index={1}
                   observation={
                     {
-                      "date": 2022-12-01T09:19:54.000Z,
+                      "date": 2022-12-01T10:19:54.000Z,
                       "latitude": 42,
                       "longitude": 42,
                       "taxon": {
@@ -361,7 +361,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                   index={2}
                   observation={
                     {
-                      "date": 2022-12-03T09:19:54.000Z,
+                      "date": 2022-12-03T10:19:54.000Z,
                       "latitude": 42,
                       "longitude": 42,
                       "taxon": {
@@ -592,7 +592,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                         ]
                       }
                     >
-                      some_common_name_1 observed on Dec 2, 2022, 10:19 AM
+                      some_common_name_1 observed on Dec 2, 2022, 11:19 AM
                     </Text>
                   </View>
                 </View>
@@ -675,7 +675,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                         ]
                       }
                     >
-                      some_name_2 observed on Dec 1, 2022, 10:19 AM
+                      some_name_2 observed on Dec 1, 2022, 11:19 AM
                     </Text>
                   </View>
                 </View>
@@ -763,7 +763,7 @@ exports[`SeekYearInReviewPhotos should render correctly 1`] = `
                     ]
                   }
                 >
-                  some_name_2 observed on Dec 1, 2022, 10:19 AM
+                  some_name_2 observed on Dec 1, 2022, 11:19 AM
                 </Text>
               </View>
             </View>

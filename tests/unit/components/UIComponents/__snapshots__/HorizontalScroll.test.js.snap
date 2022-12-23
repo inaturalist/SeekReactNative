@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HorizontalScroll should render correctly 1`] = `
-[
+<View
+  style={
+    {
+      "height": 250,
+    }
+  }
+>
   <View
     style={{}}
   >
@@ -398,7 +404,7 @@ exports[`HorizontalScroll should render correctly 1`] = `
         </View>
       </View>
     </RCTScrollView>
-  </View>,
+  </View>
   <View
     accessibilityLabel="Scroll right"
     accessible={true}
@@ -441,6 +447,6 @@ exports[`HorizontalScroll should render correctly 1`] = `
         }
       }
     />
-  </View>,
-]
+  </View>
+</View>
 `;

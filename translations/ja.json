@@ -24,7 +24,7 @@
     "continue_challenge": "チャレンジを続ける",
     "view_all": "すべてのチャレンジを表示",
     "new_join": "Seekカメラで観察してチャレンジバッジを獲得しましょう！",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "inat_admin": "iNat 管理者:Seekをテストしていただきありがとうございます！テスト用に月が始まる前ですが最新のiNatチャレンジをご覧いただいています。"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALISTに投稿する",
@@ -562,7 +562,7 @@
     "you": "ヤッホー！外に出て、野生の生き物を見つけよう。",
     "internet_error": "種の詳細画面を画面を読み込むには、インターネットへの接続が必要です。再試行するにはタップしてください。",
     "no_photos_found": "この種の写真はありません。",
-    "copied": "COPIED!"
+    "copied": "コピーしました！"
   },
   "about": {
     "header": "Seekについて",
@@ -570,7 +570,7 @@
     "joint_initiative": "iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。",
     "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "iNaturalistチームによってデザイン・開発されました：",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "バージョン",
     "help": "Seekのサポートが必要ならば、help+seek@inaturalist.orgまでメールをお送りください。",
     "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -685,9 +685,9 @@
     "auto_capture": "種まで判定できた時に自動で写真を撮ります。",
     "species_detail": "種の詳細",
     "seasonality": "季節性",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)",
-    "donate_ios": "Please visit the following link to make a donation to Seek:",
+    "seasonality_option_1": "世界中のiNatutalist観察記録に基づいて季節性を表示",
+    "seasonality_option_2": "現在地近くのiNaturalist観察記録に基づいて季節性を表示(近くに存在しない種には季節性がありません)",
+    "donate_ios": "Seekへの寄付はリンク先から行えます:",
     "change_language": "Switch the in-app language to {{language}}?",
     "confirm": "Confirm"
   },
@@ -987,7 +987,7 @@
     "uploaded_observations_text_2": "Thank you for contributing to our community!",
     "observed_in": "{{speciesName}} observed in {{place}}",
     "observed_on": "{{speciesName}} observed on {{date}}",
-    "challenges": "Challenges",
+    "challenges": "チャレンジ",
     "x_challenges_earned_text": {
       "one": "You earned {{count}} challenge badge in {{year}}.",
       "two": "You earned {{count}} challenge badges in {{year}}.",
@@ -996,7 +996,7 @@
       "other": "You earned {{count}} challenge badges in {{year}}."
     },
     "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "consider_donation": "小さなチームとして、我々はSeekへのすべての愛と熱意に感謝します。 私たちが成長するにつれ私たちを支援したい場合は、iNaturalistへの寄付をぜひ検討してみてください。",
+    "donate": "寄付"
   }
 }

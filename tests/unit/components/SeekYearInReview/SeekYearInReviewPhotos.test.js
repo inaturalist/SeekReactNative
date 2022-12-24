@@ -132,7 +132,7 @@ describe( "SeekYearInReviewPhotos", () => {
     expect( screen ).toMatchSnapshot();
   } );
 
-  test( "should show second photo after scroll", async () => {
+  test( "should show third photo after scroll", async () => {
     renderPhotos();
 
     // Scroll list to second photo

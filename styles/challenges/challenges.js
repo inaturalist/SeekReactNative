@@ -9,8 +9,7 @@ import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet
 
 const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   challengeList: {
-    backgroundColor: colors.white,
-    flexGrow: 1
+    backgroundColor: colors.white
   },
   header: {
     marginBottom: 10,

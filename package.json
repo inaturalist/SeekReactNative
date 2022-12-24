@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.14.6",
+  "version": "2.14.7",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -19,21 +19,22 @@
     "postinstall": "patch-package",
     "e2e:build": "npx detox build --configuration ios.sim.release",
     "e2e:test": "npx detox test --configuration ios.sim.release",
-    "e2e" : "npm run e2e:build && npm run e2e:test"
+    "e2e": "npm run e2e:build && npm run e2e:test"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.17.10",
+    "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-camera-roll/camera-roll": "^5.0.4",
     "@react-native-community/clipboard": "^1.5.1",
-    "@react-native-community/datetimepicker": "^6.5.3",
-    "@react-native-community/netinfo": "^9.3.6",
+    "@react-native-community/datetimepicker": "^6.7.1",
+    "@react-native-community/netinfo": "^9.3.7",
     "@react-native-masked-view/masked-view": "^0.2.8",
     "@react-native-picker/picker": "^2.4.8",
-    "@react-native/normalize-color": "^2.0.0",
-    "@react-navigation/drawer": "^6.5.0",
-    "@react-navigation/material-top-tabs": "^6.3.0",
-    "@react-navigation/native": "^6.0.13",
-    "@react-navigation/stack": "^6.3.3",
+    "@react-native/normalize-color": "^2.1.0",
+    "@react-navigation/drawer": "^6.5.4",
+    "@react-navigation/material-top-tabs": "^6.5.0",
+    "@react-navigation/native": "^6.1.0",
+    "@react-navigation/stack": "^6.3.8",
+    "@shopify/flash-list": "^1.4.0",
     "date-fns": "^2.28.0",
     "date-fns-tz": "^1.3.5",
     "fbjs": "^3.0.4",
@@ -41,7 +42,7 @@
     "i18n-js": "^3.9.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "react": "18.1.0",
-    "react-native": "0.70.5",
+    "react-native": "^0.70.6",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^10.3.0",
@@ -61,44 +62,44 @@
     "react-native-modal": "^13.0.1",
     "react-native-modal-datetime-picker": "^14.0.0",
     "react-native-open-settings": "github:albullington/react-native-open-settings",
-    "react-native-pager-view": "^6.0.1",
+    "react-native-pager-view": "^6.1.2",
     "react-native-picker-select": "^8.0.4",
     "react-native-progress-circle": "^2.1.0",
     "react-native-quick-actions": "^0.3.13",
-    "react-native-reanimated": "^2.12.0",
+    "react-native-reanimated": "^2.13.0",
     "react-native-render-html": "^5.1.0",
     "react-native-restart": "^0.0.24",
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.2",
     "react-native-send-intent": "^1.3.0",
-    "react-native-share": "^7.9.1",
+    "react-native-share": "^8.0.1",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-store-review": "^0.3.0",
-    "react-native-svg": "^12.4.4",
-    "react-native-svg-charts": "github:agris-visikon/react-native-svg-charts#dev",
+    "react-native-svg": "^13.6.0",
+    "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.3.0",
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
-    "react-native-webview": "^11.23.1",
-    "realm": "^11.0.0"
+    "react-native-webview": "^11.26.0",
+    "realm": "^11.2.0"
   },
-  "devDependencies": {
+  "devDependencies": { 
     "@babel/core": "^7.15.8",
     "@babel/preset-flow": "^7.14.5",
     "@babel/runtime": "^7.15.4",
-    "@react-native-community/eslint-config": "^3.1.0",
-    "@testing-library/jest-native": "^5.1.2",
-    "@testing-library/react-native": "^11.4.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@testing-library/jest-native": "^5.3.2",
+    "@testing-library/react-native": "^11.5.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "detox": "^20.0.3",
     "eslint-import-resolver-babel-module": "^5.3.1",
-    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-testing-library": "^5.9.1",
     "flow-bin": "^0.158.0",
-    "husky": "^8.0.1",
-    "jest": "^29.2.2",
-    "metro-react-native-babel-preset": "0.72.3",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "metro-react-native-babel-preset": "^0.73.4",
     "patch-package": "^6.5.0",
     "react-native-clean-project": "^4.0.1",
     "react-test-renderer": "18.1.0"
@@ -123,6 +124,8 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
-    "testMatch": ["<rootDir>/tests/**/*.test.js"]
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ]
   }
 }

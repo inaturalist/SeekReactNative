@@ -24,8 +24,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     flex: 1
   },
   whiteContainer: {
-    backgroundColor: colors.white,
-    flexGrow: 1
+    backgroundColor: colors.white
   },
   header: {
     backgroundColor: colors.seekForestGreen,

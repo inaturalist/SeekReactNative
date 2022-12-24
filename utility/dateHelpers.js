@@ -143,7 +143,11 @@ const serverBackOnlineTime = ( gmtTime: string ): number => differenceInHours( n
 
 const namePhotoByTime = (): string => format( new Date(), "ddMMyy_HHmmSSSS" );
 
-const formatPostingToINat = ( date: any ): string => format( date, "PPPPpaaa", { locale: locales[i18n.locale] } );
+const locale = locales[i18n.locale] || locales[i18n.locale.split( "-" )[0]];
+
+const formatDateToDisplay = ( date: any ): string => format( date, "PPPPpaaa", { locale } );
+
+const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", { locale } );
 
 const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
@@ -164,7 +168,7 @@ const formatGMTTimeWithTimeZone = ( date: any ): {
   const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
   return {
     dateForServer: TimeZone.format( zonedDate, pattern, { timeZone, locale: enUS } ),
-    dateForDisplay: formatPostingToINat( zonedDate )
+    dateForDisplay: formatDateToDisplay( zonedDate )
   };
 };
 
@@ -220,5 +224,6 @@ export {
   isWithinCurrentMonth,
   isAndroidDateInFuture,
   formatGMTTimeWithTimeZone,
-  isDateInFuture
+  isDateInFuture,
+  formatDateToDisplayShort
 };

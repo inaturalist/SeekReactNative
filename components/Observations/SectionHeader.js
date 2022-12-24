@@ -24,9 +24,8 @@ type Props = {
   toggleSection: Function
 };
 
-const SectionHeader = ( { section, open, toggleSection }: Props ): Node => {
+const SectionHeader = ( { id, dataLength, open, toggleSection }: Props ): Node => {
   const [badgeCount, setBadgeCount] = useState( 0 );
-  const { id, data } = section;
 
   const noBadge = badgeCount === 0;
   const badge = badges.badge_gold;
@@ -58,7 +57,7 @@ const SectionHeader = ( { section, open, toggleSection }: Props ): Node => {
         {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
       </StyledText>
       <View style={styles.row}>
-        <StyledText style={styles.numberText} allowFontScaling={false}>{data.length}</StyledText>
+        <StyledText style={styles.numberText} allowFontScaling={false}>{dataLength}</StyledText>
         {id !== 1 && ( // $FlowFixMe
           <Image
             source={noBadge ? badges.badge_empty_small : badge}

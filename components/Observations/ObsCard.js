@@ -17,8 +17,7 @@ type Props = {
   openModal: ( Object, Object ) => void,
   updateItemScrolledId: ( ?number ) => void,
   itemScrolledId: ?number,
-  sectionId: number,
-  index: number,
+  toAnimate: boolean,
   hasAnimated: boolean,
   setHasAnimated: ( boolean ) => void
 }
@@ -28,8 +27,7 @@ const ObservationCard = ( {
   openModal,
   updateItemScrolledId,
   itemScrolledId,
-  sectionId,
-  index,
+  toAnimate,
   hasAnimated,
   setHasAnimated
 }: Props ): Node => {
@@ -89,11 +87,11 @@ const ObservationCard = ( {
   }, [animation] );
 
   useEffect( ( ) => {
-    if ( index === 0 && sectionId === 47126 && !hasAnimated ) {
+    if ( toAnimate && !hasAnimated ) {
       animate( );
       setHasAnimated( true );
     }
-  },[index, sectionId, animate, hasAnimated, setHasAnimated] );
+  },[toAnimate, animate, hasAnimated, setHasAnimated] );
 
   return (
     <ScrollView

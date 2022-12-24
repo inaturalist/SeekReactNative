@@ -52,6 +52,28 @@ const createChallengeSections = ( challenges ) => {
     }
 };
 
+const convertDataToFlashListFormat = ( sections ) => {
+  let convertedList = [];
+  sections.map( ( section ) => {
+    const { data, id, header, empty } = section;
+
+    if ( !( sections.length === 2 && id === 0 ) ) {
+      convertedList.push( { type: "header", header, id } );
+    }
+
+    if ( data.length !== 0 ) {
+      convertedList = convertedList.concat( ...data );
+    } else if ( sections.length === 2 && id === 0 ) {
+      convertedList.push( { type: "noChallenges" } );
+    } else {
+      convertedList.push( { type: "empty", empty } );
+    }
+  } );
+  return convertedList;
+};
+
+
+
 const useFetchChallenges = ( ): any => {
   const [list, setList] = useState( {
     data: [],
@@ -66,7 +88,7 @@ const useFetchChallenges = ( ): any => {
       const query = ( ) => realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
 
       const handleChange = ( newData, newChanges ) => {
-        setList( { data: createChallengeSections( newData ), changes: newChanges } );
+        setList( { data: convertDataToFlashListFormat( createChallengeSections( newData ) ), changes: newChanges } );
       };
 
       const dataQuery = query( );

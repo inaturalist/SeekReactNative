@@ -33,9 +33,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   flex: {
     flex: 1
   },
-  flexGrow: {
-    flexGrow: 1
-  },
   greenDot: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 11 / 2,

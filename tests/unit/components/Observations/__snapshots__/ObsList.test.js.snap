@@ -1,0 +1,3644 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ObsList should render correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    ListFooterComponent={[Function]}
+    ListHeaderComponent={
+      <SearchBar
+        clearText={[Function]}
+        fetchFilteredObservations={[Function]}
+        searchText=""
+      />
+    }
+    applyWindowCorrection={[Function]}
+    canChangeSize={true}
+    contentContainerStyle={
+      {
+        "backgroundColor": undefined,
+        "minHeight": 1,
+        "minWidth": 1,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+      }
+    }
+    contentHeight={600}
+    contentWidth={400}
+    data={
+      [
+        {
+          "dataLength": 3,
+          "id": 47126,
+          "type": "header",
+        },
+        {
+          "date": 2022-12-02T10:19:54.000Z,
+          "latitude": null,
+          "longitude": null,
+          "sectionId": 47126,
+          "taxon": {
+            "ancestorIds": [
+              48460,
+              47126,
+              211194,
+              47125,
+              47124,
+              71275,
+              54330,
+              54331,
+            ],
+            "defaultPhoto": {
+              "backupUri": "some_backup_uri",
+              "lastUpdated": 2022-12-02T10:19:54.000Z,
+              "mediumUrl": "some_url",
+            },
+            "iconicTaxonId": 47126,
+            "id": 54329,
+            "name": "some_name_1",
+            "preferredCommonName": "some_common_name_1",
+          },
+          "toAnimate": true,
+          "uuidString": "15aa735d-5d01-4667-8e82-02d2088d0b5a",
+        },
+        {
+          "date": 2022-12-02T10:19:12.000Z,
+          "latitude": null,
+          "longitude": null,
+          "sectionId": 47126,
+          "taxon": {
+            "ancestorIds": [
+              48460,
+              47126,
+              211194,
+              47125,
+              47124,
+              71275,
+              54330,
+              54331,
+            ],
+            "defaultPhoto": {
+              "backupUri": "some_backup_uri",
+              "lastUpdated": 2022-12-02T10:19:54.000Z,
+              "mediumUrl": "some_url",
+            },
+            "iconicTaxonId": 47126,
+            "id": 54329,
+            "name": "some_name_2",
+            "preferredCommonName": "some_common_name_2",
+          },
+          "uuidString": "daa32e9e-4e12-492e-ab3a-8ca3b0782339",
+        },
+        {
+          "date": 2022-12-02T10:17:21.000Z,
+          "isLast": true,
+          "latitude": null,
+          "longitude": null,
+          "sectionId": 47126,
+          "taxon": {
+            "ancestorIds": [
+              48460,
+              47126,
+              211194,
+              47125,
+              47124,
+              71275,
+              54330,
+              54331,
+            ],
+            "defaultPhoto": {
+              "backupUri": "some_backup_uri",
+              "lastUpdated": 2022-12-02T10:19:54.000Z,
+              "mediumUrl": "some_url",
+            },
+            "iconicTaxonId": 47126,
+            "id": 54329,
+            "name": "some_name_3",
+            "preferredCommonName": "some_common_name_3",
+          },
+          "uuidString": "1976be58-6db2-4743-83c8-f1f871a28b1e",
+        },
+        {
+          "type": "footer",
+        },
+        {
+          "dataLength": 0,
+          "id": 3,
+          "type": "header",
+        },
+        {
+          "id": 3,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 40151,
+          "type": "header",
+        },
+        {
+          "id": 40151,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 47115,
+          "type": "header",
+        },
+        {
+          "id": 47115,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 47158,
+          "type": "header",
+        },
+        {
+          "id": 47158,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 26036,
+          "type": "header",
+        },
+        {
+          "id": 26036,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 47119,
+          "type": "header",
+        },
+        {
+          "id": 47119,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 20978,
+          "type": "header",
+        },
+        {
+          "id": 20978,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 47178,
+          "type": "header",
+        },
+        {
+          "id": 47178,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 47170,
+          "type": "header",
+        },
+        {
+          "id": 47170,
+          "type": "footerEmpty",
+        },
+        {
+          "dataLength": 0,
+          "id": 1,
+          "type": "header",
+        },
+        {
+          "id": 1,
+          "type": "footerEmpty",
+        },
+      ]
+    }
+    dataProvider={
+      DataProvider {
+        "_data": [
+          {
+            "dataLength": 3,
+            "id": 47126,
+            "type": "header",
+          },
+          {
+            "date": 2022-12-02T10:19:54.000Z,
+            "latitude": null,
+            "longitude": null,
+            "sectionId": 47126,
+            "taxon": {
+              "ancestorIds": [
+                48460,
+                47126,
+                211194,
+                47125,
+                47124,
+                71275,
+                54330,
+                54331,
+              ],
+              "defaultPhoto": {
+                "backupUri": "some_backup_uri",
+                "lastUpdated": 2022-12-02T10:19:54.000Z,
+                "mediumUrl": "some_url",
+              },
+              "iconicTaxonId": 47126,
+              "id": 54329,
+              "name": "some_name_1",
+              "preferredCommonName": "some_common_name_1",
+            },
+            "toAnimate": true,
+            "uuidString": "15aa735d-5d01-4667-8e82-02d2088d0b5a",
+          },
+          {
+            "date": 2022-12-02T10:19:12.000Z,
+            "latitude": null,
+            "longitude": null,
+            "sectionId": 47126,
+            "taxon": {
+              "ancestorIds": [
+                48460,
+                47126,
+                211194,
+                47125,
+                47124,
+                71275,
+                54330,
+                54331,
+              ],
+              "defaultPhoto": {
+                "backupUri": "some_backup_uri",
+                "lastUpdated": 2022-12-02T10:19:54.000Z,
+                "mediumUrl": "some_url",
+              },
+              "iconicTaxonId": 47126,
+              "id": 54329,
+              "name": "some_name_2",
+              "preferredCommonName": "some_common_name_2",
+            },
+            "uuidString": "daa32e9e-4e12-492e-ab3a-8ca3b0782339",
+          },
+          {
+            "date": 2022-12-02T10:17:21.000Z,
+            "isLast": true,
+            "latitude": null,
+            "longitude": null,
+            "sectionId": 47126,
+            "taxon": {
+              "ancestorIds": [
+                48460,
+                47126,
+                211194,
+                47125,
+                47124,
+                71275,
+                54330,
+                54331,
+              ],
+              "defaultPhoto": {
+                "backupUri": "some_backup_uri",
+                "lastUpdated": 2022-12-02T10:19:54.000Z,
+                "mediumUrl": "some_url",
+              },
+              "iconicTaxonId": 47126,
+              "id": 54329,
+              "name": "some_name_3",
+              "preferredCommonName": "some_common_name_3",
+            },
+            "uuidString": "1976be58-6db2-4743-83c8-f1f871a28b1e",
+          },
+          {
+            "type": "footer",
+          },
+          {
+            "dataLength": 0,
+            "id": 3,
+            "type": "header",
+          },
+          {
+            "id": 3,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 40151,
+            "type": "header",
+          },
+          {
+            "id": 40151,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 47115,
+            "type": "header",
+          },
+          {
+            "id": 47115,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 47158,
+            "type": "header",
+          },
+          {
+            "id": 47158,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 26036,
+            "type": "header",
+          },
+          {
+            "id": 26036,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 47119,
+            "type": "header",
+          },
+          {
+            "id": 47119,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 20978,
+            "type": "header",
+          },
+          {
+            "id": 20978,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 47178,
+            "type": "header",
+          },
+          {
+            "id": 47178,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 47170,
+            "type": "header",
+          },
+          {
+            "id": 47170,
+            "type": "footerEmpty",
+          },
+          {
+            "dataLength": 0,
+            "id": 1,
+            "type": "header",
+          },
+          {
+            "id": 1,
+            "type": "footerEmpty",
+          },
+        ],
+        "_firstIndexToProcess": 0,
+        "_hasStableIds": true,
+        "_requiresDataChangeHandling": true,
+        "_size": 25,
+        "getStableId": [Function],
+        "rowHasChanged": [Function],
+      }
+    }
+    disableRecycling={false}
+    estimatedItemSize={24}
+    extendedState={{}}
+    externalScrollView={[Function]}
+    finalRenderAheadOffset={250}
+    forceNonDeterministicRendering={true}
+    getItemType={[Function]}
+    horizontal={false}
+    initialNumToRender={5}
+    initialOffset={0}
+    initialRenderIndex={0}
+    isHorizontal={false}
+    keyExtractor={[Function]}
+    keyboardDismissMode="on-drag"
+    layoutProvider={
+      GridLayoutProviderWithProps {
+        "_acceptableRelayoutDelta": 1,
+        "_getHeightOrWidth": [Function],
+        "_getLayoutTypeForIndex": [Function],
+        "_getSpan": [Function],
+        "_hasExpired": false,
+        "_isHorizontal": false,
+        "_lastLayoutManager": GridLayoutManager {
+          "_acceptableRelayoutDelta": 1,
+          "_getSpan": [Function],
+          "_isGridHorizontal": false,
+          "_isHorizontal": false,
+          "_layoutProvider": [Circular],
+          "_layouts": [
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 0,
+            },
+            {
+              "height": 24,
+              "type": "observation",
+              "width": 400,
+              "x": 0,
+              "y": 24,
+            },
+            {
+              "height": 24,
+              "type": "observation",
+              "width": 400,
+              "x": 0,
+              "y": 48,
+            },
+            {
+              "height": 24,
+              "type": "observation",
+              "width": 400,
+              "x": 0,
+              "y": 72,
+            },
+            {
+              "height": 24,
+              "type": "footer",
+              "width": 400,
+              "x": 0,
+              "y": 96,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 120,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 144,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 168,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 192,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 216,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 240,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 264,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 288,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 312,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 336,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 360,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 384,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 408,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 432,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 456,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 480,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 504,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 528,
+            },
+            {
+              "height": 24,
+              "type": "header",
+              "width": 400,
+              "x": 0,
+              "y": 552,
+            },
+            {
+              "height": 24,
+              "type": "footerEmpty",
+              "width": 400,
+              "x": 0,
+              "y": 576,
+            },
+          ],
+          "_maxSpan": 1,
+          "_renderWindowSize": {
+            "height": 900,
+            "width": 400,
+          },
+          "_totalHeight": 600,
+          "_totalWidth": 400,
+          "_window": {
+            "height": 900,
+            "width": 400,
+          },
+        },
+        "_maxSpan": 1,
+        "_renderWindowSize": {
+          "height": 900,
+          "width": 400,
+        },
+        "_setLayoutForType": [Function],
+        "_tempDim": {
+          "height": 0,
+          "width": 0,
+        },
+        "averageWindow": AverageWindow {
+          "currentAverage": 24,
+          "currentCount": 1,
+          "inputValues": [
+            24,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+            ,
+          ],
+          "nextIndex": 1,
+        },
+        "defaultEstimatedItemSize": 100,
+        "layoutObject": {
+          "size": undefined,
+          "span": undefined,
+        },
+        "props": {
+          "ListEmptyComponent": [Function],
+          "ListFooterComponent": [Function],
+          "ListHeaderComponent": <SearchBar
+            clearText={[Function]}
+            fetchFilteredObservations={[Function]}
+            searchText=""
+          />,
+          "data": [
+            {
+              "dataLength": 3,
+              "id": 47126,
+              "type": "header",
+            },
+            {
+              "date": 2022-12-02T10:19:54.000Z,
+              "latitude": null,
+              "longitude": null,
+              "sectionId": 47126,
+              "taxon": {
+                "ancestorIds": [
+                  48460,
+                  47126,
+                  211194,
+                  47125,
+                  47124,
+                  71275,
+                  54330,
+                  54331,
+                ],
+                "defaultPhoto": {
+                  "backupUri": "some_backup_uri",
+                  "lastUpdated": 2022-12-02T10:19:54.000Z,
+                  "mediumUrl": "some_url",
+                },
+                "iconicTaxonId": 47126,
+                "id": 54329,
+                "name": "some_name_1",
+                "preferredCommonName": "some_common_name_1",
+              },
+              "toAnimate": true,
+              "uuidString": "15aa735d-5d01-4667-8e82-02d2088d0b5a",
+            },
+            {
+              "date": 2022-12-02T10:19:12.000Z,
+              "latitude": null,
+              "longitude": null,
+              "sectionId": 47126,
+              "taxon": {
+                "ancestorIds": [
+                  48460,
+                  47126,
+                  211194,
+                  47125,
+                  47124,
+                  71275,
+                  54330,
+                  54331,
+                ],
+                "defaultPhoto": {
+                  "backupUri": "some_backup_uri",
+                  "lastUpdated": 2022-12-02T10:19:54.000Z,
+                  "mediumUrl": "some_url",
+                },
+                "iconicTaxonId": 47126,
+                "id": 54329,
+                "name": "some_name_2",
+                "preferredCommonName": "some_common_name_2",
+              },
+              "uuidString": "daa32e9e-4e12-492e-ab3a-8ca3b0782339",
+            },
+            {
+              "date": 2022-12-02T10:17:21.000Z,
+              "isLast": true,
+              "latitude": null,
+              "longitude": null,
+              "sectionId": 47126,
+              "taxon": {
+                "ancestorIds": [
+                  48460,
+                  47126,
+                  211194,
+                  47125,
+                  47124,
+                  71275,
+                  54330,
+                  54331,
+                ],
+                "defaultPhoto": {
+                  "backupUri": "some_backup_uri",
+                  "lastUpdated": 2022-12-02T10:19:54.000Z,
+                  "mediumUrl": "some_url",
+                },
+                "iconicTaxonId": 47126,
+                "id": 54329,
+                "name": "some_name_3",
+                "preferredCommonName": "some_common_name_3",
+              },
+              "uuidString": "1976be58-6db2-4743-83c8-f1f871a28b1e",
+            },
+            {
+              "type": "footer",
+            },
+            {
+              "dataLength": 0,
+              "id": 3,
+              "type": "header",
+            },
+            {
+              "id": 3,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 40151,
+              "type": "header",
+            },
+            {
+              "id": 40151,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 47115,
+              "type": "header",
+            },
+            {
+              "id": 47115,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 47158,
+              "type": "header",
+            },
+            {
+              "id": 47158,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 26036,
+              "type": "header",
+            },
+            {
+              "id": 26036,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 47119,
+              "type": "header",
+            },
+            {
+              "id": 47119,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 20978,
+              "type": "header",
+            },
+            {
+              "id": 20978,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 47178,
+              "type": "header",
+            },
+            {
+              "id": 47178,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 47170,
+              "type": "header",
+            },
+            {
+              "id": 47170,
+              "type": "footerEmpty",
+            },
+            {
+              "dataLength": 0,
+              "id": 1,
+              "type": "header",
+            },
+            {
+              "id": 1,
+              "type": "footerEmpty",
+            },
+          ],
+          "estimatedItemSize": 24,
+          "getItemType": [Function],
+          "initialNumToRender": 5,
+          "keyExtractor": [Function],
+          "keyboardDismissMode": "on-drag",
+          "numColumns": 1,
+          "onScroll": [Function],
+          "removeClippedSubviews": true,
+          "renderItem": [Function],
+          "scrollEventThrottle": 1,
+          "stickySectionHeadersEnabled": false,
+          "testID": "observations-list",
+        },
+        "renderWindowInsets": {
+          "height": 0,
+          "width": 0,
+        },
+        "shouldRefreshWithAnchoring": true,
+      }
+    }
+    maxRenderAhead={750}
+    numColumns={1}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0}
+    onEndReachedThresholdRelative={0}
+    onItemLayout={[Function]}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onSizeChanged={[Function]}
+    onVisibleIndicesChanged={[Function]}
+    removeClippedSubviews={false}
+    renderAheadOffset={0}
+    renderAheadStep={250}
+    renderContentContainer={[Function]}
+    renderItem={[Function]}
+    renderItemContainer={[Function]}
+    rowRenderer={[Function]}
+    scrollEventThrottle={1}
+    scrollThrottle={16}
+    scrollViewProps={
+      {
+        "contentContainerStyle": {
+          "backgroundColor": undefined,
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+        },
+        "onLayout": [Function],
+        "onScrollBeginDrag": [Function],
+        "refreshControl": undefined,
+        "style": {
+          "minHeight": 1,
+          "minWidth": 1,
+        },
+      }
+    }
+    stickySectionHeadersEnabled={false}
+    style={
+      {
+        "minHeight": 1,
+        "minWidth": 1,
+      }
+    }
+    suppressBoundedSizeException={true}
+    testID="observations-list"
+    windowCorrectionConfig={
+      {
+        "applyToInitialOffset": true,
+        "applyToItemScroll": true,
+        "value": {
+          "endCorrection": 0,
+          "startCorrection": 0,
+          "windowShift": -1,
+        },
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "paddingLeft": 0,
+              "paddingTop": 0,
+            }
+          }
+        />
+        <View
+          style={
+            [
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "flexWrap": "nowrap",
+                },
+                {
+                  "marginBottom": 24,
+                  "marginHorizontal": 24,
+                  "marginTop": 21,
+                },
+              ]
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../assets/posting/icon-search-green.webp",
+                }
+              }
+              style={
+                {
+                  "height": 22,
+                  "resizeMode": "contain",
+                  "width": 21,
+                }
+              }
+            />
+            <TextInput
+              defaultValue=""
+              onChangeText={[Function]}
+              placeholder="Search observations"
+              placeholderTextColor="#828282"
+              style={
+                {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#b5b5b5",
+                  "borderRadius": 40,
+                  "borderWidth": 1,
+                  "color": "#000000",
+                  "fontFamily": "Whitney-Book",
+                  "fontSize": 15,
+                  "height": 37,
+                  "marginLeft": 12,
+                  "paddingBottom": 0,
+                  "paddingLeft": 15,
+                  "paddingTop": 0,
+                  "width": "88%",
+                }
+              }
+            />
+          </View>
+        </View>
+        <AutoLayoutView
+          enableInstrumentation={false}
+          horizontal={false}
+          onBlankAreaEvent={[Function]}
+          onLayout={[Function]}
+          renderAheadOffset={0}
+          scrollOffset={0}
+          style={
+            {
+              "height": 600,
+              "width": 400,
+            }
+          }
+          windowSize={900}
+        >
+          <CellContainer
+            index={0}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  PLANTS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    3
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={1}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 24,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <RCTScrollView
+                contentContainerStyle={
+                  {
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 9,
+                    "width": 847,
+                  }
+                }
+                horizontal={true}
+                onScrollBeginDrag={[Function]}
+                showsHorizontalScrollIndicator={false}
+              >
+                <View>
+                  <View
+                    collapsable={false}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "transform": [
+                          {
+                            "translateX": 0,
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityState={
+                        {
+                          "disabled": false,
+                        }
+                      }
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "flexWrap": "nowrap",
+                          "opacity": 1,
+                          "width": 750,
+                        }
+                      }
+                    >
+                      <View
+                        accessibilityIgnoresInvertColors={true}
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      >
+                        <Image
+                          source={
+                            {
+                              "testUri": "../../../assets/iconicTaxa/img-nullobs-plant.webp",
+                            }
+                          }
+                          style={
+                            [
+                              {
+                                "bottom": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "right": 0,
+                                "top": 0,
+                              },
+                              {
+                                "height": 80,
+                                "width": 80,
+                              },
+                              {
+                                "borderRadius": 40,
+                                "height": 80,
+                                "marginRight": 24,
+                                "width": 80,
+                              },
+                            ]
+                          }
+                        />
+                        <Image
+                          source={
+                            {
+                              "uri": "some_uri",
+                            }
+                          }
+                          style={
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            }
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          {
+                            "maxWidth": 220,
+                          }
+                        }
+                      >
+                        <Text
+                          allowFontScaling={true}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "color": "#000000",
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontFamily": "Whitney-Book",
+                                "fontSize": 21,
+                              },
+                            ]
+                          }
+                        >
+                          some_common_name_1
+                        </Text>
+                        <Text
+                          allowFontScaling={true}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "color": "#000000",
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontFamily": "Whitney-BookItalic",
+                                "fontSize": 16,
+                                "marginTop": 12,
+                              },
+                            ]
+                          }
+                        >
+                          some_name_1
+                        </Text>
+                      </View>
+                    </View>
+                    <View
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        {
+                          "justifyContent": "center",
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/icons/button-deleteobservation.webp",
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </RCTScrollView>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={2}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 48,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <RCTScrollView
+                contentContainerStyle={
+                  {
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 9,
+                    "width": 847,
+                  }
+                }
+                horizontal={true}
+                onScrollBeginDrag={[Function]}
+                showsHorizontalScrollIndicator={false}
+              >
+                <View>
+                  <View
+                    collapsable={false}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "transform": [
+                          {
+                            "translateX": 0,
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityState={
+                        {
+                          "disabled": false,
+                        }
+                      }
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "flexWrap": "nowrap",
+                          "opacity": 1,
+                          "width": 750,
+                        }
+                      }
+                    >
+                      <View
+                        accessibilityIgnoresInvertColors={true}
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      >
+                        <Image
+                          source={
+                            {
+                              "testUri": "../../../assets/iconicTaxa/img-nullobs-plant.webp",
+                            }
+                          }
+                          style={
+                            [
+                              {
+                                "bottom": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "right": 0,
+                                "top": 0,
+                              },
+                              {
+                                "height": 80,
+                                "width": 80,
+                              },
+                              {
+                                "borderRadius": 40,
+                                "height": 80,
+                                "marginRight": 24,
+                                "width": 80,
+                              },
+                            ]
+                          }
+                        />
+                        <Image
+                          source={
+                            {
+                              "uri": "some_uri",
+                            }
+                          }
+                          style={
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            }
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          {
+                            "maxWidth": 220,
+                          }
+                        }
+                      >
+                        <Text
+                          allowFontScaling={true}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "color": "#000000",
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontFamily": "Whitney-Book",
+                                "fontSize": 21,
+                              },
+                            ]
+                          }
+                        >
+                          some_common_name_2
+                        </Text>
+                        <Text
+                          allowFontScaling={true}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "color": "#000000",
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontFamily": "Whitney-BookItalic",
+                                "fontSize": 16,
+                                "marginTop": 12,
+                              },
+                            ]
+                          }
+                        >
+                          some_name_2
+                        </Text>
+                      </View>
+                    </View>
+                    <View
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        {
+                          "justifyContent": "center",
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/icons/button-deleteobservation.webp",
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </RCTScrollView>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={3}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 72,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <RCTScrollView
+                contentContainerStyle={
+                  {
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 9,
+                    "width": 847,
+                  }
+                }
+                horizontal={true}
+                onScrollBeginDrag={[Function]}
+                showsHorizontalScrollIndicator={false}
+              >
+                <View>
+                  <View
+                    collapsable={false}
+                    style={
+                      {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "flexWrap": "nowrap",
+                        "transform": [
+                          {
+                            "translateX": 0,
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityState={
+                        {
+                          "disabled": false,
+                        }
+                      }
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "flexWrap": "nowrap",
+                          "opacity": 1,
+                          "width": 750,
+                        }
+                      }
+                    >
+                      <View
+                        accessibilityIgnoresInvertColors={true}
+                        style={
+                          {
+                            "borderRadius": 40,
+                            "height": 80,
+                            "marginRight": 24,
+                            "width": 80,
+                          }
+                        }
+                      >
+                        <Image
+                          source={
+                            {
+                              "testUri": "../../../assets/iconicTaxa/img-nullobs-plant.webp",
+                            }
+                          }
+                          style={
+                            [
+                              {
+                                "bottom": 0,
+                                "left": 0,
+                                "position": "absolute",
+                                "right": 0,
+                                "top": 0,
+                              },
+                              {
+                                "height": 80,
+                                "width": 80,
+                              },
+                              {
+                                "borderRadius": 40,
+                                "height": 80,
+                                "marginRight": 24,
+                                "width": 80,
+                              },
+                            ]
+                          }
+                        />
+                        <Image
+                          source={
+                            {
+                              "uri": "some_uri",
+                            }
+                          }
+                          style={
+                            {
+                              "borderRadius": 40,
+                              "height": 80,
+                              "marginRight": 24,
+                              "width": 80,
+                            }
+                          }
+                        />
+                      </View>
+                      <View
+                        style={
+                          {
+                            "maxWidth": 220,
+                          }
+                        }
+                      >
+                        <Text
+                          allowFontScaling={true}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "color": "#000000",
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontFamily": "Whitney-Book",
+                                "fontSize": 21,
+                              },
+                            ]
+                          }
+                        >
+                          some_common_name_3
+                        </Text>
+                        <Text
+                          allowFontScaling={true}
+                          style={
+                            [
+                              {
+                                "textAlign": "left",
+                              },
+                              {
+                                "color": "#000000",
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontFamily": "Whitney-BookItalic",
+                                "fontSize": 16,
+                                "marginTop": 12,
+                              },
+                            ]
+                          }
+                        >
+                          some_name_3
+                        </Text>
+                      </View>
+                    </View>
+                    <View
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        {
+                          "justifyContent": "center",
+                        }
+                      }
+                    >
+                      <Image
+                        source={
+                          {
+                            "testUri": "../../../assets/icons/button-deleteobservation.webp",
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </RCTScrollView>
+              <View
+                style={
+                  {
+                    "paddingBottom": 12,
+                  }
+                }
+              />
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={4}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 96,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "paddingBottom": 22,
+                  }
+                }
+              />
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={5}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 120,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  BIRDS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={6}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 144,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any birds yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={7}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 168,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  MAMMALS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={8}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 192,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any mammals yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={9}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 216,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  MOLLUSKS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={10}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 240,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any mollusks yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={11}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 264,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  INSECTS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={12}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 288,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any insects yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={13}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 312,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  REPTILES
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={14}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 336,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any reptiles yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={15}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 360,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  ARACHNIDS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={16}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 384,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any arachnids yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={17}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 408,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  AMPHIBIANS
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={18}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 432,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any amphibians yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={19}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 456,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  FISH
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={20}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 480,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any fish yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={21}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 504,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  FUNGI
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/badges/observations/Badge_Empty.webp",
+                      }
+                    }
+                    style={
+                      [
+                        {
+                          "height": 25,
+                          "marginLeft": 10,
+                          "resizeMode": "contain",
+                          "width": 22,
+                        },
+                        {
+                          "marginRight": -1,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={22}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 528,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any fungi yet!
+              </Text>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={23}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 552,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "height": 25,
+                    "justifyContent": "space-between",
+                    "marginHorizontal": 24,
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    [
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "alignSelf": "center",
+                        "color": "#38976d",
+                        "fontFamily": "Whitney-Semibold",
+                        "fontSize": 18,
+                        "letterSpacing": 1,
+                      },
+                    ]
+                  }
+                >
+                  OTHER SPECIES
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      [
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#000000",
+                          "fontFamily": "Whitney-Light",
+                          "fontSize": 18,
+                          "letterSpacing": 0.78,
+                        },
+                      ]
+                    }
+                  >
+                    0
+                  </Text>
+                  <Image
+                    source={
+                      {
+                        "testUri": "../../../assets/icons/icon-dropdown-open.webp",
+                      }
+                    }
+                    style={
+                      {
+                        "marginLeft": 15,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={24}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 576,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "textAlign": "left",
+                    },
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "Whitney-Book",
+                        "fontSize": 16,
+                        "lineHeight": 21,
+                        "textAlign": "center",
+                      },
+                      {
+                        "paddingBottom": 31,
+                        "paddingTop": 14,
+                      },
+                    ],
+                  ]
+                }
+              >
+                You haven’t observed any other species yet!
+              </Text>
+            </View>
+          </CellContainer>
+        </AutoLayoutView>
+        <CellContainer
+          index={-1}
+          style={
+            [
+              undefined,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#ffffff",
+                "paddingBottom": 44,
+              }
+            }
+          />
+        </CellContainer>
+        <View
+          style={
+            {
+              "paddingBottom": 0,
+              "paddingRight": 0,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

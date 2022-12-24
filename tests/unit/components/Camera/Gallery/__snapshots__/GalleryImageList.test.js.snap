@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GalleryImageList should render correctly 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "backgroundColor": "#f5f5f5",
+    }
+  }
+  data={
+    [
+      {
+        "node": {
+          "group_name": "All Photos",
+          "image": {
+            "fileSize": null,
+            "filename": null,
+            "height": null,
+            "playableDuration": null,
+            "uri": "some_uri_1",
+            "width": null,
+          },
+          "location": null,
+          "timestamp": 1669976394.6891332,
+          "type": "image",
+        },
+      },
+      {
+        "node": {
+          "group_name": "All Photos",
+          "image": {
+            "fileSize": null,
+            "filename": null,
+            "height": null,
+            "playableDuration": null,
+            "uri": "some_uri_2",
+            "width": null,
+          },
+          "location": null,
+          "timestamp": 1669976352.0699105,
+          "type": "image",
+        },
+      },
+      {
+        "node": {
+          "group_name": "All Photos",
+          "image": {
+            "fileSize": null,
+            "filename": null,
+            "height": null,
+            "playableDuration": null,
+            "uri": "some_uri_3",
+            "width": null,
+          },
+          "location": null,
+          "timestamp": 1669976241.7418242,
+          "type": "image",
+        },
+      },
+      {
+        "node": {
+          "group_name": "All Photos",
+          "image": {
+            "fileSize": null,
+            "filename": null,
+            "height": null,
+            "playableDuration": null,
+            "uri": "some_uri_4",
+            "width": null,
+          },
+          "location": null,
+          "timestamp": 1669801317.2202396,
+          "type": "image",
+        },
+      },
+      {
+        "node": {
+          "group_name": "All Photos",
+          "image": {
+            "fileSize": null,
+            "filename": null,
+            "height": null,
+            "playableDuration": null,
+            "uri": "some_uri_5",
+            "width": null,
+          },
+          "location": null,
+          "timestamp": 1669801317.2202396,
+          "type": "image",
+        },
+      },
+    ]
+  }
+  getItem={[Function]}
+  getItemCount={[Function]}
+  getItemLayout={[Function]}
+  initialNumToRender={4}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={[]}
+  testID="gallery-image-list"
+  viewabilityConfigCallbackPairs={[]}
+>
+  <View>
+    <View
+      style={null}
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessibilityLabel="some_uri_1"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "paddingHorizontal": 1,
+              "paddingTop": 2,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "some_uri_1",
+              }
+            }
+            style={
+              {
+                "height": 185.5,
+                "width": 185.5,
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="some_uri_2"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "paddingHorizontal": 1,
+              "paddingTop": 2,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "some_uri_2",
+              }
+            }
+            style={
+              {
+                "height": 185.5,
+                "width": 185.5,
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="some_uri_3"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "paddingHorizontal": 1,
+              "paddingTop": 2,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "some_uri_3",
+              }
+            }
+            style={
+              {
+                "height": 185.5,
+                "width": 185.5,
+              }
+            }
+          />
+        </View>
+        <View
+          accessibilityLabel="some_uri_4"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "paddingHorizontal": 1,
+              "paddingTop": 2,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "some_uri_4",
+              }
+            }
+            style={
+              {
+                "height": 185.5,
+                "width": 185.5,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      style={null}
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessibilityLabel="some_uri_5"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+              "paddingHorizontal": 1,
+              "paddingTop": 2,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "some_uri_5",
+              }
+            }
+            style={
+              {
+                "height": 185.5,
+                "width": 185.5,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

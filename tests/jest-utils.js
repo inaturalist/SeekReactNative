@@ -6,7 +6,8 @@ import {
   AppOrientationContext,
   UserContext,
   LanguageContext,
-  ChallengeContext
+  ChallengeContext,
+  ObservationContext
 } from "../components/UserContext";
 
 const AllTheProviders = ( { children } ) => {
@@ -36,7 +37,9 @@ const AllTheProviders = ( { children } ) => {
             }}
           >
             <ChallengeContext.Provider value={{}}>
-              {children}
+              <ObservationContext.Provider value={{}}>
+                {children}
+              </ObservationContext.Provider>
             </ChallengeContext.Provider>
           </SpeciesDetailContext.Provider>
         </AppOrientationContext.Provider>

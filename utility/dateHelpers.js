@@ -19,6 +19,7 @@ import * as RNLocalize from "react-native-localize";
 import {
   af,
   ar,
+  bg,
   ca,
   cs,
   da,
@@ -54,6 +55,7 @@ import { localeNoHyphens } from "./languageHelpers";
 const locales = {
   af,
   ar,
+  bg,
   ca,
   cs,
   da,

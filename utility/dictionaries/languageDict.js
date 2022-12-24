@@ -4,6 +4,7 @@
 const languages = {
   af: "Afrikaans",
   ar: "عربى",
+  bg: "Български",
   ca: "Català",
   cs: "Čeština",
   da: "Dansk",

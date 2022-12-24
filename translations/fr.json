@@ -92,7 +92,7 @@
     "error_internet": "Aucune connexion internet",
     "error_request_could_not_be_completed": "Votre demande n'a pas pu être traitée.",
     "error_no_client": "L’authentification du client a échoué du fait d’un client inconnu, ou parce qu''il n’y a pas d’authentification du client incluse, ou à cause d''une  méthode d’authentification non supportée.",
-    "error_grant_invalid": "Le droit d’autorisation fourni n’est pas valide, a expiré, est révoqué, ne correspond pas à l’URI de redirection utilisée dans la requête d’autorisation, ou a été remis à un autre client."
+    "error_grant_invalid": "L'accord d’autorisation fourni n’est pas valide, a expiré, est révoqué, ne correspond pas à l’URI de redirection utilisé dans la requête d’autorisation ou a été remis à un autre client."
   },
   "inat_signup": {
     "welcome": " Bienvenue sur Seek !",
@@ -570,7 +570,7 @@
     "joint_initiative": "iNaturalist est une initiative conjointe de la California Academy of Sciences et de la National Geographic Society.",
     "original": "Seek a été créé à l’origine avec le soutien de \"Notre Planète\", série diffusée sur Netflix et HHMI Tangled Bank Studios.",
     "designed_by": "Conçu et développé par l'équipe d'iNaturalist :",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein et Angie Ta. Nous remercions tout particulièrement Grant Van Horn de Visipedia pour son aide dans le domaine de la technologie de vision par ordinateur, ainsi que la communauté iNaturalist.",
     "version": "Version",
     "help": "Afin d’obtenir de l’aide pour l’utilisation de Seek, merci d’envoyer un courriel à help+seek@inaturalist.org.",
     "translators": "Nous sommes reconnaissants pour l'aide en matière de traduction à la communauté crowdin.com et plus particulièrement à : Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch et Yulia Lygina.",
@@ -986,7 +986,7 @@
     },
     "uploaded_observations_text_2": "Merci d'avoir contribué à notre communauté !",
     "observed_in": "Espèce {{speciesName}} observée à l'endroit suivant : {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
+    "observed_on": "Espèce {{speciesName}} observée le {{date}}",
     "challenges": "Défis",
     "x_challenges_earned_text": {
       "one": "Vous avez gagné {{count}} badge de défi en {{year}}.",

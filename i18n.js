@@ -16,6 +16,7 @@ import eu from "./translations/eu.json";
 import fi from "./translations/fi.json";
 import fr from "./translations/fr.json";
 import he from "./translations/he.json";
+import hr from "./translations/hr.json";
 import hu from "./translations/hu.json";
 import id from "./translations/id.json";
 import it from "./translations/it.json";
@@ -49,6 +50,7 @@ i18n.translations = {
   fi,
   fr,
   he,
+  hr,
   hu,
   id,
   it,

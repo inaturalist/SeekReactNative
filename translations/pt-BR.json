@@ -90,7 +90,9 @@
     "error_no_username": "Falta nome de usuário / e-mail",
     "error_no_password": "Falta senha",
     "error_internet": "Sem conexão à internet",
-    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída."
+    "error_request_could_not_be_completed": "Sua solicitação não pôde ser concluída.",
+    "error_no_client": "A autenticação do cliente falhou devido a um cliente desconhecido, nenhuma autenticação de cliente incluída ou método de autenticação não suportado.",
+    "error_grant_invalid": "A concessão de autorização fornecida é inválida, expirada, revogada, não corresponde ao URI de redirecionamento usado na solicitação de autorização ou foi emitida para outro cliente."
   },
   "inat_signup": {
     "welcome": "Bem-vindo ao Seek!",
@@ -568,7 +570,7 @@
     "joint_initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society.",
     "original": "O Seek foi originalmente criado com o apoio da HHMI Tangled Bank Studios e aprimorado com o apoio da série Nosso Planeta na Netflix e da WWF.",
     "designed_by": "Concebido e desenvolvido pela equipe do iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, e Yaron Budowski. Agradecimentos especiais a Grant Van Horn da Visipedia, pela ajuda com a tecnologia de visão computacional, e à comunidade iNaturalist.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versão",
     "help": "Para receber ajuda com o Seek, por favor envie um e-mail para help+seek@inaturalist.org.",
     "translators": "Agradecemos pela assistência de tradução proporcionada pela comunidade crowdin.com, em particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch e Yulia Lygina.",

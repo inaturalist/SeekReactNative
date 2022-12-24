@@ -103,7 +103,6 @@ const LoginScreen = ( ): Node => {
     return errorText;
   };
 
-  console.log( errorMessage, "error message" );
 
   return (
     <ScrollWithHeader header="login.log_in">

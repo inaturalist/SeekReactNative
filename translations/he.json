@@ -90,7 +90,9 @@
     "error_no_username": "חסר שם משתמש / דוא\"ל",
     "error_no_password": "חסרה סיסמה",
     "error_internet": "אין חיבור אינטרנט",
-    "error_request_could_not_be_completed": "לא היה ניתן לבצע את בקשתך."
+    "error_request_could_not_be_completed": "לא היה ניתן לבצע את בקשתך.",
+    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "ברוכות.ים הבאות.ים ל-Seek!",
@@ -568,7 +570,7 @@
     "joint_initiative": "iNaturalist הוא מיזם שיתופי של האקדמיה למדעים של קליפורניה ונשיונל ג'יאוגרפיק",
     "original": "Seek פותחה במקור בתמיכת אולפני HHMI Tangled Bank ושופרה בתמיכת הסדרה 'כוכב הלכת המופלא' בהפקת נטפליקס וארגון WWF.",
     "designed_by": "עוצב ופותח על ידי צוות iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, ו Yaron Budowski. תודות מיוחדות ל-Visipedia על העזרה עם טכנולוגיית הראייה הממוחשבת ולקהילת iNaturalist.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "גרסה",
     "help": "לעזרה עם אפליקציית Seek, נא לשלוח דוא\"ל לכתובת help+seek@inaturalist.org.",
     "translators": "אנו אסירי תודה על עזרה בתרגום שניתן על ידי קהילת crowdin.com, ובייחוד: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, ו-Yulia Lygina.",

@@ -90,7 +90,9 @@
     "error_no_username": "Ontbrekende gebruikersnaam / e-mail",
     "error_no_password": "Wachtwoord ontbreekt",
     "error_internet": "Geen internetverbinding",
-    "error_request_could_not_be_completed": "Jouw verzoek kon niet worden voltooid."
+    "error_request_could_not_be_completed": "Jouw verzoek kon niet worden voltooid.",
+    "error_no_client": "Clientverificatie is mislukt vanwege onbekende client, geen clientverificatie opgenomen of een niet-ondersteunde verificatiemethode.",
+    "error_grant_invalid": "De verstrekte autorisatietoekenning is ongeldig, verlopen, ingetrokken, komt niet overeen met de omleidings-URI die is gebruikt in het autorisatieverzoek of is uitgegeven aan een andere client."
   },
   "inat_signup": {
     "welcome": "Welkom bij Seek!",
@@ -568,7 +570,7 @@
     "joint_initiative": "iNaturalist is een gezamenlijk initiatief van de California Academy of Sciences en de National Geographic Society.",
     "original": "Oorspronkelijk werd Seek gemaakt met steun van OurPlanet op Netflix en HHMI Tangled Bank Studios.",
     "designed_by": "Ontworpen & ontwikkeld door het team van iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein en Yaron Budowski. Speciale dank aan Grant Van Horn van Visipedia voor hulp met de computer vision technologie en de iNaturalist gemeenschap.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versie",
     "help": "Vragen over Seek kun je sturen naar help+seek@inaturalist.org.",
     "translators": "We zijn dankbaar voor de vertaalhulp die door de gemeenschap van crowdin.com wordt aangeboden: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch en Yulia Lygina.",

@@ -90,7 +90,9 @@
     "error_no_username": "缺少使用者名稱 / 電子郵件",
     "error_no_password": "缺少密碼",
     "error_internet": "沒有網路連線",
-    "error_request_could_not_be_completed": "無法完成您的請求。"
+    "error_request_could_not_be_completed": "無法完成您的請求。",
+    "error_no_client": "出於是未知的客戶端、沒有包含到客戶端驗證、或是未支援的驗證方式，導致客戶端驗證失敗。",
+    "error_grant_invalid": "提供的授權授予為無效、逾期、被撤銷，不符合使用於授權請求的重新導向 URI，或是被發送到其他客戶端。"
   },
   "inat_signup": {
     "welcome": "歡迎來到 Seek！",
@@ -568,7 +570,7 @@
     "joint_initiative": "iNaturalist 是加州科學院與美國國家地理學會之間的共同專案。",
     "original": "Seek 最初是在 HHMI Tangled Bank Studios（HHMI 紛繁河岸工作室）的支援下所打造的，並由 Netflix 上的 Our Planet（我們的星球）和 WWF（世界自然基金會）給予進一步的支援。",
     "designed_by": "由以下 iNaturalist 團隊成員設計和開發：",
-    "inat_team_credits": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Johannes Klein 和 Yaron Budowski。特別感謝 Visipedia 的 Grant Van Horn 在電腦視覺技術上的協助，以及 iNaturalist 社群。",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "版本",
     "help": "需要「探索」的協助和說明，請 email 到 help+seek@inaturalist.org",
     "translators": "我們對 crowdin.com 社群的翻譯協助來致上我們的謝意，特別是：Abdelghani Hourani, Carnifex, cgalindo、Daniele Seglie、Eduardo Martínez、Édson Souza Jr.、Galder Gonzalez Larrañaga、Gideon Wentink、Johan Liljeblad、katunchik、Kevin Matthew、Kiara Suzuki、Lekkim、Marcel Hospers、Martin Reith、Monica Nieminen、Nicolae Liviu、Nuwan Wijayaweera、saariko、Sakatur, Sebastian Jasiński、TheKakarinka、Wouter Koch 和 Yulia Lygina。",
@@ -938,9 +940,9 @@
     "april_2023_description_nature": "我們在這行星上並不孤單！不論有沒有注意到，野生生物總是在我們身邊。在我們家裡、花園、城鎮中，都隱藏著另一個世界等著我們去發覺。在您家內外四處尋找，您可能會驚訝的發現您有很多野生的鄰居。",
     "april_2023_action_nature": "尋找植物、菌物、昆蟲、鳥類與其他動物。小心注意其它暗藏的生命跡象 – 大恭（便便）、毛髮、巢穴、蹤跡以及殘網，這些都可能是與您同居的生物所留下的線索。",
     "may_2023_challenge_name_protected_areas": "保護區挑戰",
-    "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
+    "may_2023_description_protected_areas": "從森林的深處到最小的公園，我們與各式各樣的生物共享著我們的星球，每種生物都適應了他們所生活的特定環境。尋找當地的自然熱點，並看看您能找到多少種不同的生物。在這一路上，您會了解到讓這些生物體之間彼此不同的特徵！",
     "june_2023_challenge_name_plant_eaters": "植食者挑戰",
-    "june_2023_action": "What kinds of plants do you eat? What parts of the plant do they come from? What kinds of animals also like to eat those plants?",
+    "june_2023_action": "您會吃什麼樣的植物？它們來自植物的哪些部分？有哪些動物也喜歡吃這些植物？",
     "july_2023_challenge_name_food_web": "食物網挑戰",
     "july_2023_description_plant_eaters": "Every species in a community is connected in a food web. Producers capture energy from the sun, herbivores eat plants, carnivores eat other animals, and decomposers consume dead organisms. Seek out different levels in your local web of life, and learn how each one enables other species to survive.",
     "july_2023_action_plant_eaters": "Did you see any herbivores in action, such as a caterpillar eating a leaf or a bird eating seeds? Did you see any carnivores in action, perhaps a spider or a mantis with prey?",

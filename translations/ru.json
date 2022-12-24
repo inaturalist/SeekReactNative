@@ -90,7 +90,9 @@
     "error_no_username": "Отсутствует имя пользователя / email",
     "error_no_password": "Отсутствует пароль",
     "error_internet": "Нет подключения к Интернету",
-    "error_request_could_not_be_completed": "Не удаётся выполнить ваш запрос."
+    "error_request_could_not_be_completed": "Не удаётся выполнить ваш запрос.",
+    "error_no_client": "Сбой аутентификации из-за неизвестного клиента, отсутствия аутентификации или неподдерживаемого метода аутентификации.",
+    "error_grant_invalid": "Предоставленное разрешение на авторизацию недействительно, срок его действия истёк, оно отозвано, не соответствует URI перенаправления, использованному в запросе на авторизацию, или было выдано другому клиенту."
   },
   "inat_signup": {
     "welcome": "Добро пожаловать в Seek!",
@@ -568,7 +570,7 @@
     "joint_initiative": "iNaturalist - это совместная инициатива Калифорнийской академии наук и общества National Geographic.",
     "original": "Seek первоначально был создан с помощью OurPlanet на Netflix и WWF.",
     "designed_by": "Дизайн и разработка команды iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary и Yaron Budowski. Особая благодарность Grant Van Horn из Visipedia за помощь в области компьютерного видения и сообществу iNaturalist.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Версия",
     "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org.",
     "translators": "Мы благодарны за помощь сообществу в переводе crowdin.com, в частности, Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch и Yulia Lygina.",

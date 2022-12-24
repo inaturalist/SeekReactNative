@@ -90,7 +90,9 @@
     "error_no_username": "Falta nombre de usuario / email",
     "error_no_password": "Falta la contraseña",
     "error_internet": "Sin conexión al internet",
-    "error_request_could_not_be_completed": "Tu solicitud no se ha podido completar."
+    "error_request_could_not_be_completed": "Tu solicitud no se ha podido completar.",
+    "error_no_client": "La autenticación del cliente ha fallado debido a cliente desconocido, autenticación de cliente no incluída, o método de autenticación no soportado.",
+    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
     "welcome": "¡Bienvenido a Seek!",
@@ -568,7 +570,7 @@
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
     "original": "Seek se creó originalmente con el apoyo de HHMI Tangled Bank Studios y mejorado gracias a Our Planet de Netflix y WWF.",
     "designed_by": "Diseñada y desarrollada por el equipo de iNaturalist:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, y Yaron Budowski. Agradecimientos especiales a Grant Van Horn de Visipedia, por la ayuda con la tecnología de visión por ordenador, y a la comunidad iNaturalist.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versión",
     "help": "Para recibir ayuda de Seek, por favor envía un correo electrónico a help+seek@inaturalist.org.",
     "translators": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch y Yulia Lygina.",

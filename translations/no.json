@@ -90,7 +90,9 @@
     "error_no_username": "Manglende brukernavn / e-post",
     "error_no_password": "Mangler passord",
     "error_internet": "Ingen internett-tilkobling",
-    "error_request_could_not_be_completed": "Forespørselen din kunne ikke fullføres."
+    "error_request_could_not_be_completed": "Forespørselen din kunne ikke fullføres.",
+    "error_no_client": "Autentisering av klient mislykket på grunn av ukjent klient, ingen autorisering av klient inkludert, eller autentiseringsmetode som ikke støttes.",
+    "error_grant_invalid": "Den oppgitte autentiseringen er ugyldig, utløpt, trukket, matcher ikke omredigerings-URI-en brukt i autentiseringsforespørselen, eller ble utgitt til en annen klient."
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
@@ -568,7 +570,7 @@
     "joint_initiative": "iNaturalist er et felles initiativ av California Academy of Sciences og National Geographic Society.",
     "original": "Seek ble opprinnelig laget med støtte fra HHMI Tangled Bank Studios og utvidet med støtte fra Our Planet på Netflix og WWF.",
     "designed_by": "Designet og utviklet av iNaturalist-teamet:",
-    "inat_team_credits": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, and Yaron Budowski. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versjon",
     "help": "For hjelp med Seek, vennligst send e-post til help+seek@inaturalist.org.",
     "translators": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -720,7 +722,7 @@
     "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
     "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
     "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "mission_4_aug_2020": "Find 2 insekter fra ordenerne:\n\nHymenoptera (maur, bier og veps);\nLepidoptera (sommerfugler);\nBiller (Coleoptera);\nFluer (Diptera)",
     "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
     "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?",
     "herbivore": "Planteeter-utfordring",

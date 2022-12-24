@@ -34,6 +34,16 @@ const ErrorMessage = ( { error }: Props ): React.Node => {
     message = i18n.t( "login.error_no_username" );
   } else if ( error === "no_password" ) {
     message = i18n.t( "login.error_no_password" );
+  } else if (
+    error ===
+    "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+  ) {
+    message = i18n.t( "login.error_grant_invalid" );
+  } else if (
+    error ===
+    "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method."
+  ) {
+    message = i18n.t( "login.error_no_client" );
   } else {
     message = error;
   }

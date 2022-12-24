@@ -32,6 +32,7 @@ const languages = {
   si: "සිංහල",
   sv: "Svenska",
   tr: "Türkçe",
+  uk: "Українська",
   "zh-CN": "中文 (中国)",
   zh: "中文 (台灣)"
 };

@@ -45,6 +45,7 @@ import {
   ru,
   sv,
   tr,
+  uk,
   zhCN,
   zhTW
 } from "date-fns/locale";
@@ -83,6 +84,7 @@ const locales = {
   ru,
   sv,
   tr,
+  uk,
   "zh-CN": zhCN,
   zh: zhTW
 };

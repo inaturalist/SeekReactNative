@@ -31,6 +31,7 @@ import ru from "./translations/ru.json";
 import si from "./translations/si.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
+import uk from "./translations/uk.json";
 import zhCN from "./translations/zh-CN.json";
 import zh from "./translations/zh-TW.json";
 
@@ -65,6 +66,7 @@ i18n.translations = {
   si,
   sv,
   tr,
+  uk,
   "zh-CN": zhCN,
   zh
 };

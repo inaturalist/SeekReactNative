@@ -116,7 +116,10 @@ const scrollEventData = {
 
 describe( "SeekYearInReviewPhotos", () => {
   test( "should render correctly", async () => {
+    jest.useFakeTimers().setSystemTime( new Date( "2022-12-05T10:19:54.000Z" ) );
     renderPhotos();
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
 
     const container = await screen.findByTestId( containerID );
     expect( container ).toBeTruthy();

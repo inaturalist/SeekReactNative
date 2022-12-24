@@ -257,6 +257,7 @@ const useSeenTaxa = ( id: number ): ?Object => {
   const [seenTaxa, setSeenTaxa] = useState( null );
 
   useEffect( () => {
+    setSeenTaxa( null );
     let isCurrent = true;
 
     Realm.open( realmConfig ).then( ( realm ) => {

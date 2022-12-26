@@ -14,3 +14,6 @@ files:
   - source: /fastlane/metadata/android/en/title.txt
     translation: /fastlane/metadata/android/%two_letters_code%/title.txt
     update_option: update_as_unapproved
+  - source: /fastlane/metadata/en/subtitle.txt
+    translation: /fastlane/metadata/%osx_code%/subtitle.txt
+    update_option: update_as_unapproved

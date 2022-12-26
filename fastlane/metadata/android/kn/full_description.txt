@@ -9,7 +9,7 @@ Use the power of image recognition technology to identify the plants and animals
 
 OPEN THE CAMERA AND START SEEKING!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek camera to see if it knows!
+Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
 
 Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
 

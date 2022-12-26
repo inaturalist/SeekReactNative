@@ -1,1 +1,0 @@
-- Bug fixes, new Seek photo album in camera roll, Basque language

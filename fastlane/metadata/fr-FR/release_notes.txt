@@ -1,1 +1,0 @@
-- Correction de bugs, nouveau Seek album photo en rouleau appareil photo, la langue basque

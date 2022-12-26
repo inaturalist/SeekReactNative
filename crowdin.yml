@@ -5,3 +5,12 @@ files:
   - source: /ios/Seek/en.lproj/InfoPlist.strings
     translation: /ios/Seek/%two_letters_code%.lproj/InfoPlist.strings
     update_option: update_as_unapproved
+  - source: /fastlane/metadata/android/en/full_description.txt
+    translation: /fastlane/metadata/android/%two_letters_code%/full_description.txt
+    update_option: update_as_unapproved
+  - source: /fastlane/metadata/android/en/short_description.txt
+    translation: /fastlane/metadata/android/%two_letters_code%/short_description.txt
+    update_option: update_as_unapproved
+  - source: /fastlane/metadata/android/en/title.txt
+    translation: /fastlane/metadata/android/%two_letters_code%/title.txt
+    update_option: update_as_unapproved

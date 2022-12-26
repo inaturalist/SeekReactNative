@@ -3,7 +3,7 @@ files:
     translation: /translations/%two_letters_code%.json
     update_option: update_as_unapproved
   - source: /ios/Seek/en.lproj/InfoPlist.strings
-    translation: /ios/Seek/%two_letters_code%.lproj/InfoPlist.strings
+    translation: /ios/Seek/%osx_code%.lproj/InfoPlist.strings
     update_option: update_as_unapproved
   - source: /fastlane/metadata/android/en/full_description.txt
     translation: /fastlane/metadata/android/%two_letters_code%/full_description.txt

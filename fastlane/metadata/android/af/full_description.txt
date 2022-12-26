@@ -1,26 +1,26 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+Gebruik die krag van beeldherkenningstegnologie om die plante en diere om u te identifiseer. Verdien kentekens vir die waarneem van verskillende tipes plante, voëls, swamme en meer.
 
-• Get outside and point the Seek Camera at living things
+• Gaan na buite en rig die Seek-kamera op lewende wesens
 
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
+• Identifiseer wildlewe, plante en swamme en leer oor die organismes oral om u
 
-• Earn badges for observing different types of species and participating in challenges
+• Verdien kentekens om verskillende tipes en spesies te identifiseer en om aan uitdagings deel te neem
 
 
-OPEN THE CAMERA AND START SEEKING!
+OPEN DIE KAMERA EN BEGIN SEEK
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek camera to see if it knows!
+’n Paddastoel, blom of insek gevind en onseker wat dit is? Open die Seek-kamera om te sien of dit weet!
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Uit miljoene waarnemings op iNaturalist toon Seek! u lyste van algemeen opgetekende insekte, voëls, plante, amfibieë en meer in u omgewing. Skandeer die omgewing met die Seek-kamera om organismes te identifiseer met behulp van die lewensboom. Voeg verskillende spesies toe tot u waarnemings en leer hulle almal herken! Hoe meer waarnemings u doen, hoe meer onderskeidingstekens verdien u!
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
+Dit is ’n geweldige toep vir gesinne wat meer tyd saam in die natuur wil spandeer en vir elkeen wat meer wil weet oor die lewe in hul omgewing.
 
-KID-SAFE
+KINDERVRIENDELIK
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+Seek vereis geen registrasie nie en samel by verstek geen gebruikersdata in nie. Sommige gebruikersdata word ingesamel indien u kies om met ’n iNaturalist-rekening aan te teken, maar dan moet u ouer as 13 wees of u ouers moet toestemming gee om dit te doen.
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+Seek sal toestemming vra om liggingdienste te aktiveer maar u ligging word vervaag om u privaatheid te eerbiedig terwyl u steeds spesievoorstelle vanuit u omgewing kry. U presiese ligging word nooit in die toep bewaar of na iNaturalist verstuur nie tensy u op u iNaturalist-rekening aanteken en u waarnemings indien.
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+Ons beeldherkenningstegnologie is gebaseer op waarnemings wat by iNaturalist.org en medewerkers ingedien is, en wat deur die iNaturalist-gemeenskap geïdentifiseer is.
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+Seek is ontwikkel deur die iNaturalist-span. iNaturalist is ’n gesamentlike inisiatief van die California Academy of Sciences en die National Geographic Society. Seek is oorspronklik geskep met steun van HHMI Tangled Bank Studios en verbeter met steun van Ons Planeet op Netflix en WWF.

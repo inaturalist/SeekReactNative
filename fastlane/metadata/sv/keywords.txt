@@ -1,1 +1,1 @@
-växt,djur,natur,spel,djurliv,bestämning,lärande,vetenskap,promenad,bilder,biologi,insamling,äventyr
+växt,djur,natur,spel,djurliv,bestäm,lär,vetenskap,promenad,AR-bilder,biologi,insamling,äventyr

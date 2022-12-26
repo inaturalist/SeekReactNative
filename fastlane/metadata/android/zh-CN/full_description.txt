@@ -1,4 +1,4 @@
-使用图像识别技术来鉴定你周围的动植物 Earn badges for seeing different types of plants, birds, fungi and more!
+Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
 
 • Get outside and point the Seek Camera at living things
 
@@ -9,9 +9,9 @@
 
 OPEN THE CAMERA AND START SEEKING!
 
-Found a mushroom, flower, or bug, and not sure what it is? 打开Seek的相机来看看它认不认识吧！
+Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek camera to see if it knows!
 
-Seek将会结合iNaturalist上数百万个物种观察记录，为您列出您所在地区常见的昆虫、鸟类、植物、两栖动物及其他生物。 使用Seek的相机功能扫描周围并借助物种进化树来鉴定物种。 Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
 
 This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
 

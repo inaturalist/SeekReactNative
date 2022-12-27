@@ -9,7 +9,7 @@ Utiliza el poder de la tecnología de reconocimiento de imégenes para identific
 
 ¡ABRE LA CÁMARA Y BUSCA CON SEEK!
 
-¿Has visto un hongo, una flor u otro bicho y no estás seguro de qué es? Open up the Seek Camera to see if it knows!
+¿Has visto un hongo, una flor u otro bicho y no estás seguro de qué es? ¡Abre la Cámara de Seek para ver si lo sabe!
 
 Basadas en millones de observaciones de formas de vida silvestre de iNaturalist, Seek te muestra las listas de insectos, aves, plantas, anfibios y muchos más organismos, registrados con más frecuencia en tu área. Escanea el entorno con la cámara de Seek para identificar organismos utilizando el árbol de la vida. ¡Agrega diferentes especies a tus observaciones y aprende todo sobre ellas en este proceso! ¡Cuantas más observaciones hagas, más insignias ganarás!
 

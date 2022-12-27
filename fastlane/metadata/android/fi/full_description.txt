@@ -9,7 +9,7 @@ Käytä kuvantunnistustekniikkaa tunnistaaksesi ympärilläsi olevat kasvit ja e
 
 AVAA KAMERA JA ALOITA ETSINTÄ!
 
-Löysitkö sienen, kukan tai ötökän, mutta et ole varma, mikä se on? Open up the Seek Camera to see if it knows!
+Löysitkö sienen, kukan tai ötökän, mutta et ole varma, mikä se on? Avaa Seek-kamera nähdäksesi, tietääkö se!
 
 Miljoonien iNaturalist-luontohavaintojen perusteella Seek näyttää listoja alueellasi yleisesti tunnistetuista hyönteisistä, linnuista, kasveista, sammakkoeläimistä ja muista. Skannaa ympäristöä Seek-kameralla tunnistaaksesi organismeja elämänpuun avulla. Lisää erilaisia lajeja havaintoihisi ja opi samalla kaikki niistä! Mitä enemmän havaintoja teet, sitä enemmän merkkejä ansaitset!
 

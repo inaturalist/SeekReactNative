@@ -1,6 +1,6 @@
-Nutze die Kraft der Bilderkennungstechnologie, um die Pflanzen und Tiere rund um dich zu identifizieren. Verdiene dir Abzeichen für verschiedene Arten von Pflanzen, Vögeln, Pilzen und mehr!
+Nutze das Potential der Bilderkennungs-Technologie, um die Pflanzen und Tiere um dich herum zu identifizieren. Verdiene dir Abzeichen für verschiedene Arten von Pflanzen, Vögeln, Pilzen und mehr!
 
-• Geh' nach draußen und richte die Seek-Kamera auf lebendige Dinge
+• Geh nach draußen und richte die Seek-Kamera auf lebendige Dinge
 
 • Erkenne Tiere, Pflanzen und Pilze und erfahre Wissenswertes über die Organismen um dich herum
 
@@ -9,13 +9,13 @@ Nutze die Kraft der Bilderkennungstechnologie, um die Pflanzen und Tiere rund um
 
 Öffne die Kamera und starte die Suche!
 
-Einen Pilz, eine Blume oder einen Käfer gefunden und nicht sicher, was es ist? Open up the Seek Camera to see if it knows!
+Einen Pilz, eine Blume oder einen Käfer gefunden und nicht sicher, was es ist? Öffne die Seek-Kamera, um zu sehen, ob sie es weiß!
 
-Seek erstellt dir aus Millionen von Beobachtungen auf iNaturalist Listen von häufig gefundenen Insekten, Vögeln, Pflanzen, Amphibien und mehr in deiner Umgebung. Durchsuche die Umgebung mit der Seek-Kamera, um Organismen in ihrem Stammbaum zu identifizieren. Füge deinen Beobachtungen verschiedene Arten hinzu und lerne dadurch mehr über sie! Je mehr Beobachtungen du machst, desto mehr Abzeichen wirst du verdienen!
+Seek erstellt dir aus Millionen von Beobachtungen auf iNaturalist Listen von häufig gefundenen Insekten, Vögeln, Pflanzen, Amphibien und mehr in deiner Umgebung. Durchsuche die Umgebung mit der Seek-Kamera, um Organismen in den Stammbaum des Lebens einzuordnen. Füge deinen Beobachtungen verschiedene Arten hinzu und lerne dadurch mehr über sie! Je mehr Beobachtungen du machst, desto mehr Abzeichen wirst du verdienen!
 
 Dies ist eine großartige App für Familien, die mehr Zeit verbringen wollen, die Natur gemeinsam zu erkunden, und für alle, die mehr über das Leben um sie herum lernen möchten.
 
-KID-SAFE
+KINDERSICHER
 
 Seek benötigt keine Registrierung und sammelt standardmäßig keine Benutzerdaten. Einige Benutzerdaten werden gesammelt, wenn du dich mit einem iNaturalist-Konto anmelden möchtest, aber du musst dazu über 13 Jahre alt sein oder eine Erlaubnis deiner Eltern haben.
 
@@ -23,4 +23,4 @@ Seek wird um Erlaubnis bitten, die Ortungsdienste zu aktivieren. Um die Privatsp
 
 Unsere Bilderkennungstechnologie basiert auf Beobachtungen, die auf iNaturalist.org und Partnerseiten hochgeladen und von der iNaturalist-Community identifiziert werden.
 
-Seek wird vom iNaturalist-Team entwickelt. iNaturalist ist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society. Seek wurde ursprünglich mit Unterstützung von OurPlanet auf Netflix und HHMI Tangled Bank Studios entwickelt.
+Seek wurde vom iNaturalist-Team entwickelt. iNaturalist ist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society. Seek wurde ursprünglich mit Unterstützung von OurPlanet auf Netflix und HHMI Tangled Bank Studios entwickelt.

@@ -9,7 +9,7 @@ Use o poder da tecnologia de reconhecimento de imagem para identificar as planta
 
 ABRA A CÂMERA E VÁ À PROCURA!
 
-Encontrou um cogumelo, uma flor ou um inseto e não sabe o que é? Open up the Seek Camera to see if it knows!
+Encontrou um cogumelo, uma flor ou um inseto e não sabe o que é? Abra a câmera do Seek para ver se sabe!
 
 Com base nas milhões de observações da vida selvagem no iNaturalist, o Seek mostra listas de insetos, aves, plantas, anfíbios e muito mais em sua região. Escaneie o ambiente com a Câmera do Seek para identificar organismos usando a árvore da vida. Adicione diferentes espécies às suas observações e saiba tudo sobre elas no processo! Quanto mais observações você fizer, mais distintivos você ganhará!
 

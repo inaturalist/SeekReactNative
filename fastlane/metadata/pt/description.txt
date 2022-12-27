@@ -1,14 +1,14 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+Usa o poder da tecnologia de reconhecimento de imagens para identificar as plantas e animais à tua volta Ganha crachás por veres diferentes tipos de plantas, aves, fungos e muito mais!
 
-• Get outside and point the Seek Camera at living things
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
-• Earn badges for observing different types of species and participating in challenges
+• Vai lá para fora e aponta a Camara do Seek para os seres vivos
+• Identifica a vida selvagem, plantas, e fungos e aprende sobre os organismos à tua volta
+• Recebe crachás por observar diferentes tipos de especies e participa em desafios
 
-OPEN THE CAMERA AND START SEEKING!
+LIGA A CAMERA E COMEÇA A PROCURAR!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Encontraste um cogumelo, flor ou inseto, e não tens a certeza o que é? Abre a camera Seek para ver se ela sabe!
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Procurando por milhões de observações de vida selvagem no iNaturalist, o Seek mostra-te listas de insetos, aves, plantas e anfíbios comummente vistos na tua area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
 
 This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
 
@@ -20,4 +20,4 @@ Seek will ask permission to turn on location services, but your location is obsc
 
 Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+Seek is created by the iNaturalist team. iNaturalist é uma iniciativa conjunta entre a California Academy of Sciences e a National Geographic Society. A Seek foi originalmente criada com o apoio da HHMI Tangled Bank Studios e aprimorada com o apoio do Nosso Planeta da Netflix e da WWF.

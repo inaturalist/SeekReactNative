@@ -9,7 +9,7 @@ Využijte technologii rozpoznávání obrazu k identifikaci rostlin a živočich
 
 ZAPNĚTE FOTOAPARÁT A ZAČNĚTE HLEDAT!
 
-Našli jste houbu, květinu nebo brouka a nejste si jisti, co to je? Open up the Seek Camera to see if it knows!
+Našli jste houbu, květinu nebo brouka a nejste si jisti, co to je? Spusťte fotoaparát Seek a zjistěte, zda to pozná!
 
 Díky milionům pozorování divočiny na iNaturalist vám Seek ukáže seznam běžně pozorovaného hmyzu, ptáků, rostlin, obojživelníků a dalších organismů ve vašem okolí. Snímejte životní prostředí fotoaparátem Seek a identifikujte organismy ve stromu života. Přidávejte různé druhy do vašich pozorování a při tom se s nimi seznamujte. Čím více uděláte pozorování, tím více získáte odznaků!
 

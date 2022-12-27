@@ -9,7 +9,7 @@ Utilitza el poder de la tecnologia de reconeixement d'imatges per identificar le
 
 OBRA LA CÀMERA I COMENÇA LA CERCA AMB SEEK!
 
-Has trobat un fong, una flor o un bitxo, i no estàs segur del que és? Open up the Seek Camera to see if it knows!
+Has trobat un fong, una flor o un bitxo, i no estàs segur del que és? Obra la Càmera Seek per veure si ho reconeix!
 
 Basat en milions d'observacions de la vida silvestre a iNaturaliss, Seek et mostra una llista dels insectes, aus, plantes, amfibis, i altres éssers vius registrats a la teva zona. Escaneja el teu entorn amb la Càmera de Seek per a identificar organismes utilitzant l'arbre de la visa. Afegeix diferents espècies a les teves observacions i aprèn d'elles al llarg del procés!
  Quantes més observacions facis, més insígnies guanyaràs!

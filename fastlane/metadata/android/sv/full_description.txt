@@ -9,7 +9,7 @@ Använd kraftfull bildigenkänningsteknik för att artbestämma växter och djur
 
 ÖPPNA KAMERAN OCH BÖRJA SÖKA!
 
-Hittade du en svamp, blomma eller ett kryp som du inte är säker på vad det är? Open up the Seek Camera to see if it knows!
+Hittade du en svamp, blomma eller ett kryp som du inte är säker på vad det är? Öppna Seek-kameran för att se om den vet!
 
 Utifrån miljontals naturfynd på iNaturalist, kan Seek visa dig listor över ofta påträffade insekter, fåglar, växter, groddjur och annat där du är. Kolla runt med Seek-kameran för att artbestämma organismer från livets träd. Lägg olika arter till dina fyndoch lär dig allt om dem under tiden! Ju fler fynddu gör, desto fler utmärkelser kommer du att förtjäna!
 

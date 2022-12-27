@@ -9,13 +9,13 @@ Skorzystaj z możliwości technologii rozpoznawania obrazów, aby zidentyfikowa�
 
 WŁĄCZ KAMERĘ I ZACZNIJ POSZUKIWANIA!
 
-Znalazłeś grzyba, kwiata lub błąd i nie wiesz, co to jest? Open up the Seek Camera to see if it knows!
+Znalazłeś grzyba, kwiata lub błąd i nie wiesz, co to jest? Włącz kamerę Seek, aby sprawdzić co to jest!
 
 Opierając się na milionach obserwacji dzikich zwierząt na iNaturalist, Seek pokazuje listy powszechnie rejestrowanych: rośli, owadów, ptaków, płazów i wielu innych zwierząt w Twojej okolicy. Zeskanuj środowisko korzystając aparatu Seek, aby zidentyfikować organizmy przy użyciu drzewa życia. Dodawaj przeróżne gatunki do swoich obserwacji i jednocześnie ucz się! Im więcej zwierząt i roślin znajdziesz, tym więcej odznak zdobędziesz!
 
 To idealna aplikacja dla rodzin, które chcą spędzać więcej czasu wspólnie odkrywając świat, który nas otacza. Jest to również świetna aplikacja dla każdego innego, kto chce dowiedzieć się więcej o życiu dookoła ich.
 
-Bezpieczna dla dzieci
+BEZPIECZNE DLA DZIECKA
 
 Seek nie wymaga rejestracji i domyślnie nie zbiera żadnych danych użytkownika. W wypadku zalogowania się za pomocą konta iNatutalist niektóre dane użytkownika będą zapisywane. Aby założyć konto na iNaturalist konieczne jest ukończenie 13 roku życia lub zgoda rodzica.
 

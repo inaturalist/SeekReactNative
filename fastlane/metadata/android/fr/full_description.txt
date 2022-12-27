@@ -9,7 +9,7 @@ Utilisez la puissance de la technologie de reconnaissance des images pour identi
 
 OUVREZ L'APPAREIL PHOTO ET COMMENCEZ LA RECHERCHE !
 
-Avez-vous trouvé un champignon, une fleur ou un insecte que vous ne connaissez pas ? Open up the Seek Camera to see if it knows!
+Avez-vous trouvé un champignon, une fleur ou un insecte que vous ne connaissez pas ? Ouvrez l'appareil photo de Seek pour voir s'il peut l'identifier !
 
 Seek s'appuie sur des millions d'observations d'organismes enregistrées sur iNaturalist pour vous proposer des listes d'insectes, d'oiseaux, de plantes, d'amphibiens et d'autres organismes fréquemment observés dans votre région. Scannez votre environnement avec l'appareil photo de Seek pour identifier les organismes à l'aide de l'arbre phylogénétique. Ajoutez différentes espèces à vos observations en découvrant leurs particularités ! Plus vous faites d’observations, plus vous gagnez de badges !
 

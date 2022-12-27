@@ -12,7 +12,7 @@ Seek erstellt dir aus Millionen von Beobachtungen auf iNaturalist Listen von hä
 
 Dies ist eine großartige App für Familien, die mehr Zeit verbringen wollen, die Natur gemeinsam zu erkunden, und für alle, die mehr über das Leben um sie herum lernen möchten.
 
-KID-SAFE
+KINDERSICHER
 
 Seek benötigt keine Registrierung und sammelt standardmäßig keine Benutzerdaten. Einige Benutzerdaten werden gesammelt, wenn du dich mit einem iNaturalist-Konto anmelden möchtest, aber du musst dazu über 13 Jahre alt sein oder eine Erlaubnis deiner Eltern haben.
 

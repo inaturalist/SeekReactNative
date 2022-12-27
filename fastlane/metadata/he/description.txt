@@ -1,23 +1,23 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+השתמשו בטכנולוגיית עיבוד וזיהוי אובייקטים בתמונות, על מנת לזהות את הצמחים ובעלי החיים מסביבכם. קבלו תגים עבור זיהוי של סוגים שונים של צמחים, ציפורים, פטריות ועוד!
 
-• Get outside and point the Seek Camera at living things
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
-• Earn badges for observing different types of species and participating in challenges
+• צאו החוצה וכוונו את מצלמת SEEK לעבר עולם החי והצומ
+• זהו את עולם החי, צמחים ופטריות ולימדו אודות הייצורים סביבכם
+• קבלו תגיות עבור צפייה בסוגים של מינים, ותשתתפו באתגרים שונים
 
-OPEN THE CAMERA AND START SEEKING!
+פתחו את המצלמה ותתחילו לחפש !
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+ראיתם פטריה, פרח או חיפושית, לא בטוחים מה זה? פתחו את Seek ותראו אם היא תעזור לכם.
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+על ידי שימוש במיליוני צפיות מרחבי העולם על ידי iNaturalist, האפליקציה Seek מראה לכם רשימות של חרקים, ציפורים, צמחים, דו-חיים ועוד אשר נמצאים בסביבה שלכם. סרקו את הסביבה שלכם עם מצלמת Seek לזהות ייצורים חים בeekעות עץ החיים. הוסיפו מינים שונים לצפיות שלכם, ולימדו עליהם בעת הפעולה! ככל שתוסיפו יותר צפיות, תקבלו יותר תגים!
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
+זוהי אפליקציה נהדרת עבור משפחות שרוצות לבלות יותר זמן בטבע ולחקור אותו ועבור כל אחד שרוצה ללמוד יותר על החיים סביבו.
 
-KID-SAFE
+בטוח עבור ילדים
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+Seek לא דורשת רישום ולא אוספת כל מידע אישי כברירת מחדל. מידע אישי מסויים ייאסף במידה ותחליטו להירשם עם חשבון iNaturalist, אבל אתם חייבים להיות מעל גיל 13 או לקבל אישור הורים עבור כך.
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+Seek תבקש אישור להפעיל את שירותי זיהוי מיקום, אבל המיקום יהיה מעורפל על מנת לכבד את פרטיותך אבל עדיין לאפשר לך לראות מינים בסביבתך. מיקומך המדוייק לעולם לא יישמר באפליקציה אלא אם כן תתחברו לאפליקציה באמצעות משתמש iNaturalist ותשתפו את תצפיותיכם שם.
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+טכנולוגיית זיהוי התמונה שלנו מבודדת על צפיות שבוצעו באתר iNaturalist.org ואתרים שותפים, ותויגו על ידי קהילת iNaturalist.
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+Seek פותחה על ידי צוות iNaturalist. iNaturalist הוא מיזם שיתופי של האקדמיה למדעים של קליפורניה ונשיונל ג'יאוגרפיק Seek פותחה במקור בתמיכת אולפני HHMI Tangled Bank ושופרה בתמיכת הסדרה 'כוכב הלכת המופלא' בהפקת נטפליקס וארגון WWF.

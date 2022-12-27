@@ -9,7 +9,7 @@ Határozz meg növényeket és állatokat a környezetedben, automatikus képfel
 
 NYISD MEG A KAMERÁT ÉS KEZDD EL A FELFEDEZÉST!
 
-Egy gombát, vadvirágot vagy bogarat találtál és nem tudod, mi az pontosan? Open up the Seek Camera to see if it knows!
+Egy gombát, vadvirágot vagy bogarat találtál és nem tudod, mi az pontosan? A Seek Kamera segít az azonosításban!
 
 Az iNaturalist milliónyi megfigyelésére alapozva a Seek megmutatja a környezeted leggyakoribb állat- és növényfajait. Pásztázd végig a környezeted a Seek Kamerával, és azonosítsd be az élőlényeket az élet fája segítségével. Figyelj meg különféle fajokat, és ezalatt tanulj róluk! Minél több megfigyelésed lesz, annál több jelvényt kaphatsz.
 

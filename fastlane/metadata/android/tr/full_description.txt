@@ -9,7 +9,7 @@ Görüntü tanıma teknolojisinin gücünü kullanarak etrafındaki bitki ve hay
 
 KAMERAYI AÇIN VE ARAMAYA BAŞLAYIN!
 
-Bir mantar, çiçek ya da böcek buldunuz ve ne olduğundan emin değil misiniz? Open up the Seek Camera to see if it knows!
+Bir mantar, çiçek ya da böcek buldunuz ve ne olduğundan emin değil misiniz? Bilip bilmediğini görmek için Seek kamerasını açın!
 
 iNaturalist'teki milyonlarca yaban hayatı gözleminden yararlanan Seek, bölgenizde yaygın olarak kaydedilen böceklerin, kuşların, bitkilerin, yüzergezerlerin ve daha çoğunun listesini gösterir. Yaşam ağacını kullanarak organizmaları tanımlamak için çevreyi Seek Camera ile tara. Farklı türleri gözlemlerine ekle ve bu sırada onlar hakkında bol bol öğren! Ne kadar çok gözlem yaparsan o kadar çok rozet kazanırsın!
 

@@ -1,14 +1,14 @@
-Görüntü tanıma teknolojisinin gücünü kullanarak etrafındaki bitki ve hayvanları tanımla. Farklı tipteki kuşları, amfibileri, bitkileri ve mantarları görerek rozetler kazan ve Netflix'teki "Bizim Gezeginimiz"le aylık gözlemleme yarışmalarına katıl.
+Görüntü tanıma teknolojisinin gücünü kullanarak etrafındaki bitki ve hayvanları tanımla. Farklı bitki türleri, kuşlar, mantarlar ve daha çoğunu görmek için rozetler kazanın!
 
-• Dışarı çık ve Seek Camera'yı canlı şeylere doğrult
-• Gördüğün vahşi yaşamı ve bitkileri tanımla ve fotoğraflarını çekerek rozet kazan
-• Dört bir yanındaki organizmalar hakkında eğlenceli bilgiler öğren
+• Dışarı çıkın ve Seek Kamerası'nı canlılara yöneltin
+• Yaban hayatı, bitkileri ve mantarları tanımlayın ve etrafınızdaki organizmalarla ilgili bilgi edinin
+• Farklı tür çeşitlerini gözlemlemek ve mücadelelere katılmak için rozetleri kazanın
 
-KAMERAYI AÇ VE ARAMAYA BAŞLA!
+KAMERAYI AÇIN VE ARAMAYA BAŞLAYIN!
 
-Bir mantar, çiçek veya böcek buldun ve ne olduğundan emin değil misin? Seek Camera'yı aç ve bilip bilmediğine bak!
+Bir mantar, çiçek ya da böcek buldunuz ve ne olduğundan emin değil misiniz? Bilip bilmediğini görmek için Seek kamerasını açın!
 
-iNaturalist'ten milyonlarca vahşi yaşam gözlemi çeken Seek sana senin bölgende sıkça kaydedilen böceklerin, kuşların, bitkilerin, amfibilerin ve daha bir çoğunun listesini gösterir. Yaşam ağacını kullanarak organizmaları tanımlamak için çevreyi Seek Camera ile tara. Farklı türleri gözlemlerine ekle ve bu sırada onlar hakkında bol bol öğren! Ne kadar çok gözlem yaparsan o kadar çok rozet kazanırsın!
+iNaturalist'teki milyonlarca yaban hayatı gözleminden yararlanan Seek, bölgenizde yaygın olarak kaydedilen böceklerin, kuşların, bitkilerin, yüzergezerlerin ve daha çoğunun listesini gösterir. Yaşam ağacını kullanarak organizmaları tanımlamak için çevreyi Seek Camera ile tara. Farklı türleri gözlemlerine ekle ve bu sırada onlar hakkında bol bol öğren! Ne kadar çok gözlem yaparsan o kadar çok rozet kazanırsın!
 
 Bu doğayı birlikte keşfederek zaman geçirmek isteyen aileler ve dört bir yanındaki hayat hakkında daha fazla öğrenmek isteyen herkes için muhteşem bir uygulama.
 
@@ -16,8 +16,8 @@ Bu doğayı birlikte keşfederek zaman geçirmek isteyen aileler ve dört bir ya
 
 Seek kayıt yapmanı gerektirmez ve varsayılan olarak kullanıcı bilgisi toplamaz. Eğer bir iNaturalist hesabı ile giriş yapmayı seçersen bazı kullanıcı bilgileri toplanacaktır ancak bunun için 13 yaşının üzerinde olmalı veya ailenin iznini almalısın.
 
-Seek konum servislerini aktive etmek için izin isteyecektir ama konumun etrafındaki türleri önermeye devam ederken özel hayatına saygıdan ötürü gizli kalacaktır. Senin kesin konumun uygulamada asla depo edilmez veya iNaturalist'e gönderilmez.
+Seek konum servislerini aktive etmek için izin isteyecektir ama konumun etrafındaki türleri önermeye devam ederken özel hayatına saygıdan ötürü gizli kalacaktır. iNaturalist hesabınızda oturum açıp gözlemlerinizi göndermediğiniz sürece kesin konumunuz hiçbir zaman uygulamada saklanmaz ya da iNaturalist'e gönderilmez.
 
-Bizim görüntü tanıma teknolojimiz, iNaturalist.org'a ve partner sitelere yollanan gözlemler üzerine kurulmuştur ve iNaturalist topluluğu tarafından tanınmıştır.
+Görüntü tanıma teknolojimiz iNaturalist.org ve ortak sitelerine gönderilen ve iNaturalist topluluğu tarafından belirlenen gözlemlere dayanmaktadır.
 
-Seek Bizim Gezeginimiz ve WWF tarafından sunulmuş ve iNaturalist takımı tarafından yaratılmıştır. iNaturalist, California Academy of Sciences(Kaliforniya Bilim Akademisi) ve National Geographic Topluluğu'nun ortak girişimidir. Seek aslen HHMI Tangled Bank Stüdyoları'nın desteği ile yaratıldı.
+Seek, iNaturalist takımı tarafından oluşturulmuştur. iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Topluluğu'nun ortak girişimidir. Seek asıl olarak HHMI Tangled Bank Studios'un desteğiyle oluşturulmuş ve Netflix'teki Gezegenimiz ve WWF'nin desteğiyle geliştirilmiştir.

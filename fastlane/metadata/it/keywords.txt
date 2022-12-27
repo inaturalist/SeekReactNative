@@ -1,1 +1,1 @@
-piante,natura,gioco,fauna,riconosci,impara,scienza,cammina,foto,biologia,collezione,avventura
+piante,animali,natura,gioco,fauna,riconosci,impara,scienza,cammina,AR,foto,biologia,avventura

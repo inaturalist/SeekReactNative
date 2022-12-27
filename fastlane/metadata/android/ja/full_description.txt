@@ -9,7 +9,7 @@
 
 OPEN THE CAMERA AND START SEEKING!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Found a mushroom, flower, or bug, and not sure what it is? Seekカメラを開けて、調べてみよう！
 
 Seek（シーク）はiNaturalistに登録された何百万個もの野生生物の観察データを使って、ユーザーの周囲で最も多く記録された虫、鳥、植物、両生類、などのリストを表示することができます。 Seekカメラを身の回りに向けて、生き物の名前の判定しましょう。 色々な生き物を自分の図鑑に登録しながら、その生き物のことを学ぼう！ 観察すればするほど、バッジをゲットすることができます！
 

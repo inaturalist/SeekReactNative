@@ -9,7 +9,7 @@
 
 OPEN THE CAMERA AND START SEEKING!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Found a mushroom, flower, or bug, and not sure what it is? افتح كاميرا Seek لمعرفة ذلك!
 
 بالاعتماد على ملايين الملاحظات حول الحياة البرية في iNaturalist، يعرض لك Seek قوائم مسجلة من الحشرات، الطيور، النباتات والبرمائيات والمزيد في منطقتك. تصفح البيئة باستخدام كاميرا Seek للتعرف على الكائنات الحية ضمن شجرة الحياة. أضف أنواعًا مختلفة لملاحظاتك وتعرف عليهم أكثر! كلما زادت الشارات التي ستربحها!
 

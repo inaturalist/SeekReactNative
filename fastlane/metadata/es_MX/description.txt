@@ -1,6 +1,6 @@
 Utiliza el poder de la tecnología de reconocimiento de imágenes para identificar las plantas y los animales a tu alrededor. ¡Gana insignias por ver diferentes tipos de plantas, aves, hongos y más!
 
-• Sal y apunta a seres vivos con la cámara Seek.
+• Sal y apunta la cámara Seek a los seres vivos
 • Identifica animales, plantas y hongos y aprende sobre los organismos que te rodean.
 • Gana insignias observando distintos tipos de especies y participando en los desafíos.
 
@@ -16,7 +16,7 @@ SEGURA PARA MENORES
 
 Seek no requiere registro y no recopila ningún dato de usuario. Si eliges iniciar sesión con una cuenta de iNaturalist, se recogerán algunos datos del usuario; pero debes ser mayor de 13 años o tener el permiso de tus padres para hacerlo.
 
-Seek pedirá permiso para activar los servicios de localización, pero tu ubicación está oculta para respetar tu privacidad pero permitir sugerencias de especies de tu área. Tu ubicación exacta nunca se almacena en la aplicación ni se envía a iNaturalist.
+Seek pedirá permiso para activar los servicios de localización, pero tu ubicación está oculta para respetar tu privacidad aunque permitir sugerencias de especies de tu área. Tu ubicación exacta nunca se almacena en la aplicación ni se envía a iNaturalist.
 
 Nuestra tecnología de reconocimiento de imágenes se basa en las observaciones enviadas a iNaturalist.org y sitios asociados, e identificadas por la comunidad iNaturalist.
 

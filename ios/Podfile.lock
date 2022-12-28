@@ -319,7 +319,7 @@ PODS:
     - React
   - react-native-geolocation-service (5.3.1):
     - React
-  - react-native-image-resizer (3.0.4):
+  - react-native-image-resizer (1.4.5):
     - React-Core
   - react-native-inat-camera (1.0.0):
     - React
@@ -536,7 +536,7 @@ DEPENDENCIES:
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
-  - "react-native-image-resizer (from `../node_modules/@bam.tech/react-native-image-resizer`)"
+  - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
   - react-native-mail (from `../node_modules/react-native-mail`)
   - react-native-maps (from `../node_modules/react-native-maps`)
@@ -653,7 +653,7 @@ EXTERNAL SOURCES:
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
   react-native-image-resizer:
-    :path: "../node_modules/@bam.tech/react-native-image-resizer"
+    :path: "../node_modules/react-native-image-resizer"
   react-native-inat-camera:
     :path: "../node_modules/react-native-inat-camera"
   react-native-mail:
@@ -779,7 +779,7 @@ SPEC CHECKSUMS:
   react-native-cameraroll: 38b40d9033e4077b6c603f92f95c6d05fa7907df
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
-  react-native-image-resizer: 794abf75ec13ed1f0dbb1f134e27504ea65e9e66
+  react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 085f614cf14d3637b2048bb9752da5b1c27c2886

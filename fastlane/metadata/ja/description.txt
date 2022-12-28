@@ -1,12 +1,12 @@
 画像認識AIを使って、身近な植物や動物の名前を学ぼう。 Earn badges for seeing different types of plants, birds, fungi and more!
 
-• Get outside and point the Seek Camera at living things
+•　外に出て、生き物にSeekカメラを向けよう
 • Identify wildlife, plants, and fungi and learn about the organisms all around you
 • Earn badges for observing different types of species and participating in challenges
 
-OPEN THE CAMERA AND START SEEKING!
+「シーク」を始めよう！
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Found a mushroom, flower, or bug, and not sure what it is? Seekカメラを開けて、調べてみよう！
 
 Seek（シーク）はiNaturalistに登録された何百万個もの野生生物の観察データを使って、ユーザーの周囲で最も多く記録された虫、鳥、植物、両生類、などのリストを表示することができます。 Seekカメラを身の回りに向けて、生き物の名前の判定しましょう。 色々な生き物を自分の図鑑に登録しながら、その生き物のことを学ぼう！ 観察すればするほど、バッジをゲットすることができます！
 
@@ -18,6 +18,6 @@ Seek（シーク）にはアカウント登録をする必要がなく、ユー�
 
 Seek（シーク）は位置情報の利用の許可を求めますが、ユーザーの位置情報は大まかにしか示しません。従ってプライバシーの保護をしながら大体の位置にいると知られている生き物の名前を表示することができます。 Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+私たちの画像認識AIはiNaturalistや他のパートナーサイトに投稿された観察に基づいており、投稿された観察データはiNaturalistのコミュニティによって鑑定されています。
 
-Seek is created by the iNaturalist team. iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+SeekはiNaturalistのチームによって作られています。 iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.

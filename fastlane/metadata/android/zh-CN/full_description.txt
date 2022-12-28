@@ -9,7 +9,7 @@
 
 OPEN THE CAMERA AND START SEEKING!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Found a mushroom, flower, or bug, and not sure what it is? 打开Seek的相机来看看它认不认识吧！
 
 Seek将会结合iNaturalist上数百万个物种观察记录，为您列出您所在地区常见的昆虫、鸟类、植物、两栖动物及其他生物。 使用Seek的相机功能扫描周围并借助物种进化树来鉴定物种。 Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
 

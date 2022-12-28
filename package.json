@@ -22,7 +22,6 @@
     "e2e": "npm run e2e:build && npm run e2e:test"
   },
   "dependencies": {
-    "@bam.tech/react-native-image-resizer": "^3.0.4",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-camera-roll/camera-roll": "^5.0.4",
     "@react-native-community/clipboard": "^1.5.1",
@@ -53,6 +52,7 @@
     "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-image-marker": "^0.6.3",
+    "react-native-image-resizer": "^1.4.5",
     "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.6.2",
@@ -84,7 +84,7 @@
     "react-native-webview": "^11.26.0",
     "realm": "^11.2.0"
   },
-  "devDependencies": {
+  "devDependencies": { 
     "@babel/core": "^7.15.8",
     "@babel/preset-flow": "^7.14.5",
     "@babel/runtime": "^7.15.4",

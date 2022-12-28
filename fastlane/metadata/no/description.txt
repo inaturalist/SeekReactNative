@@ -1,12 +1,12 @@
 Bruk kunstig intelligens til å identifisere plantene og dyrene rundt deg. Earn badges for seeing different types of plants, birds, fungi and more!
 
-• Get outside and point the Seek Camera at living things
+• Gå utendørs og pek kamerat på planter og dyr
 • Identify wildlife, plants, and fungi and learn about the organisms all around you
 • Earn badges for observing different types of species and participating in challenges
 
-OPEN THE CAMERA AND START SEEKING!
+SKRU PÅ KAMERAET OG SETT I GANG MED Å LETE! 
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Funnet en sopp, blomst eller et innsekt og vet ikke hva det er? Prøv Seek-kameraet og se om det vet!
 
 Basert på millioner av observasjoner av dyreliv i iNaturalist viser Seek deg lister av vanlige insekter, fugler, planter, amfibier og andre organismer i ditt område. Skann miljøet med Seek-kameraet og identifiser organismer gjennom livstreet. Legg til forskjellige arter til dine observasjoner og lær om dem underveis! Jo flere observasjoner, desto flere badges får du!
 

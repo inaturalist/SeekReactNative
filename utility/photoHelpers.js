@@ -1,5 +1,5 @@
 // @flow
-import { createResizedImage } from "@bam.tech/react-native-image-resizer";
+import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
@@ -61,7 +61,7 @@ const checkForPhotoMetaData = ( location: Object ): boolean => {
 
 const resizeImage = async ( path: string, width: number, height?: number, outputPath?: string ): Promise<string> => {
   try {
-    const { uri } = await createResizedImage(
+    const { uri } = await ImageResizer.createResizedImage(
       path,
       width,
       height || width, // height

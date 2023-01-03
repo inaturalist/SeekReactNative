@@ -976,7 +976,7 @@
     "observations_by_month": "ಮಾಸಿಕ ವೀಕ್ಷಣೆಗಳು",
     "observations_map": "ವೀಕ್ಷಣೆಗಳ ಭೂಪಟ ",
     "view_observations_map": "ವೀಕ್ಷಣೆಗಳ ಭೂಪಟವನ್ನು ವೀಕ್ಷಿಸಿ",
-    "iNaturalist": "ಐನ್ಯಾಚುರಲಿಸ್ಟ್",
+    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

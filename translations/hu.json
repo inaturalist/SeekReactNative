@@ -161,7 +161,6 @@
     "achievements": "Eredmények",
     "challenges": "Kihívások",
     "observations": "Felfedezéseim",
-    "inat": "iNaturalist",
     "about": "Rólunk",
     "settings": "Beállítások"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Megfigyelések havonta",
     "observations_map": "Megfigyelési térkép",
     "view_observations_map": "Megfigyelési térkép megtekintése",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",
       "two": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",

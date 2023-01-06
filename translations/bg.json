@@ -91,8 +91,8 @@
     "error_no_password": "Липсваща парола.",
     "error_internet": "Няма интернет връзка",
     "error_request_could_not_be_completed": "Вашата заявка не можа да бъде изпълнена.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Автентикацията на клиента се провали заради непознат клиент, липса на клиентска автентикация или неподдържан метод за автентикация.",
+    "error_grant_invalid": "Предоставената автентикация е невалидна, изтекла, несъвпадаща с пренасочващия URI използван в заявката за автентикация или е издадена на друг клиент."
   },
   "inat_signup": {
     "welcome": "Добре дошли в Seek!",
@@ -161,7 +161,6 @@
     "achievements": "Постижения",
     "challenges": "Предизвикателства",
     "observations": "Мойте наблюдения",
-    "inat": "iNaturalist",
     "about": "Относно",
     "settings": "Настройки"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Наблюдения по месец",
     "observations_map": "Карта на наблюдения",
     "view_observations_map": "Виж карта на наблюдения",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

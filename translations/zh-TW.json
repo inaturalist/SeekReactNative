@@ -161,7 +161,6 @@
     "achievements": "成就",
     "challenges": "挑戰",
     "observations": "觀察",
-    "inat": "iNaturalist",
     "about": "關於",
     "settings": "設定"
   },
@@ -573,8 +572,8 @@
     "inat_team_credits_2": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski、Johannes Klein 和 Angie Ta。特別感謝來自 Visipedia 的 Grant Van Horn 在電腦視覺技術上的協助，以及 iNaturalist 社群的幫忙。",
     "version": "版本",
     "help": "需要「探索」的協助和說明，請 email 到 help+seek@inaturalist.org",
-    "translators": "我們對 crowdin.com 社群的翻譯協助來致上我們的謝意，特別是：Abdelghani Hourani, Carnifex, cgalindo、Daniele Seglie、Eduardo Martínez、Édson Souza Jr.、Galder Gonzalez Larrañaga、Gideon Wentink、Johan Liljeblad、katunchik、Kevin Matthew、Kiara Suzuki、Lekkim、Marcel Hospers、Martin Reith、Monica Nieminen、Nicolae Liviu、Nuwan Wijayaweera、saariko、Sakatur, Sebastian Jasiński、TheKakarinka、Wouter Koch 和 Yulia Lygina。",
-    "join_crowdin": "加入「探索」的翻譯團隊，請參見 https://crowdin.com/project/seek"
+    "translators": "我們非常感激 crowdin.com 社群提供的翻譯協助，特別是：Abdelghani Hourani、Carnifex、cgalindo、Daniele Seglie、Eduardo Martínez、Édson Souza Jr.、Galder Gonzalez Larrañaga、Gideon Wentink、Johan Liljeblad、katunchik、Kevin Matthew、Kiara Suzuki、Lekkim、Marcel Hospers、Martin Reith、Monica Nieminen、Nicolae Liviu、Nuwan Wijayaweera、saariko、Sakatur、Sebastian Jasiński、TheKakarinka、Wouter Koch 以及 Yulia Lygina。",
+    "join_crowdin": "要加入 Seek 的翻譯團隊，請至 https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "張貼至 iNaturalist",
@@ -976,7 +975,6 @@
     "observations_by_month": "逐月的觀察紀錄",
     "observations_map": "觀察記錄地圖",
     "view_observations_map": "檢視觀察記錄地圖",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "您在 {{year}} 時使用 Seek 向 iNaturalist 張貼了 {{count}} 筆觀察記錄。",
       "two": "您在 {{year}} 時使用 Seek 向 iNaturalist 張貼了 {{count}} 筆觀察記錄。",

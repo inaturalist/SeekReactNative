@@ -161,7 +161,6 @@
     "achievements": "Úspěchy",
     "challenges": "Výzvy",
     "observations": "Moje pozorování",
-    "inat": "iNaturalist",
     "about": "O aplikaci",
     "settings": "Nastavení"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Pozorování podle měsíců",
     "observations_map": "Mapa pozorování",
     "view_observations_map": "Zobrazit mapu pozorování",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "V roce {{year}} jste zveřejnil/a {{count}} pozorování na iNaturalist pomocí Seek.",
       "two": "V roce {{year}} jste zveřejnil/a {{count}} pozorování na iNaturalist pomocí Seek.",

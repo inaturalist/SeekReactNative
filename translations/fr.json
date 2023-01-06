@@ -161,7 +161,6 @@
     "achievements": "Progrès",
     "challenges": " Défis",
     "observations": "Mes observations",
-    "inat": "iNaturalist",
     "about": "À propos",
     "settings": "Paramètres"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Observations par mois",
     "observations_map": "Carte des observations",
     "view_observations_map": "Voir la carte des observations",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Vous avez publié {{count}} observation sur iNaturalist en utilisant Seek en {{year}}.",
       "two": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}.",

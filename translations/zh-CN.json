@@ -161,7 +161,6 @@
     "achievements": "成就",
     "challenges": "挑战",
     "observations": "我的观察记录",
-    "inat": "iNaturalist",
     "about": "关于我们",
     "settings": "设置"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Observations by Month",
     "observations_map": "Observations Map",
     "view_observations_map": "View Observations Map",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

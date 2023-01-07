@@ -161,7 +161,6 @@
     "achievements": "Prestaties",
     "challenges": "Uitdagingen",
     "observations": "Mijn Waarnemingen",
-    "inat": "iNaturalist",
     "about": "Over",
     "settings": "Instellingen"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Waarnemingen per maand",
     "observations_map": "Waarnemingen op de Kaart",
     "view_observations_map": "Toon Waarnemingen op de Kaart",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Je hebt {{count}} waarneming met Seek op iNaturalist geplaatst in {{year}}.",
       "two": "Je hebt {{count}} waarnemingen met Seek op iNaturalist geplaatst in {{year}}.",

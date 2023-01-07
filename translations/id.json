@@ -161,7 +161,6 @@
     "achievements": "Pencapaian",
     "challenges": "Tantangan",
     "observations": "Pengamatan Saya",
-    "inat": "iNaturalist",
     "about": "Tentang",
     "settings": "Pengaturan"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Pengamatan / Bulan",
     "observations_map": "Peta Pengamatan",
     "view_observations_map": "Lihat Peta Pengamatan",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",
       "two": "Kamu telah mengunggah {{count}} pengamatan ke iNaturalist menggunakan Seek pada {{year}}.",

@@ -161,7 +161,6 @@
     "achievements": "アチーブメント",
     "challenges": "チャレンジ",
     "observations": "観察記録",
-    "inat": "iNaturalist",
     "about": "Seekについて",
     "settings": "設定"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Observations by Month",
     "observations_map": "Observations Map",
     "view_observations_map": "View Observations Map",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

@@ -161,7 +161,6 @@
     "achievements": "Erreichte Ziele",
     "challenges": "Missionen",
     "observations": "Beobachtungen",
-    "inat": "iNaturalist",
     "about": "Info",
     "settings": "Einstellungen"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Beobachtungen pro Monat",
     "observations_map": "Karte der Beobachtungen",
     "view_observations_map": "Beobachtungen auf der Karte anzeigen",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Du hast {{count}} Beobachtung an iNaturalist per Seek in {{year}} übermittelt.",
       "two": "Du hast {{count}} Beobachtungen an iNaturalist per Seek in {{year}} übermittelt.",

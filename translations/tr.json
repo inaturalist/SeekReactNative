@@ -161,7 +161,6 @@
     "achievements": "Başarılar",
     "challenges": "Mücadeleler",
     "observations": "Gözlemlerim",
-    "inat": "iNaturalist",
     "about": "Hakkında",
     "settings": "Ayarlar"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Aya Göre Gözlemler",
     "observations_map": "Gözlem Haritası",
     "view_observations_map": "Gözlem Haritasını Görüntüle",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin.",
       "two": "Seek kullanarak iNaturalist'e {{year}} yılında {{count}} gözlem gönderdin.",

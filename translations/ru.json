@@ -161,7 +161,6 @@
     "achievements": "Достижения",
     "challenges": "Испытания",
     "observations": "Мои наблюдения",
-    "inat": "iNaturalist",
     "about": "О программе",
     "settings": "Настройки"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Наблюдения по месяцам",
     "observations_map": "Карта наблюдений",
     "view_observations_map": "Посмотреть карту наблюдений",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдение iNaturalist",
       "two": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдения iNaturalist",

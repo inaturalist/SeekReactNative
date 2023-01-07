@@ -161,7 +161,6 @@
     "achievements": "Præstationer",
     "challenges": "Udfordringer",
     "observations": "Observationer",
-    "inat": "iNaturalist",
     "about": "Om",
     "settings": "Indstillinger"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Observationer efter måned",
     "observations_map": "Observationskort",
     "view_observations_map": "Se observationer på kort",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Du tilføjede {{count}} observation til iNaturalist ved hjælp af Seek i {{year}}.",
       "two": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",

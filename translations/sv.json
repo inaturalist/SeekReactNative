@@ -161,7 +161,6 @@
     "achievements": "Prestationer",
     "challenges": "Utmaningar",
     "observations": "Mina fynd",
-    "inat": "iNaturalist",
     "about": "Om",
     "settings": "Inställningar"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Fynd per månad",
     "observations_map": "Fyndkarta",
     "view_observations_map": "Visa fyndkarta",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",
       "two": "Du publicerade {{count}} fynd på iNaturalist genom Seek under {{year}}.",

@@ -161,7 +161,6 @@
     "achievements": "Досягнення",
     "challenges": "Завдання",
     "observations": "Мої спостереження",
-    "inat": "iNaturalist",
     "about": "Про додаток",
     "settings": "Налаштування"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Спостережень за Місяць",
     "observations_map": "Карта Спостережень",
     "view_observations_map": "Переглянути Карту Спостережень",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}.",
       "two": "Ви опублікували {{count}} спостереження в iNaturalist за допомогою Seek у {{year}}.",

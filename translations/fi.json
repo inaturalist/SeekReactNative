@@ -161,7 +161,6 @@
     "achievements": "Saavutukset",
     "challenges": "Haasteet",
     "observations": "Omat havainnot",
-    "inat": "iNaturalist",
     "about": "Tietoja",
     "settings": "Asetukset"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Havainnot kuukausittain",
     "observations_map": "Havainnot kartalla",
     "view_observations_map": "Näytä havainnot kartalla",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}.",
       "two": "Lähetit {{count}} havaintoa iNaturalistiin Seekin avulla vuonna {{year}}.",

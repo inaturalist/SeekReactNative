@@ -161,7 +161,6 @@
     "achievements": "Obiettivi",
     "challenges": "Sfide",
     "observations": "Le Mie Osservazioni",
-    "inat": "iNaturalist",
     "about": "Info",
     "settings": "Impostazioni"
   },
@@ -976,7 +975,6 @@
     "observations_by_month": "Osservazioni per Mese",
     "observations_map": "Mappa delle Osservazioni",
     "view_observations_map": "Visualizza Mappa delle Osservazioni",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Hai pubblicato {{count}} osservazione su iNaturalist usando Seek nel {{year}}.",
       "two": "Hai pubblicato {{count}} osservazioni su iNaturalist usando Seek nel {{year}}.",

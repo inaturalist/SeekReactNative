@@ -1,7 +1,7 @@
 {
   "species_nearby": {
     "header": "附近物種",
-    "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
+    "internet_error": "我們需要使用網際網路來顯示您附近的物種。請點這裡重試看看。",
     "no_location": "沒有位置資訊",
     "no_gps": "未找到 GPS 訊號。請仔細檢查您是否開啟了 GPS",
     "no_species": "似乎尚未在附近觀察到大量物種！請嘗試變更您所在位置或擴大物種篩選範圍。",
@@ -172,7 +172,7 @@
     "continue": "繼續"
   },
   "location_picker": {
-    "species_nearby": "附近物種",
+    "species_nearby": "附近的物種",
     "button": "搜索這附近",
     "undefined": "未定義的位置"
   },
@@ -278,8 +278,8 @@
     "photographer_december": "照片 © Sophie Lanfear, Netflix / Silverback Films",
     "species_observed": "觀察到的物種",
     "species_nearby": "此挑戰中附近的物種",
-    "no_species_nearby": "我們在此挑戰中沒有發現有您尚未觀察到的物種",
-    "species_nearby_internet_error": "我們必須使用網路來顯示您附近的物種。",
+    "no_species_nearby": "在此挑戰中，我們沒有發現附近有您尚未觀察到的物種",
+    "species_nearby_internet_error": "我們需要使用網際網路來顯示您附近的物種。",
     "badge_name_my_garden_2022": "我的花園徽章"
   },
   "results": {
@@ -512,7 +512,7 @@
     "not_seen_other": "您尚未觀察到任何其他物種！"
   },
   "species_detail": {
-    "near": "附近的",
+    "near": "附近",
     "about": "關於",
     "range_map": "範圍圖",
     "range_about": "在 iNaturalist 上看到此物種的觀察結果地圖。",
@@ -713,7 +713,7 @@
     "action_june_2020": "您知道您可以在 Seek 相機中查看學名而不是俗名嗎？從選單進入到設定頁面，將顯示方式從俗名切換成學名吧！",
     "river": "河川挑戰",
     "mission_1_july_2020": "找到任兩種魚或兩棲類動物",
-    "mission_2_july_2020": "找到在以下目的任三種水鳥：雁形目、鴴形目、佛法僧目、潛鳥目、鶴形目、鵜形目、紅鶴目、鷉形目、鸌形目、企鵝目和鰹鳥目",
+    "mission_2_july_2020": "在雁形目、鴴形目、佛法僧目、潛鳥目、鶴形目、鵜形目、紅鶴目、鷉形目、鸌形目、企鵝目和鰹鳥目中，找到任意 3 種水鳥",
     "mission_3_july_2020": "找到一種軟體動物",
     "july_2020_description": "河川是生物多樣性的中樞。河川支持從底棲小型無脊椎動物到大型的脊椎動物，並幫助周遭的生物繁衍。",
     "action_july_2020": "當您靠近水體時，您注意到什麼生物？什麼物種在水裡游泳？什麼物種飛過去？在水裡有什麼生物您無法看見的呢？",

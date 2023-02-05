@@ -4,8 +4,7 @@ import React, {
   useEffect,
   useCallback,
   useReducer,
-  useContext,
-  useRef
+  useContext
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";

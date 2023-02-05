@@ -219,6 +219,7 @@ const renderScreen = ( {
     } = {
       login: "test"
     } ) => {
+  jest.useFakeTimers( { advanceTimers: true, now: new Date( "2022-10-11" ) } );
   return render(
     <UserContext.Provider value={{ login }} >
       <SeekYearInReviewScreen />
@@ -337,7 +338,7 @@ describe( "SeekYearInReviewScreen", () => {
     renderScreen();
     await screen.findByTestId( containerID );
 
-    const text = await screen.queryByText( "OBSERVATIONS MAP" );
+    const text = screen.queryByText( "OBSERVATIONS MAP" );
     expect( text ).toBeNull();
 
     screen.unmount();
@@ -348,7 +349,7 @@ describe( "SeekYearInReviewScreen", () => {
     renderScreen( { login: null } );
     await screen.findByTestId( containerID );
 
-    const text = await screen.queryByText( "INATURALIST" );
+    const text = screen.queryByText( "INATURALIST" );
     expect( text ).toBeNull();
 
     screen.unmount();
@@ -369,7 +370,7 @@ describe( "SeekYearInReviewScreen", () => {
     renderScreen();
     await screen.findByTestId( containerID );
 
-    const uploadedCountText = await screen.queryByText( "60" );
+    const uploadedCountText = screen.queryByText( "60" );
     expect( uploadedCountText ).toBeNull();
 
     screen.unmount();
@@ -394,7 +395,7 @@ describe( "SeekYearInReviewScreen", () => {
     renderScreen();
     await screen.findByTestId( containerID );
 
-    const challengesBanner = await screen.queryByText( "CHALLENGES" );
+    const challengesBanner = screen.queryByText( "CHALLENGES" );
     expect( challengesBanner ).toBeNull();
 
     screen.unmount();

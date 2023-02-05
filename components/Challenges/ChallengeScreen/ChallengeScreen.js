@@ -1,5 +1,5 @@
 // @flow
-import React, { useRef } from "react";
+import React from "react";
 import { View } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import type { Node } from "react";

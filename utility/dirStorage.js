@@ -25,6 +25,13 @@ export const dirDebugLogs: string = Platform.select( {
   android: `${RNFS.ExternalCachesDirectoryPath}/debug-seek.log`
 } );
 
+export const fileNameLogs = "seek-log.txt";
+export const dirLogs: string = Platform.select( {
+  ios: `${RNFS.DocumentDirectoryPath}`,
+  android: `${RNFS.DocumentDirectoryPath}`
+} );
+export const pathLogs = `${dirLogs}/${fileNameLogs}`;
+
 export const dirPictures: string = Platform.select( {
   ios: `${dirHome}/Pictures`,
   android: `${dirHome}/SeekPictures`

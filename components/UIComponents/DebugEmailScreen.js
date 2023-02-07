@@ -13,6 +13,7 @@ import ViewWithHeader from "./Screens/ViewWithHeader";
 import CopyButton from "./Buttons/CopyButton";
 import StyledText from "./StyledText";
 import i18n from "../../i18n";
+// import LogFileText from "./LogFileText";
 
 const DebugEmailScreen = ( ): React.Node => {
   // Log file content state
@@ -81,9 +82,7 @@ const DebugEmailScreen = ( ): React.Node => {
               stringToCopy={logContents}
               handleHighlight={() => console.log( "highlighted" )}
             >
-              <StyledText>
-                {i18n.t( "debug.copy_logs" )}
-              </StyledText>
+              <StyledText>{i18n.t( "debug.copy_logs" )}</StyledText>
             </CopyButton>
           )}
         </View>

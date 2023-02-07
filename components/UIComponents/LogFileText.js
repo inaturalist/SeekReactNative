@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import RNFS from "react-native-fs";
 import { ScrollView } from "react-native";
 
-import { pathLogs } from "../utility/dirStorage";
-import StyledText from "./UIComponents/StyledText";
+import StyledText from "./StyledText";
+import { pathLogs } from "../../utility/dirStorage";
 
 type Props = {
   +navigation: any

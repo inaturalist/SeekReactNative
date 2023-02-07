@@ -2,6 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import * as RNLocalize from "react-native-localize";
+import {
+  setJSExceptionHandler,
+  setNativeExceptionHandler
+} from "react-native-exception-handler";
 import type { Node } from "react";
 
 import RootStack from "./Navigation/RootStack";
@@ -18,6 +22,28 @@ import SpeciesDetailProvider from "./Providers/SpeciesDetailProvider";
 import { log } from "../react-native-logs.config";
 
 const logger = log.extend( "App.js" );
+
+const jsErrorHandler = ( e, isFatal ) => {
+  // not 100% sure why jsErrorHandler logs e.name and e.message as undefined sometimes,
+  // but I believe it relates to this issue, which reports an unnecessary console.error
+  // under the hood: https://github.com/a7ul/react-native-exception-handler/issues/143
+
+  // possibly also related to error boundaries in React 16+:
+  // https://github.com/a7ul/react-native-exception-handler/issues/60
+  if ( !e.name && !e.message ) {return;}
+  logger.error( `JS Error: ${isFatal ? "Fatal:" : ""} ${e.stack}` );
+};
+
+// record JS exceptions; second parameter allows this to work in DEV mode
+setJSExceptionHandler( jsErrorHandler, true );
+
+// record native exceptions
+// only works in bundled mode; will show red screen in dev mode
+// tested this by raising an exception in RNGestureHandler.m
+// https://stackoverflow.com/questions/63270492/how-to-raise-native-error-in-react-native-app
+setNativeExceptionHandler( exceptionString => {
+  logger.error( `Native Error: ${exceptionString}` );
+} );
 
 const App = ( ): Node => {
   useEffect( () => {

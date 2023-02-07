@@ -411,6 +411,8 @@ PODS:
     - React-jsi (= 0.70.6)
     - React-logger (= 0.70.6)
     - React-perflogger (= 0.70.6)
+  - ReactNativeExceptionHandler (2.10.10):
+    - React-Core
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
@@ -559,6 +561,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeExceptionHandler (from `../node_modules/react-native-exception-handler`)
   - ReactNativeWebPFormat (from `../node_modules/react-native-webp-format`)
   - RealmJS (from `../node_modules/realm`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
@@ -698,6 +701,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeExceptionHandler:
+    :path: "../node_modules/react-native-exception-handler"
   ReactNativeWebPFormat:
     :path: "../node_modules/react-native-webp-format"
   RealmJS:
@@ -802,6 +807,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: c75ceef7aa60a33b2d5731ebe5800ddde40cefc4
   React-runtimeexecutor: 15437b576139df27635400de0599d9844f1ab817
   ReactCommon: 349be31adeecffc7986a0de875d7fb0dcf4e251c
+  ReactNativeExceptionHandler: b11ff67c78802b2f62eed0e10e75cb1ef7947c60
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
   RealmJS: d0e94d35363a3a9ebd27981d9ac0aa4b63f66c85
   RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60

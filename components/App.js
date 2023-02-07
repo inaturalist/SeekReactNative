@@ -15,8 +15,15 @@ import ObservationProvider from "./Providers/ObservationProvider";
 import AppOrientationProvider from "./Providers/AppOrientationProvider";
 import ChallengeProvider from "./Providers/ChallengeProvider";
 import SpeciesDetailProvider from "./Providers/SpeciesDetailProvider";
+import { log } from "../react-native-logs.config";
+
+const logger = log.extend( "App.js" );
 
 const App = ( ): Node => {
+  useEffect( () => {
+    logger.info( "App start" );
+  }, [] );
+
   const [preferredLanguage, setLanguage] = useState( null );
 
   const getLanguagePreference = async ( ) => setLanguage( await getLanguage( ) );

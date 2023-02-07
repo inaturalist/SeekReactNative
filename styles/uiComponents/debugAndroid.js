@@ -9,10 +9,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   background: {
     backgroundColor: colors.white,
     flex: 1,
-    justifyContent: "center"
+    paddingHorizontal: 23
   },
   center: {
-    marginHorizontal: 23
+    flex: 1,
+    justifyContent: "center"
   }
 } );
 

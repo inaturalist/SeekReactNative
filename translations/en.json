@@ -667,7 +667,8 @@
     "some": "some rights reserved"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Send debug logs by email",
+    "copy_logs": "Copy debug logs into clipboard"
   },
   "shortcut": {
     "seek_camera": "Seek Camera",

@@ -1,24 +1,31 @@
-// @flow
-
 import { Platform } from "react-native";
-import { logger, fileAsyncTransport, consoleTransport } from "react-native-logs";
+import {
+  logger,
+  fileAsyncTransport,
+  consoleTransport
+} from "react-native-logs";
 import RNFS from "react-native-fs";
-import { dirDebugLogs } from "./dirStorage";
+import { dirDebugLogs, fileNameLogs } from "./utility/dirStorage";
 
-// using this to help me see what's actually going into the log file
-
-// RNFS.readDir( RNFS.DocumentDirectoryPath ).then( ( results => {
-//   results.forEach( result => {
-//     if ( result.name === "log.txt" ) {
-//       // console.log( result.name, "result" );
-//       RNFS.readFile( `${dirDebugLogs}/log` ).then( fileContent => {
-//         console.log( fileContent, "content" );
-//       } );
-//     }
-//   } );
-// } ) );
+// Configure without transport for test. If you want to write output during
+// tests, use console.log
+const transport = [];
+if ( process?.env?.NODE_ENV !== "test" ) {
+  transport.push( consoleTransport );
+  transport.push( fileAsyncTransport );
+}
 
 const config = {
+  transport,
+  transportOptions: {
+    FS: RNFS,
+    fileName: fileNameLogs
+  }
+};
+
+const log = logger.createLogger( config );
+
+const configIOS = {
   severity: "debug",
   transport: __DEV__ ? consoleTransport : fileAsyncTransport,
   transportOptions: {
@@ -42,6 +49,9 @@ const androidConfig = {
 };
 
 // $FlowFixMe
-const LOG = Platform.OS === "ios" ? logger.createLogger( config ) : logger.createLogger( androidConfig );
+const LOG =
+  Platform.OS === "ios"
+    ? logger.createLogger( configIOS )
+    : logger.createLogger( androidConfig );
 
-export { LOG };
+export { LOG, log };

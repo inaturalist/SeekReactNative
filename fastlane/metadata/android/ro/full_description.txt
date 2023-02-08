@@ -15,7 +15,7 @@ Pe baza a milioane de observații despre faună și floră pe iNaturalist, Seek 
 
 Seek este o aplicație excelentă pentru familiile care doresc să petreacă mai mult timp împreună explorând natura, precum și pentru oricine vrea să afle mai multe despre viața din jurul lor.
 
-KID-SAFE
+Siguranta-Minori
 
 În mod implicit, Seek nu necesită nicio înregistrare și nu colectează implicit datele utilizatorilor. Unele date ale utilizatorilor vor fi colectate dacă decideți să vă autentificați cu contul dvs. iNaturalist, dar pentru aceasta trebuie să aveți peste 13 ani sau să aveți autorizația părinților.
 

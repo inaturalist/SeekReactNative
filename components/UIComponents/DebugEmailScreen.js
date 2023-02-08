@@ -18,6 +18,7 @@ import i18n from "../../i18n";
 const DebugEmailScreen = ( ): React.Node => {
   // Log file content state
   const [logContents, setLogContents] = useState( "" );
+  const [failed, setFailed] = useState( false );
 
   // Get log file contents on initial render
   useEffect( ( ) => {
@@ -52,21 +53,9 @@ const DebugEmailScreen = ( ): React.Node => {
         ]
       },
       ( error, event ) => {
-        Alert.alert(
-          error,
-          event,
-          [
-            {
-              text: "Ok",
-              onPress: () => console.log( "OK: Email Error Response" )
-            },
-            {
-              text: "Cancel",
-              onPress: () => console.log( "CANCEL: Email Error Response" )
-            }
-          ],
-          { cancelable: true }
-        );
+        setFailed( true );
+        console.log( "error", error );
+        console.log( "event", event );
       }
     );
   };
@@ -75,16 +64,15 @@ const DebugEmailScreen = ( ): React.Node => {
     <ViewWithHeader header="inat_signup.email">
       <View style={styles.background}>
         <View style={styles.center}>
-          {Platform.OS === "android" ? (
-            <GreenButton handlePress={sendEmailAttachment} text="debug.logs" />
-          ) : (
+          <GreenButton handlePress={sendEmailAttachment} text="debug.logs" />
+          { failed &&
             <CopyButton
               stringToCopy={logContents}
               handleHighlight={() => console.log( "highlighted" )}
             >
               <StyledText>{i18n.t( "debug.copy_logs" )}</StyledText>
             </CopyButton>
-          )}
+          }
         </View>
         {/*
           This component is not currently used, but it's useful for debugging, showing the contents of the log file.

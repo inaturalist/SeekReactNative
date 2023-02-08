@@ -34,8 +34,8 @@ const jsErrorHandler = ( e, isFatal ) => {
   logger.error( `JS Error: ${isFatal ? "Fatal:" : ""} ${e.stack}` );
 };
 
-// record JS exceptions; second parameter allows this to work in DEV mode
-setJSExceptionHandler( jsErrorHandler, true );
+// record JS exceptions
+setJSExceptionHandler( jsErrorHandler );
 
 // record native exceptions
 // only works in bundled mode; will show red screen in dev mode

@@ -20,11 +20,6 @@ export const dirTaxonomy: string = Platform.select( {
   android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`
 } );
 
-export const dirDebugLogs: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}`,
-  android: `${RNFS.ExternalCachesDirectoryPath}/debug-seek.log`
-} );
-
 export const fileNameLogs = "seek-log.txt";
 export const dirLogs: string = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}`,

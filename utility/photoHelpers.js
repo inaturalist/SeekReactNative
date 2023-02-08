@@ -27,7 +27,7 @@ const writeToDebugLog = ( newLine: string ) => {
     line = `${formatYearMonthDay()} ${formatHourMonthSecond()}: ${newLine}`;
   }
 
-  RNFS.appendFile( pathLogs, `\n${line}` ).then( () => {
+  RNFS.appendFile( pathLogs, `${line}\n` ).then( () => {
     // console.log( result, "result of appending debug log" );
   } ).catch( ( e ) => {
     console.log( e, "error while appending debug log" );

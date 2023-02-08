@@ -91,8 +91,8 @@
     "error_no_password": "Parola dumneavoastră lipsește",
     "error_internet": "Nu există conexiune la rețeaua de date.",
     "error_request_could_not_be_completed": "Solicitarea ta nu a putut fi finalizată.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Autentificarea clientului a eșuat din cauza unui client necunoscut, nici o autentificare client inclusă, sau metodă de autentificare nesuportată.",
+    "error_grant_invalid": "Acordarea autorizației furnizată este invalidă, expirată, revocată, nu corespunde URI de redirecționare folosit în cererea de autorizare, sau a fost eliberat altui client."
   },
   "inat_signup": {
     "welcome": "Bun venit la Seek!",
@@ -161,7 +161,6 @@
     "achievements": "Realizări",
     "challenges": "Provocări",
     "observations": "Observațiile Mele",
-    "inat": "iNaturalist",
     "about": "Despre",
     "settings": "Setări"
   },
@@ -570,7 +569,7 @@
     "joint_initiative": "iNaturalist este o inițiativă comună a Academiei de Științe din California și a Societății Naționale Geografice. ",
     "original": "Seek a fost creat inițial cu sprijinul HHMI Tangled Bank Studios și îmbunătățit cu sprijin din partea Our Planet pe Netflix și WWF.",
     "designed_by": "Proiectat și dezvoltat de echipa iNaturalist:",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versiune",
     "help": "Pentru ajutor cu Seek, te rugăm trimite un e-mail la help+seek@inaturalist.org.",
     "translators": "Suntem recunoscători pentru asistența acordată pentru traducere de către comunitatea din crowdin.com, în special: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, și Yulia Lygina.",
@@ -688,8 +687,8 @@
     "seasonality_option_1": "Afișează sezonalitatea bazată pe observații iNaturalist la nivel mondial",
     "seasonality_option_2": "Afișează sezonalitatea bazată pe observații iNaturalist aproape de locația mea actuală (speciile care nu sunt găsite în apropierea locației mele nu vor avea sezonalitate)",
     "donate_ios": "Tă rugăm să vizitezi următorul link pentru a face o donație către Seek",
-    "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "change_language": "Comutați limba din aplicație la {{language}}?",
+    "confirm": "Confirmați"
   },
   "seek_challenges": {
     "badge": "Insignă Seek",
@@ -857,7 +856,7 @@
     "logged_in_bullet_3": "Observațiile tale din Seek NU sunt salvate în iNaturalist. Dacă ștergi Seek, vei șterge toate observațiile care se află pe dispozitivul tău.",
     "upload_and_track_obs_using_inat": "Încarcă și ține evidența observațiilor tale folosind aplicația iNaturalist sau vizitând inaturalist.org.\n\nMulțumim că faci parte din această comunitate!",
     "x_seen_by_user": "{{user}} a observat {{speciesName}}",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "Ești conectat la iNaturalist, dar avem nevoie de internet pentru a afișa detalii. Atinge pentru a încerca din nou."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Provocarea Artropodelor Prădătoare",
@@ -960,43 +959,42 @@
     "december_2023_description_ecology": "Ecosistemele și organismele lor sunt influențate de multe tipuri diferite de interacțiuni. Ecologia este studiul organismelor (biotice) și al mediului lor fizic (abiotic). Interacțiunile biotice se produc între ființele vii, iar interacțiunile abiotice includ factorii non-biologici, cum ar fi temperatura, apa, lumina și solul."
   },
   "seek_year_in_review": {
-    "header": "Seek Year in Review",
-    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review",
-    "in_year_observed": "In {{year}}, you observed",
+    "header": "Caută An în Recenzie",
+    "description": "Mulțumim pentru că ai folosit Seel anul acesta! Verifică anul tău personalizat aici:",
+    "button": "Vezi recenzie Seek-ului tau",
+    "in_year_observed": "În {{year}}, ai observat",
     "x_new_species": {
-      "one": "{{count}} new species",
-      "two": "{{count}} new species",
-      "few": "{{count}} new species",
-      "many": "{{count}} new species",
-      "other": "{{count}} new species"
+      "one": "{{count}} specii noi",
+      "two": "{{count}} specii noi",
+      "few": "{{count}} specii noi",
+      "many": "{{count}} specii noi",
+      "other": "{{count}} specii noi"
     },
-    "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
-    "iNaturalist": "iNaturalist",
+    "top_species": "Top Specii",
+    "observations": "Observații",
+    "observations_by_month": "Observații pe lună",
+    "observations_map": "Harta observărilor",
+    "view_observations_map": "Vezi harta observațiilor",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
-      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+      "one": "Ai postat {{count}} observații pe iNaturalist folosind Seek în {{year}}.",
+      "two": "Ai postat {{count}} observații pe iNaturalist folosind Seek în {{year}}.",
+      "few": "Ai postat {{count}} observații pe iNaturalist folosind Seek în {{year}}.",
+      "many": "Ai postat {{count}} observații pe iNaturalist folosind Seek în {{year}}.",
+      "other": "Ai postat {{count}} observații pe iNaturalist folosind Seek în {{year}}."
     },
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
-    "observed_in": "{{speciesName}} observed in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
-    "challenges": "Challenges",
+    "uploaded_observations_text_2": "Îți mulțumim că ai contribuit la comunitatea noastră!",
+    "observed_in": "{{speciesName}} observate în {{place}}",
+    "observed_on": "{{speciesName}} observate la {{date}}",
+    "challenges": "Provocări",
     "x_challenges_earned_text": {
-      "one": "You earned {{count}} challenge badge in {{year}}.",
-      "two": "You earned {{count}} challenge badges in {{year}}.",
-      "few": "You earned {{count}} challenge badges in {{year}}.",
-      "many": "You earned {{count}} challenge badges in {{year}}.",
-      "other": "You earned {{count}} challenge badges in {{year}}."
+      "one": "Ai câștigat {{count}} insignă de provocare în {{year}}.",
+      "two": "Ai câștigat {{count}} insigne de provocare în {{year}}.",
+      "few": "Ai câștigat {{count}} insige de provocare în {{year}}.",
+      "many": "Ai câștigat {{count}} insigne de provocare în {{year}}.",
+      "other": "Ai câștigat {{count}} insigne de provocare în {{year}}."
     },
-    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "thank_you": "Vă mulțumim că ați folosit Seek! Sperăm că acest lucru vă amintește de toate speciile interesante pe care le-ați întâlnit anul acesta.",
+    "consider_donation": "Ca echipă mică, apreciem foarte mult toată dragostea şi entuziasmul dumneavoastră pentru Seek. Dacă vrei să ne susții pe măsură ce creștem, te rugăm să iei în considerare donarea către iNaturalist:",
+    "donate": "Donează"
   }
 }

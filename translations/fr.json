@@ -161,7 +161,6 @@
     "achievements": "Progrès",
     "challenges": " Défis",
     "observations": "Mes observations",
-    "inat": "iNaturalist",
     "about": "À propos",
     "settings": "Paramètres"
   },
@@ -570,7 +569,7 @@
     "joint_initiative": "iNaturalist est une initiative conjointe de la California Academy of Sciences et de la National Geographic Society.",
     "original": "Seek a été créé à l’origine avec le soutien de \"Notre Planète\", série diffusée sur Netflix et HHMI Tangled Bank Studios.",
     "designed_by": "Conçu et développé par l'équipe d'iNaturalist :",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein et Angie Ta. Nous remercions tout particulièrement Grant Van Horn de Visipedia pour son aide dans le domaine de la technologie de vision par ordinateur, ainsi que la communauté iNaturalist.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta et Sylvain Morin. Nous remercions tout particulièrement Grant Van Horn de Visipedia pour son aide dans le domaine de la technologie de vision par ordinateur, ainsi que la communauté iNaturalist.",
     "version": "Version",
     "help": "Afin d’obtenir de l’aide pour l’utilisation de Seek, merci d’envoyer un courriel à help+seek@inaturalist.org.",
     "translators": "Nous sommes reconnaissants pour l'aide en matière de traduction à la communauté crowdin.com et plus particulièrement à : Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch et Yulia Lygina.",
@@ -976,7 +975,6 @@
     "observations_by_month": "Observations par mois",
     "observations_map": "Carte des observations",
     "view_observations_map": "Voir la carte des observations",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Vous avez publié {{count}} observation sur iNaturalist en utilisant Seek en {{year}}.",
       "two": "Vous avez publié {{count}} observations sur iNaturalist en utilisant Seek en {{year}}.",

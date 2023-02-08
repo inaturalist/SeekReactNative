@@ -228,7 +228,7 @@ const SeekYearInReviewScreen = (): Node => {
         )}
         {login && (
           <>
-            <GreenText text="seek_year_in_review.iNaturalist" />
+            <GreenText noTranslation text={"iNaturalist".toLocaleUpperCase()} />
             <View style={viewStyles.smallDivider} />
             <SubstringStyledText
               text={i18n.t(

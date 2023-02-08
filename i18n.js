@@ -128,6 +128,26 @@ i18n.fallbacks = true;
     return n && n >= 0 && n < 2 && isWhole ? ["one"] : ["other"];
   }
 
+  function oneFewOther( count, locale ) {
+    var n = normalizeCount( count, locale ) || 0;
+    var frac = ( n % 1 );
+
+    if ( frac > 0 ) {
+      n = parseInt( frac.toString( ).split( "." )[1], 2 );
+    }
+
+    var mod10 = n % 10;
+    var mod100 = n % 100;
+
+    if ( mod10 === 1 && mod100 !== 11 ) {
+      return ["one"];
+    }
+    if ( [2, 3, 4].indexOf( mod10 ) >= 0 && ![12, 13, 14].indexOf( mod100 ) >= 0 ) {
+      return ["few"];
+    }
+    return ["other"];
+  }
+
   function other( ) {
     return ["other"];
   }
@@ -177,6 +197,7 @@ i18n.fallbacks = true;
   };
   i18n.pluralization.cs = function ( count ) { return westSlavic( count, "cs" ); };
   i18n.pluralization.fr = function ( count ) { return oneUptoTwoOther( count, "fr" ); };
+  i18n.pluralization.hr = oneFewOther;
   i18n.pluralization.id = other;
   i18n.pluralization.ja = other;
   i18n.pluralization.ko = other;

@@ -161,7 +161,6 @@
     "achievements": "Достижения",
     "challenges": "Испытания",
     "observations": "Мои наблюдения",
-    "inat": "iNaturalist",
     "about": "О программе",
     "settings": "Настройки"
   },
@@ -570,7 +569,7 @@
     "joint_initiative": "iNaturalist - это совместная инициатива Калифорнийской академии наук и общества National Geographic.",
     "original": "Seek первоначально был создан с помощью OurPlanet на Netflix и WWF.",
     "designed_by": "Дизайн и разработка команды iNaturalist:",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein и Angie Ta.  Особая благодарность Grant Van Horn из Visipedia за помощь в области компьютерного видения и сообществу iNaturalist.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta и Sylvain Morin.  Особая благодарность Grant Van Horn из Visipedia за помощь в области компьютерного видения, и сообществу iNaturalist.",
     "version": "Версия",
     "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org.",
     "translators": "Мы благодарны за помощь сообществу в переводе crowdin.com, в частности, Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch и Yulia Lygina.",
@@ -976,7 +975,6 @@
     "observations_by_month": "Наблюдения по месяцам",
     "observations_map": "Карта наблюдений",
     "view_observations_map": "Посмотреть карту наблюдений",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдение iNaturalist",
       "two": "С помощью Seek вы опубликовали в {{year}} году {{count}} наблюдения iNaturalist",

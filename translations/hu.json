@@ -161,7 +161,6 @@
     "achievements": "Eredmények",
     "challenges": "Kihívások",
     "observations": "Felfedezéseim",
-    "inat": "iNaturalist",
     "about": "Rólunk",
     "settings": "Beállítások"
   },
@@ -570,7 +569,7 @@
     "joint_initiative": "Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése.",
     "original": "A Seek a HHMI Tangled Bank Studios, a Netflix Our Planet - Bolygónk Csodái és a WFF támogatásával jött létre.",
     "designed_by": "Tervezte és feljesztette az iNaturalist csapata:",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Verzió",
     "help": "A Seek használatával kapcsolatos segítségért írjon a help+seek@inaturalist.org címre.",
     "translators": "Hálásak vagyunk a honosításban nyújtott segítségért a crowdin.com közösségnek, különösen: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -976,24 +975,23 @@
     "observations_by_month": "Megfigyelések havonta",
     "observations_map": "Megfigyelési térkép",
     "view_observations_map": "Megfigyelési térkép megtekintése",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
-      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+      "one": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",
+      "two": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",
+      "few": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",
+      "many": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben.",
+      "other": "{{count}} megfigyelést küldtél az iNaturalist-ra a Seek segítségével {{year}} évben."
     },
     "uploaded_observations_text_2": "Köszönjük közösségi hozzájárulásodat!",
     "observed_in": "{{speciesName}} megfigyelve itt: {{place}}",
     "observed_on": "{{speciesName}} megfigyelve ekkor: {{date}}",
     "challenges": "Kihívások",
     "x_challenges_earned_text": {
-      "one": "You earned {{count}} challenge badge in {{year}}.",
-      "two": "You earned {{count}} challenge badges in {{year}}.",
-      "few": "You earned {{count}} challenge badges in {{year}}.",
-      "many": "You earned {{count}} challenge badges in {{year}}.",
-      "other": "You earned {{count}} challenge badges in {{year}}."
+      "one": "{{count}} jelvényt szereztél {{year}} évi kihívásokban.",
+      "two": "{{count}} jelvényt szereztél {{year}} évi kihívásokban.",
+      "few": "{{count}} jelvényt szereztél {{year}} évi kihívásokban.",
+      "many": "{{count}} jelvényt szereztél {{year}} évi kihívásokban.",
+      "other": "{{count}} jelvényt szereztél {{year}} évi kihívásokban."
     },
     "thank_you": "Köszönjük, hogy a Seek-et használod! Reméljük ez emlékeztet mindazokra az érdekes fajokra, amelyekkel ebben az évben találkoztál.",
     "consider_donation": "Kis csapatunk nagyra értékeli a Seek iránt érzett szereteted és lelkesedésed. Ha szeretnéd támogatni fejlődésünket, támogasd adományoddal az iNaturalist-ot:",

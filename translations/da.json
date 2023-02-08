@@ -161,7 +161,6 @@
     "achievements": "Præstationer",
     "challenges": "Udfordringer",
     "observations": "Observationer",
-    "inat": "iNaturalist",
     "about": "Om",
     "settings": "Indstillinger"
   },
@@ -570,7 +569,7 @@
     "joint_initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society.",
     "original": "Seek blev oprindeligt til med støtte fra OurPlanet på Netflix og HHMI Tangled Bank Studios.",
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein og Angie Ta. En særlig tak til Grant Van Horn fra Visipedia for hjælp med teknologien til computer-billedgenkendelse og iNaturalist-fællesskabet.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta og Sylvain Morin. En særlig tak til Grant Van Horn fra Visipedia for hjælp med teknologien til computer-billedgenkendelse og til iNaturalist-fællesskabet.",
     "version": "Version",
     "help": "Har du brug for hjælp med Seek, kan du sende en e-mail til help+seek@inaturalist.org.",
     "translators": "Vi er taknemmelige for den oversættelseshjælp, der er ydet af crowdin.com-fællesskabet, især: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch og Yulia Lygina.",
@@ -976,7 +975,6 @@
     "observations_by_month": "Observationer efter måned",
     "observations_map": "Observationskort",
     "view_observations_map": "Se observationer på kort",
-    "iNaturalist": "iNaturalist",
     "x_uploaded_observations_text_1": {
       "one": "Du tilføjede {{count}} observation til iNaturalist ved hjælp af Seek i {{year}}.",
       "two": "Du tilføjede {{count}} observationer til iNaturalist ved hjælp af Seek i {{year}}.",

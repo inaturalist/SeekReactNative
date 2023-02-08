@@ -161,7 +161,6 @@
     "achievements": "ಸಾಧನೆಗಳು",
     "challenges": "ಸವಾಲುಗಳು",
     "observations": "ನನ್ನ ವೀಕ್ಷಣೆಗಳು",
-    "inat": "ಐನ್ಯಾಚುರಲಿಸ್ಟ್",
     "about": "ಕುರಿತು",
     "settings": "ಸಂಯೋಜನೆಗಳು"
   },
@@ -570,7 +569,7 @@
     "joint_initiative": "iNaturalist ಕ್ಯಾಲಿಫೋರ್ನಿಯಾ ಅಕಾಡೆಮಿ ಆಫ್ ಸೈನ್ಸಸ್ ಮತ್ತು ನ್ಯಾಷನಲ್ ಜಿಯೋಗ್ರಾಫಿಕ್ ಸೊಸೈಟಿಯ ಜಂಟಿ ಪ್ರಯತ್ನ.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "iNaturalist ತಂಡದಿಂದ ವಿನ್ಯಾಸ ಹಾಗು ಅಭಿವೃದ್ಧಿಪಡಿಸಲಾಗಿದೆ:",
-    "inat_team_credits_2": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, and Angie Ta. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "ಆವೃತ್ತಿ",
     "help": "Seek ಜೊತೆಗಿನ ಸಹಾಯಕ್ಕಾಗಿ, ದಯವಿಟ್ಟು help+seek@inaturalist.org ಗೆ ಮಿಂಚೆ ಕಳುಹಿಸಿ.",
     "translators": "ಅನುವಾದ ಕಾರ್ಯದಲ್ಲಿ ನೆರವು ನೀಡಿದ crowdin.com ಸಮುದಾಯಕ್ಕೆ ನಾವು ಚಿರಋಣಿಗಳಾಗಿರುತ್ತೇವೆ, ವಿಶೇಷವಾಗಿ : Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, ಮತ್ತು Yulia Lygina ಅವರುಗಳಿಗೆ.",
@@ -976,7 +975,6 @@
     "observations_by_month": "ಮಾಸಿಕ ವೀಕ್ಷಣೆಗಳು",
     "observations_map": "ವೀಕ್ಷಣೆಗಳ ಭೂಪಟ ",
     "view_observations_map": "ವೀಕ್ಷಣೆಗಳ ಭೂಪಟವನ್ನು ವೀಕ್ಷಿಸಿ",
-    "iNaturalist": "ಐನ್ಯಾಚುರಲಿಸ್ಟ್",
     "x_uploaded_observations_text_1": {
       "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

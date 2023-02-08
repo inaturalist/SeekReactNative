@@ -667,7 +667,8 @@
     "some": "some rights reserved"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Send debug logs by email",
+    "copy_logs": "Tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek Camera",

@@ -6,7 +6,7 @@ import Realm from "realm";
 import { FileUpload } from "inaturalistjs";
 
 import realmConfig from "../models/index";
-import { dirPictures, dirDebugLogs } from "./dirStorage";
+import { dirPictures, pathLogs } from "./dirStorage";
 import i18n from "../i18n";
 import { dimensions } from "../styles/global";
 import {
@@ -27,7 +27,7 @@ const writeToDebugLog = ( newLine: string ) => {
     line = `${formatYearMonthDay()} ${formatHourMonthSecond()}: ${newLine}`;
   }
 
-  RNFS.appendFile( dirDebugLogs, `\n${line}` ).then( () => {
+  RNFS.appendFile( pathLogs, `${line}\n` ).then( () => {
     // console.log( result, "result of appending debug log" );
   } ).catch( ( e ) => {
     console.log( e, "error while appending debug log" );
@@ -36,11 +36,11 @@ const writeToDebugLog = ( newLine: string ) => {
 
 const deleteDebugLogAfter7Days = () => {
   if ( Platform.OS === "android" ) {
-    RNFS.stat( dirDebugLogs ).then( ( { ctime } ) => {
+    RNFS.stat( pathLogs ).then( ( { ctime } ) => {
       if ( !isWithin7Days( ctime ) ) {
-        RNFS.unlink( dirDebugLogs )
+        RNFS.unlink( pathLogs )
           .then( () => {
-            console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
+            console.log( "deleted debug logs that were 7 days old", pathLogs );
           } ).catch( ( err ) => {
             console.log( err.message );
           } );

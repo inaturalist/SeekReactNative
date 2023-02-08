@@ -27,10 +27,10 @@ const mockErrorHandler = ( error ) => {
 jest.mock( "react-native-exception-handler", () => ( {
   setJSExceptionHandler: jest
     .fn()
-    .mockImplementation( ( errorHandler ) => mockErrorHandler() ),
+    .mockImplementation( ( ) => mockErrorHandler() ),
   setNativeExceptionHandler: jest
     .fn()
-    .mockImplementation( ( errorHandler ) => mockErrorHandler() )
+    .mockImplementation( ( ) => mockErrorHandler() )
 } ) );
 
 // include this section and the NativeAnimatedHelper section for mocking react-native-reanimated

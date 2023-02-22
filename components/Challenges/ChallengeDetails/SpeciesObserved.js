@@ -21,9 +21,7 @@ const SpeciesObserved = ( { challenge }: Props ): Node => {
       <View style={viewStyles.textContainer}>
         <GreenText text="challenges.species_observed" />
       </View>
-      <View>
-        <SpeciesNearbyList taxa={speciesObserved} observed />
-      </View>
+      <SpeciesNearbyList taxa={speciesObserved} observed />
       <View style={viewStyles.marginSmall} />
     </>
   );

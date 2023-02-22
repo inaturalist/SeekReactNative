@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import { View, Alert, Platform } from "react-native";
+import { View } from "react-native";
 import Mailer from "react-native-mail";
 import { getVersion, getBuildNumber, getSystemName } from "react-native-device-info";
 import RNFS from "react-native-fs";

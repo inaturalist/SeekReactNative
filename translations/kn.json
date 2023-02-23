@@ -666,7 +666,8 @@
     "some": "ಕೆಲವು ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಿದೆ"
   },
   "debug": {
-    "logs": "ಡೀಬಗ್ ಲಾಗ್‍ಗಳನ್ನು ಮಿಂಚೆಯ ಮೂಲಕ ಕಳುಹಿಸಿ"
+    "logs": "ಡೀಬಗ್ ಲಾಗ್‍ಗಳನ್ನು ಮಿಂಚೆಯ ಮೂಲಕ ಕಳುಹಿಸಿ",
+    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek ನ ಕ್ಯಾಮೆರಾ",

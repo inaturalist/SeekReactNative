@@ -666,7 +666,8 @@
     "some": "alguns direitos reservados"
   },
   "debug": {
-    "logs": "Enviar relatórios por email"
+    "logs": "Enviar relatórios por email",
+    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Câmera do Seek",

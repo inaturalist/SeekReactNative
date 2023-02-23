@@ -1,1 +1,1 @@
-plante, dyr, natur, spill, dyreliv, identifiser, lær, vitenskap, AR-bilder, biologi, samling
+plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure

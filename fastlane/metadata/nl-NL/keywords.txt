@@ -1,1 +1,1 @@
-plant, dier, natuur, spel, wild, determinatie, wetenschap,foto's, biologie, verzamelen, avontuur
+plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure

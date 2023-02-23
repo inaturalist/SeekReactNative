@@ -1,1 +1,1 @@
-bitki,hayvan,doğa,oyun,vahşi yaşam,tanımla,öğren,bilim,yürü,fotoğraflar,biyoloji,koleksiyon,macera
+plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure

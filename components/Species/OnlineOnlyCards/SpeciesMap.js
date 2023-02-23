@@ -1,5 +1,5 @@
 // @flow
-import * as React from "react";
+import React, { useState } from "react";
 import { Image } from "react-native";
 import MapView, {
   PROVIDER_DEFAULT,
@@ -25,6 +25,7 @@ const SpeciesMap = ( {
   id,
   seenDate
 }: Props ): React.Node => {
+  const [mapReady, setMapReady] = useState( false );
   const navigation = useNavigation( );
 
   const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
@@ -44,16 +45,24 @@ const SpeciesMap = ( {
         scrollEnabled={false}
         style={styles.map}
         zoomEnabled={false}
+        onLayout={() => setMapReady( true )}
       >
-        <UrlTile
-          tileSize={512}
-          urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
-        />
-        <Marker
-          coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-        >
-          <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
-        </Marker>
+        {mapReady && (
+          <UrlTile
+            tileSize={512}
+            urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
+          />
+        )}
+        {mapReady && (
+          <Marker
+            coordinate={{
+              latitude: region.latitude,
+              longitude: region.longitude
+            }}
+          >
+            <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
+          </Marker>
+        )}
       </MapView>
     );
   };

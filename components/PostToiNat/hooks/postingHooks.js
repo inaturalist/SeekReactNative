@@ -27,10 +27,12 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
 
         const newSuggestions = results.map( ( s ) => {
           return {
-            image: s.defaultPhoto && s.defaultPhoto.medium_url
-              ? s.defaultPhoto.medium_url
-              : null,
-            commonName: capitalizeNames( s.preferred_common_name || s.name ),
+            image:
+              s.defaultPhoto && s.defaultPhoto.medium_url
+                ? s.defaultPhoto.medium_url
+                : null,
+            commonName: s.preferred_common_name
+              && capitalizeNames( s.preferred_common_name ),
             scientificName: s.name,
             id: s.id,
             iconicTaxonId: s.iconic_taxon_id

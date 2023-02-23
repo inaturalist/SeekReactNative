@@ -74,7 +74,6 @@ const HomeScreen = ( ): Node => {
       } else {
         const allUploads = await checkForUploads( );
         const pendingUploads = allUploads.filtered( "photo.uploadSucceeded == false AND photo.uploadFailed == false" ).length;
-        // LOG.info( `number of pending uploads: ${pendingUploads}` );
         if ( pendingUploads > 0 ) {
           setShowUploadCard( true );
           setNumPendingUploads( pendingUploads );

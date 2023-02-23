@@ -1,8 +1,8 @@
 // @flow
 
 import React, { useCallback } from "react";
-import { FlashList } from "@shopify/flash-list";
 import type { Node } from "react";
+import { FlatList } from "react-native";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesNearbyList";
 import SpeciesImageCell from "./SpeciesImageCell";
@@ -36,15 +36,14 @@ const SpeciesNearbyList = ( { taxa, observed }: Props ): Node => {
   }, [observed] );
 
   return (
-    <FlashList
+    <FlatList
       testID="species-nearby-list"
-      estimatedItemSize={130}
       alwaysBounceHorizontal
       bounces={taxa.length > 0}
       contentContainerStyle={taxa.length > 0 && styles.taxonList}
       data={taxa}
       getItemLayout={getItemLayout}
-      getItemType={() => observed ? "observed" : "not-observed" }
+      getItemType={() => ( observed ? "observed" : "not-observed" )}
       horizontal
       initialNumToRender={3}
       keyExtractor={extractKey}

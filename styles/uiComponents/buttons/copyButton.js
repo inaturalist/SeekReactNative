@@ -12,7 +12,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   },
   copiedAnimation: {
     zIndex: 1,
-    alignSelf: "center",
     position: "absolute",
     top: -35
   }

@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.14.7",
+  "version": "2.14.8",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "ios": "react-native run-ios --simulator='iPhone 13'",
     "ios:device": "react-native run-ios --device --configuration Release",
     "start": "react-native start",
-    "clean": "npx react-native clean-project-auto && npx pod-install && watchman watch-del-all && npm start",
+    "clean": "npx react-native clean-project-auto && npx pod-install && npm start",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:flow": "flow check",
@@ -46,6 +46,7 @@
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^10.3.0",
+    "react-native-exception-handler": "^2.10.10",
     "react-native-fs": "^2.18.0",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-geolocation-service": "^5.3.1",
@@ -83,7 +84,7 @@
     "react-native-webview": "^11.26.0",
     "realm": "^11.2.0"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-flow": "^7.14.5",
     "@babel/runtime": "^7.15.4",

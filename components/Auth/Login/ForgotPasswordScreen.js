@@ -67,7 +67,7 @@ const ForgotPasswordScreen = ( ): Node => {
       </View>
       <InputField
         handleTextChange={value => setEmail( value )}
-        placeholder="email"
+        placeholder={i18n.t( "inat_login.email" )}
         text={email}
         type="emailAddress"
       />

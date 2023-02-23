@@ -30,7 +30,6 @@ const CopyButton = ( { stringToCopy, children, handleHighlight }: Props ): Node 
   return (
     <Pressable
       onPress={copyToClipboard}
-      // disabled={disabled}
       style={viewStyles.pressableArea}
     >
       {( { pressed } ) => (
@@ -41,7 +40,7 @@ const CopyButton = ( { stringToCopy, children, handleHighlight }: Props ): Node 
               styles={viewStyles.copiedAnimation}
               toastText={i18n.t( "species_detail.copied" )}
               finishAnimation={finishAnimation}
-              rectangleColor={colors.seekTeal}
+              rectangleColor={colors.seekGreen}
             />
           )}
           {children}

@@ -35,7 +35,10 @@ const SpeciesCard = ( {
   return (
     <TouchableOpacity
       onPress={handlePress}
-      style={[!handlePress ? viewStyles.notTouchable : viewStyles.touchableArea, viewStyles.row]}
+      style={[
+        !handlePress ? viewStyles.notTouchable : viewStyles.touchableArea,
+        viewStyles.row
+      ]}
       disabled={!handlePress}
     >
       {iconicTaxonId ? (
@@ -46,15 +49,38 @@ const SpeciesCard = ( {
         >
           <Image source={photo} style={viewStyles.image} />
         </ImageBackground>
-      ) : <Image source={photo} style={viewStyles.image} />}
+      ) : (
+        <Image source={photo} style={viewStyles.image} />
+      )}
       <View style={viewStyles.speciesNameContainer}>
-        <StyledText allowFontScaling={allowFontScaling} style={textStyles.commonNameText}>
-          {( preferredCommonName || name )
-            ? preferredCommonName || name
-            : i18n.t( "posting.unknown" )}
-        </StyledText>
+        {!preferredCommonName && !name && (
+          <StyledText
+            allowFontScaling={allowFontScaling}
+            style={textStyles.commonNameText}
+          >
+            {i18n.t( "posting.unknown" )}
+          </StyledText>
+        )}
+        {preferredCommonName ? (
+          <StyledText
+            allowFontScaling={allowFontScaling}
+            style={textStyles.commonNameText}
+          >
+            {preferredCommonName}
+          </StyledText>
+        ) : (
+          <StyledText
+            allowFontScaling={allowFontScaling}
+            style={textStyles.scientificNameHeaderText}
+          >
+            {name}
+          </StyledText>
+        )}
         {name && (
-          <StyledText allowFontScaling={allowFontScaling} style={textStyles.scientificNameText}>
+          <StyledText
+            allowFontScaling={allowFontScaling}
+            style={textStyles.scientificNameText}
+          >
             {name}
           </StyledText>
         )}

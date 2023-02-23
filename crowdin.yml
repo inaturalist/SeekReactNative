@@ -14,15 +14,15 @@ files:
   - source: /fastlane/metadata/android/en/title.txt
     translation: /fastlane/metadata/android/%two_letters_code%/title.txt
     update_option: update_as_unapproved
-  - source: /fastlane/metadata/en/description.txt
+  - source: /fastlane/metadata/en-US/description.txt
     translation: /fastlane/metadata/%locale%/description.txt
     update_option: update_as_unapproved
-  - source: /fastlane/metadata/en/keywords.txt
+  - source: /fastlane/metadata/en-US/keywords.txt
     translation: /fastlane/metadata/%locale%/keywords.txt
     update_option: update_as_unapproved
-  - source: /fastlane/metadata/en/name.txt
+  - source: /fastlane/metadata/en-US/name.txt
     translation: /fastlane/metadata/%locale%/name.txt
     update_option: update_as_unapproved
-  - source: /fastlane/metadata/en/subtitle.txt
+  - source: /fastlane/metadata/en-US/subtitle.txt
     translation: /fastlane/metadata/%locale%/subtitle.txt
     update_option: update_as_unapproved

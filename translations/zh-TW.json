@@ -666,7 +666,8 @@
     "some": "保留部分權利"
   },
   "debug": {
-    "logs": "以電子郵件傳送除錯日誌"
+    "logs": "以電子郵件傳送除錯日誌",
+    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek 相機",

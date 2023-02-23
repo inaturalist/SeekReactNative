@@ -20,4 +20,4 @@ Seek will ask permission to turn on location services, but your location is obsc
 
 Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
 
-Το Seek δημιουργήθηκε από την ομάδα του iNaturalist. Το iNaturalist είναι μια κοινή πρωτοβουλία της Ακαδημίας Επιστημών της Καλιφόρνια και του National Geographic Society. Το Seek δημιουργήθηκε αρχικά με υποστήριξη από τα HHMI Tangled Bank Studios και εμπλουτίστηκε με υποστήριξη από το Our Planet στο Netflix και την WWF.
+Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.

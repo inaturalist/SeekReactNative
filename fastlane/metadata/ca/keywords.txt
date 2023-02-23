@@ -1,1 +1,1 @@
-plantes, animals, natura, jocs, vida silvestre, identificar, aprendre, ciència, passeig, AR fotos
+plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure

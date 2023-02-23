@@ -666,7 +666,8 @@
     "some": "සමහර හිමිකම් ඇවිරිණි"
   },
   "debug": {
-    "logs": "දෝශ නිරාකරණ ලොග් විද්‍යුත් තැපෑලෙන් යවන්න"
+    "logs": "දෝශ නිරාකරණ ලොග් විද්‍යුත් තැපෑලෙන් යවන්න",
+    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek Camera",

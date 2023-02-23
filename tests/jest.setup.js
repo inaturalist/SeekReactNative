@@ -21,6 +21,18 @@ jest.mock( "react-native-fs", () => {
   return RNFS;
 } );
 
+const mockErrorHandler = ( error ) => {
+  console.log( error );
+};
+jest.mock( "react-native-exception-handler", () => ( {
+  setJSExceptionHandler: jest
+    .fn()
+    .mockImplementation( ( ) => mockErrorHandler() ),
+  setNativeExceptionHandler: jest
+    .fn()
+    .mockImplementation( ( ) => mockErrorHandler() )
+} ) );
+
 // include this section and the NativeAnimatedHelper section for mocking react-native-reanimated
 jest.mock( "react-native-reanimated", () => {
   const Reanimated = require( "react-native-reanimated/mock" );

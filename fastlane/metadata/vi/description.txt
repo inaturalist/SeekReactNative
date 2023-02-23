@@ -1,4 +1,4 @@
-Sử dụng sức mạnh của công nghệ nhận dạng hình ảnh để nhận biết các loài thực vật và động vật xung quanh bạn. Earn badges for seeing different types of plants, birds, fungi and more!
+Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
 
 • Get outside and point the Seek Camera at living things
 • Identify wildlife, plants, and fungi and learn about the organisms all around you

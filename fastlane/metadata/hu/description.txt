@@ -1,23 +1,23 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+Határozz meg növényeket és állatokat a környezetedben, automatikus képfelismeréssel. A különféle növények, állatok és gombák megfigyeléséért jelvényeket kaphatsz!
 
-• Get outside and point the Seek Camera at living things
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
-• Earn badges for observing different types of species and participating in challenges
+• Menj ki a természetbe és fényképezz élőlényeket a Seek Kamerával
+• Határozz meg vadállatokat, vadnövényeket, gombákat és egyéb élőlényeket, és ismerd meg jobban környezeted élővilágát
+• Szerezz jelvényeket különféle fajok megfigyeléséért és kihívásokban való részvételért.
 
-OPEN THE CAMERA AND START SEEKING!
+NYISD MEG A KAMERÁT ÉS KEZDD EL A FELFEDEZÉST!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Egy gombát, vadvirágot vagy bogarat találtál és nem tudod, mi az pontosan? A Seek Kamera segít az azonosításban!
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Az iNaturalist milliónyi megfigyelésére alapozva a Seek megmutatja a környezeted leggyakoribb állat- és növényfajait. Pásztázd végig a környezeted a Seek Kamerával, és azonosítsd be az élőlényeket az élet fája segítségével. Figyelj meg különféle fajokat, és ezalatt tanulj róluk! Minél több megfigyelésed lesz, annál több jelvényt kaphatsz.
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
+Ez egy remek alkalmazás azoknak a családoknak, akik több időt szeretnének együtt a természetben tölteni, és lényegében bárkinek, aki többet szeretne megtudni a környezete élővilágáról.
 
-KID-SAFE
+GYEREKBIZTOS
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+Nincs szükség regisztrációra és alapértelmezetten nem gyűjt felhasználói adatokat. Felhasználó adatok csak abban az esetben tárolódnak, ha úgy döntesz, hogy az iNaturalist-fiókkal lépsz be, de ehhez legalább 13 évesnek kell lenned, vagy szüleidtől engedélyt kell kérned.
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+A Seek ezentúl engedélyt fog kérni a helyzetmeghatározáshoz, amely alapján a környezeted élőlényei beazonosíthatók. A helyzeted viszont ki lesz takarva, mivel hiszünk az adatvédelem fontosságában. A pontos helyzeted nem menti az alkalmazás és azt nem küldi tovább az iNaturalist felé, kivéve ha bejelentkezel az iNaturalist-fiókoddal és beküldöd a megfigyelésedet.
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+Az automatikus képfelismerés az iNaturalist.org-hoz és a partneroldalakhoz feltöltött megfigyeléseken alapszik, és az iNaturalist felhasználói közössége is részt vesz az azonosításban.
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+A Seek alkalmazást az iNaturalist csapata feljesztette. Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése. A Seek eredetileg az HHMI Tangled Bank Studios, a Netflix Our Planet - Bolygónk Csodái és a WFF támogatásával jött létre.

@@ -1,1 +1,1 @@
-plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure
+ಗಿಡಮರ,ಪ್ರಾಣಿ,ಪರಿಸರ,ಆಟ,ವನ್ಯಜೀವಿ,ಗುರುತಿಸಿ,ತಿಳಿಯಿರಿ,ವಿಜ್ಞಾನ,AR ಚಿತ್ರಗಳು,ಜೀವಶಾಸ್ತ್ರ,ಸಾಹಸ

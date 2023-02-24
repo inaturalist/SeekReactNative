@@ -1,1 +1,1 @@
-plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure
+рослини,тварини,природа,ігра,дикий світ,визначити,вчити,наука,AR фото,біологія,колекція,пригода

@@ -1,4 +1,4 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+استخدم قوة تقنية التعرف على الصور في تحديد النباتات و الحيوانات من حولك. Earn badges for seeing different types of plants, birds, fungi and more!
 
 • Get outside and point the Seek Camera at living things
 • Identify wildlife, plants, and fungi and learn about the organisms all around you
@@ -6,18 +6,21 @@ Use the power of image recognition technology to identify the plants and animals
 
 OPEN THE CAMERA AND START SEEKING!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Found a mushroom, flower, or bug, and not sure what it is? افتح كاميرا Seek لمعرفة ذلك!
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+بالاعتماد على ملايين الملاحظات حول الحياة البرية في iNaturalist، يعرض لك Seek قوائم مسجلة من الحشرات، الطيور، النباتات والبرمائيات والمزيد في منطقتك. تصفح البيئة باستخدام كاميرا Seek للتعرف على الكائنات الحية ضمن شجرة الحياة. أضف أنواعًا مختلفة لملاحظاتك وتعرف عليهم أكثر! كلما زادت الشارات التي ستربحها!
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
 
-KID-SAFE
+التطبيق الأمثل للعائلات التي تود قضاءً وقت أكثر في اكتشاف الطبيعة معًا، ولكل شخص يودّ التعرف أكثر على الحياة المحيطة به.
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+سلامة الأطفال
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+لا يتطلب تطبيق Seek التسجيل ولا يجمع أي بيانات تخص المستخدم وذلك بشكل افتراضي. بعض بيانات المستخدم سيتم جمعها إذا إخترت تسجيل الدخول عن طريق حساب Naturalist، لكن يجب أن يكون عمرك يتعدى 13 سنة أو أن يكون لديك إذن من طرف والديك للقيام ذلك.
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+سيطلب تطبيق Seek الإذن بتفعيل خدمات الموقع، لكن موقعك سيكون محجوبًا وذلك لاحترام خصوصيتك بينما لا تزال تسمح باقتراح الأنواع من منطقتك العامة. موقعك الدقيق لا يتم تخزينه أبدًا في التطبيق أو إرساله إلى iNaturalist إلا إذا كنت سجلت الدخول عن طريق حساب iNaturalist وإرسال ملاحظاتك.
+
+
+تعتمد تقنبة التعرف على الصور الخاصة بنا على الملاخظات المقدمة إلى iNaturalist.org والمواقع المشتركة، ويتم التعرف عليها عن طريق مجتمع iNaturalist.
+
+تم إنشاء Seek من طرف فريق iNaturalist. و iNaturalist هي مبادرة مشتركة بين أكاديمية كاليفورنيا للعلوم والجمعية الجغرافية الوطنية. وقد تم إنشاء Seek في الأصل بدعم من HHMI Tangled Bank Studios وتم تعزيزه في برنامج Our Planet على منصة Netflix وكذلك WWF.

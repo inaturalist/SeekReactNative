@@ -1,23 +1,23 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+Använd bildigenkänningsteknikens kraft för att bestämma växter och djur omkring dig. Förtjäna utmärkelser för att ha sett olika typer av växter, fåglar, svampar och annat!
 
-• Get outside and point the Seek Camera at living things
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
-• Earn badges for observing different types of species and participating in challenges
+• Ge dig ut och rikta Seek-kameran mot levande ting
+• Bestäm vilda djur, växter och svampar och lär dig om organismerna runt omkring dig
+• Förtjäna utmärkelser genom att observera olika typer av arter och delta i utmaningar
 
-OPEN THE CAMERA AND START SEEKING!
+ÖPPNA KAMERAN OCH BÖRJA SÖKA!
 
-Found a mushroom, flower, or bug, and not sure what it is? Open up the Seek Camera to see if it knows!
+Hittade du en svamp, blomma eller ett kryp som du inte vet vad det är? Öppna Seek-kameran för att se om den vet!
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Utifrån miljontals naturfynd på iNaturalist, kan Seek visa dig listor över ofta påträffade insekter, fåglar, växter, groddjur och annat där du är. Kolla runt med Seek-kameran för att artbestämma organismer från livets träd. Lägg olika arter till dina fynd och lär dig allt om dem under tiden! Ju fler fynd du gör, desto fler utmärkelser kommer du att förtjäna!
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
+Det här är en bra app för familjer som vill tillbringa mer tid tillsammans och samtidigt utforska naturen, och för alla som vill lära sig mer om livet omkring dem.
 
-KID-SAFE
+BARNSÄKER
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+Seek kräver inte registrering och samlar som standard inte in några användardata. Vissa användaruppgifter sparas om du väljer att logga in med ett iNaturalist-konto, men du måste vara över 13 år eller ha dina föräldrars tillåtelse att göra det.
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+Seek kommer att be om behörighet att aktivera platstjänster, men för att respektera din integritet döljs din plats samtidigt som förslag på arter i din omgivning tillåts. Din exakta position lagras aldrig i appen och skickas inte till iNaturalist såvida du inte loggar in på ditt iNaturalist-konto och laddar upp dina fynd.
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+Vår bildigenkänningsteknik bygger på fynd som skickats in till iNaturalist.org och samarbetspartners, och bestämts av iNaturalist-communityn.
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+Seek skapas av iNaturalist-teamet. iNaturalist är ett gemensamt initiativ av California Academy of Sciences och National Geographic Society. Seek gjordes ursprungligen med stöd från HHMI Tangled Bank Studios och förbättrades med stöd från Our Planet på Netflix och WWF.

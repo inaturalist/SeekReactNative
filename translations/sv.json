@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Skicka felsökningsloggar via e-post",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Gick det inte att skicka mejl? Tryck då här för att kopiera innehållet i felsökningsloggen till urklipp. Klistra sedan in det i ett mejl och skicka till help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek-kameran",

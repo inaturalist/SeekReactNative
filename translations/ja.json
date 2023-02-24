@@ -731,7 +731,7 @@
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
-    "scavenger": "Scavenger Challenge",
+    "scavenger": "「腐肉食動物」チャレンジ",
     "mission_1_oct_2020": "Find 4 fungi",
     "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
     "mission_3_oct_2020": "Find 1 Mollusk",
@@ -857,7 +857,7 @@
     "logged_in_bullet_3": "Your Seek observations are NOT backed up to iNaturalist. Deleting Seek will delete all the observations on your device.",
     "upload_and_track_obs_using_inat": "Upload and keep track of your observations using the iNaturalist app or visiting inaturalist.org.\n\nThanks for being part of this community!",
     "x_seen_by_user": "{{speciesName}}：{{user}}さんが観察",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "iNaturalistにログインしていますが、詳細を表示するためにインターネットに接続する必要があります。タップしてやり直してください。"
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Arthropod Predator Challenge",

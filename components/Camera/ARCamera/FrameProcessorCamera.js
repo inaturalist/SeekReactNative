@@ -5,7 +5,11 @@ import { StyleSheet } from "react-native";
 import {
     Camera,
     useCameraDevices,
+    useFrameProcessor
 } from "react-native-vision-camera";
+import * as REA from "react-native-reanimated";
+
+import { inatVision } from "./INatVisionFrameProcessPlugin";
 
 import type { Node } from "react";
 
@@ -13,6 +17,11 @@ const FrameProcessorCamera = ( props ): Node => {
   const devices = useCameraDevices();
   const device = devices.back;
 
+  const frameProcessor = useFrameProcessor( ( frame ) => {
+    "worklet";
+    const results = inatVision( frame, props.modelPath, props.taxonomyPath );
+    REA.runOnJS( props.onTaxaDetected )( results );
+  }, [] );
 
   return (
     device && (
@@ -22,6 +31,7 @@ const FrameProcessorCamera = ( props ): Node => {
         photo={true}
         device={device}
         isActive={true}
+        frameProcessor={frameProcessor}
       />
     )
   );

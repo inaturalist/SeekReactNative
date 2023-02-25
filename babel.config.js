@@ -13,7 +13,13 @@ module.exports = ( api ) => {
         }
       }
     ],
-    "react-native-reanimated/plugin" // Reanimated 2 plugin has to be listed last https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/
+    [
+      "react-native-reanimated/plugin",
+      {
+        globals: ["__inatVision"]
+      }
+    ]
+    // Reanimated 2 plugin has to be listed last https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/
   ];
   const productionPlugins = ["transform-remove-console"].concat( plugins );
 

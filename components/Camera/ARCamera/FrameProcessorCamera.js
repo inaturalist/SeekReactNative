@@ -9,7 +9,7 @@ import {
 } from "react-native-vision-camera";
 import * as REA from "react-native-reanimated";
 
-import { inatVision } from "./INatVisionFrameProcessPlugin";
+import { inatVision } from "vision-camera-plugin-inatvision";
 
 import type { Node } from "react";
 

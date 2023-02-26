@@ -11,7 +11,6 @@ import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
-import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -21,6 +20,8 @@ import com.facebook.soloader.SoLoader;
 import org.inaturalist.seek.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -36,7 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
       // Packages that cannot be autolinked yet can be added manually here, for example:
-        packages.add( new INatCameraViewPackage() );
+      packages.add( new INatCameraViewPackage() );
       return packages;
     }
 

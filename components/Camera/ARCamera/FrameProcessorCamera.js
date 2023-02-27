@@ -22,6 +22,11 @@ const FrameProcessorCamera = ( props ): Node => {
     // Reminder: this is a worklet, running on the UI thread.
     const results = inatVision( frame, props.modelPath, props.taxonomyPath );
     REA.runOnJS( props.onTaxaDetected )( results );
+
+    // Other props that should be handled here:
+    // onCameraError = { handleCameraError };
+    // onClassifierError = { handleClassifierError };
+    // onDeviceNotSupported = { handleDeviceNotSupported };
   }, [] );
 
   return (

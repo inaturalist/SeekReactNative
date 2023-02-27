@@ -19,6 +19,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const frameProcessor = useFrameProcessor( ( frame ) => {
     "worklet";
+    // Reminder: this is a worklet, running on the UI thread.
     const results = inatVision( frame, props.modelPath, props.taxonomyPath );
     REA.runOnJS( props.onTaxaDetected )( results );
   }, [] );

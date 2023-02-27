@@ -189,9 +189,35 @@ const ARCamera = ( ): Node => {
   };
 
   const handleTaxaDetected = ( event ) => {
-    const predictions = { ...event.nativeEvent };
+    let predictions = { ...event.nativeEvent };
 
-    if ( pictureTaken ) { return; }
+    /*
+      Using FrameProcessorCamera results in this as predictions atm on Android
+      [
+        {"stateofmatter": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]},
+        {"order": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]},
+        {"species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]}
+      ]
+
+      Previously, we were using the INatCamera, which returned this:
+      {
+        "stateofmatter": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}],
+        "order": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}],
+        "species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]
+      }
+    */
+    if ( useVisionCamera ) {
+      const transformedResults = {};
+      event.forEach( ( result ) => {
+        const rankString = Object.keys( result )[0];
+        transformedResults[rankString] = result[rankString];
+      } );
+      predictions = transformedResults;
+    }
+
+    if ( pictureTaken ) {
+      return;
+    }
 
     if ( predictions && !cameraLoaded ) {
       dispatch( { type: "CAMERA_LOADED" } );
@@ -200,15 +226,19 @@ const ARCamera = ( ): Node => {
     let predictionSet = false;
 
     // don't bother with trying to set predictions if a species timeout is in place
-    if ( speciesTimeoutSet ) { return; }
+    if ( speciesTimeoutSet ) {
+      return;
+    }
 
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
       // skip this block if a prediction state has already been set
-      if ( predictionSet ) { return; }
+      if ( predictionSet ) {
+        return;
+      }
       if ( predictions[rank] ) {
         if ( predictions[rank] === "species" ) {
-          pauseOnSpecies( );
+          pauseOnSpecies();
         }
         predictionSet = true;
         const prediction = predictions[rank][0];
@@ -217,7 +247,7 @@ const ARCamera = ( ): Node => {
         dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
       }
       if ( !predictionSet ) {
-        resetPredictions( );
+        resetPredictions();
       }
     } );
   };

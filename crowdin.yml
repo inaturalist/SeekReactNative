@@ -18,39 +18,39 @@ files:
     translation: /fastlane/metadata/%locale%/description.txt
     update_option: update_as_unapproved
     excluded_target_languages:
-      - af-ZA
-      - bg-BG
-      - eu-ES
-      - kk-KZ
-      - kn-IN
-      - si-LK
+      - af
+      - bg
+      - eu
+      - kk
+      - kn
+      - si
   - source: /fastlane/metadata/en-US/keywords.txt
     translation: /fastlane/metadata/%locale%/keywords.txt
     update_option: update_as_unapproved
     excluded_target_languages:
-      - af-ZA
-      - bg-BG
-      - eu-ES
-      - kk-KZ
-      - kn-IN
-      - si-LK
+      - af
+      - bg
+      - eu
+      - kk
+      - kn
+      - si
   - source: /fastlane/metadata/en-US/name.txt
     translation: /fastlane/metadata/%locale%/name.txt
     update_option: update_as_unapproved
     excluded_target_languages:
-      - af-ZA
-      - bg-BG
-      - eu-ES
-      - kk-KZ
-      - kn-IN
-      - si-LK
+      - af
+      - bg
+      - eu
+      - kk
+      - kn
+      - si
   - source: /fastlane/metadata/en-US/subtitle.txt
     translation: /fastlane/metadata/%locale%/subtitle.txt
     update_option: update_as_unapproved
     excluded_target_languages:
-      - af-ZA
-      - bg-BG
-      - eu-ES
-      - kk-KZ
-      - kn-IN
-      - si-LK
+      - af
+      - bg
+      - eu
+      - kk
+      - kn
+      - si

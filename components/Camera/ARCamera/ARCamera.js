@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
-import { INatCamera } from "react-native-inat-camera";
+import { INatCamera as LegacyCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
@@ -41,7 +41,9 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
+import FrameProcessorCamera from "./FrameProcessorCamera";
 
+const useVisionCamera = Platform.OS === "android";
 
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
@@ -376,25 +378,48 @@ const ARCamera = ( ): Node => {
     return null;
   }
 
-  const renderCamera = ( ) => (
-    <INatCamera
-      ref={camera}
-      confidenceThreshold={confidenceThreshold}
-      modelPath={dirModel}
-      onCameraError={handleCameraError}
-      onCameraPermissionMissing={handleCameraPermissionMissing}
-      onClassifierError={handleClassifierError}
-      onDeviceNotSupported={handleDeviceNotSupported}
-      onTaxaDetected={handleTaxaDetected}
-      onLog={handleLog}
-      style={[viewStyles.camera, cameraStyle]}
-      taxaDetectionInterval={taxaDetectionInterval}
-      taxonomyPath={dirTaxonomy}
-      filterByTaxonId={taxonId}
-      negativeFilter={negativeFilter}
-      type={cameraType}
-    />
-  );
+  const renderCamera = () => {
+    if ( useVisionCamera ) {
+      return (
+        <FrameProcessorCamera
+          modelPath={dirModel}
+          taxonomyPath={dirTaxonomy}
+          cameraRef={camera}
+          confidenceThreshold={confidenceThreshold}
+          onCameraError={handleCameraError}
+          onCameraPermissionMissing={handleCameraPermissionMissing}
+          onClassifierError={handleClassifierError}
+          onDeviceNotSupported={handleDeviceNotSupported}
+          onTaxaDetected={handleTaxaDetected}
+          onLog={handleLog}
+          style={[viewStyles.camera, cameraStyle]}
+          taxaDetectionInterval={taxaDetectionInterval}
+          filterByTaxonId={taxonId}
+          negativeFilter={negativeFilter}
+          type={cameraType}
+        />
+      );
+    }
+    return (
+      <LegacyCamera
+        modelPath={dirModel}
+        taxonomyPath={dirTaxonomy}
+        ref={camera}
+        confidenceThreshold={confidenceThreshold}
+        onCameraError={handleCameraError}
+        onCameraPermissionMissing={handleCameraPermissionMissing}
+        onClassifierError={handleClassifierError}
+        onDeviceNotSupported={handleDeviceNotSupported}
+        onTaxaDetected={handleTaxaDetected}
+        onLog={handleLog}
+        style={[viewStyles.camera, cameraStyle]}
+        taxaDetectionInterval={taxaDetectionInterval}
+        filterByTaxonId={taxonId}
+        negativeFilter={negativeFilter}
+        type={cameraType}
+      />
+    );
+  };
 
   return (
     <View style={viewStyles.container}>

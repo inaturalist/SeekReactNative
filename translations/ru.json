@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Отправить журнал отладки по электронной почте",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Отправка письма не удалась? Нажмите здесь, чтобы скопировать содержимое логов отладки в буфер обмена. Вставьте его в электронное письмо и отправьте по адресу help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Камера Seek",

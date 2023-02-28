@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Hata ayıklamalarını e-postayla gönder",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "E-posta gönderme işlemi başarılı olmadı mı? O zaman hata ayıklama günlüklerinin içeriğini panoya kopyalamak için buraya dokun. Ardından e-postaya yapıştır ve help+seek@inaturalist.org adresine gönder."
   },
   "shortcut": {
     "seek_camera": "Seek Kamerası",

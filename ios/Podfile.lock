@@ -487,6 +487,8 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
+  - VisionCameraPluginInatVision (0.1.0):
+    - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -586,6 +588,7 @@ DEPENDENCIES:
   - RNStoreReview (from `../node_modules/react-native-store-review`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
+  - VisionCameraPluginInatVision (from `../node_modules/vision-camera-plugin-inatvision`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -748,6 +751,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   VisionCamera:
     :path: "../node_modules/react-native-vision-camera"
+  VisionCameraPluginInatVision:
+    :path: "../node_modules/vision-camera-plugin-inatvision"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -838,6 +843,7 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   VisionCamera: e9a95af10e00aaebe99d648ff4519fd336e16ffe
+  VisionCameraPluginInatVision: 79bb258db75218889c74d0897ecba676492c4def
   Yoga: d6133108734e69e8c0becc6ba587294b94829687
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

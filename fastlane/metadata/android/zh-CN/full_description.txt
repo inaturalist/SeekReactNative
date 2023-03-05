@@ -11,16 +11,16 @@
 
 发现了一个蘑菇、花或昆虫，不知道它是什么？ 打开Seek的相机来看看它认不认识吧！
 
-Seek将会结合iNaturalist上数百万个物种观察记录，为您列出您所在地区常见的昆虫、鸟类、植物、两栖动物及其他生物。 使用Seek的相机功能扫描周围并借助物种进化树来鉴定物种。 Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Seek将会结合iNaturalist上数百万个物种观察记录，为您列出您所在地区常见的昆虫、鸟类、植物、两栖动物及其他生物。 使用Seek的相机功能扫描周围并借助物种进化树来鉴定物种。 在您的观察中添加不同的物种，并在过程中了解所有关于这些物种的信息！ 您的观察越多，您将获得的徽章就越多！
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
+对于想要花更多时间一起探索自然的家庭，或任何想要更多地了解他们周围生活的人来说，这是一个很好的应用程序。
 
-KID-SAFE
+对于孩子安全
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+Seek不需要注册，并且在默认情况下不收集任何用户数据。 如果您选择使用 iNaturalist 帐户登录，一些用户数据将被收集。 但您必须超过 13岁或获得您的家长的许可。
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+Seek将请求权限以开启位置服务。 但您的位置被遮蔽，以尊重您的隐私，同时仍然能够提供您所在大致地区域的物种信息。 除非您登录到您的 iNaturalist 帐户并提交您的观察报告，否则您的准确位置不会存储在应用中，或被发送至 iNaturalist 。
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+我们的图像识别技术基于提交到 iNaturalist.org 和合作伙伴网站的观察，并由 iNaturalist 社区认定。
 
-Seek is created by the iNaturalist team. iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+Seek是由 iNaturalist 团队创建的。 iNaturalist 由加利福尼亚科学院与美国国家地理学会共同创办 Seek最初是在HHMI Tangled Bank Studios的支持下创建的，并在我们的Netflix星球和世界自然基金会的支持下得到加强。

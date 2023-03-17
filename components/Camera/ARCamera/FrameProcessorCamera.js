@@ -39,6 +39,7 @@ const FrameProcessorCamera = ( props ): Node => {
         device={device}
         isActive={true}
         frameProcessor={frameProcessor}
+        frameProcessorFps={1}
       />
     )
   );

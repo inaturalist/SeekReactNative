@@ -23,6 +23,9 @@ const FrameProcessorCamera = ( props ): Node => {
   const singleTapToFocusAnimation = useRef( new Animated.Value( 0 ) ).current;
 
   const singleTapToFocus = async ( { x, y } ) => {
+    if ( !device.supportsFocus ) {
+      return;
+    }
     try {
       singleTapToFocusAnimation.setValue( 1 );
       setTappedCoordinates( { x, y } );

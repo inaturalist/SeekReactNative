@@ -1,7 +1,7 @@
 // @flow
 
-import React, { useRef, useState } from "react";
-import { Animated, StyleSheet, View } from "react-native";
+import React, { useCallback, useRef, useState } from "react";
+import { Animated, StyleSheet } from "react-native";
 import {
     Camera,
     useCameraDevices,
@@ -63,6 +63,10 @@ const FrameProcessorCamera = ( props ): Node => {
     // onDeviceNotSupported = { handleDeviceNotSupported };
   }, [] );
 
+  const onError = useCallback( ( error: CameraRuntimeError ) => {
+    console.error( error );
+  }, [] );
+
   return (
     device && (
       <>
@@ -76,6 +80,7 @@ const FrameProcessorCamera = ( props ): Node => {
             isActive={true}
             frameProcessor={frameProcessor}
             frameProcessorFps={1}
+            onError={onError}
           />
         </GestureDetector>
         <FocusSquare

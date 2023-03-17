@@ -1,7 +1,7 @@
 // @flow
 
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useRef, useState } from "react";
+import { Animated, StyleSheet, View } from "react-native";
 import {
     Camera,
     useCameraDevices,
@@ -11,14 +11,21 @@ import * as REA from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { inatVision } from "vision-camera-plugin-inatvision";
 
+import FocusSquare from "./FocusSquare";
+
 import type { Node } from "react";
 
 const FrameProcessorCamera = ( props ): Node => {
   const devices = useCameraDevices();
   const device = devices.back;
 
+  const [tappedCoordinates, setTappedCoordinates] = useState( null );
+  const singleTapToFocusAnimation = useRef( new Animated.Value( 0 ) ).current;
+
   const singleTapToFocus = async ( { x, y } ) => {
     try {
+      singleTapToFocusAnimation.setValue( 1 );
+      setTappedCoordinates( { x, y } );
       await props.cameraRef.current.focus( { x, y } );
     } catch ( e ) {
       // Android often catches the following error from the Camera X library
@@ -55,16 +62,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   return (
     device && (
-      <Camera
-        ref={props.cameraRef}
-        style={styles.camera}
-        enableZoomGesture
-        photo={true}
-        device={device}
-        isActive={true}
-        frameProcessor={frameProcessor}
-        frameProcessorFps={1}
-      />
+      <>
         <GestureDetector gesture={Gesture.Exclusive( singleTap )}>
           <Camera
             ref={props.cameraRef}
@@ -77,6 +75,11 @@ const FrameProcessorCamera = ( props ): Node => {
             frameProcessorFps={1}
           />
         </GestureDetector>
+        <FocusSquare
+          singleTapToFocusAnimation={singleTapToFocusAnimation}
+          tappedCoordinates={tappedCoordinates}
+        />
+      </>
     )
   );
 };

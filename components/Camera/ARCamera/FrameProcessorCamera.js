@@ -34,6 +34,7 @@ const FrameProcessorCamera = ( props ): Node => {
       <Camera
         ref={props.cameraRef}
         style={styles.camera}
+        enableZoomGesture
         photo={true}
         device={device}
         isActive={true}

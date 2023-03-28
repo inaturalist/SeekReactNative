@@ -1,4 +1,4 @@
-画像認識AIを使って、身近な植物や動物の名前を学ぼう。 Earn badges for seeing different types of plants, birds, fungi and more!
+画像認識AIを使って、身近な植物や動物の名前を学ぼう。 さまざまな種類の植物、鳥、菌類などを観察してバッジを獲得しよう!
 
 •　外に出て、生き物にSeekカメラを向けよう
 • Identify wildlife, plants, and fungi and learn about the organisms all around you

@@ -1,7 +1,7 @@
 画像認識AIを使って、身近な植物や動物の名前を学ぼう。 さまざまな種類の植物、鳥、菌類などを観察してバッジを獲得しよう!
 
 •　外に出て、生き物にSeekカメラを向けよう
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
+・ 野生生物、植物、菌類を同定して、周囲にいる生物について詳しく学ぶ
 • Earn badges for observing different types of species and participating in challenges
 
 「シーク」を始めよう！
@@ -20,4 +20,4 @@ Seek（シーク）は位置情報の利用の許可を求めますが、ユー�
 
 私たちの画像認識AIはiNaturalistや他のパートナーサイトに投稿された観察に基づいており、投稿された観察データはiNaturalistのコミュニティによって鑑定されています。
 
-SeekはiNaturalistのチームによって作られています。 iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+SeekはiNaturalistのチームによって作られています。 iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seekは元々HHMI Tangled Bank Studiosのサポートを受けて作成され、Netflix、WWFのOur Planet(私たちの地球)によるサポートで強化されました。

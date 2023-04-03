@@ -1,6 +1,6 @@
 /* Localized versions of Info.plist keys */
 /* Permissions */
-"NSCameraUsageDescription" = "我们通过手机相机，让您可以通过照片识别生物。";
+"NSCameraUsageDescription" = "我们使用摄像头让您能够通过照片来鉴别自然生物。";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "我们使用您的位置来推荐附近的植物和动物。";
 "NSLocationAlwaysUsageDescription" = "我们使用您的位置来推荐附近可见的植物和动物。";
 "NSLocationWhenInUseUsageDescription" = "我们使用您的位置来向您建议附近可能被找到的植物和动物。";

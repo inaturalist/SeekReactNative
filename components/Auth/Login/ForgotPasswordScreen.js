@@ -25,7 +25,7 @@ const ForgotPasswordScreen = ( ): Node => {
 
   const emailForgotPassword = ( ) => {
 
-    const params = { user: { email }, authenticity_token: token };
+    const params = { user: { email } };
 
     const headers = {
       "Content-Type": "application/json",

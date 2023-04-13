@@ -25,12 +25,11 @@ const ForgotPasswordScreen = ( ): Node => {
 
   const emailForgotPassword = ( ) => {
 
-    const params = { user: { email } };
+    const params = { user: { email }, authenticity_token: token };
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent( ),
-      "Authorization": token
+      "User-Agent": createUserAgent( )
     };
 
     const site = "https://www.inaturalist.org";

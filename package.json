@@ -6,7 +6,7 @@
   "scripts": {
     "android": "react-native run-android",
     "android:device": "react-native run-android --variant release",
-    "ios": "react-native run-ios --simulator='iPhone 13'",
+    "ios": "react-native run-ios --simulator='iPhone 14'",
     "ios:device": "react-native run-ios --device --configuration Release",
     "start": "react-native start",
     "clean": "npx react-native clean-project-auto && npx pod-install && npm start",
@@ -42,7 +42,7 @@
     "i18n-js": "^3.9.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "react": "18.1.0",
-    "react-native": "^0.70.6",
+    "react-native": "0.70.8",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^10.3.0",

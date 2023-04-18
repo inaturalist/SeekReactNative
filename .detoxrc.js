@@ -25,7 +25,7 @@ module.exports = {
     simulator: {
       type: 'ios.simulator',
       device: {
-        type: 'iPhone 13'
+        type: 'iPhone 14'
       }
     }
   },

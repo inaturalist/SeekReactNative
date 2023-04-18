@@ -14,6 +14,8 @@ import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
 
 import java.util.List;
 
+import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =

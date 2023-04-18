@@ -80,9 +80,11 @@
     "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.3.0",
     "react-native-uuid-generator": "^6.1.1",
+    "react-native-vision-camera": "^2.15.4",
     "react-native-webp-format": "^1.1.2",
     "react-native-webview": "^11.26.0",
-    "realm": "^11.8.0"
+    "realm": "^11.8.0",
+    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

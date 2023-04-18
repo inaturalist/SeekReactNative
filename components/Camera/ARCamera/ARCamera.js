@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
-import { INatCamera } from "react-native-inat-camera";
+import { INatCamera as LegacyCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 
 import i18n from "../../../i18n";
@@ -41,7 +41,9 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
+import FrameProcessorCamera from "./FrameProcessorCamera";
 
+const useVisionCamera = Platform.OS === "android";
 
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
@@ -187,9 +189,35 @@ const ARCamera = ( ): Node => {
   };
 
   const handleTaxaDetected = ( event ) => {
-    const predictions = { ...event.nativeEvent };
+    let predictions = { ...event.nativeEvent };
 
-    if ( pictureTaken ) { return; }
+    /*
+      Using FrameProcessorCamera results in this as predictions atm on Android
+      [
+        {"stateofmatter": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]},
+        {"order": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]},
+        {"species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]}
+      ]
+
+      Previously, we were using the INatCamera, which returned this:
+      {
+        "stateofmatter": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}],
+        "order": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}],
+        "species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]
+      }
+    */
+    if ( useVisionCamera ) {
+      const transformedResults = {};
+      event.forEach( ( result ) => {
+        const rankString = Object.keys( result )[0];
+        transformedResults[rankString] = result[rankString];
+      } );
+      predictions = transformedResults;
+    }
+
+    if ( pictureTaken ) {
+      return;
+    }
 
     if ( predictions && !cameraLoaded ) {
       dispatch( { type: "CAMERA_LOADED" } );
@@ -198,24 +226,27 @@ const ARCamera = ( ): Node => {
     let predictionSet = false;
 
     // don't bother with trying to set predictions if a species timeout is in place
-    if ( speciesTimeoutSet ) { return; }
+    if ( speciesTimeoutSet ) {
+      return;
+    }
 
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
       // skip this block if a prediction state has already been set
-      if ( predictionSet ) { return; }
+      if ( predictionSet ) {
+        return;
+      }
       if ( predictions[rank] ) {
         if ( predictions[rank] === "species" ) {
-          pauseOnSpecies( );
+          pauseOnSpecies();
         }
         predictionSet = true;
         const prediction = predictions[rank][0];
-
         //$FlowFixMe
         dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
       }
       if ( !predictionSet ) {
-        resetPredictions( );
+        resetPredictions();
       }
     } );
   };
@@ -291,14 +322,36 @@ const ARCamera = ( ): Node => {
       }
     } else if ( Platform.OS === "android" ) {
       if ( camera.current ) {
-        camera.current.takePictureAsync( {
-          pauseAfterCapture: true
-        } ).then( ( photo ) => {
-          requestAndroidSavePermissions( photo );
-        } ).catch( e => updateError( "take", e ) );
+        if ( useVisionCamera ) {
+          camera.current
+            .takePhoto()
+            .then( ( photo ) => {
+              // Photo:
+              // photo {"height": 2268, "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg", "width": 4032}
+              // TODO: I don'tknow if these two lines are correctly used here
+              photo.deviceOrientation = photo?.metadata?.Orientation || 0;
+              photo.pictureOrientation = photo?.metadata?.Orientation || 0;
+              // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
+              photo.predictions = ranks[Object.keys( ranks )[0]];
+              photo.uri = photo.path;
+              requestAndroidSavePermissions( photo );
+            } )
+            .catch( ( e ) => updateError( "take", e ) );
+        } else {
+          camera.current
+            .takePictureAsync( {
+              pauseAfterCapture: true
+            } )
+            .then( ( photo ) => {
+              // Photo:
+              // photo {"deviceOrientation": 0, "height": 3024, "pictureOrientation": 0, "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}], "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg", "width": 4032}
+              requestAndroidSavePermissions( photo );
+            } )
+            .catch( ( e ) => updateError( "take", e ) );
+        }
       }
     }
-  }, [savePhoto, updateError, requestAndroidSavePermissions] );
+  }, [savePhoto, updateError, requestAndroidSavePermissions, ranks] );
 
   const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 
@@ -376,25 +429,48 @@ const ARCamera = ( ): Node => {
     return null;
   }
 
-  const renderCamera = ( ) => (
-    <INatCamera
-      ref={camera}
-      confidenceThreshold={confidenceThreshold}
-      modelPath={dirModel}
-      onCameraError={handleCameraError}
-      onCameraPermissionMissing={handleCameraPermissionMissing}
-      onClassifierError={handleClassifierError}
-      onDeviceNotSupported={handleDeviceNotSupported}
-      onTaxaDetected={handleTaxaDetected}
-      onLog={handleLog}
-      style={[viewStyles.camera, cameraStyle]}
-      taxaDetectionInterval={taxaDetectionInterval}
-      taxonomyPath={dirTaxonomy}
-      filterByTaxonId={taxonId}
-      negativeFilter={negativeFilter}
-      type={cameraType}
-    />
-  );
+  const renderCamera = () => {
+    if ( useVisionCamera ) {
+      return (
+        <FrameProcessorCamera
+          modelPath={dirModel}
+          taxonomyPath={dirTaxonomy}
+          cameraRef={camera}
+          confidenceThreshold={confidenceThreshold}
+          onCameraError={handleCameraError}
+          onCameraPermissionMissing={handleCameraPermissionMissing}
+          onClassifierError={handleClassifierError}
+          onDeviceNotSupported={handleDeviceNotSupported}
+          onTaxaDetected={handleTaxaDetected}
+          onLog={handleLog}
+          style={[viewStyles.camera, cameraStyle]}
+          taxaDetectionInterval={taxaDetectionInterval}
+          filterByTaxonId={taxonId}
+          negativeFilter={negativeFilter}
+          type={cameraType}
+        />
+      );
+    }
+    return (
+      <LegacyCamera
+        modelPath={dirModel}
+        taxonomyPath={dirTaxonomy}
+        ref={camera}
+        confidenceThreshold={confidenceThreshold}
+        onCameraError={handleCameraError}
+        onCameraPermissionMissing={handleCameraPermissionMissing}
+        onClassifierError={handleClassifierError}
+        onDeviceNotSupported={handleDeviceNotSupported}
+        onTaxaDetected={handleTaxaDetected}
+        onLog={handleLog}
+        style={[viewStyles.camera, cameraStyle]}
+        taxaDetectionInterval={taxaDetectionInterval}
+        filterByTaxonId={taxonId}
+        negativeFilter={negativeFilter}
+        type={cameraType}
+      />
+    );
+  };
 
   return (
     <View style={viewStyles.container}>

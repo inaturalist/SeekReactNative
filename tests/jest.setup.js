@@ -112,6 +112,12 @@ jest.mock( "realm", () => {
         resolve( {
           objects: jest.fn( ( table ) => {
             switch ( table ) {
+              case "BadgeRealm":
+                return {
+                  filtered: jest.fn( () => {
+                    return new Array( 0 );
+                  } )
+                };
               case "LoginRealm":
                 return [{ observationCount: 42 }];
               case "NotificationRealm":

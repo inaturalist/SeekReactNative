@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.inaturalist.seek">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
       This seems to be necessary for Chromebook users without camera hardware to be able to even install Seek

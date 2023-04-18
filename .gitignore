@@ -72,7 +72,8 @@ yarn-error.log
 # config
 config.js
 taxonomy_data.csv
-taxonomy.csv
+# e.g. taxonomy.csv
+**/assets/**/*.csv
 small_export_tax.csv
 *.tflite
 taxonomy.json

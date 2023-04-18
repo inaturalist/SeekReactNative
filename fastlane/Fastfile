@@ -23,7 +23,7 @@ ANDROID_CAMERA_PATH = File.join( "..", "android", "app", "src", "main", "assets"
 IOS_CAMERA_PATH = File.join( "..", "ios" )
 
 def android_taxonomy_present?
-  path = File.join( ANDROID_CAMERA_PATH, "taxonomy.csv" )
+  path = File.join( ANDROID_CAMERA_PATH, "taxonomy_2_1.csv" )
   unless File.exist?( path )
     UI.abort_with_message! "Android production taxonomy file is missing at #{path}"
   end
@@ -37,7 +37,7 @@ def ios_taxonomy_present?
 end
 
 def android_model_present?
-  path = File.join( ANDROID_CAMERA_PATH, "optimized_model.tflite" )
+  path = File.join( ANDROID_CAMERA_PATH, "optimized_model_2_1.tflite" )
   unless File.exist?( path )
     UI.abort_with_message! "Android production vision model file is missing at #{path}"
   end

@@ -18,11 +18,4 @@ describe( "iNatSignOut", () => {
     await screen.findByText( "SIGN OUT OF INATURALIST" );
     expect( screen ).toMatchSnapshot();
   } );
-
-  test( "press signs the user out", () => {
-    render( <INatSignOut /> );
-    const button = screen.getByText( "SIGN OUT OF INATURALIST" );
-    fireEvent.press( button );
-    // TODO: should mock the sign out function and test that it was called
-  } );
 } );

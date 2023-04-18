@@ -1,0 +1,18 @@
+diff --git a/node_modules/react-native-inat-camera/android/build.gradle b/node_modules/react-native-inat-camera/android/build.gradle
+index 7048131..8dcab51 100644
+--- a/node_modules/react-native-inat-camera/android/build.gradle
++++ b/node_modules/react-native-inat-camera/android/build.gradle
+@@ -1,11 +1,11 @@
+ apply plugin: 'com.android.library'
+ 
+ android {
+-    compileSdkVersion 28
++    compileSdkVersion 31
+ 
+     defaultConfig {
+         minSdkVersion 23
+-        targetSdkVersion 28
++        targetSdkVersion 31
+         versionCode 1
+         versionName "1.0"
+ 

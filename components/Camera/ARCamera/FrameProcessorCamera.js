@@ -65,7 +65,6 @@ const FrameProcessorCamera = ( props ): Node => {
     // onDeviceNotSupported={handleDeviceNotSupported}
     // onLog={handleLog}
     // style={[viewStyles.camera, cameraStyle]}
-    // taxaDetectionInterval={taxaDetectionInterval}
     // filterByTaxonId={taxonId}
     // negativeFilter={negativeFilter}
     // type={cameraType}
@@ -90,6 +89,8 @@ const FrameProcessorCamera = ( props ): Node => {
             device={device}
             isActive={true}
             frameProcessor={frameProcessor}
+            // A value of 1 indicates that the frame processor gets executed once per second.
+            // This equals the setting of the legacy camera of 1000ms between predictions (taxaDetectionInterval).
             frameProcessorFps={1}
             onError={onError}
           />

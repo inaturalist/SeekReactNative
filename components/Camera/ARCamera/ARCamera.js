@@ -443,7 +443,7 @@ const ARCamera = ( ): Node => {
           onDeviceNotSupported={handleDeviceNotSupported}
           onTaxaDetected={handleTaxaDetected}
           onLog={handleLog}
-          taxaDetectionInterval={taxaDetectionInterval}
+          // taxaDetectionInterval is set directly on the camera component with frameProcessorFps
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}
           type={cameraType}

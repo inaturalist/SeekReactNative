@@ -57,10 +57,21 @@ const FrameProcessorCamera = ( props ): Node => {
     const results = inatVision( frame, props.modelPath, props.taxonomyPath );
     REA.runOnJS( props.onTaxaDetected )( results );
 
-    // Other props that should be handled here:
-    // onCameraError = { handleCameraError };
-    // onClassifierError = { handleClassifierError };
-    // onDeviceNotSupported = { handleDeviceNotSupported };
+    // Other props that have to be handled here:
+    // confidenceThreshold={confidenceThreshold}
+    // onCameraError={handleCameraError}
+    // onCameraPermissionMissing={handleCameraPermissionMissing}
+    // onClassifierError={handleClassifierError}
+    // onDeviceNotSupported={handleDeviceNotSupported}
+    // onLog={handleLog}
+    // style={[viewStyles.camera, cameraStyle]}
+    // taxaDetectionInterval={taxaDetectionInterval}
+    // filterByTaxonId={taxonId}
+    // negativeFilter={negativeFilter}
+    // type={cameraType}
+
+    // Also needs to handle what this was used for in the legacy camera:
+    // ref={camera}
   }, [] );
 
   const onError = useCallback( ( error: CameraRuntimeError ) => {

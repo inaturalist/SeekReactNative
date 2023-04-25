@@ -443,7 +443,6 @@ const ARCamera = ( ): Node => {
           onDeviceNotSupported={handleDeviceNotSupported}
           onTaxaDetected={handleTaxaDetected}
           onLog={handleLog}
-          style={[viewStyles.camera, cameraStyle]}
           taxaDetectionInterval={taxaDetectionInterval}
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}

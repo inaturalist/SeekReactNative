@@ -16,6 +16,16 @@ import FocusSquare from "./FocusSquare";
 import type { Node } from "react";
 
 const FrameProcessorCamera = ( props ): Node => {
+  const {
+    cameraRef,
+    modelPath,
+    taxonomyPath,
+    confidenceThreshold,
+    filterByTaxonId,
+    negativeFilter,
+    onTaxaDetected
+  } = props;
+
   const devices = useCameraDevices();
   const device = devices.back;
 
@@ -51,23 +61,39 @@ const FrameProcessorCamera = ( props ): Node => {
       singleTapToFocus( e );
     } );
 
-  const frameProcessor = useFrameProcessor( ( frame ) => {
-    "worklet";
-    // Reminder: this is a worklet, running on the UI thread.
-    const results = inatVision( frame, props.modelPath, props.taxonomyPath, props.confidenceThreshold, props.filterByTaxonId, props.negativeFilter );
-    REA.runOnJS( props.onTaxaDetected )( results );
+  const frameProcessor = useFrameProcessor(
+    ( frame ) => {
+      "worklet";
+      // Reminder: this is a worklet, running on the UI thread.
+      console.log( "filterByTaxonId", filterByTaxonId );
+      console.log( "filterByTaxonId type", typeof filterByTaxonId );
+      const results = inatVision(
+        frame,
+        modelPath,
+        taxonomyPath,
+        confidenceThreshold,
+        filterByTaxonId,
+        negativeFilter
+      );
+      REA.runOnJS( onTaxaDetected )( results );
 
-    // Other props that have to be handled here:
-    // onCameraError={handleCameraError}
-    // onCameraPermissionMissing={handleCameraPermissionMissing}
-    // onClassifierError={handleClassifierError}
-    // onDeviceNotSupported={handleDeviceNotSupported}
-    // onLog={handleLog}
-    // type={cameraType}
+      // Wrap with try catch to handle errors
 
-    // Also needs to handle what this was used for in the legacy camera:
-    // ref={camera}
-  }, [] );
+      // Other props that have to be handled here:
+      // onCameraError={handleCameraError}
+      // onCameraPermissionMissing={handleCameraPermissionMissing}
+      // onClassifierError={handleClassifierError}
+      // onDeviceNotSupported={handleDeviceNotSupported}
+      // onLog={handleLog}
+
+      // Also needs to handle this but only in JS
+      // type={cameraType} = "back" or "front"
+
+      // Also needs to handle what this was used for in the legacy camera:
+      // ref={camera}
+    },
+    [confidenceThreshold, filterByTaxonId, negativeFilter]
+  );
 
   const onError = useCallback( ( error: CameraRuntimeError ) => {
     console.error( error );
@@ -78,7 +104,7 @@ const FrameProcessorCamera = ( props ): Node => {
       <>
         <GestureDetector gesture={Gesture.Exclusive( singleTap )}>
           <Camera
-            ref={props.cameraRef}
+            ref={cameraRef}
             style={styles.camera}
             enableZoomGesture
             photo={true}
@@ -86,7 +112,7 @@ const FrameProcessorCamera = ( props ): Node => {
             isActive={true}
             frameProcessor={frameProcessor}
             // A value of 1 indicates that the frame processor gets executed once per second.
-            // This equals the setting of the legacy camera of 1000ms between predictions (taxaDetectionInterval).
+            // This roughly equals the setting of the legacy camera of 1000ms between predictions (taxaDetectionInterval).
             frameProcessorFps={1}
             onError={onError}
           />

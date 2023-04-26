@@ -54,7 +54,7 @@ const FrameProcessorCamera = ( props ): Node => {
   const frameProcessor = useFrameProcessor( ( frame ) => {
     "worklet";
     // Reminder: this is a worklet, running on the UI thread.
-    const results = inatVision( frame, props.modelPath, props.taxonomyPath, props.confidenceThreshold, props.filterByTaxonId );
+    const results = inatVision( frame, props.modelPath, props.taxonomyPath, props.confidenceThreshold, props.filterByTaxonId, props.negativeFilter );
     REA.runOnJS( props.onTaxaDetected )( results );
 
     // Other props that have to be handled here:
@@ -63,7 +63,6 @@ const FrameProcessorCamera = ( props ): Node => {
     // onClassifierError={handleClassifierError}
     // onDeviceNotSupported={handleDeviceNotSupported}
     // onLog={handleLog}
-    // negativeFilter={negativeFilter}
     // type={cameraType}
 
     // Also needs to handle what this was used for in the legacy camera:

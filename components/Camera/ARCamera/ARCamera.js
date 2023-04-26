@@ -414,7 +414,9 @@ const ARCamera = ( ): Node => {
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );
 
-  const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
+  const confidenceThresholdNumber = 0.7;
+  const confidenceThresholdString = "0.7";
+  const confidenceThreshold = Platform.OS === "ios" ? confidenceThresholdNumber : confidenceThresholdString;
   const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
 
   const cameraStyle = {
@@ -436,7 +438,7 @@ const ARCamera = ( ): Node => {
           modelPath={dirModel}
           taxonomyPath={dirTaxonomy}
           cameraRef={camera}
-          confidenceThreshold={confidenceThreshold}
+          confidenceThreshold={confidenceThresholdString}
           onCameraError={handleCameraError}
           onCameraPermissionMissing={handleCameraPermissionMissing}
           onClassifierError={handleClassifierError}

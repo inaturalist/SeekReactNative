@@ -27,7 +27,11 @@ const FrameProcessorCamera = ( props ): Node => {
   } = props;
 
   const devices = useCameraDevices();
-  const device = devices.back;
+  let device = devices.back;
+  // If there is no back camera, use the front camera
+  if ( !device ) {
+    device = devices.front;
+  }
 
   const [tappedCoordinates, setTappedCoordinates] = useState( null );
   const singleTapToFocusAnimation = useRef( new Animated.Value( 0 ) ).current;
@@ -85,9 +89,6 @@ const FrameProcessorCamera = ( props ): Node => {
       // onClassifierError={handleClassifierError}
       // onDeviceNotSupported={handleDeviceNotSupported}
       // onLog={handleLog}
-
-      // Also needs to handle this but only in JS
-      // type={cameraType} = "back" or "front"
 
       // Also needs to handle what this was used for in the legacy camera:
       // ref={camera}

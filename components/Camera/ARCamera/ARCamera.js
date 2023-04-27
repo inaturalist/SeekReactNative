@@ -448,7 +448,7 @@ const ARCamera = ( ): Node => {
           // taxaDetectionInterval is set directly on the camera component with frameProcessorFps
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}
-          type={cameraType}
+          // type is replaced with logic in FrameProcessorCamera
         />
       );
     }

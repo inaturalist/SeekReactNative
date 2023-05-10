@@ -43,7 +43,7 @@
     "i18n-js": "^3.9.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "react": "18.2.0",
-    "react-native": "0.71.8",
+    "react-native": "0.71.6",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^10.3.0",

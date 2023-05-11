@@ -23,9 +23,11 @@ const FrameProcessorCamera = ( props ): Node => {
     confidenceThreshold,
     filterByTaxonId,
     negativeFilter,
-    onTaxaDetected
+    onTaxaDetected,
+    onCameraError
   } = props;
 
+  const [focusAvailable, setFocusAvailable] = useState( true );
   const devices = useCameraDevices();
   let device = devices.back;
   // If there is no back camera, use the front camera
@@ -62,7 +64,7 @@ const FrameProcessorCamera = ( props ): Node => {
     .maxDuration( 250 )
     .numberOfTaps( 1 )
     .onStart( ( e ) => {
-      singleTapToFocus( e );
+      focusAvailable ? singleTapToFocus( e ) : null;
     } );
 
   const frameProcessor = useFrameProcessor(
@@ -95,9 +97,23 @@ const FrameProcessorCamera = ( props ): Node => {
     [confidenceThreshold, filterByTaxonId, negativeFilter]
   );
 
-  const onError = useCallback( ( error: CameraRuntimeError ) => {
-    console.error( error );
-  }, [] );
+  const onError = useCallback(
+    ( error: CameraRuntimeError ) => {
+      // If there is no error code, log the error and return because we don't know what to do with it
+      if ( !error.code ) {
+        console.log( "Camera runtime error without error code:" );
+        console.log( "error", error );
+        return;
+      }
+
+      // If the error code is "device/focus-not-supported" disable focus
+      if ( error.code === "device/focus-not-supported" ) {
+        setFocusAvailable( false );
+        return;
+      }
+    },
+    [onCameraError]
+  );
 
   return (
     device && (

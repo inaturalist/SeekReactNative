@@ -24,7 +24,9 @@ const FrameProcessorCamera = ( props ): Node => {
     filterByTaxonId,
     negativeFilter,
     onTaxaDetected,
-    onCameraError
+    onCameraError,
+    onDeviceNotSupported,
+    onClassifierError
   } = props;
 
   const [focusAvailable, setFocusAvailable] = useState( true );
@@ -86,13 +88,17 @@ const FrameProcessorCamera = ( props ): Node => {
       // Wrap with try catch to handle errors
 
       // Other props that have to be handled here:
-      // onCameraError={handleCameraError}
-      // onClassifierError={handleClassifierError}
-      // onDeviceNotSupported={handleDeviceNotSupported}
       // onLog={handleLog}
 
       // Also needs to handle what this was used for in the legacy camera:
       // ref={camera}
+
+
+      // Already partly handled below in onError
+      // Communication with parent component is already implemented
+      // onCameraError={handleCameraError}
+      // onClassifierError={handleClassifierError}
+      // onDeviceNotSupported={handleDeviceNotSupported}
     },
     [confidenceThreshold, filterByTaxonId, negativeFilter]
   );
@@ -111,8 +117,40 @@ const FrameProcessorCamera = ( props ): Node => {
         setFocusAvailable( false );
         return;
       }
+      // If it is any other "device/" error, return the error code
+      if ( error.code.includes( "device/" ) ) {
+        // returnString = "device";
+        // TODO: check that error.code is the correct string to return
+        const returnReason: { nativeEvent: { reason?: string } } = {
+          nativeEvent: { reason: error.code }
+        };
+        onDeviceNotSupported( returnReason );
+        return;
+      }
+
+      // If the error code is "frame-processor/unavailable" handle the error as classifier error
+      if ( error.code === "frame-processor/unavailable" ) {
+        const returnError: { nativeEvent: { error?: string } } = {
+          nativeEvent: { error: error.code }
+        };
+        onClassifierError( returnError );
+        return;
+      }
+
+      // If the error code is "permission/" return the legacy code for permission errors
+      if ( error.code.includes( "permission/" ) ) {
+        // This string is returned from the legacy camera when the user has not granted the needed permissions
+        const permissions =
+          "Camera Input Failed: This app is not authorized to use Back Camera.";
+        returnString = permissions;
+      }
+
+      const returnError: { nativeEvent: { error?: string } } = {
+        nativeEvent: { error: returnString }
+      };
+      onCameraError( returnError );
     },
-    [onCameraError]
+    [onCameraError, onDeviceNotSupported, onClassifierError]
   );
 
   return (

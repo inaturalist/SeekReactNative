@@ -440,7 +440,7 @@ const ARCamera = ( ): Node => {
           cameraRef={camera}
           confidenceThreshold={confidenceThresholdString}
           onCameraError={handleCameraError}
-          onCameraPermissionMissing={handleCameraPermissionMissing}
+          // onCameraPermissionMissing was an empty callback
           onClassifierError={handleClassifierError}
           onDeviceNotSupported={handleDeviceNotSupported}
           onTaxaDetected={handleTaxaDetected}

@@ -85,7 +85,6 @@ const FrameProcessorCamera = ( props ): Node => {
 
       // Other props that have to be handled here:
       // onCameraError={handleCameraError}
-      // onCameraPermissionMissing={handleCameraPermissionMissing}
       // onClassifierError={handleClassifierError}
       // onDeviceNotSupported={handleDeviceNotSupported}
       // onLog={handleLog}

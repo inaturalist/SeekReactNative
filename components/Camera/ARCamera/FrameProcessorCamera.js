@@ -75,15 +75,23 @@ const FrameProcessorCamera = ( props ): Node => {
       // Reminder: this is a worklet, running on the UI thread.
       console.log( "filterByTaxonId", filterByTaxonId );
       console.log( "filterByTaxonId type", typeof filterByTaxonId );
-      const results = inatVision(
-        frame,
-        modelPath,
-        taxonomyPath,
-        confidenceThreshold,
-        filterByTaxonId,
-        negativeFilter
-      );
-      REA.runOnJS( onTaxaDetected )( results );
+      try {
+        const results = inatVision(
+          frame,
+          modelPath,
+          taxonomyPath,
+          confidenceThreshold,
+          filterByTaxonId,
+          negativeFilter
+        );
+        REA.runOnJS( onTaxaDetected )( results );
+      } catch ( classifierError ) {
+        const returnError = {
+          nativeEvent: { error: classifierError.message }
+        };
+        onClassifierError( returnError );
+      }
+
 
       // Wrap with try catch to handle errors
 

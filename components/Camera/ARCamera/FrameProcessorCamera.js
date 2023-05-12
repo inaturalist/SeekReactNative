@@ -109,19 +109,10 @@ const FrameProcessorCamera = ( props ): Node => {
         };
         REA.runOnJS( onClassifierError )( returnError );
       }
-
-
-      // Other props that have to be handled here:
-
-      // Also needs to handle what this was used for in the legacy camera:
-      // ref={camera}
-
-
-      // Already partly handled below in onError
-      // Communication with parent component is already implemented
-      // onCameraError={handleCameraError}
-      // onClassifierError={handleClassifierError}
-      // onDeviceNotSupported={handleDeviceNotSupported}
+      // ref={camera} was only used for takePictureAsync()
+      // Johannes: I did a read though of the native code that is triggered when using ref.current.takePictureAsync()
+      // and to me it seems everything should be handled by vision-camera itself. However, there is also some Exif and device orientation stuff going on.
+      // related code that would need to be tested if it all is saved as expected.
     },
     [confidenceThreshold, filterByTaxonId, negativeFilter]
   );

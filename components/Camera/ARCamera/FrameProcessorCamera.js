@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import { Animated, StyleSheet } from "react-native";
 import {
     Camera,
@@ -9,7 +9,7 @@ import {
 } from "react-native-vision-camera";
 import * as REA from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import { inatVision } from "vision-camera-plugin-inatvision";
+import * as InatVision from "vision-camera-plugin-inatvision";
 
 import FocusSquare from "./FocusSquare";
 
@@ -26,7 +26,8 @@ const FrameProcessorCamera = ( props ): Node => {
     onTaxaDetected,
     onCameraError,
     onDeviceNotSupported,
-    onClassifierError
+    onClassifierError,
+    onLog
   } = props;
 
   const [focusAvailable, setFocusAvailable] = useState( true );
@@ -36,6 +37,21 @@ const FrameProcessorCamera = ( props ): Node => {
   if ( !device ) {
     device = devices.front;
   }
+
+  useEffect( () => {
+    InatVision.addLogListener( ( event ) => {
+      // The vision-plugin events are in this format { log: "string" }
+      // The ARCamera component expects events in this format { nativeEvent: { log: "string" } }
+      const returnEvent = {
+        nativeEvent: event
+      };
+      onLog( returnEvent );
+    } );
+
+    return () => {
+      InatVision.removeLogListener();
+    };
+  }, [onLog] );
 
   const [tappedCoordinates, setTappedCoordinates] = useState( null );
   const singleTapToFocusAnimation = useRef( new Animated.Value( 0 ) ).current;
@@ -73,10 +89,8 @@ const FrameProcessorCamera = ( props ): Node => {
     ( frame ) => {
       "worklet";
       // Reminder: this is a worklet, running on the UI thread.
-      console.log( "filterByTaxonId", filterByTaxonId );
-      console.log( "filterByTaxonId type", typeof filterByTaxonId );
       try {
-        const results = inatVision(
+        const results = InatVision.inatVision(
           frame,
           modelPath,
           taxonomyPath,
@@ -93,10 +107,7 @@ const FrameProcessorCamera = ( props ): Node => {
       }
 
 
-      // Wrap with try catch to handle errors
-
       // Other props that have to be handled here:
-      // onLog={handleLog}
 
       // Also needs to handle what this was used for in the legacy camera:
       // ref={camera}

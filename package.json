@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "android:device": "react-native run-android --mode release",
+    "android:release": "react-native run-android --mode release",
     "ios": "react-native run-ios --simulator='iPhone 14 Plus'",
-    "ios:device": "react-native run-ios --device --configuration Release",
+    "ios:device": "react-native run-ios --device --mode Release",
     "start": "react-native start",
     "clean-start": "npx react-native clean-project-auto && npx pod-install && npm start -- --reset-cache",
     "lint": "npm run lint:eslint",

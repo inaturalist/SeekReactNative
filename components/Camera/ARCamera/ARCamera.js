@@ -287,6 +287,14 @@ const ARCamera = ( ): Node => {
     }
   };
 
+  const handleCaptureError = useCallback( ( event: { nativeEvent?: { error: string } } ) => {
+    if ( event.nativeEvent && event.nativeEvent.reason ) {
+      updateError( "take", event.nativeEvent.reason );
+    } else {
+      updateError( "take" );
+    }
+  }, [updateError] );
+
   const requestAndroidSavePermissions = useCallback( ( photo ) => {
     const checkPermissions = async ( ) => {
       const result = await checkSavePermissions( );
@@ -336,7 +344,7 @@ const ARCamera = ( ): Node => {
               photo.uri = photo.path;
               requestAndroidSavePermissions( photo );
             } )
-            .catch( ( e ) => updateError( "take", e ) );
+            .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
         } else {
           camera.current
             .takePictureAsync( {
@@ -347,11 +355,11 @@ const ARCamera = ( ): Node => {
               // photo {"deviceOrientation": 0, "height": 3024, "pictureOrientation": 0, "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}], "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg", "width": 4032}
               requestAndroidSavePermissions( photo );
             } )
-            .catch( ( e ) => updateError( "take", e ) );
+            .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
         }
       }
     }
-  }, [savePhoto, updateError, requestAndroidSavePermissions, ranks] );
+  }, [savePhoto, updateError, requestAndroidSavePermissions, ranks, handleCaptureError] );
 
   const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 

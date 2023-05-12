@@ -100,10 +100,13 @@ const FrameProcessorCamera = ( props ): Node => {
         );
         REA.runOnJS( onTaxaDetected )( results );
       } catch ( classifierError ) {
+        // TODO: needs to throw Exception in the native code for it to work here?
+        // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
+        console.log( `Error: ${classifierError.message}` );
         const returnError = {
           nativeEvent: { error: classifierError.message }
         };
-        onClassifierError( returnError );
+        REA.runOnJS( onClassifierError )( returnError );
       }
 
 
@@ -124,6 +127,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const onError = useCallback(
     ( error: CameraRuntimeError ) => {
+      let returnString = error.code;
       // If there is no error code, log the error and return because we don't know what to do with it
       if ( !error.code ) {
         console.log( "Camera runtime error without error code:" );

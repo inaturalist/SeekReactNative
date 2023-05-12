@@ -27,6 +27,7 @@ const FrameProcessorCamera = ( props ): Node => {
     onCameraError,
     onDeviceNotSupported,
     onClassifierError,
+    onCaptureError,
     onLog
   } = props;
 
@@ -142,12 +143,18 @@ const FrameProcessorCamera = ( props ): Node => {
       }
       // If it is any other "device/" error, return the error code
       if ( error.code.includes( "device/" ) ) {
-        // returnString = "device";
-        // TODO: check that error.code is the correct string to return
         const returnReason: { nativeEvent: { reason?: string } } = {
           nativeEvent: { reason: error.code }
         };
         onDeviceNotSupported( returnReason );
+        return;
+      }
+
+      if ( error.code.includes( "capture/" ) ) {
+        const returnError: { nativeEvent: { error?: string } } = {
+          nativeEvent: { reason: error.code }
+        };
+        onCaptureError( returnError );
         return;
       }
 
@@ -173,7 +180,7 @@ const FrameProcessorCamera = ( props ): Node => {
       };
       onCameraError( returnError );
     },
-    [onCameraError, onDeviceNotSupported, onClassifierError]
+    [onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
   );
 
   return (

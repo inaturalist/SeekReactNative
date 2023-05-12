@@ -332,6 +332,7 @@ const ARCamera = ( ): Node => {
       if ( camera.current ) {
         if ( useVisionCamera ) {
           camera.current
+            // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera because of perfromance issues, but probably not needed with VisionCamera
             .takePhoto()
             .then( ( photo ) => {
               // Photo:

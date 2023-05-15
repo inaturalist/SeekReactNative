@@ -31,6 +31,9 @@ const FrameProcessorCamera = ( props ): Node => {
     onLog
   } = props;
 
+  // Currently, we are asking for camera permission on focus of the screen, that results in one render
+  // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
+  const [permissionCount, setPermissionCount] = useState( 0 );
   const [focusAvailable, setFocusAvailable] = useState( true );
   const devices = useCameraDevices();
   let device = devices.back;
@@ -119,6 +122,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const onError = useCallback(
     ( error: CameraRuntimeError ) => {
+      console.log( "error", error );
       let returnString = error.code;
       // If there is no error code, log the error and return because we don't know what to do with it
       if ( !error.code ) {
@@ -160,6 +164,15 @@ const FrameProcessorCamera = ( props ): Node => {
 
       // If the error code is "permission/" return the legacy code for permission errors
       if ( error.code.includes( "permission/" ) ) {
+        if ( error.code === "permission/camera-permission-denied" ) {
+          // Currently, we are asking for camera permission on focus of the screen, that results in one render
+          // of the camera before permission is granted. If the permission is denied, this error happens twice,
+          // so we are ignoring the first one.
+          if ( permissionCount === 0 ) {
+            setPermissionCount( permissionCount + 1 );
+            return;
+          }
+        }
         // This string is returned from the legacy camera when the user has not granted the needed permissions
         const permissions =
           "Camera Input Failed: This app is not authorized to use Back Camera.";
@@ -171,7 +184,7 @@ const FrameProcessorCamera = ( props ): Node => {
       };
       onCameraError( returnError );
     },
-    [onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
+    [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
   );
 
   return (

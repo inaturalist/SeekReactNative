@@ -50,7 +50,7 @@ const AboutScreen = (): Node => {
         <StyledText style={textStyles.text}>{i18n.t( "about.translators" )}</StyledText>
         <View style={viewStyles.marginSmallest} />
         <StyledText style={textStyles.text}>{i18n.t( "about.join_crowdin" )}</StyledText>
-        {login && <PrivacyAndTerms />}
+        <PrivacyAndTerms login={login} />
         <TouchableOpacity
           onPress={navToDebug}
           style={viewStyles.debug}

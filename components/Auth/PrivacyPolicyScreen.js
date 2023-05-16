@@ -1,13 +1,16 @@
 // @flow
 
-import * as React from "react";
+import React, { useContext } from "react";
 import HTML from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import { UserContext } from "../UserContext";
 
 const PrivacyPolicyScreen = (): React.Node => {
-  const html = `<p><i>Last Modified on April 7, 2020</i></p>
+  const { login } = useContext( UserContext );
+
+  const iNatHtml = `<p><i>Last Modified on April 7, 2020</i></p>
 
   <p>
     This is the privacy policy ("Privacy Policy") of the California Academy of Sciences' and National Geographic Society's iNaturalist.org website, iOS App, and Android App, the iNaturalist Network Member Websites, and the Seek by iNaturalist App, and describes how iNaturalist.org ("iNaturalist," "We," "Us" or "Our") handles Personal Information (as defined below) that users ("You," "Your” or "User") provide to Us, or that We collect from You through the use of Our Website, which is located at www.inaturalist.org ) and through the iNaturalist Network Member websites (collectively, the "Websites"), and through the iNaturalist iOS App, and the iNaturalist Android App and the Seek by iNaturalist App (the “App(s)”). 
@@ -308,6 +311,12 @@ const PrivacyPolicyScreen = (): React.Node => {
     © Copyright 2020 California Academy of Sciences. All Rights Reserved.
   </p>`;
 
+  const seekHtml = `<p><i>Last Modified on April 7, 2020</i></p>
+
+  <p>
+    © Copyright 2020 California Academy of Sciences. All Rights Reserved.
+  </p>`;
+
   const DEFAULT_PROPS = {
     onLinkPress( evt, href ) {
       return;
@@ -316,12 +325,31 @@ const PrivacyPolicyScreen = (): React.Node => {
 
   return (
     <ScrollWithHeader header="inat_signup.privacy">
-      <HTML
-        {...DEFAULT_PROPS}
-        containerStyle={viewStyles.textContainer}
-        source={{ html }}
-        tagsStyles={ { p: textStyles.text, h3: textStyles.headerText, a: textStyles.text, li: textStyles.list } }
-      />
+      {login ? (
+        <HTML
+          {...DEFAULT_PROPS}
+          containerStyle={viewStyles.textContainer}
+          source={{ html: iNatHtml }}
+          tagsStyles={{
+            p: textStyles.text,
+            h3: textStyles.headerText,
+            a: textStyles.text,
+            li: textStyles.list
+          }}
+        />
+      ) : (
+        <HTML
+          {...DEFAULT_PROPS}
+          containerStyle={viewStyles.textContainer}
+          source={{ html: seekHtml }}
+          tagsStyles={{
+            p: textStyles.text,
+            h3: textStyles.headerText,
+            a: textStyles.text,
+            li: textStyles.list
+          }}
+        />
+      )}
     </ScrollWithHeader>
   );
 };

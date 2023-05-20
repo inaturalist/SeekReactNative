@@ -1,5 +1,18 @@
+/**
+ * Metro configuration for React Native
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+const defaultSourceExts =
+  require( "metro-config/src/defaults/defaults" ).sourceExts;
+
 module.exports = {
   resolver: {
+    sourceExts:
+      process.env.MOCK_MODE === "e2e"
+        ? ["e2e-mock.js", ...defaultSourceExts]
+        : defaultSourceExts,
     assetExts: [
       "tflite",
       "csv",
@@ -35,7 +48,8 @@ module.exports = {
       "otf",
       "ttf",
       // Archives (virtual files)
-      "zip"]
+      "zip"
+    ]
   },
   transformer: {
     getTransformOptions: async () => ( {

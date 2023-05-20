@@ -200,7 +200,8 @@ const FrameProcessorCamera = ( props ): Node => {
             isActive={true}
             frameProcessor={frameProcessor}
             // A value of 1 indicates that the frame processor gets executed once per second.
-            // This roughly equals the setting of the legacy camera of 1000ms between predictions (taxaDetectionInterval).
+            // This roughly equals the setting of the legacy camera of 1000ms between predictions,
+            // i.e. what taxaDetectionInterval was set to.
             frameProcessorFps={1}
             onError={onError}
           />

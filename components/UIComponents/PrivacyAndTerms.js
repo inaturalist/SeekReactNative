@@ -8,7 +8,7 @@ import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/uiComponents/privacyAndTerms";
 import StyledText from "./StyledText";
 
-const PrivacyAndTerms = (): React.Node => {
+const PrivacyAndTerms = ( { login } ): React.Node => {
   const { navigate } = useNavigation();
   const { name } = useRoute();
 
@@ -32,14 +32,16 @@ const PrivacyAndTerms = (): React.Node => {
       >
         {i18n.t( "inat_signup.privacy" )}
       </StyledText>
-      <View style={viewStyles.marginLeft} />
-      <StyledText
-        allowFontScaling={false}
-        onPress={navToTerms}
-        style={linkStyles}
-      >
-        {i18n.t( "inat_signup.terms" )}
-      </StyledText>
+      {login && <View style={viewStyles.marginLeft} />}
+      {login && (
+        <StyledText
+          allowFontScaling={false}
+          onPress={navToTerms}
+          style={linkStyles}
+        >
+          {i18n.t( "inat_signup.terms" )}
+        </StyledText>
+      )}
     </View>
   );
 };

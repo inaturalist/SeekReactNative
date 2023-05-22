@@ -5,7 +5,8 @@ import React, {
   useEffect,
   useRef,
   useCallback,
-  useContext
+  useContext,
+  useState
 } from "react";
 import {
   Image,
@@ -53,6 +54,7 @@ const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
+  const [isActive, setIsActive] = useState( true );
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -336,6 +338,7 @@ const ARCamera = ( ): Node => {
             .takePhoto()
             // TODO: inat-camera has an option for playSoundOnCapture but it is not used there, currently Android does not make capture sound
             .then( ( photo ) => {
+              setIsActive( false );
               // Photo:
               // photo {"height": 2268, "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg", "width": 4032}
               // TODO: I don'tknow if these two lines are correctly used here
@@ -408,15 +411,15 @@ const ARCamera = ( ): Node => {
 
   useFocusEffect(
     useCallback( ( ) => {
-      let isActive = true;
+      let active = true;
 
-      if ( isActive ) {
+      if ( active ) {
         // reset user ability to post to iNat from Match Screen
         savePostingSuccess( false );
       }
 
       return ( ) => {
-        isActive = false;
+        active = false;
       };
     }, [] )
   );
@@ -460,6 +463,7 @@ const ARCamera = ( ): Node => {
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}
           // type is replaced with logic in FrameProcessorCamera
+          isActive={isActive}
         />
       );
     }

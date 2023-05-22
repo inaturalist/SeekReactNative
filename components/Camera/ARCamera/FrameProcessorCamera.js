@@ -28,7 +28,8 @@ const FrameProcessorCamera = ( props ): Node => {
     onDeviceNotSupported,
     onClassifierError,
     onCaptureError,
-    onLog
+    onLog,
+    isActive
   } = props;
 
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
@@ -197,7 +198,7 @@ const FrameProcessorCamera = ( props ): Node => {
             enableZoomGesture
             photo={true}
             device={device}
-            isActive={true}
+            isActive={isActive}
             frameProcessor={frameProcessor}
             // A value of 1 indicates that the frame processor gets executed once per second.
             // This roughly equals the setting of the legacy camera of 1000ms between predictions,

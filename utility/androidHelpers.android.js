@@ -1,6 +1,6 @@
 // @flow
 
-import { PermissionsAndroid } from "react-native";
+import { PermissionsAndroid, Platform } from "react-native";
 
 const checkLocationPermissions = async (): Promise<boolean> => {
   const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
@@ -17,7 +17,10 @@ const checkLocationPermissions = async (): Promise<boolean> => {
 };
 
 const checkCameraRollPermissions = async ( ): Promise<boolean> => {
-  const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+  const retrieve =
+    Platform.Version >= 33
+      ? PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES
+      : PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
 
   try {
     const granted = await PermissionsAndroid.request( retrieve );

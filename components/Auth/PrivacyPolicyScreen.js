@@ -391,11 +391,103 @@ const PrivacyPolicyScreen = (): React.Node => {
   © Copyright 2022 California Academy of Sciences. All Rights Reserved.
 </p>`;
 
-  const seekHtml = `<p><i>Last Modified on April 7, 2020</i></p>
+  const seekHtml = `<p><i>Last Revised on November 26, 2019</i></p>
 
-  <p>
-    © Copyright 2020 California Academy of Sciences. All Rights Reserved.
-  </p>`;
+<p>
+  This is the privacy policy ("Privacy Policy") for the Seek by iNaturalist iOS App of the California Academy of Sciences' and National Geographic. This Privacy Policy is in addition to the Privacy Policy for iNaturalist, found at https://www.inaturalist.org/pages/privacy.
+</p>
+
+<p>
+  <strong>The Seek App</strong> collects very little user data as it does not require an account of any kind and all records are, by default, stored only on the user's mobile device. 
+</p>
+
+<p>
+  An <strong>optional</strong> feature of Seek is to create an iNaturalist account and selectively submit geolocated photos and observations to iNaturalist. <strong>If You use this optional feature of Seek to post observations to iNaturalist, You will be subject to the Privacy Policy and Terms of Service of iNaturalist, located at <a href="https://www.inaturalist.org/pages/privacy">https://www.inaturalist.org/pages/privacy</a> and <a href="https://www.inaturalist.org/pages/terms">https://www.inaturalist.org/pages/terms</a>.</strong> Please read these policies before posting an observation.
+</p>
+
+<p>
+  For the Seek App ("Seek" or the "App") , iNaturalist ("iNaturalist," "We," "Us" or "Our") does not seek or collect Personal Information (as defined below) from users ("You," "or "User") other than IP addresses, as discussed below.
+</p>
+
+<h3>Children</h3>
+
+<p>
+  The Seek App takes many special precautions to protect User privacy to ensure safe use by persons 12 years of age or younger. The App does not require a user account or other log in:  latitude and longitude coordinates transmitted by the App to identify species near the User are rounded to two decimal places before transmission in order to protect the precise location of the User; Images are stored on the device, are only transmitted for the sole purpose of identifying the species photographed, and are deleted from servers shortly after processing by the identification algorithm.
+</p>
+
+<p>
+  Badges awarded within the App are stored solely within the App on the User’s device. No information about other Users of the App is made publicly available, except in aggregate form to report on usage patterns and trends for the App.
+</p>
+
+<p>
+  Seek Users 12 years of age or younger who try to create an iNaturalist account to publicly share data outside of Seek by posting to iNaturalist are required to get parental consent via this link: <a href="http://www.inaturalist.org/user_parents/new">http://www.inaturalist.org/user_parents/new</a>.
+</p>
+
+<h3>App Users</h3>
+
+<p>
+  iNaturalist collects non-personal information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. iNaturalist's purpose in collecting non-personal information is to better understand how iNaturalist's visitors use its Website and Apps. From time to time, iNaturalist may release non-personal information in the aggregate, e.g., by publishing a report on trends in the usage of its Website and Apps.
+</p>
+
+<h3>Personal Information</h3>
+
+<p>
+  Seek by iNaturalist does NOT request or collect Personal Information  that would allow someone to identify You or contact You. When Seek connects to iNaturalist servers over the Internet, iNaturalist automatically collects IP addresses. It uses IP addresses solely for the purposes of communication between You and the iNaturalist servers and does not disclose such information, other than under the limited circumstances described below. Server logs including IP addresses persist for no more than 60 days. Images submitted by Seek for the purpose of automatic identification may include location data embedded in the image files themselves. Such location data, along with the image submitted, are generally deleted within 1 hour of being received. Rounded location data separate from the image may persist in server logs for up to 60 days.
+</p>
+
+<h3>Cookies</h3>
+
+<p>
+  The App does not use cookies.
+</p>
+
+<h3>Links and Third Parties</h3>
+
+<p>
+  The App does not contain external links, other than to iNaturalist. There are no third parties involved except for requests logged on iNaturalist to view species pages. Any such requests to iNaturalist do not contain any personal information other than the User's IP address.
+</p>
+
+<h3>Privacy Policy Changes</h3>
+
+<p>
+  Although most changes are likely to be minor, iNaturalist may change the Seek Privacy Policy from time to time, and in iNaturalist's sole discretion. We will post an updated and revised version of this Privacy Policy on the iNaturalist Website and within the Seek App when any material changes have been made. Users of the App are encouraged to check this Privacy Policy often so You are aware of the most current terms and conditions that apply to You. Your continued use of the App after any change in this Privacy Policy will constitute Your acceptance of such change.
+</p>
+
+<h3>Your California Privacy Rights</h3>
+
+<p>
+  Although We do not disclose to any third parties for their marketing purposes any personally identifiable information, California residents are entitled to receive the following disclosure information under California law:
+</p>
+
+<p>
+  Residents of the State of California, under the California Civil Code, have the right to request from companies conducting business in California a list of all third parties to which the company has disclosed Personal Information during the preceding year for direct marketing purposes. We do not share Your Personal Information with any third parties for direct marketing purposes. If you are a California resident and request information about how to exercise Your third party disclosure choices, you must send a request to the following address with a preference on how Our response to Your request should be sent (email or postal mail). Send an email to the California Academy of Sciences Data Protection Officer at <a href="mailto:privacy@calacademy.org">privacy@calacademy.org</a> or contact Us via postal mail at:
+</p>
+
+<p>
+  California Academy of Sciences – Data Protection Officer<br>
+  55 Music Concourse Drive<br>
+  San Francisco, CA 94118<br>
+  Attn: Your California Privacy Rights <br>
+</p>
+
+<p>
+  All requests sent via postal mail must be labeled "Your California Privacy Rights" on the envelope or post card and clearly stated on the actual request. For all requests, please include Your name, street address, city, state, and zip code. (Your street address is optional if you wish to receive a response to Your request via email. Please include Your zip code for Our own recordkeeping.) We will not accept requests via the telephone or by facsimile. We are not responsible for notices that are not labeled or sent properly, notices that are illegible or do not have complete information.
+</p>
+
+<p>
+  If any User of the Seek App has any questions about this Privacy Policy, please contact the iNaturalist Data Protection Officer at <a href="mailto:privacy@inaturalist.org">privacy@inaturalist.org</a> or:
+</p>
+
+<p>
+  iNaturalist – Data Protection Officer<br>
+  California Academy of Sciences<br>
+  55 Music Concourse Drive<br>
+  San Francisco, CA 94118<br>
+</p>
+
+<p>© Copyright 2019 California Academy of Sciences. All Rights Reserved.</p>
+
+<p><i>Revised on November 26, 2019</i></p>`;
 
   const DEFAULT_PROPS = {
     onLinkPress( evt, href ) {

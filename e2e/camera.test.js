@@ -22,11 +22,15 @@ describe( "First app start test", () => {
     await element( by.text( "CONTINUE" ) ).tap();
     await expect( element( by.text( "SPECIES NEARBY" ) ) ).toBeVisible();
     await element( by.id( "openCameraButton" ) ).tap();
-    await expect( element( by.text( "REMEMBER" ) ) ).toBeVisible();
-    await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible();
-    await element( by.text( "CONTINUE" ) ).tap();
+    // Mocked away
+    // await expect( element( by.text( "REMEMBER" ) ) ).toBeVisible();
+    // await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible();
+    // await element( by.text( "CONTINUE" ) ).tap();
     await element( by.id( "takePhotoButton" ) ).tap();
-    // Mock how to take an actual photo
+    // Mocked taking of photo in ARCamera.e2e-mock.js
+    await waitFor( element( by.text( "TAKE ANOTHER PHOTO" ) ) )
+      .toBeVisible()
+      .withTimeout( 15000 );
 
   } );
 } );

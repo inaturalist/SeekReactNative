@@ -11,7 +11,6 @@ describe( "First app start test", () => {
 
   it( "should land on home screen", async () => {
     // Await the loading of the home screen
-    await device.takeScreenshot( "first open" );
     await waitFor( element( by.text( "GET STARTED" ) ) ).toBeVisible().withTimeout( 4000 );
     await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible();
     await element( by.text( "CONTINUE" ) ).tap();

@@ -225,7 +225,7 @@ const ARCamera = ( ): Node => {
   ] );
 
   return (
-    <View style={{ flex: 1, padding: 40 }}>
+    <View style={{ flex: 1, padding: 40, justifyContent: "center", alignItems: "center" }}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.take_photo" )}
         accessible

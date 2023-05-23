@@ -2298,6 +2298,7 @@ exports[`ChallengeScreen should render correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="openCameraButton"
         >
           <Image
             source={

@@ -239,7 +239,7 @@ const ARCamera = ( ): Node => {
         return;
       }
       if ( predictions[rank] ) {
-        if ( predictions[rank] === "species" ) {
+        if ( rank === "species" ) {
           pauseOnSpecies();
         }
         predictionSet = true;

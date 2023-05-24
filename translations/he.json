@@ -569,7 +569,7 @@
     "joint_initiative": "iNaturalist הוא מיזם שיתופי של האקדמיה למדעים של קליפורניה ונשיונל ג'יאוגרפיק",
     "original": "Seek פותחה במקור בתמיכת אולפני HHMI Tangled Bank ושופרה בתמיכת הסדרה 'כוכב הלכת המופלא' בהפקת נטפליקס וארגון WWF.",
     "designed_by": "עוצב ופותח על ידי צוות iNaturalist:",
-    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, ו-Sylvain Morin. תודות מיוחדות ל-Grant Van Horn מ-Visipedia על העזרה עם טכנולוגיית הראייה הממוחשבת ולקהילת iNaturalist.",
     "version": "גרסה",
     "help": "לעזרה עם אפליקציית Seek, נא לשלוח דוא\"ל לכתובת help+seek@inaturalist.org.",
     "translators": "אנו אסירי תודה על עזרה בתרגום שניתן על ידי קהילת crowdin.com, ובייחוד: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, ו-Yulia Lygina.",
@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "שליחת רישומי איתור באגים באמצעות דוא\"ל",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "שליחת דוא\"ל לא עבדה? הקישו כאן להעתיק את התוכן של רשומות איתור הבאגים אל הלוח. לאחר מכן הדביקו אותו לתוך דוא\"ל ושלחו לכתובת help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "מצלמת Seek",

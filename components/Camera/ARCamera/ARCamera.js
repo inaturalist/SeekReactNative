@@ -62,8 +62,6 @@ const ARCamera = ( ): Node => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "CAMERA_LOADED":
-        return { ...state, cameraLoaded: true };
       case "RESET_RANKS":
         return { ...state, ranks: {} };
       case "SET_RANKS":
@@ -86,16 +84,8 @@ const ARCamera = ( ): Node => {
           error: null,
           ranks: {}
         };
-      case "SHOW_FRONT_CAMERA":
-        return { ...state, cameraType: action.cameraType };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
-      case "SHOW_MODAL":
-        return { ...state, showModal: true };
-      case "CLOSE_MODAL":
-        return { ...state, showModal: false };
-      case "SPECIES_TIMEOUT":
-        return { ...state, speciesTimeoutSet: action.speciesTimeoutSet };
       default:
         throw new Error( );
     }
@@ -104,12 +94,8 @@ const ARCamera = ( ): Node => {
     error: null,
     errorEvent: null,
     pictureTaken: false,
-    cameraLoaded: false,
     negativeFilter: false,
-    taxonId: null,
-    cameraType: "back",
-    showModal: false,
-    speciesTimeoutSet: false
+    taxonId: null
   } );
 
   const {
@@ -117,13 +103,14 @@ const ARCamera = ( ): Node => {
     error,
     errorEvent,
     pictureTaken,
-    cameraLoaded,
     negativeFilter,
-    taxonId,
-    cameraType,
-    showModal,
-    speciesTimeoutSet
+    taxonId
   } = state;
+
+  const [showModal, setShowModal] = useState( false );
+  const [cameraLoaded, setCameraLoaded] = useState( false );
+  const [speciesTimeoutSet, setSpeciesTimeoutSet] = useState( false );
+  const [cameraType, setCameraType] = useState( "back" );
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -184,9 +171,9 @@ const ARCamera = ( ): Node => {
 
   const pauseOnSpecies = ( ) => {
     // this block keeps the last species seen displayed for 2.5 seconds
-    dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
+    setSpeciesTimeoutSet( true );
     setTimeout( ( ) => {
-      dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: false } );
+      setSpeciesTimeoutSet( false );
     }, 2500 );
   };
 
@@ -222,7 +209,7 @@ const ARCamera = ( ): Node => {
     }
 
     if ( predictions && !cameraLoaded ) {
-      dispatch( { type: "CAMERA_LOADED" } );
+      setCameraLoaded( true );
     }
 
 
@@ -385,17 +372,17 @@ const ARCamera = ( ): Node => {
     const cameraHardware = await checkForCameraAPIAndroid( );
 
     if ( cameraHardware === "front" ) {
-      dispatch( { type: "SHOW_FRONT_CAMERA", cameraType: "front" } );
+      setCameraType( "front" );
     }
   };
 
-  const closeModal = useCallback( ( ) => dispatch( { type: "CLOSE_MODAL" } ), [] );
+  const closeModal = useCallback( ( ) => setShowModal( false ), [] );
 
   useEffect( ( ) => {
     const checkForFirstCameraLaunch = async ( ) => {
       const isFirstLaunch = await checkIfCameraLaunched( );
       if ( isFirstLaunch ) {
-        dispatch( { type: "SHOW_MODAL" } );
+        setShowModal( true );
       }
     };
 

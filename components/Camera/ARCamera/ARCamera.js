@@ -225,13 +225,13 @@ const ARCamera = ( ): Node => {
       dispatch( { type: "CAMERA_LOADED" } );
     }
 
-    let predictionSet = false;
 
     // don't bother with trying to set predictions if a species timeout is in place
     if ( speciesTimeoutSet ) {
       return;
     }
 
+    let predictionSet = false;
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
       // skip this block if a prediction state has already been set

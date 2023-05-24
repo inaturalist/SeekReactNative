@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Stuur debug logs via e-mail",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Is het verzenden van een e-mail mislukt? Tik dan hier om de inhoud van debug logs te kopiëren naar het klembord. Plak het vervolgens in een e-mail en stuur het naar help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek camera",

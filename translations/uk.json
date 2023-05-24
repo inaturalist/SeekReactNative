@@ -569,7 +569,7 @@
     "joint_initiative": "iNaturalist є спільною ініціативою Каліфорнійської академії наук та Національного географічного товариства.",
     "original": "Seek був створений за підтримки HHMI Tangled Bank Studios та розширений за підтримки Our Planet на Netflix та WWF.",
     "designed_by": "Розроблено командою iNaturalist:",
-    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, та Sylvain Morin. Особлива подяка Grant Van Horn from Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
     "version": "Версія",
     "help": "Для отримання допомоги в роботі з Seek, будь ласка, напишіть на електронну пошту help+seek@inaturalist.org.",
     "translators": "Ми вдячні за допомогу в перекладі, спільноті crowdin.com, зокрема: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Надсилати журнали налагодження електронною поштою",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Не вдалося відправити емейл? Тоді натисніть тут, щоб скопіювати вміст журналів відлагодження в буфер обміну. Потім вставте це в повідомлення і надішліть на help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Камера Seek",

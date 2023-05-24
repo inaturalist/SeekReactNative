@@ -2,7 +2,7 @@
 
 • Get outside and point the Seek Camera at living things
 
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
+・ 野生生物、植物、菌類を同定して、周囲にいる生物について詳しく学ぶ
 
 • Earn badges for observing different types of species and participating in challenges
 
@@ -23,4 +23,4 @@ Seek（シーク）は位置情報の利用の許可を求めますが、ユー�
 
 Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
 
-Seek is created by the iNaturalist team. iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.
+Seek is created by the iNaturalist team. iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seekは元々HHMI Tangled Bank Studiosのサポートを受けて作成され、Netflix、WWFのOur Planet(私たちの地球)によるサポートで強化されました。

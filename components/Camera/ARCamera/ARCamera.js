@@ -66,6 +66,8 @@ const ARCamera = ( ): Node => {
         return { ...state, ranks: {}, allPredictions: [] };
       case "SET_RANKS":
         return { ...state, ranks: action.ranks };
+      case "RESET_PREDICTIONS":
+        return { ...state, allPredictions: [] };
       case "SET_PREDICTION":
         return { ...state, allPredictions: [action.prediction, ...state.allPredictions] };
       case "PHOTO_TAKEN":
@@ -227,6 +229,7 @@ const ARCamera = ( ): Node => {
     }
 
     let predictionSet = false;
+    dispatch( { type: "RESET_PREDICTIONS" } );
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
 
@@ -318,7 +321,11 @@ const ARCamera = ( ): Node => {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
         try {
-          const photo = await CameraManager.takePictureAsync( );
+          /*
+            Photo:
+            {"predictions": [{"name": "Life", "rank": 100, "score": 1.0000067949295044, "taxon_id": 48460}, {"name": "Plantae", "rank": 70, "score": 0.9796221852302551, "taxon_id": 47126}, {"name": "Tracheophyta", "rank": 60, "score": 0.9787864685058594, "taxon_id": 211194}, {"name": "Angiospermae", "rank": 57, "score": 0.9784607887268066, "taxon_id": 47125}, {"name": "Liliopsida", "rank": 50, "score": 0.9690009355545044, "taxon_id": 47163}, {"name": "Asparagales", "rank": 40, "score": 0.96554034948349, "taxon_id": 47218}, {"name": "Iridaceae", "rank": 30, "score": 0.9625634551048279, "taxon_id": 47781}, {"name": "Iridoideae", "rank": 27, "score": 0.9616215229034424, "taxon_id": 790617}, {"name": "Irideae", "rank": 25, "score": 0.9611375331878662, "taxon_id": 790633}, {"name": "Iris", "rank": 20, "score": 0.9596630334854126, "taxon_id": 47780}, {"leaf_id": 5174, "name": "Iris tenax", "rank": 10, "score": 0.8709532618522644, "taxon_id": 57727}], "uri": "file:///var/mobile/Containers/Data/Application/BCD946F6-D73F-43F2-AFF6-291F7276AB57/Library/Caches/410DB678-91AF-48E3-AB33-FB2B1D391D1D.jpg"}
+          */
+          const photo = await CameraManager.takePictureAsync();
           if ( typeof photo !== "object" ) {
             updateError( "photoError", photo );
           } else {
@@ -355,6 +362,19 @@ const ARCamera = ( ): Node => {
               // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
               photo.predictions = allPredictions;
               photo.uri = photo.path;
+              /*
+                {
+                  "deviceOrientation": 6,
+                  "height": 2268,
+                  "isRawPhoto": false,
+                  "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 1.95, "ColorSpace": 1, "DateTimeDigitized": "2023:05:25 17:58:49", "DateTimeOriginal": "2023:05:25 17:58:49", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0257", "SubsecTimeOriginal": "0257", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:05:25 17:58:49", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "pictureOrientation": 6,
+                  "predictions": [
+                    {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "score": 0.9301357269287109, "taxon_id": 47163},
+                    {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "score": 0.9216688275337219, "taxon_id": 47218},
+                    {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "score": 0.9124458432197571, "taxon_id": 47781},
+                    {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "score": 0.8744127750396729, "taxon_id": 47780}],
+                  "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "width": 4032}
+              */
               requestAndroidSavePermissions( photo );
             } )
             .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );

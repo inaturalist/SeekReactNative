@@ -177,9 +177,9 @@ const ARCamera = ( ): Node => {
     }, 2500 );
   };
 
-  const handleTaxaDetected = ( event ) => {
     let predictions = { ...event.nativeEvent };
 
+  const handleTaxaDetected = ( event, params ) => {
     /*
       Using FrameProcessorCamera results in this as predictions atm on Android
       [
@@ -204,17 +204,20 @@ const ARCamera = ( ): Node => {
       predictions = transformedResults;
     }
 
-    if ( pictureTaken ) {
+    // In the vision camera approach, this function is called from the UI thread in the useFrameProcessor hook,
+    // and I could not get the updated booleans from the state of this component so they are passed in as params as well
+    // and included in the useFrameProcessor dependencies
+    const isPictureTaken = useVisionCamera ? params.pictureTaken : pictureTaken;
+    const isCameraLoaded = useVisionCamera ? params.cameraLoaded : cameraLoaded;
+    const isSpeciesTimeoutSet = useVisionCamera ? params.speciesTimeoutSet : speciesTimeoutSet;
+    if ( isPictureTaken ) {
       return;
     }
-
-    if ( predictions && !cameraLoaded ) {
+    if ( predictions && !isCameraLoaded ) {
       setCameraLoaded( true );
     }
-
-
     // don't bother with trying to set predictions if a species timeout is in place
-    if ( speciesTimeoutSet ) {
+    if ( isSpeciesTimeoutSet ) {
       return;
     }
 

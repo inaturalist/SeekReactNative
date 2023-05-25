@@ -63,9 +63,11 @@ const ARCamera = ( ): Node => {
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
       case "RESET_RANKS":
-        return { ...state, ranks: {} };
+        return { ...state, ranks: {}, allPredictions: [] };
       case "SET_RANKS":
         return { ...state, ranks: action.ranks };
+      case "SET_PREDICTION":
+        return { ...state, allPredictions: [action.prediction, ...state.allPredictions] };
       case "PHOTO_TAKEN":
         return { ...state, pictureTaken: true };
       case "RESET_STATE":
@@ -73,7 +75,8 @@ const ARCamera = ( ): Node => {
           ...state,
           pictureTaken: false,
           error: null,
-          ranks: {}
+          ranks: {},
+          allPredictions: []
         };
       case "FILTER_TAXON":
         return {
@@ -82,7 +85,8 @@ const ARCamera = ( ): Node => {
           taxonId: action.taxonId,
           pictureTaken: false,
           error: null,
-          ranks: {}
+          ranks: {},
+          allPredictions: []
         };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
@@ -91,6 +95,7 @@ const ARCamera = ( ): Node => {
     }
   }, {
     ranks: {},
+    allPredictions: [],
     error: null,
     errorEvent: null,
     pictureTaken: false,
@@ -100,6 +105,7 @@ const ARCamera = ( ): Node => {
 
   const {
     ranks,
+    allPredictions,
     error,
     errorEvent,
     pictureTaken,
@@ -223,6 +229,11 @@ const ARCamera = ( ): Node => {
     let predictionSet = false;
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
+
+      if ( predictions[rank] ) {
+        const prediction = predictions[rank][0];
+        dispatch( { type: "SET_PREDICTION", prediction } );
+      }
       // skip this block if a prediction state has already been set
       if ( predictionSet ) {
         return;
@@ -323,18 +334,26 @@ const ARCamera = ( ): Node => {
       if ( camera.current ) {
         if ( useVisionCamera ) {
           camera.current
-            // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera because of perfromance issues, but probably not needed with VisionCamera
             .takePhoto()
             // TODO: inat-camera has an option for playSoundOnCapture but it is not used there, currently Android does not make capture sound
             .then( ( photo ) => {
+              // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
+              // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
+              // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
               setIsActive( false );
               // Photo:
-              // photo {"height": 2268, "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg", "width": 4032}
+              /*
+                {
+                  "height": 2268,
+                  "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg",
+                  "width": 4032
+                }
+              */
               // TODO: I don'tknow if these two lines are correctly used here
               photo.deviceOrientation = photo?.metadata?.Orientation || 0;
               photo.pictureOrientation = photo?.metadata?.Orientation || 0;
               // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
-              photo.predictions = ranks[Object.keys( ranks )[0]];
+              photo.predictions = allPredictions;
               photo.uri = photo.path;
               requestAndroidSavePermissions( photo );
             } )
@@ -346,14 +365,23 @@ const ARCamera = ( ): Node => {
             } )
             .then( ( photo ) => {
               // Photo:
-              // photo {"deviceOrientation": 0, "height": 3024, "pictureOrientation": 0, "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}], "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg", "width": 4032}
+              /*
+                {
+                  "deviceOrientation": 0,
+                  "height": 3024,
+                  "pictureOrientation": 0,
+                  "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}],
+                  "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg",
+                  "width": 4032
+                }
+               */
               requestAndroidSavePermissions( photo );
             } )
             .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
         }
       }
     }
-  }, [savePhoto, updateError, requestAndroidSavePermissions, ranks, handleCaptureError] );
+  }, [savePhoto, updateError, requestAndroidSavePermissions, allPredictions, handleCaptureError] );
 
   const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 

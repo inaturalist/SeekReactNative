@@ -1,13 +1,12 @@
 // @flow
 
 import { useState, useEffect, useCallback } from "react";
-import { Platform } from "react-native";
+import { AppState, AppStateStatus, Platform } from "react-native";
 import RNFS from "react-native-fs";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
 import DeviceInfo from "react-native-device-info";
 import inatjs from "inaturalistjs";
-
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -460,6 +459,20 @@ const useSpeciesCount = (): any => {
   return speciesCount;
 };
 
+const useIsForeground = (): boolean => {
+  const [isForeground, setIsForeground] = useState( true );
+
+  useEffect( () => {
+    const onChange = ( state: AppStateStatus ): void => {
+      setIsForeground( state === "active" );
+    };
+    const listener = AppState.addEventListener( "change", onChange );
+    return () => listener.remove();
+  }, [setIsForeground] );
+
+  return isForeground;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -473,5 +486,6 @@ export {
   useEmulator,
   useFetchUserSettings,
   useUploadedObservationCount,
-  useSpeciesCount
+  useSpeciesCount,
+  useIsForeground
 };

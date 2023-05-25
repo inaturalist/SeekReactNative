@@ -35,7 +35,7 @@ const jsErrorHandler = ( e, isFatal ) => {
 };
 
 // record JS exceptions
-setJSExceptionHandler( jsErrorHandler );
+setJSExceptionHandler( jsErrorHandler, true );
 
 // record native exceptions
 // only works in bundled mode; will show red screen in dev mode

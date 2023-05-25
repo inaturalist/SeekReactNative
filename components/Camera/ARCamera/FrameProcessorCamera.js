@@ -29,7 +29,10 @@ const FrameProcessorCamera = ( props ): Node => {
     onClassifierError,
     onCaptureError,
     onLog,
-    isActive
+    isActive,
+    cameraLoaded,
+    pictureTaken,
+    speciesTimeoutSet
   } = props;
 
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
@@ -103,7 +106,14 @@ const FrameProcessorCamera = ( props ): Node => {
           filterByTaxonId,
           negativeFilter
         );
-        REA.runOnJS( onTaxaDetected )( results );
+        REA.runOnJS( onTaxaDetected )(
+          results,
+          {
+            cameraLoaded,
+            pictureTaken,
+            speciesTimeoutSet
+          }
+        );
       } catch ( classifierError ) {
         // TODO: needs to throw Exception in the native code for it to work here?
         // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
@@ -118,7 +128,14 @@ const FrameProcessorCamera = ( props ): Node => {
       // and to me it seems everything should be handled by vision-camera itself. However, there is also some Exif and device orientation stuff going on.
       // related code that would need to be tested if it all is saved as expected.
     },
-    [confidenceThreshold, filterByTaxonId, negativeFilter]
+    [
+      confidenceThreshold,
+      filterByTaxonId,
+      negativeFilter,
+      cameraLoaded,
+      pictureTaken,
+      speciesTimeoutSet
+    ]
   );
 
   const onError = useCallback(

@@ -451,6 +451,9 @@ const ARCamera = ( ): Node => {
           negativeFilter={negativeFilter}
           // type is replaced with logic in FrameProcessorCamera
           isActive={isActive}
+          cameraLoaded={cameraLoaded}
+          pictureTaken={pictureTaken}
+          speciesTimeoutSet={speciesTimeoutSet}
         />
       );
     }

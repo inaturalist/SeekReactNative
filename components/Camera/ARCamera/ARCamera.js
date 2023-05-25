@@ -177,8 +177,6 @@ const ARCamera = ( ): Node => {
     }, 2500 );
   };
 
-    let predictions = { ...event.nativeEvent };
-
   const handleTaxaDetected = ( event, params ) => {
     /*
       Using FrameProcessorCamera results in this as predictions atm on Android
@@ -195,6 +193,7 @@ const ARCamera = ( ): Node => {
         "species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]
       }
     */
+    let predictions = { ...event.nativeEvent };
     if ( useVisionCamera ) {
       const transformedResults = {};
       event.forEach( ( result ) => {

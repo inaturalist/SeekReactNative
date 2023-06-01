@@ -130,10 +130,10 @@
     "learn_more_about_licensing": "Marque esta caixa se você quer aplicar uma licença Creative Commons Atribuição-NãoComercial ao conteúdo enviado. Isto significa que qualquer pessoa pode copiar e reutilizar suas fotos e/ou observações sem pedir autorização, desde que lhe conceda crédito e não use as obras comercialmente. Você pode escolher uma licença diferente ou remover a licença depois, mas esta é a melhor licença para compartilhar com pesquisadores.",
     "about_personal_information": "Sobre informações pessoais",
     "about_licenses": "Sobre as licenças",
-    "transfer_data": "I consent to allow my personal information to be transferred to the United States of America",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "transfer_data": "Autorizo transferir as minhas informações pessoais para os Estados Unidos da América",
+    "learn_more_about_data_transfer": "Algumas leis de privacidade de dados, como o Regulamento Geral de Proteção de Dados da União Europeia (RGPD), exigem o consentimento explícito para transferir informação pessoal das suas jurisdições para outras jurisdições onde a proteção jurídica desta informação não seja considerada adequada. A partir de 2020, a União Europeia já não considera os Estados Unidos como uma jurisdição que proporciona uma proteção jurídica adequada da informação pessoal, especificamente devido à possibilidade de o governo dos Estados Unidos controlar os dados que entram nesse país. É possível que outras jurisdições tenham a mesma opinião.",
+    "learn_more_about_data_transfer_2": "O uso do iNaturalist requer o armazenamento de informações pessoais como o seu endereço de e-mail, todos os dados do iNaturalist são armazenados nos Estados Unidos, e não podemos ter certeza de qual jurisdição legal você está usando o iNaturalist, para cumprir as leis de privacidade como o RGPD, você deve reconhecer que entende e aceita esse risco e dar autorização para transferir suas informações pessoais para os servidores do iNaturalist nos EUA.",
+    "learn_more_about_data_transfer_3": "Para saber mais sobre que informação coletamos e como a usamos, consulte os nossos <privacy>{{privacy}}</privacy> e <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Não há como ter uma conta iNaturalist sem armazenar informações pessoais, então a única forma de revogar esse consentimento é excluindo sua conta."
   },
   "inat_login": {
@@ -374,7 +374,7 @@
     "plant_filter": "Somente plantas",
     "non_plant_filter": "Somente espécies que não sejam plantas",
     "filters_off": "Filtros desativados",
-    "error_save": "Could not save photo."
+    "error_save": "Não foi possível salvar a foto."
   },
   "gallery": {
     "label": "Fotos",
@@ -569,7 +569,7 @@
     "joint_initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society.",
     "original": "O Seek foi originalmente criado com o apoio da HHMI Tangled Bank Studios e aprimorado com o apoio da série Nosso Planeta na Netflix e da WWF.",
     "designed_by": "Concebido e desenvolvido pela equipe do iNaturalist:",
-    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, e Yaron Budowski. Agradecimentos especiais a Grant Van Horn da Visipedia, pela ajuda com a tecnologia de visão computadorizada, e à comunidade iNaturalist.",
     "version": "Versão",
     "help": "Para receber ajuda com o Seek, por favor envie um e-mail para help+seek@inaturalist.org.",
     "translators": "Agradecemos pela assistência de tradução proporcionada pela comunidade crowdin.com, em particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch e Yulia Lygina.",
@@ -667,11 +667,11 @@
   },
   "debug": {
     "logs": "Enviar relatórios por email",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Não teve êxito em enviar um e-mail? Então toque aqui para copiar o conteúdo dos relatórios de depuração para a área de transferência. Em seguida, cole em um e-mail e envie para help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Câmera do Seek",
-    "subtitle": "For quick identifications"
+    "subtitle": "Para identificações rápidas"
   },
   "settings": {
     "header": "Câmera do Seek",
@@ -688,8 +688,8 @@
     "seasonality_option_1": "Mostrar sazonalidade com base em observações mundiais do iNaturalist",
     "seasonality_option_2": "Mostrar sazonalidade com base em observações do iNaturalist próximo da minha localização atual (espécies não encontradas perto da minha localização não terão sazonalidade)",
     "donate_ios": "Por favor, visite o seguinte link para fazer uma doação ao Seek:",
-    "change_language": "Switch the in-app language to {{language}}?",
-    "confirm": "Confirm"
+    "change_language": "Mudar a língua do aplicativo para {{language}}?",
+    "confirm": "Confirmar"
   },
   "seek_challenges": {
     "badge": "Insígnia do Seek",
@@ -857,7 +857,7 @@
     "logged_in_bullet_3": "As suas observações do Seek NÃO foram salvas no iNaturalist. Quando desinstalar o Seek, todas as observações serão apagadas do seu dispositivo.",
     "upload_and_track_obs_using_inat": "Carregue e acompanhe suas observações usando o aplicativo iNaturalist ou visitando inaturalist.org.\n\nObrigado por fazer parte desta comunidade!",
     "x_seen_by_user": "{{speciesName}} visto por {{user}}",
-    "about_inat_internet_error": "You are logged in to iNaturalist, but we need the internet to show details. Tap to try again."
+    "about_inat_internet_error": "Você está conectado ao iNaturalist, mas precisamos de internet para mostrar detalhes. Toque para tentar novamente."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Desafio de Artrópodes Predadores ",
@@ -908,94 +908,94 @@
     "june_2022_description_most_fruits_and_seeds": "A maioria dos frutos e sementes que você encontra na natureza é o resultado de uma polinização bem sucedida. As abelhas não são os únicos insetos que atuam como polinizadores! Depois da polinização, a flor se desenvolve em um fruto que contém sementes. Você já viu alguma planta com frutos em desenvolvimento?",
     "june_2022_action_busy_pollinators": "Os polinizadores atarefados como abelhas e outros insetos mantêm as nossas populações de plantas locais saudáveis e diversificadas. Saiba mais sobre a vida secreta das abelhas assistindo ao novo filme Meu Jardim de Mil Abelhas (My Garden of a Thousand Bees) da PBS Nature. Plante suas próprias flores silvestres nativas para ver quais polinizadores atraem. #PlantaFloresSilvestres",
     "july_2022_challenge_name_exoskeleton": "Desafio de Exoesqueleto",
-    "july_2022_mission_1": "Find 5 species of arthropods",
-    "july_2022_description_insects_crustaceans": "Insects, crustaceans, arachnids, centipedes, and millipedes all have exoskeletons, or “outer skeletons”. Unlike humans and other vertebrates, they do not have an internal skeleton, so muscles attach inside the exoskeleton and enable movement. Exoskeletons also offer protection from drying out and they have sensing organs analogous to human skin.",
-    "july_2022_action_molted_exoskeleton": "Have you ever found an empty, molted exoskeleton? Exoskeletons do not grow with the animal, so they must molt as they grow.",
-    "august_2022_challenge_name_seed_dispersal": "Seed Dispersal Challenge",
-    "august_2022_mission_1": "Find 3 species from:\n\n-Class Pinopsida (Conifers);\nSubphylum Angiospermae (Flowering plants)",
-    "august_2022_mission_2": "Find 3 species from:\n\n-Class Aves (Birds);\nClass Mammalia (Mammals);\nFamily Formicidae (Ants)",
-    "august_2022_description_seeds_are_a_lifestage": "Seeds are a lifestage of plants that can be easily moved. Many conifers and flowering plants have adapted fruits and seeds to be transported by wind, water, or animals. Many species of birds, mammals, and even ants can disperse seeds.",
-    "august_2022_action_largest_species_seed_dispersing": "What is the largest species of seed dispersing animal near you? What kinds of seeds can it disperse? When animals swallow seeds whole, you may be able to find seeds in scat (also known as poop). Observations of scat count as evidence of an organism, but sometimes scat can be difficult to identify.",
-    "september_2022_challenge_name_photosynthesis": "Photosynthesis Challenge",
-    "september_2022_mission_1": "Find 5 plants",
-    "september_2022_description_plants_convert_light": "Plants convert light energy into sugars through photosynthesis. Leaf color is shaped by the different plant pigments that capture different wavelengths of light. When leaves change color, the chlorophylls (green pigments) fade and carotenoids (yellow pigments) and Anthocyanins (red and purple pigments) are visible.",
-    "september_2022_action_photosynthesis": "Photosynthesis converts carbon dioxide from the atmosphere into other molecules needed for sustaining life. Respiration is the chemical process of releasing the energy originally stored in photosynthesis.",
-    "october_2022_challenge_name_parasite": "Parasite Challenge",
-    "october_2022_mission_1": "Find 3 species from:\n\nOrder Ixodida (Ticks);\nFamily Culicidae (Mosquitos);\nOrder Siphonaptera (Fleas);\nParvorder Phthiraptera (Lice);\nOrder Santalales (Mistletoes);\nGenus Cuscuta (Dodders);\nFamily Orobanchaceae (Broomrapes)",
+    "july_2022_mission_1": "Encontre 5 espécies de artrópodes",
+    "july_2022_description_insects_crustaceans": "Insetos, crustáceos, aracnídeos, centopeias, e piolhos-de-cobra têm exoesqueleto, ou “esqueleto exterior”. Ao contrário dos seres humanos e de outros vertebrados, eles não têm um esqueleto interno, portanto os músculos se anexam ao exoesqueleto e permitem o movimento. O exoesqueleto também oferece proteção contra o ressecamento e tem órgãos de detecção análogos à pele humana.",
+    "july_2022_action_molted_exoskeleton": "Já encontrou alguma vez um exoesqueleto vazio e moldado? Os exoesqueletos não crescem com o animal, então eles devem moldar à medida que crescem.",
+    "august_2022_challenge_name_seed_dispersal": "Desafio de Dispersão de Sementes",
+    "august_2022_mission_1": "Encontre 3 espécies de:\n\n-Classe Pinopsida (coníferas);\nSubfilo Angiospermae (plantas com flor)",
+    "august_2022_mission_2": "Encontre 3 espécies de:\n\n-Classe Aves (pássaros);\nClasse Mammalia (mamíferos);\nFamília Formicidae (formigas)",
+    "august_2022_description_seeds_are_a_lifestage": "As sementes são uma fase na vida das plantas que podem facilmente ser movidas. Muitas coníferas e plantas com flor têm frutas e sementes adaptadas para ser transportadas por vento, água ou animais. Muitas espécies de aves, mamíferos e até mesmo formigas podem dispersar sementes.",
+    "august_2022_action_largest_species_seed_dispersing": "Qual é a maior espécie de animal que dispersa sementes perto de você? Que tipos de semente ele pode dispersar? Quando os animais ingerem sementes inteiras, é possível encontrar sementes no excremento (também conhecido como cocô). As observações de excrementos contam como evidência de um organismo, mas às vezes são difíceis de identificar.",
+    "september_2022_challenge_name_photosynthesis": "Desafio da Fotossíntese",
+    "september_2022_mission_1": "Encontre 5 plantas",
+    "september_2022_description_plants_convert_light": "As plantas convertem energia da luz em açúcares através da fotossíntese. A cor da folha é formada pelos diferentes pigmentos da planta que capturam diferentes ondas de luz. Quando as folhas mudam de cor, as clorofilas (pigmentos verdes) se desvanecem e os carotenoides (pigmentos amarelos) e as antocianinas (pigmentos vermelhos e roxos) são visíveis.",
+    "september_2022_action_photosynthesis": "A fotossíntese converte o dióxido de carbono da atmosfera em outras moléculas necessárias para manter a vida. A respiração é o processo químico de liberação de energia originalmente armazenada pela fotossíntese.",
+    "october_2022_challenge_name_parasite": "Desafio do Parasita",
+    "october_2022_mission_1": "Encontre 3 espécies de:\n\nOrdem Ixodida (Carrapatos);\nFamília Culicidae (Mosquitos);\nOrdem Siphonaptera (Pulgas);\nParvorder Phthiraptera (Piolhos);\nOrdem Santalales (Viscos);\nGênero Cuscuta (Cipós-dourados);\nFamília Orobanchaceae (Orobancáceas)",
     "october_2022_description_parasitic_organisms": "Parasitic organisms feed on other organisms without killing them. Arthropods like ticks, mosquitos, fleas, and lice have adapted to feed on vertebrates, including humans and/or domestic animals. There are also parasitic plants that do not photosynthesize because they rely on sugar produced by their host plant.",
     "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
-    "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
+    "november_2022_challenge_name_urban_nature": "Desafio da Natureza Urbana",
     "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
     "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
     "november_2022_action_change_location": "Change the location for “species seen nearby” to search a city far from you. What species are seen near there? Are any of them the same or similar to species seen near you?",
-    "december_2022_challenge_name_decomposers": "Decomposers Challenge"
+    "december_2022_challenge_name_decomposers": "Desafio de Decompositores"
   },
   "seek_2023_challenges": {
-    "january_2023_challenge_name_habitats": "Habitats Challenge",
-    "february_2023_challenge_name_climate_change": "Climate Change Challenge",
+    "january_2023_challenge_name_habitats": "Desafio de Hábitats",
+    "february_2023_challenge_name_climate_change": "Desafio das Mudanças Climáticas",
     "february_2023_description_climate_change": "Climate change is not just affecting the frozen worlds at our planet’s poles. Rising temperatures and changing weather patterns can cause species to move out of habitats that become uncomfortable and into new areas. It can also mean that changes linked to seasons (known as “phenology”) such as leaf fall and flowering start to take place at different times. This may cause problems for other species that are hard to predict. Seek out your local plant life and see how your local environment may be changing.",
     "february_2023_action_climate_change": "Look up your favorite plant on the iNaturalist website and explore the “plant phenology” graph on its taxon page. These charts come from “annotations” for flower buds, flowers, or fruits on the observations posted to iNaturalist. You can help add them by logging in on the iNaturalist website.",
     "march_2023_challenge_name_lakes_ponds": "Lakes and Ponds Challenge",
-    "april_2023_challenge_name_nature": "Nature Challenge",
+    "april_2023_challenge_name_nature": "Desafio da Natureza",
     "april_2023_description_nature": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns, and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.",
     "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
     "may_2023_challenge_name_protected_areas": "Protected Areas Challenge",
     "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
     "june_2023_challenge_name_plant_eaters": "Plant Eaters Challenge",
     "june_2023_action": "What kinds of plants do you eat? What parts of the plant do they come from? What kinds of animals also like to eat those plants?",
-    "july_2023_challenge_name_food_web": "Food Web Challenge",
+    "july_2023_challenge_name_food_web": "Desafio da Cadeia Alimentar",
     "july_2023_description_plant_eaters": "Every species in a community is connected in a food web. Producers capture energy from the sun, herbivores eat plants, carnivores eat other animals, and decomposers consume dead organisms. Seek out different levels in your local web of life, and learn how each one enables other species to survive.",
     "july_2023_action_plant_eaters": "Did you see any herbivores in action, such as a caterpillar eating a leaf or a bird eating seeds? Did you see any carnivores in action, perhaps a spider or a mantis with prey?",
-    "august_2023_challenge_name_insect": "Insect Challenge",
+    "august_2023_challenge_name_insect": "Desafio de Insetos",
     "august_2023_description_insect": "Insects populations are declining around our planet, partly because crops and buildings replace their habitats and are then sprayed with bug-killing pesticides. We need insect pollinators for our crops and wild plants to flourish, and many amphibians, reptiles, birds, and mammals depend on insects for food. Seek out the insects around you and show them some love!",
     "august_2023_action_insect": "Insects have exoskeletons and can be distinguished from their arthropod relatives by their 6 legs. Where were you able to find insects? Are they at risk from habitat loss or pesticides?",
-    "september_2023_challenge_name_equinox": "Equinox Challenge",
-    "october_2023_challenge_name_migration": "Migration Challenge",
-    "october_2023_description_migration": "Millions of birds migrate from one country to another to escape cold weather and to find food. Keeping track of when wildlife migrates can help us understand how climate change is affecting the natural world. Seek birds visiting your local area and find out where else they spend their time.",
+    "september_2023_challenge_name_equinox": "Desafio do Equinócio",
+    "october_2023_challenge_name_migration": "Desafio da Migração",
+    "october_2023_description_migration": "Milhões de aves migram de um país para o outro para escapar do tempo frio e para encontrar alimentos. Manter um registro sobre quando os animais migram podem ajudar-nos a compreender como as mudanças climáticas estão afetando o meio ambiente. Procure pássaros visitando nas suas proximidades e descubra onde mais eles passam o tempo.",
     "october_2023_action_migration": "Birds need fuel for the long journeys they take to migrate. You can support their food needs by advocating for protected areas and the use of native trees and shrubs in landscaping that provide berries and roosts for visiting birds.",
-    "november_2023_challenge_name_trees": "Trees Challenge",
+    "november_2023_challenge_name_trees": "Desafio de Árvores",
     "november_2023_description_trees": "Humans rely on trees and forests for clean air, food, shelter, and wood. They take in carbon from the air and lock it away in their wood or the soil. Spending time among trees makes us feel better in mind and body. We need them now even more than ever, and so do a huge number of other living things. Seek out the trees in your local area and feel the benefits for yourself!",
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
-    "december_2023_challenge_name_ecology": "Ecology Challenge",
-    "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+    "december_2023_challenge_name_ecology": "Desafio da Ecologia",
+    "december_2023_description_ecology": "Muitos tipos diferentes de interações influenciam os ecossistemas e seus organismos. Ecologia é o estudo dos organismos (bióticos) e seu ambiente físico (abiótico). As interações bióticas são entre os seres vivos e as interações abióticas incluem os fatores não vivos, como a temperatura, a água, a luz e o solo."
   },
   "seek_year_in_review": {
-    "header": "Seek Year in Review",
-    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
-    "button": "View my Seek Review",
-    "in_year_observed": "In {{year}}, you observed",
+    "header": "Resumo anual do Seek",
+    "description": "Obrigado por utilizar o Seek este ano! Confira o seu Resumo Anual personalizado aqui:",
+    "button": "Ver meu Resumo do Seek",
+    "in_year_observed": "Em {{year}}, você observou",
     "x_new_species": {
-      "one": "{{count}} new species",
-      "two": "{{count}} new species",
-      "few": "{{count}} new species",
-      "many": "{{count}} new species",
-      "other": "{{count}} new species"
+      "one": "{{count}} nova espécie",
+      "two": "{{count}} novas espécies",
+      "few": "{{count}} novas espécies",
+      "many": "{{count}} novas espécies",
+      "other": "{{count}} novas espécies"
     },
-    "top_species": "Top Species",
-    "observations": "Observations",
-    "observations_by_month": "Observations by Month",
-    "observations_map": "Observations Map",
-    "view_observations_map": "View Observations Map",
+    "top_species": "Espécies mais observadas",
+    "observations": "Observações",
+    "observations_by_month": "Observações por mês",
+    "observations_map": "Mapa de observações",
+    "view_observations_map": "Ver mapa de observações",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
-      "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
-      "other": "You posted {{count}} observations to iNaturalist using Seek in {{year}}."
+      "one": "Você publicou {{count}} observações no iNaturalist utilizando o Seek em {{year}}.",
+      "two": "Você publicou {{count}} observações no iNaturalist utilizando o Seek em {{year}}.",
+      "few": "Você publicou {{count}} observações no iNaturalist utilizando o Seek em {{year}}.",
+      "many": "Você publicou {{count}} observações no iNaturalist utilizando o Seek em {{year}}.",
+      "other": "Você publicou {{count}} observações no iNaturalist utilizando o Seek em {{year}}."
     },
-    "uploaded_observations_text_2": "Thank you for contributing to our community!",
-    "observed_in": "{{speciesName}} observed in {{place}}",
-    "observed_on": "{{speciesName}} observed on {{date}}",
-    "challenges": "Challenges",
+    "uploaded_observations_text_2": "Obrigado por contribuir para a nossa comunidade!",
+    "observed_in": "{{speciesName}} observado em {{place}}",
+    "observed_on": "{{speciesName}} observado em {{date}}",
+    "challenges": "Desafios",
     "x_challenges_earned_text": {
-      "one": "You earned {{count}} challenge badge in {{year}}.",
-      "two": "You earned {{count}} challenge badges in {{year}}.",
-      "few": "You earned {{count}} challenge badges in {{year}}.",
-      "many": "You earned {{count}} challenge badges in {{year}}.",
-      "other": "You earned {{count}} challenge badges in {{year}}."
+      "one": "Você ganhou {{count}} insígnia de desafio em {{year}}.",
+      "two": "Você ganhou {{count}} insígnias de desafio em {{year}}.",
+      "few": "Você ganhou {{count}} insígnias de desafio em {{year}}.",
+      "many": "Você ganhou {{count}} insígnias de desafio em {{year}}.",
+      "other": "Você ganhou {{count}} insígnias de desafio em {{year}}."
     },
-    "thank_you": "Thank you for using Seek! We hope that this reminds you of all the interesting species you met this year.",
-    "consider_donation": "As a small team, we greatly appreciate all your love and enthusiasm for Seek. If you’d like to support us as we grow, please consider donating to iNaturalist:",
-    "donate": "Donate"
+    "thank_you": "Obrigado por utilizar o Seek! Esperamos que isto o lembre de todas as espécies interessantes que conheceu este ano.",
+    "consider_donation": "Como uma pequena equipe, nós apreciamos muito todo o seu amor e entusiasmo pelo Seek. Se desejar apoiar-nos enquanto crescemos, considere fazer uma doação para o iNaturalist:",
+    "donate": "Doar"
   }
 }

@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Invia i registri di debug via email",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "L'invio di un'email non è riuscito? Allora tocca qui per copiare il contenuto dei log di debug negli appunti. Poi incollalo in una email e invia a help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Fotocamera di Seek",

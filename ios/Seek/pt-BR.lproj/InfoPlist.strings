@@ -1,10 +1,10 @@
 /* Localized versions of Info.plist keys */
 /* Permissions */
-"NSCameraUsageDescription" = "We use the camera so you can get identifications of your nature photos.";
+"NSCameraUsageDescription" = "Utilizamos a câmera para que você possa obter identificações das suas fotos da natureza.";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "Usamos a sua localização para sugerir plantas e animais próximos a você.";
 "NSLocationAlwaysUsageDescription" = "Usamos a sua localização para sugerir plantas e animais próximos a você.";
-"NSLocationWhenInUseUsageDescription" = "We use your location to suggest plants and animals to find near you.";
-"NSPhotoLibraryAddUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
-"NSPhotoLibraryUsageDescription" = "We use the photo library so you can get identifications of your nature photos.";
+"NSLocationWhenInUseUsageDescription" = "Utilizamos a sua localização para sugerir plantas e animais próximos a você.";
+"NSPhotoLibraryAddUsageDescription" = "Utilizamos a galeria de fotos para que você possa obter identificações de suas fotos da natureza.";
+"NSPhotoLibraryUsageDescription" = "Utilizamos a galeria de fotos para que você possa obter identificações de suas fotos da natureza.";
 /* Shortcut Items */
-"Seek Camera" = "Seek Camera";
+"Seek Camera" = "Câmera do Seek";

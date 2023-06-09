@@ -1,6 +1,6 @@
 # Seek App Version 2.x
 
-[Seek](https://www.inaturalist.org/pages/seek_app) is an app for identifying plants and animals. It is available on iOS and Android.
+[Seek](https://www.inaturalist.org/pages/seek_app) is an app for identifying plants and animals. It is available on iOS and Android., if you'd like to help out, please see [CONTRIBUTING](https://github.com/inaturalist/SeekReactNative/blob/main/CONTRIBUTING.md).
 
 ## Requirements
 * [Android and iOS environment setup](https://reactnative.dev/docs/environment-setup) described in the RN docs

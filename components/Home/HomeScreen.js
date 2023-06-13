@@ -11,6 +11,7 @@ import type { Node } from "react";
 
 import SeekYearInReviewCard from "./SeekYearInReview/SeekYearInReviewCard";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
+import Announcements from "./Announcements/Announcements";
 import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./Challenges/ChallengeCard";
 import { checkIfCardShown } from "../../utility/helpers";
@@ -108,6 +109,7 @@ const HomeScreen = ( ): Node => {
           />
         )}
         <SpeciesNearby />
+        <Announcements />
         <SeekYearInReviewCard />
         <ChallengeCard />
         <INatCard />

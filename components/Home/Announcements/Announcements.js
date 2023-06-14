@@ -18,11 +18,7 @@ const Announcements = ( ): React.Node => {
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
-  React.useEffect( ( ) => {
-    if ( !isConnected ) {
-      return;
-    }
-
+  const fetchAnnouncements = ( ) => {
     const params = {
       fields: "body,dismissible,start,end,placement",
       placement: "mobile",
@@ -45,6 +41,13 @@ const Announcements = ( ): React.Node => {
         setAnnouncements( homeAnnouncements );
       } )
       .catch( ( err ) => console.log( err, "err fetching announcements" ) );
+  };
+
+  React.useEffect( ( ) => {
+    if ( !isConnected ) {
+      return;
+    }
+    fetchAnnouncements();
   }, [isConnected] );
 
   const { userProfile } = React.useContext( UserContext );
@@ -60,6 +63,20 @@ const Announcements = ( ): React.Node => {
   const { id, dismissible, body } = topAnnouncement;
 
   const dismiss = ( ) => {
+    // Remove the announcement PUT /announcements/:id/dismiss
+    const token = createJwtToken();
+    const options = { api_token: token, user_agent: createUserAgent() };
+    inatjs.announcements
+      .dismiss( { id }, options )
+      .then( ( ) => {
+        // Optimistically remove the announcement from the list in state
+        const newAnnouncements = announcements.filter( ( a ) => a.id !== id );
+        setAnnouncements( newAnnouncements );
+
+        // Refetch announcements
+        fetchAnnouncements();
+      } )
+      .catch( ( err ) => console.log( err, "err dismissing announcement" ) );
   };
 
   return (

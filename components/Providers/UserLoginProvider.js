@@ -18,7 +18,7 @@ const UserLoginProvider = ( { children }: Props ): Node => {
   const [userProfile, setUserProfile] = useState( null );
 
   const checkINatAdminStatus = ( profile ) => {
-    if ( profile.roles.includes( "admin" ) ) {
+    if ( profile?.roles?.includes( "admin" ) ) {
       return true;
     }
     return false;

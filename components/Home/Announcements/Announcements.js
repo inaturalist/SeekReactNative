@@ -11,25 +11,28 @@ import { UserContext } from "../../UserContext";
 import { viewStyles } from "../../../styles/home/announcements";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import i18n from "../../../i18n";
-import { createJwtToken } from "../../../utility/helpers";
+import { fetchJSONWebToken } from "../../../utility/tokenHelpers";
+import { fetchAccessToken } from "../../../utility/loginHelpers";
+
 const Announcements = ( ): React.Node => {
   const [announcements, setAnnouncements] = React.useState( undefined );
 
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
-  const fetchAnnouncements = ( ) => {
+  const fetchAnnouncements = async ( ) => {
     const params = {
       fields: "body,dismissible,start,end,placement",
       placement: "mobile",
-      locale: i18n.locale,
+      locale: i18n.currentLocale(),
       per_page: 20
     };
-    const options = { user_agent: createUserAgent() };
+    const login = await fetchAccessToken();
+    const apiToken = await fetchJSONWebToken( login );
+    const options = { api_token: apiToken, user_agent: createUserAgent() };
     inatjs.announcements
       .search( params, options )
       .then( ( { total_results, results } ) => {
-        console.log( "results :>> ", results );
         // TODO if total_results > results, paginate and get more
         console.log( "total_results :>> ", total_results );
         // Array of { id, body, dismissible }
@@ -53,7 +56,6 @@ const Announcements = ( ): React.Node => {
   const { userProfile } = React.useContext( UserContext );
 
   const showCard = isConnected && announcements && announcements.length > 0 && userProfile;
-  console.log( "announcements :>> ", announcements );
 
   if ( !showCard ) {
     return null;
@@ -62,10 +64,10 @@ const Announcements = ( ): React.Node => {
   const topAnnouncement = announcements[0];
   const { id, dismissible, body } = topAnnouncement;
 
-  const dismiss = ( ) => {
-    // Remove the announcement PUT /announcements/:id/dismiss
-    const token = createJwtToken();
-    const options = { api_token: token, user_agent: createUserAgent() };
+  const dismiss = async ( ) => {
+    const login = await fetchAccessToken();
+    const apiToken = await fetchJSONWebToken( login );
+    const options = { api_token: apiToken, user_agent: createUserAgent() };
     inatjs.announcements
       .dismiss( { id }, options )
       .then( ( ) => {

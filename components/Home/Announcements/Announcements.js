@@ -34,7 +34,6 @@ const Announcements = ( ): React.Node => {
       .search( params, options )
       .then( ( { total_results, results } ) => {
         // TODO if total_results > results, paginate and get more
-        console.log( "total_results :>> ", total_results );
         // Array of { id, body, dismissible }
         const homeAnnouncements = results
           // Filter by placement on mobile home screen

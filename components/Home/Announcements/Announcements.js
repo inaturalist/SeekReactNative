@@ -55,8 +55,8 @@ const Announcements = ( ): React.Node => {
 
   const { userProfile } = React.useContext( UserContext );
 
-  const showCard = isConnected && announcements && announcements.length > 0 && userProfile;
 
+  const showCard = isConnected && announcements && announcements.length > 0 && !!userProfile;
   if ( !showCard ) {
     return null;
   }
@@ -82,9 +82,17 @@ const Announcements = ( ): React.Node => {
   };
 
   return (
-    <View style={viewStyles.whiteContainer}>
-      <HTML ignoredStyles={["font-family"]} source={{ html: body }} />
-      {dismissible && <GreenButton text="announcements.close" handlePress={dismiss} />}
+    <View style={viewStyles.whiteContainer} testID="announcements-container">
+      <HTML
+        ignoredStyles={["font-family"]}
+        source={{ html: body }}
+      />
+      {dismissible && (
+        <GreenButton
+          text="announcements.close"
+          handlePress={dismiss}
+        />
+      )}
       <View style={viewStyles.marginBottom} />
     </View>
   );

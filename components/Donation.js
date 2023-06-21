@@ -11,7 +11,7 @@ import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../i18n";
-import { viewStyles, textStyles } from "../styles/species/wikipedia";
+import { viewStyles, textStyles } from "../styles/species/donation";
 import icons from "../assets/icons";
 import urls from "../constants/urls";
 import CopyButton from "./UIComponents/Buttons/CopyButton";

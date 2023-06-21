@@ -999,6 +999,7 @@
     "donate": "Donate"
   },
   "announcements": {
+    "announcement": "Announcement",
     "close": "Close"
   }
 }

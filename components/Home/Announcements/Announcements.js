@@ -20,6 +20,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import i18n from "../../../i18n";
 import { fetchJSONWebToken } from "../../../utility/tokenHelpers";
 import { fetchAccessToken } from "../../../utility/loginHelpers";
+import { useNavigation } from "@react-navigation/native";
 
 const Webshell = makeWebshell(
   WebView,
@@ -47,12 +48,13 @@ const Announcements = ( ): React.Node => {
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
-  const onLinkPress = useCallback( ( target ) => {
-    Linking.canOpenURL( target.uri ) && Linking.openURL( target.uri );
-  }, [] );
+  const navigation = useNavigation();
+
+  const onLinkPress = ( target ) => {
+    navigation.navigate( "FullAnnouncement", { uri: target.uri } );
+  };
 
   const locale = i18n.currentLocale();
-  console.log( "locale :>> ", locale );
 
   const fetchAnnouncements = useCallback( async ( ) => {
     const params = {

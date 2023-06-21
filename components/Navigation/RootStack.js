@@ -17,6 +17,7 @@ import PostStatus from "../PostToiNat/PostStatus";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Donation";
+import FullAnnouncement from "../FullWebView/FullAnnouncement";
 import PrivacyPolicyScreen from "../Auth/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "../Auth/TermsOfServiceScreen";
 import CommunityGuidelines from "../Auth/CommunityGuidelines";
@@ -96,6 +97,11 @@ const App = ( ): Props => (
               name="CommunityGuidelines"
               component={CommunityGuidelines}
               options={defaultConfig}
+            />
+            <Stack.Screen
+              name="FullAnnouncement"
+              component={FullAnnouncement}
+              options={verticalConfig}
             />
           </Stack.Group>
         </Stack.Navigator>

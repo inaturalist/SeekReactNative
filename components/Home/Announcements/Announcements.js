@@ -61,8 +61,8 @@ const Announcements = ( ): React.Node => {
       locale,
       per_page: 20
     };
-    const login = await fetchAccessToken();
-    const apiToken = await fetchJSONWebToken( login );
+    const accessToken = await fetchAccessToken();
+    const apiToken = await fetchJSONWebToken( accessToken );
     const options = { api_token: apiToken, user_agent: createUserAgent() };
     inatjs.announcements
       .search( params, options )
@@ -102,8 +102,8 @@ const Announcements = ( ): React.Node => {
   const { id, dismissible, body } = topAnnouncement;
 
   const dismiss = async ( ) => {
-    const login = await fetchAccessToken();
-    const apiToken = await fetchJSONWebToken( login );
+    const accessToken = await fetchAccessToken();
+    const apiToken = await fetchJSONWebToken( accessToken );
     const options = { api_token: apiToken, user_agent: createUserAgent() };
     inatjs.announcements
       .dismiss( { id }, options )

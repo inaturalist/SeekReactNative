@@ -1,10 +1,17 @@
 // @flow
 
-import * as React from "react";
-import HTML from "react-native-render-html";
+import React, { useCallback, useContext, useEffect } from "react";
 import inatjs from "inaturalistjs";
-import { View } from "react-native";
+import { Linking, View } from "react-native";
 import { useNetInfo } from "@react-native-community/netinfo";
+import { WebView } from "react-native-webview";
+import makeWebshell, {
+  HandleLinkPressFeature,
+  HandleHTMLDimensionsFeature,
+  ForceResponsiveViewportFeature,
+  ForceElementSizeFeature,
+  useAutoheight
+} from "@formidable-webview/webshell";
 
 import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
@@ -14,17 +21,44 @@ import i18n from "../../../i18n";
 import { fetchJSONWebToken } from "../../../utility/tokenHelpers";
 import { fetchAccessToken } from "../../../utility/loginHelpers";
 
+const Webshell = makeWebshell(
+  WebView,
+  new HandleLinkPressFeature( { preventDefault: true } ),
+  new HandleHTMLDimensionsFeature(),
+  new ForceResponsiveViewportFeature( { maxScale: 1 } ),
+  new ForceElementSizeFeature( {
+    target: "body",
+    heightValue: "auto",
+    widthValue: "auto"
+  } )
+);
+
+const AutoheightWebView = ( webshellProps ): React.Node => {
+  const { autoheightWebshellProps } = useAutoheight( {
+    webshellProps
+  } );
+  return <Webshell {...autoheightWebshellProps} />;
+};
+
+
 const Announcements = ( ): React.Node => {
   const [announcements, setAnnouncements] = React.useState( undefined );
 
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
-  const fetchAnnouncements = async ( ) => {
+  const onLinkPress = useCallback( ( target ) => {
+    Linking.canOpenURL( target.uri ) && Linking.openURL( target.uri );
+  }, [] );
+
+  const locale = i18n.currentLocale();
+  console.log( "locale :>> ", locale );
+
+  const fetchAnnouncements = useCallback( async ( ) => {
     const params = {
       fields: "body,dismissible,start,end,placement",
       placement: "mobile",
-      locale: i18n.currentLocale(),
+      locale,
       per_page: 20
     };
     const login = await fetchAccessToken();
@@ -43,16 +77,20 @@ const Announcements = ( ): React.Node => {
         setAnnouncements( homeAnnouncements );
       } )
       .catch( ( err ) => console.log( err, "err fetching announcements" ) );
+  }, [locale] );
+
+  const { userProfile } = useContext( UserContext );
+
+  const { login } = userProfile || {
+    login: null
   };
 
-  React.useEffect( ( ) => {
+  useEffect( ( ) => {
     if ( !isConnected ) {
       return;
     }
     fetchAnnouncements();
-  }, [isConnected] );
-
-  const { userProfile } = React.useContext( UserContext );
+  }, [isConnected, login, locale, fetchAnnouncements] );
 
 
   const showCard = isConnected && announcements && announcements.length > 0 && !!userProfile;
@@ -82,15 +120,13 @@ const Announcements = ( ): React.Node => {
 
   return (
     <View style={viewStyles.whiteContainer} testID="announcements-container">
-      <HTML
-        ignoredStyles={["font-family"]}
+      <AutoheightWebView
+        onDOMLinkPress={onLinkPress}
+        originWhitelist={["*"]}
         source={{ html: body }}
       />
       {dismissible && (
-        <GreenButton
-          text="announcements.close"
-          handlePress={dismiss}
-        />
+        <GreenButton text="announcements.close" handlePress={dismiss} />
       )}
       <View style={viewStyles.marginBottom} />
     </View>

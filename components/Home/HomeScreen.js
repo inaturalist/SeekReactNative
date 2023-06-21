@@ -100,20 +100,20 @@ const HomeScreen = ( ): Node => {
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
-        {showUploadCard && (
-          <UploadStatus
-            successfulUploads={successfulUploads}
-            numPendingUploads={numPendingUploads}
-            updateSuccessfulUploads={updateSuccessfulUploads}
-            closeCard={closeCard}
-          />
-        )}
-        <SpeciesNearby />
-        <Announcements />
-        <SeekYearInReviewCard />
-        <ChallengeCard />
-        <INatCard />
-        <DonateCard />
+      {showUploadCard && (
+        <UploadStatus
+          successfulUploads={successfulUploads}
+          numPendingUploads={numPendingUploads}
+          updateSuccessfulUploads={updateSuccessfulUploads}
+          closeCard={closeCard}
+        />
+      )}
+      <SpeciesNearby />
+      <Announcements />
+      <SeekYearInReviewCard />
+      <ChallengeCard />
+      <INatCard />
+      <DonateCard />
     </ScrollNoHeader>
   );
 };

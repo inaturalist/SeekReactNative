@@ -2,7 +2,7 @@
 
 import React, { useCallback, useContext, useEffect } from "react";
 import inatjs from "inaturalistjs";
-import { Linking, View } from "react-native";
+import { View, Text } from "react-native";
 import { useNetInfo } from "@react-native-community/netinfo";
 import { WebView } from "react-native-webview";
 import makeWebshell, {
@@ -15,7 +15,7 @@ import makeWebshell, {
 
 import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
-import { viewStyles } from "../../../styles/home/announcements";
+import { viewStyles, textStyles } from "../../../styles/home/announcements";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import i18n from "../../../i18n";
 import { fetchJSONWebToken } from "../../../utility/tokenHelpers";
@@ -122,6 +122,9 @@ const Announcements = ( ): React.Node => {
 
   return (
     <View style={viewStyles.whiteContainer} testID="announcements-container">
+      <Text style={textStyles.header}>
+        {i18n.t( "announcements.header" ).toLocaleUpperCase()}
+      </Text>
       <AutoheightWebView
         onDOMLinkPress={onLinkPress}
         originWhitelist={["*"]}

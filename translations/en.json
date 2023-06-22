@@ -999,6 +999,7 @@
     "donate": "Donate"
   },
   "announcements": {
+    "header": "iNaturalist Announcements",
     "announcement": "Announcement",
     "close": "Close"
   }

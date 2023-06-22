@@ -129,6 +129,7 @@ const Announcements = ( ): React.Node => {
         onDOMLinkPress={onLinkPress}
         originWhitelist={["*"]}
         source={{ html: body }}
+        scrollEnabled={false}
       />
       {dismissible && (
         <GreenButton text="announcements.dismiss" handlePress={dismiss} />

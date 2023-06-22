@@ -69,7 +69,7 @@ const Announcements = ( ): React.Node => {
     inatjs.announcements
       .search( params, options )
       .then( ( { total_results, results } ) => {
-        // TODO if total_results > results, paginate and get more
+        // TODO: if total_results > results, should we paginate and get more?
         // Array of { id, body, dismissible }
         const homeAnnouncements = results
           // Filter by placement on mobile home screen
@@ -88,7 +88,8 @@ const Announcements = ( ): React.Node => {
   };
 
   useEffect( ( ) => {
-    if ( !isConnected ) {
+    // If not online or not logged in, don't fetch announcements
+    if ( !isConnected || !login ) {
       return;
     }
     fetchAnnouncements();

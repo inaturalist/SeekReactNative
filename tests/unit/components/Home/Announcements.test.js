@@ -10,8 +10,8 @@ const mockAnnouncement = {
   id: 1,
   body: "<p>This is a mobile announcement</p>",
   dismissible: false,
-  start: "2021-01-01T00:00:00.000Z",
-  end: "2021-01-31T00:00:00.000Z",
+  start: "1971-01-01T00:00:00.000Z",
+  end: "3021-01-31T00:00:00.000Z",
   placement: "mobile/home"
 };
 
@@ -19,8 +19,8 @@ const mockDismissibleAnnouncement = {
   id: 2,
   body: "<p>This is a dismissible announcement</p>",
   dismissible: true,
-  start: "2021-01-02T00:00:00.000Z",
-  end: "2021-01-31T00:00:00.000Z",
+  start: "1971-01-02T00:00:00.000Z",
+  end: "3021-01-31T00:00:00.000Z",
   placement: "mobile/home"
 };
 
@@ -50,13 +50,16 @@ describe( "Announcements", () => {
 
   test( "should not render without announcements", async () => {
     render( <Announcements /> );
+
+    await waitFor( () => expect( inaturalistjs.announcements.search ).toHaveBeenCalled() );
+
     const container = screen.queryByTestId( containerID );
     expect( container ).toBeNull();
   } );
 
   describe( "with announcement", () => {
     beforeEach( ( ) => {
-        inaturalistjs.announcements.search.mockReturnValueOnce( Promise.resolve( {
+        inaturalistjs.announcements.search.mockReturnValue( Promise.resolve( {
             total_results: 1,
             results: [mockAnnouncement]
         } ) );
@@ -64,42 +67,56 @@ describe( "Announcements", () => {
 
     test( "should render correctly", async () => {
         render( <Announcements /> );
+
+        await waitFor( () => expect( inaturalistjs.announcements.search ).toHaveBeenCalled() );
+
         const container = await screen.findByTestId( containerID );
         expect( container ).toBeTruthy();
     } );
 
     test( "should show body text", async () => {
         render( <Announcements /> );
-        const text = await screen.findByText( "This is a mobile announcement" );
-        expect( text ).toBeTruthy();
+
+        await waitFor( () => expect( inaturalistjs.announcements.search ).toHaveBeenCalled() );
+
+        const webview = await screen.findByTestId( "announcements-webview" );
+        expect( webview ).toBeTruthy();
+        expect( webview.props.source ).toStrictEqual( {
+          html: mockAnnouncement.body
+        } );
     } );
 
-    test( "should not show close button", async () => {
+    test( "should not show dismiss button", async () => {
         render( <Announcements /> );
+
         await waitFor( () => expect( inaturalistjs.announcements.search ).toHaveBeenCalled() );
-        const text = screen.queryByTestId( "close" );
+
+        const text = screen.queryByText( "DISMISS" );
         expect( text ).toBeNull();
     } );
   } );
 
   describe( "with dismissible announcement", () => {
     beforeEach( ( ) => {
-        inaturalistjs.announcements.search.mockReturnValueOnce( Promise.resolve( {
+        inaturalistjs.announcements.search.mockReturnValue( Promise.resolve( {
             total_results: 1,
             results: [mockDismissibleAnnouncement]
         } ) );
     } );
 
-    test( "should show close button", async () => {
+    test( "should show dismiss button", async () => {
       render( <Announcements /> );
-      const button = await screen.findByText( "CLOSE" );
+
+      await waitFor( () => expect( inaturalistjs.announcements.search ).toHaveBeenCalled() );
+
+      const button = await screen.findByText( "DISMISS" );
       expect( button ).toBeTruthy();
     } );
   } );
 
   describe( "with multiple announcements", () => {
     beforeEach( ( ) => {
-        inaturalistjs.announcements.search.mockReturnValueOnce( Promise.resolve( {
+        inaturalistjs.announcements.search.mockReturnValue( Promise.resolve( {
             total_results: 2,
             // Oldest last here
             results: [mockDismissibleAnnouncement, mockAnnouncement]
@@ -108,9 +125,17 @@ describe( "Announcements", () => {
 
     test( "show announcement with oldest start date", async () => {
       render( <Announcements /> );
-      // Should show the announcement with the oldest start date
-      const text = await screen.findByText( "This is a mobile announcement" );
-      expect( text ).toBeTruthy();
+
+      await waitFor( () =>
+        expect( inaturalistjs.announcements.search ).toHaveBeenCalled()
+      );
+
+      // Test for oldest announcement
+      const webview = await screen.findByTestId( "announcements-webview" );
+      expect( webview ).toBeTruthy();
+      expect( webview.props.source ).toStrictEqual( {
+        html: mockAnnouncement.body
+      } );
     } );
   } );
 

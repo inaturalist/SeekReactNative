@@ -130,6 +130,7 @@ const Announcements = ( ): React.Node => {
         originWhitelist={["*"]}
         source={{ html: body }}
         scrollEnabled={false}
+        testID="announcements-webview"
       />
       {dismissible && (
         <GreenButton text="announcements.dismiss" handlePress={dismiss} />

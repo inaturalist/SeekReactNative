@@ -131,7 +131,7 @@ const Announcements = ( ): React.Node => {
         source={{ html: body }}
       />
       {dismissible && (
-        <GreenButton text="announcements.close" handlePress={dismiss} />
+        <GreenButton text="announcements.dismiss" handlePress={dismiss} />
       )}
       <View style={viewStyles.marginBottom} />
     </View>

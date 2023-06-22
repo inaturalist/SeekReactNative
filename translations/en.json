@@ -1001,6 +1001,6 @@
   "announcements": {
     "header": "iNaturalist Announcements",
     "announcement": "Announcement",
-    "close": "Close"
+    "dismiss": "Dismiss"
   }
 }

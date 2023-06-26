@@ -1,21 +1,19 @@
 // @flow
-
-import React, { useCallback, useRef, useState, useEffect } from "react";
+import { useIsFocused } from "@react-navigation/native";
+import type { Node } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Animated, StyleSheet } from "react-native";
-import {
-    Camera,
-    useCameraDevices,
-    useFrameProcessor
-} from "react-native-vision-camera";
-import * as REA from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import * as REA from "react-native-reanimated";
+import {
+  Camera,
+  useCameraDevices,
+  useFrameProcessor
+} from "react-native-vision-camera";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
-import FocusSquare from "./FocusSquare";
-
-import type { Node } from "react";
-import { useIsFocused } from "@react-navigation/native";
 import { useIsForeground } from "../../../utility/customHooks";
+import FocusSquare from "./FocusSquare";
 
 const FrameProcessorCamera = ( props ): Node => {
   const {

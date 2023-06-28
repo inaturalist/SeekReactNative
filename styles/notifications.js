@@ -47,11 +47,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   messageText: {
+    color: colors.black,
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21
   },
   titleText: {
+    color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 16,
     lineHeight: 21,

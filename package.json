@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.14.9",
+  "version": "2.14.10",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -22,6 +22,7 @@
     "e2e": "npm run e2e:build && npm run e2e:test"
   },
   "dependencies": {
+    "@formidable-webview/webshell": "^2.6.0",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-camera-roll/camera-roll": "^5.0.4",
     "@react-native-community/clipboard": "^1.5.1",

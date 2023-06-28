@@ -40,7 +40,12 @@ const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ): N
   return (
     <SafeAreaView style={[styles.container, backgroundColor]} edges={["top"]}>
       <StatusBar barStyle="light-content" />
-      <ScrollView ref={scrollView} contentContainerStyle={backgroundColor}>
+      <ScrollView
+        ref={scrollView}
+        contentContainerStyle={backgroundColor}
+        // Required for Announcements webview to work
+        pinchGestureEnabled={false}
+      >
         {children}
         <Padding />
         {Platform.OS === "ios" && <BottomSpacer />}

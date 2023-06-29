@@ -997,5 +997,10 @@
     "thank_you": "Terima kasih sudah menggunakan Seek! Kami harap ini mengingatkan kamu semua akan spesies-spesies menarik yang telah kamu temui tahun ini.",
     "consider_donation": "Sebagai tim kecil, kami sangat mengapresiasi dukungan dan antusiasme kalian untuk Seek. Jika kamu ingin mendukung kami seiring perkembangan kami, pertimbangkan untuk menyumbang kepada iNaturalist:",
     "donate": "Sumbang"
+  },
+  "announcements": {
+    "header": "Pengumuman iNaturalist",
+    "announcement": "Pengumuman",
+    "dismiss": "Abaikan"
   }
 }

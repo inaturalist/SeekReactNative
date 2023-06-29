@@ -9,7 +9,7 @@ Usa o poder da tecnologia de reconhecimento de imagens para identificar as plant
 
 LIGA A CAMERA E COMEÇA A PROCURAR!
 
-Encontraste um cogumelo, flor ou inseto, e não tens a certeza o que é? Abre a camera Seek para ver se ela sabe!
+Encontraste um cogumelo, flor ou inseto, e não tens a certeza o que é? Abre a câmara Seek para ver se ela sabe!
 
 Procurando por milhões de observações de vida selvagem no iNaturalist, o Seek mostra-te listas de insetos, aves, plantas e anfíbios comummente vistos na tua area. Examina o ambiente com a Câmara Seek para identificar organismos usando a árvore da vida. Adiciona diferentes espécies às tuas observações e aprende tudo sobre elas enquanto o fazes! Quanto mais observações fizeres, mais crachás ganhas!
 
@@ -17,10 +17,10 @@ Esta é uma excelente aplicação para famílias que querem passar mais tempo a 
 
 SEGURO PARA CRIANÇAS
 
-O Seek não requer registo e não recolhe quaisquer dados do utilizador por definição. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+O Seek não requer registo e não recolhe quaisquer dados do utilizador por definição. Alguns dados do utilizador serão recolhidos se escolheres entrar com uma conta iNaturalist, mas para fazer isso tens de ter mais de 13 anos de idade ou autorização dos teus pais.
 
-Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+O Seek vai pedir autorização para ligar serviços de localização, mas a tua localização é escondida para respeitar a tua privacidade e ao mesmo tempo permitir sugestões de espécies da tua área geral. A tua localização exacra nunca é armazenada na app ou enviada ao iNaturalist, a menos que entres na tua conta iNaturalist e submetas as tuas observações 
 
-Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+A nossa tecnologia de reconhecimento de imagem baseia-se em observações submetidas a iNaturalist.org e sites parceiros, e identificadas pela comunidade iNaturalist.
 
-Seek is created by the iNaturalist team. iNaturalist é uma iniciativa conjunta entre a California Academy of Sciences e a National Geographic Society. A Seek foi originalmente criada com o apoio da HHMI Tangled Bank Studios e aprimorada com o apoio do Nosso Planeta da Netflix e da WWF.
+Seek é criado pela equipa iNaturalist. iNaturalist é uma iniciativa conjunta entre a California Academy of Sciences e a National Geographic Society. A Seek foi originalmente criada com o apoio da HHMI Tangled Bank Studios e aprimorada com o apoio do Nosso Planeta da Netflix e da WWF.

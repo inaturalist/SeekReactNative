@@ -1,1 +1,1 @@
-plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure
+planta,animal,natureza,jogo,vida selvagem,identificar,aprender,ciência,passeio,fotos AR,biologia,coleção,aventura

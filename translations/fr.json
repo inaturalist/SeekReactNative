@@ -997,5 +997,10 @@
     "thank_you": "Merci d'avoir utilisé Seek ! Nous espérons que cela vous rappelle toutes les espèces intéressantes que vous avez rencontrées cette année.",
     "consider_donation": "Nous sommes une petite équipe et nous apprécions énormément l'attachement et l'enthousiasme dont vous témoignez pour Seek. Si vous souhaitez nous soutenir et nous aider à grandir, vous pouvez faire un don à iNaturalist :",
     "donate": "Faire un don"
+  },
+  "announcements": {
+    "header": "Annonces iNaturalist",
+    "announcement": "Annonce",
+    "dismiss": "Ignorer"
   }
 }

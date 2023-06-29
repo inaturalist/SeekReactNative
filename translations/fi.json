@@ -997,5 +997,10 @@
     "thank_you": "Kiitos, että käytät Seekiä! Toivomme, että tämä yhteenveto toi mieleen kaikki mielenkiintoiset havainnot, jotka teit tänä vuonna.",
     "consider_donation": "Olemme pieni tiimi ja arvostamme suuresti innostustasi Seekiin. Jos haluat tukea meitä, harkitse lahjoittamista iNaturalistille:",
     "donate": "Lahjoita"
+  },
+  "announcements": {
+    "header": "iNaturalist Announcements",
+    "announcement": "Announcement",
+    "dismiss": "Dismiss"
   }
 }

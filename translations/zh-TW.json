@@ -997,5 +997,10 @@
     "thank_you": "感謝您使用 Seek！我們希望這能讓您憶起今年遇到的所有有趣的物種。",
     "consider_donation": "我們整個小型團隊都非常感謝您對 Seek 的愛戴及熱忱。如果您願意在我們成長的過程中支持我們，請考慮向 iNaturalist 捐款：",
     "donate": "捐款"
+  },
+  "announcements": {
+    "header": "iNaturist 公告",
+    "announcement": "公告",
+    "dismiss": "解除"
   }
 }

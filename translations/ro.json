@@ -569,7 +569,7 @@
     "joint_initiative": "iNaturalist este o inițiativă comună a Academiei de Științe din California și a Societății Naționale Geografice. ",
     "original": "Seek a fost creat inițial cu sprijinul HHMI Tangled Bank Studios și îmbunătățit cu sprijin din partea Our Planet pe Netflix și WWF.",
     "designed_by": "Proiectat și dezvoltat de echipa iNaturalist:",
-    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, și Sylvain Morin. Mulțumiri speciale lui Grant Van Horn de la Visipedia pentru ajutor cu tehnologia de viziune computerizată și comunității iNaturalist.",
     "version": "Versiune",
     "help": "Pentru ajutor cu Seek, te rugăm trimite un e-mail la help+seek@inaturalist.org.",
     "translators": "Suntem recunoscători pentru asistența acordată pentru traducere de către comunitatea din crowdin.com, în special: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, și Yulia Lygina.",
@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Trimite jurnale de depanare prin e-mail",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Trimiterea unui e-mail nu a reușit? Apoi apăsați aici pentru a copia conținutul jurnalelor de depanare în clipboard. Apoi inserați-l într-un e-mail și trimiteți la help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Camera Seek",
@@ -999,8 +999,8 @@
     "donate": "Donează"
   },
   "announcements": {
-    "header": "iNaturalist Announcements",
-    "announcement": "Announcement",
-    "dismiss": "Dismiss"
+    "header": "Anunțuri iNaturalist",
+    "announcement": "Anunț",
+    "dismiss": "Renunță"
   }
 }

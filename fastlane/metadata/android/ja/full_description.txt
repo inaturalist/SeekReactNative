@@ -1,4 +1,4 @@
-画像認識AIを使って、身近な植物や動物の名前を学ぼう。 画像認識AIを使って、身近な植物や動物の名前を学ぼう。 Earn badges for seeing different types of plants, birds, fungi and more!
+画像認識AIを使って、身近な植物や動物の名前を学ぼう。 Earn badges for seeing different types of plants, birds, fungi and more!
 
 • Get outside and point the Seek Camera at living things
 
@@ -19,7 +19,7 @@ Seek（シーク）はiNaturalistに登録された何百万個もの野生生�
 
 Seek（シーク）にはアカウント登録をする必要がなく、ユーザーデータはデフォルトの設定では収集していません。 iNaturalistに登録されているアカウントでログインするとユーザーデータは収集されますが、ユーザーが13歳未満の場合は保護者の許可が必要です。
 
-Seek（シーク）は位置情報の利用の許可を求めますが、ユーザーの位置情報は大まかにしか示しません。従ってプライバシーの保護をしながら大体の位置にいると知られている生き物の名前を表示することができます。 Seek（シーク）は位置情報の利用の許可を求めますが、ユーザーの位置情報は大まかにしか示しません。従ってプライバシーの保護をしながら大体の位置にいると知られている生き物の名前を表示することができます。 Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+Seek（シーク）は位置情報の利用の許可を求めますが、ユーザーの位置情報は大まかにしか示しません。従ってプライバシーの保護をしながら大体の位置にいると知られている生き物の名前を表示することができます。 Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
 
 Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
 

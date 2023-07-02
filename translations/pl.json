@@ -999,8 +999,8 @@
     "donate": "Donate"
   },
   "announcements": {
-    "header": "iNaturalist Announcements",
-    "announcement": "Announcement",
-    "dismiss": "Dismiss"
+    "header": "Powiadomienia iNaturalist",
+    "announcement": "Ogłoszenia",
+    "dismiss": "Odrzuć"
   }
 }

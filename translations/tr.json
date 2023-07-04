@@ -999,8 +999,8 @@
     "donate": "Bağış Yap"
   },
   "announcements": {
-    "header": "iNaturalist Announcements",
-    "announcement": "Announcement",
-    "dismiss": "Dismiss"
+    "header": "iNaturalist Duyuruları",
+    "announcement": "Duyuru",
+    "dismiss": "Yoksay"
   }
 }

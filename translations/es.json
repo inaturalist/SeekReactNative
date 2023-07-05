@@ -667,7 +667,7 @@
   },
   "debug": {
     "logs": "Enviar registros vía email",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "¿No pudo enviar un correo electrónico? Pulse aquí para copiar el contenido de los registros de depuración en el portapapeles. A continuación, péguelo en un correo electrónico y envíelo a help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Cámara de Seek",
@@ -997,5 +997,10 @@
     "thank_you": "¡Gracias por usar Seek! Esperamos que esto te recuerde todas las especies interesantes que has conocido este año.",
     "consider_donation": "Como el pequeño equipo que somos, apreciamos mucho todo el cariño y entusiasmo por Seek. Si quieres apoyarnos a medida que seguimos creciendo, por favor considera hacer una donación a iNaturalist:",
     "donate": "Donar"
+  },
+  "announcements": {
+    "header": "Anuncios de iNaturalist",
+    "announcement": "Anuncio",
+    "dismiss": "Descartar"
   }
 }

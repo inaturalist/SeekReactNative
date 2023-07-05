@@ -997,5 +997,10 @@
     "thank_you": "Seek'i kullandığın için teşekkür ederiz! Umarız bu sana bu yıl tanıştığın tüm ilginç türleri anımsatır.",
     "consider_donation": "Küçük bir ekip olarak, Seek'e olan sevgin ve hevesin için çok teşekkür ederiz. Büyürken bize destek olmak istersen, lütfen iNaturalist'e bağış yapmayı düşün:",
     "donate": "Bağış Yap"
+  },
+  "announcements": {
+    "header": "iNaturalist Duyuruları",
+    "announcement": "Duyuru",
+    "dismiss": "Yoksay"
   }
 }

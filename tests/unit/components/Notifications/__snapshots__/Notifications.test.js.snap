@@ -470,6 +470,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                             "textAlign": "left",
                           },
                           {
+                            "color": "#000000",
                             "fontFamily": "Whitney-Medium",
                             "fontSize": 16,
                             "lineHeight": 21,
@@ -487,6 +488,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                             "textAlign": "left",
                           },
                           {
+                            "color": "#000000",
                             "fontFamily": "Whitney-Book",
                             "fontSize": 14,
                             "lineHeight": 21,
@@ -592,6 +594,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                             "textAlign": "left",
                           },
                           {
+                            "color": "#000000",
                             "fontFamily": "Whitney-Medium",
                             "fontSize": 16,
                             "lineHeight": 21,
@@ -609,6 +612,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                             "textAlign": "left",
                           },
                           {
+                            "color": "#000000",
                             "fontFamily": "Whitney-Book",
                             "fontSize": 14,
                             "lineHeight": 21,

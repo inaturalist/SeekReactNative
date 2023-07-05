@@ -359,9 +359,6 @@ const ARCamera = ( ): Node => {
                   "width": 4032
                 }
               */
-              // TODO: I don'tknow if these two lines are correctly used here
-              photo.deviceOrientation = photo?.metadata?.Orientation || 0;
-              photo.pictureOrientation = photo?.metadata?.Orientation || 0;
               // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
               photo.predictions = allPredictions;
               photo.uri = photo.path;

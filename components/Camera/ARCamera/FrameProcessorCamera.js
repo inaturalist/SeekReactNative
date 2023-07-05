@@ -2,7 +2,7 @@
 import { useIsFocused } from "@react-navigation/native";
 import type { Node } from "react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Animated, StyleSheet } from "react-native";
+import { Animated, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import * as REA from "react-native-reanimated";
 import {
@@ -12,7 +12,8 @@ import {
 } from "react-native-vision-camera";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
-import { useIsForeground } from "../../../utility/customHooks";
+import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
+
 import FocusSquare from "./FocusSquare";
 
 const FrameProcessorCamera = ( props ): Node => {
@@ -37,6 +38,8 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const isFocused = useIsFocused( );
   const isForeground = useIsForeground( );
+
+  const { deviceOrientation } = useDeviceOrientation();
 
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
@@ -219,6 +222,9 @@ const FrameProcessorCamera = ( props ): Node => {
             photo={true}
             device={device}
             isActive={isFocused && isForeground && isActive}
+            orientation={Platform.OS === "android"
+              ? deviceOrientation
+              : null}
             frameProcessor={frameProcessor}
             // A value of 1 indicates that the frame processor gets executed once per second.
             // This roughly equals the setting of the legacy camera of 1000ms between predictions,

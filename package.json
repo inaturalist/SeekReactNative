@@ -64,6 +64,7 @@
     "react-native-modal": "^13.0.1",
     "react-native-modal-datetime-picker": "^14.0.0",
     "react-native-open-settings": "github:albullington/react-native-open-settings",
+    "react-native-orientation-locker": "github:wonday/react-native-orientation-locker",
     "react-native-pager-view": "^6.1.2",
     "react-native-picker-select": "^8.0.4",
     "react-native-progress-circle": "^2.1.0",

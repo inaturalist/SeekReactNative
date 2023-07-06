@@ -416,7 +416,7 @@ PODS:
   - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
-  - RealmJS (11.2.0):
+  - RealmJS (11.3.1):
     - React
   - RNCAsyncStorage (1.17.11):
     - React-Core
@@ -809,7 +809,7 @@ SPEC CHECKSUMS:
   ReactCommon: c440e7f15075e81eb29802521c58a1f38b1aa903
   ReactNativeExceptionHandler: b11ff67c78802b2f62eed0e10e75cb1ef7947c60
   ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
-  RealmJS: d0e94d35363a3a9ebd27981d9ac0aa4b63f66c85
+  RealmJS: 43fc7bfb83229c8a2755cb34f71f769c97b7b581
   RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a

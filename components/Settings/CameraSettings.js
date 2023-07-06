@@ -66,8 +66,7 @@ const CameraSettings = ( ): Node => {
     <>
       <StyledText style={textStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</StyledText>
       <StyledText style={viewStyles.radioButtonSmallMargin}>
-        {radioButtons.map( ( obj, i ) => (
-          <RadioButton
+        {radioButtons.map( ( obj, i ) => <RadioButton
             key={`${obj.label}${i}`}
             style={viewStyles.radioMargin}
           >
@@ -96,7 +95,7 @@ const CameraSettings = ( ): Node => {
               accessibilityLabel={radioButtons[i].label}
             />
           </RadioButton>
-        ) )}
+        )}
       </StyledText>
       <View style={[viewStyles.row, viewStyles.radioButtonSmallMargin]}>
         <Switch

@@ -62,10 +62,7 @@ const OnlineSpeciesContainer = ( {
     return !loading ? <>
       <SpeciesMap id={id} seenDate={seenDate} region={region} />
       {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} id={id} />}
-      {/* there's certainly a better way to do this, but adding about prop to make sure
-      similar species and the green background don't load before other elements higher on the page load
-      eventually should implement some kind of lazy loading here */}
-      {about && (
+      {!loading && (
         <>
           <INatObs id={id} timesSeen={timesSeen} region={region} />
           {/* $FlowFixMe */}

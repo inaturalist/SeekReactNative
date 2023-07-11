@@ -26,4 +26,4 @@ Found a mushroom, flower, or bug, and not sure what it is? افتح كاميرا
 
 تعتمد تقنبة التعرف على الصور الخاصة بنا على الملاخظات المقدمة إلى iNaturalist.org والمواقع المشتركة، ويتم التعرف عليها عن طريق مجتمع iNaturalist.
 
-تم إنشاء Seek من طرف فريق iNaturalist. و iNaturalist هي مبادرة مشتركة بين أكاديمية كاليفورنيا للعلوم والجمعية الجغرافية الوطنية. وقد تم إنشاء Seek في الأصل بدعم من HHMI Tangled Bank Studios وتم تعزيزه في برنامج Our Planet على منصة Netflix وكذلك WWF.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

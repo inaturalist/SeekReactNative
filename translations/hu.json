@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Bemutatkozás",
-    "seek": "A Seek készítője az iNaturalist csapat.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése.",
-    "original": "A Seek a HHMI Tangled Bank Studios, a Netflix Our Planet - Bolygónk Csodái és a WFF támogatásával jött létre.",
-    "designed_by": "Tervezte és feljesztette az iNaturalist csapata:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta és Sylvain Morin. Külön köszönet Grant Van Horn-nak a Visipedia-tól a computer vision technológia terén nyújtott segítségért, és az iNaturalist közösségének.",
     "version": "Verzió",
     "help": "A Seek használatával kapcsolatos segítségért írjon a help+seek@inaturalist.org címre.",
@@ -598,7 +597,9 @@
     "major_taxa": "MAGASABB TAXONOK",
     "animals": "Állatok",
     "protozoans": "Állati egysejtűek",
-    "kelp": "Hínárok, kovamoszatok és társaik"
+    "kelp": "Hínárok, kovamoszatok és társaik",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "KÜLDÉS AZ INATURALISTRA A HÁTTÉRBEN",

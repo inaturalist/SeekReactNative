@@ -20,4 +20,4 @@ Seek 會向您要求開啟定位服務功能，但我們會隱藏您的位置以
 
 我們的影像辨識技術是根據提交給 iNaturalist.org 和合作夥伴網站的觀察資料，並透過 iNaturalist 社群鑑定的。
 
-Seek 是由 iNaturalist 團隊所創造的。 iNaturalist 是加州科學院（California Academy of Sciences）和國家地理學會（National Geographic Society）共同倡議的專案。 Seek 最初是在 HHMI Tangled Bank Studios（HHMI 紛繁河岸工作室）的支援下所打造的，並由 Netflix 上的 Our Planet（我們的星球）和 WWF（世界自然基金會）給予進一步的支援。
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

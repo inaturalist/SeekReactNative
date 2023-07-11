@@ -598,7 +598,9 @@
     "major_taxa": "MAJOR TAXA",
     "animals": "Animals",
     "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "kelp": "Kelp, Diatoms, & Allies",
+    "error_title":"Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",

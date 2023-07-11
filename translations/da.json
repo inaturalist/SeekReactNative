@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Om",
-    "seek": "Seek er skabt af holdet bag iNaturalist.",
+    "seek_designed_by": "Seek er designet og udviklet af iNaturalist-teamet:",
     "joint_initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society.",
-    "original": "Seek blev oprindeligt til med støtte fra OurPlanet på Netflix og HHMI Tangled Bank Studios.",
-    "designed_by": "Designet & udviklet af iNaturalist holdet:",
+    "support_from": "Seek blev oprindeligt skabt med støtte fra California Academy of Sciences, National Geographic Society, Our Planet på Netflix, WWF, HHMI Tangled Bank Studios og Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta og Sylvain Morin. En særlig tak til Grant Van Horn fra Visipedia for hjælp med teknologien til computer-billedgenkendelse og til iNaturalist-fællesskabet.",
     "version": "Version",
     "help": "Har du brug for hjælp med Seek, kan du sende en e-mail til help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "OVERORDNET TAKSA",
     "animals": "Dyr",
     "protozoans": "Protozoer",
-    "kelp": "Brunalger, kiselalger og beslægtede"
+    "kelp": "Brunalger, kiselalger og beslægtede",
+    "error_title": "Kunne ikke oprette på iNaturalist",
+    "error_message": "Din breddegrad eller længdegrad er indstillet til præcis 0. Vi tror, at dette er en fejl. Vælg en anden placering."
   },
   "posting_status": {
     "posting_to_inat_background": "OPRETTER PÅ INATURALIST I BAGGRUNDEN",

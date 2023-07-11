@@ -20,4 +20,4 @@ Seek（シーク）は位置情報の利用の許可を求めますが、ユー�
 
 私たちの画像認識AIはiNaturalistや他のパートナーサイトに投稿された観察に基づいており、投稿された観察データはiNaturalistのコミュニティによって鑑定されています。
 
-SeekはiNaturalistのチームによって作られています。 iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。 Seekは元々HHMI Tangled Bank Studiosのサポートを受けて作成され、Netflix、WWFのOur Planet(私たちの地球)によるサポートで強化されました。
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

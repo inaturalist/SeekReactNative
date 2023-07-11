@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "පිළිබඳව",
-    "seek": "Seek නිර්මාණය කළේ iNaturalist කණ්ඩායම විසිනි.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist යනු California Academy of Sciences සහ National Geographic Society හි ඒකාබද්ධ මුලපිරීමකි.",
-    "original": "Seek මුලින් නිර්මාණය කරන ලද්දේ HHMI Tangled Bank Studios හි සහාය ඇතිව වන අතර Netflix හි Our Planet සහ WWF හි සහාය ඇතිව වැඩි දියුණු කරන ලදි.",
-    "designed_by": "iNaturalist කණ්ඩායම විසින් නිර්මාණය කර සංවර්ධනය කරන ලදි:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "අනුවාදය",
     "help": "Seek සඳහා උදව් උදෙසා, කරුණාකර help+seek@inaturalist.org වෙත විද්‍යුත් තැපෑලෙන් එවන්න.",
@@ -598,7 +597,9 @@
     "major_taxa": "MAJOR TAXA",
     "animals": "Animals",
     "protozoans": "Protozoans",
-    "kelp": "Kelp, Diatoms, & Allies"
+    "kelp": "Kelp, Diatoms, & Allies",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",

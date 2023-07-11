@@ -23,4 +23,4 @@ Seek chiederà l'autorizzazione ad attivare i servizi di posizione, ma la tua po
 
 La nostra tecnologia di riconoscimento delle immagini si basa sulle osservazioni inviate a iNaturalist.org e siti partner e identificate dalla community di iNaturalist.<
 
-Seek è stata creata dal team di iNaturalist. iNaturalist è un' iniziativa congiunta dell'Accademia di Scienze della California e della National Geographic Society. Seek è stata originariamente creata con il supporto da HHMI Tangled Bank Studios e migliorata con il supporto da Our Planet su Netflix e dal WWF.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

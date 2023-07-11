@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "O aplikaci",
-    "seek": "Seek je vytvořen týmem iNaturalist.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist je společná iniciativa Kalifornské akademie věd a Národní geografické společnosti.",
-    "original": "Seek bylo původně vytvořen s podporou OurPlanet na Netflixu a HHMI Tangled Bank Studios.",
-    "designed_by": "Navrženo a vyvinuto týmem iNaturalist:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, Yaron Budowski, Johannes Klein, Angie Ta, a Sylvain Morin. Zvláštní poděkování patří Grantu Van Hornovi z Visipedie za pomoc s technologií počítačového vidění a komunitě iNaturalist.",
     "version": "Verze",
     "help": "Potřebujete-li pomoci se Seekem, kontaktujte nás na emailové adrese help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "HLAVNÍ TAXONY",
     "animals": "Živočichové",
     "protozoans": "Prvoci",
-    "kelp": "Chaluhy, rozsivky a příbuzné rody"
+    "kelp": "Chaluhy, rozsivky a příbuzné rody",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "POSÍLÁM DO INATURALISTU NA POZADÍ",

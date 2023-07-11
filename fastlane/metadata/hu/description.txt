@@ -20,4 +20,4 @@ A Seek ezentúl engedélyt fog kérni a helyzetmeghatározáshoz, amely alapján
 
 Az automatikus képfelismerés az iNaturalist.org-hoz és a partneroldalakhoz feltöltött megfigyeléseken alapszik, és az iNaturalist felhasználói közössége is részt vesz az azonosításban.
 
-A Seek alkalmazást az iNaturalist csapata feljesztette. Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése. A Seek eredetileg az HHMI Tangled Bank Studios, a Netflix Our Planet - Bolygónk Csodái és a WFF támogatásával jött létre.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Despre",
-    "seek": "Seek este creat de echipa iNaturalist.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist este o inițiativă comună a Academiei de Științe din California și a Societății Naționale Geografice. ",
-    "original": "Seek a fost creat inițial cu sprijinul HHMI Tangled Bank Studios și îmbunătățit cu sprijin din partea Our Planet pe Netflix și WWF.",
-    "designed_by": "Proiectat și dezvoltat de echipa iNaturalist:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, și Sylvain Morin. Mulțumiri speciale lui Grant Van Horn de la Visipedia pentru ajutor cu tehnologia de viziune computerizată și comunității iNaturalist.",
     "version": "Versiune",
     "help": "Pentru ajutor cu Seek, te rugăm trimite un e-mail la help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "TAXONI PRINCIPALI",
     "animals": "Animale",
     "protozoans": "Protozoare",
-    "kelp": "Laminarii, Diatomee și Similare"
+    "kelp": "Laminarii, Diatomee și Similare",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTARE PE INATURALIST ÎN FUNDAL",

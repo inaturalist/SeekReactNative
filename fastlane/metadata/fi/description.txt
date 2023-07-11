@@ -20,4 +20,4 @@ Seek pyytää lupaa ottaa sijaintipalvelut käytötön, mutta sijaintisi on piil
 
 Kuvantunnistustekniikkamme perustuu iNaturalist.org-sivustolle ja kumppanisivustoille tallennettuihin havaintoihin, jotka iNaturalist-yhteisö on tunnistanut.
 
-Seek on iNaturalist-tiimin luoma. iNaturalist on Kalifornian tiedeakatemian ja National Geographic Societyn yhteishanke. Seek on alun perin luotu HHMI Tangled Bank Studios -tuella ja sitä on paranneltu Netflixin Our Planet -sarjan ja WWF:n tuella.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

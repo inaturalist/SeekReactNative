@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Sobre",
-    "seek": "O Seek foi criado pela equipe do iNaturalist.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society.",
-    "original": "O Seek foi originalmente criado com o apoio da HHMI Tangled Bank Studios e aprimorado com o apoio da série Nosso Planeta na Netflix e da WWF.",
-    "designed_by": "Concebido e desenvolvido pela equipe do iNaturalist:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Johannes Klein, e Yaron Budowski. Agradecimentos especiais a Grant Van Horn da Visipedia, pela ajuda com a tecnologia de visão computadorizada, e à comunidade iNaturalist.",
     "version": "Versão",
     "help": "Para receber ajuda com o Seek, por favor envie um e-mail para help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "TÁXONS PRINCIPAIS",
     "animals": "Animais",
     "protozoans": "Protozoários",
-    "kelp": "Algas, diatomáceas e similares"
+    "kelp": "Algas, diatomáceas e similares",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR NO INATURALIST EM SEGUNDO PLANO",

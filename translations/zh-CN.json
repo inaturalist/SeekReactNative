@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "关于我们",
-    "seek": "Seek是由 iNaturalist 团队创建的。",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist 由加利福尼亚科学院与美国国家地理学会共同创办",
-    "original": "Seek最初是在HHMI Tangled Bank Studios的支持下创建的，并在我们的Netflix星球和世界自然基金会的支持下得到加强。",
-    "designed_by": "由 iNaturalist 团队设计和开发：",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Sheard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. 特别感谢来自Visipedia的Grant Van Horn在计算机视觉技术的帮助，和iNaturalist 社区。",
     "version": "版本",
     "help": "若需要有关 Seek 的协助，请发送电子邮件至 help+seek@inaturalist.org。",
@@ -598,7 +597,9 @@
     "major_taxa": "主要分类群",
     "animals": "动物",
     "protozoans": "原生动物",
-    "kelp": "海带，硅藻和其它相关生物"
+    "kelp": "海带，硅藻和其它相关生物",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "在后台发布到 INATURALIST",

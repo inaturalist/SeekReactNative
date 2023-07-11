@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Tentang",
-    "seek": "Seek dibuat oleh tim iNaturalist.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist adalah inisiatif gabungan dari California Academy of Sciences dan National Geographic Society.",
-    "original": "Seek pada awalnya dibuat dengan dukungan HHMI Tangled Bank Studios dan ditingkatkan dengan dukungan dari Our Planet di Netflix dan WWF.",
-    "designed_by": "Didesain & dikembangkan oleh tim iNaturalist:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, dan Sylvain Morin. Terima kasih khususnya kepada Grant Van Horn dari Visipedia untuk bantuannya atas teknologi penglihatan komputer, dan juga komunitas iNaturalist.",
     "version": "Versi",
     "help": "Untuk bantuan tentang Seek, silakan email help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "TAKSA MAYOR",
     "animals": "Hewan",
     "protozoans": "Protozoa",
-    "kelp": "Rumput Laut, Diatom, & Sekutunya"
+    "kelp": "Rumput Laut, Diatom, & Sekutunya",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "MENGUNGGAH KE INATURALIST DI LATAR BELAKANG",

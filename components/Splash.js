@@ -5,7 +5,6 @@ import { Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import { colors } from "../styles/global";
 import styles from "../styles/splash";
 import logos from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
@@ -60,12 +59,6 @@ const SplashScreen = ( ): Node => {
       <Image
         source={logos.seek}
         style={[styles.logo, isTablet && styles.logoTablet]}
-      />
-      {/* $FlowFixMe */}
-      <Image
-        source={logos.casNatGeo}
-        tintColor={colors.white}
-        style={[styles.joint, isTablet && styles.logoJoint]}
       />
     </ImageBackground>
   );

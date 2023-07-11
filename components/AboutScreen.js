@@ -33,20 +33,17 @@ const AboutScreen = (): Node => {
       <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>
         <Image source={logos.iNat} />
         <View style={viewStyles.marginSmall} />
-        <StyledText style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek" )}</StyledText>
-        <StyledText style={textStyles.text}>{i18n.t( "about.joint_initiative" )}</StyledText>
+        <StyledText style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.seek_designed_by" )}</StyledText>
+        <StyledText style={textStyles.text}>{i18n.t( "about.inat_team_credits_3" )}</StyledText>
+        <View style={viewStyles.marginSmall} />
+        <StyledText style={textStyles.text}>{i18n.t( "about.support_from" )}</StyledText>
         <View style={viewStyles.block} />
         <Image source={logos.casNatGeo} style={imageStyles.image} />
-        <View style={viewStyles.marginLarge} />
-        <StyledText style={textStyles.text}>{i18n.t( "about.original" )}</StyledText>
-        <View style={viewStyles.margin} />
+        <View style={viewStyles.marginSmall} />
         <Image source={logos.wwfop} style={imageStyles.wwfop} />
         <View style={viewStyles.marginSmall} />
         <Image source={logos.hhmi} />
         <View style={viewStyles.margin} />
-        <StyledText style={[textStyles.text, textStyles.boldText]}>{i18n.t( "about.designed_by" )}</StyledText>
-        <StyledText style={textStyles.text}>{i18n.t( "about.inat_team_credits_3" )}</StyledText>
-        <View style={viewStyles.marginSmallest} />
         <StyledText style={textStyles.text}>{i18n.t( "about.translators" )}</StyledText>
         <View style={viewStyles.marginSmallest} />
         <StyledText style={textStyles.text}>{i18n.t( "about.join_crowdin" )}</StyledText>

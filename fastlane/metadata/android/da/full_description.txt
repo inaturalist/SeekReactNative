@@ -23,4 +23,4 @@ Seek vil bede om tilladelse til at slå placeringstjenester til, men din placeri
 
 Vores billedgenkendelsesteknologi er baseret på observationer tilføjet iNaturalist.org og partnersider og identificeret af iNaturalist-fællesskabet.
 
-Seek er skabt af holdet bag iNaturalist. iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society. Seek blev oprindeligt skabt med støtte fra HHMI Tangled Bank Studios og forbedret med støtte fra Our Planet på Netflix og WWF.
+Seek er en del af iNaturalist, en non-profit organisation. Seek blev skabt af iNaturalist-teamet med støtte fra California Academy of Sciences, National Geographic Society, Our Planet på Netflix, WWF, HHMI Tangled Bank Studios og Visipedia.

@@ -20,8 +20,4 @@ SEEKek baimena eskatuko du lokalizazio-zerbitzuak aktibatzeko, baina zure kokape
 
 Irudiak ezagutzeko gure teknologia iNaturalist.org helbidera eta lotutako guneetara bidalitako behaketetan oinarritzen da, eta iNaturalist komunitateak identifikatzen ditu.
 
-Seek iNaturalist taldeak sortu du. iNaturalist California Academy of Sciences eta National Geographic Societyren ekimen bateratua da.
-
- Seek, jatorrian, HHMI Tangled Bank Studios-en laguntzarekin sortua izan zen, eta Our Planet-en laguntzarekin hobetua Netflix-en eta WWFn.
-
-
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

@@ -23,4 +23,4 @@ Seek zal toestemming vragen om locatie services aan te zetten maar je locatie wo
 
 Onze beeldherkenningstechnologie is gebaseerd op waarnemingen die zijn ingediend bij iNaturalist.org en partner sites en gedetermineerd door de iNaturalist gemeenschap.
 
-Seek wordt gemaakt door het iNaturalist team. iNaturalist is een gezamenlijk initiatief van de Californië Academy of Sciences en de National Geographic Society. Seek werd oorspronkelijk gemaakt met steun van HHHMI Tangled Bank Studios en verrijkt met de steun van Our Planet op Netflix en WWF.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

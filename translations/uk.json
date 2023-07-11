@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Головна інформація",
-    "seek": "Seek створений командою iNaturalist",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist є спільною ініціативою Каліфорнійської академії наук та Національного географічного товариства.",
-    "original": "Seek був створений за підтримки HHMI Tangled Bank Studios та розширений за підтримки Our Planet на Netflix та WWF.",
-    "designed_by": "Розроблено командою iNaturalist:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, та Sylvain Morin. Особлива подяка Grant Van Horn from Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
     "version": "Версія",
     "help": "Для отримання допомоги в роботі з Seek, будь ласка, напишіть на електронну пошту help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "ОСНОВНІ ТАКСОНИ",
     "animals": "Тварини",
     "protozoans": "Найпростіші",
-    "kelp": "Ламінарієві, Діатомеї та споріднені"
+    "kelp": "Ламінарієві, Діатомеї та споріднені",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "ЗАВАНТАЖЕННЯ ДО INATURALIST У ФОНОВОМУ РЕЖИМІ",

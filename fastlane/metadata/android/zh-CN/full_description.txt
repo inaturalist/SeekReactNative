@@ -23,4 +23,4 @@ Seek将请求权限以开启位置服务。 但您的位置被遮蔽，以尊重
 
 我们的图像识别技术基于提交到 iNaturalist.org 和合作伙伴网站的观察，并由 iNaturalist 社区认定。
 
-Seek是由 iNaturalist 团队创建的。 iNaturalist 由加利福尼亚科学院与美国国家地理学会共同创办 Seek最初是在HHMI Tangled Bank Studios的支持下创建的，并在我们的Netflix星球和世界自然基金会的支持下得到加强。
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

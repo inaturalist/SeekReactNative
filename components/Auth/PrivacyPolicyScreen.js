@@ -10,14 +10,14 @@ import { UserContext } from "../UserContext";
 const PrivacyPolicyScreen = (): React.Node => {
   const { login } = useContext( UserContext );
 
-  const iNatHtml = `<p><i>Last Modified on August 18, 2022</i></p>
+  const iNatHtml = `<p><i>Last Modified on July 11, 2023</i></p>
 
 <p>
-  This is the privacy policy ("Privacy Policy") of the California Academy of Sciences' and National Geographic Society's iNaturalist.org website, iOS App, and Android App, the iNaturalist Network Member websites, and describes how iNaturalist.org ("iNaturalist," "We," "Us" or "Our") handles Personal Information (as defined below) that users ("You," "Your” or "User") provide to Us, or that We collect from You through the use of Our Website, which is located at <a href="https://www.inaturalist.org">www.inaturalist.org</a> ) and through the iNaturalist Network Member websites (collectively, the "Websites"), and through the iNaturalist iOS App, and the iNaturalist Android App and the Seek by iNaturalist App (the “App(s)”) (the “Websites” and “App(s)” are collectively, the “Platform”).
+  This is the privacy policy ("Privacy Policy") of the iNaturalist.org website, iOS App, and Android App, the iNaturalist Network Member websites, and describes how iNaturalist ("iNaturalist," "We," "Us" or "Our") handles Personal Information (as defined below) that users ("You," "Your” or "User") provide to Us, or that We collect from You through the use of Our Website, which is located at <a href="https://www.inaturalist.org">www.inaturalist.org</a> ) and through the iNaturalist Network Member websites (collectively, the "Websites"), and through the iNaturalist iOS App, and the iNaturalist Android App and the Seek by iNaturalist App (the “App(s)”) (the “Websites” and “App(s)” are collectively, the “Platform”).
 </p>
 
 <p>
-  Each country has different laws and rights relating to Personal Information of their residents. If You are a resident located outside the United States, in addition to this Privacy Policy, please also see Your country specific disclosures including those for: <a href="https://www.argentina.gob.ar/aaip">Argentina</a>; <a href="https://www.oaic.gov.au/privacy/your-privacy-rights">Australia</a>; <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada">Canada</a>; <a href="https://www.bcn.cl/leychile/navegar?idNorma=141599">Chile</a>; <a href="https://www.sic.gov.co/tema/proteccion-de-datos-personales">Colombia</a>; <a href="http://www.prodhab.go.cr/reformas/">Costa Rica</a>; <a href="https://www.fundacionmicrofinanzasbbva.org/revistaprogreso/en/new-bill-to-ensure-personal-data-protection/">Ecuador</a>; <a href="https://www.finlex.fi/fi/laki/ajantasa/2018/20181050">Finland</a>; <a href="https://www.kodiko.gr/nomothesia/document/552084/nomos-4624-2019">Greece</a>; <a href="https://www.dataguidance.com/jurisdiction/guatemala">Guatemala</a>; <a href="https://www.gov.il/he/Departments/the_privacy_protection_authority">Israel</a>; <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5469949&amp;fecha=26/01/2017">Mexico</a>; <a href="https://www.legislation.govt.nz/act/public/1993/0028/latest/DLM296639.html">New Zealand</a>; <a href="https://www.antai.gob.pa/proteccion-de-datos-personales-facebooklive/">Panama</a>; <a href="https://edpb.europa.eu/our-work-tools/general-guidance">Portugal</a>; <a href="https://www.saica.org.za/resources/legislation-and-governance/promotion-of-access-to-information-act">South Africa</a>; <a href="https://www.aepd.es/en/prensa-y-comunicacion/blog/data-governance-and-data-protection-policy">Spain</a>; <a href="https://www.datainspektionen.se/other-lang/in-english/the-general-data-protection-regulation-gdpr/">Sweden</a>; <a href="https://www.ndc.gov.tw/en/Content_List.aspx?n=F01BA39CDAD39B01">Taiwan</a>; <a href="https://www.itechlaw.org/latinamericadataprotection/uruguay">Uruguay</a>; and the <a href="https://www.gov.uk/data-protection">United Kingdom</a>;
+  Each country has different laws and rights relating to Personal Information of their residents. If You are a resident located outside the United States, in addition to this Privacy Policy, please also see Your country specific disclosures including those for: <a href="https://www.argentina.gob.ar/aaip">Argentina</a>; <a href="https://www.oaic.gov.au/privacy/your-privacy-rights">Australia</a>; <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada">Canada</a>; <a href="https://www.bcn.cl/leychile/navegar?idNorma=141599">Chile</a>; <a href="https://www.sic.gov.co/tema/proteccion-de-datos-personales">Colombia</a>; <a href="http://www.prodhab.go.cr/reformas/">Costa Rica</a>; <a href="https://www.fundacionmicrofinanzasbbva.org/revistaprogreso/en/new-bill-to-ensure-personal-data-protection/">Ecuador</a>; <a href="https://www.finlex.fi/fi/laki/ajantasa/2018/20181050">Finland</a>; <a href="https://www.kodiko.gr/nomothesia/document/552084/nomos-4624-2019">Greece</a>; <a href="https://www.dataguidance.com/jurisdiction/guatemala">Guatemala</a>; <a href="https://www.gov.il/he/Departments/the_privacy_protection_authority">Israel</a>; <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5469949&amp;fecha=26/01/2017">Mexico</a>; <a href="https://www.legislation.govt.nz/act/public/2020/0031/latest/LMS23223.html">New Zealand</a>; <a href="https://www.antai.gob.pa/proteccion-de-datos-personales-facebooklive/">Panama</a>; <a href="https://edpb.europa.eu/our-work-tools/general-guidance">Portugal</a>; <a href="https://www.saica.org.za/resources/legislation-and-governance/promotion-of-access-to-information-act">South Africa</a>; <a href="https://www.aepd.es/en/prensa-y-comunicacion/blog/data-governance-and-data-protection-policy">Spain</a>; <a href="https://www.datainspektionen.se/other-lang/in-english/the-general-data-protection-regulation-gdpr/">Sweden</a>; <a href="https://www.ndc.gov.tw/en/Content_List.aspx?n=F01BA39CDAD39B01">Taiwan</a>; <a href="https://www.itechlaw.org/latinamericadataprotection/uruguay">Uruguay</a>; and the <a href="https://www.gov.uk/data-protection">United Kingdom</a>;
 </p>
 
 <p>
@@ -90,7 +90,7 @@ const PrivacyPolicyScreen = (): React.Node => {
 </p>
 
 <p>
-  We use Microsoft Azure and Amazon Web Services, Google Maps Platform (to display geographic content), and SendGrid. If You choose to participate in some optional services, We will share Personal Information with entities that make those services possible, such as Civilized Discourse Construction Kit (for the iNaturalist Forum); Donorbox and Stripe (for charitable donations); and Threadless (for the iNaturalist Store). You can withdraw from participation in these services by contacting Us at <a href="mailto:privacy@inaturalist.org">privacy@inaturalist.org</a>.
+  We use Microsoft Azure and Amazon Web Services, Google Maps Platform (to display geographic content), and SendGrid. If You choose to participate in some optional services, We will share Personal Information with entities that make those services possible, such as Civilized Discourse Construction Kit (for the iNaturalist Forum); Donorbox, PayPal, and Stripe (for charitable donations); FreeWill (for legacy giving); and Threadless (for the iNaturalist Store). You can withdraw from participation in these optional services by contacting them directly.
 </p>
 
 <p>
@@ -115,7 +115,7 @@ const PrivacyPolicyScreen = (): React.Node => {
   </li>
   <li>
     <p>
-      If there is a bankruptcy, merger, acquisition, transfer of control, joint venture or other business combination involving iNaturalist, the Academy or National Geographic.
+      If there is a bankruptcy, merger, acquisition, transfer of control, joint venture or other business combination involving iNaturalist.
     </p>
   </li>
 </ul>
@@ -301,7 +301,7 @@ const PrivacyPolicyScreen = (): React.Node => {
 <h4>The Data Controller</h4>
 
 <p>
-  The Data Controller who collects and processes your Personal Information is: California Academy of Sciences at <a href="mailto:privacy@calacademy.org">privacy@calacademy.org</a>.
+  The Data Controller who collects and processes your Personal Information is: Ken-ichi Ueda at <a href="mailto:privacy@inaturalist.org">privacy@inaturalist.org</a>.
 </p>
 
 <h3>
@@ -354,13 +354,13 @@ const PrivacyPolicyScreen = (): React.Node => {
 </p>
 
 <p>
-  If You are a California resident and request information about how to exercise Your third party disclosure choices, You must send a request to the following address with a preference on how Our response to Your request should be sent (email or postal mail). Send an email to the California Academy of Sciences Data Protection Officer at <a href="mailto:privacy@calacademy.org">privacy@calacademy.org</a> or contact Us via postal mail at:
+  If You are a California resident and request information about how to exercise Your third party disclosure choices, You must send a request to the following address with a preference on how Our response to Your request should be sent (email or postal mail). Send an email to the iNaturalist Data Protection Officer at <a href="mailto:privacy@inaturalist.org">privacy@inaturalist.org</a> or contact Us via postal mail at:
 </p>
 
 <p>
-  California Academy of Sciences – Data Protection Officer<br>
-  55 Music Concourse Drive<br>
-  San Francisco, CA 94118<br>
+  iNaturalist – Data Protection Officer<br>
+  PO Box 150357<br>
+  San Rafael, CA 94915-0357<br>
   Attn: Your California Privacy Rights<br>
 </p>
 
@@ -374,27 +374,27 @@ const PrivacyPolicyScreen = (): React.Node => {
 </h3>
 
 <p>
-  If any User of Our Platform, or any Subscriber has any questions about this Privacy Policy, please contact the California Academy of Sciences Data Protection Officer <a href="mailto:privacy@calacademy.org">privacy@calacademy.org</a> or:
+  If any User of Our Platform, or any Subscriber has any questions about this Privacy Policy, please contact the iNaturalist Data Protection Officer <a href="mailto:privacy@inaturalist.org">privacy@inaturalist.org</a> or:
 </p>
 
 <p>
-  California Academy of Sciences - Data Protection Officer<br>
-  55 Music Concourse Drive<br>
-  San Francisco, CA 94118<br>
+  iNaturalist – Data Protection Officer<br>
+  PO Box 150357<br>
+  San Rafael, CA 94915-0357<br>
 </p>
 
 <p>
-  <i>This Privacy Policy was last modified on August 18, 2022.</i>
+  <i>This Privacy Policy was last modified on July 11, 2023.</i>
 </p>
 
 <p>
-  © Copyright 2022 California Academy of Sciences. All Rights Reserved.
+  © Copyright 2023 iNaturalist. All Rights Reserved.
 </p>`;
 
-  const seekHtml = `<p><i>Last Revised on November 26, 2019</i></p>
+  const seekHtml = `<p><i>Last Revised on July 11, 2023</i></p>
 
 <p>
-  This is the privacy policy ("Privacy Policy") for the Seek by iNaturalist iOS App of the California Academy of Sciences' and National Geographic. This Privacy Policy is in addition to the Privacy Policy for iNaturalist, found at https://www.inaturalist.org/pages/privacy.
+  This is the privacy policy ("Privacy Policy") for the Seek by iNaturalist, an independent 501(c)3 nonprofit. This Privacy Policy is in addition to the Privacy Policy for iNaturalist, found at https://www.inaturalist.org/pages/privacy.
 </p>
 
 <p>
@@ -460,13 +460,13 @@ const PrivacyPolicyScreen = (): React.Node => {
 </p>
 
 <p>
-  Residents of the State of California, under the California Civil Code, have the right to request from companies conducting business in California a list of all third parties to which the company has disclosed Personal Information during the preceding year for direct marketing purposes. We do not share Your Personal Information with any third parties for direct marketing purposes. If you are a California resident and request information about how to exercise Your third party disclosure choices, you must send a request to the following address with a preference on how Our response to Your request should be sent (email or postal mail). Send an email to the California Academy of Sciences Data Protection Officer at <a href="mailto:privacy@calacademy.org">privacy@calacademy.org</a> or contact Us via postal mail at:
+  Residents of the State of California, under the California Civil Code, have the right to request from companies conducting business in California a list of all third parties to which the company has disclosed Personal Information during the preceding year for direct marketing purposes. We do not share Your Personal Information with any third parties for direct marketing purposes. If you are a California resident and request information about how to exercise Your third party disclosure choices, you must send a request to the following address with a preference on how Our response to Your request should be sent (email or postal mail). Send an email to the iNaturalist Data Protection Officer at <a href="mailto:privacy@inaturalist.org">privacy@inaturalist.org</a> or contact Us via postal mail at:
 </p>
 
 <p>
-  California Academy of Sciences – Data Protection Officer<br>
-  55 Music Concourse Drive<br>
-  San Francisco, CA 94118<br>
+  iNaturalistCalifornia – Data Protection Officer<br>
+  PO Box 150357<br>
+  San Rafael, CA 94915-0357<br>
   Attn: Your California Privacy Rights <br>
 </p>
 
@@ -480,14 +480,13 @@ const PrivacyPolicyScreen = (): React.Node => {
 
 <p>
   iNaturalist – Data Protection Officer<br>
-  California Academy of Sciences<br>
-  55 Music Concourse Drive<br>
-  San Francisco, CA 94118<br>
+  PO Box 150357<br>
+  San Rafael, CA 94915-0357<br>
 </p>
 
-<p>© Copyright 2019 California Academy of Sciences. All Rights Reserved.</p>
+<p>© Copyright 2023 iNaturalist. All Rights Reserved.</p>
 
-<p><i>Revised on November 26, 2019</i></p>`;
+<p><i>Revised on July 11, 2023.</i></p>`;
 
   const DEFAULT_PROPS = {
     onLinkPress( evt, href ) {

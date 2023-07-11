@@ -7,12 +7,12 @@ import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const TermsOfServiceScreen = ( ): React.Node => {
-  const html = `<p><strong><em>Revised August 18, 2022</em></strong></p>
+  const html = `<p><strong><em>Revised July 11, 2023</em></strong></p>
 
 <p>Read our Privacy Policy at <a href="https://www.inaturalist.org/pages/privacy">https://www.inaturalist.org/pages/privacy</a></p>
 
 <p>
-  Welcome to the iNaturalist website ("iNaturalist" or the "Platform"). The following Terms of Service, in conjunction with the Terms of Use of the California Academy of Sciences website, available at <a href="https://www.calacademy.org/terms-of-use">https://www.calacademy.org/terms-of-use</a> and the National Geographic Society website at <a href="https://www.nationalgeographic.org/terms-of-service/">https://www.nationalgeographic.org/terms-of-service/</a>, govern all use of the iNaturalist website, iOS App and Android App, the iNaturalist Network Member websites, API, and all content, services and products available at or through the websites and apps (collectively, the "Platform"). The Platform is owned and operated by the California Academy of Sciences (the "Academy") and National Geographic Society ("National Geographic"). iNaturalist country portals in collaboration with iNaturalist Network "Members," are operated by the Academy and National Geographic. The Platform is offered subject to Your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, the iNaturalist Privacy Policy at <a href="https://www.inaturalist.org/pages/privacy">https://www.inaturalist.org/pages/privacy</a> and procedures that may be published from time to time on this Site by iNaturalist, the Academy and National Geographic (collectively, the “Agreement”).
+  Welcome to the iNaturalist website ("iNaturalist" or the "Platform"). The following Terms of Use  govern all use of the iNaturalist website, iOS App and Android App, the iNaturalist Network Member websites, API, and all content, services and products available at or through the websites and apps (collectively, the "Platform"). The Platform is owned and operated by iNaturalist, an independent 501(c)(3) nonprofit based in the state of California in the United States of America (EIN 92-1296468). iNaturalist country portals in collaboration with iNaturalist Network "Members," are operated by iNaturalist. The Platform is offered subject to Your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, the iNaturalist Privacy Policy at <a href="https://www.inaturalist.org/pages/privacy">https://www.inaturalist.org/pages/privacy</a> and procedures that may be published from time to time on this Site by iNaturalist (collectively, the “Agreement”).
 </p>
 
 <p>
@@ -102,11 +102,10 @@ const TermsOfServiceScreen = ( ): React.Node => {
     <p style="margin-left: 2em;">
       <strong>Copyright Agent</strong><br>
       <br>
-      Copyright Agent, Legal Department<br>
-      California Academy of Sciences, iNaturalist<br>
-      55 Music Concourse Drive<br>
-      San Francisco, California 94118<br>
-      legal@calacademy.org<br>
+      iNaturalist<br>
+      PO Box 150357<br>
+      San Rafael, California 94915-0357<br>
+     <a href="mailto:legal@inaturalist.org">legal@inaturalist.org</a><br>
     </p>
 
     <p>
@@ -132,7 +131,7 @@ const TermsOfServiceScreen = ( ): React.Node => {
   </li>
   <li>
     <p>
-      <strong>Intellectual Property.</strong> All trademarks, service marks, graphics and logos used in connection with iNaturalist or the Platform, including iNATURALIST, iNATURALIST.ORG, iNAT, and the iNaturalist Bird Logo Design, are trademarks or registered trademarks of iNaturalist, the Academy, National Geographic or iNaturalist’s Users or other third parties. Your use of the Platform grants You no right or license to reproduce or otherwise use any iNaturalist or third-party trademarks for any purposes. This Agreement does not transfer to You any iNaturalist or third party intellectual property, and all right, title and interest in and to such property will remain solely with iNaturalist or such owners.
+      <strong>Intellectual Property.</strong> All trademarks, service marks, graphics and logos used in connection with iNaturalist or the Platform, including iNATURALIST, iNATURALIST.ORG, iNAT, and the iNaturalist Bird Logo Design, are trademarks or registered trademarks of iNaturalist or iNaturalist’s Users or other third parties. Your use of the Platform grants You no right or license to reproduce or otherwise use any iNaturalist or third-party trademarks for any purposes. This Agreement does not transfer to You any iNaturalist or third party intellectual property, and all right, title and interest in and to such property will remain solely with iNaturalist or such owners.
     </p>
   </li>
   <li>
@@ -163,7 +162,7 @@ const TermsOfServiceScreen = ( ): React.Node => {
   </li>
   <li>
     <p>
-      <strong>Indemnification.</strong> You agree to indemnify and hold harmless iNaturalist, the Academy, National Geographic, their contractors, licensors and Members, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including attorneys’ fees, arising out of Your use of the Platform, including but not limited to Your violation this Agreement.
+      <strong>Indemnification.</strong> You agree to indemnify and hold harmless iNaturalist, their contractors, licensors and Members, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including attorneys’ fees, arising out of Your use of the Platform, including but not limited to Your violation this Agreement.
     </p>
   </li>
   <li>
@@ -173,13 +172,13 @@ const TermsOfServiceScreen = ( ): React.Node => {
   </li>
   <li>
     <p>
-      <strong>Miscellaneous.</strong> This Agreement constitutes the entire agreement between iNaturalist and You concerning the subject matter hereof, and may be modified only by a written amendment signed by an authorized executive of iNaturalist, Academy or National Geographic, or by the posting by iNaturalist of a revised version of these Terms of Service. Except to the extent applicable law, if any, provides otherwise, any access to or use of the Platform will be governed by the laws of the state of California, U.S.A., excluding its conflict of law provisions, and the proper venue for any disputes arising out of or relating to any of the same will be the state and federal courts located within 60 miles of San Francisco, California. The prevailing party in any action or proceeding to enforce this Agreement shall be entitled to costs and attorneys’ fees. If any part of this Agreement is held invalid or unenforceable, that part will be construed to reflect the parties’ original intent, and the remaining portions will remain in full force and effect. A waiver by either party of any term or condition of this Agreement or any breach thereof, in any one instance, will not waive such term or condition or any subsequent breach thereof. You may not assign Your rights under this Agreement; iNaturalist may assign its rights under this Agreement without condition. This Agreement will be binding upon and will inure to the benefit of the parties, their successors and permitted assigns.
+      <strong>Miscellaneous.</strong> This Agreement constitutes the entire agreement between iNaturalist and You concerning the subject matter hereof, and may be modified only by a written amendment signed by an authorized executive of iNaturalist or by the posting by iNaturalist of a revised version of these Terms of Use. Except to the extent applicable law, if any, provides otherwise, any access to or use of the Platform will be governed by the laws of the state of California, U.S.A., excluding its conflict of law provisions, and the proper venue for any disputes arising out of or relating to any of the same will be the state and federal courts located within 60 miles of San Francisco, California. The prevailing party in any action or proceeding to enforce this Agreement shall be entitled to costs and attorneys’ fees. If any part of this Agreement is held invalid or unenforceable, that part will be construed to reflect the parties’ original intent, and the remaining portions will remain in full force and effect. A waiver by either party of any term or condition of this Agreement or any breach thereof, in any one instance, will not waive such term or condition or any subsequent breach thereof. You may not assign Your rights under this Agreement; iNaturalist may assign its rights under this Agreement without condition. This Agreement will be binding upon and will inure to the benefit of the parties, their successors and permitted assigns.
     </p>
   </li>
 </ol>
 
 <p>
-  © Copyright 2022 California Academy of Sciences. All rights reserved.
+  © Copyright 2023 iNaturalist. All rights reserved.
 </p>`;
 
   const DEFAULT_PROPS = {

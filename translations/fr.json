@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "À propos",
-    "seek": "Seek a été créé par l’équipe d’iNaturalist.",
+    "seek_designed_by": "Seek a été conçu et développé par l'équipe d'iNaturalist :",
     "joint_initiative": "iNaturalist est une initiative conjointe de la California Academy of Sciences et de la National Geographic Society.",
-    "original": "Seek a été créé à l’origine avec le soutien de \"Notre Planète\", série diffusée sur Netflix et HHMI Tangled Bank Studios.",
-    "designed_by": "Conçu et développé par l'équipe d'iNaturalist :",
+    "support_from": "Seek a été créé à l'origine avec le soutien de la California Academy of Sciences, la National Geographic Society, Our Planet sur Netflix, le WWF, HHMI Tangled Bank Studio et Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta et Sylvain Morin. Nous remercions tout particulièrement Grant Van Horn de Visipedia pour son aide dans le domaine de la technologie de vision par ordinateur, ainsi que la communauté iNaturalist.",
     "version": "Version",
     "help": "Afin d’obtenir de l’aide pour l’utilisation de Seek, merci d’envoyer un courriel à help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "TAXONS PRINCIPAUX",
     "animals": "Animaux",
     "protozoans": "Protozoaires",
-    "kelp": "Laminaires, diatomées et apparentées"
+    "kelp": "Laminaires, diatomées et apparentées",
+    "error_title": "La publication sur iNaturalist a échoué",
+    "error_message": "Votre latitude ou longitude est définie à exactement 0. Nous pensons que c'est une erreur. Veuillez sélectionner un autre emplacement."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTER SUR INATURALIST EN ARRIERE-PLAN",

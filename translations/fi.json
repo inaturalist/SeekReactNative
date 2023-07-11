@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "Tietoja",
-    "seek": "Seek on iNaturalist-tiimin luoma.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist on Kalifornian tiedeakatemian ja National Geographic Societyn yhteishanke.",
-    "original": "Seek on alun perin luotu HHMI Tangled Bank Studios -tuella ja sitä on paranneltu Netflixin Our Planet -sarjan ja WWF:n tuella.",
-    "designed_by": "INaturalist-tiimin suunnittelema ja kehittämä:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta ja Sylvain Morin. Erityiset kiitokset Visipedian Grant Van Hornille avusta konenäköteknologian kanssa ja iNaturalist-yhteisölle.",
     "version": "Versio",
     "help": "Jos tarvitset apua Seekin kanssa, lähetä sähköpostia osoitteeseen help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "TÄRKEIMMÄT TAKSONIT",
     "animals": "Eläimet",
     "protozoans": "Alkueläimet",
-    "kelp": "Ruskolevät, piilevät ja näiden sukulaiset"
+    "kelp": "Ruskolevät, piilevät ja näiden sukulaiset",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "LÄHETTÄÄ INATURALISTIIN TAUSTALLA",

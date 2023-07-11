@@ -20,4 +20,4 @@ Seek konum servislerini aktive etmek için izin isteyecektir ama konumun etrafı
 
 Görüntü tanıma teknolojimiz iNaturalist.org ve ortak sitelerine gönderilen ve iNaturalist topluluğu tarafından belirlenen gözlemlere dayanmaktadır.
 
-Seek, iNaturalist takımı tarafından oluşturulmuştur. iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Topluluğu'nun ortak girişimidir. Seek asıl olarak HHMI Tangled Bank Studios'un desteğiyle oluşturulmuş ve Netflix'teki Gezegenimiz ve WWF'nin desteğiyle geliştirilmiştir.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

@@ -565,10 +565,9 @@
   },
   "about": {
     "header": "About",
-    "seek": "Seek is created by the iNaturalist team.",
+    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
-    "designed_by": "Designed & developed by the iNaturalist team:",
+    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Версия",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
@@ -598,7 +597,9 @@
     "major_taxa": "ГЛАВНИ ТАКСОНИ",
     "animals": "Животни",
     "protozoans": "Първаци",
-    "kelp": "Водорасли, диатоми и съюзници"
+    "kelp": "Водорасли, диатоми и съюзници",
+    "error_title": "Couldn't post to iNaturalist",
+    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
   },
   "posting_status": {
     "posting_to_inat_background": "ПУБЛИКУВАНЕ В INATURALIST В ЗАДЕН ПЛАН",

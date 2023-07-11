@@ -23,4 +23,4 @@ Seek  буде запитувати дозвіл для ввімкнення с�
 
 Наша технологія розпізнавання зображень базується на спостереженнях, поданих на iNaturalist.org і партнерських сайтах, і визначені спільнотою iNaturalist.
 
-Пошук створюється командою iNaturalist. iNaturalist є спільною ініціативою Каліфорнійської академії наук та Національного географічного товариства. Seek був створений за підтримки HHMI Tangled Bank Studios та розширений за підтримки Our Planet на Netflix та WWF.
+Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

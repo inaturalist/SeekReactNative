@@ -23,9 +23,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-seek-splash" translatesAutoresizingMaskIntoConstraints="NO" id="IfO-Qe-EZe">
                                 <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logos-jointinitiative-splash-2020" translatesAutoresizingMaskIntoConstraints="NO" id="7qB-Nv-uiW">
-                                <rect key="frame" x="275" y="1076" width="270" height="46"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,6 +50,5 @@
         <image name="bg-splash" width="375" height="667"/>
         <image name="bg-splash-2021-iPad" width="1366" height="1366"/>
         <image name="logo-seek-splash" width="303" height="112"/>
-        <image name="logos-jointinitiative-splash-2020" width="270" height="46"/>
     </resources>
 </document>

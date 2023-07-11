@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useReducer, useEffect, useCallback, useContext } from "react";
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import type { Node } from "react";
 
@@ -141,6 +141,16 @@ const PostScreen = ( ): Node => {
   };
 
   const saveObservation = ( ) => {
+    if (
+      editedObservation.latitude === 0 ||
+      editedObservation.longitude === 0
+    ) {
+      Alert.alert(
+        i18n.t( "posting.error_title" ),
+        i18n.t( "posting.error_message" )
+      );
+      return;
+    }
     dispatch( { type: "BUTTON_DISABLED" } );
     saveObservationToRealm( editedObservation, observation.image.uri );
     savePostingSuccess( true );

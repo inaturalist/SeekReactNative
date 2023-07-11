@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.14.11",
+  "version": "2.14.12",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -83,7 +83,7 @@
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
     "react-native-webview": "^11.26.0",
-    "realm": "11.2.0"
+    "realm": "11.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

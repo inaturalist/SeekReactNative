@@ -128,6 +128,22 @@ platform :ios do
 end
 
 platform :android do
+  desc "Upload description to Google Play"
+  lane :upload_metadata do
+    required_android_files_present?
+    validate_play_store_json_key(json_key: ENV["JSON_KEY_ANDROID"])
+    upload_to_play_store(
+      track: "beta",
+      package_name: ENV["PACKAGE_NAME"],
+      version_code: android_get_version_code(gradle_file: "android/app/build.gradle"),
+      skip_upload_apk: true,
+      skip_upload_aab: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+
  desc "Distributes an Android bundle to the Play Store beta track"
  lane :beta do
     required_android_files_present?

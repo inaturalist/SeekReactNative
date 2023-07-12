@@ -146,8 +146,8 @@ const PostScreen = ( ): Node => {
       editedObservation.longitude === 0
     ) {
       Alert.alert(
-        i18n.t( "posting.error_title" ),
-        i18n.t( "posting.error_message" )
+        i18n.t( "posting.error_title_2" ),
+        i18n.t( "posting.error_message_2" )
       );
       return;
     }

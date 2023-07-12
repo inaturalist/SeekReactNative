@@ -1,0 +1,23 @@
+Utilisez la puissance de la technologie de reconnaissance des images pour identifier les plantes et les animaux qui vous entourent. Gagnez des badges en observant différents types de plantes, d'oiseaux, de champignons et d'autres organismes!
+
+•  Sortez et pointez l'appareil photo de Seek sur les êtres vivants
+• Identifiez la faune, les plantes et les champignons et découvrez les organismes qui vous entourent
+• Gagnez des badges en observant différents types d'espèces et en participant aux défis
+
+OUVREZ L'APPAREIL PHOTO ET COMMENCEZ LA RECHERCHE !
+
+Avez-vous trouvé un champignon, une fleur ou un insecte que vous ne connaissez pas ? Ouvrez l'appareil photo de Seek pour voir s'il peut l'identifier !
+
+Seek s'appuie sur des millions d'observations d'organismes enregistrées sur iNaturalist pour vous proposer des listes d'insectes, d'oiseaux, de plantes, d'amphibiens et d'autres organismes fréquemment observés dans votre région. Scannez votre environnement avec l'appareil photo de Seek pour identifier les organismes à l'aide de l'arbre phylogénétique. Ajoutez différentes espèces à vos observations en découvrant leurs particularités ! Plus vous faites d’observations, plus vous gagnez de badges !
+
+Il s'agit d'une excellente application pour les familles qui souhaitent passer plus de temps à explorer la nature ensemble ainsi que pour les personnes qui veulent en savoir plus sur la vie qui les entoure.
+
+SANS DANGER POUR LES ENFANTS
+
+Seek ne nécessite pas d'enregistrement et ne collecte pas de données utilisateur par défaut. Certaines données utilisateur seront collectées si vous choisissez de vous connecter avec un compte iNaturalist, mais vous devez avoir plus de 13 ans ou avoir l'autorisation de vos parents.
+
+Seek vous demandera l'autorisation d'activer les services de localisation, mais votre position restera masquée pour respecter votre vie privée. Cependant, vous recevrez quand même des suggestions d'espèces qui se trouvent aux alentours. Votre position précise ne sera jamais enregistrée dans l'application ni envoyée à iNaturalist, sauf si vous vous connectez à votre compte iNaturalist et que vous soumettez vos observations.
+
+La technologie de reconnaissance des images utilisée est basée sur les observations soumises à iNaturalist.org et aux sites partenaires, et identifiées par la communauté iNaturalist.
+
+Seek fait partie d'iNaturalist, une organisation sans but lucratif. Seek a été créé par l'équipe d'iNaturalist avec le soutien de la California Academy of Sciences, la National Geographic Society, Our Planet sur Netflix, le WWF, HHMI Tangled Bank Studios et Visipedia.

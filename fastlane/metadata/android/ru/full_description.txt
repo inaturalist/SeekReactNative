@@ -23,4 +23,4 @@ Seek запросит разрешение на включение служб о
 
 Наша технология распознавания изображений основана на наблюдениях, представленных на iNaturalist.org и сайтах партнеров, и идентифицированных сообществом iNaturalist.
 
-Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.
+Seek является частью iNaturalist, некоммерческой организации. Seek создан командой iNaturalist при поддержке Калифорнийской академии наук, National Geographic Society, Our Planet on Netflix, WWF, HMI Tangled Bank Studios и Visipedia.

@@ -131,8 +131,14 @@ platform :android do
  desc "Distributes an Android bundle to the Play Store beta track"
  lane :beta do
     required_android_files_present?
-    gradle(task: "bundle", build_type: "Release", project_dir: "android" )
-    upload_to_play_store(track: "beta", package_name: ENV["PACKAGE_NAME"], skip_upload_apk: true)
+    validate_play_store_json_key(json_key: ENV["JSON_KEY_ANDROID"])
+    gradle(task: "bundle", build_type: "Release", project_dir: "android")
+    upload_to_play_store(
+      track: "beta",
+      package_name: ENV["PACKAGE_NAME"],
+      version_code: android_get_version_code(gradle_file: "android/app/build.gradle"),
+      skip_upload_apk: true
+      )
     slack(
      message: "Seek Android beta successfully deployed!",
      success: true,

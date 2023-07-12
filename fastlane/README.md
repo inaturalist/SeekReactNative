@@ -36,6 +36,14 @@ Distributes a beta version of Seek on TestFlight
 
 ## Android
 
+### android upload_metadata
+
+```sh
+[bundle exec] fastlane android upload_metadata
+```
+
+Upload description to Google Play
+
 ### android beta
 
 ```sh

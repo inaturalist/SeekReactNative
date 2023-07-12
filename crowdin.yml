@@ -6,23 +6,23 @@ files:
     translation: /ios/Seek/%osx_code%/InfoPlist.strings
     update_option: update_as_unapproved
   - source: /fastlane/metadata/android/en/full_description.txt
-    translation: /fastlane/metadata/android/%two_letters_code%/full_description.txt
+    translation: /fastlane/metadata/android/%locale%/full_description.txt
     update_option: update_as_unapproved
   - source: /fastlane/metadata/android/en/short_description.txt
-    translation: /fastlane/metadata/android/%two_letters_code%/short_description.txt
+    translation: /fastlane/metadata/android/%locale%/short_description.txt
     update_option: update_as_unapproved
   - source: /fastlane/metadata/android/en/title.txt
-    translation: /fastlane/metadata/android/%two_letters_code%/title.txt
+    translation: /fastlane/metadata/android/%locale%/title.txt
     update_option: update_as_unapproved
   - source: /fastlane/metadata/en-US/description.txt
-    translation: /fastlane/metadata/%locale%/description.txt
+    translation: /fastlane/metadata/%osx_locale%/description.txt
     update_option: update_as_unapproved
   - source: /fastlane/metadata/en-US/keywords.txt
-    translation: /fastlane/metadata/%locale%/keywords.txt
+    translation: /fastlane/metadata/%osx_locale%/keywords.txt
     update_option: update_as_unapproved
   - source: /fastlane/metadata/en-US/name.txt
-    translation: /fastlane/metadata/%locale%/name.txt
+    translation: /fastlane/metadata/%osx_locale%/name.txt
     update_option: update_as_unapproved
   - source: /fastlane/metadata/en-US/subtitle.txt
-    translation: /fastlane/metadata/%locale%/subtitle.txt
+    translation: /fastlane/metadata/%osx_locale%/subtitle.txt
     update_option: update_as_unapproved

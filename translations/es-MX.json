@@ -565,9 +565,9 @@
   },
   "about": {
     "header": "Acerca de",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek es diseñado y desarrollado por el equipo de iNaturalist:",
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek fue creado originalmente con el apoyo de la Academia de Ciencias de California, The National Geographic Society, Our Planet on Netflix, WWF, HOME Tangled Bank Studios, y Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, y Sylvain Morin. Agradecimiento especial a Grant Van Horn de Visipedia por la ayuda con la tecnología de visión informática y la comunidad iNaturalist.",
     "version": "Versión",
     "help": "Para recibir ayuda con Seek, por favor envía un correo electrónico a help+seek@inaturalist.org.",
@@ -598,8 +598,8 @@
     "animals": "Animales",
     "protozoans": "Protozoarios",
     "kelp": "Algas pardas, diatomeas y parientes",
-    "error_title": "Couldn't post to iNaturalist",
-    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
+    "error_title": "No se pudo publicar en Naturalista",
+    "error_message": "Su latitud o longitud se ha establecido exactamente en 0. Creemos que esto es un error. Por favor, seleccione una ubicación diferente."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR EN INATURALIST EN SEGUNDO PLANO",

@@ -20,4 +20,4 @@ Seek požádá o povolení zapnout služby zjišťování polohy, ale vaše polo
 
 Naše technologie rozpoznávání obrazu je založena na pozorováních zadaných do iNaturalist.org a v partnerských službách a identifikovaných komunitou iNaturalist.
 
-Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.
+Seek je součástí neziskové organizace iNaturalist. Seek byl vytvořen týmem iNaturalist s podporou Kalifornské akademie věd, National Geographic Society, seriálem Naše planeta na Netflixu, WWF, HHMI Tangled Bank Studios a Visipedia.

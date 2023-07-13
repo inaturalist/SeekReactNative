@@ -598,8 +598,8 @@
     "animals": "Dyr",
     "protozoans": "Protozoer",
     "kelp": "Brunalger, kiselalger og beslægtede",
-    "error_title": "Kunne ikke oprette på iNaturalist",
-    "error_message": "Din breddegrad eller længdegrad er indstillet til præcis 0. Vi tror, at dette er en fejl. Vælg en anden placering."
+    "error_title_2": "Placeringsfejl",
+    "error_message_2": "Det ser ud til, at din placering ikke blev registreret korrekt! Dobbelttjek venligst din placering."
   },
   "posting_status": {
     "posting_to_inat_background": "OPRETTER PÅ INATURALIST I BAGGRUNDEN",

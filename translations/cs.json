@@ -598,8 +598,8 @@
     "animals": "Živočichové",
     "protozoans": "Prvoci",
     "kelp": "Chaluhy, rozsivky a příbuzné rody",
-    "error_title": "Nelze odeslat na iNaturalist",
-    "error_message": "Vaše zeměpisná šířka nebo délka je nastavena na hodnotu 0. Myslíme si, že se jedná o chybu. Vyberte prosím jiné umístění."
+    "error_title_2": "Chyba načtení polohy",
+    "error_message_2": "Vypadá to, že vaše poloha nebyla zaznamenána správně! Zkontrolujte prosím svou polohu."
   },
   "posting_status": {
     "posting_to_inat_background": "POSÍLÁM DO INATURALISTU NA POZADÍ",

@@ -598,8 +598,8 @@
     "animals": "ಪ್ರಾಣಿಗಳು",
     "protozoans": "ಪ್ರೋಟೋಝೋವಾಗಳು",
     "kelp": "Kelp, Diatoms, & Allies",
-    "error_title": "Couldn't post to iNaturalist",
-    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
+    "error_title_2": "Location error",
+    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTING TO INATURALIST IN THE BACKGROUND",

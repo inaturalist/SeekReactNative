@@ -598,8 +598,8 @@
     "animals": "Dieren",
     "protozoans": "Eencelligen",
     "kelp": "Zeewier, diatomeeën en verwanten",
-    "error_title": "Kon niet versturen naar iNaturalist",
-    "error_message": "Je lengte- of breedtegraad is ingesteld op precies 0. We denken dat dit een fout is. Selecteer een andere locatie."
+    "error_title_2": "Fout bij het ophalen van locatie",
+    "error_message_2": "Het lijkt erop dat je locatie niet correct is opgeslagen! Controleer je locatie."
   },
   "posting_status": {
     "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",

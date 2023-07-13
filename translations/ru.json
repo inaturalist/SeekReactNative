@@ -598,8 +598,8 @@
     "animals": "Животные",
     "protozoans": "Простейшие",
     "kelp": "Ламинариевые, диатомовые и родственные таксоны",
-    "error_title": "Не удалось отправить в iNaturalist",
-    "error_message": "Ваша широта или долгота установлена почти в 0. Мы думаем, что это ошибка. Пожалуйста, выберите другое место."
+    "error_title_2": "Location error",
+    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
   },
   "posting_status": {
     "posting_to_inat_background": "ВЫГРУЖАТЬ В INATURALIST В ФОНОВОМ РЕЖИМЕ",

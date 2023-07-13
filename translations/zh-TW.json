@@ -598,8 +598,8 @@
     "animals": "動物",
     "protozoans": "原生動物",
     "kelp": "海帶、矽藻及相關生物",
-    "error_title": "無法張貼至 iNaturalist",
-    "error_message": "您的緯度或經度正好設爲 0。我們覺得這點有誤。請選擇其它位置。"
+    "error_title_2": "地點錯誤",
+    "error_message_2": "您記錄的地點似乎不正確！請仔細檢查您的位置資訊。"
   },
   "posting_status": {
     "posting_to_inat_background": "在後臺張貼到 INATURALIST",

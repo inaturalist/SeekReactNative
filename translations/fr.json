@@ -598,8 +598,8 @@
     "animals": "Animaux",
     "protozoans": "Protozoaires",
     "kelp": "Laminaires, diatomées et apparentées",
-    "error_title": "La publication sur iNaturalist a échoué",
-    "error_message": "Votre latitude ou longitude est définie à exactement 0. Nous pensons que c'est une erreur. Veuillez sélectionner un autre emplacement."
+    "error_title_2": "Location error",
+    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTER SUR INATURALIST EN ARRIERE-PLAN",

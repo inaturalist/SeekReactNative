@@ -598,8 +598,8 @@
     "animals": "动物",
     "protozoans": "原生动物",
     "kelp": "海带，硅藻和其它相关生物",
-    "error_title": "Couldn't post to iNaturalist",
-    "error_message": "Your latitude or longitude is set to exactly 0. We think this is in error. Please select a different location."
+    "error_title_2": "Location error",
+    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
   },
   "posting_status": {
     "posting_to_inat_background": "在后台发布到 INATURALIST",

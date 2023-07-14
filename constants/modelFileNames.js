@@ -1,6 +1,8 @@
+import config from "../config";
+
 export default {
-  IOSMODEL: "optimized_model.mlmodelc",
-  IOSTAXONOMY: "taxonomy.json",
-  ANDROIDMODEL: "optimized_model_1_0.tflite",
-  ANDROIDTAXONOMY: "taxonomy_1_0.csv"
+  ANDROIDMODEL: config.ANDROID_MODEL_FILE_NAME,
+  ANDROIDTAXONOMY: config.ANDROID_TAXONOMY_FILE_NAME,
+  IOSMODEL: `${config.IOS_MODEL_FILE_NAME}c`,
+  IOSTAXONOMY: config.IOS_TAXONOMY_FILE_NAME
 };

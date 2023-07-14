@@ -19,7 +19,8 @@
     "postinstall": "patch-package",
     "e2e:build": "npx detox build --configuration ios.sim.release",
     "e2e:test": "npx detox test --configuration ios.sim.release",
-    "e2e": "npm run e2e:build && npm run e2e:test"
+    "e2e": "npm run e2e:build && npm run e2e:test",
+    "add-example-model": "node scripts/add-example-model.js"
   },
   "dependencies": {
     "@formidable-webview/webshell": "^2.6.0",
@@ -104,6 +105,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "detox": "^20.0.3",
+    "download": "^8.0.0",
     "eslint": "^8.19.0",
     "eslint-import-resolver-babel-module": "^5.3.2",
     "eslint-plugin-jest": "^27.1.6",

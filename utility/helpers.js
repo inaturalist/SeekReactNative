@@ -3,7 +3,7 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwt from "react-native-jwt-io";
 import Realm from "realm";
-import { Platform, LogBox } from "react-native";
+import { Alert, Platform, LogBox } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
 
@@ -45,19 +45,20 @@ const addCameraFilesAndroid = () => {
   RNFS.readDirAssets( "camera" ).then( ( results ) => {
     const model = modelFiles.ANDROIDMODEL;
     const taxonomy = modelFiles.ANDROIDTAXONOMY;
-    const sampleModel = "small_inception_tf1.tflite";
-    const sampleTaxonomy = "small_export_tax.csv";
 
-    const hasModel = results.find( r => r.name === model );
-    const hasSampleModel = results.find( r => r.name === sampleModel );
+    const hasModel = results.find( ( r ) => r.name === model );
 
     // Android writes over existing files
     if ( hasModel !== undefined ) {
+      console.log( "Found model asset found with filename", model );
       copyFilesAndroid( `camera/${model}`, dirModel );
       copyFilesAndroid( `camera/${taxonomy}`, dirTaxonomy );
-    } else if ( hasSampleModel !== undefined ) {
-      copyFilesAndroid( `camera/${sampleModel}`, dirModel );
-      copyFilesAndroid( `camera/${sampleTaxonomy}`, dirTaxonomy );
+    } else {
+      console.log( "No model asset found to copy into document directory." );
+      Alert.alert(
+        i18n.t( "model.not_found_error" ),
+        i18n.t( "model.not_found_error_description" )
+      );
     }
   } );
 };
@@ -71,15 +72,23 @@ const addCameraFilesiOS = () => {
     } );
   };
 
-  // external devs should swap sample model and taxonomy file
   RNFS.readDir( RNFS.MainBundlePath ).then( ( results ) => {
     const model = modelFiles.IOSMODEL;
     const taxonomy = modelFiles.IOSTAXONOMY;
-    // const sampleModel = "small_inception_tf1.mlmodelc";
-    // const sampleTaxonomy = "small_export_tax.json";
 
-    copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
-    copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
+    const hasModel = results.find( ( r ) => r.name === model );
+
+    if ( hasModel !== undefined ) {
+      console.log( "Found model asset found with filename", model );
+      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
+      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
+    } else {
+      console.log( "No model asset found to copy into document directory." );
+      Alert.alert(
+        i18n.t( "model.not_found_error" ),
+        i18n.t( "model.not_found_error_description" )
+      );
+    }
   } );
 };
 

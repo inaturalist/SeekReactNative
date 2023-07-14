@@ -565,9 +565,9 @@
   },
   "about": {
     "header": "Hakkında",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek, iNaturalist ekibi tarafından tasarlanmış ve geliştirilmiştir:",
     "joint_initiative": "iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Society'nin ortak bir girişimidir.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek ilk olarak California Academy of Sciences, National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios ve Visipedia'nın desteğiyle oluşturulmuştur.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta ve Sylvain Morin. Bilgisayarla görü teknolojisi konusundaki yardımları için Visipedia'dan Grant Van Horn'a ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
     "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
@@ -598,8 +598,8 @@
     "animals": "Hayvanlar",
     "protozoans": "Tek Hücreliler",
     "kelp": "Yosun, Diyatomlar ve Benzerleri",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Konum hatası",
+    "error_message_2": "Görünüşe göre konumun doğru kaydedilmemiş! Lütfen konumunu iki kez kontrol et."
   },
   "posting_status": {
     "posting_to_inat_background": "ARKA PLANDA INATURALIST'E GÖNDERİLİYOR",

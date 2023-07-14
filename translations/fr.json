@@ -598,8 +598,8 @@
     "animals": "Animaux",
     "protozoans": "Protozoaires",
     "kelp": "Laminaires, diatomées et apparentées",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Erreur de géolocalisation",
+    "error_message_2": "Il semble que le lieu n'ait pas été enregistré correctement ! Veuillez vérifier votre géolocalisation."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTER SUR INATURALIST EN ARRIERE-PLAN",

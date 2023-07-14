@@ -16,12 +16,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 } );
 
 const textStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
-    header: {
+  header: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12,
-    paddingLeft: 22
+    paddingLeft: 22,
+    paddingBottom: 21
   }
 } );
 

@@ -598,8 +598,8 @@
     "animals": "Tiere",
     "protozoans": "Protozoen",
     "kelp": "Braunalgen, Diatomeen & Verwandte",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Standortfehler",
+    "error_message_2": "Es sieht so aus, als ob dein Standort nicht korrekt aufgezeichnet wurde! Bitte überprüfe deinen Standort."
   },
   "posting_status": {
     "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",

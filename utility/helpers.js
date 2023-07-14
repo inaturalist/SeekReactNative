@@ -50,7 +50,7 @@ const addCameraFilesAndroid = () => {
 
     // Android writes over existing files
     if ( hasModel !== undefined ) {
-      console.log( "Found model asset found with filename", model );
+      console.log( "Found model asset with filename", model );
       copyFilesAndroid( `camera/${model}`, dirModel );
       copyFilesAndroid( `camera/${taxonomy}`, dirTaxonomy );
     } else {
@@ -79,7 +79,7 @@ const addCameraFilesiOS = () => {
     const hasModel = results.find( ( r ) => r.name === model );
 
     if ( hasModel !== undefined ) {
-      console.log( "Found model asset found with filename", model );
+      console.log( "Found model asset with filename", model );
       copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
       copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
     } else {

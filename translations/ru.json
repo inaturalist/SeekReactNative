@@ -598,8 +598,8 @@
     "animals": "Животные",
     "protozoans": "Простейшие",
     "kelp": "Ламинариевые, диатомовые и родственные таксоны",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Ошибка в местоположении",
+    "error_message_2": "Похоже, ваше местоположение было записано неправильно! Пожалуйста, проверьте ваше местоположение."
   },
   "posting_status": {
     "posting_to_inat_background": "ВЫГРУЖАТЬ В INATURALIST В ФОНОВОМ РЕЖИМЕ",

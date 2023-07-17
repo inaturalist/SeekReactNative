@@ -1000,8 +1000,8 @@
     "donate": "Дарете"
   },
   "announcements": {
-    "header": "iNaturalist Announcements",
-    "announcement": "Announcement",
-    "dismiss": "Dismiss"
+    "header": "Оповестявания на iNaturalist",
+    "announcement": "Оповестяване",
+    "dismiss": "Отхвърляне"
   }
 }

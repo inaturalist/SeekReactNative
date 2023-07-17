@@ -598,8 +598,8 @@
     "animals": "Hewan",
     "protozoans": "Protozoa",
     "kelp": "Rumput Laut, Diatom, & Sekutunya",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Eror lokasi",
+    "error_message_2": "Sepertinya lokasimu tidak dicatat dengan benar! Cek kembali lokasimu."
   },
   "posting_status": {
     "posting_to_inat_background": "MENGUNGGAH KE INATURALIST DI LATAR BELAKANG",

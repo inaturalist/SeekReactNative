@@ -76,7 +76,7 @@ taxonomy_data.csv
 **/assets/**/*.csv
 small_export_tax.csv
 *.tflite
-taxonomy.json
+ios/*.json
 small_export_tax.json
 *.mlmodel
 utility/common-names.json

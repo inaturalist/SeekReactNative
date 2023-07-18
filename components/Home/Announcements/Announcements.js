@@ -134,7 +134,10 @@ const Announcements = ( ): React.Node => {
         testID="announcements-webview"
       />
       {dismissible && (
-        <GreenButton text="announcements.dismiss" handlePress={dismiss} />
+        <>
+          <View style={viewStyles.marginGreenButtonLarge} />
+          <GreenButton text="announcements.dismiss" handlePress={dismiss} />
+        </>
       )}
       <View style={viewStyles.marginBottom} />
     </View>

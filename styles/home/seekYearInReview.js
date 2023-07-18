@@ -26,7 +26,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   marginGreenButtonLarge: {
     marginTop: 33
   },
-
   marginBottom: {
     marginTop: 48
   }

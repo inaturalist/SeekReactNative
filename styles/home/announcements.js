@@ -10,6 +10,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingTop: 35,
     backgroundColor: colors.white
   },
+  marginGreenButtonLarge: {
+    marginTop: 33
+  },
   marginBottom: {
     marginTop: 48
   }

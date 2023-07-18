@@ -1,7 +1,7 @@
 画像認識AIを使って、身近な植物や動物の名前を学ぼう。 さまざまな種類の植物、鳥、菌類などを観察してバッジを獲得しよう!
 
-•　外に出て、生き物にSeekカメラを向けよう
-・ 野生生物、植物、菌類を同定して、周囲にいる生物について詳しく学ぶ
+• 外に出て、生き物にSeekカメラを向けよう
+• 野生生物、植物、菌類を同定して、周囲にいる生物について詳しく学ぶ
 • Earn badges for observing different types of species and participating in challenges
 
 「シーク」を始めよう！

@@ -1002,7 +1002,8 @@
   "announcements": {
     "header": "iNaturalist Announcements",
     "announcement": "Announcement",
-    "dismiss": "Dismiss",
+    "dismiss": "Dismiss"
+  },
   "model": {
     "not_found_error": "Model not found",
     "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."

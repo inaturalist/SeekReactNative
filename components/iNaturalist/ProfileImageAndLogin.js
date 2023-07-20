@@ -38,7 +38,7 @@ const ProfileImageAndLogin = ( { count, reload }: Props ): React.Node => {
           <View
             style={[viewStyles.linearGradientTextContainer, viewStyles.row]}
           >
-            <Image style={viewStyles.errorImage} source={icons.internet} />
+            <Image source={icons.internet} style={viewStyles.errorImage} />
             <StyledText
               style={[textStyles.text, !isHomeScreen && textStyles.whiteText]}
             >

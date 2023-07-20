@@ -115,7 +115,11 @@ const SelectSpecies = ( {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView testID="select-species-container" style={viewStyles.container} edges={["top"]}>
+      <SafeAreaView
+        testID="select-species-container"
+        style={viewStyles.container}
+        edges={["top"]}
+      >
         <StatusBar barStyle="light-content" />
         <View style={viewStyles.header}>
           <TouchableOpacity

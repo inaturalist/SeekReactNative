@@ -41,6 +41,9 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
+import { log } from "../../../react-native-logs.config";
+
+const logger = log.extend( "ARCamera.js" );
 
 
 const ARCamera = ( ): Node => {
@@ -140,6 +143,7 @@ const ARCamera = ( ): Node => {
     // especially when user has location permissions off
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
+    logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
     setObservation( { image } );
@@ -170,7 +174,10 @@ const ARCamera = ( ): Node => {
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
-      .then( uri => navigateToResults( uri, photo.predictions ) )
+      .then( uri => {
+        logger.debug( "CameraRoll.save resolved" );
+        navigateToResults( uri, photo.predictions );
+      } )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
@@ -259,6 +266,7 @@ const ARCamera = ( ): Node => {
   const requestAndroidSavePermissions = useCallback( ( photo ) => {
     const checkPermissions = async ( ) => {
       const result = await checkSavePermissions( );
+      logger.debug( `checkSavePermission resolved with: ${result}` );
 
       if ( result === "gallery" ) {
         savePhoto( photo );
@@ -278,6 +286,7 @@ const ARCamera = ( ): Node => {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync( );
+          logger.debug( "takePictureAsync resolved" );
           if ( typeof photo !== "object" ) {
             updateError( "photoError", photo );
           } else {
@@ -294,6 +303,7 @@ const ARCamera = ( ): Node => {
         camera.current.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
+          logger.debug( "takePictureAsync resolved" );
           requestAndroidSavePermissions( photo );
         } ).catch( e => updateError( "take", e ) );
       }

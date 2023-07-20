@@ -30,16 +30,16 @@ const ReplacePhotoModal = ( {
   commonName
 }: Props ): React.Node => {
   const { observation } = React.useContext( ObservationContext );
-  const { image } = observation;
   const { taxaId, scientificName } = taxon;
   const seenTaxa = useSeenTaxa( taxaId );
   const currentUserPhoto = useUserPhoto( seenTaxa );
-  const showScientificName = !commonName || scientificNames;
 
   if ( !seenTaxa ) {
     return null;
   }
 
+  const { image } = observation;
+  const showScientificName = !commonName || scientificNames;
   const { defaultPhoto } = seenTaxa.taxon;
 
   const displayDate = ( defaultPhoto && defaultPhoto.lastUpdated )

@@ -40,7 +40,6 @@ const SelectSpecies = ( {
   seekId
 }: Props ): Node => {
   const sectionList = useRef( null );
-  const userPhoto = { uri: image };
 
   const seekSuggestion = [{
     image,
@@ -132,7 +131,7 @@ const SelectSpecies = ( {
           </StyledText>
         </View>
         <View style={viewStyles.photoContainer}>
-          <Image source={userPhoto} style={imageStyles.image} />
+          {image && <Image source={{ uri: image }} style={imageStyles.image} />}
         </View>
         <View style={viewStyles.row}>
           {/* $FlowFixMe */}

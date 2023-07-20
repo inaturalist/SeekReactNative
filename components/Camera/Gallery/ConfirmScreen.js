@@ -38,7 +38,6 @@ const ConfirmScreen = ( ): Node => {
   }
 
   const { image, clicked } = observation;
-  const imageSource = { uri: observation ? image.uri : null };
 
   const updateClicked = ( ) => setObservation( {
     ...observation,
@@ -69,10 +68,10 @@ const ConfirmScreen = ( ): Node => {
             <LoadingWheel color={colors.white} />
           </View>
         )}
-        <Image
-          source={imageSource}
+        {image?.uri && <Image
+          source={{ uri: image.uri }}
           style={imageStyles.image}
-        />
+        />}
       </View>
       <View style={viewStyles.footer}>
         <GreenButton

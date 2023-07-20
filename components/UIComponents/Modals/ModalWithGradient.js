@@ -53,20 +53,20 @@ const ModalWithGradient = ( {
         </TouchableOpacity>
       </View>
       <View style={[viewStyles.images, viewStyles.row]}>
-        <Image
-          source={{ uri: userImage }}
-          style={viewStyles.imageCell}
-        />
+        {userImage && <Image
+            source={{ uri: userImage }}
+            style={viewStyles.imageCell}
+          />}
         {color === "green" && (
           <ImageBackground
             source={iconicTaxa[1]} // for cases where uri exists but photo is blank
             style={[viewStyles.imageCell, viewStyles.marginLeft]}
             imageStyle={viewStyles.imageCell}
           >
-            <Image
+            {originalImage && <Image
               source={{ uri: originalImage }}
               style={viewStyles.imageCell}
-            />
+            />}
           </ImageBackground>
         )}
         <View>

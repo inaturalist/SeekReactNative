@@ -57,7 +57,7 @@ const MatchHeader = ( {
         </TouchableOpacity>
         )} */}
       <View style={styles.imageContainer}>
-        <Image source={{ uri: imageUri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />
+        {imageUri && <Image source={{ uri: imageUri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />}
         {showSpeciesImage && (
           <Image
             source={{ uri: taxon.speciesSeenImage }}

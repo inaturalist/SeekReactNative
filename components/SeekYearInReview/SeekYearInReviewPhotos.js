@@ -42,7 +42,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
       style={viewStyles.center}
       onPress={() => navToSpecies()}
     >
-      <Image style={imageStyles.image} source={userPhoto} />
+      {userPhoto?.uri && <Image source={userPhoto} style={imageStyles.image} />}
       <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "seek_year_in_review.observed_on", {
           speciesName:

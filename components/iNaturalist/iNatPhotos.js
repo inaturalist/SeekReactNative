@@ -19,10 +19,10 @@ const INatStatsPhotos = ( ): Node => {
 
   const renderPhotos = ( ) => photos.map( ( photo, index ) => (
     <View key={index} style={viewStyles.center}>
-      <Image
+      {photo?.photoUrl && <Image
         source={{ uri: photo.photoUrl }}
         style={imageStyles.image}
-      />
+      />}
       <StyledText style={[textStyles.text, textStyles.caption]}>
         {i18n.t( "about_inat.x_seen_by_user", { speciesName: photo.commonName, user: photo.attribution } )}
       </StyledText>

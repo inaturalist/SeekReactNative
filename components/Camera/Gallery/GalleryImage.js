@@ -23,10 +23,10 @@ const GalleryImage = ( { item, selectImage }: Props ): Node => {
       onPress={handlePress}
       style={viewStyles.button}
     >
-      <Image
+      {item?.node?.image?.uri && <Image
         source={imageSource}
         style={imageStyles.image}
-      />
+      />}
     </TouchableOpacity>
   );
 };

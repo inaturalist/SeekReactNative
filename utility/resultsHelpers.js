@@ -3,6 +3,9 @@ import { Platform } from "react-native";
 
 import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
+import { log } from "../react-native-logs.config";
+
+const logger = log.extend( "resultsHelpers.js" );
 
 // online results helpers
 const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ): ?Array<Object> => {
@@ -71,9 +74,11 @@ const fetchImageLocationOrErrorCode = async ( image: {
     try {
       if ( !login ) {
         const coords = await fetchTruncatedUserLocation( );
+        logger.debug( "fetchTruncatedUserLocation resolved" );
         return { image: setImageCoords( coords, image ), errorCode: 0 };
       } else {
         const preciseCoords = await fetchUserLocation( );
+        logger.debug( "fetchUserLocation resolved" );
         // if user is logged in, fetch their untruncated coords and accuracy too
         return { image: setPreciseImageCoords( preciseCoords, image ), errorCode: 0 };
       }
@@ -103,6 +108,7 @@ const fetchImageLocationOrErrorCode = async ( image: {
     return await fetchLocation( );
   } else {
     const permissionAndroid = await checkLocationPermissions( );
+    logger.debug( "checkLocationPermissions resolved" );
     // need to specify permission check only for android
     if ( permissionAndroid === true ) {
       return await fetchLocation( );

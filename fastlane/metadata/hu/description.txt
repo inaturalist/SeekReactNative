@@ -20,4 +20,4 @@ A Seek ezentúl engedélyt fog kérni a helyzetmeghatározáshoz, amely alapján
 
 Az automatikus képfelismerés az iNaturalist.org-hoz és a partneroldalakhoz feltöltött megfigyeléseken alapszik, és az iNaturalist felhasználói közössége is részt vesz az azonosításban.
 
-Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.
+A Seek az iNaturalist, nonprofit szervezet része. A Seek-et az iNaturalist csapata fejlesztette, az alábbi szervezetek támogatásával. California Academy of Sciences, National Geographic Society, Bolygónk csodái a Netflixen, WWF, HHMI Tangled Bank Studios és Visipedia. 

@@ -97,13 +97,13 @@ const ARCameraOverlay = ( {
 
   useEffect( ( ) => {
     let isCurrent = true;
-    if ( rankToRender === "species" && autoCapture && isCurrent ) {
+    if ( rankToRender === "species" && autoCapture && isCurrent && !pictureTaken ) {
       takePicture( );
     }
     return ( ) => {
       isCurrent = false;
     };
-  }, [rankToRender, takePicture, autoCapture] );
+  }, [rankToRender, takePicture, autoCapture, pictureTaken] );
 
   const showFilterText = ( ) => {
     if ( filterIndex === 0 || filterIndex === null ) {

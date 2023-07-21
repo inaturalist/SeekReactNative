@@ -47,7 +47,8 @@ import { log } from "../../../react-native-logs.config";
 
 const logger = log.extend( "ARCamera.js" );
 
-const useVisionCamera = Platform.OS === "android";
+const isAndroid = Platform.OS === "android";
+const useVisionCamera = true;
 
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
@@ -209,11 +210,32 @@ const ARCamera = ( ): Node => {
       }
     */
     let predictions = { ...event.nativeEvent };
-    if ( useVisionCamera ) {
+    if ( useVisionCamera && isAndroid ) {
       const transformedResults = {};
       event.forEach( ( result ) => {
         const rankString = Object.keys( result )[0];
         transformedResults[rankString] = result[rankString];
+      } );
+      predictions = transformedResults;
+    } else if ( useVisionCamera && !isAndroid ) {
+      const rankNumbers = {
+        // $FlowIgnore
+        10: "species",
+        // $FlowIgnore
+        20: "genus",
+        // $FlowIgnore
+        30: "family",
+        // $FlowIgnore
+        40: "order",
+        // $FlowIgnore
+        50: "class"
+      };
+      const transformedResults = {};
+      event.forEach( ( result ) => {
+        const rankString = rankNumbers[result.rank];
+        if ( rankString ) {
+          transformedResults[rankString] = [result];
+        }
       } );
       predictions = transformedResults;
     }

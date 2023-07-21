@@ -4,7 +4,8 @@ import React, {
   useEffect,
   useCallback,
   useReducer,
-  useContext
+  useContext,
+  useState
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
@@ -80,11 +81,6 @@ const MatchModals = ( {
           levelShown: action.levelShown,
           replacePhotoModal: false
         };
-      case "SET_REPLACE_PHOTO_MODAL":
-        return {
-          ...state,
-          replacePhotoModal: action.replacePhotoModal
-        };
       default:
         throw new Error( );
     }
@@ -96,10 +92,8 @@ const MatchModals = ( {
     challengeInProgress: null,
     challengeShown: false,
     challengeModal: false,
-    levelModal: false,
-    replacePhotoModal: false
+    levelModal: false
   } );
-
   const {
     levelShown,
     latestLevel,
@@ -107,13 +101,14 @@ const MatchModals = ( {
     challengeInProgress,
     challenge,
     challengeShown,
-    replacePhotoModal,
     levelModal,
     challengeModal
   } = state;
 
+  const [replacePhotoModal, setReplacePhotoModal] = useState( undefined );
+
   const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: false, challengeShown: true } );
-  const closeReplacePhotoModal = ( ) => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: false } );
+  const closeReplacePhotoModal = ( ) => setReplacePhotoModal( false );
   const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", levelModal: false, levelShown: true } );
 
   useEffect( ( ) => {
@@ -128,9 +123,16 @@ const MatchModals = ( {
   }, [levelModal] );
 
   const navigateTo = useCallback( ( ) => {
-    if ( navPath === "Camera" || navPath === "Social" ) {
+    if ( navPath === "Camera" ) {
       setNavigationPath( null );
-      navigation.navigate( navPath, navPath === "Social" && { taxon, commonName } );
+      navigation.reset( {
+        index: 0,
+        routes: [{ name: "Home" }]
+      } );
+      navigation.navigate( "Camera" );
+    } else if ( navPath === "Social" ) {
+      setNavigationPath( null );
+      navigation.navigate( "Social", { taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
       setId( taxaId );
@@ -184,7 +186,9 @@ const MatchModals = ( {
         checkBadges( );
       }
       if ( screenType === "resighted" ) {
-        dispatch( { type: "SET_REPLACE_PHOTO_MODAL", replacePhotoModal: true } );
+        if ( replacePhotoModal === undefined ) {
+          setReplacePhotoModal( true );
+        }
       }
     } );
 
@@ -193,7 +197,7 @@ const MatchModals = ( {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, screenType] );
+  }, [navigation, screenType, replacePhotoModal] );
 
   return (
     <>

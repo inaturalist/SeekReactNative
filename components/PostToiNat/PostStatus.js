@@ -47,15 +47,14 @@ const PostStatus = ( ): React.Node => {
       <StatusBar barStyle="dark-content" />
       <View style={viewStyles.content}>
         {!internet && <Image source={posting.internet} />}
-        <StyledText style={textStyles.headerText}>{i18n.t( setHeaderText( ) )}</StyledText>
-        <Image style={viewStyles.uploadImage} source={setImage( )} />
-        <StyledText style={textStyles.text}>{setText( )}</StyledText>
+        <StyledText style={textStyles.headerText}>
+          {i18n.t( setHeaderText() )}
+        </StyledText>
+        <Image source={setImage()} style={viewStyles.uploadImage} />
+        <StyledText style={textStyles.text}>{setText()}</StyledText>
       </View>
       <View style={viewStyles.greenButton}>
-        <GreenButton
-          handlePress={navToMatch}
-          text="posting.ok"
-        />
+        <GreenButton handlePress={navToMatch} text="posting.ok" />
       </View>
     </SafeAreaView>
   );

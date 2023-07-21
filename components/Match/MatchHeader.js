@@ -1,9 +1,8 @@
 // @flow
 
-import React, { useCallback, useContext } from "react";
-import { View, Image, BackHandler } from "react-native";
+import React, { useContext } from "react";
+import { View, Image } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { useFocusEffect } from "@react-navigation/native";
 import type { Node } from "react";
 
 import styles from "../../styles/match/match";
@@ -30,19 +29,6 @@ const MatchHeader = ( {
 
   const { gradientDark, gradientLight } = setGradients( screenType );
 
-  useFocusEffect(
-    useCallback( ( ) => {
-      const onBackPress = ( ) => {
-        setNavigationPath( "Camera" );
-        return true; // following custom Android back behavior template in React Navigation
-      };
-
-      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
-
-      return ( ) => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
-    }, [setNavigationPath] )
-  );
-
   const setCameraPath = ( ) => setNavigationPath( "Camera" );
   // const showSocialSharing = ( ) => setNavigationPath( "Social" );
 
@@ -57,7 +43,7 @@ const MatchHeader = ( {
         </TouchableOpacity>
         )} */}
       <View style={styles.imageContainer}>
-        <Image source={{ uri: imageUri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />
+        {imageUri && <Image source={{ uri: imageUri }} style={[styles.imageCell, isLandscape && styles.landscapeImage]} />}
         {showSpeciesImage && (
           <Image
             source={{ uri: taxon.speciesSeenImage }}

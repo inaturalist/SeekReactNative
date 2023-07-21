@@ -114,6 +114,7 @@ exports[`GalleryImageList should render correctly 1`] = `
 >
   <View>
     <View
+      onFocusCapture={[Function]}
       style={null}
     >
       <View
@@ -125,6 +126,23 @@ exports[`GalleryImageList should render correctly 1`] = `
       >
         <View
           accessibilityLabel="some_uri_1"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -159,6 +177,23 @@ exports[`GalleryImageList should render correctly 1`] = `
         </View>
         <View
           accessibilityLabel="some_uri_2"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -193,6 +228,23 @@ exports[`GalleryImageList should render correctly 1`] = `
         </View>
         <View
           accessibilityLabel="some_uri_3"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -227,6 +279,23 @@ exports[`GalleryImageList should render correctly 1`] = `
         </View>
         <View
           accessibilityLabel="some_uri_4"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -262,6 +331,7 @@ exports[`GalleryImageList should render correctly 1`] = `
       </View>
     </View>
     <View
+      onFocusCapture={[Function]}
       style={null}
     >
       <View
@@ -273,6 +343,23 @@ exports[`GalleryImageList should render correctly 1`] = `
       >
         <View
           accessibilityLabel="some_uri_5"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
           accessible={true}
           collapsable={false}
           focusable={true}

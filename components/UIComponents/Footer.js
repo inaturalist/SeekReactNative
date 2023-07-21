@@ -76,6 +76,7 @@ const Footer = (): Node => {
             <Image source={icons.hamburger} />
           </TouchableOpacity>
           <TouchableOpacity
+            testID="openCameraButton"
             accessibilityLabel={i18n.t( "accessibility.camera" )}
             accessible
             onPress={() => navigation.navigate( "Camera" )}

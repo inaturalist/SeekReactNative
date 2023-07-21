@@ -29,14 +29,14 @@ const FlagModal = ( {
 }: Props ): React.Node => {
   const { observation } = React.useContext( ObservationContext );
   const { image } = observation;
-  const { scientificName } = taxon;
+  const { scientificName, taxaId } = taxon || {};
   const showScientificName = !commonName || scientificNames;
 
   const handlePress = () => {
     if ( seenDate ) {
       closeModal( true );
     } else {
-      removeFromCollection( taxon.taxaId );
+      removeFromCollection( taxaId );
       closeModal( true );
     }
   };

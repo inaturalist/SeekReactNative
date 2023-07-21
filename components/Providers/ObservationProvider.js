@@ -31,7 +31,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
   const checkForSpecies = predictions => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
 
   const checkForAncestor = predictions => {
-    const reversePredictions = predictions.reverse( );
+    const reversePredictions = predictions.sort( ( a, b ) => a.rank - b.rank );
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
     if ( ancestor && ancestor.rank !== 100 ) {

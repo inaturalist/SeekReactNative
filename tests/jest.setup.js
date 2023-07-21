@@ -33,6 +33,18 @@ jest.mock( "react-native-exception-handler", () => ( {
     .mockImplementation( ( ) => mockErrorHandler() )
 } ) );
 
+jest.mock( "react-native-orientation-locker", () => ( {
+  addDeviceOrientationListener: jest.fn(),
+  addEventListener: jest.fn(),
+  getDeviceOrientation: jest.fn(),
+  getInitialOrientation: jest.fn(),
+  getOrientation: jest.fn(),
+  lockToPortrait: jest.fn(),
+  removeEventListener: jest.fn(),
+  removeOrientationListener: jest.fn(),
+  unlockAllOrientations: jest.fn()
+} ) );
+
 // include this section and the NativeAnimatedHelper section for mocking react-native-reanimated
 jest.mock( "react-native-reanimated", () => {
   const Reanimated = require( "react-native-reanimated/mock" );
@@ -112,6 +124,12 @@ jest.mock( "realm", () => {
         resolve( {
           objects: jest.fn( ( table ) => {
             switch ( table ) {
+              case "BadgeRealm":
+                return {
+                  filtered: jest.fn( () => {
+                    return new Array( 0 );
+                  } )
+                };
               case "LoginRealm":
                 return [{ observationCount: 42 }];
               case "NotificationRealm":

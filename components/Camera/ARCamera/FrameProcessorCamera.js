@@ -53,14 +53,16 @@ const FrameProcessorCamera = ( props ): Node => {
   }
 
   useEffect( () => {
-    InatVision.addLogListener( ( event ) => {
-      // The vision-plugin events are in this format { log: "string" }
-      // The ARCamera component expects events in this format { nativeEvent: { log: "string" } }
-      const returnEvent = {
-        nativeEvent: event
-      };
-      onLog( returnEvent );
-    } );
+    if ( Platform.OS === "android" ) {
+      InatVision.addLogListener( ( event ) => {
+        // The vision-plugin events are in this format { log: "string" }
+        // The ARCamera component expects events in this format { nativeEvent: { log: "string" } }
+        const returnEvent = {
+          nativeEvent: event
+        };
+        onLog( returnEvent );
+      } );
+    }
 
     return () => {
       InatVision.removeLogListener();

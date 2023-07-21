@@ -1,9 +1,8 @@
 // @flow
 
-import React, { useCallback, useContext } from "react";
-import { View, Image, BackHandler } from "react-native";
+import React, { useContext } from "react";
+import { View, Image } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { useFocusEffect } from "@react-navigation/native";
 import type { Node } from "react";
 
 import styles from "../../styles/match/match";
@@ -29,19 +28,6 @@ const MatchHeader = ( {
   // const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
 
   const { gradientDark, gradientLight } = setGradients( screenType );
-
-  useFocusEffect(
-    useCallback( ( ) => {
-      const onBackPress = ( ) => {
-        setNavigationPath( "Camera" );
-        return true; // following custom Android back behavior template in React Navigation
-      };
-
-      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
-
-      return ( ) => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
-    }, [setNavigationPath] )
-  );
 
   const setCameraPath = ( ) => setNavigationPath( "Camera" );
   // const showSocialSharing = ( ) => setNavigationPath( "Social" );

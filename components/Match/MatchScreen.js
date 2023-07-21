@@ -1,9 +1,10 @@
 // @flow
 
 import React, { useReducer, useCallback, useRef, useContext } from "react";
-import { ScrollView } from "react-native";
+import { BackHandler, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useFocusEffect } from "@react-navigation/native";
 import type { Node } from "react";
 
 import styles from "../../styles/match/match";
@@ -62,6 +63,20 @@ const MatchScreen = ( ): Node => {
   }, [screenType] );
 
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
+
+  useFocusEffect(
+    useCallback( () => {
+      const onBackPress = () => {
+        setNavigationPath( "Camera" );
+        return true;
+      };
+
+      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+
+      return () =>
+        BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+    }, [setNavigationPath] )
+  );
 
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
   const { gradientDark } = setGradients( screenType );

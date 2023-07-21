@@ -128,9 +128,16 @@ const MatchModals = ( {
   }, [levelModal] );
 
   const navigateTo = useCallback( ( ) => {
-    if ( navPath === "Camera" || navPath === "Social" ) {
+    if ( navPath === "Camera" ) {
       setNavigationPath( null );
-      navigation.navigate( navPath, navPath === "Social" && { taxon, commonName } );
+      navigation.reset( {
+        index: 0,
+        routes: [{ name: "Home" }]
+      } );
+      navigation.navigate( "Camera" );
+    } else if ( navPath === "Social" ) {
+      setNavigationPath( null );
+      navigation.navigate( "Social", { taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
       setId( taxaId );

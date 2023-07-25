@@ -48,7 +48,8 @@ import { log } from "../../../react-native-logs.config";
 const logger = log.extend( "ARCamera.js" );
 
 const isAndroid = Platform.OS === "android";
-const useVisionCamera = true;
+const majorVersionIOS = parseInt( Platform.Version, 10 );
+const useVisionCamera = isAndroid ? Platform.Version >= 23 : majorVersionIOS >= 11;
 
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera

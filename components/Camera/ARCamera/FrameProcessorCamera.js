@@ -220,18 +220,22 @@ const FrameProcessorCamera = ( props ): Node => {
           <Camera
             ref={cameraRef}
             style={styles.camera}
-            enableZoomGesture
-            photo={true}
             device={device}
             isActive={isFocused && isForeground && isActive}
-            orientation={Platform.OS === "android"
-              ? deviceOrientation
-              : null}
+            preset="photo"
+            photo={true}
+            enableHighQualityPhotos
+            enableZoomGesture
+            zoom={device.neutralZoom}
+            // orientation={Platform.OS === "android"
+            //   ? deviceOrientation
+            //   : null}
             frameProcessor={frameProcessor}
-            // A value of 1 indicates that the frame processor gets executed once per second.
-            // This roughly equals the setting of the legacy camera of 1000ms between predictions,
-            // i.e. what taxaDetectionInterval was set to.
-            frameProcessorFps={1}
+            // A value of 1 would indicate that the frame processor gets executed once per second.
+            // This would roughly equal the setting of the legacy camera of 1000ms between predictions,
+            // i.e. what taxaDetectionInterval was set to. However, according to the docs, the frameProcessorFps
+            // cab be set to "auto" to chose an optimal frame rate based on on-device measurements.
+            frameProcessorFps={"auto"}
             onError={onError}
           />
         </GestureDetector>

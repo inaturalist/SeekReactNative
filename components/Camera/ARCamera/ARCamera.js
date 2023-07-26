@@ -383,7 +383,6 @@ const ARCamera = ( ): Node => {
               {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "score": 0.8744127750396729, "taxon_id": 47780}],
             "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "width": 4032}
         */
-        console.log( "photo :>> ", photo );
         callback( photo );
       } )
       .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );

@@ -47,7 +47,9 @@ import { log } from "../../../react-native-logs.config";
 
 const logger = log.extend( "ARCamera.js" );
 
-const useVisionCamera = Platform.OS === "android";
+const isAndroid = Platform.OS === "android";
+const majorVersionIOS = parseInt( Platform.Version, 10 );
+const useVisionCamera = isAndroid ? Platform.Version >= 23 : majorVersionIOS >= 11;
 
 const ARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
@@ -71,6 +73,8 @@ const ARCamera = ( ): Node => {
         return { ...state, ranks: action.ranks };
       case "RESET_PREDICTIONS":
         return { ...state, allPredictions: [] };
+      case "SET_PREDICTIONS":
+        return { ...state, allPredictions: action.predictions };
       case "SET_PREDICTION":
         return { ...state, allPredictions: [action.prediction, ...state.allPredictions] };
       case "PHOTO_TAKEN":
@@ -209,11 +213,32 @@ const ARCamera = ( ): Node => {
       }
     */
     let predictions = { ...event.nativeEvent };
-    if ( useVisionCamera ) {
+    if ( useVisionCamera && isAndroid ) {
       const transformedResults = {};
       event.forEach( ( result ) => {
         const rankString = Object.keys( result )[0];
         transformedResults[rankString] = result[rankString];
+      } );
+      predictions = transformedResults;
+    } else if ( useVisionCamera && !isAndroid ) {
+      const rankNumbers = {
+        // $FlowIgnore
+        10: "species",
+        // $FlowIgnore
+        20: "genus",
+        // $FlowIgnore
+        30: "family",
+        // $FlowIgnore
+        40: "order",
+        // $FlowIgnore
+        50: "class"
+      };
+      const transformedResults = {};
+      event.forEach( ( result ) => {
+        const rankString = rankNumbers[result.rank];
+        if ( rankString ) {
+          transformedResults[rankString] = [result];
+        }
       } );
       predictions = transformedResults;
     }
@@ -237,10 +262,13 @@ const ARCamera = ( ): Node => {
 
     let predictionSet = false;
     dispatch( { type: "RESET_PREDICTIONS" } );
+    if ( !isAndroid ) {
+      dispatch( { type: "SET_PREDICTIONS", predictions: event } );
+    }
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
 
-      if ( predictions[rank] ) {
+      if ( isAndroid && predictions[rank] ) {
         const prediction = predictions[rank][0];
         dispatch( { type: "SET_PREDICTION", prediction } );
       }
@@ -322,12 +350,60 @@ const ARCamera = ( ): Node => {
     checkPermissions( );
   }, [savePhoto] );
 
-  const takePicture = useCallback( async ( ) => {
+  const visionCameraTakePhoto = useCallback( async ( callback ) => {
+    if ( !camera.current ) {
+      return;
+    }
+    camera.current
+      // TODO: inat-camera has an option for playSoundOnCapture but it is not used there, currently Android does not make capture sound but iOS does
+      .takePhoto()
+      .then( ( photo ) => {
+        // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
+        // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
+        // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
+        setIsActive( false );
+        // Photo:
+        /*
+          {
+            "height": 2268,
+            "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg",
+            "width": 4032
+          }
+        */
+        // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
+        photo.predictions = allPredictions;
+        photo.uri = photo.path;
+        /*
+          {
+            "deviceOrientation": 6,
+            "height": 2268,
+            "isRawPhoto": false,
+            "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 1.95, "ColorSpace": 1, "DateTimeDigitized": "2023:05:25 17:58:49", "DateTimeOriginal": "2023:05:25 17:58:49", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0257", "SubsecTimeOriginal": "0257", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:05:25 17:58:49", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
+            "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
+            "pictureOrientation": 6,
+            "predictions": [
+              {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "score": 0.9301357269287109, "taxon_id": 47163},
+              {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "score": 0.9216688275337219, "taxon_id": 47218},
+              {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "score": 0.9124458432197571, "taxon_id": 47781},
+              {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "score": 0.8744127750396729, "taxon_id": 47780}],
+            "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "width": 4032}
+        */
+        callback( photo );
+      } )
+      .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
+  }, [allPredictions, handleCaptureError] );
+
+  const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
     if ( Platform.OS === "ios" ) {
-      const CameraManager = NativeModules.INatCameraViewManager;
-      if ( CameraManager ) {
+      if ( useVisionCamera ) {
+        await visionCameraTakePhoto( ( photo ) => savePhoto( photo ) );
+      } else {
+        const CameraManager = NativeModules.INatCameraViewManager;
+        if ( !CameraManager ) {
+          updateError( "cameraManager" );
+        }
         try {
           /*
             Photo:
@@ -344,76 +420,45 @@ const ARCamera = ( ): Node => {
             savePhoto( photo );
           }
         } catch ( e ) {
-          updateError( "take", e );
+          handleCaptureError( { nativeEvent: { error: e } } );
         }
-      } else {
-        updateError( "cameraManager" );
       }
     } else if ( Platform.OS === "android" ) {
-      if ( camera.current ) {
-        if ( useVisionCamera ) {
-          camera.current
-            .takePhoto()
-            // TODO: inat-camera has an option for playSoundOnCapture but it is not used there, currently Android does not make capture sound
-            .then( ( photo ) => {
-              // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
-              // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
-              // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-              setIsActive( false );
-              // Photo:
-              /*
-                {
-                  "height": 2268,
-                  "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg",
-                  "width": 4032
-                }
-              */
-              // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
-              photo.predictions = allPredictions;
-              photo.uri = photo.path;
-              /*
-                {
-                  "deviceOrientation": 6,
-                  "height": 2268,
-                  "isRawPhoto": false,
-                  "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 1.95, "ColorSpace": 1, "DateTimeDigitized": "2023:05:25 17:58:49", "DateTimeOriginal": "2023:05:25 17:58:49", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0257", "SubsecTimeOriginal": "0257", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:05:25 17:58:49", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
-                  "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
-                  "pictureOrientation": 6,
-                  "predictions": [
-                    {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "score": 0.9301357269287109, "taxon_id": 47163},
-                    {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "score": 0.9216688275337219, "taxon_id": 47218},
-                    {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "score": 0.9124458432197571, "taxon_id": 47781},
-                    {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "score": 0.8744127750396729, "taxon_id": 47780}],
-                  "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "width": 4032}
-              */
-              requestAndroidSavePermissions( photo );
-            } )
-            .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
-        } else {
-          camera.current
-            .takePictureAsync( {
-              pauseAfterCapture: true
-            } )
-            .then( ( photo ) => {
-              logger.debug( "takePictureAsync resolved" );
-              // Photo:
-              /*
-                {
-                  "deviceOrientation": 0,
-                  "height": 3024,
-                  "pictureOrientation": 0,
-                  "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}],
-                  "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg",
-                  "width": 4032
-                }
-               */
-              requestAndroidSavePermissions( photo );
-            } )
-            .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
+      if ( useVisionCamera ) {
+        await visionCameraTakePhoto( ( photo ) => requestAndroidSavePermissions( photo ) );
+      } else {
+        if ( !camera.current ) {
+          return;
         }
+        camera.current
+          .takePictureAsync( {
+            pauseAfterCapture: true
+          } )
+          .then( ( photo ) => {
+            logger.debug( "takePictureAsync resolved" );
+            // Photo:
+            /*
+              {
+                "deviceOrientation": 0,
+                "height": 3024,
+                "pictureOrientation": 0,
+                "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}],
+                "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg",
+                "width": 4032
+              }
+              */
+            requestAndroidSavePermissions( photo );
+          } )
+          .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
       }
     }
-  }, [savePhoto, updateError, requestAndroidSavePermissions, allPredictions, handleCaptureError] );
+  }, [
+    savePhoto,
+    updateError,
+    requestAndroidSavePermissions,
+    handleCaptureError,
+    visionCameraTakePhoto
+  ] );
 
   const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 

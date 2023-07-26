@@ -73,6 +73,8 @@ const ARCamera = ( ): Node => {
         return { ...state, ranks: action.ranks };
       case "RESET_PREDICTIONS":
         return { ...state, allPredictions: [] };
+      case "SET_PREDICTIONS":
+        return { ...state, allPredictions: action.predictions };
       case "SET_PREDICTION":
         return { ...state, allPredictions: [action.prediction, ...state.allPredictions] };
       case "PHOTO_TAKEN":
@@ -260,10 +262,13 @@ const ARCamera = ( ): Node => {
 
     let predictionSet = false;
     dispatch( { type: "RESET_PREDICTIONS" } );
+    if ( !isAndroid ) {
+      dispatch( { type: "SET_PREDICTIONS", predictions: event } );
+    }
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
 
-      if ( predictions[rank] ) {
+      if ( isAndroid && predictions[rank] ) {
         const prediction = predictions[rank][0];
         dispatch( { type: "SET_PREDICTION", prediction } );
       }

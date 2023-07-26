@@ -86,7 +86,15 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
   }, [] );
 
-  const handleSpecies = useCallback( async ( species ) => {
+  const handleSpecies = useCallback( async ( param ) => {
+    if ( !observation ) { return; }
+    const { predictions, errorCode, latitude } = observation.image;
+    const species = Object.assign( { }, param );
+
+    if ( Platform.OS === "ios" ) {
+      species.ancestor_ids = setAncestorIdsiOS( predictions );
+    }
+
     const createSpecies = ( photo, seenDate ) => {
       return {
         taxaId: Number( species.taxon_id ),
@@ -106,13 +114,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
         }
       };
     };
-
-    if ( !observation ) { return; }
-    const { predictions, errorCode, latitude } = observation.image;
-
-    if ( Platform.OS === "ios" ) {
-      species.ancestor_ids = setAncestorIdsiOS( predictions );
-    }
 
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
     const mediumPhoto = await fetchPhoto( species.taxon_id );

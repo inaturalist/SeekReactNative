@@ -227,9 +227,7 @@ const FrameProcessorCamera = ( props ): Node => {
             enableHighQualityPhotos
             enableZoomGesture
             zoom={device.neutralZoom}
-            // orientation={Platform.OS === "android"
-            //   ? deviceOrientation
-            //   : null}
+            orientation={deviceOrientation}
             frameProcessor={frameProcessor}
             // A value of 1 would indicate that the frame processor gets executed once per second.
             // This would roughly equal the setting of the legacy camera of 1000ms between predictions,

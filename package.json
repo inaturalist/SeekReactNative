@@ -83,7 +83,7 @@
     "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.3.0",
     "react-native-uuid-generator": "^6.1.1",
-    "react-native-vision-camera": "^2.15.4",
+    "react-native-vision-camera": "github:inaturalist/react-native-vision-camera#our-main-fork",
     "react-native-webp-format": "^1.1.2",
     "react-native-webview": "^11.26.1",
     "realm": "^11.8.0",

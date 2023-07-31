@@ -139,8 +139,6 @@ platform :android do
       skip_upload_apk: true,
       skip_upload_aab: true,
       skip_upload_changelogs: true,
-      skip_upload_images: true,
-      skip_upload_screenshots: true,
     )
   end
 
@@ -153,7 +151,10 @@ platform :android do
       track: "beta",
       package_name: ENV["PACKAGE_NAME"],
       version_code: android_get_version_code(gradle_file: "android/app/build.gradle"),
-      skip_upload_apk: true
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
       )
     slack(
      message: "Seek Android beta successfully deployed!",

@@ -233,7 +233,12 @@ const FrameProcessorCamera = ( props ): Node => {
             // This would roughly equal the setting of the legacy camera of 1000ms between predictions,
             // i.e. what taxaDetectionInterval was set to. However, according to the docs, the frameProcessorFps
             // cab be set to "auto" to chose an optimal frame rate based on on-device measurements.
-            frameProcessorFps={"auto"}
+            // frameProcessorFps={"auto"}
+            // TODO: On Android having frameProcessorFps set to "auto" resulted in the processor called only once.
+            // A value of 1 indicates that the frame processor gets executed once per second.
+            // This roughly equals the setting of the legacy camera of 1000ms between predictions,
+            // i.e. what taxaDetectionInterval was set to.
+            frameProcessorFps={1}
             onError={onError}
           />
         </GestureDetector>

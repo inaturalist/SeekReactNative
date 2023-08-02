@@ -356,7 +356,7 @@ const ARCamera = ( ): Node => {
     }
     camera.current
       // TODO: inat-camera has an option for playSoundOnCapture but it is not used there, currently Android does not make capture sound but iOS does
-      .takePhoto()
+      .takePhoto( { qualityPrioritization: "speed" } )
       .then( ( photo ) => {
         // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
         // setting the camera as inactive here is the closest thing to that, although there is a small delay visible

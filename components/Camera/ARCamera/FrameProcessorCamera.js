@@ -222,9 +222,8 @@ const FrameProcessorCamera = ( props ): Node => {
             style={styles.camera}
             device={device}
             isActive={isFocused && isForeground && isActive}
-            preset="photo"
+            preset="high"
             photo={true}
-            enableHighQualityPhotos
             enableZoomGesture
             zoom={device.neutralZoom}
             orientation={deviceOrientation}

@@ -121,7 +121,9 @@ class Toasts extends Component<Props> {
     const { badge, challenge } = this.props;
 
     return (
-      <View style={Platform.OS === "ios" ? viewStyles.topContainer : null}>
+      <View
+        style={viewStyles.topContainer}
+      >
         {badge && (
           <Animated.View
             style={[

@@ -40,7 +40,6 @@ const SelectSpecies = ( {
   seekId
 }: Props ): Node => {
   const sectionList = useRef( null );
-  const userPhoto = { uri: image };
 
   const seekSuggestion = [{
     image,
@@ -116,7 +115,11 @@ const SelectSpecies = ( {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView testID="select-species-container" style={viewStyles.container} edges={["top"]}>
+      <SafeAreaView
+        testID="select-species-container"
+        style={viewStyles.container}
+        edges={["top"]}
+      >
         <StatusBar barStyle="light-content" />
         <View style={viewStyles.header}>
           <TouchableOpacity
@@ -132,7 +135,7 @@ const SelectSpecies = ( {
           </StyledText>
         </View>
         <View style={viewStyles.photoContainer}>
-          <Image source={userPhoto} style={imageStyles.image} />
+          {image && <Image source={{ uri: image }} style={imageStyles.image} />}
         </View>
         <View style={viewStyles.row}>
           {/* $FlowFixMe */}

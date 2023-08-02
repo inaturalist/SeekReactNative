@@ -6,6 +6,7 @@ import {
   setJSExceptionHandler,
   setNativeExceptionHandler
 } from "react-native-exception-handler";
+import { getVersion, getBuildNumber } from "react-native-device-info";
 import type { Node } from "react";
 
 import RootStack from "./Navigation/RootStack";
@@ -35,7 +36,7 @@ const jsErrorHandler = ( e, isFatal ) => {
 };
 
 // record JS exceptions
-setJSExceptionHandler( jsErrorHandler );
+setJSExceptionHandler( jsErrorHandler, true );
 
 // record native exceptions
 // only works in bundled mode; will show red screen in dev mode
@@ -47,7 +48,7 @@ setNativeExceptionHandler( exceptionString => {
 
 const App = ( ): Node => {
   useEffect( () => {
-    logger.info( "App start" );
+    logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );
   }, [] );
 
   const [preferredLanguage, setLanguage] = useState( null );

@@ -31,7 +31,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
   const checkForSpecies = predictions => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
 
   const checkForAncestor = predictions => {
-    const reversePredictions = predictions.reverse( );
+    const reversePredictions = predictions.sort( ( a, b ) => a.rank - b.rank );
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
     if ( ancestor && ancestor.rank !== 100 ) {
@@ -86,7 +86,15 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
   }, [] );
 
-  const handleSpecies = useCallback( async ( species ) => {
+  const handleSpecies = useCallback( async ( param ) => {
+    if ( !observation ) { return; }
+    const { predictions, errorCode, latitude } = observation.image;
+    const species = Object.assign( { }, param );
+
+    if ( Platform.OS === "ios" ) {
+      species.ancestor_ids = setAncestorIdsiOS( predictions );
+    }
+
     const createSpecies = ( photo, seenDate ) => {
       return {
         taxaId: Number( species.taxon_id ),
@@ -106,13 +114,6 @@ const ObservationProvider = ( { children }: Props ): Node => {
         }
       };
     };
-
-    if ( !observation ) { return; }
-    const { predictions, errorCode, latitude } = observation.image;
-
-    if ( Platform.OS === "ios" ) {
-      species.ancestor_ids = setAncestorIdsiOS( predictions );
-    }
 
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
     const mediumPhoto = await fetchPhoto( species.taxon_id );

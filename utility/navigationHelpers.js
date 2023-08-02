@@ -34,6 +34,7 @@ const checkForHotStarts = ( navToCamera: ( ) => void ) => {
 const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( string ) => void ) => {
   // this addresses cold starts (i.e. before the app launches)
   try {
+    // TODO: when starting the app with the Android Hermes Debugger in VS code the app always throws an exception here, check if that is something happening in production
     const { title } = await QuickActions.popInitialAction( );
 
     if ( title === seekCameraTitle ) {

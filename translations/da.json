@@ -1003,5 +1003,9 @@
     "header": "Meddelelser fra iNaturalist",
     "announcement": "Meddelelse",
     "dismiss": "Afvis"
+  },
+  "model": {
+    "not_found_error": "Model ikke fundet",
+    "not_found_error_description": "Under indlæsning af appen, blev idenfikationsmodellen ikke fundet. Din kamera-oplevelse vil være uden identifikation."
   }
 }

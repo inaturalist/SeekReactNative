@@ -1003,5 +1003,9 @@
     "header": "Pengumuman iNaturalist",
     "announcement": "Pengumuman",
     "dismiss": "Abaikan"
+  },
+  "model": {
+    "not_found_error": "Model tidak ditemukan",
+    "not_found_error_description": "Saat memuat aplikasi, model identifikasinya tidak ditemukan. Kamera Anda tidak akan bisa menggunakan fitur identifikasi."
   }
 }

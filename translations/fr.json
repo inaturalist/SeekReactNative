@@ -1003,5 +1003,9 @@
     "header": "Annonces iNaturalist",
     "announcement": "Annonce",
     "dismiss": "Ignorer"
+  },
+  "model": {
+    "not_found_error": "Modèle introuvable",
+    "not_found_error_description": "Modèle d'identification introuvable au chargement de l'application. Vous pouvez prendre des photos, mais les organismes ne seront pas identifiés."
   }
 }

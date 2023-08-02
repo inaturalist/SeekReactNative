@@ -1003,5 +1003,9 @@
     "header": "Oznámení iNaturalist",
     "announcement": "Oznámení",
     "dismiss": "Zavřít"
+  },
+  "model": {
+    "not_found_error": "Model nebyl nalezen",
+    "not_found_error_description": "Při načítání aplikace nebyl nalezen identifikační model. Váš fotoaparát nemůže použít identifikaci."
   }
 }

@@ -565,9 +565,9 @@
   },
   "about": {
     "header": "אודות",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek מעוצבת ומפותחת על ידי צוות iNaturalist:",
     "joint_initiative": "iNaturalist הוא מיזם שיתופי של האקדמיה למדעים של קליפורניה ונשיונל ג'יאוגרפיק",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek נוצרה במקור על ידי צוות iNaturalist בתמיכת האקדמיה למדעים של קליפורניה, נשיונל ג'יאוגרפיק, הסדרה 'כוכב הלכת המופלא' של נטפליקס, הקרן העולמית לשימור חיות הבר (WWF), אולפני HHMI Tangled Bank, ופרויקט האנציקלופדיה הויזואלית 'Visipedia'.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, ו-Sylvain Morin. תודות מיוחדות ל-Grant Van Horn מ-Visipedia על העזרה עם טכנולוגיית הראייה הממוחשבת ולקהילת iNaturalist.",
     "version": "גרסה",
     "help": "לעזרה עם אפליקציית Seek, נא לשלוח דוא\"ל לכתובת help+seek@inaturalist.org.",
@@ -598,8 +598,8 @@
     "animals": "חיות",
     "protozoans": "פרוטוזואות",
     "kelp": "קלפ, צורניות וקרוביהם",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "שגיאת מיקום",
+    "error_message_2": "נראה שהמיקום שלך לא נרשם נכון! נא לבדוק שנית את המיקום שלך."
   },
   "posting_status": {
     "posting_to_inat_background": "מעלה ל-iNaturalist ברקע",
@@ -1000,8 +1000,8 @@
     "donate": "לתרומה"
   },
   "announcements": {
-    "header": "iNaturalist Announcements",
-    "announcement": "Announcement",
-    "dismiss": "Dismiss"
+    "header": "הודעות iNaturalist",
+    "announcement": "הודעה",
+    "dismiss": "להתעלם"
   }
 }

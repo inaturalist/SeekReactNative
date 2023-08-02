@@ -106,14 +106,14 @@ const FrameProcessorCamera = ( props ): Node => {
       "worklet";
       // Reminder: this is a worklet, running on the UI thread.
       try {
-        const results = InatVision.inatVision(
-          frame,
+        const results = InatVision.inatVision( frame, {
+          version: "1.0",
           modelPath,
           taxonomyPath,
           confidenceThreshold,
           filterByTaxonId,
           negativeFilter
-        );
+        } );
         REA.runOnJS( onTaxaDetected )(
           results,
           {

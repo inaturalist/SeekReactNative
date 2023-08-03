@@ -1005,7 +1005,7 @@
     "dismiss": "解除"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "找不到模型",
+    "not_found_error_description": "應用程式載入時，未找到辨識模型。導致您的相機無法辨識。"
   }
 }

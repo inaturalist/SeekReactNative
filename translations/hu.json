@@ -1005,7 +1005,7 @@
     "dismiss": "Elutasít"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "Modell nem található",
+    "not_found_error_description": "Az alkalmazás betöltése során a gépi látás modell nem áll rendelkezésre. A Kamera működése korlátozott, a határozás nem áll rendelkezésre."
   }
 }

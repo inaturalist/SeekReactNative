@@ -1003,5 +1003,9 @@
     "header": "iNaturalist mededelingen",
     "announcement": "Mededeling",
     "dismiss": "Afwijzen"
+  },
+  "model": {
+    "not_found_error": "Computer Vision Model niet gevonden",
+    "not_found_error_description": "Tijdens het laden van de app is het determinatiemodel niet gevonden. Je camera-opname wordt niet gedetermineerd."
   }
 }

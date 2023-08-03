@@ -1003,5 +1003,9 @@
     "header": "iNaturalist Duyuruları",
     "announcement": "Duyuru",
     "dismiss": "Yoksay"
+  },
+  "model": {
+    "not_found_error": "Model bulunamadı",
+    "not_found_error_description": "Uygulama yüklenirken tanımlama modeli bulunamadı. Kamera deneyimin tanımlama olmadan gerçekleşecektir."
   }
 }

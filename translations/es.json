@@ -1003,5 +1003,9 @@
     "header": "Anuncios de iNaturalist",
     "announcement": "Anuncio",
     "dismiss": "Descartar"
+  },
+  "model": {
+    "not_found_error": "Model not found",
+    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
   }
 }

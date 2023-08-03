@@ -1003,5 +1003,9 @@
     "header": "Meddelande från iNaturalist",
     "announcement": "Meddelande",
     "dismiss": "Avfärda"
+  },
+  "model": {
+    "not_found_error": "Modellen hittades inte",
+    "not_found_error_description": "När appen lästes in hittades inte bildigenkänningsmodellen. Kamerafunktionen kommer att sakna artbestämning."
   }
 }

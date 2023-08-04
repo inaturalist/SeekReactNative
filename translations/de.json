@@ -1005,7 +1005,7 @@
     "dismiss": "ausblenden"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "Modell nicht gefunden",
+    "not_found_error_description": "Beim Laden der App wurde das Modell zur Identifikation nicht gefunden. Deinne Kamera-Nutzung wird ohne Bestimmungen angezeigt werden."
   }
 }

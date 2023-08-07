@@ -507,7 +507,7 @@
     "not_seen_arachnids": "Du hast noch keine Spinnentiere beobachtet!",
     "not_seen_birds": "Du hast noch keine Vögel beobachtet!",
     "not_seen_insects": "Du hast noch keine Insekten beobachtet!",
-    "not_seen_mollusks": "Sie haben noch keine Weichtiere beobachtet!",
+    "not_seen_mollusks": "Du hast noch keine Weichtiere beobachtet!",
     "not_seen_mammals": "Du hast noch keine Säugetiere beobachtet!",
     "not_seen_other": "Du hast noch keine anderen Arten beobachtet!"
   },
@@ -1005,7 +1005,7 @@
     "dismiss": "ausblenden"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "Modell nicht gefunden",
+    "not_found_error_description": "Beim Laden der App wurde das Modell zur Identifikation nicht gefunden. Deine Kamera-Nutzung wird ohne Bestimmungen angezeigt werden."
   }
 }

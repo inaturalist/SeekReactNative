@@ -39,6 +39,7 @@ const checkForUniquePhotos = ( seen: Set<Object>, assets: Array<Object> ): Array
     if ( seen.has( value ) ) {
       return;
     }
+    // TODO: fix function param "reassignment"
     seen.add( value );
     return asset;
   } );

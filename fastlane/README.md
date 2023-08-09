@@ -44,6 +44,14 @@ Distributes a beta version of Seek on TestFlight
 
 Upload description to Google Play
 
+### android internal
+
+```sh
+[bundle exec] fastlane android internal
+```
+
+Distributes an Android bundle to the Play Store beta track
+
 ### android beta
 
 ```sh

@@ -104,7 +104,7 @@ const FrameProcessorCamera = ( props ): Node => {
       // Reminder: this is a worklet, running on the UI thread.
       try {
         const results = InatVision.inatVision( frame, {
-          version: "1.0",
+          version: "2.4",
           modelPath,
           taxonomyPath,
           confidenceThreshold,

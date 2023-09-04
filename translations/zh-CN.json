@@ -565,7 +565,7 @@
   },
   "about": {
     "header": "关于我们",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek是由 iNaturalist 团队设计和开发的：",
     "joint_initiative": "iNaturalist 由加利福尼亚科学院与美国国家地理学会共同创办",
     "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Sheard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. 特别感谢来自Visipedia的Grant Van Horn在计算机视觉技术的帮助，和iNaturalist 社区。",
@@ -598,8 +598,8 @@
     "animals": "动物",
     "protozoans": "原生动物",
     "kelp": "海带，硅藻和其它相关生物",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "位置错误",
+    "error_message_2": "您的位置记录不正确！请再次检查您的位置。"
   },
   "posting_status": {
     "posting_to_inat_background": "在后台发布到 INATURALIST",
@@ -1000,12 +1000,12 @@
     "donate": "捐赠"
   },
   "announcements": {
-    "header": "iNaturalist Announcements",
-    "announcement": "Announcement",
+    "header": "iNaturalist 公告",
+    "announcement": "公告",
     "dismiss": "Dismiss"
   },
   "model": {
-    "not_found_error": "Model not found",
+    "not_found_error": "找不到模型",
     "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
   }
 }

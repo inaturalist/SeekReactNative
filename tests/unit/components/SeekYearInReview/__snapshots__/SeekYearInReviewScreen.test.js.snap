@@ -574,7 +574,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   null,
                   {
                     "marginHorizontal": 6,
-                    "resizeMode": "contain",
                     "width": 113.73578302712161,
                   },
                 ],
@@ -609,7 +608,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   null,
                   {
                     "marginHorizontal": 6,
-                    "resizeMode": "contain",
                     "width": 113.73578302712161,
                   },
                 ],
@@ -644,7 +642,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   null,
                   {
                     "marginHorizontal": 6,
-                    "resizeMode": "contain",
                     "width": 113.73578302712161,
                   },
                 ],
@@ -676,7 +673,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "marginHorizontal": 6,
-                    "resizeMode": "contain",
                     "width": 113.73578302712161,
                   },
                   {
@@ -701,7 +697,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "marginHorizontal": 6,
-                    "resizeMode": "contain",
                     "width": 113.73578302712161,
                   },
                   {
@@ -726,7 +721,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "marginHorizontal": 6,
-                    "resizeMode": "contain",
                     "width": 113.73578302712161,
                   },
                   {

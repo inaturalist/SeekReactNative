@@ -12,6 +12,9 @@ type Props = {
 }
 
 const GalleryImage = ( { item, selectImage }: Props ): Node => {
+  if ( !item ) {
+    return null;
+  }
   const imageSource = { uri: item.node.image.uri };
 
   const handlePress = ( ) => selectImage( item );

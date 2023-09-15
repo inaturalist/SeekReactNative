@@ -52,6 +52,10 @@ const majorVersionIOS = parseInt( Platform.Version, 10 );
 const useVisionCamera = isAndroid ? Platform.Version >= 23 : majorVersionIOS >= 11;
 
 const ARCamera = ( ): Node => {
+  useEffect( () => {
+    logger.debug( `ARCamera: useVisionCamera ${useVisionCamera}` );
+  }, [] );
+
   // getting width and height passes correct dimensions to camera
   // on orientation change
   const isFocused = useIsFocused( );

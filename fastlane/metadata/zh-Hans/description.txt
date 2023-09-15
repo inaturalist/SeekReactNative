@@ -20,4 +20,4 @@ Seek将请求权限以开启位置服务。 但您的位置被遮蔽，以尊重
 
 我们的图像识别技术基于提交到 iNaturalist.org 和合作伙伴网站的观察，并由 iNaturalist 社区认定。
 
-Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.
+Seek是iNaturalist的一部分，是一个非营利组织。 Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

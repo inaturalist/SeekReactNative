@@ -598,8 +598,8 @@
     "animals": "Eläimet",
     "protozoans": "Alkueläimet",
     "kelp": "Ruskolevät, piilevät ja näiden sukulaiset",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Sijaintivirhe",
+    "error_message_2": "Näyttää siltä, että sijaintiasi ei ole tallennettu oikein! Tarkista sijaintisi."
   },
   "posting_status": {
     "posting_to_inat_background": "LÄHETTÄÄ INATURALISTIIN TAUSTALLA",
@@ -1005,7 +1005,7 @@
     "dismiss": "Dismiss"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "Mallia ei löytynyt",
+    "not_found_error_description": "Mallia ei löytynyt sovellusta ladattaessa. Kamerakokemuksesi tulee olemaan ilman tunnistuapua."
   }
 }

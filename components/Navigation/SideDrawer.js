@@ -8,7 +8,7 @@ import Achievements from "../Achievements/AchievementsScreen";
 import Challenges from "../Challenges/ChallengeScreen/ChallengeScreen";
 import Observations from "../Observations/Observations";
 import iNatStats from "../iNaturalist/iNatStats";
-import About from "../AboutScreen";
+import About from "../About/AboutScreen";
 import Settings from "../Settings/Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetails/ChallengeDetailsScreen";
 import Match from "../Match/MatchScreen";

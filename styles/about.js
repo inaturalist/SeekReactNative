@@ -38,6 +38,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   tabletContainer: {
     maxWidth: 455,
     alignSelf: "center"
+  },
+  copiedAnimation: {
+    zIndex: 1,
+    position: "absolute",
+    top: -35
   }
 } );
 

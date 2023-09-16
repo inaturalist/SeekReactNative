@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - BVLinearGradient (2.6.2):
+  - BVLinearGradient (2.8.3):
     - React-Core
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -352,13 +352,13 @@ PODS:
     - React
   - react-native-mail (6.1.1):
     - React-Core
-  - react-native-maps (1.3.2):
+  - react-native-maps (1.7.1):
     - React-Core
   - react-native-netinfo (9.4.1):
     - React-Core
   - react-native-orientation-locker (1.5.0):
     - React-Core
-  - react-native-pager-view (6.1.2):
+  - react-native-pager-view (6.2.1):
     - React-Core
   - react-native-render-html (5.1.1):
     - React-Core
@@ -475,13 +475,13 @@ PODS:
     - React-Core
   - RNDateTimePicker (6.7.5):
     - React-Core
-  - RNDeviceInfo (10.3.0):
+  - RNDeviceInfo (10.9.0):
     - React-Core
   - RNFlashList (1.6.1):
     - React-Core
   - RNFS (2.20.0):
     - React-Core
-  - RNGestureHandler (2.8.0):
+  - RNGestureHandler (2.12.1):
     - React-Core
   - RNImageMarker (0.6.3):
     - React
@@ -523,7 +523,7 @@ PODS:
     - React-Core
   - RNStoreReview (0.3.0):
     - React-Core
-  - RNSVG (13.6.0):
+  - RNSVG (13.9.0):
     - React-Core
   - SDWebImage/Core (5.13.4)
   - SDWebImageWebPCoder (0.9.1):
@@ -808,7 +808,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
+  BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 4eb7ee83e8d0ad7e20a829485295ff48823c4e4c
@@ -848,10 +848,10 @@ SPEC CHECKSUMS:
   react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
-  react-native-maps: 085f614cf14d3637b2048bb9752da5b1c27c2886
+  react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5
   react-native-orientation-locker: 851f6510d8046ea2f14aa169b1e01fcd309a94ba
-  react-native-pager-view: 54bed894cecebe28cede54c01038d9d1e122de43
+  react-native-pager-view: d211379f61895b6349bd7e571b44a26d005c2975
   react-native-render-html: 012780b92993ab33b3ae0240b90e585d00c70808
   react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e
   react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
@@ -878,10 +878,10 @@ SPEC CHECKSUMS:
   RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: 65e1d202799460b286ff5e741d8baf54695e8abd
-  RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
+  RNDeviceInfo: 02ea8b23e2280fa18e00a06d7e62804d74028579
   RNFlashList: 236646d48f224a034f35baa0242e1b77db063b1e
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
-  RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
+  RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
   RNImageMarker: 76cd113306bcfad2f74f78d83d5accfd50b4434a
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
@@ -889,7 +889,7 @@ SPEC CHECKSUMS:
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNShare: d93e00e906e6174657f6370b480437e4702bc86e
   RNStoreReview: 18cf6adbd193eadb049d2f6c37ef2ab3d5a28706
-  RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
+  RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608

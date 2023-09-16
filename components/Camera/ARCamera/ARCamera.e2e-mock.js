@@ -5,8 +5,7 @@ import React, {
   useEffect,
   useRef,
   useCallback,
-  useContext,
-  useState
+  useContext
 } from "react";
 import {
   Image,
@@ -20,16 +19,14 @@ import type { Node } from "react";
 import RNFS from "react-native-fs";
 
 import i18n from "../../../i18n";
-import { viewStyles } from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import {
   showCameraSaveFailureAlert
 } from "../../../utility/cameraHelpers";
-import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
+import { checkCameraPermissions } from "../../../utility/androidHelpers.android";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import { ObservationContext, UserContext } from "../../UserContext";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 const useVisionCamera = Platform.OS === "android";
 
@@ -76,7 +73,6 @@ const ARCamera = ( ): Node => {
   } );
 
   const {
-    ranks,
     error,
     pictureTaken
   } = state;
@@ -130,28 +126,6 @@ const ARCamera = ( ): Node => {
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
-  const handleCaptureError = useCallback( ( event: { nativeEvent?: { error: string } } ) => {
-    if ( event.nativeEvent && event.nativeEvent.reason ) {
-      updateError( "take", event.nativeEvent.reason );
-    } else {
-      updateError( "take" );
-    }
-  }, [updateError] );
-
-  const requestAndroidSavePermissions = useCallback( ( photo ) => {
-    const checkPermissions = async ( ) => {
-      const result = await checkSavePermissions( );
-
-      if ( result === "gallery" ) {
-        savePhoto( photo );
-      } else {
-        savePhoto( photo );
-      }
-    };
-    // on Android, this permission check will pop up every time; on iOS it only pops up first time a user opens camera
-    checkPermissions( );
-  }, [savePhoto] );
-
   const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 
   const requestAndroidPermissions = useCallback( ( ) => {
@@ -173,8 +147,6 @@ const ARCamera = ( ): Node => {
       requestAndroidPermissions( );
     } );
   }, [navigation, requestAndroidPermissions, setObservation] );
-
-  const [source, setSource] = useState( undefined );
 
   const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );
@@ -200,7 +172,6 @@ const ARCamera = ( ): Node => {
           const newUri = await RNFS.copyAssetsFileIOS( encodedUri, destPath, 0, 0 );
           console.log( "newUri", newUri );
           const photo = { uri: newUri, predictions: [] };
-          setSource( { uri: newUri } );
           if ( typeof photo !== "object" ) {
             updateError( "photoError", photo );
           } else {

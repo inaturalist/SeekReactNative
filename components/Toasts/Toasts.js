@@ -3,8 +3,7 @@ import React, { Component } from "react";
 import {
   Animated,
   View,
-  Dimensions,
-  Platform
+  Dimensions
 } from "react-native";
 import type { Node } from "react";
 

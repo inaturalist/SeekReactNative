@@ -515,7 +515,7 @@ PODS:
   - RNScreens (3.18.2):
     - React-Core
     - React-RCTImage
-  - RNShare (8.0.1):
+  - RNShare (9.4.1):
     - React-Core
   - RNStoreReview (0.3.0):
     - React-Core
@@ -883,7 +883,7 @@ SPEC CHECKSUMS:
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 29295af754cdd6f8e4428427d4195e02ea8766e0
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
-  RNShare: d93e00e906e6174657f6370b480437e4702bc86e
+  RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 18cf6adbd193eadb049d2f6c37ef2ab3d5a28706
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3

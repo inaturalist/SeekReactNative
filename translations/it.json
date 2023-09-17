@@ -565,9 +565,9 @@
   },
   "about": {
     "header": "Info",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek è progettato e sviluppato dal team iNaturalist:",
     "joint_initiative": "iNaturalist è un' iniziativa congiunta dell'Accademia di Scienze della California e della National Geographic Society.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek è stato originariamente realizzato con il sostegno della California Academy of Sciences, la National Geographic Society, il nostro pianeta su Netflix, WWF, HHMI Tangled Bank Studios, e Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta e Sylvain Morin. Ringraziamenti speciali a Grant Van Horn da Visipedia per l'aiuto con la tecnologia visiva artificiale e alla community di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, sei pregato di scriverci un'email a help+seek@inaturalist.org.",
@@ -598,8 +598,8 @@
     "animals": "Animali",
     "protozoans": "Protozoi",
     "kelp": "Alghe, Diatomee e Affini",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Errore di localizzazione",
+    "error_message_2": "Sembra che la tua posizione non sia stata registrata correttamente! Per favore ricontrolla la tua posizione."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBBLICANDO SU INATURALIST IN BACKGROUND",
@@ -1005,7 +1005,7 @@
     "dismiss": "Respingi"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "Modello non trovato",
+    "not_found_error_description": "Durante il caricamento dell'app, il modello di idenficazione non è stato trovato. L'esperienza della fotocamera sarà senza identificazione."
   }
 }

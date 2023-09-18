@@ -58,7 +58,7 @@
     "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.8.3",
-    "react-native-localize": "^2.2.4",
+    "react-native-localize": "^3.0.2",
     "react-native-logs": "^5.0.1",
     "react-native-mail": "^6.1.1",
     "react-native-maps": "^1.7.1",

@@ -346,6 +346,8 @@ PODS:
     - React
   - react-native-geolocation-service (5.3.1):
     - React
+  - react-native-image-marker (1.1.1):
+    - React-Core
   - react-native-image-resizer (1.4.5):
     - React-Core
   - react-native-inat-camera (1.0.0):
@@ -479,8 +481,6 @@ PODS:
     - React-Core
   - RNGestureHandler (2.12.1):
     - React-Core
-  - RNImageMarker (0.6.3):
-    - React
   - RNLocalize (3.0.2):
     - React-Core
   - RNQuickAction (0.3.13):
@@ -586,6 +586,7 @@ DEPENDENCIES:
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
+  - react-native-image-marker (from `../node_modules/react-native-image-marker`)
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
   - react-native-mail (from `../node_modules/react-native-mail`)
@@ -623,7 +624,6 @@ DEPENDENCIES:
   - "RNFlashList (from `../node_modules/@shopify/flash-list`)"
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNImageMarker (from `../node_modules/react-native-image-marker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNQuickAction (from `../node_modules/react-native-quick-actions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -705,6 +705,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
+  react-native-image-marker:
+    :path: "../node_modules/react-native-image-marker"
   react-native-image-resizer:
     :path: "../node_modules/react-native-image-resizer"
   react-native-inat-camera:
@@ -779,8 +781,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNImageMarker:
-    :path: "../node_modules/react-native-image-marker"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNQuickAction:
@@ -841,6 +841,7 @@ SPEC CHECKSUMS:
   react-native-cameraroll: fad943a324a4d893c249cabe6d0608c807e0e58f
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
+  react-native-image-marker: 7012d9ad2adf445d32832413a3faca9bcaa383fe
   react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
@@ -878,7 +879,6 @@ SPEC CHECKSUMS:
   RNFlashList: 236646d48f224a034f35baa0242e1b77db063b1e
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
-  RNImageMarker: 76cd113306bcfad2f74f78d83d5accfd50b4434a
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 29295af754cdd6f8e4428427d4195e02ea8766e0

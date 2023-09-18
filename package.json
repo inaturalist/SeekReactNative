@@ -86,7 +86,7 @@
     "react-native-vision-camera": "github:inaturalist/react-native-vision-camera#our-main-fork",
     "react-native-webp-format": "^1.2.0",
     "react-native-webview": "^11.26.1",
-    "realm": "^11.10.2",
+    "realm": "^12.1.0",
     "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision"
   },
   "devDependencies": {

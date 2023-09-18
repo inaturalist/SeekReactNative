@@ -346,7 +346,7 @@ PODS:
     - React
   - react-native-geolocation-service (5.3.1):
     - React
-  - react-native-image-marker (1.1.1):
+  - react-native-image-marker (0.9.2):
     - React-Core
   - react-native-image-resizer (1.4.5):
     - React-Core
@@ -841,7 +841,7 @@ SPEC CHECKSUMS:
   react-native-cameraroll: fad943a324a4d893c249cabe6d0608c807e0e58f
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
-  react-native-image-marker: 7012d9ad2adf445d32832413a3faca9bcaa383fe
+  react-native-image-marker: 8af6eac535be766aee2ab3e86063cae7c9fea833
   react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a

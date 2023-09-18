@@ -458,8 +458,8 @@ PODS:
     - React-perflogger (= 0.71.12)
   - ReactNativeExceptionHandler (2.10.10):
     - React-Core
-  - ReactNativeWebPFormat (1.1.2):
-    - React
+  - ReactNativeWebPFormat (1.2.0):
+    - React-Core
     - SDWebImageWebPCoder
   - RealmJS (11.8.0):
     - React
@@ -512,7 +512,7 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.18.2):
+  - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
   - RNShare (9.4.1):
@@ -868,7 +868,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 7902246857a4ead4166869e6c42d4df329ff721d
   ReactCommon: a6d1c76b9e10b439e41db225263341240e1cda9f
   ReactNativeExceptionHandler: b11ff67c78802b2f62eed0e10e75cb1ef7947c60
-  ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
+  ReactNativeWebPFormat: f5f043cc9ded052e535c3869ec341f91ba5a67c5
   RealmJS: 27b8d695fa4bc9606a4a4a378de55511edc2084c
   RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
@@ -882,7 +882,7 @@ SPEC CHECKSUMS:
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 29295af754cdd6f8e4428427d4195e02ea8766e0
-  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
+  RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 923b1c888c13469925bf0256dc2c046eab557ce5
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315

@@ -56,7 +56,7 @@ const SimilarSpecies = ( { id }: Props ): Node => {
           per_page: 20,
           taxon_id: id,
           without_taxon_id: 43584,
-          locale: i18n.currentLocale()
+          locale: i18n.locale
         };
 
         const options = { user_agent: createUserAgent( ) };

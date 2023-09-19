@@ -54,7 +54,7 @@ const Announcements = ( ): React.Node => {
     navigation.navigate( "FullAnnouncement", { uri: target.uri } );
   };
 
-  const locale = i18n.currentLocale();
+  const locale = i18n.locale;
 
   const fetchAnnouncements = useCallback( async ( ) => {
     const params = {

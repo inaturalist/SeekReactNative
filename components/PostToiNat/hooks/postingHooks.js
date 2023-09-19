@@ -17,7 +17,7 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
         q: speciesName,
         per_page: 5,
         is_active: true,
-        locale: i18n.currentLocale( )
+        locale: i18n.locale
       };
 
       const options = { user_agent: createUserAgent( ) };

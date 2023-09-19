@@ -51,7 +51,7 @@ const useTaxonDetails = ( id: number ): any => {
 
   useEffect( ( ) => {
     const fetchTaxonDetails = async ( ) => {
-      const localeParams = { locale: i18n.currentLocale( ) };
+      const localeParams = { locale: i18n.locale };
       const options = { user_agent: createUserAgent( ) };
 
       try {

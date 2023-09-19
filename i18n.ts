@@ -1,5 +1,4 @@
-// @flow
-import i18n from "i18n-js";
+import { I18n } from "i18n-js";
 
 import af from "./translations/af.json";
 import ar from "./translations/ar.json";
@@ -35,7 +34,7 @@ import uk from "./translations/uk.json";
 import zhCN from "./translations/zh-CN.json";
 import zh from "./translations/zh-TW.json";
 
-i18n.translations = {
+const i18n = new I18n( {
   af,
   ar,
   bg,
@@ -69,8 +68,9 @@ i18n.translations = {
   uk,
   "zh-CN": zhCN,
   zh
-};
-i18n.fallbacks = true;
+} );
+
+i18n.enableFallback = true;
 
 // https://github.com/inaturalist/inaturalist/blob/main/app/assets/javascripts/i18n/pluralizations.js
 ( function ( ) {
@@ -153,16 +153,16 @@ i18n.fallbacks = true;
   }
 
   // Override default to deal with English-style delimiters
-  i18n.pluralization.default = function ( count ) {
+  i18n.pluralization.register( "default", ( count ) => {
     switch ( normalizeCount( count, i18n.locale || "en" ) ) {
       case 0: return ["zero", "other"];
       case 1: return ["one"];
       default: return ["other"];
     }
-  };
+  } );
 
   // Add pluralization rules for locales
-  i18n.pluralization.ar = function ( count ) {
+  i18n.pluralization.register( "ar", ( _i18n, count ) => {
     var n = normalizeCount( count, "ar" ) || 0;
     var mod100 = n % 100;
     var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
@@ -179,8 +179,8 @@ i18n.fallbacks = true;
       return ["many"];
     }
     return ["other"];
-  };
-  i18n.pluralization.br = function ( count ) {
+  } );
+  i18n.pluralization.register( "br", ( _i18n, count ) => {
     var n = normalizeCount( count, "br" ) || 0;
     var mod10 = n % 10;
     var mod100 = n % 100;
@@ -194,14 +194,14 @@ i18n.fallbacks = true;
       return ["many"];
     }
     return ["other"];
-  };
-  i18n.pluralization.cs = function ( count ) { return westSlavic( count, "cs" ); };
-  i18n.pluralization.fr = function ( count ) { return oneUptoTwoOther( count, "fr" ); };
-  i18n.pluralization.hr = oneFewOther;
-  i18n.pluralization.id = other;
-  i18n.pluralization.ja = other;
-  i18n.pluralization.ko = other;
-  i18n.pluralization.lt = function ( count ) {
+  } );
+  i18n.pluralization.register( "cs", ( _i18n, count ) => { return westSlavic( count, "cs" ); } );
+  i18n.pluralization.register( "fr", ( _i18n, count ) => { return oneUptoTwoOther( count, "fr" ); } );
+  i18n.pluralization.register( "hr", oneFewOther );
+  i18n.pluralization.register( "id", other );
+  i18n.pluralization.register( "ja", other );
+  i18n.pluralization.register( "ko", other );
+  i18n.pluralization.register( "lt", ( _i18n, count ) => {
     var n = normalizeCount( count, "lt" ) || 0;
     var mod10 = n % 10;
     var mod100 = n % 100;
@@ -222,8 +222,8 @@ i18n.fallbacks = true;
       return ["few"];
     }
     return ["other"];
-  };
-  i18n.pluralization.mk = function ( count ) {
+  } );
+  i18n.pluralization.register( "mk", ( _i18n, count ) => {
     var n = normalizeCount( count, "mk" ) || 0;
     var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if (
@@ -234,8 +234,8 @@ i18n.fallbacks = true;
       return ["one"];
     }
     return ["other"];
-  };
-  i18n.pluralization.pl = function ( count ) {
+  } );
+  i18n.pluralization.register( "pl", ( _i18n, count ) => {
     var n = normalizeCount( count, "pl" ) || 0;
     var mod10 = n % 10;
     var mod100 = n % 100;
@@ -257,8 +257,8 @@ i18n.fallbacks = true;
       return ["many"];
     }
     return ["other"];
-  };
-  i18n.pluralization.ro = function ( count ) {
+  } );
+  i18n.pluralization.register( "ro", ( _i18n, count ) => {
     var n = normalizeCount( count, "ro" ) || 0;
     var mod100 = n % 100;
     var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
@@ -272,14 +272,14 @@ i18n.fallbacks = true;
       return ["few"];
     }
     return ["other"];
-  };
-  i18n.pluralization.ru = function ( count ) { return eastSlavic( count, "ru" ); };
-  i18n.pluralization.sk = function ( count ) { return westSlavic( count, "sk" ); };
-  i18n.pluralization.uk = function ( count ) { return eastSlavic( count, "uk" ); };
-  i18n.pluralization.zh = other;
-  i18n.pluralization["zh-CN"] = other;
-  i18n.pluralization["zh-HK"] = other;
-  i18n.pluralization["zh-TW"] = other;
+  } );
+  i18n.pluralization.register( "ru", ( _i18n, count ) => { return eastSlavic( count, "ru" ); } );
+  i18n.pluralization.register( "sk", ( _i18n, count ) => { return westSlavic( count, "sk" ); } );
+  i18n.pluralization.register( "uk", ( _i18n, count ) => { return eastSlavic( count, "uk" ); } );
+  i18n.pluralization.register( "zh", other );
+  i18n.pluralization.register( "zh-CN", other );
+  i18n.pluralization.register( "zh-HK", other );
+  i18n.pluralization.register( "zh-TW", other );
 }( ) );
 
 export default i18n;

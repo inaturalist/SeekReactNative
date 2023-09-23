@@ -45,7 +45,21 @@ const FrameProcessorCamera = ( props ): Node => {
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
   const [focusAvailable, setFocusAvailable] = useState( true );
+
+  const [hasPermission, setHasPermission] = useState( false );
+
+  useEffect( () => {
+    const checkPermissions = async () => {
+
+      const permissionResult = await Camera.requestCameraPermission();
+      setHasPermission( permissionResult === "granted" );
+    };
+    checkPermissions( console.error );
+  }, [] );
+
+
   const devices = useCameraDevices();
+
   let device = devices.back;
   // If there is no back camera, use the front camera
   if ( !device ) {
@@ -162,6 +176,30 @@ const FrameProcessorCamera = ( props ): Node => {
         setFocusAvailable( false );
         return;
       }
+
+      // If the error code is "permission/" return the legacy code for permission errors
+      // Alternatively, if the error code is "device/invalid-device" or "session/camera-not-ready" and we don't have camera permissions, prompt for permissions
+      const isSubtlePermissionsError = error.code.includes( "device/invalid-device" ) || error.code.includes( "session/camera-not-ready" );
+      if ( error.code.includes( "permission/" ) || ( isSubtlePermissionsError && !hasPermission ) ) {
+        if ( error.code === "permission/camera-permission-denied" ) {
+          // Currently, we are asking for camera permission on focus of the screen, that results in one render
+          // of the camera before permission is granted. If the permission is denied, this error happens twice,
+          // so we are ignoring the first one.
+          if ( permissionCount === 0 ) {
+            setPermissionCount( permissionCount + 1 );
+            return;
+          }
+        }
+        // This string is returned from the legacy camera when the user has not granted the needed permissions
+        const permissions =
+          "Camera Input Failed: This app is not authorized to use Back Camera.";
+
+        const returnError: { nativeEvent: { error?: string } } = {
+          nativeEvent: { error: permissions }
+        };
+        onCameraError( returnError );
+        return;
+      }
       // If it is any other "device/" error, return the error code
       if ( error.code.includes( "device/" ) ) {
         const returnReason: { nativeEvent: { reason?: string } } = {
@@ -210,7 +248,7 @@ const FrameProcessorCamera = ( props ): Node => {
       };
       onCameraError( returnError );
     },
-    [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
+    [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError, hasPermission]
   );
 
   return (

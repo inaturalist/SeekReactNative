@@ -44,6 +44,7 @@ import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
+import { useSharedValue } from "react-native-reanimated";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -68,6 +69,8 @@ const ARCamera = ( ): Node => {
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
 
+  const pictureTaken = useSharedValue( false );
+
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -82,21 +85,22 @@ const ARCamera = ( ): Node => {
       case "SET_PREDICTION":
         return { ...state, allPredictions: [action.prediction, ...state.allPredictions] };
       case "PHOTO_TAKEN":
-        return { ...state, pictureTaken: true };
+        pictureTaken.value = true;
+        return { ...state };
       case "RESET_STATE":
+        pictureTaken.value = false;
         return {
           ...state,
-          pictureTaken: false,
           error: null,
           ranks: {},
           allPredictions: []
         };
       case "FILTER_TAXON":
+        pictureTaken.value = false;
         return {
           ...state,
           negativeFilter: action.negativeFilter,
           taxonId: action.taxonId,
-          pictureTaken: false,
           error: null,
           ranks: {},
           allPredictions: []
@@ -111,7 +115,6 @@ const ARCamera = ( ): Node => {
     allPredictions: [],
     error: null,
     errorEvent: null,
-    pictureTaken: false,
     negativeFilter: false,
     taxonId: null
   } );
@@ -121,14 +124,14 @@ const ARCamera = ( ): Node => {
     allPredictions,
     error,
     errorEvent,
-    pictureTaken,
     negativeFilter,
     taxonId
   } = state;
 
   const [showModal, setShowModal] = useState( false );
-  const [cameraLoaded, setCameraLoaded] = useState( false );
-  const [speciesTimeoutSet, setSpeciesTimeoutSet] = useState( false );
+  const cameraLoaded = useSharedValue( false );
+  const speciesTimeoutSet = useSharedValue( false );
+
   const [cameraType, setCameraType] = useState( "back" );
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
@@ -157,12 +160,12 @@ const ARCamera = ( ): Node => {
   }, [setObservation, login] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && observation.image.arCamera && pictureTaken ) {
+    if ( observation && observation.taxon && observation.image.arCamera && pictureTaken.value ) {
       navigation.navigate( "Drawer", {
         screen: "Match"
       } );
     }
-  }, [observation, navigation, pictureTaken] );
+  }, [observation, navigation, pictureTaken.value] );
 
   const resetPredictions = ( ) => {
     // only rerender if state has different values than before
@@ -194,9 +197,9 @@ const ARCamera = ( ): Node => {
 
   const pauseOnSpecies = ( ) => {
     // this block keeps the last species seen displayed for 2.5 seconds
-    setSpeciesTimeoutSet( true );
+    speciesTimeoutSet.value = true;
     setTimeout( ( ) => {
-      setSpeciesTimeoutSet( false );
+      speciesTimeoutSet.value = false;
     }, 2500 );
   };
 
@@ -247,20 +250,14 @@ const ARCamera = ( ): Node => {
       predictions = transformedResults;
     }
 
-    // In the vision camera approach, this function is called from the UI thread in the useFrameProcessor hook,
-    // and I could not get the updated booleans from the state of this component so they are passed in as params as well
-    // and included in the useFrameProcessor dependencies
-    const isPictureTaken = useVisionCamera ? params.pictureTaken : pictureTaken;
-    const isCameraLoaded = useVisionCamera ? params.cameraLoaded : cameraLoaded;
-    const isSpeciesTimeoutSet = useVisionCamera ? params.speciesTimeoutSet : speciesTimeoutSet;
-    if ( isPictureTaken ) {
+    if ( pictureTaken.value ) {
       return;
     }
-    if ( predictions && !isCameraLoaded ) {
-      setCameraLoaded( true );
+    if ( predictions && !cameraLoaded.value ) {
+      cameraLoaded.value = true;
     }
     // don't bother with trying to set predictions if a species timeout is in place
-    if ( isSpeciesTimeoutSet ) {
+    if ( speciesTimeoutSet.value ) {
       return;
     }
 
@@ -562,9 +559,6 @@ const ARCamera = ( ): Node => {
           negativeFilter={negativeFilter}
           // type is replaced with logic in FrameProcessorCamera
           isActive={isActive}
-          cameraLoaded={cameraLoaded}
-          pictureTaken={pictureTaken}
-          speciesTimeoutSet={speciesTimeoutSet}
         />
       );
     }
@@ -601,9 +595,9 @@ const ARCamera = ( ): Node => {
         : (
           <ARCameraOverlay
             ranks={ranks}
-            pictureTaken={pictureTaken}
+            pictureTaken={pictureTaken.value}
             takePicture={takePicture}
-            cameraLoaded={cameraLoaded}
+            cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
           />
         )

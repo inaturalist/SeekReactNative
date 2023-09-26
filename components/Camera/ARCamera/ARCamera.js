@@ -167,13 +167,6 @@ const ARCamera = ( ): Node => {
     }
   }, [observation, navigation, pictureTaken.value] );
 
-  const resetPredictions = ( ) => {
-    // only rerender if state has different values than before
-    if ( Object.keys( ranks ).length > 0 ) {
-      dispatch( { type: "RESET_RANKS" } );
-    }
-  };
-
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
@@ -194,14 +187,6 @@ const ARCamera = ( ): Node => {
   const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
-
-  const pauseOnSpecies = ( ) => {
-    // this block keeps the last species seen displayed for 2.5 seconds
-    speciesTimeoutSet.value = true;
-    setTimeout( ( ) => {
-      speciesTimeoutSet.value = false;
-    }, 2500 );
-  };
 
   const handleTaxaDetected = ( event, params ) => {
     /*
@@ -279,7 +264,11 @@ const ARCamera = ( ): Node => {
       }
       if ( predictions[rank] ) {
         if ( rank === "species" ) {
-          pauseOnSpecies();
+          // this block keeps the last species seen displayed for 2.5 seconds
+          speciesTimeoutSet.value = true;
+          setTimeout( () => {
+            speciesTimeoutSet.value = false;
+          }, 2500 );
         }
         predictionSet = true;
         const prediction = predictions[rank][0];
@@ -287,7 +276,10 @@ const ARCamera = ( ): Node => {
         dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
       }
       if ( !predictionSet ) {
-        resetPredictions();
+        // only rerender if state has different values than before
+        if ( Object.keys( ranks ).length > 0 ) {
+          dispatch( { type: "RESET_RANKS" } );
+        }
       }
     } );
   };

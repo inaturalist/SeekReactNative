@@ -188,7 +188,7 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event, params ) => {
+  const handleTaxaDetected = ( event ) => {
     /*
       Using FrameProcessorCamera results in this as predictions atm on Android
       [

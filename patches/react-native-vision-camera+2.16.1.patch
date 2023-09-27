@@ -1,0 +1,215 @@
+diff --git a/node_modules/react-native-vision-camera/android/build.gradle b/node_modules/react-native-vision-camera/android/build.gradle
+index d308e15..e1d9dd9 100644
+--- a/node_modules/react-native-vision-camera/android/build.gradle
++++ b/node_modules/react-native-vision-camera/android/build.gradle
+@@ -135,7 +135,7 @@ android {
+   }
+ 
+   defaultConfig {
+-    minSdkVersion 21
++    minSdkVersion getExtOrIntegerDefault('minSdkVersion')
+     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
+ 
+     if (ENABLE_FRAME_PROCESSORS) {
+diff --git a/node_modules/react-native-vision-camera/ios/CameraView+AVCaptureSession.swift b/node_modules/react-native-vision-camera/ios/CameraView+AVCaptureSession.swift
+index 5c9b77d..5ea7ad5 100644
+--- a/node_modules/react-native-vision-camera/ios/CameraView+AVCaptureSession.swift
++++ b/node_modules/react-native-vision-camera/ios/CameraView+AVCaptureSession.swift
+@@ -195,14 +195,14 @@ extension CameraView {
+           device.automaticallyEnablesLowLightBoostWhenAvailable = lowLightBoost!.boolValue
+         }
+       }
+-      if let colorSpace = colorSpace as String? {
+-        guard let avColorSpace = try? AVCaptureColorSpace(string: colorSpace),
+-              device.activeFormat.supportedColorSpaces.contains(avColorSpace) else {
+-          invokeOnError(.format(.invalidColorSpace(colorSpace: colorSpace)))
+-          return
+-        }
+-        device.activeColorSpace = avColorSpace
+-      }
++      // if let colorSpace = colorSpace as String? {
++      //   guard let avColorSpace = try? AVCaptureColorSpace(string: colorSpace),
++      //         device.activeFormat.supportedColorSpaces.contains(avColorSpace) else {
++      //     invokeOnError(.format(.invalidColorSpace(colorSpace: colorSpace)))
++      //     return
++      //   }
++      //   device.activeColorSpace = avColorSpace
++      // }
+ 
+       device.unlockForConfiguration()
+       ReactLogger.log(level: .info, message: "Device successfully configured!")
+diff --git a/node_modules/react-native-vision-camera/ios/CameraView+Orientation.swift b/node_modules/react-native-vision-camera/ios/CameraView+Orientation.swift
+index e647b8e..5c6db1f 100644
+--- a/node_modules/react-native-vision-camera/ios/CameraView+Orientation.swift
++++ b/node_modules/react-native-vision-camera/ios/CameraView+Orientation.swift
+@@ -10,9 +10,18 @@ import Foundation
+ import UIKit
+ 
+ extension CameraView {
++  /// Returns the current _interface_ orientation of the main window
++  private var windowInterfaceOrientation: UIInterfaceOrientation {
++    if #available(iOS 13.0, *) {
++      return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .unknown
++    } else {
++      return UIApplication.shared.statusBarOrientation
++    }
++  }
++
+   /// Orientation of the input connection (preview)
+   private var inputOrientation: UIInterfaceOrientation {
+-    return .portrait
++    return windowInterfaceOrientation
+   }
+ 
+   // Orientation of the output connections (photo, video, frame processor)
+@@ -28,17 +37,25 @@ extension CameraView {
+   }
+ 
+   internal func updateOrientation() {
+-    // Updates the Orientation for all rotable
+-    let isMirrored = self.videoDeviceInput?.device.position == .front
++    // Updates the Orientation for all rotable connections (outputs) as well as for the preview layer
++    DispatchQueue.main.async {
++      // `windowInterfaceOrientation` and `videoPreviewLayer` should only be accessed from UI thread
++      let isMirrored = self.videoDeviceInput?.device.position == .front
++
++      self.videoPreviewLayer.connection?.setInterfaceOrientation(self.inputOrientation)
+ 
+-    let connectionOrientation = self.outputOrientation
+-    self.captureSession.outputs.forEach { output in
+-      output.connections.forEach { connection in
+-        if connection.isVideoMirroringSupported {
+-          connection.automaticallyAdjustsVideoMirroring = false
+-          connection.isVideoMirrored = isMirrored
++      let connectionOrientation = self.outputOrientation
++      self.cameraQueue.async {
++        // Run those updates on cameraQueue since they can be blocking.
++        self.captureSession.outputs.forEach { output in
++          output.connections.forEach { connection in
++            if connection.isVideoMirroringSupported {
++              connection.automaticallyAdjustsVideoMirroring = false
++              connection.isVideoMirrored = isMirrored
++            }
++            connection.setInterfaceOrientation(connectionOrientation)
++          }
+         }
+-        connection.setInterfaceOrientation(connectionOrientation)
+       }
+     }
+   }
+diff --git a/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+matchesFilter.swift b/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+matchesFilter.swift
+index 35789a6..bff8572 100644
+--- a/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+matchesFilter.swift
++++ b/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+matchesFilter.swift
+@@ -54,13 +54,13 @@ extension AVCaptureDevice.Format {
+         return false
+       }
+     }
+-    if let colorSpaces = filter.value(forKey: "colorSpaces") as? [String] {
+-      let avColorSpaces = colorSpaces.map { try? AVCaptureColorSpace(string: $0) }
+-      let allColorSpacesIncluded = supportedColorSpaces.allSatisfy { avColorSpaces.contains($0) }
+-      if !allColorSpacesIncluded {
+-        return false
+-      }
+-    }
++    // if let colorSpaces = filter.value(forKey: "colorSpaces") as? [String] {
++    //   let avColorSpaces = colorSpaces.map { try? AVCaptureColorSpace(string: $0) }
++    //   let allColorSpacesIncluded = supportedColorSpaces.allSatisfy { avColorSpaces.contains($0) }
++    //   if !allColorSpacesIncluded {
++    //     return false
++    //   }
++    // }
+     if let frameRateRanges = filter.value(forKey: "frameRateRanges") as? [NSDictionary] {
+       let allFrameRateRangesIncluded = videoSupportedFrameRateRanges.allSatisfy { range -> Bool in
+         frameRateRanges.contains { dict -> Bool in
+diff --git a/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+toDictionary.swift b/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+toDictionary.swift
+index fec83ca..f7bce0e 100644
+--- a/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+toDictionary.swift
++++ b/node_modules/react-native-vision-camera/ios/Extensions/AVCaptureDevice.Format+toDictionary.swift
+@@ -33,7 +33,7 @@ extension AVCaptureDevice.Format {
+       "minISO": minISO,
+       "fieldOfView": videoFieldOfView,
+       "maxZoom": videoMaxZoomFactor,
+-      "colorSpaces": supportedColorSpaces.map(\.descriptor),
++      // "colorSpaces": supportedColorSpaces.map(\.descriptor),
+       "supportsVideoHDR": isVideoHDRSupported,
+       "supportsPhotoHDR": false,
+       "frameRateRanges": videoSupportedFrameRateRanges.map {
+diff --git a/node_modules/react-native-vision-camera/ios/Parsers/AVCaptureColorSpace+descriptor.swift b/node_modules/react-native-vision-camera/ios/Parsers/AVCaptureColorSpace+descriptor.swift
+index 13a403b..7b00ebd 100644
+--- a/node_modules/react-native-vision-camera/ios/Parsers/AVCaptureColorSpace+descriptor.swift
++++ b/node_modules/react-native-vision-camera/ios/Parsers/AVCaptureColorSpace+descriptor.swift
+@@ -6,39 +6,39 @@
+ //  Copyright © 2020 mrousavy. All rights reserved.
+ //
+ 
+-import AVFoundation
++// import AVFoundation
+ 
+-extension AVCaptureColorSpace {
+-  init(string: String) throws {
+-    switch string {
+-    case "hlg-bt2020":
+-      if #available(iOS 14.1, *) {
+-        self = .HLG_BT2020
+-      } else {
+-        throw EnumParserError.unsupportedOS(supportedOnOS: "14.1")
+-      }
+-      return
+-    case "p3-d65":
+-      self = .P3_D65
+-      return
+-    case "srgb":
+-      self = .sRGB
+-      return
+-    default:
+-      throw EnumParserError.invalidValue
+-    }
+-  }
++// extension AVCaptureColorSpace {
++//   init(string: String) throws {
++//     switch string {
++//     case "hlg-bt2020":
++//       if #available(iOS 14.1, *) {
++//         self = .HLG_BT2020
++//       } else {
++//         throw EnumParserError.unsupportedOS(supportedOnOS: "14.1")
++//       }
++//       return
++//     case "p3-d65":
++//       self = .P3_D65
++//       return
++//     case "srgb":
++//       self = .sRGB
++//       return
++//     default:
++//       throw EnumParserError.invalidValue
++//     }
++//   }
+ 
+-  var descriptor: String {
+-    switch self {
+-    case .HLG_BT2020:
+-      return "hlg-bt2020"
+-    case .P3_D65:
+-      return "p3-d65"
+-    case .sRGB:
+-      return "srgb"
+-    default:
+-      fatalError("AVCaptureDevice.Position has unknown state.")
+-    }
+-  }
+-}
++//   var descriptor: String {
++//     switch self {
++//     case .HLG_BT2020:
++//       return "hlg-bt2020"
++//     case .P3_D65:
++//       return "p3-d65"
++//     case .sRGB:
++//       return "srgb"
++//     default:
++//       fatalError("AVCaptureDevice.Position has unknown state.")
++//     }
++//   }
++// }

@@ -1,22 +1,20 @@
-// @flow
-
 import * as React from "react";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import { Appearance } from "react-native";
 
-type Props = {
-  +toggleDateTimePicker: Function,
-  +onDatePicked: Function,
-  +isDateTimePickerVisible: boolean,
-  +datetime?: boolean
-};
+interface Props {
+  toggleDateTimePicker: () => void;
+  onDatePicked: ( date: Date ) => void;
+  isDateTimePickerVisible: boolean;
+  datetime?: boolean;
+}
 
-const DatePicker = ( {
+const DatePicker: React.FC<Props> = ( {
   datetime,
   isDateTimePickerVisible,
   onDatePicked,
   toggleDateTimePicker
-}: Props ): React.Node => {
+} ) => {
   const colorScheme = Appearance.getColorScheme();
 
   const customHeader = ( ) => <></>;

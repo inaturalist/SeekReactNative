@@ -207,14 +207,14 @@ const createJwtToken = (): string => {
 
 const localizeNumber = ( number: number ): string => {
   const { decimalSeparator, groupingSeparator } = RNLocalize.getNumberFormatSettings();
-  return i18n.toNumber( number, {
+  return i18n.formatNumber( number, {
     precision: 0,
     delimiter: groupingSeparator,
     separator: decimalSeparator
   } );
 };
 
-const localizePercentage = ( number: number ): string => i18n.toPercentage( number, { precision: 0 } );
+const localizePercentage = ( number: number ): string => i18n.numberToPercentage( number, { precision: 0 } );
 
 const hideLogs = () => {
   LogBox.ignoreLogs( [

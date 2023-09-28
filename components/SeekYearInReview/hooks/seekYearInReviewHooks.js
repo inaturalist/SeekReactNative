@@ -123,7 +123,7 @@ const useFetchStats = ( year ): any => {
           .sort( ( a, b ) => reduced[b] - reduced[a] )
           .slice( 0, 3 );
 
-        const topThreeSpeciesBadges = [];
+        const _badges = [];
         const badges = realm.objects( "BadgeRealm" );
         topThreeIconicTaxonIds.forEach( ( id ) => {
           if ( id === null ) {
@@ -136,8 +136,12 @@ const useFetchStats = ( year ): any => {
           const highestEarnedBadge = highestEarned[0];
           // Add the number of observations for this year to the badge info
           highestEarnedBadge.observationsThisYear = reduced[id];
-          topThreeSpeciesBadges.push( highestEarnedBadge );
+          _badges.push( highestEarnedBadge );
         } );
+
+        const topThreeSpeciesBadges = _badges
+          .sort( ( a, b ) => b.count - a.count )
+          .sort( ( a, b ) => b.observationsThisYear - a.observationsThisYear );
 
         const levelsEarned = badges
           .filtered( "iconicTaxonName == null AND earned == true" )

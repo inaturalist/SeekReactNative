@@ -168,6 +168,7 @@ exports[`SelectSpecies should render correctly 1`] = `
     style={
       {
         "flex": 1,
+        "overflow": "hidden",
       }
     }
   >

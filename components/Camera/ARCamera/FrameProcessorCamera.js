@@ -30,10 +30,7 @@ const FrameProcessorCamera = ( props ): Node => {
     onClassifierError,
     onCaptureError,
     onLog,
-    isActive,
-    cameraLoaded,
-    pictureTaken,
-    speciesTimeoutSet
+    isActive
   } = props;
 
   const isFocused = useIsFocused( );
@@ -114,14 +111,7 @@ const FrameProcessorCamera = ( props ): Node => {
           filterByTaxonId,
           negativeFilter
         } );
-        REA.runOnJS( onTaxaDetected )(
-          results,
-          {
-            cameraLoaded,
-            pictureTaken,
-            speciesTimeoutSet
-          }
-        );
+        REA.runOnJS( onTaxaDetected )( results );
       } catch ( classifierError ) {
         // TODO: needs to throw Exception in the native code for it to work here?
         // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
@@ -139,10 +129,7 @@ const FrameProcessorCamera = ( props ): Node => {
     [
       confidenceThreshold,
       filterByTaxonId,
-      negativeFilter,
-      cameraLoaded,
-      pictureTaken,
-      speciesTimeoutSet
+      negativeFilter
     ]
   );
 

@@ -10,13 +10,14 @@ import { getVersion, getBuildNumber } from "react-native-device-info";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 
-import { viewStyles, imageStyles, textStyles } from "../styles/about";
-import logos from "../assets/logos";
-import i18n from "../i18n";
-import { AppOrientationContext, UserContext } from "./UserContext";
-import ScrollWithHeader from "./UIComponents/Screens/ScrollWithHeader";
-import PrivacyAndTerms from "./UIComponents/PrivacyAndTerms";
-import StyledText from "./UIComponents/StyledText";
+import { viewStyles, imageStyles, textStyles } from "../../styles/about";
+import logos from "../../assets/logos";
+import i18n from "../../i18n";
+import { AppOrientationContext, UserContext } from "../UserContext";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
+import StyledText from "../UIComponents/StyledText";
+import EmailText from "./EmailText";
 
 const AboutScreen = (): Node => {
   const navigation = useNavigation();
@@ -59,9 +60,7 @@ const AboutScreen = (): Node => {
             {` ${appVersion} (${buildVersion})`}
           </StyledText>
         </TouchableOpacity>
-        <StyledText style={textStyles.text}>
-          {i18n.t( "about.help" )}
-        </StyledText>
+        <EmailText />
         <View style={viewStyles.block} />
       </View>
     </ScrollWithHeader>

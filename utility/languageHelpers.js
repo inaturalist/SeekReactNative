@@ -46,7 +46,7 @@ const checkRTLSettings = async ( ) => {
       // this seems more necessary for RTL languages,
       // as a way to not need to restart the device before the language
       // will switch
-      RNRestart.Restart( );
+      RNRestart.restart();
     } else if ( isRTL ) {
       await forceRTL( false );
     }

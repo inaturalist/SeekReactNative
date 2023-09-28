@@ -1,13 +1,13 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import * as RNLocalize from "react-native-localize";
 import {
   setJSExceptionHandler,
   setNativeExceptionHandler
 } from "react-native-exception-handler";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 import type { Node } from "react";
+import { AppState } from "react-native";
 
 import RootStack from "./Navigation/RootStack";
 import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
@@ -70,9 +70,9 @@ const App = ( ): Node => {
     // Context
     getLanguagePreference( );
 
-    RNLocalize.addEventListener( "change", handleLocalizationChange );
+    AppState.addEventListener( "change", handleLocalizationChange );
 
-    return ( ) => RNLocalize.removeEventListener( "change", handleLocalizationChange );
+    return ( ) => AppState.removeEventListener( "change", handleLocalizationChange );
   }, [] );
 
   return (

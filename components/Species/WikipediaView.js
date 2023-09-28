@@ -15,7 +15,7 @@ const WikipediaView = ( { navigation, route }: Props ): React.Node => {
 
   let uri;
 
-  const wikiLocale = i18n.currentLocale().split( "-" )[0].toLowerCase();
+  const wikiLocale = i18n.locale.split( "-" )[0].toLowerCase();
 
   if ( wikiLocale === "en" ) {
     uri = wikiUrl;

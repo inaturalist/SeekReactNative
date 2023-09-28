@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "tests/jest-utils";
+import { render, screen } from "tests/jest-utils";
 
 import UserLoginProvider from "../../../../../components/Providers/UserLoginProvider";
 import INatSignOut from "../../../../../components/UIComponents/Login/iNatSignOut";

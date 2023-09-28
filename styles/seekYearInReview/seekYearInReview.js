@@ -33,7 +33,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     width: badgeIconWidth * 3 + 12 * 3
   },
   badgeTextContainer: {
-    resizeMode: "contain",
     width: badgeIconWidth,
     marginHorizontal: 6
   },

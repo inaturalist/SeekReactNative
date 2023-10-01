@@ -52,7 +52,7 @@ const checkForChallengeComplete = ( percentComplete, challenge ) => {
 
 const updateChallengePercentages = ( challenge ) => {
   const prevPercent = challenge.percentComplete;
-  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
+  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val, 0 );
   const newPercent = calculatePercent( totalSeen, challenge.totalSpecies );
 
   // need to round this or Realm will decide how to round to integer

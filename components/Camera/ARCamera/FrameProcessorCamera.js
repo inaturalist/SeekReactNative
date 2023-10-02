@@ -7,7 +7,7 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import * as REA from "react-native-reanimated";
 import {
   Camera,
-  useCameraDevices,
+  useCameraDevice,
   useFrameProcessor
 } from "react-native-vision-camera";
 import * as InatVision from "vision-camera-plugin-inatvision";
@@ -42,11 +42,12 @@ const FrameProcessorCamera = ( props ): Node => {
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
   const [focusAvailable, setFocusAvailable] = useState( true );
-  const devices = useCameraDevices();
-  let device = devices.back;
+  const backDevice = useCameraDevice( "back" );
+  const frontDevice = useCameraDevice( "front" );
+  let device = backDevice;
   // If there is no back camera, use the front camera
   if ( !device ) {
-    device = devices.front;
+    device = frontDevice;
   }
 
   useEffect( () => {

@@ -6,6 +6,7 @@ import { Animated, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
+  runAtTargetFps,
   useCameraDevice,
   useFrameProcessor
 } from "react-native-vision-camera";
@@ -111,25 +112,28 @@ const FrameProcessorCamera = ( props ): Node => {
     ( frame ) => {
       "worklet";
       // Reminder: this is a worklet, running on the UI thread.
-      try {
-        const results = InatVision.inatVision( frame, {
-          version: "1.0",
-          modelPath,
-          taxonomyPath,
-          confidenceThreshold,
-          filterByTaxonId,
-          negativeFilter
-        } );
-        handleResults( results );
-      } catch ( classifierError ) {
-        // TODO: needs to throw Exception in the native code for it to work here?
-        // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
-        console.log( `Error: ${classifierError.message}` );
-        const returnError = {
-          nativeEvent: { error: classifierError.message }
-        };
-        handleError( returnError );
-      }
+      runAtTargetFps( 1, () => {
+        "worklet";
+        try {
+          const results = InatVision.inatVision( frame, {
+            version: "1.0",
+            modelPath,
+            taxonomyPath,
+            confidenceThreshold,
+            filterByTaxonId,
+            negativeFilter
+          } );
+          handleResults( results );
+        } catch ( classifierError ) {
+          // TODO: needs to throw Exception in the native code for it to work here?
+          // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
+          console.log( `Error: ${classifierError.message}` );
+          const returnError = {
+            nativeEvent: { error: classifierError.message }
+          };
+          handleError( returnError );
+        }
+      } );
       // ref={camera} was only used for takePictureAsync()
       // Johannes: I did a read though of the native code that is triggered when using ref.current.takePictureAsync()
       // and to me it seems everything should be handled by vision-camera itself. However, there is also some Exif and device orientation stuff going on.
@@ -224,16 +228,6 @@ const FrameProcessorCamera = ( props ): Node => {
             zoom={device.neutralZoom}
             orientation={deviceOrientation}
             frameProcessor={frameProcessor}
-            // A value of 1 would indicate that the frame processor gets executed once per second.
-            // This would roughly equal the setting of the legacy camera of 1000ms between predictions,
-            // i.e. what taxaDetectionInterval was set to. However, according to the docs, the frameProcessorFps
-            // cab be set to "auto" to chose an optimal frame rate based on on-device measurements.
-            // frameProcessorFps={"auto"}
-            // TODO: On Android having frameProcessorFps set to "auto" resulted in the processor called only once.
-            // A value of 1 indicates that the frame processor gets executed once per second.
-            // This roughly equals the setting of the legacy camera of 1000ms between predictions,
-            // i.e. what taxaDetectionInterval was set to.
-            frameProcessorFps={1}
             onError={onError}
             pixelFormat={Platform.OS === "ios" ? "native" : "yuv"}
           />

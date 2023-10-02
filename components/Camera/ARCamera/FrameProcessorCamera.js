@@ -235,6 +235,7 @@ const FrameProcessorCamera = ( props ): Node => {
             // i.e. what taxaDetectionInterval was set to.
             frameProcessorFps={1}
             onError={onError}
+            pixelFormat={Platform.OS === "ios" ? "native" : "yuv"}
           />
         </GestureDetector>
         <FocusSquare

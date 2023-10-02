@@ -19,6 +19,7 @@ import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { INatCamera as LegacyCamera } from "react-native-inat-camera";
 import type { Node } from "react";
+import { useSharedValue } from "react-native-worklets-core";
 
 import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
@@ -44,7 +45,6 @@ import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
-import { useSharedValue } from "react-native-reanimated";
 
 const logger = log.extend( "ARCamera.js" );
 

@@ -4,13 +4,13 @@ import type { Node } from "react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Animated, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import * as REA from "react-native-reanimated";
 import {
   Camera,
   useCameraDevice,
   useFrameProcessor
 } from "react-native-vision-camera";
 import * as InatVision from "vision-camera-plugin-inatvision";
+import { Worklets } from "react-native-worklets-core";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
 
@@ -99,6 +99,14 @@ const FrameProcessorCamera = ( props ): Node => {
       focusAvailable ? singleTapToFocus( e ) : null;
     } );
 
+  const handleResults = Worklets.createRunInJsFn( ( predictions: any[] ) => {
+    onTaxaDetected( predictions );
+  } );
+
+  const handleError = Worklets.createRunInJsFn( ( error: any[] ) => {
+    onClassifierError( error );
+  } );
+
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -112,7 +120,7 @@ const FrameProcessorCamera = ( props ): Node => {
           filterByTaxonId,
           negativeFilter
         } );
-        REA.runOnJS( onTaxaDetected )( results );
+        handleResults( results );
       } catch ( classifierError ) {
         // TODO: needs to throw Exception in the native code for it to work here?
         // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
@@ -120,7 +128,7 @@ const FrameProcessorCamera = ( props ): Node => {
         const returnError = {
           nativeEvent: { error: classifierError.message }
         };
-        REA.runOnJS( onClassifierError )( returnError );
+        handleError( returnError );
       }
       // ref={camera} was only used for takePictureAsync()
       // Johannes: I did a read though of the native code that is triggered when using ref.current.takePictureAsync()

@@ -222,14 +222,13 @@ const FrameProcessorCamera = ( props ): Node => {
             style={styles.camera}
             device={device}
             isActive={isFocused && isForeground && isActive}
-            preset="high"
             photo={true}
             enableZoomGesture
             zoom={device.neutralZoom}
-            orientation={deviceOrientation}
             frameProcessor={frameProcessor}
-            onError={onError}
             pixelFormat={Platform.OS === "ios" ? "native" : "yuv"}
+            onError={onError}
+            // orientation={deviceOrientation}
           />
         </GestureDetector>
         <FocusSquare

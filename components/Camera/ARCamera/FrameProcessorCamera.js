@@ -14,6 +14,7 @@ import { Worklets } from "react-native-worklets-core";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
+import { orientationPatch, pixelFormatPatch } from "../../../utility/visionCameraPatches";
 
 import FocusSquare from "./FocusSquare";
 
@@ -226,9 +227,9 @@ const FrameProcessorCamera = ( props ): Node => {
             enableZoomGesture
             zoom={device.neutralZoom}
             frameProcessor={frameProcessor}
-            pixelFormat={Platform.OS === "ios" ? "native" : "yuv"}
+            pixelFormat={pixelFormatPatch()}
             onError={onError}
-            // orientation={deviceOrientation}
+            orientation={orientationPatch( deviceOrientation )}
           />
         </GestureDetector>
         <FocusSquare

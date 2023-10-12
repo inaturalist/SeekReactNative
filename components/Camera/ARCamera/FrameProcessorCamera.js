@@ -100,11 +100,11 @@ const FrameProcessorCamera = ( props ): Node => {
       focusAvailable ? singleTapToFocus( e ) : null;
     } );
 
-  const handleResults = Worklets.createRunInJsFn( ( predictions: any[] ) => {
+  const handleResults = Worklets.createRunInJsFn( ( predictions ) => {
     onTaxaDetected( predictions );
   } );
 
-  const handleError = Worklets.createRunInJsFn( ( error: any[] ) => {
+  const handleError = Worklets.createRunInJsFn( ( error ) => {
     onClassifierError( error );
   } );
 

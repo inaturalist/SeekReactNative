@@ -188,7 +188,7 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event, params ) => {
+  const handleTaxaDetected = ( event ) => {
     /*
       Using FrameProcessorCamera results in this as predictions atm on Android
       [
@@ -226,7 +226,9 @@ const ARCamera = ( ): Node => {
         50: "class"
       };
       const transformedResults = {};
-      event.forEach( ( result ) => {
+
+      Object.keys( event ).forEach( ( key ) => {
+        const result = event[key];
         const rankString = rankNumbers[result.rank];
         if ( rankString ) {
           transformedResults[rankString] = [result];
@@ -248,15 +250,16 @@ const ARCamera = ( ): Node => {
 
     let predictionSet = false;
     dispatch( { type: "RESET_PREDICTIONS" } );
-    if ( !isAndroid ) {
-      dispatch( { type: "SET_PREDICTIONS", predictions: event } );
-    }
+
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
 
-      if ( isAndroid && predictions[rank] ) {
+      if ( predictions[rank] ) {
         const prediction = predictions[rank][0];
-        dispatch( { type: "SET_PREDICTION", prediction } );
+        if ( !useVisionCamera && !isAndroid ) {
+        } else {
+           dispatch( { type: "SET_PREDICTION", prediction } );
+        }
       }
       // skip this block if a prediction state has already been set
       if ( predictionSet ) {

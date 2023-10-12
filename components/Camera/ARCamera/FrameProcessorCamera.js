@@ -40,6 +40,31 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const { deviceOrientation } = useDeviceOrientation();
 
+  const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
+  const requestCameraPermission = useCallback( async () => {
+    console.log( "Requesting camera permission..." );
+    const permission = await Camera.requestCameraPermission();
+    console.log( `Camera permission status: ${permission}` );
+
+    if ( permission === "denied" ) {
+      // This string is returned from the legacy camera when the user has not granted the needed permissions
+      const returnError: { nativeEvent: { error?: string } } = {
+        nativeEvent: {
+          error:
+            "Camera Input Failed: This app is not authorized to use Back Camera."
+        }
+      };
+      onCameraError( returnError );
+    }
+    setCameraPermissionStatus( permission );
+  }, [onCameraError] );
+
+  useEffect( () => {
+    if ( cameraPermissionStatus === "not-determined" ) {
+      requestCameraPermission();
+    }
+  }, [cameraPermissionStatus, requestCameraPermission] );
+
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
@@ -215,7 +240,7 @@ const FrameProcessorCamera = ( props ): Node => {
   );
 
   return (
-    device && (
+    device && cameraPermissionStatus === "granted" && (
       <>
         <GestureDetector gesture={Gesture.Exclusive( singleTap )}>
           <Camera

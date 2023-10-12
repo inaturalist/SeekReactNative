@@ -23,6 +23,7 @@
     "add-example-model": "node scripts/add-example-model.js"
   },
   "dependencies": {
+    "@bam.tech/react-native-image-resizer": "^3.0.7",
     "@formidable-webview/webshell": "^2.6.0",
     "@react-native-async-storage/async-storage": "^1.19.3",
     "@react-native-camera-roll/camera-roll": "^5.9.0",
@@ -54,7 +55,6 @@
     "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "^2.13.0",
     "react-native-image-marker": "0.9.2",
-    "react-native-image-resizer": "^1.4.5",
     "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.8.3",

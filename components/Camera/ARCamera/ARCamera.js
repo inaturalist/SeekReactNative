@@ -31,10 +31,15 @@ import {
   showCameraSaveFailureAlert,
   checkForCameraAPIAndroid
 } from "../../../utility/cameraHelpers";
+import {
+  rotatePhotoPatch,
+  rotationTempPhotoPatch
+} from "../../../utility/visionCameraPatches";
 import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
+import { useDeviceOrientation } from "../../../utility/customHooks";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
@@ -65,6 +70,7 @@ const ARCamera = ( ): Node => {
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
   const [isActive, setIsActive] = useState( true );
+  const { deviceOrientation } = useDeviceOrientation();
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -165,7 +171,7 @@ const ARCamera = ( ): Node => {
         screen: "Match"
       } );
     }
-  }, [observation, navigation, pictureTaken.value] );
+  }, [observation, navigation, pictureTaken] );
 
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions

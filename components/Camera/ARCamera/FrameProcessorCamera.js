@@ -239,6 +239,7 @@ const FrameProcessorCamera = ( props ): Node => {
     [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
   );
 
+  const active = isActive && isFocused && isForeground;
   return (
     device && cameraPermissionStatus === "granted" && (
       <>
@@ -247,7 +248,7 @@ const FrameProcessorCamera = ( props ): Node => {
             ref={cameraRef}
             style={styles.camera}
             device={device}
-            isActive={isFocused && isForeground && isActive}
+            isActive={active}
             photo={true}
             enableZoomGesture
             zoom={device.neutralZoom}

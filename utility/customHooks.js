@@ -485,9 +485,9 @@ export function orientationLockerToIosOrientation( orientation: string ): string
   // react-native-vision-camera versions
   switch ( orientation ) {
     case "LANDSCAPE-RIGHT":
-      return LANDSCAPE_LEFT;
-    case "LANDSCAPE-LEFT":
       return LANDSCAPE_RIGHT;
+    case "LANDSCAPE-LEFT":
+      return LANDSCAPE_LEFT;
     case "PORTRAIT-UPSIDEDOWN":
       return PORTRAIT_UPSIDE_DOWN;
     default:

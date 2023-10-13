@@ -42,11 +42,18 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
+    // Checking camera permission status, if granted set it and return
+    const status = await Camera.getCameraPermissionStatus();
+    if ( status === "granted" ) {
+      setCameraPermissionStatus( status );
+      return;
+    }
     console.log( "Requesting camera permission..." );
     const permission = await Camera.requestCameraPermission();
     console.log( `Camera permission status: ${permission}` );
 
     if ( permission === "denied" ) {
+      // If the user has not granted permission we have to show an error message
       // This string is returned from the legacy camera when the user has not granted the needed permissions
       const returnError: { nativeEvent: { error?: string } } = {
         nativeEvent: {

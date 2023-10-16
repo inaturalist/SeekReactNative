@@ -348,7 +348,7 @@ PODS:
     - React
   - react-native-image-marker (0.9.2):
     - React-Core
-  - react-native-image-resizer (1.4.5):
+  - react-native-image-resizer (3.0.7):
     - React-Core
   - react-native-inat-camera (1.0.0):
     - React
@@ -371,6 +371,10 @@ PODS:
   - react-native-uuid-generator (6.1.1):
     - React
   - react-native-webview (11.26.1):
+    - React-Core
+  - react-native-worklets-core (0.2.0):
+    - React
+    - React-callinvoker
     - React-Core
   - React-perflogger (0.71.12)
   - React-RCTActionSheet (0.71.12):
@@ -526,10 +530,11 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.13)
   - SocketRocket (0.6.0)
-  - VisionCamera (2.15.4):
+  - VisionCamera (3.2.2):
     - React
     - React-callinvoker
     - React-Core
+    - react-native-worklets-core
   - VisionCameraPluginInatVision (0.1.0):
     - React-Core
   - Yoga (1.14.0)
@@ -587,7 +592,7 @@ DEPENDENCIES:
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-image-marker (from `../node_modules/react-native-image-marker`)
-  - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
+  - "react-native-image-resizer (from `../node_modules/@bam.tech/react-native-image-resizer`)"
   - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
   - react-native-mail (from `../node_modules/react-native-mail`)
   - react-native-maps (from `../node_modules/react-native-maps`)
@@ -599,6 +604,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-uuid-generator (from `../node_modules/react-native-uuid-generator`)
   - react-native-webview (from `../node_modules/react-native-webview`)
+  - react-native-worklets-core (from `../node_modules/react-native-worklets-core`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -708,7 +714,7 @@ EXTERNAL SOURCES:
   react-native-image-marker:
     :path: "../node_modules/react-native-image-marker"
   react-native-image-resizer:
-    :path: "../node_modules/react-native-image-resizer"
+    :path: "../node_modules/@bam.tech/react-native-image-resizer"
   react-native-inat-camera:
     :path: "../node_modules/react-native-inat-camera"
   react-native-mail:
@@ -731,6 +737,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-uuid-generator"
   react-native-webview:
     :path: "../node_modules/react-native-webview"
+  react-native-worklets-core:
+    :path: "../node_modules/react-native-worklets-core"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -842,7 +850,7 @@ SPEC CHECKSUMS:
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-image-marker: 8af6eac535be766aee2ab3e86063cae7c9fea833
-  react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
+  react-native-image-resizer: 681f7607418b97c084ba2d0999b153b103040d8a
   react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
@@ -854,6 +862,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
+  react-native-worklets-core: 7ad416a8965086b98b07964f7f6932560a54a14c
   React-perflogger: 75b0e25075c67565a830985f3c373e2eae5389e0
   React-RCTActionSheet: a0c3e916b327e297d124d9ebe8b0c721840ee04d
   React-RCTAnimation: 3da7025801d7bf0f8cfd94574d6278d5b82a8b88
@@ -889,7 +898,7 @@ SPEC CHECKSUMS:
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  VisionCamera: f41b08470c9ae0a01be0d5e48f9fdd61602aa51f
+  VisionCamera: cb27c70cea1439e9a946bf2acdc059f8fb1bc68c
   VisionCameraPluginInatVision: 79bb258db75218889c74d0897ecba676492c4def
   Yoga: 39310a10944fc864a7550700de349183450f8aaa
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

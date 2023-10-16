@@ -4,15 +4,17 @@ import type { Node } from "react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Animated, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import * as REA from "react-native-reanimated";
 import {
   Camera,
-  useCameraDevices,
+  runAtTargetFps,
+  useCameraDevice,
   useFrameProcessor
 } from "react-native-vision-camera";
+import { Worklets } from "react-native-worklets-core";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
+import { orientationPatch, pixelFormatPatch } from "../../../utility/visionCameraPatches";
 
 import FocusSquare from "./FocusSquare";
 
@@ -38,15 +40,48 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const { deviceOrientation } = useDeviceOrientation();
 
+  const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
+  const requestCameraPermission = useCallback( async () => {
+    // Checking camera permission status, if granted set it and return
+    const status = await Camera.getCameraPermissionStatus();
+    if ( status === "granted" ) {
+      setCameraPermissionStatus( status );
+      return;
+    }
+    console.log( "Requesting camera permission..." );
+    const permission = await Camera.requestCameraPermission();
+    console.log( `Camera permission status: ${permission}` );
+
+    if ( permission === "denied" ) {
+      // If the user has not granted permission we have to show an error message
+      // This string is returned from the legacy camera when the user has not granted the needed permissions
+      const returnError: { nativeEvent: { error?: string } } = {
+        nativeEvent: {
+          error:
+            "Camera Input Failed: This app is not authorized to use Back Camera."
+        }
+      };
+      onCameraError( returnError );
+    }
+    setCameraPermissionStatus( permission );
+  }, [onCameraError] );
+
+  useEffect( () => {
+    if ( cameraPermissionStatus === "not-determined" ) {
+      requestCameraPermission();
+    }
+  }, [cameraPermissionStatus, requestCameraPermission] );
+
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
   const [focusAvailable, setFocusAvailable] = useState( true );
-  const devices = useCameraDevices();
-  let device = devices.back;
+  const backDevice = useCameraDevice( "back" );
+  const frontDevice = useCameraDevice( "front" );
+  let device = backDevice;
   // If there is no back camera, use the front camera
   if ( !device ) {
-    device = devices.front;
+    device = frontDevice;
   }
 
   useEffect( () => {
@@ -98,29 +133,41 @@ const FrameProcessorCamera = ( props ): Node => {
       focusAvailable ? singleTapToFocus( e ) : null;
     } );
 
+  const handleResults = Worklets.createRunInJsFn( ( predictions ) => {
+    onTaxaDetected( predictions );
+  } );
+
+  const handleError = Worklets.createRunInJsFn( ( error ) => {
+    onClassifierError( error );
+  } );
+
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
       // Reminder: this is a worklet, running on the UI thread.
-      try {
-        const results = InatVision.inatVision( frame, {
-          version: "1.0",
-          modelPath,
-          taxonomyPath,
-          confidenceThreshold,
-          filterByTaxonId,
-          negativeFilter
-        } );
-        REA.runOnJS( onTaxaDetected )( results );
-      } catch ( classifierError ) {
-        // TODO: needs to throw Exception in the native code for it to work here?
-        // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
-        console.log( `Error: ${classifierError.message}` );
-        const returnError = {
-          nativeEvent: { error: classifierError.message }
-        };
-        REA.runOnJS( onClassifierError )( returnError );
-      }
+      runAtTargetFps( 1, () => {
+        "worklet";
+        try {
+          const results = InatVision.inatVision( frame, {
+            version: "1.0",
+            modelPath,
+            taxonomyPath,
+            confidenceThreshold,
+            filterByTaxonId,
+            negativeFilter,
+            patchedOrientationAndroid: deviceOrientation
+          } );
+          handleResults( results );
+        } catch ( classifierError ) {
+          // TODO: needs to throw Exception in the native code for it to work here?
+          // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
+          console.log( `Error: ${classifierError.message}` );
+          const returnError = {
+            nativeEvent: { error: classifierError.message }
+          };
+          handleError( returnError );
+        }
+      } );
       // ref={camera} was only used for takePictureAsync()
       // Johannes: I did a read though of the native code that is triggered when using ref.current.takePictureAsync()
       // and to me it seems everything should be handled by vision-camera itself. However, there is also some Exif and device orientation stuff going on.
@@ -129,7 +176,8 @@ const FrameProcessorCamera = ( props ): Node => {
     [
       confidenceThreshold,
       filterByTaxonId,
-      negativeFilter
+      negativeFilter,
+      deviceOrientation
     ]
   );
 
@@ -200,32 +248,23 @@ const FrameProcessorCamera = ( props ): Node => {
     [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
   );
 
+  const active = isActive && isFocused && isForeground;
   return (
-    device && (
+    device && cameraPermissionStatus === "granted" && (
       <>
         <GestureDetector gesture={Gesture.Exclusive( singleTap )}>
           <Camera
             ref={cameraRef}
             style={styles.camera}
             device={device}
-            isActive={isFocused && isForeground && isActive}
-            preset="high"
+            isActive={active}
             photo={true}
             enableZoomGesture
             zoom={device.neutralZoom}
-            orientation={deviceOrientation}
             frameProcessor={frameProcessor}
-            // A value of 1 would indicate that the frame processor gets executed once per second.
-            // This would roughly equal the setting of the legacy camera of 1000ms between predictions,
-            // i.e. what taxaDetectionInterval was set to. However, according to the docs, the frameProcessorFps
-            // cab be set to "auto" to chose an optimal frame rate based on on-device measurements.
-            // frameProcessorFps={"auto"}
-            // TODO: On Android having frameProcessorFps set to "auto" resulted in the processor called only once.
-            // A value of 1 indicates that the frame processor gets executed once per second.
-            // This roughly equals the setting of the legacy camera of 1000ms between predictions,
-            // i.e. what taxaDetectionInterval was set to.
-            frameProcessorFps={1}
+            pixelFormat={pixelFormatPatch()}
             onError={onError}
+            orientation={orientationPatch( deviceOrientation )}
           />
         </GestureDetector>
         <FocusSquare

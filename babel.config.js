@@ -4,6 +4,7 @@ module.exports = ( api ) => {
     "@babel/preset-flow"
   ];
   const plugins = [
+    "react-native-worklets-core/plugin",
     "@babel/plugin-transform-flow-strip-types",
     [
       "module-resolver",
@@ -13,12 +14,7 @@ module.exports = ( api ) => {
         }
       }
     ],
-    [
-      "react-native-reanimated/plugin",
-      {
-        globals: ["__inatVision"]
-      }
-    ]
+    "react-native-reanimated/plugin"
     // Reanimated 2 plugin has to be listed last https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/
   ];
   const productionPlugins = ["transform-remove-console"].concat( plugins );

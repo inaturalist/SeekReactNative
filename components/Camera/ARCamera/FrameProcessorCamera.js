@@ -154,7 +154,8 @@ const FrameProcessorCamera = ( props ): Node => {
             taxonomyPath,
             confidenceThreshold,
             filterByTaxonId,
-            negativeFilter
+            negativeFilter,
+            patchedOrientationAndroid: deviceOrientation
           } );
           handleResults( results );
         } catch ( classifierError ) {
@@ -175,7 +176,8 @@ const FrameProcessorCamera = ( props ): Node => {
     [
       confidenceThreshold,
       filterByTaxonId,
-      negativeFilter
+      negativeFilter,
+      deviceOrientation
     ]
   );
 

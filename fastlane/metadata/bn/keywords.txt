@@ -1,1 +1,1 @@
-plant,animal,nature,game,wildlife,identify,learn,science,walk,AR photos,biology,collection,adventure
+গাছ,প্রাণী,প্রকৃতি,খেলা,বন্য প্রাণী,সনাক্ত,শেখা,বিজ্ঞান,হাটা,এআর ফটো,প্রাণীবিজ্ঞান,কালেকশন,এডভেঞ্চার

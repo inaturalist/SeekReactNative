@@ -26,6 +26,13 @@ export const orientationPatch = deviceOrientation => ( Platform.OS === "android"
   : deviceOrientation );
 
 // Needed for react-native-vision-camera v3.3.1
+// Needed for react-native-vision-camera v3.4.0 in combination with our vision-camera-plugin-inatvision
+// This patch is used to determine the orientation prop for the FrameProcessor.
+// This is only needed for Android, so on iOS we return null.
+export const orientationPatchFrameProcessor = deviceOrientation => ( Platform.OS === "android"
+  ? deviceOrientation
+  : null );
+
 // As of this version the photo from takePhoto is not oriented coming from the native side.
 // E.g. if you take a photo in landscape-right and save it to camera roll directly from the
 // vision camera, it will be tilted in the native photo app. So, on iOS, depending on the

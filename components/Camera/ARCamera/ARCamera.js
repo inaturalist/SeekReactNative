@@ -369,7 +369,7 @@ const ARCamera = ( ): Node => {
       // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
       // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
       // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-      // setIsActive( false );
+      setIsActive( false );
       // Rotate the original photo depending on device orientation
       const photoRotation = rotationTempPhotoPatch( photo, deviceOrientation );
       await rotatePhotoPatch( photo, photoRotation );

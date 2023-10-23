@@ -14,7 +14,11 @@ import { Worklets } from "react-native-worklets-core";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
-import { orientationPatch, pixelFormatPatch } from "../../../utility/visionCameraPatches";
+import {
+  orientationPatch,
+  pixelFormatPatch,
+  orientationPatchFrameProcessor
+} from "../../../utility/visionCameraPatches";
 
 import FocusSquare from "./FocusSquare";
 
@@ -141,6 +145,7 @@ const FrameProcessorCamera = ( props ): Node => {
     onClassifierError( error );
   } );
 
+  const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -155,7 +160,7 @@ const FrameProcessorCamera = ( props ): Node => {
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
-            patchedOrientationAndroid: deviceOrientation
+            patchedOrientationAndroid
           } );
           handleResults( results );
         } catch ( classifierError ) {

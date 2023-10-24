@@ -88,7 +88,7 @@
     "react-native-webview": "^11.26.1",
     "react-native-worklets-core": "0.2.2",
     "realm": "^12.1.0",
-    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#vision-v3"
+    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#vision-v3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

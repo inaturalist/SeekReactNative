@@ -1,19 +1,26 @@
 diff --git a/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/VideoPipeline.kt b/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/VideoPipeline.kt
-index ddbec56..9f1537b 100644
+index af34761..313ca94 100644
 --- a/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/VideoPipeline.kt
 +++ b/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/core/VideoPipeline.kt
-@@ -104,8 +104,12 @@ class VideoPipeline(
+@@ -70,6 +70,9 @@ class VideoPipeline(
+   private var imageReader: ImageReader? = null
+   private var imageWriter: ImageWriter? = null
+ 
++  private val hasOutputs: Boolean
++    get() = recordingSession != null
++  
+   init {
+     Log.i(
+       TAG,
+@@ -104,7 +107,10 @@ class VideoPipeline(
          frame.incrementRefCount()
          frameProcessor?.call(frame)
  
 -        imageWriter!!.queueInputImage(image)
--
-+        try {
++        if (hasOutputs) {
++          // If we have outputs (e.g. a RecordingSession), pass the frame along to the OpenGL pipeline
 +          imageWriter!!.queueInputImage(image)
 +        }
-+        catch (exception: RuntimeException){
-+          // Handling exception
-+        }
+ 
          frame.decrementRefCount()
        }, CameraQueues.videoQueue.handler)
- 

@@ -489,11 +489,12 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (2.17.0):
+  - RNReanimated (3.5.4):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
     - glog
+    - hermes-engine
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
@@ -503,6 +504,7 @@ PODS:
     - React-Core/RCTWebSocket
     - React-CoreModules
     - React-cxxreact
+    - React-hermes
     - React-jsi
     - React-jsiexecutor
     - React-jsinspector
@@ -890,7 +892,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 6e4dc6b7ab3a385386d4e36228bd065e5a611394
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: f186e85d9f28c9383d05ca39e11dd194f59093ec
+  RNReanimated: be07c7ae209074d0e8a84cf38b7909457ac59a32
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 923b1c888c13469925bf0256dc2c046eab557ce5

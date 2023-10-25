@@ -489,11 +489,12 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (2.17.0):
+  - RNReanimated (3.5.4):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
     - glog
+    - hermes-engine
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
@@ -503,6 +504,7 @@ PODS:
     - React-Core/RCTWebSocket
     - React-CoreModules
     - React-cxxreact
+    - React-hermes
     - React-jsi
     - React-jsiexecutor
     - React-jsinspector
@@ -530,7 +532,7 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.13)
   - SocketRocket (0.6.0)
-  - VisionCamera (3.4.1):
+  - VisionCamera (3.6.3):
     - React
     - React-callinvoker
     - React-Core
@@ -890,7 +892,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 6e4dc6b7ab3a385386d4e36228bd065e5a611394
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: f186e85d9f28c9383d05ca39e11dd194f59093ec
+  RNReanimated: be07c7ae209074d0e8a84cf38b7909457ac59a32
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 923b1c888c13469925bf0256dc2c046eab557ce5
@@ -898,7 +900,7 @@ SPEC CHECKSUMS:
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  VisionCamera: 633c2a7f0d20e060b3cfc664851319f0bfadfc75
+  VisionCamera: aebb5adef1296732983129c5fe054337b15c3c0b
   VisionCameraPluginInatVision: 79bb258db75218889c74d0897ecba676492c4def
   Yoga: 39310a10944fc864a7550700de349183450f8aaa
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

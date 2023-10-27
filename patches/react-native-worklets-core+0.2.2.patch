@@ -1,0 +1,26 @@
+diff --git a/node_modules/react-native-worklets-core/cpp/WKTJsiWorklet.h b/node_modules/react-native-worklets-core/cpp/WKTJsiWorklet.h
+index 8e34955..ea82623 100644
+--- a/node_modules/react-native-worklets-core/cpp/WKTJsiWorklet.h
++++ b/node_modules/react-native-worklets-core/cpp/WKTJsiWorklet.h
+@@ -274,14 +274,15 @@ private:
+       jsi::Value locationProp = initDataProp.asObject(runtime).getProperty(
+           runtime, PropNameWorkletInitDataLocation);
+ 
+-      if (locationProp.isUndefined() || locationProp.isNull() ||
+-          !locationProp.isString()) {
+-        return;
++      // Check location must be a string if it is defined
++      if (!locationProp.isUndefined() && !locationProp.isNull() &&
++          locationProp.isString()) {
++        // Set location
++        _location = locationProp.asString(runtime).utf8(runtime);
++      } else {
++        _location = "(unknown)";
+       }
+ 
+-      // Set location
+-      _location = locationProp.asString(runtime).utf8(runtime);
+-
+       // Let us try to install the function in the worklet context
+       _code = initDataProp.asObject(runtime)
+                   .getProperty(runtime, PropNameWorkletInitDataCode)

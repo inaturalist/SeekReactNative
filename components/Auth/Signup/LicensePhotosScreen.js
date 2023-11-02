@@ -128,6 +128,10 @@ const LicensePhotosScreen = ( ): Node => {
       onBackdropPress={closeModal}
       useNativeDriverForBackdrop
       useNativeDriver
+      // the following two lines prevent flickering
+      // while modal is closing
+      backdropTransitionOutTiming={0}
+      hideModalContentWhileAnimating
     >
       <WhiteModal closeModal={closeModal}>
         <ScrollView style={styles.scrollView}>

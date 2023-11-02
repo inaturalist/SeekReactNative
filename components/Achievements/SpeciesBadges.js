@@ -87,6 +87,10 @@ const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
       onBackdropPress={closeModal}
       useNativeDriverForBackdrop
       useNativeDriver
+      // the following two lines prevent flickering
+      // while modal is closing
+      backdropTransitionOutTiming={0}
+      hideModalContentWhileAnimating
     >
       <BadgeModal
         badges={iconicTaxonBadges}

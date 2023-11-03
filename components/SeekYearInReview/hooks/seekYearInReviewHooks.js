@@ -5,6 +5,7 @@ import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
 
 import realmConfig from "../../../models";
+import { recalculateChallenges } from "../../../utility/challengeHelpers";
 
 const useCountObservationsForYear = ( year ): any => {
   const [countObservationsThisYear, setCountObservationsThisYear] = useState( null );
@@ -181,6 +182,7 @@ const useFetchChallengesForYear = ( year ): any => {
   const [challengeCount, setChallengeCount] = useState( undefined );
 
   useEffect( () => {
+    recalculateChallenges( );
     const createBadge = ( latestBadge, numOfMonths ) => ( {
       name: "",
       availableDate: addMonths( latestBadge.availableDate, numOfMonths ),

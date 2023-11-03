@@ -3,9 +3,12 @@
 exports[`SelectSpecies should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    [
-      "top",
-    ]
+    {
+      "bottom": "off",
+      "left": "off",
+      "right": "off",
+      "top": "additive",
+    }
   }
   style={
     {

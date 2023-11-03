@@ -3,9 +3,12 @@
 exports[`RangeMap should change map region to user's location when button is pressed 1`] = `
 <RNCSafeAreaView
   edges={
-    [
-      "top",
-    ]
+    {
+      "bottom": "off",
+      "left": "off",
+      "right": "off",
+      "top": "additive",
+    }
   }
   style={
     {
@@ -330,9 +333,12 @@ exports[`RangeMap should change map region to user's location when button is pre
 exports[`RangeMap should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    [
-      "top",
-    ]
+    {
+      "bottom": "off",
+      "left": "off",
+      "right": "off",
+      "top": "additive",
+    }
   }
   style={
     {

@@ -565,9 +565,9 @@
   },
   "about": {
     "header": "Tentang",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek didesain & dikembangkan oleh tim iNaturalist:",
     "joint_initiative": "iNaturalist adalah inisiatif gabungan dari California Academy of Sciences dan National Geographic Society.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek dibuat dengan dukungan dari California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, dan Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, dan Sylvain Morin. Terima kasih khususnya kepada Grant Van Horn dari Visipedia untuk bantuannya atas teknologi penglihatan komputer, dan juga komunitas iNaturalist.",
     "version": "Versi",
     "help": "Untuk bantuan tentang Seek, silakan email help+seek@inaturalist.org.",
@@ -668,7 +668,7 @@
   },
   "debug": {
     "logs": "Kirim log debug melalui email",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Pengiriman email tidak berhasil? Ketuk di sini untuk menyalin isi log debug ke papan klip. Kemudian tempelkan di email Anda dan kirimkan ke help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Kamera Seek",

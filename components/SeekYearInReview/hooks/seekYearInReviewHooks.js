@@ -135,6 +135,9 @@ const useFetchStats = ( year ): any => {
             .sorted( "index", true )
             .sorted( "earned", true );
           const highestEarnedBadge = highestEarned[0];
+          if ( !highestEarnedBadge ) {
+            return;
+          }
           // Add the number of observations for this year to the badge info
           highestEarnedBadge.observationsThisYear = reduced[id];
           _badges.push( highestEarnedBadge );

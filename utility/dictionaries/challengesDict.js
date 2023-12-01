@@ -726,7 +726,7 @@ const challenges = {
   },
   july2024: {
     name: "seek_2024_challenges.july_2024_challenge_name_indicator_species",
-    description: "seek_2024_challenges.july_2024_description_indicator_species",
+    description: "seek_2024_challenges.july_2024_description_indicator_species_2",
     totalSpecies: 7,
     backgroundName: "img-challengedetail-july2024",
     earnedIconName: "badge_inaturalist_july2024",

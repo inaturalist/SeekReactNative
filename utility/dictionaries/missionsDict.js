@@ -765,6 +765,226 @@ const missions = [
       number: 1,
       types: ["arachnids"]
     }
+  },
+  {
+    // january 2024
+    0: {
+      number: 5,
+      types: ["plants"]
+    },
+    1: {
+      number: 2,
+      types: ["insects"]
+    },
+    2: {
+      number: 1,
+      types: ["arachnids"]
+    },
+    3: {
+      number: 2,
+      types: ["birds"]
+    }
+  },
+  {
+    // february 2024
+    0: {
+      number: 5,
+      types: [
+        "Pterygota",
+        "Accipitriformes",
+        "Anseriformes",
+        "Bucerotiformes",
+        "Caprimulgiformes",
+        "Cathartiformes",
+        "Charadriiformes",
+        "Ciconiiformes",
+        "Coliiformes",
+        "Columbiformes",
+        "Coraciiformes",
+        "Cuculiformes",
+        "Falconiformes",
+        "Galbuliformes",
+        "Galliformes",
+        "Gaviiformes",
+        "Gruiformes",
+        "Musophagiformes",
+        "Opisthocomiformes",
+        "Otidiformes",
+        "Passeriformes",
+        "Pelecaniformes",
+        "Phaethontiformes",
+        "Phoenicopteriformes",
+        "Piciformes",
+        "Podicipediformes",
+        "Procellariiformes",
+        "Psittaciformes",
+        "Pterocliformes",
+        "Strigiformes",
+        "Suliformes",
+        "Tinamiformes",
+        "Trogoniformes"
+      ]
+    }
+  },
+  {
+    // march 2024
+    0: {
+      number: 1,
+      types: ["Lycopodiopsida", "Polypodiopsida"]
+    },
+    1: {
+      number: 1,
+      types: ["Pinopsida"]
+    },
+    2: {
+      number: 1,
+      types: ["Angiospermae"]
+    },
+    3: {
+      number: 1,
+      types: ["fungi"]
+    },
+    4: {
+      number: 2,
+      types: ["Vertebrata"]
+    },
+    5: {
+      number: 1,
+      types: ["insects"]
+    },
+    6: {
+      number: 1,
+      types: ["Araneae"]
+    }
+  },
+  {
+    // april 2024
+    0: {
+      number: 2,
+      types: ["Asterales"]
+    },
+    1: {
+      number: 3,
+      types: ["Passeriformes"]
+    },
+    2: {
+      number: 1,
+      types: ["Coleoptera"]
+    }
+  },
+  {
+    // may 2024
+    0: {
+      number: 10,
+      types: ["all"]
+    }
+  },
+  {
+    // june 2024
+    0: {
+      number: 2,
+      types: ["Lamiales"]
+    },
+    1: {
+      number: 1,
+      types: ["Asteraceae"]
+    },
+    2: {
+      number: 1,
+      types: ["Rosales"]
+    },
+    3: {
+      number: 2,
+      types: ["Hymenoptera", "Lepidoptera", "Coleoptera", "Diptera"]
+    }
+  },
+  {
+    // july 2024
+    0: {
+      number: 5,
+      types: [
+        "Asteraceae",
+        "Fabaceae",
+        "Lamiaceae",
+        "Acanthaceae",
+        "Malvaceae",
+        "Bignoniaceae",
+        "Passifloraceae"
+      ]
+    },
+    1: {
+      number: 2,
+      types: ["Arthropoda"]
+    }
+  },
+  {
+    // august 2024
+    0: {
+      number: 2,
+      types: ["amphibians", "fish"]
+    },
+    1: {
+      number: 3,
+      types: [
+        "Anseriformes",
+        "Charadriiformes",
+        "Coraciiformes",
+        "Gaviiformes",
+        "Gruiformes",
+        "Pelecaniformes",
+        "Phoenicopteriformes",
+        "Podicipediformes",
+        "Procellariformes",
+        "Sphenisciformes",
+        "Suliformes"
+      ]
+    },
+    2: {
+      number: 1,
+      types: ["mollusks"]
+    }
+  },
+  {
+    // september 2024
+    0: {
+      number: 5,
+      types: [
+        "Mantodea",
+        "Odonata",
+        "Megaloptera",
+        "Neuroptera",
+        "Coccinellidae",
+        "Chilopoda",
+        "arachnids"
+      ]
+    }
+  },
+  {
+    // october 2024
+    0: {
+      number: 4,
+      types: ["arachnids"]
+    }
+  },
+  {
+    // november 2024
+    0: {
+      number: 2,
+      types: [
+        "Accipitriformes",
+        "Falconiformes",
+        "Strigiformes",
+        "carnivora",
+        "Squamata"
+      ]
+    }
+  },
+  {
+    // december 2024
+    0: {
+      number: 10,
+      types: ["all"]
+    }
   }
 ];
 export default missions;

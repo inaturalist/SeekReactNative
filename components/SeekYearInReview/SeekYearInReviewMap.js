@@ -14,9 +14,8 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { getBounds, getCenterOfBounds } from "geolib";
 
 type Props = {
-  +region: Object,
-  +id: number,
-  +seenDate: ?string,
+  +year: number,
+  +observations: Array<Object>,
 };
 
 const SeekYearInReviewMap = ( { year, observations }: Props ): React.Node => {

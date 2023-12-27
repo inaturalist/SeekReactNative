@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import type { Node } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
@@ -86,6 +86,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
   }, [] );
 
+  const currentSpeciesID = useRef( null );
   const handleSpecies = useCallback( async ( param ) => {
     if ( !observation ) { return; }
     const { predictions, errorCode, latitude } = observation.image;
@@ -115,6 +116,15 @@ const ObservationProvider = ( { children }: Props ): Node => {
       };
     };
 
+    // Only run this once for a given species because fetchSpeciesSeenDate throws an error in
+    // a C++ library of realm if the function is called twice. Even though this error only happens
+    // for the first time a user observes a species that counts towards a challenge, having this check
+    // here does not have any negative effects on the app I think.
+    if ( currentSpeciesID.current === species.taxon_id ) {
+      return;
+    } else {
+      currentSpeciesID.current = species.taxon_id;
+    }
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
     const mediumPhoto = await fetchPhoto( species.taxon_id );
 

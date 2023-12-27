@@ -26,6 +26,7 @@ const DatePicker: React.FC<Props> = ( {
       isDarkModeEnabled={colorScheme === "dark"}
       isVisible={isDateTimePickerVisible}
       maximumDate={new Date()}
+      minimumDate={new Date( 1900, 0, 1 )}
       mode={datetime ? "datetime" : "date"}
       onCancel={toggleDateTimePicker}
       onConfirm={onDatePicked}

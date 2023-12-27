@@ -56,7 +56,19 @@ const backgrounds = {
   "img-challengedetail-september2023": require( "./backgrounds/challenges/img-challengedetail_september2023.webp" ),
   "img-challengedetail-october2023": require( "./backgrounds/challenges/img-challengedetail_october2023.webp" ),
   "img-challengedetail-november2023": require( "./backgrounds/challenges/img-challengedetail_november2023.webp" ),
-  "img-challengedetail-december2023": require( "./backgrounds/challenges/img-challengedetail_december2023.webp" )
+  "img-challengedetail-december2023": require( "./backgrounds/challenges/img-challengedetail_december2023.webp" ),
+  "img-challengedetail-january2024": require( "./backgrounds/challenges/img-challengedetail_january2024.webp" ),
+  "img-challengedetail-february2024": require( "./backgrounds/challenges/img-challengedetail_february2024.webp" ),
+  "img-challengedetail-march2024": require( "./backgrounds/challenges/img-challengedetail_march2024.webp" ),
+  "img-challengedetail-april2024": require( "./backgrounds/challenges/img-challengedetail_april2024.webp" ),
+  "img-challengedetail-may2024": require( "./backgrounds/challenges/img-challengedetail_may2024.webp" ),
+  "img-challengedetail-june2024": require( "./backgrounds/challenges/img-challengedetail_june2024.webp" ),
+  "img-challengedetail-july2024": require( "./backgrounds/challenges/img-challengedetail_july2024.webp" ),
+  "img-challengedetail-august2024": require( "./backgrounds/challenges/img-challengedetail_august2024.webp" ),
+  "img-challengedetail-september2024": require( "./backgrounds/challenges/img-challengedetail_september2024.webp" ),
+  "img-challengedetail-october2024": require( "./backgrounds/challenges/img-challengedetail_october2024.webp" ),
+  "img-challengedetail-november2024": require( "./backgrounds/challenges/img-challengedetail_november2024.webp" ),
+  "img-challengedetail-december2024": require( "./backgrounds/challenges/img-challengedetail_december2024.webp" )
 };
 
 export default backgrounds;

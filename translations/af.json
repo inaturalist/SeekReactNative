@@ -91,8 +91,8 @@
     "error_no_password": "Ontbrekende wagwoord",
     "error_internet": "Geen internetverbinding",
     "error_request_could_not_be_completed": "U versoek kon nie voltooi word nie.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Kliënt verifikasie het misluk a.g.v. onbekende kliënt, geen kliënt verifikasie ingesluit, of verifikasie metode nie ondersteun.",
+    "error_grant_invalid": "Die gegewe verifikasiemagtiging is ongeldig, teruggetrek, stem nie ooreen met die verwysings-URI soos in die verifikasie versoek gebruik nie, of is reeds aan 'n ander kliënt toegeken."
   },
   "inat_signup": {
     "welcome": "Welkom by Seek!",
@@ -598,8 +598,8 @@
     "animals": "Diere",
     "protozoans": "Eenselliges",
     "kelp": "Seewier, diatome en verwante",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Liggingsfout",
+    "error_message_2": "Dit lyk asof u ligging nie reg opgeneem is nie! Gaan asseblief u ligging weer na."
   },
   "posting_status": {
     "posting_to_inat_background": "PLAAS OP DIE AGTERGROND OP INATURALIST",

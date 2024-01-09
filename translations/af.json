@@ -118,7 +118,7 @@
     "linked_account": "U het ’n iNaturalist-rekening aan Seek gekoppel!",
     "posting": "Plasing op iNaturalist",
     "posting_details": "U kan onmiddellik na die invoer van hierdie waarnemings in Seek, dit na iNaturalist versend. Indien u dit later op iNaturalist wil plaas moet u asb. die iNaturalist-toep en webwerf gebruik.",
-    "observations": "Waarnemings op Toestel Bewaar",
+    "observations": "Waarnemings op Toestel Gestoor",
     "observations_1": "U waarnemings in Seek word op u toestel bewaar en word nie aanlyn gerugsteun nie.",
     "observations_2": "Deur die toep te skrap word al u waarnemings in Seek ook geskrap.",
     "observations_3": "Seek sinchroniseer nie u waarnemings met ander toestelle nie.",
@@ -567,7 +567,7 @@
     "header": "Inligting",
     "seek_designed_by": "Seek is ontwerp & ontwikkel deur die iNaturalist-span:",
     "joint_initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek is oorpronklik geskep met ondersteuning van die California Academy of Sciences, die National Geographic Society, Our Planet op Netflix, WWF, HHMI Tangled Bank Studios, en Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Spesiale dank aan Grand Van Horn van Visipedia vir hulp met die rekenaarvisietegnologie, en die iNaturalist-gemeenskap.",
     "version": "Weergawe",
     "help": "Stuur ’n e-pos aan help+seek@inaturalist.org vir hulp met Seek.",
@@ -668,7 +668,7 @@
   },
   "debug": {
     "logs": "Stuur ontfoutlogs per e-pos",
-    "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
+    "copy_logs": "Het die stuur van 'n e-pos misluk? Tik dan hier om die inhoud van die ontvouting logs na die clipboard te kopieër. Plak dit dan in 'n e-pos en stuur aan help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek-kamera",
@@ -690,7 +690,7 @@
     "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)",
     "donate_ios": "Besoek die volgende skakel om aan Seek te skenk:",
     "change_language": "Verander die taal na {{language}}?",
-    "confirm": "Confirm"
+    "confirm": "Bevestig"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -987,10 +987,10 @@
     "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
   },
   "seek_year_in_review": {
-    "header": "Seek Year in Review",
-    "description": "Thanks for using Seek this year! Check out your personalized Year in Review here:",
+    "header": "Seek Terugblik op die Jaar",
+    "description": "Dankie dat u Seek die jaar gebruik het! Sien u eie Terugblik op die Jaar hier:",
     "button": "View my Seek Review",
-    "in_year_observed": "In {{year}}, you observed",
+    "in_year_observed": "In {{year}}, het u waargeneem",
     "x_new_species": {
       "one": "{{count}} new species",
       "two": "{{count}} new species",
@@ -1004,7 +1004,7 @@
     "observations_map": "Observations Map",
     "view_observations_map": "View Observations Map",
     "x_uploaded_observations_text_1": {
-      "one": "You posted {{count}} observation to iNaturalist using Seek in {{year}}.",
+      "one": "U het {{count}} waarnemings na iNaturalist gestuur deur Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
       "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
       "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

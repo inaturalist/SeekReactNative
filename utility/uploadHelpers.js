@@ -9,7 +9,7 @@ import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { fetchJSONWebToken } from "./tokenHelpers";
 import i18n from "../i18n";
-import { log } from "../../../react-native-logs.config";
+import { log } from "../react-native-logs.config";
 
 const logger = log.extend( "uploadHelpers.js" );
 

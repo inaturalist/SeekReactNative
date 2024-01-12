@@ -204,7 +204,8 @@ const uploadObservation = async ( observation: {
     return token;
   }
   const options = { api_token: token, user_agent: createUserAgent( ) };
-  logger.debug( `options: ${options}` );
+  logger.debug( `options.api_token: ${options.api_token}` );
+  logger.debug( `options.user_agent: ${options.user_agent}` );
 
   try {
     if ( !observation.photo.id ) {

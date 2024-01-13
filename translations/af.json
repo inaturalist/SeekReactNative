@@ -668,7 +668,7 @@
   },
   "debug": {
     "logs": "Stuur ontfoutlogs per e-pos",
-    "copy_logs": "Het die stuur van 'n e-pos misluk? Tik dan hier om die inhoud van die ontvouting logs na die clipboard te kopieër. Plak dit dan in 'n e-pos en stuur aan help+seek@inaturalist.org"
+    "copy_logs": "Het die stuur van 'n e-pos misluk? Tik dan hier om die inhoud van die ontvouting logs na die clipboard te kopieër. Sit dit dan in 'n e-pos en stuur aan help+seek@inaturalist.org"
   },
   "shortcut": {
     "seek_camera": "Seek-kamera",
@@ -858,7 +858,7 @@
     "logged_in_bullet_3": "U Seek-waarnemings word na in iNaturalist gerugsteun nie. Deur Seek te skrap word u waarnemings op u toestel ook geskrap.",
     "upload_and_track_obs_using_inat": "Laai u waarnemings op na iNaturalist en hou dit dop op die toep of gaan na inaturalist.org.\n\nDankie dat u deel van die gemeensap is!",
     "x_seen_by_user": "{{speciesName}} gesien deur {{user}}",
-    "about_inat_internet_error": "U is aangeteken op iNaturalist, maar ons het die internet nodig om besonderhede te wys. Tik om weer te probeer."
+    "about_inat_internet_error": "U is aangeteken op iNaturalist, maar ons benodig die internet om besonderhede te wys. Tik om weer te probeer."
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Geleedpotige Roofdier-uitdaging",
@@ -912,18 +912,18 @@
     "july_2022_mission_1": "Vind 5 spesies geleedpotiges",
     "july_2022_description_insects_crustaceans": "Insekte, skaaldiere, aragnide, honderdpote en duisendpote het almal eksoskelette, of “buite geraamtes”. Anders as mense en ander gewerweldes het hulle nie ’n interne geraamte nie daarom heg spiere binne die eksoskelet en laat beweging toe. Eksoskelette boed ook beskerming teen uitdroging en hulle het sensoriese organe ooreenkomstig met die mens se vel.",
     "july_2022_action_molted_exoskeleton": "Het u al ooit ’n leë, vervelde eksoskelet gevind? Eksoskelette groei nie saam met die dier nie, daarom vervel hulle soos hulle groei.",
-    "august_2022_challenge_name_seed_dispersal": "Saadverspreiding Uitdaging",
+    "august_2022_challenge_name_seed_dispersal": "Saadverspreiding-uitdaging",
     "august_2022_mission_1": "Vind 3 spesies vanuit:\n\n-Klas Pinopsida (Keëldraendes);\nSubphylum Angiospermae (Blomplante)",
     "august_2022_mission_2": "Vind 3 spesies vanuit:\n\n-Klas Aves (Voëls);\nKlas Mammalia (Soogdiere);\nFamilie Formicidae (Miere)",
-    "august_2022_description_seeds_are_a_lifestage": "Sade is 'n lewenstadium van plante waarin hul maklik geskuif kan word. Baie keëldraende- en blomplante het vrugte en sade wat aangepas is om deur wind, water, of diere vervoer te word. Baie voël-, soogdier-, en selfs mierspesies kan sade versprei.",
-    "august_2022_action_largest_species_seed_dispersing": "Wat is die grootste saadverspreierspesie naby u? Watter tipe sade kan dit versprei? Wanneer diere sade heel insluk, kan mens partykeer sade in mis vind. Waarnemings van mis tel as 'n bewys van 'n organisme, maar kan soms moeilik wees om te identifiseer.",
-    "september_2022_challenge_name_photosynthesis": "Fotosintese Uitdaging",
+    "august_2022_description_seeds_are_a_lifestage": "Sade is 'n lewenstadium van plante waarin hul maklik rondgeskuif kan word. Baie keëldraende- en blomplante het vrugte en sade wat aangepas is om deur wind, water, of diere vervoer te word. Baie voël-, soogdier-, en selfs mierspesies kan sade versprei.",
+    "august_2022_action_largest_species_seed_dispersing": "Wat is die grootste saadverspreinde dierspesie naby u? Watter tipe sade kan dit versprei? Wanneer diere sade heel insluk, kan mens partykeer sade in hul mis vind. Waarnemings van mis tel as 'n bewys van 'n organisme, maar dit kan soms moeilik wees om te identifiseer.",
+    "september_2022_challenge_name_photosynthesis": "Fotosintese-uitdaging",
     "september_2022_mission_1": "Vind 5 plante",
     "september_2022_description_plants_convert_light": "Plante skakel lig-energie om in suikers deur middel van fotosintese. Blaarkleur word bepaal deur die verskillende plant-pigmente wat verskillende golflengtes van lig vasvang. Wanneer blare van kleur verander, verdof die chlorofil (groen kleurstof) en die karotenoïede (geel kleurstof) en Antosianiene (rooi en pers pigmente) word sigbaar.",
     "september_2022_action_photosynthesis": "Fotosintese skakel koolstofdioksied vanuit die atmosfeer om in ander molekules wat nodig is om lewe te onderhou. Respirasie is die chemiese proses waartydens die energie wat tydens fotosintese geberg is, vrygestel word.",
     "october_2022_challenge_name_parasite": "Parasiet-uitdaging",
     "october_2022_mission_1": "Vind 3 spesies vanuit:\n\nOrde Ixodida (Bosluise);\nFamilie Culicidae (Muskiete);\nOrde Siphonaptera (Vlooie);\nParvorde Phthiraptera (Luise);\nOrde Santalales (Mistels);\nGenus Cuscuta (Dodders);\nFamilie Orobanchaceae (Broomrapes)",
-    "october_2022_description_parasitic_organisms": "Parasitiese organismes voed op ander organismes sonder om hulle dood te maak. Geleedpotiges soos bosluise, muskiete, vlooie, en luise is aangepas om op gewerwelde diere te voed, insluitend mense en/of huisdiere. Daar is ook parasitiese plante wat nie fotosinteer nie omdat hulle staatmaak op suiker wat deur die gasheer-plant produseer word.",
+    "october_2022_description_parasitic_organisms": "Parasitiese organismes voed op ander organismes sonder om hulle dood te maak. Geleedpotiges soos bosluise, muskiete, vlooie, en luise is aangepas om op gewerwelde diere te voed, insluitend mense en/of huisdiere. Daar is ook parasitiese plante wat nie fotosinteer nie omdat hulle staatmaak op suiker wat deur hul gasheer-plant produseer word.",
     "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
     "november_2022_challenge_name_urban_nature": "Urban Nature Challenge",
     "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
@@ -961,8 +961,8 @@
     "december_2023_description_ecology": "Klomp verskillende interaksies beïnvloed ekosisteme en hul organismes. Ekologie is die studie van organismes (bioties) en hul fisise omgewing (abioties). Biotiese interaksies vind plaas tussen lewende dinge, en abiotiese interaksies sluit nie-lewende faktore in soos temperatuur, water, lig en die grond."
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Woonbuurt Uitdaging",
-    "february_2024_challenge_name_life_in_flight": "Lewe in Vlug Uitdaging",
+    "january_2024_challenge_name_neighborhood": "Woonbuurt-uitdaging",
+    "february_2024_challenge_name_life_in_flight": "Lewe-in-vlug-uitdaging",
     "march_2024_challenge_name_stewardship": "Verantwoordelikheid-uitdaging",
     "march_2024_description_stewardship": "Enigeen kan 'n positiewe impak op biodiversiteit hê! U kan 'n voorstander vir die natuur wees in u eie erf, 'n beskermde area, of 'n plaaslike park. Natuurbeskerming begin deur die plante fungi en diere op te let in die plekke waaroor u omgee. Kyk vir verskillende spesies regoor die natuurryk.",
     "march_2024_action_stewardship": "Dink oor een spesie wat u hierdie maand gevind het. Wat het dit nodig om te oorleef? Wat is een ding wat u kan doen om seker te maak dat die spesie se behoeftes bevredig word?",
@@ -983,7 +983,7 @@
     "october_2024_description_eight_legged": "Alle aragniede of spinnekopagtiges het agt bene. Het u geweet dat nie alle aragniede spinnekoppe is nie? Myte en bosluise, langbeenspinnekoppe en selfs klein, oorgesiene pseudoskerpioene is ook aragniede wat op alle bewoonde kontinente gevind kan word. Ander aragniede soos skerpioene, sweepskerpioene, stertlose sweepskerpioene, en baardskeerders word oor die algemeen in warmer en/of droër dele van die wêreld gevind.",
     "november_2024_challenge_name_predators_bones": "Roofdiere met Geraamtes Uitdaging",
     "december_2024_challenge_name_solstice": "Sonstilstand-uitdaging",
-    "december_2024_description_solstice": "Die seisoene is aan die verander! In die Desember van elke jaar gebeur in die noordelike halfrond die winter-sonstilstand (kortste dag van die jaar) en in die suidelike halfrond die somer-sonstilstand (langste dag van die jaar).",
+    "december_2024_description_solstice": "Die seisoene is aan die verander! In Desember van elke jaar vind die winter-sonstilstand (kortste dag van die jaar) in die noordelike halfrond plaas, en in die suidelike halfrond vind die somer-sonstilstand (langste dag van die jaar) plaas.",
     "december_2024_action_solstice": "Dink oor die spesies wat u die maand sien. Hoe verskil hulle van die spesies wat mens in Junie kan vind?"
   },
   "seek_year_in_review": {
@@ -1004,7 +1004,7 @@
     "observations_map": "Observations Map",
     "view_observations_map": "View Observations Map",
     "x_uploaded_observations_text_1": {
-      "one": "U het {{count}} waarnemings na iNaturalist gestuur deur Seek in {{year}}.",
+      "one": "U het {{count}} waarneming na iNaturalist gestuur deur Seek in {{year}}.",
       "two": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
       "few": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",
       "many": "You posted {{count}} observations to iNaturalist using Seek in {{year}}.",

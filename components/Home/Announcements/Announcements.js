@@ -65,7 +65,9 @@ const Announcements = ( ): React.Node => {
     };
     const accessToken = await fetchAccessToken();
     const apiToken = await fetchJSONWebToken( accessToken );
-    const options = { api_token: apiToken, user_agent: createUserAgent() };
+    const headers = {};
+    headers["user-agent"] = createUserAgent();
+    const options = { api_token: apiToken, headers };
     inatjs.announcements
       .search( params, options )
       .then( ( { total_results, results } ) => {

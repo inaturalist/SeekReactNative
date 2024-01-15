@@ -59,7 +59,9 @@ const formatError = ( error: string ): string => {
 const fetchUserProfile = async ( login: string ): Promise<Object> => {
   try {
     const apiToken = await fetchJSONWebToken( login );
-    const options = { api_token: apiToken, user_agent: createUserAgent( ) };
+    const headers = {};
+    headers["user-agent"] = createUserAgent();
+    const options = { api_token: apiToken, headers };
     const { results } = await inatjs.users.me( options );
     return results[0];
   } catch ( e ) {

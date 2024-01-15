@@ -67,7 +67,9 @@ const appendPhotoToObservation = async ( photo: {
     } )
   };
 
-  const options = { api_token: token, user_agent: createUserAgent( ) };
+  const headers = {};
+  headers["user-agent"] = createUserAgent();
+  const options = { api_token: token, headers };
 
   try {
     await inatjs.observation_photos.create( photoParams, options );

@@ -20,7 +20,9 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
         locale: i18n.locale
       };
 
-      const options = { user_agent: createUserAgent( ) };
+      const headers = {};
+      headers["user-agent"] = createUserAgent();
+      const options = { headers };
 
       inatjs.taxa.autocomplete( params, options ).then( ( { results } ) => {
         if ( results.length === 0 ) { return; }

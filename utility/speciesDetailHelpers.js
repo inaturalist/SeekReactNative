@@ -31,7 +31,9 @@ const fetchHistogram = async ( id: number, region?: ?{
     params.radius = 50;
   }
 
-  const options = { user_agent: createUserAgent( ) };
+  const headers = {};
+  headers["user-agent"] = createUserAgent();
+  const options = { headers };
 
   try {
     const { results } = await inatjs.observations.histogram( params, options );

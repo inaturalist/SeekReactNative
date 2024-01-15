@@ -57,7 +57,9 @@ const ObservationProvider = ( { children }: Props ): Node => {
   };
 
   const fetchPhoto = useCallback( async ( id ) => {
-    const options = { user_agent: createUserAgent( ) };
+    const headers = {};
+    headers["user-agent"] = createUserAgent();
+    const options = { headers };
 
     // probably should break this into a helper function to use in other places
     // like species nearby fetches for better offline experience
@@ -282,7 +284,9 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const fetchOnlineVisionResults = async ( ) => {
       const uploadParams = await flattenUploadParameters( image );
       const token = createJwtToken( );
-      const options = { api_token: token, user_agent: createUserAgent() };
+      const headers = {};
+      headers["user-agent"] = createUserAgent();
+      const options = { api_token: token, headers };
 
       try {
         const r = await inatjs.computervision.score_image( uploadParams, options );

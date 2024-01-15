@@ -416,7 +416,9 @@ const useUploadedObservationCount = ( {
       if ( year ) {
         params = {...params, year};
       }
-      const options = { user_agent: createUserAgent() };
+      const headers = {};
+      headers["user-agent"] = createUserAgent();
+      const options = { headers };
       const response = await inatjs.observations.search( params, options );
 
       let count = response.total_results;

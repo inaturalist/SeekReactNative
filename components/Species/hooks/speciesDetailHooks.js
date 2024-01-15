@@ -5,7 +5,6 @@ import Realm from "realm";
 import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
-import createUserAgent from "../../../utility/userAgent";
 import realmConfig from "../../../models";
 
 const useSpeciesSeen = ( id: number ): any => {
@@ -52,10 +51,11 @@ const useTaxonDetails = ( id: number ): any => {
   useEffect( ( ) => {
     const fetchTaxonDetails = async ( ) => {
       const localeParams = { locale: i18n.locale };
-      const options = { user_agent: createUserAgent( ) };
 
       try {
-        const response = await inatjs.taxa.fetch( id, localeParams, options );
+        // TODO: we used to add the user agent string to options, but it actually does not get
+        // destructured in naturalistjs, so we would need to add it's usage like in get or post
+        const response = await inatjs.taxa.fetch( id, localeParams );
         const taxa = response.results[0];
         const scientificName = taxa.name;
         const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;

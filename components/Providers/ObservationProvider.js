@@ -123,6 +123,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     // for the first time a user observes a species that counts towards a challenge, having this check
     // here does not have any negative effects on the app I think.
     if ( currentSpeciesID.current === species.taxon_id ) {
+      currentSpeciesID.current = null;
       return;
     } else {
       currentSpeciesID.current = species.taxon_id;

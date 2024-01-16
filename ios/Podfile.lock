@@ -473,15 +473,15 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.6.0):
     - React-Core
-  - RNDeviceInfo (10.9.0):
+  - RNDeviceInfo (10.12.0):
     - React-Core
-  - RNFlashList (1.6.1):
+  - RNFlashList (1.6.3):
     - React-Core
   - RNFS (2.20.0):
     - React-Core
   - RNGestureHandler (2.13.0):
     - React-Core
-  - RNLocalize (3.0.2):
+  - RNLocalize (3.0.6):
     - React-Core
   - RNQuickAction (0.3.13):
     - React
@@ -517,7 +517,7 @@ PODS:
     - React-RCTImage
   - RNShare (9.4.1):
     - React-Core
-  - RNStoreReview (0.4.1):
+  - RNStoreReview (0.4.3):
     - React-Core
   - RNSVG (13.9.0):
     - React-Core
@@ -875,16 +875,16 @@ SPEC CHECKSUMS:
   RNCMaskedView: 949696f25ec596bfc697fc88e6f95cf0c79669b6
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: ccd988deb223cbb2e669e157ec576c2c6217128c
-  RNDeviceInfo: 02ea8b23e2280fa18e00a06d7e62804d74028579
-  RNFlashList: 236646d48f224a034f35baa0242e1b77db063b1e
+  RNDeviceInfo: db5c64a060e66e5db3102d041ebe3ef307a85120
+  RNFlashList: 4b4b6b093afc0df60ae08f9cbf6ccd4c836c667a
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 6e4dc6b7ab3a385386d4e36228bd065e5a611394
-  RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
+  RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: f186e85d9f28c9383d05ca39e11dd194f59093ec
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
-  RNStoreReview: 923b1c888c13469925bf0256dc2c046eab557ce5
+  RNStoreReview: 31dbfd0dac2eea9675f0b84f1dd3261c2110c337
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0

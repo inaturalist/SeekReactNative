@@ -68,7 +68,7 @@ const PostScreen = ( ): Node => {
       longitude: preciseLong,
       observed_on_string: initialDate,
       place_guess: null,
-      positional_accuracy: accuracy,
+      positional_accuracy: Math.trunc( accuracy ),
       taxon_id: taxaId,
       // this shows that the id is recommended by computer vision
       vision: true
@@ -91,7 +91,7 @@ const PostScreen = ( ): Node => {
       ...editedObservation,
       latitude: coords.latitude,
       longitude: coords.longitude,
-      positional_accuracy: coords.accuracy
+      positional_accuracy: Math.trunc( coords.accuracy )
     } } );
   }, [editedObservation] );
 

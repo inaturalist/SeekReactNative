@@ -38,7 +38,9 @@ const INatObs = ( { id, timesSeen, region }: Props ): Node => {
         taxon_id: id
       };
 
-      const options = { user_agent: createUserAgent() };
+      const headers = {};
+      headers["user-agent"] = createUserAgent();
+      const options = { headers };
 
       inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
         if ( isFocused ) {

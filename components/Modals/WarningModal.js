@@ -31,6 +31,13 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
       </StyledText>
     </View>
     <View style={viewStyles.marginTop} />
+    <StyledText
+      allowFontScaling={false}
+      style={[textStyles.text, textStyles.wideText]}
+    >
+      {i18n.t( "warning.tip_0" )}
+    </StyledText>
+    <View style={viewStyles.marginSmall} />
     <View>
       {[1, 2, 3].map( ( warning ) => {
         const iconName = icons[`warning_${warning}`];
@@ -47,7 +54,10 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
         );
       } )}
       <View style={viewStyles.marginSmall} />
-      <StyledText allowFontScaling={false} style={[textStyles.text, textStyles.wideText]}>
+      <StyledText
+        allowFontScaling={false}
+        style={[textStyles.text, textStyles.wideText]}
+      >
         {i18n.t( "warning.tip_4" )}
       </StyledText>
     </View>

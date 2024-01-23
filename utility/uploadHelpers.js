@@ -9,6 +9,9 @@ import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { fetchJSONWebToken } from "./tokenHelpers";
 import i18n from "../i18n";
+import { log } from "../react-native-logs.config";
+
+const logger = log.extend( "uploadHelpers.js" );
 
 // this was causing some users to only see internet errors, so removing this for the moment
 // const fetchWithTimeout = ( timeout, fetch ) => Promise.race( [
@@ -64,7 +67,9 @@ const appendPhotoToObservation = async ( photo: {
     } )
   };
 
-  const options = { api_token: token, user_agent: createUserAgent( ) };
+  const headers = {};
+  headers["user-agent"] = createUserAgent();
+  const options = { api_token: token, headers };
 
   try {
     await inatjs.observation_photos.create( photoParams, options );
@@ -170,7 +175,10 @@ const uploadObservation = async ( observation: {
   vision: boolean
 } ): Promise<any> => {
   const login = await fetchAccessToken( );
+  logger.debug( `login: ${login}` );
   const taxonId = await checkInactiveTaxonIds( observation.taxon_id );
+  logger.debug( `taxonId: ${taxonId}` );
+
 
   const params = {
     // realm doesn't let you use spread operator, apparently
@@ -194,14 +202,18 @@ const uploadObservation = async ( observation: {
 
   // catch server downtime or login token error
   if ( typeof token === "object" ) {
+    logger.debug( "token is an object that indicates a server downtime or login token error" );
     return token;
   }
   const options = { api_token: token, user_agent: createUserAgent( ) };
+  logger.debug( `options.api_token: ${options.api_token}` );
+  logger.debug( `options.user_agent: ${options.user_agent}` );
 
   try {
     if ( !observation.photo.id ) {
       const response = await inatjs.observations.create( params, options );
       const { id } = response[0];
+      logger.debug( `id: ${id}` );
 
       const photo: Object = await saveObservationId( id, observation.photo );
       return await uploadPhoto( photo, token );
@@ -212,6 +224,7 @@ const uploadObservation = async ( observation: {
       return await uploadPhoto( observation.photo, token );
     }
   } catch ( e ) {
+    logger.debug( `error: ${e}` );
     if ( e.message === "timeout" ) {
       return {
         error: {
@@ -272,6 +285,7 @@ const saveObservationToRealm = async ( observation: {
     return uploadObservation( latestObs );
   } catch ( e ) {
     console.log( "couldn't save observation to UploadObservationRealm", e );
+    logger.debug( `saveObservationToRealm error: ${e}` );
   }
 };
 

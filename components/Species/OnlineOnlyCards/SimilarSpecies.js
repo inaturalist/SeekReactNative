@@ -59,7 +59,9 @@ const SimilarSpecies = ( { id }: Props ): Node => {
           locale: i18n.locale
         };
 
-        const options = { user_agent: createUserAgent( ) };
+        const headers = {};
+        headers["user-agent"] = createUserAgent();
+        const options = { headers };
 
         inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
           const species = results.map( r => r.taxon );

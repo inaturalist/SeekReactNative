@@ -44,7 +44,9 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ): Node =
         taxon_id: id
       };
 
-      const options = { user_agent: createUserAgent() };
+      const headers = {};
+      headers["user-agent"] = createUserAgent();
+      const options = { headers };
 
       inatjs.observations.search( params, options ).then( ( { results } ) => {
         if ( results.length > 0 ) {

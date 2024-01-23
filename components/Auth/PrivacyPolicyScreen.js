@@ -388,7 +388,7 @@ const PrivacyPolicyScreen = (): React.Node => {
 </p>
 
 <p>
-  © Copyright 2023 iNaturalist. All Rights Reserved.
+  © Copyright 2024 iNaturalist. All Rights Reserved.
 </p>`;
 
   const seekHtml = `<p><i>Last Revised on July 11, 2023</i></p>
@@ -484,7 +484,7 @@ const PrivacyPolicyScreen = (): React.Node => {
   San Rafael, CA 94915-0357<br>
 </p>
 
-<p>© Copyright 2023 iNaturalist. All Rights Reserved.</p>
+<p>© Copyright 2024 iNaturalist. All Rights Reserved.</p>
 
 <p><i>Revised on July 11, 2023.</i></p>`;
 

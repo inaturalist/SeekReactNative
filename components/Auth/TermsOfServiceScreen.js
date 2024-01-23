@@ -178,7 +178,7 @@ const TermsOfServiceScreen = ( ): React.Node => {
 </ol>
 
 <p>
-  © Copyright 2023 iNaturalist. All rights reserved.
+  © Copyright 2024 iNaturalist. All rights reserved.
 </p>`;
 
   const DEFAULT_PROPS = {

@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Emlékezz rám",
+    "tip_0": "A Seek nem mindig pontos.",
     "tip_1": "Mindig nézz szét, vigyázz magadra és kerüld a birtokháborítást.",
     "tip_2": "Ne kóstolj meg mindent, amit a vadonban találsz!",
     "tip_3": "Tiszteld az élőlényeket, ne zaklasd, ne fogd meg őket. Némelyikük csíp vagy harap.",

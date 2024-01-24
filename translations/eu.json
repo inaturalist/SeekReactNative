@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Gogoratu",
+    "tip_0": "Seek may not always be correct.",
     "tip_1": "Begiratu beti zer duzun inguruan, zure burua zaindu eta ez sartu leku pribatuetan.",
     "tip_2": "Ez ezazu basabizitzan aurkitzen duzun ezer ere jan.",
     "tip_3": "Beste izaki bizidunak errespetatu, ez itzazu gogaitu edo ukitu. Batzuek mina edo hozka egin dezakete.",

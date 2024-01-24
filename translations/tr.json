@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Anımsa",
+    "tip_0": "Seek may not always be correct.",
     "tip_1": "Sürekli çevrenizin farkında olun, güvende kalın ve izinsiz girmeyin.",
     "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
     "tip_3": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır.",

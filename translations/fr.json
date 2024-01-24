@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Mémoriser",
+    "tip_0": "Seek peut ne pas toujours être correct.",
     "tip_1": "Soyez toujours en alerte, restez en sécurité et ne pénétrez pas sur les propriétés privées et les zones protégées.",
     "tip_2": "Ne mangez pas ce que vous trouvez dans la nature.",
     "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre.",

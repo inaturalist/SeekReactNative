@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Recorda",
+    "tip_0": "Seek may not always be correct.",
     "tip_1": "Estigues sempre atent al teu voltant, estigues segur i no entris en propietats privades.",
     "tip_2": "No mengis res que trobis al camp.",
     "tip_3": "Respecta totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar.",

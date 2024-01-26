@@ -80,7 +80,10 @@ const Announcements = ( ): React.Node => {
           .sort( ( a, b ) => new Date( a.start ) - new Date( b.start ) );
         setAnnouncements( homeAnnouncements );
       } )
-      .catch( ( err ) => console.log( err, "err fetching announcements" ) );
+      .catch( ( err ) => {
+        // TODO: handle error
+        console.log( err, "err fetching announcements" );
+      } );
   }, [locale] );
 
   const { userProfile } = useContext( UserContext );
@@ -120,7 +123,10 @@ const Announcements = ( ): React.Node => {
         // Refetch announcements
         fetchAnnouncements();
       } )
-      .catch( ( err ) => console.log( err, "err dismissing announcement" ) );
+      .catch( ( err ) => {
+        // TODO: handle error
+        console.log( err, "err dismissing announcement" );
+      } );
   };
 
   return (

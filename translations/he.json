@@ -635,7 +635,7 @@
   },
   "warning": {
     "remember": "יש לזכור",
-    "tip_0": "Seek may not always be correct.",
+    "tip_0": "יתכן כי Seek לא תמיד צודקת.",
     "tip_1": "יש לשמור תמיד על ערנות לסביבה, לשמור על עצמך ולא להיכנס לשטחים אסורים.",
     "tip_2": "אין לאכול דברים שמצאת בטבע.",
     "tip_3": "נא לכבד יצורים חיים אחרים ולא להציק להם או לגעת בהם. חלקם עשויים לעקוץ או לנשוך.",
@@ -962,30 +962,30 @@
     "december_2023_description_ecology": "אינטראקציות מסוגים רבים משפיעות על מערכות אקולוגיות ועל היצורים שבהן. אקולוגיה היא החקר של יצורים (ביוטיים) וסביבתם הפיזית (אביוטית). אינטראקציות ביוטיות הן בין יצורים חיים ואינטראקציות אביוטיות כוללות גורמים שאינם חיים כגון טמפרטורה, אור, מים ואדמה."
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
-    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
-    "march_2024_challenge_name_stewardship": "Stewardship Challenge",
-    "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
-    "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",
-    "april_2024_challenge_name_coexistence": "Coexistence Challenge",
-    "may_2024_challenge_name_phenology": "Phenology Challenge",
-    "may_2024_description_phenology": "Phenology is the study of seasonal patterns like flowering, fruiting, and migration. Some species can be found all year, while others are active in only one month.",
-    "may_2024_action_phenology": "Explore the species pages in Seek for everything you find this month. Look at the graph to see which months they are most commonly observed. Is this its most frequently observed month?",
-    "june_2024_challenge_name_flowers_food": "Flowers & Food Challenge",
-    "june_2024_description_flowers_food": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "june_2024_action_flowers_food": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your neighborhood?",
-    "july_2024_challenge_name_indicator_species": "Indicator Species Challenge",
-    "july_2024_description_indicator_species_2": "Healthy ecosystems provide us with benefits like clean water and air, carbon storage, and habitat to support biodiversity. A diversity of plants and arthropods are found in all types of terrestrial ecosystems.",
-    "july_2024_action_indicator_species": "Where were you able to find the species for this challenge? Was it an urban habitat or a more wild setting?",
-    "august_2024_challenge_name_flowing_water": "Flowing Water Challenge",
-    "august_2024_description_flowing_water": "Rivers and streams are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, flowing water is a special kind of freshwater habitat.",
-    "september_2024_challenge_name_predators_exoskeletons": "Predators with Exoskeletons Challenge",
-    "october_2024_challenge_name_eight_legged": "Eight-legged Challenge",
-    "october_2024_description_eight_legged": "All arachnids have eight legs. Did you know that not all arachnids are spiders? Mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions are also arachnids that can be found on all inhabited continents. Other arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "november_2024_challenge_name_predators_bones": "Predators with Bones Challenge",
-    "december_2024_challenge_name_solstice": "Solstice Challenge",
-    "december_2024_description_solstice": "The seasons are changing! In December of each year, the northern hemisphere has its winter solstice (shortest day of the year) and the southern hemisphere has its summer solstice (longest day of the year).",
-    "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
+    "january_2024_challenge_name_neighborhood": "אתגר השכנים",
+    "february_2024_challenge_name_life_in_flight": "אתגר החיים בתעופה",
+    "march_2024_challenge_name_stewardship": "אתגר השגרירות",
+    "march_2024_description_stewardship": "כל אחד ואחת יכול.ה להיות להשפיע לטובה על המגוון הביולוגי! ביכולתך להגן על הטבע במקום כמו החצר שלך, אזור מוגן, או פארק מקומי. הגנה על הטבע מתחילה בתשומת לב לצמחים, לפטריות ולבעלי החיים במקומות היקרים לך. חפש.י מינים שונים מכל ענפי עץ החיים.",
+    "march_2024_action_stewardship": "במחשבה על מין אחד שמצאת החודש, מה הוא צריך בשביל לשרוד? איזה דבר אחד את.ה יכול.ה לעשות כדי לוודא שצרכיו מסופקים?",
+    "april_2024_challenge_name_coexistence": "אתגר דו-קיום",
+    "may_2024_challenge_name_phenology": "אתגר פנולוגיה",
+    "may_2024_description_phenology": "פנולוגיה היא חקר של דפוסים עונתיים כגון פריחה, הנבת פירות, ונדידה. ישנם מינים שניתן למצוא אותם לאורך כל השנה, כאשר אחרים פעילים בחודש אחד בלבד.",
+    "may_2024_action_phenology": "חקרו את עמודי המינים ב-Seek עבור כל מה שתמצאו בחודש. הסתכלו על הגרף כדי לראות באילו חודשים הם נצפים הכי הרבה. האם זהו החודש הנצפה ביותר?",
+    "june_2024_challenge_name_flowers_food": "אתגר פרחים ומזון",
+    "june_2024_description_flowers_food": "מאביקים נותנים לנו מזון לאכילה ופרחים להנאה! באמצעות העברת אבקה בין הצמחים על גופם, מאביקים עוזרים לצמחים מסוגים רבים להתרבות.",
+    "june_2024_action_flowers_food": "יש לשים לב למאביקים שמסביבך. האם יש דבורים או פרפרים שמבקרים את הפרחים אצלך בשכונה?",
+    "july_2024_challenge_name_indicator_species": "אתגר מינים אינדיקטורים",
+    "july_2024_description_indicator_species_2": "מערכות אקולוגיות בריאות מספקות לנו הטבות כגון מים ואוויר נקיים, אחסון פחמן, ובתי גידול לתמיכה במגוון הביולוגי. מגוון צמחים ופרוקי רגליים נמצא בכל סוגי המערכות האקולוגיות היבשתיות.",
+    "july_2024_action_indicator_species": "איפה הצלחת למצוא את המינים עבור אתגר זה? האם בבית גידול עירוני או בסביבה יותר פראית?",
+    "august_2024_challenge_name_flowing_water": "אתגר מים זורמים",
+    "august_2024_description_flowing_water": "נהרות ונחלים הם מוקד של מגוון ביולוגי. הם תומכים בחיים החל מחסרי חוליות זעירים ועד ליונקים גדולים, ולכן מים מתוקים זורמים מהווים בית גידול ייחודי.",
+    "september_2024_challenge_name_predators_exoskeletons": "אתגר טורפים בעלי שלד חיצוני",
+    "october_2024_challenge_name_eight_legged": "אתגר שמונה רגליים",
+    "october_2024_description_eight_legged": "כל העכבישנים הם בעלי שמונה רגליים. הידעת שלא כל העכבישנים הם עכבישים? אקריות, קרציות, קוצרים (\"רַגְלָבִישָׁאִים\") ואפילו דמויי-עקרב קטנטנים הם גם עכבישנים שניתן למצוא בכל היבשות המיושבות. עכבישנים אחרים כמו עקרבים, עקרבי שוט, עקרבישאים, ועכשובאים נמצאים בדרך כלל באזורים בעולם שהם יותר חמים ו/או יבשים.",
+    "november_2024_challenge_name_predators_bones": "אתגר טורפים בעלי עצמות",
+    "december_2024_challenge_name_solstice": "אתגר מועד ההיפוך",
+    "december_2024_description_solstice": "העונות מתחלפות! מדי שנה בחודש דצמבר, חצי כדור הארץ הצפוני עובר את היפוך החורף שלו (היום הקצר ביותר בשנה) וחצי כדור הארץ הדרומי עובר את היפוך הקיץ שלו (היום הארוך ביותר בשנה).",
+    "december_2024_action_solstice": "במחשבה על המינים שראית החודש, איך הם שונים מהמינים שניתן למצוא ביוני?"
   },
   "seek_year_in_review": {
     "header": "סיכום שנת Seek",
@@ -1032,7 +1032,7 @@
     "dismiss": "להתעלם"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "המודל לא נמצא",
+    "not_found_error_description": "בטעינת האפליקציה, לא נמצא מודל הזיהוי. חוויית המצלמה שלך תהיה ללא זיהוי."
   }
 }

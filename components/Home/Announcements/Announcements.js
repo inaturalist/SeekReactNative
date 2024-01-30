@@ -13,7 +13,6 @@ import makeWebshell, {
   useAutoheight
 } from "@formidable-webview/webshell";
 
-import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
 import { viewStyles, textStyles } from "../../../styles/home/announcements";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
@@ -65,9 +64,7 @@ const Announcements = ( ): React.Node => {
     };
     const accessToken = await fetchAccessToken();
     const apiToken = await fetchJSONWebToken( accessToken );
-    const headers = {};
-    headers["user-agent"] = createUserAgent();
-    const options = { api_token: apiToken, headers };
+    const options = { api_token: apiToken };
     inatjs.announcements
       .search( params, options )
       .then( ( { total_results, results } ) => {
@@ -112,7 +109,7 @@ const Announcements = ( ): React.Node => {
   const dismiss = async ( ) => {
     const accessToken = await fetchAccessToken();
     const apiToken = await fetchJSONWebToken( accessToken );
-    const options = { api_token: apiToken, user_agent: createUserAgent() };
+    const options = { api_token: apiToken };
     inatjs.announcements
       .dismiss( { id }, options )
       .then( ( ) => {

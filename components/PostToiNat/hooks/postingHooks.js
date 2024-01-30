@@ -5,7 +5,6 @@ import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
 import { capitalizeNames } from "../../../utility/helpers";
-import createUserAgent from "../../../utility/userAgent";
 import { fetchUserLocation } from "../../../utility/locationHelpers";
 
 const useSearchSpecies = ( speciesName: ?string ): any => {
@@ -20,11 +19,7 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
         locale: i18n.locale
       };
 
-      const headers = {};
-      headers["user-agent"] = createUserAgent();
-      const options = { headers };
-
-      inatjs.taxa.autocomplete( params, options ).then( ( { results } ) => {
+      inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
         if ( results.length === 0 ) { return; }
 
         const newSuggestions = results.map( ( s ) => {

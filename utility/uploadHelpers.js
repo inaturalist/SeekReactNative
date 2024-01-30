@@ -3,7 +3,6 @@ import Realm from "realm";
 import inatjs, { FileUpload } from "inaturalistjs";
 
 import realmConfig from "../models/index";
-import createUserAgent from "../utility/userAgent";
 import { resizeImage } from "./photoHelpers";
 import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
@@ -67,9 +66,7 @@ const appendPhotoToObservation = async ( photo: {
     } )
   };
 
-  const headers = {};
-  headers["user-agent"] = createUserAgent();
-  const options = { api_token: token, headers };
+  const options = { api_token: token };
 
   try {
     await inatjs.observation_photos.create( photoParams, options );
@@ -138,10 +135,8 @@ const saveObservationId = async ( id: number, photo: Object ) => {
 };
 
 const checkInactiveTaxonIds = async ( id ) => {
-  const options = { user_agent: createUserAgent( ) };
-
   try {
-    const { results } = await inatjs.taxa.fetch( id, options );
+    const { results } = await inatjs.taxa.fetch( id );
     const isActive = results[0].is_active;
     const synonymousTaxonIds = results[0].current_synonymous_taxon_ids;
     const ancestorIds = results[0].ancestor_ids;
@@ -205,9 +200,8 @@ const uploadObservation = async ( observation: {
     logger.debug( "token is an object that indicates a server downtime or login token error" );
     return token;
   }
-  const options = { api_token: token, user_agent: createUserAgent( ) };
+  const options = { api_token: token };
   logger.debug( `options.api_token: ${options.api_token}` );
-  logger.debug( `options.user_agent: ${options.user_agent}` );
 
   try {
     if ( !observation.photo.id ) {

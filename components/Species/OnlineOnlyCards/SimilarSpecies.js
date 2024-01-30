@@ -11,7 +11,6 @@ import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
-import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
   +id: ?number
@@ -59,11 +58,7 @@ const SimilarSpecies = ( { id }: Props ): Node => {
           locale: i18n.locale
         };
 
-        const headers = {};
-        headers["user-agent"] = createUserAgent();
-        const options = { headers };
-
-        inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
+        inatjs.identifications.similar_species( params ).then( ( { results } ) => {
           const species = results.map( r => r.taxon );
 
           if ( isActive ) {

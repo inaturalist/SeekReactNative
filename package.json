@@ -6,7 +6,7 @@
   "scripts": {
     "android": "npx react-native run-android",
     "android:release": "npx react-native run-android --mode release",
-    "ios": "npx react-native run-ios --simulator='iPhone 14 Plus'",
+    "ios": "npx react-native run-ios",
     "ios:release": "npx react-native run-ios --device --mode Release",
     "start": "npx react-native start --reset-cache",
     "clean-start": "npx react-native clean-project-auto && npx pod-install && npm start",

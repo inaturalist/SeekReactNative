@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Muista",
+    "tip_0": "Seek may not always be correct.",
     "tip_1": "Ole aina tietoinen ympäristöstäsi, pysy turvassa, äläkä mene luvatta alueelle.",
     "tip_2": "Älä syö mitään, mitä löydät luonnosta.",
     "tip_3": "Kunnioita muita eläviä, älä häiritse tai kosketa niitä. Jotkut saattavat pistää tai purra.",

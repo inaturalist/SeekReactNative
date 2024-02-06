@@ -565,7 +565,7 @@
   },
   "about": {
     "header": "Acerca de",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "El equipo de desarrollo de iNaturalist diseñó y programó Seek:",
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
     "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta y Sylvain Morin. Extendemos un agradecimiento especial a Grant Van Horn de Visipedia por su ayuda con la tecnología de visión computarizada, así como a la comunidad de iNaturalist.",
@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Recuerda",
+    "tip_0": "Seek no siempre es preciso.",
     "tip_1": "Vigila siempre a tu alrededor, permanece seguro y no entres en propiedades privadas.",
     "tip_2": "No comas nada de lo que encuentres en la naturaleza.",
     "tip_3": "Respeta a todos los seres vivos, no los acoses ni los toques. Algunos pueden picar o morder.",

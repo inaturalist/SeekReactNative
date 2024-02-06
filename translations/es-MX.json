@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Recuerda",
+    "tip_0": "Seek may not always be correct.",
     "tip_1": "Vigila siempre a to alrededor, permanece seguro y no entres en propiedades privadas.",
     "tip_2": "No comas nada de lo que encuentres en la naturaleza.",
     "tip_3": "Respeta a todos los seres vivos, no los acoses ni los toques. Algunos pueden picar o morder.",

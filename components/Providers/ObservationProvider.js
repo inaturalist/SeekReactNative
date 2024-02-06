@@ -1,12 +1,11 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import type { Node } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
 import iconicTaxaIds from "../../utility/dictionaries/iconicTaxonDictById";
-import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
@@ -57,12 +56,10 @@ const ObservationProvider = ( { children }: Props ): Node => {
   };
 
   const fetchPhoto = useCallback( async ( id ) => {
-    const options = { user_agent: createUserAgent( ) };
-
     // probably should break this into a helper function to use in other places
     // like species nearby fetches for better offline experience
     const fetchWithTimeout = ( timeout ) => Promise.race( [
-      inatjs.taxa.fetch( id, options ),
+      inatjs.taxa.fetch( id ),
       new Promise( ( _, reject ) =>
           setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
         )
@@ -86,6 +83,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
   }, [] );
 
+  const currentSpeciesID = useRef( null );
   const handleSpecies = useCallback( async ( param ) => {
     if ( !observation ) { return; }
     const { predictions, errorCode, latitude } = observation.image;
@@ -115,6 +113,16 @@ const ObservationProvider = ( { children }: Props ): Node => {
       };
     };
 
+    // Only run this once for a given species because fetchSpeciesSeenDate throws an error in
+    // a C++ library of realm if the function is called twice. Even though this error only happens
+    // for the first time a user observes a species that counts towards a challenge, having this check
+    // here does not have any negative effects on the app I think.
+    if ( currentSpeciesID.current === species.taxon_id ) {
+      currentSpeciesID.current = null;
+      return;
+    } else {
+      currentSpeciesID.current = species.taxon_id;
+    }
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
     const mediumPhoto = await fetchPhoto( species.taxon_id );
 
@@ -272,7 +280,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const fetchOnlineVisionResults = async ( ) => {
       const uploadParams = await flattenUploadParameters( image );
       const token = createJwtToken( );
-      const options = { api_token: token, user_agent: createUserAgent() };
+      const options = { api_token: token };
 
       try {
         const r = await inatjs.computervision.score_image( uploadParams, options );

@@ -640,6 +640,157 @@ const challenges = {
     ],
     availableDate: ( new Date( 2023, 11, 1 ): Date ),
     action: "seek_challenges.action_dec_2020"
+  },
+  january2024: {
+    name: "seek_2024_challenges.january_2024_challenge_name_neighborhood",
+    description: "seek_challenges.may_2020_description",
+    totalSpecies: 10,
+    backgroundName: "img-challengedetail-january2024",
+    earnedIconName: "badge_inaturalist_january2024",
+    missions: [
+      "seek_challenges.mission_1_may_2020",
+      "seek_challenges.mission_2_may_2020",
+      "seek_challenges.mission_3_may_2020",
+      "seek_challenges.mission_4_may_2020"
+    ],
+    availableDate: ( new Date( 2024, 0, 1 ): Date ),
+    action: "seek_challenges.action_may_2020"
+  },
+  february2024: {
+    name: "seek_2024_challenges.february_2024_challenge_name_life_in_flight",
+    description:
+      "seek_2021_challenges.november_2021_description_ability_to_fly",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-february2024",
+    earnedIconName: "badge_inaturalist_february2024",
+    missions: ["seek_2021_challenges.november_2021_mission_1"],
+    availableDate: ( new Date( 2024, 1, 1 ): Date ),
+    action: "seek_2021_challenges.november_2021_action_were_they_flighted"
+  },
+  march2024: {
+    name: "seek_2024_challenges.march_2024_challenge_name_stewardship",
+    description: "seek_2024_challenges.march_2024_description_stewardship",
+    totalSpecies: 8,
+    backgroundName: "img-challengedetail-march2024",
+    earnedIconName: "badge_inaturalist_march2024",
+    missions: [
+      "natgeo_challenges.june_2021_mission_1",
+      "natgeo_challenges.june_2021_mission_2",
+      "natgeo_challenges.june_2021_mission_3",
+      "natgeo_challenges.june_2021_mission_4",
+      "natgeo_challenges.june_2021_mission_5",
+      "natgeo_challenges.june_2021_mission_6",
+      "natgeo_challenges.june_2021_mission_7"
+    ],
+    availableDate: ( new Date( 2024, 2, 1 ): Date ),
+    action: "seek_2024_challenges.march_2024_action_stewardship"
+  },
+  april2024: {
+    name: "seek_2024_challenges.april_2024_challenge_name_coexistence",
+    description: "seek_challenges.june_2020_description",
+    totalSpecies: 6,
+    backgroundName: "img-challengedetail-april2024",
+    earnedIconName: "badge_inaturalist_april2024",
+    missions: [
+      "seek_challenges.mission_1_june_2020",
+      "seek_challenges.mission_2_june_2020",
+      "seek_challenges.mission_3_june_2020"
+    ],
+    availableDate: ( new Date( 2024, 3, 1 ): Date ),
+    action: "seek_challenges.action_june_2020"
+  },
+  may2024: {
+    name: "seek_2024_challenges.may_2024_challenge_name_phenology",
+    description: "seek_2024_challenges.may_2024_description_phenology",
+    totalSpecies: 10,
+    backgroundName: "img-challengedetail-may2024",
+    earnedIconName: "badge_inaturalist_may2024",
+    missions: ["challenges.mission_1_april"],
+    availableDate: ( new Date( 2024, 4, 1 ): Date ),
+    action: "seek_2024_challenges.may_2024_action_phenology"
+  },
+  june2024: {
+    name: "seek_2024_challenges.june_2024_challenge_name_flowers_food",
+    description: "seek_2024_challenges.june_2024_description_flowers_food",
+    totalSpecies: 6,
+    backgroundName: "img-challengedetail-june2024",
+    earnedIconName: "badge_inaturalist_june2024",
+    missions: [
+      "seek_challenges.mission_1_aug_2020",
+      "seek_challenges.mission_2_aug_2020",
+      "seek_challenges.mission_3_aug_2020",
+      "seek_challenges.mission_4_aug_2020"
+    ],
+    availableDate: ( new Date( 2024, 5, 1 ): Date ),
+    action: "seek_2024_challenges.june_2024_action_flowers_food"
+  },
+  july2024: {
+    name: "seek_2024_challenges.july_2024_challenge_name_indicator_species",
+    description: "seek_2024_challenges.july_2024_description_indicator_species_2",
+    totalSpecies: 7,
+    backgroundName: "img-challengedetail-july2024",
+    earnedIconName: "badge_inaturalist_july2024",
+    missions: [
+      "natgeo_challenges.may_2021_mission_1",
+      "natgeo_challenges.may_2021_mission_2"
+    ],
+    availableDate: ( new Date( 2024, 6, 1 ): Date ),
+    action: "seek_2024_challenges.july_2024_action_indicator_species"
+  },
+  august2024: {
+    name: "seek_2024_challenges.august_2024_challenge_name_flowing_water",
+    description: "seek_2024_challenges.august_2024_description_flowing_water",
+    totalSpecies: 6,
+    backgroundName: "img-challengedetail-august2024",
+    earnedIconName: "badge_inaturalist_august2024",
+    missions: [
+      "seek_challenges.mission_1_july_2020",
+      "seek_challenges.mission_2_july_2020",
+      "seek_challenges.mission_3_july_2020"
+    ],
+    availableDate: ( new Date( 2024, 7, 1 ): Date ),
+    action: "seek_challenges.action_july_2020"
+  },
+  september2024: {
+    name: "seek_2024_challenges.september_2024_challenge_name_predators_exoskeletons",
+    description: "seek_2021_challenges.august_2021_description",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-september2024",
+    earnedIconName: "badge_inaturalist_september2024",
+    missions: ["seek_2021_challenges.august_2021_mission_1"],
+    availableDate: ( new Date( 2024, 8, 1 ): Date ),
+    action: "seek_2021_challenges.august_2021_action"
+  },
+  october2024: {
+    name: "seek_2024_challenges.october_2024_challenge_name_eight_legged",
+    description: "seek_2024_challenges.october_2024_description_eight_legged",
+    totalSpecies: 4,
+    backgroundName: "img-challengedetail-october2024",
+    earnedIconName: "badge_inaturalist_october2024",
+    missions: ["seek_2021_challenges.october_2021_mission_1"],
+    availableDate: ( new Date( 2024, 9, 1 ): Date ),
+    action: "seek_2021_challenges.october_2021_action"
+  },
+  november2024: {
+    name: "seek_2024_challenges.november_2024_challenge_name_predators_bones",
+    description:
+      "seek_2021_challenges.december_2021_description_vertebrate_animals_have",
+    totalSpecies: 2,
+    backgroundName: "img-challengedetail-november2024",
+    earnedIconName: "badge_inaturalist_november2024",
+    missions: ["seek_2021_challenges.december_2021_mission_1"],
+    availableDate: ( new Date( 2024, 10, 1 ): Date ),
+    action: "seek_2021_challenges.december_2021_action_think_about_predators"
+  },
+  december2024: {
+    name: "seek_2024_challenges.december_2024_challenge_name_solstice",
+    description: "seek_2024_challenges.december_2024_description_solstice",
+    totalSpecies: 10,
+    backgroundName: "img-challengedetail-december2024",
+    earnedIconName: "badge_inaturalist_december2024",
+    missions: ["natgeo_challenges.mar_2021_mission_1"],
+    availableDate: ( new Date( 2024, 11, 1 ): Date ),
+    action: "seek_2024_challenges.december_2024_action_solstice"
   }
 };
 

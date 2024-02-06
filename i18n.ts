@@ -195,9 +195,9 @@ i18n.enableFallback = true;
     }
     return ["other"];
   } );
-  i18n.pluralization.register( "cs", ( _i18n, count ) => { return westSlavic( count, "cs" ); } );
-  i18n.pluralization.register( "fr", ( _i18n, count ) => { return oneUptoTwoOther( count, "fr" ); } );
-  i18n.pluralization.register( "hr", oneFewOther );
+  i18n.pluralization.register( "cs", ( _i18n, count ) => westSlavic( count, "cs" ) );
+  i18n.pluralization.register( "fr", ( _i18n, count ) => oneUptoTwoOther( count, "fr" ) );
+  i18n.pluralization.register( "hr", ( _i18n, count ) => oneFewOther( count, "hr" ) );
   i18n.pluralization.register( "id", other );
   i18n.pluralization.register( "ja", other );
   i18n.pluralization.register( "ko", other );
@@ -273,9 +273,9 @@ i18n.enableFallback = true;
     }
     return ["other"];
   } );
-  i18n.pluralization.register( "ru", ( _i18n, count ) => { return eastSlavic( count, "ru" ); } );
-  i18n.pluralization.register( "sk", ( _i18n, count ) => { return westSlavic( count, "sk" ); } );
-  i18n.pluralization.register( "uk", ( _i18n, count ) => { return eastSlavic( count, "uk" ); } );
+  i18n.pluralization.register( "ru", ( _i18n, count ) => eastSlavic( count, "ru" ) );
+  i18n.pluralization.register( "sk", ( _i18n, count ) => westSlavic( count, "sk" ) );
+  i18n.pluralization.register( "uk", ( _i18n, count ) => eastSlavic( count, "uk" ) );
   i18n.pluralization.register( "zh", other );
   i18n.pluralization.register( "zh-CN", other );
   i18n.pluralization.register( "zh-HK", other );

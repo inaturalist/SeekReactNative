@@ -3,12 +3,12 @@
 buildscript {
     ext {
         buildToolsVersion = "33.0.0"
-        minSdkVersion = 23
+        minSdkVersion = 26
         compileSdkVersion = 33
         targetSdkVersion = 33
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
-        kotlinVersion = "1.6.20"
+        kotlinVersion = "1.7.21"
         // This specifies which tensorflow-lite version to use for our vision-plugin.
         tensorflowVersion = "2.1.0"
     }

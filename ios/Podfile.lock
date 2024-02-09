@@ -372,7 +372,7 @@ PODS:
     - React
   - react-native-webview (11.26.1):
     - React-Core
-  - react-native-worklets-core (0.2.2):
+  - react-native-worklets-core (0.2.4):
     - React
     - React-callinvoker
     - React-Core
@@ -532,7 +532,7 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.13)
   - SocketRocket (0.6.0)
-  - VisionCamera (3.6.3):
+  - VisionCamera (3.6.12):
     - React
     - React-callinvoker
     - React-Core
@@ -813,7 +813,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  boost: 57d2868c099736d80fcd648bf211b4431e51a558
+  boost: 7dcd2de282d72e344012f7d6564d024930a6a440
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
@@ -864,7 +864,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
-  react-native-worklets-core: 81629f0e2629a63336221a8e6a60aaa5cdbd1bf9
+  react-native-worklets-core: b4094f51cb2bc649e297206425cb8956f4945e3e
   React-perflogger: 75b0e25075c67565a830985f3c373e2eae5389e0
   React-RCTActionSheet: a0c3e916b327e297d124d9ebe8b0c721840ee04d
   React-RCTAnimation: 3da7025801d7bf0f8cfd94574d6278d5b82a8b88
@@ -900,7 +900,7 @@ SPEC CHECKSUMS:
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  VisionCamera: aebb5adef1296732983129c5fe054337b15c3c0b
+  VisionCamera: ba8f52876b75381dcd1cbad55d355d2cbba603fe
   VisionCameraPluginInatVision: 79bb258db75218889c74d0897ecba676492c4def
   Yoga: 39310a10944fc864a7550700de349183450f8aaa
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

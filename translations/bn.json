@@ -13,7 +13,7 @@
   },
   "get_started": {
     "header": "শুরু করুন",
-    "tip_1": "সিক ক্যামেরা দিয়ে ছবি তুলে আসে পাশের প্রজাতি সনাক্ত করুন। ",
+    "tip_1": "Take photos with Seek’s Camera to identify living things all around you.",
     "tip_2": "Learn about the species that have been observed around you with Species Nearby.",
     "tip_3": "Earn badges and raise your level by identifying different types of species and participating in challenges."
   },
@@ -95,7 +95,7 @@
     "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
   },
   "inat_signup": {
-    "welcome": "সিক ই স্বাগতম",
+    "welcome": "Welcome to Seek!",
     "enter_birthday": "অনুগ্রহ করে আপনার জন্ম তারিখ প্রদান করুন।",
     "permission": "একাউন্ট খুলতে আপনার বয়স ১৩+ হতে হবে। ",
     "privacy": "নিরাপত্তা নীতি",
@@ -635,6 +635,7 @@
   },
   "warning": {
     "remember": "Remember",
+    "tip_0": "Seek may not always be correct.",
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
@@ -793,7 +794,7 @@
     "may_2021_mission_1": "Find any 5 plants from any of the following families:\n\nAsteraceae (Sunflowers, Daisies, Asters, and Allies);\nFabaceae (Legumes);\nLamiaceae (Mint Family);\nAcanthaceae (Acanthus Family);\nMalvaceae (Mallow and Hibiscus Family);\nBignoniaceae (Bignonia Family);\nPassifloraceae (Passionfruit Family)",
     "may_2021_mission_2": "Find 2 arthropods (insects, arachnids, crustaceans)",
     "may_2021_challenge_name": "Healthy Ecosystems Challenge",
-    "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies) are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
+    "may_2021_description": "Healthy ecosystems provide us with many different benefits, including cleaning our water and air, storing carbon, and providing habitat to support biodiversity. Some species—such as lichens, moss and odonates (dragonflies and damselflies)—are known to be indicators of ecological health. When you see these species it's a good sign that your ecosystem is healthy!",
     "may_2021_action": "Healthy ecosystems have important benefits on our own health and well-being. Time spent in nature can help people recover from stress, improve their mood and think more clearly. Find a peaceful spot in nature and spend an hour focusing on the sights, sounds, smells, and textures around you. Write down some of your observations. How does this time spent in nature make you feel? Share a photo of your spot using #NatGeoSeekChallenge on Twitter!",
     "may_2021_badge_name": "EcoHealth Badge",
     "may_2021_photographer": "Photo by: Jim Richardson / National Geographic",
@@ -806,7 +807,7 @@
     "june_2021_mission_7": "Find 1 arachnid",
     "june_2021_challenge_name": "Conservation Challenge",
     "june_2021_description": "All of us, regardless of our age or experience, can have a positive impact on biodiversity conservation. For example, we can help take care of a particular place like our own yard, a protected area, or a local park. Protecting nature starts by learning about the plants, fungi and animals that are in the places that you care about. Your challenge this month is to look in your yard or a local park and take an inventory of as much biodiversity as you can.",
-    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months— what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
+    "june_2021_action": "This month, focus on learning something about each species you document, including which ones are native and which are introduced.  Reflect on all of your observations over the past four months—what differences have you noticed in biodiversity and the human footprint across this period and across the different places you've explored? Identify something you can commit to doing to help make a local place (such as your yard or a park) healthier for native species. Write down your goal, take a photo of it, and share it with us at #NatGeoSeekChallenge on Twitter!",
     "june_2021_badge_name": "Conservation Badge",
     "june_2021_photographer": "Photo by: Keith Ladzinski / National Geographic"
   },
@@ -959,6 +960,32 @@
     "november_2023_action_trees": "Do you have a favorite kind of tree, or even a favorite individual tree? Read more about it. In what ways do people benefit from it? How do other plants or animals benefit?",
     "december_2023_challenge_name_ecology": "Ecology Challenge",
     "december_2023_description_ecology": "Many different kinds of interactions influence ecosystems and their organisms. Ecology is the study of organisms (biotic) and their physical environment (aboitic). Biotic interactions are between living things and aboitic interactions include the non-living factors like temperature, water, light, and soil."
+  },
+  "seek_2024_challenges": {
+    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
+    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
+    "march_2024_challenge_name_stewardship": "Stewardship Challenge",
+    "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
+    "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",
+    "april_2024_challenge_name_coexistence": "Coexistence Challenge",
+    "may_2024_challenge_name_phenology": "Phenology Challenge",
+    "may_2024_description_phenology": "Phenology is the study of seasonal patterns like flowering, fruiting, and migration. Some species can be found all year, while others are active in only one month.",
+    "may_2024_action_phenology": "Explore the species pages in Seek for everything you find this month. Look at the graph to see which months they are most commonly observed. Is this its most frequently observed month?",
+    "june_2024_challenge_name_flowers_food": "Flowers & Food Challenge",
+    "june_2024_description_flowers_food": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "june_2024_action_flowers_food": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your neighborhood?",
+    "july_2024_challenge_name_indicator_species": "Indicator Species Challenge",
+    "july_2024_description_indicator_species_2": "Healthy ecosystems provide us with benefits like clean water and air, carbon storage, and habitat to support biodiversity. A diversity of plants and arthropods are found in all types of terrestrial ecosystems.",
+    "july_2024_action_indicator_species": "Where were you able to find the species for this challenge? Was it an urban habitat or a more wild setting?",
+    "august_2024_challenge_name_flowing_water": "Flowing Water Challenge",
+    "august_2024_description_flowing_water": "Rivers and streams are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, flowing water is a special kind of freshwater habitat.",
+    "september_2024_challenge_name_predators_exoskeletons": "Predators with Exoskeletons Challenge",
+    "october_2024_challenge_name_eight_legged": "Eight-legged Challenge",
+    "october_2024_description_eight_legged": "All arachnids have eight legs. Did you know that not all arachnids are spiders? Mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions are also arachnids that can be found on all inhabited continents. Other arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
+    "november_2024_challenge_name_predators_bones": "Predators with Bones Challenge",
+    "december_2024_challenge_name_solstice": "Solstice Challenge",
+    "december_2024_description_solstice": "The seasons are changing! In December of each year, the northern hemisphere has its winter solstice (shortest day of the year) and the southern hemisphere has its summer solstice (longest day of the year).",
+    "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
   },
   "seek_year_in_review": {
     "header": "Seek Year in Review",

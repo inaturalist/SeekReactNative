@@ -19,6 +19,10 @@ const Modal = ( { showModal, closeModal, modal }: Props ): React.Node => (
     swipeDirection="down"
     useNativeDriverForBackdrop
     useNativeDriver
+    // the following two lines prevent flickering
+    // while modal is closing
+    backdropTransitionOutTiming={0}
+    hideModalContentWhileAnimating
   >
     {modal}
   </RNModal>

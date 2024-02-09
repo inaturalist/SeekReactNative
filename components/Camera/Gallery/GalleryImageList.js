@@ -3,7 +3,7 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Platform, FlatList } from "react-native";
 import type { Node } from "react";
-import { getPredictionsForImage } from "react-native-inat-camera";
+import { getPredictionsForImage } from "vision-camera-plugin-inatvision";
 import { useNavigation } from "@react-navigation/native";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
@@ -25,6 +25,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
+  // TODO: this is now only ever used once, so it doesn't need to be a callback
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
     const { navigate } = navigation;
 
@@ -85,30 +86,29 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
 
   const getPredictions = useCallback( ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );
-    const reactUri = path[1];
+    const reactUri = Platform.OS === "android" ? path[1] : uri;
 
     getPredictionsForImage( {
       uri: reactUri,
-      modelFilename: dirModel,
-      taxonomyFilename: dirTaxonomy
-    } ).then( ( { predictions } ) => {
-      navigateToResults( uri, timestamp, location, predictions );
-    } ).catch( ( err ) => {
-      console.log( "Error", err );
-    } );
+      modelPath: dirModel,
+      taxonomyPath: dirTaxonomy,
+      version: "1.0"
+    } )
+      .then( ( result ) => {
+        const { predictions } = result;
+        navigateToResults( uri, timestamp, location, Platform.OS === "android" ? predictions : result );
+      } )
+      .catch( ( err ) => {
+        console.log( "Error", err );
+      } );
   }, [navigateToResults] );
 
   const selectImage = useCallback( ( item ) => {
     setImageSelected( true );
     setLoading( );
     const { timestamp, location, image } = item.node;
-
-    if ( Platform.OS === "android" ) {
-      getPredictions( image.uri, timestamp, location );
-    } else {
-      navigateToResults( image.uri, timestamp, location );
-    }
-  }, [getPredictions, navigateToResults, setLoading] );
+    getPredictions( image.uri, timestamp, location );
+  }, [getPredictions, setLoading] );
 
   const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [selectImage] );
 

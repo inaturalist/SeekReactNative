@@ -10,7 +10,6 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/species/speciesStats";
-import createUserAgent from "../../../utility/userAgent";
 import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
@@ -44,9 +43,7 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ): Node =
         taxon_id: id
       };
 
-      const options = { user_agent: createUserAgent() };
-
-      inatjs.observations.search( params, options ).then( ( { results } ) => {
+      inatjs.observations.search( params ).then( ( { results } ) => {
         if ( results.length > 0 ) {
           const taxonStats = results[0].taxon;
           if ( taxonStats ) {

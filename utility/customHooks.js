@@ -16,7 +16,6 @@ import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 import { createRegion } from "./locationHelpers";
-import createUserAgent from "./userAgent";
 
 const useScrollToTop = (
   scrollView: {
@@ -416,8 +415,7 @@ const useUploadedObservationCount = ( {
       if ( year ) {
         params = {...params, year};
       }
-      const options = { user_agent: createUserAgent() };
-      const response = await inatjs.observations.search( params, options );
+      const response = await inatjs.observations.search( params );
 
       let count = response.total_results;
       if ( !year ) {

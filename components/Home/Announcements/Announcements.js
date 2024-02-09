@@ -13,7 +13,6 @@ import makeWebshell, {
   useAutoheight
 } from "@formidable-webview/webshell";
 
-import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
 import { viewStyles, textStyles } from "../../../styles/home/announcements";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
@@ -65,7 +64,7 @@ const Announcements = ( ): React.Node => {
     };
     const accessToken = await fetchAccessToken();
     const apiToken = await fetchJSONWebToken( accessToken );
-    const options = { api_token: apiToken, user_agent: createUserAgent() };
+    const options = { api_token: apiToken };
     inatjs.announcements
       .search( params, options )
       .then( ( { total_results, results } ) => {
@@ -78,7 +77,10 @@ const Announcements = ( ): React.Node => {
           .sort( ( a, b ) => new Date( a.start ) - new Date( b.start ) );
         setAnnouncements( homeAnnouncements );
       } )
-      .catch( ( err ) => console.log( err, "err fetching announcements" ) );
+      .catch( ( err ) => {
+        // TODO: handle error
+        console.log( err, "err fetching announcements" );
+      } );
   }, [locale] );
 
   const { userProfile } = useContext( UserContext );
@@ -107,7 +109,7 @@ const Announcements = ( ): React.Node => {
   const dismiss = async ( ) => {
     const accessToken = await fetchAccessToken();
     const apiToken = await fetchJSONWebToken( accessToken );
-    const options = { api_token: apiToken, user_agent: createUserAgent() };
+    const options = { api_token: apiToken };
     inatjs.announcements
       .dismiss( { id }, options )
       .then( ( ) => {
@@ -118,7 +120,10 @@ const Announcements = ( ): React.Node => {
         // Refetch announcements
         fetchAnnouncements();
       } )
-      .catch( ( err ) => console.log( err, "err dismissing announcement" ) );
+      .catch( ( err ) => {
+        // TODO: handle error
+        console.log( err, "err dismissing announcement" );
+      } );
   };
 
   return (

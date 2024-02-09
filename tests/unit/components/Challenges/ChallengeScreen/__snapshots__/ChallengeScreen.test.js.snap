@@ -3,9 +3,12 @@
 exports[`ChallengeScreen should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    [
-      "top",
-    ]
+    {
+      "bottom": "off",
+      "left": "off",
+      "right": "off",
+      "top": "additive",
+    }
   }
   style={
     {
@@ -2149,11 +2152,12 @@ exports[`ChallengeScreen should render correctly 1`] = `
   </View>
   <RNCSafeAreaView
     edges={
-      [
-        "right",
-        "bottom",
-        "left",
-      ]
+      {
+        "bottom": "additive",
+        "left": "additive",
+        "right": "additive",
+        "top": "off",
+      }
     }
     style={
       {

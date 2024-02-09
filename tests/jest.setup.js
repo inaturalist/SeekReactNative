@@ -3,7 +3,7 @@ import "react-native-gesture-handler/jestSetup";
 import "@shopify/flash-list/jestSetup";
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
-import mockRNLocalize from "react-native-localize/mock";
+import * as mockRNLocalize from "react-native-localize/mock";
 import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 

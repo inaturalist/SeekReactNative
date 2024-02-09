@@ -39,7 +39,7 @@ const drawerContent = props => <SideMenu {...props} />;
 const config = { headerShown: false };
 const screenOptions = { ...config, drawerType: "front" };
 
-const SideMenuDrawer = (): Props => (
+const SideDrawer = (): Props => (
   <Drawer.Navigator
     initialRouteName="Drawer"
     drawerContent={drawerContent}
@@ -63,4 +63,4 @@ const SideMenuDrawer = (): Props => (
   </Drawer.Navigator>
 );
 
-export default SideMenuDrawer;
+export default SideDrawer;

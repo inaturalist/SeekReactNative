@@ -20,4 +20,4 @@ Seek sal toestemming vra om liggingdienste te aktiveer maar u ligging word verva
 
 Ons beeldherkenningstegnologie is gebaseer op waarnemings wat by iNaturalist.org en medewerkers ingedien is, en wat deur die iNaturalist-gemeenskap geïdentifiseer is.
 
-Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.
+Seek is deel van iNaturalist, 'n nie-winsgewende organisasie. Seek is gemaak deur die iNaturalist span met ondersteuning van die California Academy of Sciences, die National Geographic Society, Our Planet op Netflix, WWF, HHMI Tangled Bank Studios, en Visipedia.

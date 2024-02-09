@@ -65,6 +65,7 @@ const CameraSettings = ( ): Node => {
   return (
     <>
       <StyledText style={textStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</StyledText>
+      <View style={viewStyles.marginSmall} />
       <StyledText style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => <RadioButton
             key={`${obj.label}${i}`}

@@ -29,7 +29,7 @@ const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSel
   const backAction = useCallback( async ( ) => {
     const routeName = await getRoute( );
     if ( routeName ) {
-      // ChallengeDetails, Observations, Home, or Match
+      // ChallengeDetails, Observations, Home, or Match, or SeekYearInReview
       if ( routeName === "SideMenu" ) {
         resetRouter( navigation );
       } else {

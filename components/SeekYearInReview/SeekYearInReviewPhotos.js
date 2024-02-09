@@ -20,6 +20,7 @@ import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
 import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
 import { formatDateToDisplayShort } from "../../utility/dateHelpers";
+import { setRoute } from "../../utility/helpers";
 
 const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );
@@ -33,6 +34,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
       return;
     }
     setId( observation.taxon.id );
+    setRoute( "SeekYearInReview" );
     navigation.navigate( "Species" );
   };
 

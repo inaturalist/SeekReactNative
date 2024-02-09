@@ -3,9 +3,12 @@
 exports[`SeekYearInReviewScreen should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    [
-      "top",
-    ]
+    {
+      "bottom": "off",
+      "left": "off",
+      "right": "off",
+      "top": "additive",
+    }
   }
   style={
     {
@@ -156,7 +159,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           deviceHeight={null}
           deviceWidth={null}
           hardwareAccelerated={false}
-          hideModalContentWhileAnimating={false}
+          hideModalContentWhileAnimating={true}
           onBackdropPress={[Function]}
           onModalHide={[Function]}
           onModalWillHide={[Function]}
@@ -1959,11 +1962,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
   </RCTScrollView>
   <RNCSafeAreaView
     edges={
-      [
-        "right",
-        "bottom",
-        "left",
-      ]
+      {
+        "bottom": "additive",
+        "left": "additive",
+        "right": "additive",
+        "top": "off",
+      }
     }
     style={
       {

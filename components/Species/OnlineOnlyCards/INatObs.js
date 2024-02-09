@@ -13,7 +13,6 @@ import i18n from "../../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../../styles/species/iNatObs";
 import logos from "../../../assets/logos";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
-import createUserAgent from "../../../utility/userAgent";
 import { localizeNumber } from "../../../utility/helpers";
 import StyledText from "../../UIComponents/StyledText";
 
@@ -38,11 +37,7 @@ const INatObs = ( { id, timesSeen, region }: Props ): Node => {
         taxon_id: id
       };
 
-      const headers = {};
-      headers["user-agent"] = createUserAgent();
-      const options = { headers };
-
-      inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
+      inatjs.observations.speciesCounts( params ).then( ( { results } ) => {
         if ( isFocused ) {
           setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
         }

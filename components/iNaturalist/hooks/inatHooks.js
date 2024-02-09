@@ -7,7 +7,6 @@ import { useNetInfo } from "@react-native-community/netinfo";
 import i18n from "../../../i18n";
 import { capitalizeNames, shuffleList } from "../../../utility/helpers";
 import { localizeAttributions } from "../../../utility/photoHelpers";
-import createUserAgent from "../../../utility/userAgent";
 
 const useFetchPhotos = ( ): any => {
   const netInfo = useNetInfo();
@@ -29,11 +28,7 @@ const useFetchPhotos = ( ): any => {
         locale: i18n.locale
       };
 
-      const headers = {};
-      headers["user-agent"] = createUserAgent();
-      const options = { headers };
-
-      inatjs.observations.search( params, options ).then( ( { results } ) => {
+      inatjs.observations.search( params ).then( ( { results } ) => {
         const taxa = results.map( ( r ) => r.taxon );
 
         const projectPhotos = [];

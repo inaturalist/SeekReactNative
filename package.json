@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.15.6",
+  "version": "2.15.7",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -44,7 +44,7 @@
     "i18n-js": "^4.3.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "react": "18.2.0",
-    "react-native": "0.71.15",
+    "react-native": "0.71.16",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^10.12.0",
@@ -87,7 +87,7 @@
     "react-native-webp-format": "^1.2.0",
     "react-native-webview": "^11.26.1",
     "realm": "^12.5.1",
-    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision"
+    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#image-prediction-from-file"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

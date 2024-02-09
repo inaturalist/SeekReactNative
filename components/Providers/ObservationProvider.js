@@ -6,7 +6,6 @@ import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
 import iconicTaxaIds from "../../utility/dictionaries/iconicTaxonDictById";
-import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
@@ -57,14 +56,10 @@ const ObservationProvider = ( { children }: Props ): Node => {
   };
 
   const fetchPhoto = useCallback( async ( id ) => {
-    const headers = {};
-    headers["user-agent"] = createUserAgent();
-    const options = { headers };
-
     // probably should break this into a helper function to use in other places
     // like species nearby fetches for better offline experience
     const fetchWithTimeout = ( timeout ) => Promise.race( [
-      inatjs.taxa.fetch( id, options ),
+      inatjs.taxa.fetch( id ),
       new Promise( ( _, reject ) =>
           setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
         )
@@ -285,9 +280,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const fetchOnlineVisionResults = async ( ) => {
       const uploadParams = await flattenUploadParameters( image );
       const token = createJwtToken( );
-      const headers = {};
-      headers["user-agent"] = createUserAgent();
-      const options = { api_token: token, headers };
+      const options = { api_token: token };
 
       try {
         const r = await inatjs.computervision.score_image( uploadParams, options );

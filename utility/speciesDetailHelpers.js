@@ -1,8 +1,6 @@
 // @flow
 import inatjs from "inaturalistjs";
 
-import createUserAgent from "./userAgent";
-
 const createHistogramChartData = ( results ): Array<{ month: number, count: number }> => {
   const countsByMonth = results.month_of_year;
   const months = Array.from( { length: 12 }, ( v, i ) => i + 1 );
@@ -31,12 +29,8 @@ const fetchHistogram = async ( id: number, region?: ?{
     params.radius = 50;
   }
 
-  const headers = {};
-  headers["user-agent"] = createUserAgent();
-  const options = { headers };
-
   try {
-    const { results } = await inatjs.observations.histogram( params, options );
+    const { results } = await inatjs.observations.histogram( params );
     return createHistogramChartData( results );
   } catch ( e ) {
     return [];

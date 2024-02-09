@@ -25,6 +25,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
+  // TODO: this is now only ever used once, so it doesn't need to be a callback
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
     const { navigate } = navigation;
 

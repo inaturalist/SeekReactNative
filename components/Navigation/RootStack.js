@@ -57,6 +57,7 @@ const modal = { presentation: "modal" };
 const Stack = createStackNavigator( );
 
 const App = ( ): Props => (
+  // eslint-disable-next-line react-native/no-inline-styles
   <GestureHandlerRootView style={{ flex: 1 }}>
     <SafeAreaProvider>
       <NavigationContainer>

@@ -270,7 +270,6 @@ const FrameProcessorCamera = ( props ): Node => {
             pixelFormat={pixelFormatPatch()}
             onError={onError}
             orientation={orientationPatch( deviceOrientation )}
-            enableGpuBuffers={true}
           />
         </GestureDetector>
         <FocusSquare

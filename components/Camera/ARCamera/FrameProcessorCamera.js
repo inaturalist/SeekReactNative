@@ -103,7 +103,7 @@ const FrameProcessorCamera = ( props ): Node => {
       "worklet";
       // Reminder: this is a worklet, running on the UI thread.
       try {
-        const results = InatVision.inatVision( frame, {
+        const result = InatVision.inatVision( frame, {
           version: "1.0",
           modelPath,
           taxonomyPath,
@@ -111,7 +111,7 @@ const FrameProcessorCamera = ( props ): Node => {
           filterByTaxonId,
           negativeFilter
         } );
-        REA.runOnJS( onTaxaDetected )( results );
+        REA.runOnJS( onTaxaDetected )( result );
       } catch ( classifierError ) {
         // TODO: needs to throw Exception in the native code for it to work here?
         // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge

@@ -192,24 +192,9 @@ const ARCamera = ( ): Node => {
     // This is how the legacy camera received predictions
     let predictions = { ...event.nativeEvent };
     if ( useVisionCamera ) {
-      const rankNumbers = {
-        // $FlowIgnore
-        10: "species",
-        // $FlowIgnore
-        20: "genus",
-        // $FlowIgnore
-        30: "family",
-        // $FlowIgnore
-        40: "order",
-        // $FlowIgnore
-        50: "class"
-      };
       const transformedResults = {};
       event.predictions.forEach( ( prediction ) => {
-        const rankString = rankNumbers[prediction.rank_level];
-        if ( rankString ) {
-          transformedResults[rankString] = [prediction];
-        }
+        transformedResults[prediction.rank] = [prediction];
       } );
       // Override for vision camera, which doesn't have the same structure as legacy camera
       predictions = transformedResults;

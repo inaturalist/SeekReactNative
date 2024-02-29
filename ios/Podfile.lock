@@ -530,7 +530,7 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
-  - VisionCameraPluginInatVision (0.1.0):
+  - VisionCameraPluginInatVision (2.0.0-beta.0):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -890,7 +890,7 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   VisionCamera: 523b49054bee9dace64189ab6631cb41e8b83fe0
-  VisionCameraPluginInatVision: 79bb258db75218889c74d0897ecba676492c4def
+  VisionCameraPluginInatVision: cee8182ce3b30d4a7b84e6f9ab318b252cc16272
   Yoga: e29645ec5a66fb00934fad85338742d1c247d4cb
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

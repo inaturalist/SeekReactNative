@@ -192,7 +192,6 @@ const ARCamera = ( ): Node => {
     // This is how the legacy camera received predictions
     let predictions = { ...event.nativeEvent };
     if ( useVisionCamera ) {
-      // TODO: move this to plugin for iOS
       const rankNumbers = {
         // $FlowIgnore
         10: "species",
@@ -207,7 +206,6 @@ const ARCamera = ( ): Node => {
       };
       const transformedResults = {};
       event.predictions.forEach( ( prediction ) => {
-        // TODO: this string should be prediction.rank
         const rankString = rankNumbers[prediction.rank_level];
         if ( rankString ) {
           transformedResults[rankString] = [prediction];

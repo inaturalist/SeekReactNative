@@ -188,31 +188,11 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event, params ) => {
-    /*
-      Using FrameProcessorCamera results in this as predictions atm on Android
-      [
-        {"stateofmatter": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]},
-        {"order": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]},
-        {"species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]}
-      ]
-
-      Previously, we were using the INatCamera, which returned this:
-      {
-        "stateofmatter": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}],
-        "order": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}],
-        "species": [{"ancestor_ids": [Array], "name": xx, "rank": xx, "score": xx, "taxon_id": xx}]
-      }
-    */
+  const handleTaxaDetected = ( event ) => {
+    // This is how the legacy camera received predictions
     let predictions = { ...event.nativeEvent };
-    if ( useVisionCamera && isAndroid ) {
-      const transformedResults = {};
-      event.forEach( ( result ) => {
-        const rankString = Object.keys( result )[0];
-        transformedResults[rankString] = result[rankString];
-      } );
-      predictions = transformedResults;
-    } else if ( useVisionCamera && !isAndroid ) {
+    if ( useVisionCamera ) {
+      // TODO: move this to plugin for iOS
       const rankNumbers = {
         // $FlowIgnore
         10: "species",
@@ -226,12 +206,14 @@ const ARCamera = ( ): Node => {
         50: "class"
       };
       const transformedResults = {};
-      event.forEach( ( result ) => {
-        const rankString = rankNumbers[result.rank];
+      event.predictions.forEach( ( prediction ) => {
+        // TODO: this string should be prediction.rank
+        const rankString = rankNumbers[prediction.rank_level];
         if ( rankString ) {
-          transformedResults[rankString] = [result];
+          transformedResults[rankString] = [prediction];
         }
       } );
+      // Override for vision camera, which doesn't have the same structure as legacy camera
       predictions = transformedResults;
     }
 
@@ -249,7 +231,7 @@ const ARCamera = ( ): Node => {
     let predictionSet = false;
     dispatch( { type: "RESET_PREDICTIONS" } );
     if ( !isAndroid ) {
-      dispatch( { type: "SET_PREDICTIONS", predictions: event } );
+      dispatch( { type: "SET_PREDICTIONS", predictions: !useVisionCamera ? event : event.predictions } );
     }
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {

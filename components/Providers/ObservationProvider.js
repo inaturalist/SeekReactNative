@@ -27,13 +27,13 @@ const ObservationProvider = ( { children }: Props ): Node => {
 
   const threshold = 0.7;
 
-  const checkForSpecies = predictions => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
+  const checkForSpecies = predictions => predictions.find( leaf => leaf.rank_level === 10 && leaf.score > threshold ) || null;
 
   const checkForAncestor = predictions => {
-    const reversePredictions = predictions.sort( ( a, b ) => a.rank - b.rank );
+    const reversePredictions = predictions.sort( ( a, b ) => a.rank_level - b.rank_level );
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
-    if ( ancestor && ancestor.rank !== 100 ) {
+    if ( ancestor && ancestor.rank_level !== 100 ) {
       return ancestor;
     }
     return null;
@@ -146,7 +146,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       taxaId: ancestor.taxon_id,
       speciesSeenImage: photo,
       scientificName: ancestor.name,
-      rank: ancestor.rank
+      rank: ancestor.rank_level
     };
   }, [fetchPhoto] );
 

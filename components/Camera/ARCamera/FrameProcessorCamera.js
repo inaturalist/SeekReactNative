@@ -7,7 +7,6 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
   runAsync,
-  runAtTargetFps,
   useCameraDevice,
   useFrameProcessor
 } from "react-native-vision-camera";
@@ -140,6 +139,8 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const handleResults = Worklets.createRunInJsFn( ( predictions ) => {
     onTaxaDetected( predictions );
+  const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
+  const fps = 1;
   } );
 
   const handleError = Worklets.createRunInJsFn( ( error ) => {
@@ -150,6 +151,14 @@ const FrameProcessorCamera = ( props ): Node => {
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
+
+      // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
+      // react-native-worklets-core documentation for what is supported in those worklets.
+      const timestamp = Date.now();
+      const timeSinceLastFrame = timestamp - lastTimestamp;
+      if ( timeSinceLastFrame < 1000 / fps ) {
+        return;
+      }
 
       runAsync( frame, () => {
         "worklet";
@@ -183,7 +192,9 @@ const FrameProcessorCamera = ( props ): Node => {
       confidenceThreshold,
       filterByTaxonId,
       negativeFilter,
-      patchedOrientationAndroid
+      patchedOrientationAndroid,
+      lastTimestamp,
+      fps
     ]
   );
 

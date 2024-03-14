@@ -6,6 +6,7 @@ import { Animated, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
+  runAsync,
   runAtTargetFps,
   useCameraDevice,
   useFrameProcessor
@@ -149,8 +150,8 @@ const FrameProcessorCamera = ( props ): Node => {
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
-      // Reminder: this is a worklet, running on the UI thread.
-      runAtTargetFps( 1, () => {
+
+      runAsync( frame, () => {
         "worklet";
         try {
           const result = InatVision.inatVision( frame, {

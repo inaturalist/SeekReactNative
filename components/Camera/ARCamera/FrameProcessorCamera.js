@@ -153,7 +153,7 @@ const FrameProcessorCamera = ( props ): Node => {
       runAtTargetFps( 1, () => {
         "worklet";
         try {
-          const results = InatVision.inatVision( frame, {
+          const result = InatVision.inatVision( frame, {
             version: "1.0",
             modelPath,
             taxonomyPath,
@@ -162,7 +162,7 @@ const FrameProcessorCamera = ( props ): Node => {
             negativeFilter,
             patchedOrientationAndroid
           } );
-          handleResults( results );
+          handleResults( result );
         } catch ( classifierError ) {
           // TODO: needs to throw Exception in the native code for it to work here?
           // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
@@ -182,7 +182,7 @@ const FrameProcessorCamera = ( props ): Node => {
       confidenceThreshold,
       filterByTaxonId,
       negativeFilter,
-      deviceOrientation
+      patchedOrientationAndroid
     ]
   );
 

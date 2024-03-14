@@ -22,6 +22,8 @@ import {
 
 import FocusSquare from "./FocusSquare";
 
+let framesProcessingTime = [];
+
 const FrameProcessorCamera = ( props ): Node => {
   const {
     cameraRef,
@@ -139,7 +141,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const fps = 1;
-  const handleResult = Worklets.createRunInJsFn( ( result ) => {
+  const handleResult = Worklets.createRunInJsFn( ( result, timeTaken ) => {
     // I am don't know if it is a temporary thing but as of vision-camera@3.9.1
     // and react-native-woklets-core@0.3.0 the Array in the worklet does not have all
     // the methods of a normal array, so we need to convert it to a normal array here
@@ -149,7 +151,18 @@ const FrameProcessorCamera = ( props ): Node => {
     if ( !Array.isArray( predictions ) ) {
       predictions = Object.keys( predictions ).map( ( key ) => predictions[key] );
     }
+    // TODO: using current time here now, for some reason result.timestamp is not working
     setLastTimestamp( Date.now() );
+    framesProcessingTime.push( timeTaken );
+    if ( framesProcessingTime.length >= 10 ) {
+      const avgTime = framesProcessingTime.reduce( ( a, b ) => a + b, 0 ) / 10;
+      framesProcessingTime = [];
+      onLog( {
+        nativeEvent: {
+          log: `Average frame processing time over 10 frames: ${avgTime}ms`
+        }
+      } );
+    }
     const handledResult = { ...result, predictions };
     onTaxaDetected( handledResult );
   } );
@@ -174,6 +187,7 @@ const FrameProcessorCamera = ( props ): Node => {
       runAsync( frame, () => {
         "worklet";
         try {
+          const timeBefore = Date.now();
           const result = InatVision.inatVision( frame, {
             version: "1.0",
             modelPath,
@@ -183,7 +197,9 @@ const FrameProcessorCamera = ( props ): Node => {
             negativeFilter,
             patchedOrientationAndroid
           } );
-          handleResult( result );
+          const timeAfter = Date.now();
+          const timeTaken = timeAfter - timeBefore;
+          handleResult( result, timeTaken );
         } catch ( classifierError ) {
           // TODO: needs to throw Exception in the native code for it to work here?
           // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge

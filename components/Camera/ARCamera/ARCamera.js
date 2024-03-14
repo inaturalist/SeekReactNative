@@ -521,7 +521,7 @@ const ARCamera = ( ): Node => {
           modelPath={dirModel}
           taxonomyPath={dirTaxonomy}
           cameraRef={camera}
-          confidenceThreshold={confidenceThresholdString}
+          confidenceThreshold={confidenceThresholdNumber}
           onCameraError={handleCameraError}
           // onCameraPermissionMissing was an empty callback
           onClassifierError={handleClassifierError}

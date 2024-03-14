@@ -6,7 +6,6 @@ import { Animated, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
-  runAsync,
   useCameraDevice,
   useFrameProcessor
 } from "react-native-vision-camera";
@@ -17,7 +16,8 @@ import { useIsForeground, useDeviceOrientation } from "../../../utility/customHo
 import {
   orientationPatch,
   pixelFormatPatch,
-  orientationPatchFrameProcessor
+  orientationPatchFrameProcessor,
+  usePatchedRunAsync
 } from "../../../utility/visionCameraPatches";
 
 import FocusSquare from "./FocusSquare";
@@ -171,6 +171,7 @@ const FrameProcessorCamera = ( props ): Node => {
     onClassifierError( error );
   } );
 
+  const patchedRunAsync = usePatchedRunAsync();
   const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
@@ -184,7 +185,7 @@ const FrameProcessorCamera = ( props ): Node => {
         return;
       }
 
-      runAsync( frame, () => {
+      patchedRunAsync( frame, () => {
         "worklet";
         try {
           const timeBefore = Date.now();
@@ -216,6 +217,7 @@ const FrameProcessorCamera = ( props ): Node => {
       // related code that would need to be tested if it all is saved as expected.
     },
     [
+      patchedRunAsync,
       confidenceThreshold,
       filterByTaxonId,
       negativeFilter,

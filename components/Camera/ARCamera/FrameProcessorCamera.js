@@ -137,10 +137,21 @@ const FrameProcessorCamera = ( props ): Node => {
       focusAvailable ? singleTapToFocus( e ) : null;
     } );
 
-  const handleResults = Worklets.createRunInJsFn( ( predictions ) => {
-    onTaxaDetected( predictions );
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const fps = 1;
+  const handleResult = Worklets.createRunInJsFn( ( result ) => {
+    // I am don't know if it is a temporary thing but as of vision-camera@3.9.1
+    // and react-native-woklets-core@0.3.0 the Array in the worklet does not have all
+    // the methods of a normal array, so we need to convert it to a normal array here
+    // getPredictionsForImage is fine
+    // TODO: move this to "patches" ?
+    let { predictions } = result;
+    if ( !Array.isArray( predictions ) ) {
+      predictions = Object.keys( predictions ).map( ( key ) => predictions[key] );
+    }
+    setLastTimestamp( Date.now() );
+    const handledResult = { ...result, predictions };
+    onTaxaDetected( handledResult );
   } );
 
   const handleError = Worklets.createRunInJsFn( ( error ) => {
@@ -172,7 +183,7 @@ const FrameProcessorCamera = ( props ): Node => {
             negativeFilter,
             patchedOrientationAndroid
           } );
-          handleResults( result );
+          handleResult( result );
         } catch ( classifierError ) {
           // TODO: needs to throw Exception in the native code for it to work here?
           // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge

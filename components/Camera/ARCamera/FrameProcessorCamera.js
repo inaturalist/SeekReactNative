@@ -163,7 +163,7 @@ const FrameProcessorCamera = ( props ): Node => {
         }
       } );
     }
-    const handledResult = { ...result, predictions };
+    const handledResult = { predictions, timestamp: result.timestamp };
     onTaxaDetected( handledResult );
   } );
 

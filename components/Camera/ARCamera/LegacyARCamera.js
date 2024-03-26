@@ -155,13 +155,6 @@ const LegacyARCamera = ( ): Node => {
     }
   }, [observation, navigation, pictureTaken] );
 
-  const resetPredictions = ( ) => {
-    // only rerender if state has different values than before
-    if ( Object.keys( ranks ).length > 0 ) {
-      dispatch( { type: "RESET_RANKS" } );
-    }
-  };
-
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
@@ -179,14 +172,6 @@ const LegacyARCamera = ( ): Node => {
   const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
-
-  const pauseOnSpecies = ( ) => {
-    // this block keeps the last species seen displayed for 2.5 seconds
-    dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
-    setTimeout( ( ) => {
-      dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: false } );
-    }, 2500 );
-  };
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
@@ -208,7 +193,11 @@ const LegacyARCamera = ( ): Node => {
       if ( predictionSet ) { return; }
       if ( predictions[rank] ) {
         if ( predictions[rank] === "species" ) {
-          pauseOnSpecies( );
+          // this block keeps the last species seen displayed for 2.5 seconds
+          dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
+          setTimeout( ( ) => {
+            dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: false } );
+          }, 2500 );
         }
         predictionSet = true;
         const prediction = predictions[rank][0];
@@ -217,7 +206,10 @@ const LegacyARCamera = ( ): Node => {
         dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
       }
       if ( !predictionSet ) {
-        resetPredictions( );
+        // only rerender if state has different values than before
+        if ( Object.keys( ranks ).length > 0 ) {
+          dispatch( { type: "RESET_RANKS" } );
+        }
       }
     } );
   };

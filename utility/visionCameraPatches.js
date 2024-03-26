@@ -124,7 +124,6 @@ export const usePatchedRunAsync = ( ) => {
       "worklet";
 
       try {
-        logOnJs( "customRunOnAsyncContext - func call" );
         func( frame );
       } catch ( e ) {
         logOnJs( "customRunOnAsyncContext error", e );

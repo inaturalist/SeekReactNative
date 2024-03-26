@@ -50,8 +50,6 @@ import { log } from "../../../react-native-logs.config";
 
 const logger = log.extend( "ARCamera.js" );
 
-const isAndroid = Platform.OS === "android";
-
 const ARCamera = ( ): Node => {
   useEffect( () => {
     logger.debug( "Uses vision camera" );
@@ -74,16 +72,10 @@ const ARCamera = ( ): Node => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "RESET_RANKS":
-        return { ...state, ranks: {}, allPredictions: [] };
-      case "SET_RANKS":
-        return { ...state, ranks: action.ranks };
       case "RESET_PREDICTIONS":
         return { ...state, allPredictions: [] };
       case "SET_PREDICTIONS":
         return { ...state, allPredictions: action.predictions };
-      case "SET_PREDICTION":
-        return { ...state, allPredictions: [action.prediction, ...state.allPredictions] };
       case "PHOTO_TAKEN":
         pictureTaken.value = true;
         return { ...state };
@@ -92,7 +84,6 @@ const ARCamera = ( ): Node => {
         return {
           ...state,
           error: null,
-          ranks: {},
           allPredictions: []
         };
       case "FILTER_TAXON":
@@ -102,7 +93,6 @@ const ARCamera = ( ): Node => {
           negativeFilter: action.negativeFilter,
           taxonId: action.taxonId,
           error: null,
-          ranks: {},
           allPredictions: []
         };
       case "ERROR":
@@ -111,7 +101,6 @@ const ARCamera = ( ): Node => {
         throw new Error( );
     }
   }, {
-    ranks: {},
     allPredictions: [],
     error: null,
     errorEvent: null,
@@ -120,13 +109,14 @@ const ARCamera = ( ): Node => {
   } );
 
   const {
-    ranks,
     allPredictions,
     error,
     errorEvent,
     negativeFilter,
     taxonId
   } = state;
+
+  const sortedPredictions = allPredictions.sort( ( a, b ) => b.rank_level - a.rank_level );
 
   const [showModal, setShowModal] = useState( false );
   const cameraLoaded = useSharedValue( false );
@@ -187,12 +177,7 @@ const ARCamera = ( ): Node => {
   }, [] );
 
   const handleTaxaDetected = ( event ) => {
-    const transformedResults = {};
-    event.predictions.forEach( ( prediction ) => {
-      transformedResults[prediction.rank] = [prediction];
-    } );
-    // Override for vision camera, which doesn't have the same structure as legacy camera
-    const predictions = transformedResults;
+    const { predictions } = event;
 
     if ( pictureTaken.value ) {
       return;
@@ -205,42 +190,21 @@ const ARCamera = ( ): Node => {
       return;
     }
 
-    let predictionSet = false;
-    dispatch( { type: "RESET_PREDICTIONS" } );
-    if ( !isAndroid ) {
-      dispatch( { type: "SET_PREDICTIONS", predictions: event.predictions } );
-    }
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
-    ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
+    const wantedRanks = ["species", "genus", "family", "order", "class"];
+    const wantedPredictions = predictions.filter( p => wantedRanks.includes( p.rank ) );
 
-      if ( predictions[rank] ) {
-        const prediction = predictions[rank][0];
-        dispatch( { type: "SET_PREDICTION", prediction } );
-      }
-      // skip this block if a prediction state has already been set
-      if ( predictionSet ) {
-        return;
-      }
-      if ( predictions[rank] ) {
-        if ( rank === "species" ) {
-          // this block keeps the last species seen displayed for 2.5 seconds
-          speciesTimeoutSet.value = true;
-          setTimeout( () => {
-            speciesTimeoutSet.value = false;
-          }, 2500 );
-        }
-        predictionSet = true;
-        const prediction = predictions[rank][0];
-        //$FlowFixMe
-        dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
-      }
-      if ( !predictionSet ) {
-        // only rerender if state has different values than before
-        if ( Object.keys( ranks ).length > 0 ) {
-          dispatch( { type: "RESET_RANKS" } );
-        }
-      }
-    } );
+    dispatch( { type: "SET_PREDICTIONS", predictions: wantedPredictions } );
+
+    // Find species prediction
+    const speciesPredictions = predictions.filter( p => p.rank === "species" );
+    if ( speciesPredictions.length > 0 ) {
+      // this block keeps the last species seen displayed for 2.5 seconds
+      speciesTimeoutSet.value = true;
+      setTimeout( () => {
+        speciesTimeoutSet.value = false;
+      }, 2500 );
+    }
   };
 
   const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
@@ -307,7 +271,7 @@ const ARCamera = ( ): Node => {
       enableShutterSound: true
     };
     // Local copy of all predictions, so we can pass them to the photo after taking it
-    const predictions = [...allPredictions];
+    const predictions = [...sortedPredictions];
 
     camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
       // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
@@ -346,7 +310,7 @@ const ARCamera = ( ): Node => {
       callback( photo );
     } )
     .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
-  }, [allPredictions, handleCaptureError, deviceOrientation] );
+  }, [sortedPredictions, handleCaptureError, deviceOrientation] );
 
   const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );
@@ -455,7 +419,7 @@ const ARCamera = ( ): Node => {
         ? <CameraError error={error} errorEvent={errorEvent} />
         : (
           <ARCameraOverlay
-            ranks={ranks}
+            predictions={sortedPredictions}
             pictureTaken={pictureTaken.value}
             takePicture={takePicture}
             cameraLoaded={cameraLoaded.value}

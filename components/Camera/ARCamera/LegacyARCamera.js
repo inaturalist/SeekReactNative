@@ -41,7 +41,9 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
+import { log } from "../../../react-native-logs.config";
 
+const logger = log.extend( "ARCamera.js" );
 
 const LegacyARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
@@ -278,6 +280,7 @@ const LegacyARCamera = ( ): Node => {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync( );
+          logger.debug( "takePictureAsync resolved" );
           if ( typeof photo !== "object" ) {
             updateError( "photoError", photo );
           } else {
@@ -294,6 +297,7 @@ const LegacyARCamera = ( ): Node => {
         camera.current.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
+          logger.debug( "takePictureAsync resolved" );
           requestAndroidSavePermissions( photo );
         } ).catch( e => updateError( "take", e ) );
       }

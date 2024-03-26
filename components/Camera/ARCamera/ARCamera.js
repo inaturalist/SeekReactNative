@@ -329,7 +329,6 @@ const ARCamera = ( ): Node => {
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...allPredictions];
 
-    // TODO: save predicitons in state and pass them to the photo after taking it
     camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
       // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
       // setting the camera as inactive here is the closest thing to that, although there is a small delay visible

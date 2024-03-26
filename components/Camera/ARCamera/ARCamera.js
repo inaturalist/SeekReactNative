@@ -12,12 +12,10 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Platform,
-  NativeModules
+  Platform
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
-import { INatCamera as LegacyCamera } from "react-native-inat-camera";
 import type { Node } from "react";
 import { useSharedValue } from "react-native-worklets-core";
 
@@ -28,8 +26,7 @@ import CameraError from "../CameraError";
 import {
   checkForSystemVersion,
   handleLog,
-  showCameraSaveFailureAlert,
-  checkForCameraAPIAndroid
+  showCameraSaveFailureAlert
 } from "../../../utility/cameraHelpers";
 import {
   rotatePhotoPatch,
@@ -47,25 +44,22 @@ import { checkIfCameraLaunched } from "../../../utility/helpers";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
+import { ObservationContext, UserContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 
 const logger = log.extend( "ARCamera.js" );
 
 const isAndroid = Platform.OS === "android";
-const majorVersionIOS = parseInt( Platform.Version, 10 );
-const useVisionCamera = isAndroid ? Platform.Version >= 23 : majorVersionIOS >= 11;
 
 const ARCamera = ( ): Node => {
   useEffect( () => {
-    logger.debug( `ARCamera: useVisionCamera ${useVisionCamera}` );
+    logger.debug( "Uses vision camera" );
   }, [] );
 
   // getting width and height passes correct dimensions to camera
   // on orientation change
   const isFocused = useIsFocused( );
-  const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
@@ -138,8 +132,6 @@ const ARCamera = ( ): Node => {
   const cameraLoaded = useSharedValue( false );
   const speciesTimeoutSet = useSharedValue( false );
 
-  const [cameraType, setCameraType] = useState( "back" );
-
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
     if ( err === null && error === null ) {
@@ -195,16 +187,12 @@ const ARCamera = ( ): Node => {
   }, [] );
 
   const handleTaxaDetected = ( event ) => {
-    // This is how the legacy camera received predictions
-    let predictions = { ...event.nativeEvent };
-    if ( useVisionCamera ) {
-      const transformedResults = {};
-      event.predictions.forEach( ( prediction ) => {
-        transformedResults[prediction.rank] = [prediction];
-      } );
-      // Override for vision camera, which doesn't have the same structure as legacy camera
-      predictions = transformedResults;
-    }
+    const transformedResults = {};
+    event.predictions.forEach( ( prediction ) => {
+      transformedResults[prediction.rank] = [prediction];
+    } );
+    // Override for vision camera, which doesn't have the same structure as legacy camera
+    const predictions = transformedResults;
 
     if ( pictureTaken.value ) {
       return;
@@ -220,17 +208,14 @@ const ARCamera = ( ): Node => {
     let predictionSet = false;
     dispatch( { type: "RESET_PREDICTIONS" } );
     if ( !isAndroid ) {
-      dispatch( { type: "SET_PREDICTIONS", predictions: !useVisionCamera ? event : event.predictions } );
+      dispatch( { type: "SET_PREDICTIONS", predictions: event.predictions } );
     }
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
 
       if ( predictions[rank] ) {
         const prediction = predictions[rank][0];
-        if ( !useVisionCamera && !isAndroid ) {
-        } else {
-           dispatch( { type: "SET_PREDICTION", prediction } );
-        }
+        dispatch( { type: "SET_PREDICTION", prediction } );
       }
       // skip this block if a prediction state has already been set
       if ( predictionSet ) {
@@ -272,11 +257,6 @@ const ARCamera = ( ): Node => {
       updateError( "camera", event.nativeEvent.error );
     }
   };
-
-  // event.nativeEvent.error is not implemented on Android
-  // it shows up via handleCameraError on iOS
-  // ignoring this callback since we're checking all permissions in React Native
-  const handleCameraPermissionMissing = ( ) => {};
 
   const handleClassifierError = ( event: { nativeEvent?: { error: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
@@ -372,66 +352,13 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
     if ( Platform.OS === "ios" ) {
-      if ( useVisionCamera ) {
-        await visionCameraTakePhoto( ( photo ) => savePhoto( photo ) );
-      } else {
-        const CameraManager = NativeModules.INatCameraViewManager;
-        if ( !CameraManager ) {
-          updateError( "cameraManager" );
-        }
-        try {
-          /*
-            Photo:
-            {
-              "predictions": [{"name": "Life", "rank": 100, "score": 1.0000067949295044, "taxon_id": 48460}, {"name": "Plantae", "rank": 70, "score": 0.9796221852302551, "taxon_id": 47126}, {"name": "Tracheophyta", "rank": 60, "score": 0.9787864685058594, "taxon_id": 211194}, {"name": "Angiospermae", "rank": 57, "score": 0.9784607887268066, "taxon_id": 47125}, {"name": "Liliopsida", "rank": 50, "score": 0.9690009355545044, "taxon_id": 47163}, {"name": "Asparagales", "rank": 40, "score": 0.96554034948349, "taxon_id": 47218}, {"name": "Iridaceae", "rank": 30, "score": 0.9625634551048279, "taxon_id": 47781}, {"name": "Iridoideae", "rank": 27, "score": 0.9616215229034424, "taxon_id": 790617}, {"name": "Irideae", "rank": 25, "score": 0.9611375331878662, "taxon_id": 790633}, {"name": "Iris", "rank": 20, "score": 0.9596630334854126, "taxon_id": 47780}, {"leaf_id": 5174, "name": "Iris tenax", "rank": 10, "score": 0.8709532618522644, "taxon_id": 57727}],
-              "uri": "file:///var/mobile/Containers/Data/Application/BCD946F6-D73F-43F2-AFF6-291F7276AB57/Library/Caches/410DB678-91AF-48E3-AB33-FB2B1D391D1D.jpg"
-            }
-          */
-          const photo = await CameraManager.takePictureAsync( );
-          logger.debug( "takePictureAsync resolved" );
-          if ( typeof photo !== "object" ) {
-            updateError( "photoError", photo );
-          } else {
-            savePhoto( photo );
-          }
-        } catch ( e ) {
-          handleCaptureError( { nativeEvent: { error: e } } );
-        }
-      }
+      await visionCameraTakePhoto( ( photo ) => savePhoto( photo ) );
     } else if ( Platform.OS === "android" ) {
-      if ( useVisionCamera ) {
-        await visionCameraTakePhoto( ( photo ) => requestAndroidSavePermissions( photo ) );
-      } else {
-        if ( !camera.current ) {
-          return;
-        }
-        camera.current
-          .takePictureAsync( {
-            pauseAfterCapture: true
-          } )
-          .then( ( photo ) => {
-            logger.debug( "takePictureAsync resolved" );
-            // Photo:
-            /*
-              {
-                "deviceOrientation": 0,
-                "height": 3024,
-                "pictureOrientation": 0,
-                "predictions": [{"ancestor_ids": [Array], "name": "Life", "rank": 100, "score": 1.000016450881958, "taxon_id": 48460}, {"ancestor_ids": [Array], "name": "Animalia", "rank": 70, "score": 0.9703008532524109, "taxon_id": 1}, {"ancestor_ids": [Array], "name": "Chordata", "rank": 60, "score": 0.9261167049407959, "taxon_id": 2}, {"ancestor_ids": [Array], "name": "Vertebrata", "rank": 57, "score": 0.9259731769561768, "taxon_id": 355675}, {"ancestor_ids": [Array], "name": "Aves", "rank": 50, "score": 0.9105148315429688, "taxon_id": 3}, {"ancestor_ids": [Array], "name": "Cathartiformes", "rank": 40, "score": 0.653003990650177, "taxon_id": 559244}, {"ancestor_ids": [Array], "name": "Cathartidae", "rank": 30, "score": 0.653003990650177, "taxon_id": 71306}, {"ancestor_ids": [Array], "name": "Sarcoramphus", "rank": 20, "score": 0.6520140767097473, "taxon_id": 4762}, {"ancestor_ids": [Array], "name": "Sarcoramphus papa", "rank": 10, "score": 0.9407581686973572, "taxon_id": 4763}],
-                "uri": "file:///data/user/0/org.inaturalist.seek/cache/78f4cded-214c-4e8e-8d23-5d9a3a7c55ac.jpg",
-                "width": 4032
-              }
-              */
-            requestAndroidSavePermissions( photo );
-          } )
-          .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
-      }
+      await visionCameraTakePhoto( ( photo ) => requestAndroidSavePermissions( photo ) );
     }
   }, [
     savePhoto,
-    updateError,
     requestAndroidSavePermissions,
-    handleCaptureError,
     visionCameraTakePhoto
   ] );
 
@@ -447,16 +374,6 @@ const ARCamera = ( ): Node => {
       } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
     }
   }, [updateError] );
-
-  const checkCameraHardware = async ( ) => {
-    // the goal of this is to make Seek usable for Android devices
-    // which lack a back camera, like most Chromebooks
-    const cameraHardware = await checkForCameraAPIAndroid( );
-
-    if ( cameraHardware === "front" ) {
-      setCameraType( "front" );
-    }
-  };
 
   const closeModal = useCallback( ( ) => setShowModal( false ), [] );
 
@@ -474,7 +391,6 @@ const ARCamera = ( ): Node => {
       resetState( );
       checkForFirstCameraLaunch( );
       requestAndroidPermissions( );
-      checkCameraHardware( );
     } );
   }, [navigation, requestAndroidPermissions, setObservation] );
 
@@ -497,14 +413,6 @@ const ARCamera = ( ): Node => {
   const navToSettings = ( ) => navigation.navigate( "Settings" );
 
   const confidenceThresholdNumber = 0.7;
-  const confidenceThresholdString = "0.7";
-  const confidenceThreshold = Platform.OS === "ios" ? confidenceThresholdNumber : confidenceThresholdString;
-  const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
-
-  const cameraStyle = {
-    width,
-    height
-  };
 
   if ( !isFocused ) {
     // this is necessary for camera to load properly in iOS
@@ -514,45 +422,24 @@ const ARCamera = ( ): Node => {
   }
 
   const renderCamera = () => {
-    if ( useVisionCamera ) {
-      return (
-        <FrameProcessorCamera
-          modelPath={dirModel}
-          taxonomyPath={dirTaxonomy}
-          cameraRef={camera}
-          confidenceThreshold={confidenceThresholdNumber}
-          onCameraError={handleCameraError}
-          // onCameraPermissionMissing was an empty callback
-          onClassifierError={handleClassifierError}
-          onDeviceNotSupported={handleDeviceNotSupported}
-          onCaptureError={handleCaptureError}
-          onTaxaDetected={handleTaxaDetected}
-          onLog={handleLog}
-          // taxaDetectionInterval is set directly on the camera component with frameProcessorFps
-          filterByTaxonId={taxonId}
-          negativeFilter={negativeFilter}
-          // type is replaced with logic in FrameProcessorCamera
-          isActive={isActive}
-        />
-      );
-    }
     return (
-      <LegacyCamera
+      <FrameProcessorCamera
         modelPath={dirModel}
         taxonomyPath={dirTaxonomy}
-        ref={camera}
-        confidenceThreshold={confidenceThreshold}
+        cameraRef={camera}
+        confidenceThreshold={confidenceThresholdNumber}
         onCameraError={handleCameraError}
-        onCameraPermissionMissing={handleCameraPermissionMissing}
+        // onCameraPermissionMissing was an empty callback
         onClassifierError={handleClassifierError}
         onDeviceNotSupported={handleDeviceNotSupported}
+        onCaptureError={handleCaptureError}
         onTaxaDetected={handleTaxaDetected}
         onLog={handleLog}
-        style={[viewStyles.camera, cameraStyle]}
-        taxaDetectionInterval={taxaDetectionInterval}
+        // taxaDetectionInterval is set directly on the camera component with frameProcessorFps
         filterByTaxonId={taxonId}
         negativeFilter={negativeFilter}
-        type={cameraType}
+        // type is replaced with logic in FrameProcessorCamera
+        isActive={isActive}
       />
     );
   };

@@ -17,12 +17,12 @@ import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   ranks: Object,
-  predictions: Object[]
+  prediction: Object
 }
 
-const ARCameraHeader = ( { ranks, predictions }: Props ): Node => {
+const ARCameraHeader = ( { ranks, prediction }: Props ): Node => {
   const { isLandscape } = useContext( AppOrientationContext );
-  const rankToRender = ranks ? Object.keys( ranks )[0] || null : predictions[predictions.length - 1]?.rank || null;
+  const rankToRender = ranks ? Object.keys( ranks )[0] || null : prediction?.rank || null;
   const [commonName, setCommonName] = useState( null );
   const settings = useFetchUserSettings( );
   const scientificNames = settings?.scientificNames;
@@ -31,7 +31,7 @@ const ARCameraHeader = ( { ranks, predictions }: Props ): Node => {
   let id = null;
 
   if ( rankToRender && !scientificNames ) {
-    id = ranks ? ranks[rankToRender][0].taxon_id : predictions[predictions.length - 1]?.taxon_id;
+    id = ranks ? ranks[rankToRender][0].taxon_id : prediction?.taxon_id;
   } else {
     id = null;
   }
@@ -96,10 +96,10 @@ const ARCameraHeader = ( { ranks, predictions }: Props ): Node => {
     return null;
   };
 
-  const scientificName = ranks ? ranks[rankToRender][0].name : predictions[predictions.length - 1]?.name;
+  const scientificName = ranks ? ranks[rankToRender][0].name : prediction?.name;
   return (
     <View style={viewStyles.header}>
-      {( ( ranks || predictions?.length > 0 ) && rankToRender ) && (
+      {( ( ranks || prediction ) && rankToRender ) && (
         <View style={setTaxonomicRankBubbleColor( )}>
           <View style={viewStyles.greenButton}>
             <GreenRectangle

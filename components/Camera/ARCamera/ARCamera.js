@@ -117,6 +117,7 @@ const ARCamera = ( ): Node => {
   } = state;
 
   const sortedPredictions = allPredictions.sort( ( a, b ) => b.rank_level - a.rank_level );
+  const lowestRankPrediction = sortedPredictions[sortedPredictions.length - 1];
 
   const [showModal, setShowModal] = useState( false );
   const cameraLoaded = useSharedValue( false );
@@ -419,7 +420,7 @@ const ARCamera = ( ): Node => {
         ? <CameraError error={error} errorEvent={errorEvent} />
         : (
           <ARCameraOverlay
-            predictions={sortedPredictions}
+            prediction={lowestRankPrediction}
             pictureTaken={pictureTaken.value}
             takePicture={takePicture}
             cameraLoaded={cameraLoaded.value}

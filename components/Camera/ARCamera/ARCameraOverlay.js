@@ -25,7 +25,8 @@ import StyledText from "../../UIComponents/StyledText";
 
 type Props = {
   takePicture: Function,
-  ranks: Object,
+  ranks?: Object,
+  prediction?: Object,
   pictureTaken: boolean,
   cameraLoaded: boolean,
   filterByTaxonId: Function
@@ -36,13 +37,14 @@ const isAndroid = Platform.OS === "android";
 const ARCameraOverlay = ( {
   takePicture,
   ranks,
+  prediction,
   pictureTaken,
   cameraLoaded,
   filterByTaxonId
 }: Props ): Node => {
   const { isLandscape, height } = useContext( AppOrientationContext );
   const { navigate } = useNavigation( );
-  const rankToRender = Object.keys( ranks )[0] || null;
+  const rankToRender = ranks ? ( Object.keys( ranks )[0] || null ) : prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
   const autoCapture = userSettings?.autoCapture;
@@ -133,7 +135,7 @@ const ARCameraOverlay = ( {
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
-      <ARCameraHeader ranks={ranks} />
+      <ARCameraHeader ranks={ranks} prediction={prediction} />
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
@@ -169,7 +171,7 @@ const ARCameraOverlay = ( {
         ]}
         disabled={pictureTaken}
       >
-        <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+        <Image source={( ranks && ranks.species ) || ( prediction?.rank === "species" ) ? icons.arCameraGreen : icons.arCameraButton} />
       </TouchableOpacity>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.open_help" )}

@@ -5,19 +5,19 @@ import React, {
   useEffect,
   useRef,
   useCallback,
-  useContext,
-  useState
+  useContext
 } from "react";
 import {
   Image,
   TouchableOpacity,
   View,
-  Platform
+  Platform,
+  NativeModules
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
+import { INatCamera } from "react-native-inat-camera";
 import type { Node } from "react";
-import { useSharedValue } from "react-native-worklets-core";
 
 import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
@@ -26,17 +26,13 @@ import CameraError from "../CameraError";
 import {
   checkForSystemVersion,
   handleLog,
-  showCameraSaveFailureAlert
+  showCameraSaveFailureAlert,
+  checkForCameraAPIAndroid
 } from "../../../utility/cameraHelpers";
-import {
-  rotatePhotoPatch,
-  rotationTempPhotoPatch
-} from "../../../utility/visionCameraPatches";
 import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
-import { useDeviceOrientation } from "../../../utility/customHooks";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
@@ -44,84 +40,88 @@ import { checkIfCameraLaunched } from "../../../utility/helpers";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext, UserContext } from "../../UserContext";
-import FrameProcessorCamera from "./FrameProcessorCamera";
+import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
 import { log } from "../../../react-native-logs.config";
 
 const logger = log.extend( "ARCamera.js" );
 
-const ARCamera = ( ): Node => {
-  useEffect( () => {
-    logger.debug( "Uses vision camera" );
-  }, [] );
-
+const LegacyARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
   // on orientation change
   const isFocused = useIsFocused( );
+  const { width, height } = useContext( AppOrientationContext );
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
   const { setObservation, observation } = useContext( ObservationContext );
-  const [isActive, setIsActive] = useState( true );
-  const { deviceOrientation } = useDeviceOrientation();
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
 
-  const pictureTaken = useSharedValue( false );
-
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "RESET_PREDICTIONS":
-        return { ...state, allPredictions: [] };
-      case "SET_PREDICTIONS":
-        return { ...state, allPredictions: action.predictions };
+      case "CAMERA_LOADED":
+        return { ...state, cameraLoaded: true };
+      case "RESET_RANKS":
+        return { ...state, ranks: {} };
+      case "SET_RANKS":
+        return { ...state, ranks: action.ranks };
       case "PHOTO_TAKEN":
-        pictureTaken.value = true;
-        return { ...state };
+        return { ...state, pictureTaken: true };
       case "RESET_STATE":
-        pictureTaken.value = false;
         return {
           ...state,
+          pictureTaken: false,
           error: null,
-          allPredictions: []
+          ranks: {}
         };
       case "FILTER_TAXON":
-        pictureTaken.value = false;
         return {
           ...state,
           negativeFilter: action.negativeFilter,
           taxonId: action.taxonId,
+          pictureTaken: false,
           error: null,
-          allPredictions: []
+          ranks: {}
         };
+      case "SHOW_FRONT_CAMERA":
+        return { ...state, cameraType: action.cameraType };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
+      case "SHOW_MODAL":
+        return { ...state, showModal: true };
+      case "CLOSE_MODAL":
+        return { ...state, showModal: false };
+      case "SPECIES_TIMEOUT":
+        return { ...state, speciesTimeoutSet: action.speciesTimeoutSet };
       default:
         throw new Error( );
     }
   }, {
-    allPredictions: [],
+    ranks: {},
     error: null,
     errorEvent: null,
+    pictureTaken: false,
+    cameraLoaded: false,
     negativeFilter: false,
-    taxonId: null
+    taxonId: null,
+    cameraType: "back",
+    showModal: false,
+    speciesTimeoutSet: false
   } );
 
   const {
-    allPredictions,
+    ranks,
     error,
     errorEvent,
+    pictureTaken,
+    cameraLoaded,
     negativeFilter,
-    taxonId
+    taxonId,
+    cameraType,
+    showModal,
+    speciesTimeoutSet
   } = state;
-
-  const sortedPredictions = allPredictions.sort( ( a, b ) => b.rank_level - a.rank_level );
-  const lowestRankPrediction = sortedPredictions[sortedPredictions.length - 1];
-
-  const [showModal, setShowModal] = useState( false );
-  const cameraLoaded = useSharedValue( false );
-  const speciesTimeoutSet = useSharedValue( false );
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -142,14 +142,13 @@ const ARCamera = ( ): Node => {
     // especially when user has location permissions off
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
-    logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
     setObservation( { image } );
   }, [setObservation, login] );
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && observation.image.arCamera && pictureTaken.value ) {
+    if ( observation && observation.taxon && observation.image.arCamera && pictureTaken ) {
       navigation.navigate( "Drawer", {
         screen: "Match"
       } );
@@ -166,10 +165,7 @@ const ARCamera = ( ): Node => {
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
-      .then( uri => {
-        logger.debug( "CameraRoll.save resolved" );
-        navigateToResults( uri, photo.predictions );
-      } )
+      .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
@@ -178,34 +174,44 @@ const ARCamera = ( ): Node => {
   }, [] );
 
   const handleTaxaDetected = ( event ) => {
-    const { predictions } = event;
+    const predictions = { ...event.nativeEvent };
 
-    if ( pictureTaken.value ) {
-      return;
+    if ( pictureTaken ) { return; }
+
+    if ( predictions && !cameraLoaded ) {
+      dispatch( { type: "CAMERA_LOADED" } );
     }
-    if ( predictions && !cameraLoaded.value ) {
-      cameraLoaded.value = true;
-    }
+
+    let predictionSet = false;
+
     // don't bother with trying to set predictions if a species timeout is in place
-    if ( speciesTimeoutSet.value ) {
-      return;
-    }
+    if ( speciesTimeoutSet ) { return; }
 
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
-    const wantedRanks = ["species", "genus", "family", "order", "class"];
-    const wantedPredictions = predictions.filter( p => wantedRanks.includes( p.rank ) );
+    ["species", "genus", "family", "order", "class"].forEach( ( rank: string ) => {
+      // skip this block if a prediction state has already been set
+      if ( predictionSet ) { return; }
+      if ( predictions[rank] ) {
+        if ( predictions[rank] === "species" ) {
+          // this block keeps the last species seen displayed for 2.5 seconds
+          dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: true } );
+          setTimeout( ( ) => {
+            dispatch( { type: "SPECIES_TIMEOUT", speciesTimeoutSet: false } );
+          }, 2500 );
+        }
+        predictionSet = true;
+        const prediction = predictions[rank][0];
 
-    dispatch( { type: "SET_PREDICTIONS", predictions: wantedPredictions } );
-
-    // Find species prediction
-    const speciesPredictions = predictions.filter( p => p.rank === "species" );
-    if ( speciesPredictions.length > 0 ) {
-      // this block keeps the last species seen displayed for 2.5 seconds
-      speciesTimeoutSet.value = true;
-      setTimeout( () => {
-        speciesTimeoutSet.value = false;
-      }, 2500 );
-    }
+        //$FlowFixMe
+        dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
+      }
+      if ( !predictionSet ) {
+        // only rerender if state has different values than before
+        if ( Object.keys( ranks ).length > 0 ) {
+          dispatch( { type: "RESET_RANKS" } );
+        }
+      }
+    } );
   };
 
   const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
@@ -223,6 +229,11 @@ const ARCamera = ( ): Node => {
     }
   };
 
+  // event.nativeEvent.error is not implemented on Android
+  // it shows up via handleCameraError on iOS
+  // ignoring this callback since we're checking all permissions in React Native
+  const handleCameraPermissionMissing = ( ) => {};
+
   const handleClassifierError = ( event: { nativeEvent?: { error: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
       updateError( "classifier", event.nativeEvent.error );
@@ -239,18 +250,9 @@ const ARCamera = ( ): Node => {
     }
   };
 
-  const handleCaptureError = useCallback( ( event: { nativeEvent?: { error: string } } ) => {
-    if ( event.nativeEvent && event.nativeEvent.reason ) {
-      updateError( "take", event.nativeEvent.reason );
-    } else {
-      updateError( "take" );
-    }
-  }, [updateError] );
-
   const requestAndroidSavePermissions = useCallback( ( photo ) => {
     const checkPermissions = async ( ) => {
       const result = await checkSavePermissions( );
-      logger.debug( `checkSavePermission resolved with: ${result}` );
 
       if ( result === "gallery" ) {
         savePhoto( photo );
@@ -262,70 +264,37 @@ const ARCamera = ( ): Node => {
     checkPermissions( );
   }, [savePhoto] );
 
-  const visionCameraTakePhoto = useCallback( async ( callback ) => {
-    if ( !camera.current ) {
-      return;
-    }
-    const takePhotoOptions = {
-      flash: "off",
-      qualityPrioritization: "speed",
-      enableShutterSound: true
-    };
-    // Local copy of all predictions, so we can pass them to the photo after taking it
-    const predictions = [...sortedPredictions];
-
-    camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
-      // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
-      // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
-      // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-      setIsActive( false );
-      // Rotate the original photo depending on device orientation
-      const photoRotation = rotationTempPhotoPatch( photo, deviceOrientation );
-      await rotatePhotoPatch( photo, photoRotation );
-      // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
-      photo.predictions = predictions;
-      photo.uri = photo.path;
-      // Photo:
-      /*
-        {
-          "height": 2268,
-          "isRawPhoto": false, "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}}, "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg",
-          "width": 4032
-        }
-      */
-      /*
-        {
-          "deviceOrientation": 6,
-          "height": 2268,
-          "isRawPhoto": false,
-          "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 1.95, "ColorSpace": 1, "DateTimeDigitized": "2023:05:25 17:58:49", "DateTimeOriginal": "2023:05:25 17:58:49", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0257", "SubsecTimeOriginal": "0257", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:05:25 17:58:49", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
-          "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
-          "pictureOrientation": 6,
-          "predictions": [
-            {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "score": 0.9301357269287109, "taxon_id": 47163},
-            {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "score": 0.9216688275337219, "taxon_id": 47218},
-            {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "score": 0.9124458432197571, "taxon_id": 47781},
-            {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "score": 0.8744127750396729, "taxon_id": 47780}],
-          "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "width": 4032}
-      */
-      callback( photo );
-    } )
-    .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
-  }, [sortedPredictions, handleCaptureError, deviceOrientation] );
-
-  const takePicture = useCallback( async () => {
+  const takePicture = useCallback( async ( ) => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
     if ( Platform.OS === "ios" ) {
-      await visionCameraTakePhoto( ( photo ) => savePhoto( photo ) );
+      const CameraManager = NativeModules.INatCameraViewManager;
+      if ( CameraManager ) {
+        try {
+          const photo = await CameraManager.takePictureAsync( );
+          logger.debug( "takePictureAsync resolved" );
+          if ( typeof photo !== "object" ) {
+            updateError( "photoError", photo );
+          } else {
+            savePhoto( photo );
+          }
+        } catch ( e ) {
+          updateError( "take", e );
+        }
+      } else {
+        updateError( "cameraManager" );
+      }
     } else if ( Platform.OS === "android" ) {
-      await visionCameraTakePhoto( ( photo ) => requestAndroidSavePermissions( photo ) );
+      if ( camera.current ) {
+        camera.current.takePictureAsync( {
+          pauseAfterCapture: true
+        } ).then( ( photo ) => {
+          logger.debug( "takePictureAsync resolved" );
+          requestAndroidSavePermissions( photo );
+        } ).catch( e => updateError( "take", e ) );
+      }
     }
-  }, [
-    savePhoto,
-    requestAndroidSavePermissions,
-    visionCameraTakePhoto
-  ] );
+  }, [savePhoto, updateError, requestAndroidSavePermissions] );
 
   const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
 
@@ -340,13 +309,23 @@ const ARCamera = ( ): Node => {
     }
   }, [updateError] );
 
-  const closeModal = useCallback( ( ) => setShowModal( false ), [] );
+  const checkCameraHardware = async ( ) => {
+    // the goal of this is to make Seek usable for Android devices
+    // which lack a back camera, like most Chromebooks
+    const cameraHardware = await checkForCameraAPIAndroid( );
+
+    if ( cameraHardware === "front" ) {
+      dispatch( { type: "SHOW_FRONT_CAMERA", cameraType: "front" } );
+    }
+  };
+
+  const closeModal = useCallback( ( ) => dispatch( { type: "CLOSE_MODAL" } ), [] );
 
   useEffect( ( ) => {
     const checkForFirstCameraLaunch = async ( ) => {
       const isFirstLaunch = await checkIfCameraLaunched( );
       if ( isFirstLaunch ) {
-        setShowModal( true );
+        dispatch( { type: "SHOW_MODAL" } );
       }
     };
 
@@ -356,20 +335,21 @@ const ARCamera = ( ): Node => {
       resetState( );
       checkForFirstCameraLaunch( );
       requestAndroidPermissions( );
+      checkCameraHardware( );
     } );
   }, [navigation, requestAndroidPermissions, setObservation] );
 
   useFocusEffect(
     useCallback( ( ) => {
-      let active = true;
+      let isActive = true;
 
-      if ( active ) {
+      if ( isActive ) {
         // reset user ability to post to iNat from Match Screen
         savePostingSuccess( false );
       }
 
       return ( ) => {
-        active = false;
+        isActive = false;
       };
     }, [] )
   );
@@ -377,7 +357,13 @@ const ARCamera = ( ): Node => {
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );
 
-  const confidenceThresholdNumber = 0.7;
+  const confidenceThreshold = Platform.OS === "ios" ? 0.7 : "0.7";
+  const taxaDetectionInterval = Platform.OS === "ios" ? 1000 : "1000";
+
+  const cameraStyle = {
+    width,
+    height
+  };
 
   if ( !isFocused ) {
     // this is necessary for camera to load properly in iOS
@@ -386,28 +372,25 @@ const ARCamera = ( ): Node => {
     return null;
   }
 
-  const renderCamera = () => {
-    return (
-      <FrameProcessorCamera
-        modelPath={dirModel}
-        taxonomyPath={dirTaxonomy}
-        cameraRef={camera}
-        confidenceThreshold={confidenceThresholdNumber}
-        onCameraError={handleCameraError}
-        // onCameraPermissionMissing was an empty callback
-        onClassifierError={handleClassifierError}
-        onDeviceNotSupported={handleDeviceNotSupported}
-        onCaptureError={handleCaptureError}
-        onTaxaDetected={handleTaxaDetected}
-        onLog={handleLog}
-        // taxaDetectionInterval is set directly on the camera component with frameProcessorFps
-        filterByTaxonId={taxonId}
-        negativeFilter={negativeFilter}
-        // type is replaced with logic in FrameProcessorCamera
-        isActive={isActive}
-      />
-    );
-  };
+  const renderCamera = ( ) => (
+    <INatCamera
+      ref={camera}
+      confidenceThreshold={confidenceThreshold}
+      modelPath={dirModel}
+      onCameraError={handleCameraError}
+      onCameraPermissionMissing={handleCameraPermissionMissing}
+      onClassifierError={handleClassifierError}
+      onDeviceNotSupported={handleDeviceNotSupported}
+      onTaxaDetected={handleTaxaDetected}
+      onLog={handleLog}
+      style={[viewStyles.camera, cameraStyle]}
+      taxaDetectionInterval={taxaDetectionInterval}
+      taxonomyPath={dirTaxonomy}
+      filterByTaxonId={taxonId}
+      negativeFilter={negativeFilter}
+      type={cameraType}
+    />
+  );
 
   return (
     <View style={viewStyles.container}>
@@ -420,10 +403,10 @@ const ARCamera = ( ): Node => {
         ? <CameraError error={error} errorEvent={errorEvent} />
         : (
           <ARCameraOverlay
-            prediction={lowestRankPrediction}
-            pictureTaken={pictureTaken.value}
+            ranks={ranks}
+            pictureTaken={pictureTaken}
             takePicture={takePicture}
-            cameraLoaded={cameraLoaded.value}
+            cameraLoaded={cameraLoaded}
             filterByTaxonId={filterByTaxonId}
           />
         )
@@ -454,4 +437,5 @@ const ARCamera = ( ): Node => {
   );
 };
 
-export default ARCamera;
+export default LegacyARCamera;
+

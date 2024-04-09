@@ -86,7 +86,7 @@
     "react-native-vision-camera": "3.9.1",
     "react-native-webp-format": "^1.2.0",
     "react-native-webview": "^11.26.1",
-    "react-native-worklets-core": "0.4.0",
+    "react-native-worklets-core": "0.5.0",
     "realm": "^12.5.1",
     "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#version-3"
   },

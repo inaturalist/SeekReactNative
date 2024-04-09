@@ -493,7 +493,7 @@ PODS:
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
     - ReactCommon/turbomodule/core
-  - RNScreens (3.20.0):
+  - RNScreens (3.22.0):
     - React-Core
     - React-RCTImage
   - RNShare (9.4.1):
@@ -507,12 +507,12 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.13)
   - SocketRocket (0.6.0)
-  - VisionCamera (3.9.1):
+  - VisionCamera (4.0.0-beta.13):
     - React
     - React-callinvoker
     - React-Core
     - react-native-worklets-core
-  - VisionCameraPluginInatVision (3.0.0):
+  - VisionCameraPluginInatVision (4.0.0):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -868,15 +868,15 @@ SPEC CHECKSUMS:
   RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: e626b8c31f56bf320fd27ee5ca0d5349792f2a8d
-  RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
+  RNScreens: 68fd1060f57dd1023880bf4c05d74784b5392789
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 31dbfd0dac2eea9675f0b84f1dd3261c2110c337
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  VisionCamera: 609b194489f336792caa5eda305a3fdd4ba5d44c
-  VisionCameraPluginInatVision: edd58cf80291675d1a1523a3d8d3b2c2f1bff26a
+  VisionCamera: 67ac75adc7324a2cf46e73986ea87dddd86d2f71
+  VisionCameraPluginInatVision: 2b1209bd07b8ec8eaa896049508e51931c9e6399
   Yoga: fb40589bb1a96e2573358586fc2903b3811ce254
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

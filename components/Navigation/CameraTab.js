@@ -33,7 +33,7 @@ const initialLayout = { width, length: height };
 
 const isAndroid = Platform.OS === "android";
 const majorVersionIOS = parseInt( Platform.Version, 10 );
-const useVisionCamera = isAndroid ? Platform.Version >= 23 : majorVersionIOS >= 11;
+const useVisionCamera = isAndroid ? Platform.Version >= 21 : majorVersionIOS >= 11;
 
 const CameraNav = ( ): Props => (
   <Tab.Navigator

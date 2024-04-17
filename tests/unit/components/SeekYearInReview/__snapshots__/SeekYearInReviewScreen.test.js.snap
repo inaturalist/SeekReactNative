@@ -97,7 +97,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           },
           {
             "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
+            "fontFamily": "Lato-Bold",
             "fontSize": 18,
             "letterSpacing": 1,
             "maxWidth": 650,
@@ -239,7 +239,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#ffffff",
-                    "fontFamily": "Whitney-Light",
+                    "fontFamily": "Lato-Light",
                     "fontSize": 18,
                     "letterSpacing": 0.78,
                     "marginBottom": 10,
@@ -257,7 +257,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#ffffff",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 23,
                     "letterSpacing": 1,
                   },
@@ -341,7 +341,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#ffffff",
-                  "fontFamily": "Whitney-Semibold",
+                  "fontFamily": "Lato-Bold",
                   "fontSize": 19,
                   "letterSpacing": 1.12,
                   "textAlign": "center",
@@ -561,7 +561,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 19,
                     "letterSpacing": 1.12,
                     "lineHeight": 23,
@@ -595,7 +595,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 19,
                     "letterSpacing": 1.12,
                     "lineHeight": 23,
@@ -629,7 +629,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 19,
                     "letterSpacing": 1.12,
                     "lineHeight": 23,
@@ -680,7 +680,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#000000",
-                    "fontFamily": "Whitney-Medium",
+                    "fontFamily": "Lato-Medium",
                     "fontSize": 19,
                     "lineHeight": 24,
                     "textAlign": "center",
@@ -704,7 +704,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#000000",
-                    "fontFamily": "Whitney-Medium",
+                    "fontFamily": "Lato-Medium",
                     "fontSize": 19,
                     "lineHeight": 24,
                     "textAlign": "center",
@@ -728,7 +728,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#000000",
-                    "fontFamily": "Whitney-Medium",
+                    "fontFamily": "Lato-Medium",
                     "fontSize": 19,
                     "lineHeight": 24,
                     "textAlign": "center",
@@ -788,7 +788,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#ffffff",
-                  "fontFamily": "Whitney-Semibold",
+                  "fontFamily": "Lato-Bold",
                   "fontSize": 19,
                   "letterSpacing": 1.12,
                   "textAlign": "center",
@@ -809,7 +809,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               [
                 {
                   "color": "#38976d",
-                  "fontFamily": "Whitney-Semibold",
+                  "fontFamily": "Lato-Bold",
                   "fontSize": 19,
                   "letterSpacing": 1.12,
                   "lineHeight": 23,
@@ -900,7 +900,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               [
                 {
                   "color": "#38976d",
-                  "fontFamily": "Whitney-Semibold",
+                  "fontFamily": "Lato-Bold",
                   "fontSize": 19,
                   "letterSpacing": 1.12,
                   "lineHeight": 23,
@@ -1112,7 +1112,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#ffffff",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 18,
                     "letterSpacing": 1,
                     "paddingTop": 3,
@@ -1148,7 +1148,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               [
                 {
                   "color": "#38976d",
-                  "fontFamily": "Whitney-Semibold",
+                  "fontFamily": "Lato-Bold",
                   "fontSize": 19,
                   "letterSpacing": 1.12,
                   "lineHeight": 23,
@@ -1178,7 +1178,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               },
               {
                 "color": "#000000",
-                "fontFamily": "Whitney-Medium",
+                "fontFamily": "Lato-Medium",
                 "fontSize": 19,
                 "lineHeight": 24,
                 "textAlign": "center",
@@ -1194,7 +1194,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1212,7 +1212,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1232,7 +1232,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 19,
                     "letterSpacing": 1.12,
                     "lineHeight": 23,
@@ -1255,7 +1255,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1273,7 +1273,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1291,7 +1291,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1309,7 +1309,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1327,7 +1327,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1345,7 +1345,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1363,7 +1363,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1389,7 +1389,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               },
               {
                 "color": "#000000",
-                "fontFamily": "Whitney-Medium",
+                "fontFamily": "Lato-Medium",
                 "fontSize": 19,
                 "lineHeight": 24,
                 "textAlign": "center",
@@ -1468,7 +1468,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#ffffff",
-                  "fontFamily": "Whitney-Semibold",
+                  "fontFamily": "Lato-Bold",
                   "fontSize": 19,
                   "letterSpacing": 1.12,
                   "textAlign": "center",
@@ -1487,7 +1487,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               },
               {
                 "color": "#000000",
-                "fontFamily": "Whitney-Medium",
+                "fontFamily": "Lato-Medium",
                 "fontSize": 19,
                 "lineHeight": 24,
                 "textAlign": "center",
@@ -1503,7 +1503,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1521,7 +1521,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1541,7 +1541,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 19,
                     "letterSpacing": 1.12,
                     "lineHeight": 23,
@@ -1564,7 +1564,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1582,7 +1582,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1600,7 +1600,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1618,7 +1618,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 },
                 {
                   "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 19,
                   "lineHeight": 24,
                   "textAlign": "center",
@@ -1824,7 +1824,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               },
               {
                 "color": "#000000",
-                "fontFamily": "Whitney-Book",
+                "fontFamily": "Lato-Regular",
                 "fontSize": 16,
                 "lineHeight": 21,
                 "textAlign": "center",
@@ -1849,7 +1849,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               },
               {
                 "color": "#000000",
-                "fontFamily": "Whitney-Book",
+                "fontFamily": "Lato-Regular",
                 "fontSize": 16,
                 "lineHeight": 21,
                 "textAlign": "center",
@@ -1918,7 +1918,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#ffffff",
-                    "fontFamily": "Whitney-Semibold",
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 18,
                     "letterSpacing": 1,
                     "paddingTop": 3,

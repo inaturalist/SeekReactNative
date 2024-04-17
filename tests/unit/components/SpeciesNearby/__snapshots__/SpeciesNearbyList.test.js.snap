@@ -186,7 +186,7 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
               [
                 {
                   "color": "#ffffff",
-                  "fontFamily": "Whitney-Medium",
+                  "fontFamily": "Lato-Medium",
                   "fontSize": 16,
                   "lineHeight": 21,
                   "paddingTop": 13,

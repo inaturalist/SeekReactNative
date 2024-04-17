@@ -97,7 +97,7 @@ exports[`RangeMap should change map region to user's location when button is pre
           },
           {
             "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
+            "fontFamily": "Lato-Bold",
             "fontSize": 18,
             "letterSpacing": 1,
             "maxWidth": 650,
@@ -268,7 +268,7 @@ exports[`RangeMap should change map region to user's location when button is pre
           },
           {
             "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
+            "fontFamily": "Lato-Bold",
             "fontSize": 19,
             "letterSpacing": 1.12,
             "marginTop": 18,
@@ -427,7 +427,7 @@ exports[`RangeMap should render correctly 1`] = `
           },
           {
             "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
+            "fontFamily": "Lato-Bold",
             "fontSize": 18,
             "letterSpacing": 1,
             "maxWidth": 650,
@@ -596,7 +596,7 @@ exports[`RangeMap should render correctly 1`] = `
           },
           {
             "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
+            "fontFamily": "Lato-Bold",
             "fontSize": 19,
             "letterSpacing": 1.12,
             "marginTop": 18,

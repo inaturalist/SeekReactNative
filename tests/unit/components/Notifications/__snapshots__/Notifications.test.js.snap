@@ -97,7 +97,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
           },
           {
             "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
+            "fontFamily": "Lato-Bold",
             "fontSize": 18,
             "letterSpacing": 1,
             "maxWidth": 650,
@@ -509,7 +509,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           },
                           {
                             "color": "#000000",
-                            "fontFamily": "Whitney-Medium",
+                            "fontFamily": "Lato-Medium",
                             "fontSize": 16,
                             "lineHeight": 21,
                             "marginBottom": 6,
@@ -527,7 +527,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           },
                           {
                             "color": "#000000",
-                            "fontFamily": "Whitney-Book",
+                            "fontFamily": "Lato-Regular",
                             "fontSize": 14,
                             "lineHeight": 21,
                           },
@@ -650,7 +650,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           },
                           {
                             "color": "#000000",
-                            "fontFamily": "Whitney-Medium",
+                            "fontFamily": "Lato-Medium",
                             "fontSize": 16,
                             "lineHeight": 21,
                             "marginBottom": 6,
@@ -668,7 +668,7 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           },
                           {
                             "color": "#000000",
-                            "fontFamily": "Whitney-Book",
+                            "fontFamily": "Lato-Regular",
                             "fontSize": 14,
                             "lineHeight": 21,
                           },

@@ -52,12 +52,14 @@
 	<string>We use the photo library so you can get identifications of your nature photos.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Whitney-Medium-Pro.otf</string>
-		<string>Whitney-Semibold-Pro.otf</string>
-		<string>Whitney-Book-Pro.otf</string>
-		<string>Whitney-BookItalic-Pro.otf</string>
-		<string>Whitney-Light-Pro.otf</string>
-		<string>Whitney-SemiboldItalic-Pro.otf</string>
+		<string>Lato-Bold.ttf</string>
+		<string>Lato-BoldItalic.ttf</string>
+		<string>Lato-Italic.ttf</string>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-LightItalic.ttf</string>
+		<string>Lato-Medium.ttf</string>
+		<string>Lato-MediumItalic.ttf</string>
+		<string>Lato-Regular.ttf</string>
 	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>

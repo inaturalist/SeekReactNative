@@ -1,5 +1,5 @@
 // @flow
-import { useIsFocused } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Animated, Platform, StyleSheet } from "react-native";
@@ -41,6 +41,7 @@ const FrameProcessorCamera = ( props ): Node => {
     isActive
   } = props;
 
+  const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const isForeground = useIsForeground( );
 
@@ -89,6 +90,20 @@ const FrameProcessorCamera = ( props ): Node => {
   if ( !device ) {
     device = frontDevice;
   }
+
+  useEffect( () => {
+    const unsubscribeFocus = navigation.addListener( "focus", () => {
+      InatVision.resetStoredResults();
+    } );
+    const unsubscribeBlur = navigation.addListener( "blur", () => {
+      InatVision.resetStoredResults();
+    } );
+
+    return () => {
+      unsubscribeFocus();
+      unsubscribeBlur();
+    };
+  }, [navigation] );
 
   useEffect( () => {
     if ( Platform.OS === "android" ) {
@@ -202,7 +217,6 @@ const FrameProcessorCamera = ( props ): Node => {
           const timeTaken = timeAfter - timeBefore;
           handleResult( result, timeTaken );
         } catch ( classifierError ) {
-          // TODO: needs to throw Exception in the native code for it to work here?
           // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
           console.log( `Error: ${classifierError.message}` );
           const returnError = {

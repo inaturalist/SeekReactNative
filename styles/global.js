@@ -47,12 +47,12 @@ export const colors = {
 };
 
 export const fonts: Object = {
-  medium: Platform.OS === "ios" ? "Whitney-Medium" : "Whitney-Medium-Pro",
-  semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
-  book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
-  light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro",
-  bookItalic: Platform.OS === "ios" ? "Whitney-BookItalic" : "Whitney-BookItalic-Pro",
-  semiboldItalic: Platform.OS === "ios" ? "Whitney-SemiboldItalic" : "Whitney-SemiboldItalic-Pro"
+  medium: "Lato-Medium",
+  semibold: "Lato-Bold",
+  book: "Lato-Regular",
+  light: "Lato-Light",
+  bookItalic: "Lato-Italic",
+  semiboldItalic: "Lato-BoldItalic"
 };
 
 export const padding: Object = {

@@ -14,7 +14,7 @@ exports[`SeekYearInReviewCard should render in December with observations 1`] = 
     style={
       {
         "color": "#38976d",
-        "fontFamily": "Whitney-Semibold",
+        "fontFamily": "Lato-Bold",
         "fontSize": 19,
         "letterSpacing": 1.12,
         "paddingLeft": 22,
@@ -36,7 +36,7 @@ exports[`SeekYearInReviewCard should render in December with observations 1`] = 
         [
           {
             "color": "#000000",
-            "fontFamily": "Whitney-Book",
+            "fontFamily": "Lato-Regular",
             "fontSize": 16,
             "lineHeight": 21,
           },
@@ -106,7 +106,7 @@ exports[`SeekYearInReviewCard should render in December with observations 1`] = 
           [
             {
               "color": "#ffffff",
-              "fontFamily": "Whitney-Semibold",
+              "fontFamily": "Lato-Bold",
               "fontSize": 18,
               "letterSpacing": 1,
               "paddingTop": 3,
@@ -149,7 +149,7 @@ exports[`SeekYearInReviewCard should render in January with observations 1`] = `
     style={
       {
         "color": "#38976d",
-        "fontFamily": "Whitney-Semibold",
+        "fontFamily": "Lato-Bold",
         "fontSize": 19,
         "letterSpacing": 1.12,
         "paddingLeft": 22,
@@ -171,7 +171,7 @@ exports[`SeekYearInReviewCard should render in January with observations 1`] = `
         [
           {
             "color": "#000000",
-            "fontFamily": "Whitney-Book",
+            "fontFamily": "Lato-Regular",
             "fontSize": 16,
             "lineHeight": 21,
           },
@@ -241,7 +241,7 @@ exports[`SeekYearInReviewCard should render in January with observations 1`] = `
           [
             {
               "color": "#ffffff",
-              "fontFamily": "Whitney-Semibold",
+              "fontFamily": "Lato-Bold",
               "fontSize": 18,
               "letterSpacing": 1,
               "paddingTop": 3,

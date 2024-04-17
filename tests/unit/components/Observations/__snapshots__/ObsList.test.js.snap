@@ -1070,7 +1070,7 @@ exports[`ObsList should render correctly 1`] = `
                   "borderRadius": 40,
                   "borderWidth": 1,
                   "color": "#000000",
-                  "fontFamily": "Whitney-Book",
+                  "fontFamily": "Lato-Regular",
                   "fontSize": 15,
                   "height": 37,
                   "marginLeft": 12,
@@ -1169,7 +1169,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -1196,7 +1196,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -1402,7 +1402,7 @@ exports[`ObsList should render correctly 1`] = `
                                 "color": "#000000",
                                 "flexDirection": "row",
                                 "flexWrap": "wrap",
-                                "fontFamily": "Whitney-Book",
+                                "fontFamily": "Lato-Regular",
                                 "fontSize": 21,
                               },
                             ]
@@ -1421,7 +1421,7 @@ exports[`ObsList should render correctly 1`] = `
                                 "color": "#000000",
                                 "flexDirection": "row",
                                 "flexWrap": "wrap",
-                                "fontFamily": "Whitney-BookItalic",
+                                "fontFamily": "Lato-Italic",
                                 "fontSize": 16,
                                 "marginTop": 12,
                               },
@@ -1641,7 +1641,7 @@ exports[`ObsList should render correctly 1`] = `
                                 "color": "#000000",
                                 "flexDirection": "row",
                                 "flexWrap": "wrap",
-                                "fontFamily": "Whitney-Book",
+                                "fontFamily": "Lato-Regular",
                                 "fontSize": 21,
                               },
                             ]
@@ -1660,7 +1660,7 @@ exports[`ObsList should render correctly 1`] = `
                                 "color": "#000000",
                                 "flexDirection": "row",
                                 "flexWrap": "wrap",
-                                "fontFamily": "Whitney-BookItalic",
+                                "fontFamily": "Lato-Italic",
                                 "fontSize": 16,
                                 "marginTop": 12,
                               },
@@ -1880,7 +1880,7 @@ exports[`ObsList should render correctly 1`] = `
                                 "color": "#000000",
                                 "flexDirection": "row",
                                 "flexWrap": "wrap",
-                                "fontFamily": "Whitney-Book",
+                                "fontFamily": "Lato-Regular",
                                 "fontSize": 21,
                               },
                             ]
@@ -1899,7 +1899,7 @@ exports[`ObsList should render correctly 1`] = `
                                 "color": "#000000",
                                 "flexDirection": "row",
                                 "flexWrap": "wrap",
-                                "fontFamily": "Whitney-BookItalic",
+                                "fontFamily": "Lato-Italic",
                                 "fontSize": 16,
                                 "marginTop": 12,
                               },
@@ -2067,7 +2067,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -2094,7 +2094,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -2170,7 +2170,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -2258,7 +2258,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -2285,7 +2285,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -2361,7 +2361,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -2449,7 +2449,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -2476,7 +2476,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -2552,7 +2552,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -2640,7 +2640,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -2667,7 +2667,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -2743,7 +2743,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -2831,7 +2831,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -2858,7 +2858,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -2934,7 +2934,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -3022,7 +3022,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -3049,7 +3049,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -3125,7 +3125,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -3213,7 +3213,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -3240,7 +3240,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -3316,7 +3316,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -3404,7 +3404,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -3431,7 +3431,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -3507,7 +3507,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -3595,7 +3595,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -3622,7 +3622,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -3698,7 +3698,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",
@@ -3786,7 +3786,7 @@ exports[`ObsList should render correctly 1`] = `
                       {
                         "alignSelf": "center",
                         "color": "#38976d",
-                        "fontFamily": "Whitney-Semibold",
+                        "fontFamily": "Lato-Bold",
                         "fontSize": 18,
                         "letterSpacing": 1,
                       },
@@ -3813,7 +3813,7 @@ exports[`ObsList should render correctly 1`] = `
                         },
                         {
                           "color": "#000000",
-                          "fontFamily": "Whitney-Light",
+                          "fontFamily": "Lato-Light",
                           "fontSize": 18,
                           "letterSpacing": 0.78,
                         },
@@ -3868,7 +3868,7 @@ exports[`ObsList should render correctly 1`] = `
                     [
                       {
                         "color": "#000000",
-                        "fontFamily": "Whitney-Book",
+                        "fontFamily": "Lato-Regular",
                         "fontSize": 16,
                         "lineHeight": 21,
                         "textAlign": "center",

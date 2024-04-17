@@ -192,7 +192,7 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
           [
             {
               "color": "#ffffff",
-              "fontFamily": "Whitney-Semibold",
+              "fontFamily": "Lato-Bold",
               "fontSize": 18,
               "letterSpacing": 1,
               "paddingTop": 3,

@@ -91,11 +91,13 @@ const FrameProcessorCamera = ( props ): Node => {
   if ( !device ) {
     device = frontDevice;
   }
-
-  const format = useCameraFormat( device, [
+  // Select a format that provides the highest resolution primarily for videos, then photos
+  const iosFormat = useCameraFormat( device, [
     { videoResolution: "max" },
     { photoResolution: "max" }
   ] );
+  const format = Platform.OS === "ios" ? iosFormat : undefined;
+
   // Set the exposure to the middle of the min and max exposure
   const exposure = ( device.maxExposure + device.minExposure ) / 2;
 

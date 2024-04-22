@@ -7,6 +7,7 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
   useCameraDevice,
+  useCameraFormat,
   useFrameProcessor
 } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
@@ -90,6 +91,11 @@ const FrameProcessorCamera = ( props ): Node => {
   if ( !device ) {
     device = frontDevice;
   }
+
+  const format = useCameraFormat( device, [
+    { videoResolution: "max" },
+    { photoResolution: "max" }
+  ] );
 
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {
@@ -317,6 +323,7 @@ const FrameProcessorCamera = ( props ): Node => {
             ref={cameraRef}
             style={styles.camera}
             device={device}
+            format={format}
             isActive={active}
             photo={true}
             enableZoomGesture

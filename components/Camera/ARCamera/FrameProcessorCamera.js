@@ -96,6 +96,8 @@ const FrameProcessorCamera = ( props ): Node => {
     { videoResolution: "max" },
     { photoResolution: "max" }
   ] );
+  // Set the exposure to the middle of the min and max exposure
+  const exposure = ( device.maxExposure + device.minExposure ) / 2;
 
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {
@@ -324,6 +326,7 @@ const FrameProcessorCamera = ( props ): Node => {
             style={styles.camera}
             device={device}
             format={format}
+            exposure={exposure}
             isActive={active}
             photo={true}
             enableZoomGesture

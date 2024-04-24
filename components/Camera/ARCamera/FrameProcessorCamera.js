@@ -83,7 +83,13 @@ const FrameProcessorCamera = ( props ): Node => {
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
   const [focusAvailable, setFocusAvailable] = useState( true );
-  const backDevice = useCameraDevice( "back" );
+  const backDevice = useCameraDevice( "back", {
+    physicalDevices: [
+      "ultra-wide-angle-camera",
+      "wide-angle-camera",
+      "telephoto-camera"
+    ]
+  } );
   const frontDevice = useCameraDevice( "front" );
   let device = backDevice;
   // If there is no back camera, use the front camera

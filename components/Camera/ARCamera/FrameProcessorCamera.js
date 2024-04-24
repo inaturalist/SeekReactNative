@@ -16,7 +16,6 @@ import * as InatVision from "vision-camera-plugin-inatvision";
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
 import {
   orientationPatch,
-  pixelFormatPatch,
   orientationPatchFrameProcessor,
   usePatchedRunAsync
 } from "../../../utility/visionCameraPatches";
@@ -166,7 +165,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const fps = 1;
-  const handleResult = Worklets.createRunInJsFn( ( result, timeTaken ) => {
+  const handleResult = Worklets.createRunOnJS( ( result, timeTaken ) => {
     // I am don't know if it is a temporary thing but as of vision-camera@3.9.1
     // and react-native-woklets-core@0.3.0 the Array in the worklet does not have all
     // the methods of a normal array, so we need to convert it to a normal array here
@@ -192,7 +191,7 @@ const FrameProcessorCamera = ( props ): Node => {
     onTaxaDetected( handledResult );
   } );
 
-  const handleError = Worklets.createRunInJsFn( ( error ) => {
+  const handleError = Worklets.createRunOnJS( ( error ) => {
     onClassifierError( error );
   } );
 
@@ -334,7 +333,7 @@ const FrameProcessorCamera = ( props ): Node => {
             enableZoomGesture
             zoom={device.neutralZoom}
             frameProcessor={frameProcessor}
-            pixelFormat={pixelFormatPatch()}
+            pixelFormat="yuv"
             onError={onError}
             orientation={orientationPatch( deviceOrientation )}
             photoQualityBalance="speed"

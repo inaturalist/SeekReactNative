@@ -11,17 +11,7 @@ import {
   Worklets
 } from "react-native-worklets-core";
 
-// Needed for react-native-vision-camera v3.4.1
-// This patch is used to set the pixelFormat prop which should not be needed because the default
-// value would be fine for both platforms.
-// However, on Android for the "native" pixelFormat I could not find any method or properties to
-// transform the frame into a Bitmap which we need for the classifier currently.
-// So we use the "yuv" pixelFormat which is the only one that works for now but less performant.
-export const pixelFormatPatch = () => ( Platform.OS === "ios"
-  ? "native"
-  : "yuv" );
-
-// Needed for react-native-vision-camera v3.4.1
+// Needed for react-native-vision-camera v3.9.0
 // This patch is used to determine the orientation prop for the Camera component.
 // On Android, the orientation prop is not used, so we return null.
 // On iOS, the orientation prop is undocumented, but it does get used in a sense that the
@@ -30,14 +20,15 @@ export const orientationPatch = deviceOrientation => ( Platform.OS === "android"
   ? null
   : deviceOrientation );
 
-// Needed for react-native-vision-camera v3.4.1 in combination with our vision-camera-plugin-inatvision
+// Needed for react-native-vision-camera v3.9.0 in combination
+// with our vision-camera-plugin-inatvision
 // This patch is used to determine the orientation prop for the FrameProcessor.
 // This is only needed for Android, so on iOS we return null.
 export const orientationPatchFrameProcessor = deviceOrientation => ( Platform.OS === "android"
   ? deviceOrientation
   : null );
 
-// Needed for react-native-vision-camera v3.4.1
+// Needed for react-native-vision-camera v3.9.0
 // As of this version the photo from takePhoto is not oriented coming from the native side.
 // E.g. if you take a photo in landscape-right and save it to camera roll directly from the
 // vision camera, it will be tilted in the native photo app. So, on iOS, depending on the
@@ -80,7 +71,7 @@ export const rotationTempPhotoPatch = ( photo, deviceOrientation ) => {
   return photoRotation;
 };
 
-// Needed for react-native-vision-camera v3.4.1
+// Needed for react-native-vision-camera v3.9.0
 // This patch is used to rotate the photo taken with the vision camera.
 // Because the photos coming from the vision camera are not oriented correctly, we
 // rotate them with image-resizer as a first step, replacing the original photo.
@@ -114,12 +105,12 @@ export const usePatchedRunAsync = ( ) => {
   /**
    * Print worklets logs/errors on js thread
    */
-  const logOnJs = Worklets.createRunInJsFn( ( log, error ) => {
+  const logOnJs = Worklets.createRunOnJS( ( log, error ) => {
     console.log( "logOnJs - ", log, " - error?:", error?.message ?? "no error" );
   } );
   const isAsyncContextBusy = useWorkletSharedValue( false );
   const customRunOnAsyncContext = useWorklet(
-    "CustomVisionCamera.async",
+    "default",
     ( frame, func ) => {
       "worklet";
 

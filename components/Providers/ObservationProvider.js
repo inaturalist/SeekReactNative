@@ -87,7 +87,14 @@ const ObservationProvider = ( { children }: Props ): Node => {
   const handleSpecies = useCallback( async ( param ) => {
     if ( !observation ) { return; }
     const { predictions, errorCode, latitude } = observation.image;
-    const species = Object.assign( { }, param );
+    const species = {
+      leaf_id: param.leaf_id,
+      name: param.name,
+      rank: param.rank,
+      rank_level: param.rank_level,
+      score: param.score,
+      taxon_id: param.taxon_id
+    };
 
     if ( Platform.OS === "ios" ) {
       species.ancestor_ids = setAncestorIdsiOS( predictions );

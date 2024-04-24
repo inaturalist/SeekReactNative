@@ -1,8 +1,8 @@
 // @flow
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Animated, Platform, StyleSheet } from "react-native";
+import React, { useCallback, useEffect, useState } from "react";
+import { Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
@@ -14,6 +14,7 @@ import { Worklets } from "react-native-worklets-core";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
+
 import {
   orientationPatch,
   orientationPatchFrameProcessor,
@@ -21,6 +22,7 @@ import {
 } from "../../../utility/visionCameraPatches";
 
 import FocusSquare from "./FocusSquare";
+import useFocusTap from "./hooks/useFocusTap";
 
 let framesProcessingTime = [];
 
@@ -82,7 +84,6 @@ const FrameProcessorCamera = ( props ): Node => {
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
-  const [focusAvailable, setFocusAvailable] = useState( true );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
       "ultra-wide-angle-camera",
@@ -137,37 +138,10 @@ const FrameProcessorCamera = ( props ): Node => {
     };
   }, [onLog] );
 
-  const [tappedCoordinates, setTappedCoordinates] = useState( null );
-  const singleTapToFocusAnimation = useRef( new Animated.Value( 0 ) ).current;
-
-  const singleTapToFocus = async ( { x, y } ) => {
-    if ( !device.supportsFocus ) {
-      return;
-    }
-    try {
-      singleTapToFocusAnimation.setValue( 1 );
-      setTappedCoordinates( { x, y } );
-      await props.cameraRef.current.focus( { x, y } );
-    } catch ( e ) {
-      // Android often catches the following error from the Camera X library
-      // but it doesn't seem to affect functionality, so we're ignoring this error
-      // and throwing other errors
-      const startFocusError = e?.message?.includes(
-        "Cancelled by another startFocusAndMetering"
-      );
-      if ( !startFocusError ) {
-        throw e;
-      }
-    }
-  };
-
-  const singleTap = Gesture.Tap()
-    .runOnJS( true )
-    .maxDuration( 250 )
-    .numberOfTaps( 1 )
-    .onStart( ( e ) => {
-      focusAvailable ? singleTapToFocus( e ) : null;
-    } );
+  const {
+    animatedStyle,
+    tapToFocus
+  } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const fps = 1;
@@ -267,12 +241,7 @@ const FrameProcessorCamera = ( props ): Node => {
         return;
       }
 
-      // If the error code is "device/focus-not-supported" disable focus
-      if ( error.code === "device/focus-not-supported" ) {
-        setFocusAvailable( false );
-        return;
-      }
-      // If it is any other "device/" error, return the error code
+      // If it is a "device/" error, return the error code
       if ( error.code.includes( "device/" ) ) {
         const returnReason: { nativeEvent: { reason?: string } } = {
           nativeEvent: { reason: error.code }
@@ -327,7 +296,7 @@ const FrameProcessorCamera = ( props ): Node => {
   return (
     device && cameraPermissionStatus === "granted" && (
       <>
-        <GestureDetector gesture={Gesture.Exclusive( singleTap )}>
+        <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
           <Camera
             ref={cameraRef}
             style={styles.camera}
@@ -346,8 +315,7 @@ const FrameProcessorCamera = ( props ): Node => {
           />
         </GestureDetector>
         <FocusSquare
-          singleTapToFocusAnimation={singleTapToFocusAnimation}
-          tappedCoordinates={tappedCoordinates}
+          animatedStyle={animatedStyle}
         />
       </>
     )

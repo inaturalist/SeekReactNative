@@ -100,6 +100,7 @@
     "@testing-library/react-native": "^12.4.3",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.1",
+    "@types/lodash": "^4.17.0",
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",

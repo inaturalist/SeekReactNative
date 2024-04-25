@@ -6,7 +6,7 @@ interface Props {
   animatedStyle: Object
 }
 
-const FocusSquare: React.FC<Props> = ( { animatedStyle }: Props ) => {
+const FocusSquare = ( { animatedStyle }: Props ) => {
   if ( _.isEmpty( animatedStyle ) ) { return null; }
   return (
     // $FlowIgnore

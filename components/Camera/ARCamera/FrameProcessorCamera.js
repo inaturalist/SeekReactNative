@@ -146,17 +146,7 @@ const FrameProcessorCamera = ( props ): Node => {
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result, timeTaken ) => {
-    // I am don't know if it is a temporary thing but as of vision-camera@3.9.1
-    // and react-native-woklets-core@0.3.0 the Array in the worklet does not have all
-    // the methods of a normal array, so we need to convert it to a normal array here
-    // getPredictionsForImage is fine
-    // TODO: move this to "patches" ?
-    let { predictions } = result;
-    if ( !Array.isArray( predictions ) ) {
-      predictions = Object.keys( predictions ).map( ( key ) => predictions[key] );
-    }
-    // TODO: using current time here now, for some reason result.timestamp is not working
-    setLastTimestamp( Date.now() );
+    setLastTimestamp( result.timestamp );
     framesProcessingTime.push( timeTaken );
     if ( framesProcessingTime.length >= 10 ) {
       const avgTime = framesProcessingTime.reduce( ( a, b ) => a + b, 0 ) / 10;
@@ -167,8 +157,7 @@ const FrameProcessorCamera = ( props ): Node => {
         }
       } );
     }
-    const handledResult = { predictions, timestamp: result.timestamp };
-    onTaxaDetected( handledResult );
+    onTaxaDetected( result );
   } );
 
   const handleError = Worklets.createRunOnJS( ( error ) => {

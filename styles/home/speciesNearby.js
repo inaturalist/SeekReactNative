@@ -52,21 +52,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   locationPickerButton: {
     paddingBottom: 15,
     marginLeft: 22
-  }
-} );
-
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
   },
   buttonText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1,
     paddingTop: padding.iOSButtonPadding
   }
 } );
@@ -83,7 +70,6 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
 } );
 
 export {
-  textStyles,
   viewStyles,
   imageStyles
 };

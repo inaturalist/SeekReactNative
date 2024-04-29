@@ -10,7 +10,8 @@ import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { viewStyles, textStyles, imageStyles } from "../../../styles/home/speciesNearby";
+import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
+import { textStyles } from "../../../styles/textStyles";
 import Picker from "../../../components/UIComponents/Picker";
 import { SpeciesNearbyContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
@@ -39,7 +40,7 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
     <TouchableOpacity style={[viewStyles.row, viewStyles.marginLeft]}>
       <Image source={icons.filter} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
-        <StyledText style={textStyles.buttonText}>
+        <StyledText style={[viewStyles.buttonText, textStyles.buttonGreen]}>
           {i18n.t( `taxon_picker.${taxaType}` ).toLocaleUpperCase()}
         </StyledText>
       </View>

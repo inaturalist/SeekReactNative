@@ -3,7 +3,12 @@ import { Text } from "react-native";
 
 import { leftText } from "../../styles/global";
 
-const StyledText = props => {
+interface Props {
+  children: React.ReactNode;
+  style?: object;
+}
+
+const StyledText = ( props: Props ) => {
   const { children } = props;
   return (
     <Text

@@ -6,6 +6,7 @@ import { leftText } from "../../styles/global";
 interface Props {
   children: React.ReactNode;
   style?: object;
+  allowFontScaling?: boolean;
 }
 
 const StyledText = ( props: Props ) => {

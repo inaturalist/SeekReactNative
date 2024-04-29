@@ -52,7 +52,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   locationPickerButton: {
     paddingBottom: 15,
     marginLeft: 22
-  },
+  }
+} );
+
+const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   buttonText: {
     paddingTop: padding.iOSButtonPadding
   }
@@ -70,6 +73,7 @@ const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
 } );
 
 export {
+  textStyles,
   viewStyles,
   imageStyles
 };

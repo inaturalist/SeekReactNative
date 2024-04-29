@@ -18,7 +18,7 @@ const buttonText = {
   lineHeight: 21
 };
 
-const textStyles = StyleSheet.create( {
+const baseTextStyles = StyleSheet.create( {
   headerWhite: {
     ...headerText,
     color: colors.white
@@ -31,5 +31,5 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  textStyles
+  baseTextStyles
 };

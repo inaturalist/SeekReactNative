@@ -9,8 +9,8 @@ import {
 import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
-import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
-import { textStyles } from "../../../styles/textStyles";
+import { viewStyles, imageStyles, textStyles } from "../../../styles/home/speciesNearby";
+import { baseTextStyles } from "../../../styles/textStyles";
 import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
 import StyledText from "../../UIComponents/StyledText";
@@ -36,7 +36,7 @@ const LocationPickerButton = ( {
       {/* $FlowFixMe */}
       <Image source={posting.location} tintColor={colors.white} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
-        <StyledText style={[textStyles.buttonGreen, viewStyles.buttonText]}>
+        <StyledText style={[baseTextStyles.buttonGreen, textStyles.buttonText]}>
           {locationText.toLocaleUpperCase( )}
         </StyledText>
       </View>

@@ -6,7 +6,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import type { Node } from "react";
 
 import { viewStyles } from "../../../styles/home/speciesNearby";
-import { textStyles } from "../../../styles/textStyles";
+import { baseTextStyles } from "../../../styles/textStyles";
 import i18n from "../../../i18n";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import TaxonPicker from "./TaxonPicker";
@@ -211,7 +211,7 @@ const SpeciesNearby = ( ): Node => {
   return (
     <View style={viewStyles.container}>
       {renderModal( )}
-      <StyledText style={[textStyles.headerWhite, viewStyles.header]}>
+      <StyledText style={[baseTextStyles.headerWhite, viewStyles.header]}>
         {i18n.t( "species_nearby.header" ).toLocaleUpperCase( )}
       </StyledText>
       <LocationPickerButton

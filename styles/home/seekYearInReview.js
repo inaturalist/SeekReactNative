@@ -33,17 +33,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   header: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
     paddingLeft: 22
-  },
-  text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
   }
 } );
 

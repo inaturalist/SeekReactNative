@@ -13,6 +13,8 @@ import {
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { AppOrientationContext, UserContext } from "../../UserContext";
 import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
+import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 
 const SeekYearInReviewCard = ( ): Node => {
@@ -43,18 +45,18 @@ const SeekYearInReviewCard = ( ): Node => {
 
   return (
     <View testID="yir-card" style={viewStyles.whiteContainer}>
-      <Text style={textStyles.header}>
+      <StyledText style={[baseTextStyles.headerGreen, textStyles.header]}>
         {i18n.t( "seek_year_in_review.header" ).toLocaleUpperCase()}
-      </Text>
+      </StyledText>
       <View style={viewStyles.textContainer}>
-        <Text
+        <StyledText
           style={[
-            textStyles.text,
+            baseTextStyles.bodyBlack,
             isLandscape && viewStyles.landscapeContainerRestrictedWidth
           ]}
         >
           {i18n.t( "seek_year_in_review.description" )}
-        </Text>
+        </StyledText>
       </View>
       <View style={viewStyles.marginGreenButtonLarge} />
       <GreenButton

@@ -57,7 +57,7 @@ const SpeciesObservedCell = ( { item }: Props ): Node => {
           <View style={viewStyles.cellTitle}>
             <StyledText
               numberOfLines={3}
-              style={[baseTextStyles.bodyBlack, textStyles.cellTitleText, !commonName && textStyles.scientificName]}
+              style={[baseTextStyles.body, textStyles.cellTitleText, !commonName && textStyles.scientificName]}
             >
             {commonName
               ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

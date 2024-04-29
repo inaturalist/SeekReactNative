@@ -52,7 +52,7 @@ const GreenButton = ( {
     >
       <StyledText
         style={[
-          baseTextStyles.buttonWhite,
+          baseTextStyles.button,
           textStyles.buttonText,
           letterSpacing && { letterSpacing },
           fontSize && { fontSize }

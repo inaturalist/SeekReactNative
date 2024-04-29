@@ -12,7 +12,7 @@ interface Props {
 const DescriptionText = ( { text, allowFontScaling }: Props ) => (
   <StyledText
     allowFontScaling={allowFontScaling}
-    style={dimensions.height > 570 ? baseTextStyles.bodyBlack : baseTextStyles.bodyBlackSmallScreens}
+    style={dimensions.height > 570 ? baseTextStyles.body : baseTextStyles.bodyBlackSmallScreens}
   >
     {text}
   </StyledText>

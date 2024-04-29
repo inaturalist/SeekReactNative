@@ -6,14 +6,16 @@ import {
 
 const fontScale = PixelRatio.getFontScale( );
 
-const headerText = {
+const header = {
+  color: colors.seekForestGreen,
   fontFamily: fonts.bold,
   fontSize: 18,
   letterSpacing: 1,
   lineHeight: 22
 };
 
-const buttonText = {
+const button = {
+  color: colors.white,
   fontFamily: fonts.bold,
   fontSize: 17,
   letterSpacing: 1,
@@ -21,6 +23,7 @@ const buttonText = {
 };
 
 const body = {
+  color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 15,
   letterSpacing: 0,
@@ -28,6 +31,7 @@ const body = {
 };
 
 const emptyState = {
+  color: colors.black,
   fontFamily: fonts.medium,
   fontSize: 18,
   letterSpacing: 0,
@@ -35,6 +39,7 @@ const emptyState = {
 };
 
 const highlight = {
+  color: colors.seekForestGreen,
   fontFamily: fonts.bold,
   fontSize: 17,
   letterSpacing: 1,
@@ -58,29 +63,19 @@ const challengeTitle = {
 };
 
 const baseTextStyles = StyleSheet.create( {
+  header,
   headerWhite: {
-    ...headerText,
+    ...header,
     color: colors.white
   },
-  headerGreen: {
-    ...headerText,
-    color: colors.seekForestGreen
-  },
+  button,
   buttonGreen: {
-    ...buttonText,
+    ...button,
     color: colors.seekForestGreen
   },
-  buttonWhite: {
-    ...buttonText,
-    color: colors.white
-  },
-  bodyBlack: {
-    ...body,
-    color: colors.black
-  },
+  body,
   bodyBlackSmallScreens: {
     ...body,
-    color: colors.black,
     fontSize: 14,
     lineHeight: 14
   },
@@ -88,18 +83,12 @@ const baseTextStyles = StyleSheet.create( {
     ...body,
     color: colors.white
   },
+  emptyState,
   emptyStateGreen: {
     ...emptyState,
     color: colors.seekForestGreen
   },
-  emptyStateBlack: {
-    ...emptyState,
-    color: colors.black
-  },
-  highlightGreen: {
-    ...highlight,
-    color: colors.seekForestGreen
-  },
+  highlight,
   challengeMonth,
   challengeTitle
 } );

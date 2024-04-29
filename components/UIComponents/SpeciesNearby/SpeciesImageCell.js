@@ -64,7 +64,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
       <StyledText
         numberOfLines={3}
         style={[
-          name === "ChallengeDetails" ? baseTextStyles.bodyBlack : baseTextStyles.bodyWhite,
+          name === "ChallengeDetails" ? baseTextStyles.body : baseTextStyles.bodyWhite,
           textStyles.speciesNameText,
           !commonName && textStyles.scientificName
         ]}>

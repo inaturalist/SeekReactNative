@@ -130,7 +130,7 @@ const Announcements = ( ): React.Node => {
 
   return (
     <View style={viewStyles.whiteContainer} testID="announcements-container">
-      <StyledText style={[baseTextStyles.headerGreen, textStyles.header]}>
+      <StyledText style={[baseTextStyles.header, textStyles.header]}>
         {i18n.t( "announcements.header" ).toLocaleUpperCase()}
       </StyledText>
       <AutoheightWebView

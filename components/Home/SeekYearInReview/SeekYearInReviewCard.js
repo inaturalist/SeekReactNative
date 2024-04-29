@@ -45,13 +45,13 @@ const SeekYearInReviewCard = ( ): Node => {
 
   return (
     <View testID="yir-card" style={viewStyles.whiteContainer}>
-      <StyledText style={[baseTextStyles.headerGreen, textStyles.header]}>
+      <StyledText style={[baseTextStyles.header, textStyles.header]}>
         {i18n.t( "seek_year_in_review.header" ).toLocaleUpperCase()}
       </StyledText>
       <View style={viewStyles.textContainer}>
         <StyledText
           style={[
-            baseTextStyles.bodyBlack,
+            baseTextStyles.body,
             isLandscape && viewStyles.landscapeContainerRestrictedWidth
           ]}
         >

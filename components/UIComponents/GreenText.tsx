@@ -26,9 +26,9 @@ const GreenText = ( {
 }: Props ) => (
   <StyledText
     style={[
-      baseTextStyles.headerGreen,
+      baseTextStyles.header,
       // TODO: for some, e.g. YIR screen, this should be emptyStateGreen
-      smaller && baseTextStyles.highlightGreen,
+      smaller && baseTextStyles.highlight,
       center && styles.center,
       color && { color },
       style

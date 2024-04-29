@@ -14,10 +14,10 @@ const NoChallenges = ( ): Node => (
   <View style={[viewStyles.row, viewStyles.center]}>
     <Image source={icons.completed} />
     <View style={viewStyles.noChallengeTextContainer}>
-      <StyledText style={[baseTextStyles.emptyStateBlack, textStyles.textWidth]}>
+      <StyledText style={[baseTextStyles.emptyState, textStyles.textWidth]}>
         {i18n.t( "challenges.completed_all" )}
       </StyledText>
-      <StyledText style={[baseTextStyles.bodyBlack, textStyles.text, textStyles.textWidth]}>
+      <StyledText style={[baseTextStyles.body, textStyles.text, textStyles.textWidth]}>
         {i18n.t( "challenges.no_new_challenges" )}
       </StyledText>
     </View>

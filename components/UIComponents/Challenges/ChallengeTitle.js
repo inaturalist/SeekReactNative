@@ -6,6 +6,7 @@ import StyledText from "../../UIComponents/StyledText";
 import i18n from "../../../i18n";
 import { textStyles } from "../../../styles/uiComponents/challenges";
 import { formatMonthYear } from "../../../utility/dateHelpers";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   challenge: {
@@ -25,10 +26,10 @@ type Props = {
 
 const ChallengeTitle = ( { challenge }: Props ): React.Node => (
   <>
-    <StyledText style={textStyles.challengeHeader}>
+    <StyledText style={[baseTextStyles.challengeMonth, textStyles.challengeHeader]}>
       {formatMonthYear( challenge.availableDate ).toLocaleUpperCase()}
     </StyledText>
-    <StyledText style={textStyles.challengeName}>
+    <StyledText style={[baseTextStyles.challengeTitle, textStyles.challengeName]}>
       {i18n.t( challenge.name ).toLocaleUpperCase()}
     </StyledText>
   </>

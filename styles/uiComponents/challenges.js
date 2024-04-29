@@ -1,15 +1,13 @@
 
 // @flow
 
-import { StyleSheet, PixelRatio } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
   row,
   center
 } from "../global";
-
-const fontScale = PixelRatio.getFontScale( );
 
 import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
@@ -23,17 +21,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   challengeHeader: {
-    color: colors.white,
-    fontFamily: fonts.light,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
-    letterSpacing: 0.78,
     marginHorizontal: 31
   },
   challengeName: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 20 : 23,
-    letterSpacing: 1.0,
     marginTop: 5,
     marginHorizontal: 31
   },

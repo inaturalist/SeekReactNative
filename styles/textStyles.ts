@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, PixelRatio } from "react-native";
 import {
   colors,
   fonts
 } from "./global";
+
+const fontScale = PixelRatio.getFontScale( );
 
 const headerText = {
   fontFamily: fonts.bold,
@@ -39,6 +41,22 @@ const highlight = {
   lineHeight: 24
 };
 
+const challengeMonth = {
+  color: colors.white,
+  fontFamily: fonts.regular,
+  fontSize: ( fontScale > 1 ) ? 15 : 17,
+  letterSpacing: 0.75,
+  lineHeight: 21
+};
+
+const challengeTitle = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: ( fontScale > 1 ) ? 19 : 22,
+  letterSpacing: 1.0,
+  lineHeight: 27
+};
+
 const baseTextStyles = StyleSheet.create( {
   headerWhite: {
     ...headerText,
@@ -70,6 +88,10 @@ const baseTextStyles = StyleSheet.create( {
     ...body,
     color: colors.white
   },
+  emptyStateGreen: {
+    ...emptyState,
+    color: colors.seekForestGreen
+  },
   emptyStateBlack: {
     ...emptyState,
     color: colors.black
@@ -77,7 +99,9 @@ const baseTextStyles = StyleSheet.create( {
   highlightGreen: {
     ...highlight,
     color: colors.seekForestGreen
-  }
+  },
+  challengeMonth,
+  challengeTitle
 } );
 
 export {

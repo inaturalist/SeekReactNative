@@ -2,8 +2,6 @@
 
 import { StyleSheet } from "react-native";
 import {
-  colors,
-  fonts,
   center,
   row
 } from "../global";
@@ -20,17 +18,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 11
-  },
-  largeText: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24
   },
   textWidth: {
     width: 195

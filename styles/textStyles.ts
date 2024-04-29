@@ -25,6 +25,13 @@ const body = {
   lineHeight: 21
 };
 
+const emptyState = {
+  fontFamily: fonts.medium,
+  fontSize: 18,
+  letterSpacing: 0,
+  lineHeight: 24
+};
+
 const highlight = {
   fontFamily: fonts.bold,
   fontSize: 17,
@@ -62,6 +69,10 @@ const baseTextStyles = StyleSheet.create( {
   bodyWhite: {
     ...body,
     color: colors.white
+  },
+  emptyStateBlack: {
+    ...emptyState,
+    color: colors.black
   },
   highlightGreen: {
     ...highlight,

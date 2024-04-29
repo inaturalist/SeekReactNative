@@ -44,6 +44,7 @@ export const fonts = {
   semibold: "Lato-Bold",
   bold: "Lato-Bold",
   book: "Lato-Regular",
+  regular: "Lato-Regular",
   light: "Lato-Light",
   bookItalic: "Lato-Italic",
   semiboldItalic: "Lato-BoldItalic"

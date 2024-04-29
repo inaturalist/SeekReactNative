@@ -12,6 +12,7 @@ import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
 import { SpeciesDetailContext } from "../../UserContext";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   +item: Object
@@ -63,9 +64,9 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
       <StyledText
         numberOfLines={3}
         style={[
+          name === "ChallengeDetails" ? baseTextStyles.bodyBlack : baseTextStyles.bodyWhite,
           textStyles.speciesNameText,
-          !commonName && textStyles.scientificName,
-          name === "ChallengeDetails" && textStyles.challengeDetailsText
+          !commonName && textStyles.scientificName
         ]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

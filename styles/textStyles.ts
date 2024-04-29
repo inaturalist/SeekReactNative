@@ -18,6 +18,13 @@ const buttonText = {
   lineHeight: 21
 };
 
+const body = {
+  fontFamily: fonts.regular,
+  fontSize: 15,
+  letterSpacing: 0,
+  lineHeight: 21
+};
+
 const baseTextStyles = StyleSheet.create( {
   headerWhite: {
     ...headerText,
@@ -27,6 +34,14 @@ const baseTextStyles = StyleSheet.create( {
     ...buttonText,
     color: colors.seekForestGreen
     // Here was also: paddingTop: padding.iOSButtonPadding
+  },
+  bodyBlack: {
+    ...body,
+    color: colors.black
+  },
+  bodyWhite: {
+    ...body,
+    color: colors.white
   }
 } );
 

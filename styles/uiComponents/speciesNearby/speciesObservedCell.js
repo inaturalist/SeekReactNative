@@ -38,10 +38,6 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   cellTitleText: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center"
   },
   scientificName: {
@@ -49,14 +45,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   },
   speciesNameText: {
     paddingTop: 13,
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center"
-  },
-  challengeDetailsText: {
-    color: colors.black
   }
 } );
 

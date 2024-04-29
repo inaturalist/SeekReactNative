@@ -25,10 +25,21 @@ const body = {
   lineHeight: 21
 };
 
+const highlight = {
+  fontFamily: fonts.bold,
+  fontSize: 17,
+  letterSpacing: 1,
+  lineHeight: 24
+};
+
 const baseTextStyles = StyleSheet.create( {
   headerWhite: {
     ...headerText,
     color: colors.white
+  },
+  headerGreen: {
+    ...headerText,
+    color: colors.seekForestGreen
   },
   buttonGreen: {
     ...buttonText,
@@ -48,6 +59,10 @@ const baseTextStyles = StyleSheet.create( {
   bodyWhite: {
     ...body,
     color: colors.white
+  },
+  highlightGreen: {
+    ...highlight,
+    color: colors.seekForestGreen
   }
 } );
 

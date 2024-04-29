@@ -1,18 +1,18 @@
-// @flow
-
-import * as React from "react";
+import React from "react";
 
 import styles from "../../styles/uiComponents/greenText";
 import i18n from "../../i18n";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-
-type Props = {
-  +text: string,
-  +smaller?: boolean,
-  +center?: boolean,
-  +color?: ?string,
-  +allowFontScaling?: boolean
+interface Props {
+  style?: object;
+  text: string;
+  smaller?: boolean;
+  center?: boolean;
+  color?: string;
+  allowFontScaling?: boolean;
+  noTranslation?: boolean;
 }
 
 const GreenText = ( {
@@ -23,11 +23,12 @@ const GreenText = ( {
   color,
   allowFontScaling,
   noTranslation
-}: Props ): React.Node => (
+}: Props ) => (
   <StyledText
     style={[
-      styles.greenHeaderText,
-      smaller && styles.smallerText,
+      baseTextStyles.headerGreen,
+      // TODO: for some, e.g. YIR screen, this should be emptyStateGreen
+      smaller && baseTextStyles.highlightGreen,
       center && styles.center,
       color && { color },
       style

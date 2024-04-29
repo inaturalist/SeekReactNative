@@ -61,28 +61,14 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 } );
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
   text: {
     paddingTop: 5,
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 24,
     paddingRight: 15,
     maxWidth: 236
   },
   errorText: {
     marginTop: 20,
-    textAlign: "center",
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 24
+    textAlign: "center"
   }
 } );
 

@@ -1,13 +1,6 @@
-// @flow
-
 import { Platform, Dimensions } from "react-native";
 
-type ScreenDimensions = {
-  width: number,
-  height: number
-}
-
-const { width, height }: ScreenDimensions = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export const colors = {
   white: "#ffffff",
@@ -46,16 +39,17 @@ export const colors = {
   ccGray: "#363636"
 };
 
-export const fonts: Object = {
+export const fonts = {
   medium: "Lato-Medium",
   semibold: "Lato-Bold",
+  bold: "Lato-Bold",
   book: "Lato-Regular",
   light: "Lato-Light",
   bookItalic: "Lato-Italic",
   semiboldItalic: "Lato-BoldItalic"
 };
 
-export const padding: Object = {
+export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
   iOSButtonPadding: Platform.OS === "ios" ? 3 : 0, // this looks different on RN 0.63.x
   iOSPaddingSmall: Platform.OS === "ios" ? 5 : 0

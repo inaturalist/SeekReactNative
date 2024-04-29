@@ -39,6 +39,12 @@ const baseTextStyles = StyleSheet.create( {
     ...body,
     color: colors.black
   },
+  bodyBlackSmallScreens: {
+    ...body,
+    color: colors.black,
+    fontSize: 14,
+    lineHeight: 14
+  },
   bodyWhite: {
     ...body,
     color: colors.white

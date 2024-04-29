@@ -7,6 +7,7 @@ import { TouchableOpacity } from "react-native";
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/greenButton";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   +color?: ?Object,
@@ -50,7 +51,12 @@ const GreenButton = ( {
       testID="greenButton"
     >
       <StyledText
-        style={[textStyles.buttonText, { letterSpacing }, { fontSize }]}
+        style={[
+          baseTextStyles.buttonWhite,
+          textStyles.buttonText,
+          letterSpacing && { letterSpacing },
+          fontSize && { fontSize }
+        ]}
         allowFontScaling={allowFontScaling}
       >
         {i18n.t( text ).toLocaleUpperCase()}
@@ -60,9 +66,7 @@ const GreenButton = ( {
 };
 
 GreenButton.defaultProps = {
-  fontSize: 18,
   login: false,
-  letterSpacing: 1.0,
   color: null,
   width: null,
   allowFontScaling: true

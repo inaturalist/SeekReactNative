@@ -44,7 +44,10 @@ const baseTextStyles = StyleSheet.create( {
   buttonGreen: {
     ...buttonText,
     color: colors.seekForestGreen
-    // Here was also: paddingTop: padding.iOSButtonPadding
+  },
+  buttonWhite: {
+    ...buttonText,
+    color: colors.white
   },
   bodyBlack: {
     ...body,

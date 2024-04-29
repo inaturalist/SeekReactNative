@@ -62,6 +62,13 @@ const challengeTitle = {
   lineHeight: 27
 };
 
+const challengeDescription = {
+  color: colors.white,
+  fontFamily: fonts.medium,
+  fontSize: 16,
+  lineHeight: 24
+};
+
 const baseTextStyles = StyleSheet.create( {
   header,
   headerWhite: {
@@ -90,7 +97,8 @@ const baseTextStyles = StyleSheet.create( {
   },
   highlight,
   challengeMonth,
-  challengeTitle
+  challengeTitle,
+  challengeDescription
 } );
 
 export {

@@ -4,7 +4,6 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   row,
   center
 } from "../global";
@@ -28,22 +27,13 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginHorizontal: 31
   },
   longText: {
-    fontSize: 14,
+    fontSize: 13,
     lineHeight: 21
   },
   text: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 24,
-    maxWidth: 178,
     textAlign: "center"
   },
-  textSmall: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 24,
+  badgeText: {
     maxWidth: 178
   }
 } );

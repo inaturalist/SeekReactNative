@@ -9,6 +9,7 @@ import i18n from "../../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../../styles/uiComponents/challenges";
 import badges from "../../../assets/badges";
 import { colors } from "../../../styles/global";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   challenge: Object,
@@ -43,9 +44,10 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ): React.Node => {
       <View style={viewStyles.marginMiddle} />
       <StyledText
         style={[
+          textStyles.badgeText,
           large
-            ? textStyles.text
-            : textStyles.textSmall,
+            ? [baseTextStyles.challengeDescription, textStyles.text]
+            : baseTextStyles.bodyWhite,
           longText && textStyles.longText
         ]}
       >

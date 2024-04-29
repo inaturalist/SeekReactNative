@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../global";
+import { colors } from "../global";
 
 import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
@@ -31,19 +31,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   viewText: {
     alignSelf: "center",
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
     paddingBottom: 31,
     paddingTop: 15,
     textDecorationLine: "underline"
-  },
-  adminText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    paddingHorizontal: 22,
-    paddingBottom: 10
   }
 } );
 

@@ -1,6 +1,4 @@
 
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
@@ -8,9 +6,7 @@ import {
   center
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   center,
   marginMiddle: {
     marginRight: 29
@@ -18,7 +14,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   challengeHeader: {
     marginHorizontal: 31
   },
@@ -38,7 +34,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   white: {
     tintColor: colors.white
   },

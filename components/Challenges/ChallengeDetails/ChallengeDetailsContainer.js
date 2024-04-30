@@ -12,6 +12,7 @@ import GreenText from "../../UIComponents/GreenText";
 import SpeciesObserved from "./SpeciesObserved";
 import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 type Props = {
   challenge: {
     percentComplete: number,
@@ -37,7 +38,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
       <View style={viewStyles.textContainer}>
         {challenge.startedDate && <ChallengeMissionCard challenge={challenge} />}
         <View style={viewStyles.marginSmall} />
-        <StyledText style={textStyles.descriptionText}>{i18n.t( challenge.description )}</StyledText>
+        <StyledText style={baseTextStyles.body}>{i18n.t( challenge.description )}</StyledText>
         <View style={viewStyles.marginLarge} />
       </View>
       <SpeciesNearbyChallenge challenge={challenge} />

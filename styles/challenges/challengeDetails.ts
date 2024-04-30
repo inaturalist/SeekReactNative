@@ -3,9 +3,7 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
@@ -38,13 +36,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-  descriptionText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
-  },
+const textStyles = StyleSheet.create( {
   photographerText: {
     fontSize: 14,
     textAlign: "center",
@@ -68,7 +60,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   iNatLogo: {
     height: 35,
     top: 32,

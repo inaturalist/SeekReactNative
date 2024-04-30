@@ -1,6 +1,10 @@
-// @flow
+import { ImageSourcePropType } from "react-native";
 
-const badges = {
+type Badges = {
+  [key: string]: ImageSourcePropType;
+};
+
+const badges: Badges = {
   badge_empty: require( "./badges/Badge_Empty.webp" ),
   badge_empty_small: require( "./badges/observations/Badge_Empty.webp" ),
   "levelbadge-0": require( "./badges/naturalist/levelbadge-0.webp" ),

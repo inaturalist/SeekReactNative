@@ -1,6 +1,10 @@
-// @flow
+import { ImageSourcePropType } from "react-native";
 
-const backgrounds = {
+type Backgrounds = {
+  [key: string]: ImageSourcePropType;
+};
+
+const backgrounds: Backgrounds = {
   splash: require( "./backgrounds/bg-splash-2020.webp" ),
   splashiPad: require( "./backgrounds/bg-splash-2021-iPad.png" ),
   login: require( "./backgrounds/bg-login-2020.webp" ),

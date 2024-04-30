@@ -14,20 +14,24 @@ import badgeImages from "../../assets/badges";
 import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +level: Object,
-  +speciesCount: ?number,
-  +closeModal: Function,
-  +screen?: ?string
-};
+interface Props {
+  level: {
+    earnedIconName: string,
+    intlName: string
+  };
+  speciesCount?: number;
+  closeModal: () => void;
+  screen?: string;
+}
 
 const LevelModal = ( {
   level,
   speciesCount,
   closeModal,
   screen
-}: Props ): React.Node => (
+}: Props ) => (
   <WhiteModal closeModal={closeModal}>
     <View style={viewStyles.headerMargins}>
       <GreenText text={screen === "achievements"
@@ -44,9 +48,9 @@ const LevelModal = ( {
         source={badgeImages[level.earnedIconName]}
         style={imageStyles.image}
       />
-      <StyledText style={textStyles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={[baseTextStyles.challengeTitle, textStyles.nameText]}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
     </LinearGradient>
-    <StyledText style={textStyles.text}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</StyledText>
+    <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</StyledText>
   </WhiteModal>
 );
 

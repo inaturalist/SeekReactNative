@@ -1,6 +1,10 @@
-// @flow
+import { ImageSourcePropType } from "react-native";
 
-const icons = {
+type Icons = {
+  [key: string]: ImageSourcePropType;
+};
+
+const icons: Icons = {
   completed: require( "./icons/icon-completed.webp" ),
   checklist: require( "./icons/icon-checklist.webp" ),
   filter: require( "./icons/icon-filter.webp" ),

@@ -1,6 +1,10 @@
-// @flow
+import { ImageSourcePropType } from "react-native";
 
-const logos = {
+type Logos = {
+  [key: string]: ImageSourcePropType;
+};
+
+const logos: Logos = {
   seek: require( "./logos/logo-seek-splash-2020.webp" ),
   bird: require( "./logos/iNatStatsSpeciesDetail-Bird.webp" ),
   wwfop: require( "./logos/logos-wwfop.webp" ),

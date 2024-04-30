@@ -1,16 +1,10 @@
 // @flow
 
 import { StyleSheet, Dimensions, Platform } from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
 
 const { height } = Dimensions.get( "window" );
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backgroundColor: {
     alignItems: "center",
     width: "100%"
@@ -21,20 +15,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   nameText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0,
     marginBottom: height > 570 ? 43 : 30,
     marginTop: 32
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginBottom: 24,
     marginHorizontal: 40,
     marginTop: 16,
@@ -42,7 +28,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: height > 640 ? 258 : 215,
     marginTop: height > 570 ? 50 : 30,

@@ -1,6 +1,10 @@
-// @flow
+import { ImageSourcePropType } from "react-native";
 
-const iconicTaxa = {
+type IconicTaxa = {
+  [key: string]: ImageSourcePropType;
+};
+
+const iconicTaxa: IconicTaxa = {
   "47126": require( "./iconicTaxa/img-nullobs-plant.webp" ),
   "20978": require( "./iconicTaxa/img-nullobs-amphibian.webp" ),
   "47170": require( "./iconicTaxa/img-nullobs-fungi.webp" ),

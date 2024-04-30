@@ -1,6 +1,10 @@
-// @flow
+import { ImageSourcePropType } from "react-native";
 
-const posting = {
+type Posting = {
+  [key: string]: ImageSourcePropType;
+};
+
+const posting: Posting = {
   captive: require( "./posting/icon-captive.webp" ),
   crosshair: require( "./posting/icon-crosshair.webp" ),
   date: require( "./posting/icon-date.webp" ),

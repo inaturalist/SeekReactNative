@@ -1,18 +1,13 @@
-// @flow
-
 import { StyleSheet, PixelRatio } from "react-native";
 import {
   colors,
-  fonts,
   padding,
   dimensions
 } from "../../global";
 
 const { getFontScale } = PixelRatio;
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   greenButton: {
     alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
@@ -28,7 +23,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   buttonText: {
     paddingTop: padding.iOSButtonPadding,
     textAlign: "center"

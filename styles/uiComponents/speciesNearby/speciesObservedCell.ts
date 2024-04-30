@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../../global";
+import { fonts } from "../../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   cellImage: {
     borderRadius: 108 / 2,
     height: 108,
@@ -36,7 +32,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   cellTitleText: {
     textAlign: "center"
   },

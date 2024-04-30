@@ -1,16 +1,11 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   row,
   padding
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   container: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -55,13 +50,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   buttonText: {
     paddingTop: padding.iOSButtonPadding
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 21,
     marginLeft: 10,

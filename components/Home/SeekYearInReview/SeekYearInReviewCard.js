@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
 

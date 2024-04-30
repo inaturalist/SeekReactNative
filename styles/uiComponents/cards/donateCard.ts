@@ -1,16 +1,11 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
-  colors,
-  fonts
+  colors
 } from "../../global";
-
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const maxColumnWidth = 455;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   whiteContainer: {
     paddingTop: 35,
     backgroundColor: colors.white
@@ -37,7 +32,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   header: {
     paddingLeft: 22
   }

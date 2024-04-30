@@ -122,6 +122,11 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.seekForestGreen
   },
   body,
+  bodySmall: {
+    ...body,
+    fontSize: 13,
+    lineHeight: 21
+  },
   bodyBlackSmallScreens: {
     ...body,
     fontSize: 14,
@@ -134,6 +139,11 @@ const baseTextStyles = StyleSheet.create( {
   bodyGreen: {
     ...body,
     color: colors.seekForestGreen
+  },
+  bodyMedium: {
+    ...body,
+    color: colors.seekForestGreen,
+    fontFamily: fonts.medium
   },
   emptyState,
   emptyStateGreen: {

@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts, dimensions } from "../global";
+import { dimensions } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   header: {
     alignItems: "center",
     borderTopLeftRadius: 40,
@@ -20,7 +16,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
     marginHorizontal: 24,
     marginTop: dimensions.width < 350 ? 12 : 18,
@@ -37,7 +33,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   logo: {
     height: 70,
     resizeMode: "contain",

@@ -1,17 +1,12 @@
-// @flow
-
 import { StyleSheet, I18nManager } from "react-native";
 import {
   center,
   colors,
-  fonts,
   dimensions,
   padding
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewHeaderStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewHeaderStyles = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingVertical: 18,
@@ -35,7 +30,7 @@ const viewHeaderStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
     maxWidth: dimensions.width - 100,
     paddingTop: padding.iOSPaddingSmall

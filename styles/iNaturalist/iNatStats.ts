@@ -3,20 +3,17 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
   center,
   dimensions,
   row
 } from "../global";
-
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const largeIconWidth = 94;
 const smallIconWidth = 58;
 
 const landscapeMaxWidth = 455;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   center,
   textContainer: {
     marginHorizontal: 27
@@ -64,7 +61,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   secondHeaderText: {
     width: dimensions.width - ( 27 * 2 ) - smallIconWidth - 18,
     marginLeft: 18
@@ -100,7 +97,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 286,
     resizeMode: "cover",

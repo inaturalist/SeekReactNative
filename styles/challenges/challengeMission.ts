@@ -1,12 +1,6 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../global";
 
-
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   subBullets: {
     marginTop: 15,
     marginRight: 10
@@ -32,7 +26,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   bullets: {
     fontSize: 29,
     marginTop: 7,
@@ -40,30 +34,21 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginRight: 22
   },
   greenText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.medium,
-    marginTop: 9
+    marginTop: 9,
+    maxWidth: 274
   },
   secondLevelBulletText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 14,
-    lineHeight: 21,
     marginTop: 6,
     maxWidth: 274
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 16,
     maxWidth: 274
   }
 } );
 
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   checklist: {
     marginTop: 20,
     marginRight: 16

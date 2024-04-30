@@ -12,6 +12,7 @@ import GreenText from "../../UIComponents/GreenText";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { useFetchMissions } from "../hooks/challengeHooks";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   +challenge: Object
@@ -40,12 +41,12 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
     const list = subBullets.map( ( bullet, i ) => (
       <View key={i.toString()} style={viewStyles.missionRow}>
         <Image source={icons.grayBullet} style={viewStyles.subBullets} />
-        <StyledText style={textStyles.secondLevelBulletText}>{bullet.split( "-" )}</StyledText>
+        <StyledText style={[baseTextStyles.bodySmall, textStyles.secondLevelBulletText]}>{bullet.split( "-" )}</StyledText>
       </View>
     ) );
 
     const observedCount = (
-      <StyledText style={[textStyles.text, textStyles.greenText]}>
+      <StyledText style={[baseTextStyles.bodyMedium, textStyles.greenText]}>
         {i18n.t( "challenges.number_observed_plural", { count: item.observations || 0 } )}
       </StyledText>
     );
@@ -56,7 +57,7 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
           ? <Image source={icons.checklist} style={imageStyles.checklist} />
           : <StyledText allowFontScaling={false} style={textStyles.bullets}>&#8226;</StyledText>}
         <View style={viewStyles.textContainer}>
-          <StyledText style={textStyles.text}>{missionNoSubBullets || header}</StyledText>
+          <StyledText style={[baseTextStyles.body, textStyles.text]}>{missionNoSubBullets || header}</StyledText>
           {header.length > 0 && <View style={viewStyles.marginTop} />}
           {subBullets.length > 0 && list}
           {observedCount}

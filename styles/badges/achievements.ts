@@ -1,20 +1,15 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   center,
   row,
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
 // added decimal because this was going off the screen on Android Pixel 4
 const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   center,
   container: {
     backgroundColor: colors.seekForestGreen,
@@ -60,7 +55,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   lightText: {
     marginBottom: 10
   },
@@ -74,7 +69,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   badgeIcon: {
     height: badgeIconWidth,
     resizeMode: "contain",

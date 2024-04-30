@@ -2,14 +2,10 @@
 
 import { StyleSheet } from "react-native";
 import {
-  colors,
-  dimensions,
-  fonts
+  dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   bulletContainer: {
     flexDirection: "row"
   },
@@ -25,12 +21,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
     marginTop: 12,
     maxWidth: dimensions.width - ( 32 * 3 + 14 * 2 + 23 )
   },
   bulletText: {
+    marginTop: 12,
     maxWidth: dimensions.width - ( 32 * 2 + 14 * 2 + 23 )
   },
   bulletPoints: {

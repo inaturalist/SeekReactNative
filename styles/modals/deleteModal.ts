@@ -1,15 +1,9 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
-  colors,
-  fonts,
   row
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   flagBackButton: {
     marginLeft: 33,
     marginRight: 29
@@ -36,17 +30,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   buttonText: {
     marginRight: 15,
     paddingTop: 9,
     textAlign: "center"
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center",
     width: 292
   }

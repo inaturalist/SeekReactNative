@@ -9,14 +9,15 @@ import {
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/button";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +color?: ?Object,
-  +handlePress: Function,
-  +large?: boolean,
-  +greenText?: boolean,
-  +text: string,
-  +login?: boolean
+interface Props {
+  color?: Object;
+  handlePress: () => void;
+  large?: boolean;
+  greenText?: boolean;
+  text: string;
+  login?: boolean;
 }
 
 const Button = ( {
@@ -26,7 +27,7 @@ const Button = ( {
   text,
   greenText,
   login
-}: Props ): React.Node => (
+}: Props ) => (
   <TouchableOpacity
     onPress={() => handlePress()}
     style={[
@@ -38,7 +39,7 @@ const Button = ( {
       login && viewStyles.login
     ]}
   >
-    <StyledText style={[textStyles.buttonText, greenText && textStyles.greenText]}>
+    <StyledText style={[greenText ? baseTextStyles.buttonGreen : baseTextStyles.button, textStyles.buttonText]}>
       {i18n.t( text ).toLocaleUpperCase()}
     </StyledText>
   </TouchableOpacity>

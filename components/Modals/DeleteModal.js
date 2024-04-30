@@ -78,7 +78,7 @@ const DeleteModal = ( {
         photo={photo}
       />
       <View style={viewStyles.margin} />
-      <StyledText allowFontScaling={false} style={textStyles.text}>{i18n.t( "delete.description" )}</StyledText>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "delete.description" )}</StyledText>
       <View style={viewStyles.marginSmall} />
       <Button
         handlePress={deleteObs}

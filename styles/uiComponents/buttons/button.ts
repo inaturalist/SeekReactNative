@@ -1,17 +1,12 @@
-// @flow
-
 import { StyleSheet, Platform } from "react-native";
 import {
   center,
   colors,
-  fonts,
   dimensions
 } from "../../global";
 import { enabledLargeFonts } from "../../../utility/textHelpers";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   button: {
     backgroundColor: colors.red,
     borderRadius: 40,
@@ -32,18 +27,10 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
     paddingTop: Platform.OS === "ios" ? 3 : 0,
     textAlign: "center"
-  },
-  greenText: {
-    color: colors.seekForestGreen
   }
 } );
 

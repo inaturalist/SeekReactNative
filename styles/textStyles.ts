@@ -92,6 +92,10 @@ const smallLightHeading = {
 
 const baseTextStyles = StyleSheet.create( {
   regular,
+  regularGray: {
+    ...regular,
+    color: colors.errorGray
+  },
   header,
   headerWhite: {
     ...header,

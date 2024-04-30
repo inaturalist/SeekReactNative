@@ -62,17 +62,17 @@ export const dimensions = {
 };
 
 export const center = {
-  alignItems: "center",
-  justifyContent: "center"
+  alignItems: "center" as const,
+  justifyContent: "center" as const
 };
 
 export const leftText = {
-  textAlign: "left"
+  textAlign: "left" as const
 };
 
 export const row = {
-  alignItems: "center",
-  flexDirection: "row",
-  flexWrap: "nowrap"
+  alignItems: "center" as const,
+  flexDirection: "row" as const,
+  flexWrap: "nowrap" as const
 };
 

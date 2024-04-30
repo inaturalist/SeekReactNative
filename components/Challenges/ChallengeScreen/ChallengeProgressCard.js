@@ -74,7 +74,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
         accessible
         allowFontScaling={false}
         onPress={beginChallenge}
-        style={textStyles.startText}
+        style={[baseTextStyles.challengeItemButton, textStyles.startText]}
       >
         {i18n.t( "challenges.start_now" ).toLocaleUpperCase( )}
       </StyledText>

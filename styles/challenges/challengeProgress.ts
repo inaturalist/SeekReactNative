@@ -1,7 +1,5 @@
 import { StyleSheet } from "react-native";
 import {
-  colors,
-  fonts,
   row,
   dimensions
 } from "../global";
@@ -29,10 +27,6 @@ const textStyles = StyleSheet.create( {
     lineHeight: 21
   },
   startText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 14,
-    lineHeight: 17,
     textAlign: "center"
   },
   titleText: {

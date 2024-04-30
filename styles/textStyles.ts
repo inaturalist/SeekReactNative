@@ -98,6 +98,13 @@ const challengeItemTitle = {
   lineHeight: 20
 };
 
+const challengeItemButton = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.bold,
+  fontSize: 13,
+  lineHeight: 17
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -139,7 +146,8 @@ const baseTextStyles = StyleSheet.create( {
   challengeTitle,
   challengeDescription,
   smallLightHeading,
-  challengeItemTitle
+  challengeItemTitle,
+  challengeItemButton
 } );
 
 export {

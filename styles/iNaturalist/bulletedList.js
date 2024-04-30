@@ -27,17 +27,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    marginTop: 12
+    marginTop: 12,
+    maxWidth: dimensions.width - ( 32 * 3 + 14 * 2 + 23 )
   },
   bulletText: {
     maxWidth: dimensions.width - ( 32 * 2 + 14 * 2 + 23 )
-  },
-  valuePropText: {
-    maxWidth: dimensions.width - ( 32 * 3 + 14 * 2 + 23 )
   },
   bulletPoints: {
     fontSize: 27,

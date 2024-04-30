@@ -10,6 +10,7 @@ import INatValueProps from "../../iNaturalist/iNatValueProps";
 import INatLogin from "../../UIComponents/Login/iNatLogin";
 import AppIconSubHeader from "../../iNaturalist/AppIconSubHeader";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   challenge: ?Object
@@ -30,7 +31,7 @@ const INatCardLoggedOut = ( challenge: Props ): React.Node => {
       <View style={[viewStyles.textContainer, viewStyles.marginBottom]}>
         <INatValueProps />
         <Pressable onPress={navToINatStats} >
-          <StyledText style={textStyles.linkText}>
+          <StyledText style={[baseTextStyles.bodyGreen, textStyles.linkText]}>
             {i18n.t( "about_inat.learn_more_about_inat" )}
           </StyledText>
         </Pressable>

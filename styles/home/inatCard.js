@@ -65,10 +65,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     width: 195
   },
   linkText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     textDecorationLine: "underline",
     alignSelf: "center",
     paddingTop: 23,

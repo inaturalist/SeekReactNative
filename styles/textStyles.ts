@@ -90,6 +90,10 @@ const baseTextStyles = StyleSheet.create( {
     ...body,
     color: colors.white
   },
+  bodyGreen: {
+    ...body,
+    color: colors.seekForestGreen
+  },
   emptyState,
   emptyStateGreen: {
     ...emptyState,

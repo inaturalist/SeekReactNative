@@ -87,19 +87,11 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginTop: 16
   },
   lightText: {
-    color: colors.black,
-    fontFamily: fonts.light,
-    fontSize: 14,
-    letterSpacing: 0.61,
     marginBottom: 2
   },
   loginNameText: {
     marginBottom: 6,
     marginTop: 11,
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
     width: 195
   },
   whiteText: {

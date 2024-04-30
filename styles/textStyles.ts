@@ -69,6 +69,14 @@ const challengeDescription = {
   lineHeight: 24
 };
 
+const smallLightHeading = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 13,
+  letterSpacing: 0.75,
+  lineHeight: 16
+};
+
 const baseTextStyles = StyleSheet.create( {
   header,
   headerWhite: {
@@ -102,7 +110,8 @@ const baseTextStyles = StyleSheet.create( {
   highlight,
   challengeMonth,
   challengeTitle,
-  challengeDescription
+  challengeDescription,
+  smallLightHeading
 } );
 
 export {

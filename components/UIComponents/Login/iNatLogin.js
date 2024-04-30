@@ -7,6 +7,7 @@ import { textStyles } from "../../../styles/iNaturalist/iNatStats";
 import i18n from "../../../i18n";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 const INatLogIn = ( ): React.Node => {
   const navigation = useNavigation( );
@@ -15,7 +16,7 @@ const INatLogIn = ( ): React.Node => {
 
   return (
     <>
-      <StyledText style={[textStyles.text, textStyles.loginLogoutText]}>
+      <StyledText style={[baseTextStyles.body, textStyles.loginLogoutText]}>
         {i18n.t( "about_inat.get_started_by_downloading_inat" )}
       </StyledText>
       <GreenButton

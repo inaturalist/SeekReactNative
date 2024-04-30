@@ -73,12 +73,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     width: dimensions.width - ( 27 * 2 ) - largeIconWidth - 26,
     marginLeft: 26
   },
-  text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
-  },
   caption: {
     marginBottom: 20,
     marginTop: 20,

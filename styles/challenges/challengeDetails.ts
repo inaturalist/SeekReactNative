@@ -51,10 +51,6 @@ const textStyles = StyleSheet.create( {
     textDecorationLine: "underline"
   },
   speciesNearbyErrorText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center",
     marginHorizontal: 28
   }

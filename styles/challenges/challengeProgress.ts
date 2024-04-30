@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
@@ -8,11 +6,9 @@ import {
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
 const { height, width } = dimensions;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   card: {
     paddingVertical: 12
   },
@@ -27,10 +23,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   messageText: {
-    fontFamily: fonts.book,
-    fontSize: 14,
+    fontSize: 13,
     lineHeight: 21
   },
   startText: {
@@ -41,16 +36,11 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     textAlign: "center"
   },
   titleText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 16,
-    letterSpacing: 0.89,
-    lineHeight: 20,
     marginBottom: 1
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   challengeBadgeIcon: {
     height: 60,
     marginHorizontal: height > 570 ? 25 : 10,

@@ -90,6 +90,14 @@ const smallLightHeading = {
   lineHeight: 16
 };
 
+const challengeItemTitle = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.semibold,
+  fontSize: 16,
+  letterSpacing: 0.89,
+  lineHeight: 20
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -130,7 +138,8 @@ const baseTextStyles = StyleSheet.create( {
   challengeMonth,
   challengeTitle,
   challengeDescription,
-  smallLightHeading
+  smallLightHeading,
+  challengeItemTitle
 } );
 
 export {

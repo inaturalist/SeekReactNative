@@ -140,6 +140,10 @@ const baseTextStyles = StyleSheet.create( {
     ...body,
     color: colors.seekForestGreen
   },
+  bodyTeal: {
+    ...body,
+    color: colors.seekTeal
+  },
   bodyMedium: {
     ...body,
     color: colors.seekForestGreen,

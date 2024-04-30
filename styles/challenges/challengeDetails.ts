@@ -1,7 +1,5 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../global";
+import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   background: {
@@ -38,15 +36,10 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   photographerText: {
-    fontSize: 14,
     textAlign: "center",
     marginTop: 29
   },
   viewText: {
-    color: colors.seekTeal,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center",
     textDecorationLine: "underline"
   },

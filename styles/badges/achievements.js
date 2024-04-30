@@ -61,17 +61,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 } );
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0
-  },
   lightText: {
-    color: colors.white,
-    fontFamily: fonts.light,
-    fontSize: 18,
-    letterSpacing: 0.78,
     marginBottom: 10
   },
   number: {
@@ -82,10 +72,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     textAlign: "center"
   },
   text: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 7
   }
 } );

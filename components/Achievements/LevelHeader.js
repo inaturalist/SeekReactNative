@@ -17,6 +17,7 @@ import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modals/Modal";
 import { localizeNumber } from "../../utility/helpers";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   +level: Object,
@@ -55,9 +56,9 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ): Node => 
           <>
             <Image source={badgeImages[level.earnedIconName]} style={imageStyles.levelImage} />
             <View style={viewStyles.textContainer}>
-              <StyledText style={textStyles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</StyledText>
-              <StyledText style={textStyles.headerText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
-              <StyledText style={textStyles.text}>
+              <StyledText style={[baseTextStyles.challengeMonth, textStyles.lightText]}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</StyledText>
+              <StyledText style={baseTextStyles.challengeTitle}>{i18n.t( level.intlName ).toLocaleUpperCase()}</StyledText>
+              <StyledText style={[baseTextStyles.bodyWhite, textStyles.text]}>
                 {level.count >= 150
                   ? i18n.t( "badges.observe_max" )
                   : i18n.t( "badges.observe_plural", { count: localizeNumber( nextLevelCount ) } )}

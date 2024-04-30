@@ -13,6 +13,7 @@ import { textStyles, viewHeaderStyles } from "../../styles/uiComponents/greenHea
 import BackArrow from "./Buttons/BackArrow";
 import posting from "../../assets/posting";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   +header?: ?string,
@@ -28,12 +29,12 @@ const GreenHeader = ( { header, route, plainText }: Props ): React.Node => {
     <View style={[viewHeaderStyles.container, viewHeaderStyles.center]}>
       {name !== "LoginSuccess" && <BackArrow route={route} />}
       {header && (
-        <StyledText allowFontScaling={false} style={textStyles.text}>
+        <StyledText allowFontScaling={false} style={[baseTextStyles.button, textStyles.text]}>
           {i18n.t( header ).toLocaleUpperCase()}
         </StyledText>
       )}
       {plainText && (
-        <StyledText allowFontScaling={false} style={textStyles.text}>
+        <StyledText allowFontScaling={false} style={[baseTextStyles.button, textStyles.text]}>
           {plainText.toLocaleUpperCase( )}
         </StyledText>
       )}

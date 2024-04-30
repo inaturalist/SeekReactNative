@@ -37,10 +37,6 @@ const viewHeaderStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     maxWidth: dimensions.width - 100,
     paddingTop: padding.iOSPaddingSmall
   }

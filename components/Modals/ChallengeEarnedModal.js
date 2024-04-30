@@ -60,7 +60,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
         </ImageBackground>
       </ImageBackground>
       <View style={viewStyles.marginTop} />
-      <StyledText style={textStyles.headerText}>
+      <StyledText style={[baseTextStyles.highlight, textStyles.headerText]}>
         {i18n.t( "challenges_all.you_completed_sponsor_challenge", {
           sponsorName: challenge.sponsorName.toLocaleUpperCase( ),
           date: challenge.sponsorName === "Our Planet"
@@ -68,7 +68,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
             : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( )
         } )}
       </StyledText>
-      <StyledText style={textStyles.text}>
+      <StyledText style={[baseTextStyles.body, textStyles.text]}>
         {is2020OrAfterChallenge
           ? i18n.t( "seek_challenges.text" )
           : i18n.t( "challenges.thanks" )}

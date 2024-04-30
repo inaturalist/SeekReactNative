@@ -22,20 +22,11 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginHorizontal: 24,
     marginTop: dimensions.width < 350 ? 12 : 18,
     textAlign: "center"
   },
   headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
     marginHorizontal: 24,
     textAlign: "center"
   },

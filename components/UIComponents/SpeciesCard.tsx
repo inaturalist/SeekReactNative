@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   Image,
@@ -12,16 +10,17 @@ import { viewStyles, textStyles } from "../../styles/uiComponents/speciesCard";
 import iconicTaxa from "../../assets/iconicTaxa";
 import i18n from "../../i18n";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  handlePress?: Function,
-  photo: Object,
-  allowFontScaling?: boolean,
+interface Props {
+  handlePress?: () => void;
+  photo: Object;
+  allowFontScaling?: boolean;
   taxon: {
-    iconicTaxonId: ?number,
-    preferredCommonName: ?string,
-    name: string
-  }
+    iconicTaxonId?: number;
+    preferredCommonName?: string;
+    name: string;
+  };
 }
 
 const SpeciesCard = ( {
@@ -29,7 +28,7 @@ const SpeciesCard = ( {
   photo,
   allowFontScaling,
   taxon
-}: Props ): React.Node => {
+}: Props ) => {
   const { preferredCommonName, name, iconicTaxonId } = taxon;
 
   return (
@@ -56,7 +55,7 @@ const SpeciesCard = ( {
         {!preferredCommonName && !name && (
           <StyledText
             allowFontScaling={allowFontScaling}
-            style={textStyles.commonNameText}
+            style={[baseTextStyles.regular, textStyles.commonNameText]}
           >
             {i18n.t( "posting.unknown" )}
           </StyledText>
@@ -64,14 +63,14 @@ const SpeciesCard = ( {
         {preferredCommonName ? (
           <StyledText
             allowFontScaling={allowFontScaling}
-            style={textStyles.commonNameText}
+            style={[baseTextStyles.regular, textStyles.commonNameText]}
           >
             {preferredCommonName}
           </StyledText>
         ) : (
           <StyledText
             allowFontScaling={allowFontScaling}
-            style={textStyles.scientificNameHeaderText}
+            style={[baseTextStyles.italic, textStyles.scientificNameHeaderText]}
           >
             {name}
           </StyledText>
@@ -79,7 +78,7 @@ const SpeciesCard = ( {
         {name && (
           <StyledText
             allowFontScaling={allowFontScaling}
-            style={textStyles.scientificNameText}
+            style={[baseTextStyles.italic, textStyles.scientificNameText]}
           >
             {name}
           </StyledText>

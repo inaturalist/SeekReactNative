@@ -16,6 +16,7 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import Button from "../UIComponents/Buttons/Button";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   closeModal: Function,
@@ -55,7 +56,7 @@ const DeleteModal = ( {
         style={viewStyles.flagHeader}
       >
         <View style={[viewStyles.flagTextContainer, viewStyles.row]}>
-          <StyledText allowFontScaling={false} style={textStyles.buttonText}>
+          <StyledText allowFontScaling={false} style={[baseTextStyles.buttonWhite, textStyles.buttonText]}>
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </StyledText>
           <TouchableOpacity

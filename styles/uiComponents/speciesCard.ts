@@ -1,16 +1,10 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
-  colors,
-  fonts,
   row,
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   image: {
     borderRadius: 80 / 2,
     height: 80,
@@ -29,27 +23,21 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   commonNameText: {
-    color: colors.black,
     flexDirection: "row",
     flexWrap: "wrap",
-    fontFamily: fonts.book,
-    fontSize: 21
+    fontSize: 20
   },
   scientificNameHeaderText: {
-    color: colors.black,
     flexDirection: "row",
     flexWrap: "wrap",
-    fontFamily: fonts.bookItalic,
-    fontSize: 21
+    fontSize: 20
   },
   scientificNameText: {
-    color: colors.black,
     flexDirection: "row",
     flexWrap: "wrap",
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
+    fontSize: 15,
     marginTop: 12
   }
 } );

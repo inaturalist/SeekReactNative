@@ -9,6 +9,11 @@ const fontScale = PixelRatio.getFontScale( );
 const regular = {
   color: colors.black,
   fontFamily: fonts.regular
+
+};
+const italic = {
+  color: colors.black,
+  fontFamily: fonts.italic
 };
 
 const header = {
@@ -111,6 +116,7 @@ const baseTextStyles = StyleSheet.create( {
     ...regular,
     color: colors.errorGray
   },
+  italic,
   header,
   headerWhite: {
     ...header,
@@ -120,6 +126,10 @@ const baseTextStyles = StyleSheet.create( {
   buttonGreen: {
     ...button,
     color: colors.seekForestGreen
+  },
+  buttonWhite: {
+    ...button,
+    color: colors.white
   },
   body,
   bodySmall: {

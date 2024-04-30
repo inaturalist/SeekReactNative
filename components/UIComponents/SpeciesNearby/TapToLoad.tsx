@@ -1,18 +1,19 @@
 // @flow
 
-import * as React from "react";
+import React from "react";
 import { Pressable } from "react-native";
 
 import i18n from "../../../i18n";
 import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/tapToLoad";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  handlePress: ( ) => void,
-  backgroundColor?: string
+interface Props {
+  handlePress: ( ) => void;
+  backgroundColor?: string;
 }
 
-const TapToLoad = ( { handlePress, backgroundColor }: Props ): React.Node => (
+const TapToLoad = ( { handlePress, backgroundColor }: Props ) => (
   <Pressable
     onPress={handlePress}
     style={[
@@ -24,7 +25,7 @@ const TapToLoad = ( { handlePress, backgroundColor }: Props ): React.Node => (
     <StyledText
       style={[
         textStyles.text,
-        backgroundColor === "white" && textStyles.challengeText
+        backgroundColor === "white" ? baseTextStyles.body : baseTextStyles.bodyWhite
       ]}>
         {i18n.t( "results.tap" )}
     </StyledText>

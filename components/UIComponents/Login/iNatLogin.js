@@ -9,7 +9,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-const INatLogIn = ( ): React.Node => {
+const INatLogin = ( ): React.Node => {
   const navigation = useNavigation( );
 
   const navToLogin = ( ) => navigation.navigate( "LoginOrSignup" );
@@ -27,4 +27,4 @@ const INatLogIn = ( ): React.Node => {
   );
 };
 
-export default INatLogIn;
+export default INatLogin;

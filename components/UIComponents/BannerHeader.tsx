@@ -1,23 +1,27 @@
-// @flow
-
-import * as React from "react";
+import React from "react";
 import { ImageBackground } from "react-native";
 
 import { viewStyles, textStyles } from "../../styles/badges/banner";
 import icons from "../../assets/icons";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +text: string,
-  +modal?: boolean
+interface Props {
+  text: string;
+  modal?: boolean;
 }
 
-const BannerHeader = ( { text, modal }: Props ): React.Node => (
+const BannerHeader = ( { text, modal }: Props ) => (
   <ImageBackground
     source={icons.titleBanner}
     style={[viewStyles.banner, modal && viewStyles.modal]}
   >
-    <StyledText allowFontScaling={false} style={textStyles.bannerText}>{text}</StyledText>
+    <StyledText
+      allowFontScaling={false}
+      style={[baseTextStyles.banner, textStyles.bannerText]}
+    >
+      {text}
+    </StyledText>
   </ImageBackground>
 );
 

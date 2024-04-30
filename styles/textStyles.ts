@@ -46,6 +46,14 @@ const highlight = {
   lineHeight: 24
 };
 
+const banner = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: 18,
+  letterSpacing: 1,
+  lineHeight: 22
+};
+
 const challengeMonth = {
   color: colors.white,
   fontFamily: fonts.regular,
@@ -108,6 +116,7 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.seekForestGreen
   },
   highlight,
+  banner,
   challengeMonth,
   challengeTitle,
   challengeDescription,

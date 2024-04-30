@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -18,23 +16,23 @@ import Button from "../UIComponents/Buttons/Button";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  closeModal: Function,
-  deleteObservation: Function,
+interface Props {
+  closeModal: ( ) => void;
+  deleteObservation: ( id: number ) => void;
   itemToDelete: {
-    iconicTaxonId: number,
-    preferredCommonName: string,
-    name: string,
-    photo: Object,
-    id: number
-  }
-};
+    iconicTaxonId: number;
+    preferredCommonName: string;
+    name: string;
+    photo: Object;
+    id: number;
+  };
+}
 
 const DeleteModal = ( {
   closeModal,
   deleteObservation,
   itemToDelete
-}: Props ): React.Node => {
+}: Props ) => {
   const {
     id,
     photo,
@@ -45,12 +43,11 @@ const DeleteModal = ( {
 
   const deleteObs = ( ) => {
     deleteObservation( id );
-    closeModal( true );
+    closeModal( );
   };
 
   return (
     <WhiteModal noButton>
-      {/* $FlowFixMe */}
       <LinearGradient
         colors={[colors.grayGradientDark, colors.grayGradientLight]}
         style={viewStyles.flagHeader}

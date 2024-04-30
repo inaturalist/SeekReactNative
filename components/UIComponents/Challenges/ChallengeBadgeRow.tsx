@@ -1,6 +1,4 @@
-// @flow
-
-import * as React from "react";
+import React from "react";
 import { View, Image } from "react-native";
 import StyledText from "../../UIComponents/StyledText";
 import { isAfter } from "date-fns";
@@ -8,15 +6,18 @@ import { isAfter } from "date-fns";
 import i18n from "../../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../../styles/uiComponents/challenges";
 import badges from "../../../assets/badges";
-import { colors } from "../../../styles/global";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  challenge: Object,
-  large?: boolean
+interface Props{
+  challenge: {
+    percentComplete: number;
+    earnedIconName: string;
+    availableDate: Date;
+  };
+  large?: boolean;
 }
 
-const ChallengeBadgeRow = ( { challenge, large }: Props ): React.Node => {
+const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
   const is2020OrAfterChallenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   // we created generic seek challenge text after the Our Planet challenges
@@ -28,10 +29,8 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ): React.Node => {
       return <Image source={badges[challenge.earnedIconName]} style={imageStyles.badge} />;
     } else {
       return (
-        // $FlowFixMe
         <Image
           source={badges.badge_empty}
-          tintColor={colors.white}
           style={[large ? imageStyles.badge : imageStyles.badgeSmall, imageStyles.white]}
         />
       );

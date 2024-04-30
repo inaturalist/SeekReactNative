@@ -39,18 +39,10 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginHorizontal: 24,
     textAlign: "center"
   },
-  seekBannerText: {
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
   bannerText: {
     paddingTop: 10,
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 15,
-    letterSpacing: 0.42,
-    lineHeight: 34,
-    textAlign: "center"
+    textAlign: "center",
+    lineHeight: 34
   }
 } );
 

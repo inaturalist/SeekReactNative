@@ -17,6 +17,7 @@ import icons from "../../assets/icons";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import backgrounds from "../../assets/backgrounds";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   closeModal: ( ) => void,
@@ -53,7 +54,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
           source={icons.badgeBanner}
           style={imageStyles.seekBanner}
         >
-          <StyledText style={[textStyles.bannerText, is2020OrAfterChallenge && textStyles.seekBannerText]}>
+          <StyledText style={[is2020OrAfterChallenge ? baseTextStyles.banner : baseTextStyles.bannerSmall, textStyles.bannerText]}>
             {i18n.t( challenge.badgeName ).toLocaleUpperCase( )}
           </StyledText>
         </ImageBackground>

@@ -142,6 +142,12 @@ const baseTextStyles = StyleSheet.create( {
   },
   highlight,
   banner,
+  bannerSmall: {
+    ...banner,
+    fontSize: 14,
+    letterSpacing: 0.42,
+    lineHeight: 34
+  },
   challengeMonth,
   challengeTitle,
   challengeDescription,

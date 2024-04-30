@@ -10,8 +10,9 @@ import { viewStyles, textStyles } from "../../../styles/uiComponents/cards/donat
 import GreenButton from "../Buttons/GreenButton";
 import { AppOrientationContext } from "../../UserContext";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-const DonateButton = ( ): React.Node => {
+const DonateCard = ( ): React.Node => {
   const { navigate } = useNavigation( );
   const { name } = useRoute( );
   const { isLandscape } = React.useContext( AppOrientationContext );
@@ -23,8 +24,8 @@ const DonateButton = ( ): React.Node => {
   return (
     <View style={viewStyles.whiteContainer}>
       <StyledText style={[
-        textStyles.header,
-        name === "Settings" && viewStyles.noHeaderPadding
+        baseTextStyles.header,
+        name !== "Settings" && textStyles.header
       ]}>
         {i18n.t( "settings.donate_header" ).toLocaleUpperCase( )}
       </StyledText>
@@ -33,7 +34,7 @@ const DonateButton = ( ): React.Node => {
         isHomeScreen && viewStyles.textContainer
       ]}>
         <StyledText style={[
-          textStyles.text,
+          baseTextStyles.body,
           isLandscape && viewStyles.landscapeContainerRestrictedWidth
         ]}>
           {i18n.t( "settings.donate_description" )}
@@ -52,4 +53,4 @@ const DonateButton = ( ): React.Node => {
   );
 };
 
-export default DonateButton;
+export default DonateCard;

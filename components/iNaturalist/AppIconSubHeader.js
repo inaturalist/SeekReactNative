@@ -7,6 +7,7 @@ import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iN
 import logos from "../../assets/logos";
 import { AppOrientationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   icon: string,
@@ -29,8 +30,8 @@ const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
         style={largeIcon ? imageStyles.largeIcon : imageStyles.smallIcon}
       />
       <StyledText style={[
-        textStyles.secondHeaderText,
-        largeIcon && textStyles.smallerTextWidth,
+        baseTextStyles.emptyState,
+        largeIcon ? textStyles.smallerTextWidth : textStyles.secondHeaderText,
         isTablet && viewStyles.tabletContainer,
         ( isTablet && largeIcon ) && viewStyles.landscapeContainerLargeIcon
       ]}>

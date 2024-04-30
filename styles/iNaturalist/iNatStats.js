@@ -66,12 +66,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 
 const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   secondHeaderText: {
-    marginLeft: 18,
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
-    width: dimensions.width - ( 27 * 2 ) - smallIconWidth - 18
+    width: dimensions.width - ( 27 * 2 ) - smallIconWidth - 18,
+    marginLeft: 18
   },
   smallerTextWidth: {
     width: dimensions.width - ( 27 * 2 ) - largeIconWidth - 26,

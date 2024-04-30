@@ -65,9 +65,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginBottom: 10
   },
   number: {
-    color: colors.black,
-    fontFamily: fonts.light,
-    fontSize: 22,
+    fontSize: 21,
     marginTop: 10,
     textAlign: "center"
   },

@@ -6,6 +6,11 @@ import {
 
 const fontScale = PixelRatio.getFontScale( );
 
+const regular = {
+  color: colors.black,
+  fontFamily: fonts.regular
+};
+
 const header = {
   color: colors.seekForestGreen,
   fontFamily: fonts.bold,
@@ -86,6 +91,7 @@ const smallLightHeading = {
 };
 
 const baseTextStyles = StyleSheet.create( {
+  regular,
   header,
   headerWhite: {
     ...header,

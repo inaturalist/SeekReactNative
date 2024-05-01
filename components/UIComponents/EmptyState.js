@@ -8,20 +8,21 @@ import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/uiComponents/emptyState";
 import GreenButton from "./Buttons/GreenButton";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const EmptyState = (): React.Node => {
+const EmptyState = () => {
   const navigation = useNavigation();
   const { name } = useRoute();
   const obsScreen = name === "Observations";
 
   return (
     <View style={viewStyles.container}>
-      <StyledText style={textStyles.headerText}>
+      <StyledText style={[baseTextStyles.header, textStyles.headerText]}>
         {obsScreen
           ? i18n.t( "observations.no_obs" ).toLocaleUpperCase()
           : i18n.t( "notifications.none" ).toLocaleUpperCase()}
       </StyledText>
-      <StyledText style={textStyles.text}>
+      <StyledText style={[baseTextStyles.body, textStyles.text]}>
         {obsScreen
           ? i18n.t( "observations.help" )
           : i18n.t( "notifications.about" )}

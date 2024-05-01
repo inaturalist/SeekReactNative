@@ -1,6 +1,4 @@
-// @flow
-
-import * as React from "react";
+import React from "react";
 import { View, Image } from "react-native";
 
 import { viewStyles, textStyles } from "../../styles/iNaturalist/bulletedList";
@@ -10,7 +8,7 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 
-const INatValueProps = ( ): React.Node => [1, 2, 3, 4].map( ( item ) => (
+const INatValueProps = ( ) => [1, 2, 3, 4].map( ( item ) => (
   <View key={item.toString()} style={[
     viewStyles.valuePropBullets,
     viewStyles.bulletContainer

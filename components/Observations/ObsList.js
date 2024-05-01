@@ -56,7 +56,6 @@ const ObsList = ( {
   const sectionIsHidden = ( id ) => hiddenSections.includes( id );
 
   let convertedData = [];
-  console.log( "observations", observations );
   observations.map( ( section ) => {
     const { data, id } = section;
     // Push header data

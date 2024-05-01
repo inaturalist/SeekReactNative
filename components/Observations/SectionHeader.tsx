@@ -18,8 +18,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   id: number;
-  dataLength: string;
-  section: Object;
+  dataLength: number;
   open: boolean;
   toggleSection: ( id: number ) => void;
 }

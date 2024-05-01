@@ -159,6 +159,10 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.medium
   },
+  bodyBold: {
+    ...body,
+    fontFamily: fonts.bold
+  },
   emptyState,
   emptyStateGreen: {
     ...emptyState,

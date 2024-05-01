@@ -12,6 +12,7 @@ import StyledText from "../UIComponents/StyledText";
 import ToastAnimation from "../UIComponents/ToastAnimation";
 import { colors } from "../../styles/global";
 import { UserContext } from "../UserContext";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const EmailText = () => {
   const { login } = useContext( UserContext );
@@ -19,7 +20,7 @@ const EmailText = () => {
 
   if ( !login ) {
     return (
-      <StyledText style={textStyles.text}>{i18n.t( "about.help" )}</StyledText>
+      <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "about.help" )}</StyledText>
     );
   }
 
@@ -65,7 +66,7 @@ const EmailText = () => {
             rectangleColor={colors.seekGreen}
           />
         )}
-        <StyledText style={textStyles.text}>{i18n.t( "about.help" )}</StyledText>
+        <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "about.help" )}</StyledText>
       </View>
     </TouchableOpacity>
   );

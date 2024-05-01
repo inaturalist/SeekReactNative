@@ -7,6 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/uiComponents/privacyAndTerms";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const PrivacyAndTerms = ( { login } ): React.Node => {
   const { navigate } = useNavigation();
@@ -15,10 +16,7 @@ const PrivacyAndTerms = ( { login } ): React.Node => {
   const screens = ["Age", "LicensePhotos", "About"];
   const greenText = screens.includes( name );
 
-  const linkStyles = [
-    textStyles.textLink,
-    greenText && textStyles.signupTextLink
-  ];
+  const linkStyles = greenText ? [baseTextStyles.bodyGreen, textStyles.signupTextLink] : [baseTextStyles.regular, textStyles.textLink];
 
   const navToPrivacy = ( ) => navigate( "Privacy" );
   const navToTerms = ( ) => navigate( "TermsOfService" );

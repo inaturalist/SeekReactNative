@@ -128,7 +128,6 @@ const ObsList = ( {
   const dismissKeyboard = () => Keyboard.dismiss();
 
   const extractKey = ( item, index ) => item + index;
-console.log( "convertedData", convertedData );
   return (
     <FlashList
       testID="observations-list"

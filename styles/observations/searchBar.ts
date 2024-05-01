@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { row, colors, fonts } from "../global";
+import { row, colors } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   row,
   margins: {
     marginHorizontal: 24,
@@ -20,14 +16,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   inputField: {
     backgroundColor: colors.white,
     borderRadius: 40,
     borderWidth: 1,
     borderColor: colors.searchGray,
-    color: colors.black,
-    fontFamily: fonts.book,
     fontSize: 15,
     height: 37,
     width: "88%",
@@ -38,7 +32,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   search: {
     height: 22,
     width: 21,

@@ -1,6 +1,4 @@
-
-// @flow
-import * as React from "react";
+import React from "react";
 import { View, TextInput, Image, TouchableOpacity } from "react-native";
 
 import i18n from "../../i18n";
@@ -8,14 +6,15 @@ import { viewStyles, textStyles, imageStyles } from "../../styles/observations/s
 import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
 import icons from "../../assets/icons";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  fetchFilteredObservations: Function,
-  searchText: string,
-  clearText: Function
+interface Props {
+  fetchFilteredObservations: ( searchText: string ) => void;
+  searchText: string;
+  clearText: () => void;
 }
 
-const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props ): React.Node => (
+const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props ) => (
   <View style={[viewStyles.row, viewStyles.margins]}>
     <Image source={posting.searchGreen} style={imageStyles.search} />
     {searchText.length > 0 && (
@@ -33,7 +32,7 @@ const SearchBar = ( { fetchFilteredObservations, searchText, clearText }: Props 
       onChangeText={fetchFilteredObservations}
       placeholder={i18n.t( "observations.search" )}
       placeholderTextColor={colors.placeholderGray}
-      style={textStyles.inputField}
+      style={[baseTextStyles.regular, textStyles.inputField]}
       defaultValue={searchText}
     />
   </View>

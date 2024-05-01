@@ -1,29 +1,24 @@
-// @flow
-
 import React, { useRef, useState, useCallback } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList, ViewToken } from "@shopify/flash-list";
 import { useRoute } from "@react-navigation/native";
-import type { Node } from "react";
 
 import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
-import { dimensions } from "../../styles/global";
 
 type Props = {
-  photoList: Array<Object>
+  photoList: JSX.Element[]
 }
 
-const HorizontalScroll = ( { photoList }: Props ): Node => {
+const HorizontalScroll = ( { photoList }: Props ) => {
   const { name } = useRoute();
-  const flatList = useRef( null );
+  const flashList = useRef<FlashList<any>>( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
     viewAreaCoveragePercentThreshold: 95
   } );
   const length = photoList.length - 1;
-  const { width } = dimensions;
   const [scrollIndex, setScrollIndex] = useState( 0 );
 
   const isStatsScreen = name === "iNatStats";
@@ -33,55 +28,46 @@ const HorizontalScroll = ( { photoList }: Props ): Node => {
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
-  const scroll = ( index ) => {
+  const scroll = ( index: number ) => {
     if ( index < 0 || index >= photoList.length ) {
       return;
     }
-    if ( flatList && flatList.current !== null ) {
-      flatList.current.scrollToIndex( { index, animated: true } );
+    if ( flashList && flashList.current !== null ) {
+      flashList.current?.scrollToIndex( { index, animated: true } );
     }
   };
 
   const scrollRight = () => scroll( nextIndex );
   const scrollLeft = () => scroll( prevIndex );
 
-  const onViewRef = useRef( ( { changed } ) => {
+  const onViewRef = useRef( ( { changed }: { changed: ViewToken[]} ) => {
     const { index } = changed[0];
     if ( !index ) { return; }
     setScrollIndex( index );
   } );
 
-  const renderPhoto = useCallback( ( { item } ) => item, [] );
-
-  // skips measurement of dynamic content for faster loading
-  const getItemLayout = useCallback( ( data, index ) => ( {
-    length: ( width ),
-    offset: ( width ) * index,
-    index
-  } ), [width] );
+  const renderPhoto = useCallback( ( { item }: { item: JSX.Element } ) => item, [] );
 
   const containerStyle = isYearInReviewScreen
     ? null
     : isStatsScreen
     ? styles.bigContainer
     : styles.smallContainer;
-  const contentContainerStyle = !isYearInReviewScreen && !isStatsScreen && styles.speciesPhotoContainer;
+  const contentContainerStyle = ( !isYearInReviewScreen && !isStatsScreen ) ? styles.speciesPhotoContainer : {};
 
   return (
     <View style={containerStyle}>
       <FlashList
         testID="horizontal-scroll"
         estimatedItemSize={350}
-        ref={flatList}
+        ref={flashList}
         bounces={false}
         viewabilityConfig={viewConfigRef.current}
         onViewableItemsChanged={onViewRef.current}
         contentContainerStyle={contentContainerStyle}
         data={photoList}
-        getItemLayout={getItemLayout}
         horizontal
         indicatorStyle="white"
-        initialNumToRender={1}
         pagingEnabled
         renderItem={renderPhoto}
         showsHorizontalScrollIndicator={isStatsScreen}

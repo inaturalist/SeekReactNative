@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet, I18nManager } from "react-native";
 import { colors } from "../global";
 
-import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   leftArrow: {
     left: 0,
     paddingLeft: 5,

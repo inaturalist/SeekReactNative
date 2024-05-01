@@ -1,15 +1,14 @@
-// @flow
-
 import * as React from "react";
 import { Platform, Linking } from "react-native";
+//@ts-ignore
 import { AppInstalledChecker } from "react-native-check-app-install";
 import SendIntentAndroid from "react-native-send-intent";
 
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 
-const OpenINatButton = ( ): React.Node => {
-  const openUrl = async ( url ) => {
+const OpenINatButton = ( ) => {
+  const openUrl = async ( url: string ) => {
     await Linking.openURL( url );
   };
 
@@ -32,7 +31,7 @@ const OpenINatButton = ( ): React.Node => {
     try {
       const canOpen = await AppInstalledChecker.isAppInstalledAndroid( androidPackageId );
       if ( canOpen ) {
-        await SendIntentAndroid.openApp( androidPackageId );
+        await SendIntentAndroid.openApp( androidPackageId, { } );
       } else {
         openUrl( playStore );
       }

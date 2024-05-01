@@ -1,7 +1,5 @@
 
-// @flow
-
-import * as React from "react";
+import React from "react";
 import { TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
@@ -9,16 +7,16 @@ import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/gre
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +color?: ?Object,
-  +handlePress: Function,
-  +letterSpacing?: number,
-  +text: string,
-  +login?: boolean,
-  +fontSize?: number,
-  +width?: ?number,
-  +allowFontScaling?: boolean,
-  +disabled?: boolean
+interface Props {
+  color?: string;
+  handlePress: () => void;
+  letterSpacing?: number;
+  text: string;
+  login?: boolean;
+  fontSize?: number;
+  width?: number;
+  allowFontScaling?: boolean;
+  disabled?: boolean;
 }
 
 const GreenButton = ( {
@@ -31,7 +29,7 @@ const GreenButton = ( {
   width,
   allowFontScaling,
   disabled
-}: Props ): React.Node => {
+}: Props ) => {
   let widthStyle = null;
 
   if ( width ) {
@@ -42,8 +40,8 @@ const GreenButton = ( {
     <TouchableOpacity
       onPress={handlePress}
       style={[
-        viewStyles.greenButton, color
-        && { backgroundColor: color },
+        viewStyles.greenButton,
+        color ? { backgroundColor: color } : {},
         login && viewStyles.loginHeight,
         widthStyle
       ]}

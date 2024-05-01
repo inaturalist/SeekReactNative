@@ -3,8 +3,7 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   center,
-  colors,
-  fonts
+  colors
 } from "../global";
 
 export default StyleSheet.create( {
@@ -15,7 +14,8 @@ export default StyleSheet.create( {
   },
   emptyText: {
     paddingTop: 14,
-    paddingBottom: 31
+    paddingBottom: 31,
+    textAlign: "center"
   },
   flexGrow: {
     flexGrow: 1
@@ -34,10 +34,6 @@ export default StyleSheet.create( {
     paddingBottom: 12
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center"
   },
   whiteContainer: {

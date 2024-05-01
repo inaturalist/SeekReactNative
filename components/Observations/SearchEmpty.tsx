@@ -1,20 +1,19 @@
-// @flow
-
-import * as React from "react";
+import React from "react";
 import { View } from "react-native";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/observations/searchEmpty";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  clearText: Function
-};
+interface Props {
+  clearText: ( ) => void;
+}
 
-const SearchEmpty = ( { clearText }: Props ): React.Node => (
+const SearchEmpty = ( { clearText }: Props ) => (
   <View style={viewStyles.container}>
-    <StyledText style={textStyles.headerText}>
+    <StyledText style={[baseTextStyles.emptyState, textStyles.headerText]}>
       {i18n.t( "observations.search_empty" )}
     </StyledText>
     <View style={viewStyles.margin} />

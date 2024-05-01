@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useEffect, useCallback, useState } from "react";
 import {
   View,
@@ -7,7 +5,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import Realm from "realm";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
@@ -17,14 +14,17 @@ import icons from "../../assets/icons";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import realmConfig from "../../models/index";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  section: Object,
-  open: boolean,
-  toggleSection: Function
-};
+interface Props {
+  id: number;
+  dataLength: string;
+  section: Object;
+  open: boolean;
+  toggleSection: ( id: number ) => void;
+}
 
-const SectionHeader = ( { id, dataLength, open, toggleSection }: Props ): Node => {
+const SectionHeader = ( { id, dataLength, open, toggleSection }: Props ) => {
   const [badgeCount, setBadgeCount] = useState( 0 );
 
   const noBadge = badgeCount === 0;
@@ -53,16 +53,15 @@ const SectionHeader = ( { id, dataLength, open, toggleSection }: Props ): Node =
       onPress={() => toggleSection( id )}
       style={[styles.header, styles.row]}
     >
-      <StyledText allowFontScaling={false} style={styles.headerText}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.header, styles.headerText]}>
         {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
       </StyledText>
       <View style={styles.row}>
-        <StyledText style={styles.numberText} allowFontScaling={false}>{dataLength}</StyledText>
-        {id !== 1 && ( // $FlowFixMe
+        <StyledText style={[baseTextStyles.regular, styles.numberText]} allowFontScaling={false}>{dataLength}</StyledText>
+        {id !== 1 && (
           <Image
             source={noBadge ? badges.badge_empty_small : badge}
             style={[styles.badge, noBadge && styles.empty, tint && { tintColor: tint }]}
-            tintColor={tint}
           />
         )}
         <Image

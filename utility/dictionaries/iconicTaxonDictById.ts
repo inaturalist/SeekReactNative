@@ -1,4 +1,8 @@
-const iconicTaxaNamesById = {
+type IconicTaxonNamesById = {
+  [key: number]: string;
+};
+
+const iconicTaxaNamesById: IconicTaxonNamesById = {
   47126: "taxon_picker.plants",
   20978: "taxon_picker.amphibians",
   47170: "taxon_picker.fungi",

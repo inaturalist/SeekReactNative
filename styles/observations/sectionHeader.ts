@@ -1,11 +1,5 @@
-// @flow
-
 import { StyleSheet, I18nManager } from "react-native";
-import {
-  colors,
-  fonts,
-  row
-} from "../global";
+import { row } from "../global";
 
 export default StyleSheet.create( {
   badge: {
@@ -23,11 +17,7 @@ export default StyleSheet.create( {
     marginHorizontal: 24
   },
   headerText: {
-    alignSelf: "center",
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0
+    alignSelf: "center"
   },
   margin: {
     marginLeft: 15,
@@ -37,8 +27,6 @@ export default StyleSheet.create( {
     marginLeft: 15
   },
   numberText: {
-    color: colors.black,
-    fontFamily: fonts.light,
     fontSize: 18,
     letterSpacing: 0.78
   },

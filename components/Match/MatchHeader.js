@@ -9,7 +9,8 @@ import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 // import icons from "../../assets/icons";
 import { setGradients } from "../../utility/matchHelpers";
-import { ObservationContext, AppOrientationContext } from "../UserContext";
+import { ObservationContext } from "../UserContext";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 type Props = {
   screenType: string,
@@ -20,7 +21,7 @@ const MatchHeader = ( {
   screenType,
   setNavigationPath
 }: Props ): Node => {
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape } = useAppOrientation( );
   const { observation } = useContext( ObservationContext );
   const taxon = observation && observation.taxon;
   const image = observation && observation.image;

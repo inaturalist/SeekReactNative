@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Image
@@ -7,13 +7,13 @@ import {
 import { FlashList } from "@shopify/flash-list";
 import type { Node } from "react";
 
-import { AppOrientationContext } from "../UserContext";
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
 import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 type Props = {
   +photos: Array<Object>,
@@ -21,7 +21,7 @@ type Props = {
 };
 
 const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
-  const { isLandscape, width } = useContext( AppOrientationContext );
+  const { isLandscape, width } = useAppOrientation( );
   const columnWidth = width / 3;
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );

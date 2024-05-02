@@ -7,13 +7,14 @@ import type { Node } from "react";
 import { viewStyles } from "../../../styles/home/inatCard";
 import INatCardLoggedIn from "./iNatCardLoggedIn";
 import INatCardLoggedOut from "./iNatCardLoggedOut";
-import { AppOrientationContext, UserContext } from "../../UserContext";
+import { UserContext } from "../../UserContext";
 import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
 import GreenText from "../../UIComponents/GreenText";
+import { useAppOrientation } from "../../Providers/AppOrientationContext";
 
 const INatCard = ( ): Node => {
   const { login } = useContext( UserContext );
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape } = useAppOrientation( );
   const challenge = useLatestChallenge( );
 
   return (

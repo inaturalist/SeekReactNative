@@ -1,21 +1,21 @@
 // @flow
 
-import React, { useContext } from "react";
+import React from "react";
 import { View } from "react-native";
 import type { Node } from "react";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import { textStyles, viewStyles } from "../../styles/species/species";
-import { AppOrientationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 type Props = {
   iconicTaxonId: number
 }
 
 const IconicTaxaName = ( { loading, iconicTaxonId }: Props ): Node => {
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape } = useAppOrientation( );
   return (
     <>
       {isLandscape && <View style={viewStyles.topRibbon} />}

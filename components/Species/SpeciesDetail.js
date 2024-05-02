@@ -22,16 +22,16 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
 import { useCommonName, useInternetStatus } from "../../utility/customHooks";
-import { AppOrientationContext, SpeciesDetailContext } from "../UserContext";
+import { SpeciesDetailContext } from "../UserContext";
 import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
-
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 import styles from "../../styles/uiComponents/scrollWithHeader";
 
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
   const { id } = useContext( SpeciesDetailContext );
-  const { isLandscape, width } = useContext( AppOrientationContext );
+  const { isLandscape, width } = useAppOrientation( );
   const columnWidth = width / 3;
   const scrollView = useRef( null );
   const navigation = useNavigation( );

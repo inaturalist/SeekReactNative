@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Image } from "react-native";
 import type { Node } from "react";
 
@@ -12,15 +12,15 @@ import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
-import { AppOrientationContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
+import { useAppOrientation } from "../../Providers/AppOrientationContext";
 
 type Props = {
   +ranks: Object
 }
 
 const ARCameraHeader = ( { ranks }: Props ): Node => {
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape } = useAppOrientation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
   const settings = useFetchUserSettings( );

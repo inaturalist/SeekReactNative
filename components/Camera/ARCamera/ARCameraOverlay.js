@@ -20,8 +20,8 @@ import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
-import { AppOrientationContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
+import { useAppOrientation } from "../../Providers/AppOrientationContext";
 
 type Props = {
   takePicture: Function,
@@ -40,7 +40,7 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId
 }: Props ): Node => {
-  const { isLandscape, height } = useContext( AppOrientationContext );
+  const { isLandscape, height } = useAppOrientation( );
   const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );

@@ -11,12 +11,13 @@ import BulletedList from "./BulletedList";
 import OpenINatButton from "../UIComponents/Buttons/OpenINatButton";
 import ProfileImageAndLogin from "./ProfileImageAndLogin";
 import { useUploadedObservationCount } from "../../utility/customHooks";
-import { AppOrientationContext, UserContext } from "../UserContext";
+import { UserContext } from "../UserContext";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 const INatHeaderLoggedIn = ( ): Node => {
   const [triggerReload, setTriggerReload] = useState( false );
   const { userProfile, login } = useContext( UserContext );
-  const { isTablet } = useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation( );
   const count = useUploadedObservationCount( {
     login,
     username: userProfile.login,

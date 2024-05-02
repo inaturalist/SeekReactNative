@@ -11,10 +11,11 @@ import {
   textStyles
 } from "../../../styles/home/seekYearInReview";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import { AppOrientationContext, UserContext } from "../../UserContext";
+import { UserContext } from "../../UserContext";
 import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { useAppOrientation } from "../../Providers/AppOrientationContext";
 
 
 const SeekYearInReviewCard = ( ): Node => {
@@ -28,7 +29,7 @@ const SeekYearInReviewCard = ( ): Node => {
   }
   const { navigate } = useNavigation();
 
-  const { isLandscape } = React.useContext( AppOrientationContext );
+  const { isLandscape } = useAppOrientation();
   const { userProfile } = React.useContext( UserContext );
   const countObservationsThisYear = useCountObservationsForYear( year );
 

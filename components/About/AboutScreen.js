@@ -13,19 +13,20 @@ import type { Node } from "react";
 import { viewStyles, imageStyles, textStyles } from "../../styles/about";
 import logos from "../../assets/logos";
 import i18n from "../../i18n";
-import { AppOrientationContext, UserContext } from "../UserContext";
+import { UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
 import StyledText from "../UIComponents/StyledText";
 import EmailText from "./EmailText";
 import { baseTextStyles } from "../../styles/textStyles";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 const AboutScreen = (): Node => {
   const navigation = useNavigation();
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
   const { login } = useContext( UserContext );
-  const { isTablet } = useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation( );
 
   const navToDebug = () => navigation.navigate( "DebugEmailScreen" );
   const disabled = !login;

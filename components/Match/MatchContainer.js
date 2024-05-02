@@ -12,8 +12,9 @@ import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useCommonName } from "../../utility/customHooks";
-import { AppOrientationContext, ObservationContext } from "../UserContext";
+import { ObservationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 type Props = {
   setNavigationPath: Function,
@@ -26,7 +27,7 @@ const MatchContainer = ( {
   setNavigationPath,
   scientificNames
 }: Props ): Node => {
-  const { isLandscape } = useContext( AppOrientationContext );
+  const { isLandscape } = useAppOrientation();
   const { observation } = useContext( ObservationContext );
   const navigation = useNavigation();
   const taxon = observation && observation.taxon;

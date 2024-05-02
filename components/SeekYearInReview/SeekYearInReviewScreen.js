@@ -13,7 +13,7 @@ import {
   imageStyles
 } from "../../styles/seekYearInReview/seekYearInReview";
 import { colors } from "../../styles/global";
-import { AppOrientationContext, UserContext } from "../UserContext";
+import { UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import {
   useFetchStats,
@@ -41,6 +41,7 @@ import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import Modal from "../UIComponents/Modals/Modal";
 import LevelModal from "../Modals/LevelModal";
+import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 const SubstringStyledText = ( { text, greenText } ) => {
   // Split the text into an array using whitespace
@@ -80,7 +81,7 @@ const SeekYearInReviewScreen = (): Node => {
   const openModal = useCallback( () => setModal( true ), [] );
   const closeModal = useCallback( () => setModal( false ), [] );
 
-  const { isTablet } = useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation();
   const { userProfile, login } = useContext( UserContext );
 
   const count = useUploadedObservationCount( { login, username: userProfile?.login, year } );

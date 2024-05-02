@@ -3,7 +3,6 @@ import { render } from "@testing-library/react-native";
 
 import {
   SpeciesDetailContext,
-  AppOrientationContext,
   UserContext,
   ChallengeContext,
   ObservationContext
@@ -11,6 +10,9 @@ import {
 import {
   LanguageProvider
 } from "../components/Providers/LanguageContext";
+import {
+  AppOrientationProvider
+} from "../components/Providers/AppOrientationContext";
 
 const AllTheProviders = ( { children } ) => {
   return (
@@ -29,7 +31,7 @@ const AllTheProviders = ( { children } ) => {
           }
         }}
       >
-        <AppOrientationContext.Provider value={{}}>
+        <AppOrientationProvider value={{}}>
           <SpeciesDetailContext.Provider
             value={{
               id: 1,
@@ -44,7 +46,7 @@ const AllTheProviders = ( { children } ) => {
               </ObservationContext.Provider>
             </ChallengeContext.Provider>
           </SpeciesDetailContext.Provider>
-        </AppOrientationContext.Provider>
+        </AppOrientationProvider>
       </UserContext.Provider>
     </LanguageProvider>
   );

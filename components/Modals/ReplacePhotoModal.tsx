@@ -37,7 +37,7 @@ const ReplacePhotoModal = ( {
   const seenTaxa = useSeenTaxa( taxaId );
   const currentUserPhoto = useUserPhoto( seenTaxa );
 
-  if ( !seenTaxa ) {
+  if ( !observation || !seenTaxa ) {
     return null;
   }
 

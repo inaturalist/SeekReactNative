@@ -9,11 +9,12 @@ type Observation = {
     defaultPhoto?: {
       backupUri?: string;
       mediumUrl?: string;
+      lastUpdated?: Date;
     }};
   latitude?: number;
   longitude?: number;
 }
-const useSeenTaxa = ( id: number ): Object | null => {
+const useSeenTaxa = ( id: number ) => {
   const [seenTaxa, setSeenTaxa] = useState<Observation | null>( null );
 
   useEffect( () => {

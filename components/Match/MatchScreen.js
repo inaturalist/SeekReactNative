@@ -11,7 +11,7 @@ import styles from "../../styles/match/match";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
-import Spacer from "../UIComponents/TopSpacer";
+import TopSpacer from "../UIComponents/TopSpacer";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
 import { useFetchUserSettings, useScrollToTop } from "../../utility/customHooks";
@@ -62,7 +62,7 @@ const MatchScreen = ( ): Node => {
     }
   }, [screenType] );
 
-  const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
+  const setNavigationPath = useCallback( ( path: string ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
   useFocusEffect(
     useCallback( () => {
@@ -92,7 +92,7 @@ const MatchScreen = ( ): Node => {
         scientificNames={scientificNames}
       />
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
-        <Spacer backgroundColor={gradientDark} />
+        <TopSpacer backgroundColor={gradientDark} />
         <MatchHeader
           screenType={screenType}
           setNavigationPath={setNavigationPath}

@@ -15,6 +15,10 @@ const italic = {
   color: colors.black,
   fontFamily: fonts.italic
 };
+const medium = {
+  color: colors.black,
+  fontFamily: fonts.medium
+};
 
 const header = {
   color: colors.seekForestGreen,
@@ -27,7 +31,7 @@ const header = {
 const button = {
   color: colors.white,
   fontFamily: fonts.bold,
-  fontSize: 17,
+  fontSize: ( fontScale > 1 ) ? 15 : 17,
   letterSpacing: 1,
   lineHeight: 21
 };
@@ -124,6 +128,11 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.errorGray
   },
   italic,
+  medium,
+  mediumWhite: {
+    ...medium,
+    color: colors.white
+  },
   header,
   headerWhite: {
     ...header,

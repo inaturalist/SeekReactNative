@@ -1,17 +1,12 @@
 // @flow
 
-import { StyleSheet, Platform, PixelRatio } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
   row
 } from "../../global";
 
-const fontScale = PixelRatio.getFontScale();
-
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backButton: {
     marginLeft: 33,
     marginRight: 29
@@ -70,19 +65,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
-    letterSpacing: 1.0,
     paddingTop: Platform.OS === "ios" ? 7 : 0,
     textAlign: "center"
   },
   grayButtonText: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 12
+    fontSize: 11
   }
 } );
 

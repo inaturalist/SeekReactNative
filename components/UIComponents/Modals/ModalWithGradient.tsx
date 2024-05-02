@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -15,15 +13,16 @@ import { viewStyles, textStyles } from "../../../styles/uiComponents/modals/moda
 import { colors } from "../../../styles/global";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +children: any,
-  +closeModal: Function,
-  +color: string,
-  +userImage: string,
-  +originalImage: ?string,
-  +displayDate?: ?string
-};
+interface Props {
+  children: any;
+  closeModal: () => void;
+  color: string;
+  userImage: string;
+  originalImage: string;
+  displayDate?: string;
+}
 
 const ModalWithGradient = ( {
   children,
@@ -32,15 +31,14 @@ const ModalWithGradient = ( {
   userImage,
   originalImage,
   displayDate
-}: Props ): React.Node => (
+}: Props ) => (
   <View style={viewStyles.container}>
-    {/* $FlowFixMe */}
     <LinearGradient
       colors={[colors[`${color}GradientDark`], colors[`${color}GradientLight`]]}
       style={viewStyles.header}
     >
       <View style={[viewStyles.headerTextContainer, viewStyles.row]}>
-        <StyledText allowFontScaling={false} style={textStyles.buttonText}>
+        <StyledText allowFontScaling={false} style={[baseTextStyles.button, textStyles.buttonText]}>
           {color === "green"
             ? i18n.t( "replace_photo.header" ).toLocaleUpperCase()
             : i18n.t( "results.flag" ).toLocaleUpperCase()}
@@ -78,7 +76,7 @@ const ModalWithGradient = ( {
           )}
           {displayDate && (
             <View style={viewStyles.grayButton}>
-              <StyledText style={textStyles.grayButtonText}>{displayDate}</StyledText>
+              <StyledText style={[baseTextStyles.mediumWhite, textStyles.grayButtonText]}>{displayDate}</StyledText>
             </View>
           )}
         </View>

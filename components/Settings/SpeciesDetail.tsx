@@ -1,10 +1,7 @@
-// @flow
-
 import React, { useState, useEffect } from "react";
 import { View, Platform } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/settings";
@@ -13,17 +10,18 @@ import { useLocationPermission } from "../../utility/customHooks";
 import { colors } from "../../styles/global";
 import realmConfig from "../../models";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const SpeciesDetail = ( ): Node => {
+const SpeciesDetail = ( ) => {
   const granted = useLocationPermission( );
-  const [seasonality, setSeasonality] = useState( null );
+  const [seasonality, setSeasonality] = useState<boolean | null>( null );
 
   const radioButtons = [
     { label: i18n.t( "settings.seasonality_option_1" ), value: 0 },
     { label: i18n.t( "settings.seasonality_option_2" ), value: 1 }
   ];
 
-  const updateIndex = async ( i ) => {
+  const updateIndex = async ( i: number ) => {
     const newValue = i !== 0;
     if ( newValue === seasonality ) {
       return;
@@ -55,9 +53,9 @@ const SpeciesDetail = ( ): Node => {
 
   return (
     <View style={viewStyles.margin}>
-      <StyledText style={textStyles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={baseTextStyles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</StyledText>
       <View style={viewStyles.marginSmall} />
-      <StyledText style={textStyles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={baseTextStyles.buttonGray}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</StyledText>
       <View style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
@@ -67,7 +65,7 @@ const SpeciesDetail = ( ): Node => {
             <RadioButtonInput
               obj={obj}
               index={i}
-              isSelected={( i === 0 && !seasonality ) || ( i === 1 && seasonality )}
+              isSelected={( i === 1 && seasonality ) || ( i === 0 && !seasonality )}
               onPress={updateIndex}
               borderWidth={1}
               buttonInnerColor={colors.seekForestGreen}
@@ -82,7 +80,7 @@ const SpeciesDetail = ( ): Node => {
               index={i}
               onPress={updateIndex}
               labelHorizontal
-              labelStyle={textStyles.seasonalityRadioButtonText}
+              labelStyle={[baseTextStyles.body, textStyles.seasonalityRadioButtonText]}
               accessible
               accessibilityLabel={radioButtons[i].label}
             />

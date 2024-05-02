@@ -131,6 +131,10 @@ const baseTextStyles = StyleSheet.create( {
     ...button,
     color: colors.white
   },
+  buttonGray: {
+    ...button,
+    color: colors.settingsGray
+  },
   body,
   bodySmall: {
     ...body,

@@ -99,12 +99,6 @@ const viewStyles = StyleSheet.create( {
 } );
 
 const textStyles = StyleSheet.create( {
-  subHeader: {
-    color: colors.settingsGray,
-    fontFamily: fonts.semibold,
-    fontSize: 17,
-    letterSpacing: 0.94
-  },
   languageText: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -112,10 +106,6 @@ const textStyles = StyleSheet.create( {
     letterSpacing: 1.11
   },
   seasonalityRadioButtonText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     maxWidth: width - ( 28 * 2 ) - 30 - 10.3,
     marginTop: -3
   },

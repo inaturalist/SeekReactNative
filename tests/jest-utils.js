@@ -4,7 +4,6 @@ import { render } from "@testing-library/react-native";
 import {
   SpeciesDetailContext,
   UserContext,
-  ChallengeContext,
   ObservationContext
 } from "../components/UserContext";
 import {
@@ -13,6 +12,7 @@ import {
 import {
   AppOrientationProvider
 } from "../components/Providers/AppOrientationContext";
+import { ChallengeProvider } from "../components/Providers/ChallengeProvider";
 
 const AllTheProviders = ( { children } ) => {
   return (
@@ -40,11 +40,11 @@ const AllTheProviders = ( { children } ) => {
               setRegion: jest.fn()
             }}
           >
-            <ChallengeContext.Provider value={{}}>
+            <ChallengeProvider value={{}}>
               <ObservationContext.Provider value={{}}>
                 {children}
               </ObservationContext.Provider>
-            </ChallengeContext.Provider>
+            </ChallengeProvider>
           </SpeciesDetailContext.Provider>
         </AppOrientationProvider>
       </UserContext.Provider>

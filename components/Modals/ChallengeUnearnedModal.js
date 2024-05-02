@@ -17,8 +17,8 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
-import { ChallengeContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { useChallenge } from "../Providers/ChallengeProvider";
 
 type Props = {
   closeModal: ( ) => void,
@@ -31,7 +31,7 @@ type Props = {
 };
 
 const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node => {
-  const { setIndex } = React.useContext( ChallengeContext );
+  const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
 
   const navToChallengeDetails = ( ) => {

@@ -15,9 +15,9 @@ import { startChallenge } from "../../../utility/challengeHelpers";
 import icons from "../../../assets/icons";
 import { formatMonthYear } from "../../../utility/dateHelpers";
 import badges from "../../../assets/badges";
-import { ChallengeContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { useChallenge } from "../../Providers/ChallengeProvider";
 
 type Props = {
   +challenge: {
@@ -33,7 +33,7 @@ type Props = {
 }
 
 const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {
-  const { setIndex } = React.useContext( ChallengeContext );
+  const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
   const {
     name,

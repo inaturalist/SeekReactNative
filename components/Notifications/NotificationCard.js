@@ -14,15 +14,15 @@ import notifications from "../../assets/notifications";
 import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
 import { markNotificationAsSeen } from "../../utility/notificationHelpers";
-import { ChallengeContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { useChallenge } from "../Providers/ChallengeProvider";
 
 type Props = {
   +item: Object
 }
 
 const NotificationCard = ( { item }: Props ): React.Node => {
-  const { setIndex } = React.useContext( ChallengeContext );
+  const { setIndex } = useChallenge( );
   const navigation = useNavigation();
 
   let image = notifications[item.iconName];

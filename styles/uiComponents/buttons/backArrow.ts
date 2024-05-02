@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet, I18nManager } from "react-native";
 import { colors } from "../../global";
 
-import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingVertical: 18,
@@ -21,7 +17,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   green: {
     tintColor: colors.seekForestGreen
   }

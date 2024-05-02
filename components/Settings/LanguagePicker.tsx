@@ -1,4 +1,4 @@
-import React, { useContext, useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { View, Alert, Platform } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
@@ -8,7 +8,7 @@ import i18n from "../../i18n";
 import { viewStyles } from "../../styles/settings";
 import { colors } from "../../styles/global";
 import languages from "../../utility/dictionaries/languageDict";
-import { LanguageContext } from "../UserContext";
+import { useLanguage } from "../Providers/LanguageContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
 import StyledText from "../UIComponents/StyledText";
@@ -25,7 +25,7 @@ const showIcon = () => <></>;
 const { languageCode } = RNLocalize.getLocales()[0];
 
 const LanguagePicker = () => {
-  const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
+  const { toggleLanguagePreference, preferredLanguage } = useLanguage( );
 
   const displayLanguage = setDisplayLanguage( preferredLanguage );
   const isChecked = preferredLanguage === "device" || displayLanguage === languageCode;

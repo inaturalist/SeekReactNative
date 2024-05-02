@@ -1,19 +1,16 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   setJSExceptionHandler,
   setNativeExceptionHandler
 } from "react-native-exception-handler";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 import type { Node } from "react";
-import { AppState } from "react-native";
 
 import RootStack from "./Navigation/RootStack";
-import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
 import { hideLogs } from "../utility/helpers";
-import { LanguageContext } from "./UserContext";
-import { getLanguage } from "../utility/settingsHelpers";
+import { LanguageProvider } from "./Providers/LanguageContext";
 import SpeciesNearbyProvider from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
 import ObservationProvider from "./Providers/ObservationProvider";
@@ -48,37 +45,14 @@ setNativeExceptionHandler( exceptionString => {
 
 const App = ( ): Node => {
   useEffect( () => {
-    logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );
-  }, [] );
-
-  const [preferredLanguage, setLanguage] = useState( null );
-
-  const getLanguagePreference = async ( ) => setLanguage( await getLanguage( ) );
-  const toggleLanguagePreference = ( ) => getLanguagePreference( );
-
-  const languageValue = { preferredLanguage, toggleLanguagePreference };
-
-  useEffect( ( ) => {
-    // wait until check for stored language is completed
-    if ( !preferredLanguage ) { return; }
-    loadUserLanguagePreference( preferredLanguage );
-  }, [preferredLanguage] );
-
-  useEffect( ( ) => {
     hideLogs( );
-
-    // Context
-    getLanguagePreference( );
-
-    AppState.addEventListener( "change", handleLocalizationChange );
-
-    return ( ) => AppState.removeEventListener( "change", handleLocalizationChange );
+    logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );
   }, [] );
 
   return (
     <AppOrientationProvider>
       <UserLoginProvider>
-        <LanguageContext.Provider value={languageValue}>
+        <LanguageProvider>
           <ObservationProvider>
             <SpeciesNearbyProvider>
               <ChallengeProvider>
@@ -88,7 +62,7 @@ const App = ( ): Node => {
               </ChallengeProvider>
             </SpeciesNearbyProvider>
           </ObservationProvider>
-        </LanguageContext.Provider>
+        </LanguageProvider>
       </UserLoginProvider>
     </AppOrientationProvider>
   );

@@ -5,14 +5,16 @@ import {
   SpeciesDetailContext,
   AppOrientationContext,
   UserContext,
-  LanguageContext,
   ChallengeContext,
   ObservationContext
 } from "../components/UserContext";
+import {
+  LanguageProvider
+} from "../components/Providers/LanguageContext";
 
 const AllTheProviders = ( { children } ) => {
   return (
-    <LanguageContext.Provider
+    <LanguageProvider
       value={{
         preferredLanguage: "en",
         toggleLanguagePreference: jest.fn()
@@ -44,7 +46,7 @@ const AllTheProviders = ( { children } ) => {
           </SpeciesDetailContext.Provider>
         </AppOrientationContext.Provider>
       </UserContext.Provider>
-    </LanguageContext.Provider>
+    </LanguageProvider>
   );
 };
 

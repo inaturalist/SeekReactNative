@@ -13,9 +13,10 @@ import { viewStyles, textStyles, imageStyles } from "../../styles/species/specie
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { localizeAttributions } from "../../utility/photoHelpers";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
-import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 import { colors } from "../../styles/global";
 import StyledText from "../UIComponents/StyledText";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 
 type Props = {
   +photos: Array<Object>,

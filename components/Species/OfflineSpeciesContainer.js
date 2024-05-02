@@ -6,7 +6,7 @@ import SpeciesTaxonomy from "./SpeciesTaxonomy";
 import Padding from "../UIComponents/Padding";
 import { viewStyles, textStyles } from "../../styles/species/species";
 import i18n from "../../i18n";
-import { useSeenTaxa } from "../../utility/customHooks";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import SpeciesError from "./SpeciesError";
 import StyledText from "../UIComponents/StyledText";
 

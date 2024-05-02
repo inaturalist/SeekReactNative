@@ -9,11 +9,12 @@ import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
-import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 
 type Props = {
   +photos: Array<Object>,

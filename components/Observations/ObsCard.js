@@ -9,7 +9,7 @@ import { setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
-import { useUserPhoto } from "../../utility/customHooks";
+import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { SpeciesDetailContext } from "../UserContext";
 
 type Props = {

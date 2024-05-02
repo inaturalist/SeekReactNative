@@ -18,7 +18,8 @@ import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import StyledText from "../UIComponents/StyledText";
 import { SpeciesDetailContext } from "../UserContext";
-import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatDateToDisplayShort } from "../../utility/dateHelpers";
 import { setRoute } from "../../utility/helpers";
 

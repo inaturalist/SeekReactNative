@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { AppState, AppStateStatus, Platform, Dimensions } from "react-native";
-import RNFS from "react-native-fs";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
 import DeviceInfo from "react-native-device-info";
@@ -11,7 +10,6 @@ import Orientation from "react-native-orientation-locker";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
-import { dirPictures } from "./dirStorage";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
@@ -74,91 +72,6 @@ const useLocationName = ( latitude: ?number, longitude: ?number ): ?string => {
   }, [latitude, longitude] );
 
   return location;
-};
-
-const useUserPhoto = ( item: ?{
- taxon: {
-   defaultPhoto?: {
-     backupUri: ?string,
-     mediumUrl: ?string
-   }
- },
- uuidString: string
-} ): ?{ uri: string } => {
-  const [photo, setPhoto] = useState( null );
-
-  const checkForSeekV2Photos = useCallback( ( isCurrent ) => {
-    if ( !item ) {
-      return;
-    }
-    const { taxon } = item;
-    const { defaultPhoto } = taxon;
-    if ( !defaultPhoto ) {
-      return;
-    }
-
-    const { backupUri, mediumUrl } = defaultPhoto;
-    if ( backupUri ) {
-      if ( Platform.OS === "ios" ) {
-        const uri = backupUri.split( "Pictures/" );
-        const backupFilepath = `${dirPictures}/${uri[1]}`;
-        if ( isCurrent ) {
-          setPhoto( { uri: backupFilepath } );
-        }
-      } else {
-        RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
-          if ( isCurrent ) {
-            setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-          }
-        } ).catch( ( e ) => console.log( "Error reading backupUri file in hooks:", e ) );
-      }
-    } else if ( mediumUrl ) {
-      if ( isCurrent ) {
-        setPhoto( { uri: mediumUrl } );
-      }
-    }
-  }, [item] );
-
-  const checkV1 = useCallback( async ( uuidString: string, isCurrent ) => {
-    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
-    const photoPath = `${seekv1Photos}/${uuidString}`;
-
-    try {
-      const isv1Photo = await RNFS.exists( photoPath );
-
-      if ( isv1Photo ) {
-        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-          if ( isCurrent ) {
-            setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-          }
-        } ).catch( () => checkForSeekV2Photos() );
-      } else {
-        // this is the one being fetched in test device
-        checkForSeekV2Photos( isCurrent );
-      }
-    } catch ( e ) {
-      console.log( e, "error checking for v1 photo existence" );
-    }
-  }, [checkForSeekV2Photos] );
-
-  useEffect( () => {
-    let isCurrent = true;
-    if ( item !== null ) {
-      if ( Platform.OS === "ios" ) {
-        // $FlowFixMe
-        checkV1( item.uuidString, isCurrent );
-      } else {
-        checkForSeekV2Photos( isCurrent );
-      }
-    } else {
-      setPhoto( null );
-    }
-    return () => {
-      isCurrent = false;
-    };
-  }, [checkForSeekV2Photos, checkV1, item] );
-
-  return photo;
 };
 
 const useLocationPermission = (): ?boolean => {
@@ -250,31 +163,6 @@ const useTruncatedUserCoords = ( granted: ?boolean ): ?{
   }, [granted, coords] );
 
   return coords;
-};
-
-const useSeenTaxa = ( id: number ): ?Object => {
-  const [seenTaxa, setSeenTaxa] = useState( null );
-
-  useEffect( () => {
-    setSeenTaxa( null );
-    let isCurrent = true;
-
-    Realm.open( realmConfig ).then( ( realm ) => {
-      const observations = realm.objects( "ObservationRealm" );
-      const seen = observations.filtered( `taxon.id == ${id}` )[0];
-
-      // seen is undefined when filtered realm is empty
-      if ( isCurrent && seen !== undefined ) {
-        setSeenTaxa( seen );
-      }
-    } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
-
-    return () => {
-      isCurrent = false;
-    };
-  }, [id] );
-
-  return seenTaxa;
 };
 
 const useRegion = (
@@ -561,11 +449,9 @@ const useDeviceOrientation = (): Object => {
 export {
   useScrollToTop,
   useLocationName,
-  useUserPhoto,
   useLocationPermission,
   useCommonName,
   useTruncatedUserCoords,
-  useSeenTaxa,
   useRegion,
   useInternetStatus,
   useEmulator,

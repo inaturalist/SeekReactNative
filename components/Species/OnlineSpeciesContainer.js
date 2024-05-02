@@ -14,9 +14,9 @@ import i18n from "../../i18n";
 import About from "./OnlineOnlyCards/About";
 import SeenDate from "./OnlineOnlyCards/SeenDate";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import {
   useRegion,
-  useSeenTaxa,
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../utility/customHooks";

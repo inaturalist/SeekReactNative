@@ -1,7 +1,10 @@
-// @flow
+type Languages = {
+  [key: string]: string;
+};
+
 // using names from https://github.com/inaturalist/iNaturalistAndroid/blob/master/iNaturalist/src/main/res/values/constants.xml
 // and Google Translate for Sinhala
-const languages = {
+const languages: Languages = {
   af: "Afrikaans",
   ar: "عربى",
   bg: "Български",

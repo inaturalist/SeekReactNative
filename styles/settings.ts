@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -7,15 +7,12 @@ import {
   padding,
   dimensions
 } from "./global";
+import { baseTextStyles } from "./textStyles";
 
 const { width } = dimensions;
 
 const greenButton = {
-  color: colors.white,
-  fontFamily: fonts.semibold,
-  fontSize: 20,
-  // removed because letters getting cut off on left side, android
-  letterSpacing: Platform.OS === "ios" ? 1.11 : 0,
+  ...baseTextStyles.buttonWhite,
   backgroundColor: colors.seekForestGreen,
   borderRadius: 6,
   paddingBottom: 11,
@@ -36,13 +33,6 @@ const viewStyles = StyleSheet.create( {
   },
   checkboxRow: {
     marginTop: 17
-  },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 6,
-    paddingBottom: 11,
-    paddingHorizontal: 18,
-    paddingTop: Platform.OS === "ios" ? 18 : 12
   },
   leftMargin: {
     marginBottom: 5,

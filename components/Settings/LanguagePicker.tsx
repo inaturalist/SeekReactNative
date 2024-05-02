@@ -1,20 +1,18 @@
-// @flow
-
 import React, { useContext, useCallback, useMemo, useState } from "react";
 import { View, Alert, Platform } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/settings";
+import { viewStyles } from "../../styles/settings";
 import { colors } from "../../styles/global";
 import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const localeList = Object.keys( languages ).map( ( locale ) => (
   { value: locale, label: languages[locale].toLocaleUpperCase() }
@@ -26,7 +24,7 @@ const showIcon = () => <></>;
 
 const { languageCode } = RNLocalize.getLocales()[0];
 
-const LanguagePicker = (): Node => {
+const LanguagePicker = () => {
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
 
   const displayLanguage = setDisplayLanguage( preferredLanguage );
@@ -34,7 +32,7 @@ const LanguagePicker = (): Node => {
 
   const [pickerValue, setPickerValue] = useState( displayLanguage );
 
-  const handleValueChange = useCallback( ( value ) => {
+  const handleValueChange = useCallback( ( value: string ) => {
     // this prevents the double render on new Android install
     // without this, the user changes the language
     // and handleValueChange is immediately called with "en"
@@ -58,7 +56,7 @@ const LanguagePicker = (): Node => {
     Platform.OS === "ios" ? setPickerValue( value ) : showAlert( value );
   }, [displayLanguage, preferredLanguage, toggleLanguagePreference, showAlert] );
 
-  const showAlert = useCallback( ( value ) => {
+  const showAlert = useCallback( ( value: string ) => {
     const valueLabel = languages[value];
     Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
       {
@@ -95,16 +93,17 @@ const LanguagePicker = (): Node => {
         onClick={setDeviceLanguage}
         style={viewStyles.checkBox}
       />
-      <StyledText style={[textStyles.text, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</StyledText>
+      <StyledText style={[baseTextStyles.body, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</StyledText>
     </View>
   ), [isChecked, setDeviceLanguage] );
 
   return (
     <View style={viewStyles.donateMarginBottom}>
-      <StyledText style={textStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={baseTextStyles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</StyledText>
       {deviceLanguageSupported( ) && renderDeviceCheckbox}
       <RNPickerSelect
         hideIcon
+        // @ts-ignore
         Icon={showIcon}
         items={localeList}
         onValueChange={handleValueChange}

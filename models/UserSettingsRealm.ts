@@ -1,7 +1,12 @@
-import Realm, { ObjectSchema } from "realm";
+import Realm from "realm";
 
-class UserSettingsRealm extends Realm.Object {
-  static schema: ObjectSchema = {
+class UserSettingsRealm extends Realm.Object<UserSettingsRealm> {
+  autoCapture!: boolean;
+  localSeasonality!: boolean;
+  scientificNames!: boolean;
+  appVersion!: string;
+
+  static schema: Realm.ObjectSchema = {
     name: "UserSettingsRealm",
     properties: {
       autoCapture: { type: "bool", default: false },

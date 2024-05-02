@@ -1,10 +1,7 @@
-// @flow
-
 import React, { useState, useEffect } from "react";
 import { View, Switch } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/settings";
@@ -12,15 +9,20 @@ import { updateUserSetting } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
 import realmConfig from "../../models";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const CameraSettings = ( ): Node => {
-  const [settings, setSettings] = useState( {} );
+interface State {
+  autoCapture?: boolean;
+  scientificNames?: boolean;
+}
+const CameraSettings = ( ) => {
+  const [settings, setSettings] = useState<State>( {} );
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
     { label: i18n.t( "settings.scientific_names" ), value: 1 }
   ];
 
-  const updateIndex = async( i ) => {
+  const updateIndex = async( i: number ) => {
     const newValue = i !== 0;
     if ( newValue === settings.scientificNames ) {
       return;
@@ -44,7 +46,7 @@ const CameraSettings = ( ): Node => {
 
   const switchTrackColor = { true: colors.seekForestGreen };
 
-  const handleRadioButtonPress = ( value ) => updateIndex( value );
+  const handleRadioButtonPress = ( value: number ) => updateIndex( value );
 
   useEffect( ( ) => {
     let isCurrent = true;
@@ -64,7 +66,7 @@ const CameraSettings = ( ): Node => {
 
   return (
     <>
-      <StyledText style={textStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</StyledText>
+      <StyledText style={baseTextStyles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</StyledText>
       <View style={viewStyles.marginSmall} />
       <StyledText style={viewStyles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => <RadioButton
@@ -91,7 +93,7 @@ const CameraSettings = ( ): Node => {
               index={i}
               onPress={handleRadioButtonPress}
               labelHorizontal
-              labelStyle={textStyles.text}
+              labelStyle={baseTextStyles.body}
               accessible
               accessibilityLabel={radioButtons[i].label}
             />
@@ -107,7 +109,7 @@ const CameraSettings = ( ): Node => {
           accessible
           accessibilityLabel={settings.autoCapture ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
         />
-        <StyledText style={textStyles.autoCaptureText}>
+        <StyledText style={[baseTextStyles.body, textStyles.autoCaptureText]}>
           {i18n.t( "settings.auto_capture" )}
         </StyledText>
       </View>

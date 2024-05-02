@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
@@ -22,18 +20,16 @@ const greenButton = {
   borderRadius: 6,
   paddingBottom: 11,
   paddingHorizontal: 18,
-  textAlign: "center",
+  textAlign: "center" as const,
   paddingTop: 12
 };
 
 const buttonContainer = {
   paddingVertical: 19,
-  alignItems: "center"
+  alignItems: "center" as const
 };
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   center,
   checkBox: {
     paddingRight: 10.3
@@ -96,38 +92,24 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
     paddingVertical: 19 / 2,
     marginRight: 16
   },
-  // $FlowFixMe
   inputIOS: greenButton,
   inputIOSContainer: buttonContainer,
-  // $FlowFixMe
   inputAndroid: greenButton,
   inputAndroidContainer: buttonContainer
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   subHeader: {
     color: colors.settingsGray,
     fontFamily: fonts.semibold,
     fontSize: 17,
     letterSpacing: 0.94
   },
-  header: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
   languageText: {
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 20,
     letterSpacing: 1.11
-  },
-  text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
   },
   seasonalityRadioButtonText: {
     color: colors.black,
@@ -138,10 +120,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginTop: -3
   },
   autoCaptureText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     paddingTop: padding.iOSPaddingSmall,
     maxWidth: width - ( 28 * 2 ) - 30 - 10.3
   }

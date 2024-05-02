@@ -201,6 +201,10 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.seekForestGreen
   },
   highlight,
+  highlightTeal: {
+    ...highlight,
+    color: colors.seekTeal
+  },
   banner,
   bannerSmall: {
     ...banner,

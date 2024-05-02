@@ -15,6 +15,7 @@ import { useCommonName } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
 import { useObservation } from "../Providers/ObservationProvider";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   setNavigationPath: Function,
@@ -72,13 +73,13 @@ const MatchContainer = ( {
   return (
     <View style={[styles.marginLarge, isLandscape && styles.marginLandscape]}>
       <View style={styles.textContainer}>
-        <StyledText style={[styles.headerText, { color: gradientLight }]}>{headerText}</StyledText>
+        <StyledText style={[baseTextStyles.header, styles.headerText, { color: gradientLight }]}>{headerText}</StyledText>
         {screenType !== "unidentified" && (
-          <StyledText style={[styles.speciesText, showScientificName && styles.scientificName]}>
+          <StyledText style={[baseTextStyles.species, styles.speciesText, showScientificName && baseTextStyles.italic]}>
             {showScientificName ? scientificName : commonName}
           </StyledText>
         )}
-        <StyledText style={styles.text}>{text}</StyledText>
+        <StyledText style={[baseTextStyles.body, styles.text]}>{text}</StyledText>
         <View style={styles.marginMedium} />
         <GreenButton
           color={gradientLight}

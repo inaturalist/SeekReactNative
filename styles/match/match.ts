@@ -34,11 +34,6 @@ export default StyleSheet.create( {
     overflow: "visible"
   },
   headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
     marginBottom: 24,
     textAlign: "center"
   },
@@ -88,21 +83,10 @@ export default StyleSheet.create( {
     position: "absolute"
   },
   speciesText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 30,
-    lineHeight: 35,
     marginBottom: 22,
     textAlign: "center"
   },
-  scientificName: {
-    fontFamily: fonts.bookItalic
-  },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     textAlign: "center"
   },
   textContainer: {

@@ -12,6 +12,7 @@ import { colors } from "../../styles/global";
 import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
 import { fetchSpeciesNearby } from "../../utility/apiCalls";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   +ancestorId:number,
@@ -62,7 +63,7 @@ const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
 
   return (
     <>
-      <StyledText style={textStyles.headerText}>
+      <StyledText style={[baseTextStyles.highlightTeal, textStyles.headerText]}>
         {i18n.t( "results.nearby" ).toLocaleUpperCase( )}
       </StyledText>
       {renderSpecies( )}

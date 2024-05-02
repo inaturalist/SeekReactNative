@@ -43,7 +43,6 @@ const SpeciesNearbyList = ( { taxa, observed }: Props ): Node => {
       contentContainerStyle={taxa.length > 0 && styles.taxonList}
       data={taxa}
       getItemLayout={getItemLayout}
-      getItemType={() => ( observed ? "observed" : "not-observed" )}
       horizontal
       initialNumToRender={3}
       keyExtractor={extractKey}

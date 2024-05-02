@@ -110,6 +110,13 @@ const challengeItemButton = {
   lineHeight: 17
 };
 
+const toastLink = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 13,
+  lineHeight: 21
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -185,7 +192,8 @@ const baseTextStyles = StyleSheet.create( {
   challengeDescription,
   smallLightHeading,
   challengeItemTitle,
-  challengeItemButton
+  challengeItemButton,
+  toastLink
 } );
 
 export {

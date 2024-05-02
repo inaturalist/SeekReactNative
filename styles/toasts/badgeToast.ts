@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { fonts, colors, dimensions } from "../global";
+import { colors, dimensions } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   animatedStyle: {
     left: 0,
     position: "absolute",
@@ -30,34 +26,21 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   description: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 1
   },
   headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     marginTop: 16,
-    lineHeight: 24,
     maxWidth: dimensions.width - 59 - ( 24 * 2 )
   },
   view: {
-    color: colors.black,
-    fontFamily: fonts.light,
-    fontSize: 14,
-    lineHeight: 21,
     marginTop: 8,
     marginBottom: 21
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 75,
     width: 75,

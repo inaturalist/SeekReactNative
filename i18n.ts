@@ -20,10 +20,11 @@ import hu from "./translations/hu.json";
 import id from "./translations/id.json";
 import it from "./translations/it.json";
 import ja from "./translations/ja.json";
-import nl from "./translations/nl.json";
 import nb from "./translations/nb.json";
+import nl from "./translations/nl.json";
 import no from "./translations/no.json";
 import pl from "./translations/pl.json";
+import pt from "./translations/pt.json";
 import ptBR from "./translations/pt-BR.json";
 import ro from "./translations/ro.json";
 import ru from "./translations/ru.json";
@@ -31,8 +32,8 @@ import si from "./translations/si.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
 import uk from "./translations/uk.json";
-import zhCN from "./translations/zh-CN.json";
 import zh from "./translations/zh-TW.json";
+import zhCN from "./translations/zh-CN.json";
 
 const i18n = new I18n( {
   af,
@@ -59,6 +60,7 @@ const i18n = new I18n( {
   nb,
   no,
   pl,
+  pt,
   "pt-BR": ptBR,
   ro,
   ru,

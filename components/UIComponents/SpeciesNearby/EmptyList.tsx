@@ -1,15 +1,13 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/emptyList";
 import i18n from "../../../i18n";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-const EmptyList = ( ): Node => {
+const EmptyList = ( ) => {
   const { name } = useRoute( );
 
   let text = null;
@@ -24,7 +22,7 @@ const EmptyList = ( ): Node => {
 
   return (
     <View style={viewStyles.noTaxon}>
-      <StyledText style={textStyles.cellTitleText}>
+      <StyledText style={[baseTextStyles.bodyWhite, textStyles.cellTitleText]}>
         {text}
       </StyledText>
     </View>

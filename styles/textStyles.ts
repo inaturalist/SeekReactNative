@@ -186,6 +186,11 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.medium
   },
+  bodyMediumWhite: {
+    ...body,
+    color: colors.white,
+    fontFamily: fonts.medium
+  },
   bodyBold: {
     ...body,
     fontFamily: fonts.bold

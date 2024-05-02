@@ -1,8 +1,5 @@
-// @flow
-
 import React from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles } from "../../styles/settings";
 import LanguagePicker from "./LanguagePicker";
@@ -12,7 +9,7 @@ import CameraSettings from "./CameraSettings";
 import SpeciesDetail from "./SpeciesDetail";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
 
-const SettingsScreen = ( ): Node => {
+const SettingsScreen = ( ) => {
   const { isTablet } = useAppOrientation( );
 
   return (

@@ -121,6 +121,13 @@ const toastLink = {
   lineHeight: 21
 };
 
+const species = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 29,
+  lineHeight: 35
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -202,7 +209,8 @@ const baseTextStyles = StyleSheet.create( {
   smallLightHeading,
   challengeItemTitle,
   challengeItemButton,
-  toastLink
+  toastLink,
+  species
 } );
 
 export {

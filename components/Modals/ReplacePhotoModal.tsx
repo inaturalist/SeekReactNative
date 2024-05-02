@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
@@ -9,18 +7,23 @@ import { viewStyles, textStyles } from "../../styles/modals/flagModal";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { replacePhoto } from "../../utility/photoHelpers";
-import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
-import { ObservationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
+import { useObservation } from "../Providers/ObservationProvider";
 
-type Props = {
-  closeModal: Function,
-  seenDate: string,
-  taxon: Object,
-  scientificNames: boolean,
-  commonName: ?string
-};
+interface Props {
+  closeModal: () => void;
+  seenDate: string;
+  taxon: {
+    taxaId: number;
+    scientificName: string;
+  };
+  scientificNames: boolean;
+  commonName?: string;
+}
 
 const ReplacePhotoModal = ( {
   closeModal,
@@ -28,8 +31,8 @@ const ReplacePhotoModal = ( {
   taxon,
   scientificNames,
   commonName
-}: Props ): React.Node => {
-  const { observation } = React.useContext( ObservationContext );
+}: Props ) => {
+  const { observation } = useObservation();
   const { taxaId, scientificName } = taxon;
   const seenTaxa = useSeenTaxa( taxaId );
   const currentUserPhoto = useUserPhoto( seenTaxa );
@@ -48,7 +51,7 @@ const ReplacePhotoModal = ( {
 
   const setNewPhoto = ( ) => {
     replacePhoto( taxaId, image );
-    closeModal( true );
+    closeModal( );
   };
 
   return (
@@ -59,10 +62,10 @@ const ReplacePhotoModal = ( {
       originalImage={currentUserPhoto ? currentUserPhoto.uri : null}
       displayDate={displayDate}
     >
-      <StyledText allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.species, textStyles.speciesText, showScientificName && baseTextStyles.italic]}>
         {showScientificName ? scientificName : commonName}
       </StyledText>
-      <StyledText allowFontScaling={false} style={textStyles.text}>{i18n.t( "replace_photo.description" )}</StyledText>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "replace_photo.description" )}</StyledText>
       <View style={viewStyles.marginMedium} />
       <Button
         handlePress={setNewPhoto}

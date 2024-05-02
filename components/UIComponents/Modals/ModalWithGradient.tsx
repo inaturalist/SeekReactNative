@@ -20,7 +20,7 @@ interface Props {
   closeModal: () => void;
   color: string;
   userImage: string;
-  originalImage: string;
+  originalImage: string | null;
   displayDate?: string;
 }
 

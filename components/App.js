@@ -13,7 +13,7 @@ import { hideLogs } from "../utility/helpers";
 import { LanguageProvider } from "./Providers/LanguageContext";
 import SpeciesNearbyProvider from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
-import ObservationProvider from "./Providers/ObservationProvider";
+import { ObservationProvider } from "./Providers/ObservationProvider";
 import { AppOrientationProvider } from "./Providers/AppOrientationContext";
 import { ChallengeProvider } from "./Providers/ChallengeProvider";
 import SpeciesDetailProvider from "./Providers/SpeciesDetailProvider";

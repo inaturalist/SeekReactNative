@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext } from "react";
+import React from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -12,9 +12,9 @@ import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useCommonName } from "../../utility/customHooks";
-import { ObservationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useObservation } from "../Providers/ObservationProvider";
 
 type Props = {
   setNavigationPath: Function,
@@ -28,7 +28,7 @@ const MatchContainer = ( {
   scientificNames
 }: Props ): Node => {
   const { isLandscape } = useAppOrientation();
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation();
   const navigation = useNavigation();
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;

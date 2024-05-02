@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useCallback, useRef, useContext } from "react";
+import React, { useReducer, useCallback, useRef } from "react";
 import { BackHandler, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -17,10 +17,10 @@ import MatchContainer from "./MatchContainer";
 import { useFetchUserSettings, useScrollToTop } from "../../utility/customHooks";
 import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
-import { ObservationContext } from "../UserContext";
+import { useObservation } from "../Providers/ObservationProvider";
 
 const MatchScreen = ( ): Node => {
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation();
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
   const settings = useFetchUserSettings( );

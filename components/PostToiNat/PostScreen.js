@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback, useContext } from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import { Alert, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import type { Node } from "react";
@@ -19,10 +19,10 @@ import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
-import { ObservationContext } from "../UserContext";
+import { useObservation } from "../Providers/ObservationProvider";
 
 const PostScreen = ( ): Node => {
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation( );
   const navigation = useNavigation( );
   const { params } = useRoute( );
 

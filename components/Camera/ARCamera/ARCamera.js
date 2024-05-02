@@ -41,11 +41,12 @@ import { checkIfCameraLaunched } from "../../../utility/helpers";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext, UserContext } from "../../UserContext";
+import { UserContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useSharedValue } from "react-native-reanimated";
 import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useObservation } from "../../Providers/ObservationProvider";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -64,7 +65,7 @@ const ARCamera = ( ): Node => {
   const { width, height } = useAppOrientation( );
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
-  const { setObservation, observation } = useContext( ObservationContext );
+  const { setObservation, observation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat

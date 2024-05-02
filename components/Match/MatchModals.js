@@ -22,7 +22,8 @@ import { fetchNumberSpeciesSeen, setRoute } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
-import { ObservationContext, SpeciesDetailContext } from "../UserContext";
+import { SpeciesDetailContext } from "../UserContext";
+import { useObservation } from "../Providers/ObservationProvider";
 
 type Props = {
   screenType: string,
@@ -42,7 +43,7 @@ const MatchModals = ( {
   scientificNames
 }: Props ): Node => {
   const { setId } = useContext( SpeciesDetailContext );
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation();
   const navigation = useNavigation( );
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;

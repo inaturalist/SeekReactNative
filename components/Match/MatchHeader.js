@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext } from "react";
+import React from "react";
 import { View, Image } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import type { Node } from "react";
@@ -9,8 +9,8 @@ import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 // import icons from "../../assets/icons";
 import { setGradients } from "../../utility/matchHelpers";
-import { ObservationContext } from "../UserContext";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useObservation } from "../Providers/ObservationProvider";
 
 type Props = {
   screenType: string,
@@ -22,7 +22,7 @@ const MatchHeader = ( {
   setNavigationPath
 }: Props ): Node => {
   const { isLandscape } = useAppOrientation( );
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation();
   const taxon = observation && observation.taxon;
   const image = observation && observation.image;
   const imageUri = image && image.uri;

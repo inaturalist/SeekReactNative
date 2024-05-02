@@ -9,8 +9,8 @@ import { colors } from "../../styles/global";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
-import { ObservationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { useObservation } from "../Providers/ObservationProvider";
 
 type Props = {
   taxon: Object,
@@ -27,7 +27,7 @@ const FlagModal = ( {
   scientificNames,
   commonName
 }: Props ): React.Node => {
-  const { observation } = React.useContext( ObservationContext );
+  const { observation } = useObservation();
   const { image } = observation;
   const { scientificName, taxaId } = taxon || {};
   const showScientificName = !commonName || scientificNames;

@@ -1,7 +1,4 @@
-// @flow
-
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import type { Node } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
@@ -9,27 +6,58 @@ import iconicTaxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
-import { ObservationContext } from "../UserContext";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { createJwtToken } from "../../utility/helpers";
 import {
   findNearestPrimaryRankTaxon,
   checkCommonAncestorRank
 } from "../../utility/resultsHelpers";
-type Props = {
-  children: any
-}
 
-const ObservationProvider = ( { children }: Props ): Node => {
-  const [observation, setObservation] = useState( null );
-  const [error, setError] = useState( null );
-  const observationValue = { observation, setObservation, error, setError };
+interface Prediction {
+  name: string;
+  taxon_id: number;
+  rank: number;
+  score: number;
+  ancestor_ids?: number[];
+}
+interface Observation {
+  image: {
+    predictions: Prediction[];
+    onlineVision: boolean;
+    errorCode: number;
+    latitude: number;
+    longitude: number;
+    uri: string;
+    time: number;
+  };
+  taxon: {
+    taxaId?: number;
+    speciesSeenImage?: string;
+    scientificName?: string;
+    rank?: any;
+  } | undefined;
+  clicked: boolean;
+}
+const ObservationContext = React.createContext<
+  {
+    observation: Observation | null;
+    setObservation: React.Dispatch<React.SetStateAction<any>>;
+    error: string | null;
+    setError: React.Dispatch<React.SetStateAction<any>>;
+  } | undefined
+>( undefined );
+
+type ObservationProviderProps = {children: React.ReactNode}
+const ObservationProvider = ( { children }: ObservationProviderProps ) => {
+  const [observation, setObservation] = useState<Observation | null>( null );
+  const [error, setError] = useState<string | null>( null );
+  const value = { observation, setObservation, error, setError };
 
   const threshold = 0.7;
 
-  const checkForSpecies = predictions => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
+  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
 
-  const checkForAncestor = predictions => {
+  const checkForAncestor = ( predictions: Prediction[] ) => {
     const reversePredictions = predictions.sort( ( a, b ) => a.rank - b.rank );
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
@@ -39,26 +67,27 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return null;
   };
 
-  const setAncestorIdsiOS = predictions => {
+  // TODO: this should happen in the camera plugin
+  const setAncestorIdsiOS = ( predictions: Prediction[] ) => {
     // adding ancestor ids to take iOS camera experience offline
     const ancestorIds = predictions.map( ( p ) => Number( p.taxon_id ) );
     return ancestorIds.sort( );
   };
 
-  const checkForIconicTaxonId = ancestorIds => {
+  const checkForIconicTaxonId = ( ancestorIds: number[] ) => {
     const taxaIdList = Object.keys( iconicTaxaIds ).reverse( );
     taxaIdList.pop( );
     taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
 
     const idList = taxaIdList.map( id => Number( id ) );
-    const iconicTaxonId = idList.filter( ( value ) => ancestorIds.indexOf( value ) !== -1 );
+    const iconicTaxonId = idList.filter( ( _v ) => ancestorIds.indexOf( _v ) !== -1 );
     return iconicTaxonId[0] || 1;
   };
 
-  const fetchPhoto = useCallback( async ( id ) => {
+  const fetchPhoto = useCallback( async ( id: number ) => {
     // probably should break this into a helper function to use in other places
     // like species nearby fetches for better offline experience
-    const fetchWithTimeout = ( timeout ) => Promise.race( [
+    const fetchWithTimeout = ( timeout: number ) => Promise.race( [
       inatjs.taxa.fetch( id ),
       new Promise( ( _, reject ) =>
           setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
@@ -73,7 +102,11 @@ const ObservationProvider = ( { children }: Props ): Node => {
       // not sure how long we really want to wait for this
       // started with 500 which was apparently too slow, now 5 seconds
       const { results } = await fetchWithTimeout( 5000 );
-      const taxa = results[0];
+      const taxa: {
+        default_photo: {
+          medium_url: string;
+        };
+      } = results[0];
       const defaultPhoto = taxa && taxa.default_photo && taxa.default_photo.medium_url
         ? taxa.default_photo.medium_url
         : null;
@@ -83,8 +116,8 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
   }, [] );
 
-  const currentSpeciesID = useRef( null );
-  const handleSpecies = useCallback( async ( param ) => {
+  const currentSpeciesID = useRef<number | null>( null );
+  const handleSpecies = useCallback( async ( param: Prediction ) => {
     if ( !observation ) { return; }
     const { predictions, errorCode, latitude } = observation.image;
     const species = Object.assign( { }, param );
@@ -93,7 +126,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       species.ancestor_ids = setAncestorIdsiOS( predictions );
     }
 
-    const createSpecies = ( photo, seenDate ) => {
+    const createSpecies = ( photo: string | null, seenDate: string | null ) => {
       return {
         taxaId: Number( species.taxon_id ),
         speciesSeenImage: photo,
@@ -102,7 +135,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       };
     };
 
-    const createObservationForRealm = photo => {
+    const createObservationForRealm = () => {
       return {
         taxon: {
           id: Number( species.taxon_id ),
@@ -127,7 +160,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     const mediumPhoto = await fetchPhoto( species.taxon_id );
 
     if ( !seenDate ) {
-      const newObs = createObservationForRealm( mediumPhoto );
+      const newObs = createObservationForRealm( );
       await addToCollection( newObs, observation.image );
 
       // also added to online server results
@@ -139,7 +172,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return taxon;
   }, [observation, fetchPhoto] );
 
-  const handleAncestor = useCallback( async ( ancestor ) => {
+  const handleAncestor = useCallback( async ( ancestor: Prediction ) => {
     const photo = await fetchPhoto( ancestor.taxon_id );
 
     return {
@@ -164,7 +197,12 @@ const ObservationProvider = ( { children }: Props ): Node => {
       return;
     }
 
-    const updateObs = taxon => {
+    const updateObs = ( taxon: {
+      taxaId?: any;
+      speciesSeenImage?: any;
+      scientificName?: any;
+      rank?: any;
+    } | undefined ) => {
       if ( !isCurrent ) { return; }
 
       const prevTaxon = observation && observation.taxon;
@@ -202,6 +240,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     };
   }, [observation, handleSpecies, handleAncestor] );
 
+  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
   const createOnlineSpecies = ( species, seenDate ) => {
     const photo = species.default_photo;
 
@@ -213,6 +252,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     };
   };
 
+  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
   const createOnlineAncestor = ( ancestor: Object ) => {
     if ( !ancestor ) { return; }
     const photo = ancestor.default_photo;
@@ -225,6 +265,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     };
   };
 
+  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
   const handleOnlineSpecies = useCallback( async ( species ) => {
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
     if ( !observation ) { return; }
@@ -236,8 +277,10 @@ const ObservationProvider = ( { children }: Props ): Node => {
     return createOnlineSpecies( species.taxon, seenDate );
   }, [observation] );
 
+  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
   const handleOnlineAncestor = useCallback( async ( ancestor ) => createOnlineAncestor( ancestor ), [] );
 
+  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
   const handleServerError = useCallback( ( response ) => {
     if ( !response ) {
       return { error: "onlineVision" };
@@ -248,6 +291,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
     }
   }, [] );
 
+  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
   // this is for online predictions (only iOS photo library uploads)
   useEffect( ( ) => {
     let isCurrent = true;
@@ -327,10 +371,16 @@ const ObservationProvider = ( { children }: Props ): Node => {
   }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
 
   return (
-    <ObservationContext.Provider value={observationValue}>
-      {children}
-    </ObservationContext.Provider>
+    <ObservationContext.Provider value={value}>{children}</ObservationContext.Provider>
   );
 };
 
-export default ObservationProvider;
+function useObservation() {
+  const context = React.useContext( ObservationContext );
+  if ( context === undefined ) {
+    throw new Error( "useObservation must be used within a ObservationProvider" );
+  }
+  return context;
+}
+
+export { ObservationProvider, useObservation };

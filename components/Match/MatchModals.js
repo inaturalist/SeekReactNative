@@ -27,7 +27,7 @@ import { useObservation } from "../Providers/ObservationProvider";
 
 type Props = {
   screenType: string,
-  closeFlagModal: Function,
+  closeFlagModal: ( misidentified: boolean ) => void,
   setNavigationPath: Function,
   flagModal: boolean,
   navPath: ?string,

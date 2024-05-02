@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
@@ -11,14 +9,19 @@ import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
 import StyledText from "../UIComponents/StyledText";
 import { useObservation } from "../Providers/ObservationProvider";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  taxon: Object,
-  closeModal: Function,
-  seenDate: ?string,
-  scientificNames: boolean,
-  commonName: ?string
-};
+interface Props {
+  taxon: {
+    scientificName: string;
+    taxaId: number;
+    speciesSeenImage: string | null;
+  };
+  closeModal: ( misidentified: boolean ) => void;
+  seenDate?: string;
+  scientificNames: boolean;
+  commonName?: string;
+}
 
 const FlagModal = ( {
   taxon,
@@ -26,8 +29,11 @@ const FlagModal = ( {
   seenDate,
   scientificNames,
   commonName
-}: Props ): React.Node => {
+}: Props ) => {
   const { observation } = useObservation();
+  if ( !observation ) {
+    return null;
+  }
   const { image } = observation;
   const { scientificName, taxaId } = taxon || {};
   const showScientificName = !commonName || scientificNames;
@@ -44,14 +50,14 @@ const FlagModal = ( {
   return (
     <ModalWithGradient
       color="gray"
-      closeModal={closeModal}
+      closeModal={() => closeModal( false )}
       userImage={image.uri}
       originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
     >
-      <StyledText allowFontScaling={false} style={[textStyles.speciesText, showScientificName && textStyles.scientificName]}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.species, textStyles.speciesText, showScientificName && baseTextStyles.italic]}>
         {showScientificName ? scientificName : commonName}
       </StyledText>
-      <StyledText allowFontScaling={false} style={textStyles.text}>{i18n.t( "results.incorrect" )}</StyledText>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "results.incorrect" )}</StyledText>
       <View style={viewStyles.marginSmall} />
       <Button
         handlePress={handlePress}
@@ -62,7 +68,7 @@ const FlagModal = ( {
       />
       <View style={viewStyles.marginSmall} />
       <Button
-        handlePress={closeModal}
+        handlePress={() => closeModal( false )}
         text="results.no"
         color={colors.grayGradientLight}
       />

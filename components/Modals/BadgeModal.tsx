@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import {
   View,
@@ -8,7 +6,6 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../styles/modals/badgeModal";
@@ -21,14 +18,22 @@ import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  badges: Array<Object>,
-  iconicSpeciesCount: number,
-  closeModal: Function
-};
+interface Badge {
+  earned: boolean;
+  earnedIconName: string;
+  intlName: string;
+  iconicTaxonName: string;
+  count: number;
+  infoText: string;
+}
+interface Props {
+  badges: Badge[];
+  iconicSpeciesCount: number;
+  closeModal: () => void;
+}
 
-const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node => {
-  const flatList = useRef( null );
+const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
+  const flatList = useRef<FlatList>( null );
   const [scrollIndex, setScrollIndex] = useState( 0 );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
@@ -56,7 +61,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
-  const scroll = ( index ) => {
+  const scroll = ( index: number ) => {
     setScrollIndex( index );
     if ( flatList && flatList.current !== null ) {
       flatList.current.scrollToIndex( { index, animated: true } );
@@ -113,7 +118,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
     </TouchableOpacity>
   ) );
 
-  const renderBadge = ( { item } ) => (
+  const renderBadge = ( { item }: { item: Badge } ) => (
     <View
       key={`badge${item.earnedIconName}`}
       style={viewStyles.carousel}
@@ -144,7 +149,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
     </View>
   );
 
-  const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
+  const extractKey = useCallback( ( item: Badge, index: number ) => `${item}${index}`, [] );
 
   return (
     <WhiteModal closeModal={closeModal}>

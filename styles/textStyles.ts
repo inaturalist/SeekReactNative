@@ -150,6 +150,13 @@ const link = {
   textDecorationLine: "underline" as const
 };
 
+const number = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 19,
+  lineHeight: 21
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -262,7 +269,8 @@ const baseTextStyles = StyleSheet.create( {
   toastLink,
   species,
   speciesSmall,
-  link
+  link,
+  number
 } );
 
 export {

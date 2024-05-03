@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -36,7 +34,7 @@ type Props = {
   }
 };
 
-const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node => {
+const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
   const is2020OrAfterChallenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   return (
@@ -77,6 +75,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ): React.Node =>
       <Image
         source={logos[challenge.secondLogo]}
         style={[
+          // TODO: where is this style coming from?
           viewStyles.logo,
           challenge.secondLogo === "iNat" && imageStyles.iNatLogo,
           challenge.secondLogo === "natGeoBlack" && imageStyles.natGeoLogo

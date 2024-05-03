@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -15,10 +13,10 @@ import posting from "../../assets/posting";
 import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +header?: ?string,
-  +route?: ?string,
-  plainText?: string
+interface Props {
+  route?: string;
+  header?: string;
+  plainText?: string;
 }
 
 const GreenHeader = ( { header, route, plainText }: Props ): React.Node => {

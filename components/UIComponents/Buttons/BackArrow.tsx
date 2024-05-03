@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   TouchableOpacity,
@@ -10,14 +8,13 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
-import { colors } from "../../../styles/global";
 
 type Props = {
-  +green?: boolean,
-  +route?: ?string
+  green?: boolean;
+  route?: string;
 }
 
-const BackArrow = ( { green, route }: Props ): React.Node => {
+const BackArrow = ( { green, route }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
 
@@ -36,10 +33,8 @@ const BackArrow = ( { green, route }: Props ): React.Node => {
       onPress={handlePress}
       style={[viewStyles.backButton, name === "ChallengeDetails" && viewStyles.challengeDetails]}
     >
-      {/* $FlowFixMe */}
       <Image
         source={icons.backButton}
-        tintColor={green && colors.seekForestGreen}
         style={green && imageStyles.green}
       />
     </TouchableOpacity>

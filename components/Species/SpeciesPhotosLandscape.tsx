@@ -1,11 +1,9 @@
-// @flow
 import React, { useEffect } from "react";
 import {
   View,
   Image
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
-import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
 import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
@@ -15,11 +13,16 @@ import { colors } from "../../styles/global";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +photos: Array<Object>,
-  +id: number
-};
+interface Props {
+  photos: {
+    medium_url: string;
+    attribution: string;
+    license_code: string;
+  }[];
+  id: number;
+}
 
 const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
   const { isLandscape, width } = useAppOrientation( );
@@ -47,8 +50,9 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
         />
         {photo.attribution && (
           <StyledText style={[
+            baseTextStyles.buttonWhite,
             textStyles.ccButtonText,
-            isLandscape && textStyles.ccButtonLandscape,
+            isLandscape && baseTextStyles.buttonWhiteRegular,
             { maxWidth: columnWidth }
           ]}>
             {localizeAttributionsLandscape( photo.attribution, photo.license_code, "SpeciesDetail" )}

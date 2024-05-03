@@ -1,7 +1,5 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts, row, center, dimensions } from "../global";
+import { row, center, dimensions } from "../global";
 
 // added decimal because this was going off the screen on Android Pixel 4
 const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
@@ -53,14 +51,7 @@ const textStyles = StyleSheet.create( {
   lightText: {
     marginBottom: 10
   },
-  bigText: {
-    textAlign: "center"
-  },
-  text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
+  center: {
     textAlign: "center"
   },
   caption: {

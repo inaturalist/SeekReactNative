@@ -22,6 +22,7 @@ import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatDateToDisplayShort } from "../../utility/dateHelpers";
 import { setRoute } from "../../utility/helpers";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );
@@ -46,7 +47,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
       onPress={() => navToSpecies()}
     >
       {userPhoto?.uri && <Image source={userPhoto} style={imageStyles.image} />}
-      <StyledText style={[textStyles.text, textStyles.caption]}>
+      <StyledText style={[baseTextStyles.body, textStyles.caption]}>
         {i18n.t( "seek_year_in_review.observed_on", {
           speciesName:
             observation?.taxon?.preferredCommonName || observation?.taxon?.name,

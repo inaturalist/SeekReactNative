@@ -9,7 +9,14 @@ const fontScale = PixelRatio.getFontScale( );
 const regular = {
   color: colors.black,
   fontFamily: fonts.regular
-
+};
+const bold = {
+  color: colors.black,
+  fontFamily: fonts.bold
+};
+const boldItalic = {
+  color: colors.black,
+  fontFamily: fonts.boldItalic
 };
 const italic = {
   color: colors.black,
@@ -149,6 +156,8 @@ const baseTextStyles = StyleSheet.create( {
     ...regular,
     color: colors.errorGray
   },
+  bold,
+  boldItalic,
   italic,
   italicWhite: {
     ...italic,

@@ -51,7 +51,8 @@ export const fonts = {
   light: "Lato-Light",
   bookItalic: "Lato-Italic",
   italic: "Lato-Italic",
-  semiboldItalic: "Lato-BoldItalic"
+  semiboldItalic: "Lato-BoldItalic",
+  boldItalic: "Lato-BoldItalic"
 };
 
 export const padding = {

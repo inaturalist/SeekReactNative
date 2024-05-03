@@ -1,7 +1,5 @@
-// @flow
 import React, { useState, useEffect } from "react";
 import { View, Image } from "react-native";
-import type { Node } from "react";
 
 import { capitalizeNames } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
@@ -10,15 +8,25 @@ import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
 import i18n from "../../i18n";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +ancestors: ?Array<Object>,
-  +predictions: ?Array<Object>,
-  +id: number
-};
+interface Taxon {
+  rank: string;
+  name: string;
+  preferred_common_name: string | void | null;
+}
+interface Props {
+  ancestors?: Taxon[];
+  predictions?: {
+    taxon_id: number;
+    rank: number;
+    name: string;
+  }[];
+  id: number;
+}
 
-const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
-  const [taxonomyList, setTaxonomyList] = useState( [] );
+const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
+  const [taxonomyList, setTaxonomyList] = useState<Taxon[]>( [] );
 
   let marginLeft = 0;
 
@@ -27,29 +35,30 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
     let ranks = [70, 60, 50, 40, 30, 20, 10];
 
     const createAncestors = ( ) => {
-      const predictionAncestors = [];
+      const predictionAncestors: Promise<Taxon>[] = [];
 
       if ( !predictions ) {
         return;
       }
 
-      predictions.forEach( ( ancestor, i ) => {
+      predictions.forEach( ( ancestor ) => {
         if ( !ranks.includes( ancestor.rank ) ) {
           return;
         }
 
         predictionAncestors.push(
-          getTaxonCommonName( ancestor.taxon_id ).then( ( name ) => {
-            const rankIndex = ranks.indexOf( ancestor.rank );
+          getTaxonCommonName( ancestor.taxon_id )
+            .then( ( name ) => {
+              const rankIndex = ranks.indexOf( ancestor.rank );
 
-            const taxon = {
-              rank: rankNames[rankIndex],
-              name: ancestor.name,
-              preferred_common_name: name
-            };
+              const taxon = {
+                rank: rankNames[rankIndex],
+                name: ancestor.name,
+                preferred_common_name: name
+              };
 
-            return taxon;
-          } )
+              return taxon;
+            } )
         );
       } );
 
@@ -86,13 +95,17 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ): Node => {
             <Image source={icons.greenDot} style={viewStyles.bullet} />
             <View>
               <StyledText style={[
-                textStyles.taxonomyHeader,
-                ancestor.rank === "species" && textStyles.speciesTaxonomyHeader
+                baseTextStyles.bodyBold,
+                ancestor.rank === "species" && baseTextStyles.boldItalic
               ]}>
                 {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
               </StyledText>
-              <StyledText style={[textStyles.taxonomyText, !ancestor.preferred_common_name && textStyles.scientificName]}>
+              <StyledText style={[
+                baseTextStyles.body,
+                textStyles.taxonomyText,
+                !ancestor.preferred_common_name && baseTextStyles.italic
+              ]}>
                 {ancestor.preferred_common_name
                   ? capitalizeNames( ancestor.preferred_common_name )
                   : ancestor.name}

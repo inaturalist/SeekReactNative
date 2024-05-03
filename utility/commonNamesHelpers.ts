@@ -1,14 +1,14 @@
-// @flow
+import { getVersion } from "react-native-device-info";
+
 import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";
-import { getVersion } from "react-native-device-info";
 
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
-const getTaxonCommonName = ( taxonID?: number ): any => (
-  new Promise<any>( ( resolve ) => {
+const getTaxonCommonName = ( taxonID?: number ) => (
+  new Promise<string | null | void>( ( resolve ) => {
     if ( !taxonID ) { return; }
     Realm.open( realmConfig.default ).then( ( realm ) => {
       // need this because realm isn't guaranteed to only contain
@@ -19,14 +19,14 @@ const getTaxonCommonName = ( taxonID?: number ): any => (
         const commonNames = realm.objects( "CommonNamesRealm" )
           .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
       resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
-    } ).catch( ( err ) => {
+    } ).catch( ( err: Error ) => {
       console.log( "[DEBUG] Failed to open realm, error: ", err );
       resolve( );
     } );
   } )
 );
 
-const addCommonNamesFromFile = ( realm, commonNamesDict, seekLocale ) => {
+const addCommonNamesFromFile = ( realm, commonNamesDict: { i: number; l: string; n: string; }[], seekLocale: string ) => {
   commonNamesDict.forEach( ( commonNameRow ) => {
     if ( commonNameRow.l === seekLocale ) {
       // only create realm objects if language matches current locale
@@ -111,7 +111,7 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-22" ).default, seekLocale );
       } );
-    } ).catch( ( err ) => {
+    } ).catch( ( err: Error ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );
     } );
 };

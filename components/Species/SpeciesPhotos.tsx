@@ -1,4 +1,3 @@
-// @flow
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -6,7 +5,6 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotos";
@@ -17,19 +15,26 @@ import { colors } from "../../styles/global";
 import StyledText from "../UIComponents/StyledText";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +photos: Array<Object>,
-  +id: number
-};
+interface Photo {
+  attribution: string;
+  license_code: string;
+  medium_url: string;
+}
+interface Props {
+  loading: boolean;
+  photos: Photo[];
+  id: number;
+}
 
-const SpeciesPhotos = ( { loading, photos, id }: Props ): Node => {
+const SpeciesPhotos = ( { loading, photos, id }: Props ) => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
-  const [photoList, setPhotoList] = useState( [] );
+  const [photoList, setPhotoList] = useState<JSX.Element[]>( [] );
   const [error, setError] = useState( false );
 
-  const renderPhoto = photo => {
+  const renderPhoto = ( photo: Photo ) => {
     const showLicense = ( ) => Alert.alert(
       i18n.t( "species_detail.license" ),
       localizeAttributions( photo.attribution, photo.license_code, "SpeciesDetail" )
@@ -42,7 +47,7 @@ const SpeciesPhotos = ( { loading, photos, id }: Props ): Node => {
           onPress={showLicense}
           style={viewStyles.ccButton}
         >
-          <StyledText style={textStyles.ccButtonText}>
+          <StyledText style={baseTextStyles.button}>
             {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
           </StyledText>
         </TouchableOpacity>
@@ -92,7 +97,7 @@ const SpeciesPhotos = ( { loading, photos, id }: Props ): Node => {
     if ( error ) {
       return (
         <View style={viewStyles.errorContainer}>
-          <StyledText style={textStyles.errorText}>{i18n.t( "species_detail.no_photos_found" )}</StyledText>
+          <StyledText style={[baseTextStyles.bodyWhite, textStyles.errorText]}>{i18n.t( "species_detail.no_photos_found" )}</StyledText>
         </View>
       );
     } else if ( loading || photoList.length === 0 ) {

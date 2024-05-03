@@ -1,13 +1,11 @@
 // @flow
 
 import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts } from "../global";
+import { colors } from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   ccButton: {
     bottom: 14,
     padding: 6,
@@ -29,22 +27,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
-  ccButtonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 16
-  },
+const textStyles = StyleSheet.create( {
   errorText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
     textAlign: "center"
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 250,
     resizeMode: "contain",

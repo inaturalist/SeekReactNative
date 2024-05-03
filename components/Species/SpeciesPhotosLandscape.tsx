@@ -15,12 +15,14 @@ import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { baseTextStyles } from "../../styles/textStyles";
 
+interface Photo {
+  medium_url: string;
+  attribution: string | null;
+  license_code: string | null;
+}
 interface Props {
-  photos: {
-    medium_url: string;
-    attribution: string;
-    license_code: string;
-  }[];
+  loading: boolean;
+  photos: Photo[];
   id: number;
 }
 
@@ -30,7 +32,7 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
-  const renderPhoto = ( { item, index } ) => {
+  const renderPhoto = ( { item, index }: { item: Photo, index: number} ) => {
     const photo = item;
 
     if ( !photo.license_code && index !== 0 ) {
@@ -48,14 +50,14 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
             }
           ]}
         />
-        {photo.attribution && (
+        {photo.attribution && photo.license_code && (
           <StyledText style={[
             baseTextStyles.buttonWhite,
             textStyles.ccButtonText,
             isLandscape && baseTextStyles.buttonWhiteRegular,
             { maxWidth: columnWidth }
           ]}>
-            {localizeAttributionsLandscape( photo.attribution, photo.license_code, "SpeciesDetail" )}
+            {localizeAttributionsLandscape( photo.attribution, photo.license_code )}
           </StyledText>
         )}
       </View>
@@ -70,7 +72,7 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
     }
   }, [userPhoto, photos] );
 
-  const key = ( item ) => "landscape-" + item.medium_url;
+  const key = ( item: Photo ) => "landscape-" + item.medium_url;
 
   const renderFooter = ( ) => <View style={viewStyles.footer} />;
 

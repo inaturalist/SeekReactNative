@@ -129,6 +129,13 @@ const species = {
   letterSpacing: 0.3
 };
 
+const speciesSmall = {
+  color: colors.black,
+  fontFamily: fonts.italic,
+  fontSize: 18,
+  lineHeight: 21
+};
+
 const link = {
   color: colors.linkText,
   fontFamily: fonts.regular,
@@ -241,6 +248,7 @@ const baseTextStyles = StyleSheet.create( {
   challengeItemButton,
   toastLink,
   species,
+  speciesSmall,
   link
 } );
 

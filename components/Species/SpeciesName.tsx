@@ -1,7 +1,4 @@
-// @flow
-
 import React from "react";
-import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../styles/species/species";
 import { useCommonName } from "../../utility/customHooks";
@@ -9,14 +6,17 @@ import CopyButton from "../UIComponents/Buttons/CopyButton";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  taxon: Object,
-  id: number,
-  selectedText: boolean,
-  highlightSelectedText: ( ) => void
+interface Props {
+  loading: boolean;
+  taxon: {
+    scientificName: string;
+  };
+  id: number;
+  selectedText: boolean;
+  highlightSelectedText: ( ) => void;
 }
 
-const SpeciesName = ( { loading, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
+const SpeciesName = ( { loading, taxon, id, selectedText, highlightSelectedText }: Props ) => {
   const commonName = useCommonName( id );
   const scientificName = taxon && taxon.scientificName;
 
@@ -26,7 +26,7 @@ const SpeciesName = ( { loading, taxon, id, selectedText, highlightSelectedText 
       <CopyButton stringToCopy={scientificName} handleHighlight={highlightSelectedText}>
         <StyledText
           style={[
-            textStyles.scientificNameText,
+            baseTextStyles.speciesSmall,
             selectedText && viewStyles.selectedPressableArea
           ]}
         >

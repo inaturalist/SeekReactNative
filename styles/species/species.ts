@@ -99,12 +99,6 @@ const textStyles = StyleSheet.create( {
     paddingTop: 10,
     textDecorationLine: "underline"
   },
-  scientificNameText: {
-    color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 19,
-    lineHeight: 21
-  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,

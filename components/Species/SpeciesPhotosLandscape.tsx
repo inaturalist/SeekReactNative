@@ -52,9 +52,9 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
         />
         {photo.attribution && photo.license_code && (
           <StyledText style={[
-            baseTextStyles.buttonWhite,
+            baseTextStyles.button,
             textStyles.ccButtonText,
-            isLandscape && baseTextStyles.buttonWhiteRegular,
+            isLandscape && baseTextStyles.buttonRegular,
             { maxWidth: columnWidth }
           ]}>
             {localizeAttributionsLandscape( photo.attribution, photo.license_code )}

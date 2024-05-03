@@ -53,7 +53,7 @@ const DeleteModal = ( {
         style={viewStyles.flagHeader}
       >
         <View style={[viewStyles.flagTextContainer, viewStyles.row]}>
-          <StyledText allowFontScaling={false} style={[baseTextStyles.buttonWhite, textStyles.buttonText]}>
+          <StyledText allowFontScaling={false} style={[baseTextStyles.button, textStyles.buttonText]}>
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </StyledText>
           <TouchableOpacity

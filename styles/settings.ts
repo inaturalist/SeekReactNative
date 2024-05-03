@@ -12,7 +12,7 @@ import { baseTextStyles } from "./textStyles";
 const { width } = dimensions;
 
 const greenButton = {
-  ...baseTextStyles.buttonWhite,
+  ...baseTextStyles.button,
   backgroundColor: colors.seekForestGreen,
   borderRadius: 6,
   paddingBottom: 11,

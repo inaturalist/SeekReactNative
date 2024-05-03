@@ -191,13 +191,8 @@ const baseTextStyles = StyleSheet.create( {
     ...button,
     color: colors.seekForestGreen
   },
-  buttonWhite: {
+  buttonRegular: {
     ...button,
-    color: colors.white
-  },
-  buttonWhiteRegular: {
-    ...button,
-    color: colors.white,
     fontFamily: fonts.regular
   },
   buttonGray: {

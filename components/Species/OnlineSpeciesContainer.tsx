@@ -16,17 +16,35 @@ import SeenDate from "./OnlineOnlyCards/SeenDate";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import {
-  useRegion,
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
+import { useRegion } from "../../utility/customHooks/useRegion";
 
-type Props = {
-  +details: Object,
-  +id: number,
-  +predictions: ?Array<Object>,
-  +scientificName: ?string
+interface Props {
+  loading: boolean;
+  id: number;
+  details: {
+    stats: {
+      endangered: boolean;
+    };
+    about: string;
+    wikiUrl: string;
+    ancestors: {
+      rank: string;
+      name: string;
+      preferred_common_name: string | void | null;
+    }[];
+    timesSeen: number;
+  };
+  predictions: {
+    taxon_id: number;
+    rank: number;
+    name: string;
+  }[];
+  scientificName: string;
 }
 
 const OnlineSpeciesContainer = ( {
@@ -35,7 +53,7 @@ const OnlineSpeciesContainer = ( {
   details,
   predictions,
   scientificName
-}: Props ): React.Node => {
+}: Props ) => {
   const {
     stats,
     about,
@@ -48,12 +66,13 @@ const OnlineSpeciesContainer = ( {
   const seenDate = ( seenTaxa && seenTaxa.date ) ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const granted = useLocationPermission( );
   const coords = useTruncatedUserCoords( granted );
+  // TODO: the types for this are not quite right yet
   const region = useRegion( coords, seenTaxa );
 
   const renderHumanCard = ( ) => {
     return !loading ?
       <View style={viewStyles.textContainer}>
-        <StyledText style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</StyledText>
+        <StyledText style={[baseTextStyles.bodyItalic, textStyles.humanText]}>{i18n.t( "species_detail.you" )}</StyledText>
         <Padding />
       </View> : null;
   };
@@ -65,7 +84,6 @@ const OnlineSpeciesContainer = ( {
       {!loading && (
         <>
           <INatObs id={id} timesSeen={timesSeen} region={region} />
-          {/* $FlowFixMe */}
           <SpeciesChart id={id} region={region} />
           <SimilarSpecies id={id} />
         </>

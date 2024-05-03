@@ -20,7 +20,7 @@ interface Props {
     longitudeDelta: number;
   };
   id: number;
-  seenDate: boolean;
+  seenDate: string | null;
 }
 
 const SpeciesMap = ( {

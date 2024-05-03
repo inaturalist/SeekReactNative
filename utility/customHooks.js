@@ -13,7 +13,6 @@ import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
-import { createRegion } from "./locationHelpers";
 
 const useScrollToTop = (
   scrollView: {
@@ -163,31 +162,6 @@ const useTruncatedUserCoords = ( granted: ?boolean ): ?{
   }, [granted, coords] );
 
   return coords;
-};
-
-const useRegion = (
-  coords: ?{ latitude: number, longitude: number },
-  seenTaxa: ?{ latitude: number, longitude: number }
-) : ?Object => {
-  const [region, setRegion] = useState( {} );
-
-  const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );
-
-  useEffect( () => {
-    // if user has seen observation, fetch data based on obs location
-    if ( seenTaxa && seenTaxa.latitude ) {
-      setNewRegion( seenTaxa );
-    }
-  }, [seenTaxa] );
-
-  useEffect( () => {
-      // otherwise, fetch data based on user location
-    if ( !seenTaxa && ( coords && coords.latitude ) ) {
-      setNewRegion( coords );
-    }
-  }, [coords, seenTaxa] );
-
-  return region;
 };
 
 const useInternetStatus = ( ): boolean => {
@@ -452,7 +426,6 @@ export {
   useLocationPermission,
   useCommonName,
   useTruncatedUserCoords,
-  useRegion,
   useInternetStatus,
   useEmulator,
   useFetchUserSettings,

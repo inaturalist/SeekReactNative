@@ -21,7 +21,7 @@ interface Props {
     longitude: number;
   };
   id: number;
-  seenDate: boolean;
+  seenDate: string | null;
 }
 
 const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ) => {
@@ -82,7 +82,7 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ) => {
     return <View style={viewStyles.noTags} />;
   } else {
     return (
-      <View style={[viewStyles.tagContainer, seenDate && viewStyles.tagAndSeenDate]}>
+      <View style={[viewStyles.tagContainer, seenDate ? viewStyles.tagAndSeenDate : {}]}>
         {tagsToShow.map( tag => (
           <TouchableOpacity
             onPress={() => showAlert( tag )}

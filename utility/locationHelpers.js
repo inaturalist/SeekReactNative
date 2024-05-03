@@ -177,18 +177,6 @@ const checkForTruncatedCoordinates = ( latitude: number ): boolean => {
   return false;
 };
 
-const createRegion = ( region: { latitude: number, longitude: number } ): Object => {
-  const latitudeDelta = 0.2;
-  const longitudeDelta = 0.2;
-
-  return {
-    latitude: region.latitude,
-    longitude: region.longitude,
-    latitudeDelta,
-    longitudeDelta
-  };
-};
-
 const createAlertUserLocationOnMaps = ( errorCode: number ) => {
   let body;
   const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
@@ -219,7 +207,6 @@ export {
   fetchTruncatedUserLocation,
   createLocationAlert,
   checkForTruncatedCoordinates,
-  createRegion,
   createAlertUserLocationOnMaps,
   fetchCoordsByLocationName
 };

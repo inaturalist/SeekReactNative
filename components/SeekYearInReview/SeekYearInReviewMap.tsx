@@ -1,4 +1,3 @@
-// @flow
 import React, { useCallback } from "react";
 import { Image } from "react-native";
 import MapView, { PROVIDER_DEFAULT, Marker } from "react-native-maps";
@@ -13,12 +12,16 @@ import {
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { getBounds, getCenterOfBounds } from "geolib";
 
-type Props = {
-  +year: number,
-  +observations: Array<Object>,
-};
+interface Props {
+  year: number;
+  observations: {
+    latitude: number;
+    longitude: number;
+    uuidString: string;
+  }[];
+}
 
-const SeekYearInReviewMap = ( { year, observations }: Props ): React.Node => {
+const SeekYearInReviewMap = ( { year, observations }: Props ) => {
   const navigation = useNavigation();
 
   const granted = useLocationPermission();
@@ -48,6 +51,7 @@ const SeekYearInReviewMap = ( { year, observations }: Props ): React.Node => {
   );
 
   const navToObsMap = useCallback(
+    // TODO: navigation TS
     () => navigation.navigate( "SeekYearInReviewMapScreen", { year, region: centerRegion() } ),
     [navigation, year, centerRegion]
   );

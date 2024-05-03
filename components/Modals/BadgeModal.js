@@ -19,6 +19,7 @@ import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   badges: Array<Object>,
@@ -135,7 +136,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ): Node =
         allowFontScaling={false}
       />
       <View style={viewStyles.margin} />
-      <StyledText allowFontScaling={false} style={textStyles.nameText}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.nameText]}>
         {i18n.t( "badges.observe_species" )}
         {" "}
         {i18n.t( item.infoText )}

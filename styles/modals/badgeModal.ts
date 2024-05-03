@@ -3,7 +3,6 @@
 import { StyleSheet, I18nManager } from "react-native";
 import {
   colors,
-  fonts,
   dimensions
 } from "../global";
 
@@ -25,9 +24,7 @@ const setCarouselHorizontalMargins = ( ) => {
   return ( modalWidth - setImageWidth( ) ) / 2;
 };
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   arrow: {
     padding: 27,
     position: "absolute",
@@ -65,16 +62,13 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   bullets: {
     color: colors.seekForestGreen,
     fontSize: 37,
     marginHorizontal: 41
   },
   nameText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
     marginHorizontal: 27,
     textAlign: "center"
   },
@@ -83,7 +77,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   imageStyle: {
     resizeMode: "contain"
   },

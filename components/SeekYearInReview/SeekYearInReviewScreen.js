@@ -189,20 +189,20 @@ const SeekYearInReviewScreen = (): Node => {
             </View>
             <View style={[viewStyles.badgesTextContainer]}>
               <StyledText
-                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.bigText]}
               >
                 {i18n.t( state.topThreeSpeciesBadges[0].iconicTaxonName )}
               </StyledText>
               {state.topThreeSpeciesBadges[1] && (
                 <StyledText
-                  style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                  style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.bigText]}
                 >
                   {i18n.t( state.topThreeSpeciesBadges[1].iconicTaxonName )}
                 </StyledText>
               )}
               {state.topThreeSpeciesBadges[2] && (
                 <StyledText
-                  style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                  style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.bigText]}
                 >
                   {i18n.t( state.topThreeSpeciesBadges[2].iconicTaxonName )}
                 </StyledText>

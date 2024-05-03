@@ -1,22 +1,22 @@
-// @flow
 import React, { useMemo } from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
-import type { Node } from "react";
 
 import { colors } from "../../styles/global";
-// TODO: move styles to yir styles?
 import styles from "../../styles/species/speciesChart";
 import { createShortMonthsList } from "../../utility/dateHelpers";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +data: Array<Object>,
-};
+interface Datum {
+  month: number;
+  count: number;
+}
+interface Props {
+  data: Datum[];
+}
 
 const SeekYearInReviewChart = ( { data }: Props ): Node => {
-
-  // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( ( value ) => (
     <Circle
       key={`circle-${value.month}`}
@@ -27,25 +27,20 @@ const SeekYearInReviewChart = ( { data }: Props ): Node => {
     />
   ) );
 
-  const xAccessor = ( { item } ) => item.month;
-  const yAccessor = ( { item } ) => item.count;
+  const xAccessor = ( { item }: { item: Datum } ) => item.month;
+  const yAccessor = ( { item }: { item: Datum } ) => item.count;
   const lineChartSvg = { stroke: colors.seekForestGreen };
 
   const xAxis = useMemo( ( ) => {
-    const xAxisSvg = {
-      fontSize: 18,
-      fill: colors.seekTeal
-    };
-
     const allMonths = createShortMonthsList();
-    const formatXAxis = ( index ) => allMonths[index];
-    const formatLabel = ( value ) => formatXAxis( value - 1 );
+    const formatXAxis = ( index: number ) => allMonths[index];
+    const formatLabel = ( value: number ) => formatXAxis( value - 1 );
     return (
       <XAxis
         contentInset={styles.xAxisWidth}
         data={data}
         formatLabel={formatLabel}
-        svg={xAxisSvg}
+        svg={baseTextStyles.chartAxis}
         xAccessor={xAccessor}
       />
     );

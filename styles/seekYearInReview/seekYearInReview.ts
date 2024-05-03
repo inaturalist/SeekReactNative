@@ -54,10 +54,6 @@ const textStyles = StyleSheet.create( {
     marginBottom: 10
   },
   bigText: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
     textAlign: "center"
   },
   text: {

@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Mailer from "react-native-mail";
@@ -15,7 +13,7 @@ import StyledText from "./StyledText";
 import i18n from "../../i18n";
 // import LogFileText from "./LogFileText";
 
-const DebugEmailScreen = ( ): React.Node => {
+const DebugEmailScreen = ( ) => {
   // Log file content state
   const [logContents, setLogContents] = useState( "" );
   const [failed, setFailed] = useState( false );

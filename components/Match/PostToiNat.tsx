@@ -13,9 +13,9 @@ import { baseTextStyles } from "../../styles/textStyles";
 interface Props {
   color: string;
   taxaInfo: {
-    taxaId: number;
-    taxaName: string;
-    photo: string;
+    commonName?: string | null;
+    taxaId?: number | null;
+    scientificName?: string | null;
   }
 }
 

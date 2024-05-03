@@ -12,7 +12,7 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  ancestorId: number;
+  ancestorId: number | null | undefined;
   image: {
     latitude: number;
     longitude: number;

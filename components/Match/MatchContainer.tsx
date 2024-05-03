@@ -1,9 +1,6 @@
-// @flow
-
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import styles from "../../styles/match/match";
 import PostToiNat from "./PostToiNat";
@@ -17,17 +14,17 @@ import { useAppOrientation } from "../Providers/AppOrientationContext";
 import { useObservation } from "../Providers/ObservationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  setNavigationPath: Function,
-  screenType: string,
-  scientificNames: boolean
+interface Props {
+  setNavigationPath: ( path: string ) => void;
+  screenType: string;
+  scientificNames: boolean;
 }
 
 const MatchContainer = ( {
   screenType,
   setNavigationPath,
   scientificNames
-}: Props ): Node => {
+}: Props ) => {
   const { isLandscape } = useAppOrientation();
   const { observation } = useObservation();
   const navigation = useNavigation();

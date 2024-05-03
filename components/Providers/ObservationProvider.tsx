@@ -35,6 +35,7 @@ interface Observation {
     speciesSeenImage?: string;
     scientificName?: string;
     rank?: any;
+    seenDate?: string;
   } | undefined;
   clicked: boolean;
 }

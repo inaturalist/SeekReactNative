@@ -1,4 +1,3 @@
-// @flow
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -6,23 +5,29 @@ import {
   Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/species/speciesStats";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +stats: Object,
-  +region: Object,
-  +id: number,
-  +seenDate: ?string
-};
+interface Props {
+  loading: boolean;
+  stats: {
+    endangered: boolean;
+  };
+  region: {
+    latitude: number;
+    longitude: number;
+  };
+  id: number;
+  seenDate: boolean;
+}
 
-const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ): Node => {
-  const [tagsToShow, setTagsToShow] = useState( [] );
+const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ) => {
+  const [tagsToShow, setTagsToShow] = useState<string[]>( [] );
 
-  const showAlert = ( type ) => {
+  const showAlert = ( type: string ) => {
     const title = `species_detail.${type}`;
     Alert.alert(
       i18n.t( title ),
@@ -64,7 +69,7 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ): Node =
             }
           }
         }
-      } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
+      } ).catch( ( err: Error ) => console.log( err, "err fetching native threatened etc" ) );
     };
 
     if ( region.latitude && id && stats ) {
@@ -84,7 +89,7 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ): Node =
             style={viewStyles.tag}
             key={tag}
           >
-            <StyledText style={textStyles.tagText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</StyledText>
+            <StyledText style={[baseTextStyles.buttonWhite, textStyles.tagText]}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</StyledText>
           </TouchableOpacity>
         ) )}
       </View>

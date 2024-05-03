@@ -1,13 +1,11 @@
 // @flow
 
 import { StyleSheet } from "react-native";
-import { colors, fonts, padding } from "../global";
+import { colors, padding } from "../global";
 
 const spaceBelowTags = 6;
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   tag: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
@@ -30,12 +28,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   tagText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     paddingHorizontal: 9,
     paddingTop: padding.iOSButtonPadding
   }

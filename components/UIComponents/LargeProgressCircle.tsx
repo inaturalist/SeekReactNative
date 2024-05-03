@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
@@ -9,12 +7,14 @@ import { colors } from "../../styles/global";
 import { calculatePercent } from "../../utility/challengeHelpers";
 import StyledText from "./StyledText";
 
-type Props = {
-  +badge: Object,
-  +iconicSpeciesCount: number
+interface Props {
+  badge: {
+    count: number;
+  };
+  iconicSpeciesCount: number;
 }
 
-const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ): React.Node => (
+const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (
   <View style={viewStyles.center}>
     <ProgressCircle
       bgColor={colors.white}

@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useEffect, useMemo, useReducer } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -12,31 +9,72 @@ import styles from "../../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
 
-type Props = {
-  +id: ?number
+interface Taxon {
+  taxon: {
+    id: number;
+    name: string;
+    iconicTaxonId: number;
+  };
+  id: number;
+  name: string;
+  iconic_taxon_id: number;
+  default_photo: {
+    medium_url: string;
+    license_code: string;
+  };
+  taxonPhotos: {
+    photo: {
+      medium_url: string;
+      license_code: string;
+    };
+  }[];
+  taxon_photos: {
+    photo: {
+      medium_url: string;
+      license_code: string;
+    };
+  }[];
 }
 
-const SimilarSpecies = ( { id }: Props ): Node => {
-  // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
-    switch ( action.type ) {
-      case "SHOW_SIMILAR_SPECIES":
-        return {
-          similarSpecies: action.similarSpecies,
-          loading: false
-        };
-      case "RESET_STATE":
-        return {
-          similarSpecies: [],
-          loading: true
-        };
-      default:
-        throw new Error();
-    }
-  }, {
-    similarSpecies: [],
-    loading: true
-  } );
+export enum ACTION {
+  SHOW_SIMILAR_SPECIES = "SHOW_SIMILAR_SPECIES",
+  RESET_STATE = "RESET_STATE",
+}
+type State = {
+  similarSpecies: Taxon[],
+  loading: boolean,
+}
+type Action =
+  | { type: ACTION.RESET_STATE }
+  | { type: ACTION.SHOW_SIMILAR_SPECIES, similarSpecies: Taxon[] }
+
+interface Props {
+  id?: number;
+}
+
+function reducer( s: State, action: Action ): State {
+  switch ( action.type ) {
+    case ACTION.SHOW_SIMILAR_SPECIES:
+      return {
+        similarSpecies: action.similarSpecies,
+        loading: false
+      };
+    case ACTION.RESET_STATE:
+      return {
+        similarSpecies: [],
+        loading: true
+      };
+    default:
+      throw new Error();
+  }
+}
+const initialState = {
+  similarSpecies: [],
+  loading: true
+};
+
+const SimilarSpecies = ( { id }: Props ) => {
+  const [state, dispatch] = useReducer( reducer, initialState );
 
   const {
     similarSpecies,
@@ -48,7 +86,7 @@ const SimilarSpecies = ( { id }: Props ): Node => {
   useEffect( ( ) => {
     let isActive = true;
     if ( id !== null ) {
-      const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
+      const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
 
       const fetchSimilarSpecies = ( ) => {
         const params = {
@@ -62,9 +100,9 @@ const SimilarSpecies = ( { id }: Props ): Node => {
           const species = results.map( r => r.taxon );
 
           if ( isActive ) {
-            dispatch( { type: "SHOW_SIMILAR_SPECIES", similarSpecies: species } );
+            dispatch( { type: ACTION.SHOW_SIMILAR_SPECIES, similarSpecies: species } );
           }
-        } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
+        } ).catch( ( error: Error ) => console.log( error, "error fetching similar species" ) );
       };
       resetState( );
       fetchSimilarSpecies( );

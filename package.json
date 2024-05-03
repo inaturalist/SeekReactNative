@@ -102,6 +102,7 @@
     "@types/react": "^18.0.24",
     "@types/react-native-check-box": "^2.1.6",
     "@types/react-native-simple-radio-button": "^2.7.7",
+    "@types/react-native-svg-charts": "^5.0.16",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
     "babel-plugin-module-resolver": "^5.0.0",

@@ -1,9 +1,7 @@
-// @flow
 import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { View } from "react-native";
-import { Circle } from "react-native-svg";
+import { Circle, NumberProp } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
-import type { Node } from "react";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/speciesChart";
@@ -11,19 +9,25 @@ import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
 import { fetchHistogram } from "../../../utility/speciesDetailHelpers";
 import { useFetchUserSettings } from "../../../utility/customHooks";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +id: number,
-  +region: {
-    latitude: number,
-    longitude: number
-  }
-};
+interface Props {
+  id: number;
+  region: {
+    latitude: number;
+    longitude: number;
+  };
+}
 
-const SpeciesChart = ( { id, region }: Props ): Node => {
-  const settings = useFetchUserSettings( );
+interface Datum {
+  month: number;
+  count: number;
+}
+
+const SpeciesChart = ( { id, region }: Props ) => {
+  const settings = useFetchUserSettings( ) as { localSeasonality?: boolean };
   const localSeasonality = settings?.localSeasonality;
-  const [data, setData] = useState( [] );
+  const [data, setData] = useState<Datum[]>( [] );
   const [loading, setLoading] = useState( false );
 
   const createHistogram = useCallback( async ( ) => {
@@ -38,7 +42,7 @@ const SpeciesChart = ( { id, region }: Props ): Node => {
     }
     setLoading( true );
     if ( !loading ) {
-      const chartData = await fetchHistogram( id, localSeasonality ? region : null );
+      const chartData = await fetchHistogram( id, localSeasonality ? region : null ) as Datum[];
       setData( chartData );
     }
   }, [id, localSeasonality, region, loading] );
@@ -54,8 +58,7 @@ const SpeciesChart = ( { id, region }: Props ): Node => {
     };
   } , [createHistogram] );
 
-  // $FlowFixMe
-  const Decorator = ( { x, y } ) => data.map( ( value ) => (
+  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp, y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
     <Circle
       key={`circle-${value.month}`}
       cx={x( value.month )}
@@ -65,25 +68,20 @@ const SpeciesChart = ( { id, region }: Props ): Node => {
     />
   ) );
 
-  const xAccessor = ( { item } ) => item.month;
-  const yAccessor = ( { item } ) => item.count;
+  const xAccessor = ( { item }: { item: Datum } ) => item.month;
+  const yAccessor = ( { item }: { item: Datum } ) => item.count;
   const lineChartSvg = { stroke: colors.seekForestGreen };
 
   const xAxis = useMemo( ( ) => {
-    const xAxisSvg = {
-      fontSize: 18,
-      fill: colors.seekTeal
-    };
-
     const allMonths = createShortMonthsList();
-    const formatXAxis = ( index ) => allMonths[index];
-    const formatLabel = ( value ) => formatXAxis( value - 1 );
+    const formatXAxis = ( index: number ) => allMonths[index];
+    const formatLabel = ( value: number ) => formatXAxis( value - 1 );
     return (
       <XAxis
         contentInset={styles.xAxisWidth}
         data={data}
         formatLabel={formatLabel}
-        svg={xAxisSvg}
+        svg={baseTextStyles.chartAxis}
         xAccessor={xAccessor}
       />
     );

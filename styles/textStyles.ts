@@ -157,6 +157,12 @@ const number = {
   lineHeight: 21
 };
 
+const chartAxis = {
+  fill: colors.seekTeal,
+  fontFamily: fonts.regular,
+  fontSize: 18
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -270,7 +276,8 @@ const baseTextStyles = StyleSheet.create( {
   species,
   speciesSmall,
   link,
-  number
+  number,
+  chartAxis
 } );
 
 export {

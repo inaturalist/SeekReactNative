@@ -1,12 +1,8 @@
-// @flow
-
 import { StyleSheet, Platform } from "react-native";
 
 import { colors, row } from "../global";
 
-import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   camera: {
     marginBottom: Platform.OS === "android" ? 10 : 50,
     marginLeft: 8
@@ -57,7 +53,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
 } );
 
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   bird: {
     height: 33,
     resizeMode: "contain",

@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import {
   View,
@@ -13,12 +12,12 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
-type Props = {
-  +openFlagModal: Function,
-  +setNavigationPath: Function
+interface Props {
+  openFlagModal: () => void,
+  setNavigationPath: ( path: string ) => void
 }
 
-const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ): React.Node => (
+const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
   <SafeAreaView style={viewStyles.safeArea} edges={["right", "bottom", "left"]}>
     <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
       <View style={[viewStyles.navbar, viewStyles.row, viewStyles.shadow]}>

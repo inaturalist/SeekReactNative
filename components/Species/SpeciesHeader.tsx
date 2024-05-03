@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useCallback } from "react";
 import { BackHandler } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import type { Node } from "react";
 
 import SpeciesPhotos from "./SpeciesPhotos";
 import { viewStyles } from "../../styles/species/species";
@@ -13,12 +10,20 @@ import { resetRouter } from "../../utility/navigationHelpers";
 import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
 
-type Props = {
-  photos: Array<Object>,
-  taxon: Object,
-  id: number,
-  selectedText: boolean,
-  highlightSelectedText: ( ) => void
+interface Props {
+  loading: boolean;
+  photos: {
+    attribution: string,
+    license_code: string,
+    medium_url: string
+  }[];
+  taxon: {
+    scientificName: string;
+    iconicTaxonId: number;
+  };
+  id: number;
+  selectedText: boolean;
+  highlightSelectedText: ( ) => void;
 }
 
 const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {

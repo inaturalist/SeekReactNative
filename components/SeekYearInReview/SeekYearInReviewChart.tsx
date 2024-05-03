@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { View } from "react-native";
-import { Circle } from "react-native-svg";
+import { Circle, NumberProp } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 
 import { colors } from "../../styles/global";
@@ -16,8 +16,8 @@ interface Props {
   data: Datum[];
 }
 
-const SeekYearInReviewChart = ( { data }: Props ): Node => {
-  const Decorator = ( { x, y } ) => data.map( ( value ) => (
+const SeekYearInReviewChart = ( { data }: Props ) => {
+  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp, y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
     <Circle
       key={`circle-${value.month}`}
       cx={x( value.month )}

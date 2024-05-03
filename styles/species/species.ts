@@ -94,12 +94,6 @@ const textStyles = StyleSheet.create( {
     lineHeight: 21,
     paddingTop: 10,
     textDecorationLine: "underline"
-  },
-  text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
   }
 } );
 

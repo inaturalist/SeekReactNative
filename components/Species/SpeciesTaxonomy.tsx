@@ -17,7 +17,7 @@ interface Taxon {
 }
 interface Props {
   ancestors?: Taxon[];
-  predictions?: {
+  predictions: {
     taxon_id: number;
     rank: number;
     name: string;

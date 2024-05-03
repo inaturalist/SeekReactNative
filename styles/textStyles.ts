@@ -228,6 +228,10 @@ const baseTextStyles = StyleSheet.create( {
     ...body,
     fontFamily: fonts.bold
   },
+  bodyItalic: {
+    ...body,
+    fontFamily: fonts.italic
+  },
   emptyState,
   emptyStateGreen: {
     ...emptyState,

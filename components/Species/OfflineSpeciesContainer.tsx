@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import { View } from "react-native";
 
@@ -9,12 +8,23 @@ import i18n from "../../i18n";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import SpeciesError from "./SpeciesError";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +details: Object,
-  +id: number,
-  +predictions: ?Array<Object>,
-  +checkForInternet: Function,
+interface Props {
+  details: {
+    ancestors: {
+      rank: string;
+      name: string;
+      preferred_common_name: string | void | null;
+    }[];
+  };
+  id: number;
+  predictions: {
+    taxon_id: number;
+    rank: number;
+    name: string;
+  }[];
+  checkForInternet: () => void;
 }
 
 const SpeciesContainer = ( {
@@ -22,14 +32,14 @@ const SpeciesContainer = ( {
   details,
   predictions,
   checkForInternet
-}: Props ): React.Node => {
+}: Props ) => {
   const ancestors = details && details.ancestors;
 
   const seenTaxa = useSeenTaxa( id );
 
   const renderHumanCard = ( ) => (
     <View style={viewStyles.textContainer}>
-      <StyledText style={textStyles.humanText}>{i18n.t( "species_detail.you" )}</StyledText>
+      <StyledText style={[baseTextStyles.bodyItalic, textStyles.humanText]}>{i18n.t( "species_detail.you" )}</StyledText>
       <Padding />
     </View>
   );

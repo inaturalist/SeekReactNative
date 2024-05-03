@@ -70,10 +70,6 @@ const textStyles = StyleSheet.create( {
     marginHorizontal: 28
   },
   humanText: {
-    color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 45,
     textAlign: "center"
   },

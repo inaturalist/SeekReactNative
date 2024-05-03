@@ -1,4 +1,3 @@
-// @flow
 import React, { useState } from "react";
 import { Image } from "react-native";
 import MapView, {
@@ -13,21 +12,26 @@ import styles from "../../../styles/species/speciesMap";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 
-
-type Props = {
-  +region: Object,
-  +id: number,
-  +seenDate: ?string
+interface Props {
+  region: {
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
+  };
+  id: number;
+  seenDate: boolean;
 }
 
 const SpeciesMap = ( {
   region,
   id,
   seenDate
-}: Props ): React.Node => {
+}: Props ) => {
   const [mapReady, setMapReady] = useState( false );
   const navigation = useNavigation( );
 
+  // TODO: navigation TS
   const navToRangeMap = React.useCallback( ( ) => navigation.navigate( "RangeMap", { region, id, seenDate } ), [id, navigation, region, seenDate] );
 
   const displayMap = ( ) => {

@@ -3,12 +3,10 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts, row, dimensions } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
 const backgroundHeight = dimensions.height;
 const bottomPadding = 100;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingBottom: 18,
@@ -66,7 +64,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   commonNameText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -90,10 +88,6 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     lineHeight: 21
   },
   iconicTaxaText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
     paddingLeft: 28,
     paddingVertical: 12,
     backgroundColor: colors.seekForestGreen

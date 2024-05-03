@@ -1,26 +1,26 @@
-// @flow
-
 import React from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import { textStyles, viewStyles } from "../../styles/species/species";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  iconicTaxonId: number
+interface Props {
+  loading: boolean;
+  iconicTaxonId: number;
 }
 
-const IconicTaxaName = ( { loading, iconicTaxonId }: Props ): Node => {
+const IconicTaxaName = ( { loading, iconicTaxonId }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   return (
     <>
       {isLandscape && <View style={viewStyles.topRibbon} />}
       <StyledText
         style={[
+          baseTextStyles.headerWhite,
           textStyles.iconicTaxaText,
           isLandscape && textStyles.largerPadding
         ]}

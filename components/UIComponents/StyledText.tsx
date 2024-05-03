@@ -8,6 +8,7 @@ interface Props {
   style?: object;
   allowFontScaling?: boolean;
   numberOfLines?: number;
+  onPress?: ( ) => void;
 }
 
 const StyledText = ( props: Props ) => {

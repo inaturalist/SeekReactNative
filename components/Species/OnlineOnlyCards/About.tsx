@@ -1,8 +1,6 @@
-// @flow
 import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import HTML from "react-native-render-html";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
@@ -10,12 +8,14 @@ import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { textStyles } from "../../../styles/species/species";
 import { useCommonName } from "../../../utility/customHooks";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +about: ?string,
-  +wikiUrl: ?string,
-  +id: number,
-  +scientificName: ?string
+interface Props {
+  loading: boolean;
+  about: string;
+  wikiUrl: string;
+  id: number;
+  scientificName: string;
 }
 
 const About = ( {
@@ -24,13 +24,15 @@ const About = ( {
   wikiUrl,
   id,
   scientificName
-}: Props ): Node => {
+}: Props ) => {
   const navigation = useNavigation();
+  // TODO: UserContext TS
   const { login } = useContext( UserContext );
   const commonName = useCommonName( id );
 
   const html = about ? `${about}`.replace( /<b>/g, "" ) : null;
 
+  // TODO: navigation TS
   const navToWikipediaView = () => navigation.navigate( "Wikipedia", { wikiUrl, scientificName } );
 
   // hide empty About section
@@ -41,10 +43,11 @@ const About = ( {
   return (
     <SpeciesDetailCard text="species_detail.about">
       {!loading ? <>
-        {about && (
+        {about && html && (
           <>
-            <HTML baseFontStyle={textStyles.text} source={{ html }} />
-            <StyledText style={textStyles.text}>
+            <HTML baseFontStyle={baseTextStyles.body} source={{ html }} />
+            <StyledText style={baseTextStyles.body}>
+              {/* TODO: the parentheses should probably be part of the string? Because in some cultures maybe they would different character for tis. */}
               {"\n("}
               {i18n.t( "species_detail.wikipedia" )}
               {")"}
@@ -52,7 +55,7 @@ const About = ( {
           </>
         )}
         {login && id !== 43584 && (
-          <StyledText onPress={navToWikipediaView} style={textStyles.linkText}>
+          <StyledText onPress={navToWikipediaView} style={[baseTextStyles.bodyGreen, textStyles.linkText]}>
             {commonName || scientificName}
           </StyledText>
         )}

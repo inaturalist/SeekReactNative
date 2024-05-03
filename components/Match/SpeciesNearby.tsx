@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/match/speciesNearby";
@@ -14,9 +11,12 @@ import { fetchSpeciesNearby } from "../../utility/apiCalls";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +ancestorId:number,
-  +image: Object
+interface Props {
+  ancestorId: number;
+  image: {
+    latitude: number;
+    longitude: number;
+  };
 }
 
 const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {

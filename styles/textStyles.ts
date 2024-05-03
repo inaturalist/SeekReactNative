@@ -125,7 +125,8 @@ const species = {
   color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 29,
-  lineHeight: 35
+  lineHeight: 35,
+  letterSpacing: 0.3
 };
 
 const link = {

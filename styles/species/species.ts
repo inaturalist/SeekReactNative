@@ -66,10 +66,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   commonNameText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 30,
-    letterSpacing: 0.3,
     marginTop: 23,
     marginHorizontal: 28
   },

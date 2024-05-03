@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
@@ -8,13 +6,13 @@ import GreenText from "./GreenText";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
 
 
-type Props = {
-  +children: any,
-  +text: string,
-  +hide?: boolean
-};
+interface Props {
+  children: React.ReactNode;
+  text: string;
+  hide?: boolean;
+}
 
-const SpeciesDetailCard = ( { children, text, hide }: Props ): React.Node => {
+const SpeciesDetailCard = ( { children, text, hide }: Props ) => {
   const { isLandscape } = useAppOrientation( );
 
   if ( hide ) {

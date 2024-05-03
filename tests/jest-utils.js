@@ -1,14 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
 
-import {
-  SpeciesDetailContext,
-  UserContext
-} from "../components/UserContext";
+import { UserContext } from "../components/UserContext";
 import { LanguageProvider } from "../components/Providers/LanguageContext";
 import { AppOrientationProvider } from "../components/Providers/AppOrientationContext";
 import { ChallengeProvider } from "../components/Providers/ChallengeProvider";
 import { ObservationProvider } from "../components/Providers/ObservationProvider";
+import { SpeciesDetailProvider } from "../components/Providers/SpeciesDetailProvider";
 
 const AllTheProviders = ( { children } ) => {
   return (
@@ -28,7 +26,7 @@ const AllTheProviders = ( { children } ) => {
         }}
       >
         <AppOrientationProvider value={{}}>
-          <SpeciesDetailContext.Provider
+          <SpeciesDetailProvider
             value={{
               id: 1,
               region: {},
@@ -41,7 +39,7 @@ const AllTheProviders = ( { children } ) => {
                 {children}
               </ObservationProvider>
             </ChallengeProvider>
-          </SpeciesDetailContext.Provider>
+          </SpeciesDetailProvider>
         </AppOrientationProvider>
       </UserContext.Provider>
     </LanguageProvider>

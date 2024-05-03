@@ -17,17 +17,17 @@ import {
 import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import StyledText from "../UIComponents/StyledText";
-import { SpeciesDetailContext } from "../UserContext";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatDateToDisplayShort } from "../../utility/dateHelpers";
 import { setRoute } from "../../utility/helpers";
+import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );
   const userPhoto = useUserPhoto( seenTaxa );
 
-  const { setId } = React.useContext( SpeciesDetailContext );
+  const { setId } = useSpeciesDetail();
   const navigation = useNavigation();
 
   const navToSpecies = () => {

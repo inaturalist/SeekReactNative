@@ -4,8 +4,7 @@ import React, {
   useReducer,
   useEffect,
   useRef,
-  useCallback,
-  useContext
+  useCallback
 } from "react";
 import { ScrollView, Platform, View, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -22,15 +21,15 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
 import { useCommonName, useInternetStatus } from "../../utility/customHooks";
-import { SpeciesDetailContext } from "../UserContext";
 import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
 import styles from "../../styles/uiComponents/scrollWithHeader";
+import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 const SpeciesDetail = ( ): Node => {
   const internet = useInternetStatus( );
-  const { id } = useContext( SpeciesDetailContext );
+  const { id } = useSpeciesDetail( );
   const { isLandscape, width } = useAppOrientation( );
   const columnWidth = width / 3;
   const scrollView = useRef( null );

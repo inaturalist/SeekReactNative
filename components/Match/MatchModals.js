@@ -4,7 +4,6 @@ import React, {
   useEffect,
   useCallback,
   useReducer,
-  useContext,
   useState
 } from "react";
 import Modal from "react-native-modal";
@@ -22,8 +21,8 @@ import { fetchNumberSpeciesSeen, setRoute } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
-import { SpeciesDetailContext } from "../UserContext";
 import { useObservation } from "../Providers/ObservationProvider";
+import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 type Props = {
   screenType: string,
@@ -42,7 +41,7 @@ const MatchModals = ( {
   navPath,
   scientificNames
 }: Props ): Node => {
-  const { setId } = useContext( SpeciesDetailContext );
+  const { setId } = useSpeciesDetail( );
   const { observation } = useObservation();
   const navigation = useNavigation( );
   const taxon = observation && observation.taxon;

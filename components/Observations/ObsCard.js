@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef, useEffect, useCallback, useMemo, useContext } from "react";
+import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { Image, Pressable, ScrollView, Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -10,7 +10,7 @@ import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
-import { SpeciesDetailContext } from "../UserContext";
+import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 type Props = {
   item: Object,
@@ -31,7 +31,7 @@ const ObservationCard = ( {
   hasAnimated,
   setHasAnimated
 }: Props ): Node => {
-  const { setId } = useContext( SpeciesDetailContext );
+  const { setId } = useSpeciesDetail( );
   const scrollView = useRef( null );
   const { navigate } = useNavigation( );
   const animation = useMemo( ( ) => new Animated.Value( -0 ), [] );

@@ -11,16 +11,16 @@ import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName } from "../../../utility/customHooks";
 import { useSeenTaxa } from "../../../utility/customHooks/useSeenTaxa";
-import { SpeciesDetailContext } from "../../UserContext";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { useSpeciesDetail } from "../../Providers/SpeciesDetailProvider";
 
 type Props = {
   +item: Object
 }
 
 const SpeciesImageCell = ( { item }: Props ): React.Node => {
-  const { setId } = React.useContext( SpeciesDetailContext );
+  const { setId } = useSpeciesDetail( );
   const navigation = useNavigation( );
   const { navigate } = navigation;
   const route = useRoute( );

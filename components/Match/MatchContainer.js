@@ -97,7 +97,7 @@ const MatchContainer = ( {
       <View style={styles.textContainer}>
         {speciesIdentified && (
           <TouchableOpacity onPress={setCameraPath}>
-            <StyledText style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</StyledText>
+            <StyledText style={[baseTextStyles.link, styles.linkText]}>{i18n.t( "results.back" )}</StyledText>
           </TouchableOpacity>
         )}
         <PostToiNat color={gradientLight} taxaInfo={taxaInfo} />

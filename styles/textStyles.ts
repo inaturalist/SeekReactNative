@@ -128,6 +128,13 @@ const species = {
   lineHeight: 35
 };
 
+const link = {
+  color: colors.linkText,
+  fontFamily: fonts.regular,
+  fontSize: 17,
+  textDecorationLine: "underline" as const
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -223,7 +230,8 @@ const baseTextStyles = StyleSheet.create( {
   challengeItemTitle,
   challengeItemButton,
   toastLink,
-  species
+  species,
+  link
 } );
 
 export {

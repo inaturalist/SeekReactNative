@@ -3,7 +3,6 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   center,
   dimensions
 } from "../global";
@@ -55,11 +54,8 @@ export default StyleSheet.create( {
     marginTop: 44
   },
   linkText: {
-    alignSelf: "center",
-    color: colors.linkText,
-    fontFamily: fonts.book,
-    fontSize: 18,
-    textDecorationLine: "underline"
+    marginBottom: 28,
+    alignSelf: "center"
   },
   marginLarge: {
     marginTop: 70

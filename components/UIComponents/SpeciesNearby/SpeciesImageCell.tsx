@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { TouchableOpacity, Image } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
@@ -15,11 +13,31 @@ import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useSpeciesDetail } from "../../Providers/SpeciesDetailProvider";
 
-type Props = {
-  +item: Object
+interface Props {
+  item: {
+    id: number;
+    name: string;
+    iconic_taxon_id: number;
+    default_photo: {
+      medium_url: string;
+      license_code: string;
+    };
+    taxonPhotos: {
+      photo: {
+        medium_url: string;
+        license_code: string;
+      };
+    }[];
+    taxon_photos: {
+      photo: {
+        medium_url: string;
+        license_code: string;
+      };
+    }[];
+  };
 }
 
-const SpeciesImageCell = ( { item }: Props ): React.Node => {
+const SpeciesImageCell = ( { item }: Props ) => {
   const { setId } = useSpeciesDetail( );
   const navigation = useNavigation( );
   const { navigate } = navigation;
@@ -67,7 +85,7 @@ const SpeciesImageCell = ( { item }: Props ): React.Node => {
         style={[
           name === "ChallengeDetails" ? baseTextStyles.body : baseTextStyles.bodyWhite,
           textStyles.speciesNameText,
-          !commonName && textStyles.scientificName
+          !commonName && baseTextStyles.italicWhite
         ]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

@@ -135,6 +135,10 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.errorGray
   },
   italic,
+  italicWhite: {
+    ...italic,
+    color: colors.white
+  },
   medium,
   mediumWhite: {
     ...medium,

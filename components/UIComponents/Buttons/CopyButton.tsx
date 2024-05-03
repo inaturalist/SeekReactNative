@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useState } from "react";
 import { Pressable, View } from "react-native";
-import type { Node } from "react";
 import Clipboard from "@react-native-community/clipboard";
 
 import i18n from "../../../i18n";
@@ -10,10 +7,10 @@ import viewStyles from "../../../styles/uiComponents/buttons/copyButton";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
 import { colors } from "../../../styles/global";
 
-type Props = {
-  stringToCopy: string,
-  children: any,
-  handleHighlight: ( ) => void
+interface Props {
+  stringToCopy: string;
+  children: React.ReactNode;
+  handleHighlight: ( ) => void;
 }
 
 const CopyButton = ( { stringToCopy, children, handleHighlight }: Props ): Node => {
@@ -32,6 +29,7 @@ const CopyButton = ( { stringToCopy, children, handleHighlight }: Props ): Node 
       onPress={copyToClipboard}
       style={viewStyles.pressableArea}
     >
+      {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
       {( { pressed } ) => (
         <View>
           {copied && (

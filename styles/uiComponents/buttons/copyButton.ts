@@ -1,10 +1,6 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 
-import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   pressableArea: {
     paddingTop: 10,
     paddingBottom: 15,

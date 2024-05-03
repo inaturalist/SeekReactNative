@@ -1,17 +1,14 @@
-// @flow
-
 import React, { useRef, useEffect } from "react";
 import { Animated } from "react-native";
-import type { Node } from "react";
 
 import GreenRectangle from "../UIComponents/GreenRectangle";
 
-type Props = {
-  startAnimation: boolean,
-  toastText: string,
-  styles: Object,
-  finishAnimation?: ( ) => void,
-  rectangleColor: string
+interface Props {
+  startAnimation: boolean;
+  toastText: string;
+  styles: Object;
+  finishAnimation?: ( ) => void;
+  rectangleColor: string;
 }
 
 const ToastAnimation = ( {
@@ -20,7 +17,7 @@ const ToastAnimation = ( {
   finishAnimation,
   styles,
   rectangleColor
-}: Props ): Node => {
+}: Props ) => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
 
   useEffect( ( ) => {

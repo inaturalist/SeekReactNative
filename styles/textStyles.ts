@@ -101,7 +101,7 @@ const smallLightHeading = {
 
 const challengeItemTitle = {
   color: colors.seekForestGreen,
-  fontFamily: fonts.semibold,
+  fontFamily: fonts.bold,
   fontSize: 16,
   letterSpacing: 0.89,
   lineHeight: 20
@@ -234,6 +234,10 @@ const baseTextStyles = StyleSheet.create( {
   challengeDescription,
   smallLightHeading,
   challengeItemTitle,
+  challengeItemTitleWhite: {
+    ...challengeItemTitle,
+    color: colors.white
+  },
   challengeItemButton,
   toastLink,
   species,

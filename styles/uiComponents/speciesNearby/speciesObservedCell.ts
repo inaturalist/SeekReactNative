@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { fonts } from "../../global";
 
 const viewStyles = StyleSheet.create( {
   cellImage: {
@@ -35,9 +34,6 @@ const viewStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   cellTitleText: {
     textAlign: "center"
-  },
-  scientificName: {
-    fontFamily: fonts.bookItalic
   },
   speciesNameText: {
     paddingTop: 13,

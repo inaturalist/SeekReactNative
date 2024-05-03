@@ -7,6 +7,7 @@ interface Props {
   children: React.ReactNode;
   style?: object;
   allowFontScaling?: boolean;
+  numberOfLines?: number;
 }
 
 const StyledText = ( props: Props ) => {

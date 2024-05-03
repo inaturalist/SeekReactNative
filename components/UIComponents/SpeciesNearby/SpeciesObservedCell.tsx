@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -8,7 +6,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
@@ -18,16 +15,22 @@ import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName } from "../../../utility/customHooks";
 import { useSeenTaxa } from "../../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../../utility/customHooks/useUserPhoto";
-import { SpeciesDetailContext } from "../../UserContext";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { useSpeciesDetail } from "../../Providers/SpeciesDetailProvider";
 
-type Props = {
-  +item: Object
+interface Props {
+  item: {
+    taxon: {
+      id: number;
+      name: string;
+      iconicTaxonId: number;
+    };
+  }
 }
 
-const SpeciesObservedCell = ( { item }: Props ): Node => {
-  const { setId } = React.useContext( SpeciesDetailContext );
+const SpeciesObservedCell = ( { item }: Props ) => {
+  const { setId } = useSpeciesDetail();
   const { navigate } = useNavigation();
   const { taxon } = item;
   const commonName = useCommonName( taxon.id );
@@ -59,7 +62,7 @@ const SpeciesObservedCell = ( { item }: Props ): Node => {
           <View style={viewStyles.cellTitle}>
             <StyledText
               numberOfLines={3}
-              style={[baseTextStyles.body, textStyles.cellTitleText, !commonName && textStyles.scientificName]}
+              style={[baseTextStyles.body, textStyles.cellTitleText, !commonName && baseTextStyles.italic]}
             >
             {commonName
               ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

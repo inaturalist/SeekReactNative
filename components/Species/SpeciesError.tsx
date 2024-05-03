@@ -1,31 +1,29 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
   TouchableOpacity,
   Image
 } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/speciesError";
 import icons from "../../assets/icons";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +seenTaxa: any,
-  +checkForInternet: Function
+interface Props {
+  seenTaxa: boolean;
+  checkForInternet: () => void;
 }
 
-const SpeciesError = ( { seenTaxa, checkForInternet }: Props ): Node => (
+const SpeciesError = ( { seenTaxa, checkForInternet }: Props ) => (
   <View style={viewStyles.background}>
     <TouchableOpacity
       onPress={checkForInternet}
       style={[viewStyles.errorContainer, viewStyles.center, viewStyles.row]}
     >
       <Image source={icons.internet} />
-      <StyledText style={textStyles.errorText}>{i18n.t( "species_detail.internet_error" )}</StyledText>
+      <StyledText style={[baseTextStyles.bodyWhite, textStyles.errorText]}>{i18n.t( "species_detail.internet_error" )}</StyledText>
     </TouchableOpacity>
     {seenTaxa && <StyledText style={textStyles.text}>{i18n.t( "species_detail.species_saved" )}</StyledText>}
   </View>

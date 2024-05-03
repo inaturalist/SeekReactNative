@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
@@ -9,9 +7,7 @@ import {
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
@@ -25,12 +21,8 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   errorText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
     marginLeft: 25,
     maxWidth: dimensions.width - ( 28 * 2 ) - 25 - 47,
     textAlign: "center"

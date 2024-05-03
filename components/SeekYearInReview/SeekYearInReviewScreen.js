@@ -42,6 +42,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import Modal from "../UIComponents/Modals/Modal";
 import LevelModal from "../Modals/LevelModal";
 import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const SubstringStyledText = ( { text, greenText } ) => {
   // Split the text into an array using whitespace
@@ -125,12 +126,12 @@ const SeekYearInReviewScreen = (): Node => {
             style={[viewStyles.header, viewStyles.center, viewStyles.row]}
           >
             <View style={viewStyles.levelTextContainer}>
-              <StyledText style={textStyles.lightText}>
+              <StyledText style={[baseTextStyles.challengeMonth, textStyles.lightText]}>
                 {i18n
                   .t( "seek_year_in_review.in_year_observed", { year } )
                   .toLocaleUpperCase()}
               </StyledText>
-              <StyledText style={textStyles.headerText}>
+              <StyledText style={[baseTextStyles.challengeTitle]}>
                 {i18n
                   .t( "seek_year_in_review.x_new_species", {
                     count: countObservationsThisYear
@@ -163,7 +164,7 @@ const SeekYearInReviewScreen = (): Node => {
               <GreenText
                 style={viewStyles.badgeTextContainer}
                 center
-                smaller
+                small
                 noTranslation
                 text={state.topThreeSpeciesBadges[0].observationsThisYear}
               />
@@ -171,7 +172,7 @@ const SeekYearInReviewScreen = (): Node => {
                 <GreenText
                   style={viewStyles.badgeTextContainer}
                   center
-                  smaller
+                  small
                   noTranslation
                   text={state.topThreeSpeciesBadges[1].observationsThisYear}
                 />
@@ -180,7 +181,7 @@ const SeekYearInReviewScreen = (): Node => {
                 <GreenText
                   style={viewStyles.badgeTextContainer}
                   center
-                  smaller
+                  small
                   noTranslation
                   text={state.topThreeSpeciesBadges[2].observationsThisYear}
                 />

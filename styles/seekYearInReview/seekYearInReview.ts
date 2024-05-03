@@ -3,17 +3,11 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts, row, center, dimensions } from "../global";
 
-import type {
-  ViewStyleProp,
-  TextStyleProp,
-  ImageStyleProp
-} from "react-native/Libraries/StyleSheet/StyleSheet";
-
 // added decimal because this was going off the screen on Android Pixel 4
 const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
 const landscapeMaxWidth = 455;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   header: {
     minHeight: 136 + 25 + 26
   },
@@ -55,19 +49,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   lightText: {
-    color: colors.white,
-    fontFamily: fonts.light,
-    fontSize: 18,
-    letterSpacing: 0.78,
     marginBottom: 10
-  },
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0
   },
   bigText: {
     color: colors.black,
@@ -90,7 +74,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   levelImage: {
     resizeMode: "contain",
     height: 136,

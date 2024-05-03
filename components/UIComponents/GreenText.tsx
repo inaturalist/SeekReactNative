@@ -8,6 +8,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 interface Props {
   style?: object;
   text: string;
+  small?: boolean;
   smaller?: boolean;
   center?: boolean;
   color?: string;
@@ -17,6 +18,7 @@ interface Props {
 
 const GreenText = ( {
   style,
+  small,
   smaller,
   text,
   center,
@@ -27,7 +29,7 @@ const GreenText = ( {
   <StyledText
     style={[
       baseTextStyles.header,
-      // TODO: for some, e.g. YIR screen, this should be emptyStateGreen
+      small && baseTextStyles.emptyStateGreen,
       smaller && baseTextStyles.highlight,
       center && styles.center,
       color && { color },
@@ -42,6 +44,7 @@ const GreenText = ( {
 GreenText.defaultProps = {
   color: null,
   center: false,
+  small: false,
   smaller: false,
   allowFontScaling: true
 };

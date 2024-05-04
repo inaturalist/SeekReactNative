@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,13 +6,20 @@ import i18n from "../../../i18n";
 import GreenHeader from "../../UIComponents/GreenHeader";
 import { viewStyles, textStyles } from "../../../styles/camera/error";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +error: string,
-  +number?: ?number
+enum Error {
+  onlineVision = "onlineVision",
+  image = "image",
+  taxaInfo = "taxaInfo",
+  downtime = "downtime"
+}
+interface Props {
+  error: Error;
+  number?: number;
 }
 
-const ErrorScreen = ( { error, number }: Props ): React.Node => {
+const ErrorScreen = ( { error, number }: Props ) => {
   let errorText;
 
   if ( error === "onlineVision" ) {
@@ -33,7 +38,7 @@ const ErrorScreen = ( { error, number }: Props ): React.Node => {
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <GreenHeader />
       <View style={viewStyles.textContainer}>
-        <StyledText style={textStyles.errorText}>{errorText}</StyledText>
+        <StyledText style={[baseTextStyles.emptyStateWhite, textStyles.errorText]}>{errorText}</StyledText>
       </View>
     </SafeAreaView>
   );

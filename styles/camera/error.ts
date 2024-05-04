@@ -1,9 +1,5 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../global";
-
-
+import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -19,10 +15,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   errorText: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
     marginHorizontal: 41,
     textAlign: "center"
   }

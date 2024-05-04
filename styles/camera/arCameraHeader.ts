@@ -1,9 +1,6 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   dimensions,
   row,
   center
@@ -68,9 +65,6 @@ const textStyles = StyleSheet.create( {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
-  },
-  scientificName: {
-    fontFamily: fonts.semiboldItalic
   }
 } );
 

@@ -1,17 +1,21 @@
-// @flow
-
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles, imageStyles } from "../../../styles/camera/gallery";
 
-type Props = {
-  item: Object,
-  selectImage: ( Object ) => void
+interface Item {
+  node?: {
+    image?: {
+      uri?: string
+    }
+  }
+}
+interface Props {
+  item: Item;
+  selectImage: ( item: Item ) => void;
 }
 
-const GalleryImage = ( { item, selectImage }: Props ): Node => {
+const GalleryImage = ( { item, selectImage }: Props ) => {
   if ( !item ) {
     return null;
   }

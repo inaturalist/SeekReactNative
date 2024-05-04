@@ -1,16 +1,11 @@
-// @flow
-
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding,
   center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
-
-
 
 const viewStyles = StyleSheet.create( {
   activeDot: {
@@ -24,13 +19,11 @@ const viewStyles = StyleSheet.create( {
     borderRadius: 34,
     height: 50,
     justifyContent: "center",
-    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
     width: 293
   },
   buttonUncolored: {
     height: 50,
-    justifyContent: "center",
-    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null
+    justifyContent: "center"
   },
   buttonContainer: {
     marginBottom: 51
@@ -71,9 +64,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   skipText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 16,
     textAlign: "center",
     textDecorationLine: "underline"
   },
@@ -86,10 +76,6 @@ const textStyles = StyleSheet.create( {
     textAlign: "center"
   },
   continue: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     textAlign: "center"
   }
 } );

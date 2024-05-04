@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useRef } from "react";
 import {
   View,
@@ -10,7 +8,6 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
@@ -21,13 +18,14 @@ import LoadingWheel from "../LoadingWheel";
 import { colors } from "../../../styles/global";
 import Footer from "../Footer";
 
-type Props = {
-  children: any,
-  header: string,
-  route?: ?string,
-  loading?: boolean,
-  footer?: boolean
-};
+interface Props {
+  testID: string;
+  children: React.ReactNode;
+  header: string;
+  route?: string;
+  loading?: boolean;
+  footer?: boolean;
+}
 
 const ScrollWithHeader = ( {
   testID,
@@ -36,7 +34,7 @@ const ScrollWithHeader = ( {
   route,
   loading,
   footer = false
-}: Props ): Node => {
+}: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef<any>( null );

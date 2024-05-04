@@ -1,8 +1,10 @@
-import { StyleSheet, PixelRatio, Dimensions } from "react-native";
+import { StyleSheet, PixelRatio, Dimensions, Platform } from "react-native";
+
 import {
   colors,
   fonts
 } from "./global";
+import { enabledLargeFonts } from "../utility/textHelpers";
 
 const { height } = Dimensions.get( "window" );
 
@@ -191,6 +193,13 @@ const prediction = {
   fontSize: 20
 };
 
+const picker = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.semibold,
+  fontSize: enabledLargeFonts() ? 13 : 18,
+  letterSpacing: Platform.OS === "ios" ? 1.0 : 0
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -312,7 +321,8 @@ const baseTextStyles = StyleSheet.create( {
   number,
   chartAxis,
   onboarding,
-  prediction
+  prediction,
+  picker
 } );
 
 export {

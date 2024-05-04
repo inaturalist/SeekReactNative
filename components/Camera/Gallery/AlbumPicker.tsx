@@ -1,22 +1,23 @@
-// @flow
-
 import React, { useCallback } from "react";
 import { Image } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
-import type { Node } from "react";
 
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/galleryHeader";
-type Props = {
-  +updateAlbum: ( ?string ) => mixed,
-  +albumNames: Array<Object>
+
+interface Props {
+  updateAlbum: ( newAlbum: string | null ) => void;
+  albumNames: {
+    label: string;
+    value: string;
+  }[];
 }
 
 const placeholder = {};
 const pickerStyles = { ...styles };
 
-const AlbumPicker = ( { updateAlbum, albumNames }: Props ): Node => {
-  const handleValueChange = useCallback( ( newAlbum ) => {
+const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
+  const handleValueChange = useCallback( ( newAlbum: string ) => {
     updateAlbum( newAlbum !== "All" ? newAlbum : null );
   }, [updateAlbum] );
 

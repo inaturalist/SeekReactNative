@@ -7,7 +7,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   text: string;
-  color?: string;
+  color?: string | null;
   letterSpacing?: number;
   textColor?: string | null;
 }

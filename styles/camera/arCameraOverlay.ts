@@ -1,11 +1,5 @@
-// @flow
-
-import { StyleSheet, PixelRatio } from "react-native";
-import { colors, fonts, dimensions } from "../global";
-
-
-
-const fontScale = PixelRatio.getFontScale( );
+import { StyleSheet } from "react-native";
+import { colors, dimensions } from "../global";
 
 const viewStyles = StyleSheet.create( {
   shadow: {
@@ -76,10 +70,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   scanText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 14 : 16,
-    lineHeight: 21,
     textAlign: "center"
   },
   textShadow: {

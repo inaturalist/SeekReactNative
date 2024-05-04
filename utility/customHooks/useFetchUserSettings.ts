@@ -4,7 +4,10 @@ import realmConfig from "../../models";
 
 const useFetchUserSettings = ( ) => {
   const [settings, setSettings] = useState<{
+    autoCapture?: boolean;
+    localSeasonality?: boolean;
     scientificNames?: boolean;
+    appVersion?: string;
   }>( { } );
 
   useEffect( ( ) => {

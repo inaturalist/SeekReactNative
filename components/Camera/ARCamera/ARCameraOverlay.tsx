@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useEffect, useMemo } from "react";
 import {
   View,
@@ -8,7 +6,6 @@ import {
   Platform
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/camera/arCameraOverlay";
@@ -22,13 +19,19 @@ import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserS
 import ToastAnimation from "../../UIComponents/ToastAnimation";
 import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  takePicture: Function,
-  ranks: Object,
-  pictureTaken: boolean,
-  cameraLoaded: boolean,
-  filterByTaxonId: Function
+interface Props {
+  takePicture: ( ) => void;
+  ranks: {
+    [key: string]: {
+      taxon_id: number;
+      name: string;
+    }[];
+  };
+  pictureTaken: boolean;
+  cameraLoaded: boolean;
+  filterByTaxonId: ( taxonId: string | null, negativeFilter: boolean ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -39,14 +42,14 @@ const ARCameraOverlay = ( {
   pictureTaken,
   cameraLoaded,
   filterByTaxonId
-}: Props ): Node => {
+}: Props ) => {
   const { isLandscape, height } = useAppOrientation( );
   const { navigate } = useNavigation( );
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
   const autoCapture = userSettings?.autoCapture;
-  const [filterIndex, setFilterIndex] = useState( null );
+  const [filterIndex, setFilterIndex] = useState<number | null>( null );
 
   const shutterButtonPositionLandscape = height / 2 - 65 - 31;
   const helpButtonPositionLandscape = height / 2 + 50;
@@ -144,7 +147,7 @@ const ARCameraOverlay = ( {
         />
       )}
       <View style={setTaxonomicRankColorStyles( )}>
-        <StyledText style={[textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
+        <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>
       {isAndroid && (
         <TouchableOpacity

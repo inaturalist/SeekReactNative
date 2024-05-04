@@ -44,6 +44,13 @@ const button = {
   lineHeight: 21
 };
 
+const buttonSmall = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: ( fontScale > 1 ) ? 13 : 15,
+  lineHeight: 21
+};
+
 const body = {
   color: colors.black,
   fontFamily: fonts.regular,
@@ -208,6 +215,7 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.white
   },
   button,
+  buttonSmall,
   buttonGreen: {
     ...button,
     color: colors.seekForestGreen

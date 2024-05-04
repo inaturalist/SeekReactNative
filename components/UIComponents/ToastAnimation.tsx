@@ -8,7 +8,7 @@ interface Props {
   toastText: string;
   styles: Object;
   finishAnimation?: ( ) => void;
-  rectangleColor: string;
+  rectangleColor: string | null;
 }
 
 const ToastAnimation = ( {

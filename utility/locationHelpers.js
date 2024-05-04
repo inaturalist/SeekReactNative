@@ -19,12 +19,11 @@ type TruncatedCoords = {
   longitude: number
 }
 
-type Coords = {
+export type Coords = {
   latitude: number,
   longitude: number,
   accuracy: number
 }
-
 const fetchUserLocation = ( enableHighAccuracy: ?boolean = false ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {

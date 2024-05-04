@@ -1,8 +1,10 @@
-import { StyleSheet, PixelRatio } from "react-native";
+import { StyleSheet, PixelRatio, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "./global";
+
+const { height } = Dimensions.get( "window" );
 
 const fontScale = PixelRatio.getFontScale( );
 
@@ -170,6 +172,13 @@ const chartAxis = {
   fontSize: 18
 };
 
+const onboarding = {
+  color: colors.white,
+  fontFamily: fonts.medium,
+  fontSize: height > 570 ? 19 : 16,
+  lineHeight: 24
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -284,7 +293,8 @@ const baseTextStyles = StyleSheet.create( {
   speciesSmall,
   link,
   number,
-  chartAxis
+  chartAxis,
+  onboarding
 } );
 
 export {

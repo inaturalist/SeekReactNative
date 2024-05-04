@@ -1,7 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
   center
 } from "./global";
 
@@ -68,10 +67,6 @@ const textStyles = StyleSheet.create( {
     textDecorationLine: "underline"
   },
   text: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: height > 570 ? 19 : 16,
-    lineHeight: 24,
     maxWidth: 292,
     textAlign: "center"
   },

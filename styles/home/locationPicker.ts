@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet, I18nManager } from "react-native";
 import {
   colors,
@@ -7,7 +5,6 @@ import {
   dimensions,
   row
 } from "../global";
-
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -95,10 +92,6 @@ const textStyles = StyleSheet.create( {
     maxWidth: dimensions.width - 100
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
     textAlign: "center",
     marginHorizontal: 20
   },

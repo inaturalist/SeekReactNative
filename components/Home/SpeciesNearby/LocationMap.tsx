@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
@@ -9,21 +7,23 @@ import icons from "../../../assets/icons";
 import postingIcons from "../../../assets/posting";
 import i18n from "../../../i18n";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
+interface Props {
   region: {
-    latitude?: ?number,
-    longitude?: ?number,
-    latitudeDelta: number,
-    longitudeDelta: number
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
   },
-  onRegionChange: ( {
-    latitude: number,
-    longitude: number,
-    longitudeDelta: number
-  } ) => void,
-  returnToUserLocation: ( ) => void,
-  posting?: boolean
+  onRegionChange: ( region: {
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
+  } ) => void;
+  returnToUserLocation: ( ) => void;
+  posting?: boolean;
 }
 
 const LocationMap = ( {
@@ -31,7 +31,7 @@ const LocationMap = ( {
   onRegionChange,
   returnToUserLocation,
   posting
-}: Props ): React.Node => (
+}: Props ) => (
   <View style={viewStyles.container}>
     {region.latitude ? (
       <MapView
@@ -42,7 +42,7 @@ const LocationMap = ( {
       />
     ) : (
       <View style={viewStyles.textContainer}>
-        <StyledText style={textStyles.text}>
+        <StyledText style={[baseTextStyles.body, textStyles.text]}>
           {i18n.t( "species_nearby.input_location_above_map" )}
         </StyledText>
       </View>

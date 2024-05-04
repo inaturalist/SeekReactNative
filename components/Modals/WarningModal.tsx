@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -13,12 +11,13 @@ import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  closeModal: ( ) => void
+interface Props {
+  closeModal: ( ) => void;
 }
 
-const WarningModal = ( { closeModal }: Props ): React.Node => (
+const WarningModal = ( { closeModal }: Props ) => (
   <WhiteModal
     closeModal={closeModal}
     noButton
@@ -26,14 +25,14 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
     accessibilityLabel={i18n.t( "accessibility.warning_modal" )}
   >
     <View style={viewStyles.header}>
-      <StyledText allowFontScaling={false} style={textStyles.headerText}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.button, textStyles.headerText]}>
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
       </StyledText>
     </View>
     <View style={viewStyles.marginTop} />
     <StyledText
       allowFontScaling={false}
-      style={[textStyles.text, textStyles.wideText]}
+      style={[baseTextStyles.body, textStyles.wideText]}
     >
       {i18n.t( "warning.tip_0" )}
     </StyledText>
@@ -45,7 +44,7 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
           <React.Fragment key={warning}>
             <View style={viewStyles.row}>
               <Image source={iconName} style={imageStyles.image} />
-              <StyledText allowFontScaling={false} style={textStyles.text}>
+              <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.text]}>
                 {i18n.t( `warning.tip_${warning}` )}
               </StyledText>
             </View>
@@ -56,7 +55,7 @@ const WarningModal = ( { closeModal }: Props ): React.Node => (
       <View style={viewStyles.marginSmall} />
       <StyledText
         allowFontScaling={false}
-        style={[textStyles.text, textStyles.wideText]}
+        style={[baseTextStyles.body, textStyles.wideText]}
       >
         {i18n.t( "warning.tip_4" )}
       </StyledText>

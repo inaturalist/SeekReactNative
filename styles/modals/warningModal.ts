@@ -1,12 +1,9 @@
-// @flow
-
 import {
   StyleSheet,
   Platform
 } from "react-native";
 import {
   colors,
-  fonts,
   row,
   dimensions
 } from "../global";
@@ -38,18 +35,10 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     paddingTop: Platform.OS === "ios" ? 9 : 0,
     textAlign: "center"
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     maxWidth: 206
   },
   wideText: {

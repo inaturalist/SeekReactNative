@@ -1,11 +1,7 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import { dimensions } from "../../global";
 
-import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backButton: {
     alignItems: "center",
     justifyContent: "center",

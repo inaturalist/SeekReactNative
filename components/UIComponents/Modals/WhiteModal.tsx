@@ -1,18 +1,16 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
 import styles from "../../../styles/uiComponents/modals/whiteModal";
 import BackButton from "../Buttons/ModalBackButton";
 
-type Props = {
-  children: any,
-  closeModal?: ( ) => void,
-  noButton?: boolean,
-  width?: ?number,
-  accessibilityLabel?: string
-};
+interface Props {
+  children: React.ReactNode;
+  closeModal: ( ) => void;
+  noButton?: boolean;
+  width?: number;
+  accessibilityLabel?: string;
+}
 
 const WhiteModal = ( {
   children,
@@ -20,7 +18,7 @@ const WhiteModal = ( {
   noButton,
   width,
   accessibilityLabel
-}: Props ): React.Node => {
+}: Props ) => {
   let widthStyle = null;
 
   if ( width ) {

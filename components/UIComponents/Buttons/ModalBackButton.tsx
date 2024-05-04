@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   TouchableOpacity,
@@ -10,11 +8,11 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/buttons/modalBackButton";
 import icons from "../../../assets/icons";
 
-type Props = {
-  +closeModal: Function
+interface Props {
+  closeModal: ( ) => void;
 }
 
-const ModalBackButton = ( { closeModal }: Props ): React.Node => (
+const ModalBackButton = ( { closeModal }: Props ) => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible

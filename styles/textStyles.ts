@@ -261,6 +261,10 @@ const baseTextStyles = StyleSheet.create( {
     ...emptyState,
     color: colors.seekForestGreen
   },
+  emptyStateWhite: {
+    ...emptyState,
+    color: colors.white
+  },
   highlight,
   highlightTeal: {
     ...highlight,

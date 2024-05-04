@@ -10,6 +10,7 @@ import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/camera/cameraError";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   +error: string,
@@ -55,7 +56,7 @@ const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
     return (
       <>
         <View style={viewStyles.margin} />
-        <StyledText style={textStyles.whiteText}>
+        <StyledText style={[baseTextStyles.banner, textStyles.whiteText]}>
           {i18n.t( "camera.please_permissions" ).toLocaleUpperCase()}
         </StyledText>
       </>
@@ -64,7 +65,7 @@ const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
 
   return (
     <View style={[viewStyles.blackBackground, viewStyles.center, name === "Gallery" && viewStyles.galleryHeight]}>
-      <StyledText allowFontScaling={false} numberOfLines={23} style={textStyles.errorText}>
+      <StyledText allowFontScaling={false} numberOfLines={23} style={[baseTextStyles.emptyStateWhite, textStyles.errorText]}>
         {setCameraErrorText( error, errorEvent )}
       </StyledText>
       {( error === "permissions" || error === "gallery" ) && showPermissionsButton()}

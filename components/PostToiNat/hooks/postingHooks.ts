@@ -1,14 +1,21 @@
-// @flow
-
 import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
 import { capitalizeNames } from "../../../utility/helpers";
-import { fetchUserLocation } from "../../../utility/locationHelpers";
+import { Coords, fetchUserLocation } from "../../../utility/locationHelpers";
 
-const useSearchSpecies = ( speciesName: ?string ): any => {
-  const [suggestions, setSuggestions] = useState( [] );
+export type Suggestion = {
+  defaultPhoto: {
+    medium_url: string;
+  };
+  preferred_common_name: string;
+  name: string;
+  id: number;
+  iconic_taxon_id: number;
+}
+const useSearchSpecies = ( speciesName: string | null ) => {
+  const [suggestions, setSuggestions] = useState<Suggestion[]>( [] );
 
   useEffect( ( ) => {
     const searchForSpecies = ( ) => {
@@ -22,7 +29,7 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
       inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
         if ( results.length === 0 ) { return; }
 
-        const newSuggestions = results.map( ( s ) => {
+        const newSuggestions = results.map( ( s: Suggestion ) => {
           return {
             image:
               s.defaultPhoto && s.defaultPhoto.medium_url
@@ -37,7 +44,7 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
         } );
 
         setSuggestions( newSuggestions );
-      } ).catch( ( err ) => console.log( err, "couldn't find species" ) );
+      } ).catch( ( err: Error ) => console.log( err, "couldn't find species" ) );
     };
 
     searchForSpecies( );
@@ -46,8 +53,8 @@ const useSearchSpecies = ( speciesName: ?string ): any => {
   return suggestions;
 };
 
-const useFetchUserLocation = ( ): Object => {
-  const [userCoords, setUserCoords] = useState( null );
+const useFetchUserLocation = ( ) => {
+  const [userCoords, setUserCoords] = useState<Coords | null>( null );
   const [fetching, setFetching] = useState( false );
 
   useEffect( ( ) => {

@@ -3,8 +3,7 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  dimensions,
-  fonts
+  dimensions
 } from "../global";
 
 
@@ -55,25 +54,19 @@ const viewStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   topHeader: {
     alignSelf: "center",
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     paddingTop: Platform.OS === "android" ? 18 : 20,
     position: "absolute"
   },
   inputField: {
     backgroundColor: colors.white,
     borderRadius: 40,
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 15,
     height: 37,
     marginLeft: 11,
     paddingBottom: 0,
     paddingLeft: 16,
     paddingTop: 0,
-    width: dimensions.width - 19 - 52
+    width: dimensions.width - 19 - 52,
+    fontSize: 14
   }
 } );
 

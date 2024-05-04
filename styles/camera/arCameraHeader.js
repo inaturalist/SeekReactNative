@@ -11,9 +11,9 @@ import {
 
 const { height } = dimensions;
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   portraitDotsRow: {
     width: 262,
     flexDirection: "row",
@@ -61,7 +61,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   predictions: {
     color: colors.white,
     fontFamily: fonts.semibold,

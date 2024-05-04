@@ -4,10 +4,8 @@ import { StyleSheet } from "react-native";
 
 import { colors } from "../../styles/global";
 
-import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   challengeList: {
     backgroundColor: colors.white
   },

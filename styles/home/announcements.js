@@ -3,9 +3,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../global";
 
-import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   whiteContainer: {
     paddingTop: 35,
     backgroundColor: colors.white
@@ -18,7 +16,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   header: {
     paddingLeft: 22,
     paddingBottom: 21

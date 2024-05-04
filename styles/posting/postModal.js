@@ -3,9 +3,9 @@
 import { StyleSheet } from "react-native";
 import { fonts, dimensions, colors } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   container: {
     flex: 1,
     paddingBottom: dimensions.height > 570 ? 60 : 26,
@@ -25,7 +25,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
     textAlign: "center",
     fontFamily: fonts.book,
@@ -35,6 +35,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     maxWidth: 298
   },
   headerText: {
+    // modalBanner Green
     textAlign: "center",
     color: colors.seekiNatGreen,
     fontFamily: fonts.semibold,

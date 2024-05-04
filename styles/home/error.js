@@ -10,9 +10,9 @@ import {
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   background: {
     height: 223
   },
@@ -23,8 +23,9 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   buttonText: {
+    // modalBanner with 16
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 16,

@@ -8,9 +8,8 @@ import {
   row
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   errorMargin: {
     justifyContent: "center",
     marginBottom: dimensions.height > 570 ? 27 : 18,
@@ -27,7 +26,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
     color: colors.seekiNatGreen,
     fontFamily: fonts.semibold,
@@ -35,7 +34,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 24,
     marginRight: 15,

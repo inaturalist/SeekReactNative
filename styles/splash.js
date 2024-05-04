@@ -3,9 +3,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "./global";
 
-import type { ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const styles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const styles = StyleSheet.create( {
   backgroundImage: {
     alignItems: "center",
     flex: 1,

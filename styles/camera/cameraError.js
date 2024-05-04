@@ -9,9 +9,9 @@ import {
   padding
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   blackBackground: {
     backgroundColor: colors.black,
     height: dimensions.height
@@ -25,7 +25,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   errorText: {
     color: colors.white,
     fontFamily: fonts.medium,

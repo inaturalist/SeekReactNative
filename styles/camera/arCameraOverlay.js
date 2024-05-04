@@ -3,11 +3,11 @@
 import { StyleSheet, PixelRatio } from "react-native";
 import { colors, fonts, dimensions } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
 
 const fontScale = PixelRatio.getFontScale( );
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   shadow: {
     shadowColor: colors.black,
     shadowOffset: {
@@ -74,7 +74,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   scanText: {
     color: colors.white,
     fontFamily: fonts.semibold,

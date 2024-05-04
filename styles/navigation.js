@@ -11,9 +11,9 @@ const { width, height } = dimensions;
 
 const requiresSafeArea = ( ) => Platform.OS === "ios" && height > 570;
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   cameraTab: {
     backgroundColor: colors.black
   },
@@ -28,7 +28,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   cameraTabLabel: {
     color: colors.white,
     fontFamily: fonts.medium,

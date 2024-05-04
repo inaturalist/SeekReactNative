@@ -11,9 +11,7 @@ import {
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, ImageStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   button: {
     paddingBottom: dimensions.height > 570 ? 24 : 17,
     paddingTop: dimensions.height > 570 ? 28 : 26
@@ -38,7 +36,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   row
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   headerText: {
     color: colors.white,
     fontFamily: fonts.semibold,
@@ -60,7 +58,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 40,
     marginRight: 22,

@@ -5,9 +5,7 @@ import { colors } from "../global";
 
 const { height } = Dimensions.get( "window" );
 
-import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingHorizontal: 23,
@@ -41,7 +39,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   settingsIcon: {
     tintColor: colors.white,
     height: 20,

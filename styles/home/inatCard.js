@@ -8,11 +8,11 @@ import {
   row
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
+
 
 const maxColumnWidth = 455;
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   center,
   secondHeader: {
     marginTop: 23,
@@ -48,7 +48,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
     color: colors.black,
     fontFamily: fonts.book,

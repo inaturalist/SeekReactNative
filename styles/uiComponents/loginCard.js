@@ -6,9 +6,9 @@ import {
   fonts
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   container: {
     marginHorizontal: 23,
     marginTop: 32
@@ -18,7 +18,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   italicText: {
     color: colors.black,
     fontFamily: fonts.bookItalic,

@@ -10,9 +10,9 @@ import {
 
 const { width, height } = Dimensions.get( "window" );
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   activeDot: {
     backgroundColor: colors.white,
     borderRadius: 10 / 2,
@@ -69,7 +69,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   skipText: {
     color: colors.white,
     fontFamily: fonts.book,

@@ -9,11 +9,10 @@ import {
   dimensions
 } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 import { enabledLargeFonts } from "../../utility/textHelpers";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   backButton: {
     left: 0,
     paddingHorizontal: 23,
@@ -47,7 +46,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -58,7 +57,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   buttonImage: {
     padding: 5,
     tintColor: colors.seekForestGreen

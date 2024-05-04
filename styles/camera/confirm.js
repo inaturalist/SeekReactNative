@@ -5,9 +5,7 @@ import { colors } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 
-import type { ViewStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   footer: {
     marginHorizontal: 23,
     marginTop: 20
@@ -33,7 +31,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: ( height / 3 ) * 2,
     resizeMode: "contain",

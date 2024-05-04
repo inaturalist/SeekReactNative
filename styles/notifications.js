@@ -10,9 +10,8 @@ import {
 
 const { width } = dimensions;
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   card: {
     height: 112,
     justifyContent: "flex-start",
@@ -45,7 +44,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   messageText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -62,7 +61,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
 } );
 
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     height: 72,
     marginRight: 24,

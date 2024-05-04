@@ -19,9 +19,7 @@ const pickerText = {
   letterSpacing: Platform.OS === "ios" ? 1.0 : 0
 };
 
-import type { ViewStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   inputIOSContainer: pickerContainer,
   viewContainer: {
     alignItems: "center"

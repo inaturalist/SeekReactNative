@@ -3,9 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   challengeContainer: {
     backgroundColor: colors.darkGray
   },
@@ -28,7 +28,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   viewText: {
     alignSelf: "center",
     paddingBottom: 31,

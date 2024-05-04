@@ -3,9 +3,9 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from "../global";
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+
+const viewStyles = StyleSheet.create( {
   textContainer: {
     marginBottom: 27,
     marginHorizontal: 29,
@@ -13,7 +13,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   list: {
     marginLeft: -15
   },

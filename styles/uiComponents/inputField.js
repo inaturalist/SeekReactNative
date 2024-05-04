@@ -3,9 +3,7 @@
 import { StyleSheet } from "react-native";
 import { colors, dimensions } from "../global";
 
-import type { TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   inputField: {
     backgroundColor: colors.white,
     borderColor: colors.darkGray,

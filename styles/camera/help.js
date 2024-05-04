@@ -3,11 +3,10 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { colors, fonts, row } from "../global";
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
 const { width, height } = Dimensions.get( "window" );
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   howText: {
     marginRight: 36,
     width: height > 570 ? 192 : 140
@@ -28,7 +27,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   bullets: {
     fontSize: 26,
     lineHeight: 21,
@@ -37,6 +36,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     marginTop: 3
   },
   headerText: {
+    // modalBanner Green
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
@@ -52,7 +52,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   topImage: {
     height: width / 2.5,
     resizeMode: "cover",

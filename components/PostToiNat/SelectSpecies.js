@@ -25,6 +25,7 @@ import { useSearchSpecies } from "./hooks/postingHooks";
 import { iconicTaxaNames, iconicScientificNames } from "../../utility/dictionaries/iconicTaxonDictSelectSpecies";
 import { capitalizeNames } from "../../utility/helpers";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   toggleSpeciesModal: Function,
@@ -130,7 +131,7 @@ const SelectSpecies = ( {
           >
             <Image source={icons.backButton} />
           </TouchableOpacity>
-          <StyledText style={textStyles.topHeader}>
+          <StyledText style={[baseTextStyles.button, textStyles.topHeader]}>
             {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
           </StyledText>
         </View>
@@ -138,7 +139,6 @@ const SelectSpecies = ( {
           {image && <Image source={{ uri: image }} style={imageStyles.image} />}
         </View>
         <View style={viewStyles.row}>
-          {/* $FlowFixMe */}
           <Image
             source={posting.searchGreen}
             tintColor={colors.white}
@@ -148,7 +148,7 @@ const SelectSpecies = ( {
             onChangeText={handleTextChange}
             placeholder={i18n.t( "posting.look_up" )}
             placeholderTextColor={colors.placeholderGray}
-            style={textStyles.inputField}
+            style={[baseTextStyles.regular, textStyles.inputField]}
             defaultValue={textInput}
           />
         </View>

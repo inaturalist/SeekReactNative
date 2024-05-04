@@ -75,6 +75,13 @@ const banner = {
   lineHeight: 22
 };
 
+const modalBanner = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: 18,
+  letterSpacing: 1.12
+};
+
 const challengeMonth = {
   color: colors.white,
   fontFamily: fonts.regular,
@@ -256,6 +263,11 @@ const baseTextStyles = StyleSheet.create( {
     fontSize: 14,
     letterSpacing: 0.42,
     lineHeight: 34
+  },
+  modalBanner,
+  modalBannerGreen: {
+    ...modalBanner,
+    color: colors.seekForestGreen
   },
   challengeMonth,
   challengeTitle,

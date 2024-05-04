@@ -1,27 +1,24 @@
-// @flow
-
 import React, { useState } from "react";
 import {
   Image,
   TouchableOpacity,
   View
 } from "react-native";
-import type { Node } from "react";
 
-import { colors } from "../../../styles/global";
 import styles from "../../../styles/posting/postToiNat";
 import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  dateToDisplay: ?string,
-  handleDatePicked: ( Date ) => void
+interface Props {
+  dateToDisplay: string;
+  handleDatePicked: ( date: Date ) => void
 }
 
-const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
+const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = ( ) => setShowModal( true );
@@ -29,8 +26,8 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
 
   const displayDate = ( ) => dateToDisplay || "";
 
-  const handlePicked = ( value ) => {
-    handleDatePicked( value );
+  const handlePicked = ( date: Date ) => {
+    handleDatePicked( date );
     closeModal( );
   };
 
@@ -48,15 +45,13 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ): Node => {
       >
         <Image source={posting.date} />
         <View style={styles.row}>
-          <StyledText style={styles.greenText}>
+          <StyledText style={baseTextStyles.postSectionHeader}>
             {i18n.t( "posting.date" ).toLocaleUpperCase( )}
           </StyledText>
-          <StyledText style={styles.text}>{displayDate( )}</StyledText>
+          <StyledText style={[baseTextStyles.body, styles.text]}>{displayDate( )}</StyledText>
         </View>
-        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
-          tintColor={colors.seekForestGreen}
           style={[styles.buttonIcon, styles.rotate]}
         />
       </TouchableOpacity>

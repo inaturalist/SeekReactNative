@@ -35,12 +35,6 @@ export default StyleSheet.create( {
   extraMargin: {
     marginHorizontal: 5
   },
-  greenText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0
-  },
   inputField: {
     marginHorizontal: height < 570 ? 14 : 27,
     paddingBottom: 21,
@@ -59,10 +53,8 @@ export default StyleSheet.create( {
     width: 211
   },
   text: {
-    color: colors.black,
     flexDirection: "row",
     flexWrap: "wrap",
-    fontFamily: fonts.book,
     fontSize: height < 570 ? 15 : 16,
     lineHeight: height < 570 ? 18 : 21,
     marginTop: height < 570 ? 2 : 7

@@ -195,7 +195,7 @@ const prediction = {
 
 const picker = {
   color: colors.seekForestGreen,
-  fontFamily: fonts.semibold,
+  fontFamily: fonts.bold,
   fontSize: enabledLargeFonts() ? 13 : 18,
   letterSpacing: Platform.OS === "ios" ? 1.0 : 0
 };
@@ -204,6 +204,13 @@ const inputField = {
   color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 15
+};
+
+const postSectionHeader = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.bold,
+  fontSize: 17,
+  letterSpacing: 1.0
 };
 
 const baseTextStyles = StyleSheet.create( {
@@ -329,7 +336,8 @@ const baseTextStyles = StyleSheet.create( {
   onboarding,
   prediction,
   picker,
-  inputField
+  inputField,
+  postSectionHeader
 } );
 
 export {

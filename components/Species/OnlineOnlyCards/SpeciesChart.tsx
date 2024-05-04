@@ -8,7 +8,7 @@ import styles from "../../../styles/species/speciesChart";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
 import { fetchHistogram } from "../../../utility/speciesDetailHelpers";
-import { useFetchUserSettings } from "../../../utility/customHooks";
+import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {

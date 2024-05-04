@@ -9,7 +9,7 @@ interface Props {
   text: string;
   color?: string;
   letterSpacing?: number;
-  textColor?: string;
+  textColor?: string | null;
 }
 
 const GreenRectangle = ( { text, color, letterSpacing, textColor }: Props ) => (

@@ -1,6 +1,8 @@
-// @flow
+interface Ranks {
+  [key: string]: string;
+}
 
-const ranks = {
+const ranks: Ranks = {
   kingdom: "camera.kingdom",
   phylum: "camera.phylum",
   class: "camera.class",

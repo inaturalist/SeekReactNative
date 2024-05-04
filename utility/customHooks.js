@@ -213,29 +213,6 @@ const useEmulator = ( ): boolean => {
   return emulator;
 };
 
-const useFetchUserSettings = ( ): Object => {
-  const [settings, setSettings] = useState( { } );
-
-  useEffect( ( ) => {
-    let isCurrent = true;
-
-    const fetchUserSettings = async ( ) => {
-      const realm = await Realm.open( realmConfig );
-      const userSettings = realm.objects( "UserSettingsRealm" );
-      if ( isCurrent ) {
-        setSettings( userSettings[0] );
-      }
-    };
-
-    fetchUserSettings( );
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [] );
-
-  return settings;
-};
-
 const useUploadedObservationCount = ( {
   login,
   username,
@@ -428,7 +405,6 @@ export {
   useTruncatedUserCoords,
   useInternetStatus,
   useEmulator,
-  useFetchUserSettings,
   useUploadedObservationCount,
   useSpeciesCount,
   useIsForeground,

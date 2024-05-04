@@ -63,9 +63,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   predictions: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
     margin: 22,
     textAlign: "center",
     textShadowColor: colors.textShadow,

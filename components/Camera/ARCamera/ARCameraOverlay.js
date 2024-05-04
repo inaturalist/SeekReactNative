@@ -18,7 +18,7 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 import ARCameraHeader from "./ARCameraHeader";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
-import { useFetchUserSettings } from "../../../utility/customHooks";
+import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
 import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationContext";

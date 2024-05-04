@@ -17,7 +17,6 @@ const bold = {
   fontFamily: fonts.bold
 };
 const boldItalic = {
-  color: colors.black,
   fontFamily: fonts.boldItalic
 };
 const italic = {
@@ -179,6 +178,12 @@ const onboarding = {
   lineHeight: 24
 };
 
+const prediction = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: 20
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -298,7 +303,8 @@ const baseTextStyles = StyleSheet.create( {
   link,
   number,
   chartAxis,
-  onboarding
+  onboarding,
+  prediction
 } );
 
 export {

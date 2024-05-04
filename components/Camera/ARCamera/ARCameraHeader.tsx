@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useEffect, useState } from "react";
 import { View, Image } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/camera/arCameraHeader";
@@ -11,18 +8,24 @@ import rankDict from "../../../utility/dictionaries/rankDict";
 import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
-import { useFetchUserSettings } from "../../../utility/customHooks";
+import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
 import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +ranks: Object
+interface Props {
+  ranks: {
+    [key: string]: {
+      taxon_id: number;
+      name: string;
+    }[];
+  };
 }
 
-const ARCameraHeader = ( { ranks }: Props ): Node => {
+const ARCameraHeader = ( { ranks }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const rankToRender = Object.keys( ranks )[0] || null;
-  const [commonName, setCommonName] = useState( null );
+  const [commonName, setCommonName] = useState<string | void | null>( null );
   const settings = useFetchUserSettings( );
   const scientificNames = settings?.scientificNames;
   const showScientificName = scientificNames || !commonName;
@@ -107,7 +110,7 @@ const ARCameraHeader = ( { ranks }: Props ): Node => {
               textColor={setTaxonomicRankColor( )}
             />
           </View>
-          <StyledText style={[textStyles.predictions, showScientificName && textStyles.scientificName]}>
+          <StyledText style={[baseTextStyles.prediction, textStyles.predictions, showScientificName && baseTextStyles.boldItalic]}>
             {showScientificName ? ranks[rankToRender][0].name : commonName}
           </StyledText>
           <View style={[viewStyles.row, viewStyles.center]}>

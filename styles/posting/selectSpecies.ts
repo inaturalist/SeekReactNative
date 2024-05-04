@@ -65,8 +65,7 @@ const textStyles = StyleSheet.create( {
     paddingBottom: 0,
     paddingLeft: 16,
     paddingTop: 0,
-    width: dimensions.width - 19 - 52,
-    fontSize: 14
+    width: dimensions.width - 19 - 52
   }
 } );
 

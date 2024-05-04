@@ -22,7 +22,6 @@ const textStyles = StyleSheet.create( {
     borderRadius: 40,
     borderWidth: 1,
     borderColor: colors.searchGray,
-    fontSize: 15,
     height: 37,
     width: "88%",
     marginLeft: 12,

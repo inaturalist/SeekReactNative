@@ -148,7 +148,7 @@ const SelectSpecies = ( {
             onChangeText={handleTextChange}
             placeholder={i18n.t( "posting.look_up" )}
             placeholderTextColor={colors.placeholderGray}
-            style={[baseTextStyles.regular, textStyles.inputField]}
+            style={[baseTextStyles.inputField, textStyles.inputField]}
             defaultValue={textInput}
           />
         </View>

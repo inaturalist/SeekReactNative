@@ -200,6 +200,12 @@ const picker = {
   letterSpacing: Platform.OS === "ios" ? 1.0 : 0
 };
 
+const inputField = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 15
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -322,7 +328,8 @@ const baseTextStyles = StyleSheet.create( {
   chartAxis,
   onboarding,
   prediction,
-  picker
+  picker,
+  inputField
 } );
 
 export {

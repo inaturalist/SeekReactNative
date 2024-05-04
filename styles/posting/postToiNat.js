@@ -44,9 +44,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   inputField: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
     marginHorizontal: height < 570 ? 14 : 27,
     paddingBottom: 21,
     paddingTop: 21,

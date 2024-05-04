@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -11,14 +9,15 @@ import { viewStyles, textStyles } from "../../styles/species/rangeMap";
 import icons from "../../assets/icons";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +closeModal: Function
+interface Props {
+  closeModal: () => void;
 }
 
-const Legend = ( { closeModal }: Props ): React.Node => {
-  const renderText = ( text ) => (
-    <StyledText style={textStyles.text}>
+const Legend = ( { closeModal }: Props ) => {
+  const renderText = ( text: string ) => (
+    <StyledText style={[baseTextStyles.body, textStyles.text]}>
       {text}
     </StyledText>
   );
@@ -26,7 +25,7 @@ const Legend = ( { closeModal }: Props ): React.Node => {
   return (
     <WhiteModal closeModal={closeModal}>
       <View style={viewStyles.legendHeader}>
-        <StyledText style={textStyles.whiteText}>
+        <StyledText style={[baseTextStyles.modalBanner, textStyles.whiteText]}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
         </StyledText>
       </View>

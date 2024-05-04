@@ -1,13 +1,9 @@
-// @flow
-
 import { Dimensions, StyleSheet, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { colors } from "../global";
 
 const { width, height } = Dimensions.get( "screen" );
 
-import type { ViewStyleProp, TextStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
-
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   legend: {
     backgroundColor: colors.seekForestGreen,
     borderTopRightRadius: 40,
@@ -52,20 +48,12 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginLeft: 21,
     marginTop: 3
   },
   whiteText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
     marginTop: 18,
     textAlign: "center"
   }

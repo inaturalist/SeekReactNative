@@ -1,14 +1,13 @@
-// @flow
 import * as React from "react";
 import { View } from "react-native";
 
 import { viewStyles } from "../../styles/onboarding";
 
-type Props = {
-  index: number
+interface Props {
+  index: number;
 }
 
-const Dots = ( { index }: Props ): React.Node => {
+const Dots = ( { index }: Props ) => {
   const ActiveDot = <View style={[viewStyles.dot, viewStyles.activeDot]} />;
   const Dot = <View style={viewStyles.dot} />;
 

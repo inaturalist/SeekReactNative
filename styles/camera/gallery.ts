@@ -1,16 +1,10 @@
-// @flow
-
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   center,
   row,
-  fonts,
   dimensions
 } from "../global";
-
-
-import { enabledLargeFonts } from "../../utility/textHelpers";
 
 const viewStyles = StyleSheet.create( {
   backButton: {
@@ -46,17 +40,6 @@ const viewStyles = StyleSheet.create( {
   }
 } );
 
-const textStyles = StyleSheet.create( {
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: enabledLargeFonts() ? 13 : 18,
-    letterSpacing: 1.0,
-    maxWidth: dimensions.width - 100,
-    paddingTop: Platform.OS === "ios" ? 5 : 0
-  }
-} );
-
 const imageStyles = StyleSheet.create( {
   buttonImage: {
     padding: 5,
@@ -69,7 +52,6 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
-  textStyles,
   viewStyles,
   imageStyles
 };

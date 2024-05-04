@@ -1,4 +1,7 @@
-const iconicTaxaNames = {
+type IconicTaxaNames = {
+  [key: number]: string
+};
+const iconicTaxaNames: IconicTaxaNames = {
   47126: "taxon_picker.plants",
   1: "posting.animals",
   47170: "taxon_picker.fungi",
@@ -14,7 +17,10 @@ const iconicTaxaNames = {
   48222: "posting.kelp"
 };
 
-const iconicScientificNames = {
+type IconicScientificNames = {
+  [key: number]: string
+};
+const iconicScientificNames: IconicScientificNames = {
   47126: "Plantae",
   1: "Animalia",
   47170: "Fungi",

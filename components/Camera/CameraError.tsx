@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { Platform, View } from "react-native";
 import OpenSettings from "react-native-open-settings";
@@ -12,16 +10,16 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +error: string,
-  +errorEvent: ?string,
-  album?: ?string
+interface Props {
+  error: string;
+  errorEvent?: string;
+  album?: string;
 }
 
-const CameraError = ( { error, errorEvent, album }: Props ): React.Node => {
+const CameraError = ( { error, errorEvent, album }: Props ) => {
   const { name } = useRoute();
 
-  const setCameraErrorText = ( err, event ) => {
+  const setCameraErrorText = ( err: string, event: string ) => {
     let errorText = i18n.t( `camera.error_${err}` );
 
     if ( event ) {

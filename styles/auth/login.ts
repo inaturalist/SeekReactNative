@@ -14,12 +14,6 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
-  descriptionText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
-  },
   email: {
     marginHorizontal: 57,
     marginTop: 21,
@@ -65,10 +59,6 @@ export default StyleSheet.create( {
     marginTop: 16
   },
   linkedAccountHeader: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 22,
-    lineHeight: 28,
     marginBottom: 29,
     marginTop: 26,
     maxWidth: 313,

@@ -250,6 +250,13 @@ const passwordEmailHeader = {
   lineHeight: 30
 };
 
+const linkedAccountHeader = {
+  color: colors.black,
+  fontFamily: fonts.medium,
+  fontSize: 21,
+  lineHeight: 28
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -383,7 +390,8 @@ const baseTextStyles = StyleSheet.create( {
   loginOrSignup,
   forgotPasswordLink,
   loginError,
-  passwordEmailHeader
+  passwordEmailHeader,
+  linkedAccountHeader
 } );
 
 export {

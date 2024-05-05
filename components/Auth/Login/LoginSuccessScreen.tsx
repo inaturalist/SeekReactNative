@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -11,23 +9,24 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-const LoginSuccessScreen = ( ): React.Node => {
+const LoginSuccessScreen = ( ) => {
   const { navigate } = useNavigation();
 
   return (
     <ScrollWithHeader header="inat_signup.welcome">
       <View style={styles.center}>
-        <StyledText style={styles.linkedAccountHeader}>{i18n.t( "inat_signup.linked_account" )}</StyledText>
+        <StyledText style={[baseTextStyles.linkedAccountHeader, styles.linkedAccountHeader]}>{i18n.t( "inat_signup.linked_account" )}</StyledText>
       </View>
       <View style={styles.textContainer}>
         <GreenText smaller text="inat_signup.posting" />
         <View style={styles.marginSmall} />
-        <StyledText style={styles.descriptionText}>{i18n.t( "inat_signup.posting_details" )}</StyledText>
+        <StyledText style={baseTextStyles.body}>{i18n.t( "inat_signup.posting_details" )}</StyledText>
         <View style={styles.marginMedium} />
         <GreenText smaller text="inat_signup.observations" />
         <View style={styles.marginSmall} />
-        <StyledText style={styles.descriptionText}>
+        <StyledText style={baseTextStyles.body}>
           {i18n.t( "inat_signup.observations_1" )}
           {" "}
           <StyledText style={styles.underline}>

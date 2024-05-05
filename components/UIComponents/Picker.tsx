@@ -1,15 +1,16 @@
-// @flow
-
 import React, { useCallback } from "react";
 import RNPickerSelect from "react-native-picker-select";
-import type { Node } from "react";
 
 const placeholder = {};
-type Props = {
-  handleValueChange: Function,
-  itemList: Array<Object>,
-  children: any,
-  disabled?: boolean
+
+interface Props {
+  handleValueChange: ( value: string ) => void;
+  itemList: {
+    label: string;
+    value: string;
+  }[];
+  children: React.ReactNode;
+  disabled?: boolean;
 }
 
 const Picker = ( {
@@ -17,7 +18,7 @@ const Picker = ( {
   children,
   itemList,
   disabled
-}: Props ): Node => {
+}: Props ) => {
   const showIcon = useCallback( () => <></>, [] );
 
   return (

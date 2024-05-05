@@ -1,12 +1,11 @@
-// @flow
-
 import * as React from "react";
 import HTML from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const CommunityGuidelines = ( ): React.Node => {
+const CommunityGuidelines = ( ) => {
   const html = `<div class="last column span-18">
 
   <p>
@@ -187,12 +186,26 @@ const CommunityGuidelines = ( ): React.Node => {
   </ul>
 </div>`;
 
+  const DEFAULT_PROPS = {
+    onLinkPress( ) {
+      return;
+    }
+  };
+
   return (
     <ScrollWithHeader header="inat_signup.guidelines">
       <HTML
+        {...DEFAULT_PROPS}
         containerStyle={viewStyles.textContainer}
         source={{ html }}
-        tagsStyles={ { p: textStyles.text, strong: textStyles.headerText, h3: textStyles.headerText, a: textStyles.text } }
+        tagsStyles={
+          {
+            p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
+            strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
+            h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
+            a: { ...baseTextStyles.bodySpaced, ...textStyles.text }
+          }
+        }
       />
     </ScrollWithHeader>
   );

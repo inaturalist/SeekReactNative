@@ -61,6 +61,14 @@ const body = {
   lineHeight: 21
 };
 
+const bodySpaced = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 15,
+  letterSpacing: 0,
+  lineHeight: 23
+};
+
 const emptyState = {
   color: colors.black,
   fontFamily: fonts.medium,
@@ -319,6 +327,11 @@ const baseTextStyles = StyleSheet.create( {
   bodyItalic: {
     ...body,
     fontFamily: fonts.italic
+  },
+  bodySpaced,
+  bodySpacedMedium: {
+    ...bodySpaced,
+    fontFamily: fonts.medium
   },
   emptyState,
   emptyStateGreen: {

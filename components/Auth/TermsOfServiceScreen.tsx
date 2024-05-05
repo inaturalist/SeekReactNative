@@ -1,12 +1,11 @@
-// @flow
-
 import * as React from "react";
 import HTML from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const TermsOfServiceScreen = ( ): React.Node => {
+const TermsOfServiceScreen = ( ) => {
   const html = `<p><strong><em>Revised July 11, 2023</em></strong></p>
 
 <p>Read our Privacy Policy at <a href="https://www.inaturalist.org/pages/privacy">https://www.inaturalist.org/pages/privacy</a></p>
@@ -182,7 +181,7 @@ const TermsOfServiceScreen = ( ): React.Node => {
 </p>`;
 
   const DEFAULT_PROPS = {
-    onLinkPress( evt, href ) {
+    onLinkPress( ) {
       return;
     }
   };
@@ -194,10 +193,10 @@ const TermsOfServiceScreen = ( ): React.Node => {
         containerStyle={viewStyles.textContainer}
         source={{ html }}
         tagsStyles={ {
-          p: textStyles.text,
-          a: textStyles.text,
-          h3: textStyles.headerText,
-          strong: textStyles.headerText,
+          p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
+          a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
+          h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
+          strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
           ul: textStyles.list,
           ol: textStyles.list
         } }

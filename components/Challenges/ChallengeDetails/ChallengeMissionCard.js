@@ -46,7 +46,7 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
     ) );
 
     const observedCount = (
-      <StyledText style={[baseTextStyles.bodyMedium, textStyles.greenText]}>
+      <StyledText style={[baseTextStyles.bodyMediumGreen, textStyles.greenText]}>
         {i18n.t( "challenges.number_observed_plural", { count: item.observations || 0 } )}
       </StyledText>
     );

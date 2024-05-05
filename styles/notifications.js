@@ -45,17 +45,7 @@ const viewStyles = StyleSheet.create( {
 } );
 
 const textStyles = StyleSheet.create( {
-  messageText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 14,
-    lineHeight: 21
-  },
   titleText: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
     marginBottom: 6
   }
 } );

@@ -319,6 +319,11 @@ const baseTextStyles = StyleSheet.create( {
   },
   bodyMedium: {
     ...body,
+    color: colors.black,
+    fontFamily: fonts.medium
+  },
+  bodyMediumGreen: {
+    ...body,
     color: colors.seekForestGreen,
     fontFamily: fonts.medium
   },

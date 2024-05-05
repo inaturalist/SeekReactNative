@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   Image,
@@ -16,12 +14,21 @@ import badges from "../../assets/badges";
 import { markNotificationAsSeen } from "../../utility/notificationHelpers";
 import StyledText from "../UIComponents/StyledText";
 import { useChallenge } from "../Providers/ChallengeProvider";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +item: Object
+interface Props {
+  item: {
+    iconName: string;
+    title: string;
+    message: string;
+    seen: boolean;
+    nextScreen: string;
+    challengeIndex: number;
+    index: number;
+  };
 }
 
-const NotificationCard = ( { item }: Props ): React.Node => {
+const NotificationCard = ( { item }: Props ) => {
   const { setIndex } = useChallenge( );
   const navigation = useNavigation();
 
@@ -50,10 +57,10 @@ const NotificationCard = ( { item }: Props ): React.Node => {
     >
       <Image source={image} style={imageStyles.image} />
       <View style={viewStyles.textContainer}>
-        <StyledText style={textStyles.titleText}>
+        <StyledText style={[baseTextStyles.bodyMedium, textStyles.titleText]}>
           {i18n.t( item.title )}
         </StyledText>
-        <StyledText style={textStyles.messageText}>
+        <StyledText style={baseTextStyles.bodySmall}>
           {i18n.t( item.message )}
         </StyledText>
       </View>

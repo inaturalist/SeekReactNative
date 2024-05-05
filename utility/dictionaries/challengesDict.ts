@@ -1,6 +1,18 @@
-// @flow
-
-const challenges = {
+type Challenges = {
+  [key: string]: {
+    name: string;
+    description: string;
+    totalSpecies: number;
+    backgroundName: string;
+    earnedIconName: string;
+    missions: string[];
+    availableDate: Date;
+    photographer?: string;
+    action: string;
+    badgeName?: string;
+  };
+};
+const challenges: Challenges = {
   april: {
     name: "challenges.connectivity",
     description: "challenges.april_description",
@@ -8,7 +20,7 @@ const challenges = {
     backgroundName: "img-challengedetail-april",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
-    availableDate: ( new Date( 2019, 3, 1 ): Date ),
+    availableDate: ( new Date( 2019, 3, 1 ) ),
     photographer: "challenges.photographer_april",
     action: "challenges.action_april",
     badgeName: "challenges.badge_name_april"
@@ -26,7 +38,7 @@ const challenges = {
       "challenges.mission_4_may",
       "challenges.mission_5_may"
     ],
-    availableDate: ( new Date( 2019, 4, 1 ): Date ),
+    availableDate: ( new Date( 2019, 4, 1 ) ),
     photographer: "challenges.photographer_may",
     action: "challenges.action_may",
     badgeName: "challenges.badge_name_may"
@@ -43,7 +55,7 @@ const challenges = {
       "challenges.mission_3_june",
       "challenges.mission_4_june"
     ],
-    availableDate: ( new Date( 2019, 5, 1 ): Date ),
+    availableDate: ( new Date( 2019, 5, 1 ) ),
     photographer: "challenges.photographer_june",
     action: "challenges.action_june",
     badgeName: "challenges.badge_name_june"
@@ -55,7 +67,7 @@ const challenges = {
     backgroundName: "img-challengedetail-august",
     earnedIconName: "badge_ourplanet_august",
     missions: ["challenges.mission_1_august"],
-    availableDate: ( new Date( 2019, 7, 1 ): Date ),
+    availableDate: ( new Date( 2019, 7, 1 ) ),
     photographer: "challenges.photographer_august",
     action: "challenges.action_august",
     badgeName: "challenges.badge_name_august"
@@ -67,7 +79,7 @@ const challenges = {
     backgroundName: "img-challengedetail-september",
     earnedIconName: "badge_ourplanet_september",
     missions: ["challenges.mission_1_september"],
-    availableDate: ( new Date( 2019, 8, 1 ): Date ),
+    availableDate: ( new Date( 2019, 8, 1 ) ),
     photographer: "challenges.photographer_september",
     action: "challenges.action_september",
     badgeName: "challenges.badge_name_september"
@@ -79,7 +91,7 @@ const challenges = {
     backgroundName: "img-challengedetail-october",
     earnedIconName: "badge_ourplanet_october",
     missions: ["challenges.mission_1_october"],
-    availableDate: ( new Date( 2019, 9, 1 ): Date ),
+    availableDate: ( new Date( 2019, 9, 1 ) ),
     photographer: "challenges.photographer_october",
     action: "challenges.action_october",
     badgeName: "challenges.badge_name_october"
@@ -91,7 +103,7 @@ const challenges = {
     backgroundName: "img-challengedetail-november",
     earnedIconName: "badge_ourplanet_november",
     missions: ["challenges.mission_1_november"],
-    availableDate: ( new Date( 2019, 10, 1 ): Date ),
+    availableDate: ( new Date( 2019, 10, 1 ) ),
     photographer: "challenges.photographer_november",
     action: "challenges.action_november_2019",
     badgeName: "challenges.badge_name_november"
@@ -103,7 +115,7 @@ const challenges = {
     backgroundName: "img-challengedetail-december",
     earnedIconName: "badge_ourplanet_december",
     missions: ["challenges.mission_1_december"],
-    availableDate: ( new Date( 2019, 11, 1 ): Date ),
+    availableDate: ( new Date( 2019, 11, 1 ) ),
     photographer: "challenges.photographer_december",
     action: "challenges.action_december",
     badgeName: "challenges.badge_name_december"
@@ -115,7 +127,7 @@ const challenges = {
     backgroundName: "img-challengedetail-april2020",
     earnedIconName: "badge_inaturalist_april2020",
     missions: ["challenges.mission_1_april"],
-    availableDate: ( new Date( 2020, 3, 1 ): Date ),
+    availableDate: ( new Date( 2020, 3, 1 ) ),
     action: "seek_challenges.action_april_2020"
   },
   may2020: {
@@ -130,7 +142,7 @@ const challenges = {
       "seek_challenges.mission_3_may_2020",
       "seek_challenges.mission_4_may_2020"
     ],
-    availableDate: ( new Date( 2020, 4, 1 ): Date ),
+    availableDate: ( new Date( 2020, 4, 1 ) ),
     action: "seek_challenges.action_may_2020"
   },
   june2020: {
@@ -144,7 +156,7 @@ const challenges = {
       "seek_challenges.mission_2_june_2020",
       "seek_challenges.mission_3_june_2020"
     ],
-    availableDate: ( new Date( 2020, 5, 1 ): Date ),
+    availableDate: ( new Date( 2020, 5, 1 ) ),
     action: "seek_challenges.action_june_2020"
   },
   july2020: {
@@ -158,7 +170,7 @@ const challenges = {
       "seek_challenges.mission_2_july_2020",
       "seek_challenges.mission_3_july_2020"
     ],
-    availableDate: ( new Date( 2020, 6, 1 ): Date ),
+    availableDate: ( new Date( 2020, 6, 1 ) ),
     action: "seek_challenges.action_july_2020"
   },
   aug2020: {
@@ -173,7 +185,7 @@ const challenges = {
       "seek_challenges.mission_3_aug_2020",
       "seek_challenges.mission_4_aug_2020"
     ],
-    availableDate: ( new Date( 2020, 7, 1 ): Date ),
+    availableDate: ( new Date( 2020, 7, 1 ) ),
     action: "seek_challenges.action_aug_2020"
   },
   sept2020: {
@@ -187,7 +199,7 @@ const challenges = {
       "seek_challenges.mission_2_sept_2020",
       "seek_challenges.mission_3_sept_2020"
     ],
-    availableDate: ( new Date( 2020, 8, 1 ): Date ),
+    availableDate: ( new Date( 2020, 8, 1 ) ),
     action: "seek_challenges.action_sept_2020"
   },
   oct2020: {
@@ -202,7 +214,7 @@ const challenges = {
       "seek_challenges.mission_3_oct_2020",
       "seek_challenges.mission_4_oct_2020"
     ],
-    availableDate: ( new Date( 2020, 9, 1 ): Date ),
+    availableDate: ( new Date( 2020, 9, 1 ) ),
     action: "seek_challenges.action_oct_2020"
   },
   nov2020: {
@@ -217,7 +229,7 @@ const challenges = {
       "seek_challenges.mission_3_nov_2020",
       "seek_challenges.mission_4_nov_2020"
     ],
-    availableDate: ( new Date( 2020, 10, 1 ): Date ),
+    availableDate: ( new Date( 2020, 10, 1 ) ),
     action: "seek_challenges.action_nov_2020"
   },
   dec2020: {
@@ -232,7 +244,7 @@ const challenges = {
       "seek_challenges.mission_3_dec_2020",
       "seek_challenges.mission_4_dec_2020"
     ],
-    availableDate: ( new Date( 2020, 11, 1 ): Date ),
+    availableDate: ( new Date( 2020, 11, 1 ) ),
     action: "seek_challenges.action_dec_2020"
   },
   mar2021: {
@@ -242,7 +254,7 @@ const challenges = {
     backgroundName: "img-challengedetail-march2021",
     earnedIconName: "badge_natgeo_march2021",
     missions: ["natgeo_challenges.mar_2021_mission_1"],
-    availableDate: ( new Date( 2021, 2, 1 ): Date ),
+    availableDate: ( new Date( 2021, 2, 1 ) ),
     action: "natgeo_challenges.mar_2021_action",
     badgeName: "natgeo_challenges.mar_2021_badge_name",
     photographer: "natgeo_challenges.mar_2021_photographer"
@@ -258,7 +270,7 @@ const challenges = {
       "natgeo_challenges.apr_2021_mission_2",
       "natgeo_challenges.apr_2021_mission_3"
     ],
-    availableDate: ( new Date( 2021, 3, 1 ): Date ),
+    availableDate: ( new Date( 2021, 3, 1 ) ),
     action: "natgeo_challenges.apr_2021_action",
     badgeName: "natgeo_challenges.apr_2021_badge_name",
     photographer: "natgeo_challenges.apr_2021_photographer"
@@ -273,7 +285,7 @@ const challenges = {
       "natgeo_challenges.may_2021_mission_1",
       "natgeo_challenges.may_2021_mission_2"
     ],
-    availableDate: ( new Date( 2021, 4, 1 ): Date ),
+    availableDate: ( new Date( 2021, 4, 1 ) ),
     action: "natgeo_challenges.may_2021_action",
     badgeName: "natgeo_challenges.may_2021_badge_name",
     photographer: "natgeo_challenges.may_2021_photographer"
@@ -293,7 +305,7 @@ const challenges = {
       "natgeo_challenges.june_2021_mission_6",
       "natgeo_challenges.june_2021_mission_7"
     ],
-    availableDate: ( new Date( 2021, 5, 1 ): Date ),
+    availableDate: ( new Date( 2021, 5, 1 ) ),
     action: "natgeo_challenges.june_2021_action",
     badgeName: "natgeo_challenges.june_2021_badge_name",
     photographer: "natgeo_challenges.june_2021_photographer"
@@ -305,7 +317,7 @@ const challenges = {
     backgroundName: "img-challengedetail-august2021",
     earnedIconName: "badge_inaturalist_august2021",
     missions: ["seek_2021_challenges.august_2021_mission_1"],
-    availableDate: ( new Date( 2021, 7, 1 ): Date ),
+    availableDate: ( new Date( 2021, 7, 1 ) ),
     action: "seek_2021_challenges.august_2021_action"
   },
   sept2021: {
@@ -315,7 +327,7 @@ const challenges = {
     backgroundName: "img-challengedetail-september2021",
     earnedIconName: "badge_inaturalist_september2021",
     missions: ["seek_2021_challenges.september_2021_mission_1"],
-    availableDate: ( new Date( 2021, 8, 1 ): Date ),
+    availableDate: ( new Date( 2021, 8, 1 ) ),
     action: "seek_2021_challenges.september_2021_action"
   },
   oct2021: {
@@ -325,7 +337,7 @@ const challenges = {
     backgroundName: "img-challengedetail-october2021",
     earnedIconName: "badge_inaturalist_october2021",
     missions: ["seek_2021_challenges.october_2021_mission_1"],
-    availableDate: ( new Date( 2021, 9, 1 ): Date ),
+    availableDate: ( new Date( 2021, 9, 1 ) ),
     action: "seek_2021_challenges.october_2021_action"
   },
   nov2021: {
@@ -336,7 +348,7 @@ const challenges = {
     backgroundName: "img-challengedetail-november2021",
     earnedIconName: "badge_inaturalist_november2021",
     missions: ["seek_2021_challenges.november_2021_mission_1"],
-    availableDate: ( new Date( 2021, 10, 1 ): Date ),
+    availableDate: ( new Date( 2021, 10, 1 ) ),
     action: "seek_2021_challenges.november_2021_action_were_they_flighted"
   },
   dec2021: {
@@ -347,7 +359,7 @@ const challenges = {
     backgroundName: "img-challengedetail-december2021",
     earnedIconName: "badge_inaturalist_december2021",
     missions: ["seek_2021_challenges.december_2021_mission_1"],
-    availableDate: ( new Date( 2021, 11, 1 ): Date ),
+    availableDate: ( new Date( 2021, 11, 1 ) ),
     action: "seek_2021_challenges.december_2021_action_think_about_predators"
   },
   jan2022: {
@@ -358,7 +370,7 @@ const challenges = {
     backgroundName: "img-challengedetail-january2022",
     earnedIconName: "badge_inaturalist_january2022",
     missions: ["seek_2022_challenges.january_2022_mission_1"],
-    availableDate: ( new Date( 2022, 0, 1 ): Date ),
+    availableDate: ( new Date( 2022, 0, 1 ) ),
     action: "seek_2022_challenges.january_2022_action_water_habitat"
   },
   feb2022: {
@@ -369,7 +381,7 @@ const challenges = {
     backgroundName: "img-challengedetail-february2022",
     earnedIconName: "badge_inaturalist_february2022",
     missions: ["seek_2022_challenges.february_2022_mission_1"],
-    availableDate: ( new Date( 2022, 1, 1 ): Date ),
+    availableDate: ( new Date( 2022, 1, 1 ) ),
     action: "seek_2022_challenges.february_2022_action_which_species_excited"
   },
   mar2022: {
@@ -380,7 +392,7 @@ const challenges = {
     backgroundName: "img-challengedetail-march2022",
     earnedIconName: "badge_inaturalist_march2022",
     missions: ["seek_2022_challenges.march_2022_mission_1"],
-    availableDate: ( new Date( 2022, 2, 1 ): Date ),
+    availableDate: ( new Date( 2022, 2, 1 ) ),
     action: "seek_2022_challenges.march_2022_action_find_wild_or_intentional"
   },
   apr2022: {
@@ -391,7 +403,7 @@ const challenges = {
     backgroundName: "img-challengedetail-april2022",
     earnedIconName: "badge_inaturalist_april2022",
     missions: ["seek_2022_challenges.april_2022_mission_1"],
-    availableDate: ( new Date( 2022, 3, 1 ): Date ),
+    availableDate: ( new Date( 2022, 3, 1 ) ),
     action: "seek_2022_challenges.april_2022_action_pollen_visible_anther"
   },
   may2022: {
@@ -402,7 +414,7 @@ const challenges = {
     backgroundName: "img-challengedetail-may2022",
     earnedIconName: "badge_my_garden_may2022",
     missions: ["seek_2022_challenges.may_2022_mission_1"],
-    availableDate: ( new Date( 2022, 4, 1 ): Date ),
+    availableDate: ( new Date( 2022, 4, 1 ) ),
     action: "seek_2022_challenges.may_2022_action_see_bees",
     badgeName: "challenges.badge_name_my_garden_2022"
   },
@@ -417,7 +429,7 @@ const challenges = {
       "seek_2022_challenges.june_2022_mission_1",
       "seek_2022_challenges.june_2022_mission_2"
     ],
-    availableDate: ( new Date( 2022, 5, 1 ): Date ),
+    availableDate: ( new Date( 2022, 5, 1 ) ),
     action: "seek_2022_challenges.june_2022_action_busy_pollinators",
     badgeName: "challenges.badge_name_my_garden_2022"
   },
@@ -429,7 +441,7 @@ const challenges = {
     backgroundName: "img-challengedetail-july2022",
     earnedIconName: "badge_inaturalist_july2022",
     missions: ["seek_2022_challenges.july_2022_mission_1"],
-    availableDate: ( new Date( 2022, 6, 1 ): Date ),
+    availableDate: ( new Date( 2022, 6, 1 ) ),
     action: "seek_2022_challenges.july_2022_action_molted_exoskeleton"
   },
   august2022: {
@@ -443,7 +455,7 @@ const challenges = {
       "seek_2022_challenges.august_2022_mission_1",
       "seek_2022_challenges.august_2022_mission_2"
     ],
-    availableDate: ( new Date( 2022, 7, 1 ): Date ),
+    availableDate: ( new Date( 2022, 7, 1 ) ),
     action:
       "seek_2022_challenges.august_2022_action_largest_species_seed_dispersing"
   },
@@ -455,7 +467,7 @@ const challenges = {
     backgroundName: "img-challengedetail-september2022",
     earnedIconName: "badge_inaturalist_september2022",
     missions: ["seek_2022_challenges.september_2022_mission_1"],
-    availableDate: ( new Date( 2022, 8, 1 ): Date ),
+    availableDate: ( new Date( 2022, 8, 1 ) ),
     action: "seek_2022_challenges.september_2022_action_photosynthesis"
   },
   october2022: {
@@ -466,7 +478,7 @@ const challenges = {
     backgroundName: "img-challengedetail-october2022",
     earnedIconName: "badge_inaturalist_october2022",
     missions: ["seek_2022_challenges.october_2022_mission_1"],
-    availableDate: ( new Date( 2022, 9, 1 ): Date ),
+    availableDate: ( new Date( 2022, 9, 1 ) ),
     action: "seek_2022_challenges.october_2022_action_parasites"
   },
   november2022: {
@@ -477,7 +489,7 @@ const challenges = {
     backgroundName: "img-challengedetail-november2022",
     earnedIconName: "badge_inaturalist_november2022",
     missions: ["seek_2022_challenges.november_2022_mission_1"],
-    availableDate: ( new Date( 2022, 10, 1 ): Date ),
+    availableDate: ( new Date( 2022, 10, 1 ) ),
     action: "seek_2022_challenges.november_2022_action_change_location"
   },
   december2022: {
@@ -492,7 +504,7 @@ const challenges = {
       "seek_challenges.mission_3_oct_2020",
       "seek_challenges.mission_4_oct_2020"
     ],
-    availableDate: ( new Date( 2022, 11, 1 ): Date ),
+    availableDate: ( new Date( 2022, 11, 1 ) ),
     action: "seek_challenges.action_oct_2020"
   },
   january2023: {
@@ -507,7 +519,7 @@ const challenges = {
       "seek_challenges.mission_3_nov_2020",
       "seek_challenges.mission_4_nov_2020"
     ],
-    availableDate: ( new Date( 2023, 0, 1 ): Date ),
+    availableDate: ( new Date( 2023, 0, 1 ) ),
     action: "seek_challenges.action_nov_2020"
   },
   february2023: {
@@ -518,7 +530,7 @@ const challenges = {
     backgroundName: "img-challengedetail-february2023",
     earnedIconName: "badge_inaturalist_february2023",
     missions: ["challenges.mission_1_december"],
-    availableDate: ( new Date( 2023, 1, 1 ): Date ),
+    availableDate: ( new Date( 2023, 1, 1 ) ),
     action: "seek_2023_challenges.february_2023_action_climate_change"
   },
   march2023: {
@@ -528,7 +540,7 @@ const challenges = {
     backgroundName: "img-challengedetail-march2023",
     earnedIconName: "badge_inaturalist_march2023",
     missions: ["challenges.mission_1_september"],
-    availableDate: ( new Date( 2023, 2, 1 ): Date ),
+    availableDate: ( new Date( 2023, 2, 1 ) ),
     action: "challenges.action_september"
   },
   april2023: {
@@ -538,7 +550,7 @@ const challenges = {
     backgroundName: "img-challengedetail-april2023",
     earnedIconName: "badge_inaturalist_april2023",
     missions: ["challenges.mission_1_april"],
-    availableDate: ( new Date( 2023, 3, 1 ): Date ),
+    availableDate: ( new Date( 2023, 3, 1 ) ),
     action: "seek_2023_challenges.april_2023_action_nature"
   },
   may2023: {
@@ -554,7 +566,7 @@ const challenges = {
       "challenges.mission_4_may",
       "challenges.mission_5_may"
     ],
-    availableDate: ( new Date( 2023, 4, 1 ): Date ),
+    availableDate: ( new Date( 2023, 4, 1 ) ),
     action: "challenges.action_may"
   },
   june2023: {
@@ -568,7 +580,7 @@ const challenges = {
       "seek_challenges.mission_2_sept_2020",
       "seek_challenges.mission_3_sept_2020"
     ],
-    availableDate: ( new Date( 2023, 5, 1 ): Date ),
+    availableDate: ( new Date( 2023, 5, 1 ) ),
     action: "seek_2023_challenges.june_2023_action"
   },
   july2023: {
@@ -583,7 +595,7 @@ const challenges = {
       "challenges.mission_3_june",
       "challenges.mission_4_june"
     ],
-    availableDate: ( new Date( 2023, 6, 1 ): Date ),
+    availableDate: ( new Date( 2023, 6, 1 ) ),
     action: "seek_2023_challenges.july_2023_action_plant_eaters"
   },
   august2023: {
@@ -593,7 +605,7 @@ const challenges = {
     backgroundName: "img-challengedetail-august2023",
     earnedIconName: "badge_inaturalist_august2023",
     missions: ["challenges.mission_1_august"],
-    availableDate: ( new Date( 2023, 7, 1 ): Date ),
+    availableDate: ( new Date( 2023, 7, 1 ) ),
     action: "seek_2023_challenges.august_2023_action_insect"
   },
   september2023: {
@@ -603,7 +615,7 @@ const challenges = {
     backgroundName: "img-challengedetail-september2023",
     earnedIconName: "badge_inaturalist_september2023",
     missions: ["seek_2021_challenges.september_2021_mission_1"],
-    availableDate: ( new Date( 2023, 8, 1 ): Date ),
+    availableDate: ( new Date( 2023, 8, 1 ) ),
     action: "seek_2021_challenges.september_2021_action"
   },
   october2023: {
@@ -613,7 +625,7 @@ const challenges = {
     backgroundName: "img-challengedetail-october2023",
     earnedIconName: "badge_inaturalist_october2023",
     missions: ["challenges.mission_1_october"],
-    availableDate: ( new Date( 2023, 9, 1 ): Date ),
+    availableDate: ( new Date( 2023, 9, 1 ) ),
     action: "seek_2023_challenges.october_2023_action_migration"
   },
   november2023: {
@@ -623,7 +635,7 @@ const challenges = {
     backgroundName: "img-challengedetail-november2023",
     earnedIconName: "badge_inaturalist_november2023",
     missions: ["challenges.mission_1_november"],
-    availableDate: ( new Date( 2023, 10, 1 ): Date ),
+    availableDate: ( new Date( 2023, 10, 1 ) ),
     action: "seek_2023_challenges.november_2023_action_trees"
   },
   december2023: {
@@ -638,7 +650,7 @@ const challenges = {
       "seek_challenges.mission_3_dec_2020",
       "seek_challenges.mission_4_dec_2020"
     ],
-    availableDate: ( new Date( 2023, 11, 1 ): Date ),
+    availableDate: ( new Date( 2023, 11, 1 ) ),
     action: "seek_challenges.action_dec_2020"
   },
   january2024: {
@@ -653,7 +665,7 @@ const challenges = {
       "seek_challenges.mission_3_may_2020",
       "seek_challenges.mission_4_may_2020"
     ],
-    availableDate: ( new Date( 2024, 0, 1 ): Date ),
+    availableDate: ( new Date( 2024, 0, 1 ) ),
     action: "seek_challenges.action_may_2020"
   },
   february2024: {
@@ -664,7 +676,7 @@ const challenges = {
     backgroundName: "img-challengedetail-february2024",
     earnedIconName: "badge_inaturalist_february2024",
     missions: ["seek_2021_challenges.november_2021_mission_1"],
-    availableDate: ( new Date( 2024, 1, 1 ): Date ),
+    availableDate: ( new Date( 2024, 1, 1 ) ),
     action: "seek_2021_challenges.november_2021_action_were_they_flighted"
   },
   march2024: {
@@ -682,7 +694,7 @@ const challenges = {
       "natgeo_challenges.june_2021_mission_6",
       "natgeo_challenges.june_2021_mission_7"
     ],
-    availableDate: ( new Date( 2024, 2, 1 ): Date ),
+    availableDate: ( new Date( 2024, 2, 1 ) ),
     action: "seek_2024_challenges.march_2024_action_stewardship"
   },
   april2024: {
@@ -696,7 +708,7 @@ const challenges = {
       "seek_challenges.mission_2_june_2020",
       "seek_challenges.mission_3_june_2020"
     ],
-    availableDate: ( new Date( 2024, 3, 1 ): Date ),
+    availableDate: ( new Date( 2024, 3, 1 ) ),
     action: "seek_challenges.action_june_2020"
   },
   may2024: {
@@ -706,7 +718,7 @@ const challenges = {
     backgroundName: "img-challengedetail-may2024",
     earnedIconName: "badge_inaturalist_may2024",
     missions: ["challenges.mission_1_april"],
-    availableDate: ( new Date( 2024, 4, 1 ): Date ),
+    availableDate: ( new Date( 2024, 4, 1 ) ),
     action: "seek_2024_challenges.may_2024_action_phenology"
   },
   june2024: {
@@ -721,7 +733,7 @@ const challenges = {
       "seek_challenges.mission_3_aug_2020",
       "seek_challenges.mission_4_aug_2020"
     ],
-    availableDate: ( new Date( 2024, 5, 1 ): Date ),
+    availableDate: ( new Date( 2024, 5, 1 ) ),
     action: "seek_2024_challenges.june_2024_action_flowers_food"
   },
   july2024: {
@@ -734,7 +746,7 @@ const challenges = {
       "natgeo_challenges.may_2021_mission_1",
       "natgeo_challenges.may_2021_mission_2"
     ],
-    availableDate: ( new Date( 2024, 6, 1 ): Date ),
+    availableDate: ( new Date( 2024, 6, 1 ) ),
     action: "seek_2024_challenges.july_2024_action_indicator_species"
   },
   august2024: {
@@ -748,7 +760,7 @@ const challenges = {
       "seek_challenges.mission_2_july_2020",
       "seek_challenges.mission_3_july_2020"
     ],
-    availableDate: ( new Date( 2024, 7, 1 ): Date ),
+    availableDate: ( new Date( 2024, 7, 1 ) ),
     action: "seek_challenges.action_july_2020"
   },
   september2024: {
@@ -758,7 +770,7 @@ const challenges = {
     backgroundName: "img-challengedetail-september2024",
     earnedIconName: "badge_inaturalist_september2024",
     missions: ["seek_2021_challenges.august_2021_mission_1"],
-    availableDate: ( new Date( 2024, 8, 1 ): Date ),
+    availableDate: ( new Date( 2024, 8, 1 ) ),
     action: "seek_2021_challenges.august_2021_action"
   },
   october2024: {
@@ -768,7 +780,7 @@ const challenges = {
     backgroundName: "img-challengedetail-october2024",
     earnedIconName: "badge_inaturalist_october2024",
     missions: ["seek_2021_challenges.october_2021_mission_1"],
-    availableDate: ( new Date( 2024, 9, 1 ): Date ),
+    availableDate: ( new Date( 2024, 9, 1 ) ),
     action: "seek_2021_challenges.october_2021_action"
   },
   november2024: {
@@ -779,7 +791,7 @@ const challenges = {
     backgroundName: "img-challengedetail-november2024",
     earnedIconName: "badge_inaturalist_november2024",
     missions: ["seek_2021_challenges.december_2021_mission_1"],
-    availableDate: ( new Date( 2024, 10, 1 ): Date ),
+    availableDate: ( new Date( 2024, 10, 1 ) ),
     action: "seek_2021_challenges.december_2021_action_think_about_predators"
   },
   december2024: {
@@ -789,7 +801,7 @@ const challenges = {
     backgroundName: "img-challengedetail-december2024",
     earnedIconName: "badge_inaturalist_december2024",
     missions: ["natgeo_challenges.mar_2021_mission_1"],
-    availableDate: ( new Date( 2024, 11, 1 ): Date ),
+    availableDate: ( new Date( 2024, 11, 1 ) ),
     action: "seek_2024_challenges.december_2024_action_solstice"
   }
 };

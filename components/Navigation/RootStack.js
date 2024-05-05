@@ -79,6 +79,7 @@ const App = ( ): Props => (
             <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
             <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
             <Stack.Screen name="LoginSuccess" component={LoginSuccessScreen} options={defaultConfig} />
+            {/* TODO: Social screen needs Lato font restyling, or can it be deleted? */}
             <Stack.Screen name="Social" component={Social} options={defaultConfig} />
         </Stack.Group>
          <Stack.Group screenOptions={modal}>

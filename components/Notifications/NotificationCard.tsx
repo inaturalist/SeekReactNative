@@ -15,17 +15,10 @@ import { markNotificationAsSeen } from "../../utility/notificationHelpers";
 import StyledText from "../UIComponents/StyledText";
 import { useChallenge } from "../Providers/ChallengeProvider";
 import { baseTextStyles } from "../../styles/textStyles";
+import { Notification } from "./hooks/notificationHooks";
 
 interface Props {
-  item: {
-    iconName: string;
-    title: string;
-    message: string;
-    seen: boolean;
-    nextScreen: string;
-    challengeIndex: number;
-    index: number;
-  };
+  item: Notification;
 }
 
 const NotificationCard = ( { item }: Props ) => {

@@ -1,10 +1,7 @@
-// @flow
-
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { useNavigation, useScrollToTop } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { viewStyles } from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
@@ -13,9 +10,9 @@ import Padding from "../UIComponents/Padding";
 import BottomSpacer from "../UIComponents/BottomSpacer";
 import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
-import useFetchNotifications from "./hooks/notificationHooks";
+import useFetchNotifications, { Notification } from "./hooks/notificationHooks";
 
-const NotificationsScreen = ( ): Node => {
+const NotificationsScreen = ( ) => {
   const navigation = useNavigation( );
   const scrollView = useRef( null );
   const notifications = useFetchNotifications( );
@@ -28,7 +25,7 @@ const NotificationsScreen = ( ): Node => {
     } );
   }, [navigation] );
 
-  const renderItem = ( { item } ) => <NotificationCard item={item} />;
+  const renderItem = ( { item }: { item: Notification } ) => <NotificationCard item={item} />;
   const showEmptyList = ( ) => <EmptyState />;
   const renderItemSeparator = ( ) => <View style={viewStyles.divider} />;
   const renderFooter = ( ) => (
@@ -37,7 +34,7 @@ const NotificationsScreen = ( ): Node => {
       <BottomSpacer />
     </>
   );
-  const extractKey = ( item, index ) => item + index;
+  const extractKey = ( item: Notification, index: number ) => item + index;
 
   return (
     <ViewWithHeader testID="notifications-screen-container" header="notifications.header" footer={false}>

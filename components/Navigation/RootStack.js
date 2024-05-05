@@ -83,6 +83,7 @@ const App = ( ): Props => (
         </Stack.Group>
          <Stack.Group screenOptions={modal}>
             <Stack.Screen name="TermsOfService" component={TermsOfServiceScreen} options={defaultConfig} />
+            <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} options={defaultConfig} />
             {/* Removed Footer from Notification screen because animation from right
             doesn't work if it's in drawer, but this screen would also need access to open the drawer
             if the footer is shown */}
@@ -92,7 +93,6 @@ const App = ( ): Props => (
             <Stack.Screen name="CameraHelp" component={CameraHelp} options={defaultConfig} />
             <Stack.Screen name="Donation" component={Donation} options={verticalConfig} />
             <Stack.Screen name="PostingHelp" component={PostingHelp} options={defaultConfig} />
-            <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} options={defaultConfig} />
             <Stack.Screen
               name="CommunityGuidelines"
               component={CommunityGuidelines}

@@ -1,13 +1,12 @@
-// @flow
-
 import React, { useContext } from "react";
 import HTML from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { UserContext } from "../UserContext";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const PrivacyPolicyScreen = (): React.Node => {
+const PrivacyPolicyScreen = () => {
   const { login } = useContext( UserContext );
 
   const iNatHtml = `<p><i>Last Modified on July 11, 2023</i></p>
@@ -489,7 +488,7 @@ const PrivacyPolicyScreen = (): React.Node => {
 <p><i>Revised on July 11, 2023.</i></p>`;
 
   const DEFAULT_PROPS = {
-    onLinkPress( evt, href ) {
+    onLinkPress( ) {
       return;
     }
   };
@@ -502,9 +501,9 @@ const PrivacyPolicyScreen = (): React.Node => {
           containerStyle={viewStyles.textContainer}
           source={{ html: iNatHtml }}
           tagsStyles={{
-            p: textStyles.text,
-            h3: textStyles.headerText,
-            a: textStyles.text,
+            p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
+            h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
+            a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
             li: textStyles.list
           }}
         />
@@ -514,9 +513,9 @@ const PrivacyPolicyScreen = (): React.Node => {
           containerStyle={viewStyles.textContainer}
           source={{ html: seekHtml }}
           tagsStyles={{
-            p: textStyles.text,
-            h3: textStyles.headerText,
-            a: textStyles.text,
+            p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
+            h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
+            a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
             li: textStyles.list
           }}
         />

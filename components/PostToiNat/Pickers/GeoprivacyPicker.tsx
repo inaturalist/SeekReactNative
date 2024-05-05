@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import {
   Image,
@@ -8,17 +7,18 @@ import {
 import i18n from "../../../i18n";
 import styles from "../../../styles/posting/postToiNat";
 import posting from "../../../assets/posting";
-import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 import Picker from "../../UIComponents/Picker";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  updateObservation: ( string, any ) => void,
-  geoprivacy: string
+type Geoprivacy = "geoprivacy";
+interface Props {
+  updateObservation: ( string: Geoprivacy, value: string ) => void;
+  geoprivacy: string;
 }
 
-const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ): React.Node => {
+const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ) => {
   const geoprivacyTypes = [{
     label: i18n.t( "posting.open" ),
     value: "open"
@@ -32,7 +32,7 @@ const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ): React.Nod
     value: "private"
   }];
 
-  const setGeoprivacy = ( value ) => updateObservation( "geoprivacy", value );
+  const setGeoprivacy = ( value: string ) => updateObservation( "geoprivacy", value );
 
   const geoprivacyText = geoprivacyTypes.filter( type => type.value === geoprivacy )[0].label;
 
@@ -40,17 +40,15 @@ const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ): React.Nod
     <View style={styles.thinCard}>
         <Image source={posting.geoprivacy} />
         <View style={styles.row}>
-          <StyledText style={styles.greenText}>
+          <StyledText style={baseTextStyles.postSectionHeader}>
             {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
           </StyledText>
-          <StyledText style={styles.text}>
+          <StyledText style={[baseTextStyles.body, styles.text]}>
             {geoprivacyText}
           </StyledText>
         </View>
-        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
-          tintColor={colors.seekForestGreen}
           style={[styles.buttonIcon, styles.rotate]}
         />
       </View>

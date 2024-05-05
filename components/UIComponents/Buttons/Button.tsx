@@ -9,7 +9,7 @@ import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  color?: Object;
+  color?: string;
   handlePress: () => void;
   large?: boolean;
   greenText?: boolean;
@@ -32,7 +32,7 @@ const Button = ( {
       viewStyles.center,
       large && viewStyles.largeButton,
       large && viewStyles.extraPadding,
-      color && { backgroundColor: color },
+      !!color && { backgroundColor: color },
       login && viewStyles.login
     ]}
   >

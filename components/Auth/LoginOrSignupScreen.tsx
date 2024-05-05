@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -16,12 +14,9 @@ import backgrounds from "../../assets/backgrounds";
 import Button from "../UIComponents/Buttons/Button";
 import { enabledLargeFonts } from "../../utility/textHelpers";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +navigation: any
-}
-
-const LoginOrSignupScreen = ( { navigation }: Props ): React.Node => {
+const LoginOrSignupScreen = ( { navigation } ) => {
   const navToLogin = ( ) => navigation.navigate( "Login" );
   const navToAge = ( ) => navigation.navigate( "Age" );
   const navToDrawer = ( ) => navigation.navigate( "Drawer" );
@@ -62,7 +57,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ): React.Node => {
           login
         />
         <View style={viewStyles.margin} />
-        <StyledText style={textStyles.text}>
+        <StyledText style={[baseTextStyles.loginOrSignup, textStyles.text]}>
           {i18n.t( "login.about" )}
         </StyledText>
       </ScrollView>

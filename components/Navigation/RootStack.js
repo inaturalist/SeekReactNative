@@ -70,8 +70,8 @@ const App = ( ): Props => (
             <Stack.Screen name="Post" component={Post} options={defaultConfig} />
             <Stack.Screen name="PostStatus" component={PostStatus} options={defaultConfig} />
             <Stack.Screen name="LoginOrSignup" component={LoginOrSignupScreen} options={defaultConfig} />
-            <Stack.Screen name="Age" component={AgeVerifyScreen} options={defaultConfig} />
             <Stack.Screen name="Login" component={LoginScreen} options={defaultConfig} />
+            <Stack.Screen name="Age" component={AgeVerifyScreen} options={defaultConfig} />
             <Stack.Screen name="Forgot" component={ForgotPasswordScreen} options={defaultConfig} />
             <Stack.Screen name="PasswordEmail" component={PasswordEmailScreen} options={defaultConfig} />
             <Stack.Screen name="ParentCheck" component={ParentCheckEmailScreen} options={defaultConfig} />

@@ -213,6 +213,13 @@ const postSectionHeader = {
   letterSpacing: 1.0
 };
 
+const loginOrSignup = {
+  color: colors.white,
+  fontFamily: fonts.medium,
+  fontSize: 17,
+  lineHeight: 19
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -337,7 +344,8 @@ const baseTextStyles = StyleSheet.create( {
   prediction,
   picker,
   inputField,
-  postSectionHeader
+  postSectionHeader,
+  loginOrSignup
 } );
 
 export {

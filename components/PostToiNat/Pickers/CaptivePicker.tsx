@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import { Image, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
@@ -6,16 +5,17 @@ import RNPickerSelect from "react-native-picker-select";
 import i18n from "../../../i18n";
 import styles from "../../../styles/posting/postToiNat";
 import posting from "../../../assets/posting";
-import { colors } from "../../../styles/global";
 import icons from "../../../assets/icons";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  updateObservation: ( string, any ) => void,
-  captive: boolean
+type Captive = "captive_flag";
+interface Props {
+  updateObservation: ( string: Captive, value: boolean ) => void;
+  captive: boolean;
 }
 
-const CaptivePicker = ( { updateObservation, captive }: Props ): React.Node => {
+const CaptivePicker = ( { updateObservation, captive }: Props ) => {
   const captiveTypes = [{
     label: i18n.t( "posting.no" ),
     value: false
@@ -25,11 +25,10 @@ const CaptivePicker = ( { updateObservation, captive }: Props ): React.Node => {
     value: true
   }];
 
-  const handleChange = ( value ) => updateObservation( "captive_flag", value );
+  const handleChange = ( value: boolean ) => updateObservation( "captive_flag", value );
 
   return (
     <RNPickerSelect
-      hideIcon
       items={captiveTypes}
       onValueChange={handleChange}
       placeholder={{}}
@@ -38,17 +37,15 @@ const CaptivePicker = ( { updateObservation, captive }: Props ): React.Node => {
       <View style={styles.thinCard}>
         <Image source={posting.captive} />
         <View style={styles.row}>
-          <StyledText style={styles.greenText}>
+          <StyledText style={baseTextStyles.postSectionHeader}>
             {i18n.t( "posting.captive" ).toLocaleUpperCase()}
           </StyledText>
-          <StyledText style={styles.text}>
+          <StyledText style={[baseTextStyles.body, styles.text]}>
             {captive ? i18n.t( "posting.yes" ) : i18n.t( "posting.no" )}
           </StyledText>
         </View>
-        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
-          tintColor={colors.seekForestGreen}
           style={[styles.buttonIcon, styles.rotate]}
         />
       </View>

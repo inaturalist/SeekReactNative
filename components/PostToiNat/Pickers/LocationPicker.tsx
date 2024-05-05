@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
@@ -7,7 +5,6 @@ import {
   Image
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
@@ -18,15 +15,18 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { dimensions } from "../../../styles/global";
 import { useFetchUserLocation } from "../hooks/postingHooks";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { Region } from "react-native-maps";
+import { Coords } from "../../../utility/locationHelpers";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
 
-type Props = {
-  +latitude: ?number,
-  +longitude: ?number,
-  +updateLocation: Function,
-  +closeLocationPicker: Function
+interface Props {
+  latitude: number | null;
+  longitude: number | null;
+  updateLocation: ( latitude: number | null, longitude: number | null, accuracy: number ) => void;
+  closeLocationPicker: ( ) => void;
 }
 
 const LocationPicker = ( {
@@ -34,10 +34,15 @@ const LocationPicker = ( {
   longitude,
   updateLocation,
   closeLocationPicker
-}: Props ): Node => {
+}: Props ) => {
   const initialAccuracy = 90;
   const [accuracy, setAccuracy] = useState( initialAccuracy );
-  const [region, setRegion] = useState( {
+  const [region, setRegion] = useState<Region | {
+    latitude: null;
+    longitude: null;
+    latitudeDelta: number;
+    longitudeDelta: number;
+  }>( {
     latitude: null,
     longitude: null,
     latitudeDelta,
@@ -45,7 +50,7 @@ const LocationPicker = ( {
   } );
   const userCoords = useFetchUserLocation( );
 
-  const handleRegionChange = ( newRegion ) => {
+  const handleRegionChange = ( newRegion: Region ) => {
     const sizeOfCrossHairIcon = 127;
     const { width } = dimensions;
 
@@ -53,12 +58,11 @@ const LocationPicker = ( {
       ( sizeOfCrossHairIcon / width / 2 ) * 100
     );
 
-    // $FlowFixMe
     setRegion( newRegion );
     setAccuracy( estimatedAccuracy );
   };
 
-  const updateRegion = ( lat, long ) => {
+  const updateRegion = ( lat: number, long: number ) => {
     setRegion( {
       latitude: lat,
       longitude: long,
@@ -67,9 +71,9 @@ const LocationPicker = ( {
     } );
   };
 
-  const setCoords = useCallback( ( coords ) => {
-  const downtownSFLat = 37.7749;
-  const downtownSFLong = -122.4194;
+  const setCoords = useCallback( ( coords: Coords | null ) => {
+    const downtownSFLat = 37.7749;
+    const downtownSFLong = -122.4194;
 
     if ( coords ) {
       const lat = coords.latitude;
@@ -120,7 +124,7 @@ const LocationPicker = ( {
         >
           <Image source={icons.backButton} />
         </TouchableOpacity>
-        <StyledText style={textStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</StyledText>
+        <StyledText style={[baseTextStyles.button, textStyles.text]}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</StyledText>
       </View>
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
+import MapView, { PROVIDER_DEFAULT, Region } from "react-native-maps";
 
 import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import icons from "../../../assets/icons";
@@ -11,17 +11,12 @@ import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   region: {
-    latitude: number;
-    longitude: number;
+    latitude: number | null;
+    longitude: number | null;
     latitudeDelta: number;
     longitudeDelta: number;
   },
-  onRegionChange: ( region: {
-    latitude: number;
-    longitude: number;
-    latitudeDelta: number;
-    longitudeDelta: number;
-  } ) => void;
+  onRegionChange: ( region: Region ) => void;
   returnToUserLocation: ( ) => void;
   posting?: boolean;
 }

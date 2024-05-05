@@ -1,9 +1,5 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { fonts, dimensions, colors } from "../global";
-
-
+import { dimensions, colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -28,20 +24,11 @@ const viewStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   text: {
     textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 26,
     maxWidth: 298
   },
   headerText: {
-    // modalBanner Green
     textAlign: "center",
-    color: colors.seekiNatGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    lineHeight: 25,
     maxWidth: 298,
     marginTop: 19
   }

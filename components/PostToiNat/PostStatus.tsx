@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { Image, StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -11,8 +9,9 @@ import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { useInternetStatus } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-const PostStatus = ( ): React.Node => {
+const PostStatus = ( ) => {
   const navigation = useNavigation( );
   const internet = useInternetStatus( );
 
@@ -40,6 +39,7 @@ const PostStatus = ( ): React.Node => {
     }
   };
 
+  // TODO: navigation TS
   const navToMatch = ( ) => navigation.navigate( "Match" );
 
   return (
@@ -47,11 +47,11 @@ const PostStatus = ( ): React.Node => {
       <StatusBar barStyle="dark-content" />
       <View style={viewStyles.content}>
         {!internet && <Image source={posting.internet} />}
-        <StyledText style={textStyles.headerText}>
+        <StyledText style={[baseTextStyles.modalBannerGreen, textStyles.headerText]}>
           {i18n.t( setHeaderText() )}
         </StyledText>
         <Image source={setImage()} style={viewStyles.uploadImage} />
-        <StyledText style={textStyles.text}>{setText()}</StyledText>
+        <StyledText style={[baseTextStyles.body, textStyles.text]}>{setText()}</StyledText>
       </View>
       <View style={viewStyles.greenButton}>
         <GreenButton handlePress={navToMatch} text="posting.ok" />

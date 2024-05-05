@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useState, useCallback } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { requiresParent, formatYearMonthDay } from "../../../utility/dateHelpers";
@@ -13,8 +10,9 @@ import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-const AgeVerifyScreen = (): Node => {
+const AgeVerifyScreen = () => {
   const { navigate } = useNavigation();
   const [date, setDate] = useState( formatYearMonthDay() );
   const [isPickerVisible, setPicker] = useState( false );
@@ -22,7 +20,7 @@ const AgeVerifyScreen = (): Node => {
   const openPicker = () => setPicker( true );
   const closePicker = useCallback( () => setPicker( false ), [] );
 
-  const handleDatePicked = useCallback( ( newDate ) => {
+  const handleDatePicked = useCallback( ( newDate: Date ) => {
     if ( newDate ) {
       closePicker();
       setDate( formatYearMonthDay( newDate ) );
@@ -40,10 +38,10 @@ const AgeVerifyScreen = (): Node => {
   return (
     <ViewWithHeader header="login.sign_up" footer={false}>
       <View style={[styles.flexCenter, styles.whiteContainer]}>
-        <StyledText style={styles.header} allowFontScaling={false}>
+        <StyledText style={[baseTextStyles.emptyState, styles.header]} allowFontScaling={false}>
           {i18n.t( "inat_signup.enter_birthday" )}
         </StyledText>
-        <StyledText style={styles.text} allowFontScaling={false}>
+        <StyledText style={[baseTextStyles.body, styles.text]} allowFontScaling={false}>
           {i18n.t( "inat_signup.permission" )}
         </StyledText>
         <View style={styles.marginLarge} />
@@ -51,7 +49,7 @@ const AgeVerifyScreen = (): Node => {
           onPress={openPicker}
           style={[styles.dateButton, styles.center]}
         >
-          <StyledText style={styles.buttonText}>{date}</StyledText>
+          <StyledText style={[baseTextStyles.button, styles.buttonText]}>{date}</StyledText>
         </TouchableOpacity>
         {isPickerVisible && (
           <DateTimePicker

@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet, Platform } from "react-native";
 
 import {
@@ -19,10 +17,6 @@ export default StyleSheet.create( {
     paddingBottom: dimensions.height / 2
   },
   buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     paddingTop: padding.iOSButtonPadding
   },
   center,
@@ -56,10 +50,6 @@ export default StyleSheet.create( {
     marginTop: dimensions.height < 570 ? 10 : 51
   },
   header: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
     marginHorizontal: 22,
     textAlign: "center"
   },
@@ -127,10 +117,6 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
     marginHorizontal: 38,
     marginTop: 20,
     textAlign: "center"

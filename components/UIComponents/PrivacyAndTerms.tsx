@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -9,7 +7,11 @@ import { viewStyles, textStyles } from "../../styles/uiComponents/privacyAndTerm
 import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-const PrivacyAndTerms = ( { login } ): React.Node => {
+interface Props {
+  login?: boolean;
+}
+
+const PrivacyAndTerms = ( { login }: Props ) => {
   const { navigate } = useNavigation();
   const { name } = useRoute();
 
@@ -18,6 +20,7 @@ const PrivacyAndTerms = ( { login } ): React.Node => {
 
   const linkStyles = greenText ? [baseTextStyles.bodyGreen, textStyles.signupTextLink] : [baseTextStyles.regular, textStyles.textLink];
 
+  // TODO: navigation TS
   const navToPrivacy = ( ) => navigate( "Privacy" );
   const navToTerms = ( ) => navigate( "TermsOfService" );
 

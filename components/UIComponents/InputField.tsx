@@ -1,16 +1,16 @@
-// @flow
-
 import * as React from "react";
-import { TextInput, Platform } from "react-native";
+import { TextInput, Platform, KeyboardTypeOptions } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
 import { colors } from "../../styles/global";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +handleTextChange: Function,
-  +placeholder: string,
-  +text: string,
-  +type: string
+type TextContentTypes = "emailAddress" | "username" | "password";
+interface Props {
+  handleTextChange: ( text: string ) => void;
+  placeholder: string;
+  text: string;
+  type: TextContentTypes;
 }
 
 const InputField = ( {
@@ -18,9 +18,8 @@ const InputField = ( {
   placeholder,
   text,
   type
-}: Props ): React.Node => {
-  let keyboardType = "default";
-
+}: Props ) => {
+  let keyboardType: KeyboardTypeOptions = "default";
   if ( type === "emailAddress" ) {
     keyboardType = "email-address";
   } else if ( Platform.OS === "android" && type !== "password" ) {
@@ -29,7 +28,6 @@ const InputField = ( {
   }
 
   return (
-    // $FlowFixMe
     <TextInput
       // don't use accessibility label here because screen reader
       // should read the text value (editable content) instead
@@ -45,7 +43,7 @@ const InputField = ( {
       placeholderTextColor={colors.placeholderGray}
       secureTextEntry={type === "password"}
       selectTextOnFocus={Platform.OS === "android"}
-      style={styles.inputField}
+      style={[baseTextStyles.inputField, styles.inputField]}
       textContentType={type} // iOS only
       value={text}
       testID={type}

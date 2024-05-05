@@ -54,11 +54,6 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0,
-    lineHeight: 30,
     marginTop: 22,
     textAlign: "center"
   },

@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
@@ -8,16 +6,17 @@ import styles from "../../../styles/auth/signup";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +navigation: any
-}
-
-const ParentCheckEmailScreen = ( { navigation }: Props ): React.Node => (
+const ParentCheckEmailScreen = ( { navigation } ) => (
   <ScrollWithHeader header="login.sign_up">
     <View style={styles.flexCenter}>
-      <StyledText style={styles.headerText}>{i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}</StyledText>
-      <StyledText style={styles.text}>{i18n.t( "inat_signup.parent_instructions" )}</StyledText>
+      <StyledText style={[baseTextStyles.passwordEmailHeader, styles.headerText]}>
+        {i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}
+      </StyledText>
+      <StyledText style={[baseTextStyles.body, styles.text]}>
+        {i18n.t( "inat_signup.parent_instructions" )}
+      </StyledText>
       <View style={styles.marginTop} />
       <GreenButton
         fontSize={16}

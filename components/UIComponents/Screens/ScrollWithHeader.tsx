@@ -19,9 +19,9 @@ import { colors } from "../../../styles/global";
 import Footer from "../Footer";
 
 interface Props {
-  testID: string;
-  children: React.ReactNode;
+  testID?: string;
   header: string;
+  children: React.ReactNode;
   route?: string;
   loading?: boolean;
   footer?: boolean;

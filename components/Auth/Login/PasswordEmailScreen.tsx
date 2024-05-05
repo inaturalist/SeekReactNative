@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
@@ -8,16 +6,20 @@ import styles from "../../../styles/auth/login";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { NavigationProp } from "@react-navigation/native";
 
-type Props = {
-  +navigation: any
+interface Props {
+  navigation: NavigationProp<ReactNavigation.RootParamList>;
 }
 
-const PasswordEmailScreen = ( { navigation }: Props ): React.Node => (
+const PasswordEmailScreen = ( { navigation }: Props ) => (
   <ScrollWithHeader header="inat_login.forgot_password_header">
     <View style={styles.flexCenter}>
-      <StyledText style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</StyledText>
-      <StyledText style={[styles.secondHeaderText, styles.email]}>
+      <StyledText style={[baseTextStyles.passwordEmailHeader, styles.greenHeaderText]}>
+        {i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}
+      </StyledText>
+      <StyledText style={[baseTextStyles.emptyState, styles.email]}>
         {i18n.t( "inat_login.reset_instructions" )}
       </StyledText>
       <View style={styles.greenButtonMargin} />

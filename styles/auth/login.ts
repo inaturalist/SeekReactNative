@@ -21,9 +21,9 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   email: {
-    color: colors.black,
     marginHorizontal: 57,
-    marginTop: 21
+    marginTop: 21,
+    textAlign: "center"
   },
   flexCenter: {
     flexGrow: 1,
@@ -39,19 +39,10 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   greenHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0,
-    lineHeight: 30,
     marginTop: 22,
     textAlign: "center"
   },
   header: {
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
     textAlign: "center"
   },
   headerText: {
@@ -117,10 +108,11 @@ export default StyleSheet.create( {
   },
   row,
   secondHeaderText: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
+    // Empty State
+    // color: colors.white,
+    // fontFamily: fonts.medium,
+    // fontSize: 19,
+    // lineHeight: 24,
     textAlign: "center"
   },
   secondHeaderTextContainer: {

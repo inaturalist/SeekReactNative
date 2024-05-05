@@ -234,6 +234,14 @@ const loginError = {
   fontSize: 17
 };
 
+const passwordEmailHeader = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.semibold,
+  fontSize: 23,
+  letterSpacing: 1.0,
+  lineHeight: 30
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -361,7 +369,8 @@ const baseTextStyles = StyleSheet.create( {
   postSectionHeader,
   loginOrSignup,
   forgotPasswordLink,
-  loginError
+  loginError,
+  passwordEmailHeader
 } );
 
 export {

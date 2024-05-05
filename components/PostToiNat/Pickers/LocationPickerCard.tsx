@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useCallback } from "react";
 import {
   Image,
@@ -7,9 +5,7 @@ import {
   View,
   Modal
 } from "react-native";
-import type { Node } from "react";
 
-import { colors } from "../../../styles/global";
 import styles from "../../../styles/posting/postToiNat";
 import i18n from "../../../i18n";
 import posting from "../../../assets/posting";
@@ -18,25 +14,26 @@ import LocationPicker from "./LocationPicker";
 import { truncateCoordinates } from "../../../utility/locationHelpers";
 import StyledText from "../../UIComponents/StyledText";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  location: ?string,
-  updateLocation: ( ) => void,
+interface Props {
+  location: string | null;
+  updateLocation: ( lat: number | null, long: number | null, accuracy: number ) => void;
   observation: {
-    observed_on_string: ?string,
-    taxon_id: ?number,
-    geoprivacy: string,
-    captive_flag: boolean,
-    place_guess: ?string,
-    latitude: ?number,
-    longitude: ?number,
-    positional_accuracy: ?number,
-    description: ?string,
-    vision: boolean
+    observed_on_string: string | null;
+    taxon_id: number | null;
+    geoprivacy: string;
+    captive_flag: boolean;
+    place_guess: string | null;
+    latitude: number | null;
+    longitude: number | null;
+    positional_accuracy: number | null;
+    description: string | null;
+    vision: boolean;
   }
 }
 
-const LocationPickerCard = ( { location, updateLocation, observation }: Props ): Node => {
+const LocationPickerCard = ( { location, updateLocation, observation }: Props ) => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = ( ) => setShowModal( true );
@@ -64,10 +61,10 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
       <TouchableOpacity onPress={openModal} style={styles.thinCard}>
         <Image source={posting.location} style={styles.extraMargin} />
         <View style={styles.row}>
-          <StyledText style={styles.greenText}>
+          <StyledText style={baseTextStyles.postSectionHeader}>
             {i18n.t( "posting.location" ).toLocaleUpperCase()}
           </StyledText>
-          <StyledText style={styles.text}>
+          <StyledText style={[baseTextStyles.body, styles.text]}>
             {location || i18n.t( "location_picker.undefined" )}
           </StyledText>
           {coordinateString && (
@@ -76,10 +73,8 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ):
             </StyledText>
           )}
         </View>
-        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
-          tintColor={colors.seekForestGreen}
           style={[styles.buttonIcon, styles.rotate]}
         />
       </TouchableOpacity>

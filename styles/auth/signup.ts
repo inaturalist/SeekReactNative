@@ -73,10 +73,6 @@ export default StyleSheet.create( {
     marginTop: 16
   },
   licenseText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     maxWidth: dimensions.width / 2 + 80
   },
   margin: {

@@ -76,9 +76,9 @@ const App = ( ): Props => (
             <Stack.Screen name="Age" component={AgeVerifyScreen} options={defaultConfig} />
             <Stack.Screen name="Parent" component={ParentalConsentScreen} options={defaultConfig} />
             <Stack.Screen name="ParentCheck" component={ParentCheckEmailScreen} options={defaultConfig} />
+            <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
             <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
             <Stack.Screen name="LoginSuccess" component={LoginSuccessScreen} options={defaultConfig} />
-            <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
             <Stack.Screen name="Social" component={Social} options={defaultConfig} />
         </Stack.Group>
          <Stack.Group screenOptions={modal}>

@@ -8,7 +8,7 @@ import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  color?: string;
+  color?: string | null;
   handlePress: () => void;
   letterSpacing?: number;
   text: string;

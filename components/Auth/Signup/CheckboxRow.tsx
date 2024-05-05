@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 import Checkbox from "react-native-check-box";
@@ -7,12 +5,13 @@ import Checkbox from "react-native-check-box";
 import styles from "../../../styles/auth/signup";
 import { colors } from "../../../styles/global";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  isChecked: boolean,
-  toggleCheckbox: Function,
-  text?: string,
-  children?: any
+interface Props {
+  isChecked: boolean;
+  toggleCheckbox: () => void;
+  text?: string;
+  children?: React.ReactNode;
 }
 
 const CheckboxRow = ( {
@@ -20,7 +19,7 @@ const CheckboxRow = ( {
   toggleCheckbox,
   text,
   children
-}: Props ): React.Node => (
+}: Props ) => (
   <View style={[styles.row, styles.margin]}>
     <Checkbox
       checkBoxColor={colors.checkboxColor}
@@ -29,7 +28,7 @@ const CheckboxRow = ( {
       style={styles.checkBox}
     />
     {children || (
-      <StyledText allowFontScaling={false} style={styles.licenseText}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.body, styles.licenseText]}>
         {text}
       </StyledText>
     )}

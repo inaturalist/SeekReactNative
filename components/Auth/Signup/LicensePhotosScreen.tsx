@@ -1,10 +1,7 @@
-// @flow
-
 import React, { useState } from "react";
 import { View, Alert, ScrollView } from "react-native";
 import HTML from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 import Modal from "react-native-modal";
 
 import i18n from "../../../i18n";
@@ -19,11 +16,18 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
 import WhiteModal from "../../UIComponents/Modals/WhiteModal";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
-const LicensePhotosScreen = ( ): Node => {
+const LicensePhotosScreen = ( ) => {
   const { navigate } = useNavigation( );
 
-  const [user, setUser] = useState( {
+  const [user, setUser] = useState<{
+    email: string;
+    preferred_observation_license: boolean | string | null;
+    preferred_photo_license: boolean | string | null;
+    pi_consent: boolean;
+    data_transfer_consent: boolean;
+  }>( {
     email: "",
     preferred_observation_license: false,
     preferred_photo_license: false,
@@ -66,7 +70,8 @@ const LicensePhotosScreen = ( ): Node => {
     }
   };
 
-  const renderLink = ( screen, text ) => {
+  // TODO: navigation TS; screen should be a type of screen name
+  const renderLink = ( screen: string, text: string ) => {
     return (
       <StyledText
         key={text}
@@ -86,7 +91,7 @@ const LicensePhotosScreen = ( ): Node => {
 
   const agreeToTermsHTML = `<p>${i18n.t( "inat_signup.agree_to_terms" )}</p>`;
 
-  const handleEmailInput = value => setUser( {
+  const handleEmailInput = ( value: string ) => setUser( {
     ...user,
     email: value
   } );
@@ -114,7 +119,7 @@ const LicensePhotosScreen = ( ): Node => {
   const dataTransferHTML = ( ) => (
     <HTML
       source={{ html: dataTransferLearnMoreHTML }}
-      tagsStyles={{ p: styles.licenseText }}
+      tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
       renderers={{
         privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
         terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" }
@@ -160,7 +165,7 @@ const LicensePhotosScreen = ( ): Node => {
         isChecked={licensePhotos}
         toggleCheckbox={toggleLicensePhotos}
         children={(
-          <StyledText style={styles.licenseText}>
+          <StyledText style={[baseTextStyles.body, styles.licenseText]}>
             {`${i18n.t( "inat_signup.release_photos" )} `}
             <StyledText style={styles.linkText} onPress={showLicensingAlert}>
               {i18n.t( "inat_signup.learn_more" )}
@@ -174,7 +179,7 @@ const LicensePhotosScreen = ( ): Node => {
         children={(
           <HTML
             source={{ html: agreeToTermsHTML }}
-            tagsStyles={{ p: styles.licenseText }}
+            tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
             renderers={{
               terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
               privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
@@ -187,7 +192,7 @@ const LicensePhotosScreen = ( ): Node => {
         isChecked={user.pi_consent}
         toggleCheckbox={togglePIConsent}
         children={(
-          <StyledText style={styles.licenseText}>
+          <StyledText style={[baseTextStyles.body, styles.licenseText]}>
             {`${i18n.t( "inat_signup.store_data" )} `}
             <StyledText style={styles.linkText} onPress={showPIConsentAlert}>
               {i18n.t( "inat_signup.learn_more" )}
@@ -200,7 +205,7 @@ const LicensePhotosScreen = ( ): Node => {
         isChecked={user.data_transfer_consent}
         toggleCheckbox={toggleDataTransferConsent}
         children={(
-          <StyledText style={styles.licenseText}>
+          <StyledText style={[baseTextStyles.body, styles.licenseText]}>
             {`${i18n.t( "inat_signup.transfer_data" )} `}
             <StyledText style={styles.linkText} onPress={( ) => setShowModal( true )}>
               {i18n.t( "inat_signup.learn_more" )}
@@ -210,7 +215,7 @@ const LicensePhotosScreen = ( ): Node => {
       />
       {error ? <ErrorMessage error="email" /> : <View style={styles.marginTopSmall} />}
       <GreenButton
-        color={( disableButton ) && colors.seekTransparent}
+        color={disableButton ? colors.seekTransparent : null}
         handlePress={submit}
         login
         text="inat_signup.next"

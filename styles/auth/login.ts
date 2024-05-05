@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet, Platform } from "react-native";
 
 import {
@@ -30,13 +28,6 @@ export default StyleSheet.create( {
   flexCenter: {
     flexGrow: 1,
     justifyContent: "center"
-  },
-  forgotPasswordText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    textDecorationLine: "underline"
   },
   greenButtonMargin: {
     marginTop: dimensions.height < 570 ? 0 : 40

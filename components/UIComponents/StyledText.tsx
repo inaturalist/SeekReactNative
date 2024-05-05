@@ -4,6 +4,7 @@ import { Text } from "react-native";
 import { leftText } from "../../styles/global";
 
 interface Props {
+  testID?: string;
   children: React.ReactNode;
   style?: object;
   allowFontScaling?: boolean;

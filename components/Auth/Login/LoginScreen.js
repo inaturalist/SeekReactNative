@@ -17,6 +17,7 @@ import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 const LoginScreen = ( ): Node => {
   const { navigate } = useNavigation( );
@@ -128,7 +129,7 @@ const LoginScreen = ( ): Node => {
         onPress={navToForgotPassword}
         style={styles.rightTextContainer}
       >
-        <StyledText allowFontScaling={false} style={styles.forgotPasswordText}>
+        <StyledText allowFontScaling={false} style={baseTextStyles.forgotPasswordLink}>
           {i18n.t( "inat_login.forgot_password" )}
         </StyledText>
       </TouchableOpacity>

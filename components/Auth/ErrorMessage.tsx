@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -9,15 +7,15 @@ import { useNetInfo } from "@react-native-community/netinfo";
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import { textStyles, viewStyles, imageStyles } from "../../styles/auth/error";
-import { colors } from "../../styles/global";
+import { viewStyles, imageStyles } from "../../styles/auth/error";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +error: string
+interface Props {
+  error: string;
 }
 
-const ErrorMessage = ( { error }: Props ): React.Node => {
+const ErrorMessage = ( { error }: Props ) => {
   const netInfo = useNetInfo( );
   const { isConnected } = netInfo;
 
@@ -54,10 +52,11 @@ const ErrorMessage = ( { error }: Props ): React.Node => {
       error === "credentials" && viewStyles.smallerMargin
     ]}
     >
-      {/* $FlowFixMe */}
-      <Image source={icons.error} style={imageStyles.image} tintColor={colors.seekiNatGreen} />
+      <Image source={icons.error} style={imageStyles.image} />
       <View style={viewStyles.textContainer}>
-        <StyledText allowFontScaling={false} style={textStyles.text} testID="loginError">{message}</StyledText>
+        <StyledText allowFontScaling={false} style={baseTextStyles.loginError} testID="loginError">
+          {message}
+        </StyledText>
       </View>
     </View>
   );

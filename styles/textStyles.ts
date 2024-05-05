@@ -167,6 +167,14 @@ const link = {
   textDecorationLine: "underline" as const
 };
 
+const forgotPasswordLink = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.book,
+  fontSize: 16,
+  lineHeight: 21,
+  textDecorationLine: "underline" as const
+};
+
 const number = {
   color: colors.black,
   fontFamily: fonts.regular,
@@ -218,6 +226,12 @@ const loginOrSignup = {
   fontFamily: fonts.medium,
   fontSize: 17,
   lineHeight: 19
+};
+
+const loginError = {
+  color: colors.seekiNatGreen,
+  fontFamily: fonts.semibold,
+  fontSize: 17
 };
 
 const baseTextStyles = StyleSheet.create( {
@@ -345,7 +359,9 @@ const baseTextStyles = StyleSheet.create( {
   picker,
   inputField,
   postSectionHeader,
-  loginOrSignup
+  loginOrSignup,
+  forgotPasswordLink,
+  loginError
 } );
 
 export {

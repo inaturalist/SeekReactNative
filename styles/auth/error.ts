@@ -1,13 +1,9 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
-  fonts,
   colors,
   dimensions,
   row
 } from "../global";
-
 
 const viewStyles = StyleSheet.create( {
   errorMargin: {
@@ -26,14 +22,6 @@ const viewStyles = StyleSheet.create( {
   }
 } );
 
-const textStyles = StyleSheet.create( {
-  text: {
-    color: colors.seekiNatGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 17
-  }
-} );
-
 const imageStyles = StyleSheet.create( {
   image: {
     height: 24,
@@ -45,7 +33,6 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
-  textStyles,
   viewStyles,
   imageStyles
 };

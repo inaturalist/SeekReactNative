@@ -8,7 +8,7 @@ import i18n from "../../i18n";
 import { viewStyles } from "../../styles/settings";
 import { colors } from "../../styles/global";
 import languages from "../../utility/dictionaries/languageDict";
-import { useLanguage } from "../Providers/LanguageContext";
+import { useLanguage } from "../Providers/LanguageProvider";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
 import StyledText from "../UIComponents/StyledText";

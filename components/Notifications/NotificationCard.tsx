@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   Image,
+  ImageSourcePropType,
   TouchableOpacity,
   View
 } from "react-native";
@@ -25,7 +26,7 @@ const NotificationCard = ( { item }: Props ) => {
   const { setIndex } = useChallenge( );
   const navigation = useNavigation();
 
-  let image = notifications[item.iconName];
+  let image: ImageSourcePropType = notifications[item.iconName];
 
   if ( item.title === "notifications.challenge_completed" ) {
     const challenges = Object.keys( challengesDict ).map( challenge => challengesDict[challenge] );
@@ -40,6 +41,7 @@ const NotificationCard = ( { item }: Props ) => {
     if ( item.seen === false ) {
       markNotificationAsSeen( item.index );
     }
+    // TODO: navigation TS
     navigation.navigate( item.nextScreen );
   };
 

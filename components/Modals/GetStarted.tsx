@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -13,11 +11,11 @@ import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import DescriptionText from "../UIComponents/DescriptionText";
 
-type Props = {
-  +closeModal: Function
+interface Props {
+  readonly closeModal: () => void;
 }
 
-const GetStarted = ( { closeModal }: Props ): React.Node => (
+const GetStarted = ( { closeModal }: Props ) => (
   <View
     style={viewStyles.container}
     accessible

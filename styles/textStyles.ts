@@ -257,6 +257,13 @@ const linkedAccountHeader = {
   lineHeight: 28
 };
 
+const donationLink = {
+  color: colors.greenGradientLight,
+  fontFamily: fonts.regular,
+  fontSize: 17,
+  letterSpacing: 1.0
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -396,7 +403,8 @@ const baseTextStyles = StyleSheet.create( {
   forgotPasswordLink,
   loginError,
   passwordEmailHeader,
-  linkedAccountHeader
+  linkedAccountHeader,
+  donationLink
 } );
 
 export {

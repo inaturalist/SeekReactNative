@@ -1,9 +1,5 @@
-// @flow
-
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../global";
-
-
+import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   back: {
@@ -36,30 +32,15 @@ const viewStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   text: {
     alignSelf: "center",
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     top: 19
   },
   blackText: {
-    color: colors.black,
-    fontFamily: fonts.book,
     paddingHorizontal: 24,
     paddingTop: 24,
-    textAlign: "center",
-    fontSize: 16,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 21,
-    letterSpacing: 0
+    textAlign: "center"
   },
   donateText: {
     top: 19,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.greenGradientLight,
-    fontFamily: fonts.book,
     paddingHorizontal: 24,
     marginVertical: 14,
     paddingVertical: 10,

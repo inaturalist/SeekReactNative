@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -16,12 +14,9 @@ import icons from "../assets/icons";
 import urls from "../constants/urls";
 import CopyButton from "./UIComponents/Buttons/CopyButton";
 import StyledText from "./UIComponents/StyledText";
+import { baseTextStyles } from "../styles/textStyles";
 
-type Props = {
-  +navigation: any
-};
-
-const Donation = ( { navigation, route }: Props ): React.Node => {
+const Donation = ( { navigation, route } ) => {
   const goBack = ( ) => navigation.goBack( );
 
   const [selectedText, setSelectedText] = React.useState( false );
@@ -38,7 +33,9 @@ const Donation = ( { navigation, route }: Props ): React.Node => {
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={viewStyles.header}>
-        <StyledText style={textStyles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase( )}</StyledText>
+        <StyledText style={[baseTextStyles.button, textStyles.text]}>
+          {i18n.t( "settings.donate" ).toLocaleUpperCase( )}
+        </StyledText>
         <TouchableOpacity
           onPress={goBack}
           style={viewStyles.back}
@@ -53,11 +50,12 @@ const Donation = ( { navigation, route }: Props ): React.Node => {
         />
       ) : (
         <View style={viewStyles.whiteContainer}>
-          <StyledText style={[textStyles.text, textStyles.blackText]}>
+          <StyledText style={[baseTextStyles.body, textStyles.blackText]}>
            {i18n.t( "settings.donate_ios" )}
           </StyledText>
           <CopyButton stringToCopy={redirectForiOS} handleHighlight={highlightSelectedText}>
             <StyledText style={[
+              baseTextStyles.donationLink,
               textStyles.donateText,
               selectedText && viewStyles.selectedPressableArea
             ]}>

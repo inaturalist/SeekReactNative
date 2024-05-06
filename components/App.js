@@ -11,7 +11,7 @@ import type { Node } from "react";
 import RootStack from "./Navigation/RootStack";
 import { hideLogs } from "../utility/helpers";
 import { LanguageProvider } from "./Providers/LanguageProvider";
-import SpeciesNearbyProvider from "./Providers/SpeciesNearbyProvider";
+import { SpeciesNearbyProvider } from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
 import { ObservationProvider } from "./Providers/ObservationProvider";
 import { AppOrientationProvider } from "./Providers/AppOrientationProvider";

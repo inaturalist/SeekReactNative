@@ -12,7 +12,7 @@ import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
 import { useLocationPermission } from "../../../utility/customHooks";
-import SpeciesError from "./SpeciesNearbyError";
+import SpeciesNearbyError from "./SpeciesNearbyError";
 import LocationPicker from "./LocationPicker";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
@@ -221,7 +221,7 @@ const SpeciesNearby = ( ): Node => {
       <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
       <View style={viewStyles.marginBottom} />
       {error ? (
-        <SpeciesError
+        <SpeciesNearbyError
           error={error}
           checkInternet={checkInternet}
           checkLocation={checkLocationPermissions}

@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -15,14 +13,15 @@ import icons from "../../../assets/icons";
 import backgrounds from "../../../assets/backgrounds";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
-import { SpeciesNearbyContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
-type Props = {
-  error: string,
-  checkInternet: ( ) => void,
-  checkLocation: ( ) => void,
-  openLocationPicker: ( ) => void
+interface Props {
+  error: string;
+  checkInternet: ( ) => void;
+  checkLocation: ( ) => void;
+  openLocationPicker: ( ) => void;
 }
 
 const SpeciesNearbyError = ( {
@@ -30,8 +29,8 @@ const SpeciesNearbyError = ( {
   checkInternet,
   checkLocation,
   openLocationPicker
-}: Props ): React.Node => {
-  const { speciesNearby, setSpeciesNearby } = React.useContext( SpeciesNearbyContext );
+}: Props ) => {
+  const { speciesNearby, setSpeciesNearby } = useSpeciesNearby( );
   const netInfo = useNetInfo( );
   const { isConnected } = netInfo;
 
@@ -68,7 +67,7 @@ const SpeciesNearbyError = ( {
       >
         <View style={viewStyles.row}>
           <Image source={error === "internet_error" ? icons.internet : icons.error} />
-          <StyledText style={textStyles.text}>
+          <StyledText style={[baseTextStyles.bodyWhite, textStyles.text]}>
             {error === "downtime"
               ? i18n.t( "results.error_downtime_plural", { count: i18n.t( "results.error_few" ) } )
               : i18n.t( `species_nearby.${error}` )}

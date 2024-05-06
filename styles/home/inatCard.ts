@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
@@ -7,8 +5,6 @@ import {
   center,
   row
 } from "../global";
-
-
 
 const maxColumnWidth = 455;
 

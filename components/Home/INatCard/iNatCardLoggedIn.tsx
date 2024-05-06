@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View, Platform } from "react-native";
 
@@ -9,7 +7,7 @@ import BulletedList from "../../iNaturalist/BulletedList";
 import OpenINatButton from "../../UIComponents/Buttons/OpenINatButton";
 import ProfileImageAndLogin from "../../iNaturalist/ProfileImageAndLogin";
 
-const INatCardLoggedIn = ( ): React.Node => (
+const INatCardLoggedIn = ( ) => (
   <View style={viewStyles.textContainer}>
     <ProfileImageAndLogin />
     <BulletedList text="about_inat.logged_in_bullet_1" />

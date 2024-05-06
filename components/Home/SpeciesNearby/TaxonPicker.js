@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext, useMemo, useCallback } from "react";
+import React, { useMemo, useCallback } from "react";
 import {
   TouchableOpacity,
   Image,
@@ -13,8 +13,8 @@ import icons from "../../../assets/icons";
 import { viewStyles, imageStyles, textStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
 import Picker from "../../../components/UIComponents/Picker";
-import { SpeciesNearbyContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
+import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
 type Props = {
   +updateTaxaType: Function,
@@ -22,7 +22,7 @@ type Props = {
 }
 
 const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
-  const { speciesNearby } = useContext( SpeciesNearbyContext );
+  const { speciesNearby } = useSpeciesNearby( );
   const { taxaType } = speciesNearby;
 
   const types = useMemo( () => {

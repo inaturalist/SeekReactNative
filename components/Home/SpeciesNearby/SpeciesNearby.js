@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback, useReducer, useContext, useEffect } from "react";
+import React, { useCallback, useReducer, useEffect } from "react";
 import { View, Platform, Modal } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import type { Node } from "react";
@@ -14,17 +14,16 @@ import LocationPickerButton from "./LocationPickerButton";
 import { useLocationPermission } from "../../../utility/customHooks";
 import SpeciesError from "./SpeciesNearbyError";
 import LocationPicker from "./LocationPicker";
-import { SpeciesNearbyContext } from "../../UserContext";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
 import createUserAgent from "../../../utility/userAgent";
-
 import StyledText from "../../UIComponents/StyledText";
+import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
 const SpeciesNearby = ( ): Node => {
-  const { speciesNearby, setSpeciesNearby } = useContext( SpeciesNearbyContext );
+  const { speciesNearby, setSpeciesNearby } = useSpeciesNearby( );
   const granted = useLocationPermission( );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   View,
   TextInput,
@@ -18,8 +18,8 @@ import { colors } from "../../../styles/global";
 import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
-import { SpeciesNearbyContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
+import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -33,7 +33,7 @@ const LocationPicker = ( {
   updateLatLng,
   closeLocationPicker
 }: Props ): Node => {
-  const { speciesNearby } = useContext( SpeciesNearbyContext );
+  const { speciesNearby } = useSpeciesNearby( );
   const { latitude, longitude, location } = speciesNearby;
 
   const [region, setRegion] = useState( {

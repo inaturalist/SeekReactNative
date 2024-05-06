@@ -1,9 +1,7 @@
-// @flow
 import React, { useState, useEffect } from "react";
 import { Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/species/rangeMap";
@@ -13,19 +11,31 @@ import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-const RangeMap = (): Node => {
+const RangeMap = () => {
   const navigation = useNavigation();
   const { params } = useRoute();
+  // TODO: navigation TS
   // region can be the obs region or the user location, depending on nav
   const { region, id, seenDate } = params;
 
   const [showModal, setModal] = useState( false );
-  const [user, setUser] = useState( {} );
-  const [mapRegion, setMapRegion] = useState( region );
+  const [user, setUser] = useState<{
+    latitude?: number;
+    longitude?: number;
+    latitudeDelta?: number;
+    longitudeDelta?: number;
+  }>( {} );
+  const [mapRegion, setMapRegion] = useState<{
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
+  }>( region );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -52,7 +62,7 @@ const RangeMap = (): Node => {
   const updateMap = () => {
     // only show userLocation button if permissions are on
     // a user can have location off and still see range map for previous observation locations
-    if ( !user.latitude ) {
+    if ( !user.latitude || !user.longitude ) {
       return;
     }
 
@@ -73,6 +83,8 @@ const RangeMap = (): Node => {
   if ( mapRegion.latitude === undefined ) {
     return null;
   }
+
+  console.log( "user", user );
 
   return (
     <ViewWithHeader testID="range-map-container" header="species_detail.range_map" footer={false}>
@@ -98,7 +110,7 @@ const RangeMap = (): Node => {
             <Image source={icons.cameraOnMap} />
           </Marker>
         )}
-        {user.latitude && (
+        {user.latitude && user.longitude && (
           <Marker coordinate={{ latitude: user.latitude, longitude: user.longitude }}>
             <Image source={icons.locationPin} />
           </Marker>
@@ -108,7 +120,7 @@ const RangeMap = (): Node => {
         onPress={openModal}
         style={viewStyles.legend}
       >
-        <StyledText style={textStyles.whiteText}>
+        <StyledText style={[baseTextStyles.modalBanner, textStyles.whiteText]}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
         </StyledText>
       </TouchableOpacity>

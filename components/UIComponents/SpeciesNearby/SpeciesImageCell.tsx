@@ -14,7 +14,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import { useSpeciesDetail } from "../../Providers/SpeciesDetailProvider";
 
 interface Props {
-  item: {
+  readonly item: {
     id: number;
     name: string;
     iconic_taxon_id: number;

@@ -7,9 +7,9 @@ import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 
 interface Props {
-  children: React.ReactNode;
-  text: string;
-  hide?: boolean;
+  readonly children: React.ReactNode;
+  readonly text: string;
+  readonly hide?: boolean;
 }
 
 const SpeciesDetailCard = ( { children, text, hide }: Props ) => {

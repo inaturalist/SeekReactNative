@@ -5,11 +5,11 @@ import styles from "../../../styles/uiComponents/modals/whiteModal";
 import BackButton from "../Buttons/ModalBackButton";
 
 interface Props {
-  children: React.ReactNode;
-  closeModal: ( ) => void;
-  noButton?: boolean;
-  width?: number;
-  accessibilityLabel?: string;
+  readonly children: React.ReactNode;
+  readonly closeModal: ( ) => void;
+  readonly noButton?: boolean;
+  readonly width?: number | null;
+  readonly accessibilityLabel?: string;
 }
 
 const WhiteModal = ( {

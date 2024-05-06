@@ -8,10 +8,10 @@ import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  challenge: {
+  readonly challenge: {
     percentComplete: number;
   };
-  large?: boolean;
+  readonly large?: boolean;
 }
 
 const PercentCircle = ( { challenge, large }: Props ) => (

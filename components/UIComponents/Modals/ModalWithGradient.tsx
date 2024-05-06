@@ -16,12 +16,12 @@ import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  children: any;
-  closeModal: () => void;
-  color: string;
-  userImage: string;
-  originalImage: string | null;
-  displayDate?: string;
+  readonly children: any;
+  readonly closeModal: () => void;
+  readonly color: string;
+  readonly userImage: string;
+  readonly originalImage: string | null;
+  readonly displayDate?: string | null;
 }
 
 const ModalWithGradient = ( {

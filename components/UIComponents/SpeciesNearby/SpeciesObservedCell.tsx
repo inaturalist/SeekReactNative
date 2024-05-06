@@ -20,7 +20,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import { useSpeciesDetail } from "../../Providers/SpeciesDetailProvider";
 
 interface Props {
-  item: {
+  readonly item: {
     taxon: {
       id: number;
       name: string;

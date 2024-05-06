@@ -1,8 +1,5 @@
-// @flow
-
 import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts, row } from "../global";
-
+import { colors, row } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -36,19 +33,8 @@ const textStyles = StyleSheet.create( {
     marginTop: 3
   },
   headerText: {
-    // modalBanner Green
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
     marginBottom: 11,
     marginTop: 35
-  },
-  text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
   }
 } );
 

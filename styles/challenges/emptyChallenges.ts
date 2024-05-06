@@ -11,7 +11,6 @@ const viewStyles = StyleSheet.create( {
   }
 } );
 
-
 const textStyles = StyleSheet.create( {
   lightText: {
     fontSize: 15,

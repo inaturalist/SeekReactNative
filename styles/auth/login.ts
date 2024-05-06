@@ -98,11 +98,6 @@ export default StyleSheet.create( {
   },
   row,
   secondHeaderText: {
-    // Empty State
-    // color: colors.white,
-    // fontFamily: fonts.medium,
-    // fontSize: 19,
-    // lineHeight: 24,
     textAlign: "center"
   },
   secondHeaderTextContainer: {

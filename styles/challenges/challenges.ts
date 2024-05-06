@@ -1,9 +1,6 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 
 import { colors } from "../../styles/global";
-
 
 const viewStyles = StyleSheet.create( {
   challengeList: {

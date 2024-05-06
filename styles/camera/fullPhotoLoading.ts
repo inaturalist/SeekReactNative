@@ -1,6 +1,5 @@
-// @flow
-
 import { StyleSheet } from "react-native";
+
 import { dimensions } from "../global";
 
 const imageStyles = StyleSheet.create( {

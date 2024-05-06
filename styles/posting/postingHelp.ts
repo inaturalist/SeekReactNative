@@ -1,8 +1,5 @@
-// @flow
-
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts, row } from "../global";
-
+import { colors, row } from "../global";
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -27,34 +24,16 @@ const viewStyles = StyleSheet.create( {
 } );
 
 const textStyles = StyleSheet.create( {
-  boldText: {
-    color: colors.black,
-    fontFamily: fonts.semibold,
-    fontSize: 16,
-    lineHeight: 21
-  },
   headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 17,
     justifyContent: "center",
-    letterSpacing: 1,
     marginLeft: 21,
     paddingTop: Platform.OS === "ios" ? 6 : 0
   },
   italicText: {
-    color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21,
     marginHorizontal: 20,
     textAlign: "center"
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginBottom: 35,
     marginTop: 16
   }

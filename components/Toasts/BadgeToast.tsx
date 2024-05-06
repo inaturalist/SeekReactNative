@@ -13,7 +13,7 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  badge: {
+  readonly badge: {
     intlName: string;
     infoText: string;
     earnedIconName: string;

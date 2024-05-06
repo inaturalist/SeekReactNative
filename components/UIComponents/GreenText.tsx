@@ -6,14 +6,14 @@ import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  style?: object;
-  text: string;
-  small?: boolean;
-  smaller?: boolean;
-  center?: boolean;
-  color?: string;
-  allowFontScaling?: boolean;
-  noTranslation?: boolean;
+  readonly style?: Object;
+  readonly text: string;
+  readonly small?: boolean;
+  readonly smaller?: boolean;
+  readonly center?: boolean;
+  readonly color?: string | null;
+  readonly allowFontScaling?: boolean;
+  readonly noTranslation?: boolean;
 }
 
 const GreenText = ( {

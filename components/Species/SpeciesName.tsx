@@ -7,13 +7,13 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  loading: boolean;
-  taxon: {
+  readonly loading: boolean;
+  readonly taxon: {
     scientificName: string;
   };
-  id: number;
-  selectedText: boolean;
-  highlightSelectedText: ( ) => void;
+  readonly id: number;
+  readonly selectedText: boolean;
+  readonly highlightSelectedText: ( ) => void;
 }
 
 const SpeciesName = ( { loading, taxon, id, selectedText, highlightSelectedText }: Props ) => {

@@ -9,8 +9,8 @@ import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  loading: boolean;
-  seenDate: string;
+  readonly loading: boolean;
+  readonly seenDate: string | null;
 }
 
 const SeenDate = ( { loading, seenDate }: Props ) => {

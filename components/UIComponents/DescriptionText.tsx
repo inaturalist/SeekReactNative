@@ -5,8 +5,8 @@ import { baseTextStyles } from "../../styles/textStyles";
 import { dimensions } from "../../styles/global";
 
 interface Props {
-  text: string;
-  allowFontScaling?: boolean;
+  readonly text: string;
+  readonly allowFontScaling?: boolean;
 }
 
 const DescriptionText = ( { text, allowFontScaling }: Props ) => (

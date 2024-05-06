@@ -11,20 +11,20 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  details: {
+  readonly details: {
     ancestors: {
       rank: string;
       name: string;
       preferred_common_name: string | void | null;
     }[];
   };
-  id: number;
-  predictions: {
+  readonly id: number;
+  readonly predictions: {
     taxon_id: number;
     rank: number;
     name: string;
   }[];
-  checkForInternet: () => void;
+  readonly checkForInternet: () => void;
 }
 
 const SpeciesContainer = ( {

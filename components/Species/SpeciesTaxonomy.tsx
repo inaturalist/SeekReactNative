@@ -16,13 +16,13 @@ interface Taxon {
   preferred_common_name: string | void | null;
 }
 interface Props {
-  ancestors?: Taxon[];
-  predictions: {
+  readonly ancestors?: Taxon[];
+  readonly predictions: {
     taxon_id: number;
     rank: number;
     name: string;
   }[];
-  id: number;
+  readonly id: number;
 }
 
 const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {

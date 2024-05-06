@@ -12,8 +12,8 @@ import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserS
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  id: number;
-  region: {
+  readonly id: number;
+  readonly region: {
     latitude: number;
     longitude: number;
   };

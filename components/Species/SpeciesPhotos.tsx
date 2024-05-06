@@ -23,9 +23,9 @@ interface Photo {
   medium_url: string;
 }
 interface Props {
-  loading: boolean;
-  photos: Photo[];
-  id: number;
+  readonly loading: boolean;
+  readonly photos: Photo[];
+  readonly id: number;
 }
 
 const SpeciesPhotos = ( { loading, photos, id }: Props ) => {

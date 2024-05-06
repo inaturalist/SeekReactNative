@@ -12,8 +12,8 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  seenTaxa: Object | null;
-  checkForInternet: () => void;
+  readonly seenTaxa: Object | null;
+  readonly checkForInternet: () => void;
 }
 
 const SpeciesError = ( { seenTaxa, checkForInternet }: Props ) => (

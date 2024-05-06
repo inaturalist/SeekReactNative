@@ -7,10 +7,10 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 type TextContentTypes = "emailAddress" | "username" | "password";
 interface Props {
-  handleTextChange: ( text: string ) => void;
-  placeholder: string;
-  text: string;
-  type: TextContentTypes;
+  readonly handleTextChange: ( text: string ) => void;
+  readonly placeholder: string;
+  readonly text: string;
+  readonly type: TextContentTypes;
 }
 
 const InputField = ( {

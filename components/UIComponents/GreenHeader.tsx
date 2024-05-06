@@ -14,8 +14,8 @@ import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  route?: string;
-  header?: string;
+  readonly route?: string | null;
+  readonly header?: string | null;
   plainText?: string;
 }
 

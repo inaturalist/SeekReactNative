@@ -11,11 +11,11 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  loading: boolean;
-  about: string;
-  wikiUrl: string;
-  id: number;
-  scientificName: string;
+  readonly loading: boolean;
+  readonly about: string | null;
+  readonly wikiUrl: string | null;
+  readonly id: number;
+  readonly scientificName: string | null;
 }
 
 const About = ( {

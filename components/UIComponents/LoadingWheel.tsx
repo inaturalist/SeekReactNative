@@ -4,7 +4,7 @@ import { ActivityIndicator, View } from "react-native";
 import styles from "../../styles/uiComponents/loadingWheel";
 
 interface Props {
-  color?: string
+  readonly color?: string | null;
 }
 
 const LoadingWheel = ( { color }: Props ) => (

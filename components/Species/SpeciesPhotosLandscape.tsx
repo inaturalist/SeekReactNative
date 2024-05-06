@@ -21,9 +21,9 @@ interface Photo {
   license_code: string | null;
 }
 interface Props {
-  loading: boolean;
-  photos: Photo[];
-  id: number;
+  readonly loading: boolean;
+  readonly photos: Photo[];
+  readonly id: number;
 }
 
 const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {

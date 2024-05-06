@@ -8,10 +8,10 @@ import { calculatePercent } from "../../utility/challengeHelpers";
 import StyledText from "./StyledText";
 
 interface Props {
-  badge: {
+  readonly badge: {
     count: number;
   };
-  iconicSpeciesCount: number;
+  readonly iconicSpeciesCount: number;
 }
 
 const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (

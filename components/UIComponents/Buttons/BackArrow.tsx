@@ -10,8 +10,8 @@ import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/ba
 import icons from "../../../assets/icons";
 
 type Props = {
-  green?: boolean;
-  route?: string;
+  readonly green?: boolean;
+  readonly route?: string | null;
 }
 
 const BackArrow = ( { green, route }: Props ) => {

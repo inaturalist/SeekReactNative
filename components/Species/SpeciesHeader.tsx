@@ -11,22 +11,22 @@ import SpeciesName from "./SpeciesName";
 import IconicTaxaName from "./IconicTaxaName";
 
 interface Props {
-  loading: boolean;
-  photos: {
+  readonly loading: boolean;
+  readonly photos: {
     attribution: string,
     license_code: string,
     medium_url: string
   }[];
-  taxon: {
+  readonly taxon: {
     scientificName: string;
     iconicTaxonId: number;
   };
-  id: number;
-  selectedText: boolean;
-  highlightSelectedText: ( ) => void;
+  readonly id: number;
+  readonly selectedText: boolean;
+  readonly highlightSelectedText: ( ) => void;
 }
 
-const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSelectedText }: Props ): Node => {
+const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSelectedText }: Props ) => {
   const navigation = useNavigation( );
 
   const iconicTaxonId = taxon && taxon.iconicTaxonId;

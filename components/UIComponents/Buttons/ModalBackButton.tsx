@@ -9,7 +9,7 @@ import styles from "../../../styles/uiComponents/buttons/modalBackButton";
 import icons from "../../../assets/icons";
 
 interface Props {
-  closeModal: ( ) => void;
+  readonly closeModal: ( ) => void;
 }
 
 const ModalBackButton = ( { closeModal }: Props ) => (

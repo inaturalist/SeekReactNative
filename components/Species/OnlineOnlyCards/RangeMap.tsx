@@ -84,8 +84,6 @@ const RangeMap = () => {
     return null;
   }
 
-  console.log( "user", user );
-
   return (
     <ViewWithHeader testID="range-map-container" header="species_detail.range_map" footer={false}>
       <Modal

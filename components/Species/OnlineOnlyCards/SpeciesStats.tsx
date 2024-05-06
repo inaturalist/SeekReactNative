@@ -12,16 +12,16 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  loading: boolean;
-  stats: {
+  readonly loading: boolean;
+  readonly stats: {
     endangered: boolean;
   };
-  region: {
+  readonly region: {
     latitude: number;
     longitude: number;
   };
-  id: number;
-  seenDate: string | null;
+  readonly id: number;
+  readonly seenDate: string | null;
 }
 
 const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ) => {

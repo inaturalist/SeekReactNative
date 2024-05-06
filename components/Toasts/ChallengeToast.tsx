@@ -13,7 +13,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 import { useChallenge } from "../Providers/ChallengeProvider";
 
 interface Props {
-  challenge: {
+  readonly challenge: {
     index: number;
     name: string;
     percentComplete: number;

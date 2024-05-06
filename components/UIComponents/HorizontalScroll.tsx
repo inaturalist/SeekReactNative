@@ -7,13 +7,13 @@ import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 
-type Props = {
-  photoList: JSX.Element[]
+interface Props {
+  photoList: JSX.Element[];
 }
 
 const HorizontalScroll = ( { photoList }: Props ) => {
   const { name } = useRoute();
-  const flashList = useRef<FlashList<any>>( null );
+  const flashList = useRef<FlashList<JSX.Element>>( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
     viewAreaCoveragePercentThreshold: 95

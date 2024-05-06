@@ -13,7 +13,7 @@ interface Datum {
   count: number;
 }
 interface Props {
-  data: Datum[];
+  readonly data: Datum[];
 }
 
 const SeekYearInReviewChart = ( { data }: Props ) => {

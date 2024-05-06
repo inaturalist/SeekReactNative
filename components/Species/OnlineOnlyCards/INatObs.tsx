@@ -16,9 +16,9 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  id?: number;
-  timesSeen?: number;
-  region: {
+  readonly id: number | null;
+  readonly timesSeen: number | null;
+  readonly region: {
     latitude: number;
     longitude: number;
   };

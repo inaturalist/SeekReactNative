@@ -13,8 +13,8 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { getBounds, getCenterOfBounds } from "geolib";
 
 interface Props {
-  year: number;
-  observations: {
+  readonly year: number;
+  readonly observations: {
     latitude: number;
     longitude: number;
     uuidString: string;

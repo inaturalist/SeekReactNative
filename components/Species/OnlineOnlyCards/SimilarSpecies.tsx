@@ -49,7 +49,7 @@ type Action =
   | { type: ACTION.SHOW_SIMILAR_SPECIES, similarSpecies: Taxon[] }
 
 interface Props {
-  id?: number;
+  readonly id: number | null;
 }
 
 function reducer( s: State, action: Action ): State {

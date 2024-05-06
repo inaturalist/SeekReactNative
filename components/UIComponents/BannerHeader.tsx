@@ -7,8 +7,8 @@ import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  text: string;
-  modal?: boolean;
+  readonly text: string;
+  readonly modal?: boolean;
 }
 
 const BannerHeader = ( { text, modal }: Props ) => (

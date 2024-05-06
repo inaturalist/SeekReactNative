@@ -9,12 +9,12 @@ import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  color?: string;
-  handlePress: () => void;
-  large?: boolean;
-  greenText?: boolean;
-  text: string;
-  login?: boolean;
+  readonly color?: string | null;
+  readonly handlePress: () => void;
+  readonly large?: boolean;
+  readonly greenText?: boolean;
+  readonly text: string;
+  readonly login?: boolean;
 }
 
 const Button = ( {

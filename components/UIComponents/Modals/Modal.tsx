@@ -2,9 +2,9 @@ import * as React from "react";
 import RNModal from "react-native-modal";
 
 interface Props {
-  showModal: boolean;
-  closeModal: () => void;
-  modal: React.ReactNode;
+  readonly showModal: boolean;
+  readonly closeModal: () => void;
+  readonly modal: React.ReactNode;
 }
 
 // accessibility might not work on Android because of backdrop

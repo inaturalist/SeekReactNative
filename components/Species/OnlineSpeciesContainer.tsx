@@ -24,9 +24,9 @@ import { baseTextStyles } from "../../styles/textStyles";
 import { useRegion } from "../../utility/customHooks/useRegion";
 
 interface Props {
-  loading: boolean;
-  id: number;
-  details: {
+  readonly loading: boolean;
+  readonly id: number;
+  readonly details: {
     stats: {
       endangered: boolean;
     };
@@ -39,12 +39,12 @@ interface Props {
     }[];
     timesSeen: number;
   };
-  predictions: {
+  readonly predictions: {
     taxon_id: number;
     rank: number;
     name: string;
   }[];
-  scientificName: string;
+  readonly scientificName: string;
 }
 
 const OnlineSpeciesContainer = ( {

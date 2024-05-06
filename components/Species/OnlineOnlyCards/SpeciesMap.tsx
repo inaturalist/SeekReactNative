@@ -13,14 +13,14 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 
 interface Props {
-  region: {
+  readonly region: {
     latitude: number;
     longitude: number;
     latitudeDelta: number;
     longitudeDelta: number;
   };
-  id: number;
-  seenDate: string | null;
+  readonly id: number;
+  readonly seenDate: string | null;
 }
 
 const SpeciesMap = ( {

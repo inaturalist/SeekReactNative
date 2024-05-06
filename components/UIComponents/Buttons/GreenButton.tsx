@@ -8,15 +8,15 @@ import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  color?: string | null;
-  handlePress: () => void;
-  letterSpacing?: number;
-  text: string;
-  login?: boolean;
-  fontSize?: number;
-  width?: number;
-  allowFontScaling?: boolean;
-  disabled?: boolean;
+  readonly color?: string | null;
+  readonly handlePress: () => void;
+  readonly letterSpacing?: number;
+  readonly text: string;
+  readonly login?: boolean;
+  readonly fontSize?: number;
+  readonly width?: number | null;
+  readonly allowFontScaling?: boolean;
+  readonly disabled?: boolean;
 }
 
 const GreenButton = ( {

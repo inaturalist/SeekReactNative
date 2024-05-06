@@ -8,10 +8,10 @@ import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 
-type Props = {
-  green?: boolean,
+interface Props {
+  readonly green?: boolean;
   handlePress: () => void;
-  style: Object
+  style: Object;
 }
 
 const CustomBackArrow = ( {

@@ -1,5 +1,3 @@
-// @flow
-
 import Realm from "realm";
 
 import realmConfig from "../models/index";
@@ -56,7 +54,7 @@ const markNotificationsAsViewed = () => {
   } );
 };
 
-const isDuplicateNotification = ( realm: any, i: number ): boolean => {
+const isDuplicateNotification = ( realm: Realm, i: number ): boolean => {
   const notification = realm.objects( "NotificationRealm" )
     .filtered( `title == "notifications.new_challenge" AND challengeIndex == ${i}` );
   if ( notification.length > 0 ) {

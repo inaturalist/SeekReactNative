@@ -11,7 +11,7 @@ import GreenText from "../UIComponents/GreenText";
 import INatValueProps from "./iNatValueProps";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import AppIconSubHeader from "./AppIconSubHeader";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const INatHeaderLoggedOut = ( ): Node => {
   const navigation = useNavigation( );

@@ -10,7 +10,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useCommonName } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { useObservation } from "../Providers/ObservationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 

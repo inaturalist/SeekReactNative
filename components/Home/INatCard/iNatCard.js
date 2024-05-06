@@ -10,7 +10,7 @@ import INatCardLoggedOut from "./iNatCardLoggedOut";
 import { UserContext } from "../../UserContext";
 import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
 import GreenText from "../../UIComponents/GreenText";
-import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
 const INatCard = ( ): Node => {
   const { login } = useContext( UserContext );

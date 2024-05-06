@@ -15,7 +15,7 @@ import { UserContext } from "../../UserContext";
 import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
 
 const SeekYearInReviewCard = ( ): Node => {

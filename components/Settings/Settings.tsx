@@ -7,7 +7,7 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import DonateCard from "../UIComponents/Cards/DonateCard";
 import CameraSettings from "./CameraSettings";
 import SpeciesDetail from "./SpeciesDetail";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const SettingsScreen = ( ) => {
   const { isTablet } = useAppOrientation( );

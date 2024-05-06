@@ -5,7 +5,7 @@ import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import { textStyles, viewStyles } from "../../styles/species/species";
 import StyledText from "../UIComponents/StyledText";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {

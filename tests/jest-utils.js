@@ -3,7 +3,7 @@ import { render } from "@testing-library/react-native";
 
 import { UserContext } from "../components/UserContext";
 import { LanguageProvider } from "../components/Providers/LanguageContext";
-import { AppOrientationProvider } from "../components/Providers/AppOrientationContext";
+import { AppOrientationProvider } from "../components/Providers/AppOrientationProvider";
 import { ChallengeProvider } from "../components/Providers/ChallengeProvider";
 import { ObservationProvider } from "../components/Providers/ObservationProvider";
 import { SpeciesDetailProvider } from "../components/Providers/SpeciesDetailProvider";

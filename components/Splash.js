@@ -12,7 +12,7 @@ import { addARCameraFiles, checkIfFirstLaunch, setCameraLaunched } from "../util
 import { setupBadges } from "../utility/badgeHelpers";
 import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
 import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
-import { useAppOrientation } from "./Providers/AppOrientationContext";
+import { useAppOrientation } from "./Providers/AppOrientationProvider";
 
 const SplashScreen = ( ): Node => {
   const { isTablet } = useAppOrientation( );

@@ -8,7 +8,7 @@ import { viewStyles, textStyles } from "../../../styles/uiComponents/cards/donat
 import GreenButton from "../Buttons/GreenButton";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
 const DonateCard = ( ) => {
   const { navigate } = useNavigation( );

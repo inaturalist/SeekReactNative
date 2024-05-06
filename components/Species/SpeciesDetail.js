@@ -23,7 +23,7 @@ import IconicTaxaName from "./IconicTaxaName";
 import { useCommonName, useInternetStatus } from "../../utility/customHooks";
 import { useTaxonDetails } from "./hooks/speciesDetailHooks";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import styles from "../../styles/uiComponents/scrollWithHeader";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 

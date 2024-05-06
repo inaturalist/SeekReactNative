@@ -19,7 +19,7 @@ import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
 import StyledText from "../UIComponents/StyledText";
 import EmailText from "./EmailText";
 import { baseTextStyles } from "../../styles/textStyles";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const AboutScreen = (): Node => {
   const navigation = useNavigation();

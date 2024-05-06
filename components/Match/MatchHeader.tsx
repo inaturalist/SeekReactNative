@@ -5,7 +5,7 @@ import LinearGradient from "react-native-linear-gradient";
 import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { setGradients } from "../../utility/matchHelpers";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { useObservation } from "../Providers/ObservationProvider";
 
 interface Props {

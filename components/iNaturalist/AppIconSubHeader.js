@@ -7,7 +7,7 @@ import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iN
 import logos from "../../assets/logos";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 type Props = {
   icon: string,

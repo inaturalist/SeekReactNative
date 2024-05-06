@@ -41,7 +41,7 @@ import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import Modal from "../UIComponents/Modals/Modal";
 import LevelModal from "../Modals/LevelModal";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
 const SubstringStyledText = ( { text, greenText } ) => {

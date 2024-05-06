@@ -5,7 +5,7 @@ import { viewStyles } from "../../../styles/species/species";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import StyledText from "../../UIComponents/StyledText";
-import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {

@@ -14,7 +14,7 @@ import { LanguageProvider } from "./Providers/LanguageContext";
 import SpeciesNearbyProvider from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
 import { ObservationProvider } from "./Providers/ObservationProvider";
-import { AppOrientationProvider } from "./Providers/AppOrientationContext";
+import { AppOrientationProvider } from "./Providers/AppOrientationProvider";
 import { ChallengeProvider } from "./Providers/ChallengeProvider";
 import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
 import { log } from "../react-native-logs.config";

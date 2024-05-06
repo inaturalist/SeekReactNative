@@ -10,7 +10,7 @@ import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
 import StyledText from "../UIComponents/StyledText";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { baseTextStyles } from "../../styles/textStyles";

@@ -45,7 +45,7 @@ import { UserContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useSharedValue } from "react-native-reanimated";
-import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { useObservation } from "../../Providers/ObservationProvider";
 
 const logger = log.extend( "ARCamera.js" );

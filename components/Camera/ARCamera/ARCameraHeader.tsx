@@ -10,7 +10,7 @@ import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
 import StyledText from "../../UIComponents/StyledText";
-import { useAppOrientation } from "../../Providers/AppOrientationContext";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {

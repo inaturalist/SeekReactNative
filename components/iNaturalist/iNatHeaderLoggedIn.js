@@ -12,7 +12,7 @@ import OpenINatButton from "../UIComponents/Buttons/OpenINatButton";
 import ProfileImageAndLogin from "./ProfileImageAndLogin";
 import { useUploadedObservationCount } from "../../utility/customHooks";
 import { UserContext } from "../UserContext";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const INatHeaderLoggedIn = ( ): Node => {
   const [triggerReload, setTriggerReload] = useState( false );

@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 import { viewStyles } from "../../styles/species/species";
 import GreenText from "./GreenText";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 
 interface Props {

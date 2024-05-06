@@ -17,7 +17,7 @@ import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
 import LoginCard from "../UIComponents/Login/LoginCard";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
-import { useAppOrientation } from "../Providers/AppOrientationContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const INatStats = ( ): Node => {
   const { login } = useContext( UserContext );

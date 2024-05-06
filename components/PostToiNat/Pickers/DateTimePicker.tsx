@@ -14,7 +14,7 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
-  dateToDisplay: string;
+  dateToDisplay: string | null;
   handleDatePicked: ( date: Date ) => void
 }
 

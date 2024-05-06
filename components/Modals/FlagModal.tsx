@@ -18,9 +18,9 @@ interface Props {
     speciesSeenImage: string | null;
   };
   closeModal: ( misidentified: boolean ) => void;
-  seenDate?: string;
+  seenDate: string | null;
   scientificNames: boolean;
-  commonName?: string;
+  commonName: string | null;
 }
 
 const FlagModal = ( {

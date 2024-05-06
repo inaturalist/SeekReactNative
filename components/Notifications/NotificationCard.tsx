@@ -19,7 +19,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 import { Notification } from "./hooks/notificationHooks";
 
 interface Props {
-  item: Notification;
+  readonly item: Notification;
 }
 
 const NotificationCard = ( { item }: Props ) => {

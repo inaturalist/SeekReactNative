@@ -6,8 +6,8 @@ import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/galleryHeader";
 
 interface Props {
-  updateAlbum: ( newAlbum: string | null ) => void;
-  albumNames: {
+  readonly updateAlbum: ( newAlbum: string | null ) => void;
+  readonly albumNames: {
     label: string;
     value: string;
   }[];

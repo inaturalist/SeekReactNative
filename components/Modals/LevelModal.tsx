@@ -17,13 +17,13 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  level: {
+  readonly level: {
     earnedIconName: string,
     intlName: string
   };
-  speciesCount?: number;
-  closeModal: () => void;
-  screen?: string;
+  readonly speciesCount: number | null;
+  readonly closeModal: () => void;
+  readonly screen?: string | null;
 }
 
 const LevelModal = ( {

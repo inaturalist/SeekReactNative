@@ -11,9 +11,9 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  error: string;
-  errorEvent?: string;
-  album?: string;
+  readonly error: string;
+  readonly errorEvent: string | null;
+  album?: string | null;
 }
 
 const CameraError = ( { error, errorEvent, album }: Props ) => {

@@ -7,13 +7,9 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-import { NavigationProp } from "@react-navigation/native";
 
-interface Props {
-  navigation: NavigationProp<ReactNavigation.RootParamList>;
-}
-
-const PasswordEmailScreen = ( { navigation }: Props ) => (
+// TODO: navigation TS
+const PasswordEmailScreen = ( { navigation } ) => (
   <ScrollWithHeader header="inat_login.forgot_password_header">
     <View style={styles.flexCenter}>
       <StyledText style={[baseTextStyles.passwordEmailHeader, styles.greenHeaderText]}>

@@ -23,10 +23,10 @@ const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
 
 interface Props {
-  latitude: number | null;
-  longitude: number | null;
-  updateLocation: ( latitude: number | null, longitude: number | null, accuracy: number ) => void;
-  closeLocationPicker: ( ) => void;
+  readonly latitude: number | null;
+  readonly longitude: number | null;
+  readonly updateLocation: ( latitude: number | null, longitude: number | null, accuracy: number ) => void;
+  readonly closeLocationPicker: ( ) => void;
 }
 
 const LocationPicker = ( {

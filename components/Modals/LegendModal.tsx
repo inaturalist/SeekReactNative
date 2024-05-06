@@ -12,7 +12,7 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  closeModal: () => void;
+  readonly closeModal: () => void;
 }
 
 const Legend = ( { closeModal }: Props ) => {

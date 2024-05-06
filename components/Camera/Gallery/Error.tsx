@@ -15,8 +15,8 @@ enum Error {
   downtime = "downtime"
 }
 interface Props {
-  error: Error;
-  number?: number;
+  readonly error: Error;
+  readonly number?: number | null;
 }
 
 const ErrorScreen = ( { error, number }: Props ) => {

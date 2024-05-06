@@ -11,8 +11,8 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  color: string;
-  taxaInfo: {
+  readonly color: string;
+  readonly taxaInfo: {
     commonName?: string | null;
     taxaId?: number | null;
     scientificName?: string | null;

@@ -56,8 +56,12 @@ const modal = { presentation: "modal" };
 
 const Stack = createStackNavigator( );
 
+const style = {
+  flex: 1
+};
+
 const App = ( ): Props => (
-  <GestureHandlerRootView style={{ flex: 1 }}>
+  <GestureHandlerRootView style={style}>
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator >

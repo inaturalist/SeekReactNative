@@ -22,7 +22,7 @@ interface Props {
     scientificName: string;
   };
   scientificNames: boolean;
-  commonName?: string;
+  commonName: string | null;
 }
 
 const ReplacePhotoModal = ( {

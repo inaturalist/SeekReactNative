@@ -12,14 +12,14 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  ancestorId: number | null | undefined;
-  image: {
+  readonly ancestorId: number | null | undefined;
+  readonly image: {
     latitude: number;
     longitude: number;
   };
 }
 
-const SpeciesNearbyMatch = ( { ancestorId, image }: Props ): Node => {
+const SpeciesNearbyMatch = ( { ancestorId, image }: Props ) => {
   const [taxa, setTaxa] = useState( [] );
   const [loading, setLoading] = useState( false );
   const [loaded, setLoaded] = useState( false );

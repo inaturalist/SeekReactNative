@@ -27,13 +27,13 @@ const CameraHelpScreen = ( ) => {
         <StyledText style={baseTextStyles.body}>
           {i18n.t( "camera_help.explanation_1" )}
         </StyledText>
-        <StyledText style={[baseTextStyles.modalBannerGreen, textStyles.headerText]}>
+        <StyledText style={[baseTextStyles.header, textStyles.headerText]}>
           {i18n.t( "camera_help.header" ).toLocaleUpperCase()}
         </StyledText>
         <StyledText style={baseTextStyles.body}>
           {i18n.t( "camera_help.explanation_2" )}
         </StyledText>
-        <StyledText style={[baseTextStyles.modalBannerGreen, textStyles.headerText]}>
+        <StyledText style={[baseTextStyles.header, textStyles.headerText]}>
           {i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}
         </StyledText>
         <View style={viewStyles.row}>
@@ -42,13 +42,13 @@ const CameraHelpScreen = ( ) => {
           </StyledText>
           <Image source={icons.cameraHelpTree} />
         </View>
-        <StyledText style={[baseTextStyles.modalBannerGreen, textStyles.headerText]}>
+        <StyledText style={[baseTextStyles.header, textStyles.headerText]}>
           {i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}
         </StyledText>
         <StyledText style={baseTextStyles.body}>
           {i18n.t( "camera_help.tips" )}
         </StyledText>
-        <StyledText style={[baseTextStyles.modalBannerGreen, textStyles.headerText]}>
+        <StyledText style={[baseTextStyles.header, textStyles.headerText]}>
           {i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}
         </StyledText>
         {tips.map( ( tip: string ) => (

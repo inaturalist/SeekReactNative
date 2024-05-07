@@ -5,8 +5,9 @@ import { View, Image } from "react-native";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import logos from "../../assets/logos";
-import { AppOrientationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 type Props = {
   icon: string,
@@ -15,7 +16,7 @@ type Props = {
 }
 
 const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
-  const { isTablet } = React.useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation( );
 
   return (
     <View style={[
@@ -29,8 +30,8 @@ const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
         style={largeIcon ? imageStyles.largeIcon : imageStyles.smallIcon}
       />
       <StyledText style={[
-        textStyles.secondHeaderText,
-        largeIcon && textStyles.smallerTextWidth,
+        baseTextStyles.emptyState,
+        largeIcon ? textStyles.smallerTextWidth : textStyles.secondHeaderText,
         isTablet && viewStyles.tabletContainer,
         ( isTablet && largeIcon ) && viewStyles.landscapeContainerLargeIcon
       ]}>

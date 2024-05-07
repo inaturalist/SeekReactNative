@@ -26,14 +26,15 @@ import {
 import { checkCameraPermissions } from "../../../utility/androidHelpers.android";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
-import { ObservationContext, UserContext } from "../../UserContext";
+import { useObservation } from "../../Providers/ObservationProvider";
+import { UserContext } from "../../UserContext";
 
 const useVisionCamera = Platform.OS === "android";
 
 const ARCamera = ( ): Node => {
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
-  const { setObservation, observation } = useContext( ObservationContext );
+  const { setObservation, observation } = useObservation();
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );

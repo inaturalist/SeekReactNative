@@ -15,8 +15,9 @@ import { startChallenge } from "../../../utility/challengeHelpers";
 import icons from "../../../assets/icons";
 import { formatMonthYear } from "../../../utility/dateHelpers";
 import badges from "../../../assets/badges";
-import { ChallengeContext } from "../../UserContext";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { useChallenge } from "../../Providers/ChallengeProvider";
 
 type Props = {
   +challenge: {
@@ -32,7 +33,7 @@ type Props = {
 }
 
 const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {
-  const { setIndex } = React.useContext( ChallengeContext );
+  const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
   const {
     name,
@@ -73,7 +74,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
         accessible
         allowFontScaling={false}
         onPress={beginChallenge}
-        style={textStyles.startText}
+        style={[baseTextStyles.challengeItemButton, textStyles.startText]}
       >
         {i18n.t( "challenges.start_now" ).toLocaleUpperCase( )}
       </StyledText>
@@ -87,10 +88,10 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
     >
       <Image source={leftIcon} style={imageStyles.challengeBadgeIcon} />
       <View style={viewStyles.textContainer}>
-        <StyledText style={textStyles.titleText}>
+        <StyledText style={[baseTextStyles.challengeItemTitle, textStyles.titleText]}>
           {i18n.t( name ).toLocaleUpperCase( ).replace( /(- |-)/g, "-\n" )}
         </StyledText>
-        <StyledText style={textStyles.messageText}>
+        <StyledText style={[baseTextStyles.regular, textStyles.messageText]}>
           {challenge.sponsorName}
           {" - "}
           {formatMonthYear( availableDate )}

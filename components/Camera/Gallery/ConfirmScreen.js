@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
@@ -12,12 +12,12 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import GreenText from "../../UIComponents/GreenText";
 import BackArrow from "../../UIComponents/Buttons/BackArrow";
-import { ObservationContext } from "../../UserContext";
 import ErrorScreen from "./Error";
+import { useObservation } from "../../Providers/ObservationProvider";
 
 const ConfirmScreen = ( ): Node => {
   const navigation = useNavigation( );
-  const { observation, setObservation, error, setError } = useContext( ObservationContext );
+  const { observation, setObservation, error, setError } = useObservation();
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.clicked ) {

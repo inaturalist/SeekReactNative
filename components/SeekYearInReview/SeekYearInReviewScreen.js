@@ -13,7 +13,7 @@ import {
   imageStyles
 } from "../../styles/seekYearInReview/seekYearInReview";
 import { colors } from "../../styles/global";
-import { AppOrientationContext, UserContext } from "../UserContext";
+import { UserContext } from "../UserContext";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import {
   useFetchStats,
@@ -41,6 +41,8 @@ import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import Modal from "../UIComponents/Modals/Modal";
 import LevelModal from "../Modals/LevelModal";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const SubstringStyledText = ( { text, greenText } ) => {
   // Split the text into an array using whitespace
@@ -49,13 +51,13 @@ const SubstringStyledText = ( { text, greenText } ) => {
   }
   const substringsArray = text.split( " " );
   return (
-    <StyledText style={textStyles.bigText}>
+    <StyledText style={[baseTextStyles.emptyState, textStyles.center]}>
       {substringsArray.map( ( t, index ) => {
         if ( greenText && t === greenText.toString() ) {
-          return <GreenText key={`${t}_${index}`} noTranslation text={`${t} `} />;
+          return <GreenText key={`${t}_${index}`} noTranslation small text={`${t} `} />;
         }
         return (
-          <StyledText key={`${t}_${index}`} style={textStyles.bigText}>
+          <StyledText key={`${t}_${index}`} style={[baseTextStyles.emptyState, textStyles.center]}>
             {index === substringsArray.length ? t : `${t} `}
           </StyledText>
         );
@@ -80,7 +82,7 @@ const SeekYearInReviewScreen = (): Node => {
   const openModal = useCallback( () => setModal( true ), [] );
   const closeModal = useCallback( () => setModal( false ), [] );
 
-  const { isTablet } = useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation();
   const { userProfile, login } = useContext( UserContext );
 
   const count = useUploadedObservationCount( { login, username: userProfile?.login, year } );
@@ -124,12 +126,12 @@ const SeekYearInReviewScreen = (): Node => {
             style={[viewStyles.header, viewStyles.center, viewStyles.row]}
           >
             <View style={viewStyles.levelTextContainer}>
-              <StyledText style={textStyles.lightText}>
+              <StyledText style={[baseTextStyles.challengeMonth, textStyles.lightText]}>
                 {i18n
                   .t( "seek_year_in_review.in_year_observed", { year } )
                   .toLocaleUpperCase()}
               </StyledText>
-              <StyledText style={textStyles.headerText}>
+              <StyledText style={[baseTextStyles.challengeTitle]}>
                 {i18n
                   .t( "seek_year_in_review.x_new_species", {
                     count: countObservationsThisYear
@@ -162,7 +164,7 @@ const SeekYearInReviewScreen = (): Node => {
               <GreenText
                 style={viewStyles.badgeTextContainer}
                 center
-                smaller
+                small
                 noTranslation
                 text={state.topThreeSpeciesBadges[0].observationsThisYear}
               />
@@ -170,7 +172,7 @@ const SeekYearInReviewScreen = (): Node => {
                 <GreenText
                   style={viewStyles.badgeTextContainer}
                   center
-                  smaller
+                  small
                   noTranslation
                   text={state.topThreeSpeciesBadges[1].observationsThisYear}
                 />
@@ -179,7 +181,7 @@ const SeekYearInReviewScreen = (): Node => {
                 <GreenText
                   style={viewStyles.badgeTextContainer}
                   center
-                  smaller
+                  small
                   noTranslation
                   text={state.topThreeSpeciesBadges[2].observationsThisYear}
                 />
@@ -187,20 +189,20 @@ const SeekYearInReviewScreen = (): Node => {
             </View>
             <View style={[viewStyles.badgesTextContainer]}>
               <StyledText
-                style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.center]}
               >
                 {i18n.t( state.topThreeSpeciesBadges[0].iconicTaxonName )}
               </StyledText>
               {state.topThreeSpeciesBadges[1] && (
                 <StyledText
-                  style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                  style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.center]}
                 >
                   {i18n.t( state.topThreeSpeciesBadges[1].iconicTaxonName )}
                 </StyledText>
               )}
               {state.topThreeSpeciesBadges[2] && (
                 <StyledText
-                  style={[viewStyles.badgeTextContainer, textStyles.bigText]}
+                  style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.center]}
                 >
                   {i18n.t( state.topThreeSpeciesBadges[2].iconicTaxonName )}
                 </StyledText>
@@ -243,7 +245,7 @@ const SeekYearInReviewScreen = (): Node => {
             {!!count && (
               <>
                 <View style={viewStyles.smallDivider} />
-                <StyledText style={textStyles.bigText}>
+                <StyledText style={[baseTextStyles.emptyState, textStyles.center]}>
                   {i18n.t( "seek_year_in_review.uploaded_observations_text_2" )}
                 </StyledText>
               </>
@@ -281,11 +283,11 @@ const SeekYearInReviewScreen = (): Node => {
         ) : (
           <View style={viewStyles.divider} />
         )}
-        <StyledText style={textStyles.text}>
+        <StyledText style={[baseTextStyles.body, textStyles.center]}>
           {i18n.t( "seek_year_in_review.thank_you" )}
         </StyledText>
         <View style={viewStyles.smallDivider} />
-        <StyledText style={textStyles.text}>
+        <StyledText style={[baseTextStyles.body, textStyles.center]}>
           {i18n.t( "seek_year_in_review.consider_donation" )}
         </StyledText>
         <View style={viewStyles.divider} />

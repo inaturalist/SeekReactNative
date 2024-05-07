@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { View } from "react-native";
 import type { Node } from "react";
 
-import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
+import { viewStyles } from "../../../styles/challenges/challengeDetails";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import TapToLoad from "../../UIComponents/SpeciesNearby/TapToLoad";
 import GreenText from "../../UIComponents/GreenText";
@@ -17,6 +17,7 @@ import SpeciesNearbyChallengeError from "./SpeciesNearbyChallengeError";
 import { useInternetStatus } from "../../../utility/customHooks";
 import { colors } from "../../../styles/global";
 import StyledText from "../../UIComponents/StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 type Props = {
   challenge: Object
@@ -117,7 +118,7 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
     } else {
       return (
         <View style={viewStyles.loadingWheelContainer}>
-          <StyledText style={textStyles.text}>{i18n.t( "challenges.no_species_nearby" )}</StyledText>
+          <StyledText style={baseTextStyles.body}>{i18n.t( "challenges.no_species_nearby" )}</StyledText>
         </View>
       );
     }

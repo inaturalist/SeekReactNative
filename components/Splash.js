@@ -12,10 +12,10 @@ import { addARCameraFiles, checkIfFirstLaunch, setCameraLaunched } from "../util
 import { setupBadges } from "../utility/badgeHelpers";
 import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
 import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
-import { AppOrientationContext } from "./UserContext";
+import { useAppOrientation } from "./Providers/AppOrientationProvider";
 
 const SplashScreen = ( ): Node => {
-  const { isTablet } = React.useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation( );
   const navigation = useNavigation( );
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );
 

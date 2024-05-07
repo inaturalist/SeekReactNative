@@ -9,9 +9,10 @@ import { useNavigation } from "@react-navigation/native";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { viewStyles } from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
-import { ObservationContext, UserContext } from "../../UserContext";
+import { UserContext } from "../../UserContext";
 import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
+import { useObservation } from "../../Providers/ObservationProvider";
 
 type Props = {
   photos: Array<Object>,
@@ -20,7 +21,7 @@ type Props = {
 }
 
 const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node => {
-  const { setObservation, observation } = useContext( ObservationContext );
+  const { setObservation, observation } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );

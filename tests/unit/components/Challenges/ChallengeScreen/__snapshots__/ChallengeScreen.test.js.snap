@@ -85,7 +85,6 @@ exports[`ChallengeScreen should render correctly 1`] = `
           }
         }
         style={false}
-        tintColor={false}
       />
     </View>
     <Text
@@ -95,14 +94,19 @@ exports[`ChallengeScreen should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "maxWidth": 650,
-            "paddingTop": 5,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
+              "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
+              "maxWidth": 650,
+              "paddingTop": 5,
+            },
+          ],
         ]
       }
     >
@@ -853,10 +857,11 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "color": "#38976d",
                             "fontFamily": "Lato-Bold",
-                            "fontSize": 19,
-                            "letterSpacing": 1.12,
-                            "lineHeight": 23,
+                            "fontSize": 18,
+                            "letterSpacing": 1,
+                            "lineHeight": 22,
                           },
+                          false,
                           false,
                           false,
                           null,
@@ -957,14 +962,18 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 16,
-                            "letterSpacing": 0.89,
-                            "lineHeight": 20,
-                            "marginBottom": 1,
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 16,
+                              "letterSpacing": 0.89,
+                              "lineHeight": 20,
+                            },
+                            {
+                              "marginBottom": 1,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -976,11 +985,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
-                            "lineHeight": 21,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Regular",
+                            },
+                            {
+                              "fontSize": 13,
+                              "lineHeight": 21,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1132,11 +1146,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                               {
                                 "textAlign": "left",
                               },
-                              {
-                                "fontFamily": "Lato-Regular",
-                                "fontSize": 20,
-                                "paddingTop": 3,
-                              },
+                              [
+                                {
+                                  "color": "#000000",
+                                  "fontFamily": "Lato-Regular",
+                                },
+                                {
+                                  "fontSize": 19,
+                                  "paddingTop": 3,
+                                },
+                              ],
                             ]
                           }
                         >
@@ -1235,14 +1254,18 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 16,
-                            "letterSpacing": 0.89,
-                            "lineHeight": 20,
-                            "marginBottom": 1,
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 16,
+                              "letterSpacing": 0.89,
+                              "lineHeight": 20,
+                            },
+                            {
+                              "marginBottom": 1,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1254,11 +1277,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
-                            "lineHeight": 21,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Regular",
+                            },
+                            {
+                              "fontSize": 13,
+                              "lineHeight": 21,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1410,11 +1438,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                               {
                                 "textAlign": "left",
                               },
-                              {
-                                "fontFamily": "Lato-Regular",
-                                "fontSize": 20,
-                                "paddingTop": 3,
-                              },
+                              [
+                                {
+                                  "color": "#000000",
+                                  "fontFamily": "Lato-Regular",
+                                },
+                                {
+                                  "fontSize": 19,
+                                  "paddingTop": 3,
+                                },
+                              ],
                             ]
                           }
                         >
@@ -1467,10 +1500,11 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "color": "#38976d",
                             "fontFamily": "Lato-Bold",
-                            "fontSize": 19,
-                            "letterSpacing": 1.12,
-                            "lineHeight": 23,
+                            "fontSize": 18,
+                            "letterSpacing": 1,
+                            "lineHeight": 22,
                           },
+                          false,
                           false,
                           false,
                           null,
@@ -1571,14 +1605,18 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 16,
-                            "letterSpacing": 0.89,
-                            "lineHeight": 20,
-                            "marginBottom": 1,
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 16,
+                              "letterSpacing": 0.89,
+                              "lineHeight": 20,
+                            },
+                            {
+                              "marginBottom": 1,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1590,11 +1628,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
-                            "lineHeight": 21,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Regular",
+                            },
+                            {
+                              "fontSize": 13,
+                              "lineHeight": 21,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1622,13 +1665,17 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 14,
-                            "lineHeight": 17,
-                            "textAlign": "center",
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 13,
+                              "lineHeight": 17,
+                            },
+                            {
+                              "textAlign": "center",
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1725,14 +1772,18 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 16,
-                            "letterSpacing": 0.89,
-                            "lineHeight": 20,
-                            "marginBottom": 1,
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 16,
+                              "letterSpacing": 0.89,
+                              "lineHeight": 20,
+                            },
+                            {
+                              "marginBottom": 1,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1744,11 +1795,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
-                            "lineHeight": 21,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Regular",
+                            },
+                            {
+                              "fontSize": 13,
+                              "lineHeight": 21,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1776,13 +1832,17 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 14,
-                            "lineHeight": 17,
-                            "textAlign": "center",
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 13,
+                              "lineHeight": 17,
+                            },
+                            {
+                              "textAlign": "center",
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1833,10 +1893,11 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "color": "#38976d",
                             "fontFamily": "Lato-Bold",
-                            "fontSize": 19,
-                            "letterSpacing": 1.12,
-                            "lineHeight": 23,
+                            "fontSize": 18,
+                            "letterSpacing": 1,
+                            "lineHeight": 22,
                           },
+                          false,
                           false,
                           false,
                           null,
@@ -1937,14 +1998,18 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 16,
-                            "letterSpacing": 0.89,
-                            "lineHeight": 20,
-                            "marginBottom": 1,
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 16,
+                              "letterSpacing": 0.89,
+                              "lineHeight": 20,
+                            },
+                            {
+                              "marginBottom": 1,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -1956,11 +2021,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
-                            "lineHeight": 21,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Regular",
+                            },
+                            {
+                              "fontSize": 13,
+                              "lineHeight": 21,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -2076,14 +2146,18 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#38976d",
-                            "fontFamily": "Lato-Bold",
-                            "fontSize": 16,
-                            "letterSpacing": 0.89,
-                            "lineHeight": 20,
-                            "marginBottom": 1,
-                          },
+                          [
+                            {
+                              "color": "#38976d",
+                              "fontFamily": "Lato-Bold",
+                              "fontSize": 16,
+                              "letterSpacing": 0.89,
+                              "lineHeight": 20,
+                            },
+                            {
+                              "marginBottom": 1,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -2095,11 +2169,16 @@ exports[`ChallengeScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
-                            "lineHeight": 21,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Regular",
+                            },
+                            {
+                              "fontSize": 13,
+                              "lineHeight": 21,
+                            },
+                          ],
                         ]
                       }
                     >

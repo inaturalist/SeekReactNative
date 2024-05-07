@@ -134,7 +134,7 @@ const localizeAttributions = ( attribution: string, licenseCode: string, screen:
   return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
-const localizeAttributionsLandscape = ( attribution: string, licenseCode: string, screen: string ): string => {
+const localizeAttributionsLandscape = ( attribution: string, licenseCode: string ): string => {
   const nameAndCC = attribution.split( "," )[0];
   const userName = nameAndCC.split( ")" )[1];
 

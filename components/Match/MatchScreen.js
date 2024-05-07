@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useCallback, useRef, useContext } from "react";
+import React, { useReducer, useCallback, useRef } from "react";
 import { BackHandler, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -11,16 +11,17 @@ import styles from "../../styles/match/match";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
-import Spacer from "../UIComponents/TopSpacer";
+import TopSpacer from "../UIComponents/TopSpacer";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
-import { useFetchUserSettings, useScrollToTop } from "../../utility/customHooks";
+import { useScrollToTop } from "../../utility/customHooks";
+import { useFetchUserSettings } from "../../utility/customHooks/useFetchUserSettings";
 import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
-import { ObservationContext } from "../UserContext";
+import { useObservation } from "../Providers/ObservationProvider";
 
 const MatchScreen = ( ): Node => {
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation();
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
   const settings = useFetchUserSettings( );
@@ -62,7 +63,7 @@ const MatchScreen = ( ): Node => {
     }
   }, [screenType] );
 
-  const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
+  const setNavigationPath = useCallback( ( path: string ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
   useFocusEffect(
     useCallback( () => {
@@ -92,7 +93,7 @@ const MatchScreen = ( ): Node => {
         scientificNames={scientificNames}
       />
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
-        <Spacer backgroundColor={gradientDark} />
+        <TopSpacer backgroundColor={gradientDark} />
         <MatchHeader
           screenType={screenType}
           setNavigationPath={setNavigationPath}

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback, useRef, useContext } from "react";
+import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import {
   View,
   Image,
@@ -25,11 +25,11 @@ import { resizeImage } from "../../utility/photoHelpers";
 import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
 import CropScreen from "./CropScreen";
-import { ObservationContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
+import { useObservation } from "../Providers/ObservationProvider";
 
 const SocialScreen = ( ): Node => {
-  const { observation } = useContext( ObservationContext );
+  const { observation } = useObservation();
   const { image } = observation;
   const { uri } = image;
   const cropViewRef = useRef( );

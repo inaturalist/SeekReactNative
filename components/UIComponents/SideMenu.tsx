@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { Image, Pressable, View } from "react-native";
 
@@ -9,20 +7,16 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
 import { resetRouter } from "../../utility/navigationHelpers";
-import { colors } from "../../styles/global";
 import StyledText from "./StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  navigation: any
-}
-
-const SideMenu = ( { navigation }: Props ): React.Node => {
+const SideMenu = ( { navigation } ) => {
   const { navigate } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
   const navHome = ( ) => resetRouter( navigation );
 
-  const navToPath = ( path ) => {
+  const navToPath = ( path: string ) => {
     if ( path === "Home" ) {
       navHome( );
     } else {
@@ -46,13 +40,11 @@ const SideMenu = ( { navigation }: Props ): React.Node => {
         onPress={() => navToPath( path )}
         style={[viewStyles.menuItem, i < menuItems.length - 1 && viewStyles.divider]}
       >
-        {/* $FlowFixMe */}
         <Image
           source={icons[`menu${titleCase}`]}
           style={imageStyles.icon}
-          tintColor={colors.menuItems}
         />
-        <StyledText allowFontScaling={false} style={textStyles.text}>{name}</StyledText>
+        <StyledText allowFontScaling={false} style={[baseTextStyles.sideMenu, textStyles.text]}>{name}</StyledText>
       </Pressable>
     );
   } );

@@ -1,14 +1,9 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 
 import {
   colors,
-  fonts,
   padding
 } from "../global";
-
-// const { height } = Dimensions.get( "window" );
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -22,7 +17,6 @@ const viewStyles = StyleSheet.create( {
     borderBottomColor: colors.dividerWhite
   },
   menuItem: {
-    // height: height / 11,
     paddingVertical: 21,
     justifyContent: "flex-start",
     alignItems: "center",
@@ -43,7 +37,6 @@ const imageStyles = StyleSheet.create( {
     alignSelf: "center",
     height: 79,
     marginVertical: 62 - 21,
-    // marginBottom: height / 11 / 2,
     resizeMode: "contain",
     width: 223
   }
@@ -52,10 +45,6 @@ const imageStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   text: {
     flex: 1,
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     paddingTop: padding.iOSButtonPadding,
     paddingEnd: 4
   }

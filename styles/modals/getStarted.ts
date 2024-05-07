@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
@@ -24,7 +22,6 @@ const viewStyles = StyleSheet.create( {
     alignSelf: "center",
     marginTop: 30
   },
-
   margin: {
     marginHorizontal: 29
   },

@@ -184,7 +184,7 @@ const link = {
 
 const forgotPasswordLink = {
   color: colors.seekForestGreen,
-  fontFamily: fonts.book,
+  fontFamily: fonts.regular,
   fontSize: 16,
   lineHeight: 21,
   textDecorationLine: "underline" as const
@@ -245,13 +245,13 @@ const loginOrSignup = {
 
 const loginError = {
   color: colors.seekiNatGreen,
-  fontFamily: fonts.semibold,
+  fontFamily: fonts.bold,
   fontSize: 17
 };
 
 const passwordEmailHeader = {
   color: colors.seekForestGreen,
-  fontFamily: fonts.semibold,
+  fontFamily: fonts.bold,
   fontSize: 23,
   letterSpacing: 1.0,
   lineHeight: 30

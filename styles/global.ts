@@ -44,13 +44,9 @@ export const colors: Colors = {
 
 export const fonts = {
   medium: "Lato-Medium",
-  semibold: "Lato-Bold",
   bold: "Lato-Bold",
-  book: "Lato-Regular",
   regular: "Lato-Regular",
-  bookItalic: "Lato-Italic",
   italic: "Lato-Italic",
-  semiboldItalic: "Lato-BoldItalic",
   boldItalic: "Lato-BoldItalic"
 };
 

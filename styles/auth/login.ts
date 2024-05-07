@@ -39,13 +39,6 @@ export default StyleSheet.create( {
   header: {
     textAlign: "center"
   },
-  headerText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0,
-    textAlign: "center"
-  },
   image: {
     height: dimensions.height < 570 ? 150 : 264,
     marginBottom: 44,
@@ -63,12 +56,6 @@ export default StyleSheet.create( {
     marginTop: 26,
     maxWidth: 313,
     textAlign: "center"
-  },
-  loginSuccessHeaderText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0
   },
   margin: {
     marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 22
@@ -97,9 +84,6 @@ export default StyleSheet.create( {
     paddingTop: 11
   },
   row,
-  secondHeaderText: {
-    textAlign: "center"
-  },
   secondHeaderTextContainer: {
     marginHorizontal: 25,
     marginTop: 11

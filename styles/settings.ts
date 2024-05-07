@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   row,
   center,
   padding,
@@ -89,12 +88,6 @@ const viewStyles = StyleSheet.create( {
 } );
 
 const textStyles = StyleSheet.create( {
-  languageText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
-    letterSpacing: 1.11
-  },
   seasonalityRadioButtonText: {
     maxWidth: width - ( 28 * 2 ) - 30 - 10.3,
     marginTop: -3

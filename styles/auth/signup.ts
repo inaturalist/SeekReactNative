@@ -1,7 +1,6 @@
 import { StyleSheet, Platform } from "react-native";
 
 import {
-  fonts,
   colors,
   padding,
   center,
@@ -100,13 +99,6 @@ export default StyleSheet.create( {
     marginTop: 51
   },
   row,
-  secondHeaderText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 22,
-    lineHeight: 30,
-    textAlign: "center"
-  },
   text: {
     marginHorizontal: 38,
     marginTop: 20,

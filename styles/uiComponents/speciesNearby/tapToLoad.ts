@@ -15,7 +15,6 @@ const viewStyles = StyleSheet.create( {
   }
 } );
 
-
 const textStyles = StyleSheet.create( {
   text: {
     maxWidth: 245,

@@ -100,6 +100,13 @@ const modalBanner = {
   letterSpacing: 1.12
 };
 
+const sideMenu = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: 17,
+  letterSpacing: 1.0
+};
+
 const challengeMonth = {
   color: colors.white,
   fontFamily: fonts.regular,
@@ -404,7 +411,8 @@ const baseTextStyles = StyleSheet.create( {
   loginError,
   passwordEmailHeader,
   linkedAccountHeader,
-  donationLink
+  donationLink,
+  sideMenu
 } );
 
 export {

@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   center,
   row,
   dimensions
@@ -28,10 +27,6 @@ const textStyles = StyleSheet.create( {
     textAlign: "center"
   },
   text: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginHorizontal: 28,
     marginTop: 20,
     textAlign: "center"

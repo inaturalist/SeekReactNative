@@ -27,7 +27,7 @@ interface Props {
   readonly checkForInternet: () => void;
 }
 
-const SpeciesContainer = ( {
+const OfflineSpeciesContainer = ( {
   id,
   details,
   predictions,
@@ -59,4 +59,4 @@ const SpeciesContainer = ( {
   );
 };
 
-export default SpeciesContainer;
+export default OfflineSpeciesContainer;

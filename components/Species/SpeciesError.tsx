@@ -25,7 +25,7 @@ const SpeciesError = ( { seenTaxa, checkForInternet }: Props ) => (
       <Image source={icons.internet} />
       <StyledText style={[baseTextStyles.bodyWhite, textStyles.errorText]}>{i18n.t( "species_detail.internet_error" )}</StyledText>
     </TouchableOpacity>
-    {seenTaxa && <StyledText style={textStyles.text}>{i18n.t( "species_detail.species_saved" )}</StyledText>}
+    {seenTaxa && <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "species_detail.species_saved" )}</StyledText>}
   </View>
 );
 

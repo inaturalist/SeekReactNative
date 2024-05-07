@@ -20,6 +20,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -114,7 +115,7 @@ const LocationPicker = ( {
       <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
         <View style={viewStyles.marginLarge} />
-        <StyledText style={textStyles.headerText}>
+        <StyledText style={[baseTextStyles.button, textStyles.headerText]}>
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
         </StyledText>
         <View style={[viewStyles.row, viewStyles.inputRow]}>
@@ -127,7 +128,7 @@ const LocationPicker = ( {
             onChangeText={changeText}
             placeholder={inputLocation || i18n.t( "species_nearby.no_location" )}
             placeholderTextColor={colors.placeholderGray}
-            style={textStyles.inputField}
+            style={[baseTextStyles.inputField, textStyles.inputField]}
             textContentType="addressCity"
           />
         </View>

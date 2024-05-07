@@ -1,7 +1,6 @@
 import { StyleSheet, I18nManager } from "react-native";
 import {
   colors,
-  fonts,
   dimensions,
   row
 } from "../global";
@@ -85,10 +84,6 @@ const viewStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   headerText: {
     alignSelf: "center",
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
     maxWidth: dimensions.width - 100
   },
   text: {
@@ -98,9 +93,6 @@ const textStyles = StyleSheet.create( {
   inputField: {
     backgroundColor: colors.white,
     borderRadius: 40,
-    color: colors.black,
-    fontFamily: fonts.medium,
-    fontSize: 15,
     height: 37,
     paddingBottom: 0,
     paddingLeft: 20,

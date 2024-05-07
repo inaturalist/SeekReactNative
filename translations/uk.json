@@ -565,9 +565,9 @@
   },
   "about": {
     "header": "Головна інформація",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek спроєктований та розроблений командою iNaturalist:",
     "joint_initiative": "iNaturalist є спільною ініціативою Каліфорнійської академії наук та Національного географічного товариства.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Проєкт Seek був створений за підтримки Каліфорнійської академії наук, товариства National Geographic, Our Planet на Netflix, WWF, HHMI Tangled Bank Studios і Visipedia",
     "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, та Sylvain Morin. Особлива подяка Grant Van Horn from Visipedia за допомогу з технологією комп'ютерного зору і спільноті iNaturalist.",
     "version": "Версія",
     "help": "Для отримання допомоги в роботі з Seek, будь ласка, напишіть на електронну пошту help+seek@inaturalist.org.",
@@ -598,8 +598,8 @@
     "animals": "Тварини",
     "protozoans": "Найпростіші",
     "kelp": "Ламінарієві, Діатомеї та споріднені",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Помилка розташування",
+    "error_message_2": "Здається, ваше місцезнаходження не коректно записано! Будь ласка, перевірте ваше місце розташування."
   },
   "posting_status": {
     "posting_to_inat_background": "ЗАВАНТАЖЕННЯ ДО INATURALIST У ФОНОВОМУ РЕЖИМІ",
@@ -962,8 +962,8 @@
     "december_2023_description_ecology": "На екосистеми та їхні організми впливає багато різних видів взаємодій. Екологія вивчає організми (біотичні) та їх фізичне середовище (абіотичне). Біотичні взаємодії відбуваються між живими істотами, а абіотичні взаємодії включають неживі фактори, такі як температура, вода, світло та ґрунт."
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
-    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
+    "january_2024_challenge_name_neighborhood": "Сусідський челендж",
+    "february_2024_challenge_name_life_in_flight": "\"Життя в польоті\" челендж",
     "march_2024_challenge_name_stewardship": "Stewardship Challenge",
     "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
     "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",

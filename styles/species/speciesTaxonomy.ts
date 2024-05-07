@@ -1,8 +1,6 @@
 import { StyleSheet } from "react-native";
-import {
-  fonts,
-  row
-} from "../global";
+
+import { row } from "../global";
 
 const viewStyles = StyleSheet.create( {
   bullet: {
@@ -15,9 +13,6 @@ const viewStyles = StyleSheet.create( {
 } );
 
 const textStyles = StyleSheet.create( {
-  speciesTaxonomyHeader: {
-    fontFamily: fonts.semiboldItalic
-  },
   taxonomyText: {
     maxWidth: 200
   }

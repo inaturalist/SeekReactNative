@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts, row, dimensions } from "../global";
+import { colors, row, dimensions } from "../global";
 
 const backgroundHeight = dimensions.height;
 const bottomPadding = 100;
@@ -70,12 +70,6 @@ const textStyles = StyleSheet.create( {
   humanText: {
     marginTop: 45,
     textAlign: "center"
-  },
-  italicText: {
-    color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21
   },
   iconicTaxaText: {
     paddingLeft: 28,

@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   View,
@@ -19,18 +17,19 @@ import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
 import { useChallenge } from "../Providers/ChallengeProvider";
+import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  closeModal: ( ) => void,
-  challenge: {
-    index: number,
-    percentComplete: number,
-    startedDate: Date,
-    availableDate: Date
-  }
-};
+interface Props {
+  readonly closeModal: ( ) => void;
+  readonly challenge: {
+    index: number;
+    percentComplete: number;
+    startedDate: Date;
+    availableDate: Date;
+  };
+}
 
-const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node => {
+const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
   const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
 
@@ -69,7 +68,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node 
           allowFontScaling={false}
         />
       </View>
-      <StyledText allowFontScaling={false} style={textStyles.nameText}>
+      <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.nameText]}>
         {i18n.t( "challenges.how_to", { month: formatMonth( challenge.availableDate ) } )}
       </StyledText>
       {checkIfChallengeAvailable( challenge.availableDate ) ? (
@@ -81,7 +80,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ): React.Node 
           />
         </View>
       ) : (
-        <StyledText allowFontScaling={false} style={textStyles.italicText}>
+        <StyledText allowFontScaling={false} style={[baseTextStyles.bodyItalic, textStyles.italicText]}>
           {i18n.t( "challenges.released", { date: formatMonthYear( challenge.availableDate ) } )}
         </StyledText>
       )}

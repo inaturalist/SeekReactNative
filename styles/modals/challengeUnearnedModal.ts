@@ -1,14 +1,8 @@
-// @flow
 
 import { StyleSheet } from "react-native";
-import {
-  colors,
-  fonts,
-  dimensions
-} from "../global";
+import { dimensions } from "../global";
 
 const { width } = dimensions;
-
 
 const viewStyles = StyleSheet.create( {
   center: {
@@ -26,9 +20,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   italicText: {
-    color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
     lineHeight: 25,
     marginBottom: 16,
     marginHorizontal: 27,
@@ -37,10 +28,6 @@ const textStyles = StyleSheet.create( {
     textAlign: "center"
   },
   nameText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
     marginHorizontal: 34,
     marginTop: 9,
     textAlign: "center"
@@ -59,9 +46,8 @@ const imageStyles = StyleSheet.create( {
   }
 } );
 
-  export {
-    viewStyles,
-    textStyles,
-    imageStyles
-  };
-
+export {
+  viewStyles,
+  textStyles,
+  imageStyles
+};

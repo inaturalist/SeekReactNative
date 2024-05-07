@@ -26,9 +26,5 @@ export default StyleSheet.create( {
   marginOpen: {
     marginLeft: 15
   },
-  numberText: {
-    fontSize: 18,
-    letterSpacing: 0.78
-  },
   row
 } );

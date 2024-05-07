@@ -56,7 +56,7 @@ const SectionHeader = ( { id, dataLength, open, toggleSection }: Props ) => {
         {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
       </StyledText>
       <View style={styles.row}>
-        <StyledText style={[baseTextStyles.regular, styles.numberText]} allowFontScaling={false}>{dataLength}</StyledText>
+        <StyledText style={[baseTextStyles.sectionNumber]} allowFontScaling={false}>{dataLength}</StyledText>
         {id !== 1 && (
           <Image
             source={noBadge ? badges.badge_empty_small : badge}

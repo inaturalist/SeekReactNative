@@ -277,6 +277,13 @@ const coords = {
   fontSize: 12
 };
 
+const sectionNumber = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 18,
+  letterSpacing: 0.78
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -419,7 +426,8 @@ const baseTextStyles = StyleSheet.create( {
   linkedAccountHeader,
   donationLink,
   sideMenu,
-  coords
+  coords,
+  sectionNumber
 } );
 
 export {

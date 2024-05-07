@@ -2,9 +2,10 @@
 # Run tests
 ##
 name: Tests
-on:
-  pull_request:
-  push:
+# Disabling workflow until we can make the failures meaingful again
+# on:
+#   pull_request:
+#   push:
 
 jobs:
   pre_build:

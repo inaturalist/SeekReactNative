@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 
 const viewStyles = StyleSheet.create( {
@@ -12,7 +10,6 @@ const viewStyles = StyleSheet.create( {
     marginTop: 32
   }
 } );
-
 
 const textStyles = StyleSheet.create( {
   headerText: {

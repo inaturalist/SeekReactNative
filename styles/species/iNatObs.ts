@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   row,
@@ -7,7 +5,6 @@ import {
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
-
   center,
   margin: {
     marginTop: 28
@@ -17,7 +14,6 @@ const viewStyles = StyleSheet.create( {
     marginLeft: 36
   }
 } );
-
 
 const textStyles = StyleSheet.create( {
   number: {

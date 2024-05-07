@@ -1,15 +1,11 @@
-// @flow
-
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
   row,
   dimensions
 } from "./global";
 
 const { width } = dimensions;
-
 
 const viewStyles = StyleSheet.create( {
   card: {

@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { Image, Pressable, ScrollView, Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
@@ -12,14 +9,28 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
-type Props = {
-  item: Object,
-  openModal: ( Object, Object ) => void,
-  updateItemScrolledId: ( ?number ) => void,
-  itemScrolledId: ?number,
-  toAnimate: boolean,
-  hasAnimated: boolean,
-  setHasAnimated: ( boolean ) => void
+type Taxon = {
+  id: number;
+  iconicTaxonId?: number | undefined;
+  preferredCommonName?: string | undefined;
+  name: string;
+  defaultPhoto?: {
+    backupUri?: string,
+    mediumUrl?: string,
+    lastUpdated?: Date;
+  }
+};
+interface Props {
+  readonly item: {
+    taxon: Taxon;
+    photo: string;
+  };
+  readonly openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;
+  readonly updateItemScrolledId: ( id: number | null ) => void;
+  readonly itemScrolledId: number | null;
+  readonly toAnimate: boolean;
+  readonly hasAnimated: boolean;
+  readonly setHasAnimated: ( hasAnimated: boolean ) => void;
 }
 
 const ObservationCard = ( {
@@ -30,9 +41,9 @@ const ObservationCard = ( {
   toAnimate,
   hasAnimated,
   setHasAnimated
-}: Props ): Node => {
+}: Props ) => {
   const { setId } = useSpeciesDetail( );
-  const scrollView = useRef( null );
+  const scrollView = useRef<ScrollView>( null );
   const { navigate } = useNavigation( );
   const animation = useMemo( ( ) => new Animated.Value( -0 ), [] );
 

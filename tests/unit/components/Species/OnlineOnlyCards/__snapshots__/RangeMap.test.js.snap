@@ -85,7 +85,6 @@ exports[`RangeMap should change map region to user's location when button is pre
           }
         }
         style={false}
-        tintColor={false}
       />
     </View>
     <Text
@@ -95,14 +94,19 @@ exports[`RangeMap should change map region to user's location when button is pre
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "maxWidth": 650,
-            "paddingTop": 5,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
+              "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
+              "maxWidth": 650,
+              "paddingTop": 5,
+            },
+          ],
         ]
       }
     >
@@ -266,14 +270,18 @@ exports[`RangeMap should change map region to user's location when button is pre
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Lato-Bold",
-            "fontSize": 19,
-            "letterSpacing": 1.12,
-            "marginTop": 18,
-            "textAlign": "center",
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 18,
+              "letterSpacing": 1.12,
+            },
+            {
+              "marginTop": 18,
+              "textAlign": "center",
+            },
+          ],
         ]
       }
     >
@@ -415,7 +423,6 @@ exports[`RangeMap should render correctly 1`] = `
           }
         }
         style={false}
-        tintColor={false}
       />
     </View>
     <Text
@@ -425,14 +432,19 @@ exports[`RangeMap should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "maxWidth": 650,
-            "paddingTop": 5,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
+              "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
+              "maxWidth": 650,
+              "paddingTop": 5,
+            },
+          ],
         ]
       }
     >
@@ -594,14 +606,18 @@ exports[`RangeMap should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Lato-Bold",
-            "fontSize": 19,
-            "letterSpacing": 1.12,
-            "marginTop": 18,
-            "textAlign": "center",
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 18,
+              "letterSpacing": 1.12,
+            },
+            {
+              "marginTop": 18,
+              "textAlign": "center",
+            },
+          ],
         ]
       }
     >

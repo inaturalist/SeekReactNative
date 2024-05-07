@@ -78,10 +78,8 @@ exports[`HorizontalScroll should render correctly 1`] = `
       externalScrollView={[Function]}
       finalRenderAheadOffset={250}
       forceNonDeterministicRendering={true}
-      getItemLayout={[Function]}
       horizontal={true}
       indicatorStyle="white"
-      initialNumToRender={1}
       initialOffset={0}
       initialRenderIndex={0}
       isHorizontal={true}
@@ -185,10 +183,8 @@ exports[`HorizontalScroll should render correctly 1`] = `
               </View>,
             ],
             "estimatedItemSize": 350,
-            "getItemLayout": [Function],
             "horizontal": true,
             "indicatorStyle": "white",
-            "initialNumToRender": 1,
             "numColumns": 1,
             "onViewableItemsChanged": [Function],
             "pagingEnabled": true,

@@ -123,7 +123,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -132,15 +131,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >
@@ -209,7 +212,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -218,15 +220,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >
@@ -295,7 +301,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -304,15 +309,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >
@@ -381,7 +390,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -390,15 +398,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >
@@ -467,7 +479,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -476,15 +487,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >
@@ -553,7 +568,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -562,15 +576,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >
@@ -636,7 +654,6 @@ exports[`SideMenu should render correctly 1`] = `
           "width": 27,
         }
       }
-      tintColor="#63d4ab"
     />
     <Text
       allowFontScaling={false}
@@ -645,15 +662,19 @@ exports[`SideMenu should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "flex": 1,
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingEnd": 4,
-            "paddingTop": 3,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 17,
+              "letterSpacing": 1,
+            },
+            {
+              "flex": 1,
+              "paddingEnd": 4,
+              "paddingTop": 3,
+            },
+          ],
         ]
       }
     >

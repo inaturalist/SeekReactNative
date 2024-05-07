@@ -193,17 +193,16 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
             {
               "color": "#ffffff",
               "fontFamily": "Lato-Bold",
-              "fontSize": 18,
+              "fontSize": 15,
               "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
               "paddingTop": 3,
               "textAlign": "center",
             },
-            {
-              "letterSpacing": 1,
-            },
-            {
-              "fontSize": 18,
-            },
+            undefined,
+            undefined,
           ],
         ]
       }

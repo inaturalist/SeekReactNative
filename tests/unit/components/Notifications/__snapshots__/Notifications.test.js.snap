@@ -85,7 +85,6 @@ exports[`NotificationsScreen should render correctly 1`] = `
           }
         }
         style={false}
-        tintColor={false}
       />
     </View>
     <Text
@@ -95,14 +94,19 @@ exports[`NotificationsScreen should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Lato-Bold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "maxWidth": 650,
-            "paddingTop": 5,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
+              "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
+              "maxWidth": 650,
+              "paddingTop": 5,
+            },
+          ],
         ]
       }
     >
@@ -507,13 +511,18 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#000000",
-                            "fontFamily": "Lato-Medium",
-                            "fontSize": 16,
-                            "lineHeight": 21,
-                            "marginBottom": 6,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Medium",
+                              "fontSize": 15,
+                              "letterSpacing": 0,
+                              "lineHeight": 21,
+                            },
+                            {
+                              "marginBottom": 6,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -528,7 +537,8 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
+                            "fontSize": 13,
+                            "letterSpacing": 0,
                             "lineHeight": 21,
                           },
                         ]
@@ -648,13 +658,18 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           {
                             "textAlign": "left",
                           },
-                          {
-                            "color": "#000000",
-                            "fontFamily": "Lato-Medium",
-                            "fontSize": 16,
-                            "lineHeight": 21,
-                            "marginBottom": 6,
-                          },
+                          [
+                            {
+                              "color": "#000000",
+                              "fontFamily": "Lato-Medium",
+                              "fontSize": 15,
+                              "letterSpacing": 0,
+                              "lineHeight": 21,
+                            },
+                            {
+                              "marginBottom": 6,
+                            },
+                          ],
                         ]
                       }
                     >
@@ -669,7 +684,8 @@ exports[`NotificationsScreen should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                            "fontSize": 14,
+                            "fontSize": 13,
+                            "letterSpacing": 0,
                             "lineHeight": 21,
                           },
                         ]

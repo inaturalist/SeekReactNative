@@ -1,8 +1,6 @@
 import { StyleSheet, Dimensions, I18nManager } from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
+
+import { colors } from "../global";
 
 const { height, width } = Dimensions.get( "window" );
 
@@ -69,10 +67,5 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     height: height / 9,
     marginLeft: 27
-  },
-  coordsText: {
-    color: colors.placeholderGray,
-    fontFamily: fonts.book,
-    fontSize: 12
   }
 } );

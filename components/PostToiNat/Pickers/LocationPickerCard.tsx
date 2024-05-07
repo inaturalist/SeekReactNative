@@ -68,7 +68,7 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ) 
             {location || i18n.t( "location_picker.undefined" )}
           </StyledText>
           {coordinateString && (
-            <StyledText style={styles.coordsText}>
+            <StyledText style={baseTextStyles.coords}>
               {coordinateString}
             </StyledText>
           )}

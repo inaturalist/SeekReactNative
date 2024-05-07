@@ -271,6 +271,12 @@ const donationLink = {
   letterSpacing: 1.0
 };
 
+const coords = {
+  color: colors.placeholderGray,
+  fontFamily: fonts.regular,
+  fontSize: 12
+};
+
 const baseTextStyles = StyleSheet.create( {
   regular,
   regularGray: {
@@ -412,7 +418,8 @@ const baseTextStyles = StyleSheet.create( {
   passwordEmailHeader,
   linkedAccountHeader,
   donationLink,
-  sideMenu
+  sideMenu,
+  coords
 } );
 
 export {

@@ -4,7 +4,7 @@ import { useNetInfo } from "@react-native-community/netinfo";
 import { useLocationName } from "../../utility/customHooks";
 import SpeciesNearby from "../Home/SpeciesNearby/SpeciesNearby";
 
-type SpeciesNearby = {
+type SpeciesNearbyState = {
   latitude: number | null,
   longitude: number | null,
   taxaType: string,
@@ -12,13 +12,13 @@ type SpeciesNearby = {
   taxa: any[],
   isConnected: boolean | null
 };
-interface SpeciesNearbyState extends SpeciesNearby {
+interface SpeciesNearby extends SpeciesNearbyState {
   location: string | null
 }
 const SpeciesNearbyContext = React.createContext<
   {
-    speciesNearby: SpeciesNearbyState,
-    setSpeciesNearby: React.Dispatch<React.SetStateAction<SpeciesNearby>>
+    speciesNearby: SpeciesNearby,
+    setSpeciesNearby: React.Dispatch<React.SetStateAction<SpeciesNearbyState>>
   } | undefined
 >( undefined );
 
@@ -26,7 +26,7 @@ type SpeciesNearbyProps = {children: React.ReactNode}
 const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
   const netInfo = useNetInfo( );
   const { isConnected } = netInfo;
-  const [speciesNearby, setSpeciesNearby] = useState<SpeciesNearby>( {
+  const [speciesNearby, setSpeciesNearby] = useState<SpeciesNearbyState>( {
     latitude: null,
     longitude: null,
     taxaType: "all",

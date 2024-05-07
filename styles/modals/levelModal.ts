@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet, Dimensions, Platform } from "react-native";
 
 const { height } = Dimensions.get( "window" );

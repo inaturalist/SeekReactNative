@@ -372,7 +372,7 @@ PODS:
     - React
   - react-native-webview (11.26.1):
     - React-Core
-  - react-native-worklets-core (1.2.0):
+  - react-native-worklets-core (1.3.0):
     - React
     - React-callinvoker
     - React-Core
@@ -489,7 +489,7 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (3.7.1):
+  - RNReanimated (3.11.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
     - ReactCommon/turbomodule/core
@@ -507,19 +507,19 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.13)
   - SocketRocket (0.6.0)
-  - VisionCamera (4.0.1):
-    - VisionCamera/Core (= 4.0.1)
-    - VisionCamera/FrameProcessors (= 4.0.1)
-    - VisionCamera/React (= 4.0.1)
-  - VisionCamera/Core (4.0.1)
-  - VisionCamera/FrameProcessors (4.0.1):
+  - VisionCamera (4.0.3):
+    - VisionCamera/Core (= 4.0.3)
+    - VisionCamera/FrameProcessors (= 4.0.3)
+    - VisionCamera/React (= 4.0.3)
+  - VisionCamera/Core (4.0.3)
+  - VisionCamera/FrameProcessors (4.0.3):
     - React
     - React-callinvoker
     - react-native-worklets-core
-  - VisionCamera/React (4.0.1):
+  - VisionCamera/React (4.0.3):
     - React-Core
     - VisionCamera/FrameProcessors
-  - VisionCameraPluginInatVision (4.0.1):
+  - VisionCameraPluginInatVision (4.0.2):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -846,7 +846,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
-  react-native-worklets-core: a316975bba20b73d47aa4d41bffb0ca984ba592e
+  react-native-worklets-core: 7a50c0c14005cc57df8583eabd99ea3f467fa277
   React-perflogger: 2588b59d386dbbc1df392da9493a8baa690bc89c
   React-RCTActionSheet: 057d6c6fc29e2a6d183d323ef35d9f6aedae936b
   React-RCTAnimation: 4c25b2c7953ea5b983eda940922fb4036f03e3f1
@@ -874,7 +874,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 6e4dc6b7ab3a385386d4e36228bd065e5a611394
   RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: e626b8c31f56bf320fd27ee5ca0d5349792f2a8d
+  RNReanimated: c112febb9548b8e0bcc5abddff308f69913c4270
   RNScreens: 68fd1060f57dd1023880bf4c05d74784b5392789
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 31dbfd0dac2eea9675f0b84f1dd3261c2110c337
@@ -882,8 +882,8 @@ SPEC CHECKSUMS:
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
-  VisionCamera: 8e00df84a76cf26ca70ecd3b6ed05dc0d3b60beb
-  VisionCameraPluginInatVision: b52d470949789abc1ad3c434d3fbaf366972f989
+  VisionCamera: b633f90960feab2669b7a1c51f8a201dd0a5bfc3
+  VisionCameraPluginInatVision: 2f2aa58b49c50b1b09bb552cab85c605fbb80053
   Yoga: fb40589bb1a96e2573358586fc2903b3811ce254
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

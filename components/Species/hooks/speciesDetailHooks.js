@@ -53,8 +53,6 @@ const useTaxonDetails = ( id: number ): any => {
       const localeParams = { locale: i18n.locale };
 
       try {
-        // TODO: we used to add the user agent string to options, but it actually does not get
-        // destructured in naturalistjs, so we would need to add it's usage like in get or post
         const response = await inatjs.taxa.fetch( id, localeParams );
         const taxa = response.results[0];
         const scientificName = taxa.name;

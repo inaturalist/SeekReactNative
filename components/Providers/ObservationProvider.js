@@ -99,7 +99,7 @@ const ObservationProvider = ( { children }: Props ): Node => {
       spatial_class_id: param.spatial_class_id
     };
 
-    if ( Platform.OS === "ios" ) {
+    if ( Platform.OS === "ios" && !species.ancestor_ids ) {
       species.ancestor_ids = setAncestorIdsiOS( predictions );
     }
 

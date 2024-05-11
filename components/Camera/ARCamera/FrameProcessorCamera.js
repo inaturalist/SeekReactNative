@@ -52,7 +52,7 @@ const FrameProcessorCamera = ( props ): Node => {
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
     // Checking camera permission status, if granted set it and return
-    const status = await Camera.getCameraPermissionStatus();
+    const status = Camera.getCameraPermissionStatus();
     if ( status === "granted" ) {
       setCameraPermissionStatus( status );
       return;

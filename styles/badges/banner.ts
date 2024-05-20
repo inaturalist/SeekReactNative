@@ -1,11 +1,11 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 
 const viewStyles = StyleSheet.create( {
   banner: {
     height: 48,
     marginBottom: 32,
     marginTop: 40,
-    paddingTop: Platform.OS === "android" ? 5 : 8,
+    paddingTop: 5,
     width: 284,
     alignSelf: "center"
   },

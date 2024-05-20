@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { padding, center } from "../global";
+import { center } from "../global";
 
 const viewStyles = StyleSheet.create( {
   center,
@@ -15,12 +15,10 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   circleText: {
-    fontSize: 19,
-    paddingTop: padding.iOSButtonPadding
+    fontSize: 19
   },
   largeCircleText: {
-    fontSize: 29,
-    paddingTop: padding.iOSPadding
+    fontSize: 29
   }
 } );
 

@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import {
-  colors,
-  padding
-} from "../global";
+import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -45,7 +42,6 @@ const imageStyles = StyleSheet.create( {
 const textStyles = StyleSheet.create( {
   text: {
     flex: 1,
-    paddingTop: padding.iOSButtonPadding,
     paddingEnd: 4
   }
 } );

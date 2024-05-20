@@ -2,7 +2,6 @@ import { StyleSheet, Platform } from "react-native";
 
 import {
   colors,
-  padding,
   center,
   row,
   dimensions
@@ -14,9 +13,6 @@ export default StyleSheet.create( {
   },
   bottomPadding: {
     paddingBottom: dimensions.height / 2
-  },
-  buttonText: {
-    paddingTop: padding.iOSButtonPadding
   },
   center,
   checkBox: {

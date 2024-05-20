@@ -1,4 +1,4 @@
-import { Platform, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -48,11 +48,6 @@ export const fonts = {
   regular: "Lato-Regular",
   italic: "Lato-Italic",
   boldItalic: "Lato-BoldItalic"
-};
-
-export const padding = {
-  iOSPadding: Platform.OS === "ios" ? 8 : 0,
-  iOSButtonPadding: Platform.OS === "ios" ? 3 : 0 // this looks different on RN 0.63.x
 };
 
 export const dimensions = {

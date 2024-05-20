@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   center,
-  dimensions,
-  padding
+  dimensions
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -27,7 +26,6 @@ const textStyles = StyleSheet.create( {
   },
   whiteText: {
     fontSize: 15,
-    paddingTop: padding.iOSButtonPadding,
     textAlign: "center",
     maxWidth: 323
   }

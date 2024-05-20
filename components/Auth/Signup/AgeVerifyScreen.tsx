@@ -49,7 +49,7 @@ const AgeVerifyScreen = () => {
           onPress={openPicker}
           style={[styles.dateButton, styles.center]}
         >
-          <StyledText style={[baseTextStyles.button, styles.buttonText]}>{date}</StyledText>
+          <StyledText style={baseTextStyles.button}>{date}</StyledText>
         </TouchableOpacity>
         {isPickerVisible && (
           <DateTimePicker

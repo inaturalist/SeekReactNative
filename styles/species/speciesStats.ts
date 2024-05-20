@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, padding } from "../global";
+import { colors } from "../global";
 
 const spaceBelowTags = 6;
 
@@ -28,8 +28,7 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   tagText: {
-    paddingHorizontal: 9,
-    paddingTop: padding.iOSButtonPadding
+    paddingHorizontal: 9
   }
 } );
 

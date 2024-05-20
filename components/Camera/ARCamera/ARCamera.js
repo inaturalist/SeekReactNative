@@ -18,6 +18,7 @@ import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import type { Node } from "react";
 import { useSharedValue } from "react-native-worklets-core";
+import { Prediction } from "vision-camera-plugin-inatvision";
 
 import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
@@ -116,7 +117,22 @@ const ARCamera = ( ): Node => {
     taxonId
   } = state;
 
-  const sortedPredictions = allPredictions.sort( ( a, b ) => b.rank_level - a.rank_level );
+  // As of react-native-worklets-core v1.3.0 there is a discrepancy in the way objects are returned from
+  // worklets. The "object" returned is not possible to be used with ...spread syntax or Object.assign which
+  // we are using in other places that reference these prediction objects here after thy are attached to a
+  // taken photo.
+  const sortedPredictions = allPredictions
+    .map( ( p: Prediction ) => ( {
+      name: p.name,
+      rank_level: p.rank_level,
+      score: p.score,
+      taxon_id: p.taxon_id,
+      ancestor_ids: p.ancestor_ids,
+      rank: p.rank,
+      iconic_class_id: p.iconic_class_id,
+      spatial_class_id: p.spatial_class_id
+    } ) )
+    .sort( ( a, b ) => b.rank_level - a.rank_level );
   const lowestRankPrediction = sortedPredictions[sortedPredictions.length - 1];
 
   const [showModal, setShowModal] = useState( false );

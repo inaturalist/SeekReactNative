@@ -64,6 +64,7 @@ const FrameProcessorCamera = ( props ): Node => {
     if ( permission === "denied" ) {
       // If the user has not granted permission we have to show an error message
       // This string is returned from the legacy camera when the user has not granted the needed permissions
+      // and expected by HOC to be received and reacted to
       const returnError: { nativeEvent: { error?: string } } = {
         nativeEvent: {
           error:
@@ -268,6 +269,7 @@ const FrameProcessorCamera = ( props ): Node => {
           }
         }
         // This string is returned from the legacy camera when the user has not granted the needed permissions
+        // and expected by HOC to be received and reacted to
         const permissions =
           "Camera Input Failed: This app is not authorized to use Back Camera.";
         returnString = permissions;

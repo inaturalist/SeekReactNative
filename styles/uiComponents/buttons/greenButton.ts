@@ -1,7 +1,6 @@
 import { StyleSheet, PixelRatio } from "react-native";
 import {
   colors,
-  padding,
   dimensions
 } from "../../global";
 
@@ -25,7 +24,6 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   buttonText: {
-    paddingTop: padding.iOSButtonPadding,
     textAlign: "center"
   }
 } );

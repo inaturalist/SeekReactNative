@@ -52,8 +52,7 @@ export const fonts = {
 
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
-  iOSButtonPadding: Platform.OS === "ios" ? 3 : 0, // this looks different on RN 0.63.x
-  iOSPaddingSmall: Platform.OS === "ios" ? 5 : 0
+  iOSButtonPadding: Platform.OS === "ios" ? 3 : 0 // this looks different on RN 0.63.x
 };
 
 export const dimensions = {

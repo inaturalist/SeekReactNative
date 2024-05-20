@@ -93,7 +93,7 @@ const LanguagePicker = () => {
         onClick={setDeviceLanguage}
         style={viewStyles.checkBox}
       />
-      <StyledText style={[baseTextStyles.body, viewStyles.padding]}>{i18n.t( "settings.device_settings" )}</StyledText>
+      <StyledText style={baseTextStyles.body}>{i18n.t( "settings.device_settings" )}</StyledText>
     </View>
   ), [isChecked, setDeviceLanguage] );
 

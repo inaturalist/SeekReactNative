@@ -3,7 +3,6 @@ import {
   colors,
   row,
   center,
-  padding,
   dimensions
 } from "./global";
 import { baseTextStyles } from "./textStyles";
@@ -60,9 +59,6 @@ const viewStyles = StyleSheet.create( {
   marginTop: {
     marginTop: 24
   },
-  padding: {
-    paddingTop: padding.iOSPaddingSmall
-  },
   radioButtonSmallMargin: {
     paddingTop: 19 / 2
   },
@@ -93,7 +89,6 @@ const textStyles = StyleSheet.create( {
     marginTop: -3
   },
   autoCaptureText: {
-    paddingTop: padding.iOSPaddingSmall,
     maxWidth: width - ( 28 * 2 ) - 30 - 10.3
   }
 } );

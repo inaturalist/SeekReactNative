@@ -2,8 +2,7 @@ import { StyleSheet, I18nManager } from "react-native";
 import {
   center,
   colors,
-  dimensions,
-  padding
+  dimensions
 } from "../global";
 
 const viewHeaderStyles = StyleSheet.create( {
@@ -32,8 +31,7 @@ const viewHeaderStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   text: {
-    maxWidth: dimensions.width - 100,
-    paddingTop: padding.iOSPaddingSmall
+    maxWidth: dimensions.width - 100
   }
 } );
 

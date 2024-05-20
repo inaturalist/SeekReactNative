@@ -19,7 +19,7 @@ interface Props {
   plainText?: string;
 }
 
-const GreenHeader = ( { header, route, plainText }: Props ): React.Node => {
+const GreenHeader = ( { header, route, plainText }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
 

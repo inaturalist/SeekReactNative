@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, padding } from "../global";
+import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   greenButton: {
@@ -11,8 +11,7 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   greenButtonText: {
-    paddingHorizontal: 10,
-    paddingTop: padding.iOSButtonPadding
+    paddingHorizontal: 10
   }
 } );
 

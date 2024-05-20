@@ -6,22 +6,21 @@ import {
   Image,
   View
 } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { viewStyles, imageStyles, textStyles } from "../../../styles/home/speciesNearby";
+import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
 import Picker from "../../../components/UIComponents/Picker";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
-type Props = {
-  +updateTaxaType: Function,
-  +error: ?string
+interface Props {
+  readonly updateTaxaType: ( value: string ) => void;
+  readonly error?: string | null;
 }
 
-const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
+const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
   const { speciesNearby } = useSpeciesNearby( );
   const { taxaType } = speciesNearby;
 
@@ -34,13 +33,13 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ): Node => {
     } ) );
   }, [] );
 
-  const handleValueChange = useCallback( ( value ) => updateTaxaType( value ), [updateTaxaType] );
+  const handleValueChange = useCallback( ( value: string ) => updateTaxaType( value ), [updateTaxaType] );
 
   const renderTaxonPicker = useMemo( () => (
     <TouchableOpacity style={[viewStyles.row, viewStyles.marginLeft]}>
       <Image source={icons.filter} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
-        <StyledText style={[textStyles.buttonText, baseTextStyles.buttonGreen]}>
+        <StyledText style={baseTextStyles.buttonGreen}>
           {i18n.t( `taxon_picker.${taxaType}` ).toLocaleUpperCase()}
         </StyledText>
       </View>

@@ -1,8 +1,7 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  row,
-  padding
+  row
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -50,12 +49,6 @@ const viewStyles = StyleSheet.create( {
   }
 } );
 
-const textStyles = StyleSheet.create( {
-  buttonText: {
-    paddingTop: padding.iOSButtonPadding
-  }
-} );
-
 const imageStyles = StyleSheet.create( {
   image: {
     height: 21,
@@ -68,7 +61,6 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
-  textStyles,
   viewStyles,
   imageStyles
 };

@@ -5,7 +5,7 @@ import {
   Image
 } from "react-native";
 
-import { viewStyles, imageStyles, textStyles } from "../../../styles/home/speciesNearby";
+import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
 import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
@@ -31,7 +31,7 @@ const LocationPickerButton = ( {
     >
       <Image source={posting.location} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
-        <StyledText style={[baseTextStyles.buttonGreen, textStyles.buttonText]}>
+        <StyledText style={baseTextStyles.buttonGreen}>
           {locationText.toLocaleUpperCase( )}
         </StyledText>
       </View>

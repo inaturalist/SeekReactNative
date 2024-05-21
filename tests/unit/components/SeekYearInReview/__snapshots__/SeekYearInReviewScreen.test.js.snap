@@ -104,7 +104,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
             },
             {
               "maxWidth": 650,
-              "paddingTop": 5,
             },
           ],
         ]
@@ -314,7 +313,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 "height": 48,
                 "marginBottom": 32,
                 "marginTop": 40,
-                "paddingTop": 8,
+                "paddingTop": 5,
                 "width": 284,
               },
               false,
@@ -784,7 +783,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 "height": 48,
                 "marginBottom": 32,
                 "marginTop": 40,
-                "paddingTop": 8,
+                "paddingTop": 5,
                 "width": 284,
               },
               false,
@@ -1160,7 +1159,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                     "lineHeight": 21,
                   },
                   {
-                    "paddingTop": 3,
                     "textAlign": "center",
                   },
                   undefined,
@@ -1533,7 +1531,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 "height": 48,
                 "marginBottom": 32,
                 "marginTop": 40,
-                "paddingTop": 8,
+                "paddingTop": 5,
                 "width": 284,
               },
               false,
@@ -2085,7 +2083,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                     "lineHeight": 21,
                   },
                   {
-                    "paddingTop": 3,
                     "textAlign": "center",
                   },
                   undefined,

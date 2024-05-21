@@ -104,7 +104,6 @@ exports[`ChallengeScreen should render correctly 1`] = `
             },
             {
               "maxWidth": 650,
-              "paddingTop": 5,
             },
           ],
         ]
@@ -1153,7 +1152,6 @@ exports[`ChallengeScreen should render correctly 1`] = `
                                 },
                                 {
                                   "fontSize": 19,
-                                  "paddingTop": 3,
                                 },
                               ],
                             ]
@@ -1445,7 +1443,6 @@ exports[`ChallengeScreen should render correctly 1`] = `
                                 },
                                 {
                                   "fontSize": 19,
-                                  "paddingTop": 3,
                                 },
                               ],
                             ]

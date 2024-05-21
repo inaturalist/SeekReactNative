@@ -1207,8 +1207,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -2138,8 +2136,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -2339,8 +2335,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -2540,8 +2534,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -2741,8 +2733,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -2942,8 +2932,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -3143,8 +3131,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -3344,8 +3330,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -3545,8 +3529,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -3746,8 +3728,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },
@@ -3947,8 +3927,6 @@ exports[`ObsList should render correctly 1`] = `
                           {
                             "color": "#000000",
                             "fontFamily": "Lato-Regular",
-                          },
-                          {
                             "fontSize": 18,
                             "letterSpacing": 0.78,
                           },

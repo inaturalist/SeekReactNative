@@ -104,7 +104,6 @@ exports[`RangeMap should change map region to user's location when button is pre
             },
             {
               "maxWidth": 650,
-              "paddingTop": 5,
             },
           ],
         ]
@@ -442,7 +441,6 @@ exports[`RangeMap should render correctly 1`] = `
             },
             {
               "maxWidth": 650,
-              "paddingTop": 5,
             },
           ],
         ]

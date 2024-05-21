@@ -141,7 +141,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]
@@ -230,7 +229,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]
@@ -319,7 +317,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]
@@ -408,7 +405,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]
@@ -497,7 +493,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]
@@ -586,7 +581,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]
@@ -672,7 +666,6 @@ exports[`SideMenu should render correctly 1`] = `
             {
               "flex": 1,
               "paddingEnd": 4,
-              "paddingTop": 3,
             },
           ],
         ]

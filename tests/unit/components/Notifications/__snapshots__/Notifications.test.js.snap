@@ -104,7 +104,6 @@ exports[`NotificationsScreen should render correctly 1`] = `
             },
             {
               "maxWidth": 650,
-              "paddingTop": 5,
             },
           ],
         ]

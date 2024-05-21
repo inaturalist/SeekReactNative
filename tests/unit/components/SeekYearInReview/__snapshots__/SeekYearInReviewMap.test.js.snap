@@ -198,7 +198,6 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
               "lineHeight": 21,
             },
             {
-              "paddingTop": 3,
               "textAlign": "center",
             },
             undefined,

@@ -192,7 +192,7 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
-  const handleTaxaDetected = ( event ) => {
+  const handleTaxaDetected = ( event: { predictions: Prediction[] } ) => {
     const { predictions } = event;
 
     if ( pictureTaken.value ) {
@@ -254,7 +254,7 @@ const ARCamera = ( ): Node => {
     }
   };
 
-  const handleCaptureError = useCallback( ( event: { nativeEvent?: { error: string } } ) => {
+  const handleCaptureError = useCallback( ( event: { nativeEvent?: { reason: string } } ) => {
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "take", event.nativeEvent.reason );
     } else {

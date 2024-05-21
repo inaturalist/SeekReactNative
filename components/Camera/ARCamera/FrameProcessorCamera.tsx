@@ -1,11 +1,10 @@
-// @flow
 import { useIsFocused, useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 import React, { useCallback, useEffect, useState } from "react";
 import { Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import {
   Camera,
+  CameraRuntimeError,
   useCameraDevice,
   useCameraFormat,
   useFrameProcessor
@@ -24,9 +23,41 @@ import {
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
 
-let framesProcessingTime = [];
+let framesProcessingTime: number[] = [];
 
-const FrameProcessorCamera = ( props ): Node => {
+interface ErrorMessage {
+  nativeEvent: {
+    error?: string;
+  };
+}
+interface ReasonMessage {
+  nativeEvent: {
+    reason?: string;
+  };
+}
+interface LogMessage {
+  nativeEvent: {
+    log: string;
+  };
+}
+
+interface Props {
+  cameraRef: React.RefObject<Camera>;
+  modelPath: string;
+  taxonomyPath: string;
+  confidenceThreshold: number;
+  filterByTaxonId: string | null;
+  negativeFilter: boolean;
+  onTaxaDetected: ( result: InatVision.Result ) => void;
+  onCameraError: ( error: ErrorMessage ) => void;
+  onDeviceNotSupported: ( error: ReasonMessage ) => void;
+  onClassifierError: ( error: ErrorMessage ) => void;
+  onCaptureError: ( error: ReasonMessage ) => void;
+  onLog: ( event: LogMessage ) => void;
+  isActive: boolean;
+}
+
+const FrameProcessorCamera = ( props: Props ) => {
   const {
     cameraRef,
     modelPath,
@@ -113,7 +144,7 @@ const FrameProcessorCamera = ( props ): Node => {
       InatVision.resetStoredResults();
     } );
 
-    return () => unsubscribeFocus;
+    return unsubscribeFocus;
   }, [navigation] );
 
   useEffect( () => {
@@ -121,14 +152,12 @@ const FrameProcessorCamera = ( props ): Node => {
       InatVision.resetStoredResults();
     } );
 
-    return () => unsubscribeBlur;
+    return unsubscribeBlur;
   }, [navigation] );
 
   useEffect( () => {
     if ( Platform.OS === "android" ) {
-      InatVision.addLogListener( ( event ) => {
-        // The vision-plugin events are in this format { log: "string" }
-        // The ARCamera component expects events in this format { nativeEvent: { log: "string" } }
+      InatVision.addLogListener( ( event: { log: string } ) => {
         const returnEvent = {
           nativeEvent: event
         };
@@ -148,7 +177,7 @@ const FrameProcessorCamera = ( props ): Node => {
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const fps = 1;
-  const handleResult = Worklets.createRunOnJS( ( result, timeTaken ) => {
+  const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
     framesProcessingTime.push( timeTaken );
     if ( framesProcessingTime.length >= 10 ) {
@@ -163,7 +192,7 @@ const FrameProcessorCamera = ( props ): Node => {
     onTaxaDetected( result );
   } );
 
-  const handleError = Worklets.createRunOnJS( ( error ) => {
+  const handleError = Worklets.createRunOnJS( ( error: ErrorMessage ) => {
     onClassifierError( error );
   } );
 
@@ -243,10 +272,10 @@ const FrameProcessorCamera = ( props ): Node => {
       }
 
       if ( error.code.includes( "capture/" ) ) {
-        const returnError: { nativeEvent: { error?: string } } = {
+        const returnReason: { nativeEvent: { reason?: string } } = {
           nativeEvent: { reason: error.code }
         };
-        onCaptureError( returnError );
+        onCaptureError( returnReason );
         return;
       }
 

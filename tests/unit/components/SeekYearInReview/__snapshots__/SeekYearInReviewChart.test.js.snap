@@ -41,7 +41,7 @@ exports[`SeekYearInReviewChart should render correctly 1`] = `
       <Text
         style={
           {
-            "fontFamily": undefined,
+            "fontFamily": "Lato-Regular",
             "fontSize": 18,
             "fontWeight": undefined,
             "opacity": 0,

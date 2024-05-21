@@ -9,12 +9,12 @@ interface Props {
   datetime?: boolean;
 }
 
-const DatePicker: React.FC<Props> = ( {
+const DatePicker = ( {
   datetime,
   isDateTimePickerVisible,
   onDatePicked,
   toggleDateTimePicker
-} ) => {
+}: Props ) => {
   const colorScheme = Appearance.getColorScheme();
 
   const customHeader = ( ) => <></>;

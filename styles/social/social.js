@@ -5,9 +5,8 @@ import { colors, center, fonts, dimensions, row, padding } from "../global";
 
 const { getFontScale } = PixelRatio;
 
-import type { ViewStyleProp, TextStyleProp, ImageStyleProp } from "react-native/Libraries/StyleSheet/StyleSheet";
 
-const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
+const viewStyles = StyleSheet.create( {
   center,
   header: {
     backgroundColor: colors.white,
@@ -99,7 +98,7 @@ const viewStyles: { [string]: ViewStyleProp } = StyleSheet.create( {
   }
 } );
 
-const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
+const textStyles = StyleSheet.create( {
   photoSizeText: {
     color: colors.seekForestGreen,
     fontSize: 14,
@@ -118,6 +117,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
     paddingVertical: 27
   },
   optionsText: {
+    // modalBanner
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
@@ -140,7 +140,7 @@ const textStyles: { [string]: TextStyleProp } = StyleSheet.create( {
   }
 } );
 
-const imageStyles: { [string]: ImageStyleProp } = StyleSheet.create( {
+const imageStyles = StyleSheet.create( {
   image: {
     backgroundColor: colors.black,
     width: dimensions.width,

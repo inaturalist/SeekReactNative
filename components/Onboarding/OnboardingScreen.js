@@ -12,6 +12,7 @@ import { viewStyles, textStyles } from "../../styles/onboarding";
 import Swiper from "./Swiper";
 import icons from "../../assets/icons";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const OnboardingScreen = ( ): Node => (
   <Swiper>
@@ -19,7 +20,7 @@ const OnboardingScreen = ( ): Node => (
       <View key={`${item}`} style={viewStyles.image}>
         <Image source={icons[`onboarding${item}`]} />
         <View style={viewStyles.margin} />
-        <StyledText allowFontScaling={false} style={[textStyles.text, viewStyles.center]}>
+        <StyledText allowFontScaling={false} style={[baseTextStyles.onboarding, textStyles.text, viewStyles.center]}>
           {i18n.t( `onboarding.onboarding_${item}` )}
         </StyledText>
       </View>

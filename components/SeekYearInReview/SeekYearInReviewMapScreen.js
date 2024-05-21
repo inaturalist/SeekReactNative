@@ -14,6 +14,7 @@ import Modal from "../UIComponents/Modals/Modal";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import StyledText from "../UIComponents/StyledText";
 import { useObservationsForYear } from "./hooks/seekYearInReviewHooks";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -119,7 +120,7 @@ const SeekYearInReviewMapScreen = ( ): Node => {
         )}
       </MapView>
       <TouchableOpacity onPress={openModal} style={viewStyles.legend}>
-        <StyledText style={textStyles.whiteText}>
+        <StyledText style={[baseTextStyles.modalBanner, textStyles.whiteText]}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
         </StyledText>
       </TouchableOpacity>

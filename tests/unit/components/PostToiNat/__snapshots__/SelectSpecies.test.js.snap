@@ -78,15 +78,20 @@ exports[`SelectSpecies should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "alignSelf": "center",
-            "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "paddingTop": 20,
-            "position": "absolute",
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
+              "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
+              "alignSelf": "center",
+              "paddingTop": 20,
+              "position": "absolute",
+            },
+          ],
         ]
       }
     >
@@ -151,19 +156,23 @@ exports[`SelectSpecies should render correctly 1`] = `
       placeholder="Look up a species by name"
       placeholderTextColor="#828282"
       style={
-        {
-          "backgroundColor": "#ffffff",
-          "borderRadius": 40,
-          "color": "#000000",
-          "fontFamily": "Whitney-Book",
-          "fontSize": 15,
-          "height": 37,
-          "marginLeft": 11,
-          "paddingBottom": 0,
-          "paddingLeft": 16,
-          "paddingTop": 0,
-          "width": 679,
-        }
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "Lato-Regular",
+            "fontSize": 15,
+          },
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 40,
+            "height": 37,
+            "marginLeft": 11,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingTop": 0,
+            "width": 679,
+          },
+        ]
       }
     />
   </View>
@@ -840,11 +849,12 @@ exports[`SelectSpecies should render correctly 1`] = `
                         [
                           {
                             "color": "#38976d",
-                            "fontFamily": "Whitney-Semibold",
-                            "fontSize": 19,
-                            "letterSpacing": 1.12,
-                            "lineHeight": 23,
+                            "fontFamily": "Lato-Bold",
+                            "fontSize": 18,
+                            "letterSpacing": 1,
+                            "lineHeight": 22,
                           },
+                          false,
                           false,
                           false,
                           null,
@@ -954,13 +964,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -973,14 +987,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1031,11 +1049,12 @@ exports[`SelectSpecies should render correctly 1`] = `
                         [
                           {
                             "color": "#38976d",
-                            "fontFamily": "Whitney-Semibold",
-                            "fontSize": 19,
-                            "letterSpacing": 1.12,
-                            "lineHeight": 23,
+                            "fontFamily": "Lato-Bold",
+                            "fontSize": 18,
+                            "letterSpacing": 1,
+                            "lineHeight": 22,
                           },
+                          false,
                           false,
                           false,
                           null,
@@ -1180,13 +1199,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1199,14 +1222,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1348,13 +1375,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1367,14 +1398,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1516,13 +1551,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1535,14 +1574,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1684,13 +1727,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1703,14 +1750,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1852,13 +1903,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -1871,14 +1926,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -2020,13 +2079,17 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-Book",
-                              "fontSize": 21,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Regular",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 20,
+                              },
+                            ],
                           ]
                         }
                       >
@@ -2039,14 +2102,18 @@ exports[`SelectSpecies should render correctly 1`] = `
                             {
                               "textAlign": "left",
                             },
-                            {
-                              "color": "#000000",
-                              "flexDirection": "row",
-                              "flexWrap": "wrap",
-                              "fontFamily": "Whitney-BookItalic",
-                              "fontSize": 16,
-                              "marginTop": 12,
-                            },
+                            [
+                              {
+                                "color": "#000000",
+                                "fontFamily": "Lato-Italic",
+                              },
+                              {
+                                "flexDirection": "row",
+                                "flexWrap": "wrap",
+                                "fontSize": 15,
+                                "marginTop": 12,
+                              },
+                            ],
                           ]
                         }
                       >

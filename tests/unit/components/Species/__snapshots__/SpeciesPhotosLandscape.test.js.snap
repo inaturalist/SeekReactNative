@@ -34,6 +34,11 @@ exports[`SpeciesPhotosLandscape should render correctly 1`] = `
           "medium_url": "some_uri",
         },
         {
+          "attribution": null,
+          "license_code": null,
+          "medium_url": "some_uri",
+        },
+        {
           "attribution": "(c) Craig K. Hunt, some rights reserved (CC BY-NC-ND), uploaded by Craig K. Hunt",
           "flags": [],
           "id": 101327658,
@@ -50,6 +55,11 @@ exports[`SpeciesPhotosLandscape should render correctly 1`] = `
     dataProvider={
       DataProvider {
         "_data": [
+          {
+            "attribution": null,
+            "license_code": null,
+            "medium_url": "some_uri",
+          },
           {
             "attribution": null,
             "license_code": null,
@@ -158,6 +168,11 @@ exports[`SpeciesPhotosLandscape should render correctly 1`] = `
             "backgroundColor": "#000000",
           },
           "data": [
+            {
+              "attribution": null,
+              "license_code": null,
+              "medium_url": "some_uri",
+            },
             {
               "attribution": null,
               "license_code": null,
@@ -326,8 +341,57 @@ exports[`SpeciesPhotosLandscape should render correctly 1`] = `
                         "resizeMode": "cover",
                       },
                       {
-                        "height": NaN,
-                        "width": NaN,
+                        "height": 250,
+                        "width": 250,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </CellContainer>
+          <CellContainer
+            index={0}
+            onLayout={[Function]}
+            style={
+              {
+                "alignItems": "stretch",
+                "flexDirection": "column",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 400,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  {
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    {
+                      "uri": "some_uri",
+                    }
+                  }
+                  style={
+                    [
+                      {
+                        "resizeMode": "cover",
+                      },
+                      {
+                        "height": 250,
+                        "width": 250,
                       },
                     ]
                   }

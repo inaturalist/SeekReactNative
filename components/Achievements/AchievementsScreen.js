@@ -20,6 +20,7 @@ import StyledText from "../UIComponents/StyledText";
 import { useFetchAchievements } from "./hooks/achievementHooks";
 import { localizeNumber, setRoute } from "../../utility/helpers";
 import { useSpeciesCount } from "../../utility/customHooks";
+import { baseTextStyles } from "../../styles/textStyles";
 
 const AchievementsScreen = ( ): Node => {
   const state = useFetchAchievements( );
@@ -38,7 +39,7 @@ const AchievementsScreen = ( ): Node => {
       disabled={disabled}
     >
       <GreenText center smaller text={headerText} />
-      <StyledText style={textStyles.number}>
+      <StyledText style={[baseTextStyles.regular, textStyles.number]}>
         {text && localizeNumber( text )}
       </StyledText>
     </TouchableOpacity>

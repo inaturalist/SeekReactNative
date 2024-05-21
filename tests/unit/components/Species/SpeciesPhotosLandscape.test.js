@@ -21,10 +21,14 @@ const mockPhotos = [
 const mockLoading = false;
 const mockId = undefined;
 
-jest.mock( "../../../../utility/customHooks", () => ( {
+jest.mock( "../../../../utility/customHooks/useSeenTaxa", () => ( {
   __esModule: true,
-  useUserPhoto: jest.fn( () => ( { uri: "some_uri"} ) ),
   useSeenTaxa: jest.fn( () => null )
+} ) );
+
+jest.mock( "../../../../utility/customHooks/useUserPhoto", () => ( {
+  __esModule: true,
+  useUserPhoto: jest.fn( () => ( { uri: "some_uri"} ) )
 } ) );
 
 const containerID = "species-photos-landscape";

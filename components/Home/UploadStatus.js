@@ -15,6 +15,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 import { resetRouter } from "../../utility/navigationHelpers";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   successfulUploads: number,
@@ -149,9 +150,9 @@ const UploadStatus = ( {
         <View style={[viewStyles.row, viewStyles.center]}>
           <Image source={logos.iNatAppIcon} style={viewStyles.iNatIcon} />
           <View>
-            <StyledText style={textStyles.headerText}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</StyledText>
+            <StyledText style={baseTextStyles.headerWhite}>{i18n.t( "post_to_inat_card.post_to_inaturalist" )}</StyledText>
             <View style={viewStyles.row}>
-              {internet !== null && <StyledText style={textStyles.text}>{setUploadText( )}</StyledText>}
+              {internet !== null && <StyledText style={[baseTextStyles.bodyWhite, textStyles.text]}>{setUploadText( )}</StyledText>}
               {successfulUploads > 0 && <Image source={icons.checklist} style={imageStyles.checkmark} />}
             </View>
           </View>
@@ -163,7 +164,7 @@ const UploadStatus = ( {
               handlePress={retryUploads}
               text="post_to_inat_card.upload_now"
             />
-            <StyledText style={textStyles.errorText}>{setErrorText( )}</StyledText>
+            <StyledText style={[baseTextStyles.bodyWhite, textStyles.errorText]}>{setErrorText( )}</StyledText>
           </View>
         )}
         {( internet === true && !error ) && (

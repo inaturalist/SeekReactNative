@@ -17,10 +17,11 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
 import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
-import { ChallengeContext } from "../../UserContext";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { useChallenge } from "../../Providers/ChallengeProvider";
 
 const ChallengeCard = ( ): Node => {
-  const { setIndex } = React.useContext( ChallengeContext );
+  const { setIndex } = useChallenge( );
   const { navigate } = useNavigation( );
   const challenge = useLatestChallenge( );
 
@@ -53,7 +54,7 @@ const ChallengeCard = ( ): Node => {
         />
         <StyledText
           onPress={navToChallenges}
-          style={textStyles.viewText}
+          style={[baseTextStyles.bodyWhite, textStyles.viewText]}
         >
           {i18n.t( "challenges_card.view_all" )}
         </StyledText>

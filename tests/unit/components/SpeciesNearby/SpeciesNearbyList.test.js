@@ -76,10 +76,14 @@ const mockTaxa = [
 ];
 const mockObserved = undefined;
 
+jest.mock( "../../../../utility/customHooks/useSeenTaxa", () => ( {
+  __esModule: true,
+  useSeenTaxa: jest.fn( () => null )
+} ) );
+
 jest.mock( "../../../../utility/customHooks", () => ( {
   __esModule: true,
-  useCommonName: jest.fn( () => "Red-tailed Hawk" ),
-  useSeenTaxa: jest.fn( () => null )
+  useCommonName: jest.fn( () => "Red-tailed Hawk" )
 } ) );
 
 const containerID = "species-nearby-list";

@@ -62,7 +62,10 @@ If you are running into some issues after the tests have been working for some t
 We do our translations on Crowdin. Head over to https://crowdin.com/project/seek and create an account, and you can start suggesting translations there. We regularly export translations from Crowdin and import them to this project.
 
 ## Adding New Locales
-1. Import translation files into `i18n.js`.
+
+When a language is at least 20% translated on Crowdin, follow these steps to enable it in the app.
+
+1. Import translation files into `i18n.ts`.
 2. Add localized names to `utility/dictionaries/languageDict.js` for users to be able to choose a locale in settings.
 3. Import languages in `utility/dateHelpers.js` so date strings can be correctly translated.
 4. Use staging to add new locales to `seek_common_names.rb`.

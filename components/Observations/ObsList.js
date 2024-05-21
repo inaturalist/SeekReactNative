@@ -14,6 +14,7 @@ import SectionHeader from "./SectionHeader";
 import SearchBar from "./SearchBar";
 import SearchEmpty from "./SearchEmpty";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
 
 type Props = {
   fetchFilteredObservations: Function,
@@ -126,7 +127,6 @@ const ObsList = ( {
   const dismissKeyboard = () => Keyboard.dismiss();
 
   const extractKey = ( item, index ) => item + index;
-
   return (
     <FlashList
       testID="observations-list"
@@ -158,7 +158,7 @@ const ObsList = ( {
           // Render footer for hidden section
           const iconicTaxon = taxaIds[item.id].split( "." )[1];
           return (
-            <StyledText style={[styles.text, styles.emptyText]}>
+            <StyledText style={[baseTextStyles.body, styles.emptyText]}>
               {i18n.t( `observations.not_seen_${iconicTaxon}` )}
             </StyledText>
           );

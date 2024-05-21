@@ -11,8 +11,9 @@ exports[`iNatSignOut should render correctly 1`] = `
         [
           {
             "color": "#000000",
-            "fontFamily": "Whitney-Book",
-            "fontSize": 16,
+            "fontFamily": "Lato-Regular",
+            "fontSize": 15,
+            "letterSpacing": 0,
             "lineHeight": 21,
           },
           {
@@ -79,18 +80,16 @@ Thanks for being part of this community!
           [
             {
               "color": "#ffffff",
-              "fontFamily": "Whitney-Semibold",
-              "fontSize": 18,
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
               "letterSpacing": 1,
-              "paddingTop": 3,
+              "lineHeight": 21,
+            },
+            {
               "textAlign": "center",
             },
-            {
-              "letterSpacing": 1,
-            },
-            {
-              "fontSize": 18,
-            },
+            undefined,
+            undefined,
           ],
         ]
       }

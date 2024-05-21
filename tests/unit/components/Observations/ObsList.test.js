@@ -69,10 +69,8 @@ const mockObservations = [
   { data: [], id: 1 }
 ];
 
-jest.mock( "../../../../utility/customHooks", () => {
-  const actual = jest.requireActual( "../../../../utility/customHooks" );
+jest.mock( "../../../../utility/customHooks/useUserPhoto", () => {
   return {
-    ...actual,
     __esModule: true,
     useUserPhoto: jest.fn( () => ( {
       uri: "some_uri"

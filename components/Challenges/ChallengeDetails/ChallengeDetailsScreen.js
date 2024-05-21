@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback, useContext } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Realm from "realm";
 import { useIsFocused } from "@react-navigation/native";
 import type { Node } from "react";
@@ -9,10 +9,10 @@ import realmConfig from "../../../models";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 import ScrollNoHeader from "../../UIComponents/Screens/ScrollNoHeader";
-import { ChallengeContext } from "../../UserContext";
+import { useChallenge } from "../../Providers/ChallengeProvider";
 
 const ChallengeDetailsScreen = ( ): Node => {
-  const { challengeIndex } = useContext( ChallengeContext );
+  const { challengeIndex } = useChallenge( );
   const isFocused = useIsFocused( );
   const [challenge, setChallenge] = useState( null );
 

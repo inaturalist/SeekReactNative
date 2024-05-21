@@ -12,18 +12,19 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3750FC0326CC35EF00C6F1DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */; };
-		37593D8926827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37593D8826827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf */; };
 		377216512880BBF300B00213 /* optimized_model_v1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3772164F2880BBF300B00213 /* optimized_model_v1.mlmodel */; };
 		377216522880BBF300B00213 /* taxonomy_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 377216502880BBF300B00213 /* taxonomy_v1.json */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
 		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
 		37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */; };
-		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
+		8F1AC67B2BC1B6AD002F994B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8F1AC67A2BC1B6AD002F994B /* PrivacyInfo.xcprivacy */; };
+		8F91A11E2BD066F500513552 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A1162BD066F500513552 /* Lato-MediumItalic.ttf */; };
+		8F91A1202BD066F500513552 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A1182BD066F500513552 /* Lato-Bold.ttf */; };
+		8F91A1212BD066F500513552 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A1192BD066F500513552 /* Lato-Regular.ttf */; };
+		8F91A1222BD066F500513552 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A11A2BD066F500513552 /* Lato-BoldItalic.ttf */; };
+		8F91A1232BD066F500513552 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A11B2BD066F500513552 /* Lato-Italic.ttf */; };
+		8F91A1242BD066F500513552 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A11C2BD066F500513552 /* Lato-Medium.ttf */; };
 		8FAB76AC2913F2E400FBEE09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB76AE2913F2E400FBEE09 /* InfoPlist.strings */; };
-		9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */; };
-		AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */; };
-		CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */; };
-		FDF5B89C59BD4E16B8381B96 /* Whitney-Light-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +58,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Seek/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Seek/main.m; sourceTree = "<group>"; };
 		15D53123BCFE4D5992B467B6 /* libRNWebGL.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNWebGL.a; sourceTree = "<group>"; };
-		15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		37593D8826827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
 		375C595B24491334000C16B5 /* Seek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seek-Bridging-Header.h"; sourceTree = "<group>"; };
 		3772164F2880BBF300B00213 /* optimized_model_v1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model_v1.mlmodel; sourceTree = "<group>"; };
 		377216502880BBF300B00213 /* taxonomy_v1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy_v1.json; sourceTree = "<group>"; };
@@ -71,10 +70,15 @@
 		3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Seek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.release.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Seek.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Book-Pro.otf"; path = "../assets/fonts/Whitney-Book-Pro.otf"; sourceTree = "<group>"; };
-		684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Medium-Pro.otf"; path = "../assets/fonts/Whitney-Medium-Pro.otf"; sourceTree = "<group>"; };
 		8B2C8A94B0E2403CA2681E78 /* libRNCNetInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCNetInfo.a; sourceTree = "<group>"; };
 		8C5D7E526C224A39878D5385 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
+		8F1AC67A2BC1B6AD002F994B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		8F91A1162BD066F500513552 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-MediumItalic.ttf"; path = "../assets/fonts/Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		8F91A1182BD066F500513552 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		8F91A1192BD066F500513552 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		8F91A11A2BD066F500513552 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BoldItalic.ttf"; path = "../assets/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		8F91A11B2BD066F500513552 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
+		8F91A11C2BD066F500513552 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Medium.ttf"; path = "../assets/fonts/Lato-Medium.ttf"; sourceTree = "<group>"; };
 		8FAB76AD2913F2E400FBEE09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FAB76B02913FDA100FBEE09 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FAB76B12913FDE100FBEE09 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -109,8 +113,6 @@
 		A137AD88526A4B3F959EFA73 /* RNGL.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGL.xcodeproj; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; };
 		A3D8FEFD0BF24BCCB6D91C75 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		D1E957E622264476A8A27E50 /* libRNCCameraRoll.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCCameraRoll.a; sourceTree = "<group>"; };
-		E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-BookItalic-Pro.otf"; path = "../assets/fonts/Whitney-BookItalic-Pro.otf"; sourceTree = "<group>"; };
-		FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Light-Pro.otf"; path = "../assets/fonts/Whitney-Light-Pro.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8F1AC67A2BC1B6AD002F994B /* PrivacyInfo.xcprivacy */,
 				3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */,
 				13B07FAE1A68108700A75B9A /* Seek */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -219,14 +222,14 @@
 		AE2D56F50A4845E09545597E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				37593D8826827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf */,
-				684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */,
+				8F91A1182BD066F500513552 /* Lato-Bold.ttf */,
+				8F91A11A2BD066F500513552 /* Lato-BoldItalic.ttf */,
+				8F91A11B2BD066F500513552 /* Lato-Italic.ttf */,
+				8F91A11C2BD066F500513552 /* Lato-Medium.ttf */,
+				8F91A1162BD066F500513552 /* Lato-MediumItalic.ttf */,
+				8F91A1192BD066F500513552 /* Lato-Regular.ttf */,
 				3772164F2880BBF300B00213 /* optimized_model_v1.mlmodel */,
 				377216502880BBF300B00213 /* taxonomy_v1.json */,
-				64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */,
-				E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */,
-				FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */,
-				15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -355,14 +358,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8F91A1232BD066F500513552 /* Lato-Italic.ttf in Resources */,
+				8F1AC67B2BC1B6AD002F994B /* PrivacyInfo.xcprivacy in Resources */,
 				377216522880BBF300B00213 /* taxonomy_v1.json in Resources */,
-				4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */,
-				9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */,
-				AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */,
-				37593D8926827206005C2CA7 /* Whitney-SemiboldItalic-Pro.otf in Resources */,
-				CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */,
+				8F91A1222BD066F500513552 /* Lato-BoldItalic.ttf in Resources */,
+				8F91A1212BD066F500513552 /* Lato-Regular.ttf in Resources */,
+				8F91A1202BD066F500513552 /* Lato-Bold.ttf in Resources */,
 				3750FC0326CC35EF00C6F1DA /* Launch Screen.storyboard in Resources */,
-				FDF5B89C59BD4E16B8381B96 /* Whitney-Light-Pro.otf in Resources */,
+				8F91A1242BD066F500513552 /* Lato-Medium.ttf in Resources */,
+				8F91A11E2BD066F500513552 /* Lato-MediumItalic.ttf in Resources */,
 				8FAB76AC2913F2E400FBEE09 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

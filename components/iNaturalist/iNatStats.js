@@ -10,16 +10,18 @@ import GreenText from "../UIComponents/GreenText";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import INatPhotos from "./iNatPhotos";
 import BulletedList from "./BulletedList";
-import { UserContext, AppOrientationContext } from "../UserContext";
+import { UserContext } from "../UserContext";
 import AppIconSubHeader from "./AppIconSubHeader";
 import INatHeaderLoggedOut from "./iNatHeaderLoggedOut";
 import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
 import LoginCard from "../UIComponents/Login/LoginCard";
 import StyledText from "../UIComponents/StyledText";
+import { baseTextStyles } from "../../styles/textStyles";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const INatStats = ( ): Node => {
   const { login } = useContext( UserContext );
-  const { isTablet } = useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation( );
 
   return (
     <ScrollWithHeader header="about_inat.inaturalist" footer>
@@ -48,7 +50,7 @@ const INatStats = ( ): Node => {
         <BulletedList text="about_inat.seek_bullet_3" />
         <View style={viewStyles.sectionMargin} />
         <GreenText text="about_inat.your_obs_could_make_difference" />
-        <StyledText style={[textStyles.text, textStyles.everydayObs]}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</StyledText>
+        <StyledText style={[baseTextStyles.body, textStyles.everydayObs]}>{i18n.t( "about_inat.everyday_obs_help_scientists" )}</StyledText>
       </View>
       <INatPhotos />
       <View style={[viewStyles.textContainer, isTablet && viewStyles.tabletContainer]}>

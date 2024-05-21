@@ -1,18 +1,16 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
 
-import {
-  SpeciesDetailContext,
-  AppOrientationContext,
-  UserContext,
-  LanguageContext,
-  ChallengeContext,
-  ObservationContext
-} from "../components/UserContext";
+import { UserContext } from "../components/UserContext";
+import { LanguageProvider } from "../components/Providers/LanguageProvider";
+import { AppOrientationProvider } from "../components/Providers/AppOrientationProvider";
+import { ChallengeProvider } from "../components/Providers/ChallengeProvider";
+import { ObservationProvider } from "../components/Providers/ObservationProvider";
+import { SpeciesDetailProvider } from "../components/Providers/SpeciesDetailProvider";
 
 const AllTheProviders = ( { children } ) => {
   return (
-    <LanguageContext.Provider
+    <LanguageProvider
       value={{
         preferredLanguage: "en",
         toggleLanguagePreference: jest.fn()
@@ -27,8 +25,8 @@ const AllTheProviders = ( { children } ) => {
           }
         }}
       >
-        <AppOrientationContext.Provider value={{}}>
-          <SpeciesDetailContext.Provider
+        <AppOrientationProvider value={{}}>
+          <SpeciesDetailProvider
             value={{
               id: 1,
               region: {},
@@ -36,15 +34,15 @@ const AllTheProviders = ( { children } ) => {
               setRegion: jest.fn()
             }}
           >
-            <ChallengeContext.Provider value={{}}>
-              <ObservationContext.Provider value={{}}>
+            <ChallengeProvider value={{}}>
+              <ObservationProvider value={{}}>
                 {children}
-              </ObservationContext.Provider>
-            </ChallengeContext.Provider>
-          </SpeciesDetailContext.Provider>
-        </AppOrientationContext.Provider>
+              </ObservationProvider>
+            </ChallengeProvider>
+          </SpeciesDetailProvider>
+        </AppOrientationProvider>
       </UserContext.Provider>
-    </LanguageContext.Provider>
+    </LanguageProvider>
   );
 };
 

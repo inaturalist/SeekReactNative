@@ -85,7 +85,6 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           }
         }
         style={false}
-        tintColor={false}
       />
     </View>
     <Text
@@ -95,14 +94,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           {
             "textAlign": "left",
           },
-          {
-            "color": "#ffffff",
-            "fontFamily": "Whitney-Semibold",
-            "fontSize": 18,
-            "letterSpacing": 1,
-            "maxWidth": 650,
-            "paddingTop": 5,
-          },
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "Lato-Bold",
+              "fontSize": 15,
+              "letterSpacing": 1,
+              "lineHeight": 21,
+            },
+            {
+              "maxWidth": 650,
+            },
+          ],
         ]
       }
     >
@@ -237,13 +240,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   {
                     "textAlign": "left",
                   },
-                  {
-                    "color": "#ffffff",
-                    "fontFamily": "Whitney-Light",
-                    "fontSize": 18,
-                    "letterSpacing": 0.78,
-                    "marginBottom": 10,
-                  },
+                  [
+                    {
+                      "color": "#ffffff",
+                      "fontFamily": "Lato-Regular",
+                      "fontSize": 15,
+                      "letterSpacing": 0.75,
+                      "lineHeight": 21,
+                    },
+                    {
+                      "marginBottom": 10,
+                    },
+                  ],
                 ]
               }
             >
@@ -255,12 +263,15 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   {
                     "textAlign": "left",
                   },
-                  {
-                    "color": "#ffffff",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 23,
-                    "letterSpacing": 1,
-                  },
+                  [
+                    {
+                      "color": "#ffffff",
+                      "fontFamily": "Lato-Bold",
+                      "fontSize": 19,
+                      "letterSpacing": 1,
+                      "lineHeight": 27,
+                    },
+                  ],
                 ]
               }
             >
@@ -289,7 +300,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
             {
               "marginHorizontal": 26,
             },
-            undefined,
+            false,
           ]
         }
       >
@@ -302,7 +313,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 "height": 48,
                 "marginBottom": 32,
                 "marginTop": 40,
-                "paddingTop": 8,
+                "paddingTop": 5,
                 "width": 284,
               },
               false,
@@ -339,13 +350,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#ffffff",
-                  "fontFamily": "Whitney-Semibold",
-                  "fontSize": 19,
-                  "letterSpacing": 1.12,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -561,16 +577,19 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 19,
-                    "letterSpacing": 1.12,
-                    "lineHeight": 23,
-                  },
-                  {
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 18,
                     "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
                     "lineHeight": 24,
                   },
+                  false,
                   {
                     "textAlign": "center",
                   },
@@ -595,16 +614,19 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 19,
-                    "letterSpacing": 1.12,
-                    "lineHeight": 23,
-                  },
-                  {
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 18,
                     "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
                     "lineHeight": 24,
                   },
+                  false,
                   {
                     "textAlign": "center",
                   },
@@ -629,16 +651,19 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 19,
-                    "letterSpacing": 1.12,
-                    "lineHeight": 23,
-                  },
-                  {
+                    "fontFamily": "Lato-Bold",
                     "fontSize": 18,
                     "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
                     "lineHeight": 24,
                   },
+                  false,
                   {
                     "textAlign": "center",
                   },
@@ -680,9 +705,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#000000",
-                    "fontFamily": "Whitney-Medium",
-                    "fontSize": 19,
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
                     "lineHeight": 24,
+                  },
+                  {
                     "textAlign": "center",
                   },
                 ],
@@ -704,9 +732,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#000000",
-                    "fontFamily": "Whitney-Medium",
-                    "fontSize": 19,
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
                     "lineHeight": 24,
+                  },
+                  {
                     "textAlign": "center",
                   },
                 ],
@@ -728,9 +759,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   },
                   {
                     "color": "#000000",
-                    "fontFamily": "Whitney-Medium",
-                    "fontSize": 19,
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
                     "lineHeight": 24,
+                  },
+                  {
                     "textAlign": "center",
                   },
                 ],
@@ -749,7 +783,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 "height": 48,
                 "marginBottom": 32,
                 "marginTop": 40,
-                "paddingTop": 8,
+                "paddingTop": 5,
                 "width": 284,
               },
               false,
@@ -786,13 +820,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#ffffff",
-                  "fontFamily": "Whitney-Semibold",
-                  "fontSize": 19,
-                  "letterSpacing": 1.12,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -809,11 +848,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               [
                 {
                   "color": "#38976d",
-                  "fontFamily": "Whitney-Semibold",
-                  "fontSize": 19,
-                  "letterSpacing": 1.12,
-                  "lineHeight": 23,
+                  "fontFamily": "Lato-Bold",
+                  "fontSize": 18,
+                  "letterSpacing": 1,
+                  "lineHeight": 22,
                 },
+                false,
                 false,
                 false,
                 null,
@@ -871,7 +911,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               <Text
                 style={
                   {
-                    "fontFamily": undefined,
+                    "fontFamily": "Lato-Regular",
                     "fontSize": 18,
                     "fontWeight": undefined,
                     "opacity": 0,
@@ -900,11 +940,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               [
                 {
                   "color": "#38976d",
-                  "fontFamily": "Whitney-Semibold",
-                  "fontSize": 19,
-                  "letterSpacing": 1.12,
-                  "lineHeight": 23,
+                  "fontFamily": "Lato-Bold",
+                  "fontSize": 18,
+                  "letterSpacing": 1,
+                  "lineHeight": 22,
                 },
+                false,
                 false,
                 false,
                 null,
@@ -1112,18 +1153,16 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#ffffff",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 18,
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 15,
                     "letterSpacing": 1,
-                    "paddingTop": 3,
+                    "lineHeight": 21,
+                  },
+                  {
                     "textAlign": "center",
                   },
-                  {
-                    "letterSpacing": 1,
-                  },
-                  {
-                    "fontSize": 18,
-                  },
+                  undefined,
+                  undefined,
                 ],
               ]
             }
@@ -1148,11 +1187,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               [
                 {
                   "color": "#38976d",
-                  "fontFamily": "Whitney-Semibold",
-                  "fontSize": 19,
-                  "letterSpacing": 1.12,
-                  "lineHeight": 23,
+                  "fontFamily": "Lato-Bold",
+                  "fontSize": 18,
+                  "letterSpacing": 1,
+                  "lineHeight": 22,
                 },
+                false,
                 false,
                 false,
                 null,
@@ -1176,13 +1216,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Medium",
-                "fontSize": 19,
-                "lineHeight": 24,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "Lato-Medium",
+                  "fontSize": 18,
+                  "letterSpacing": 0,
+                  "lineHeight": 24,
+                },
+                {
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -1192,13 +1237,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1210,13 +1260,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1232,10 +1287,17 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 19,
-                    "letterSpacing": 1.12,
-                    "lineHeight": 23,
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
                   },
                   false,
                   false,
@@ -1253,13 +1315,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1271,13 +1338,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1289,13 +1361,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1307,13 +1384,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1325,13 +1407,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1343,13 +1430,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1361,13 +1453,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1387,13 +1484,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Medium",
-                "fontSize": 19,
-                "lineHeight": 24,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "Lato-Medium",
+                  "fontSize": 18,
+                  "letterSpacing": 0,
+                  "lineHeight": 24,
+                },
+                {
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -1416,7 +1518,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
             {
               "marginHorizontal": 26,
             },
-            undefined,
+            false,
           ]
         }
       >
@@ -1429,7 +1531,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 "height": 48,
                 "marginBottom": 32,
                 "marginTop": 40,
-                "paddingTop": 8,
+                "paddingTop": 5,
                 "width": 284,
               },
               false,
@@ -1466,13 +1568,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#ffffff",
-                  "fontFamily": "Whitney-Semibold",
-                  "fontSize": 19,
-                  "letterSpacing": 1.12,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1485,13 +1592,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Medium",
-                "fontSize": 19,
-                "lineHeight": 24,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "Lato-Medium",
+                  "fontSize": 18,
+                  "letterSpacing": 0,
+                  "lineHeight": 24,
+                },
+                {
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -1501,13 +1613,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1519,13 +1636,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1541,10 +1663,17 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#38976d",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 19,
-                    "letterSpacing": 1.12,
-                    "lineHeight": 23,
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 18,
+                    "letterSpacing": 1,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "color": "#38976d",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
                   },
                   false,
                   false,
@@ -1562,13 +1691,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1580,13 +1714,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1598,13 +1737,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1616,13 +1760,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 {
                   "textAlign": "left",
                 },
-                {
-                  "color": "#000000",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 19,
-                  "lineHeight": 24,
-                  "textAlign": "center",
-                },
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "Lato-Medium",
+                    "fontSize": 18,
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                  },
+                  {
+                    "textAlign": "center",
+                  },
+                ],
               ]
             }
           >
@@ -1822,13 +1971,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Book",
-                "fontSize": 16,
-                "lineHeight": 21,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "Lato-Regular",
+                  "fontSize": 15,
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                },
+                {
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -1847,13 +2001,18 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               {
                 "textAlign": "left",
               },
-              {
-                "color": "#000000",
-                "fontFamily": "Whitney-Book",
-                "fontSize": 16,
-                "lineHeight": 21,
-                "textAlign": "center",
-              },
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "Lato-Regular",
+                  "fontSize": 15,
+                  "letterSpacing": 0,
+                  "lineHeight": 21,
+                },
+                {
+                  "textAlign": "center",
+                },
+              ],
             ]
           }
         >
@@ -1918,18 +2077,16 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 [
                   {
                     "color": "#ffffff",
-                    "fontFamily": "Whitney-Semibold",
-                    "fontSize": 18,
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 15,
                     "letterSpacing": 1,
-                    "paddingTop": 3,
+                    "lineHeight": 21,
+                  },
+                  {
                     "textAlign": "center",
                   },
-                  {
-                    "letterSpacing": 1,
-                  },
-                  {
-                    "fontSize": 18,
-                  },
+                  undefined,
+                  undefined,
                 ],
               ]
             }

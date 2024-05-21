@@ -9,6 +9,7 @@ import GreenButton from "../Buttons/GreenButton";
 import { removeAccessToken } from "../../../utility/loginHelpers";
 import { UserContext } from "../../UserContext";
 import StyledText from "../StyledText";
+import { baseTextStyles } from "../../../styles/textStyles";
 
 const INatSignOut = ( ): Node => {
   const { updateLogin } = useContext( UserContext );
@@ -22,7 +23,7 @@ const INatSignOut = ( ): Node => {
 
   return (
     <>
-      <StyledText style={[textStyles.text, textStyles.loginLogoutText]}>
+      <StyledText style={[baseTextStyles.body, textStyles.loginLogoutText]}>
         {i18n.t( "about_inat.upload_and_track_obs_using_inat" )}
       </StyledText>
       <GreenButton

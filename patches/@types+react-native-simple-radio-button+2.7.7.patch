@@ -1,0 +1,12 @@
+diff --git a/node_modules/@types/react-native-simple-radio-button/index.d.ts b/node_modules/@types/react-native-simple-radio-button/index.d.ts
+index df1b6d1..998bb87 100644
+--- a/node_modules/@types/react-native-simple-radio-button/index.d.ts
++++ b/node_modules/@types/react-native-simple-radio-button/index.d.ts
+@@ -36,6 +36,7 @@ export interface RadioButtonInputProps extends DefaultRadioFormProps {
+     obj: object;
+     index: number;
+     isSelected?: boolean | undefined;
++    borderWidth?: number | undefined;
+     buttonInnerColor?: string | undefined;
+     buttonOuterColor?: string | undefined;
+     buttonSize?: number | undefined;

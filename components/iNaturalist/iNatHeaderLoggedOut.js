@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext } from "react";
+import React from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { Node } from "react";
@@ -11,12 +11,12 @@ import GreenText from "../UIComponents/GreenText";
 import INatValueProps from "./iNatValueProps";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import AppIconSubHeader from "./AppIconSubHeader";
-import { AppOrientationContext } from "../UserContext";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const INatHeaderLoggedOut = ( ): Node => {
   const navigation = useNavigation( );
   const logIntoiNat = ( ) => navigation.navigate( "LoginOrSignup" );
-  const { isTablet } = useContext( AppOrientationContext );
+  const { isTablet } = useAppOrientation( );
 
   return (
     <>

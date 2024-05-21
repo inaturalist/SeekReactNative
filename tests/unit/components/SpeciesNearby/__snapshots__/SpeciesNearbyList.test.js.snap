@@ -95,7 +95,6 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
   getItem={[Function]}
   getItemCount={[Function]}
   getItemLayout={[Function]}
-  getItemType={[Function]}
   horizontal={true}
   initialNumToRender={3}
   keyExtractor={[Function]}
@@ -186,13 +185,15 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
               [
                 {
                   "color": "#ffffff",
-                  "fontFamily": "Whitney-Medium",
-                  "fontSize": 16,
+                  "fontFamily": "Lato-Regular",
+                  "fontSize": 15,
+                  "letterSpacing": 0,
                   "lineHeight": 21,
+                },
+                {
                   "paddingTop": 13,
                   "textAlign": "center",
                 },
-                false,
                 false,
               ],
             ]

@@ -48,7 +48,6 @@ import WarningModal from "../../Modals/WarningModal";
 import { UserContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
-import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { useObservation } from "../../Providers/ObservationProvider";
 
 const logger = log.extend( "ARCamera.js" );
@@ -58,9 +57,6 @@ const ARCamera = ( ): Node => {
     logger.debug( "Uses vision camera" );
   }, [] );
 
-  // getting width and height passes correct dimensions to camera
-  // on orientation change
-  const { width, height } = useAppOrientation( );
   const isFocused = useIsFocused( );
   const navigation = useNavigation( );
   const camera = useRef<any>( null );

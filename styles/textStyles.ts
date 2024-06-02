@@ -69,6 +69,22 @@ const bodySpaced = {
   lineHeight: 23
 };
 
+const bodySmall = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 13,
+  letterSpacing: 0,
+  lineHeight: 21
+};
+
+const bodyBlackSmallScreens = {
+  color: colors.black,
+  fontFamily: fonts.regular,
+  fontSize: 14,
+  letterSpacing: 0,
+  lineHeight: 14
+};
+
 const emptyState = {
   color: colors.black,
   fontFamily: fonts.medium,
@@ -91,6 +107,14 @@ const banner = {
   fontSize: 18,
   letterSpacing: 1,
   lineHeight: 22
+};
+
+const bannerSmall = {
+  color: colors.white,
+  fontFamily: fonts.bold,
+  fontSize: 14,
+  letterSpacing: 0.42,
+  lineHeight: 34
 };
 
 const modalBanner = {
@@ -322,16 +346,8 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.settingsGray
   },
   body,
-  bodySmall: {
-    ...body,
-    fontSize: 13,
-    lineHeight: 21
-  },
-  bodyBlackSmallScreens: {
-    ...body,
-    fontSize: 14,
-    lineHeight: 14
-  },
+  bodySmall,
+  bodyBlackSmallScreens,
   bodyWhite: {
     ...body,
     color: colors.white
@@ -387,12 +403,7 @@ const baseTextStyles = StyleSheet.create( {
     color: colors.seekTeal
   },
   banner,
-  bannerSmall: {
-    ...banner,
-    fontSize: 14,
-    letterSpacing: 0.42,
-    lineHeight: 34
-  },
+  bannerSmall,
   modalBanner,
   modalBannerGreen: {
     ...modalBanner,

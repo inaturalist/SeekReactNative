@@ -21,10 +21,11 @@ import { fetchNumberSpeciesSeen, setRoute } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks";
-import { useObservation } from "../Providers/ObservationProvider";
+import { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 type Props = {
+  observation: Observation,
   screenType: string,
   closeFlagModal: ( misidentified: boolean ) => void,
   setNavigationPath: Function,
@@ -34,6 +35,7 @@ type Props = {
 };
 
 const MatchModals = ( {
+  observation,
   screenType,
   closeFlagModal,
   setNavigationPath,
@@ -42,7 +44,6 @@ const MatchModals = ( {
   scientificNames
 }: Props ): Node => {
   const { setId } = useSpeciesDetail( );
-  const { observation } = useObservation();
   const navigation = useNavigation( );
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;

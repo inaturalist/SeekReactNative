@@ -20,7 +20,7 @@ interface Prediction {
   score: number;
   ancestor_ids?: number[];
 }
-interface Observation {
+export interface Observation {
   image: {
     predictions: Prediction[];
     onlineVision: boolean;

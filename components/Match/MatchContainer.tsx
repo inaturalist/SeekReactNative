@@ -11,22 +11,23 @@ import { renderHeaderText, renderText, setGradients } from "../../utility/matchH
 import { useCommonName } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
-import { useObservation } from "../Providers/ObservationProvider";
+import { Observation } from "../Providers/ObservationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
+  observation: Observation;
   setNavigationPath: ( path: string ) => void;
   screenType: string;
   scientificNames: boolean;
 }
 
 const MatchContainer = ( {
+  observation,
   screenType,
   setNavigationPath,
   scientificNames
 }: Props ) => {
   const { isLandscape } = useAppOrientation();
-  const { observation } = useObservation();
   const navigation = useNavigation();
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;

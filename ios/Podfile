@@ -27,14 +27,8 @@ target 'Seek' do
   config = use_native_modules!
   # pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools'
 
-  # Flags change depending on the env values.
-  flags = get_default_flags()
-
   use_react_native!(
     :path => config[:reactNativePath],
-    # Hermes is now enabled by default. Disable by setting this flag to false.
-    :hermes_enabled => flags[:hermes_enabled],
-    :fabric_enabled => flags[:fabric_enabled],
     # Enables Flipper.
     #
     # Note that if you have use_frameworks! enabled, Flipper will not work and
@@ -51,7 +45,6 @@ target 'Seek' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
     # End of added lines
   end
 end

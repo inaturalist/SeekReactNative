@@ -1,6 +1,6 @@
 module.exports = ( api ) => {
   const presets = [
-    "module:metro-react-native-babel-preset",
+    "module:@react-native/babel-preset",
     "@babel/preset-flow"
   ];
   const plugins = [

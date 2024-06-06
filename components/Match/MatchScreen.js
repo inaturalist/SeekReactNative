@@ -82,9 +82,14 @@ const MatchScreen = ( ): Node => {
   const speciesIdentified = screenType === "resighted" || screenType === "newSpecies";
   const { gradientDark } = setGradients( screenType );
 
+  if ( !observation ) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top"]}>
       <MatchModals
+        observation={observation}
         screenType={screenType}
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
@@ -95,10 +100,12 @@ const MatchScreen = ( ): Node => {
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
         <TopSpacer backgroundColor={gradientDark} />
         <MatchHeader
+          observation={observation}
           screenType={screenType}
           setNavigationPath={setNavigationPath}
         />
         <MatchContainer
+          observation={observation}
           screenType={screenType}
           setNavigationPath={setNavigationPath}
           scientificNames={scientificNames}

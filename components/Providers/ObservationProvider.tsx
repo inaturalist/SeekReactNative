@@ -16,11 +16,11 @@ import {
 interface Prediction {
   name: string;
   taxon_id: number;
-  rank: number;
+  rank_level: number;
   score: number;
   ancestor_ids?: number[];
 }
-interface Observation {
+export interface Observation {
   image: {
     predictions: Prediction[];
     onlineVision: boolean;
@@ -56,13 +56,13 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
   const threshold = 0.7;
 
-  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank === 10 && leaf.score > threshold ) || null;
+  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank_level === 10 && leaf.score > threshold ) || null;
 
   const checkForAncestor = ( predictions: Prediction[] ) => {
-    const reversePredictions = predictions.sort( ( a, b ) => a.rank - b.rank );
+    const reversePredictions = predictions.sort( ( a, b ) => a.rank_level - b.rank_level );
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
-    if ( ancestor && ancestor.rank !== 100 ) {
+    if ( ancestor && ancestor.rank_level !== 100 ) {
       return ancestor;
     }
     return null;
@@ -123,7 +123,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     const { predictions, errorCode, latitude } = observation.image;
     const species = Object.assign( { }, param );
 
-    if ( Platform.OS === "ios" ) {
+    if ( Platform.OS === "ios" && !species.ancestor_ids ) {
       species.ancestor_ids = setAncestorIdsiOS( predictions );
     }
 
@@ -180,7 +180,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       taxaId: ancestor.taxon_id,
       speciesSeenImage: photo,
       scientificName: ancestor.name,
-      rank: ancestor.rank
+      rank: ancestor.rank_level
     };
   }, [fetchPhoto] );
 

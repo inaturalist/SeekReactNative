@@ -21,14 +21,23 @@ import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 
+interface Prediction {
+  name: string;
+  taxon_id: number;
+  rank_level: number;
+  score: number;
+  ancestor_ids?: number[];
+}
+
 interface Props {
   takePicture: ( ) => void;
-  ranks: {
+  ranks?: {
     [key: string]: {
       taxon_id: number;
       name: string;
     }[];
   };
+  prediction?: Prediction;
   pictureTaken: boolean;
   cameraLoaded: boolean;
   filterByTaxonId: ( taxonId: string | null, negativeFilter: boolean ) => void;
@@ -39,13 +48,14 @@ const isAndroid = Platform.OS === "android";
 const ARCameraOverlay = ( {
   takePicture,
   ranks,
+  prediction,
   pictureTaken,
   cameraLoaded,
   filterByTaxonId
 }: Props ) => {
   const { isLandscape, height } = useAppOrientation( );
   const { navigate } = useNavigation( );
-  const rankToRender = Object.keys( ranks )[0] || null;
+  const rankToRender = ranks ? ( Object.keys( ranks )[0] || null ) : prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
   const autoCapture = userSettings?.autoCapture;
@@ -136,7 +146,7 @@ const ARCameraOverlay = ( {
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
-      <ARCameraHeader ranks={ranks} />
+      <ARCameraHeader ranks={ranks} prediction={prediction} />
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
@@ -172,7 +182,7 @@ const ARCameraOverlay = ( {
         ]}
         disabled={pictureTaken}
       >
-        <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+        <Image source={( ranks && ranks.species ) || ( prediction?.rank === "species" ) ? icons.arCameraGreen : icons.arCameraButton} />
       </TouchableOpacity>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.open_help" )}

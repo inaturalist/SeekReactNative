@@ -13,6 +13,14 @@ import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 
+interface Prediction {
+  name: string;
+  taxon_id: number;
+  rank_level: number;
+  score: number;
+  ancestor_ids?: number[];
+}
+
 interface Props {
   ranks: {
     [key: string]: {
@@ -20,11 +28,12 @@ interface Props {
       name: string;
     }[];
   };
+  prediction: Prediction;
 }
 
-const ARCameraHeader = ( { ranks }: Props ) => {
+const ARCameraHeader = ( { ranks, prediction }: Props ) => {
   const { isLandscape } = useAppOrientation( );
-  const rankToRender = Object.keys( ranks )[0] || null;
+  const rankToRender = ranks ? Object.keys( ranks )[0] || null : prediction?.rank || null;
   const [commonName, setCommonName] = useState<string | void | null>( null );
   const settings = useFetchUserSettings( );
   const scientificNames = settings?.scientificNames;
@@ -33,7 +42,7 @@ const ARCameraHeader = ( { ranks }: Props ) => {
   let id = null;
 
   if ( rankToRender && !scientificNames ) {
-    id = ranks[rankToRender][0].taxon_id;
+    id = ranks ? ranks[rankToRender][0].taxon_id : prediction?.taxon_id;
   } else {
     id = null;
   }
@@ -98,9 +107,10 @@ const ARCameraHeader = ( { ranks }: Props ) => {
     return null;
   };
 
+  const scientificName = ranks ? ranks[rankToRender][0].name : prediction?.name;
   return (
     <View style={viewStyles.header}>
-      {( ranks && rankToRender ) && (
+      {( ( ranks || prediction ) && rankToRender ) && (
         <View style={setTaxonomicRankBubbleColor( )}>
           <View style={viewStyles.greenButton}>
             <GreenRectangle
@@ -111,7 +121,7 @@ const ARCameraHeader = ( { ranks }: Props ) => {
             />
           </View>
           <StyledText style={[baseTextStyles.prediction, textStyles.predictions, showScientificName && baseTextStyles.boldItalic]}>
-            {showScientificName ? ranks[rankToRender][0].name : commonName}
+            {showScientificName ? scientificName : commonName}
           </StyledText>
           <View style={[viewStyles.row, viewStyles.center]}>
             {isLandscape ? showLandscapeModeDots( ) : showPortraitModeDots( )}

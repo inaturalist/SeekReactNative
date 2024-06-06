@@ -1,5 +1,5 @@
 // @flow
-import ImageResizer from "react-native-image-resizer";
+import ImageResizer from "@bam.tech/react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";

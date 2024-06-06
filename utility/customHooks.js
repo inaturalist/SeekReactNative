@@ -311,10 +311,10 @@ const useIsForeground = (): boolean => {
   return isForeground;
 };
 
-export const LANDSCAPE_LEFT = "landscapeLeft";
-export const LANDSCAPE_RIGHT = "landscapeRight";
+export const LANDSCAPE_LEFT = "landscape-left";
+export const LANDSCAPE_RIGHT = "landscape-right";
 export const PORTRAIT = "portrait";
-export const PORTRAIT_UPSIDE_DOWN = "portraitUpsideDown";
+export const PORTRAIT_UPSIDE_DOWN = "portrait-upside-down";
 
 export function orientationLockerToIosOrientation( orientation: string ): string {
   // react-native-orientation-locker and react-native-vision-camera  different
@@ -322,9 +322,9 @@ export function orientationLockerToIosOrientation( orientation: string ): string
   // react-native-vision-camera versions
   switch ( orientation ) {
     case "LANDSCAPE-RIGHT":
-      return LANDSCAPE_LEFT;
-    case "LANDSCAPE-LEFT":
       return LANDSCAPE_RIGHT;
+    case "LANDSCAPE-LEFT":
+      return LANDSCAPE_LEFT;
     case "PORTRAIT-UPSIDEDOWN":
       return PORTRAIT_UPSIDE_DOWN;
     default:

@@ -97,7 +97,7 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
     } )
       .then( ( result ) => {
         const { predictions } = result;
-        navigateToResults( uri, timestamp, location, Platform.OS === "android" ? predictions : result );
+        navigateToResults( uri, timestamp, location, predictions );
       } )
       .catch( ( err ) => {
         console.log( "Error", err );

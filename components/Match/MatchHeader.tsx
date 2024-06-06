@@ -6,19 +6,20 @@ import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { setGradients } from "../../utility/matchHelpers";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
-import { useObservation } from "../Providers/ObservationProvider";
+import { Observation } from "../Providers/ObservationProvider";
 
 interface Props {
+  observation: Observation;
   screenType: string;
   setNavigationPath: ( path: string ) => void;
 }
 
 const MatchHeader = ( {
+  observation,
   screenType,
   setNavigationPath
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
-  const { observation } = useObservation();
   const taxon = observation && observation.taxon;
   const image = observation && observation.image;
   const imageUri = image && image.uri;

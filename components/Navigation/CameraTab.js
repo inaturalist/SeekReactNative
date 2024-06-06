@@ -8,6 +8,7 @@ import type { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs
 import { viewStyles, textStyles } from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
+import LegacyARCamera from "../Camera/ARCamera/LegacyARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
 import { baseTextStyles } from "../../styles/textStyles";
 
@@ -31,6 +32,10 @@ const screenOptions = {
 
 const initialLayout = { width, length: height };
 
+const isAndroid = Platform.OS === "android";
+const majorVersionIOS = parseInt( Platform.Version, 10 );
+const useVisionCamera = isAndroid ? Platform.Version >= 21 : majorVersionIOS >= 11;
+
 const CameraNav = ( ): Props => (
   <Tab.Navigator
     tabBarPosition="bottom"
@@ -39,7 +44,7 @@ const CameraNav = ( ): Props => (
   >
     <Tab.Screen
       name="ARCamera"
-      component={ARCamera}
+      component={useVisionCamera ? ARCamera : LegacyARCamera}
       // moving these to a constant means that language doesn't switch correctly
       options={{ tabBarLabel: i18n.t( "camera.label" ).toLocaleUpperCase() }}
     />

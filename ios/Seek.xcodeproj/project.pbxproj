@@ -534,7 +534,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/.../node_modules/react-native-inat-camera/ios/**",
-					"$(SRCROOT)/.../node_modules/react-native-open-settings/**",
 				);
 				INFOPLIST_FILE = Seek/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -572,7 +571,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/.../node_modules/react-native-inat-camera/ios/**",
-					"$(SRCROOT)/.../node_modules/react-native-open-settings/**",
 				);
 				INFOPLIST_FILE = Seek/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;

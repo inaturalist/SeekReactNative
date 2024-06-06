@@ -1,8 +1,7 @@
 // @flow
 
-import { Alert, Platform } from "react-native";
+import { Alert, Linking, Platform } from "react-native";
 import Geocoder from "react-native-geocoder";
-import OpenSettings from "react-native-open-settings";
 import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
@@ -151,7 +150,7 @@ const createLocationAlert = ( errorCode: number ) => {
     if ( Platform.OS === "android" ) {
       button.unshift( {
         text: i18n.t( "results.enable_location_button" ),
-        onPress: () => OpenSettings.openSettings()
+        onPress: () => Linking.openSettings()
       } );
     }
   } else if ( errorCode === 2 ) {
@@ -185,7 +184,7 @@ const createAlertUserLocationOnMaps = ( errorCode: number ) => {
     if ( Platform.OS === "android" ) {
       button.unshift( {
         text: i18n.t( "species_nearby.enable_location" ),
-        onPress: () => OpenSettings.openSettings()
+        onPress: () => Linking.openSettings()
       } );
     }
   } else if ( errorCode === 2 ) {

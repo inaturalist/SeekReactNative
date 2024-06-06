@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Platform, View } from "react-native";
-import OpenSettings from "react-native-open-settings";
+import { Linking, Platform, View } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { getSystemVersion } from "react-native-device-info";
 
@@ -35,7 +34,7 @@ const CameraError = ( { error, errorEvent, album }: Props ) => {
     return errorText;
   };
 
-  const openSettings = () => OpenSettings.openSettings();
+  const openSettings = () => Linking.openSettings();
 
   const showPermissionsButton = () => {
     if ( Platform.OS === "android" ) {

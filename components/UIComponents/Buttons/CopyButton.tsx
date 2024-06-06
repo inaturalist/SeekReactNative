@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Pressable, View } from "react-native";
-import Clipboard from "@react-native-community/clipboard";
+import Clipboard from "@react-native-clipboard/clipboard";
 
 import i18n from "../../../i18n";
 import viewStyles from "../../../styles/uiComponents/buttons/copyButton";

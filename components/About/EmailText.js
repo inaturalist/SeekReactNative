@@ -4,7 +4,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import Mailer from "react-native-mail";
-import Clipboard from "@react-native-community/clipboard";
+import Clipboard from "@react-native-clipboard/clipboard";
 
 import { viewStyles, textStyles } from "../../styles/about";
 import i18n from "../../i18n";

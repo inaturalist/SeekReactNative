@@ -1184,7 +1184,9 @@ PODS:
     - React-Core
   - RNFS (2.20.0):
     - React-Core
-  - RNGestureHandler (2.13.0):
+  - RNGestureHandler (2.16.2):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
     - React-Core
   - RNLocalize (3.0.6):
     - React-Core
@@ -1195,7 +1197,9 @@ PODS:
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
     - ReactCommon/turbomodule/core
-  - RNScreens (3.22.0):
+  - RNScreens (3.31.1):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
     - React-Core
     - React-RCTImage
   - RNShare (9.4.1):
@@ -1625,11 +1629,11 @@ SPEC CHECKSUMS:
   RNDeviceInfo: db5c64a060e66e5db3102d041ebe3ef307a85120
   RNFlashList: 4b4b6b093afc0df60ae08f9cbf6ccd4c836c667a
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
-  RNGestureHandler: 6e4dc6b7ab3a385386d4e36228bd065e5a611394
+  RNGestureHandler: 96439cf6543defdde87459e48cd1a3f0e45a008e
   RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 6cfa556540186ce7ae7a0b048f369236b1d86ebb
-  RNScreens: 68fd1060f57dd1023880bf4c05d74784b5392789
+  RNScreens: 134a7511b12b8eb440b87aac21e36a71295d6024
   RNShare: 32e97adc8d8c97d4a26bcdd3c45516882184f8b6
   RNStoreReview: 31dbfd0dac2eea9675f0b84f1dd3261c2110c337
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315

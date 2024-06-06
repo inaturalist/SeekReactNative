@@ -1,6 +1,6 @@
 {
   "ignorePatterns": ["**/vendor/**"],
-  "extends": ["@react-native-community"],
+  "extends": ["@react-native"],
   "rules": {
     "quotes": [2, "double"],
     "comma-dangle": [2, "never"],

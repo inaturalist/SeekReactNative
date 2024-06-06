@@ -1,18 +1,20 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
-const defaultSourceExts =
-  require( "metro-config/src/defaults/defaults" ).sourceExts;
+const {getDefaultConfig, mergeConfig} = require( "@react-native/metro-config" );
+const {
+  resolver: { sourceExts }
+} = getDefaultConfig();
 
-module.exports = {
+/**
+ * Metro configuration
+ * https://facebook.github.io/metro/docs/configuration
+ *
+ * @type {import('metro-config').MetroConfig}
+ */
+const config = {
   resolver: {
     sourceExts:
       process.env.MOCK_MODE === "e2e"
-        ? ["e2e-mock.js", ...defaultSourceExts]
-        : defaultSourceExts,
+        ? ["e2e-mock.js", ...sourceExts]
+        : sourceExts,
     assetExts: [
       "tflite",
       "csv",
@@ -60,3 +62,5 @@ module.exports = {
     } )
   }
 };
+
+module.exports = mergeConfig( getDefaultConfig( __dirname ), config );

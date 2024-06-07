@@ -42,7 +42,7 @@ const fetchUserLocation = ( enableHighAccuracy: ?boolean = false ): Promise<Coor
       maximumAge: 20000,
       // added timeout and removed requestiOSPermissions for precise locations
       // since this sometimes wasn't resolving or rejecting
-      timeout: 30000
+      timeout: 7000
     } );
   } )
 );
@@ -64,7 +64,7 @@ const fetchTruncatedUserLocation = ( ): Promise<TruncatedCoords> => (
       reject( code );
       // remove annoying Google location accuracy popup on older Android devices
     }, {
-      timeout: 30000,
+      timeout: 7000,
       showLocationDialog: false,
       maximumAge: 5000
     } );

@@ -16,6 +16,7 @@ import {
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
+import { isNumber } from "lodash";
 import type { Node } from "react";
 import { useSharedValue } from "react-native-worklets-core";
 import { Prediction } from "vision-camera-plugin-inatvision";
@@ -49,6 +50,7 @@ import { UserContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
+import { logToApi } from "../../../utility/apiCalls";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -157,6 +159,13 @@ const ARCamera = ( ): Node => {
     // especially when user has location permissions off
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
+    const hasCoordinates = isNumber( image?.latitude ) && isNumber( image?.longitude );
+    await logToApi( {
+      level: "info",
+      message: `hasCoordinates ${hasCoordinates}`,
+      context: "takePhoto",
+      errorType: errorCode?.toString() || "0"
+    } );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;

@@ -990,7 +990,7 @@ PODS:
     - React
   - react-native-webview (11.26.1):
     - React-Core
-  - react-native-worklets-core (1.3.0):
+  - react-native-worklets-core (1.3.3):
     - React
     - React-callinvoker
     - React-Core
@@ -1213,19 +1213,19 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
   - SocketRocket (0.6.1)
-  - VisionCamera (4.0.3):
-    - VisionCamera/Core (= 4.0.3)
-    - VisionCamera/FrameProcessors (= 4.0.3)
-    - VisionCamera/React (= 4.0.3)
-  - VisionCamera/Core (4.0.3)
-  - VisionCamera/FrameProcessors (4.0.3):
+  - VisionCamera (4.0.5):
+    - VisionCamera/Core (= 4.0.5)
+    - VisionCamera/FrameProcessors (= 4.0.5)
+    - VisionCamera/React (= 4.0.5)
+  - VisionCamera/Core (4.0.5)
+  - VisionCamera/FrameProcessors (4.0.5):
     - React
     - React-callinvoker
     - react-native-worklets-core
-  - VisionCamera/React (4.0.3):
+  - VisionCamera/React (4.0.5):
     - React-Core
     - VisionCamera/FrameProcessors
-  - VisionCameraPluginInatVision (4.0.3):
+  - VisionCameraPluginInatVision (4.0.4):
     - React-Core
   - Yoga (1.14.0)
 
@@ -1597,7 +1597,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-uuid-generator: 82ffa2a1cac94242ebed52c4dedc5044d3412717
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
-  react-native-worklets-core: 7a50c0c14005cc57df8583eabd99ea3f467fa277
+  react-native-worklets-core: f51430dd07bf5343d4918d28a4bb00fe8f98b982
   React-nativeconfig: 2e44d0d2dd222b12a5183f4bcaa4a91881497acb
   React-NativeModulesApple: 8aa032fe6c92c1a3c63e4809d42816284a56a9b0
   React-perflogger: f9367428cf475f4606b5965c1d5a71781bb95299
@@ -1640,8 +1640,8 @@ SPEC CHECKSUMS:
   SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  VisionCamera: b633f90960feab2669b7a1c51f8a201dd0a5bfc3
-  VisionCameraPluginInatVision: 1e08a4a376a2a38794a30e1cc202e93e86a10e6b
+  VisionCamera: 4c1d19f1ac09f2f42f758e306fcf642536627357
+  VisionCameraPluginInatVision: 547e06ae37d5794992c17fc93ffa9c5363ccda42
   Yoga: 2a16e58450c48e110211dae1159fb114bbcdcfc0
 
 PODFILE CHECKSUM: 10e968d6ad2bca83e521f2b5695a4b3ffd1e8753

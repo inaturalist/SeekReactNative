@@ -82,10 +82,10 @@
     "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.5.2",
     "react-native-uuid-generator": "^6.1.1",
-    "react-native-vision-camera": "4.0.3",
+    "react-native-vision-camera": "4.0.5",
     "react-native-webp-format": "^1.2.0",
     "react-native-webview": "^11.26.1",
-    "react-native-worklets-core": "1.3.0",
+    "react-native-worklets-core": "1.3.3",
     "realm": "^12.5.1",
     "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision"
   },

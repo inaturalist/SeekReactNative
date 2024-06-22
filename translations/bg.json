@@ -13,47 +13,47 @@
   },
   "get_started": {
     "header": "Първи стъпки",
-    "tip_1": "Take photos with Seek’s Camera to identify living things all around you.",
-    "tip_2": "Learn about the species that have been observed around you with Species Nearby.",
-    "tip_3": "Earn badges and raise your level by identifying different types of species and participating in challenges."
+    "tip_1": "Снимай с камерата на Seek, за да идентифицираш живи същества около теб.",
+    "tip_2": "Найчавай факти за видовете, които откриваш около теб с \"Видове около теб\".",
+    "tip_3": "Отключвай значки и вдигай ниво като идентифицираш различни видове и участваш в предизвикателства."
   },
   "challenges_card": {
     "header": "Предизвикателства",
-    "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
+    "join": "Наблюдавай със Seek камера, за да вземеш значката \"Нашата планета\"!",
     "take_challenge": "Приеми предизвикателството",
     "continue_challenge": "Продължи предизвикателството",
     "view_all": "Виж всички предизвикателства",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!",
+    "new_join": "Наблюдавай със Seek камера, за вземеш значката \"Предизвикателство\".",
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "ПУБЛИКУВАЙ В INATURALIST",
     "uploading_x_observations": {
-      "zero": "Uploading {{count}} observations",
-      "one": "Uploading {{count}} observation",
-      "two": "Uploading {{count}} observations",
-      "few": "Uploading {{count}} observations",
-      "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "zero": "Качвам {{count}} наблюдения",
+      "one": "Качвам {{count}} наблюдения",
+      "two": "Качвам {{count}} наблюдения",
+      "few": "Качвам {{count}} наблюдения",
+      "many": "Качвам {{count}} наблюдения",
+      "other": "Качвам {{count}} наблюдения"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}} наблюдения бяха качени!",
+      "one": "{{count}} наблюдения бяха качени!",
+      "two": "{{count}} наблюдения бяха качени!",
+      "few": "{{count}} наблюдения бяха качени!",
+      "many": "{{count}} наблюдения бяха качени!",
+      "other": "{{count}} наблюдения бяха качени!"
     },
     "x_observations_to_upload": {
-      "zero": "{{count}} observations to upload",
-      "one": "{{count}} observation to upload",
-      "two": "{{count}} observations to upload",
-      "few": "{{count}} observations to upload",
-      "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "zero": "{{count}} наблюдения за качване",
+      "one": "{{count}} наблюдения за качване",
+      "two": "{{count}} наблюдения за качване",
+      "few": "{{count}} наблюдения за качване",
+      "many": "{{count}} наблюдения за качване",
+      "other": "{{count}} наблюдения за качване"
     },
-    "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
+    "upload_now": "КАЧИ СЕГА",
+    "error_internet": "Няма интернет. Моля, опитай отново по-късно.",
     "error_downtime": {
       "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",

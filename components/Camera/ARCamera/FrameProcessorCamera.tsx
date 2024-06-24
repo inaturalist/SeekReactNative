@@ -12,11 +12,9 @@ import {
 import { Worklets } from "react-native-worklets-core";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
-import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
+import { useIsForeground } from "../../../utility/customHooks";
 
 import {
-  orientationPatch,
-  orientationPatchFrameProcessor,
   usePatchedRunAsync
 } from "../../../utility/visionCameraPatches";
 
@@ -77,8 +75,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const isForeground = useIsForeground( );
-
-  const { deviceOrientation } = useDeviceOrientation();
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
@@ -197,7 +193,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   } );
 
   const patchedRunAsync = usePatchedRunAsync();
-  const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -221,7 +216,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
-            patchedOrientationAndroid
+            patchedOrientationAndroid: "portrait"
           } );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;
@@ -245,7 +240,6 @@ const FrameProcessorCamera = ( props: Props ) => {
       confidenceThreshold,
       filterByTaxonId,
       negativeFilter,
-      patchedOrientationAndroid,
       lastTimestamp,
       fps
     ]
@@ -332,7 +326,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
             onError={onError}
-            orientation={orientationPatch( deviceOrientation )}
+            outputOrientation="device"
             photoQualityBalance="speed"
           />
         </GestureDetector>

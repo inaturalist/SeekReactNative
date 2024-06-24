@@ -976,8 +976,6 @@ PODS:
     - React-Core
   - react-native-netinfo (9.4.1):
     - React-Core
-  - react-native-orientation-locker (1.5.0):
-    - React-Core
   - react-native-pager-view (6.2.1):
     - React-Core
   - react-native-render-html (5.1.1):
@@ -1213,16 +1211,16 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
   - SocketRocket (0.6.1)
-  - VisionCamera (4.0.5):
-    - VisionCamera/Core (= 4.0.5)
-    - VisionCamera/FrameProcessors (= 4.0.5)
-    - VisionCamera/React (= 4.0.5)
-  - VisionCamera/Core (4.0.5)
-  - VisionCamera/FrameProcessors (4.0.5):
+  - VisionCamera (4.3.2):
+    - VisionCamera/Core (= 4.3.2)
+    - VisionCamera/FrameProcessors (= 4.3.2)
+    - VisionCamera/React (= 4.3.2)
+  - VisionCamera/Core (4.3.2)
+  - VisionCamera/FrameProcessors (4.3.2):
     - React
     - React-callinvoker
     - react-native-worklets-core
-  - VisionCamera/React (4.0.5):
+  - VisionCamera/React (4.3.2):
     - React-Core
     - VisionCamera/FrameProcessors
   - VisionCameraPluginInatVision (4.0.4):
@@ -1292,7 +1290,6 @@ DEPENDENCIES:
   - react-native-mail (from `../node_modules/react-native-mail`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
-  - react-native-orientation-locker (from `../node_modules/react-native-orientation-locker`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-render-html (from `../node_modules/react-native-render-html`)
   - react-native-restart (from `../node_modules/react-native-restart`)
@@ -1438,8 +1435,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
-  react-native-orientation-locker:
-    :path: "../node_modules/react-native-orientation-locker"
   react-native-pager-view:
     :path: "../node_modules/react-native-pager-view"
   react-native-render-html:
@@ -1590,7 +1585,6 @@ SPEC CHECKSUMS:
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5
-  react-native-orientation-locker: 851f6510d8046ea2f14aa169b1e01fcd309a94ba
   react-native-pager-view: d211379f61895b6349bd7e571b44a26d005c2975
   react-native-render-html: 012780b92993ab33b3ae0240b90e585d00c70808
   react-native-restart: 7595693413fe3ca15893702f2c8306c62a708162
@@ -1640,7 +1634,7 @@ SPEC CHECKSUMS:
   SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  VisionCamera: 4c1d19f1ac09f2f42f758e306fcf642536627357
+  VisionCamera: 9f7b70431c8662ff933e1ed66d074bdba3a63f7d
   VisionCameraPluginInatVision: 547e06ae37d5794992c17fc93ffa9c5363ccda42
   Yoga: 2a16e58450c48e110211dae1159fb114bbcdcfc0
 

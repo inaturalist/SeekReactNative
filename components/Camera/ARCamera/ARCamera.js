@@ -292,7 +292,7 @@ const ARCamera = ( ): Node => {
     }
     const takePhotoOptions = {
       flash: "off",
-      enableShutterSound: true
+      enableShutterSound: false
     };
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];

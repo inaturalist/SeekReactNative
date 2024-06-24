@@ -1,6 +1,6 @@
-// @flow
 import createUserAgent from "./userAgent";
 import i18n from "../i18n";
+import { createJwtToken } from "./helpers";
 
 const fetchSpeciesNearby = async ( params: Object ): any => {
   const staticParams = {
@@ -32,6 +32,47 @@ const fetchSpeciesNearby = async ( params: Object ): any => {
   }
 };
 
+enum LogLevels {
+  INFO = "info",
+  WARN = "warn",
+  ERROR = "error"
+}
+interface Log {
+  level: LogLevels;
+  message: string;
+  context: string;
+  errorType: string;
+}
+const logToApi = async ( { level, message, context, errorType }: Log ): Promise<any> => {
+  const site = "https://api.inaturalist.org/v2/log";
+
+  const formData = {
+    timestamp: new Date().toISOString(),
+    level,
+    message,
+    context,
+    error_type: errorType
+  };
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent( ),
+      "Authorization": createJwtToken( )
+    },
+    body: JSON.stringify( formData )
+  };
+
+  try {
+    const response = await fetch( site, options );
+    return response;
+  } catch ( e ) {
+    return "unknown";
+  }
+};
+
 export {
-  fetchSpeciesNearby
+  fetchSpeciesNearby,
+  logToApi
 };

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
 
 import { useLocationName } from "../../utility/customHooks";
-import SpeciesNearby from "../Home/SpeciesNearby/SpeciesNearby";
 
 type SpeciesNearbyState = {
   latitude: number | null,

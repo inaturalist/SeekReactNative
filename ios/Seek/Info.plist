@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.16.0</string>
+	<string>2.16.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>350</string>
+	<string>353</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false />
 	<key>LSApplicationQueriesSchemes</key>
@@ -33,10 +33,11 @@
 	<true />
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
+		<false />
+		<key>NSAllowsLocalNetworking</key>
 		<true />
-		<key>NSExceptionDomains</key>
-		<dict />
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We use the camera so you can get identifications of your nature photos.</string>

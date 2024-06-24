@@ -241,7 +241,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     };
   }, [observation, handleSpecies, handleAncestor] );
 
-  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
+  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
+  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const createOnlineSpecies = ( species, seenDate ) => {
     const photo = species.default_photo;
 
@@ -253,7 +254,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     };
   };
 
-  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
+  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
+  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const createOnlineAncestor = ( ancestor: Object ) => {
     if ( !ancestor ) { return; }
     const photo = ancestor.default_photo;
@@ -266,7 +268,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     };
   };
 
-  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
+  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
+  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const handleOnlineSpecies = useCallback( async ( species ) => {
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
     if ( !observation ) { return; }
@@ -278,10 +281,12 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     return createOnlineSpecies( species.taxon, seenDate );
   }, [observation] );
 
-  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
+  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
+  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const handleOnlineAncestor = useCallback( async ( ancestor ) => createOnlineAncestor( ancestor ), [] );
 
-  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
+  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
+  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const handleServerError = useCallback( ( response ) => {
     if ( !response ) {
       return { error: "onlineVision" };
@@ -292,7 +297,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     }
   }, [] );
 
-  // TODO: I am not going through TS errors here because with the camera update of v2.16.0 this will be obsolete
+  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
+  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   // this is for online predictions (only iOS photo library uploads)
   useEffect( ( ) => {
     let isCurrent = true;

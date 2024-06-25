@@ -215,8 +215,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             taxonomyPath,
             confidenceThreshold,
             filterByTaxonId,
-            negativeFilter,
-            patchedOrientationAndroid: "portrait"
+            negativeFilter
           } );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;

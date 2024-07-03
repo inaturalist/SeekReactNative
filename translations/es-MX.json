@@ -598,8 +598,8 @@
     "animals": "Animales",
     "protozoans": "Protozoarios",
     "kelp": "Algas pardas, diatomeas y parientes",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Error de ubicación",
+    "error_message_2": "¡Parece que tu ubicación no se ha grabado correctamente! Por favor, comprueba tu ubicación."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR EN INATURALIST EN SEGUNDO PLANO",
@@ -635,7 +635,7 @@
   },
   "warning": {
     "remember": "Recuerda",
-    "tip_0": "Seek may not always be correct.",
+    "tip_0": "Puede que Seek no siempre esté en lo correcto.",
     "tip_1": "Vigila siempre a to alrededor, permanece seguro y no entres en propiedades privadas.",
     "tip_2": "No comas nada de lo que encuentres en la naturaleza.",
     "tip_3": "Respeta a todos los seres vivos, no los acoses ni los toques. Algunos pueden picar o morder.",
@@ -962,30 +962,30 @@
     "december_2023_description_ecology": "Muchos tipos diferentes de interacciones influyen en los ecosistemas y sus organismos, y la ecología es el estudio de los organismos (bioticos) y su entorno físico (abotico). Las interacciones bióticas son entre los seres vivos y las interacciones abióticas incluyen los factores no vivos como la temperatura, el agua, la luz y el suelo."
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
-    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
-    "march_2024_challenge_name_stewardship": "Stewardship Challenge",
-    "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
-    "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",
-    "april_2024_challenge_name_coexistence": "Coexistence Challenge",
-    "may_2024_challenge_name_phenology": "Phenology Challenge",
-    "may_2024_description_phenology": "Phenology is the study of seasonal patterns like flowering, fruiting, and migration. Some species can be found all year, while others are active in only one month.",
-    "may_2024_action_phenology": "Explore the species pages in Seek for everything you find this month. Look at the graph to see which months they are most commonly observed. Is this its most frequently observed month?",
-    "june_2024_challenge_name_flowers_food": "Flowers & Food Challenge",
-    "june_2024_description_flowers_food": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "june_2024_action_flowers_food": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your neighborhood?",
-    "july_2024_challenge_name_indicator_species": "Indicator Species Challenge",
-    "july_2024_description_indicator_species_2": "Healthy ecosystems provide us with benefits like clean water and air, carbon storage, and habitat to support biodiversity. A diversity of plants and arthropods are found in all types of terrestrial ecosystems.",
-    "july_2024_action_indicator_species": "Where were you able to find the species for this challenge? Was it an urban habitat or a more wild setting?",
-    "august_2024_challenge_name_flowing_water": "Flowing Water Challenge",
-    "august_2024_description_flowing_water": "Rivers and streams are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, flowing water is a special kind of freshwater habitat.",
-    "september_2024_challenge_name_predators_exoskeletons": "Predators with Exoskeletons Challenge",
-    "october_2024_challenge_name_eight_legged": "Eight-legged Challenge",
-    "october_2024_description_eight_legged": "All arachnids have eight legs. Did you know that not all arachnids are spiders? Mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions are also arachnids that can be found on all inhabited continents. Other arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "november_2024_challenge_name_predators_bones": "Predators with Bones Challenge",
-    "december_2024_challenge_name_solstice": "Solstice Challenge",
-    "december_2024_description_solstice": "The seasons are changing! In December of each year, the northern hemisphere has its winter solstice (shortest day of the year) and the southern hemisphere has its summer solstice (longest day of the year).",
-    "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
+    "january_2024_challenge_name_neighborhood": "Desafío del Vecindario",
+    "february_2024_challenge_name_life_in_flight": "Desafío de la Vida en Vuelo",
+    "march_2024_challenge_name_stewardship": "Desafío de Manejo",
+    "march_2024_description_stewardship": "¡Todo el mundo puede tener un impacto positivo en la biodiversidad! Puedes abogar por la vida silvestre en un lugar como tu propio patio, una zona protegida o un parque local. Proteger la naturaleza comienza por notar las plantas, hongos y animales en los lugares que te interesan. Busca diferentes especies en el árbol de la vida.",
+    "march_2024_action_stewardship": "Piensa en una especie que has encontrado este mes. ¿Qué es lo que necesita para sobrevivir?, ¿qué es lo que puede hacer para asegurarse de que sus necesidades se cumplan?.",
+    "april_2024_challenge_name_coexistence": "Desafío de Coexistencia",
+    "may_2024_challenge_name_phenology": "Desafío de Fenología",
+    "may_2024_description_phenology": "La fenología es el estudio de patrones estacionales como la floración, los frutos y la migración. Algunas especies se pueden encontrar durante todo el año, mientras que otras están activas en sólo un mes.",
+    "may_2024_action_phenology": "Explore las páginas de especies en Seek para todo lo que encuentre este mes. Mire el gráfico para ver qué meses son los más comúnmente observados. ¿Es este su mes más frecuentemente observado?",
+    "june_2024_challenge_name_flowers_food": "Desafío de Flores y Comida",
+    "june_2024_description_flowers_food": "Los polinizadores nos dan los alimentos que comemos y las flores que disfrutamos! Al mover el polen en sus cuerpos entre diferentes plantas, los polinizadores ayudan a que muchos tipos de plantas se reproduzcan.",
+    "june_2024_action_flowers_food": "Presta atención a los polinizadores que te rodean. ¿Hay abejas o mariposas visitando las flores en tu vecindario?",
+    "july_2024_challenge_name_indicator_species": "Desafío de Especies Indicadoras",
+    "july_2024_description_indicator_species_2": "Los ecosistemas saludables nos proporcionan beneficios como agua y aire limpio, almacenamiento de carbono y hábitat para apoyar la biodiversidad. Una diversidad de plantas y artrópodos se encuentra en todo tipo de ecosistemas terrestres.",
+    "july_2024_action_indicator_species": "¿Dónde se pudo encontrar la especie para este desafío? ¿Era un hábitat urbano o un entorno más salvaje?",
+    "august_2024_challenge_name_flowing_water": "Desafío de Agua Corriente",
+    "august_2024_description_flowing_water": "Los ríos y arroyos son un centro de biodiversidad. Dando hábitat desde microinvertebrados hasta vertebrados grandes, el agua en movimiento es un tipo especial de hábitat de agua dulce.",
+    "september_2024_challenge_name_predators_exoskeletons": "Desafío Depredadores con Exoesqueleto",
+    "october_2024_challenge_name_eight_legged": "Desafío de Ocho Patas",
+    "october_2024_description_eight_legged": "Todos los arácnidos tienen ocho piernas. ¿Sabías que no todos los arácnidos son arañas? Ácaros y garrapatas, opiliones (también conocidos como “papas patas larga”), e incluso pequeños pseudoscorpiones que a veces pasamos por alto son también arácnidos que se pueden encontrar en todos los continentes habitados. Otros arácnidos como escorpiones, vinagrillos, solfugidos y tendaraposse encuentran generalmente en partes más cálidas y/o secas del mundo.",
+    "november_2024_challenge_name_predators_bones": "Desafío Depredadores con Huesos",
+    "december_2024_challenge_name_solstice": "Desafío del Solsticio",
+    "december_2024_description_solstice": "Las estaciones están cambiando! En diciembre de cada año, el hemisferio norte tiene su solsticio invernal (el día más corto del año) y el hemisferio sur tiene su solsticio de verano (el día más largo del año).",
+    "december_2024_action_solstice": "Piensa en las especies que ves este mes. ¿Cómo se diferencian de las especies que puedes encontrar en junio?"
   },
   "seek_year_in_review": {
     "header": "Resumen Anual de Seek",
@@ -1032,7 +1032,7 @@
     "dismiss": "Descartar"
   },
   "model": {
-    "not_found_error": "Model not found",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error": "No se encontró el modelo",
+    "not_found_error_description": "Mientras se cargaba la aplicación, no se encontró el modelo de idenficación. Tu experiencia de la cámara no tendrá identificación."
   }
 }

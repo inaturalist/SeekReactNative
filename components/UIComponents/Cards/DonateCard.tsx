@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
@@ -42,11 +42,13 @@ const DonateCard = ( ) => {
         viewStyles.marginGreenButton,
         isHomeScreen && viewStyles.marginGreenButtonLarge
       ]} />
-      <GreenButton
-        text="settings.donate"
-        handlePress={navToDonation}
-      />
-      <View style={viewStyles.marginBottom} />
+      { Platform.OS !== "ios" && <>
+        <GreenButton
+          text="settings.donate"
+          handlePress={navToDonation}
+          />
+        <View style={viewStyles.marginBottom} />
+      </> }
     </View>
   );
 };

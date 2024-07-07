@@ -14,13 +14,14 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  uri: string;
   // TODO: navigation TS
   navigation: any;
   headerText: string;
+  uri: string;
+  loggedIn?: boolean;
 }
 
-const FullWebView = ( { uri, navigation, headerText }: Props ) => {
+const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
   const navBack = () => navigation.goBack();
 
   return (

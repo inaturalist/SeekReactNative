@@ -11,13 +11,17 @@ type Props = {
 };
 
 const FullAnnouncement = ( { navigation, route }: Props ) => {
-  const { uri } = route.params;
+  const { uri, loggedIn } = route.params;
 
   return (
     <FullWebView
-      uri={uri}
       navigation={navigation}
-      headerText={i18n.t( "announcements.announcement" ).toLocaleUpperCase()}
+      headerText={!loggedIn ?
+        i18n.t( "announcements.announcement" ).toLocaleUpperCase()
+        : i18n.t( "settings.danger_zone" ).toLocaleUpperCase()
+      }
+      uri={uri}
+      loggedIn={loggedIn}
     />
   );
 };

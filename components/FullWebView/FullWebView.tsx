@@ -12,6 +12,7 @@ import { viewStyles, textStyles } from "../../styles/fullWebView/fullWebView";
 import icons from "../../assets/icons";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
+import createUserAgent from "../../utility/userAgent";
 
 interface Props {
   // TODO: navigation TS
@@ -49,6 +50,18 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
     };
   }, [] );
 
+  let source: {
+    uri: string;
+    headers?: {
+      Authorization: string;
+    };
+  } = { uri };
+  const renderWebview = ( ) => {
+    return (
+      <WebView startInLoadingState source={source} userAgent={createUserAgent()} />
+    );
+  };
+
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={viewStyles.header}>
@@ -57,7 +70,7 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
       </View>
-      <WebView startInLoadingState source={{ uri }} />
+      {renderWebview()}
       <View style={viewStyles.bottom} />
     </SafeAreaView>
   );

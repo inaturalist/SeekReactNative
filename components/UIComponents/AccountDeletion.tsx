@@ -10,6 +10,14 @@ import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const AccountDeletion = ( ) => {
+  const { navigate } = useNavigation( );
+  const { isLandscape } = useAppOrientation( );
+
+  const navToDelete = ( ) => navigate( "FullAnnouncement", {
+    uri: "https://www.inaturalist.org/users/delete",
+    loggedIn: true
+  } );
+
   if ( Platform.OS === "android" ) {
     return null;
   }
@@ -28,6 +36,11 @@ const AccountDeletion = ( ) => {
         </StyledText>
       </View>
       <View style={viewStyles.marginGreenButton} />
+      <Button
+        handlePress={navToDelete}
+        text="settings.delete"
+        login
+      />
       <View style={viewStyles.marginBottom} />
     </View>
   );

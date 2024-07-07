@@ -23,6 +23,31 @@ interface Props {
 
 const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
   const navBack = () => navigation.goBack();
+  const [token, setToken] = React.useState<
+    string | {
+      error: {
+        type: "downtime" | "timeout" | "login";
+        errorText?: string;
+        numOfHours?: number;
+      };
+    } | undefined
+  >();
+
+  React.useEffect( ( ) => {
+    let current = true;
+    async function fetchData( ) {
+      const login = await fetchAccessToken();
+      const jwt = await fetchJSONWebToken( login );
+      if ( !current ) {
+        return;
+      }
+      setToken( jwt );
+    }
+    fetchData();
+    return ( ) => {
+      current = false;
+    };
+  }, [] );
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>

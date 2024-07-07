@@ -57,6 +57,16 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
     };
   } = { uri };
   const renderWebview = ( ) => {
+    if ( loggedIn ) {
+      // undefined before fetching the token
+      if ( !token ) {
+        return null;
+      }
+      // token is an object if there was an error
+      if ( token && typeof token === "object" ) {
+        return <ErrorScreen error={token.error.type} number={token.error.numOfHours} />;
+      }
+    }
     return (
       <WebView startInLoadingState source={source} userAgent={createUserAgent()} />
     );

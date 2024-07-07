@@ -10,6 +10,9 @@ import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 const AccountDeletion = ( ) => {
+  if ( Platform.OS === "android" ) {
+    return null;
+  }
 };
 
 export default AccountDeletion;

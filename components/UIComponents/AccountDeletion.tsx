@@ -13,6 +13,24 @@ const AccountDeletion = ( ) => {
   if ( Platform.OS === "android" ) {
     return null;
   }
+
+  return (
+    <View style={viewStyles.whiteContainer}>
+      <StyledText style={baseTextStyles.header}>
+        {i18n.t( "settings.danger_zone" ).toLocaleUpperCase( )}
+      </StyledText>
+      <View style={viewStyles.paddingAboveText}>
+        <StyledText style={[
+          baseTextStyles.body,
+          isLandscape && viewStyles.landscapeContainerRestrictedWidth
+        ]}>
+          {i18n.t( "settings.delete_account" )}
+        </StyledText>
+      </View>
+      <View style={viewStyles.marginGreenButton} />
+      <View style={viewStyles.marginBottom} />
+    </View>
+  );
 };
 
 export default AccountDeletion;

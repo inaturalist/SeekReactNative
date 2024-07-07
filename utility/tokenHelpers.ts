@@ -1,8 +1,13 @@
-// @flow
 import createUserAgent from "./userAgent";
 import { handleServerError } from "./serverHelpers";
 
-const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
+const fetchJSONWebToken = async ( loginToken: string ): Promise<string | {
+  error: {
+    type: string;
+    errorText?: string;
+    numOfHours?: number;
+  };
+}> => {
   const headers = {
     "Content-Type": "application/json",
     "User-Agent": createUserAgent(),
@@ -15,7 +20,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<any> => {
     const r = await fetch( `${site}/users/api_token`, { headers } );
     const parsedResponse = await r.json();
     return parsedResponse.api_token;
-  } catch ( e ) {
+  } catch ( e: any ) {
     if ( e.response && e.response.status && e.response.status === 503 ) {
       // not 100% sure if this is working
       return {

@@ -56,6 +56,15 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
       Authorization: string;
     };
   } = { uri };
+
+  if ( loggedIn && typeof token === "string" ) {
+    source = {
+      ...source,
+      headers: {
+        Authorization: token
+      }
+    };
+  }
   const renderWebview = ( ) => {
     if ( loggedIn ) {
       // undefined before fetching the token

@@ -24,6 +24,8 @@ interface Props {
 
 const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
   const navBack = () => navigation.goBack();
+  const { updateLogin } = React.useContext( UserContext );
+
   const [token, setToken] = React.useState<
     string | {
       error: {
@@ -65,6 +67,22 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
       }
     };
   }
+
+  React.useEffect( ( ) => {
+    navigation.addListener( "blur", async ( ) => {
+      // Log out user if they navigate away from the webview and checking
+      // if server does no longer send back a token
+      const login = await fetchAccessToken();
+      const jwt = await fetchJSONWebToken( login );
+      if ( jwt && typeof jwt !== "string" ) {
+        const loggedOut = await removeAccessToken( );
+        if ( loggedOut !== false ) {
+          updateLogin( );
+        }
+      }
+    } );
+  }, [navigation, updateLogin] );
+
   const renderWebview = ( ) => {
     if ( loggedIn ) {
       // undefined before fetching the token

@@ -15,7 +15,7 @@ const checkIsEmailValid = ( email: string ): boolean => {
 
 const saveAccessToken = ( token: string ): any => AsyncStorage.setItem( "access_token", token );
 
-const fetchAccessToken = async (): Promise<string> => {
+const fetchAccessToken = async (): Promise<string | null> => {
   try {
     const token = await AsyncStorage.getItem( "access_token" );
     return token;

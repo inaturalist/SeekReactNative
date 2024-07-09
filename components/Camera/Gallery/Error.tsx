@@ -12,7 +12,8 @@ enum Error {
   onlineVision = "onlineVision",
   image = "image",
   taxaInfo = "taxaInfo",
-  downtime = "downtime"
+  downtime = "downtime",
+  login = "login"
 }
 interface Props {
   readonly error: Error;
@@ -32,6 +33,8 @@ const ErrorScreen = ( { error, number }: Props ) => {
     errorText = i18n.t( "results.error_downtime_plural", {
       count: number || i18n.t( "results.error_few" )
     } );
+  } else if ( error === "login" ) {
+    errorText = i18n.t( "post_to_inat_card.error_login" );
   }
 
   return (

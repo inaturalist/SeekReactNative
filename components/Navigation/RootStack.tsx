@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { createStackNavigator, CardStyleInterpolators, StackCardInterpolationProps } from "@react-navigation/stack";
@@ -32,7 +32,7 @@ import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Notifications from "../Notifications/Notifications";
 import Social from "../Social/SocialScreen";
-import { LogLevels, logToApi } from "../../utility/apiCalls";
+import useAppLog from "./hooks/useAppLog";
 
 const forFade = ( { current }: StackCardInterpolationProps ) => ( { cardStyle: { opacity: current.progress } } );
 
@@ -51,19 +51,7 @@ const style = { flex: 1 } as const;
 const Stack = createStackNavigator( );
 
 const App = ( ) => {
-  // A hook that runs on mount and logs the current challenge and badges state
-  useEffect( ( ) => {
-    console.log( "test log" );
-    const logAppState = async () => {
-      await logToApi( {
-        level: LogLevels.INFO,
-        message: "hasCoordinates",
-        context: "RootStack",
-        errorType: "0"
-      } );
-    };
-    logAppState( );
-  }, [] );
+  useAppLog( );
 
   return (
   <GestureHandlerRootView style={style}>

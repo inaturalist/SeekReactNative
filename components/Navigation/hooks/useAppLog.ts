@@ -11,7 +11,7 @@ const runOncePerMonth = async ( callback: () => void ) => {
     const lastRun = await AsyncStorage.getItem( "lastRunMonth" );
     // TODO: Change this to month
     // const currentMonth = new Date().getMonth();
-    const currentMonth = new Date().getMinutes();
+    const currentMonth = new Date().getDay();
 
     if ( lastRun === null || parseInt( lastRun ) !== currentMonth ) {
       // Run the function as the month has changed

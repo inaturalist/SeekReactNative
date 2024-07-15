@@ -32,7 +32,7 @@ const fetchSpeciesNearby = async ( params: Object ): any => {
   }
 };
 
-enum LogLevels {
+export enum LogLevels {
   INFO = "info",
   WARN = "warn",
   ERROR = "error"

@@ -166,6 +166,13 @@ const ARCamera = ( ): Node => {
       context: "takePhoto",
       errorType: errorCode?.toString() || "0"
     } );
+    const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
+    await logToApi( {
+      level: "info",
+      message: `rankLevel ${rankLevel}`,
+      context: "takePhoto rankLevel",
+      errorType: errorCode?.toString() || "0"
+    } );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;

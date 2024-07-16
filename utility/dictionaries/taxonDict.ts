@@ -1,6 +1,8 @@
-// @flow
+interface TaxaIds {
+  [key: string]: number | null;
+}
 
-const taxonIds = {
+const taxonIds: TaxaIds = {
   birds: 3,
   amphibians: 20978,
   reptiles: 26036,

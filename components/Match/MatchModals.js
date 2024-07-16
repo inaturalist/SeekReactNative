@@ -20,7 +20,7 @@ import Toasts from "../Toasts/Toasts";
 import { fetchNumberSpeciesSeen, setRoute } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
-import { useCommonName } from "../../utility/customHooks";
+import { useCommonName } from "../../utility/customHooks/useCommonName";
 import { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 

@@ -11,7 +11,6 @@ import Orientation from "react-native-orientation-locker";
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
-import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 
 const useScrollToTop = (
@@ -100,28 +99,6 @@ const useLocationPermission = (): ?boolean => {
     };
   }, [] );
   return granted;
-};
-
-const useCommonName = ( id: ?number ): ?string => {
-  const [commonName, setCommonName] = useState( null );
-
-  useEffect( () => {
-    let isCurrent = true;
-
-    if ( !id ) { return; }
-
-    getTaxonCommonName( id ).then( ( name ) => {
-      if ( isCurrent ) {
-        setCommonName( name );
-      }
-    } );
-
-    return () => {
-      isCurrent = false;
-    };
-  }, [id] );
-
-  return commonName;
 };
 
 const useTruncatedUserCoords = ( granted: ?boolean ): ?{
@@ -401,7 +378,6 @@ export {
   useScrollToTop,
   useLocationName,
   useLocationPermission,
-  useCommonName,
   useTruncatedUserCoords,
   useInternetStatus,
   useEmulator,

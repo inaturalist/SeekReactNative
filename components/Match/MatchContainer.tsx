@@ -8,7 +8,7 @@ import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
-import { useCommonName } from "../../utility/customHooks";
+import { useCommonName } from "../../utility/customHooks/useCommonName";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { Observation } from "../Providers/ObservationProvider";

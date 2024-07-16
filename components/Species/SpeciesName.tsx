@@ -1,7 +1,7 @@
 import React from "react";
 
 import { viewStyles, textStyles } from "../../styles/species/species";
-import { useCommonName } from "../../utility/customHooks";
+import { useCommonName } from "../../utility/customHooks/useCommonName";
 import CopyButton from "../UIComponents/Buttons/CopyButton";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";

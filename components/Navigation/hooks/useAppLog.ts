@@ -9,11 +9,9 @@ import realmConfig from "../../../models/index";
 const runOncePerMonth = async ( callback: () => void ) => {
   try {
     const lastRun = await AsyncStorage.getItem( "lastRunMonth" );
-    // TODO: Change this to month
-    // const currentMonth = new Date().getMonth();
-    const currentMonth = new Date().getDay();
+    const currentMonth = new Date().getMonth();
 
-    if ( lastRun === null || parseInt( lastRun ) !== currentMonth ) {
+    if ( lastRun === null || parseInt( lastRun, 10 ) !== currentMonth ) {
       // Run the function as the month has changed
       callback();
 

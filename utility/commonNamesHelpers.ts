@@ -8,7 +8,7 @@ const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
 const getTaxonCommonName = ( taxonID?: number ) => (
-  new Promise<string | null | void>( ( resolve ) => {
+  new Promise<string | null>( ( resolve, reject ) => {
     if ( !taxonID ) { return; }
     Realm.open( realmConfig.default ).then( ( realm ) => {
       // need this because realm isn't guaranteed to only contain
@@ -21,7 +21,7 @@ const getTaxonCommonName = ( taxonID?: number ) => (
       resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
     } ).catch( ( err: Error ) => {
       console.log( "[DEBUG] Failed to open realm, error: ", err );
-      resolve( );
+      reject( );
     } );
   } )
 );

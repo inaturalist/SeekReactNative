@@ -88,7 +88,7 @@ const locales = {
   tr,
   uk,
   "zh-CN": zhCN,
-  zh: zhTW
+  "zh-TW": zhTW
 };
 
 const setLocale = ( ) => {

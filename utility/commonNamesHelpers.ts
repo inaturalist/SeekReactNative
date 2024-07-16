@@ -44,7 +44,7 @@ const setupCommonNames = ( preferredLanguage: string ) => {
     .then( ( realm ) => {
       realm.write( () => {
         const locale = setDisplayLanguage( preferredLanguage );
-        // need to remove hyphens for pt-BR and es-MX
+        // need to remove hyphens for pt-BR, es-MX, zh-CN, zh-TW
         const seekLocale = localeNoHyphens( locale );
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 

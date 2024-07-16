@@ -1,6 +1,6 @@
 {
   "species_nearby": {
-    "header": "מינים בקרבתך",
+    "header": "מינים בסביבה",
     "internet_error": "נדרש חיבור לאינטרנט כדי להעלות מינים בסביבה. לחצ.י כדי לנסות שוב.",
     "no_location": "חסר מיקום",
     "no_gps": "לא נמצא אות GPS. נא לוודא שמופעל GPS במכשיר שלך.",
@@ -683,7 +683,7 @@
     "donate_header": "תמיכה ב-iNaturalist",
     "donate_description": "נהנית מ-Seek? שווה לשקול לתרום ל-iNaturalist! אנחנו תלויים בתרומות מא.נשים כמוך כדי לשמור על האפליקציות שלנו חינמיות.",
     "danger_zone": "אזור סיכון",
-    "delete_account": "If you’d like to delete your iNaturalist account, click the button below. This will delete all observations you have posted to iNaturalist through Seek, as well as all observations, IDs, and comments created on the iNaturalist app or website.",
+    "delete_account": "אם ברצונך למחוק את חשבון iNaturalist שלך, יש ללחץ על הכפתור מטה. פעולה זו תמחק את כל התצפיות שהעלית ל-iNaturalist באמצעות Seek, וגם את כל התצפיות, הזיהויים והתגובות שיצרת באפליקציה או באתר iNaturalist.",
     "delete": "מחיקת חשבון iNaturalist",
     "language": "שפה בתוך האפליקציה",
     "device_settings": "להשתמש בהגדרות השפה של המכשיר",

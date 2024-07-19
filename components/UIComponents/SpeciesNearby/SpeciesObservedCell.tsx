@@ -12,7 +12,7 @@ import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import { setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
-import { useCommonName } from "../../../utility/customHooks";
+import { useCommonName } from "../../../utility/customHooks/useCommonName";
 import { useSeenTaxa } from "../../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../../utility/customHooks/useUserPhoto";
 import StyledText from "../StyledText";

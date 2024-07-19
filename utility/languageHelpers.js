@@ -24,7 +24,7 @@ const setLanguageCodeOrFallback = ( ): string => {
 };
 
 const localeNoHyphens = ( locale: string ): string => {
-  if ( locale === "pt-BR" ) {
+  if ( locale === "pt-BR" || locale === "es-MX" || locale === "zh-CN" || locale === "zh-TW" ) {
     return locale.replace( "-","" );
   } else {
     return locale.split( "-" )[0];

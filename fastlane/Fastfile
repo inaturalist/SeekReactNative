@@ -13,7 +13,6 @@
 fastlane_require "dotenv"
 
 before_all do
-  update_fastlane
   Dotenv.overload ".env"
 end
 

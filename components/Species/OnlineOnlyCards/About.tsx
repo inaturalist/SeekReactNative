@@ -6,7 +6,7 @@ import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { textStyles } from "../../../styles/species/species";
-import { useCommonName } from "../../../utility/customHooks";
+import { useCommonName } from "../../../utility/customHooks/useCommonName";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 

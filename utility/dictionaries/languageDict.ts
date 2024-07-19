@@ -38,7 +38,7 @@ const languages: Languages = {
   tr: "Türkçe",
   uk: "Українська",
   "zh-CN": "中文 (中国)",
-  zh: "中文 (台灣)"
+  "zh-TW": "中文 (台灣)"
 };
 
 export default languages;

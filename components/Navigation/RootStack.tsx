@@ -1,8 +1,7 @@
-// @flow
-import * as React from "react";
+import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators, StackCardInterpolationProps } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Drawer from "./SideDrawer";
@@ -33,34 +32,28 @@ import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Notifications from "../Notifications/Notifications";
 import Social from "../Social/SocialScreen";
+import useAppLog from "./hooks/useAppLog";
 
-type Props = {
-  +props: any,
-  +ref: any,
-  +type: any,
-  +key: any
-};
+const forFade = ( { current }: StackCardInterpolationProps ) => ( { cardStyle: { opacity: current.progress } } );
 
-const forFade = ( { current } ) => ( { cardStyle: { opacity: current.progress } } );
+const config = { headerShown: false } as const;
 
-const config = { headerShown: false };
-
-const defaultConfig = { ...config, cardStyleInterpolator: forFade };
-const verticalConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS };
-const notificationsConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS };
+const defaultConfig = { ...config, cardStyleInterpolator: forFade } as const;
+const verticalConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS } as const;
+const notificationsConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS } as const;
 // animation is off for resetting screen from AR Camera
-const drawerConfig = { ...config,  animationEnabled: false };
+const drawerConfig = { ...config,  animationEnabled: false } as const;
 
-const screenOptions = { gestureEnabled: false };
-const modal = { presentation: "modal" };
+const screenOptions = { gestureEnabled: false } as const;
+const modal = { presentation: "modal" } as const;
+const style = { flex: 1 } as const;
 
 const Stack = createStackNavigator( );
 
-const style = {
-  flex: 1
-};
+const App = ( ) => {
+  useAppLog( );
 
-const App = ( ): Props => (
+  return (
   <GestureHandlerRootView style={style}>
     <SafeAreaProvider>
       <NavigationContainer>
@@ -113,6 +106,6 @@ const App = ( ): Props => (
       </NavigationContainer>
     </SafeAreaProvider>
   </GestureHandlerRootView>
-);
+);};
 
 export default App;

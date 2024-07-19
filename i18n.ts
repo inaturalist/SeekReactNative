@@ -32,8 +32,8 @@ import si from "./translations/si.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
 import uk from "./translations/uk.json";
-import zh from "./translations/zh-TW.json";
 import zhCN from "./translations/zh-CN.json";
+import zhTW from "./translations/zh-TW.json";
 
 const i18n = new I18n( {
   af,
@@ -69,7 +69,7 @@ const i18n = new I18n( {
   tr,
   uk,
   "zh-CN": zhCN,
-  zh
+  "zh-TW": zhTW
 } );
 
 i18n.enableFallback = true;

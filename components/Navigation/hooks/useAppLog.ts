@@ -6,9 +6,11 @@ import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
 import realmConfig from "../../../models/index";
 
-const runOncePerMonth = async ( callback: () => void ) => {
+const executeInNewMonth = async ( callback: () => void, keySubstring: string ) => {
+  const storageKeyBase = "lastRunMonth";
+  const storageKey = storageKeyBase + keySubstring;
   try {
-    const lastRun = await AsyncStorage.getItem( "lastRunMonth" );
+    const lastRun = await AsyncStorage.getItem( storageKey );
     const currentMonth = new Date().getMonth();
 
     if ( lastRun === null || parseInt( lastRun, 10 ) !== currentMonth ) {
@@ -16,7 +18,7 @@ const runOncePerMonth = async ( callback: () => void ) => {
       callback();
 
       // Update the last run month
-      await AsyncStorage.setItem( "lastRunMonth", currentMonth.toString() );
+      await AsyncStorage.setItem( storageKey, currentMonth.toString() );
     }
   } catch ( error ) {
     console.error( "Error checking or updating last run month:", error );
@@ -56,12 +58,12 @@ function useAppLog() {
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( achievementsLogState ),
-        context: "RootStack achievementsState",
+        context: "RootStack achievementsState v1",
         errorType: "0"
       } );
     };
 
-    runOncePerMonth( logBadgesAppState );
+    executeInNewMonth( logBadgesAppState, "1" );
   }, [] );
 
   useEffect( ( ) => {
@@ -81,12 +83,12 @@ function useAppLog() {
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( challengesLogState ),
-        context: "RootStack challengesState",
+        context: "RootStack challengesState v1",
         errorType: "0"
       } );
     };
 
-    runOncePerMonth( logChallengesAppState );
+    executeInNewMonth( logChallengesAppState, "2" );
   }, [] );
 
   useEffect( ( ) => {
@@ -104,12 +106,12 @@ function useAppLog() {
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( observationsLogState ),
-        context: "RootStack observationsState",
+        context: "RootStack observationsState v1",
         errorType: "0"
       } );
     };
 
-    runOncePerMonth( logChallengesAppState );
+    executeInNewMonth( logChallengesAppState, "3" );
   }, [] );
 }
 

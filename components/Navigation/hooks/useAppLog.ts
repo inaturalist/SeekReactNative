@@ -45,8 +45,8 @@ function useAppLog() {
 
       const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
       const level = {
-        earnedDate: levelsEarned[0].earnedDate,
-        index: levelsEarned[0].index
+        earnedDate: levelsEarned[0]?.earnedDate,
+        index: levelsEarned[0]?.index
       };
 
       const achievementsLogState = {

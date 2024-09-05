@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../global";
+import { colors, center } from "../global";
 
 const viewStyles = StyleSheet.create( {
+  center,
   background: {
     backgroundColor: colors.white
   },
@@ -31,6 +32,9 @@ const viewStyles = StyleSheet.create( {
   loadingWheelContainer: {
     height: 223,
     justifyContent: "center"
+  },
+  speciesNearbyErrorContainer: {
+    paddingVertical: 15
   }
 } );
 
@@ -44,8 +48,8 @@ const textStyles = StyleSheet.create( {
     textDecorationLine: "underline"
   },
   speciesNearbyErrorText: {
-    textAlign: "center",
-    marginHorizontal: 28
+    maxWidth: 245,
+    textAlign: "center"
   }
 } );
 

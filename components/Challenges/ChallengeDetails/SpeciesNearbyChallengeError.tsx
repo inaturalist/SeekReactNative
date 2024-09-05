@@ -26,9 +26,15 @@ const SpeciesNearbyChallengeError = ( { error }: Props ) => {
   };
 
   return (
-    <View style={viewStyles.loadingWheelContainer}>
-      <StyledText style={[baseTextStyles.body, textStyles.speciesNearbyErrorText]}>{setErrorText( )}</StyledText>
-    </View>
+    <>
+      <View style={viewStyles.marginMedium} />
+      <View style={[
+        viewStyles.center,
+        viewStyles.speciesNearbyErrorContainer
+      ]}>
+        <StyledText style={[baseTextStyles.body, textStyles.speciesNearbyErrorText]}>{setErrorText( )}</StyledText>
+      </View>
+    </>
   );
 };
 

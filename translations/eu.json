@@ -91,8 +91,8 @@
     "error_no_password": "Galdu egin da pasahitza",
     "error_internet": "Interneteko konexiorik ez",
     "error_request_could_not_be_completed": "Zure eskaera ezin izan da osatu.",
-    "error_no_client": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_no_client": "Bezero autentifikazioak huts egin du bezero ezezaguna dela eta, bezeroak autentifikaziorik ez izateagatik ala onartu gabeko autentifikazio-metodogatik.",
+    "error_grant_invalid": "Emandako autentifikazio-baimena baliogabea, iraungitakoa, bertan behera utzitakoa, ez dator bat autentifikazio-eskaeran erabilitako berbideratze URIarekin ala beste bezero batek igorritakoa da."
   },
   "inat_signup": {
     "welcome": "Ongi etorri Seek-era!",
@@ -280,7 +280,7 @@
     "species_nearby": "ERRONKA HONETAKO HURBILEKO ESPEZIEAK ",
     "no_species_nearby": "Ez dugu aurkitu dagoeneko behatu ez duzun erronka honetako hurbileko espezierik",
     "species_nearby_internet_error": "Internet-erako konexioa behar dugu hurbileko espezieak arakatzeko.",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "NIRE LORATEGIA DOMINA"
   },
   "results": {
     "observed_species": "Espezie berri bat behatu duzu!",
@@ -374,7 +374,7 @@
     "plant_filter": "Landareak baino ez",
     "non_plant_filter": "Landare ez direnak baino ez",
     "filters_off": "Iragazkirik gabe",
-    "error_save": "Could not save photo."
+    "error_save": "Ezin izan da argazkia gorde."
   },
   "gallery": {
     "label": "Argazkiak",
@@ -565,10 +565,10 @@
   },
   "about": {
     "header": "Honi buruz",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek iNaturalist taldeak diseinatu eta garatu du:",
     "joint_initiative": "iNaturalist Kaliforniako Zientzien Akademiaren eta National Geographic Societyren ekimen bateratua da.\n\n",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
-    "inat_team_credits_3": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, Yaron Budowski, Johannes Klein, Angie Ta, and Sylvain Morin. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "support_from": "Seek jatorrian California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, eta Visipedia-ren babesarekin sortu zen.",
+    "inat_team_credits_4": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Michelle Vryn, Jason Walthall, and Jane Weeden. Esker bereziak Visipediako Grant Van Horn-i ordenagailu bidezko ikuspen teknologiagatik, eta iNaturalist komunitateari.",
     "version": "Bertsioa",
     "help": "Seek laguntza lortzeko, help+seek@inaturalist.org helbidera idatzi.",
     "translators": "Eskertuta gaude crowdin.com-eko komunitateari itzulpenean emandako laguntzagatik, bereziki hauei: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, eta Yulia Lygina.",
@@ -598,8 +598,8 @@
     "animals": "Animaliak",
     "protozoans": "Protozooak",
     "kelp": "Alga, Arreak eta Ahaideak",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Kokapen-errorea",
+    "error_message_2": "Badirudi zure kokapena ez dela ondo erregistratu! Egiaztatu mesedez zure kokapena."
   },
   "posting_status": {
     "posting_to_inat_background": "INATURALIST-EN PUBLIKATZEN ATZEKO PLANOAN",
@@ -635,7 +635,7 @@
   },
   "warning": {
     "remember": "Gogoratu",
-    "tip_0": "Seek may not always be correct.",
+    "tip_0": "Baliteke Seek beti zehatza ez izatea.",
     "tip_1": "Begiratu beti zer duzun inguruan, zure burua zaindu eta ez sartu leku pribatuetan.",
     "tip_2": "Ez ezazu basabizitzan aurkitzen duzun ezer ere jan.",
     "tip_3": "Beste izaki bizidunak errespetatu, ez itzazu gogaitu edo ukitu. Batzuek mina edo hozka egin dezakete.",
@@ -682,7 +682,7 @@
     "donate": "Dohaintza",
     "donate_header": "iNaturalist lagundu ezazu",
     "donate_description": "Seek gustuko duzu? Baloratu ea iNaturalist-i dohaintza egin nahi ote diozun! Zu bezalako pertsonen dohaintzari esker dira aplikazio hau doakoak.",
-    "danger_zone": "Danger Zone",
+    "danger_zone": "Arrisku Eremua",
     "delete_account": "If you’d like to delete your iNaturalist account, click the button below. This will delete all observations you have posted to iNaturalist through Seek, as well as all observations, IDs, and comments created on the iNaturalist app or website.",
     "delete": "Delete iNaturalist Account",
     "language": "Aplikazioaren hizkuntza",

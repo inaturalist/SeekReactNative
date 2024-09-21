@@ -635,7 +635,7 @@
   },
   "warning": {
     "remember": "Lembrar",
-    "tip_0": "Seek may not always be correct.",
+    "tip_0": "Seek pode nem sempre estar correto.",
     "tip_1": "Fique sempre atento ao que está à sua volta, permaneça em segurança e não infrinja regras.",
     "tip_2": "Não coma nada que encontrar na natureza.",
     "tip_3": "Respeite os outros seres vivos, não os incomode nem toque neles. Alguns podem picar ou morder.",
@@ -682,9 +682,9 @@
     "donate": "Doar",
     "donate_header": "Apoie o iNaturalist",
     "donate_description": "Gosta do Seek? Considere doar para o iNaturalist! Nós dependemos de doações de pessoas como você para manter gratuitos os nossos aplicativos.",
-    "danger_zone": "Danger Zone",
-    "delete_account": "If you’d like to delete your iNaturalist account, click the button below. This will delete all observations you have posted to iNaturalist through Seek, as well as all observations, IDs, and comments created on the iNaturalist app or website.",
-    "delete": "Delete iNaturalist Account",
+    "danger_zone": "Zona de Perigo",
+    "delete_account": "Se você deseja excluir sua conta do iNaturalist, clique no botão abaixo. Isto irá apagar todas as observações que você postou no iNaturalist através do Seek, assim como todas as observações, identificações e comentários criados no aplicativo ou site do iNaturalist.",
+    "delete": "Excluir conta iNaturalist",
     "language": "Língua do aplicativo",
     "device_settings": "Use as configurações de idioma do dispositivo",
     "auto_capture": "Tirar automaticamente uma foto quando a identificação obter a espécie.",
@@ -965,8 +965,8 @@
     "december_2023_description_ecology": "Muitos tipos diferentes de interações influenciam os ecossistemas e seus organismos. Ecologia é o estudo dos organismos (bióticos) e seu ambiente físico (abiótico). As interações bióticas são entre os seres vivos e as interações abióticas incluem os fatores não vivos, como a temperatura, a água, a luz e o solo."
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
-    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
+    "january_2024_challenge_name_neighborhood": "Desafio do Bairro",
+    "february_2024_challenge_name_life_in_flight": "Desafio Vida em Voo",
     "march_2024_challenge_name_stewardship": "Stewardship Challenge",
     "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
     "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",
@@ -983,12 +983,12 @@
     "august_2024_challenge_name_flowing_water": "Flowing Water Challenge",
     "august_2024_description_flowing_water": "Rivers and streams are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, flowing water is a special kind of freshwater habitat.",
     "september_2024_challenge_name_predators_exoskeletons": "Predators with Exoskeletons Challenge",
-    "october_2024_challenge_name_eight_legged": "Eight-legged Challenge",
+    "october_2024_challenge_name_eight_legged": "Desafio das oito pernas",
     "october_2024_description_eight_legged": "All arachnids have eight legs. Did you know that not all arachnids are spiders? Mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions are also arachnids that can be found on all inhabited continents. Other arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
     "november_2024_challenge_name_predators_bones": "Predators with Bones Challenge",
-    "december_2024_challenge_name_solstice": "Solstice Challenge",
-    "december_2024_description_solstice": "The seasons are changing! In December of each year, the northern hemisphere has its winter solstice (shortest day of the year) and the southern hemisphere has its summer solstice (longest day of the year).",
-    "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
+    "december_2024_challenge_name_solstice": "Desafio do Solstício",
+    "december_2024_description_solstice": "As estações estão mudando! Em dezembro de cada ano, o hemisfério norte tem o seu solstício de inverno (dia mais curto do ano) e o hemisfério sul tem o seu solstício de verão (dia mais longo do ano).",
+    "december_2024_action_solstice": "Pense nas espécies que você pode ver este mês. Como elas diferem das espécies que você pode encontrar em junho?"
   },
   "seek_year_in_review": {
     "header": "Resumo anual do Seek",

@@ -215,7 +215,7 @@ const FrameProcessorCamera = ( props: Props ) => {
         try {
           const timeBefore = Date.now();
           const result = InatVision.inatVision( frame, {
-            version: "1.0",
+            version: "2.13",
             modelPath,
             taxonomyPath,
             confidenceThreshold,

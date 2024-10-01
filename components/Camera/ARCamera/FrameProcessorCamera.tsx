@@ -2,13 +2,7 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import { Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import {
-  Camera,
-  CameraRuntimeError,
-  useCameraDevice,
-  useCameraFormat,
-  useFrameProcessor
-} from "react-native-vision-camera";
+import type { CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
@@ -20,6 +14,12 @@ import {
   usePatchedRunAsync
 } from "../../../utility/visionCameraPatches";
 
+import {
+  Camera,
+  useCameraDevice,
+  useCameraFormat,
+  useFrameProcessor
+} from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
 

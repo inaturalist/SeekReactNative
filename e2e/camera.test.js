@@ -16,10 +16,15 @@ describe( "Camera test", () => {
   it( "should navigate to camera screen", async () => {
     // Await the loading of the home screen
     await waitFor( element( by.text( "GET STARTED" ) ) )
-      .toBeVisible().withTimeout( 10000 );
-    await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible().withTimeout( 10000 );
+      .toBeVisible()
+      .withTimeout( 10000 );
+    await waitFor( element( by.text( "CONTINUE" ) ) )
+      .toBeVisible()
+      .withTimeout( 10000 );
     await element( by.text( "CONTINUE" ) ).tap();
-    await waitFor( element( by.text( "SPECIES NEARBY" ) ) ).toBeVisible().withTimeout( 10000 );
+    await waitFor( element( by.text( "SPECIES NEARBY" ) ) )
+      .toBeVisible()
+      .withTimeout( 10000 );
     // Navigate to the camera screen
     const cameraButton = await element( by.id( "openCameraButton" ) );
     await waitFor( cameraButton ).toBeVisible().withTimeout( 10000 );
@@ -38,14 +43,24 @@ describe( "Camera test", () => {
     const takePhotoButton = element( by.id( "takePhotoButton" ) );
     await waitFor( takePhotoButton ).toBeVisible().withTimeout( 10000 );
     await takePhotoButton.tap();
-
     // Check for taxa text on the screen
     const taxaText = element( by.id( "taxonText" ) );
     await waitFor( taxaText ).toBeVisible().withTimeout( 10000 );
+    const newObs = element( by.text( "YOU OBSERVED A NEW SPECIES!" ) );
+    await waitFor( newObs ).toBeVisible().withTimeout( 10000 );
     // Head back to camera
     const backToCamera = element( by.id( "backToCamera" ) );
     await waitFor( backToCamera ).toBeVisible().withTimeout( 10000 );
     await backToCamera.tap();
-
+    // Tap the take photo button again
+    const takePhotoButton2 = element( by.id( "takePhotoButton" ) );
+    await waitFor( takePhotoButton2 ).toBeVisible().withTimeout( 10000 );
+    await takePhotoButton2.tap();
+    // Check for taxa text on the screen
+    const replacePhoto = element( by.id( "replacePhoto" ) );
+    await waitFor( replacePhoto ).toBeVisible().withTimeout( 10000 );
+    await replacePhoto.tap();
+    const resighted = element( by.text( "YOU RESIGHTED A SPECIES!" ) );
+    await waitFor( resighted ).toBeVisible().withTimeout( 10000 );
   } );
 } );

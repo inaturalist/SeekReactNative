@@ -1,6 +1,6 @@
 import { device, element, by, waitFor } from "detox";
 
-describe( "First app start test", () => {
+describe( "Camera test", () => {
   beforeAll( async () => {
     await device.launchApp( {
       newInstance: true,

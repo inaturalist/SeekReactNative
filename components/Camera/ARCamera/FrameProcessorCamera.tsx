@@ -175,7 +175,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     tapToFocus
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
-  const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
   const [lastTimestamp, setLastTimestamp] = useState( undefined );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {

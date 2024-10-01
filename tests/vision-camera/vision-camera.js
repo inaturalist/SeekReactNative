@@ -87,7 +87,7 @@ export class mockCamera extends React.PureComponent {
   }
 
   render() {
-    return <View style={style} />;
+    return <View testID="mock-camera" style={style} />;
   }
 }
 

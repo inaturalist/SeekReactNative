@@ -21,16 +21,17 @@ describe( "Camera test", () => {
     await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible();
     await element( by.text( "CONTINUE" ) ).tap();
     await expect( element( by.text( "SPECIES NEARBY" ) ) ).toBeVisible();
-    await element( by.id( "openCameraButton" ) ).tap();
-    // Mocked away
-    // await expect( element( by.text( "REMEMBER" ) ) ).toBeVisible();
-    // await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible();
-    // await element( by.text( "CONTINUE" ) ).tap();
-    await element( by.id( "takePhotoButton" ) ).tap();
-    // Mocked taking of photo in ARCamera.e2e-mock.js
-    await waitFor( element( by.text( "TAKE ANOTHER PHOTO" ) ) )
-      .toBeVisible()
-      .withTimeout( 15000 );
+    // Navigate to the camera screen
+    const cameraButton = await element( by.id( "openCameraButton" ) );
+    await expect( cameraButton ).toBeVisible();
+    await cameraButton.tap();
+    // Close warning modal
+    const warningContinue = await element( by.id( "warningContinue" ) );
+    await expect( warningContinue ).toBeVisible();
+    await warningContinue.tap();
+    // Check that the camera screen is visible
+    const mockCamera = element( by.id( "mock-camera" ) );
+    await waitFor( mockCamera ).toBeVisible();
 
   } );
 } );

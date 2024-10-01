@@ -107,7 +107,7 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
   onScrollEndDrag={[Function]}
   removeClippedSubviews={false}
   renderItem={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   stickyHeaderIndices={[]}
   testID="species-nearby-list"
   viewabilityConfigCallbackPairs={[]}
@@ -194,12 +194,15 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
                   "paddingTop": 13,
                   "textAlign": "center",
                 },
-                false,
+                {
+                  "color": "#ffffff",
+                  "fontFamily": "Lato-Italic",
+                },
               ],
             ]
           }
         >
-          Red-tailed Hawk
+          Buteo jamaicensis
         </Text>
       </View>
     </View>

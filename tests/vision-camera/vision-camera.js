@@ -35,6 +35,10 @@ export class mockCamera extends React.PureComponent {
     ];
   }
 
+  static getCameraPermissionStatus() {
+    return "granted";
+  }
+
   componentDidUpdate() {
     const { frameProcessor } = this.props;
     frameProcessor?.frameProcessor( mockFrame );

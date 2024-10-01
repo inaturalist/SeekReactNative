@@ -176,6 +176,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
+  const [lastTimestamp, setLastTimestamp] = useState( undefined );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
@@ -204,12 +205,14 @@ const FrameProcessorCamera = ( props: Props ) => {
 
       // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
       // react-native-worklets-core documentation for what is supported in those worklets.
+      // If there is no lastTimestamp, i.e. the first time this runs do not compare
       const timestamp = Date.now();
-      const timeSinceLastFrame = timestamp - lastTimestamp;
-      if ( timeSinceLastFrame < 1000 / fps ) {
-        return;
+      if ( lastTimestamp ) {
+        const timeSinceLastFrame = timestamp - lastTimestamp;
+        if ( timeSinceLastFrame < 1000 / fps ) {
+          return;
+        }
       }
-
       patchedRunAsync( frame, () => {
         "worklet";
         try {

@@ -18,9 +18,9 @@
     "test:watch": "TZ=UTC jest --watch",
     "prepare": "husky install",
     "postinstall": "patch-package",
-    "e2e:build": "npx detox build --configuration ios.release",
-    "e2e:test": "npx detox test --configuration ios.release",
-    "e2e": "npm run e2e:build && npm run e2e:test",
+    "e2e:build:ios": "npx detox build --configuration ios.release",
+    "e2e:test:ios": "npx detox test --configuration ios.release",
+    "e2e:ios": "npm run e2e:build:ios && npm run e2e:test:ios",
     "add-example-model": "node scripts/add-example-model.js"
   },
   "dependencies": {

@@ -75,7 +75,7 @@ jobs:
     - name: Move the example cv model and taxonomy file into the ios folder
       run: |
         mv ios/small_inception_tf1.mlmodel ios/optimized_model_v1.mlmodel
-        mv ios/taxonomy.json ios/optimized_model_v1.json
+        mv ios/small_export_tax.json ios/optimized_model_v1.json
         mv android/app/src/debug/assets/camera/small_inception_tf1.tflite android/app/src/main/assets/camera/optimized_model_v1.tflite
         mv android/app/src/debug/assets/camera/small_export_tax.csv android/app/src/main/assets/camera/taxonomy_v1.csv
         

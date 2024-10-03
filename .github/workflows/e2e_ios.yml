@@ -71,6 +71,14 @@ jobs:
     - name: Download the example cv model and taxonomy file into the ios folder
       run: npm run add-example-model
 
+    # Rename the example cv models and taxonomy files to the name we expect the real model to be
+    - name: Move the example cv model and taxonomy file into the ios folder
+      run: |
+        mv ios/small_inception_tf1.mlmodel ios/optimized_model_v1.mlmodel
+        mv ios/taxonomy.json ios/optimized_model_v1.json
+        mv android/app/src/debug/assets/camera/small_inception_tf1.tflite android/app/src/main/assets/camera/optimized_model_v1.tflite
+        mv android/app/src/debug/assets/camera/small_export_tax.csv android/app/src/main/assets/camera/taxonomy_v1.csv
+        
     # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
     # This will be available for all subsequent steps
     - name: Set MOCK_MODE to e2e

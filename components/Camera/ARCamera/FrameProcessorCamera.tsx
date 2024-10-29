@@ -176,9 +176,11 @@ const FrameProcessorCamera = ( props: Props ) => {
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
+  const [timesRun, setTimesRun] = useState( 0 );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
+    setTimesRun( timesRun + 1 );
     framesProcessingTime.push( timeTaken );
     if ( framesProcessingTime.length >= 10 ) {
       const avgTime = framesProcessingTime.reduce( ( a, b ) => a + b, 0 ) / 10;
@@ -198,6 +200,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const patchedRunAsync = usePatchedRunAsync();
   const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
+  const cuttoffCycle = [0.1, 0.01, 0.0];
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -210,6 +213,8 @@ const FrameProcessorCamera = ( props: Props ) => {
         return;
       }
 
+      const taxonomyRollupCutoff = cuttoffCycle[timesRun % cuttoffCycle.length];
+
       patchedRunAsync( frame, () => {
         "worklet";
         try {
@@ -219,6 +224,8 @@ const FrameProcessorCamera = ( props: Props ) => {
             modelPath,
             taxonomyPath,
             confidenceThreshold,
+            taxonomyRollupCutoff,
+            numStoredResults: 9,
             filterByTaxonId,
             negativeFilter,
             patchedOrientationAndroid

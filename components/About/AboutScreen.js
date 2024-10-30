@@ -37,7 +37,7 @@ const AboutScreen = (): Node => {
         <Image source={logos.iNat} />
         <View style={viewStyles.marginSmall} />
         <StyledText style={[baseTextStyles.bodyBold, textStyles.boldText]}>{i18n.t( "about.seek_designed_by" )}</StyledText>
-        <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "about.inat_team_credits_3" )}</StyledText>
+        <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "about.inat_team_credits_4" )}</StyledText>
         <View style={viewStyles.marginSmall} />
         <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "about.support_from" )}</StyledText>
         <View style={viewStyles.block} />

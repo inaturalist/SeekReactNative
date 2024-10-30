@@ -200,7 +200,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const patchedRunAsync = usePatchedRunAsync();
   const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
-  const cuttoffCycle = [0.1, 0.01, 0.0];
+  const cuttoffCycle = [0.00001];
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -250,6 +250,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     [
       patchedRunAsync,
       confidenceThreshold,
+      timesRun,
       filterByTaxonId,
       negativeFilter,
       patchedOrientationAndroid,

@@ -44,6 +44,7 @@ const SideDrawer = (): Props => (
     initialRouteName="Drawer"
     drawerContent={drawerContent}
     screenOptions={screenOptions}
+    backBehavior="history"
   >
     <Drawer.Screen name="Home" component={Home} />
     <Drawer.Screen name="Achievements" component={Achievements} />

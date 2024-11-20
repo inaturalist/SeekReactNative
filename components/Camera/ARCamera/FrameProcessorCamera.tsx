@@ -181,6 +181,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
     setTimesRun( timesRun + 1 );
+    console.log( "result.timeElapsed", result.timeElapsed );
     framesProcessingTime.push( timeTaken );
     if ( framesProcessingTime.length >= 10 ) {
       const avgTime = framesProcessingTime.reduce( ( a, b ) => a + b, 0 ) / 10;

@@ -50,7 +50,7 @@ Upload description to Google Play
 [bundle exec] fastlane android internal
 ```
 
-Distributes an Android bundle to the Play Store beta track
+Distributes an Android bundle to the Play Store internal beta track
 
 ### android beta
 

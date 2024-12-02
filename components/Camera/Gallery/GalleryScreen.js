@@ -93,8 +93,9 @@ const GalleryScreen = (): Node => {
       // permission but has not given Seek access to a single photo
       dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
     } else {
-      const uniquePhotos = checkForUniquePhotos( seen, data );
-      dispatch( { type: "APPEND_PHOTOS", photos: photos.concat( uniquePhotos ), pageInfo } );
+      const { uniqAssets, newSeen } = checkForUniquePhotos( seen, data );
+      const newPhotos = photos.concat( uniqAssets );
+      dispatch( { type: "APPEND_PHOTOS", photos: newPhotos, seen: newSeen, pageInfo } );
     }
   }, [photos, seen] );
 

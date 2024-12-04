@@ -201,7 +201,6 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const patchedRunAsync = usePatchedRunAsync();
   const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
-  const cuttoffCycle = [0.00001];
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -214,8 +213,6 @@ const FrameProcessorCamera = ( props: Props ) => {
         return;
       }
 
-      const taxonomyRollupCutoff = cuttoffCycle[timesRun % cuttoffCycle.length];
-
       patchedRunAsync( frame, () => {
         "worklet";
         try {
@@ -225,7 +222,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             modelPath,
             taxonomyPath,
             confidenceThreshold,
-            taxonomyRollupCutoff,
             numStoredResults: 9,
             filterByTaxonId,
             negativeFilter,

@@ -39,6 +39,16 @@ export class mockCamera extends React.PureComponent {
     return "granted";
   }
 
+  /*
+    Every time the component updates we are running the frame processor that is a prop
+    to the camera component. We are running the frame processor with a mocked frame that
+    does not include any kind of image data at all.
+    Running it only on component update means it only is called a few times and not
+    every second (or so - depending on fps). This is enough to satisfy the e2e test
+    though because the mocked prediction needs to appear only once to be found by the
+    test matcher. I tried running it with a timer every second but since it never idles
+    the test never finishes.
+  */
   componentDidUpdate() {
     const { frameProcessor } = this.props;
     frameProcessor?.frameProcessor( mockFrame );
@@ -51,10 +61,12 @@ export class mockCamera extends React.PureComponent {
       first: 20,
       assetType: "Photos"
     } )
-      .then( async r => {
-        console.log( "r.edges", r.edges );
+      .then( async ( r ) => {
+        /*
+          Basically, here, we are reading the newest twenty photos from the simulators gallery
+          and return the oldest one of those. Copy it to a new path and treat it as a new photo.
+        */
         const testPhoto = r.edges[r.edges.length - 1].node.image;
-        console.log( "testPhoto", testPhoto );
         let oldUri = testPhoto.uri;
         if ( testPhoto.uri.includes( "ph://" ) ) {
           let id = testPhoto.uri.replace( "ph://", "" );
@@ -80,7 +92,7 @@ export class mockCamera extends React.PureComponent {
           }
         };
       } )
-      .catch( err => {
+      .catch( ( err ) => {
         console.log( "Error getting photos", err );
         return null;
       } );
@@ -93,7 +105,7 @@ export class mockCamera extends React.PureComponent {
 
 export const mockSortDevices = ( _left, _right ) => 1;
 
-export const mockUseCameraDevice = _deviceType => {
+export const mockUseCameraDevice = ( _deviceType ) => {
   const device = {
     devices: ["wide-angle-camera"],
     hasFlash: true,
@@ -114,7 +126,7 @@ export const mockUseCameraDevice = _deviceType => {
   return device;
 };
 
-export const mockUseCameraFormat = _device => {
+export const mockUseCameraFormat = ( _device ) => {
   const format = {
     autoFocusSystem: "contrast-detection",
     fieldOfView: 83.97117848314457,

@@ -21,6 +21,13 @@ const mockVision = ( ) => {
   return mockModelResult;
 };
 
+/*
+  We are mocking the frame processor plugin to return a defined mocked prediction.
+  Note that we are not mocking the getPredictionsForImage function of the plugin,
+  so in the e2e test when the mocked camera "saves" the photo and the app navigates
+  to the suggestions screen, the real example cv model is run on the still image and
+  the e2e test checks for a real prediction from the model.
+*/
 export default {
   ...InatVision,
   inatVision: mockVision

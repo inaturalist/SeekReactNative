@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import { TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
@@ -7,7 +7,7 @@ import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/gre
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<typeof TouchableOpacity> {
   readonly color?: string | null;
   readonly handlePress: () => void;
   readonly letterSpacing?: number;
@@ -16,19 +16,19 @@ interface Props {
   readonly fontSize?: number;
   readonly width?: number | null;
   readonly allowFontScaling?: boolean;
-  readonly disabled?: boolean;
 }
 
 const GreenButton = ( {
   color,
+  disabled,
+  testID,
   handlePress,
   letterSpacing,
   login,
   fontSize,
   text,
   width,
-  allowFontScaling,
-  disabled
+  allowFontScaling
 }: Props ) => {
   let widthStyle = null;
 
@@ -46,7 +46,7 @@ const GreenButton = ( {
         widthStyle
       ]}
       disabled={disabled}
-      testID="greenButton"
+      testID={testID || "greenButton"}
     >
       <StyledText
         style={[

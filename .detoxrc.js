@@ -6,7 +6,8 @@ module.exports = {
       config: "e2e/jest.config.js",
     },
     jest: {
-      setupTimeout: 120000,
+      setupTimeout: 900000,
+      teardownTimeout: 900000,
     },
   },
   apps: {
@@ -27,16 +28,16 @@ module.exports = {
     simulator: {
       type: "ios.simulator",
       device: {
-        type: "iPhone 14 Plus",
+        type: "iPhone 15 Pro",
       },
     },
   },
   configurations: {
-    "ios.sim.debug": {
+    "ios.debug": {
       device: "simulator",
       app: "ios.debug",
     },
-    "ios.sim.release": {
+    "ios.release": {
       device: "simulator",
       app: "ios.release",
     },

@@ -73,7 +73,7 @@ const MatchContainer = ( {
       <View style={styles.textContainer}>
         <StyledText style={[baseTextStyles.header, styles.headerText, { color: gradientLight }]}>{headerText}</StyledText>
         {screenType !== "unidentified" && (
-          <StyledText style={[baseTextStyles.species, styles.speciesText, showScientificName && baseTextStyles.italic]}>
+          <StyledText testID="taxonText" style={[baseTextStyles.species, styles.speciesText, showScientificName && baseTextStyles.italic]}>
             {showScientificName ? scientificName : commonName}
           </StyledText>
         )}
@@ -94,7 +94,7 @@ const MatchContainer = ( {
       )}
       <View style={styles.textContainer}>
         {speciesIdentified && (
-          <TouchableOpacity onPress={setCameraPath}>
+          <TouchableOpacity testID="backToCamera" onPress={setCameraPath}>
             <StyledText style={[baseTextStyles.link, styles.linkText]}>{i18n.t( "results.back" )}</StyledText>
           </TouchableOpacity>
         )}

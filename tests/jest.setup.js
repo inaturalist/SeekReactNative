@@ -6,6 +6,12 @@ import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-
 import * as mockRNLocalize from "react-native-localize/mock";
 import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
+import {
+  mockCamera,
+  mockSortDevices,
+  mockUseCameraDevice,
+  mockUseCameraFormat
+} from "./vision-camera/vision-camera";
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 jest.mock( "react-native-device-info", () => mockRNDeviceInfo );
@@ -203,3 +209,54 @@ jest.mock( "realm", () => {
   );
   return actualRealm;
 } );
+
+jest.mock( "react-native-vision-camera", () => ( {
+  Camera: mockCamera,
+  sortDevices: mockSortDevices,
+  useCameraDevice: mockUseCameraDevice,
+  useCameraFormat: mockUseCameraFormat,
+  useFrameProcessor: jest.fn(),
+  VisionCameraProxy: {
+    initFrameProcessorPlugin: jest.fn()
+  }
+} ) );
+
+jest.mock( "@react-native-camera-roll/camera-roll", () => ( {
+  CameraRoll: {
+    getPhotos: jest.fn(
+      () =>
+        new Promise( ( resolve ) => {
+          resolve( {
+            page_info: {
+              end_cursor: jest.fn(),
+              has_next_page: false
+            },
+            edges: [
+              {
+                node: {
+                  image: {
+                    filename: "IMG_20210901_123456.jpg",
+                    filepath: "/path/to/IMG_20210901_123456.jpg",
+                    extension: "jpg",
+                    uri: "file:///path/to/IMG_20210901_123456.jpg",
+                    height: 1920,
+                    width: 1080,
+                    fileSize: 123456,
+                    playableDuration: NaN,
+                    orientation: 1
+                  }
+                }
+              }
+            ]
+          } );
+        } )
+    ),
+    getAlbums: jest.fn( () => ( {
+      // Expecting album titles as keys and photo counts as values
+      // "My Amazing album": 12
+    } ) ),
+    save: jest.fn( ( _uri, _options = {} ) => "test_url" )
+  }
+} ) );
+
+

@@ -68,6 +68,7 @@ const ReplacePhotoModal = ( {
       <StyledText allowFontScaling={false} style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "replace_photo.description" )}</StyledText>
       <View style={viewStyles.marginMedium} />
       <Button
+        testID="replacePhoto"
         handlePress={setNewPhoto}
         text="replace_photo.new"
         color={colors.seekForestGreen}

@@ -176,11 +176,9 @@ const FrameProcessorCamera = ( props: Props ) => {
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
-  const [timesRun, setTimesRun] = useState( 0 );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
-    setTimesRun( timesRun + 1 );
     console.log( "result.timeElapsed", result.timeElapsed );
     framesProcessingTime.push( timeTaken );
     if ( framesProcessingTime.length >= 10 ) {
@@ -247,7 +245,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     [
       patchedRunAsync,
       confidenceThreshold,
-      timesRun,
       filterByTaxonId,
       negativeFilter,
       patchedOrientationAndroid,

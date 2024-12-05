@@ -136,21 +136,6 @@ const GalleryScreen = (): Node => {
     }
   }, [photos.length, fetchPhotos] );
 
-  const initialFetch = useCallback( ( ) => {
-    // attempting to fix issue on some iOS devices where photos never appear
-    // assuming the above useEffect hook does not get called for some reason
-    const timer = setTimeout( ( ) => {
-      if ( photoCount.current === 0 ) {
-        fetchPhotos( );
-      }
-    }, 3000 );
-
-    if ( photoCount.current > 0 ) {
-      clearTimeout( timer );
-    }
-    return ( ) => clearTimeout( timer );
-  }, [fetchPhotos] );
-
   useEffect( ( ) => {
     const requestAndroidPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
@@ -164,12 +149,9 @@ const GalleryScreen = (): Node => {
     navigation.addListener( "focus", ( ) => {
       setObservation( null );
       requestAndroidPermissions( );
-      if ( Platform.OS === "ios" ) {
-        initialFetch( );
-      }
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation, initialFetch, setObservation] );
+  }, [navigation, setObservation] );
 
   const renderImageList = ( ) => {
     if ( error ) {

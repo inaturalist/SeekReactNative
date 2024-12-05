@@ -344,7 +344,6 @@
     }
   },
   "camera": {
-    "label": "Camera",
     "on": "on",
     "off": "off",
     "scan": "Keep scanning the environment for organisms to identify!",
@@ -377,7 +376,6 @@
     "error_save": "Could not save photo."
   },
   "gallery": {
-    "label": "Photos",
     "photo_library": "Photo Library"
   },
   "camera_help": {

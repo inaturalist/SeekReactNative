@@ -34,12 +34,11 @@ const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ): Promis
 
 const checkForUniquePhotos = ( seen: Set<Object>, assets: Array<Object> ): { assets: Array<Object>, newSeen: Set<Object> } => {
   // from cameraroll example: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/7fa9b7c062c166cd94e62b4ab5d1f7b5f663c9a0/example/js/CameraRollView.js#L177
-  
-  // seen state can't be mutated locally, instead it's returned and 
+  // seen state can't be mutated locally, instead it's returned and
   // used by the parent component to update state
   const newSeen = new Set( seen );
 
-  const uniqAssets = assets.filter( asset => {
+  const uniqAssets = assets.filter( ( asset ) => {
     const value = asset.node.image.uri;
     if ( newSeen.has( value ) ) {
       return false;

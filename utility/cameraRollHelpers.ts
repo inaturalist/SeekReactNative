@@ -1,12 +1,9 @@
-// @flow
-
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import type {
-  GetPhotosParams,
-  PhotoIdentifiersPage
+  GetPhotosParams
 } from "@react-native-camera-roll/camera-roll";
 
-const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
+const setGalleryFetchOptions = ( album: string | null, lastCursor: string | null ) => {
   const options: GetPhotosParams = {
     first: 28,
     assetType: "Photos",
@@ -25,17 +22,25 @@ const setGalleryFetchOptions = ( album: ?string, lastCursor: ?string ) => {
   return options;
 };
 
-const fetchGalleryPhotos = async ( album: ?string, lastCursor: ?string ): Promise<PhotoIdentifiersPage> => {
+const fetchGalleryPhotos = async ( album: string | null, lastCursor: string | null ) => {
   const options = setGalleryFetchOptions( album, lastCursor );
 
   const photos = await CameraRoll.getPhotos( options );
   return photos;
 };
 
+interface Asset {
+  node: {
+    image: {
+      uri: string
+    }
+  }
+}
+
 const checkForUniquePhotos = (
-  seen: Set<Object>,
-  assets: Array<Object>
-): { newSeen: Set<Object>, uniqAssets: Array<Object> } => {
+  seen: Set<string>,
+  assets: Asset[]
+): { newSeen: Set<string>, uniqAssets: Asset[] } => {
   // from cameraroll example: https://github.com/react-native-cameraroll/react-native-cameraroll/blob/7fa9b7c062c166cd94e62b4ab5d1f7b5f663c9a0/example/js/CameraRollView.js#L177
   // seen state can't be mutated locally, instead it's returned and
   // used by the parent component to update state
@@ -52,7 +57,12 @@ const checkForUniquePhotos = (
   return { uniqAssets, newSeen };
 };
 
-const fetchAlbums = async ( cameraRoll: Array<Object> ): Promise<Array<Object>> => {
+export interface CondensedAlbum {
+  label: string,
+  value: string
+}
+
+const fetchAlbums = async ( cameraRoll: CondensedAlbum[] ) => {
   try {
     const names = cameraRoll;
     const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );

@@ -93,8 +93,9 @@ const GalleryScreen = (): Node => {
       // permission but has not given Seek access to a single photo
       dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
     } else {
-      const uniquePhotos = checkForUniquePhotos( seen, data );
-      dispatch( { type: "APPEND_PHOTOS", photos: photos.concat( uniquePhotos ), pageInfo } );
+      const { newSeen, uniqAssets } = checkForUniquePhotos( seen, data );
+      const newPhotos = photos.concat( uniqAssets );
+      dispatch( { type: "APPEND_PHOTOS", photos: newPhotos, seen: newSeen, pageInfo } );
     }
   }, [photos, seen] );
 
@@ -135,21 +136,6 @@ const GalleryScreen = (): Node => {
     }
   }, [photos.length, fetchPhotos] );
 
-  const initialFetch = useCallback( ( ) => {
-    // attempting to fix issue on some iOS devices where photos never appear
-    // assuming the above useEffect hook does not get called for some reason
-    const timer = setTimeout( ( ) => {
-      if ( photoCount.current === 0 ) {
-        fetchPhotos( );
-      }
-    }, 3000 );
-
-    if ( photoCount.current > 0 ) {
-      clearTimeout( timer );
-    }
-    return ( ) => clearTimeout( timer );
-  }, [fetchPhotos] );
-
   useEffect( ( ) => {
     const requestAndroidPermissions = async ( ) => {
       if ( Platform.OS === "android" ) {
@@ -163,12 +149,9 @@ const GalleryScreen = (): Node => {
     navigation.addListener( "focus", ( ) => {
       setObservation( null );
       requestAndroidPermissions( );
-      if ( Platform.OS === "ios" ) {
-        initialFetch( );
-      }
     } );
     navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
-  }, [navigation, initialFetch, setObservation] );
+  }, [navigation, setObservation] );
 
   const renderImageList = ( ) => {
     if ( error ) {

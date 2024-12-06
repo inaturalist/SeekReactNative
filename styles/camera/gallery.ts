@@ -14,9 +14,6 @@ const viewStyles = StyleSheet.create( {
     paddingHorizontal: 1,
     paddingTop: 2
   },
-  grayContainer: {
-    backgroundColor: colors.lightGray
-  },
   margin: {
     marginLeft: 15
   },

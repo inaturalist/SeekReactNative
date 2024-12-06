@@ -7,10 +7,8 @@ import { getPredictionsForImage } from "vision-camera-plugin-inatvision";
 import { useNavigation } from "@react-navigation/native";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
-import { viewStyles } from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { UserContext } from "../../UserContext";
-import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 import { useObservation } from "../../Providers/ObservationProvider";
 
@@ -105,26 +103,9 @@ const GalleryImageList = ( ): Node => {
 
   const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [selectImage] );
 
-  // skips measurement of dynamic content for faster loading
-  const getItemLayout = useCallback( ( data, index ) => ( {
-    length: ( dimensions.width / 4 - 2 ),
-    offset: ( dimensions.width / 4 - 2 ) * index,
-    index
-  } ), [] );
-
-  const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
-
   return (
     <FlatList
-      testID="gallery-image-list"
-      // estimatedItemSize={97}
       data={[]}
-      contentContainerStyle={viewStyles.grayContainer}
-      getItemLayout={getItemLayout}
-      initialNumToRender={4}
-      keyExtractor={extractKey}
-      numColumns={4}
-      onEndReachedThreshold={0.2}
       renderItem={renderImage}
     />
   );

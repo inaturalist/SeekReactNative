@@ -14,17 +14,12 @@ import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 import { useObservation } from "../../Providers/ObservationProvider";
 
-type Props = {
-  photos: Array<Object>
-}
-
-const GalleryImageList = ( { photos }: Props ): Node => {
+const GalleryImageList = ( ): Node => {
   const { setObservation, observation } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
-  // TODO: this is now only ever used once, so it doesn't need to be a callback
   const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
     const { navigate } = navigation;
 
@@ -123,7 +118,7 @@ const GalleryImageList = ( { photos }: Props ): Node => {
     <FlatList
       testID="gallery-image-list"
       // estimatedItemSize={97}
-      data={photos}
+      data={[]}
       contentContainerStyle={viewStyles.grayContainer}
       getItemLayout={getItemLayout}
       initialNumToRender={4}

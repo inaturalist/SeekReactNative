@@ -16,11 +16,10 @@ import { useObservation } from "../../Providers/ObservationProvider";
 
 type Props = {
   photos: Array<Object>,
-  onEndReached: Function,
-  setLoading: ( ) => void
+  onEndReached: Function
 }
 
-const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node => {
+const GalleryImageList = ( { onEndReached, photos }: Props ): Node => {
   const { setObservation, observation } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
@@ -106,10 +105,9 @@ const GalleryImageList = ( { onEndReached, photos, setLoading }: Props ): Node =
 
   const selectImage = useCallback( ( item ) => {
     setImageSelected( true );
-    setLoading( );
     const { timestamp, location, image } = item.node;
     getPredictions( image.uri, timestamp, location );
-  }, [getPredictions, setLoading] );
+  }, [getPredictions] );
 
   const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [selectImage] );
 

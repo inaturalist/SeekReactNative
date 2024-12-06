@@ -8,7 +8,6 @@ import type { Node } from "react";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import { viewStyles } from "../../../styles/camera/gallery";
-import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
 import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
@@ -22,18 +21,6 @@ const GalleryScreen = (): Node => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "SET_ALBUM":
-        return {
-          album: action.album,
-          photos: [],
-          error: null,
-          hasNextPage: true,
-          lastCursor: null,
-          stillFetching: false,
-          errorEvent: null,
-          photoSelectedLoading: false,
-          seen: new Set( )
-        };
       case "FETCH_PHOTOS":
         return { ...state, stillFetching: true };
       case "APPEND_PHOTOS":
@@ -118,11 +105,6 @@ const GalleryScreen = (): Node => {
     }
   }, [album, lastCursor, appendPhotos, handleFetchError] );
 
-  const updateAlbum = useCallback( ( newAlbum: ?string ) => {
-    // prevent user from reloading the same album twice
-    if ( album === newAlbum ) { return; }
-    dispatch( { type: "SET_ALBUM", album: newAlbum } );
-  }, [album] );
 
   const onEndReached = useCallback( ( ) => {
     if ( hasNextPage && !stillFetching ) {
@@ -161,13 +143,12 @@ const GalleryScreen = (): Node => {
     if ( photos.length === 0 ) {
       return <LoadingWheel color={colors.seekForestGreen} />;
     }
-    return <GalleryImageList onEndReached={onEndReached} photos={photos} setLoading={setLoading} />;
+    return <GalleryImageList onEndReached={onEndReached} photos={photos} />;
   };
 
   return (
     <SafeAreaView style={viewStyles.background} edges={["top"]}>
       <StatusBar barStyle="dark-content" />
-      <GalleryHeader updateAlbum={updateAlbum} />
       {renderImageList( )}
       {photoSelectedLoading && <LoadingWheel color={colors.white} />}
     </SafeAreaView>

@@ -11,8 +11,6 @@ import { viewStyles } from "../../../styles/camera/gallery";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
 import { fetchGalleryPhotos, checkForUniquePhotos } from "../../../utility/cameraRollHelpers";
-import { colors } from "../../../styles/global";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { useObservation } from "../../Providers/ObservationProvider";
 
 const GalleryScreen = (): Node => {
@@ -38,10 +36,6 @@ const GalleryScreen = (): Node => {
           action.error,
           errorEvent: action.errorEvent
         };
-      case "SET_LOADING":
-        return { ...state, photoSelectedLoading: true };
-      case "RESET_LOADING":
-        return { ...state, photoSelectedLoading: false };
       default:
         throw new Error();
     }
@@ -53,7 +47,6 @@ const GalleryScreen = (): Node => {
     stillFetching: false,
     error: null,
     errorEvent: null,
-    photoSelectedLoading: false,
     seen: new Set( )
   } );
 
@@ -65,14 +58,11 @@ const GalleryScreen = (): Node => {
     stillFetching,
     error,
     errorEvent,
-    photoSelectedLoading,
     seen
   } = state;
 
   const photoCount = useRef( photos.length );
   photoCount.current = photos.length;
-
-  const setLoading = useCallback( ( ) => dispatch( { type: "SET_LOADING" } ), [] );
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( data.length === 0 ) {
@@ -132,7 +122,6 @@ const GalleryScreen = (): Node => {
       setObservation( null );
       requestAndroidPermissions( );
     } );
-    navigation.addListener( "blur", ( ) => dispatch( { type: "RESET_LOADING" } ) );
   }, [navigation, setObservation] );
 
   const renderImageList = ( ) => {
@@ -141,7 +130,7 @@ const GalleryScreen = (): Node => {
     }
     // If there are no photos, render a loading wheel
     if ( photos.length === 0 ) {
-      return <LoadingWheel color={colors.seekForestGreen} />;
+      return null;
     }
     return <GalleryImageList onEndReached={onEndReached} photos={photos} />;
   };
@@ -150,7 +139,6 @@ const GalleryScreen = (): Node => {
     <SafeAreaView style={viewStyles.background} edges={["top"]}>
       <StatusBar barStyle="dark-content" />
       {renderImageList( )}
-      {photoSelectedLoading && <LoadingWheel color={colors.white} />}
     </SafeAreaView>
   );
 };

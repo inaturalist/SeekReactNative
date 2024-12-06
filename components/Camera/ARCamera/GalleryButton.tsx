@@ -1,24 +1,25 @@
-// @flow
-
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { Platform, FlatList } from "react-native";
-import type { Node } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getPredictionsForImage } from "vision-camera-plugin-inatvision";
 import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from "react-native-image-picker";
+import {
+  TouchableOpacity,
+  Text,
+  Platform
+} from "react-native";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { UserContext } from "../../UserContext";
-import GalleryImage from "./GalleryImage";
 import { useObservation } from "../../Providers/ObservationProvider";
 
-const GalleryImageList = ( ): Node => {
+const GalleryButton = ( ) => {
   const { setObservation, observation } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
-  const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
+  const navigateToResults = ( uri, time, location, predictions ) => {
     const { navigate } = navigation;
 
     const image = {
@@ -60,8 +61,10 @@ const GalleryImageList = ( ): Node => {
       setObservation( { image } );
       navigate( "Confirm" );
     }
-  }, [navigation, setObservation, login] );
+  };
 
+  // TODO: this is a useEffect that waits until the image is attached to the new observation
+  // and then navigates to the match screen; this needs to be refactored
   useEffect( ( ) => {
     if ( observation
       && observation.taxon
@@ -70,13 +73,11 @@ const GalleryImageList = ( ): Node => {
     ) {
       // changed to navigate from push bc on Android, with RN > 0.65.x, the camera was
       // popping up over the top of the match screen
-      navigation.navigate( "Drawer", {
-        screen: "Match"
-      } );
+      navigation.navigate( "Match" );
     }
   }, [observation, navigation, imageSelected] );
 
-  const getPredictions = useCallback( ( uri, timestamp, location ) => {
+  const getPredictions = ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );
     const reactUri = Platform.OS === "android" ? path[1] : uri;
 
@@ -93,22 +94,60 @@ const GalleryImageList = ( ): Node => {
       .catch( ( err ) => {
         console.log( "Error", err );
       } );
-  }, [navigateToResults] );
+  };
 
-  const selectImage = useCallback( ( item ) => {
+  const showPhotoGallery = async () => {
+    // iNatNext
+    // if ( photoGalleryShown ) {
+    //   return;
+    // }
+
+    // iNatNext
+    // setPhotoGalleryShown( true );
+
+    // iNatNext
+    // if ( Platform.OS === "ios" ) {
+    //   // iOS has annoying transition of the screen - that if we don't wait enough time,
+    //   // the launchImageLibrary would halt and not return (and not showing any image picker)
+    //   await sleep( 500 );
+    // }
+
+    // According to the native code of the image picker library, it never rejects the promise,
+    // just returns a response object with errorCode
+    const response = await ImagePicker.launchImageLibrary( {
+      selectionLimit: 1,
+      mediaType: "photo",
+      includeBase64: false,
+      forceOldAndroidPhotoPicker: true,
+      // chooserTitle: t( "Import-Photos-From" ),
+      presentationStyle: "overFullScreen"
+    } );
+
+    if ( !response || response.didCancel || !response.assets || response.errorCode ) {
+      // User cancelled selection of photos - nothing to do here
+      return;
+    }
+
+    // TODO: This was in this order in gallery image list on press but what does it do?
     setImageSelected( true );
-    const { timestamp, location, image } = item.node;
-    getPredictions( image.uri, timestamp, location );
-  }, [getPredictions] );
 
-  const renderImage = useCallback( ( { item } ) => <GalleryImage item={item} selectImage={selectImage} />, [selectImage] );
+    // Using CameraRoll the location was provided in the response, but with ImagePicker it is not
+    // TODO: parse EXIF like iNatNext does
+    // const { timestamp, location, uri } = response.assets[0];
+    // getPredictions( uri, timestamp, location );
+    const { timestamp, uri } = response.assets[0];
+    getPredictions( uri, timestamp );
+  };
 
   return (
-    <FlatList
-      data={[]}
-      renderItem={renderImage}
-    />
+    <TouchableOpacity
+      // accessibilityLabel={i18n.t( "accessibility.open_help" )}
+      // accessible
+      onPress={showPhotoGallery}
+    >
+      <Text>Gallery</Text>
+    </TouchableOpacity>
   );
 };
 
-export default GalleryImageList;
+export default GalleryButton;

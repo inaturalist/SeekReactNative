@@ -15,11 +15,10 @@ import GalleryImage from "./GalleryImage";
 import { useObservation } from "../../Providers/ObservationProvider";
 
 type Props = {
-  photos: Array<Object>,
-  onEndReached: Function
+  photos: Array<Object>
 }
 
-const GalleryImageList = ( { onEndReached, photos }: Props ): Node => {
+const GalleryImageList = ( { photos }: Props ): Node => {
   const { setObservation, observation } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
@@ -131,7 +130,6 @@ const GalleryImageList = ( { onEndReached, photos }: Props ): Node => {
       keyExtractor={extractKey}
       numColumns={4}
       onEndReachedThreshold={0.2}
-      onEndReached={onEndReached}
       renderItem={renderImage}
     />
   );

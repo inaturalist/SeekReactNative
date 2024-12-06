@@ -1,15 +1,10 @@
 import { StyleSheet } from "react-native";
 import {
-  colors,
   row,
   dimensions
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
-  background: {
-    backgroundColor: colors.white,
-    flex: 1
-  },
   button: {
     paddingHorizontal: 1,
     paddingTop: 2

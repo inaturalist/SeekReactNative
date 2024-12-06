@@ -11,7 +11,6 @@ import Onboarding from "../Onboarding/OnboardingScreen";
 import Wikipedia from "../Species/WikipediaView";
 import ARCamera from "../Camera/ARCamera/ARCamera";
 import LegacyARCamera from "../Camera/ARCamera/LegacyARCamera";
-import Gallery from "../Camera/Gallery/GalleryScreen";
 import ConfirmScreen from "../Camera/Gallery/ConfirmScreen";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
@@ -71,11 +70,6 @@ const App = ( ) => {
             <Stack.Screen
               name="Camera"
               component={useVisionCamera ? ARCamera : LegacyARCamera}
-              options={verticalConfig}
-            />
-            <Stack.Screen
-              name="Gallery"
-              component={Gallery}
               options={verticalConfig}
             />
             <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />

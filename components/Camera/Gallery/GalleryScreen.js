@@ -6,7 +6,6 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 
-import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import { viewStyles } from "../../../styles/camera/gallery";
 import GalleryImageList from "./GalleryImageList";
 import CameraError from "../CameraError";
@@ -42,22 +41,6 @@ const GalleryScreen = (): Node => {
 
   const photoCount = useRef( photos.length );
   photoCount.current = photos.length;
-
-  useEffect( ( ) => {
-    const requestAndroidPermissions = async ( ) => {
-      if ( Platform.OS === "android" ) {
-        const permission = await checkCameraRollPermissions( );
-        if ( permission !== true ) {
-          dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
-        }
-      }
-    };
-
-    navigation.addListener( "focus", ( ) => {
-      setObservation( null );
-      requestAndroidPermissions( );
-    } );
-  }, [navigation, setObservation] );
 
   const renderImageList = ( ) => {
     if ( error ) {

@@ -34,7 +34,11 @@ import {
   rotatePhotoPatch,
   rotationTempPhotoPatch
 } from "../../../utility/visionCameraPatches";
-import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
+import {
+  checkCameraPermissions,
+  checkSavePermissions,
+  checkCameraRollPermissions
+} from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
@@ -367,6 +371,11 @@ const ARCamera = ( ): Node => {
         }
         updateError( null );
       } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
+      checkCameraRollPermissions().then( ( permission ) => {
+        if ( permission !== true ) {
+          updateError( "gallery" );
+        }
+      } ).catch( e => console.log( e, "couldn't get camera roll permissions" ) );
     }
   }, [updateError] );
 

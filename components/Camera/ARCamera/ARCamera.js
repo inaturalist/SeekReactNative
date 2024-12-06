@@ -371,6 +371,7 @@ const ARCamera = ( ): Node => {
         }
         updateError( null );
       } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
+      // TODO: do we actually need this?
       checkCameraRollPermissions().then( ( permission ) => {
         if ( permission !== true ) {
           updateError( "gallery" );

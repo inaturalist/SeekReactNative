@@ -220,7 +220,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             modelPath,
             taxonomyPath,
             confidenceThreshold,
-            numStoredResults: 9,
             filterByTaxonId,
             negativeFilter,
             patchedOrientationAndroid

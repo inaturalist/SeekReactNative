@@ -3,10 +3,10 @@ import { View, Image } from "react-native";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { viewStyles, imageStyles, textStyles } from "../../../styles/home/updates";
-import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { viewStyles, imageStyles, textStyles } from "../../../styles/home/updates";
 import GreenText from "../../UIComponents/GreenText";
+import StyledText from "../../UIComponents/StyledText";
 
 const Updates = ( ) => (
   <View style={viewStyles.container}>

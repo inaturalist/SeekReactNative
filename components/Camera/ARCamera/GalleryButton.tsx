@@ -119,7 +119,6 @@ const GalleryButton = ( ) => {
       mediaType: "photo",
       includeBase64: false,
       forceOldAndroidPhotoPicker: true,
-      // chooserTitle: t( "Import-Photos-From" ),
       presentationStyle: "overFullScreen"
     } );
 

@@ -20,6 +20,7 @@ import ToastAnimation from "../../UIComponents/ToastAnimation";
 import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
+import GalleryButton from "./GalleryButton";
 
 interface Prediction {
   name: string;
@@ -184,6 +185,7 @@ const ARCameraOverlay = ( {
       >
         <Image source={( ranks && ranks.species ) || ( prediction?.rank === "species" ) ? icons.arCameraGreen : icons.arCameraButton} />
       </TouchableOpacity>
+      {/* TODO: where does this button go?
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.open_help" )}
         accessible
@@ -195,7 +197,16 @@ const ARCameraOverlay = ( {
         ]}
       >
         <Image source={icons.cameraHelp} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <View
+        style={[
+          viewStyles.help,
+          isLandscape && viewStyles.landscapeHelp,
+          isLandscape && { bottom: helpButtonPositionLandscape }
+        ]}
+      >
+        <GalleryButton />
+      </View>
     </>
   );
 };

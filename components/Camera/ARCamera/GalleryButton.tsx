@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "react-native-image-picker";
 import {
   TouchableOpacity,
-  Text,
+  Image,
   Platform
 } from "react-native";
 
@@ -12,6 +12,8 @@ import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { UserContext } from "../../UserContext";
 import { useObservation } from "../../Providers/ObservationProvider";
+import { viewStyles } from "../../../styles/camera/arCameraOverlay";
+import icons from "../../../assets/icons";
 
 const GalleryButton = ( ) => {
   const { setObservation, observation } = useObservation();
@@ -143,8 +145,9 @@ const GalleryButton = ( ) => {
       // accessibilityLabel={i18n.t( "accessibility.open_help" )}
       // accessible
       onPress={showPhotoGallery}
+      style={viewStyles.galleryButton}
     >
-      <Text>Gallery</Text>
+      <Image source={icons.cameraHelp} />
     </TouchableOpacity>
   );
 };

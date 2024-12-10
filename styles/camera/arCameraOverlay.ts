@@ -54,6 +54,14 @@ const viewStyles = StyleSheet.create( {
     justifyContent: "center",
     width: 100,
     alignItems: "center"
+  },
+  galleryButton: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 4
   }
 } );
 

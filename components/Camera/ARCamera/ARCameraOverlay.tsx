@@ -160,52 +160,49 @@ const ARCameraOverlay = ( {
       <View style={setTaxonomicRankColorStyles( )}>
         <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>
-      {isAndroid && (
+      <View style={viewStyles.cameraControlsContainer}>
+        <View style={viewStyles.leftControls}>
+          {isAndroid && (
+            <TouchableOpacity
+              accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
+              accessible
+              onPress={toggleFilterIndex}
+            >
+              <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
+            </TouchableOpacity>
+          )}
+          <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.open_help" )}
+            accessible
+            onPress={showCameraHelp}
+          >
+            <Image source={icons.cameraHelp} />
+          </TouchableOpacity>
+        </View>
+
         <TouchableOpacity
-          accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
+          accessibilityLabel={i18n.t( "accessibility.take_photo" )}
           accessible
-          onPress={toggleFilterIndex}
-          style={viewStyles.plantFilterSettings}
+          testID="takePhotoButton"
+          onPress={takePicture}
+          style={[
+            viewStyles.shadow,
+            isLandscape && { bottom: shutterButtonPositionLandscape }
+          ]}
+          disabled={pictureTaken}
         >
-          <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
+          <Image
+            source={
+              ( ranks && ranks.species ) || ( prediction?.rank === "species" )
+                ? icons.arCameraGreen
+                : icons.arCameraButton
+            }
+          />
         </TouchableOpacity>
-      )}
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.take_photo" )}
-        accessible
-        testID="takePhotoButton"
-        onPress={takePicture}
-        style={[
-          viewStyles.shutter,
-          viewStyles.shadow,
-          isLandscape && viewStyles.landscapeShutter,
-          isLandscape && { bottom: shutterButtonPositionLandscape }
-        ]}
-        disabled={pictureTaken}
-      >
-        <Image source={( ranks && ranks.species ) || ( prediction?.rank === "species" ) ? icons.arCameraGreen : icons.arCameraButton} />
-      </TouchableOpacity>
-      {/* TODO: where does this button go?
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.open_help" )}
-        accessible
-        onPress={showCameraHelp}
-        style={[
-          viewStyles.help,
-          isLandscape && viewStyles.landscapeHelp,
-          isLandscape && { bottom: helpButtonPositionLandscape }
-        ]}
-      >
-        <Image source={icons.cameraHelp} />
-      </TouchableOpacity> */}
-      <View
-        style={[
-          viewStyles.help,
-          isLandscape && viewStyles.landscapeHelp,
-          isLandscape && { bottom: helpButtonPositionLandscape }
-        ]}
-      >
-        <GalleryButton />
+
+        <View style={[viewStyles.rightControls, isLandscape && { bottom: helpButtonPositionLandscape }]}>
+          <GalleryButton />
+        </View>
       </View>
     </>
   );

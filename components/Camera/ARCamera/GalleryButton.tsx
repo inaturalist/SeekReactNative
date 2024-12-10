@@ -14,6 +14,8 @@ import { UserContext } from "../../UserContext";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
+import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
+import { getUnixTime } from "date-fns";
 
 const GalleryButton = ( ) => {
   const { setObservation, observation } = useObservation();
@@ -107,13 +109,6 @@ const GalleryButton = ( ) => {
     // iNatNext
     // setPhotoGalleryShown( true );
 
-    // iNatNext
-    // if ( Platform.OS === "ios" ) {
-    //   // iOS has annoying transition of the screen - that if we don't wait enough time,
-    //   // the launchImageLibrary would halt and not return (and not showing any image picker)
-    //   await sleep( 500 );
-    // }
-
     // According to the native code of the image picker library, it never rejects the promise,
     // just returns a response object with errorCode
     const response = await ImagePicker.launchImageLibrary( {
@@ -121,6 +116,7 @@ const GalleryButton = ( ) => {
       mediaType: "photo",
       includeBase64: false,
       forceOldAndroidPhotoPicker: true,
+      // chooserTitle: t( "Import-Photos-From" ),
       presentationStyle: "overFullScreen"
     } );
 
@@ -132,12 +128,17 @@ const GalleryButton = ( ) => {
     // TODO: This was in this order in gallery image list on press but what does it do?
     setImageSelected( true );
 
-    // Using CameraRoll the location was provided in the response, but with ImagePicker it is not
-    // TODO: parse EXIF like iNatNext does
-    // const { timestamp, location, uri } = response.assets[0];
-    // getPredictions( uri, timestamp, location );
-    const { timestamp, uri } = response.assets[0];
-    getPredictions( uri, timestamp );
+    const asset = response.assets[0];
+    const { timestamp, uri } = asset;
+    if ( !uri ) {
+      throw new Error( "No URI in pick photo response" );
+    }
+
+    const exif = await readExifFromMultiplePhotos( [uri] );
+    const { latitude, longitude, observed_on_string } = exif;
+    const location = { latitude, longitude };
+    const unixTimestamp = getUnixTime( new Date( observed_on_string ) );
+    getPredictions( uri, timestamp || unixTimestamp, location );
   };
 
   return (

@@ -962,6 +962,8 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
+  - react-native-exif-reader (0.4.2):
+    - React-Core
   - react-native-geocoder (0.5.1):
     - React
   - react-native-geolocation-service (5.3.1):
@@ -1288,6 +1290,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
+  - react-native-exif-reader (from `../node_modules/react-native-exif-reader`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-image-marker (from `../node_modules/react-native-image-marker`)
@@ -1427,6 +1430,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-camera-roll/camera-roll"
+  react-native-exif-reader:
+    :path: "../node_modules/react-native-exif-reader"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
@@ -1589,6 +1594,7 @@ SPEC CHECKSUMS:
   React-logger: 60afd40b183e8e6642bfd0108f1a1ad360cc665e
   React-Mapbuffer: 672a9342eb75a4d0663306e94d4dfc88aee73b93
   react-native-cameraroll: 0fe31282894817a82b5991dd0d78dc04c5a6ed35
+  react-native-exif-reader: fe4678df00e36e1aba6ade9013fd1d35c78c8381
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-image-marker: 74f67720d8dad6e268f0722758120fe48f9c1eda

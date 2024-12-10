@@ -157,6 +157,7 @@ const ARCameraOverlay = ( {
       <View style={setTaxonomicRankColorStyles( )}>
         <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>
+
       <View style={
         isLandscape ? viewStyles.cameraControlsContainerLandscape : viewStyles.cameraControlsContainer
       }>

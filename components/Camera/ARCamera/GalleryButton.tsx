@@ -147,6 +147,7 @@ const GalleryButton = ( ) => {
       onPress={showPhotoGallery}
       style={viewStyles.galleryButton}
     >
+      {/* TODO: add the gallery icon to icons file */}
       <Image source={icons.cameraHelp} style={imageStyles.gallery} />
     </TouchableOpacity>
   );

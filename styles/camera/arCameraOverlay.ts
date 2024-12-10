@@ -61,7 +61,8 @@ const viewStyles = StyleSheet.create( {
     justifyContent: "center",
     borderColor: "white",
     borderWidth: 2,
-    borderRadius: 4
+    borderRadius: 10,
+    padding: 16
   }
 } );
 
@@ -76,7 +77,15 @@ const textStyles = StyleSheet.create( {
   }
 } );
 
+const imageStyles = StyleSheet.create( {
+  gallery: {
+    height: 24,
+    width: 24
+  }
+} );
+
 export {
   viewStyles,
-  textStyles
+  textStyles,
+  imageStyles
 };

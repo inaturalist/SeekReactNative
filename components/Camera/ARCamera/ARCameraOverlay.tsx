@@ -54,16 +54,13 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId
 }: Props ) => {
-  const { isLandscape, height } = useAppOrientation( );
+  const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
   const rankToRender = ranks ? ( Object.keys( ranks )[0] || null ) : prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
   const autoCapture = userSettings?.autoCapture;
   const [filterIndex, setFilterIndex] = useState<number | null>( null );
-
-  const shutterButtonPositionLandscape = height / 2 - 65 - 31;
-  const helpButtonPositionLandscape = height / 2 + 50;
 
   const settings = useMemo( ( ) => ( [
     {
@@ -160,7 +157,9 @@ const ARCameraOverlay = ( {
       <View style={setTaxonomicRankColorStyles( )}>
         <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>
-      <View style={viewStyles.cameraControlsContainer}>
+      <View style={
+        isLandscape ? viewStyles.cameraControlsContainerLandscape : viewStyles.cameraControlsContainer
+      }>
         <View style={viewStyles.leftControls}>
           {isAndroid && (
             <TouchableOpacity
@@ -185,10 +184,7 @@ const ARCameraOverlay = ( {
           accessible
           testID="takePhotoButton"
           onPress={takePicture}
-          style={[
-            viewStyles.shadow,
-            isLandscape && { bottom: shutterButtonPositionLandscape }
-          ]}
+          style={viewStyles.shadow}
           disabled={pictureTaken}
         >
           <Image
@@ -200,7 +196,7 @@ const ARCameraOverlay = ( {
           />
         </TouchableOpacity>
 
-        <View style={[viewStyles.rightControls, isLandscape && { bottom: helpButtonPositionLandscape }]}>
+        <View style={viewStyles.rightControls}>
           <GalleryButton />
         </View>
       </View>

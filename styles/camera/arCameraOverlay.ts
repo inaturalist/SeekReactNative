@@ -43,16 +43,29 @@ const viewStyles = StyleSheet.create( {
     paddingHorizontal: 32,
     paddingBottom: 31
   },
+  cameraControlsContainerLandscape: {
+    position: "absolute",
+    right: 0,
+    top: 0,
+    bottom: 0,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 32,
+    gap: 50
+  },
   leftControls: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 20,
-    width: 100
+    width: 100,
+    height: 60
   },
   rightControls: {
     justifyContent: "center",
     width: 100,
+    height: 60,
     alignItems: "center"
   },
   galleryButton: {

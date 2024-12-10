@@ -62,7 +62,9 @@ const viewStyles = StyleSheet.create( {
     borderColor: "white",
     borderWidth: 2,
     borderRadius: 10,
-    padding: 16
+    padding: 16,
+    width: 60,
+    height: 60
   }
 } );
 

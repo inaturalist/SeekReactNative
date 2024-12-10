@@ -12,7 +12,7 @@ import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { UserContext } from "../../UserContext";
 import { useObservation } from "../../Providers/ObservationProvider";
-import { viewStyles, imageStyles } from "../../../styles/camera/arCameraOverlay";
+import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
 
 const GalleryButton = ( ) => {
@@ -147,8 +147,7 @@ const GalleryButton = ( ) => {
       onPress={showPhotoGallery}
       style={viewStyles.galleryButton}
     >
-      {/* TODO: add the gallery icon to icons file */}
-      <Image source={icons.cameraHelp} style={imageStyles.gallery} />
+      <Image source={icons.gallery} />
     </TouchableOpacity>
   );
 };

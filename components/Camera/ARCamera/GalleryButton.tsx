@@ -17,7 +17,11 @@ import icons from "../../../assets/icons";
 import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
 import { getUnixTime } from "date-fns";
 
-const GalleryButton = ( ) => {
+interface Props {
+  setIsActive: ( arg0: boolean ) => void;
+}
+
+const GalleryButton = ( { setIsActive }: Props ) => {
   const { setObservation, observation } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
@@ -101,6 +105,7 @@ const GalleryButton = ( ) => {
   };
 
   const showPhotoGallery = async () => {
+    setIsActive( false );
     // iNatNext
     // if ( photoGalleryShown ) {
     //   return;
@@ -122,6 +127,7 @@ const GalleryButton = ( ) => {
 
     if ( !response || response.didCancel || !response.assets || response.errorCode ) {
       // User cancelled selection of photos - nothing to do here
+      setIsActive( true );
       return;
     }
 

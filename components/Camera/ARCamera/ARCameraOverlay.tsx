@@ -42,6 +42,7 @@ interface Props {
   pictureTaken: boolean;
   cameraLoaded: boolean;
   filterByTaxonId: ( taxonId: string | null, negativeFilter: boolean ) => void;
+  setIsActive: ( arg0: boolean ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -52,7 +53,8 @@ const ARCameraOverlay = ( {
   prediction,
   pictureTaken,
   cameraLoaded,
-  filterByTaxonId
+  filterByTaxonId,
+  setIsActive
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -198,7 +200,7 @@ const ARCameraOverlay = ( {
         </TouchableOpacity>
 
         <View style={viewStyles.rightControls}>
-          <GalleryButton />
+          <GalleryButton setIsActive={setIsActive} />
         </View>
       </View>
     </>

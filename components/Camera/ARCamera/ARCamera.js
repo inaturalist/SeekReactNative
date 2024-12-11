@@ -465,6 +465,7 @@ const ARCamera = ( ): Node => {
             takePicture={takePicture}
             cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
+            setIsActive={setIsActive}
           />
         )
       }

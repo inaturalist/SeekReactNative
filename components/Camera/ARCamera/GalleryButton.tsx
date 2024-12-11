@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 
+import i18n from "../../../i18n";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import { UserContext } from "../../UserContext";
@@ -151,8 +152,8 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
   return (
     <TouchableOpacity
-        // accessibilityLabel={i18n.t( "accessibility.open_help" )}
-        // accessible
+        accessibilityLabel={i18n.t( "accessibility.open_gallery" )}
+        accessible
         onPress={showPhotoGallery}
         style={viewStyles.galleryButton}
       >

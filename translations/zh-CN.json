@@ -568,7 +568,7 @@
     "seek_designed_by": "Seek是由 iNaturalist 团队设计和开发的：",
     "joint_initiative": "iNaturalist 由加利福尼亚科学院与美国国家地理学会共同创办",
     "support_from": "Seek应用程序由iNaturalist团队开发，它的开发也获得了加利福尼亚州科学院，美国地理学会，奈飞《我们的星球》纪录片，世界自然基金会，HHMI Tangled Bank Studios，以及Visipedia团队的支持。",
-    "inat_team_credits_4": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Michelle Vryn, Jason Walthall, and Jane Weeden. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_4": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Michelle Vryn, Jason Walthall,和Jane Weeden。特别感谢来自Visipedia的Grant Van Horn帮助计算机视力技术和iNaturalist 社区。",
     "version": "版本",
     "help": "若需要有关 Seek 的协助，请发送电子邮件至 help+seek@inaturalist.org。",
     "translators": "我们感谢crowdin.com社区提供的翻译援助，特别是：Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martialez, Edson Souza Jr. Galder Gonzalez Lrancosaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasinski, TheKakarinka, Wouter Koch, 和Yulia Lygina。",
@@ -635,7 +635,7 @@
   },
   "warning": {
     "remember": "注意",
-    "tip_0": "Seek may not always be correct.",
+    "tip_0": "Seek可能并非总是正确的。",
     "tip_1": "总是关注您的周围环境，保持安全，并且不要闯入别人的私人领地。",
     "tip_2": "不要吃你在野外发现的任何东西。",
     "tip_3": "尊重其他的生命，不要骚扰或触碰他们。有些生物会叮或咬。",
@@ -682,9 +682,9 @@
     "donate": "捐助",
     "donate_header": "帮助支持 iNaturalist",
     "donate_description": "喜欢Seek吗？考虑向iNaturalist捐赠！我们依靠像您这样的人的捐赠来使我们的应用免费。",
-    "danger_zone": "Danger Zone",
-    "delete_account": "If you’d like to delete your iNaturalist account, click the button below. This will delete all observations you have posted to iNaturalist through Seek, as well as all observations, IDs, and comments created on the iNaturalist app or website.",
-    "delete": "Delete iNaturalist Account",
+    "danger_zone": "危险操作区",
+    "delete_account": "如果您想要删除您的 iNaturalist 帐户，请点击下面的按钮。 这将删除您通过 Seek发布给iNaturalist 的所有观察记录 以及在 iNaturalist 应用程序或网站上创建的所有观察、鉴定和评论。",
+    "delete": "删除 iNaturalist 帐户",
     "language": "应用内置语言",
     "device_settings": "使用设备自带的语音设置",
     "auto_capture": "当识别到物种时，自动拍照。",
@@ -965,30 +965,30 @@
     "december_2023_description_ecology": "许多不同类型的相互作用会影响生态系统及其生物。生态学是对生物体（生物）及其物理环境（生物环境）的研究。 生物相互作用是生物之间的相互作用，而非生物相互作用则包括非生命因素，包括温度、水、光和土壤等。"
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
-    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
-    "march_2024_challenge_name_stewardship": "Stewardship Challenge",
-    "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
-    "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",
-    "april_2024_challenge_name_coexistence": "Coexistence Challenge",
-    "may_2024_challenge_name_phenology": "Phenology Challenge",
-    "may_2024_description_phenology": "Phenology is the study of seasonal patterns like flowering, fruiting, and migration. Some species can be found all year, while others are active in only one month.",
-    "may_2024_action_phenology": "Explore the species pages in Seek for everything you find this month. Look at the graph to see which months they are most commonly observed. Is this its most frequently observed month?",
-    "june_2024_challenge_name_flowers_food": "Flowers & Food Challenge",
-    "june_2024_description_flowers_food": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "june_2024_action_flowers_food": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your neighborhood?",
-    "july_2024_challenge_name_indicator_species": "Indicator Species Challenge",
-    "july_2024_description_indicator_species_2": "Healthy ecosystems provide us with benefits like clean water and air, carbon storage, and habitat to support biodiversity. A diversity of plants and arthropods are found in all types of terrestrial ecosystems.",
-    "july_2024_action_indicator_species": "Where were you able to find the species for this challenge? Was it an urban habitat or a more wild setting?",
-    "august_2024_challenge_name_flowing_water": "Flowing Water Challenge",
-    "august_2024_description_flowing_water": "Rivers and streams are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, flowing water is a special kind of freshwater habitat.",
-    "september_2024_challenge_name_predators_exoskeletons": "Predators with Exoskeletons Challenge",
-    "october_2024_challenge_name_eight_legged": "Eight-legged Challenge",
-    "october_2024_description_eight_legged": "All arachnids have eight legs. Did you know that not all arachnids are spiders? Mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions are also arachnids that can be found on all inhabited continents. Other arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
-    "november_2024_challenge_name_predators_bones": "Predators with Bones Challenge",
-    "december_2024_challenge_name_solstice": "Solstice Challenge",
-    "december_2024_description_solstice": "The seasons are changing! In December of each year, the northern hemisphere has its winter solstice (shortest day of the year) and the southern hemisphere has its summer solstice (longest day of the year).",
-    "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
+    "january_2024_challenge_name_neighborhood": "邻里挑战",
+    "february_2024_challenge_name_life_in_flight": "飞行中的生命挑战",
+    "march_2024_challenge_name_stewardship": "自然看护挑战",
+    "march_2024_description_stewardship": "每个人都可以对生物多样性产生积极影响！ 你可以在像你自己的院子、保护区或当地公园这样的地方提倡野生动物。 保护自然始于注意到你所关心的地方的植物、真菌和动物。 在生命之树中寻找不同的物种。",
+    "march_2024_action_stewardship": "想一想你本月发现的一个物种。 它需要什么来生存？你可以做什么来确保它的需要得到满足？",
+    "april_2024_challenge_name_coexistence": "共存挑战",
+    "may_2024_challenge_name_phenology": "物候学挑战",
+    "may_2024_description_phenology": "物候学是对开花、结果和迁徙等季节性模式的研究。 有些物种全年都可以找到，而其他物种仅在一个月内活跃。",
+    "may_2024_action_phenology": "探索在Seek中的物种页面以获取您本月发现的一切。 在图表中查看他们最常被观察到的几个月。这是否是最经常观察到的月份？",
+    "june_2024_challenge_name_flowers_food": "花卉与食物挑战",
+    "june_2024_description_flowers_food": "授粉者给我们提供食物和我们喜欢的鲜花！ 通过它们的身体它们能在植物间传播花粉，授粉者可以帮助多种植物进行繁殖。",
+    "june_2024_action_flowers_food": "注意观察你周围的授粉者。是否有蜂蜜或蝴蝶来访问你附近的花卉？",
+    "july_2024_challenge_name_indicator_species": "指示物种挑战",
+    "july_2024_description_indicator_species_2": "健康的生态系统为我们提供了清洁的水和空气、碳储存和生境等惠益，以支持生物多样性。 在所有类型的陆地生态系统中都有多种植物和节肢动物。",
+    "july_2024_action_indicator_species": "你在哪里能够找到面对这一挑战的物种？它是在城市生境还是更野外的环境？",
+    "august_2024_challenge_name_flowing_water": "流水挑战",
+    "august_2024_description_flowing_water": "河流和河流是生物多样性的中心，支持从微型无脊椎动物到大型脊椎动物，流水是一种特殊类型的淡水生生境。",
+    "september_2024_challenge_name_predators_exoskeletons": "外骨骼捕食者挑战",
+    "october_2024_challenge_name_eight_legged": "八条腿挑战",
+    "october_2024_description_eight_legged": "所有的蛛形纲都有八条腿。你知道吗？不是所有的蛛形纲都是蜘蛛。 螨虫、蜱虫、盲蛛（又称为“长腿老爹”），甚至是微小的、被忽视的拟蝎也是蛛形纲，都可以在所有有人居住的大陆上被找到。 其他不那么著名的蛛形纲动物，例如蝎子、鞭歇、无鞭蝎和避日蛛等，一般都可以在较温暖和/或较干燥的地区被找到。",
+    "november_2024_challenge_name_predators_bones": "内骨骼捕食者挑战",
+    "december_2024_challenge_name_solstice": "冬至挑战",
+    "december_2024_description_solstice": "季节正在变化！ 每年12月，北半球会迎来冬至（一年里最短的白天），南半球会迎来夏至（一年里最长的白天）。",
+    "december_2024_action_solstice": "想一想这个月你看到的物种，它们与6月你可以找到的物种有什么不同？"
   },
   "seek_year_in_review": {
     "header": "Seek年度回顾",
@@ -1032,10 +1032,10 @@
   "announcements": {
     "header": "iNaturalist 公告",
     "announcement": "公告",
-    "dismiss": "Dismiss"
+    "dismiss": "忽略"
   },
   "model": {
     "not_found_error": "找不到模型",
-    "not_found_error_description": "While loading the app, the idenfication model was not found. Your camera experience will be without identification."
+    "not_found_error_description": "在加载应用时找不到鉴定模型。您的相机体验将不会包括鉴定。"
   }
 }

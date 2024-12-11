@@ -44,8 +44,10 @@ import { checkIfCameraLaunched } from "../../../utility/helpers";
 import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { ObservationContext, UserContext, AppOrientationContext } from "../../UserContext";
+import { UserContext } from "../../UserContext";
 import { log } from "../../../react-native-logs.config";
+import { useObservation } from "../../Providers/ObservationProvider";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -53,10 +55,10 @@ const LegacyARCamera = ( ): Node => {
   // getting width and height passes correct dimensions to camera
   // on orientation change
   const isFocused = useIsFocused( );
-  const { width, height } = useContext( AppOrientationContext );
+  const { height, width } = useAppOrientation();
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
-  const { setObservation, observation } = useContext( ObservationContext );
+  const { setObservation, observation } = useObservation();
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );

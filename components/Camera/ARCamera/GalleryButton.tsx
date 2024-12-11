@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "react-native-image-picker";
 import {
   TouchableOpacity,
+  View,
   Image,
   Platform
 } from "react-native";
@@ -16,6 +17,7 @@ import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
 import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
 import { getUnixTime } from "date-fns";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 interface Props {
   setIsActive: ( arg0: boolean ) => void;
@@ -106,14 +108,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
   const showPhotoGallery = async () => {
     setIsActive( false );
-    // iNatNext
-    // if ( photoGalleryShown ) {
-    //   return;
-    // }
-
-    // iNatNext
-    // setPhotoGalleryShown( true );
-
     // According to the native code of the image picker library, it never rejects the promise,
     // just returns a response object with errorCode
     const response = await ImagePicker.launchImageLibrary( {
@@ -147,15 +141,27 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     getPredictions( uri, timestamp || unixTimestamp, location );
   };
 
-  return (
-    <TouchableOpacity
-      // accessibilityLabel={i18n.t( "accessibility.open_help" )}
-      // accessible
-      onPress={showPhotoGallery}
+  if ( imageSelected ) {
+    return <View
       style={viewStyles.galleryButton}
     >
-      <Image source={icons.gallery} />
-    </TouchableOpacity>
+      <LoadingWheel color="white" />
+    </View>;
+  }
+
+  return (
+    <View
+      // accessibilityLabel={i18n.t( "accessibility.open_help" )}
+      // accessible
+      style={viewStyles.galleryButton}
+    >
+      <TouchableOpacity
+          onPress={showPhotoGallery}
+          style={viewStyles.galleryButton}
+        >
+        <Image source={icons.gallery} />
+      </TouchableOpacity>
+    </View>
   );
 };
 

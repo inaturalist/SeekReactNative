@@ -150,18 +150,14 @@ const GalleryButton = ( { setIsActive }: Props ) => {
   }
 
   return (
-    <View
-      // accessibilityLabel={i18n.t( "accessibility.open_help" )}
-      // accessible
-      style={viewStyles.galleryButton}
-    >
-      <TouchableOpacity
-          onPress={showPhotoGallery}
-          style={viewStyles.galleryButton}
-        >
-        <Image source={icons.gallery} />
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+        // accessibilityLabel={i18n.t( "accessibility.open_help" )}
+        // accessible
+        onPress={showPhotoGallery}
+        style={viewStyles.galleryButton}
+      >
+      <Image source={icons.gallery} />
+    </TouchableOpacity>
   );
 };
 

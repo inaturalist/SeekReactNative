@@ -375,6 +375,9 @@
     "filters_off": "Filters off",
     "error_save": "Could not save photo."
   },
+  "gallery": {
+    "import_photos_from": "Import Photos From"
+  },
   "camera_help": {
     "title": "Seek's Camera",
     "header": "Your goal",

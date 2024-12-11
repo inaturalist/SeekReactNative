@@ -116,7 +116,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       mediaType: "photo",
       includeBase64: false,
       forceOldAndroidPhotoPicker: true,
-      // chooserTitle: t( "Import-Photos-From" ),
+      chooserTitle: i18n.t( "gallery.import_photos_from" ),
       presentationStyle: "overFullScreen"
     } );
 

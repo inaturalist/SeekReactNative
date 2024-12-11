@@ -36,8 +36,7 @@ import {
 } from "../../../utility/visionCameraPatches";
 import {
   checkCameraPermissions,
-  checkSavePermissions,
-  checkCameraRollPermissions
+  checkSavePermissions
 } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -371,12 +370,6 @@ const ARCamera = ( ): Node => {
         }
         updateError( null );
       } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
-      // TODO: do we actually need this?
-      checkCameraRollPermissions().then( ( permission ) => {
-        if ( permission !== true ) {
-          updateError( "gallery" );
-        }
-      } ).catch( e => console.log( e, "couldn't get camera roll permissions" ) );
     }
   }, [updateError] );
 

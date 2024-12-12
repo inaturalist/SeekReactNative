@@ -1,5 +1,4 @@
 import React from "react";
-import { Platform } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { createStackNavigator, CardStyleInterpolators, StackCardInterpolationProps } from "@react-navigation/stack";
@@ -10,7 +9,6 @@ import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Wikipedia from "../Species/WikipediaView";
 import ARCamera from "../Camera/ARCamera/ARCamera";
-import LegacyARCamera from "../Camera/ARCamera/LegacyARCamera";
 import ConfirmScreen from "../Camera/Gallery/ConfirmScreen";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
@@ -35,10 +33,6 @@ import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Notifications from "../Notifications/Notifications";
 import Social from "../Social/SocialScreen";
 import useAppLog from "./hooks/useAppLog";
-
-const isAndroid = Platform.OS === "android";
-const majorVersionIOS = parseInt( Platform.Version, 10 );
-const useVisionCamera = isAndroid ? Platform.Version >= 21 : majorVersionIOS >= 11;
 
 const forFade = ( { current }: StackCardInterpolationProps ) => ( { cardStyle: { opacity: current.progress } } );
 
@@ -67,11 +61,7 @@ const App = ( ) => {
           <Stack.Group screenOptions={screenOptions}>
             <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />
             <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
-            <Stack.Screen
-              name="Camera"
-              component={useVisionCamera ? ARCamera : LegacyARCamera}
-              options={verticalConfig}
-            />
+            <Stack.Screen name="Camera" component={ARCamera} options={verticalConfig} />
             <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
             <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
             <Stack.Screen name="Post" component={Post} options={defaultConfig} />

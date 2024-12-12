@@ -32,12 +32,6 @@ interface Prediction {
 
 interface Props {
   takePicture: ( ) => void;
-  ranks?: {
-    [key: string]: {
-      taxon_id: number;
-      name: string;
-    }[];
-  };
   prediction?: Prediction;
   pictureTaken: boolean;
   cameraLoaded: boolean;
@@ -49,7 +43,6 @@ const isAndroid = Platform.OS === "android";
 
 const ARCameraOverlay = ( {
   takePicture,
-  ranks,
   prediction,
   pictureTaken,
   cameraLoaded,
@@ -58,7 +51,7 @@ const ARCameraOverlay = ( {
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
-  const rankToRender = ranks ? ( Object.keys( ranks )[0] || null ) : prediction?.rank || null;
+  const rankToRender = prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
   const autoCapture = userSettings?.autoCapture;
@@ -146,7 +139,7 @@ const ARCameraOverlay = ( {
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
-      <ARCameraHeader ranks={ranks} prediction={prediction} />
+      <ARCameraHeader prediction={prediction} />
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
@@ -192,7 +185,7 @@ const ARCameraOverlay = ( {
         >
           <Image
             source={
-              ( ranks && ranks.species ) || ( prediction?.rank === "species" )
+              prediction?.rank === "species"
                 ? icons.arCameraGreen
                 : icons.arCameraButton
             }

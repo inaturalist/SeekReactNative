@@ -12,8 +12,6 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.flipper.ReactNativeFlipper
 import com.facebook.soloader.SoLoader
 
-import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage
-
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
@@ -21,7 +19,6 @@ class MainApplication : Application(), ReactApplication {
       override fun getPackages(): List<ReactPackage> =
           PackageList(this).packages.apply {
             // Packages that cannot be autolinked yet can be added manually here, for example:
-            add(INatCameraViewPackage())
           }
 
       override fun getJSMainModuleName(): String = "index"

@@ -974,8 +974,6 @@ PODS:
     - React-Core
   - react-native-image-resizer (3.0.7):
     - React-Core
-  - react-native-inat-camera (1.0.0):
-    - React
   - react-native-mail (6.1.1):
     - React-Core
   - react-native-maps (1.7.1):
@@ -1296,7 +1294,6 @@ DEPENDENCIES:
   - react-native-image-marker (from `../node_modules/react-native-image-marker`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - "react-native-image-resizer (from `../node_modules/@bam.tech/react-native-image-resizer`)"
-  - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
   - react-native-mail (from `../node_modules/react-native-mail`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
@@ -1442,8 +1439,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-picker"
   react-native-image-resizer:
     :path: "../node_modules/@bam.tech/react-native-image-resizer"
-  react-native-inat-camera:
-    :path: "../node_modules/react-native-inat-camera"
   react-native-mail:
     :path: "../node_modules/react-native-mail"
   react-native-maps:
@@ -1600,7 +1595,6 @@ SPEC CHECKSUMS:
   react-native-image-marker: 74f67720d8dad6e268f0722758120fe48f9c1eda
   react-native-image-picker: 2e2e82aba9b6a91a7c78f7d9afde341a2659c7b8
   react-native-image-resizer: 681f7607418b97c084ba2d0999b153b103040d8a
-  react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5

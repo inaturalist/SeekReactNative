@@ -4,7 +4,8 @@ import { colors } from "../../styles/global";
 
 const viewStyles = StyleSheet.create( {
   challengeList: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    paddingBottom: 23
   },
   header: {
     marginBottom: 10,

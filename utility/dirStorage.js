@@ -11,12 +11,12 @@ export const dirHome: string = Platform.select( {
 } );
 
 export const dirModel: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/${modelFiles.IOSMODEL}`,
+  ios: `${RNFS.MainBundlePath}/${modelFiles.IOSMODEL}`,
   android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDMODEL}`
 } );
 
 export const dirTaxonomy: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/${modelFiles.IOSTAXONOMY}`,
+  ios: `${RNFS.MainBundlePath}/${modelFiles.IOSTAXONOMY}`,
   android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`
 } );
 

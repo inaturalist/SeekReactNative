@@ -160,19 +160,19 @@ const ARCamera = ( ): Node => {
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
     const hasCoordinates = isNumber( image?.latitude ) && isNumber( image?.longitude );
-    await logToApi( {
+    logToApi( {
       level: "info",
       message: `hasCoordinates ${hasCoordinates}`,
       context: "takePhoto",
       errorType: errorCode?.toString() || "0"
-    } );
+    } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
-    await logToApi( {
+    logToApi( {
       level: "info",
       message: `rankLevel ${rankLevel}`,
       context: "takePhoto rankLevel",
       errorType: errorCode?.toString() || "0"
-    } );
+    } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;

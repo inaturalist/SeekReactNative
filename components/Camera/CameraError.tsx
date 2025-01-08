@@ -12,10 +12,9 @@ import { baseTextStyles } from "../../styles/textStyles";
 interface Props {
   readonly error: string;
   readonly errorEvent: string | null;
-  album?: string | null;
 }
 
-const CameraError = ( { error, errorEvent, album }: Props ) => {
+const CameraError = ( { error, errorEvent }: Props ) => {
   const { name } = useRoute();
 
   const setCameraErrorText = ( err: string, event: string ) => {
@@ -23,7 +22,7 @@ const CameraError = ( { error, errorEvent, album }: Props ) => {
 
     if ( event ) {
       errorText += `\n\n${event.toString()}`;
-    } else if ( Platform.OS === "ios" && album === null ) {
+    } else if ( Platform.OS === "ios" ) {
       const OS = getSystemVersion( );
       const majorVersionNumber = Number( OS.split( "." )[0] );
 

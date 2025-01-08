@@ -34,7 +34,10 @@ import {
   rotatePhotoPatch,
   rotationTempPhotoPatch
 } from "../../../utility/visionCameraPatches";
-import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
+import {
+  checkCameraPermissions,
+  checkSavePermissions
+} from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 // TODO: this can be imported in FrameProcessorCamera directly instead of here
 import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -459,6 +462,7 @@ const ARCamera = ( ): Node => {
             takePicture={takePicture}
             cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
+            setIsActive={setIsActive}
           />
         )
       }

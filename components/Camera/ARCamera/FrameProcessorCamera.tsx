@@ -2,18 +2,12 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import { Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import {
-  Camera,
-  CameraRuntimeError,
-  useCameraDevice,
-  useCameraFormat,
-  useFrameProcessor
-} from "react-native-vision-camera";
+import type { CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
-import * as InatVision from "vision-camera-plugin-inatvision";
 
 import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import InatVision from "./helpers/visionPluginWrapper";
 
 import {
   orientationPatch,
@@ -21,6 +15,12 @@ import {
   usePatchedRunAsync
 } from "../../../utility/visionCameraPatches";
 
+import {
+  Camera,
+  useCameraDevice,
+  useCameraFormat,
+  useFrameProcessor
+} from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
 
@@ -181,7 +181,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     tapToFocus
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
-  const [lastTimestamp, setLastTimestamp] = useState( Date.now() );
+  const [lastTimestamp, setLastTimestamp] = useState( undefined );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
@@ -219,12 +219,14 @@ const FrameProcessorCamera = ( props: Props ) => {
 
       // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
       // react-native-worklets-core documentation for what is supported in those worklets.
+      // If there is no lastTimestamp, i.e. the first time this runs do not compare
       const timestamp = Date.now();
-      const timeSinceLastFrame = timestamp - lastTimestamp;
-      if ( timeSinceLastFrame < 1000 / fps ) {
-        return;
+      if ( lastTimestamp ) {
+        const timeSinceLastFrame = timestamp - lastTimestamp;
+        if ( timeSinceLastFrame < 1000 / fps ) {
+          return;
+        }
       }
-
       patchedRunAsync( frame, () => {
         "worklet";
         try {

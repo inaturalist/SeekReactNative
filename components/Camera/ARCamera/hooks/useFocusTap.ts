@@ -7,8 +7,7 @@ import {
   GestureStateChangeEvent,
   TapGestureHandlerEventPayload
 } from "react-native-gesture-handler";
-import { Camera } from "react-native-vision-camera";
-
+import { Camera } from "../helpers/visionCameraWrapper";
 const HALF_SIZE_FOCUS_BOX = 40;
 
 interface Coordinates {

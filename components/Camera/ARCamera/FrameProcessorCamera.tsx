@@ -44,6 +44,7 @@ interface LogMessage {
 interface Props {
   cameraRef: React.RefObject<Camera>;
   modelPath: string;
+  geomodelPath: string;
   taxonomyPath: string;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
@@ -61,6 +62,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   const {
     cameraRef,
     modelPath,
+    geomodelPath,
     taxonomyPath,
     confidenceThreshold,
     filterByTaxonId,
@@ -222,7 +224,8 @@ const FrameProcessorCamera = ( props: Props ) => {
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
-            patchedOrientationAndroid
+            patchedOrientationAndroid,
+            geomodelPath,
           } );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;

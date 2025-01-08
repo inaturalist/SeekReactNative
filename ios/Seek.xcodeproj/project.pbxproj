@@ -12,8 +12,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3750FC0326CC35EF00C6F1DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */; };
-		377216512880BBF300B00213 /* optimized_model_v1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3772164F2880BBF300B00213 /* optimized_model_v1.mlmodel */; };
-		377216522880BBF300B00213 /* taxonomy_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 377216502880BBF300B00213 /* taxonomy_v1.json */; };
+		377216512880BBF300B00213 /* optimized_model_v2_13.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3772164F2880BBF300B00213 /* optimized_model_v2_13.mlmodel */; };
+		377216522880BBF300B00213 /* taxonomy_v2_13.json in Resources */ = {isa = PBXBuildFile; fileRef = 377216502880BBF300B00213 /* taxonomy_v2_13.json */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
 		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
 		37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */; };
@@ -60,8 +60,8 @@
 		15D53123BCFE4D5992B467B6 /* libRNWebGL.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNWebGL.a; sourceTree = "<group>"; };
 		3750FC0226CC35EF00C6F1DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		375C595B24491334000C16B5 /* Seek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seek-Bridging-Header.h"; sourceTree = "<group>"; };
-		3772164F2880BBF300B00213 /* optimized_model_v1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model_v1.mlmodel; sourceTree = "<group>"; };
-		377216502880BBF300B00213 /* taxonomy_v1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy_v1.json; sourceTree = "<group>"; };
+		3772164F2880BBF300B00213 /* optimized_model_v2_13.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model_v2_13.mlmodel; sourceTree = "<group>"; };
+		377216502880BBF300B00213 /* taxonomy_v2_13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy_v2_13.json; sourceTree = "<group>"; };
 		378785D6244E5B7C00D4509C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		379A071821C4328C00F176E3 /* Seek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Seek.entitlements; path = Seek/Seek.entitlements; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -228,8 +228,8 @@
 				8F91A11C2BD066F500513552 /* Lato-Medium.ttf */,
 				8F91A1162BD066F500513552 /* Lato-MediumItalic.ttf */,
 				8F91A1192BD066F500513552 /* Lato-Regular.ttf */,
-				3772164F2880BBF300B00213 /* optimized_model_v1.mlmodel */,
-				377216502880BBF300B00213 /* taxonomy_v1.json */,
+				3772164F2880BBF300B00213 /* optimized_model_v2_13.mlmodel */,
+				377216502880BBF300B00213 /* taxonomy_v2_13.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				8F91A1232BD066F500513552 /* Lato-Italic.ttf in Resources */,
 				8F1AC67B2BC1B6AD002F994B /* PrivacyInfo.xcprivacy in Resources */,
-				377216522880BBF300B00213 /* taxonomy_v1.json in Resources */,
+				377216522880BBF300B00213 /* taxonomy_v2_13.json in Resources */,
 				8F91A1222BD066F500513552 /* Lato-BoldItalic.ttf in Resources */,
 				8F91A1212BD066F500513552 /* Lato-Regular.ttf in Resources */,
 				8F91A1202BD066F500513552 /* Lato-Bold.ttf in Resources */,
@@ -467,7 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				377216512880BBF300B00213 /* optimized_model_v1.mlmodel in Sources */,
+				377216512880BBF300B00213 /* optimized_model_v2_13.mlmodel in Sources */,
 				378785D7244E5B7C00D4509C /* File.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,

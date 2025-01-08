@@ -63,25 +63,12 @@ const addCameraFilesAndroid = () => {
   } );
 };
 
-const addCameraFilesiOS = () => {
-  const copyFilesiOS = ( source, destination ) => {
-    RNFS.copyFile( source, destination ).then( ( result ) => {
-      console.log( `moved file from ${source} to ${destination}` );
-    } ).catch( ( error ) => {
-      console.log( error, `error moving file from ${source} to ${destination}` );
-    } );
-  };
-
+const checkForModelFileIOS = () => {
   RNFS.readDir( RNFS.MainBundlePath ).then( ( results ) => {
     const model = modelFiles.IOSMODEL;
-    const taxonomy = modelFiles.IOSTAXONOMY;
-
     const hasModel = results.find( ( r ) => r.name === model );
-
     if ( hasModel !== undefined ) {
       console.log( "Found model asset with filename", model );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
     } else {
       console.log( "No model asset found to copy into document directory." );
       Alert.alert(
@@ -92,12 +79,48 @@ const addCameraFilesiOS = () => {
   } );
 };
 
+const removeDeprecatedModelFilesIOS = () => {
+  // On releasing cv model 2.13 (the second one ever), we changed the app to use the model
+  // from the main bundle directly  instead of the document directory. This function removes all
+  // existing model files from the document directory.
+  RNFS.readDir( RNFS.DocumentDirectoryPath ).then( ( results ) => {
+    results.forEach( ( result ) => {
+      if ( result.name.includes( ".mlmodelc" ) || result.name.includes( "taxonomy" ) ) {
+        RNFS.unlink( `${RNFS.DocumentDirectoryPath}/${result.name}` ).then( () => {
+          console.log( "Removed deprecated model file: ", result.name );
+        } ).catch( ( error ) => {
+          console.log( error, "error removing deprecated model file" );
+        } );
+      }
+    } );
+  } );
+};
+
+const removeDeprecatedModelFilesAndroid = () => {
+  RNFS.readDir( RNFS.DocumentDirectoryPath ).then( ( results ) => {
+    results.forEach( ( result ) => {
+      if ( result.name === modelFiles.ANDROIDMODEL || result.name === modelFiles.ANDROIDTAXONOMY ) {
+        console.log( "Not removing model asset with filename", result.name );
+        return;
+      }
+      if ( result.name.includes( ".tflite" ) || result.name.includes( ".csv" ) ) {
+        RNFS.unlink( `${RNFS.DocumentDirectoryPath}/${result.name}` ).then( () => {
+          console.log( "Removed deprecated model file: ", result.name );
+        } ).catch( ( error ) => {
+          console.log( error, "error removing deprecated model file" );
+        } );
+      }
+    } );
+  } );
+};
+
 const addARCameraFiles = async () => {
-  // RNFS overwrites whatever files existed before
   if ( Platform.OS === "android" ) {
+    removeDeprecatedModelFilesAndroid();
     addCameraFilesAndroid();
   } else if ( Platform.OS === "ios" ) {
-    addCameraFilesiOS();
+    removeDeprecatedModelFilesIOS();
+    checkForModelFileIOS();
   }
 };
 

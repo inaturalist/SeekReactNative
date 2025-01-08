@@ -227,7 +227,9 @@ const ARCamera = ( ): Node => {
 
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     const wantedRanks = ["species", "genus", "family", "order", "class"];
-    const wantedPredictions = predictions.filter( p => wantedRanks.includes( p.rank ) );
+    let wantedPredictions = predictions.filter( p => wantedRanks.includes( p.rank ) );
+    const unwantedTaxa = [1044608, 1044607, 973699, 152504, 1128037];
+    wantedPredictions = wantedPredictions.filter( p => !unwantedTaxa.includes( p.taxon_id ) );
 
     dispatch( { type: "SET_PREDICTIONS", predictions: wantedPredictions } );
 

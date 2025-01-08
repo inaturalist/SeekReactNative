@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.16.5",
+  "version": "2.17.0",
   "description": "Seek by iNaturalist repo",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "ios:release": "npx react-native run-ios --device --mode Release",
     "start": "npx react-native start",
     "clean": "./scripts/clean.sh",
-    "clean-start": "npx react-native clean-project-auto && npx pod-install && npm start -- --reset-cache",
+    "clean-start": "npx react-native clean-project-auto && npx pod-install && npm run clean && npm start -- --reset-cache",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:flow": "flow check",
@@ -89,7 +89,7 @@
     "react-native-webview": "^11.26.1",
     "react-native-worklets-core": "1.3.3",
     "realm": "^12.5.1",
-    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision"
+    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#8788e6d6718a4501056bad1f9ee5dbcfd354be92"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

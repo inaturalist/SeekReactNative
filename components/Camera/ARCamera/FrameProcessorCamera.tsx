@@ -179,6 +179,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
+    console.log( "result.timeElapsed", result.timeElapsed );
     framesProcessingTime.push( timeTaken );
     if ( framesProcessingTime.length >= 10 ) {
       const avgTime = framesProcessingTime.reduce( ( a, b ) => a + b, 0 ) / 10;
@@ -217,7 +218,7 @@ const FrameProcessorCamera = ( props: Props ) => {
         try {
           const timeBefore = Date.now();
           const result = InatVision.inatVision( frame, {
-            version: "1.0",
+            version: "2.13",
             modelPath,
             taxonomyPath,
             confidenceThreshold,

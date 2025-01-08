@@ -62,6 +62,7 @@ const WarningModal = ( { closeModal }: Props ) => (
     </View>
     <View style={viewStyles.button}>
       <GreenButton
+        testID="warningContinue"
         allowFontScaling={false}
         handlePress={closeModal}
         text="onboarding.continue"

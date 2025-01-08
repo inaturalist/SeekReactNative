@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, dimensions } from "../global";
+import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
   shadow: {
@@ -11,43 +11,9 @@ const viewStyles = StyleSheet.create( {
     shadowOpacity: 1,
     shadowRadius: 3
   },
-  help: {
-    bottom: 0,
-    paddingHorizontal: 10,
-    paddingVertical: 35,
-    position: "absolute",
-    right: 62
-  },
   plantFilter: {
     bottom: 203 - 41,
     position: "absolute"
-  },
-  plantFilterSettings: {
-    bottom: 0,
-    paddingHorizontal: 10,
-    paddingVertical: 33,
-    position: "absolute",
-    left: 60
-  },
-  shutter: {
-    bottom: 0,
-    paddingHorizontal: 48,
-    paddingVertical: 18,
-    position: "absolute"
-  },
-  landscapeShutter: {
-    right: 0,
-    // really wish I could figure out how to use flex here instead of subtracting navbar + camera icon size
-    bottom: dimensions.height / 2 - 65 - 31,
-    paddingHorizontal: 22,
-    paddingVertical: 0
-  },
-  landscapeHelp: {
-    right: 0,
-    // really wish I could figure out how to use flex here instead of subtracting navbar + camera icon size
-    bottom: dimensions.height / 2 + 50,
-    paddingHorizontal: 37,
-    paddingVertical: 0
   },
   landscapeHelpBubble: {
     bottom: 26 + 65 + 18,
@@ -65,6 +31,53 @@ const viewStyles = StyleSheet.create( {
     bottom: 26 + 65 + 18,
     width: 293,
     position: "absolute"
+  },
+  cameraControlsContainer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 32,
+    paddingBottom: 31
+  },
+  cameraControlsContainerLandscape: {
+    position: "absolute",
+    right: 0,
+    top: 0,
+    bottom: 0,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 32,
+    gap: 50
+  },
+  leftControls: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 20,
+    width: 100,
+    height: 60
+  },
+  rightControls: {
+    justifyContent: "center",
+    width: 100,
+    height: 60,
+    alignItems: "center"
+  },
+  galleryButton: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 10,
+    padding: 16,
+    width: 60,
+    height: 60
   }
 } );
 
@@ -79,7 +92,15 @@ const textStyles = StyleSheet.create( {
   }
 } );
 
+const imageStyles = StyleSheet.create( {
+  gallery: {
+    height: 24,
+    width: 24
+  }
+} );
+
 export {
   viewStyles,
-  textStyles
+  textStyles,
+  imageStyles
 };

@@ -34,7 +34,10 @@ import {
   rotatePhotoPatch,
   rotationTempPhotoPatch
 } from "../../../utility/visionCameraPatches";
-import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
+import {
+  checkCameraPermissions,
+  checkSavePermissions
+} from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
@@ -457,6 +460,7 @@ const ARCamera = ( ): Node => {
             takePicture={takePicture}
             cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
+            setIsActive={setIsActive}
           />
         )
       }

@@ -1,10 +1,8 @@
-// @flow
-
 import i18n from "../i18n";
 import { colors } from "../styles/global";
 
 const renderHeaderText = ( screenType: string, rank: number ): string => {
-  let headerText;
+  let headerText : string;
 
   if ( screenType === "resighted" ) {
     headerText = "results.resighted";
@@ -28,7 +26,7 @@ const renderHeaderText = ( screenType: string, rank: number ): string => {
   return i18n.t( headerText ).toLocaleUpperCase();
 };
 
-const renderText = ( screenType: string, seenDate: ?string, image: { latitude: number } ): string => {
+const renderText = ( screenType: string, seenDate: string | null | undefined, image: { latitude: number } ): string => {
   let text: string;
 
   if ( screenType === "resighted" ) {
@@ -62,7 +60,7 @@ const setGradients = ( screenType: string ): { gradientDark: string, gradientLig
   return { gradientDark, gradientLight };
 };
 
-const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: ?string ): string => {
+const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: string | null | undefined ): string => {
   if ( !taxon ) { return "unidentified"; }
 
   const { taxaId, rank } = taxon;

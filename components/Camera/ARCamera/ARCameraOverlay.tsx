@@ -20,6 +20,7 @@ import ToastAnimation from "../../UIComponents/ToastAnimation";
 import StyledText from "../../UIComponents/StyledText";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
+import GalleryButton from "./GalleryButton";
 
 interface Prediction {
   name: string;
@@ -31,38 +32,30 @@ interface Prediction {
 
 interface Props {
   takePicture: ( ) => void;
-  ranks?: {
-    [key: string]: {
-      taxon_id: number;
-      name: string;
-    }[];
-  };
   prediction?: Prediction;
   pictureTaken: boolean;
   cameraLoaded: boolean;
   filterByTaxonId: ( taxonId: string | null, negativeFilter: boolean ) => void;
+  setIsActive: ( arg0: boolean ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
 
 const ARCameraOverlay = ( {
   takePicture,
-  ranks,
   prediction,
   pictureTaken,
   cameraLoaded,
-  filterByTaxonId
+  filterByTaxonId,
+  setIsActive
 }: Props ) => {
-  const { isLandscape, height } = useAppOrientation( );
+  const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
-  const rankToRender = ranks ? ( Object.keys( ranks )[0] || null ) : prediction?.rank || null;
+  const rankToRender = prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
   const autoCapture = userSettings?.autoCapture;
   const [filterIndex, setFilterIndex] = useState<number | null>( null );
-
-  const shutterButtonPositionLandscape = height / 2 - 65 - 31;
-  const helpButtonPositionLandscape = height / 2 + 50;
 
   const settings = useMemo( ( ) => ( [
     {
@@ -146,7 +139,7 @@ const ARCameraOverlay = ( {
   return (
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
-      <ARCameraHeader ranks={ranks} prediction={prediction} />
+      <ARCameraHeader prediction={prediction} />
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
@@ -159,43 +152,50 @@ const ARCameraOverlay = ( {
       <View style={setTaxonomicRankColorStyles( )}>
         <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>
-      {isAndroid && (
+
+      <View style={
+        isLandscape ? viewStyles.cameraControlsContainerLandscape : viewStyles.cameraControlsContainer
+      }>
+        <View style={viewStyles.leftControls}>
+          {isAndroid && (
+            <TouchableOpacity
+              accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
+              accessible
+              onPress={toggleFilterIndex}
+            >
+              <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
+            </TouchableOpacity>
+          )}
+          <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.open_help" )}
+            accessible
+            onPress={showCameraHelp}
+          >
+            <Image source={icons.cameraHelp} />
+          </TouchableOpacity>
+        </View>
+
         <TouchableOpacity
-          accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
+          accessibilityLabel={i18n.t( "accessibility.take_photo" )}
           accessible
-          onPress={toggleFilterIndex}
-          style={viewStyles.plantFilterSettings}
+          testID="takePhotoButton"
+          onPress={takePicture}
+          style={viewStyles.shadow}
+          disabled={pictureTaken}
         >
-          <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
+          <Image
+            source={
+              prediction?.rank === "species"
+                ? icons.arCameraGreen
+                : icons.arCameraButton
+            }
+          />
         </TouchableOpacity>
-      )}
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.take_photo" )}
-        accessible
-        testID="takePhotoButton"
-        onPress={takePicture}
-        style={[
-          viewStyles.shutter,
-          viewStyles.shadow,
-          isLandscape && viewStyles.landscapeShutter,
-          isLandscape && { bottom: shutterButtonPositionLandscape }
-        ]}
-        disabled={pictureTaken}
-      >
-        <Image source={( ranks && ranks.species ) || ( prediction?.rank === "species" ) ? icons.arCameraGreen : icons.arCameraButton} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.open_help" )}
-        accessible
-        onPress={showCameraHelp}
-        style={[
-          viewStyles.help,
-          isLandscape && viewStyles.landscapeHelp,
-          isLandscape && { bottom: helpButtonPositionLandscape }
-        ]}
-      >
-        <Image source={icons.cameraHelp} />
-      </TouchableOpacity>
+
+        <View style={viewStyles.rightControls}>
+          <GalleryButton setIsActive={setIsActive} />
+        </View>
+      </View>
     </>
   );
 };

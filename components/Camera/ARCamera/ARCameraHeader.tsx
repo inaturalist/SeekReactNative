@@ -22,27 +22,21 @@ interface Prediction {
 }
 
 interface Props {
-  ranks: {
-    [key: string]: {
-      taxon_id: number;
-      name: string;
-    }[];
-  };
   prediction: Prediction;
 }
 
-const ARCameraHeader = ( { ranks, prediction }: Props ) => {
+const ARCameraHeader = ( { prediction }: Props ) => {
   const { isLandscape } = useAppOrientation( );
-  const rankToRender = ranks ? Object.keys( ranks )[0] || null : prediction?.rank || null;
+  const rankToRender = prediction?.rank || null;
   const [commonName, setCommonName] = useState<string | void | null>( null );
   const settings = useFetchUserSettings( );
   const scientificNames = settings?.scientificNames;
   const showScientificName = scientificNames || !commonName;
 
-  let id = null;
+  let id: number | null = null;
 
   if ( rankToRender && !scientificNames ) {
-    id = ranks ? ranks[rankToRender][0].taxon_id : prediction?.taxon_id;
+    id = prediction?.taxon_id;
   } else {
     id = null;
   }
@@ -107,11 +101,11 @@ const ARCameraHeader = ( { ranks, prediction }: Props ) => {
     return null;
   };
 
-  const scientificName = ranks ? ranks[rankToRender][0].name : prediction?.name;
+  const scientificName = prediction?.name;
   return (
     <View style={viewStyles.header}>
-      {( ( ranks || prediction ) && rankToRender ) && (
-        <View style={setTaxonomicRankBubbleColor( )}>
+      {( prediction && rankToRender ) && (
+        <View testID="headerPrediction" style={setTaxonomicRankBubbleColor( )}>
           <View style={viewStyles.greenButton}>
             <GreenRectangle
               text={i18n.t( rankDict[rankToRender] )}

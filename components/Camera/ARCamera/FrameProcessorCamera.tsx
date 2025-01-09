@@ -12,8 +12,12 @@ import {
 import { Worklets } from "react-native-worklets-core";
 import * as InatVision from "vision-camera-plugin-inatvision";
 
-import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
-import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import {
+  useIsForeground,
+  useDeviceOrientation,
+  useLocationPermission,
+  useTruncatedUserCoords
+} from "../../../utility/customHooks";
 
 import {
   orientationPatch,
@@ -83,8 +87,8 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const { deviceOrientation } = useDeviceOrientation();
 
-  const { speciesNearby } = useSpeciesNearby( );
-  const { latitude, longitude } = speciesNearby;
+  const granted = useLocationPermission( );
+  const coords = useTruncatedUserCoords( granted );
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
@@ -205,13 +209,13 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const patchedRunAsync = usePatchedRunAsync();
   const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
-  const hasUserLocation = latitude != null && longitude != null;
+  const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
   // The vision-plugin has a function to look up the location of the user in a h3 gridded world
   // unfortunately, I was not able to run this new function in the worklets directly,
   // so we need to do this here before calling the useFrameProcessor hook.
   // For predictions from file this function runs in the vision-plugin code directly.
   const location = hasUserLocation
-    ? InatVision.lookUpLocation( { latitude, longitude } )
+    ? InatVision.lookUpLocation( coords )
     : null;
   const frameProcessor = useFrameProcessor(
     ( frame ) => {

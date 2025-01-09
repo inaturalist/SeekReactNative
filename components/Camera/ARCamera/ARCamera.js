@@ -36,7 +36,8 @@ import {
 } from "../../../utility/visionCameraPatches";
 import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
-import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
+// TODO: this can be imported in FrameProcessorCamera directly instead of here
+import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import { useDeviceOrientation } from "../../../utility/customHooks";
 import ARCameraOverlay from "./ARCameraOverlay";
@@ -422,6 +423,7 @@ const ARCamera = ( ): Node => {
     return (
       <FrameProcessorCamera
         modelPath={dirModel}
+        geomodelPath={dirGeomodel}
         taxonomyPath={dirTaxonomy}
         cameraRef={camera}
         confidenceThreshold={confidenceThresholdNumber}

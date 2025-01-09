@@ -70,7 +70,10 @@ platform :ios do
     build_app(scheme: "Seek",
            workspace: "ios/Seek.xcworkspace",
            include_bitcode: false)
-    upload_to_testflight(username: ENV["USERNAME"])
+    upload_to_testflight(username: ENV["USERNAME"],
+                        groups: [
+                          "iNat Staff Only"
+                        ])
     app_store_build_number(live: false, username: ENV["USERNAME"], app_identifier: ENV["APPLE_ID"])
     slack(
       message: "Seek iOS beta successfully deployed!",

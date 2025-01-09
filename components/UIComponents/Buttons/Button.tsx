@@ -8,7 +8,7 @@ import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/but
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-interface Props {
+interface Props extends React.ComponentPropsWithoutRef<typeof TouchableOpacity> {
   readonly color?: string | null;
   readonly handlePress: () => void;
   readonly large?: boolean;
@@ -18,6 +18,7 @@ interface Props {
 }
 
 const Button = ( {
+  testID,
   color,
   handlePress,
   large,
@@ -26,6 +27,7 @@ const Button = ( {
   login
 }: Props ) => (
   <TouchableOpacity
+    testID={testID || "button"}
     onPress={() => handlePress()}
     style={[
       viewStyles.button,

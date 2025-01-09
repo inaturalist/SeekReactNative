@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { View } from "react-native";
 import type { Node } from "react";
 
-import { viewStyles, textStyles } from "../../../styles/challenges/challengeDetails";
+import { viewStyles } from "../../../styles/challenges/challengeDetails";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import TapToLoad from "../../UIComponents/SpeciesNearby/TapToLoad";
 import GreenText from "../../UIComponents/GreenText";

@@ -2,7 +2,11 @@ import { device, element, by, waitFor } from "detox";
 
 describe( "First app start test", () => {
   beforeAll( async () => {
-    await device.launchApp( { newInstance: true, permissions: { location: "always" }, languageAndLocale: { language: "en", locale: "US" } } );
+    await device.launchApp( {
+      newInstance: true,
+      permissions: { location: "always", camera: "YES", microphone: "YES", medialibrary: "YES", photos: "YES" },
+      languageAndLocale: { language: "en", locale: "US" }
+    } );
   } );
 
   beforeEach( async () => {

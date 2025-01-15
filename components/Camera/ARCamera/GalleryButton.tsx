@@ -126,7 +126,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       return;
     }
 
-    // TODO: This was in this order in gallery image list on press but what does it do?
     setImageSelected( true );
 
     const asset = response.assets[0];

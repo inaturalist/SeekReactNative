@@ -1,5 +1,3 @@
-// @flow
-
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 
@@ -11,12 +9,17 @@ export const dirHome: string = Platform.select( {
 } );
 
 export const dirModel: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/${modelFiles.IOSMODEL}`,
+  ios: `${RNFS.MainBundlePath}/${modelFiles.IOSMODEL}`,
   android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDMODEL}`
 } );
 
+export const dirGeomodel: string = Platform.select( {
+  ios: `${RNFS.MainBundlePath}/${modelFiles.IOSGEOMODEL}`,
+  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDGEOMODEL}`
+} );
+
 export const dirTaxonomy: string = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/${modelFiles.IOSTAXONOMY}`,
+  ios: `${RNFS.MainBundlePath}/${modelFiles.IOSTAXONOMY}`,
   android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`
 } );
 

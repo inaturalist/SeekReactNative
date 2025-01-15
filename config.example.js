@@ -6,7 +6,9 @@ export default {
   redirectURI: "SEEK_APP_REDIRECT_URI",
   // Model file names for Android and iOS
   ANDROID_MODEL_FILE_NAME: "small_inception_tf1.tflite",
+  ANDROID_GEOMODEL_FILE_NAME: "small_geomodel_not_implemented",
   ANDROID_TAXONOMY_FILE_NAME: "small_export_tax.csv",
   IOS_MODEL_FILE_NAME: "small_inception_tf1.mlmodel",
+  IOS_GEOMODEL_FILE_NAME: "small_geomodel_not_implemented",
   IOS_TAXONOMY_FILE_NAME: "small_export_tax.json"
 };

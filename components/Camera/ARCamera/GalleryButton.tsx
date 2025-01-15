@@ -10,7 +10,7 @@ import {
 
 import i18n from "../../../i18n";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
-import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
+import { dirTaxonomy, dirModel, dirGeomodel } from "../../../utility/dirStorage";
 import { UserContext } from "../../UserContext";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { viewStyles } from "../../../styles/camera/arCameraOverlay";
@@ -92,11 +92,17 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     const path = uri.split( "file://" );
     const reactUri = Platform.OS === "android" ? path[1] : uri;
 
+    const hasLocation = location?.latitude != null && location?.longitude != null;
     InatVision.getPredictionsForImage( {
+      version: "2.13",
       uri: reactUri,
       modelPath: dirModel,
       taxonomyPath: dirTaxonomy,
-      version: "2.13"
+      useGeomodel: hasLocation,
+      geomodelPath: dirGeomodel,
+      location: hasLocation
+        ? location
+        : undefined
     } )
       .then( ( result ) => {
         const { predictions } = result;

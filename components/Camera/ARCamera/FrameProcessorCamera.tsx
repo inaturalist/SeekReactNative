@@ -5,7 +5,12 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
 
-import { useIsForeground, useDeviceOrientation } from "../../../utility/customHooks";
+import {
+  useIsForeground,
+  useDeviceOrientation,
+  useLocationPermission,
+  useTruncatedUserCoords
+} from "../../../utility/customHooks";
 import InatVision from "./helpers/visionPluginWrapper";
 
 import {
@@ -44,6 +49,7 @@ interface LogMessage {
 interface Props {
   cameraRef: React.RefObject<Camera>;
   modelPath: string;
+  geomodelPath: string;
   taxonomyPath: string;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
@@ -61,6 +67,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   const {
     cameraRef,
     modelPath,
+    geomodelPath,
     taxonomyPath,
     confidenceThreshold,
     filterByTaxonId,
@@ -79,6 +86,9 @@ const FrameProcessorCamera = ( props: Props ) => {
   const isForeground = useIsForeground( );
 
   const { deviceOrientation } = useDeviceOrientation();
+
+  const granted = useLocationPermission( );
+  const coords = useTruncatedUserCoords( granted );
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
@@ -199,6 +209,14 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const patchedRunAsync = usePatchedRunAsync();
   const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
+  const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
+  // The vision-plugin has a function to look up the location of the user in a h3 gridded world
+  // unfortunately, I was not able to run this new function in the worklets directly,
+  // so we need to do this here before calling the useFrameProcessor hook.
+  // For predictions from file this function runs in the vision-plugin code directly.
+  const geoModelCellLocation = hasUserLocation
+    ? InatVision.getCellLocation( coords )
+    : null;
   const frameProcessor = useFrameProcessor(
     ( frame ) => {
       "worklet";
@@ -224,7 +242,14 @@ const FrameProcessorCamera = ( props: Props ) => {
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
-            patchedOrientationAndroid
+            patchedOrientationAndroid,
+            useGeomodel: hasUserLocation,
+            geomodelPath,
+            location: {
+              latitude: geoModelCellLocation?.latitude,
+              longitude: geoModelCellLocation?.longitude,
+              elevation: geoModelCellLocation?.elevation
+            }
           } );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;
@@ -250,7 +275,9 @@ const FrameProcessorCamera = ( props: Props ) => {
       negativeFilter,
       patchedOrientationAndroid,
       lastTimestamp,
-      fps
+      fps,
+      hasUserLocation,
+      geoModelCellLocation
     ]
   );
 

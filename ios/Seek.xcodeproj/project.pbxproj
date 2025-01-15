@@ -25,6 +25,7 @@
 		8F91A1232BD066F500513552 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A11B2BD066F500513552 /* Lato-Italic.ttf */; };
 		8F91A1242BD066F500513552 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F91A11C2BD066F500513552 /* Lato-Medium.ttf */; };
 		8FAB76AC2913F2E400FBEE09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB76AE2913F2E400FBEE09 /* InfoPlist.strings */; };
+		8FB8A5702D2E8C1C0002D277 /* geomodel_v2_13.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8A56F2D2E8C1C0002D277 /* geomodel_v2_13.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		8FAB76C72913FE0700FBEE09 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8FAB76C82913FE0800FBEE09 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FAB76C92913FE0F00FBEE09 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8FB8A56F2D2E8C1C0002D277 /* geomodel_v2_13.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = geomodel_v2_13.mlmodel; sourceTree = "<group>"; };
 		8FDFD7B629572F6D00624B83 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FDFD7B72957319000624B83 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FDFD7B8295736DA00624B83 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		AE2D56F50A4845E09545597E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8FB8A56F2D2E8C1C0002D277 /* geomodel_v2_13.mlmodel */,
 				8F91A1182BD066F500513552 /* Lato-Bold.ttf */,
 				8F91A11A2BD066F500513552 /* Lato-BoldItalic.ttf */,
 				8F91A11B2BD066F500513552 /* Lato-Italic.ttf */,
@@ -467,6 +470,7 @@
 			files = (
 				377216512880BBF300B00213 /* optimized_model_v2_13.mlmodel in Sources */,
 				378785D7244E5B7C00D4509C /* File.swift in Sources */,
+				8FB8A5702D2E8C1C0002D277 /* geomodel_v2_13.mlmodel in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

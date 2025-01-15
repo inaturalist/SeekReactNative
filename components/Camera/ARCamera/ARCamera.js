@@ -36,7 +36,8 @@ import {
 } from "../../../utility/visionCameraPatches";
 import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
-import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
+// TODO: this can be imported in FrameProcessorCamera directly instead of here
+import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import { useDeviceOrientation } from "../../../utility/customHooks";
 import ARCameraOverlay from "./ARCameraOverlay";
@@ -160,19 +161,19 @@ const ARCamera = ( ): Node => {
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
     const hasCoordinates = isNumber( image?.latitude ) && isNumber( image?.longitude );
-    await logToApi( {
+    logToApi( {
       level: "info",
       message: `hasCoordinates ${hasCoordinates}`,
       context: "takePhoto",
       errorType: errorCode?.toString() || "0"
-    } );
+    } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
-    await logToApi( {
+    logToApi( {
       level: "info",
       message: `rankLevel ${rankLevel}`,
       context: "takePhoto rankLevel",
       errorType: errorCode?.toString() || "0"
-    } );
+    } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
@@ -422,6 +423,7 @@ const ARCamera = ( ): Node => {
     return (
       <FrameProcessorCamera
         modelPath={dirModel}
+        geomodelPath={dirGeomodel}
         taxonomyPath={dirTaxonomy}
         cameraRef={camera}
         confidenceThreshold={confidenceThresholdNumber}

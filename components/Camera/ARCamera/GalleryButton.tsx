@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getPredictionsForImage } from "vision-camera-plugin-inatvision";
 import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "react-native-image-picker";
 import {
@@ -19,6 +18,7 @@ import icons from "../../../assets/icons";
 import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
 import { getUnixTime } from "date-fns";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
+import InatVision from "./helpers/visionPluginWrapper";
 
 interface Props {
   setIsActive: ( arg0: boolean ) => void;
@@ -92,11 +92,11 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     const path = uri.split( "file://" );
     const reactUri = Platform.OS === "android" ? path[1] : uri;
 
-    getPredictionsForImage( {
+    InatVision.getPredictionsForImage( {
       uri: reactUri,
       modelPath: dirModel,
       taxonomyPath: dirTaxonomy,
-      version: "1.0"
+      version: "2.13"
     } )
       .then( ( result ) => {
         const { predictions } = result;

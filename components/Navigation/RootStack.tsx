@@ -7,8 +7,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import Drawer from "./SideDrawer";
 import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
-import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
+import ARCamera from "../Camera/ARCamera/ARCamera";
 import ConfirmScreen from "../Camera/Gallery/ConfirmScreen";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
@@ -61,7 +61,7 @@ const App = ( ) => {
           <Stack.Group screenOptions={screenOptions}>
             <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />
             <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
-            <Stack.Screen name="Camera" component={Camera} options={verticalConfig} />
+            <Stack.Screen name="Camera" component={ARCamera} options={verticalConfig} />
             <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
             <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
             <Stack.Screen name="Post" component={Post} options={defaultConfig} />

@@ -72,7 +72,7 @@ platform :ios do
            include_bitcode: false)
     upload_to_testflight(username: ENV["USERNAME"],
                         groups: [
-                          "iNat Staff Only"
+                          "iNat Staff"
                         ])
     app_store_build_number(live: false, username: ENV["USERNAME"], app_identifier: ENV["APPLE_ID"])
     slack(

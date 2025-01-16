@@ -200,12 +200,20 @@ const ARCamera = ( ): Node => {
   }, [navigateToResults] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
-    CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
-      .then( uri => {
+    // One quirk of CameraRoll is that if you want to write to an album, you
+    // need readwrite permission, but since version 2.17.0 we don't want to
+    // ask for that anymore, and use *add only* permission only.
+    CameraRoll.save( photo.uri, { } )
+      .then( ( uri ) => {
         logger.debug( "CameraRoll.save resolved" );
-        navigateToResults( uri, photo.predictions );
+        // A placeholder uri means we don't know the real URI, probably b/c we
+        // only had write permission so we were able to write the photo to the
+        // camera roll but not read anything about it. Keep in mind this is just
+        // a hack around a bug in CameraRoll. See our fork of @react-native-camera-roll
+        const uriForResults = ( uri && !uri.match( /placeholder/ ) ) ? uri : photo.uri;
+        navigateToResults( uriForResults, photo.predictions );
       } )
-      .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
+      .catch( ( e ) => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {

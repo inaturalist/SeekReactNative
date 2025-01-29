@@ -120,6 +120,64 @@ const setupCommonNames = ( preferredLanguage: string ) => {
           require( "./commonNames/commonNamesDict-26" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-27" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-28" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-29" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-30" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-31" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-32" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-33" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-34" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-35" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-36" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-37" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-38" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-39" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-40" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-41" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-42" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-43" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-44" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-45" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-46" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-47" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-48" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-49" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-50" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-51" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-52" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-53" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-54" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-55" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-56" ).default, seekLocale );
       } );
     } ).catch( ( err: Error ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );

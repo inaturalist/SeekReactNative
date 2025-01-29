@@ -112,8 +112,8 @@ const HomeScreen = ( ): Node => {
       <SpeciesNearby />
       <Announcements />
       <SeekYearInReviewCard />
-      <ChallengeCard />
       <Updates />
+      <ChallengeCard />
       <INatCard />
       <DonateCard />
     </ScrollNoHeader>

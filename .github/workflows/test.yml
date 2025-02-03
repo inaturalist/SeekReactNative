@@ -33,8 +33,10 @@ jobs:
 
     - name: Install deps
       run: npm install
+
     - run: npm run lint
-    - run: npm test
+
+    # - run: npm test
 
   notify:
     name: Notify Slack

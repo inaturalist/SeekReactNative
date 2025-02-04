@@ -111,7 +111,7 @@ const ARCameraHeader = ( { ranks, prediction }: Props ) => {
   return (
     <View style={viewStyles.header}>
       {( ( ranks || prediction ) && rankToRender ) && (
-        <View style={setTaxonomicRankBubbleColor( )}>
+        <View testID="headerPrediction" style={setTaxonomicRankBubbleColor( )}>
           <View style={viewStyles.greenButton}>
             <GreenRectangle
               text={i18n.t( rankDict[rankToRender] )}

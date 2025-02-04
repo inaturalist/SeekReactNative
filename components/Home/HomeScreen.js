@@ -14,6 +14,7 @@ import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
 import Announcements from "./Announcements/Announcements";
 import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./Challenges/ChallengeCard";
+import Updates from "./Updates/Updates";
 import { checkIfCardShown } from "../../utility/helpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
@@ -111,6 +112,7 @@ const HomeScreen = ( ): Node => {
       <SpeciesNearby />
       <Announcements />
       <SeekYearInReviewCard />
+      <Updates />
       <ChallengeCard />
       <INatCard />
       <DonateCard />

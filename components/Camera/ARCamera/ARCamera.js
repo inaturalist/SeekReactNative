@@ -34,9 +34,13 @@ import {
   rotatePhotoPatch,
   rotationTempPhotoPatch
 } from "../../../utility/visionCameraPatches";
-import { checkCameraPermissions, checkSavePermissions } from "../../../utility/androidHelpers.android";
+import {
+  checkCameraPermissions,
+  checkSavePermissions
+} from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
-import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
+// TODO: this can be imported in FrameProcessorCamera directly instead of here
+import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import { useDeviceOrientation } from "../../../utility/customHooks";
 import ARCameraOverlay from "./ARCameraOverlay";
@@ -160,19 +164,19 @@ const ARCamera = ( ): Node => {
     // this is also needed for ancestor screen, species nearby
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
     const hasCoordinates = isNumber( image?.latitude ) && isNumber( image?.longitude );
-    await logToApi( {
+    logToApi( {
       level: "info",
       message: `hasCoordinates ${hasCoordinates}`,
       context: "takePhoto",
       errorType: errorCode?.toString() || "0"
-    } );
+    } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
-    await logToApi( {
+    logToApi( {
       level: "info",
       message: `rankLevel ${rankLevel}`,
       context: "takePhoto rankLevel",
       errorType: errorCode?.toString() || "0"
-    } );
+    } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
@@ -196,12 +200,20 @@ const ARCamera = ( ): Node => {
   }, [navigateToResults] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
-    CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
-      .then( uri => {
+    // One quirk of CameraRoll is that if you want to write to an album, you
+    // need readwrite permission, but since version 2.17.0 we don't want to
+    // ask for that anymore, and use *add only* permission only.
+    CameraRoll.save( photo.uri, { } )
+      .then( ( uri ) => {
         logger.debug( "CameraRoll.save resolved" );
-        navigateToResults( uri, photo.predictions );
+        // A placeholder uri means we don't know the real URI, probably b/c we
+        // only had write permission so we were able to write the photo to the
+        // camera roll but not read anything about it. Keep in mind this is just
+        // a hack around a bug in CameraRoll. See our fork of @react-native-camera-roll
+        const uriForResults = ( uri && !uri.match( /placeholder/ ) ) ? uri : photo.uri;
+        navigateToResults( uriForResults, photo.predictions );
       } )
-      .catch( e => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
+      .catch( ( e ) => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
@@ -224,7 +236,9 @@ const ARCamera = ( ): Node => {
 
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
     const wantedRanks = ["species", "genus", "family", "order", "class"];
-    const wantedPredictions = predictions.filter( p => wantedRanks.includes( p.rank ) );
+    let wantedPredictions = predictions.filter( p => wantedRanks.includes( p.rank ) );
+    const unwantedTaxa = [1044608, 1044607, 973699, 152504, 1128037];
+    wantedPredictions = wantedPredictions.filter( p => !unwantedTaxa.includes( p.taxon_id ) );
 
     dispatch( { type: "SET_PREDICTIONS", predictions: wantedPredictions } );
 
@@ -420,6 +434,7 @@ const ARCamera = ( ): Node => {
     return (
       <FrameProcessorCamera
         modelPath={dirModel}
+        geomodelPath={dirGeomodel}
         taxonomyPath={dirTaxonomy}
         cameraRef={camera}
         confidenceThreshold={confidenceThresholdNumber}
@@ -455,6 +470,7 @@ const ARCamera = ( ): Node => {
             takePicture={takePicture}
             cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
+            setIsActive={setIsActive}
           />
         )
       }

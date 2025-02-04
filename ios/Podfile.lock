@@ -958,7 +958,11 @@ PODS:
   - React-Mapbuffer (0.73.8):
     - glog
     - React-debug
-  - react-native-cameraroll (5.9.0):
+  - react-native-cameraroll (7.8.3):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - react-native-exif-reader (0.4.2):
     - React-Core
   - react-native-geocoder (0.5.1):
     - React
@@ -966,10 +970,10 @@ PODS:
     - React
   - react-native-image-marker (1.2.0):
     - React-Core
+  - react-native-image-picker (7.0.2):
+    - React-Core
   - react-native-image-resizer (3.0.7):
     - React-Core
-  - react-native-inat-camera (1.0.0):
-    - React
   - react-native-mail (6.1.1):
     - React-Core
   - react-native-maps (1.7.1):
@@ -1225,7 +1229,7 @@ PODS:
   - VisionCamera/React (4.0.5):
     - React-Core
     - VisionCamera/FrameProcessors
-  - VisionCameraPluginInatVision (4.0.4):
+  - VisionCameraPluginInatVision (4.2.1):
     - React-Core
   - Yoga (1.14.0)
 
@@ -1284,11 +1288,12 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
+  - react-native-exif-reader (from `../node_modules/react-native-exif-reader`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-image-marker (from `../node_modules/react-native-image-marker`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - "react-native-image-resizer (from `../node_modules/@bam.tech/react-native-image-resizer`)"
-  - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
   - react-native-mail (from `../node_modules/react-native-mail`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
@@ -1422,16 +1427,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-camera-roll/camera-roll"
+  react-native-exif-reader:
+    :path: "../node_modules/react-native-exif-reader"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
   react-native-image-marker:
     :path: "../node_modules/react-native-image-marker"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   react-native-image-resizer:
     :path: "../node_modules/@bam.tech/react-native-image-resizer"
-  react-native-inat-camera:
-    :path: "../node_modules/react-native-inat-camera"
   react-native-mail:
     :path: "../node_modules/react-native-mail"
   react-native-maps:
@@ -1581,12 +1588,13 @@ SPEC CHECKSUMS:
   React-jsinspector: 1729acf5ffe2d4439d698da25fddf0c75d07d1a1
   React-logger: 60afd40b183e8e6642bfd0108f1a1ad360cc665e
   React-Mapbuffer: 672a9342eb75a4d0663306e94d4dfc88aee73b93
-  react-native-cameraroll: fad943a324a4d893c249cabe6d0608c807e0e58f
+  react-native-cameraroll: 0fe31282894817a82b5991dd0d78dc04c5a6ed35
+  react-native-exif-reader: fe4678df00e36e1aba6ade9013fd1d35c78c8381
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-image-marker: 74f67720d8dad6e268f0722758120fe48f9c1eda
+  react-native-image-picker: 2e2e82aba9b6a91a7c78f7d9afde341a2659c7b8
   react-native-image-resizer: 681f7607418b97c084ba2d0999b153b103040d8a
-  react-native-inat-camera: 89c20ce89c726e9a3cc5f84c6dc8f01ddc1cdcb8
   react-native-mail: 8fdcd3aef007c33a6877a18eb4cf7447a1d4ce4a
   react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5
@@ -1641,7 +1649,7 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   VisionCamera: 4c1d19f1ac09f2f42f758e306fcf642536627357
-  VisionCameraPluginInatVision: 547e06ae37d5794992c17fc93ffa9c5363ccda42
+  VisionCameraPluginInatVision: efe07e668d6919ba03ae46ce881180d457d9a863
   Yoga: 2a16e58450c48e110211dae1159fb114bbcdcfc0
 
 PODFILE CHECKSUM: 10e968d6ad2bca83e521f2b5695a4b3ffd1e8753

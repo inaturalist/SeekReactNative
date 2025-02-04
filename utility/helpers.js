@@ -3,15 +3,12 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwt from "react-native-jwt-io";
 import Realm from "realm";
-import { Alert, Platform, LogBox } from "react-native";
-import RNFS from "react-native-fs";
+import { LogBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
 
 import i18n from "../i18n";
 import config from "../config";
 import realmConfig from "../models/index";
-import { dirModel, dirTaxonomy } from "./dirStorage";
-import modelFiles from "../constants/modelFileNames";
 
 const checkForInternet = (): Promise<?string> => (
   new Promise( ( resolve ) => {
@@ -31,74 +28,6 @@ const capitalizeNames = ( name: string ): ?string => {
     .map( ( string ) => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
     .join( " " );
   return titleCaseName;
-};
-
-const addCameraFilesAndroid = () => {
-  const copyFilesAndroid = ( source, destination ) => {
-    RNFS.copyFileAssets( source, destination ).then( ( result ) => {
-      console.log( `moved file from ${source} to ${destination}` );
-    } ).catch( ( error ) => {
-      console.log( error, `error moving file from ${source} to ${destination}` );
-    } );
-  };
-
-  RNFS.readDirAssets( "camera" ).then( ( results ) => {
-    const model = modelFiles.ANDROIDMODEL;
-    const taxonomy = modelFiles.ANDROIDTAXONOMY;
-
-    const hasModel = results.find( ( r ) => r.name === model );
-
-    // Android writes over existing files
-    if ( hasModel !== undefined ) {
-      console.log( "Found model asset with filename", model );
-      copyFilesAndroid( `camera/${model}`, dirModel );
-      copyFilesAndroid( `camera/${taxonomy}`, dirTaxonomy );
-    } else {
-      console.log( "No model asset found to copy into document directory." );
-      Alert.alert(
-        i18n.t( "model.not_found_error" ),
-        i18n.t( "model.not_found_error_description" )
-      );
-    }
-  } );
-};
-
-const addCameraFilesiOS = () => {
-  const copyFilesiOS = ( source, destination ) => {
-    RNFS.copyFile( source, destination ).then( ( result ) => {
-      console.log( `moved file from ${source} to ${destination}` );
-    } ).catch( ( error ) => {
-      console.log( error, `error moving file from ${source} to ${destination}` );
-    } );
-  };
-
-  RNFS.readDir( RNFS.MainBundlePath ).then( ( results ) => {
-    const model = modelFiles.IOSMODEL;
-    const taxonomy = modelFiles.IOSTAXONOMY;
-
-    const hasModel = results.find( ( r ) => r.name === model );
-
-    if ( hasModel !== undefined ) {
-      console.log( "Found model asset with filename", model );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
-    } else {
-      console.log( "No model asset found to copy into document directory." );
-      Alert.alert(
-        i18n.t( "model.not_found_error" ),
-        i18n.t( "model.not_found_error_description" )
-      );
-    }
-  } );
-};
-
-const addARCameraFiles = async () => {
-  // RNFS overwrites whatever files existed before
-  if ( Platform.OS === "android" ) {
-    addCameraFilesAndroid();
-  } else if ( Platform.OS === "ios" ) {
-    addCameraFilesiOS();
-  }
 };
 
 const shuffleList = ( list: Array<Object> ): Array<Object> => {
@@ -226,7 +155,6 @@ const hideLogs = () => {
 };
 
 export {
-  addARCameraFiles,
   capitalizeNames,
   checkIfFirstLaunch,
   checkIfCardShown,

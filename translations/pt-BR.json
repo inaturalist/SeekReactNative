@@ -568,7 +568,7 @@
     "seek_designed_by": "A Seek é projetada e desenvolvida pela equipe do iNaturalist:",
     "joint_initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society.",
     "support_from": "A Seek foi originalmente criada com o apoio da Academia de Ciências da Califórnia, a Sociedade Geográfica Nacional, Nosso Planeta da Netflix, WWF, HHMI Tangled Bank Studios e Visipedia.",
-    "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Michelle Vryn, Jason Walthall e Jane Weeden. Agradecimentos especiais para Grant Van Horn da Visipedia por ajudar com a tecnologia de visão computacional e para a comunidade iNaturalist.",
+    "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Joanne Lin, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Kirk van Gorkom, Jason Walthall e Jane Weeden. Agradecimento especial para Grant Van Horn da Visipedia por ajudar com a tecnologia de visão computacional e a comunidade iNaturalist.",
     "version": "Versão",
     "help": "Para receber ajuda com o Seek, por favor envie um e-mail para help+seek@inaturalist.org.",
     "translators": "Agradecemos pela assistência de tradução proporcionada pela comunidade crowdin.com, em particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch e Yulia Lygina.",
@@ -967,7 +967,7 @@
   "seek_2024_challenges": {
     "january_2024_challenge_name_neighborhood": "Desafio do Bairro",
     "february_2024_challenge_name_life_in_flight": "Desafio Vida em Voo",
-    "march_2024_challenge_name_stewardship": "Desafio \"Stewardship\"",
+    "march_2024_challenge_name_stewardship": "Desafio de Cuidado Ambiental",
     "march_2024_description_stewardship": "Todos podem ter um impacto positivo na biodiversidade! Pode-se defender a vida selvagem num lugar como o seu quintal, uma área protegida ou um parque local. A proteção da natureza começa por notar as plantas, os fungos e os animais nos lugares em que você se importa. Procure por diferentes espécies ao longo da árvore da vida.",
     "march_2024_action_stewardship": "Pense em uma espécie que você encontrou este mês. O que ela precisa para sobreviver? O que é uma coisa que você pode fazer para garantir que as suas necessidades sejam atendidas?",
     "april_2024_challenge_name_coexistence": "Desafio da Coexistência",

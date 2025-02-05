@@ -1,46 +1,144 @@
+const { DownloaderHelper } = require( "node-downloader-helper" );
 const fs = require( "fs" ).promises;
 const path = require( "path" );
-const download = require( "download" );
+const yargs = require( "yargs" );
 
-const modelURL
-  = "https://github.com/inaturalist/SeekReactNative/releases/download/v2.9.1-138/small_model.zip";
+const binariesBaseDir =
+  "https://github.com/inaturalist/model-files/releases/download/v25.01.15";
 
-const modelPath = path.join( __dirname, "..", "temp", "model" );
-const examplePath = path.join( modelPath, "tf1 2" );
-const androidModelFile = "small_inception_tf1.tflite";
-const androidTaxonomyFile = "small_export_tax.csv";
-const iosModelFile = "small_inception_tf1.mlmodel";
-const iosTaxonomyFile = "small_export_tax.json";
-const androidModelPath = path.join( examplePath, androidModelFile );
-const androidTaxonomyPath = path.join( examplePath, androidTaxonomyFile );
-const iosModelPath = path.join( examplePath, iosModelFile );
-const iosTaxonomyPath = path.join( examplePath, iosTaxonomyFile );
+const androidExt = "tflite";
+const iosExt = "mlmodel";
+const cvModelFilename = "INatVision_Small_2_fact256_8bit";
+const geomodelFilename = "INatGeomodel_Small_2_8bit";
 
-const androidDestinationPath
-  = path.join( __dirname, "..", "android", "app", "src", "debug", "assets", "camera" );
-const iosDestinationPath = path.join( __dirname, "..", "ios" );
+const androidCV = `${binariesBaseDir}/${cvModelFilename}.${androidExt}`;
+const iosCV = `${binariesBaseDir}/${cvModelFilename}.${iosExt}`;
+const androidGeo = `${binariesBaseDir}/${geomodelFilename}.${androidExt}`;
+const iosGeo = `${binariesBaseDir}/${geomodelFilename}.${iosExt}`;
+const taxonomyCSV = `${binariesBaseDir}/taxonomy.csv`;
+const taxonomyJSON = `${binariesBaseDir}/taxonomy.json`;
 
-( async () => {
-  console.log( `Downloading example model from '${modelURL}'...` );
-  await download( modelURL, modelPath, {
-    extract: true
-  } );
-  console.log( "Downloaded!" );
-
-  console.log( "Copying model files to assets folder..." );
-  await fs.mkdir( androidDestinationPath, { recursive: true } );
-  await fs.copyFile( androidModelPath, path.join( androidDestinationPath, androidModelFile ) );
-  await fs.copyFile(
-    androidTaxonomyPath,
-    path.join( androidDestinationPath, androidTaxonomyFile )
+const downloadAndroid = async ( argv ) => {
+  const androidFlavor = argv.androidFlavor || "debug";
+  const androidDestination = path.join(
+    __dirname,
+    "..",
+    "android",
+    "app",
+    "src",
+    androidFlavor,
+    "assets",
+    "camera"
   );
 
-  await fs.mkdir( iosDestinationPath, { recursive: true } );
-  await fs.copyFile( iosModelPath, path.join( iosDestinationPath, iosModelFile ) );
-  await fs.copyFile( iosTaxonomyPath, path.join( iosDestinationPath, iosTaxonomyFile ) );
+  const androidModel = path.join(
+    androidDestination,
+    `${cvModelFilename}.${androidExt}`
+  );
 
-  console.log( "Delete temp model folder and its contents..." );
-  await fs.rm( modelPath, { recursive: true } );
+  console.log( "Checking android model files..." );
+  let exist = true;
+  try {
+    await fs.access( androidModel );
+  } catch ( _ ) {
+    exist = false;
+  }
 
-  console.log( "Done!" );
-} )();
+  if ( exist ) {
+    console.log( "Android model exist!" );
+    return;
+  }
+
+  console.log(
+    `Android model files missing, downloading from '${binariesBaseDir}'...`
+  );
+
+  await fs.mkdir( androidDestination, { recursive: true } );
+
+  const dl = new DownloaderHelper( androidCV, androidDestination );
+  dl.on( "end", () => console.log( "Download Completed" ) );
+  dl.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded!" );
+  const dl2 = new DownloaderHelper( androidGeo, androidDestination );
+  dl2.on( "end", () => console.log( "Download Completed" ) );
+  dl2.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl2.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded!" );
+  const dl3 = new DownloaderHelper( taxonomyCSV, androidDestination );
+  dl3.on( "end", () => console.log( "Download Completed" ) );
+  dl3.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl3.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded!" );
+
+  console.log( "Android done!" );
+};
+
+const downloadIOS = async () => {
+  const iosDestination = path.join( __dirname, "..", "ios" );
+
+  const iosModel = path.join( iosDestination, `${cvModelFilename}.${iosExt}` );
+
+  console.log( "Checking ios model files..." );
+  let exist = true;
+  try {
+    await fs.access( iosModel );
+  } catch ( _ ) {
+    exist = false;
+  }
+
+  if ( exist ) {
+    console.log( "ios model exist!" );
+    return;
+  }
+
+  console.log(
+    `iOS Model files missing, downloading from '${binariesBaseDir}'...`
+  );
+
+  await fs.mkdir( iosDestination, { recursive: true } );
+
+  const dl = new DownloaderHelper( iosCV, iosDestination, {
+    fileName: "optimized_model_v2_13.mlmodel"
+  } );
+  dl.on( "end", () => console.log( "Download Completed" ) );
+  dl.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded!" );
+  const dl2 = new DownloaderHelper( iosGeo, iosDestination, {
+    fileName: "geomodel_v2_13.mlmodel"
+  } );
+  dl2.on( "end", () => console.log( "Download Completed" ) );
+  dl2.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl2.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded!" );
+  const dl3 = new DownloaderHelper( taxonomyJSON, iosDestination, {
+    fileName: "taxonomy_v2_13.json"
+  } );
+  dl3.on( "end", () => console.log( "Download Completed" ) );
+  dl3.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl3.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded!" );
+
+  console.log( "iOS done!" );
+};
+
+
+yargs
+  .usage( "Usage: $0 [args]" )
+  .option( "androidFlavor", {
+    alias: "f",
+    type: "string",
+    description: "Android flavor to download model files into"
+  } )
+  .command(
+    "$0",
+    "Download example model files if not present",
+
+    () => {},
+    async ( argv ) => {
+      await downloadAndroid( argv );
+      await downloadIOS();
+    }
+  )
+  .help().argv;

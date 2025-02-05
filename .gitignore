@@ -82,7 +82,6 @@ small_export_tax.csv
 ios/*.json
 small_export_tax.json
 *.mlmodel
-utility/common-names.json
 utility/commonNames/*
 
 #realm

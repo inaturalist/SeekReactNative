@@ -77,8 +77,8 @@ const downloadAndroid = async ( argv ) => {
 
 const downloadIOS = async () => {
   const iosDestination = path.join( __dirname, "..", "ios" );
-
-  const iosModel = path.join( iosDestination, `${cvModelFilename}.${iosExt}` );
+  const iosModelFilename = "optimized_model_v2_13.mlmodel";
+  const iosModel = path.join( iosDestination, iosModelFilename );
 
   console.log( "Checking ios model files..." );
   let exist = true;
@@ -100,7 +100,7 @@ const downloadIOS = async () => {
   await fs.mkdir( iosDestination, { recursive: true } );
 
   const dl = new DownloaderHelper( iosCV, iosDestination, {
-    fileName: "optimized_model_v2_13.mlmodel"
+    fileName: iosModelFilename
   } );
   dl.on( "end", () => console.log( "Download Completed" ) );
   dl.on( "error", ( err ) => console.log( "Download Failed", err ) );

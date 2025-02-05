@@ -14,10 +14,12 @@
 1. Go to `android/app/src/main/res/values` and rename `config.example.xml` to `config.xml` (and change its values to match your API keys)
 2. Rename `config.example.js` to `config.js` and change the JWT secret.
 3. Add AR Camera model and taxonomy files.
-    1. The sample model files are available in this [`small_model.zip`](https://github.com/inaturalist/SeekReactNative/releases/tag/v2.9.1-138) file.
-    2. On Android, these files are named `small_inception_tf1.tflite` and `small_export_tax.csv`. Create a camera folder within Android assets (i.e. `android/app/src/debug/assets/camera`) and place the files there. 
-    3. On iOS, these files are named `small_inception_tf1.mlmodel` and `small_export_tax.json` and should be added to the Resources folder in XCode.
-4. Add files to `utility/commonNames` to allow the AR camera to load common names in localized languages. The latest files are attached assets named `commonNames.tar.gz` in the [latest Seek release page](https://github.com/inaturalist/SeekReactNative/releases).
+    1. Add the example model files by executing `npm run add-example-model`. If that does not work continue with the next steps.
+    1. If the download script fails: The sample model files are available in the latest release in this [`repository`](https://github.com/inaturalist/model-files).
+    1. On Android, these files are named `INatVision_Small_2_fact256_8bit.tflite`, `INatGeomodel_Small_2_8bit.tflite` and `taxonomy.csv`. Create a camera folder within Android assets (i.e. `android/app/src/debug/assets/camera`) and place the files there.
+    1. On iOS, these files are named `smallINatVision_Small_2_fact256_8bit.mlmodel`, `INatGeomodel_Small_2_8bit.mlmodel` and `taxonomy.json`, but need to be renamed to `optimized_model_v2_13.mlmodel`, `geomodel_v2_13.mlmodel` and `taxonomy_v2_13.json`, respectively, and should be added to the Resources folder in XCode.
+    1. Unzip the common names file `commonNames.tar.gz` into `utility/commonNames` to allow the AR camera to load common names in localized languages.
+    1. Copy `commonNamesIndex.example` from the utility directory to a new index.ts file into the new directory `utility/commonNames`.
 5. For Fastlane, add `.env` file and corresponding JSON_KEY_ANDROID file, following example in `.env.example`.
 6. Add `local.properties` file to `android` folder with correct sdk path to build on an Android device.
 

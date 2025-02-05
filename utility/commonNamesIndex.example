@@ -1,0 +1,9 @@
+const commonNames0: [] = require( "./commonNamesDict-0" ).default;
+const commonNames1: [] = require( "./commonNamesDict-1" ).default;
+const commonNames2: [] = require( "./commonNamesDict-2" ).default;
+
+export default {
+  commonNames0,
+  commonNames1,
+  commonNames2
+};

@@ -26,6 +26,11 @@
     "new_join": "Voeg waarnemings met die Seek Kamera by om die Uitdaging-kenteken te verdien!",
     "inat_admin": "iNat-admins: dankie dat u Seek toets! U sien die nuutste iNat-uitdaging voor die begin van die maand, vir toetsdoeleindes."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "PLAAS OP INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "aan",
     "off": "af",
     "scan": "Hou voortdurend die omgewing dop vir organismes om te identifiseer!",
@@ -377,8 +381,7 @@
     "error_save": "Kon nie foto stoor nie."
   },
   "gallery": {
-    "label": "Foto’s",
-    "photo_library": "Fotobiblioteek"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek-kamera",
@@ -650,6 +653,7 @@
     "back": "Gaan terug na vorige skerm",
     "user_location": "Keer terug na u huidige ligging",
     "open_help": "Open kamerahulpskerm",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Open hulpskerm vir plasing op iNaturalist",
     "take_photo": "Neem foto",
     "scroll_left": "Skuif na links",

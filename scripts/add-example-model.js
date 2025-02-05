@@ -163,7 +163,14 @@ const downloadCommonNames = async () => {
     } )
     .catch( ( error ) => console.log( error ) );
 
-  console.log( "Common names done!" );
+  console.log( "Common names extracted!" );
+
+  // Copy example index file to the new common names folder
+  const utility = path.join( __dirname, "..", "utility" );
+  const exampleIndex = path.join( utility, "commonNamesIndex.example" );
+  const index = path.join( destination, "index.ts" );
+  await fs.copyFile( exampleIndex, index );
+
 };
 
 yargs

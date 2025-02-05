@@ -2,6 +2,7 @@ const { DownloaderHelper } = require( "node-downloader-helper" );
 const fs = require( "fs" ).promises;
 const path = require( "path" );
 const yargs = require( "yargs" );
+const Decompress = require( "decompress" );
 
 const binariesBaseDir =
   "https://github.com/inaturalist/model-files/releases/download/v25.01.15";
@@ -123,6 +124,47 @@ const downloadIOS = async () => {
   console.log( "iOS done!" );
 };
 
+const downloadCommonNames = async () => {
+  const zipName = "commonNames.tar.gz";
+  const destination = path.join( __dirname, "..", "utility", "commonNames" );
+  const zipPath = path.join( destination, zipName );
+
+  const commonNamesDict0 = path.join( destination, "commonNamesDict-0.js" );
+
+  console.log( "Checking if common names file 0 exists ..." );
+  let exist = true;
+  try {
+    await fs.access( commonNamesDict0 );
+  } catch ( _ ) {
+    exist = false;
+  }
+
+  if ( exist ) {
+    console.log( "Common names file 0 exists!" );
+    return;
+  }
+
+  console.log( `Common names file missing, downloading from '${binariesBaseDir}'...` );
+
+  await fs.mkdir( destination, { recursive: true } );
+
+  const dl = new DownloaderHelper(
+    `${binariesBaseDir}/${zipName}`,
+    destination
+  );
+  dl.on( "end", () => console.log( "Download Completed" ) );
+  dl.on( "error", ( err ) => console.log( "Download Failed", err ) );
+  await dl.start().catch( ( err ) => console.error( err ) );
+  console.log( "Downloaded! Start unzipping." );
+
+  await Decompress( zipPath, destination )
+    .then( () => {
+      console.log( "Done Unzipping!" );
+    } )
+    .catch( ( error ) => console.log( error ) );
+
+  console.log( "Common names done!" );
+};
 
 yargs
   .usage( "Usage: $0 [args]" )
@@ -139,6 +181,7 @@ yargs
     async ( argv ) => {
       await downloadAndroid( argv );
       await downloadIOS();
+      await downloadCommonNames();
     }
   )
   .help().argv;

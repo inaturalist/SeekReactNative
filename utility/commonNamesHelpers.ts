@@ -16,10 +16,10 @@ const getTaxonCommonName = ( taxonID?: number ) => (
       // one locale; we could solve this by deleting the realm database each time
       // the app loads or including this searchLocale parameter
       const searchLocale = localeNoHyphens( ( i18n.locale ) );
-        // look up common names for predicted taxon in the current locale
-        const commonNames = realm.objects( "CommonNamesRealm" )
-          .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
-      resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
+      // look up common names for predicted taxon in the current locale
+      const commonNamesRealm = realm.objects( "CommonNamesRealm" )
+        .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
+      resolve( commonNamesRealm.length > 0 ? capitalizeNames( commonNamesRealm[0].name ) : null );
     } ).catch( ( err: Error ) => {
       console.log( "[DEBUG] Failed to open realm, error: ", err );
       reject( );

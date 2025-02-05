@@ -26,6 +26,11 @@
     "new_join": "Přidejte pozorování pomocí Seek fotoaparátu a získejte Odznak výzvy!",
     "inat_admin": "Správci iNat: děkujeme za testování Seeku! Pro testovací účely vidíte nejnovější výzvu iNat ještě před začátkem měsíce."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "NAHRÁT DO INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Fotoaparát",
     "on": "zapnuto",
     "off": "vypnuto",
     "scan": "Skenujte organismy pro jejich identifikaci!",
@@ -377,8 +381,7 @@
     "error_save": "Fotku nelze uložit."
   },
   "gallery": {
-    "label": "Fotografie",
-    "photo_library": "Knihovna fotografií"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek fotoaparát",
@@ -650,6 +653,7 @@
     "back": "Vrátit se na předchozí obrazovku",
     "user_location": "Zpět na vaši aktuální polohu",
     "open_help": "Otevřít nápovědu k fotoaparátu",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Otevřít nápovědu k publikování na iNaturalist",
     "take_photo": "Klepnutím pořídíte fotografii",
     "scroll_left": "Klepnutím posuňte vlevo",

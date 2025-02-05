@@ -26,6 +26,11 @@
     "new_join": "Adăugați observații cu Camera Seek pentru a câștiga insigna Provocării!",
     "inat_admin": "iNat admins: mulțumim pentru că ați testat Seek! În prezent, vedeți cea mai recentă provocare iNat înainte de începutul lunii, cu scopul testării."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTAȚI PE INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Camera",
     "on": "on",
     "off": "off",
     "scan": "Continuă scanarea mediului pentru a identifica organismele!",
@@ -377,8 +381,7 @@
     "error_save": "Fotografia nu a putut fi salvată."
   },
   "gallery": {
-    "label": "Fotografii",
-    "photo_library": "Galerie Foto"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Camera Seek",
@@ -650,6 +653,7 @@
     "back": "Revenire la ecranul anterior",
     "user_location": "Revenire la locația ta actuală",
     "open_help": "Deschide ecranul de ajutor al camerei",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Deschide ecranul de ajutor pentru postare pe iNaturalist",
     "take_photo": "Atinge pentru a face o fotografie",
     "scroll_left": "Atinge pentru derulare la stânga",

@@ -27,9 +27,9 @@
     "inat_admin": "iNat 管理員：感謝您測試 Seek！您將在下個月之前看到最新的 iNat 挑戰以進行測試。"
   },
   "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+    "header": "Seek 更新",
+    "updated_id_model": "我們更新識辨識型了！",
+    "over_x_species": "現在最新版本的 Seek 可以辨識 80,000 種以上的物種了！"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "張貼到 INATURALIST ",
@@ -381,7 +381,7 @@
     "error_save": "無法儲存照片。"
   },
   "gallery": {
-    "import_photos_from": "Import Photos From"
+    "import_photos_from": "匯入照片"
   },
   "camera_help": {
     "title": "Seek 的相機",
@@ -653,7 +653,7 @@
     "back": "回到前一頁面",
     "user_location": "回到您目前的位置",
     "open_help": "開啟相機輔助介面",
-    "open_gallery": "Open photo gallery",
+    "open_gallery": "開啟照片長廊",
     "open_posting_help": "開啟張貼到 iNaturalist 的說明畫面",
     "take_photo": "點擊拍照",
     "scroll_left": "向左滑動",

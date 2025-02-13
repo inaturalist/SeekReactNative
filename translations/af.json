@@ -27,9 +27,9 @@
     "inat_admin": "iNat-admins: dankie dat u Seek toets! U sien die nuutste iNat-uitdaging voor die begin van die maand, vir toetsdoeleindes."
   },
   "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+    "header": "Seek Opdaterings",
+    "updated_id_model": "Ons het ons Identifiseringsmodel opdateer!",
+    "over_x_species": "U kan nou meer as 80 000 spesies identifiseer met die nuutste weergawe van Seek!"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PLAAS OP INATURALIST",
@@ -381,7 +381,7 @@
     "error_save": "Kon nie foto stoor nie."
   },
   "gallery": {
-    "import_photos_from": "Import Photos From"
+    "import_photos_from": "Trek Foto's in Vanaf"
   },
   "camera_help": {
     "title": "Seek-kamera",
@@ -571,7 +571,7 @@
     "seek_designed_by": "Seek is ontwerp & ontwikkel deur die iNaturalist-span:",
     "joint_initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap.",
     "support_from": "Seek is oorpronklik geskep met ondersteuning van die California Academy of Sciences, die National Geographic Society, Our Planet op Netflix, WWF, HHMI Tangled Bank Studios, en Visipedia.",
-    "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Joanne Lin, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Kirk van Gorkom, Jason Walthall, and Jane Weeden. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Joanne Lin, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Kirk van Gorkom, Jason Walthall, en Jane Weeden. Spesiaal dankie aan Grant Van Horn van Visipedia vir hulp met die rekenaarvisie-tegnologie, en die iNaturalist gemeenskap.",
     "version": "Weergawe",
     "help": "Stuur ’n e-pos aan help+seek@inaturalist.org vir hulp met Seek.",
     "translators": "Ons is dankbaar vir die vertalingsbystand wat deur die crowdin.com-gemeenskap gebied is, in besonder: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch en Yulia Lygina.",
@@ -653,7 +653,7 @@
     "back": "Gaan terug na vorige skerm",
     "user_location": "Keer terug na u huidige ligging",
     "open_help": "Open kamerahulpskerm",
-    "open_gallery": "Open photo gallery",
+    "open_gallery": "Maak fotogallery oop",
     "open_posting_help": "Open hulpskerm vir plasing op iNaturalist",
     "take_photo": "Neem foto",
     "scroll_left": "Skuif na links",
@@ -949,7 +949,7 @@
     "april_2023_description_nature": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns, and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.",
     "april_2023_action_nature": "Seek out plants, fungi, bugs, birds, and animals. Watch out for signs of more elusive life – scat (poo), fur, nests, tracks, and webs can all give clues to other creatures that share your home.",
     "may_2023_challenge_name_protected_areas": "Beskermde Areas-Uitdaging",
-    "may_2023_description_protected_areas": "From the deepest forest to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
+    "may_2023_description_protected_areas": "Van die diepste bos tot die kleinste park deel ons ons planeet met ’n ongelooflike verskeidenheid van lewende wesens, elk aangepas tot die spesifieke omgewing waarin hulle leef. Soek ’n lokale natuurkern en kyk hoeveel verskillende lewende wesens u kan vind. Ondertussen leer u welke eienskappe hierdie verskillende groepe van organismes het!",
     "june_2023_challenge_name_plant_eaters": "Plantvreters-uitdaging",
     "june_2023_action": "Watter tipe plante eet u? Watter dele van die plant kom hulle van? Watter tipe diere hou ook daarvan om die daardie plante te eet?",
     "july_2023_challenge_name_food_web": "Voedselweb-uitdaging",
@@ -963,7 +963,7 @@
     "october_2023_description_migration": "Millions of birds migrate from one country to another to escape cold weather and to find food. Keeping track of when wildlife migrates can help us understand how climate change is affecting the natural world. Seek birds visiting your local area and find out where else they spend their time.",
     "october_2023_action_migration": "Birds need fuel for the long journeys they take to migrate. You can support their food needs by advocating for protected areas and the use of native trees and shrubs in landscaping that provide berries and roosts for visiting birds.",
     "november_2023_challenge_name_trees": "Boom-uitdaging",
-    "november_2023_description_trees": "Humans rely on trees and forests for clean air, food, shelter, and wood. They take in carbon from the air and lock it away in their wood or the soil. Spending time among trees makes us feel better in mind and body. We need them now even more than ever, and so do a huge number of other living things. Seek out the trees in your local area and feel the benefits for yourself!",
+    "november_2023_description_trees": "Mense maak staat op bome en woude vir skoon lug, kos, skuiling en hout. Hulle neem koolstof vanuit die lug op en bêre dit in hulle hout of in die grond. Deur tyd by die bome te spandeer voel ons liggaam en siel beter. Ons benodig hulle nou meer as ooit, net soos ’n groot aantal ander lewende wesens. Soek die bome in u plaaslike area op en voel self die voordele!",
     "november_2023_action_trees": "Het u 'n gunsteling tipe boom, of self 'n gunsteling individuele boom? Lees daaroor op. In watter maniere vind mense baat daarby? Hoe baat dit ander plante of diere?",
     "december_2023_challenge_name_ecology": "Ekologie-uitdaging",
     "december_2023_description_ecology": "Klomp verskillende interaksies beïnvloed ekosisteme en hul organismes. Ekologie is die studie van organismes (bioties) en hul fisise omgewing (abioties). Biotiese interaksies vind plaas tussen lewende dinge, en abiotiese interaksies sluit nie-lewende faktore in soos temperatuur, water, lig en die grond."

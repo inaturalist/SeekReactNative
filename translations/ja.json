@@ -26,6 +26,11 @@
     "new_join": "Seekカメラで観察してチャレンジバッジを獲得しましょう！",
     "inat_admin": "iNat 管理者:Seekをテストしていただきありがとうございます！テスト用に月が始まる前ですが最新のiNatチャレンジをご覧いただいています。"
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALISTに投稿する",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "カメラ",
     "on": "オン",
     "off": "オフ",
     "scan": "周りを見渡して、判定する生き物を探し続けて！",
@@ -377,8 +381,7 @@
     "error_save": "写真を保存できませんでした。"
   },
   "gallery": {
-    "label": "写真",
-    "photo_library": "フォトライブラリ"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seekのカメラ",
@@ -650,6 +653,7 @@
     "back": "戻る",
     "user_location": "現在地に戻る",
     "open_help": "カメラのヘルプ画面を開く",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "タップして写真を撮れます。",
     "scroll_left": "タップすると、左へスクロールできます。",

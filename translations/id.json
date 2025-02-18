@@ -26,6 +26,11 @@
     "new_join": "Tambahkan pengamatan dengan Kamera Seek untuk mendapatkan lencana Tantangan!",
     "inat_admin": "Pengelola iNat: terima kasih sudah mencoba Seek! Kamu sedang melihat tantangan iNat terbaru sebelum awal bulan sebagai percobaan."
   },
+  "updates_card": {
+    "header": "Berita Seek",
+    "updated_id_model": "Kami telah memperbarui Model Identifikasi kami!",
+    "over_x_species": "Kamu sekarang bisa mengidentifikasi lebih dari 80.000 spesies di versi terbaru Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "UNGGAH POSTINGAN KE INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "nyala",
     "off": "mati",
     "scan": "Teruslah memindai lingkungan hingga mendapatkan organisme untuk diidentifikasi!",
@@ -377,8 +381,7 @@
     "error_save": "Tidak dapat menyimpan foto."
   },
   "gallery": {
-    "label": "Foto",
-    "photo_library": "Perpustakaan Foto"
+    "import_photos_from": "Impor Gambar Dari"
   },
   "camera_help": {
     "title": "Kamera Seek",
@@ -650,6 +653,7 @@
     "back": "Kembali ke layar sebelumnya",
     "user_location": "Kembali ke lokasimu saat ini",
     "open_help": "Buka layar bantuan kamera",
+    "open_gallery": "Buka galeri foto",
     "open_posting_help": "Buka postingan ke layar bantuan iNaturalist",
     "take_photo": "Ambil foto",
     "scroll_left": "Gulirkan ke kiri",

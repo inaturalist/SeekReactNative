@@ -26,6 +26,11 @@
     "new_join": "Tee havaintoja Seek-kameralla ansaitaksesi Haaste-merkin!",
     "inat_admin": "iNat ylläpito: kiitos, että olet kokeillut Seekiä! Näet uusimmat iNat-haasteet ennen kuukauden alkua testausta varten."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "LÄHETÄ INATURALISTIIN",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "päällä",
     "off": "pois",
     "scan": "Jatka ympäristön skannausta eliöiden tunnistamiseksi! ",
@@ -377,8 +381,7 @@
     "error_save": "Kuvan tallentaminen epäonnistui."
   },
   "gallery": {
-    "label": "Kuvat",
-    "photo_library": "Kuvagalleria"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seekin kamera",
@@ -650,6 +653,7 @@
     "back": "Palaa edelliseen näyttöön",
     "user_location": "Palaa takaisin nykyiseen sijaintiisi",
     "open_help": "Avaa kameran ohjenäyttö",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Avaa iNaturalistiin lähetys -ohjesivu",
     "take_photo": "Napsauta ottaaksesi kuvan",
     "scroll_left": "Napsauta vierittääksesi vasemmalle",

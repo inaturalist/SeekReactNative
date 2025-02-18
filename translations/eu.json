@@ -26,6 +26,11 @@
     "new_join": "Gehitu behaketak Seek Kamerarekin Erronka txapa irabazteko!",
     "inat_admin": "iNat admins: mila esker Seek aztertzeagatik! Ikusten ari zarete azke iNat erronka, inor baino lehenago, eta hilabete hasieran azterketak egiten guztiei ematen zaien aukera zabaldu baino lehenago."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "BIDALI MEZUA iNATURALIST horretara",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "piztu",
     "off": "itzali",
     "scan": "Jarraitu zure ingurunea eskaneatzen identifikatu daitezkeen organismo berrien bila!",
@@ -377,8 +381,7 @@
     "error_save": "Ezin izan da argazkia gorde."
   },
   "gallery": {
-    "label": "Argazkiak",
-    "photo_library": "Argazki Liburutegia"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek Kamera",
@@ -650,6 +653,7 @@
     "back": "Aurreko pantailara joan",
     "user_location": "Zure uneko kokalekura itzuli",
     "open_help": "Ireki kameraren laguntza-pantaila",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Ireki Inaturalist-era publikatzeko laguntza-pantaila",
     "take_photo": "Ukitu argazkia egiteko",
     "scroll_left": "Ukitu ezkerrera mugitzeko",

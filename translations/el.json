@@ -26,6 +26,11 @@
     "new_join": "Προσθέστε παρατηρήσεις με την κάμερα Seek για να κερδίσετε το έμβλημα Πρόκλησης!",
     "inat_admin": "iNat admins: Ευχαριστούμε για τη δοκιμή του Seek! Βλέπετε την τελευταία πρόκληση iNat πριν από την έναρξη του μήνα για δοκιμαστικούς σκοπούς."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "ΑΝΑΡΤΗΣΤΕ ΣΤΟ iNATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Κάμερα",
     "on": "Ενεργό",
     "off": "Ανενεργό",
     "scan": "Συνεχίστε να σαρώνετε το περιβάλλον για οργανισμούς να ταυτοποιήσετε!",
@@ -377,8 +381,7 @@
     "error_save": "Could not save photo."
   },
   "gallery": {
-    "label": "Φωτογραφίες",
-    "photo_library": "Βιβλιοθήκη φωτογραφιών"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Κάμερα Του Seek",
@@ -650,6 +653,7 @@
     "back": "Μετάβαση πίσω στην προηγούμενη οθόνη",
     "user_location": "Επιστρέψτε στην τρέχουσα τοποθεσία σας",
     "open_help": "Άνοιγμα οθόνης βοήθειας κάμερας",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Άνοιγμα μεταφόρτωσης στην οθόνη βοήθειας του iNaturalist",
     "take_photo": "Λήψη φωτογραφίας",
     "scroll_left": "Σκρόλαρε Αριστερά",

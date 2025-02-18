@@ -26,6 +26,11 @@
     "new_join": "Dodaj opažanja pomoću Seek kamere kako bi zaradio/la značku izazova!",
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "OBJAVI NA INATURALISTU",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "uključeno",
     "off": "isključeno",
     "scan": "Keep scanning the environment for organisms to identify!",
@@ -377,8 +381,7 @@
     "error_save": "Fotografija se nije mogla spremiti."
   },
   "gallery": {
-    "label": "Fotografije",
-    "photo_library": "Galerija slika"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek kamera",
@@ -650,6 +653,7 @@
     "back": "Go back to previous screen",
     "user_location": "Return to your current location",
     "open_help": "Open camera help screen",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "Uslikaj fotografiju",
     "scroll_left": "Scroll left",

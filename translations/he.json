@@ -26,6 +26,11 @@
     "new_join": "הוסיפו תצפיות עם מצלמת Seek כדי לקבל את תג האתגר!",
     "inat_admin": "מנהלות ומנהלי iNat: תודה רבה על הבדיקה של Seek! הנך רואה את אתגר ה-iNat החדש לפני תחילת החודש למטרות בדיקה."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "העלאה ל-iNaturalist",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "מצלמה",
     "on": "פתוחה",
     "off": "כבויה",
     "scan": "יש להמשיך לסרוק את הסביבה למצוא יצורים נוספים לזהות!",
@@ -377,8 +381,7 @@
     "error_save": "לא היה ניתן לשמור את התמונה."
   },
   "gallery": {
-    "label": "תמונות",
-    "photo_library": "ספריית תמונות"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "מצלמת Seek",
@@ -650,6 +653,7 @@
     "back": "חזרה למסך הקודם",
     "user_location": "לחזור למיקומך הנוכחי",
     "open_help": "פתיחת חלון עזרה למצלמה",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "לפתוח חלון עזרה לפרסום ל-iNaturalist",
     "take_photo": "צילום תמונה",
     "scroll_left": "לגלול שמאלה",

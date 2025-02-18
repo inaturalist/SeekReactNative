@@ -26,6 +26,11 @@
     "new_join": "අභියෝග ලාංඡනය උපයා ගැනීමට Seek කැමරාව සමඟ නිරීක්ෂණ එක් කරන්න!",
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "POST TO INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "කැමරාව",
     "on": "අරින්න",
     "off": "වහන්න",
     "scan": "හඳුනා ගැනීමට ජීවීන් සඳහා දිගටම පරිසරය පරිලෝකනය කරන්න",
@@ -377,8 +381,7 @@
     "error_save": "Could not save photo."
   },
   "gallery": {
-    "label": "ඡායාරූප",
-    "photo_library": "Photo Library"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek හි කැමරාව",
@@ -650,6 +653,7 @@
     "back": "පෙර තිරයට ආපසු යන්න",
     "user_location": "ඔබගේ වර්තමාන ස්ථානයට ආපසු යන්න",
     "open_help": "Open camera help screen",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "ඡායාරූපය ගැනීමට තට්ටු කරන්න",
     "scroll_left": "වමට අනුචලනය කිරීමට තට්ටු කරන්න",

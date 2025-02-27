@@ -55,6 +55,10 @@ import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { logToApi } from "../../../utility/apiCalls";
+import {
+  fetchUserLocation,
+  truncateCoordinates
+} from "../../../utility/locationHelpers";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -69,6 +73,22 @@ const ARCamera = ( ): Node => {
   const { setObservation, observation } = useObservation();
   const [isActive, setIsActive] = useState( true );
   const { deviceOrientation } = useDeviceOrientation();
+
+  // Location tracking state - always use full precision for photo EXIF
+  const [currentLocation, setCurrentLocation] = useState( null );
+  const locationIntervalRef = useRef( null );
+
+  // Function to fetch location - always get full precision coordinates
+  const fetchLocation = useCallback( async () => {
+    try {
+      const locationData = await fetchUserLocation();
+      setCurrentLocation( locationData );
+      logger.debug( "Location updated successfully" );
+    } catch ( err ) {
+      logger.debug( `Error fetching location: ${err}` );
+      // Don't update location on error - keep the last known location
+    }
+  }, [] );
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -152,17 +172,41 @@ const ARCamera = ( ): Node => {
     dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
   }, [error] );
 
-  const navigateToResults = useCallback( async ( uri, predictions ) => {
+  const navigateToResults = useCallback( async ( uri, predictions, cachedLocation ) => {
     const userImage = {
       time: createTimestamp( ), // add current time to AR camera photos
       uri,
       predictions
     };
 
-    // AR camera photos don't come with a location
-    // especially when user has location permissions off
-    // this is also needed for ancestor screen, species nearby
-    const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
+    let image;
+    let errorCode = 0;
+    // If we have cached location, use it directly
+    if ( cachedLocation && cachedLocation.latitude && cachedLocation.longitude ) {
+      // For all users, store truncated coordinates in userImage.latitude/longitude
+      // This matches the behavior in both code paths of fetchImageLocationOrErrorCode
+      userImage.latitude = truncateCoordinates( cachedLocation.latitude );
+      userImage.longitude = truncateCoordinates( cachedLocation.longitude );
+
+      // Only for logged-in users, also store full precision in preciseCoords for iNat uploads
+      if ( login ) {
+        userImage.preciseCoords = {
+          latitude: cachedLocation.latitude,
+          longitude: cachedLocation.longitude,
+          accuracy: cachedLocation.accuracy
+        };
+      }
+
+      image = userImage;
+      logger.debug( "Using cached location for image" );
+    } else {
+      // Fall back to the original location fetching if cached location is unavailable
+      logger.debug( "No cached location available, fetching location" );
+      const result = await fetchImageLocationOrErrorCode( userImage, login );
+      image = result.image;
+      errorCode = result.errorCode;
+    }
+
     const hasCoordinates = isNumber( image?.latitude ) && isNumber( image?.longitude );
     logToApi( {
       level: "info",
@@ -177,7 +221,7 @@ const ARCamera = ( ): Node => {
       context: "takePhoto rankLevel",
       errorType: errorCode?.toString() || "0"
     } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
-    logger.debug( "fetchImageLocationOrErrorCode resolved" );
+    logger.debug( "Location processing resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
     setObservation( { image } );
@@ -196,14 +240,23 @@ const ARCamera = ( ): Node => {
     // but there's a pull request for it as of March 2021
 
     await showCameraSaveFailureAlert( e, uri );
-    navigateToResults( uri, predictions );
-  }, [navigateToResults] );
+    navigateToResults( uri, predictions, currentLocation );
+  }, [navigateToResults, currentLocation] );
 
   const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
     // One quirk of CameraRoll is that if you want to write to an album, you
     // need readwrite permission, but since version 2.17.0 we don't want to
     // ask for that anymore, and use *add only* permission only.
-    CameraRoll.save( photo.uri, { } )
+
+    // Prepare location data for the photo if available
+    const locationOptions = {};
+    if ( currentLocation && currentLocation.latitude && currentLocation.longitude ) {
+      locationOptions.latitude = currentLocation.latitude;
+      locationOptions.longitude = currentLocation.longitude;
+      logger.debug( "Adding location data to saved photo" );
+    }
+
+    CameraRoll.save( photo.uri, locationOptions )
       .then( ( uri ) => {
         logger.debug( "CameraRoll.save resolved" );
         // A placeholder uri means we don't know the real URI, probably b/c we
@@ -211,10 +264,12 @@ const ARCamera = ( ): Node => {
         // camera roll but not read anything about it. Keep in mind this is just
         // a hack around a bug in CameraRoll. See our fork of @react-native-camera-roll
         const uriForResults = ( uri && !uri.match( /placeholder/ ) ) ? uri : photo.uri;
-        navigateToResults( uriForResults, photo.predictions );
+
+        // Pass the cached location as a third parameter to navigateToResults
+        navigateToResults( uriForResults, photo.predictions, currentLocation );
       } )
       .catch( ( e ) => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
-  }, [handleCameraRollSaveError, navigateToResults] );
+  }, [handleCameraRollSaveError, navigateToResults, currentLocation] );
 
   const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
@@ -417,6 +472,26 @@ const ARCamera = ( ): Node => {
       };
     }, [] )
   );
+
+  // Set up location tracking when camera is active
+  useEffect( () => {
+    // Only run this effect when the camera is active and in focus
+    if ( isActive && isFocused ) {
+      // Fetch location immediately
+      fetchLocation();
+
+      // Set up interval to fetch location every 30 seconds
+      locationIntervalRef.current = setInterval( fetchLocation, 30000 );
+
+      return () => {
+        // Clean up the interval when component unmounts or camera becomes inactive
+        if ( locationIntervalRef.current ) {
+          clearInterval( locationIntervalRef.current );
+          locationIntervalRef.current = null;
+        }
+      };
+    }
+  }, [isActive, isFocused, fetchLocation] );
 
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );

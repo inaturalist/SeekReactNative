@@ -18,6 +18,21 @@ const iconicTaxaNames: IconicTaxaById = {
   48222: "taxon_picker.other" // kelp
 };
 
+const iconicTaxaIds = [
+  47126,
+  20978,
+  47170,
+  47178,
+  26036,
+  47119,
+  3,
+  47158,
+  47115,
+  40151,
+  47686,
+  48222
+];
+
 const iconicTaxaNamesById: IconicTaxaById = {
   47126: "taxon_picker.plants",
   20978: "taxon_picker.amphibians",
@@ -240,6 +255,7 @@ const taxonDictForMissions: TaxaIds = {
 export {
   iconicTaxaNames,
   iconicTaxaNamesById,
+  iconicTaxaIds,
   iconicTaxonDictSelectSpecies,
   iconicScientificNames,
   ranks,

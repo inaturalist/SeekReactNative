@@ -17,8 +17,8 @@ interface Prediction {
   name: string;
   taxon_id: number;
   rank_level: number;
-  ancestor_ids?: number[];
   combined_score: number;
+  ancestor_ids: number[];
 }
 export interface Observation {
   image: {
@@ -68,13 +68,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     return null;
   };
 
-  // TODO: this should happen in the camera plugin
-  const setAncestorIdsiOS = ( predictions: Prediction[] ) => {
-    // adding ancestor ids to take iOS camera experience offline
-    const ancestorIds = predictions.map( ( p ) => Number( p.taxon_id ) );
-    return ancestorIds.sort( );
-  };
-
   const checkForIconicTaxonId = ( ancestorIds: number[] ) => {
     const taxaIdList = Object.keys( iconicTaxaIds ).reverse( );
     taxaIdList.pop( );
@@ -120,12 +113,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const currentSpeciesID = useRef<number | null>( null );
   const handleSpecies = useCallback( async ( param: Prediction ) => {
     if ( !observation ) { return; }
-    const { predictions, errorCode, latitude } = observation.image;
+    const { errorCode, latitude } = observation.image;
     const species = Object.assign( { }, param );
-
-    if ( Platform.OS === "ios" && !species.ancestor_ids ) {
-      species.ancestor_ids = setAncestorIdsiOS( predictions );
-    }
 
     const createSpecies = ( photo: string | null, seenDate: string | null ) => {
       return {

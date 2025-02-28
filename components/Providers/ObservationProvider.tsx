@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
-import iconicTaxaIds from "../../utility/dictionaries/iconicTaxonDictById";
+import { iconicTaxaNamesById } from "../../utility/dictionaries/taxonomyDicts";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
@@ -69,7 +69,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   };
 
   const checkForIconicTaxonId = ( ancestorIds: number[] ) => {
-    const taxaIdList = Object.keys( iconicTaxaIds ).reverse( );
+    const taxaIdList = Object.keys( iconicTaxaNamesById ).reverse( );
     taxaIdList.pop( );
     taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
 

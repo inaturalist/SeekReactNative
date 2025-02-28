@@ -56,7 +56,7 @@ const useTaxonDetails = ( id: number ): any => {
         const response = await inatjs.taxa.fetch( id, localeParams );
         const taxa = response.results[0];
         const scientificName = taxa.name;
-        const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
+        const conservationStatus = taxa.taxon_photos[0]?.taxon.conservation_status;
 
         const photosWithLicense = taxa.taxon_photos.map( ( p ) => p.photo ).filter( p => p.license_code );
 

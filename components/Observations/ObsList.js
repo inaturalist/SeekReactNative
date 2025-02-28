@@ -7,7 +7,7 @@ import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
-import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
+import { iconicTaxaNamesById } from "../../utility/dictionaries/taxonomyDicts";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import SectionHeader from "./SectionHeader";
@@ -156,7 +156,7 @@ const ObsList = ( {
           return <View style={styles.hiddenSectionSeparator} />;
         } if ( item.type === "footerEmpty" ) {
           // Render footer for hidden section
-          const iconicTaxon = taxaIds[item.id].split( "." )[1];
+          const iconicTaxon = iconicTaxaNamesById[item.id].split( "." )[1];
           return (
             <StyledText style={[baseTextStyles.body, styles.emptyText]}>
               {i18n.t( `observations.not_seen_${iconicTaxon}` )}

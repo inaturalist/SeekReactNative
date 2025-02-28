@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 
 import i18n from "../../i18n";
-import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
+import { iconicTaxaNames } from "../../utility/dictionaries/taxonomyDicts";
 import { textStyles, viewStyles } from "../../styles/species/species";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";

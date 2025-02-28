@@ -566,6 +566,7 @@ exports[`ChallengeScreen should render correctly 1`] = `
           "props": {
             "contentContainerStyle": {
               "backgroundColor": "#ffffff",
+              "paddingBottom": 23,
             },
             "data": [
               {
@@ -2217,7 +2218,7 @@ exports[`ChallengeScreen should render correctly 1`] = `
           <View
             style={
               {
-                "paddingBottom": 0,
+                "paddingBottom": 23,
                 "paddingRight": 0,
               }
             }

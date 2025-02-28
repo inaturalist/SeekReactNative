@@ -22,7 +22,7 @@ import GreenText from "../UIComponents/GreenText";
 import icons from "../../assets/icons";
 import Padding from "../UIComponents/Padding";
 import { useSearchSpecies } from "./hooks/postingHooks";
-import { iconicTaxaNames, iconicScientificNames } from "../../utility/dictionaries/iconicTaxonDictSelectSpecies";
+import { iconicTaxonDictSelectSpecies, iconicScientificNames } from "../../utility/dictionaries/taxonomyDicts";
 import { capitalizeNames } from "../../utility/helpers";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
@@ -56,7 +56,9 @@ const SelectSpecies = ( {
 
   const majorTaxa = majorTaxaIds.map( taxonId => {
     return {
-      commonName: capitalizeNames( i18n.t( iconicTaxaNames[taxonId] ) ),
+      commonName: capitalizeNames(
+        i18n.t( iconicTaxonDictSelectSpecies[taxonId] )
+      ),
       scientificName: iconicScientificNames[taxonId],
       id: taxonId,
       iconicTaxonId: taxonId

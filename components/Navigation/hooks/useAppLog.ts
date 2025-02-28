@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Realm from "realm";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
-import taxonIds from "../../../utility/dictionaries/taxonDict";
+import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
 import realmConfig from "../../../models/index";
 
 const executeInNewMonth = async ( callback: () => void, keySubstring: string ) => {

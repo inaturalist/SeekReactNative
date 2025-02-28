@@ -16,4 +16,4 @@ const taxonIds: TaxaIds = {
   all: null
 };
 
-export default taxonIds;
+export { taxonIds };

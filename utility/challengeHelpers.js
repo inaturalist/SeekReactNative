@@ -5,7 +5,7 @@ import { getYear, getMonth } from "date-fns";
 import { Alert } from "react-native";
 
 import { createNotification, isDuplicateNotification } from "./notificationHelpers";
-import taxonDict from "./dictionaries/taxonDictForMissions";
+import { taxonDictForMissions } from "./dictionaries/taxonomyDicts";
 import missionsDict from "./dictionaries/missionsDict";
 import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
@@ -104,7 +104,7 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
     if ( taxa === "all" ) {
       taxaPerMission = seenTaxa.length;
     } else {
-      const taxaId = taxonDict[taxa];
+      const taxaId = taxonDictForMissions[taxa];
       const taxaTypeSeen = seenTaxa.filter( ( t ) => (
         t.taxon && t.taxon.iconicTaxonId === taxaId
       ) );
@@ -342,7 +342,7 @@ const fetchUnobservedChallengeTaxaIds = ( missions: Array<Object>, index: number
 
   const fetchUnobservedMissionTaxaIds = ( taxaTypes ) => {
     taxaTypes.forEach( type => {
-      const taxaId = taxonDict[type];
+      const taxaId = taxonDictForMissions[type];
       unobservedTaxaIds.push( taxaId );
     } );
   };

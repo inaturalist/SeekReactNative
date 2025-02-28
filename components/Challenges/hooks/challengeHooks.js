@@ -6,7 +6,7 @@ import Realm from "realm";
 import realmConfig from "../../../models";
 import { recalculateChallenges, fetchObservationsAfterChallengeStarted } from "../../../utility/challengeHelpers";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
-import taxonDict from "../../../utility/dictionaries/taxonDictForMissions";
+import { taxonDictForMissions } from "../../../utility/dictionaries/taxonomyDicts";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 
 const createChallengeSections = ( challenges ) => {
@@ -160,7 +160,7 @@ const findSpeciesObserved = ( seenTaxa, challenge ) => {
     } else {
       // show species or iconic taxa
       types.forEach( ( taxa ) => {
-        const taxaId = taxonDict[taxa];
+        const taxaId = taxonDictForMissions[taxa];
         const moreThanOneTaxa = Object.keys( types ).length > 1;
         const taxaTypeSeen = seenTaxa.filter( ( t ) => (
           t.taxon && t.taxon.iconicTaxonId === taxaId

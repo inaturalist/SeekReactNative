@@ -17,8 +17,8 @@ interface Prediction {
   name: string;
   taxon_id: number;
   rank_level: number;
-  score: number;
   ancestor_ids?: number[];
+  combined_score: number;
 }
 export interface Observation {
   image: {
@@ -54,13 +54,13 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const [error, setError] = useState<string | null>( null );
   const value = { observation, setObservation, error, setError };
 
-  const threshold = 0.7;
+  const threshold = 70;
 
-  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank_level === 10 && leaf.score > threshold ) || null;
+  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank_level === 10 && leaf.combined_score > threshold ) || null;
 
   const checkForAncestor = ( predictions: Prediction[] ) => {
     const reversePredictions = predictions.sort( ( a, b ) => a.rank_level - b.rank_level );
-    const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
+    const ancestor = reversePredictions.find( leaf => leaf.combined_score > threshold );
 
     if ( ancestor && ancestor.rank_level !== 100 ) {
       return ancestor;

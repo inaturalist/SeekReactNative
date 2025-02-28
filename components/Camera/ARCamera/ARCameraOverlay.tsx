@@ -26,8 +26,8 @@ interface Prediction {
   name: string;
   taxon_id: number;
   rank_level: number;
-  score: number;
   ancestor_ids?: number[];
+  combined_score: number;
 }
 
 interface Props {

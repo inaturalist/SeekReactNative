@@ -19,7 +19,8 @@ const config = {
   transportOptions: {
     FS: RNFS,
     fileName: fileNameLogs
-  }
+  },
+  dateFormat: "iso"
 };
 
 const log = logger.createLogger( config );

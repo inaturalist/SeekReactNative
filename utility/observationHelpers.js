@@ -2,7 +2,7 @@
 
 import Realm from "realm";
 
-import UUIDGenerator from "react-native-uuid-generator";
+import * as createUUID from "uuid";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import { createBackupUri, deleteFile } from "./photoHelpers";
@@ -10,11 +10,6 @@ import { createNotification } from "./notificationHelpers";
 import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
 import { setISOTime } from "./dateHelpers";
-
-const createUUID = async ( ): Promise<string> => {
-  const uuidGen = await UUIDGenerator.getRandomUUID();
-  return uuidGen.toLocaleLowerCase( );
-};
 
 const checkForPowerUsers = ( length, newLength ) => {
   if ( length < newLength ) {
@@ -47,7 +42,6 @@ const addToCollection = async ( observation: {
   } = image;
   const { taxon } = observation;
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
-  const uuid = await createUUID();
 
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
@@ -73,7 +67,7 @@ const addToCollection = async ( observation: {
         defaultPhoto
       } );
       realm.create( "ObservationRealm", {
-        uuidString: uuid,
+        uuidString: createUUID.v4(),
         date: time ? setISOTime( time ) : new Date(),
         taxon: newTaxon,
         latitude: latitude || null,
@@ -160,6 +154,5 @@ const createSectionList = ( realm: any, species: any, hideSections: boolean ): A
 export {
   addToCollection,
   removeFromCollection,
-  createSectionList,
-  createUUID
+  createSectionList
 };

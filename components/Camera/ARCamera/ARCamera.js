@@ -133,9 +133,7 @@ const ARCamera = ( ): Node => {
       combined_score: p.combined_score,
       taxon_id: p.taxon_id,
       ancestor_ids: p.ancestor_ids,
-      rank: p.rank,
-      iconic_class_id: p.iconic_class_id,
-      spatial_class_id: p.spatial_class_id
+      rank: p.rank
     } ) )
     .sort( ( a, b ) => b.rank_level - a.rank_level );
   const lowestRankPrediction = sortedPredictions[sortedPredictions.length - 1];

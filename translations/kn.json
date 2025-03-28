@@ -26,6 +26,11 @@
     "new_join": "Add observations with the Seek Camera to earn the Challenge badge!",
     "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALIST ಗೆ ಪ್ರಸರಿಸಿ",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "ಕ್ಯಾಮೆರಾ",
     "on": "ಆನ್",
     "off": "ಆಫ್",
     "scan": "Keep scanning the environment for organisms to identify!",
@@ -377,8 +381,7 @@
     "error_save": "ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ."
   },
   "gallery": {
-    "label": "ಚಿತ್ರಗಳು",
-    "photo_library": "ಚಿತ್ರ ಭಂಡಾರ"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek ನ ಕ್ಯಾಮೆರಾ",
@@ -650,6 +653,7 @@
     "back": "ಹಿಂದಿನ ಪರದೆಗೆ ಹಿಂದಿರುಗಿ",
     "user_location": "ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಸ್ಥಳಕ್ಕೆ ಹಿಂದಿರುಗಿ",
     "open_help": "ಕ್ಯಾಮೆರಾ ಸಹಾಯ ಪರದೆಯನ್ನು ತೆರೆಯಿರಿ",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Open posting to iNaturalist help screen",
     "take_photo": "ಚಿತ್ರ ತೆಗೆಯಿರಿ",
     "scroll_left": "ಎಡಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ",

@@ -26,6 +26,11 @@
     "new_join": "Fedezz fel újdonságokat a Seek Kamerával, és szerezd meg a Kihívás jelvényt!",
     "inat_admin": "iNat adminok: Köszönjük, hogy részt veszel a Seek tesztelésében! A legújabb iNat kihívást a hónap kezdete előtt tesztelési céllal láthatod."
   },
+  "updates_card": {
+    "header": "Seek hírek",
+    "updated_id_model": "Felfrissítettük az Azonosító Modellünket!",
+    "over_x_species": "Most már azonosíthatsz több, mint 80000 fajt a Seek legújabb verziójában!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "KÜLDÉS AZ INATURALISTRA",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "be",
     "off": "ki",
     "scan": "Tartsd nyitva a szemed további élőlények megfigyeléséhez.",
@@ -377,8 +381,7 @@
     "error_save": "A fénykép mentése sikertelen."
   },
   "gallery": {
-    "label": "Fényképek",
-    "photo_library": "Képgaléria"
+    "import_photos_from": "Fotók importálása innen:"
   },
   "camera_help": {
     "title": "Seek Kamera",
@@ -650,6 +653,7 @@
     "back": "Vissza az előző képernyőre",
     "user_location": "Vissza a jelenlegi helyre",
     "open_help": "Kamera súgó megjelenítése",
+    "open_gallery": "Fotógaléria megnyitása",
     "open_posting_help": "Küldés az iNaturalist-ra súgó megnyitása",
     "take_photo": "Fénykép készítése",
     "scroll_left": "Görgetés balra",

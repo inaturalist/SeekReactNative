@@ -26,6 +26,11 @@
     "new_join": "¡Añade observaciones con la cámara de Seek para ganar la insignia del Desafío!",
     "inat_admin": "Administradores de iNat: ¡Gracias por testear Seek! Estás viendo el último reto de iNat antes de principios de mes para poder probarlo."
   },
+  "updates_card": {
+    "header": "Actualizaciones de Seek",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "¡Ahora puedes identificar más de 80.000 especies con la última versión de Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICAR EN  INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Cámara",
     "on": "activado",
     "off": "desactivado",
     "scan": "¡Sigue observando el entorno para identificar más organismos!",
@@ -377,8 +381,7 @@
     "error_save": "No se ha podido guardar la foto."
   },
   "gallery": {
-    "label": "Fotos",
-    "photo_library": "Galería de fotos"
+    "import_photos_from": "Importar Fotos Desde"
   },
   "camera_help": {
     "title": "Cámara de Seek",
@@ -567,8 +570,8 @@
     "header": "Acerca de",
     "seek_designed_by": "El equipo de desarrollo de iNaturalist diseñó y programó Seek:",
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
-    "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Joanne Lin, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Kirk van Gorkom, Jason Walthall, and Jane Weeden. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
+    "support_from": "Seek fue creado por el equipo de iNaturalist con el apoyo de la Academia de Ciencias de California, la National Geographic Society, Nuestro Planeta en Netflix, WWF, HHMI Tangled Bank Studios y Visipedia.",
+    "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Joanne Lin, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Kirk van Gorkom, Jason Walthall, y Jane Weeden. Agradecimiento especial a Grant Van Horn de Visipedia por la ayuda con la tecnología de visión informática, y la comunidad iNaturalist.",
     "version": "Versión",
     "help": "Para recibir ayuda de Seek, por favor envía un correo electrónico a help+seek@inaturalist.org.",
     "translators": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kevin Matthew, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch y Yulia Lygina.",
@@ -598,8 +601,8 @@
     "animals": "Animales",
     "protozoans": "Protozoarios",
     "kelp": "Algas pardas, diatomeas y parientes",
-    "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_title_2": "Error de Ubicación",
+    "error_message_2": "¡Parece que tu ubicación no se ha grabado correctamente! Por favor, comprueba tu ubicación."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICANDO EN INATURALIST EN SEGUNDO PLANO",
@@ -650,6 +653,7 @@
     "back": "Regresar a pantalla anterior",
     "user_location": "Volver a tu ubicación actual",
     "open_help": "Abrir pantalla de ayuda de la cámara",
+    "open_gallery": "Abrir galería de fotos",
     "open_posting_help": "Abrir publicación para acceder a la pantalla de ayuda de iNaturalist",
     "take_photo": "Tomar una foto",
     "scroll_left": "Desplazarse a la izquierda",
@@ -682,9 +686,9 @@
     "donate": "Donar",
     "donate_header": "Apoya a iNaturalist",
     "donate_description": "¿Te gusta Seek? ¡Considera hacer una donación a iNaturalist! Dependemos de donaciones de personas como tú para mantener gratuitas nuestras aplicaciones.",
-    "danger_zone": "Danger Zone",
-    "delete_account": "If you’d like to delete your iNaturalist account, click the button below. This will delete all observations you have posted to iNaturalist through Seek, as well as all observations, IDs, and comments created on the iNaturalist app or website.",
-    "delete": "Delete iNaturalist Account",
+    "danger_zone": "Zona de Peligro",
+    "delete_account": "Si desea eliminar su cuenta de iNaturalist haga clic en el botón de abajo. Esto eliminará todas las observaciones que has publicado en iNaturalist a través de Seek, así como todas las observaciones, IDs y comentarios creados en la aplicación o sitio web de iNaturalist.",
+    "delete": "Eliminar cuenta de iNaturalist",
     "language": "Idioma de la aplicación",
     "device_settings": "Usar las opciones de idioma del móvil",
     "auto_capture": "Tomar automáticamente una foto cuando la identificación llegue a la especie.",
@@ -965,30 +969,30 @@
     "december_2023_description_ecology": "Muchos tipos diferentes de interacciones influyen en los ecosistemas y sus organismos. La ecología es el estudio de los órganos (bióticos) y su entorno físico (abiótico). Las interacciones bióticas se llevan a cabo entre seres vivos y las interacciones abióticas incluyen factores no vivos, como la temperatura, el agua, la luz y el suelo."
   },
   "seek_2024_challenges": {
-    "january_2024_challenge_name_neighborhood": "Neighborhood Challenge",
-    "february_2024_challenge_name_life_in_flight": "Life in Flight Challenge",
+    "january_2024_challenge_name_neighborhood": "Desafío de Vecindario",
+    "february_2024_challenge_name_life_in_flight": "Desafío de Vida en Vuelo",
     "march_2024_challenge_name_stewardship": "Stewardship Challenge",
-    "march_2024_description_stewardship": "Everyone can have a positive impact on biodiversity! You can advocate for wildlife in a place like your own yard, a protected area, or a local park. Protecting nature starts by noticing the plants, fungi, and animals in the places that you care about. Look for different species across the tree of life.",
-    "march_2024_action_stewardship": "Think about one species you found this month. What does it need to survive? What is one thing that you can do to make sure its needs are met?",
+    "march_2024_description_stewardship": "¡Todo el mundo puede tener un impacto positivo en la biodiversidad! Puedes abogar por la vida silvestre en un lugar como tu propio patio, una zona protegida o un parque local. Proteger la naturaleza comienza por conocer las plantas, hongos y animales en los lugares que te interesan. Busca diferentes especies en el árbol de la vida.",
+    "march_2024_action_stewardship": "Piensa en una especie que has encontrado este mes. ¿Qué es lo que necesita para sobrevivir?, ¿qué es lo que puedes hacer para asegurarte de que sus necesidades se cumplan?",
     "april_2024_challenge_name_coexistence": "Coexistence Challenge",
-    "may_2024_challenge_name_phenology": "Phenology Challenge",
-    "may_2024_description_phenology": "Phenology is the study of seasonal patterns like flowering, fruiting, and migration. Some species can be found all year, while others are active in only one month.",
-    "may_2024_action_phenology": "Explore the species pages in Seek for everything you find this month. Look at the graph to see which months they are most commonly observed. Is this its most frequently observed month?",
+    "may_2024_challenge_name_phenology": "Desafío de Fenología",
+    "may_2024_description_phenology": "La fenología es el estudio de patrones estacionales como la floración, la fructificación y la migración. Algunas especies se pueden observar durante todo el año, mientras que otras están activas sólo un mes.",
+    "may_2024_action_phenology": "Explora las páginas de especies en Seek para todo lo que encuentres este mes. Mira el gráfico para ver en qué meses son observados con más frecuencia. ¿Es este el mes en el que se observa con más frecuencia?",
     "june_2024_challenge_name_flowers_food": "Flowers & Food Challenge",
-    "june_2024_description_flowers_food": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "june_2024_action_flowers_food": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your neighborhood?",
-    "july_2024_challenge_name_indicator_species": "Indicator Species Challenge",
-    "july_2024_description_indicator_species_2": "Healthy ecosystems provide us with benefits like clean water and air, carbon storage, and habitat to support biodiversity. A diversity of plants and arthropods are found in all types of terrestrial ecosystems.",
-    "july_2024_action_indicator_species": "Where were you able to find the species for this challenge? Was it an urban habitat or a more wild setting?",
+    "june_2024_description_flowers_food": "¡Los polinizadores nos suministran los alimentos que comemos y las flores de las que disfrutamos! Al desplazar el polen en sus cuerpos entre diferentes plantas, los polinizadores ayudan a que muchos tipos de plantas se reproduzcan.",
+    "june_2024_action_flowers_food": "Presta atención a los polinizadores que te rodean. ¿Hay abejas o mariposas visitando las flores de tu jardín o vecindario?",
+    "july_2024_challenge_name_indicator_species": "Desafío de Especies Indicadoras",
+    "july_2024_description_indicator_species_2": "Los ecosistemas saludables nos proporcionan beneficios como agua y aire limpios, almacenamiento de carbono y hábitat para apoyar la biodiversidad. Una gran diversidad de plantas y artrópodos se encuentran en todo tipo de ecosistemas terrestres.",
+    "july_2024_action_indicator_species": "¿Dónde encontraste la especie para este desafío? ¿Era un hábitat urbano o un entorno más salvaje?",
     "august_2024_challenge_name_flowing_water": "Flowing Water Challenge",
     "august_2024_description_flowing_water": "Rivers and streams are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, flowing water is a special kind of freshwater habitat.",
     "september_2024_challenge_name_predators_exoskeletons": "Predators with Exoskeletons Challenge",
     "october_2024_challenge_name_eight_legged": "Eight-legged Challenge",
     "october_2024_description_eight_legged": "All arachnids have eight legs. Did you know that not all arachnids are spiders? Mites and ticks, harvestmen (also known as “daddy longlegs”), and even tiny, overlooked pseudoscorpions are also arachnids that can be found on all inhabited continents. Other arachnids like scorpions, whipscorpions, tailless whipscorpions, and solifuges are generally found in warmer and/or drier parts of the world.",
     "november_2024_challenge_name_predators_bones": "Predators with Bones Challenge",
-    "december_2024_challenge_name_solstice": "Solstice Challenge",
+    "december_2024_challenge_name_solstice": "Desafío de Solsticio",
     "december_2024_description_solstice": "¡Las estaciones están cambiando! En diciembre de cada año, el hemisferio norte tiene su solsticio invernal (el día más corto del año) y el hemisferio sur tiene su solsticio estival (el dí­a más largo del año).",
-    "december_2024_action_solstice": "Think about the species you see this month. How are they different from the species you can find in June?"
+    "december_2024_action_solstice": "Piensa en las especies que ves este mes. ¿Cómo se diferencian de las especies que puedes encontrar en junio?"
   },
   "seek_year_in_review": {
     "header": "Revisión del año Seek",

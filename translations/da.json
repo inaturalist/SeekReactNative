@@ -26,6 +26,11 @@
     "new_join": "Tilføj observationer med Seek-kameraet for at modtage udfordringsmærket!",
     "inat_admin": "iNat-administratorer: Tak for at teste Seek! Du ser den nyeste iNat-udfordring inden begyndelsen af måneden for at kunne teste."
   },
+  "updates_card": {
+    "header": "Seek-opdateringer",
+    "updated_id_model": "Vi har opdateret vores identifikationsmodel!",
+    "over_x_species": "I den seneste version af Seek kan du nu identificere over 80.000 arter!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "TILFØJ TIL INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "til",
     "off": "fra",
     "scan": "Bliv ved at skanne omgivelserne for organismer, der kan identificeres!",
@@ -377,8 +381,7 @@
     "error_save": "Kunne ikke gemme foto."
   },
   "gallery": {
-    "label": "Fotos",
-    "photo_library": "Fotobibliotek"
+    "import_photos_from": "Importer fotos fra"
   },
   "camera_help": {
     "title": "Seek's kamera",
@@ -650,6 +653,7 @@
     "back": "Vend tilbage til foregående skærm",
     "user_location": "Vend tilbage til din nuværende placering",
     "open_help": "Åbn hjælpeskærm til kamera",
+    "open_gallery": "Åbn fotogalleri",
     "open_posting_help": "Åbn hjælpeskærm til postering på iNaturalist",
     "take_photo": "Tryk for at tage foto",
     "scroll_left": "Scroll mod venstre",

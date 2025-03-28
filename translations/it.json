@@ -26,6 +26,11 @@
     "new_join": "Aggiungi osservazioni con la Fotocamera di Seek per ottenere il distintivo Sfida!",
     "inat_admin": "Admin di iNat: grazie per aver testato Seek! Stai vedendo l'ultima sfida di iNat prima dell'inizio del mese per scopi di test."
   },
+  "updates_card": {
+    "header": "Aggiornamenti Seek",
+    "updated_id_model": "Abbiamo aggiornato il nostro modello di identificazione!",
+    "over_x_species": "Ora puoi identificare oltre 80.000 specie nell'ultima versione di Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBBLICA SU INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Fotocamera",
     "on": "on",
     "off": "off",
     "scan": "Continua a scansionare l'ambiente per gli organismi da identificare!",
@@ -377,8 +381,7 @@
     "error_save": "Impossibile salvare la foto."
   },
   "gallery": {
-    "label": "Foto",
-    "photo_library": "Galleria"
+    "import_photos_from": "Importa Foto Da"
   },
   "camera_help": {
     "title": "Fotocamera di Seek",
@@ -650,6 +653,7 @@
     "back": "Torna alla schermata precedente",
     "user_location": "Torna alla tua posizione corrente",
     "open_help": "Apri la schermata d'aiuto della fotocamera",
+    "open_gallery": "Apri la galleria",
     "open_posting_help": "Apri la schermata d'aiuto di pubblicazione su iNaturalist",
     "take_photo": "Scatta la foto",
     "scroll_left": "Scorri a sinistra",

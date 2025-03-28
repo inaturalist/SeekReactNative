@@ -26,6 +26,11 @@
     "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!",
     "inat_admin": "iNat yöneticileri: Seek'i test ettiğiniz için teşekkürler! Test amacıyla, iNat mücadelesini ay başlamadan önce görüyorsunuz."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALİST'TE GÖNDER",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "açık",
     "off": "kapalı",
     "scan": "Organizmaları tanımlamak için çevreyi taramaya devam edin!",
@@ -377,8 +381,7 @@
     "error_save": "Fotoğraf kaydedilemedi."
   },
   "gallery": {
-    "label": "Fotoğraflar",
-    "photo_library": "Fotoğraf Arşivi"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek'in Kamerası",
@@ -650,6 +653,7 @@
     "back": "Önceki ekrana dön",
     "user_location": "Var olan konuma dön",
     "open_help": "Kamera yardım ekranını aç",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "iNaturalist'e gönderme yardım ekranını aç",
     "take_photo": "Fotoğraf çek",
     "scroll_left": "Sola kaydır",

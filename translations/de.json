@@ -26,6 +26,11 @@
     "new_join": "Füge Beobachtungen mit der Kamera von Seek hinzu, um an Missionen teilzunehmen und Abzeichen zu erhalten!",
     "inat_admin": "iNat-Admins: Vielen Dank dafür, Seek zu testen! Du siehst zu Testzwecken die neueste iNat-Mission bereits vor Monatsbeginn."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "Wir haben unser ID-Modell aktualisiert!",
+    "over_x_species": "Du kannst jetzt mehr als 80.000 Arten in der neuesten Version von Seek bestimmen!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "AN INATURALIST SENDEN",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Kamera",
     "on": "ein",
     "off": "aus",
     "scan": "Suche die Umgebung nach weiteren Lebewesen ab, um sie zu identifizieren!",
@@ -377,8 +381,7 @@
     "error_save": "Foto konnte nicht gespeichert werden."
   },
   "gallery": {
-    "label": "Fotos",
-    "photo_library": "Foto-Bibliothek"
+    "import_photos_from": "Fotos importieren von"
   },
   "camera_help": {
     "title": "Seek-Kamera",
@@ -650,6 +653,7 @@
     "back": "Zurück zur vorherigen Ansicht",
     "user_location": "Zurück zum gegenwärtigen Standort",
     "open_help": "Kamera-Hilfe öffnen",
+    "open_gallery": "Fotogalerie öffnen",
     "open_posting_help": "iNaturalist-Hilfe öffnen",
     "take_photo": "Antippen um ein Foto zu machen",
     "scroll_left": "Zum Scrollen nach links tippen",

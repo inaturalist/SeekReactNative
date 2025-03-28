@@ -26,6 +26,11 @@
     "new_join": "Наблюдавай със Seek камера, за вземеш значката \"Предизвикателство\".",
     "inat_admin": "iNat admins: благодаря, че тества Seek! Виждаш най-новото iNat предизвикателзтв преди старта на месеца."
   },
+  "updates_card": {
+    "header": "Seek Updates",
+    "updated_id_model": "We’ve updated our Identification Model!",
+    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+  },
   "post_to_inat_card": {
     "post_to_inaturalist": "ПУБЛИКУВАЙ В INATURALIST",
     "uploading_x_observations": {
@@ -344,7 +349,6 @@
     }
   },
   "camera": {
-    "label": "Камера",
     "on": "вкл.",
     "off": "изкл.",
     "scan": "Keep scanning the environment for organisms to identify!",
@@ -377,8 +381,7 @@
     "error_save": "Неуспешно запазване на снимка."
   },
   "gallery": {
-    "label": "Снимки",
-    "photo_library": "Фотогалерия"
+    "import_photos_from": "Import Photos From"
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -650,6 +653,7 @@
     "back": "Връщане към предишното меню",
     "user_location": "Върнете се към текущото си местоположение",
     "open_help": "Отворете помощното меню за камерата",
+    "open_gallery": "Open photo gallery",
     "open_posting_help": "Отворете публикуването на iNaturalist за помощ",
     "take_photo": "Направете снимка",
     "scroll_left": "Превъртете наляво",

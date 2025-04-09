@@ -602,7 +602,7 @@
     "protozoans": "原生動物",
     "kelp": "褐藻、珪藻、その他藻類",
     "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_message_2": "位置情報が正しく記録されていないようです！位置情報が正しいか確認してください。"
   },
   "posting_status": {
     "posting_to_inat_background": "バックグラウンドで INATURALIST に投稿",

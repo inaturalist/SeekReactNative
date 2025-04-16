@@ -4,7 +4,7 @@ import { View, Image } from "react-native";
 import i18n from "../../../i18n";
 import { viewStyles, textStyles } from "../../../styles/camera/arCameraHeader";
 import icons from "../../../assets/icons";
-import rankDict from "../../../utility/dictionaries/rankDict";
+import { ranks } from "../../../utility/dictionaries/taxonomyDicts";
 import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";
@@ -17,8 +17,8 @@ interface Prediction {
   name: string;
   taxon_id: number;
   rank_level: number;
-  score: number;
-  ancestor_ids?: number[];
+  combined_score: number;
+  ancestor_ids: number[];
 }
 
 interface Props {
@@ -108,7 +108,7 @@ const ARCameraHeader = ( { prediction }: Props ) => {
         <View testID="headerPrediction" style={setTaxonomicRankBubbleColor( )}>
           <View style={viewStyles.greenButton}>
             <GreenRectangle
-              text={i18n.t( rankDict[rankToRender] )}
+              text={i18n.t( ranks[rankToRender] )}
               letterSpacing={0.94}
               color={isLandscape ? colors.white : colors.seekGreen}
               textColor={setTaxonomicRankColor( )}

@@ -1,6 +1,117 @@
-// @flow
+type IconicTaxaById = {
+  [key: number]: string;
+};
 
-const taxonIds = {
+const iconicTaxaNames: IconicTaxaById = {
+  47126: "species_detail.plant",
+  20978: "species_detail.amphibian",
+  47170: "species_detail.fungi",
+  47178: "species_detail.fish",
+  26036: "species_detail.reptile",
+  47119: "species_detail.arachnid",
+  3: "species_detail.bird",
+  47158: "species_detail.insect",
+  47115: "species_detail.mollusk",
+  40151: "species_detail.mammal",
+  1: "taxon_picker.other",
+  47686: "taxon_picker.other", // protozoans can be observed and have a non-animalia / iconic taxon group ancestor,
+  48222: "taxon_picker.other" // kelp
+};
+
+const iconicTaxaIds = [
+  47126,
+  20978,
+  47170,
+  47178,
+  26036,
+  47119,
+  3,
+  47158,
+  47115,
+  40151,
+  47686,
+  48222
+];
+
+const iconicTaxaNamesById: IconicTaxaById = {
+  47126: "taxon_picker.plants",
+  20978: "taxon_picker.amphibians",
+  47170: "taxon_picker.fungi",
+  47178: "taxon_picker.fish",
+  26036: "taxon_picker.reptiles",
+  47119: "taxon_picker.arachnids",
+  3: "taxon_picker.birds",
+  47158: "taxon_picker.insects",
+  47115: "taxon_picker.mollusks",
+  40151: "taxon_picker.mammals",
+  1: "taxon_picker.other"
+};
+
+const iconicTaxonDictSelectSpecies: IconicTaxaById = {
+  47126: "taxon_picker.plants",
+  1: "posting.animals",
+  47170: "taxon_picker.fungi",
+  3: "taxon_picker.birds",
+  47158: "taxon_picker.insects",
+  47119: "taxon_picker.arachnids",
+  40151: "taxon_picker.mammals",
+  20978: "taxon_picker.amphibians",
+  26036: "taxon_picker.reptiles",
+  47178: "taxon_picker.fish",
+  47115: "taxon_picker.mollusks",
+  47686: "posting.protozoans",
+  48222: "posting.kelp"
+};
+
+const iconicScientificNames: IconicTaxaById = {
+  47126: "Plantae",
+  1: "Animalia",
+  47170: "Fungi",
+  3: "Aves",
+  47158: "Insecta",
+  47119: "Arachnida",
+  40151: "Mammalia",
+  20978: "Amphibia",
+  26036: "Reptilia",
+  47178: "Actinopterygii",
+  47115: "Mollusca",
+  47686: "Protozoa",
+  48222: "Chromista"
+};
+
+interface Ranks {
+  [key: string]: string;
+}
+
+const ranks: Ranks = {
+  kingdom: "camera.kingdom",
+  phylum: "camera.phylum",
+  class: "camera.class",
+  order: "camera.order",
+  family: "camera.family",
+  genus: "camera.genus",
+  species: "camera.species"
+};
+
+interface TaxaIds {
+  [key: string]: number | null;
+}
+
+const taxonIds: TaxaIds = {
+  birds: 3,
+  amphibians: 20978,
+  reptiles: 26036,
+  mammals: 40151,
+  fish: 47178,
+  mollusks: 47115,
+  insects: 47158,
+  arachnids: 47119,
+  fungi: 47170,
+  plants: 47126,
+  all: null
+};
+
+const taxonDictForMissions: TaxaIds = {
   Acanthaceae: 50151,
   Accipitriformes: 71261,
   Acridotheres: 14868,
@@ -141,4 +252,13 @@ const taxonIds = {
   reptiles: 26036
 };
 
-export default taxonIds;
+export {
+  iconicTaxaNames,
+  iconicTaxaNamesById,
+  iconicTaxaIds,
+  iconicTaxonDictSelectSpecies,
+  iconicScientificNames,
+  ranks,
+  taxonDictForMissions,
+  taxonIds
+};

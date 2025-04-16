@@ -17,7 +17,7 @@ import LocationPicker from "./LocationPicker";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
-import taxonIds from "../../../utility/dictionaries/taxonDict";
+import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
 import createUserAgent from "../../../utility/userAgent";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";

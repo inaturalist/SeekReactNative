@@ -5,7 +5,7 @@ import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
 
 import realmConfig from "../../../models";
-import taxonIds from "../../../utility/dictionaries/taxonDict";
+import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
 
 const useFetchAchievements = ( ): any => {
   const [state, setState] = useState( {

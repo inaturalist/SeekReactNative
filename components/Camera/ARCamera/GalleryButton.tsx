@@ -30,7 +30,8 @@ const GalleryButton = ( { setIsActive }: Props ) => {
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
-  const navigateToResults = ( uri, time, location, predictions ) => {
+  const navigateToResults = ( uri, time, location, predictions: InatVision.Prediction[]
+ ) => {
     const { navigate } = navigation;
 
     const image = {

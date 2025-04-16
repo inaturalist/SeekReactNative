@@ -1,6 +1,10 @@
 // include this line for mocking react-native-gesture-handler
 import "react-native-gesture-handler/jestSetup";
 import "@shopify/flash-list/jestSetup";
+// Recommendation from the uuid library is to import get-random-values before
+// uuid, so we're importing it first thing in the entry point.
+// https://www.npmjs.com/package/uuid#react-native--expo
+import "react-native-get-random-values";
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
 import * as mockRNLocalize from "react-native-localize/mock";

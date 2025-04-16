@@ -130,12 +130,10 @@ const ARCamera = ( ): Node => {
     .map( ( p: Prediction ) => ( {
       name: p.name,
       rank_level: p.rank_level,
-      score: p.score,
+      combined_score: p.combined_score,
       taxon_id: p.taxon_id,
       ancestor_ids: p.ancestor_ids,
-      rank: p.rank,
-      iconic_class_id: p.iconic_class_id,
-      spatial_class_id: p.spatial_class_id
+      rank: p.rank
     } ) )
     .sort( ( a, b ) => b.rank_level - a.rank_level );
   const lowestRankPrediction = sortedPredictions[sortedPredictions.length - 1];
@@ -346,10 +344,10 @@ const ARCamera = ( ): Node => {
           "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
           "pictureOrientation": 6,
           "predictions": [
-            {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "score": 0.9301357269287109, "taxon_id": 47163},
-            {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "score": 0.9216688275337219, "taxon_id": 47218},
-            {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "score": 0.9124458432197571, "taxon_id": 47781},
-            {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "score": 0.8744127750396729, "taxon_id": 47780}],
+            {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "combined_score": 93.01357269287109, "taxon_id": 47163},
+            {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "combined_score": 92.16688275337219, "taxon_id": 47218},
+            {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "combined_score": 91.24458432197571, "taxon_id": 47781},
+            {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "combined_score": 87.44127750396729, "taxon_id": 47780}],
           "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg", "width": 4032}
       */
       callback( photo );
@@ -421,7 +419,7 @@ const ARCamera = ( ): Node => {
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = ( ) => navigation.navigate( "Settings" );
 
-  const confidenceThresholdNumber = 0.7;
+  const confidenceThresholdNumber = 70;
 
   if ( !isFocused ) {
     // this is necessary for camera to load properly in iOS

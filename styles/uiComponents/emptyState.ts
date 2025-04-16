@@ -4,7 +4,8 @@ const viewStyles = StyleSheet.create( {
   container: {
     flexGrow: 1,
     justifyContent: "center",
-    marginHorizontal: 28
+    marginHorizontal: 28,
+    marginVertical: 32
   },
   greenButtonMargin: {
     marginTop: 32

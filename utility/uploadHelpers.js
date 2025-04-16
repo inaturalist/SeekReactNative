@@ -1,10 +1,10 @@
 // @flow
 import Realm from "realm";
 import inatjs, { FileUpload } from "inaturalistjs";
+import * as createUUID from "uuid";
 
 import realmConfig from "../models/index";
 import { resizeImage } from "./photoHelpers";
-import { createUUID } from "./observationHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { fetchJSONWebToken } from "./tokenHelpers";
 import i18n from "../i18n";
@@ -248,8 +248,8 @@ const saveObservationToRealm = async ( observation: {
   vision: boolean
 }, uri: string ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
-  const uuid = await createUUID( );
-  const photoUUID = await createUUID( );
+  const obsUUID = createUUID.v4();
+  const photoUUID = createUUID.v4();
 
   // I'm not sure how much hidden space this will take up on a user's device
   // but we probably need to delete photos from this directory regularly after they have been uploaded
@@ -270,12 +270,12 @@ const saveObservationToRealm = async ( observation: {
       } );
       realm.create( "UploadObservationRealm", {
         ...observation,
-        uuid,
+        uuid: obsUUID,
         photo
       }, true );
     } );
 
-    const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${uuid}'` )[0];
+    const latestObs = realm.objects( "UploadObservationRealm" ).filtered( `uuid == '${obsUUID}'` )[0];
     return uploadObservation( latestObs );
   } catch ( e ) {
     console.log( "couldn't save observation to UploadObservationRealm", e );

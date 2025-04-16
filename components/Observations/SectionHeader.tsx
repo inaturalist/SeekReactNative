@@ -11,7 +11,7 @@ import { colors } from "../../styles/global";
 import styles from "../../styles/observations/sectionHeader";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
+import { iconicTaxaNamesById } from "../../utility/dictionaries/taxonomyDicts";
 import realmConfig from "../../models/index";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
@@ -53,7 +53,7 @@ const SectionHeader = ( { id, dataLength, open, toggleSection }: Props ) => {
       style={[styles.header, styles.row]}
     >
       <StyledText allowFontScaling={false} style={[baseTextStyles.header, styles.headerText]}>
-        {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
+        {i18n.t( iconicTaxaNamesById[id] ).toLocaleUpperCase()}
       </StyledText>
       <View style={styles.row}>
         <StyledText style={[baseTextStyles.sectionNumber]} allowFontScaling={false}>{dataLength}</StyledText>

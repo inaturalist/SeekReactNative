@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
-import iconicTaxaIds from "../../utility/dictionaries/iconicTaxonDictById";
+import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
@@ -17,8 +17,8 @@ interface Prediction {
   name: string;
   taxon_id: number;
   rank_level: number;
-  score: number;
-  ancestor_ids?: number[];
+  combined_score: number;
+  ancestor_ids: number[];
 }
 export interface Observation {
   image: {
@@ -54,13 +54,13 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const [error, setError] = useState<string | null>( null );
   const value = { observation, setObservation, error, setError };
 
-  const threshold = 0.7;
+  const threshold = 70;
 
-  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank_level === 10 && leaf.score > threshold ) || null;
+  const checkForSpecies = ( predictions: Prediction[] ) => predictions.find( leaf => leaf.rank_level === 10 && leaf.combined_score > threshold ) || null;
 
   const checkForAncestor = ( predictions: Prediction[] ) => {
     const reversePredictions = predictions.sort( ( a, b ) => a.rank_level - b.rank_level );
-    const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
+    const ancestor = reversePredictions.find( leaf => leaf.combined_score > threshold );
 
     if ( ancestor && ancestor.rank_level !== 100 ) {
       return ancestor;
@@ -68,20 +68,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     return null;
   };
 
-  // TODO: this should happen in the camera plugin
-  const setAncestorIdsiOS = ( predictions: Prediction[] ) => {
-    // adding ancestor ids to take iOS camera experience offline
-    const ancestorIds = predictions.map( ( p ) => Number( p.taxon_id ) );
-    return ancestorIds.sort( );
-  };
-
   const checkForIconicTaxonId = ( ancestorIds: number[] ) => {
-    const taxaIdList = Object.keys( iconicTaxaIds ).reverse( );
-    taxaIdList.pop( );
-    taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
-
-    const idList = taxaIdList.map( id => Number( id ) );
-    const iconicTaxonId = idList.filter( ( _v ) => ancestorIds.indexOf( _v ) !== -1 );
+    const iconicTaxonId = iconicTaxaIds.filter( ( _v ) => ancestorIds.indexOf( _v ) !== -1 );
     return iconicTaxonId[0] || 1;
   };
 
@@ -120,12 +108,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const currentSpeciesID = useRef<number | null>( null );
   const handleSpecies = useCallback( async ( param: Prediction ) => {
     if ( !observation ) { return; }
-    const { predictions, errorCode, latitude } = observation.image;
+    const { errorCode, latitude } = observation.image;
     const species = Object.assign( { }, param );
-
-    if ( Platform.OS === "ios" && !species.ancestor_ids ) {
-      species.ancestor_ids = setAncestorIdsiOS( predictions );
-    }
 
     const createSpecies = ( photo: string | null, seenDate: string | null ) => {
       return {

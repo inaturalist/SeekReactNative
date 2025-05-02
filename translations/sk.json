@@ -268,7 +268,7 @@
     "mission_2_june": "Nájdite ľubovoľných 3 zástupcov sarančiat, cvrčkov, kobyliek, motýľov, mor, húsenice, či bylinožravých cicavcov (herbivorov)",
     "mission_3_june": "Nájdite 2 rôzne pavúkovce, kudlankovité alebo mäsožravé cicavce (mäsožravce)",
     "mission_4_june": "Nájdite 2 huby (rozkladače)",
-    "mission_1_november": "Nájdite ľubovoľných 10 stromov alebo kríkov z nasledujúcich typov: -borovice, tisy a podokarpy; -buky, orechy a duby; vŕby;-vavríny, avokáda, kaštice;",
+    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows;\n-Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
     "mission_1_august": "Nájdite 10 rôznych druhov hmyzu",
     "mission_1_september": "Nájdite 10 ľubovoľných druhov z: šidiel, obojživelníkov, rýb, kačíc, machov, papradí, leknovitých, škrípin alebo orobincov",
     "mission_1_october": "Nájdite 5 vtákov",
@@ -870,7 +870,7 @@
   },
   "seek_2021_challenges": {
     "august_2021_challenge_name": "Výzva článkonožcov – predátorov",
-    "august_2021_mission_1": "Nájdite 5 druhov článkonožcov z: -poriadku hmyzu Mantodea (kudlanky); -riadu hmyzu Odonata (vážky); -riadu hmyzu Megaloptera (strechatky); -riadu hmyzu Neuroptera (mravkolvi, zlatoočky a ďalšie sieťokřídlí); -čeľade hmyzu Coccinellidae (slniečka); -triedy Chilopoda (stonožky); -triedy Arachnida (pavúkovci)",
+    "august_2021_mission_1": "Nájdite 5 druhov článkonožcov z:\n\n-poriadku hmyzu Mantodea (kudlanky);\n-riadu hmyzu Odonata (vážky);\n-riadu hmyzu Megaloptera (strechatky);\n-riadu hmyzu Neuroptera (mravkolvi, zlatoočky a ďalšie sieťokřídlí);\n-čeľade hmyzu Coccinellidae (slniečka);\n-triedy Chilopoda (stonožky);\n-triedy Arachnida (pavúkovci)",
     "august_2021_description": "Predátori sú živočíchy, ktorí lovia a požierajú iné zvieratá. Ale nemusíte ísť ďaleko, aby ste ich našli! Stonožky, pavúky a mnoho ďalších druhov hmyzu a pavúkovcov pravdepodobne lovia menšiu korisť hneď za vašim oknom – alebo dokonca vo vnútri. Aj väčšina slunéčik sú dravci!",
     "august_2021_action": "Premýšľajte o typoch predátorov, ktoré ste našli. Aké druhy koristi jedia? Ako korisť nájdu, chytia a konzumujú?",
     "september_2021_challenge_name": "Výzva ročných období",
@@ -886,13 +886,13 @@
     "november_2021_description_ability_to_fly": "Schopnosť lietať sa vyvinula nezávisle u vtákov, hmyzu a netopierov. Medzi vtákmi sa niektoré druhy stali nelietavými, ale pochádzajú od lietajúcich predkov. To isté platí pre mnohé druhy hmyzu, všetky druhy hmyzu sú aspoň po časť svojho životného cyklu nelietavé.",
     "november_2021_action_were_they_flighted": "Boli zvieratá, ktoré ste našli, v lietacej fáze svojho životného cyklu? Ak áno, kam si myslíte, že leteli počas svojho života? Sťahujú sa?",
     "december_2021_challenge_name_vertebrate_challenge": "Výzva predátorov krajiny – stavovcov",
-    "december_2021_mission_1": "Nájdite 2 druhy stavovcov z: -jastrabovitých: jastraby, orly, luňáci a kaňatá; -sokolovitých; -sov; -mäsožravých cicavcov; -hadov a jašteričiek;",
+    "december_2021_mission_1": "Nájdite 2 druhy stavovcov z:\n\n-jastrabovitých: jastraby, orly, luňáci a kaňatá;\n-sokolovitých;\n-sov;\n-mäsožravých cicavcov;\n-hadov a jašteričiek;",
     "december_2021_description_vertebrate_animals_have": "Bezstavovce živočíchy majú chrbticu a vnútorné kosti. Predátori usmrcujú a jedia korisť. Rovnako ako všetci živočíchy, sú prispôsobení svojej potrave. Veľa predátorov má napríklad ostré pazúry, zuby alebo zobáky, ktoré im umožňujú držať korisť, alebo ju rozkúskovať.",
     "december_2021_action_think_about_predators": "Premýšľajte o predátoroch, ktoré ste pozorovali. Ako sa adaptovali, aby boli dobrí v love a zabíjaní koristi? Vykazujú oba druhy, ktoré ste videli, podobné adaptácie uľahčujúce lov?"
   },
   "seek_2022_challenges": {
     "january_2022_challenge_name_vertebrate_water": "Výzva vodných predátorov – stavovci",
-    "january_2022_mission_1": "Nájdite 2 druhy stavovcov z: -podskupiny Cetacea (kytovci: veľryby a delfíny); -Pinnipedia (plutvonožci: mrože, tulene, uškatce); žraloky a rejnoci; fregatkovité, kormoránovité, anhingovité);",
+    "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Order Suliformes (Gannets, Cormorants, and Allies);\n-Order Sphenisciformes (Penguins)",
     "january_2022_description_mammals_fishes_birds": "Medzi cicavce, ryby a vtáky patria niektoré druhy, ktoré sú schopné loviť korisť v slanej vode (oceánoch a moriach), niektoré sú prispôsobené sladkej vode (riekam, jazerám a potokom).",
     "january_2022_action_water_habitat": "Aký typ vodného prostredia ste navštívili? Aké druhy koristi tam dravci môžu jesť?",
     "february_2022_challenge_name_life_on_edges": "Výzva života na rozhraniach",

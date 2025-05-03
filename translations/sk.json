@@ -268,7 +268,7 @@
     "mission_2_june": "Nájdite ľubovoľných 3 zástupcov sarančiat, cvrčkov, kobyliek, motýľov, mor, húsenice, či bylinožravých cicavcov (herbivorov)",
     "mission_3_june": "Nájdite 2 rôzne pavúkovce, kudlankovité alebo mäsožravé cicavce (mäsožravce)",
     "mission_4_june": "Nájdite 2 huby (rozkladače)",
-    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows;\n-Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
+    "mission_1_november": "Nájdite ľubovoľných 10 stromov alebo kríkov z nasledujúcich typov:\n\n-borovice, ihličnany, tisy a podokarpy;\n-palmy;\n-buky, orechy a duby;\n-javory, buky, manga, mahagóny a citrusy;\n-cesmíny;\n-žeriavy;\n-čerešne, jablone a hrušky;\n-brestovce, osiky, topole a vŕby;\n-vavríny, avokáda, lindery, a kašticu;\n-bresty;\n-rešetliaky a latnatce;\n-figy a moruše,\n-mangrovník;\n-uzlenca;\n-drene, hortenzie a tupely",
     "mission_1_august": "Nájdite 10 rôznych druhov hmyzu",
     "mission_1_september": "Nájdite 10 ľubovoľných druhov z: šidiel, obojživelníkov, rýb, kačíc, machov, papradí, leknovitých, škrípin alebo orobincov",
     "mission_1_october": "Nájdite 5 vtákov",
@@ -892,7 +892,7 @@
   },
   "seek_2022_challenges": {
     "january_2022_challenge_name_vertebrate_water": "Výzva vodných predátorov – stavovci",
-    "january_2022_mission_1": "Find 2 species of vertebrates from:\n\n-Infraorder Cetacea (Whales and Dolphins);\n-Parvorder Pinnipedia (Walrus, Seals, Sea Lions);\n-Subfamily Lutrinae (Otters);\n-Class Actinopterygii (Ray-finned Fishes);\n-Class Elasmobranchii (Sharks and Rays);\n-Order Pelecaniformes (Pelicans, Herons, Ibises, and Allies);\n-Order Coraciiformes (Kingfishers and Allies);\n-Order Podicipediformes (Grebes);\n-Order Suliformes (Gannets, Cormorants, and Allies);\n-Order Sphenisciformes (Penguins)",
+    "january_2022_mission_1": "Nájdite 2 druhy stavovcov z:\n\n-podskupiny Cetacea (veľryby: veľryby a delfíny);\n-Pinnipedia (plutvonožce: mrože, tulene, uškatce);\n-podčeľade Lutrinae (vydry);\n-triedy Actinopterygii (lúčoplutvovce);\n-podtriedy Elasmobranchii (drsnokožce: žraloky a raje);\n-poriadku Pelecaniformes (brodiví a pelikány: pelikány, volavky, ibisi);\n-riadu Coraciiformes (zrastloprstí: rybárik, vlha, mandelík);\n-poriadku Podicipediformes (potápky);\n-riadu Suliformes (veslonožce: fregatkovité, kormoránovité, anhingovité);\n-poriadku Sphenisciformes (tučniaky)",
     "january_2022_description_mammals_fishes_birds": "Medzi cicavce, ryby a vtáky patria niektoré druhy, ktoré sú schopné loviť korisť v slanej vode (oceánoch a moriach), niektoré sú prispôsobené sladkej vode (riekam, jazerám a potokom).",
     "january_2022_action_water_habitat": "Aký typ vodného prostredia ste navštívili? Aké druhy koristi tam dravci môžu jesť?",
     "february_2022_challenge_name_life_on_edges": "Výzva života na rozhraniach",

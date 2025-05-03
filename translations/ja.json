@@ -602,7 +602,7 @@
     "protozoans": "原生動物",
     "kelp": "褐藻、珪藻、その他藻類",
     "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_message_2": "位置情報が正しく記録されていないようです！位置情報が正しいか確認してください。"
   },
   "posting_status": {
     "posting_to_inat_background": "バックグラウンドで INATURALIST に投稿",
@@ -676,7 +676,7 @@
     "copy_logs": "Sending an email did not succeed? Then tap here to copy the content of debug logs into clipboard. Then paste it into an email and send to help+seek@inaturalist.org"
   },
   "shortcut": {
-    "seek_camera": "Seek Camera",
+    "seek_camera": "Seekカメラ",
     "subtitle": "すばやく判定するために"
   },
   "settings": {
@@ -686,7 +686,7 @@
     "donate": "寄付する",
     "donate_header": "iNaturalistを支援する",
     "donate_description": "Seekをお楽しみいただけていますか？iNaturalistへの寄付を検討してみてください！アプリを無料で維持するためにあなたのような人たちからの寄付に頼っています。",
-    "danger_zone": "Danger Zone",
+    "danger_zone": "危険な操作",
     "delete_account": "If you’d like to delete your iNaturalist account, click the button below. This will delete all observations you have posted to iNaturalist through Seek, as well as all observations, IDs, and comments created on the iNaturalist app or website.",
     "delete": "Delete iNaturalist Account",
     "language": "App内言語",

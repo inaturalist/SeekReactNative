@@ -97,7 +97,7 @@
     "error_internet": "Brak połączenia z Internetem",
     "error_request_could_not_be_completed": "Twoja prośba nie mogła zostać zakończona.",
     "error_no_client": "Uwierzytelnienie klienta nie powiodło się z powodu nieznanego klienta, nieuwzględnienia uwierzytelnienia klienta lub nieobsługiwanej metody uwierzytelniania.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_grant_invalid": "Grant uwierzytelnienia jest niepoprawny, przeterminowany, unieważniony, nie pasuje do URI przekierowania użytego w żądaniu uwierzytelnienia, lub został wystawiony przez innego klienta."
   },
   "inat_signup": {
     "welcome": "Witaj w Seek!",
@@ -136,9 +136,9 @@
     "about_personal_information": "O informacjach osobistych",
     "about_licenses": "O Licencjach",
     "transfer_data": "Wyrażam zgodę na przekazanie moich danych osobowych do Stanów Zjednoczonych Ameryki",
-    "learn_more_about_data_transfer": "Some data privacy laws, like the European Union's General Data Protection Regulation (GDPR), require explicit consent to transfer personal information from their jurisdictions to other jurisdictions where the legal protection of this information is not considered adequate. As of 2020, the European Union no longer considers the United States to be a jurisdiction that provides adequate legal protection of personal information, specifically because of the possibility of the US government surveilling data entering the US. It is possible other jurisdictions may have the same opinion.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer": "Niektóre przepisy o ochronie danych osobowych, takie jak Rozporządzenie o Ochronie Danych Osobowych (RODO) Unii Europejskiej, wymagają wyraźnej zgody na przekazywanie danych osobowych z ich jurysdykcji do innych jurysdykcji, w których ochrona prawna tych informacji nie jest uznawana za odpowiednią. Od 2020 r. Unia Europejska nie uważa już Stanów Zjednoczonych za jurysdykcję zapewniającą odpowiednią ochronę prawną informacji osobowych, w szczególności ze względu na możliwość monitorowania przez rząd Stanów Zjednoczonych danych wprowadzanych do USA. Możliwe jest, że inne jurysdykcje mogą mieć taką samą opinię.",
+    "learn_more_about_data_transfer_2": "Korzystanie z iNaturalist wymaga przechowywania danych osobowych, takich jak Twój adres e-mail. Wszystkie dane iNaturalist są przechowywane w Stanach Zjednoczonych i nie możemy mieć pewności w jakiej jurysdykcji jesteś, gdy używasz iNaturalist. W celu zapewnienia zgodności z przepisami dotyczącymi ochrony prywatności takimi jak RODO musisz zaznaczyć, że rozumiesz i akceptujesz to ryzyko oraz wyrażasz zgodę na przekazanie swoich danych osobowych na serwery iNaturalist w USA.",
+    "learn_more_about_data_transfer_3": "Aby dowiedzieć się więcej o tym, jakie informacje zbieramy i jak ich używamy, zobacz nasze <privacy>{{privacy}}</privacy> i <terms>{{terms}}</terms>.",
     "learn_more_about_data_transfer_4": "Nie ma możliwości posiadania konta iNaturalist bez przechowywania danych osobowych, więc jedynym sposobem na cofnięcie tej zgody jest usunięcie Twojego konta."
   },
   "inat_login": {
@@ -285,11 +285,11 @@
     "species_nearby": "POBLISKIE GATUNKI W TYM WYZWANIU",
     "no_species_nearby": "W tym wyzwaniu nie znaleźliśmy w pobliżu żadnego gatunku, którego nie obserwowałeś",
     "species_nearby_internet_error": "Potrzebujemy Internetu, aby pokazać pobliskie gatunki.",
-    "badge_name_my_garden_2022": "MY GARDEN BADGE"
+    "badge_name_my_garden_2022": "ODZNAKA MÓJ OGRÓD"
   },
   "results": {
     "observed_species": "Zaobserwowałeś nowy gatunek!",
-    "learn_more": "It’s been added to your observations.\nLearn more about this species here:",
+    "learn_more": "Dodano do twoich obserwacji.\nDowiedz się więcej o tym gatunku tutaj:",
     "learn_more_no_location": "Tutaj dowiesz się więcej o tym gatunku:",
     "view_species": "Zobacz Gatunki",
     "back": "Powrót do Aparatu",
@@ -304,7 +304,7 @@
     "class": "Uważamy, że jest to członek gromady",
     "resighted": "Ponownie zaobserwowałeś gatunek!",
     "date_observed": "Pierwszy raz zaobserwowano:\n{{seenDate}}",
-    "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
+    "post_inat": "Jeśli zrobiłeś oryginalne zdjęcie organizmu, możesz pomóc w szkoleniu Seek na tym gatunku poprzez stworzenie posta w iNaturalist, gdzie społeczność pomoże je zidentyfikować i ulepszyć przyszłe wersje.",
     "post": "Wyślij do iNaturalist",
     "flag": "Zidentyfikowano niepoprawnie",
     "incorrect": "Czy ten gatunek został źle zidentyfikowany?",
@@ -734,11 +734,11 @@
     "mission_4_aug_2020": "Znajdź 2 owady z rzędów:\n\nBłonkoskrzydłe (Mrówki, Pszczoły, Osy i Rośliniarki);\nŁuskoskrzydłe (Motyle i  Ćmy);\nChrząszcze (Coleoptera);\nMuchówki (Diptera)",
     "aug_2020_description": "Dzięki zapylaczom mamy jedzenie oraz kwiaty, które możemy podziwiać. Poprzez przenoszenie na swoich ciałach pyłków pomiędzy roślinami, zapylacze pomagają rozmnażać się wielu roślinom.",
     "action_aug_2020": "Zwróć uwagę na zapylaczy wokół Siebie. Czy w Twoim ogrodzie lub sąsiedztwie są pszczoły lub motyle odwiedzające kwiaty?",
-    "herbivore": "Herbivore Challenge",
+    "herbivore": "Wyzwanie roślinożercy",
     "mission_1_sept_2020": "Znajdź 10 roślin",
     "mission_2_sept_2020": "Znajdź 1 ssaka",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
+    "sept_2020_description": "Roślinożercy to zwierzęta przystosowane do jedzenia jedynie roślin. Ssaki roślinożerne często mają złożone układy pokarmowe, które umożliwiają im strawienie dużych ilości materiałów roślinnych. Na przykład krowy mają w rzeczywistości 4 żołądki do trawienia zjadanych przez siebie roślin. Inne ssaki specjalizują się w owocach (nietoperze owocowe) lub nasionach (wiewiórki). Również wiele owadów jest przystosowanych do zjadania różnych części roślin, takich jak gąsienice jedzące liście lub fulgorokształne, które wysysają żywicę z łodyg.",
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
     "scavenger": "Scavenger Challenge",
     "mission_1_oct_2020": "Znajdź 4 grzyby",

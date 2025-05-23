@@ -1,0 +1,10 @@
+/* Localized versions of Info.plist keys */
+/* Permissions */
+"NSCameraUsageDescription" = "Používame kameru, takže môžete identifikovať objekty na svojich fotografiách prírody.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Na základe vašej polohy vám navrhneme rastliny a živočíchy, ktoré môžete nájsť vo svojom okolí.";
+"NSLocationAlwaysUsageDescription" = "Na základe vašej polohy vám navrhneme rastliny a živočíchy, ktoré môžete nájsť vo svojom okolí.";
+"NSLocationWhenInUseUsageDescription" = "Na základe vašej polohy vám navrhneme rastliny a živočíchy, ktoré môžete nájsť vo svojom okolí.";
+"NSPhotoLibraryAddUsageDescription" = "Používame knižnicu fotografií, aby ste mohli identifikovať objekty na svojich fotografiách prírody.";
+"NSPhotoLibraryUsageDescription" = "Používame knižnicu fotografií, aby ste mohli identifikovať objekty na svojich fotografiách prírody.";
+/* Shortcut Items */
+"Seek Camera" = "Seek fotoaparát";

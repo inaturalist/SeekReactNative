@@ -13,17 +13,17 @@
   },
   "get_started": {
     "header": "Başla",
-    "tip_1": "Dört bir yanındaki canlı şeyleri tanımlamak için Seek'in kamerası ile fotoğraf çek.",
+    "tip_1": "Dört bir yanındaki canlıları tanımlamak için Seek'in kamerası ile fotoğraf çek.",
     "tip_2": "Yakındaki Türler ile çevrende gözlemlenmiş türler hakkında bilgi edin.",
     "tip_3": "Farklı türleri tanımlayarak ve mücadelelere katılarak rozetler kazan ve seviyeni arttır."
   },
   "challenges_card": {
     "header": "Mücadeleler",
-    "join": "Seek kamerası ile gözlemler ekleyip Bizim Gezegenimiz rozetini kazan!",
+    "join": "Seek kamerası ile gözlem ekleyip Bizim Gezegenimiz rozetini kazan!",
     "take_challenge": "Mücadeleyi kabul et",
     "continue_challenge": "Mücadeleye devam et",
     "view_all": "Tüm mücadeleleri gör",
-    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!",
+    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlem ekleyin!",
     "inat_admin": "iNat yöneticileri: Seek'i test ettiğiniz için teşekkürler! Test amacıyla, iNat mücadelesini ay başlamadan önce görüyorsunuz."
   },
   "updates_card": {
@@ -32,7 +32,7 @@
     "over_x_species": "Seek'in son sürümünde artık 80.000'den fazla türü tanımlayabilirsiniz!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "INATURALİST'TE GÖNDER",
+    "post_to_inaturalist": "INATURALIST'E GÖNDER",
     "uploading_x_observations": {
       "zero": "{{count}} gözlem yükleniyor",
       "one": "{{count}} gözlem yükleniyor",
@@ -57,7 +57,7 @@
       "many": "{{count}} gözlem yüklenecek",
       "other": "{{count}} gözlem yüklenecek"
     },
-    "upload_now": "HEMEN YÜKLE",
+    "upload_now": "ŞİMDİ YÜKLE",
     "error_internet": "Ağ bağlantısı bulunamadı. Lütfen daha sonra tekrar deneyin.",
     "error_downtime": {
       "zero": "iNaturalist sunucusu bakımda. Lütfen {{count}} saat sonra tekrar dene.",
@@ -69,7 +69,7 @@
     },
     "error_unknown": "Yükleme başarısız. Hata detayı: {{errorText}}",
     "error_login": "Giriş başarısız. Lütfen Seek'de iNaturalist veya Başarılar ekranından iNaturalist hesabına giriş yaparak tekrar dene.",
-    "error_photo": "Artık cihazda fotoğrafa erişilemez.",
+    "error_photo": "Fotoğrafa artık bu cihazdan erişilemiyor.",
     "error_downtime_a_few_hours": "iNaturalist sunucusu bakımda. Lütfen bir kaç saat sonra tekrar dene."
   },
   "notifications": {
@@ -81,7 +81,7 @@
     "challenge_completed": "Tebrikler! Bir mücadeleyi tamamladın",
     "view_challenges": "Mücadeleye bak",
     "none": "Henüz hiç bildiriminiz yok!",
-    "about": "Burada mevcut oldukça yeni mücadeleler, Seek'teki güncellemeler ve diğer benzer bilgiler hakkında uyarılacaksınız.",
+    "about": "Burada, yeni mücadeleler kullanıma sunulduğunda, Seek uygulamasıyla ilgili güncellemeler ve diğer önemli bilgiler hakkında bildirim alacaksınız.",
     "new_challenge": "Yeni bir mücadele var!"
   },
   "login": {
@@ -102,12 +102,12 @@
   "inat_signup": {
     "welcome": "Seek'e hoş geldin!",
     "enter_birthday": "Lütfen doğum gününüzü girin",
-    "permission": "Hesap yaratmak için en az 13 yaşında olmalısınız.",
+    "permission": "Hesap oluşturmak için en az 13 yaşında olmalısınız.",
     "privacy": "Gizlilik Politikası",
     "continue": "Devam et",
     "enter_email": "Lütfen ebeveyninin e-posta adresini gir",
     "parent_email": "Ebeveyn/Vasi e-postası",
-    "under_13": "13 yaşının altında olduğun için hesap yaratmadan önce ebeveyninin ya da vasinin iznini almamız gerekiyor.",
+    "under_13": "13 yaşının altında olduğun için hesap oluştırmadan önce ebeveyninin ya da vasinin iznini almamız gerekiyor.",
     "sign_up": "Kaydol",
     "next": "İleri",
     "submit": "Gönder",
@@ -376,7 +376,7 @@
     "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı",
     "error_selected_photos": "Eğer izinlerin 'Seçilen Fotoğraflar' olarak ayarlandıysa, Seek'i yeniden başlatman gerekebilir veya burada gösterilecek fotoğrafları seçmek için iOS Ayarları > Seek > Fotoğraflar > Seçilen Fotoğraflar kısmından düzenleyebilirsin.",
     "plant_filter": "Yalnızca bitkiler",
-    "non_plant_filter": "Yalnızca bitki olmayanlar",
+    "non_plant_filter": "Bitkiler hariç tüm canlılar",
     "filters_off": "Filtreler kapalı",
     "error_save": "Fotoğraf kaydedilemedi."
   },
@@ -517,16 +517,16 @@
   "species_detail": {
     "near": "Yakında",
     "about": "Hakkında",
-    "range_map": "Alan haritası",
+    "range_map": "Yayılım haritası",
     "range_about": "iNaturalist'te görülen bu türün gözlemlerinin bir haritası.",
-    "view_map": "Alan haritasında göster",
+    "view_map": "Yayılım haritasını göster",
     "legend": "Semboller",
     "current_location": "Mevcut Konum",
     "obs": "Seek Gözlemim",
     "obs_inat": "iNaturalist'teki Gözlemler",
     "cc": "CC",
     "license": "Lisans",
-    "taxonomy": "Sınıflandırma",
+    "taxonomy": "Taksonomi",
     "taxonomy_about": "Organizmanın yaşam ağacı üzerindeki her düzeyde sınıflandırılması.",
     "inat_obs": "iNaturalist Gözlemleri",
     "inat_obs_about": "Bu türün dünya çapında yarattığı iNaturalist gözlemlerinin toplam sayısı.",
@@ -535,10 +535,10 @@
     "worldwide": "Dünya çapında",
     "seen_on": "{{date}} tarihinde gözlemlediniz",
     "endangered": "Nesli tükenmekte",
-    "endemic": "Yöreye özgü",
+    "endemic": "Endemik",
     "native": "Yerli",
     "threatened": "Tehdit altında",
-    "introduced": "Tanıtıldı",
+    "introduced": "Egzotik tür",
     "endangered_about": "Bu türün tümü ya da önemli bir kısmının neslinin tükenme tehlikesi vardır.",
     "endemic_about": "Bu tür doğal olarak bu bölgede oluşur ve başka hiçbir yerde bulunmaz.",
     "native_about": "Bu tür doğal olarak bu bölgede oluşur ve insanlar tarafından buraya getirilmedi.",

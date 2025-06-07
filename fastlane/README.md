@@ -31,6 +31,14 @@ Distributes a beta version of Seek on TestFlight
 
 
 
+### ios download_app_store_reviews
+
+```sh
+[bundle exec] fastlane ios download_app_store_reviews
+```
+
+
+
 ----
 
 

@@ -9,6 +9,7 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
+require "spaceship"
 
 fastlane_require "dotenv"
 
@@ -126,6 +127,52 @@ platform :ios do
                }
            ]
        })
+  end
+
+  lane :download_app_store_reviews do
+    desc "Download App Store reviews and save them to a file"
+
+    UI.message "Logging into App Store Connect..."
+
+    # Explicitly login with credentials
+    Spaceship::Tunes.login( ENV["USERNAME"] )
+    Spaceship::Tunes.select_team( team_id: ENV["TEAM_ID"], team_name: nil )
+
+    # Select the app using the bundle ID from the Appfile
+    UI.message "Finding app with bundle ID: #{ENV["APPLE_ID"]}"
+    app = Spaceship::Tunes::Application.find( ENV["APPLE_ID"] )
+
+    unless app
+      UI.abort_with_message! "Could not find app with bundle ID: #{ENV["APPLE_ID"]}"
+    end
+
+    # Fetch reviews
+    UI.message "Fetching reviews for #{app.name}..."
+    reviews = app.ratings.reviews
+
+    # Create an array to hold processed reviews
+    processed_reviews = []
+    reviews.each do | review |
+      # Convert review object to a hash with the fields you want
+      processed_review = {
+        rating: review.rating.to_i,
+        title: review.title,
+        review_content: review.review,
+        nickname: review.nickname,
+        country: review.store_front,
+        last_modified: review.last_modified,
+        edited: review.edited,
+        responded: review.responded?,
+        developer_response: review.developer_response.response
+      }
+      processed_reviews << processed_review
+    end
+
+    # Save reviews to a JSON file
+    output_file = "app_store_reviews.json"
+    File.write( output_file, JSON.pretty_generate( processed_reviews ) )
+
+    UI.success "Downloaded #{reviews.count} reviews to #{output_file}"
   end
 end
 

@@ -3,13 +3,13 @@
     "header": "आस-पास की प्रजातियाँ",
     "internet_error": "आस-पास की प्रजातियाँ दिखाने के लिए हमें इंटरनेट चाहिए। टैप करके दुबारा कोशिश करें।",
     "no_location": "कोई लोकेशन नहीं",
-    "no_gps": "No GPS signal found. Please double check that you have GPS turned on",
+    "no_gps": "GPS सिग्नल नहीं मिला। कृपया दोबारा चेक करें कि आपका GPS चालू है।",
     "no_species": "ऐसा लगता है जैसे अनेक प्रजातियों का आसपास पर्यवेक्षण नहीं किया गया है! आपका स्थान बदलने या प्रजातियां फ़िल्टर को बढ़ाने का प्रयास करें.",
-    "input_location_above_map": "No location found; input a location name above to load the map and search for species nearby",
+    "input_location_above_map": "कोई लोकेशन नहीं मिली; नक्शा लोड करने और पास के प्रजातियों को खोजने के लिए ऊपर लोकेशन का नाम डालें।",
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
-    "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
-    "choose_location_on_map": "CHOOSE LOCATION ON MAP"
+    "species_nearby_requires_android_accuracy": "पास की प्रजातियाँ देखने के लिए आपकी लोकेशन चाहिए। कृपया चेक करें कि लोकेशन सर्विसेस चालू हैं।",
+    "choose_location_on_map": "नक्शे पर लोकेशन चुनें।"
   },
   "get_started": {
     "header": "शुरु हो जाएँ",
@@ -23,23 +23,23 @@
     "take_challenge": "चुनौती लें",
     "continue_challenge": "चुनौती जारी रखें",
     "view_all": "सभी चुनौतियाँ देखें",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!",
-    "inat_admin": "iNat admins: thanks for testing Seek! You're seeing the latest iNat challenge before the start of the month for testing purposes."
+    "new_join": "चैलेंज बैज जीतने के लिए Seek कैमरा से प्रजातियों को कैप्चर करें!",
+    "inat_admin": "iNat एडमिन्स: Seek का परीक्षण करने के लिए धन्यवाद! आप परीक्षण के लिए महीने की शुरुआत से पहले नया iNat चुनौती देख रहे हैं।"
   },
   "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
+    "header": "Seek अपडेट्स",
+    "updated_id_model": "हमने अपने पहचान मॉडल को अपडेट किया है!",
     "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
   },
   "post_to_inat_card": {
-    "post_to_inaturalist": "POST TO INATURALIST",
+    "post_to_inaturalist": "iNaturalist पर डालें",
     "uploading_x_observations": {
       "zero": "Uploading {{count}} observations",
       "one": "Uploading {{count}} observation",
       "two": "Uploading {{count}} observations",
       "few": "Uploading {{count}} observations",
       "many": "Uploading {{count}} observations",
-      "other": "Uploading {{count}} observations"
+      "other": "{{count}} प्रेक्षण अपलोड हो रहे हैं"
     },
     "x_observations_uploaded": {
       "zero": "{{count}} observations uploaded!",
@@ -55,17 +55,17 @@
       "two": "{{count}} observations to upload",
       "few": "{{count}} observations to upload",
       "many": "{{count}} observations to upload",
-      "other": "{{count}} observations to upload"
+      "other": "{{count}} प्रेक्षण अपलोड करना है"
     },
     "upload_now": "UPLOAD NOW",
-    "error_internet": "No internet detected. Please try again later.",
+    "error_internet": "\"इंटरनेट नहीं मिला। कृपया बाद में प्रयास करें।",
     "error_downtime": {
       "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "one": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hour.",
       "two": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "few": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
       "many": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
-      "other": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours."
+      "other": "iNaturalist का सर्वर रखरखाव में है। कृपया {{count}} घंटे बाद फिर कोशिश करें।"
     },
     "error_unknown": "Upload failed. Error details: {{errorText}}",
     "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",

@@ -1,3 +1,22 @@
+diff --git a/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/frameprocessors/VisionCameraProxy.kt b/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/frameprocessors/VisionCameraProxy.kt
+index d697bef..8de418b 100644
+--- a/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/frameprocessors/VisionCameraProxy.kt
++++ b/node_modules/react-native-vision-camera/android/src/main/java/com/mrousavy/camera/frameprocessors/VisionCameraProxy.kt
+@@ -7,12 +7,14 @@ import com.facebook.jni.HybridData
+ import com.facebook.proguard.annotations.DoNotStrip
+ import com.facebook.react.bridge.ReactApplicationContext
+ import com.facebook.react.bridge.UiThreadUtil
++import com.facebook.react.common.annotations.FrameworkAPI
+ import com.facebook.react.turbomodule.core.CallInvokerHolderImpl
+ import com.facebook.react.uimanager.UIManagerHelper
+ import com.mrousavy.camera.core.ViewNotFoundError
+ import com.mrousavy.camera.react.CameraView
+ import java.lang.ref.WeakReference
+ 
++@OptIn(FrameworkAPI::class)
+ @Suppress("KotlinJniMissingFunction") // we use fbjni.
+ class VisionCameraProxy(private val reactContext: ReactApplicationContext) {
+   companion object {
 diff --git a/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift b/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift
 index 4855d31..ece8024 100644
 --- a/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift

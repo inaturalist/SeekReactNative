@@ -1,0 +1,45 @@
+diff --git a/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift b/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift
+index 4855d31..ece8024 100644
+--- a/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift
++++ b/node_modules/react-native-vision-camera/ios/Core/MetadataProvider.swift
+@@ -26,12 +26,6 @@ class MetadataProvider: NSObject, AVCapturePhotoFileDataRepresentationCustomizer
+   func replacementMetadata(for photo: AVCapturePhoto) -> [String: Any]? {
+     var properties = photo.metadata
+ 
+-    // Add branding info
+-    if var exifDictionary = properties[kCGImagePropertyExifDictionary as String] as? [String: Any] {
+-      exifDictionary[kCGImagePropertyExifUserComment as String] = "Captured with VisionCamera by mrousavy"
+-      properties[kCGImagePropertyExifDictionary as String] = exifDictionary
+-    }
+-
+     // Add GPS Location EXIF info
+     if let locationProvider,
+        let location = locationProvider.location {
+@@ -47,10 +41,6 @@ class MetadataProvider: NSObject, AVCapturePhotoFileDataRepresentationCustomizer
+   func createVideoMetadata() -> [AVMetadataItem] {
+     var metadata: [AVMetadataItem] = []
+ 
+-    // Add branding metadata
+-    let brandingMetadata = createBrandingMetadaItem()
+-    metadata.append(brandingMetadata)
+-
+     if let location = locationProvider?.location {
+       // Add GPS Location metadata
+       let locationMetadata = createLocationMetadataItem(location: location)
+@@ -60,16 +50,6 @@ class MetadataProvider: NSObject, AVCapturePhotoFileDataRepresentationCustomizer
+     return metadata
+   }
+ 
+-  private func createBrandingMetadaItem() -> AVMetadataItem {
+-    let metadataItem = AVMutableMetadataItem()
+-    metadataItem.keySpace = .quickTimeMetadata
+-    metadataItem.key = AVMetadataKey.quickTimeMetadataKeyInformation as NSString
+-    metadataItem.identifier = .quickTimeMetadataInformation
+-    metadataItem.value = "Captured with VisionCamera by mrousavy" as NSString
+-    metadataItem.dataType = kCMMetadataBaseDataType_UTF8 as String
+-    return metadataItem
+-  }
+-
+   private func createLocationMetadataItem(location: CLLocation) -> AVMetadataItem {
+     let metadataItem = AVMutableMetadataItem()
+     metadataItem.keySpace = .quickTimeMetadata

@@ -6,7 +6,7 @@ import { View, Platform } from "react-native";
 import styles from "../../styles/uiComponents/topSpacer";
 
 type Props = {
-  +backgroundColor?: ?string
+  backgroundColor?: ?string
 };
 
 const TopSpacer = ( { backgroundColor }: Props ): React.Node => {

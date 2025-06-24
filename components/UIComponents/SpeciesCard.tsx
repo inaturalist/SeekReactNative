@@ -88,8 +88,4 @@ const SpeciesCard = ( {
   );
 };
 
-SpeciesCard.defaultProps = {
-  handlePress: null,
-};
-
 export default SpeciesCard;

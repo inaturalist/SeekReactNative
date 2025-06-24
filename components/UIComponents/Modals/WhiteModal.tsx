@@ -39,7 +39,7 @@ const WhiteModal = ( {
 };
 
 WhiteModal.defaultProps = {
-  closeModal: () => {},
+  closeModal: () => {}
 };
 
 export default WhiteModal;

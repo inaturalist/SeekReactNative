@@ -15,7 +15,7 @@ type Props = {
 }
 
 const BackArrow = ( { green = false, route = null }: Props ) => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation();
   const { name } = useRoute();
 
   const handlePress = ( ) => {

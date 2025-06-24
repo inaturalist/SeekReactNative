@@ -7,14 +7,10 @@ interface Props {
   readonly color?: string | null;
 }
 
-const LoadingWheel = ( { color }: Props ) => (
+const LoadingWheel = ( { color = null }: Props ) => (
   <View style={styles.container}>
     <ActivityIndicator color={color} size="large" />
   </View>
 );
-
-LoadingWheel.defaultProps = {
-  color: null
-};
 
 export default LoadingWheel;

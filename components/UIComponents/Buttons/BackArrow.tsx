@@ -14,8 +14,8 @@ type Props = {
   readonly route?: string | null;
 }
 
-const BackArrow = ( { green, route }: Props ) => {
-  const navigation = useNavigation();
+const BackArrow = ( { green = false, route = null }: Props ) => {
+  const navigation = useNavigation<any>();
   const { name } = useRoute();
 
   const handlePress = ( ) => {
@@ -39,11 +39,6 @@ const BackArrow = ( { green, route }: Props ) => {
       />
     </TouchableOpacity>
   );
-};
-
-BackArrow.defaultProps = {
-  green: false,
-  route: null
 };
 
 export default BackArrow;

@@ -18,7 +18,7 @@ interface Props extends ComponentPropsWithoutRef<typeof TouchableOpacity> {
 }
 
 const GreenButton = ( {
-  color,
+  color = null,
   disabled,
   testID,
   handlePress,
@@ -26,7 +26,7 @@ const GreenButton = ( {
   login = false,
   fontSize,
   text,
-  width,
+  width = null,
   allowFontScaling = true
 }: Props ) => {
   let widthStyle = null;
@@ -60,11 +60,6 @@ const GreenButton = ( {
       </StyledText>
     </TouchableOpacity>
   );
-};
-
-GreenButton.defaultProps = {
-  color: null,
-  width: null,
 };
 
 export default GreenButton;

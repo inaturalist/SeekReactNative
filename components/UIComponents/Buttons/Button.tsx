@@ -19,7 +19,7 @@ interface Props extends React.ComponentPropsWithoutRef<typeof TouchableOpacity> 
 
 const Button = ( {
   testID,
-  color,
+  color = null,
   handlePress,
   large = false,
   text,
@@ -43,9 +43,5 @@ const Button = ( {
     </StyledText>
   </TouchableOpacity>
 );
-
-Button.defaultProps = {
-  color: null,
-};
 
 export default Button;

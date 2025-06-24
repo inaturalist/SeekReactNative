@@ -21,8 +21,8 @@ const GreenText = ( {
   small = false,
   smaller = false,
   text,
-  color,
   center = false,
+  color = null,
   allowFontScaling = true,
   noTranslation
 }: Props ) => (
@@ -40,9 +40,5 @@ const GreenText = ( {
     {noTranslation ? text : i18n.t( text ).toLocaleUpperCase()}
   </StyledText>
 );
-
-GreenText.defaultProps = {
-  color: null,
-};
 
 export default GreenText;

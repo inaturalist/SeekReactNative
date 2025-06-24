@@ -25,7 +25,7 @@ const LocationMap = ( {
   region,
   onRegionChange,
   returnToUserLocation,
-  posting
+  posting = false
 }: Props ) => (
   <View style={viewStyles.container}>
     {region.latitude ? (
@@ -57,9 +57,5 @@ const LocationMap = ( {
     </TouchableOpacity>
   </View>
 );
-
-LocationMap.defaultProps = {
-  posting: false
-};
 
 export default LocationMap;

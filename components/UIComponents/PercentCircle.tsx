@@ -14,7 +14,7 @@ interface Props {
   readonly large?: boolean;
 }
 
-const PercentCircle = ( { challenge, large }: Props ) => (
+const PercentCircle = ( { challenge, large = false }: Props ) => (
   <ProgressCircle
     bgColor={colors.white}
     borderWidth={3}
@@ -32,9 +32,5 @@ const PercentCircle = ( { challenge, large }: Props ) => (
     </StyledText>
   </ProgressCircle>
 );
-
-PercentCircle.defaultProps = {
-  large: false
-};
 
 export default PercentCircle;

@@ -11,7 +11,7 @@ interface Props {
   readonly modal?: boolean;
 }
 
-const BannerHeader = ( { text, modal }: Props ) => (
+const BannerHeader = ( { text, modal = false }: Props ) => (
   <ImageBackground
     source={icons.titleBanner}
     style={[viewStyles.banner, modal && viewStyles.modal]}
@@ -24,9 +24,5 @@ const BannerHeader = ( { text, modal }: Props ) => (
     </StyledText>
   </ImageBackground>
 );
-
-BannerHeader.defaultProps = {
-  modal: false
-};
 
 export default BannerHeader;

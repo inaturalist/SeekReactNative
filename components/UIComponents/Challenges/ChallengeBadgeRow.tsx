@@ -17,7 +17,7 @@ interface Props{
   large?: boolean;
 }
 
-const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
+const ChallengeBadgeRow = ( { challenge, large = false }: Props ) => {
   const is2020OrAfterChallenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   // we created generic seek challenge text after the Our Planet challenges
@@ -54,10 +54,6 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
       </StyledText>
     </View>
   );
-};
-
-ChallengeBadgeRow.defaultProps = {
-  large: false
 };
 
 export default ChallengeBadgeRow;

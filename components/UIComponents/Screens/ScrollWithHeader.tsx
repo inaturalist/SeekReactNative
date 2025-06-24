@@ -31,8 +31,8 @@ const ScrollWithHeader = ( {
   testID,
   children,
   header,
-  route,
-  loading,
+  route = null,
+  loading = false,
   footer = false
 }: Props ) => {
   const navigation = useNavigation();
@@ -74,11 +74,6 @@ const ScrollWithHeader = ( {
       {footer && <Footer />}
     </SafeAreaView>
   );
-};
-
-ScrollWithHeader.defaultProps = {
-  route: null,
-  loading: false
 };
 
 export default ScrollWithHeader;

@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   Image,
@@ -19,20 +17,19 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useChallenge } from "../../Providers/ChallengeProvider";
 
-type Props = {
-  +challenge: {
-    name: string,
-    availableDate: Date,
-    percentComplete: number,
-    startedDate: Date,
-    index: number,
-    earnedIconName: string,
-    sponsorName: string
-  },
-  +fetchChallenges: ( ) => void
+interface Props {
+  readonly challenge: {
+    name: string;
+    availableDate: Date;
+    percentComplete: number;
+    startedDate: Date;
+    index: number;
+    earnedIconName: string;
+    sponsorName: string;
+  };
 }
 
-const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {
+const ChallengeProgressCard = ( { challenge }: Props ) => {
   const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
   const {
@@ -67,7 +64,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
     rightIcon = <Image source={icons.completed} />;
   } else if ( startedDate && percentComplete !== 100 ) {
     rightIcon = <PercentCircle challenge={challenge} />;
-  } else if ( fetchChallenges ) {
+  } else {
     rightIcon = (
       <StyledText
         accessibilityLabel={`${i18n.t( "challenges.start_now" )}${name}`}
@@ -102,10 +99,6 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.N
       </View>
     </TouchableOpacity>
   );
-};
-
-ChallengeProgressCard.defaultProps = {
-  fetchChallenges: ( ) => {}
 };
 
 export default ChallengeProgressCard;

@@ -9,7 +9,7 @@ interface Props {
   readonly allowFontScaling?: boolean;
 }
 
-const DescriptionText = ( { text, allowFontScaling }: Props ) => (
+const DescriptionText = ( { text, allowFontScaling = true }: Props ) => (
   <StyledText
     allowFontScaling={allowFontScaling}
     style={dimensions.height > 570 ? baseTextStyles.body : baseTextStyles.bodyBlackSmallScreens}
@@ -17,9 +17,5 @@ const DescriptionText = ( { text, allowFontScaling }: Props ) => (
     {text}
   </StyledText>
 );
-
-DescriptionText.defaultProps = {
-  allowFontScaling: true
-};
 
 export default DescriptionText;

@@ -28,7 +28,7 @@ const LevelModal = ( {
   level,
   speciesCount,
   closeModal,
-  screen
+  screen = null
 }: Props ) => (
   <WhiteModal closeModal={closeModal}>
     <View style={viewStyles.headerMargins}>
@@ -51,9 +51,5 @@ const LevelModal = ( {
     <StyledText style={[baseTextStyles.body, textStyles.text]}>{i18n.t( "banner.number_seen_plural", { count: speciesCount } )}</StyledText>
   </WhiteModal>
 );
-
-LevelModal.defaultProps = {
-  screen: null
-};
 
 export default LevelModal;

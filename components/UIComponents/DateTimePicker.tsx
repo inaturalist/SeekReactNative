@@ -10,7 +10,7 @@ interface Props {
 }
 
 const DatePicker = ( {
-  datetime,
+  datetime = false,
   isDateTimePickerVisible,
   onDatePicked,
   toggleDateTimePicker
@@ -32,10 +32,6 @@ const DatePicker = ( {
       onConfirm={onDatePicked}
     />
   );
-};
-
-DatePicker.defaultProps = {
-  datetime: false
 };
 
 export default DatePicker;

@@ -1,4 +1,3 @@
-
 import React, { ComponentPropsWithoutRef } from "react";
 import { TouchableOpacity } from "react-native";
 
@@ -19,16 +18,16 @@ interface Props extends ComponentPropsWithoutRef<typeof TouchableOpacity> {
 }
 
 const GreenButton = ( {
-  color,
+  color = null,
   disabled,
   testID,
   handlePress,
   letterSpacing,
-  login,
+  login = false,
   fontSize,
   text,
-  width,
-  allowFontScaling
+  width = null,
+  allowFontScaling = true
 }: Props ) => {
   let widthStyle = null;
 
@@ -61,13 +60,6 @@ const GreenButton = ( {
       </StyledText>
     </TouchableOpacity>
   );
-};
-
-GreenButton.defaultProps = {
-  login: false,
-  color: null,
-  width: null,
-  allowFontScaling: true
 };
 
 export default GreenButton;

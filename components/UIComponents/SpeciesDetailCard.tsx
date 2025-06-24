@@ -12,7 +12,7 @@ interface Props {
   readonly hide?: boolean;
 }
 
-const SpeciesDetailCard = ( { children, text, hide }: Props ) => {
+const SpeciesDetailCard = ( { children, text, hide = false }: Props ) => {
   const { isLandscape } = useAppOrientation( );
 
   if ( hide ) {
@@ -26,10 +26,6 @@ const SpeciesDetailCard = ( { children, text, hide }: Props ) => {
       {children}
     </View>
   );
-};
-
-SpeciesDetailCard.defaultProps = {
-  hide: false
 };
 
 export default SpeciesDetailCard;

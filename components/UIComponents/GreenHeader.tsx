@@ -19,7 +19,7 @@ interface Props {
   plainText?: string;
 }
 
-const GreenHeader = ( { header, route, plainText }: Props ) => {
+const GreenHeader = ( { header = null, route = null, plainText }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();
 
@@ -48,11 +48,6 @@ const GreenHeader = ( { header, route, plainText }: Props ) => {
       )}
     </View>
   );
-};
-
-GreenHeader.defaultProps = {
-  route: null,
-  header: null
 };
 
 export default GreenHeader;

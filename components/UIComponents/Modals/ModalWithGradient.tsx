@@ -30,7 +30,7 @@ const ModalWithGradient = ( {
   color,
   userImage,
   originalImage,
-  displayDate
+  displayDate = null
 }: Props ) => (
   <View style={viewStyles.container}>
     <LinearGradient
@@ -89,9 +89,5 @@ const ModalWithGradient = ( {
     </View>
   </View>
 );
-
-ModalWithGradient.defaultProps = {
-  displayDate: null
-};
 
 export default ModalWithGradient;

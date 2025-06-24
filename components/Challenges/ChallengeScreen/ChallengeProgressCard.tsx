@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import {
   Image,
@@ -19,20 +17,20 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useChallenge } from "../../Providers/ChallengeProvider";
 
-type Props = {
-  challenge: {
-    name: string,
-    availableDate: Date,
-    percentComplete: number,
-    startedDate: Date,
-    index: number,
-    earnedIconName: string,
-    sponsorName: string
-  },
-  fetchChallenges: ( ) => void
+interface Props {
+  readonly challenge: {
+    name: string;
+    availableDate: Date;
+    percentComplete: number;
+    startedDate: Date;
+    index: number;
+    earnedIconName: string;
+    sponsorName: string;
+  };
+  readonly fetchChallenges: ( ) => void;
 }
 
-const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {
+const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
   const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
   const {

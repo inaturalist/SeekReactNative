@@ -7,17 +7,13 @@ interface Props {
   readonly backgroundColor?: string | null;
 }
 
-const TopSpacer = ( { backgroundColor }: Props ) => {
+const TopSpacer = ( { backgroundColor = null }: Props ) => {
   if ( Platform.OS === "ios" ) {
     return (
       <View style={[styles.iosSpacer, backgroundColor && { backgroundColor }]} />
     );
   }
   return null;
-};
-
-TopSpacer.defaultProps = {
-  backgroundColor: null
 };
 
 export default TopSpacer;

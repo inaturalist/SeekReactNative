@@ -6,7 +6,7 @@ import BackButton from "../Buttons/ModalBackButton";
 
 interface Props {
   readonly children: React.ReactNode;
-  readonly closeModal: ( ) => void;
+  readonly closeModal?: ( ) => void;
   readonly noButton?: boolean;
   readonly width?: number | null;
   readonly accessibilityLabel?: string;
@@ -14,7 +14,7 @@ interface Props {
 
 const WhiteModal = ( {
   children,
-  closeModal,
+  closeModal = () => {},
   noButton = false,
   width = null,
   accessibilityLabel
@@ -36,10 +36,6 @@ const WhiteModal = ( {
       {!noButton && <BackButton closeModal={closeModal} />}
     </View>
   );
-};
-
-WhiteModal.defaultProps = {
-  closeModal: () => {}
 };
 
 export default WhiteModal;

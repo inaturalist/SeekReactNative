@@ -27,10 +27,9 @@ interface Props {
     earnedIconName: string;
     sponsorName: string;
   };
-  readonly fetchChallenges: ( ) => void;
 }
 
-const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
+const ChallengeProgressCard = ( { challenge }: Props ) => {
   const { setIndex } = useChallenge( );
   const navigation = useNavigation( );
   const {
@@ -65,7 +64,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
     rightIcon = <Image source={icons.completed} />;
   } else if ( startedDate && percentComplete !== 100 ) {
     rightIcon = <PercentCircle challenge={challenge} />;
-  } else if ( fetchChallenges ) {
+  } else {
     rightIcon = (
       <StyledText
         accessibilityLabel={`${i18n.t( "challenges.start_now" )}${name}`}
@@ -100,10 +99,6 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
       </View>
     </TouchableOpacity>
   );
-};
-
-ChallengeProgressCard.defaultProps = {
-  fetchChallenges: ( ) => {}
 };
 
 export default ChallengeProgressCard;

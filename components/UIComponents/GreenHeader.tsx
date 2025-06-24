@@ -19,8 +19,8 @@ interface Props {
   plainText?: string;
 }
 
-  const navigation = useNavigation();
 const GreenHeader = ( { header = null, route = null, plainText }: Props ) => {
+  const navigation = useNavigation();
   const { name } = useRoute();
 
   return (

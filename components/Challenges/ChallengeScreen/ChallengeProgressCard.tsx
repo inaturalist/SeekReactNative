@@ -20,7 +20,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import { useChallenge } from "../../Providers/ChallengeProvider";
 
 type Props = {
-  +challenge: {
+  challenge: {
     name: string,
     availableDate: Date,
     percentComplete: number,
@@ -29,7 +29,7 @@ type Props = {
     earnedIconName: string,
     sponsorName: string
   },
-  +fetchChallenges: ( ) => void
+  fetchChallenges: ( ) => void
 }
 
 const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ): React.Node => {

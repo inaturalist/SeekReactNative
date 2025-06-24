@@ -21,10 +21,10 @@ const Button = ( {
   testID,
   color,
   handlePress,
-  large,
+  large = false,
   text,
-  greenText,
-  login
+  greenText = false,
+  login = false
 }: Props ) => (
   <TouchableOpacity
     testID={testID || "button"}
@@ -45,10 +45,7 @@ const Button = ( {
 );
 
 Button.defaultProps = {
-  large: false,
-  greenText: false,
   color: null,
-  login: false
 };
 
 export default Button;

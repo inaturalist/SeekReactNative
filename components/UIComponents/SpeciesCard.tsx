@@ -26,7 +26,7 @@ interface Props {
 const SpeciesCard = ( {
   handlePress,
   photo,
-  allowFontScaling,
+  allowFontScaling = true,
   taxon
 }: Props ) => {
   const { preferredCommonName, name, iconicTaxonId } = taxon;
@@ -90,7 +90,6 @@ const SpeciesCard = ( {
 
 SpeciesCard.defaultProps = {
   handlePress: null,
-  allowFontScaling: true
 };
 
 export default SpeciesCard;

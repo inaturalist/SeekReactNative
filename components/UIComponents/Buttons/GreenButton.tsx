@@ -1,4 +1,3 @@
-
 import React, { ComponentPropsWithoutRef } from "react";
 import { TouchableOpacity } from "react-native";
 
@@ -24,11 +23,11 @@ const GreenButton = ( {
   testID,
   handlePress,
   letterSpacing,
-  login,
+  login = false,
   fontSize,
   text,
   width,
-  allowFontScaling
+  allowFontScaling = true
 }: Props ) => {
   let widthStyle = null;
 
@@ -64,10 +63,8 @@ const GreenButton = ( {
 };
 
 GreenButton.defaultProps = {
-  login: false,
   color: null,
   width: null,
-  allowFontScaling: true
 };
 
 export default GreenButton;

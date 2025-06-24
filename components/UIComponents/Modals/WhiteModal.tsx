@@ -15,8 +15,8 @@ interface Props {
 const WhiteModal = ( {
   children,
   closeModal,
-  noButton,
   width,
+  noButton = false,
   accessibilityLabel
 }: Props ) => {
   let widthStyle = null;
@@ -39,7 +39,6 @@ const WhiteModal = ( {
 };
 
 WhiteModal.defaultProps = {
-  noButton: false,
   closeModal: () => {},
   width: null
 };

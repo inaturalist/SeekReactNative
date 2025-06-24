@@ -18,12 +18,12 @@ interface Props {
 
 const GreenText = ( {
   style,
-  small,
-  smaller,
+  small = false,
+  smaller = false,
   text,
-  center,
   color,
-  allowFontScaling,
+  center = false,
+  allowFontScaling = true,
   noTranslation
 }: Props ) => (
   <StyledText
@@ -43,10 +43,6 @@ const GreenText = ( {
 
 GreenText.defaultProps = {
   color: null,
-  center: false,
-  small: false,
-  smaller: false,
-  allowFontScaling: true
 };
 
 export default GreenText;

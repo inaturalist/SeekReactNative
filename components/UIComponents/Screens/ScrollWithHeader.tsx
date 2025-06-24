@@ -32,7 +32,7 @@ const ScrollWithHeader = ( {
   children,
   header,
   route,
-  loading,
+  loading = false,
   footer = false
 }: Props ) => {
   const navigation = useNavigation();
@@ -78,7 +78,6 @@ const ScrollWithHeader = ( {
 
 ScrollWithHeader.defaultProps = {
   route: null,
-  loading: false
 };
 
 export default ScrollWithHeader;

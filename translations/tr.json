@@ -851,7 +851,7 @@
     "your_obs_could_make_difference": "GÖZLEMİN FARK YARATABİLİR",
     "everyday_obs_help_scientists": "Her gün senin gibi doğa bilimciler tarafından gözlemlerin yapılması; bilim insanlarının hangi organizmaların nerede ve ne zaman bulunduklarını öğrenmelerine yardımcı olur, hatta yeni keşiflere yol açar!",
     "faqs": "SSS",
-    "faq_1": "iNaturalist hesabı açmak için 13'ten büyük veya ailenin iznin olması gerekir",
+    "faq_1": "iNaturalist hesabı oluşturmak için 13 yaşından büyük olmanız veya bir ebeveyninizin iznine sahip olmanız gerekir",
     "faq_2": "Seek ve iNaturalist aynı tanımlama modelini kullanır, ancak sadece iNaturalist gözlemleri topluluk tarafından doğrulanır",
     "logged_in_as": "OLARAK GİRİŞ YAPTIN",
     "x_observations_posted_to_inat": {
@@ -866,7 +866,7 @@
     "logged_in_bullet_2": "Gözlemlerinin tanımlamalarının bildirimlerini, yorumları ve diğer etkinlikleri iNaturalist uygulaması veya websitesi üzerinden görüntüleyebilirsin",
     "logged_in_bullet_3": "Seek gözlemlerin iNaturalist üzerinde YEDEKLENMEZ. Seek'i silersen cihazındaki tüm gözlemler silinir.",
     "upload_and_track_obs_using_inat": "iNaturalist uygulamasını kullanarak veya inaturalist.org sitesini ziyaret ederek gözlemlerini yükleyebilir ve izleyebilirsin.\n\nTopluluğun parçası olduğun için teşekkürler!",
-    "x_seen_by_user": "{{speciesName}} {{user}} tarafından görüldü",
+    "x_seen_by_user": "{{speciesName}} {{user}} tarafından gözlemlendi",
     "about_inat_internet_error": "iNaturalist'te oturum açtın ancak ayrıntıları göstermek için internete ihtiyacımız var. Tekrar denemek için dokun."
   },
   "seek_2021_challenges": {

@@ -19,6 +19,10 @@ import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
 import { getUnixTime } from "date-fns";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import InatVision from "./helpers/visionPluginWrapper";
+import { log } from "../../../react-native-logs.config";
+import { LogLevels, logToApi } from "../../../utility/apiCalls";
+
+const logger = log.extend( "ARCamera.js" );
 
 interface Props {
   setIsActive: ( arg0: boolean ) => void;
@@ -70,6 +74,13 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       setObservation( { image } );
     } else {
       image.onlineVision = true;
+      logToApi( {
+        level: LogLevels.INFO,
+        message: "Online vision would have been used here, but I removed it, " +
+          "if you see this message it means that some device was not able to get offline vision.",
+        context: "GalleryButton",
+        errorType: "0"
+      } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
       setObservation( { image } );
       navigate( "Confirm" );
     }

@@ -1,11 +1,9 @@
 // @flow
 
 import React, { useEffect } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import type { Node } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ErrorScreen from "./Error";
 import { useObservation } from "../../Providers/ObservationProvider";
 
@@ -27,12 +25,6 @@ const ConfirmScreen = ( ): Node => {
     } );
   }, [navigation, setError] );
 
-  if ( !observation ) {
-    return null;
-  }
-
-  const { image } = observation;
-
   if ( error ) {
     return (
       <ErrorScreen
@@ -41,13 +33,6 @@ const ConfirmScreen = ( ): Node => {
       />
     );
   }
-
-  return (
-    <SafeAreaView edges={["top"]}>
-        <GreenButton
-        />
-    </SafeAreaView>
-  );
 };
 
 export default ConfirmScreen;

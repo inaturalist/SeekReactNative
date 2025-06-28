@@ -314,7 +314,6 @@
     "no": "Nei, det stemmer",
     "enable_location": "Slå på lokalitet for å lagre observasjoner",
     "enable_location_button": "ENABLE LOCATION",
-    "error_server": "Beklager, vi kunne ikke score dette bildet. Vennligst sjekk din internettilkobling og prøv på nytt.",
     "error_image": "Beklager, vi kunne ikke behandle ditt bilde. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_species": "Beklager, vi kunne ikke hente artsdetaljer for dette bildet. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_location": "For å legge til arter til dine observasjoner må du slå på din posisjon. Seek bruker din posisjon for å minne deg på hvor du så en organisme, og å hjelpe med å bidra til grasrotforsking hvis du publiserer på iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Ikke spis noe du finner i naturen.",
     "tip_3": "Ikke gå på andres eiendom.",
     "tip_4": "Ha respekt for andre levende vesener ved å ikke plage eller røre de. Noen kan stikke eller bite."
-  },
-  "confirm": {
-    "identify": "Identifiser dette bildet?",
-    "button": "Identifiser bilde"
   },
   "levels": {
     "tadpole": "Rumpetroll",

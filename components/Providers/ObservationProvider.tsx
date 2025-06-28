@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
 import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
@@ -215,23 +214,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       isCurrent = false;
     };
   }, [observation, handleSpecies, handleAncestor] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  // this is for online predictions (only iOS photo library uploads)
-  useEffect( ( ) => {
-    if ( Platform.OS === "android" ) { return; }
-
-    if ( !observation ) { return; }
-    const { image, clicked } = observation;
-
-    if ( !image
-      || !clicked
-      || true
-    ) {
-      return;
-    }
-  }, [observation] );
 
   const value = {
     observation,

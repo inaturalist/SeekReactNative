@@ -314,7 +314,6 @@
     "no": "No, és correcte",
     "enable_location": "Habilitar ubicació per guardar les observacions",
     "enable_location_button": "HABILITAR UBICACIÓ",
-    "error_server": "Ho sentim, no hem pogut analitzar aquesta imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_image": "Ho sentim, no hem pogut processar la teva imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_species": "Ho sentim, no hem pogut identificar detalls de l'espècie a aquesta imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_location": "Per afegir espècies a les teves observacions, has d’habilitar la teva ubicació. Seek utilitza la teva ubicació per recordar-te on has vist un organisme i fer les teves contribucions de ciència ciutadana si les publiques a iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "No mengis res que trobis al camp.",
     "tip_3": "No passis.",
     "tip_4": "Respecte totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar."
-  },
-  "confirm": {
-    "identify": "Identificar aquesta foto?",
-    "button": "Identifica foto"
   },
   "levels": {
     "tadpole": "Renoc",

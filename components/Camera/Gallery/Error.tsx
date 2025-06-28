@@ -9,7 +9,6 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
 enum Error {
-  onlineVision = "onlineVision",
   image = "image",
   taxaInfo = "taxaInfo",
   downtime = "downtime",
@@ -23,9 +22,7 @@ interface Props {
 const ErrorScreen = ( { error, number }: Props ) => {
   let errorText;
 
-  if ( error === "onlineVision" ) {
-    errorText = i18n.t( "results.error_server" );
-  } else if ( error === "image" ) {
+  if ( error === "image" ) {
     errorText = i18n.t( "results.error_image" );
   } else if ( error === "taxaInfo" ) {
     errorText = i18n.t( "results.error_species" );

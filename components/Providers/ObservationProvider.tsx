@@ -3,7 +3,7 @@ import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 
 import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
-import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
@@ -268,18 +268,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
   // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
   // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const handleServerError = useCallback( ( response ) => {
-    if ( !response ) {
-      return { error: "onlineVision" };
-    } else if ( response.status && response.status === 503 ) {
-      const gmtTime = response.headers.map["retry-after"];
-      const hours = serverBackOnlineTime( gmtTime );
-      return { error: "downtime", numberOfHours: hours };
-    }
-  }, [] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   // this is for online predictions (only iOS photo library uploads)
   useEffect( ( ) => {
     let isCurrent = true;
@@ -348,15 +336,14 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       } catch ( e ) {
         const parsedError = JSON.stringify( e );
         const { response } = parsedError;
-        const serverError = handleServerError( response );
-        setError( serverError );
+        console.log( "response", response );
       }
     };
 
     if ( image.predictions.length === 0 && !observation.taxon ) {
       fetchOnlineVisionResults( );
     }
-  }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
+  }, [observation, handleOnlineSpecies, handleOnlineAncestor] );
 
   const value = {
     observation,

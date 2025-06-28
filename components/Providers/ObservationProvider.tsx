@@ -222,7 +222,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   // this is for online predictions (only iOS photo library uploads)
   useEffect( ( ) => {
-    let isCurrent = true;
     if ( Platform.OS === "android" ) { return; }
 
     if ( !observation ) { return; }
@@ -235,20 +234,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       return;
     }
 
-    const updateObs = ( taxon ) => {
-      if ( !isCurrent ) { return; }
-
-      const prevTaxon = observation.taxon;
-
-      if ( !prevTaxon
-        || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
-        setObservation( {
-          ...observation,
-          taxon
-        } );
-      }
-    };
-
     const fetchOnlineVisionResults = async ( ) => {
       const uploadParams = await flattenUploadParameters( image );
       const token = createJwtToken( );
@@ -256,10 +241,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
       try {
         const r = await inatjs.computervision.score_image( uploadParams, options );
-        if ( r.results.length === 0 ) {
-          updateObs( { } );
-          return;
-        }
       } catch ( e ) {
       }
     };

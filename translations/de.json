@@ -123,10 +123,10 @@
     "linked_account": "Du hast ein iNaturalist-Konto mit Seek verknüpft!",
     "posting": "An iNaturalist senden",
     "posting_details": "Du kannst Beobachtungen in Seek sofort nach dem Hinzufügen zu deinen Beobachtungen auch in iNaturalist veröffentlichen. Falls du Beobachtungen später in iNaturalist veröffentlichen möchtest, verwende bitte die iNaturalist-App oder die Website.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Beobachtungen aus Seek nicht synchronisiert",
+    "observations_stored_only_in_app": "Deine Beobachtungen in Seek werden nur auf deinem Gerät gespeichert und sind NICHT online über iNaturalist gesichert",
+    "observations_bullet_1": "Das Löschen der App löscht alle deine in Seek gemachten Beobachtungen.",
+    "observations_bullet_2": "Beim Übertragen von Seek auf ein neues Gerät werden deine Beobachtungen nicht mit übertragen.",
     "observations_3": "Seek synchronisiert deine Beobachtungen nicht mit anderen Geräten.",
     "agree_to_terms": "Ich stimme den <terms>{{terms}}</terms> und <privacy>{{privacy}}</privacy> zu und habe die <guidelines>{{guidelines}}</guidelines> gelesen.",
     "guidelines": "Community-Richtlinien",
@@ -314,7 +314,6 @@
     "no": "Nein, es ist richtig",
     "enable_location": "Standort zum Speichern von Beobachtungen aktivieren",
     "enable_location_button": "STANDORT AKTIVIEREN",
-    "error_server": "Leider können wir das Bild nicht bewerten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_image": "Leider können wir das Bild nicht verarbeiten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_location": "Du kannst keine Verbreitungskarten ansehen, Arten in der Nähe erkunden oder diese Beobachtung auf iNaturalist posten. Wenn du den Standort in Seek aktivierst, kannst du detaillierte Informationen zu deinen Beobachtungen sehen und zu wissenschaftlichen Daten beitragen. Dein Standort wird nicht veröffentlicht, es sei denn, du lädst die Beobachtung auf iNaturalist hoch.",
@@ -398,10 +397,6 @@
     "tip_2": "Nichts essen, was du draußen findest.",
     "tip_3": "Kein unerlaubtes Betreten von Grundstücken.",
     "tip_4": "Respektiere andere Lebewesen, indem du sie nicht ärgerst oder berührst. Einige können stechen oder beißen."
-  },
-  "confirm": {
-    "identify": "Dieses Foto identifizieren?",
-    "button": "Foto identifizieren"
   },
   "levels": {
     "tadpole": "Kaulquappe",

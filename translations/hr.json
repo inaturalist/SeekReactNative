@@ -314,7 +314,6 @@
     "no": "Ne, točno je",
     "enable_location": "Tvoje opažanje nema lokaciju",
     "enable_location_button": "DOPUSTI USLUGE LOKACIJE",
-    "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Nemoj pojesti ništa što pronađeš u divljini.",
     "tip_3": "Ne ulazi na tuđi posjed.",
     "tip_4": "Poštuj druga živa bića tako da ih ne uznemiravaš i ne diraš. Neka od njih te mogu ubosti ili ugristi."
-  },
-  "confirm": {
-    "identify": "Identificiraj ovu fotografiju?",
-    "button": "Identificiraj fotografiju"
   },
   "levels": {
     "tadpole": "Punoglavac",

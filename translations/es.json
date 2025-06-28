@@ -314,7 +314,6 @@
     "no": "No, es correcto",
     "enable_location": "Tu observación no tiene ubicación",
     "enable_location_button": "HABILITAR UBICACIÓN",
-    "error_server": "Lo sentimos, no hemos podido analizar esta imagen. Por favor, comprueba tu conexión a internet e inténtalo de nuevo.",
     "error_image": "Lo sentimos, no hemos podido procesar tu imagen. Por favor, comprueba tu conexión a internet e inténtalo de nuevo.",
     "error_species": "Lo sentimos, no hemos podido reconocer los detalles específicos de esta imagen. Por favor, comprueba tu conexión a internet e inténtalo de nuevo.",
     "error_location": "Si no activas tu ubicación en Seek no podrás añadir especies a tus observaciones o enviarlas a iNaturalist. I la activas en Seek podrán ver información detallada sobre tus observaciones y contribuir a la ciencia ciudadana. Tu localización no será pública, a menos que la publiques en iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "No comas nada que encuentres en la naturaleza.",
     "tip_3": "No pases.",
     "tip_4": "Respeta a los demás seres vivos, no los acoses ni los toques. Algunos pueden picar o morder."
-  },
-  "confirm": {
-    "identify": "¿Identificar esta foto?",
-    "button": "Identificar foto"
   },
   "levels": {
     "tadpole": "Renacuajo",

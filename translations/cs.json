@@ -314,7 +314,6 @@
     "no": "Ne, je to správně",
     "enable_location": "Vaše pozorování nemá polohu",
     "enable_location_button": "POVOLIT POLOHU",
-    "error_server": "Omlouváme se, nemohli jsme zaznamenat tento obrázek. Zkontrolujte prosím své připojení k internetu a zkuste to znovu.",
     "error_image": "Omlouváme se, nemohli jsme zpracovat váš obrázek. Zkontrolujte prosím připojení k internetu a zkuste to znovu.",
     "error_species": "Omlouváme se, nepodařilo se nám načíst údaje o tomto obrázku. Zkontrolujte prosím své připojení k internetu a zkuste to znovu.",
     "error_location": "Nebudete moci zobrazovat mapy rozšíření, zkoumat druhy v okolí ani publikovat toto pozorování na iNaturalist. Pokud aplikaci Seek přístup k poloze povolíte, budete moci zobrazit podrobné informace o vašich pozorováních a přispět. Vaše poloha nebude zveřejněna, pokud neodešlete pozorování do iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Nejezte nic, co najdete ve volné přírodě.",
     "tip_3": "Nevstupujte do zakázaných oblastí.",
     "tip_4": "Respektuje ostatní živé organismy, neobtěžujte je a nedotýkejte se jich. Některé mohou štípat nebo kousat."
-  },
-  "confirm": {
-    "identify": "Identifikovat tuto fotografii?",
-    "button": "Identifikovat fotografii"
   },
   "levels": {
     "tadpole": "Pulec",

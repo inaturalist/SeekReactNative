@@ -314,7 +314,6 @@
     "no": "Tidak, ini benar",
     "enable_location": "Pengamatanmu tidak memiliki lokasi",
     "enable_location_button": "NYALAKAN LOKASI",
-    "error_server": "Maaf, kami tidak dapat menilai gambar ini. Harap memeriksa koneksi internetmu dan coba lagi.",
     "error_image": "Maaf, kami tidak dapat memproses gambar ini. Harap memeriksa koneksi internetmu dan coba lagi.",
     "error_species": "Maaf, kami tidak dapat mengambil detail spesies untuk gambar ini. Harap memeriksa koneksi internetmu dan coba lagi.",
     "error_location": "Kamu tidak dapat melihat peta jangkauan, menjelajahi spesies di dekatmu, ataupun mengunggah pengamatan ini ke iNaturalist. Jika kamu menyalakan lokasi di Seek, kamu dapat melihat informasi terperinci tentang pengamatanmu dan berkontribusi kepada ilmu sipil. Lokasimu tidak akan diterbitkan jika kamu tidak mengunggah di iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Jangan memakan apapun yang kamu temukan di alam liar.",
     "tip_3": "Jangan masuk tanpa izin.",
     "tip_4": "Hormati makhluk hidup lainnya dengan tidak memegang atau mengganggu mereka. Beberapa dari mereka dapat menyengat atau menggigit."
-  },
-  "confirm": {
-    "identify": "Identifikasi foto ini?",
-    "button": "Identifikasi Foto"
   },
   "levels": {
     "tadpole": "Cebong",

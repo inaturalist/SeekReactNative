@@ -314,7 +314,6 @@
     "no": "Ez, zuzena da",
     "enable_location": "Zure behaketak ez du kokapenik",
     "enable_location_button": "GAITU KOKAPENA",
-    "error_server": "Barka, ezin izan dugu argazki hau baloratu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_image": "Barka, ezin izan dugu argazki hau prozesatu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_species": "Barka, ezin izan dugu argazki honetatik espeziea eskuratu. Mesedez, begiratu Internet konexioa eta saia zaitez berriro.",
     "error_location": "Ezin izango ditu banaketa-eremuen mapak ikusi, hurbileko espezieak aztertu edo ohar hau iNaturalist-en argitaratu. Lokalizazioa SEEKen gaitzen baduzu, zure behaketei eta herritarren zientziari buruzko informazio zehatza ikusi ahal izango duzu. Zure kokapena ez da argitaratuko iNaturalist-en argitaratzen ez baduzu.\n\n",
@@ -398,10 +397,6 @@
     "tip_2": "Ez ezazu basabizitzan aurkitzen duzun ezer ere jan.",
     "tip_3": "Ez sartu leku pribatuetan.",
     "tip_4": "Beste izaki bizidunak errespetatu, ez itzazu gogaitu edo ukitu. Batzuek mina edo hozka egin dezakete."
-  },
-  "confirm": {
-    "identify": "Argazki hau identifikatu?",
-    "button": "Argazkia identifikatu"
   },
   "levels": {
     "tadpole": "Zapaburua",

@@ -314,7 +314,6 @@
     "no": "Não, está correto",
     "enable_location": "A sua observação não tem localização",
     "enable_location_button": "ATIVAR LOCALIZAÇÃO",
-    "error_server": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_image": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_species": "Desculpe, não pudemos sincronizar seus favoritos. Por favor, verifique sua conexão e tente novamente.",
     "error_location": "Para adicionar espécies às suas observações, você deve ativar a sua localização. Seek utiliza a sua localização para lembrar onde foi visto o organismo e contribuir para a ciência cidadã quando você postar no iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Não coma nada que encontrar em estado selvagem.",
     "tip_3": "Não infrinja regras.",
     "tip_4": "Respeite os outros seres vivos, não os incomode nem toque neles. Alguns podem picar ou morder."
-  },
-  "confirm": {
-    "identify": "Identificar esta foto?",
-    "button": "Identificar foto"
   },
   "levels": {
     "tadpole": "Girino",

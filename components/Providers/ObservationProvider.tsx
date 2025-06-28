@@ -23,7 +23,6 @@ interface Prediction {
 export interface Observation {
   image: {
     predictions: Prediction[];
-    onlineVision: boolean;
     errorCode: number;
     latitude: number;
     longitude: number;
@@ -176,7 +175,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
     if ( !image
       || !image.predictions
-      || image.onlineVision
     ) {
       return;
     }
@@ -292,7 +290,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
     if ( !image
       || !clicked
-      || !image.onlineVision
+      || true
     ) {
       return;
     }

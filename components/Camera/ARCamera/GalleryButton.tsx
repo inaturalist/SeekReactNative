@@ -45,8 +45,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       errorCode: 0,
       latitude: null,
       longitude: null,
-      preciseCoords: {},
-      onlineVision: false
+      preciseCoords: {}
     };
 
     if ( checkForPhotoMetaData( location ) ) {
@@ -73,7 +72,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       image.predictions = predictions;
       setObservation( { image } );
     } else {
-      image.onlineVision = true;
       logToApi( {
         level: LogLevels.INFO,
         message: "Online vision would have been used here, but I removed it, " +
@@ -81,7 +79,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
         context: "GalleryButton",
         errorType: "0"
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
-      setObservation( { image } );
       navigate( "Confirm" );
     }
   };
@@ -91,7 +88,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
   useEffect( ( ) => {
     if ( observation
       && observation.taxon
-      && !observation.image.onlineVision
       && imageSelected
     ) {
       // changed to navigate from push bc on Android, with RN > 0.65.x, the camera was

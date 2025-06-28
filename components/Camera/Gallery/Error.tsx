@@ -22,6 +22,7 @@ interface Props {
 const ErrorScreen = ( { error, number }: Props ) => {
   let errorText;
 
+  // TODO: Audit which ones are actually still used, since error has been deleted from ObsProvider
   if ( error === "image" ) {
     errorText = i18n.t( "results.error_image" );
   } else if ( error === "taxaInfo" ) {

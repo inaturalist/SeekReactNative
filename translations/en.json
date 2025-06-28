@@ -398,10 +398,6 @@
     "tip_3": "Don’t trespass.",
     "tip_4": "Respect other living things by not harassing or touching them. Some may sting or bite."
   },
-  "confirm": {
-    "identify": "Identify this photo?",
-    "button": "Identify Photo"
-  },
   "levels": {
     "tadpole": "Tadpole",
     "cub": "Cub",

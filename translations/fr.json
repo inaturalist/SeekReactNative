@@ -314,7 +314,6 @@
     "no": "Non, c'est correct",
     "enable_location": "Votre observation n’est pas localisée ",
     "enable_location_button": "ACTIVER LA LOCALISATION",
-    "error_server": "Désolé nous ne parvenons pas à reconnaître cette image. Veuillez vérifier votre connexion internet et essayez de nouveau.",
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
     "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer aux sciences participatives si vous avez effectué des publications sur iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Ne mangez pas ce que vous trouvez dans la nature.",
     "tip_3": "N'entrez pas dans les propriétés privées.",
     "tip_4": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre."
-  },
-  "confirm": {
-    "identify": " Identifier cette photo ?",
-    "button": " Identifier cette photo"
   },
   "levels": {
     "tadpole": "Têtard",

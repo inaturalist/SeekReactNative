@@ -314,7 +314,6 @@
     "no": "Nem. Helyes a név.",
     "enable_location": "A felfedezésedhez nem tartozik helyszín",
     "enable_location_button": "HELYZET ENGEDÉLYEZÉSE",
-    "error_server": "Sajnáljuk, nem tudunk kapcsolódni a szerverhez. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_image": "Sajnáljuk, nem tudtuk feldolgozni a képedet. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_species": "Sajnáljuk, nem tudjuk azonosítani a képen szereplő fajt. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_location": "Nem tudod megtekinteni az elterjedési térképet, felfedezni a közeli fajokat, vagy feltölteni megfigyeléseit az iNaturalist-ra. Ha engedélyezed a helymeghatározást a Seek-ben, részletes információkat tekinthetsz meg megfigyelésiddel kapcsolatban, és hozzájárulhatsz a közösségi tudományhoz. A helyadatok nem kerülnek közlésre, hacsak nem töltöd fel az iNaturalist-ra.",
@@ -398,10 +397,6 @@
     "tip_2": "Ne kóstolj meg mindent, amit a vadonban találsz!",
     "tip_3": "Kerüld a birtokháborítást.",
     "tip_4": "Légy tisztelettel más élőlények felé, és ne nyúlj hozzájuk. Némelyikük csíp vagy harap."
-  },
-  "confirm": {
-    "identify": "Azonosítsuk a képet?",
-    "button": "Kép azonosítása"
   },
   "levels": {
     "tadpole": "Ebihal",

@@ -11,7 +11,7 @@ import { useObservation } from "../../Providers/ObservationProvider";
 
 const ConfirmScreen = ( ): Node => {
   const navigation = useNavigation( );
-  const { observation, setObservation, error, setError } = useObservation();
+  const { observation, error, setError } = useObservation();
 
   useEffect( ( ) => {
     if ( observation && observation.taxon && observation.clicked ) {
@@ -33,11 +33,6 @@ const ConfirmScreen = ( ): Node => {
 
   const { image, clicked } = observation;
 
-  const updateClicked = ( ) => setObservation( {
-    ...observation,
-    clicked: true
-  } );
-
   if ( error ) {
     return (
       <ErrorScreen
@@ -50,7 +45,6 @@ const ConfirmScreen = ( ): Node => {
   return (
     <SafeAreaView edges={["top"]}>
         <GreenButton
-          handlePress={updateClicked}
         />
     </SafeAreaView>
   );

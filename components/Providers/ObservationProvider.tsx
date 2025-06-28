@@ -328,15 +328,10 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
             const { ancestorTaxa } = taxa.taxon;
             const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
             const taxon = await handleOnlineAncestor( nearestTaxon );
-            updateObs( taxon );
+            console.log( taxon );
           }
-        } else {
-          updateObs( { } );
         }
       } catch ( e ) {
-        const parsedError = JSON.stringify( e );
-        const { response } = parsedError;
-        console.log( "response", response );
       }
     };
 

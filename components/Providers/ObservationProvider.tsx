@@ -236,20 +236,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
   // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
   // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const createOnlineAncestor = ( ancestor: Object ) => {
-    if ( !ancestor ) { return; }
-    const photo = ancestor.default_photo;
-
-    return {
-      taxaId: ancestor.id,
-      speciesSeenImage: photo ? photo.medium_url : null,
-      scientificName: ancestor.name,
-      rank: ancestor.rank_level
-    };
-  };
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const handleOnlineSpecies = useCallback( async ( species ) => {
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
     if ( !observation ) { return; }
@@ -260,10 +246,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
     return createOnlineSpecies( species.taxon, seenDate );
   }, [observation] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const handleOnlineAncestor = useCallback( async ( ancestor ) => createOnlineAncestor( ancestor ), [] );
 
   // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
   // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
@@ -317,16 +299,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
         } else if ( ancestor ) {
           const rankLevel = ancestor.taxon.rank_level;
           const primaryRank = checkCommonAncestorRank( rankLevel );
-
-          if ( primaryRank ) {
-            const taxon = await handleOnlineAncestor( ancestor.taxon );
-            updateObs( taxon );
-          } else {
-            // roll up to the nearest primary rank instead of showing sub-ranks
-            // this better matches what we do on the AR camera
-            const { ancestorTaxa } = taxa.taxon;
-            console.log( ancestorTaxa );
-          }
+          console.log( primaryRank );
         }
       } catch ( e ) {
       }
@@ -335,7 +308,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     if ( image.predictions.length === 0 && !observation.taxon ) {
       fetchOnlineVisionResults( );
     }
-  }, [observation, handleOnlineSpecies, handleOnlineAncestor] );
+  }, [observation, handleOnlineSpecies] );
 
   const value = {
     observation,

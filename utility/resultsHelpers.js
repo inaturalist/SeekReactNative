@@ -7,15 +7,6 @@ import { log } from "../react-native-logs.config";
 
 const logger = log.extend( "resultsHelpers.js" );
 
-const checkCommonAncestorRank = ( rank: number ): boolean => {
-  const primaryRanks = [20, 30, 40, 50];
-
-  if ( primaryRanks.includes( rank ) ) {
-    return true;
-  }
-  return false;
-};
-
 const setImageCoords = (
   coords?: {
     latitude: number,
@@ -106,7 +97,6 @@ const fetchImageLocationOrErrorCode = async ( image: {
 };
 
 export {
-  checkCommonAncestorRank,
   setImageCoords,
   fetchImageLocationOrErrorCode
 };

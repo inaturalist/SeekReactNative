@@ -8,9 +8,6 @@ import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { createJwtToken } from "../../utility/helpers";
-import {
-  checkCommonAncestorRank
-} from "../../utility/resultsHelpers";
 
 interface Prediction {
   name: string;
@@ -298,8 +295,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
           updateObs( taxon );
         } else if ( ancestor ) {
           const rankLevel = ancestor.taxon.rank_level;
-          const primaryRank = checkCommonAncestorRank( rankLevel );
-          console.log( primaryRank );
+          console.log( rankLevel );
         }
       } catch ( e ) {
       }

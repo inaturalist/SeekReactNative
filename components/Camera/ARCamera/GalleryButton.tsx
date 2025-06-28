@@ -22,7 +22,7 @@ import InatVision from "./helpers/visionPluginWrapper";
 import { log } from "../../../react-native-logs.config";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
-const logger = log.extend( "ARCamera.js" );
+const logger = log.extend( "GalleryButton.tsx" );
 
 interface Props {
   setIsActive: ( arg0: boolean ) => void;

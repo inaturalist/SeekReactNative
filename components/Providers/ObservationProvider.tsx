@@ -220,19 +220,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
   // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
   // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const createOnlineSpecies = ( species, seenDate ) => {
-    const photo = species.default_photo;
-
-    return {
-      taxaId: species.id,
-      speciesSeenImage: photo ? photo.medium_url : null,
-      scientificName: species.name,
-      seenDate
-    };
-  };
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   const handleOnlineSpecies = useCallback( async ( species ) => {
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
     if ( !observation ) { return; }
@@ -241,7 +228,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       await addToCollection( species, observation.image );
     }
 
-    return createOnlineSpecies( species.taxon, seenDate );
+    return null;
   }, [observation] );
 
   // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline

@@ -29,7 +29,6 @@ export interface Observation {
     rank?: any;
     seenDate?: string;
   } | undefined;
-  clicked: boolean;
 }
 const ObservationContext = React.createContext<
   {

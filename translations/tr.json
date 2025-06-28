@@ -314,7 +314,6 @@
     "no": "Hayır, doğru",
     "enable_location": "Gözleminin konumu yok",
     "enable_location_button": "KONUMU ETKİNLEŞTİR",
-    "error_server": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_image": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_location": "Gözlemlerinize tür eklemek için konumunuzu etkinleştirmeniz gerekir. Seek, bulunduğunuz yeri bir organizmayı nerede gördüğünüzü anımsatmak ve iNaturalist’e gönderirseniz vatandaş bilimine katkıda bulunmanız için kullanır.",
@@ -398,10 +397,6 @@
     "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
     "tip_3": "İzinsiz girme.",
     "tip_4": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır."
-  },
-  "confirm": {
-    "identify": "Bu fotoğraf tanımlansın mı?",
-    "button": "Fotoğrafı Tanımla"
   },
   "levels": {
     "tadpole": "İribaş",

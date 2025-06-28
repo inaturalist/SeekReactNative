@@ -9,7 +9,6 @@ import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Wikipedia from "../Species/WikipediaView";
 import ARCamera from "../Camera/ARCamera/ARCamera";
-import ConfirmScreen from "../Camera/Gallery/ConfirmScreen";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostStatus from "../PostToiNat/PostStatus";
@@ -63,7 +62,6 @@ const App = ( ) => {
             <Stack.Screen name="Onboarding" component={Onboarding} options={defaultConfig} />
             <Stack.Screen name="Camera" component={ARCamera} options={verticalConfig} />
             <Stack.Screen name="Drawer" component={Drawer} options={drawerConfig} />
-            <Stack.Screen name="Confirm" component={ConfirmScreen} options={defaultConfig} />
             <Stack.Screen name="Post" component={Post} options={defaultConfig} />
             <Stack.Screen name="PostStatus" component={PostStatus} options={defaultConfig} />
             <Stack.Screen name="LoginOrSignup" component={LoginOrSignupScreen} options={defaultConfig} />

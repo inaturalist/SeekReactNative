@@ -66,7 +66,7 @@ const ARCamera = ( ): Node => {
   const isFocused = useIsFocused( );
   const navigation = useNavigation( );
   const camera = useRef<any>( null );
-  const { setObservation, observation } = useObservation();
+  const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
   const { deviceOrientation } = useDeviceOrientation();
 
@@ -178,16 +178,12 @@ const ARCamera = ( ): Node => {
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
-    setObservation( { image } );
-  }, [setObservation, login] );
-
-  useEffect( ( ) => {
-    if ( observation && observation.taxon && observation.image.arCamera && pictureTaken.value ) {
+    startObservationWithImage( image, () => {
       navigation.navigate( "Drawer", {
         screen: "Match"
       } );
-    }
-  }, [observation, navigation, pictureTaken] );
+    } );
+  }, [startObservationWithImage, navigation, login] );
 
   const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions

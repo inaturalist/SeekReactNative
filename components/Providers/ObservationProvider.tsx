@@ -1,17 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { Platform } from "react-native";
+import React, { useState, useCallback } from "react";
 import inatjs from "inaturalistjs";
 
 import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
-import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
-import { flattenUploadParameters } from "../../utility/photoHelpers";
-import { createJwtToken } from "../../utility/helpers";
-import {
-  findNearestPrimaryRankTaxon,
-  checkCommonAncestorRank
-} from "../../utility/resultsHelpers";
 
 interface Prediction {
   name: string;
@@ -20,39 +13,35 @@ interface Prediction {
   combined_score: number;
   ancestor_ids: number[];
 }
+interface ObservationImage {
+  predictions: Prediction[];
+  errorCode: number;
+  latitude: number;
+  longitude: number;
+  uri: string;
+  time: number;
+}
 export interface Observation {
-  image: {
-    predictions: Prediction[];
-    onlineVision: boolean;
-    errorCode: number;
-    latitude: number;
-    longitude: number;
-    uri: string;
-    time: number;
-  };
-  taxon: {
+  image: ObservationImage;
+  taxon?: {
     taxaId?: number;
     speciesSeenImage?: string;
     scientificName?: string;
     rank?: any;
     seenDate?: string;
-  } | undefined;
-  clicked: boolean;
+  };
 }
 const ObservationContext = React.createContext<
   {
     observation: Observation | null;
     setObservation: React.Dispatch<React.SetStateAction<any>>;
-    error: string | null;
-    setError: React.Dispatch<React.SetStateAction<any>>;
+    startObservationWithImage: ( image: ObservationImage, callback: () => void ) => void;
   } | undefined
 >( undefined );
 
 type ObservationProviderProps = {children: React.ReactNode}
 const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const [observation, setObservation] = useState<Observation | null>( null );
-  const [error, setError] = useState<string | null>( null );
-  const value = { observation, setObservation, error, setError };
 
   const threshold = 70;
 
@@ -105,10 +94,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     }
   }, [] );
 
-  const currentSpeciesID = useRef<number | null>( null );
-  const handleSpecies = useCallback( async ( param: Prediction ) => {
-    if ( !observation ) { return; }
-    const { errorCode, latitude } = observation.image;
+  const handleSpecies = async ( image: ObservationImage, param: Prediction ) => {
+    const { errorCode, latitude } = image;
     const species = Object.assign( { }, param );
 
     const createSpecies = ( photo: string | null, seenDate: string | null ) => {
@@ -131,22 +118,15 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       };
     };
 
-    // Only run this once for a given species because fetchSpeciesSeenDate throws an error in
-    // a C++ library of realm if the function is called twice. Even though this error only happens
-    // for the first time a user observes a species that counts towards a challenge, having this check
-    // here does not have any negative effects on the app I think.
-    if ( currentSpeciesID.current === species.taxon_id ) {
-      currentSpeciesID.current = null;
-      return;
-    } else {
-      currentSpeciesID.current = species.taxon_id;
-    }
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
+    console.log( "fetchSpeciesSeenDate result:", seenDate );
     const mediumPhoto = await fetchPhoto( species.taxon_id );
+    console.log( "fetchPhoto result:", mediumPhoto );
 
     if ( !seenDate ) {
       const newObs = createObservationForRealm( );
-      await addToCollection( newObs, observation.image );
+      await addToCollection( newObs, image );
+      console.log( "addToCollection resolved" );
 
       // also added to online server results
       if ( !latitude && errorCode !== 0 ) {
@@ -155,10 +135,11 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     }
     const taxon = createSpecies( mediumPhoto, seenDate );
     return taxon;
-  }, [observation, fetchPhoto] );
+  };
 
   const handleAncestor = useCallback( async ( ancestor: Prediction ) => {
     const photo = await fetchPhoto( ancestor.taxon_id );
+    console.log( "fetchPhoto result:", photo );
 
     return {
       taxaId: ancestor.taxon_id,
@@ -168,199 +149,40 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     };
   }, [fetchPhoto] );
 
-  // this is for offline predictions
-  useEffect( ( ) => {
-    let isCurrent = true;
-
-    if ( observation === null ) { return; }
-    const { image } = observation;
-
-    if ( !image
-      || !image.predictions
-      || image.onlineVision
-    ) {
+  const startObservationWithImage = async ( image: ObservationImage, positiveCallback?: () => void ) => {
+    console.log( "Adding image to observation", image );
+    if ( !image || !image.predictions ) {
+      console.warn( "No predictions found in image" );
       return;
     }
 
-    const updateObs = ( taxon: {
-      taxaId?: any;
-      speciesSeenImage?: any;
-      scientificName?: any;
-      rank?: any;
-    } | undefined ) => {
-      if ( !isCurrent ) { return; }
+    const { predictions } = image;
+    const species = checkForSpecies( predictions );
+    console.log( "checkForSpecies result:", species );
+    const ancestor = checkForAncestor( predictions );
+    console.log( "checkForAncestor result:", ancestor );
+    let taxon = undefined;
+    if ( species ) {
+      taxon = await handleSpecies( image, species );
+      console.log( "handleSpecies result:", taxon );
+    } else if ( ancestor ) {
+      taxon = await handleAncestor( ancestor );
+      console.log( "handleAncestor result:", taxon );
+    }
+    setObservation( { image, taxon } );
 
-      const prevTaxon = observation && observation.taxon;
-
-      if ( !prevTaxon
-        || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
-        setObservation( {
-          ...observation,
-          taxon
-        } );
-      }
-    };
-
-    const checkForMatch = async ( ) => {
-      const { predictions } = observation.image;
-
-      const species = checkForSpecies( predictions );
-      const ancestor = checkForAncestor( predictions );
-
-      if ( species ) {
-        const taxon = await handleSpecies( species );
-        updateObs( taxon );
-      } else if ( ancestor ) {
-        const taxon = await handleAncestor( ancestor );
-        updateObs( taxon );
-      } else {
-        updateObs( { } );
-      }
-    };
-
-    checkForMatch( );
-
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [observation, handleSpecies, handleAncestor] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const createOnlineSpecies = ( species, seenDate ) => {
-    const photo = species.default_photo;
-
-    return {
-      taxaId: species.id,
-      speciesSeenImage: photo ? photo.medium_url : null,
-      scientificName: species.name,
-      seenDate
-    };
+    // At this point we were successful in adding the image and processing the predictions
+    // call the positiveCallback if it exists
+    if ( positiveCallback ) {
+      positiveCallback( );
+    }
   };
 
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const createOnlineAncestor = ( ancestor: Object ) => {
-    if ( !ancestor ) { return; }
-    const photo = ancestor.default_photo;
-
-    return {
-      taxaId: ancestor.id,
-      speciesSeenImage: photo ? photo.medium_url : null,
-      scientificName: ancestor.name,
-      rank: ancestor.rank_level
-    };
+  const value = {
+    observation,
+    setObservation,
+    startObservationWithImage
   };
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const handleOnlineSpecies = useCallback( async ( species ) => {
-    const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
-    if ( !observation ) { return; }
-
-    if ( !seenDate ) {
-      await addToCollection( species, observation.image );
-    }
-
-    return createOnlineSpecies( species.taxon, seenDate );
-  }, [observation] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const handleOnlineAncestor = useCallback( async ( ancestor ) => createOnlineAncestor( ancestor ), [] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const handleServerError = useCallback( ( response ) => {
-    if ( !response ) {
-      return { error: "onlineVision" };
-    } else if ( response.status && response.status === 503 ) {
-      const gmtTime = response.headers.map["retry-after"];
-      const hours = serverBackOnlineTime( gmtTime );
-      return { error: "downtime", numberOfHours: hours };
-    }
-  }, [] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  // this is for online predictions (only iOS photo library uploads)
-  useEffect( ( ) => {
-    let isCurrent = true;
-    if ( Platform.OS === "android" ) { return; }
-
-    if ( !observation ) { return; }
-    const { image, clicked } = observation;
-
-    if ( !image
-      || !clicked
-      || !image.onlineVision
-    ) {
-      return;
-    }
-
-    const updateObs = ( taxon ) => {
-      if ( !isCurrent ) { return; }
-
-      const prevTaxon = observation.taxon;
-
-      if ( !prevTaxon
-        || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
-        setObservation( {
-          ...observation,
-          taxon
-        } );
-      }
-    };
-
-    const fetchOnlineVisionResults = async ( ) => {
-      const uploadParams = await flattenUploadParameters( image );
-      const token = createJwtToken( );
-      const options = { api_token: token };
-
-      try {
-        const r = await inatjs.computervision.score_image( uploadParams, options );
-        if ( r.results.length === 0 ) {
-          updateObs( { } );
-          return;
-        }
-
-        const taxa = r.results[0];
-        const ancestor = r.common_ancestor;
-
-        if ( taxa && taxa.combined_score > 85 && taxa.taxon.rank === "species" ) {
-          const taxon = await handleOnlineSpecies( taxa );
-          updateObs( taxon );
-        } else if ( ancestor ) {
-          const rankLevel = ancestor.taxon.rank_level;
-          const primaryRank = checkCommonAncestorRank( rankLevel );
-
-          if ( primaryRank ) {
-            const taxon = await handleOnlineAncestor( ancestor.taxon );
-            updateObs( taxon );
-          } else {
-            // roll up to the nearest primary rank instead of showing sub-ranks
-            // this better matches what we do on the AR camera
-            const { ancestorTaxa } = taxa.taxon;
-            const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
-            const taxon = await handleOnlineAncestor( nearestTaxon );
-            updateObs( taxon );
-          }
-        } else {
-          updateObs( { } );
-        }
-      } catch ( e ) {
-        const parsedError = JSON.stringify( e );
-        const { response } = parsedError;
-        const serverError = handleServerError( response );
-        setError( serverError );
-      }
-    };
-
-    if ( image.predictions.length === 0 && !observation.taxon ) {
-      fetchOnlineVisionResults( );
-    }
-  }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
-
   return (
     <ObservationContext.Provider value={value}>{children}</ObservationContext.Provider>
   );

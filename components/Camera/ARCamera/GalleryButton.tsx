@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "react-native-image-picker";
 import {
@@ -19,21 +19,23 @@ import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
 import { getUnixTime } from "date-fns";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import InatVision from "./helpers/visionPluginWrapper";
+import { log } from "../../../react-native-logs.config";
+import { LogLevels, logToApi } from "../../../utility/apiCalls";
+
+const logger = log.extend( "GalleryButton.tsx" );
 
 interface Props {
   setIsActive: ( arg0: boolean ) => void;
 }
 
 const GalleryButton = ( { setIsActive }: Props ) => {
-  const { setObservation, observation } = useObservation();
+  const { startObservationWithImage } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
   const navigateToResults = ( uri, time, location, predictions: InatVision.Prediction[]
  ) => {
-    const { navigate } = navigation;
-
     const image = {
       time,
       uri,
@@ -41,8 +43,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       errorCode: 0,
       latitude: null,
       longitude: null,
-      preciseCoords: {},
-      onlineVision: false
+      preciseCoords: {}
     };
 
     if ( checkForPhotoMetaData( location ) ) {
@@ -67,27 +68,19 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
     if ( predictions && predictions.length > 0 ) {
       image.predictions = predictions;
-      setObservation( { image } );
+      startObservationWithImage( image, () => {
+        navigation.navigate( "Match" );
+      } );
     } else {
-      image.onlineVision = true;
-      setObservation( { image } );
-      navigate( "Confirm" );
+      logToApi( {
+        level: LogLevels.INFO,
+        message: "Online vision would have been used here, but fetching online results has been removed, " +
+          "if you see this message it means that some device was not able to get offline vision.",
+        context: "GalleryButton",
+        errorType: "0"
+      } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     }
   };
-
-  // TODO: this is a useEffect that waits until the image is attached to the new observation
-  // and then navigates to the match screen; this needs to be refactored
-  useEffect( ( ) => {
-    if ( observation
-      && observation.taxon
-      && !observation.image.onlineVision
-      && imageSelected
-    ) {
-      // changed to navigate from push bc on Android, with RN > 0.65.x, the camera was
-      // popping up over the top of the match screen
-      navigation.navigate( "Match" );
-    }
-  }, [observation, navigation, imageSelected] );
 
   const getPredictions = ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );

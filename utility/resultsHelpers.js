@@ -7,28 +7,6 @@ import { log } from "../react-native-logs.config";
 
 const logger = log.extend( "resultsHelpers.js" );
 
-// online results helpers
-const findNearestPrimaryRankTaxon = ( ancestors: Array<Object>, rank: number ): ?Array<Object> => {
-  if ( rank <= 20 ) {
-    return ancestors.find( r => r.rank_level === 20 );
-  } else if ( rank <= 30 ) {
-    return ancestors.find( r => r.rank_level === 30 );
-  } else if ( rank <= 40 ) {
-    return ancestors.find( r => r.rank_level === 40 );
-  } else if ( rank <= 50 ) {
-    return ancestors.find( r => r.rank_level === 50 );
-  }
-};
-
-const checkCommonAncestorRank = ( rank: number ): boolean => {
-  const primaryRanks = [20, 30, 40, 50];
-
-  if ( primaryRanks.includes( rank ) ) {
-    return true;
-  }
-  return false;
-};
-
 const setImageCoords = (
   coords?: {
     latitude: number,
@@ -119,8 +97,6 @@ const fetchImageLocationOrErrorCode = async ( image: {
 };
 
 export {
-  findNearestPrimaryRankTaxon,
-  checkCommonAncestorRank,
   setImageCoords,
   fetchImageLocationOrErrorCode
 };

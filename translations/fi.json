@@ -314,7 +314,6 @@
     "no": "Ei, se on oikein",
     "enable_location": "Ota sijainti käyttöön tallentaaksesi havainnot",
     "enable_location_button": "SALLI SIJAINTI",
-    "error_server": "Valitettavasti emme voineet pisteyttää tätä kuvaa. Tarkista internet-yhteytesi ja yritä uudelleen.",
     "error_image": "Valitettavasti emme voineet prosessoida tätä kuvaa. Tarkista internet-yhteytesi ja yritä uudelleen.",
     "error_species": "Valitettavasti emme voineet hakea lajitietoja tälle kuvalle. Tarkista internet-yhteytesi ja yritä uudelleen.",
     "error_location": "Et voi tarkastella karttoja, tutkia lähistöllä olevia lajeja tai julkaista tätä havaintoa iNaturalistiin. Jos otat sijainnin käyttöön Seekissä, voit tarkastella yksityiskohtaisia tietoja havainnoistasi ja osallistua kansalaistieteeseen. Sijaintiasi ei julkaista, ellet lähetä havaintoa iNaturalistiin.",
@@ -398,10 +397,6 @@
     "tip_2": "Älä syö mitään, mitä löydät luonnosta.",
     "tip_3": "Älä mene alueelle luvatta.",
     "tip_4": "Kunnioita muita eläviä, älä häiritse tai kosketa niitä. Jotkut saattavat pistää tai purra."
-  },
-  "confirm": {
-    "identify": "Tunnista kuva?",
-    "button": "Tunnista kuva"
   },
   "levels": {
     "tadpole": "Nuijapää",

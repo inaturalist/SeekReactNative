@@ -52,7 +52,6 @@ type ObservationProviderProps = {children: React.ReactNode}
 const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const [observation, setObservation] = useState<Observation | null>( null );
   const [error, setError] = useState<string | null>( null );
-  const value = { observation, setObservation, error, setError };
 
   const threshold = 70;
 
@@ -361,6 +360,12 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     }
   }, [observation, handleOnlineSpecies, handleOnlineAncestor, handleServerError] );
 
+  const value = {
+    observation,
+    setObservation,
+    error,
+    setError
+  };
   return (
     <ObservationContext.Provider value={value}>{children}</ObservationContext.Provider>
   );

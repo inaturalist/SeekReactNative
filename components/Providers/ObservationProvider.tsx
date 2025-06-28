@@ -34,15 +34,12 @@ const ObservationContext = React.createContext<
   {
     observation: Observation | null;
     setObservation: React.Dispatch<React.SetStateAction<any>>;
-    error: string | null;
-    setError: React.Dispatch<React.SetStateAction<any>>;
   } | undefined
 >( undefined );
 
 type ObservationProviderProps = {children: React.ReactNode}
 const ObservationProvider = ( { children }: ObservationProviderProps ) => {
   const [observation, setObservation] = useState<Observation | null>( null );
-  const [error, setError] = useState<string | null>( null );
 
   const threshold = 70;
 
@@ -216,9 +213,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
   const value = {
     observation,
-    setObservation,
-    error,
-    setError
+    setObservation
   };
   return (
     <ObservationContext.Provider value={value}>{children}</ObservationContext.Provider>

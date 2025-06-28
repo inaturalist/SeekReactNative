@@ -14,7 +14,7 @@ const ConfirmScreen = ( ): Node => {
   const { observation, error, setError } = useObservation();
 
   useEffect( ( ) => {
-    if ( observation && observation.taxon && observation.clicked ) {
+    if ( observation && observation.taxon ) {
       navigation.push( "Drawer", {
         screen: "Match"
       } );
@@ -31,7 +31,7 @@ const ConfirmScreen = ( ): Node => {
     return null;
   }
 
-  const { image, clicked } = observation;
+  const { image } = observation;
 
   if ( error ) {
     return (

@@ -13,22 +13,23 @@ interface Prediction {
   combined_score: number;
   ancestor_ids: number[];
 }
+interface ObservationImage {
+  predictions: Prediction[];
+  errorCode: number;
+  latitude: number;
+  longitude: number;
+  uri: string;
+  time: number;
+}
 export interface Observation {
-  image: {
-    predictions: Prediction[];
-    errorCode: number;
-    latitude: number;
-    longitude: number;
-    uri: string;
-    time: number;
-  };
-  taxon: {
+  image: ObservationImage;
+  taxon?: {
     taxaId?: number;
     speciesSeenImage?: string;
     scientificName?: string;
     rank?: any;
     seenDate?: string;
-  } | undefined;
+  };
 }
 const ObservationContext = React.createContext<
   {

@@ -7,7 +7,6 @@ import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
-import { createJwtToken } from "../../utility/helpers";
 
 interface Prediction {
   name: string;
@@ -236,13 +235,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
     const fetchOnlineVisionResults = async ( ) => {
       const uploadParams = await flattenUploadParameters( image );
-      const token = createJwtToken( );
-      const options = { api_token: token };
-
-      try {
-        const r = await inatjs.computervision.score_image( uploadParams, options );
-      } catch ( e ) {
-      }
     };
 
     if ( image.predictions.length === 0 && !observation.taxon ) {

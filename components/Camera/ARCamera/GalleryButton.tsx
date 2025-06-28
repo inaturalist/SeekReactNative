@@ -36,8 +36,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
   const navigateToResults = ( uri, time, location, predictions: InatVision.Prediction[]
  ) => {
-    const { navigate } = navigation;
-
     const image = {
       time,
       uri,
@@ -74,12 +72,11 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     } else {
       logToApi( {
         level: LogLevels.INFO,
-        message: "Online vision would have been used here, but I removed it, " +
+        message: "Online vision would have been used here, but fetching online results has been removed, " +
           "if you see this message it means that some device was not able to get offline vision.",
         context: "GalleryButton",
         errorType: "0"
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
-      navigate( "Confirm" );
     }
   };
 

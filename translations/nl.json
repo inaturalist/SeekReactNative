@@ -314,7 +314,6 @@
     "no": "Nee, het is juist",
     "enable_location": "Je waarneming heeft geen locatie",
     "enable_location_button": "LOCATIE INSCHAKELEN",
-    "error_server": "Het spijt ons, we konden deze afbeelding niet scoren. Controleer je internetverbinding en probeer het opnieuw.",
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
     "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Eet niets dat je in de natuur vindt.",
     "tip_3": "Houd je aan de regels.",
     "tip_4": "Respecteer andere levende wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten."
-  },
-  "confirm": {
-    "identify": "Deze foto determineren?",
-    "button": "Determineren van de foto"
   },
   "levels": {
     "tadpole": "Kikkervisje",

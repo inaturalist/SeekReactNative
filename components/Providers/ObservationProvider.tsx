@@ -6,7 +6,6 @@ import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { createLocationAlert } from "../../utility/locationHelpers";
-import { flattenUploadParameters } from "../../utility/photoHelpers";
 
 interface Prediction {
   name: string;
@@ -231,14 +230,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       || true
     ) {
       return;
-    }
-
-    const fetchOnlineVisionResults = async ( ) => {
-      const uploadParams = await flattenUploadParameters( image );
-    };
-
-    if ( image.predictions.length === 0 && !observation.taxon ) {
-      fetchOnlineVisionResults( );
     }
   }, [observation] );
 

@@ -3,7 +3,6 @@ import ImageResizer from "@bam.tech/react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
-import { FileUpload } from "inaturalistjs";
 
 import realmConfig from "../models/index";
 import { dirPictures, pathLogs } from "./dirStorage";
@@ -77,28 +76,6 @@ const resizeImage = async ( path: string, width: number, height?: number, output
   } catch ( e ) {
     return "";
   }
-};
-
-const flattenUploadParameters = async ( image: Object ): Object => {
-  const {
-    latitude,
-    longitude,
-    uri,
-    time
-  } = image;
-  const userImage = await resizeImage( uri, 299 );
-
-  const params = {
-    image: new FileUpload( {
-      uri: userImage,
-      name: "photo.jpeg",
-      type: "image/jpeg"
-    } ),
-    observed_on: new Date( time * 1000 ).toISOString(),
-    latitude,
-    longitude
-  };
-  return params;
 };
 
 const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ): Promise<any> => (
@@ -325,6 +302,5 @@ export {
   writeToDebugLog,
   deleteDebugLogAfter7Days,
   replacePhoto,
-  flattenUploadParameters,
   checkPhotoSize
 };

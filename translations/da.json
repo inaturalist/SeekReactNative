@@ -314,7 +314,6 @@
     "no": "Nej, den er korrekt",
     "enable_location": "Din observation har ingen placering",
     "enable_location_button": "AKTIVER PLACERING",
-    "error_server": "Beklager, vi kunne ikke bedømme dette billede. Kontrollér din internetforbindelse og prøv igen.",
     "error_image": "Beklager, vi kunne ikke behandle dit billede. Kontrollér din internetforbindelse og prøv igen.",
     "error_species": "Beklager, vi kunne ikke indhente artsdetaljer for dette billede. Kontrollér din internetforbindelse og prøv igen.",
     "error_location": "For at tilføje arter til dine observationer, skal du slå placering til. Seek bruger din placering til at minde dig om, hvor du så en organisme og som bidrag til borgervidenskab, når du tilføjer den til iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Spis ikke hvad som helst du finder i naturen.",
     "tip_3": "Gå ikke ind på privat grund.",
     "tip_4": "Vær respektfuld overfor levende ting ved ikke at forstyrre eller røre dem. Nogle kan stikke eller bide."
-  },
-  "confirm": {
-    "identify": "Identificer dette foto?",
-    "button": "Identificér foto"
   },
   "levels": {
     "tadpole": "Haletudse",

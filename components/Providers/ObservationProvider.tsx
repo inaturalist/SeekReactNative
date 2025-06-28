@@ -9,7 +9,6 @@ import { createLocationAlert } from "../../utility/locationHelpers";
 import { flattenUploadParameters } from "../../utility/photoHelpers";
 import { createJwtToken } from "../../utility/helpers";
 import {
-  findNearestPrimaryRankTaxon,
   checkCommonAncestorRank
 } from "../../utility/resultsHelpers";
 
@@ -326,9 +325,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
             // roll up to the nearest primary rank instead of showing sub-ranks
             // this better matches what we do on the AR camera
             const { ancestorTaxa } = taxa.taxon;
-            const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
-            const taxon = await handleOnlineAncestor( nearestTaxon );
-            console.log( taxon );
+            console.log( ancestorTaxa );
           }
         }
       } catch ( e ) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import inatjs from "inaturalistjs";
 
 import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
@@ -35,6 +35,7 @@ const ObservationContext = React.createContext<
   {
     observation: Observation | null;
     setObservation: React.Dispatch<React.SetStateAction<any>>;
+    startObservationWithImage: ( image: ObservationImage, callback: () => void ) => void;
   } | undefined
 >( undefined );
 
@@ -93,10 +94,8 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     }
   }, [] );
 
-  const currentSpeciesID = useRef<number | null>( null );
-  const handleSpecies = useCallback( async ( param: Prediction ) => {
-    if ( !observation ) { return; }
-    const { errorCode, latitude } = observation.image;
+  const handleSpecies = async ( image: ObservationImage, param: Prediction ) => {
+    const { errorCode, latitude } = image;
     const species = Object.assign( { }, param );
 
     const createSpecies = ( photo: string | null, seenDate: string | null ) => {
@@ -119,22 +118,15 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
       };
     };
 
-    // Only run this once for a given species because fetchSpeciesSeenDate throws an error in
-    // a C++ library of realm if the function is called twice. Even though this error only happens
-    // for the first time a user observes a species that counts towards a challenge, having this check
-    // here does not have any negative effects on the app I think.
-    if ( currentSpeciesID.current === species.taxon_id ) {
-      currentSpeciesID.current = null;
-      return;
-    } else {
-      currentSpeciesID.current = species.taxon_id;
-    }
     const seenDate = await fetchSpeciesSeenDate( Number( species.taxon_id ) );
+    console.log( "fetchSpeciesSeenDate result:", seenDate );
     const mediumPhoto = await fetchPhoto( species.taxon_id );
+    console.log( "fetchPhoto result:", mediumPhoto );
 
     if ( !seenDate ) {
       const newObs = createObservationForRealm( );
-      await addToCollection( newObs, observation.image );
+      await addToCollection( newObs, image );
+      console.log( "addToCollection resolved" );
 
       // also added to online server results
       if ( !latitude && errorCode !== 0 ) {
@@ -143,10 +135,11 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     }
     const taxon = createSpecies( mediumPhoto, seenDate );
     return taxon;
-  }, [observation, fetchPhoto] );
+  };
 
   const handleAncestor = useCallback( async ( ancestor: Prediction ) => {
     const photo = await fetchPhoto( ancestor.taxon_id );
+    console.log( "fetchPhoto result:", photo );
 
     return {
       taxaId: ancestor.taxon_id,
@@ -156,65 +149,39 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     };
   }, [fetchPhoto] );
 
-  // this is for offline predictions
-  useEffect( ( ) => {
-    let isCurrent = true;
-
-    if ( observation === null ) { return; }
-    const { image } = observation;
-
-    if ( !image
-      || !image.predictions
-    ) {
+  const startObservationWithImage = async ( image: ObservationImage, positiveCallback?: () => void ) => {
+    console.log( "Adding image to observation", image );
+    if ( !image || !image.predictions ) {
+      console.warn( "No predictions found in image" );
       return;
     }
 
-    const updateObs = ( taxon: {
-      taxaId?: any;
-      speciesSeenImage?: any;
-      scientificName?: any;
-      rank?: any;
-    } | undefined ) => {
-      if ( !isCurrent ) { return; }
+    const { predictions } = image;
+    const species = checkForSpecies( predictions );
+    console.log( "checkForSpecies result:", species );
+    const ancestor = checkForAncestor( predictions );
+    console.log( "checkForAncestor result:", ancestor );
+    let taxon = undefined;
+    if ( species ) {
+      taxon = await handleSpecies( image, species );
+      console.log( "handleSpecies result:", taxon );
+    } else if ( ancestor ) {
+      taxon = await handleAncestor( ancestor );
+      console.log( "handleAncestor result:", taxon );
+    }
+    setObservation( { image, taxon } );
 
-      const prevTaxon = observation && observation.taxon;
-
-      if ( !prevTaxon
-        || taxon && taxon.taxaId && ( prevTaxon.taxaId !== taxon.taxaId ) ) {
-        setObservation( {
-          ...observation,
-          taxon
-        } );
-      }
-    };
-
-    const checkForMatch = async ( ) => {
-      const { predictions } = observation.image;
-
-      const species = checkForSpecies( predictions );
-      const ancestor = checkForAncestor( predictions );
-
-      if ( species ) {
-        const taxon = await handleSpecies( species );
-        updateObs( taxon );
-      } else if ( ancestor ) {
-        const taxon = await handleAncestor( ancestor );
-        updateObs( taxon );
-      } else {
-        updateObs( { } );
-      }
-    };
-
-    checkForMatch( );
-
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [observation, handleSpecies, handleAncestor] );
+    // At this point we were successful in adding the image and processing the predictions
+    // call the positiveCallback if it exists
+    if ( positiveCallback ) {
+      positiveCallback( );
+    }
+  };
 
   const value = {
     observation,
-    setObservation
+    setObservation,
+    startObservationWithImage
   };
   return (
     <ObservationContext.Provider value={value}>{children}</ObservationContext.Provider>

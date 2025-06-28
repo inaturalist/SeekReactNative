@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "react-native-image-picker";
 import {
@@ -29,7 +29,7 @@ interface Props {
 }
 
 const GalleryButton = ( { setIsActive }: Props ) => {
-  const { setObservation, observation } = useObservation();
+  const { startObservationWithImage } = useObservation();
   const { login } = useContext( UserContext );
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
@@ -68,7 +68,9 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
     if ( predictions && predictions.length > 0 ) {
       image.predictions = predictions;
-      setObservation( { image } );
+      startObservationWithImage( image, () => {
+        navigation.navigate( "Match" );
+      } );
     } else {
       logToApi( {
         level: LogLevels.INFO,
@@ -79,19 +81,6 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     }
   };
-
-  // TODO: this is a useEffect that waits until the image is attached to the new observation
-  // and then navigates to the match screen; this needs to be refactored
-  useEffect( ( ) => {
-    if ( observation
-      && observation.taxon
-      && imageSelected
-    ) {
-      // changed to navigate from push bc on Android, with RN > 0.65.x, the camera was
-      // popping up over the top of the match screen
-      navigation.navigate( "Match" );
-    }
-  }, [observation, navigation, imageSelected] );
 
   const getPredictions = ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );

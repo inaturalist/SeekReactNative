@@ -4,8 +4,8 @@ const {
 } = getDefaultConfig();
 
 /**
- * Metro configuration for React Native
- * https://reactnative.dev/docs/metro
+ * Metro configuration
+ * https://facebook.github.io/metro/docs/configuration
  *
  * @type {import('metro-config').MetroConfig}
  */

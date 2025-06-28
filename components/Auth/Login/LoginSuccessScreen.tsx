@@ -10,7 +10,6 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-import BulletedList from "../../iNaturalist/BulletedList";
 
 const LoginSuccessScreen = ( ) => {
   const { navigate } = useNavigation();
@@ -25,14 +24,17 @@ const LoginSuccessScreen = ( ) => {
         <View style={styles.marginSmall} />
         <StyledText style={baseTextStyles.body}>{i18n.t( "inat_signup.posting_details" )}</StyledText>
         <View style={styles.marginMedium} />
-        <GreenText smaller text="inat_signup.observations_not_synced" />
+        <GreenText smaller text="inat_signup.observations" />
         <View style={styles.marginSmall} />
         <StyledText style={baseTextStyles.body}>
-          {i18n.t( "inat_signup.observations_stored_only_in_app" )}
+          {i18n.t( "inat_signup.observations_1" )}
+          {" "}
+          <StyledText style={styles.underline}>
+            {i18n.t( "inat_signup.observations_2" )}
+          </StyledText>
+          {" "}
+          {i18n.t( "inat_signup.observations_3" )}
         </StyledText>
-        <BulletedList text="inat_signup.observations_bullet_1" />
-        <BulletedList text="inat_signup.observations_bullet_2" />
-        <BulletedList text="inat_signup.observations_3" />
       </View>
       <View style={styles.marginLarge} />
       <GreenButton

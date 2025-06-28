@@ -1,6 +1,6 @@
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
-import { Dimensions, Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
@@ -139,20 +139,11 @@ const FrameProcessorCamera = ( props: Props ) => {
   if ( !device ) {
     device = frontDevice;
   }
-  // Select the camera format based on the screen aspect ratio on ai camera as it is full-screen
-  const screen = Dimensions.get( "screen" );
-  const videoAspectRatio = screen.height / screen.width;
-  const photoAspectRatio = screen.height / screen.width;
   // Select a format that provides the highest resolution primarily for videos, then photos
   const iosFormat = useCameraFormat( device, [
-    { videoAspectRatio },
-    { photoAspectRatio },
-    { photoResolution: "max" },
-    { videoResolution: "max" }
+    { videoResolution: "max" },
+    { photoResolution: "max" }
   ] );
-  if ( Platform.OS === "android" ) {
-    console.log( "Android is not using a specific camera format because we never got around to" );
-  }
   const format = Platform.OS === "ios" ? iosFormat : undefined;
 
   // Set the exposure to the middle of the min and max exposure

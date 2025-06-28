@@ -34,7 +34,6 @@ const languages: Languages = {
   ro: "Română",
   ru: "Русский",
   si: "සිංහල",
-  sk: "Slovenčina",
   sv: "Svenska",
   tr: "Türkçe",
   uk: "Українська",

@@ -29,7 +29,6 @@ import ptBR from "./translations/pt-BR.json";
 import ro from "./translations/ro.json";
 import ru from "./translations/ru.json";
 import si from "./translations/si.json";
-import sk from "./translations/sk.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
 import uk from "./translations/uk.json";
@@ -66,7 +65,6 @@ const i18n = new I18n( {
   ro,
   ru,
   si,
-  sk,
   sv,
   tr,
   uk,

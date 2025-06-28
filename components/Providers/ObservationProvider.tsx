@@ -220,19 +220,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
 
   // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
   // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
-  const handleOnlineSpecies = useCallback( async ( species ) => {
-    const seenDate = await fetchSpeciesSeenDate( Number( species.taxon.id ) );
-    if ( !observation ) { return; }
-
-    if ( !seenDate ) {
-      await addToCollection( species, observation.image );
-    }
-
-    return null;
-  }, [observation] );
-
-  // In principle, this code should only run for the legacy camera because vision-plugin now works completely offline
-  // for predictions from gallery images and camera on Android and iOS, so I disregard TS errors here.
   // this is for online predictions (only iOS photo library uploads)
   useEffect( ( ) => {
     let isCurrent = true;

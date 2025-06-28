@@ -286,17 +286,6 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
           updateObs( { } );
           return;
         }
-
-        const taxa = r.results[0];
-        const ancestor = r.common_ancestor;
-
-        if ( taxa && taxa.combined_score > 85 && taxa.taxon.rank === "species" ) {
-          const taxon = await handleOnlineSpecies( taxa );
-          updateObs( taxon );
-        } else if ( ancestor ) {
-          const rankLevel = ancestor.taxon.rank_level;
-          console.log( rankLevel );
-        }
       } catch ( e ) {
       }
     };
@@ -304,7 +293,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     if ( image.predictions.length === 0 && !observation.taxon ) {
       fetchOnlineVisionResults( );
     }
-  }, [observation, handleOnlineSpecies] );
+  }, [observation] );
 
   const value = {
     observation,

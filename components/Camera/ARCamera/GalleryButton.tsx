@@ -68,6 +68,13 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
     if ( predictions && predictions.length > 0 ) {
       image.predictions = predictions;
+      const rankLevel = predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
+      logToApi( {
+        level: LogLevels.INFO,
+        message: `rankLevel ${rankLevel}`,
+        context: "getPredictionsForImage rankLevel",
+        errorType: "0"
+      } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
       startObservationWithImage( image, () => {
         navigation.navigate( "Match" );
       } );

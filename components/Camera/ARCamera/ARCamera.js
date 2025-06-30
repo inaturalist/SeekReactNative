@@ -54,7 +54,7 @@ import { UserContext } from "../../UserContext";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
-import { logToApi } from "../../../utility/apiCalls";
+import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -163,14 +163,14 @@ const ARCamera = ( ): Node => {
     const { image, errorCode } = await fetchImageLocationOrErrorCode( userImage, login );
     const hasCoordinates = isNumber( image?.latitude ) && isNumber( image?.longitude );
     logToApi( {
-      level: "info",
+      level: LogLevels.INFO,
       message: `hasCoordinates ${hasCoordinates}`,
       context: "takePhoto",
       errorType: errorCode?.toString() || "0"
     } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
     logToApi( {
-      level: "info",
+      level: LogLevels.INFO,
       message: `rankLevel ${rankLevel}`,
       context: "takePhoto rankLevel",
       errorType: errorCode?.toString() || "0"

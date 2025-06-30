@@ -84,13 +84,13 @@
     "react-native-svg": "13.9.0",
     "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.5.2",
-    "react-native-vision-camera": "4.0.5",
+    "react-native-vision-camera": "4.5.2",
     "react-native-webp-format": "^1.2.0",
     "react-native-webview": "^11.26.1",
     "react-native-worklets-core": "1.3.3",
     "realm": "12.11.1",
     "uuid": "^11.1.0",
-    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#924a801b224be6243679c8237fbe0ec58ece0ac9"
+    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#be7e5faed370bf307a062e728b5cf80b9c7292fe"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

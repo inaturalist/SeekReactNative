@@ -7,17 +7,12 @@ import { Worklets } from "react-native-worklets-core";
 
 import {
   useIsForeground,
-  useDeviceOrientation,
   useLocationPermission,
   useTruncatedUserCoords
 } from "../../../utility/customHooks";
 import InatVision from "./helpers/visionPluginWrapper";
 
-import {
-  orientationPatch,
-  orientationPatchFrameProcessor,
-  usePatchedRunAsync
-} from "../../../utility/visionCameraPatches";
+import usePatchedRunAsync from "../../../utility/visionCameraPatches";
 
 import {
   Camera,
@@ -84,8 +79,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const isForeground = useIsForeground( );
-
-  const { deviceOrientation } = useDeviceOrientation();
 
   const granted = useLocationPermission( );
   const coords = useTruncatedUserCoords( granted );
@@ -217,7 +210,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   } );
 
   const patchedRunAsync = usePatchedRunAsync();
-  const patchedOrientationAndroid = orientationPatchFrameProcessor( deviceOrientation );
   const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
   // The vision-plugin has a function to look up the location of the user in a h3 gridded world
   // unfortunately, I was not able to run this new function in the worklets directly,
@@ -251,7 +243,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
-            patchedOrientationAndroid,
             useGeomodel: hasUserLocation,
             geomodelPath,
             location: {
@@ -282,7 +273,6 @@ const FrameProcessorCamera = ( props: Props ) => {
       confidenceThreshold,
       filterByTaxonId,
       negativeFilter,
-      patchedOrientationAndroid,
       lastTimestamp,
       fps,
       hasUserLocation,
@@ -371,7 +361,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
             onError={onError}
-            orientation={orientationPatch( deviceOrientation )}
+            outputOrientation="device"
             photoQualityBalance="speed"
           />
         </GestureDetector>

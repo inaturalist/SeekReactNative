@@ -31,10 +31,6 @@ import {
   showCameraSaveFailureAlert
 } from "../../../utility/cameraHelpers";
 import {
-  rotatePhotoPatch,
-  rotationTempPhotoPatch
-} from "../../../utility/visionCameraPatches";
-import {
   checkCameraPermissions,
   checkSavePermissions
 } from "../../../utility/androidHelpers.android";
@@ -42,7 +38,6 @@ import { savePostingSuccess } from "../../../utility/loginHelpers";
 // TODO: this can be imported in FrameProcessorCamera directly instead of here
 import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
-import { useDeviceOrientation } from "../../../utility/customHooks";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
@@ -68,7 +63,6 @@ const ARCamera = ( ): Node => {
   const camera = useRef<any>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
-  const { deviceOrientation } = useDeviceOrientation();
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -122,7 +116,7 @@ const ARCamera = ( ): Node => {
     taxonId
   } = state;
 
-  // As of react-native-worklets-core v1.3.0 there is a discrepancy in the way objects are returned from
+  // As of react-native-worklets-core v1.3.3 there is a discrepancy in the way objects are returned from
   // worklets. The "object" returned is not possible to be used with ...spread syntax or Object.assign which
   // we are using in other places that reference these prediction objects here after thy are attached to a
   // taken photo.
@@ -317,9 +311,6 @@ const ARCamera = ( ): Node => {
       // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
       // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
       setIsActive( false );
-      // Rotate the original photo depending on device orientation
-      const photoRotation = rotationTempPhotoPatch( photo, deviceOrientation );
-      await rotatePhotoPatch( photo, photoRotation );
       // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
       photo.predictions = predictions;
       photo.uri = photo.path;
@@ -349,7 +340,7 @@ const ARCamera = ( ): Node => {
       callback( photo );
     } )
     .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
-  }, [sortedPredictions, handleCaptureError, deviceOrientation] );
+  }, [sortedPredictions, handleCaptureError] );
 
   const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );

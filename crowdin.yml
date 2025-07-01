@@ -26,3 +26,6 @@ files:
   - source: /fastlane/metadata/en-US/subtitle.txt
     translation: /fastlane/metadata/%osx_locale%/subtitle.txt
     update_option: update_as_unapproved
+  - source: /fastlane/metadata/en-US/release_notes.txt
+    translation: /fastlane/metadata/%osx_locale%/release_notes.txt
+    update_option: update_as_unapproved

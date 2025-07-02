@@ -314,7 +314,6 @@
     "no": "No, è corretta",
     "enable_location": "La tua osservazione non ha una posizione",
     "enable_location_button": "ABILITA POSIZIONE",
-    "error_server": "Spiacenti, non siamo riusciti a classificare quest'immagine. Sei pregato di controllare la tua connessione a Internet e riprovare.",
     "error_image": "Spiacenti, non siamo riusciti a elaborare la tua immagine. Sei pregato di controllare la tua connessione a Internet e riprovare.",
     "error_species": "Spiacenti, non siamo riusciti a recuperare i dettagli per quest'immagine. Sei pregato di controllare la tua connessione a Internet e riprovare.",
     "error_location": "Non potrai visualizzare gli areali, esplorare le specie nelle vicinanze o pubblicare quest'osservazione su iNaturalist. Se abiliti la posizione su Seek, potrai visualizzare informazioni dettagliate sulle tue osservazioni e contribuire alla scienza cittadina. La tua posizione non sarà pubblicata a meno che tu non la pubblichi su iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Non mangiare nulla che trovi in natura.",
     "tip_3": "Non violare le proprietà altrui.",
     "tip_4": "Rispetta gli altri esseri viventi non infastidendoli né toccandoli. Alcuni potrebbero pungere o mordere."
-  },
-  "confirm": {
-    "identify": "Identificare questa foto?",
-    "button": "Identifica Foto"
   },
   "levels": {
     "tadpole": "Girino",

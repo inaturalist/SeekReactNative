@@ -314,7 +314,6 @@
     "no": "Nee, dit is korrek",
     "enable_location": "U waarneming bevat geen liggingsinligting",
     "enable_location_button": "AKTIVEER LIGGING",
-    "error_server": "Jammer, ons kon nie die beeld ontleed nie. Gaan u internetverbinding na en probeer weer.",
     "error_image": "Jammer, ons kon nie u beeld verwerk nie. Gaan u internetverbinding na en probeer weer.",
     "error_species": "Jammer, ons kon nie die spesiedata vir hierdie beeld ophaal nie. Gaan u internetverbinding na en probeer weer.",
     "error_location": "Om spesies tot u waarnemings toe te voeg moet u ligging aktiveer. Seek gebruik u ligging om u te herinner aan waar u ’n organisme opgemerk het en om tot die burgerwetenskap by te dra indien u dit op iNaturalist plaas.",
@@ -398,10 +397,6 @@
     "tip_2": "Moet niks eet wat u in die veld vind nie.",
     "tip_3": "Moenie verbode terein betree nie.",
     "tip_4": "Respekteer ander lewende wesens deur hulle nie te steur of aan te raak nie. Party kan steek of byt."
-  },
-  "confirm": {
-    "identify": "Identifiseer hierdie foto?",
-    "button": "Identifiseer Foto"
   },
   "levels": {
     "tadpole": "Paddavis",

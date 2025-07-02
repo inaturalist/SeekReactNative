@@ -123,10 +123,10 @@
     "linked_account": "Je hebt een iNaturalist account gekoppeld aan Seek!",
     "posting": "Verzenden naar iNaturalist",
     "posting_details": "Je kunt onmiddellijk na het invoeren van deze waarnemingen in Seek ze verzenden naar iNaturalist. Als je ze later wilt plaatsen naar iNaturalist, gebruik dan de iNaturalist app of website.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Seek waarnemingen worden niet gesynchroniseerd.",
+    "observations_stored_only_in_app": "Jouw waarnemingen in Seek worden opgeslagen in deze app op jouw apparaat, ze worden NIET online geback-upt door iNaturalist.",
+    "observations_bullet_1": "Het verwijderen van de app Seek  zal al je waarnemingen in Seek verwijderen.",
+    "observations_bullet_2": "Het overzetten van Seek naar een nieuw apparaat zal je Seek waarnemingen niet overzetten via de app.",
     "observations_3": "Seek synchroniseert je waarnemingen niet met andere apparaten.",
     "agree_to_terms": "Ik ga akkoord met de <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ik heb de <guidelines>{{guidelines}}</guidelines> bekeken.",
     "guidelines": "Gemeenschapsrichtlijnen",
@@ -314,7 +314,6 @@
     "no": "Nee, het is juist",
     "enable_location": "Je waarneming heeft geen locatie",
     "enable_location_button": "LOCATIE INSCHAKELEN",
-    "error_server": "Het spijt ons, we konden deze afbeelding niet scoren. Controleer je internetverbinding en probeer het opnieuw.",
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
     "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Eet niets dat je in de natuur vindt.",
     "tip_3": "Houd je aan de regels.",
     "tip_4": "Respecteer andere levende wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten."
-  },
-  "confirm": {
-    "identify": "Deze foto determineren?",
-    "button": "Determineren van de foto"
   },
   "levels": {
     "tadpole": "Kikkervisje",

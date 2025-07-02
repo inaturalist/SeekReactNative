@@ -123,10 +123,10 @@
     "linked_account": "Вы привязали аккаунт iNaturalist к Seek!",
     "posting": "Публикация в iNaturalist",
     "posting_details": "Вы можете публиковать наблюдения, сделанные в Seek, в iNaturalist сразу после того, как вы добавили их в ваши наблюдения. Если вы хотите опубликовать их в iNaturalist позже, пожалуйста, используйте приложение iNaturalist или веб-сайт.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Наблюдения Seek не синхронизированы",
+    "observations_stored_only_in_app": "Ваши наблюдения Seek хранятся в этом приложении на вашем устройстве, они НЕ резервируются онлайн-сервисом iNaturalist.",
+    "observations_bullet_1": "Удаление приложения Seek приведет к удалению всех ваших наблюдений в приложении.",
+    "observations_bullet_2": "Перенос Seek на новое устройство не приведет к переносу ваших наблюдений Seek вместе с приложением.",
     "observations_3": "Seek не синхронизирует ваши наблюдения с другими устройствами.",
     "agree_to_terms": "Я согласен с <terms>{{terms}}</terms> и <privacy>{{privacy}}</privacy>, и ознакомлен с  <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Правила сообщества",
@@ -314,7 +314,6 @@
     "no": "Нет, это правильно",
     "enable_location": "Ваше наблюдение не содержит местоположения",
     "enable_location_button": "ВКЛЮЧИТЬ ОПРЕДЕЛЕНИЕ МЕСТОПОЛОЖЕНИЯ",
-    "error_server": "К сожалению, мы не смогли оценить это изображение. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
     "error_image": "К сожалению, мы не смогли обработать ваше изображение. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
     "error_species": "К сожалению, мы не смогли извлечь подробности вида из этого изображения. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
     "error_location": "Вы не сможете просматривать карты ареалов, изучать виды поблизости или публиковать это наблюдение в iNaturalist. Если вы включите геолокацию в Seek, вы сможете просматривать подробную информацию о своих наблюдениях и вносить свой вклад в гражданскую науку. Ваше местоположение не будет опубликовано, если  только вы не разместите сообщение в iNaturalist.\n \nрезультаты -> error_location.",
@@ -398,10 +397,6 @@
     "tip_2": "Не употребляйте в пищу ничего, что вы находите в дикой природе.",
     "tip_3": "Не нарушайте границы.",
     "tip_4": "Уважайте другие живые существа, не беспокойте их и не прикасайтесь к ним. Некоторые могут ужалить или укусить."
-  },
-  "confirm": {
-    "identify": "Идентифицировать это фото?",
-    "button": "Идентифицировать фото"
   },
   "levels": {
     "tadpole": "Головастик",

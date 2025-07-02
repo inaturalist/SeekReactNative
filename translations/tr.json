@@ -123,10 +123,10 @@
     "linked_account": "iNaturalist hesabını Seek'e bağladınız!",
     "posting": "iNaturalist'e Gönder",
     "posting_details": "Seek'de yapılan gözlemleri, gözlemlerinize ekledikten hemen sonra iNaturalist'e gönderebilirsiniz. Onları daha sonra iNaturalist'e göndermek isterseniz, lütfen iNaturalist uygulamasını ya da genel ağ sayfasını kullanın.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Seek Gözlemleri eşitlenmedi",
+    "observations_stored_only_in_app": "Seek'teki gözlemleriniz cihazınızdaki bu uygulamada saklanır, iNaturalist tarafından çevrim içi olarak YEDEKLENMEZ.",
+    "observations_bullet_1": "Seek'i silmek, uygulamadaki tüm gözlemlerinizi silecektir.",
+    "observations_bullet_2": "Seek'i yeni bir cihaza aktarmak, Seek gözlemlerinizi uygulamayla birlikte aktarmaz.",
     "observations_3": "Seek, gözlemlerinizi diğer aygıtlarda eşleme yapmaz.",
     "agree_to_terms": "<terms>{{terms}}</terms> ve <privacy>{{privacy}}</privacy> onaylıyorum, <guidelines>{{guidelines}}</guidelines> de inceledim.",
     "guidelines": "Topluluk İlkeleri",
@@ -314,7 +314,6 @@
     "no": "Hayır, doğru",
     "enable_location": "Gözleminin konumu yok",
     "enable_location_button": "KONUMU ETKİNLEŞTİR",
-    "error_server": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_image": "Üzgünüz, görüntünüzü işleyeme koyamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_location": "Gözlemlerinize tür eklemek için konumunuzu etkinleştirmeniz gerekir. Seek, bulunduğunuz yeri bir organizmayı nerede gördüğünüzü anımsatmak ve iNaturalist’e gönderirseniz vatandaş bilimine katkıda bulunmanız için kullanır.",
@@ -398,10 +397,6 @@
     "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
     "tip_3": "İzinsiz girme.",
     "tip_4": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır."
-  },
-  "confirm": {
-    "identify": "Bu fotoğraf tanımlansın mı?",
-    "button": "Fotoğrafı Tanımla"
   },
   "levels": {
     "tadpole": "İribaş",
@@ -851,7 +846,7 @@
     "your_obs_could_make_difference": "GÖZLEMİN FARK YARATABİLİR",
     "everyday_obs_help_scientists": "Her gün senin gibi doğa bilimciler tarafından gözlemlerin yapılması; bilim insanlarının hangi organizmaların nerede ve ne zaman bulunduklarını öğrenmelerine yardımcı olur, hatta yeni keşiflere yol açar!",
     "faqs": "SSS",
-    "faq_1": "iNaturalist hesabı açmak için 13'ten büyük veya ailenin iznin olması gerekir",
+    "faq_1": "iNaturalist hesabı oluşturmak için 13 yaşından büyük olmanız veya bir ebeveyninizin iznine sahip olmanız gerekir",
     "faq_2": "Seek ve iNaturalist aynı tanımlama modelini kullanır, ancak sadece iNaturalist gözlemleri topluluk tarafından doğrulanır",
     "logged_in_as": "OLARAK GİRİŞ YAPTIN",
     "x_observations_posted_to_inat": {
@@ -866,7 +861,7 @@
     "logged_in_bullet_2": "Gözlemlerinin tanımlamalarının bildirimlerini, yorumları ve diğer etkinlikleri iNaturalist uygulaması veya websitesi üzerinden görüntüleyebilirsin",
     "logged_in_bullet_3": "Seek gözlemlerin iNaturalist üzerinde YEDEKLENMEZ. Seek'i silersen cihazındaki tüm gözlemler silinir.",
     "upload_and_track_obs_using_inat": "iNaturalist uygulamasını kullanarak veya inaturalist.org sitesini ziyaret ederek gözlemlerini yükleyebilir ve izleyebilirsin.\n\nTopluluğun parçası olduğun için teşekkürler!",
-    "x_seen_by_user": "{{speciesName}} {{user}} tarafından görüldü",
+    "x_seen_by_user": "{{speciesName}} {{user}} tarafından gözlemlendi",
     "about_inat_internet_error": "iNaturalist'te oturum açtın ancak ayrıntıları göstermek için internete ihtiyacımız var. Tekrar denemek için dokun."
   },
   "seek_2021_challenges": {

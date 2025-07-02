@@ -123,10 +123,10 @@
     "linked_account": "Prepojili ste svoj účet iNaturalist so Seekom!",
     "posting": "Odosielanie na iNaturalist",
     "posting_details": "Pozorovania vykonané v Seeku môžete publikovať na iNaturalist ihneď potom, čo ich pridáte do vašich pozorovaní. Ak by ste ich chceli poslať na iNaturalist neskôr, použite prosím aplikáciu iNaturalist alebo webovú stránku.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Pozorovania nie sú synchronizované",
+    "observations_stored_only_in_app": "Vaše pozorovania v Seeku sú uložené vo vašom zariadení a NIE SÚ zálohované online v iNaturalist.",
+    "observations_bullet_1": "Zmazaním Seeku zmažete aj všetky vaše pozorovania.",
+    "observations_bullet_2": "Prenos Seeku na nové zariadenie nepresunie aj pozorovania.",
     "observations_3": "Seek nesynchronizuje vaše pozorovania s inými zariadeniami.",
     "agree_to_terms": "Súhlasím s <terms>{{terms}}</terms> a <privacy>{{privacy}}</privacy> a čítal/a som <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Pravidlá komunity",
@@ -314,7 +314,6 @@
     "no": "Nie, je to správne",
     "enable_location": "Vaše pozorovanie nemá polohu",
     "enable_location_button": "POVOLIŤ POLOHU",
-    "error_server": "Ospravedlňujeme sa, nemohli sme zaznamenať tento obrázok. Skontrolujte prosím svoje pripojenie k internetu a skúste to znova.",
     "error_image": "Ospravedlňujeme sa, nemohli sme spracovať váš obrázok. Skontrolujte prosím pripojenie k internetu a skúste to znova.",
     "error_species": "Ospravedlňujeme sa, nepodarilo sa nám načítať údaje o tomto obrázku. Skontrolujte prosím svoje pripojenie k internetu a skúste to znova.",
     "error_location": "Nebudete môcť zobrazovať mapy rozšírenia, skúmať druhy v okolí ani publikovať toto pozorovanie na iNaturalist. Ak povolíte aplikáciu Seek prístup k polohe, budete môcť zobraziť podrobné informácie o vašich pozorovaniach a prispieť. Vaša poloha nebude zverejnená, pokiaľ neodošlete pozorovanie do iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Nejedzte nič, čo nájdete vo voľnej prírode.",
     "tip_3": "Nevstupujte do zakázaných oblastí.",
     "tip_4": "Rešpektuje ostatné živé organizmy, neobťažujte ich a nedotýkajte sa ich. Niektoré môžu štiepať alebo hrýzť."
-  },
-  "confirm": {
-    "identify": "Identifikovať túto fotografiu?",
-    "button": "Identifikovať fotografiu"
   },
   "levels": {
     "tadpole": "Pulec",

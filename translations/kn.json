@@ -314,7 +314,6 @@
     "no": "ಇಲ್ಲ, ಇದು ಸರಿಯಾಗಿದೆ",
     "enable_location": "ನಿಮ್ಮ ವೀಕ್ಷಣೆ ಸ್ಥಳವನ್ನು ಹೊಂದಿಲ್ಲ",
     "enable_location_button": "ಸ್ಥಳವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
-    "error_server": "ಕ್ಷಮಿಸಿ, ಈ ಚಿತ್ರವನ್ನು ನಾವು ಸ್ಕೋರ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ದಯಮಾಡಿ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
     "error_image": "ಕ್ಷಮಿಸಿ, ಈ ಚಿತ್ರವನ್ನು ಸಂಸ್ಕರಿಸಲಾಗಲಿಲ್ಲ. ದಯಮಾಡಿ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
     "error_species": "ಕ್ಷಮಿಸಿ, ಈ ಚಿತ್ರಕ್ಕೆ ನಾವು ಜೀವಿವರ್ಗದ ವಿವರಗಳನ್ನು ಹೆಕ್ಕಿ ತೆಗೆಯಲಾಗಲಿಲ್ಲ. ದಯಮಾಡಿ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "ನೀವು ಕಾಡಿನಲ್ಲಿ ಕಾಣಸಿಗುವ ಯಾವುದನ್ನೂ ತಿನ್ನದಿರಿ.",
     "tip_3": "ಅತಿಕ್ರಮ ಪ್ರವೇಶಮಾಡದಿರಿ.",
     "tip_4": "ಇತರ ಯಾವುದೇ ಜೀವಿಗಳನ್ನು ಮುಟ್ಟದೆ ಅಥವಾ ಕಿರುಕುಳ ಕೊಡದೆ ಗೌರವಿಸಿ. ಕೆಲವು ಕಚ್ಚಬಹುದು ಅಥವಾ ಕುಟುಕಬಹುದು."
-  },
-  "confirm": {
-    "identify": "ಈ ಚಿತ್ರವನ್ನು ಗುರುತಿಸುವಿರಾ?",
-    "button": "ಚಿತ್ರವನ್ನು ಗುರುತಿಸಿ"
   },
   "levels": {
     "tadpole": "ಗೊದಮೊಟ್ಟೆ",

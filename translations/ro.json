@@ -314,7 +314,6 @@
     "no": "Nu, este corect",
     "enable_location": "Observația ta nu are locație",
     "enable_location_button": "ACTIVEAZĂ LOCAȚIA",
-    "error_server": "Ne pare rău, nu am putut evalua această imagine. Verifică conexiunea la internet și încearcă din nou.",
     "error_image": "Ne pare rău, nu am putut procesa această imagine. Verifică conexiunea la internet și încearcă din nou.",
     "error_species": "Ne pare rău, nu am putut obține detaliile speciilor din această imagine. Verifică conexiunea la internet și încearcă din nou.",
     "error_location": "Nu vei putea vedea coordonatele hărții, explora specii din apropiere sau posta această observație în iNaturalist. Dacă activezi locația în Seek, vei putea vedea informații detaliate despre observațiile tale și vei contribui la știința participativă. Locația ta nu va fi publicată decât dacă postezi în iNaturalist.",
@@ -398,10 +397,6 @@
     "tip_2": "Nu mânca nimic din ceea ce găsești în sălbăticie.",
     "tip_3": "Nu viola proprietăți private.",
     "tip_4": "Respectă celelalte lucruri vii, fără a le hărțui sau a le atinge. Unele pot înțepa sau mușca."
-  },
-  "confirm": {
-    "identify": "Identici această poză?",
-    "button": "Identifică Poza"
   },
   "levels": {
     "tadpole": "Mormoloc",

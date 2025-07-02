@@ -1256,7 +1256,7 @@ PODS:
     - React-Core
   - RNFS (2.20.0):
     - React-Core
-  - RNGestureHandler (2.16.2):
+  - RNGestureHandler (2.18.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1281,7 +1281,51 @@ PODS:
     - React-Core
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (3.11.0):
+  - RNReanimated (3.15.5):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNReanimated/reanimated (= 3.15.5)
+    - RNReanimated/worklets (= 3.15.5)
+    - Yoga
+  - RNReanimated/reanimated (3.15.5):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNReanimated/worklets (3.15.5):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1347,7 +1391,7 @@ PODS:
   - VisionCamera/React (4.5.2):
     - React-Core
     - VisionCamera/FrameProcessors
-  - VisionCameraPluginInatVision (5.3.0-rc.0):
+  - VisionCameraPluginInatVision (5.3.0-rc.1):
     - React-Core
   - Yoga (0.0.0)
 
@@ -1728,10 +1772,10 @@ SPEC CHECKSUMS:
   RNDeviceInfo: addb9b427c2822a2d8e94c87a136a224e0af738c
   RNFlashList: 1076a3fb7c4608a8cdf265f0783592b8fc41b6a7
   RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
-  RNGestureHandler: 326e35460fb6c8c64a435d5d739bea90d7ed4e49
+  RNGestureHandler: d5aafad9a7d1506a8bcab6fbc04384372c8ca86b
   RNLocalize: 4d11b58a95c6f8c77156911f7df9906f86f23c2c
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
-  RNReanimated: b91f99db7e41b501dd71aab52fcc620118991f65
+  RNReanimated: 17e0cb093222e9c92a0349f0e07912693f46fc27
   RNScreens: a2d8a2555b4653d7a19706eb172f855657ac30d7
   RNShare: 729e789e672f91e43bfa6cfbb6e668b927bff15d
   RNStoreReview: 613c43e9132998ed41a65946e20c223c91b36464
@@ -1740,7 +1784,7 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   VisionCamera: 25a205cf335599192d84171d0925d5bd45433608
-  VisionCameraPluginInatVision: 6eace74efbce44b4df258b2c2a45232c76846cdc
+  VisionCameraPluginInatVision: ad9a001b70676d2f9b0ea22f60c04d5fed3d3a52
   Yoga: 272dddd3c0e1e23d09ba81ed55ddfa7fdd3caa17
 
 PODFILE CHECKSUM: 32cd9d0f4f973925f2d4cdc258846a80f9ae3caa

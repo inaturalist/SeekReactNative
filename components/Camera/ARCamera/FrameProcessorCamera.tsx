@@ -11,7 +11,7 @@ import {
   useTruncatedUserCoords
 } from "../../../utility/customHooks";
 import InatVision from "./helpers/visionPluginWrapper";
-
+import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
 import usePatchedRunAsync from "../../../utility/visionCameraPatches";
 
 import {
@@ -43,9 +43,6 @@ interface LogMessage {
 
 interface Props {
   cameraRef: React.RefObject<Camera>;
-  modelPath: string;
-  geomodelPath: string;
-  taxonomyPath: string;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
   negativeFilter: boolean;
@@ -61,9 +58,6 @@ interface Props {
 const FrameProcessorCamera = ( props: Props ) => {
   const {
     cameraRef,
-    modelPath,
-    geomodelPath,
-    taxonomyPath,
     confidenceThreshold,
     filterByTaxonId,
     negativeFilter,
@@ -238,13 +232,13 @@ const FrameProcessorCamera = ( props: Props ) => {
           const timeBefore = Date.now();
           const result = InatVision.inatVision( frame, {
             version: "2.13",
-            modelPath,
-            taxonomyPath,
+            modelPath: dirModel,
+            taxonomyPath: dirTaxonomy,
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
             useGeomodel: hasUserLocation,
-            geomodelPath,
+            geomodelPath: dirGeomodel,
             location: {
               latitude: geoModelCellLocation?.latitude,
               longitude: geoModelCellLocation?.longitude,

@@ -35,8 +35,6 @@ import {
   checkSavePermissions
 } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
-// TODO: this can be imported in FrameProcessorCamera directly instead of here
-import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
 import { resetRouter } from "../../../utility/navigationHelpers";
@@ -418,9 +416,6 @@ const ARCamera = ( ): Node => {
   const renderCamera = () => {
     return (
       <FrameProcessorCamera
-        modelPath={dirModel}
-        geomodelPath={dirGeomodel}
-        taxonomyPath={dirTaxonomy}
         cameraRef={camera}
         confidenceThreshold={confidenceThresholdNumber}
         onCameraError={handleCameraError}

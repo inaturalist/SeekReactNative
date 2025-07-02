@@ -1292,8 +1292,27 @@ PODS:
     - React-Core
   - react-native-netinfo (9.4.1):
     - React-Core
-  - react-native-pager-view (6.2.1):
+  - react-native-pager-view (6.8.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-render-html (5.1.1):
     - React-Core
   - react-native-restart (0.0.27):
@@ -1679,7 +1698,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.31.1):
+  - RNScreens (3.37.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2094,7 +2113,7 @@ SPEC CHECKSUMS:
   react-native-mail: 6e83813066984b26403d3fdfe79ac7bb31857e3c
   react-native-maps: 38394e3f4258d7fe8f1241c2624b91acf35e2dd5
   react-native-netinfo: 58a62fc2fc7245875718b99ac9914c307e1523ca
-  react-native-pager-view: 56aab0804cd2801623e67ae288ed8b71a482f97e
+  react-native-pager-view: d66d57107a2f383689afd75dcd4525f343e63229
   react-native-render-html: fc0eadab8b59ec87f34ea2355232a89b6c70364d
   react-native-restart: 0bc732f4461709022a742bb29bcccf6bbc5b4863
   react-native-safe-area-context: 758e894ca5a9bd1868d2a9cfbca7326a2b6bf9dc
@@ -2141,7 +2160,7 @@ SPEC CHECKSUMS:
   RNLocalize: 4d11b58a95c6f8c77156911f7df9906f86f23c2c
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
   RNReanimated: 6b874c55e3db79aabfba0eedee9ca3ccfbfb355c
-  RNScreens: cb9bef85827f894e3dd59c64b1578b0345b7792e
+  RNScreens: 631b8768411a16e356f7934058d2139d0cc75157
   RNShare: 729e789e672f91e43bfa6cfbb6e668b927bff15d
   RNStoreReview: 613c43e9132998ed41a65946e20c223c91b36464
   RNSVG: 67c430ac7a54043cac37f6bd7bc94f8e22d8a64a

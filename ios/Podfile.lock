@@ -1746,7 +1746,7 @@ PODS:
     - React-Core
   - RNStoreReview (0.4.3):
     - React-Core
-  - RNSVG (13.14.0):
+  - RNSVG (15.8.0):
     - React-Core
   - SDWebImage/Core (5.21.1)
   - SDWebImageWebPCoder (0.14.6):
@@ -2185,7 +2185,7 @@ SPEC CHECKSUMS:
   RNScreens: 631b8768411a16e356f7934058d2139d0cc75157
   RNShare: 729e789e672f91e43bfa6cfbb6e668b927bff15d
   RNStoreReview: 613c43e9132998ed41a65946e20c223c91b36464
-  RNSVG: 4cab00c621b328a4a2fedaaedc15d8822216723e
+  RNSVG: 8542aa11770b27563714bbd8494a8436385fc85f
   SDWebImage: f29024626962457f3470184232766516dee8dfea
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d

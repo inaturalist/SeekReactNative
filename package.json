@@ -80,7 +80,7 @@
     "react-native-share": "^9.4.1",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-store-review": "^0.4.3",
-    "react-native-svg": "13.14.0",
+    "react-native-svg": "15.8.0",
     "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.5.2",
     "react-native-vision-camera": "4.5.2",

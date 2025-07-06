@@ -1,4 +1,3 @@
-// @flow
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import inatjs from "inaturalistjs";
 
@@ -13,9 +12,9 @@ const checkIsEmailValid = ( email: string ): boolean => {
   return false;
 };
 
-const saveAccessToken = ( token: string ): any => AsyncStorage.setItem( "access_token", token );
+const saveAccessToken = ( token: string ): Promise<void> => AsyncStorage.setItem( "access_token", token );
 
-const fetchAccessToken = async (): Promise<string | null> => {
+const fetchAccessToken = async ( ): Promise<string | null> => {
   try {
     const token = await AsyncStorage.getItem( "access_token" );
     return token;
@@ -24,25 +23,25 @@ const fetchAccessToken = async (): Promise<string | null> => {
   }
 };
 
-const removeAccessToken = async (): Promise<any> => {
+const removeAccessToken = async ( ): Promise<void> => {
   try {
     const token = await AsyncStorage.removeItem( "access_token" );
     return token;
   } catch ( error ) {
-    return false;
+    return;
   }
 };
 
-const savePostingSuccess = ( success: boolean ) => {
+const savePostingSuccess = ( success: boolean ): void => {
   AsyncStorage.setItem( "posting_success", success.toString() );
 };
 
-const fetchPostingSuccess = async (): Promise<any> => {
+const fetchPostingSuccess = async ( ): Promise<string | null> => {
   try {
     const success = await AsyncStorage.getItem( "posting_success" );
     return success;
   } catch ( error ) {
-    return false;
+    return null;
   }
 };
 
@@ -55,7 +54,7 @@ const formatError = ( error: string ): string => {
   return newError || error;
 };
 
-const fetchUserProfile = async ( login: string ): Promise<Object> => {
+const fetchUserProfile = async ( login: string ): Promise<any> => {
   try {
     const apiToken = await fetchJSONWebToken( login );
     const options = { api_token: apiToken };

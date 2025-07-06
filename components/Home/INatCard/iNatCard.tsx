@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useContext } from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles } from "../../../styles/home/inatCard";
 import INatCardLoggedIn from "./iNatCardLoggedIn";
@@ -12,7 +9,7 @@ import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
 import GreenText from "../../UIComponents/GreenText";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
-const INatCard = ( ): Node => {
+const INatCard = ( ) => {
   const { login } = useContext( UserContext );
   const { isLandscape } = useAppOrientation( );
   const challenge = useLatestChallenge( );

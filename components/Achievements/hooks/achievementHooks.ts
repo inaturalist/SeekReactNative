@@ -1,5 +1,3 @@
-// @flow
-
 import { useState, useEffect } from "react";
 import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
@@ -7,8 +5,15 @@ import { addMonths, isEqual } from "date-fns";
 import realmConfig from "../../../models";
 import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
 
-const useFetchAchievements = ( ): any => {
-  const [state, setState] = useState( {
+interface AchievementState {
+  speciesBadges: any[];
+  level: any;
+  nextLevelCount: number;
+  badgesEarned: number | null;
+}
+
+const useFetchAchievements = ( ): AchievementState => {
+  const [state, setState] = useState<AchievementState>( {
     speciesBadges: [],
     level: null,
     nextLevelCount: 0,
@@ -53,17 +58,23 @@ const useFetchAchievements = ( ): any => {
   return state;
 };
 
-const useFetchChallenges = ( ): any => {
-  const [challengeBadges, setChallengeBadges] = useState( [] );
+interface ChallengeBadge {
+  name: string;
+  availableDate: Date;
+  index: number;
+}
+
+const useFetchChallenges = ( ): ChallengeBadge[] => {
+  const [challengeBadges, setChallengeBadges] = useState<ChallengeBadge[]>( [] );
 
   useEffect( ( ) => {
-    const createBadge = ( latestBadge, numOfMonths ) => ( {
+    const createBadge = ( latestBadge: ChallengeBadge, numOfMonths: number ): ChallengeBadge => ( {
       name: "",
       availableDate: addMonths( latestBadge.availableDate, numOfMonths ),
       index: latestBadge.index + numOfMonths
     } );
 
-    const createPlaceholderBadges = ( badges ) => {
+    const createPlaceholderBadges = ( badges: ChallengeBadge[] ): ChallengeBadge[] => {
       const remainderOfBadges = badges.length % 5;
 
       if ( remainderOfBadges === 0 || remainderOfBadges === 3 ) {

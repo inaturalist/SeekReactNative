@@ -1,8 +1,6 @@
-// @flow
 import React from "react";
 import { View } from "react-native";
 import { FlashList } from "@shopify/flash-list";
-import type { Node } from "react";
 
 import styles from "../../../styles/challenges/challenges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
@@ -12,7 +10,7 @@ import EmptyChallengesCard from "./EmptyChallengesCard";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import { useFetchChallenges } from "../hooks/challengeHooks";
 
-const ChallengeScreen = ( ): Node => {
+const ChallengeScreen = ( ) => {
   const list = useFetchChallenges( );
 
   const extractKey = ( item, index ) => item + index;

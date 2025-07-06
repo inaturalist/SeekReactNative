@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { useNavigation } from "@react-navigation/native";
 
@@ -9,7 +7,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-const INatLogin = ( ): React.Node => {
+const INatLogin = ( ) => {
   const navigation = useNavigation( );
 
   const navToLogin = ( ) => navigation.navigate( "LoginOrSignup" );

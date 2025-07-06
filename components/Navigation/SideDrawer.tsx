@@ -1,6 +1,5 @@
 import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import type { DrawerScreenProps } from "@react-navigation/drawer";
 
 import SideMenu from "../UIComponents/SideMenu";
 import Achievements from "../Achievements/AchievementsScreen";
@@ -17,26 +16,11 @@ import Species from "../Species/SpeciesDetail";
 import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
 import SeekYearInReviewMapScreen from "../SeekYearInReview/SeekYearInReviewMapScreen";
 
-type DrawerParamList = {
-  Home: void;
-  Achievements: void;
-  Challenges: void;
-  ChallengeDetails: void;
-  Observations: void;
-  iNatStats: void;
-  About: void;
-  Settings: void;
-  Match: void;
-  Species: void;
-  DebugEmailScreen: void;
-};
-
-type Props = DrawerScreenProps<DrawerParamList>;
 const Drawer = createDrawerNavigator( );
 const drawerContent = props => <SideMenu {...props} />;
 
-const config = { headerShown: false };
-const screenOptions = { ...config, drawerType: "front" };
+const config = { headerShown: false } as const;
+const screenOptions = { ...config, drawerType: "front" } as const;
 
 const SideDrawer = ( ) => (
   <Drawer.Navigator

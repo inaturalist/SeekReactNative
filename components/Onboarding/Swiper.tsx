@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
+import type { PropsWithChildren } from "react";
 import { View, FlatList } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -6,17 +7,13 @@ import { viewStyles } from "../../styles/onboarding";
 import Dots from "./Dots";
 import Button from "./Button";
 
-interface Props {
-  children: any;
-}
-
 const gradientColors = {
   "0": ["#50c49c", "#1b6537"],
   "1": ["#43b7a8", "#1d5d49"],
   "2": ["#3ab6bb", "#184b56"]
 };
 
-const Swiper = ( { children }: Props ) => {
+const Swiper = ( { children }: PropsWithChildren ) => {
   const flatList = useRef( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,

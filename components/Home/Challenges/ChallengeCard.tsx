@@ -1,11 +1,8 @@
-// @flow
-
 import StyledText from "../../UIComponents/StyledText";
 
 import React from "react";
 import { View, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import GreenText from "../../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
@@ -20,7 +17,7 @@ import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useChallenge } from "../../Providers/ChallengeProvider";
 
-const ChallengeCard = ( ): Node => {
+const ChallengeCard = ( ) => {
   const { setIndex } = useChallenge( );
   const { navigate } = useNavigation( );
   const challenge = useLatestChallenge( );

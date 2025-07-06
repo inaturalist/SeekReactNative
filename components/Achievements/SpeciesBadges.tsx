@@ -12,12 +12,12 @@ import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "./BadgeContainer";
 
 interface Props {
-  speciesBadges: Array<{
+  speciesBadges: {
     iconicTaxonId: number;
     infoText: string;
     earned: boolean;
     earnedIconName: string;
-  }>;
+  }[];
 }
 
 const SpeciesBadges = ( { speciesBadges }: Props ) => {

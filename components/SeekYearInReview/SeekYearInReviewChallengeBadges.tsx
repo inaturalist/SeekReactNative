@@ -8,9 +8,24 @@ import Modal from "../UIComponents/Modals/Modal";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "../Achievements/BadgeContainer";
 
-const SeekYearInReviewChallengeBadges = ( { challengeBadges } ) => {
+interface ChallengeBadge {
+  availableDate: Date;
+  backgroundName: string;
+  sponsorName: string;
+  secondLogo: string;
+  earnedIconName: string;
+  badgeName: string;
+  percentComplete: number;
+  name: string;
+}
+
+interface Props {
+  challengeBadges: ChallengeBadge[];
+}
+
+const SeekYearInReviewChallengeBadges = ( { challengeBadges }: Props ) => {
   const [showModal, setModal] = useState( false );
-  const [selectedChallenge, setChallenge] = useState( null );
+  const [selectedChallenge, setChallenge] = useState<ChallengeBadge | null>( null );
 
   const sets = createBadgeSetList( challengeBadges );
 
@@ -20,7 +35,7 @@ const SeekYearInReviewChallengeBadges = ( { challengeBadges } ) => {
   const renderChallengesGrid = useMemo( ( ) => sets.map( ( set, index ) => {
     const setOfFive = challengeBadges.slice( sets[index], sets[index + 1] );
 
-    const renderChallengeBadge = ( item: Object ) => {
+    const renderChallengeBadge = ( item: ChallengeBadge ) => {
       const openChallengeBadgeModal = () => {
         openModal();
         setChallenge( item );

@@ -19,7 +19,7 @@ interface Props {
     earnedIconName: string,
     intlName: string
   };
-  readonly speciesCount: number | null;
+  readonly speciesCount?: number;
   readonly closeModal: () => void;
   readonly screen?: string | null;
 }
@@ -37,7 +37,6 @@ const LevelModal = ( {
         : "banner.level_up"}
       />
     </View>
-    {/* $FlowFixMe */}
     <LinearGradient
       colors={[colors.greenGradientLight, colors.greenGradientDark]}
       style={viewStyles.backgroundColor}

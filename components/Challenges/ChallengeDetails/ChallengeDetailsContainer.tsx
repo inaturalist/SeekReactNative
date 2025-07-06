@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -13,19 +11,20 @@ import SpeciesObserved from "./SpeciesObserved";
 import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-type Props = {
+
+interface Props {
   challenge: {
-    percentComplete: number,
-    startedDate: Date,
-    description: string,
-    photographer: ?string,
-    action: string,
-    logo: string,
-    secondLogo: string
-  }
+    percentComplete: number;
+    startedDate: Date;
+    description: string;
+    photographer?: string;
+    action: string;
+    logo: string;
+    secondLogo: string;
+  };
 }
 
-const ChallengeDetailsContainer = ( { challenge }: Props ): React.Node => {
+const ChallengeDetailsContainer = ( { challenge }: Props ) => {
   const { navigate } = useNavigation( );
 
   const navToChallenges = ( ) => navigate( "Challenges" );

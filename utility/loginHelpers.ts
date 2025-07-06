@@ -23,12 +23,12 @@ const fetchAccessToken = async ( ): Promise<string | null> => {
   }
 };
 
-const removeAccessToken = async ( ): Promise<void> => {
+const removeAccessToken = async ( ): Promise<boolean | void> => {
   try {
     const token = await AsyncStorage.removeItem( "access_token" );
     return token;
   } catch ( error ) {
-    return;
+    return false;
   }
 };
 
@@ -36,12 +36,12 @@ const savePostingSuccess = ( success: boolean ): void => {
   AsyncStorage.setItem( "posting_success", success.toString() );
 };
 
-const fetchPostingSuccess = async ( ): Promise<string | null> => {
+const fetchPostingSuccess = async ( ): Promise<string | boolean | null> => {
   try {
     const success = await AsyncStorage.getItem( "posting_success" );
     return success;
   } catch ( error ) {
-    return null;
+    return false;
   }
 };
 

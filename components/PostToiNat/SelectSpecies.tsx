@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useRef, useCallback } from "react";
 import {
   View,
@@ -11,7 +9,6 @@ import {
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import { colors } from "../../styles/global";
 import { viewStyles, textStyles, imageStyles } from "../../styles/posting/selectSpecies";
@@ -27,11 +24,18 @@ import { capitalizeNames } from "../../utility/helpers";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  toggleSpeciesModal: Function,
-  image: string,
-  updateTaxon: Function,
-  seekId: Object
+interface Taxon {
+  name: string;
+  iconicTaxonId?: number;
+  preferredCommonName?: string;
+  taxaId?: number;
+}
+
+interface Props {
+  toggleSpeciesModal: () => void;
+  image: string;
+  updateTaxon: ( id: number, commonName: string, scientificName: string ) => void;
+  seekId: Taxon;
 }
 
 const SelectSpecies = ( {
@@ -39,7 +43,7 @@ const SelectSpecies = ( {
   image,
   updateTaxon,
   seekId
-}: Props ): Node => {
+}: Props ) => {
   const sectionList = useRef( null );
 
   const seekSuggestion = [{
@@ -49,7 +53,7 @@ const SelectSpecies = ( {
     id: seekId.taxaId,
     iconicTaxonId: null
   }];
-  const [textInput, setTextInput] = useState( null );
+  const [textInput, setTextInput] = useState<string | null>( null );
 
   // the order is important here: showing most frequently observed first
   const majorTaxaIds = [47126, 1, 47170, 3, 47158, 47119, 40151, 20978, 26036, 47178, 47115, 47686, 48222];
@@ -84,9 +88,9 @@ const SelectSpecies = ( {
       ...majorTaxa
   ] );
 
-  const handleTextChange = useCallback( text => setTextInput( text ), [] );
+  const handleTextChange = useCallback( ( text: string ) => setTextInput( text ), [] );
 
-  const renderItem = ( item ) => {
+  const renderItem = ( item: any ) => {
     const handlePress = ( ) => {
       updateTaxon( item.id, item.commonName, item.scientificName );
       toggleSpeciesModal( );
@@ -111,7 +115,7 @@ const SelectSpecies = ( {
     );
   };
 
-  const extractKey = ( item, index ) => item + index;
+  const extractKey = ( item: any, index: number ) => item + index;
 
   const renderPadding = ( ) => <Padding />;
   const dismissKeyboard = ( ) => Keyboard.dismiss( );
@@ -163,7 +167,7 @@ const SelectSpecies = ( {
           stickySectionHeadersEnabled={false}
           keyExtractor={extractKey}
           ListFooterComponent={renderPadding}
-          renderItem={( { item } ) => {
+          renderItem={( { item }: { item: any } ) => {
             if ( item.type === "header" ) {
               return (
                 <View style={viewStyles.headerMargins}>
@@ -176,7 +180,7 @@ const SelectSpecies = ( {
             }
             return renderItem( item );
           }}
-          getItemType={( item ) => {
+          getItemType={( item: any ) => {
             if ( item.hasOwnProperty( "type" ) ) {
               return item.type;
             }

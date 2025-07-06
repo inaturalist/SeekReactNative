@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useContext, useState } from "react";
 import { View, Platform } from "react-native";
-import type { Node } from "react";
 import LinearGradient from "react-native-linear-gradient";
 
 import { viewStyles } from "../../styles/iNaturalist/iNatStats";
@@ -14,7 +11,7 @@ import { useUploadedObservationCount } from "../../utility/customHooks";
 import { UserContext } from "../UserContext";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
-const INatHeaderLoggedIn = ( ): Node => {
+const INatHeaderLoggedIn = ( ) => {
   const [triggerReload, setTriggerReload] = useState( false );
   const { userProfile, login } = useContext( UserContext );
   const { isTablet } = useAppOrientation( );

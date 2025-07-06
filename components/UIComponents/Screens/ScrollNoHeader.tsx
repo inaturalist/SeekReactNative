@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { PropsWithChildren, useRef } from "react";
 import { ScrollView, Platform, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,11 +9,10 @@ import BottomSpacer from "../BottomSpacer";
 import Padding from "../Padding";
 import Footer from "../Footer";
 
-type Props = {
-  children: any,
-  showUploadCard?: boolean,
-  footer?: boolean
-};
+interface Props extends PropsWithChildren {
+  showUploadCard?: boolean;
+  footer?: boolean;
+}
 
 const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ) => {
   const navigation = useNavigation( );

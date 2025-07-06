@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useState } from "react";
 import { View, Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { viewStyles, imageStyles } from "../../../styles/challenges/challengeDetails";
 import BackArrow from "../../UIComponents/Buttons/BackArrow";
@@ -18,24 +15,24 @@ import { startChallenge } from "../../../utility/challengeHelpers";
 import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
-type Props = {
+interface Props {
   challenge: {
-    index: number,
-    percentComplete: number,
-    startedDate: Date,
-    availableDate: Date,
-    backgroundName: string,
-    name: string,
-    logo: string,
-    sponsorName: string,
-    secondLogo: string,
-    earnedIconName: string,
-    badgeName: string
-  },
-  showMission: ( number ) => void
+    index: number;
+    percentComplete: number;
+    startedDate: Date;
+    availableDate: Date;
+    backgroundName: string;
+    name: string;
+    logo: string;
+    sponsorName: string;
+    secondLogo: string;
+    earnedIconName: string;
+    badgeName: string;
+  };
+  showMission: ( number: number ) => void;
 }
 
-const ChallengeDetailsHeader = ( { challenge, showMission }: Props ): Node => {
+const ChallengeDetailsHeader = ( { challenge, showMission }: Props ) => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
 

@@ -10,10 +10,23 @@ import EmptyChallengesCard from "./EmptyChallengesCard";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import { useFetchChallenges } from "../hooks/challengeHooks";
 
-const ChallengeScreen = ( ) => {
-  const list = useFetchChallenges( );
+interface Item {
+  type: string;
+  header: string;
+  empty: string;
+  name: string;
+  availableDate: Date;
+  percentComplete: number;
+  startedDate: Date;
+  index: number;
+  earnedIconName: string;
+  sponsorName: string;
+}
 
-  const extractKey = ( item, index ) => item + index;
+const ChallengeScreen = ( ) => {
+  const list: Item[] = useFetchChallenges( );
+
+  const extractKey = ( item: Item, index: number ) => item + index;
 
   return (
     <ViewWithHeader testID="challenge-screen-container" header="challenges.header">
@@ -23,7 +36,7 @@ const ChallengeScreen = ( ) => {
         contentContainerStyle={styles.challengeList}
         data={list}
         keyExtractor={extractKey}
-        renderItem={( { item } ) => {
+        renderItem={( { item }: { item: Item } ) => {
           if ( item.type === "header" ) {
             // Render header
             return <View style={styles.header}>

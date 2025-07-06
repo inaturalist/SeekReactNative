@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useEffect, useCallback } from "react";
 import Realm from "realm";
 import type { Node } from "react";

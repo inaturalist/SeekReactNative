@@ -6,11 +6,17 @@ import i18n from "../../../i18n";
 import { capitalizeNames, shuffleList } from "../../../utility/helpers";
 import { localizeAttributions } from "../../../utility/photoHelpers";
 
-const useFetchPhotos = ( ): any => {
+interface ProjectPhoto {
+  photoUrl: string;
+  commonName: string | null;
+  attribution: string;
+}
+
+const useFetchPhotos = ( ): ProjectPhoto[] => {
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
-  const [photos, setPhotos] = useState( [] );
+  const [photos, setPhotos] = useState<ProjectPhoto[]>( [] );
 
   useEffect( ( ) => {
     if ( !isConnected ) {return;}
@@ -29,7 +35,7 @@ const useFetchPhotos = ( ): any => {
       inatjs.observations.search( params ).then( ( { results } ) => {
         const taxa = results.map( ( r ) => r.taxon );
 
-        const projectPhotos = [];
+        const projectPhotos: ProjectPhoto[] = [];
 
         taxa.forEach( photo => {
           const { defaultPhoto } = photo;

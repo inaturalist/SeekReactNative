@@ -1,7 +1,17 @@
 // @flow
 import inatjs from "inaturalistjs";
 
-const createHistogramChartData = ( results ): Array<{ month: number, count: number }> => {
+interface HistogramDataPoint {
+  month: number;
+  count: number;
+}
+
+interface Region {
+  latitude: number;
+  longitude: number;
+}
+
+const createHistogramChartData = ( results: any ): HistogramDataPoint[] => {
   const countsByMonth = results.month_of_year;
   const months = Array.from( { length: 12 }, ( v, i ) => i + 1 );
 
@@ -10,22 +20,16 @@ const createHistogramChartData = ( results ): Array<{ month: number, count: numb
   } );
 };
 
-const fetchHistogram = async ( id: number, region?: ?{
-  latitude: number,
-  longitude: number
-} ): Promise<Array<Object>> => {
-  const params = {
+const fetchHistogram = async ( id: number, region?: Region ): Promise<HistogramDataPoint[]> => {
+  const params: any = {
     date_field: "observed",
     interval: "month_of_year",
     taxon_id: id
   };
 
   if ( region ) {
-    // $FlowFixMe
     params.lat = region.latitude;
-    // $FlowFixMe
     params.lng = region.longitude;
-    // $FlowFixMe
     params.radius = 50;
   }
 

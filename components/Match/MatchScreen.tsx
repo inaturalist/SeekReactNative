@@ -1,11 +1,8 @@
-// @flow
-
 import React, { useReducer, useCallback, useRef } from "react";
 import { BackHandler, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFocusEffect } from "@react-navigation/native";
-import type { Node } from "react";
 
 import styles from "../../styles/match/match";
 import Footer from "../UIComponents/Footer";
@@ -20,7 +17,7 @@ import { setGradients, setScreenType } from "../../utility/matchHelpers";
 import MatchModals from "./MatchModals";
 import { useObservation } from "../Providers/ObservationProvider";
 
-const MatchScreen = ( ): Node => {
+const MatchScreen = ( ) => {
   const { observation } = useObservation();
   const scrollView = useRef<any>( null );
   const navigation = useNavigation( );
@@ -32,7 +29,7 @@ const MatchScreen = ( ): Node => {
   // move this out of state, so can navigate with .navigate instead of .push
   const screenType = setScreenType( taxon, seenDate );
 
-  // eslint-disable-next-line no-shadow
+
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
       case "SET_NAV_PATH":

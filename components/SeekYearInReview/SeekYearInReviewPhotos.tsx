@@ -1,5 +1,3 @@
-// @flow
-
 import React from "react";
 import {
   View,
@@ -7,7 +5,6 @@ import {
   Pressable
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import {
   viewStyles,
@@ -24,7 +21,7 @@ import { setRoute } from "../../utility/helpers";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
-const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
+const SeekYearInReviewPhotoItem = ( { observation, index } ) => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );
   const userPhoto = useUserPhoto( seenTaxa );
 
@@ -58,7 +55,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ): Node => {
   );
 };
 
-const SeekYearInReviewPhotos = ( { observations } ): Node => {
+const SeekYearInReviewPhotos = ( { observations } ) => {
   const renderPhotos = () =>
     observations.map( ( obs, index ) => <SeekYearInReviewPhotoItem observation={obs} index={index} /> );
   const photoList = renderPhotos();

@@ -3,7 +3,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { View, Image, Animated, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles, imageStyles } from "../../styles/home/uploadStatus";
@@ -17,11 +16,11 @@ import { resetRouter } from "../../utility/navigationHelpers";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  successfulUploads: number,
-  numPendingUploads: number,
-  updateSuccessfulUploads: number => void,
-  closeCard: ( ) => void
+interface Props {
+  successfulUploads: number;
+  numPendingUploads: number;
+  updateSuccessfulUploads: ( number: number ) => void;
+  closeCard: ( ) => void;
 }
 
 const UploadStatus = ( {
@@ -29,7 +28,7 @@ const UploadStatus = ( {
   numPendingUploads,
   updateSuccessfulUploads,
   closeCard
-}: Props ): Node => {
+}: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   const navigation = useNavigation();
   let animation = useRef( new Animated.Value( 0 ) );
@@ -49,7 +48,6 @@ const UploadStatus = ( {
 
   const width = animation.current.interpolate( {
     inputRange: [0, 100],
-    // $FlowFixMe
     outputRange: ["0%", "100%"],
     extrapolate: "clamp"
   } );
@@ -106,7 +104,6 @@ const UploadStatus = ( {
           updateSuccessfulUploads( currentUploads );
         }
       } else if ( typeof upload === "object" && upload.error ) {
-        // $FlowFixMe
         setError( upload.error );
       }
     };

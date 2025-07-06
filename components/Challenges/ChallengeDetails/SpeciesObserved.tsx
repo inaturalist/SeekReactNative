@@ -1,19 +1,16 @@
-// @flow
-
 import React from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles } from "../../../styles/challenges/challengeDetails";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
 import { useFetchSpeciesObserved } from "../hooks/challengeHooks";
 
-type Props = {
-  +challenge: Object
+interface Props {
+  challenge: Object;
 }
 
-const SpeciesObserved = ( { challenge }: Props ): Node => {
+const SpeciesObserved = ( { challenge }: Props ) => {
   const speciesObserved = useFetchSpeciesObserved( challenge );
 
   return (

@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View } from "react-native";
 
@@ -8,7 +6,7 @@ import INatSignOut from "./iNatSignOut";
 import INatLogin from "./iNatLogin";
 import { viewStyles } from "../../../styles/iNaturalist/iNatStats";
 
-const LoginCard = ( ): React.Node => {
+const LoginCard = ( ) => {
   const { login } = React.useContext( UserContext );
 
   return (

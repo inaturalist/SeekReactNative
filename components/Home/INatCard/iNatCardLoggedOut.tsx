@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -12,11 +10,11 @@ import AppIconSubHeader from "../../iNaturalist/AppIconSubHeader";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  challenge: ?Object
+interface Props {
+  challenge?: boolean;
 }
 
-const INatCardLoggedOut = ( challenge: Props ): React.Node => {
+const INatCardLoggedOut = ( { challenge }: Props ) => {
   const navigation = useNavigation( );
   const navToINatStats = ( ) => navigation.navigate( "iNatStats" );
 

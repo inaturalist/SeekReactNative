@@ -11,7 +11,10 @@ import { useFetchMissions } from "./../hooks/challengeHooks";
 import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
-  challenge: Object;
+  challenge: {
+    index: number;
+    percentComplete: number;
+  }
 }
 
 const ChallengeMissionCard = ( { challenge }: Props ) => {
@@ -24,7 +27,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     const text = i18n.t( item.mission );
     let missionNoSubBullets = null;
     let header = "";
-    let subBullets = [];
+    let subBullets: string[] = [];
 
     if ( text.includes( ";\n" ) ) {
       const sections = text.split( ":\n\n" );

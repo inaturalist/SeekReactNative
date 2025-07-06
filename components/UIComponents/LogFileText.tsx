@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useEffect } from "react";
 import RNFS from "react-native-fs";
 import { ScrollView } from "react-native";
@@ -7,11 +5,11 @@ import { ScrollView } from "react-native";
 import StyledText from "./StyledText";
 import { pathLogs } from "../../utility/dirStorage";
 
-type Props = {
-  +navigation: any
-};
+interface Props {
+  navigation: any;
+}
 
-const LogFileText = ( {}: Props ): React.Node => {
+const LogFileText = ( {}: Props ) => {
   const [logContents, setLogContents] = React.useState( "" );
 
   const { mtime: logFileMtime } = RNFS.stat( pathLogs );

@@ -1,7 +1,4 @@
-// @flow
-
 import React, { useContext } from "react";
-import type { Node } from "react";
 
 import { textStyles } from "../../../styles/iNaturalist/iNatStats";
 import i18n from "../../../i18n";
@@ -11,7 +8,7 @@ import { UserContext } from "../../UserContext";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-const INatSignOut = ( ): Node => {
+const INatSignOut = ( ) => {
   const { updateLogin } = useContext( UserContext );
 
   const logUserOut = async ( ) => {

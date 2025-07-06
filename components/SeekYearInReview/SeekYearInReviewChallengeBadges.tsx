@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useState, useCallback, useMemo } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import type { Node } from "react";
 
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import badgeImages from "../../assets/badges";
@@ -11,7 +8,7 @@ import Modal from "../UIComponents/Modals/Modal";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "../Achievements/BadgeContainer";
 
-const SeekYearInReviewChallengeBadges = ( { challengeBadges } ): Node => {
+const SeekYearInReviewChallengeBadges = ( { challengeBadges } ) => {
   const [showModal, setModal] = useState( false );
   const [selectedChallenge, setChallenge] = useState( null );
 

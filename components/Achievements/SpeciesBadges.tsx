@@ -11,19 +11,25 @@ import { viewStyles, imageStyles } from "../../styles/badges/achievements";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "./BadgeContainer";
 
+interface SpeciesBadge {
+  name: string;
+  earned: boolean;
+  earnedIconName: string;
+  intlName: string;
+  iconicTaxonName: string;
+  count: number;
+  infoText: string;
+  iconicTaxonId: number;
+}
+
 interface Props {
-  speciesBadges: {
-    iconicTaxonId: number;
-    infoText: string;
-    earned: boolean;
-    earnedIconName: string;
-  }[];
+  speciesBadges: SpeciesBadge[];
 }
 
 const SpeciesBadges = ( { speciesBadges }: Props ) => {
   const [showModal, setModal] = useState( false );
   const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
-  const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );
+  const [iconicTaxonBadges, setIconicTaxonBadges] = useState<SpeciesBadge[]>( [] );
 
   const sets = createBadgeSetList( speciesBadges );
 
@@ -45,7 +51,7 @@ const SpeciesBadges = ( { speciesBadges }: Props ) => {
       } );
   };
 
-  const renderSpeciesBadge = ( item: Object ) => {
+  const renderSpeciesBadge = ( item: SpeciesBadge ) => {
     let imageSrc = badgeImages.badge_empty;
 
     if ( item && item.earned && item.earnedIconName ) {

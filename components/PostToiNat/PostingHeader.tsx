@@ -1,29 +1,26 @@
-// @flow
-
 import React, { useState } from "react";
 import {
   Image,
   TouchableOpacity,
   Modal
 } from "react-native";
-import type { Node } from "react";
 
 import styles from "../../styles/posting/postToiNat";
 import posting from "../../assets/posting";
 import SelectSpecies from "./SelectSpecies";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 
-type Props = {
-  taxon: Object,
-  image: Object,
-  updateTaxon: Function
+interface Props {
+  taxon: Object;
+  image: Object;
+  updateTaxon: Function;
 }
 
 const PostingHeader = ( {
   taxon,
   image,
   updateTaxon
-}: Props ): Node => {
+}: Props ) => {
   const [showModal, setShowModal] = useState( false );
 
   const openModal = ( ) => setShowModal( true );
@@ -51,7 +48,6 @@ const PostingHeader = ( {
           handlePress={openModal}
           photo={{ uri: image.uri }}
         />
-        {/* $FlowFixMe */}
         <Image
           source={posting.edit}
           style={styles.editIcon}

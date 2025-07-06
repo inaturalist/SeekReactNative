@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useContext } from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles, textStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
@@ -19,7 +16,7 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
-const INatStats = ( ): Node => {
+const INatStats = ( ) => {
   const { login } = useContext( UserContext );
   const { isTablet } = useAppOrientation( );
 

@@ -1,4 +1,3 @@
-// @flow
 import inatjs from "inaturalistjs";
 
 interface HistogramDataPoint {

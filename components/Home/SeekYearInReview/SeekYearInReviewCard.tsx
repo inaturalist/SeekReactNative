@@ -1,9 +1,6 @@
-// @flow
-
 import React from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import {
@@ -18,7 +15,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
 
-const SeekYearInReviewCard = ( ): Node => {
+const SeekYearInReviewCard = ( ) => {
   // The year to show stats for
   const now = new Date();
   let year = now.getFullYear();

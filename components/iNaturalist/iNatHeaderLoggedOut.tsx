@@ -1,9 +1,6 @@
-// @flow
-
 import React from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { viewStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
@@ -13,7 +10,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import AppIconSubHeader from "./AppIconSubHeader";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
-const INatHeaderLoggedOut = ( ): Node => {
+const INatHeaderLoggedOut = ( ) => {
   const navigation = useNavigation( );
   const logIntoiNat = ( ) => navigation.navigate( "LoginOrSignup" );
   const { isTablet } = useAppOrientation( );

@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useEffect, useCallback } from "react";
 import { Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import styles from "../styles/splash";
 import logos from "../assets/logos";
@@ -15,7 +12,7 @@ import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utili
 import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
 import { useAppOrientation } from "./Providers/AppOrientationProvider";
 
-const SplashScreen = ( ): Node => {
+const SplashScreen = ( ) => {
   const { isTablet } = useAppOrientation( );
   const navigation = useNavigation( );
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );

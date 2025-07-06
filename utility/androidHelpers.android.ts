@@ -1,8 +1,6 @@
-// @flow
-
 import { PermissionsAndroid } from "react-native";
 
-const checkLocationPermissions = async (): Promise<boolean> => {
+const checkLocationPermissions = async ( ): Promise<boolean> => {
   const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
   try {
@@ -16,7 +14,7 @@ const checkLocationPermissions = async (): Promise<boolean> => {
   }
 };
 
-const checkCameraPermissions = async ( ): Promise<any> => {
+const checkCameraPermissions = async ( ): Promise<boolean | string> => {
   const { PERMISSIONS, RESULTS } = PermissionsAndroid;
 
   try {
@@ -31,7 +29,7 @@ const checkCameraPermissions = async ( ): Promise<any> => {
   }
 };
 
-const checkSavePermissions = async ( ): Promise<any> => {
+const checkSavePermissions = async ( ): Promise<boolean | string> => {
   const { PERMISSIONS, RESULTS } = PermissionsAndroid;
 
   try {

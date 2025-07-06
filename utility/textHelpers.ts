@@ -1,24 +1,24 @@
-// @flow
-
 import { PixelRatio } from "react-native";
 
 import i18n from "../i18n";
 
 const { getFontScale } = PixelRatio;
 
-const setChallengeDetailsButtonText = ( challenge: {
-  index: number,
-  percentComplete: number,
-  startedDate: Date,
-  availableDate: Date,
-  backgroundName: string,
-  name: string,
-  logo: string,
-  sponsorName: string,
-  secondLogo: string,
-  earnedIconName: string,
-  badgeName: string
-}, challengeStarted?: Date ): string => {
+interface Challenge {
+  index: number;
+  percentComplete: number;
+  startedDate: Date;
+  availableDate: Date;
+  backgroundName: string;
+  name: string;
+  logo: string;
+  sponsorName: string;
+  secondLogo: string;
+  earnedIconName: string;
+  badgeName: string;
+}
+
+const setChallengeDetailsButtonText = ( challenge: Challenge, challengeStarted?: Date ): string => {
   if ( !challengeStarted ) {
     return "challenges.start_challenge";
   } else if ( challengeStarted && challenge.percentComplete === 100 ) {
@@ -28,8 +28,8 @@ const setChallengeDetailsButtonText = ( challenge: {
   }
 };
 
-const setCameraHelpText = ( rankToRender: ?string ): string => {
-  let helpText;
+const setCameraHelpText = ( rankToRender?: string ): string => {
+  let helpText: string;
 
   if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
     helpText = "camera.scan_class";

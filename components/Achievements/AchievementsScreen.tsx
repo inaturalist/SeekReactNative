@@ -29,7 +29,7 @@ const AchievementsScreen = ( ) => {
     navigation.navigate( "Observations" );
   }, [navigation] );
 
-  const renderStats = ( disabled, headerText, text ) => (
+  const renderStats = ( disabled: boolean, headerText: string, text: number ) => (
     <TouchableOpacity
       onPress={navToObservations}
       style={viewStyles.secondHeaderText}

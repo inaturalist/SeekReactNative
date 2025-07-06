@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { View, Image } from "react-native";
 
@@ -9,13 +7,13 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
-type Props = {
-  icon: string,
-  text: string,
-  largeIcon?: boolean
+interface Props {
+  icon: string;
+  text: string;
+  largeIcon?: boolean;
 }
 
-const AppIconSubHeader = ( { icon, text, largeIcon }: Props ): React.Node => {
+const AppIconSubHeader = ( { icon, text, largeIcon }: Props ) => {
   const { isTablet } = useAppOrientation( );
 
   return (

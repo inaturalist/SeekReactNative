@@ -1,5 +1,3 @@
-// @flow
-
 import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
 import { useNetInfo } from "@react-native-community/netinfo";

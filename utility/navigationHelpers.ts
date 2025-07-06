@@ -1,4 +1,3 @@
-// @flow
 import { Platform, DeviceEventEmitter } from "react-native";
 import QuickActions from "react-native-quick-actions";
 import { CommonActions } from "@react-navigation/native";
@@ -7,7 +6,7 @@ import i18n from "../i18n";
 
 const seekCameraTitle = Platform.OS === "android" ? i18n.t( "shortcut.seek_camera" ) : "Seek Camera";
 
-const setQuickActions = () => {
+const setQuickActions = ( ): void => {
   // this creates the quick action button on Android
   if ( Platform.OS === "android" ) {
     QuickActions.setShortcutItems( [{
@@ -22,7 +21,7 @@ const setQuickActions = () => {
   }
 };
 
-const checkForHotStarts = ( navToCamera: ( ) => void ) => {
+const checkForHotStarts = ( navToCamera: ( ) => void ): void => {
   // this addresses hot starts (i.e. app is already open)
   DeviceEventEmitter.addListener( "quickActionShortcut", ( { title } ) => {
     if ( title === seekCameraTitle ) {
@@ -31,7 +30,7 @@ const checkForHotStarts = ( navToCamera: ( ) => void ) => {
   } );
 };
 
-const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( string ) => void ) => {
+const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( string ) => void ): Promise<void> => {
   // this addresses cold starts (i.e. before the app launches)
   try {
     // TODO: when starting the app with the Android Hermes Debugger in VS code the app always throws an exception here, check if that is something happening in production
@@ -47,7 +46,11 @@ const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( stri
   }
 };
 
-const resetRouter = ( navigation: { dispatch: Object } ): any => navigation.dispatch(
+interface Navigation {
+  dispatch: Object;
+}
+
+const resetRouter = ( navigation: Navigation ): any => navigation.dispatch(
   CommonActions.reset( {
     index: 1,
     routes: [{ name: "Drawer" }]

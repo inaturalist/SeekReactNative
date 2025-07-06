@@ -1,16 +1,13 @@
-// @flow
-
 import React, { useState, useRef, useCallback } from "react";
 import { View, FlatList } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import type { Node } from "react";
 
 import { viewStyles } from "../../styles/onboarding";
 import Dots from "./Dots";
 import Button from "./Button";
 
-type Props = {
-  +children:any
+interface Props {
+  children: any;
 }
 
 const gradientColors = {
@@ -19,7 +16,7 @@ const gradientColors = {
   "2": ["#3ab6bb", "#184b56"]
 };
 
-const Swiper = ( { children }: Props ): Node => {
+const Swiper = ( { children }: Props ) => {
   const flatList = useRef( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,

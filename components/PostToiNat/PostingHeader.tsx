@@ -14,6 +14,7 @@ interface Taxon {
   name: string;
   iconicTaxonId?: number;
   preferredCommonName?: string;
+  taxaId?: number;
 }
 
 interface ImageObject {

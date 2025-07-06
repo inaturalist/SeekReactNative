@@ -1,8 +1,5 @@
-// @flow
-
 import React from "react";
 import { View, Image } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeMission";
 import icons from "../../../assets/icons";
@@ -13,11 +10,11 @@ import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { useFetchMissions } from "./../hooks/challengeHooks";
 import StyledText from "../../UIComponents/StyledText";
 
-type Props = {
-  +challenge: Object
-};
+interface Props {
+  challenge: Object;
+}
 
-const ChallengeMissionCard = ( { challenge }: Props ): Node => {
+const ChallengeMissionCard = ( { challenge }: Props ) => {
   const missions = useFetchMissions( challenge );
 
   const { index, percentComplete } = challenge;

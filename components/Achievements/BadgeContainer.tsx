@@ -10,7 +10,7 @@ interface Badge {
 
 interface Props {
   data: Badge[];
-  renderItem: ( item: Badge ) => any;
+  renderItem: ( item: Badge ) => React.ReactElement;
 }
 
 const BadgeContainer = ( { data, renderItem }: Props ) => (

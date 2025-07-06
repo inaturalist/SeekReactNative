@@ -31,6 +31,16 @@ interface Taxon {
   taxaId?: number;
 }
 
+interface Suggestion {
+  header?: string;
+  type?: string;
+  image?: string;
+  commonName?: string | null;
+  scientificName?: string | null;
+  id?: number;
+  iconicTaxonId?: number | null;
+}
+
 interface Props {
   toggleSpeciesModal: () => void;
   image: string;
@@ -46,7 +56,7 @@ const SelectSpecies = ( {
 }: Props ) => {
   const sectionList = useRef( null );
 
-  const seekSuggestion = [{
+  const seekSuggestion: Suggestion[] = [{
     image,
     commonName: seekId.preferredCommonName,
     scientificName: seekId.name,
@@ -58,7 +68,7 @@ const SelectSpecies = ( {
   // the order is important here: showing most frequently observed first
   const majorTaxaIds = [47126, 1, 47170, 3, 47158, 47119, 40151, 20978, 26036, 47178, 47115, 47686, 48222];
 
-  const majorTaxa = majorTaxaIds.map( taxonId => {
+  const majorTaxa: Suggestion[] = majorTaxaIds.map( taxonId => {
     return {
       commonName: capitalizeNames(
         i18n.t( iconicTaxonDictSelectSpecies[taxonId] )
@@ -71,7 +81,7 @@ const SelectSpecies = ( {
 
   const suggestions = useSearchSpecies( textInput );
 
-  let data = [];
+  let data: Suggestion[] = [];
   if ( suggestions.length === 0 ) {
     data = [
       { header: "posting.id", type: "header" },

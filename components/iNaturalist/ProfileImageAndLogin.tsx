@@ -13,7 +13,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   count?: number;
-  reload: () => void;
+  reload: ( ) => void;
 }
 
 const ProfileImageAndLogin = ( { count, reload }: Props ) => {

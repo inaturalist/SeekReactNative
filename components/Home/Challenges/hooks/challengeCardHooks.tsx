@@ -1,12 +1,15 @@
-// @flow
-
 import { useState, useEffect } from "react";
 import Realm from "realm";
 
 import realmConfig from "../../../../models";
 
-const useLatestChallenge = ( ): any => {
-  const [challenge, setChallenge] = useState( null );
+interface ChallengeRealm {
+  percentComplete: number;
+  availableDate: Date;
+}
+
+const useLatestChallenge = ( ) => {
+  const [challenge, setChallenge] = useState<ChallengeRealm | null>( null );
 
   useEffect( ( ) => {
     const fetchLatestChallenge = ( ) => {

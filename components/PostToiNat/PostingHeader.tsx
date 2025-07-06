@@ -24,7 +24,7 @@ interface ImageObject {
 interface Props {
   taxon: Taxon;
   image: ImageObject;
-  updateTaxon: Function;
+  updateTaxon: ( id: number, commonName: string, scientificName: string ) => void;
 }
 
 const PostingHeader = ( {

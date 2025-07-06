@@ -1,18 +1,19 @@
-// @flow
 import i18n from "../i18n";
 
 import { serverBackOnlineTime } from "./dateHelpers";
 
-const handleServerError = ( error: {
+interface ServerError {
   response: {
-    status: number,
+    status: number;
     headers: {
       map: {
-        "retry-after": string,
-      },
-    },
-  },
-} ): any => {
+        "retry-after": string;
+      };
+    };
+  };
+}
+
+const handleServerError = ( error: ServerError ): number | string | null => {
   const { response } = error;
 
   if ( !response ) {

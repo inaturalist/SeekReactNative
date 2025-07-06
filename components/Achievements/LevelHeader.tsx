@@ -17,7 +17,11 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  level: Object;
+  level: {
+    earnedIconName: string;
+    intlName: string;
+    count: number;
+  };
   nextLevelCount: number;
   speciesCount?: number;
 }

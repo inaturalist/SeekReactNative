@@ -1,5 +1,3 @@
-// @flow
-
 import React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
@@ -13,11 +11,12 @@ import icons from "../../assets/icons";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  count?: number
+interface Props {
+  count?: number;
+  reload: () => void;
 }
 
-const ProfileImageAndLogin = ( { count, reload }: Props ): React.Node => {
+const ProfileImageAndLogin = ( { count, reload }: Props ) => {
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 

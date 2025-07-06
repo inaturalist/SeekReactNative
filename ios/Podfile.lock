@@ -1284,7 +1284,7 @@ PODS:
     - React-Core
   - react-native-image-picker (7.0.2):
     - React-Core
-  - react-native-image-resizer (3.0.7):
+  - react-native-image-resizer (3.0.11):
     - React-Core
   - react-native-mail (6.1.1):
     - React-Core
@@ -2148,7 +2148,7 @@ SPEC CHECKSUMS:
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
   react-native-image-marker: 79cfd07ed17697ba38152d07a5990a25e8b72f48
   react-native-image-picker: 197ec356b2e16526610b3471c73ca6c884905a8f
-  react-native-image-resizer: 73c63c5b349aa95b0761d0e19c7b7bcfe89c3bf6
+  react-native-image-resizer: 24c5d06fae2176dc0caed4b6396e02befb44064a
   react-native-mail: 6e83813066984b26403d3fdfe79ac7bb31857e3c
   react-native-maps: 38394e3f4258d7fe8f1241c2624b91acf35e2dd5
   react-native-netinfo: 58a62fc2fc7245875718b99ac9914c307e1523ca

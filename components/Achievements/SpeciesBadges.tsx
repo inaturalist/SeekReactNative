@@ -1,10 +1,7 @@
-// @flow
-
 import React, { useState, useCallback } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
@@ -14,16 +11,16 @@ import { viewStyles, imageStyles } from "../../styles/badges/achievements";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "./BadgeContainer";
 
-type Props = {
+interface Props {
   speciesBadges: Array<{
-    iconicTaxonId: number,
-    infoText: string,
-    earned: boolean,
-    earnedIconName: string
-  }>
+    iconicTaxonId: number;
+    infoText: string;
+    earned: boolean;
+    earnedIconName: string;
+  }>;
 }
 
-const SpeciesBadges = ( { speciesBadges }: Props ): Node => {
+const SpeciesBadges = ( { speciesBadges }: Props ) => {
   const [showModal, setModal] = useState( false );
   const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
   const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );

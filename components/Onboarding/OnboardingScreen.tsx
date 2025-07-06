@@ -1,11 +1,8 @@
-// @flow
-
 import * as React from "react";
 import {
   Image,
   View
 } from "react-native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/onboarding";
@@ -14,7 +11,7 @@ import icons from "../../assets/icons";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-const OnboardingScreen = ( ): Node => (
+const OnboardingScreen = ( ) => (
   <Swiper>
     {[1, 2, 3].map( ( item ) => (
       <View key={`${item}`} style={viewStyles.image}>

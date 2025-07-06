@@ -1,10 +1,7 @@
-// @flow
-
 import React, { useRef } from "react";
 import { ScrollView, Platform, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
@@ -18,7 +15,7 @@ type Props = {
   footer?: boolean
 };
 
-const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ): Node => {
+const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ) => {
   const navigation = useNavigation( );
   const { name } = useRoute( );
   const scrollView = useRef<any>( null );

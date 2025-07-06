@@ -1,12 +1,10 @@
-// @flow
-
 import * as StoreReview from "react-native-store-review";
 import Realm from "realm";
 
 import { isWithinPastYear } from "./dateHelpers";
 import realmConfig from "../models/index";
 
-const updateReviews = ( realm, reviews ) => {
+const updateReviews = ( realm: Realm, reviews ): void => {
   realm.write( ( ) => {
     if ( reviews.length === 0 ) {
       realm.create( "ReviewRealm", {
@@ -20,13 +18,7 @@ const updateReviews = ( realm, reviews ) => {
   StoreReview.requestReview( );
 };
 
-const deleteReviews = ( realm, reviews ) => {
-  realm.write( () => {
-    realm.delete( reviews );
-  } );
-};
-
-const showStoreReview = ( ) => {
+const showStoreReview = ( ): void => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const reviews = realm.objects( "ReviewRealm" );
 
@@ -37,7 +29,9 @@ const showStoreReview = ( ) => {
           updateReviews( realm, reviews );
         }
       } else if ( StoreReview.isAvailable ) {
-        deleteReviews( realm, reviews );
+        realm.write( () => {
+          realm.delete( reviews );
+        } );
         updateReviews( realm, reviews );
       }
     } else if ( StoreReview.isAvailable ) {

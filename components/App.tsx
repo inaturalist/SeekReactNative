@@ -1,12 +1,9 @@
-// @flow
-
 import React, { useEffect } from "react";
 import {
   setJSExceptionHandler,
   setNativeExceptionHandler
 } from "react-native-exception-handler";
 import { getVersion, getBuildNumber } from "react-native-device-info";
-import type { Node } from "react";
 
 import RootStack from "./Navigation/RootStack";
 import { hideLogs } from "../utility/helpers";
@@ -43,7 +40,7 @@ setNativeExceptionHandler( exceptionString => {
   logger.error( `Native Error: ${exceptionString}` );
 } );
 
-const App = ( ): Node => {
+const App = ( ) => {
   useEffect( () => {
     hideLogs( );
     logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );

@@ -14,6 +14,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   challenge: {
+    index: number;
     percentComplete: number;
     startedDate: Date;
     description: string;

@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import type { DrawerScreenProps } from "@react-navigation/drawer";
@@ -39,7 +38,7 @@ const drawerContent = props => <SideMenu {...props} />;
 const config = { headerShown: false };
 const screenOptions = { ...config, drawerType: "front" };
 
-const SideDrawer = (): Props => (
+const SideDrawer = ( ) => (
   <Drawer.Navigator
     initialRouteName="Drawer"
     drawerContent={drawerContent}

@@ -3,9 +3,14 @@ import { View } from "react-native";
 
 import { viewStyles } from "../../styles/badges/achievements";
 
+interface Badge {
+  name: string;
+  earnedIconName: string;
+}
+
 interface Props {
-  data: Array<Object>;
-  renderItem: ( item: Object ) => any;
+  data: Badge[];
+  renderItem: ( item: Badge ) => any;
 }
 
 const BadgeContainer = ( { data, renderItem }: Props ) => (

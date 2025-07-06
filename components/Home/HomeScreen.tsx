@@ -1,5 +1,3 @@
-// @flow
-
 import React, {
   useState,
   useEffect,
@@ -7,7 +5,6 @@ import React, {
 } from "react";
 import { BackHandler, Platform } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import SeekYearInReviewCard from "./SeekYearInReview/SeekYearInReviewCard";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
@@ -24,7 +21,7 @@ import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
 import INatCard from "./INatCard/iNatCard";
 import DonateCard from "../UIComponents/Cards/DonateCard";
 
-const HomeScreen = ( ): Node => {
+const HomeScreen = ( ) => {
   const navigation = useNavigation( );
   const [showModal, setModal] = useState( false );
   const [showUploadCard, setShowUploadCard] = useState( false );

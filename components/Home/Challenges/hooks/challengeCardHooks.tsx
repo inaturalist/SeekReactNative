@@ -4,8 +4,17 @@ import Realm from "realm";
 import realmConfig from "../../../../models";
 
 interface ChallengeRealm {
+  index: number;
   percentComplete: number;
+  startedDate: Date;
   availableDate: Date;
+  backgroundName: string;
+  name: string;
+  logo: string;
+  sponsorName: string;
+  secondLogo: string;
+  earnedIconName: string;
+  badgeName: string;
 }
 
 const useLatestChallenge = ( ) => {

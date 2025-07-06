@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useReducer, useEffect, useCallback } from "react";
 import { Alert, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import type { Node } from "react";
 
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
@@ -21,7 +18,7 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 import { useObservation } from "../Providers/ObservationProvider";
 
-const PostScreen = ( ): Node => {
+const PostScreen = ( ) => {
   const { observation } = useObservation( );
   const navigation = useNavigation( );
   const { params } = useRoute( );
@@ -37,7 +34,7 @@ const PostScreen = ( ): Node => {
 
   const initialDate = date.dateForServer;
   const initialDisplayDate = date.dateForDisplay;
-  // eslint-disable-next-line no-shadow
+
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
       case "SELECT_SPECIES":

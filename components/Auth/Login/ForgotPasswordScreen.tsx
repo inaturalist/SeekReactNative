@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useState } from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
@@ -18,7 +15,7 @@ import { createJwtToken } from "../../../utility/helpers";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-const ForgotPasswordScreen = ( ): Node => {
+const ForgotPasswordScreen = ( ) => {
   const { navigate } = useNavigation( );
   const [email, setEmail] = useState( "" );
   const [error, setError] = useState( false );

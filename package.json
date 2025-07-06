@@ -83,7 +83,7 @@
     "react-native-svg": "15.8.0",
     "react-native-svg-charts": "github:jtklein/react-native-svg-charts#dev",
     "react-native-tab-view": "^3.5.2",
-    "react-native-vision-camera": "4.5.2",
+    "react-native-vision-camera": "^4.7.0",
     "react-native-webp-format": "^1.2.0",
     "react-native-webview": "^11.26.1",
     "react-native-worklets-core": "1.5.0",

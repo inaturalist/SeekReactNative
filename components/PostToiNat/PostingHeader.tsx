@@ -10,9 +10,19 @@ import posting from "../../assets/posting";
 import SelectSpecies from "./SelectSpecies";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 
+interface Taxon {
+  name: string;
+  iconicTaxonId?: number;
+  preferredCommonName?: string;
+}
+
+interface ImageObject {
+  uri: string;
+}
+
 interface Props {
-  taxon: Object;
-  image: Object;
+  taxon: Taxon;
+  image: ImageObject;
   updateTaxon: Function;
 }
 

@@ -1,8 +1,5 @@
-// @flow
-
 import React from "react";
 import { View, Image } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeMission";
 import icons from "../../../assets/icons";
@@ -14,11 +11,14 @@ import { useFetchMissions } from "../hooks/challengeHooks";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  +challenge: Object
-};
+interface Props {
+  challenge: {
+    index: number;
+    percentComplete: number;
+  }
+}
 
-const ChallengeMissionCard = ( { challenge }: Props ): Node => {
+const ChallengeMissionCard = ( { challenge }: Props ) => {
   const missions = useFetchMissions( challenge );
 
   const { index, percentComplete } = challenge;
@@ -28,7 +28,7 @@ const ChallengeMissionCard = ( { challenge }: Props ): Node => {
     const text = i18n.t( item.mission );
     let missionNoSubBullets = null;
     let header = "";
-    let subBullets = [];
+    let subBullets: string[] = [];
 
     if ( text.includes( ";\n" ) ) {
       const sections = text.split( ":\n\n" );

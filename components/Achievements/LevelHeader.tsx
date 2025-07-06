@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useCallback } from "react";
 import {
   View,
@@ -7,7 +5,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import type { Node } from "react";
 
 import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
@@ -19,13 +16,13 @@ import { localizeNumber } from "../../utility/helpers";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  +level: Object,
-  +nextLevelCount: number,
-  +speciesCount: ?number
+interface Props {
+  level: Object;
+  nextLevelCount: number;
+  speciesCount?: number;
 }
 
-const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ): Node => {
+const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
   const [showModal, setModal] = useState( false );
 
   const openModal = useCallback( ( ) => setModal( true ), [] );
@@ -47,7 +44,6 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ): Node => 
         closeModal={closeModal}
         modal={renderModalContent}
       />
-      {/* $FlowFixMe */}
       <LinearGradient
         colors={[colors.greenGradientDark, colors.greenGradientLight]}
         style={[viewStyles.header, viewStyles.center, viewStyles.row]}

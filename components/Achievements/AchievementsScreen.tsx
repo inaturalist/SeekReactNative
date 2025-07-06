@@ -1,9 +1,6 @@
-// @flow
-
 import React, { useCallback } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/badges/achievements";
@@ -22,7 +19,7 @@ import { localizeNumber, setRoute } from "../../utility/helpers";
 import { useSpeciesCount } from "../../utility/customHooks";
 import { baseTextStyles } from "../../styles/textStyles";
 
-const AchievementsScreen = ( ): Node => {
+const AchievementsScreen = ( ) => {
   const state = useFetchAchievements( );
   const speciesCount = useSpeciesCount();
   const navigation = useNavigation( );

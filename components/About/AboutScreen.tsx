@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useContext } from "react";
 import {
   Image,
@@ -8,7 +6,6 @@ import {
 } from "react-native";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { viewStyles, imageStyles, textStyles } from "../../styles/about";
 import logos from "../../assets/logos";
@@ -21,7 +18,7 @@ import EmailText from "./EmailText";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
-const AboutScreen = (): Node => {
+const AboutScreen = ( ) => {
   const navigation = useNavigation();
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();

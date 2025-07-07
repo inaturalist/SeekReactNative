@@ -12,9 +12,9 @@ import { viewStyles } from "../../styles/toasts/badgeToast";
 
 const { height } = Dimensions.get( "window" );
 
-type Props = {
-  +badge: ?Object,
-  +challenge: ?Object
+interface Props {
+  badge?: object;
+  challenge?: object;
 }
 
 class Toasts extends Component<Props> {

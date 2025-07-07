@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
@@ -17,9 +16,9 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-const LoginScreen = ( ): Node => {
   const { navigate } = useNavigation( );
   const { updateLogin } = useContext( UserContext );
+const LoginScreen = ( ) => {
   const [username, setUsername] = useState( "" );
   const [password, setPassword] = useState( "" );
   const [error, setError] = useState( false );
@@ -76,13 +75,13 @@ const LoginScreen = ( ): Node => {
   };
 
   const navToForgotPassword = ( ) => navigate( "Forgot" );
-  const updateUsername = value => {
+  const updateUsername = ( value: string ) => {
     setUsername( value );
     if ( error ) {
       setError( false );
     }
   };
-  const updatePassword = value => {
+  const updatePassword = ( value: string ) => {
     setPassword( value );
     if ( error ) {
       setError( false );

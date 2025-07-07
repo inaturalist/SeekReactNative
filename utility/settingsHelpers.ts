@@ -1,4 +1,3 @@
-// @flow
 import Realm from "realm";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

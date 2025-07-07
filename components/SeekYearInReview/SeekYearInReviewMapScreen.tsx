@@ -25,15 +25,15 @@ const SeekYearInReviewMapScreen = ( ) => {
   const [user, setUser] = useState( {} );
   const [mapRegion, setMapRegion] = useState( region );
 
-  const openModal = () => setModal( true );
-  const closeModal = () => setModal( false );
+  const openModal = ( ) => setModal( true );
+  const closeModal = ( ) => setModal( false );
 
   const observationsThisYear = useObservationsForYear( year );
   const observationsWithLocation = observationsThisYear?.filter(
     ( observation ) => observation.latitude && observation.longitude
   );
 
-  const getUserLocation = () => {
+  const getUserLocation = ( ) => {
     fetchTruncatedUserLocation()
       .then( ( coords ) => {
         if ( coords ) {
@@ -54,7 +54,7 @@ const SeekYearInReviewMapScreen = ( ) => {
       } );
   };
 
-  const updateMap = () => {
+  const updateMap = ( ) => {
     // only show userLocation button if permissions are on
     // a user can have location off and still see range map for previous observation locations
     if ( !user.latitude ) {
@@ -69,8 +69,8 @@ const SeekYearInReviewMapScreen = ( ) => {
     } );
   };
 
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
+  useEffect( ( ) => {
+    navigation.addListener( "focus", ( ) => {
       getUserLocation();
     } );
   }, [navigation] );

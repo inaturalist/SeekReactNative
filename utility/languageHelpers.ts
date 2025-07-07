@@ -1,5 +1,3 @@
-// @flow
-
 import * as RNLocalize from "react-native-localize";
 import { I18nManager, Platform } from "react-native";
 import RNRestart from "react-native-restart";
@@ -55,7 +53,7 @@ const checkRTLSettings = async ( ) => {
   }
 };
 
-const handleLocalizationChange = () => {
+const handleLocalizationChange = ( ) => {
   const fallback = { languageTag: "en" };
   const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
@@ -64,7 +62,7 @@ const handleLocalizationChange = () => {
 };
 
 const loadUserLanguagePreference = ( preferredLanguage: string ) => {
-  setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
+  setTimeout( ( ) => setupCommonNames( preferredLanguage ), 5000 );
   // do not wait for commonNames setup to complete. It could take a while to
   // add all names to Realm and we don't want to hold up the UI as names
   // are not needed immediately

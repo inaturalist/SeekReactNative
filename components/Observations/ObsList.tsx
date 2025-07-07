@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useRef, useMemo } from "react";
 import { View, Keyboard } from "react-native";
 import { FlashList } from "@shopify/flash-list";

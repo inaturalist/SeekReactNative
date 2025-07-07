@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState } from "react";
 import {
   View,
@@ -71,7 +69,12 @@ const LocationPicker = ( {
     } );
   };
 
-  const handleRegionChange = ( newRegion: any ) => {
+  const handleRegionChange = ( newRegion: {
+    latitudeDelta: number;
+    longitudeDelta: number;
+    latitude: number;
+    longitude: number;
+  } ) => {
     if ( Platform.OS === "android" ) {
       reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
     }

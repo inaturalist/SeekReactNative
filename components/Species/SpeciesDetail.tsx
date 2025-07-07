@@ -7,7 +7,6 @@ import React, {
 import { ScrollView, Platform, View, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import { viewStyles } from "../../styles/species/species";
 import { checkForInternet } from "../../utility/helpers";
@@ -26,7 +25,7 @@ import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import styles from "../../styles/uiComponents/scrollWithHeader";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
-const SpeciesDetail = ( ): Node => {
+const SpeciesDetail = ( ) => {
   const internet = useInternetStatus( );
   const { id } = useSpeciesDetail( );
   const { isLandscape, width } = useAppOrientation( );

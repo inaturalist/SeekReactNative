@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useCallback, useMemo } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import type { Node } from "react";

@@ -48,8 +48,26 @@ const createTaxonomyList = ( ancestors: Taxon[], scientificName?: string | null 
   return taxonomyList;
 };
 
+interface TaxonDetails {
+  taxon: {
+    id: number;
+    scientificName: string;
+    iconicTaxonId: number;
+  };
+  photos: Object[];
+  details: {
+    wikiUrl: string;
+    about: string;
+    timesSeen: number;
+    ancestors: Taxon[];
+    stats: {
+      endangered: boolean;
+    };
+  };
+}
+
 const useTaxonDetails = ( id: number ) => {
-  const [taxonDetails, setTaxonDetails] = useState<any>( null );
+  const [taxonDetails, setTaxonDetails] = useState<TaxonDetails | null>( null );
 
   useEffect( ( ) => {
     const fetchTaxonDetails = async ( ) => {

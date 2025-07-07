@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import type { Node } from "react";
 
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
@@ -11,21 +10,29 @@ import { createBadgeSetList } from "../../utility/badgeHelpers";
 import BadgeContainer from "./BadgeContainer";
 import { useFetchChallenges } from "./hooks/achievementHooks";
 
-const ChallengeBadges = ( ): Node => {
+interface ChallengeBadge {
+  name: string;
+  availableDate: Date;
+  index: number;
+  earnedIconName?: string;
+  percentComplete?: number;
+}
+
+const ChallengeBadges = ( ) => {
   const challengeBadges = useFetchChallenges( );
   const [showModal, setModal] = useState( false );
-  const [selectedChallenge, setChallenge] = useState( null );
+  const [selectedChallenge, setChallenge] = useState<ChallengeBadge | null>( null );
 
   const sets = createBadgeSetList( challengeBadges );
 
-  const openModal = useCallback( () => setModal( true ), [] );
-  const closeModal = useCallback( () => setModal( false ), [] );
+  const openModal = useCallback( ( ) => setModal( true ), [] );
+  const closeModal = useCallback( ( ) => setModal( false ), [] );
 
   const renderChallengesGrid = useMemo( ( ) => sets.map( ( set, index ) => {
     const setOfFive = challengeBadges.slice( sets[index], sets[index + 1] );
 
-    const renderChallengeBadge = ( item: Object ) => {
-      const openChallengeBadgeModal = () => {
+    const renderChallengeBadge = ( item: any ) => {
+      const openChallengeBadgeModal = ( ) => {
         openModal();
         setChallenge( item );
       };

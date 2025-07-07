@@ -1,5 +1,3 @@
-// @flow
-
 import { Alert, Linking, Platform } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Geolocation from "react-native-geolocation-service";

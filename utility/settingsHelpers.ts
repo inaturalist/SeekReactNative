@@ -20,7 +20,7 @@ const toggleLanguage = ( language: string ) => {
   AsyncStorage.setItem( "language", language );
 };
 
-const getLanguage = async ( ): Promise<any> => {
+const getLanguage = async ( ): Promise<string | boolean> => {
   try {
     const language = await AsyncStorage.getItem( "language" );
     return language || setDeviceLanguageOrFallback( );
@@ -79,7 +79,7 @@ const setupUserSettings = async ( ) => {
   }
 };
 
-const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolean> => {
+const updateUserSetting = async ( key: string, value: boolean ): Promise<boolean | undefined> => {
   const realm = await Realm.open( realmConfig );
   const userSettings = realm.objects( "UserSettingsRealm" );
 
@@ -93,7 +93,7 @@ const updateUserSetting = async ( key: string, value: boolean ): Promise<?boolea
   }
 };
 
-const fetchFromAsyncStorage = async ( key: string ): Promise<?string> => {
+const fetchFromAsyncStorage = async ( key: string ): Promise<string | null> => {
   try {
     return await AsyncStorage.getItem( key );
   } catch ( error ) {

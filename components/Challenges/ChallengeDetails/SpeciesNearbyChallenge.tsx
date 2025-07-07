@@ -1,8 +1,5 @@
-// @flow
-
 import React, { useEffect, useState, useCallback } from "react";
 import { View } from "react-native";
-import type { Node } from "react";
 
 import { viewStyles } from "../../../styles/challenges/challengeDetails";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
@@ -19,11 +16,11 @@ import { colors } from "../../../styles/global";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-type Props = {
-  challenge: Object
+interface Props {
+  challenge: any;
 }
 
-const SpeciesNearbyChallenge = ( { challenge }: Props ): Node => {
+const SpeciesNearbyChallenge = ( { challenge }: Props ) => {
   const [taxa, setTaxa] = useState( [] );
   const [loading, setLoading] = useState( false );
   const [loaded, setLoaded] = useState( false );

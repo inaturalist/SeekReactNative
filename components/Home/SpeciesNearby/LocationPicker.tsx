@@ -8,7 +8,6 @@ import {
   Platform
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
@@ -25,15 +24,15 @@ import { baseTextStyles } from "../../../styles/textStyles";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-type Props = {
-  updateLatLng: ( number, number ) => void,
-  closeLocationPicker: ( ) => void
+interface Props {
+  updateLatLng: ( lat: number, lng: number ) => void;
+  closeLocationPicker: ( ) => void;
 }
 
 const LocationPicker = ( {
   updateLatLng,
   closeLocationPicker
-}: Props ): Node => {
+}: Props ) => {
   const { speciesNearby } = useSpeciesNearby( );
   const { latitude, longitude, location } = speciesNearby;
 
@@ -45,7 +44,7 @@ const LocationPicker = ( {
   } );
   const [inputLocation, setInputLocation] = useState( location );
 
-  const setCoordsByLocationName = async ( newLocation ) => {
+  const setCoordsByLocationName = async ( newLocation: string ) => {
     const { placeName, position } = await fetchCoordsByLocationName( newLocation );
     const { lng, lat } = position;
 
@@ -60,7 +59,7 @@ const LocationPicker = ( {
     } );
   };
 
-  const reverseGeocodeLocation = ( lat, lng ) => {
+  const reverseGeocodeLocation = ( lat: number, lng: number ) => {
     fetchLocationName( lat, lng ).then( ( newLocation ) => {
       if ( newLocation === null ) {
         setInputLocation( i18n.t( "location_picker.undefined" ) );
@@ -72,12 +71,11 @@ const LocationPicker = ( {
     } );
   };
 
-  const handleRegionChange = ( newRegion ) => {
+  const handleRegionChange = ( newRegion: any ) => {
     if ( Platform.OS === "android" ) {
       reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
     }
 
-    // $FlowFixMe
     setRegion( newRegion );
   };
 
@@ -108,7 +106,7 @@ const LocationPicker = ( {
     closeLocationPicker( );
   };
 
-  const changeText = text => setCoordsByLocationName( text );
+  const changeText = ( text: string ) => setCoordsByLocationName( text );
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
@@ -119,7 +117,6 @@ const LocationPicker = ( {
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
         </StyledText>
         <View style={[viewStyles.row, viewStyles.inputRow]}>
-          {/* $FlowFixMe */}
           <Image source={posting.location} tintColor={colors.white} style={imageStyles.white} />
           <TextInput
             accessibilityLabel={inputLocation}

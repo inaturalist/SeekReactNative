@@ -1,4 +1,3 @@
-// @flow
 import { Platform } from "react-native";
 
 import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";

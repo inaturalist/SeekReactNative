@@ -1,10 +1,9 @@
-// @flow
 // Copied from iNatNext on 2024-12-10
 import { formatISO } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import { readExif } from "react-native-exif-reader";
 
-function formatISONoTimezone( date: Date ) {
+function formatISONoTimezone( date: Date ): string {
   if ( !date ) {
     return "";
   }
@@ -41,7 +40,7 @@ export const parseExifDateToLocalTimezone = ( datetime: string ): Date | null =>
 };
 
 // Parses EXIF date time into a date object
-export const parseExif = async ( photoUri: string | null ): Promise<any> => {
+export const parseExif = async ( photoUri: string | null ): Promise<Record<string, any> | null> => {
   try {
     return readExif( photoUri || "" );
   } catch ( e ) {

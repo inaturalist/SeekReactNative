@@ -56,6 +56,11 @@ import realmConfig from "../models/index";
 import i18n from "../i18n";
 import { localeNoHyphens } from "./languageHelpers";
 
+interface GMTTimeResult {
+  dateForServer: string | null;
+  dateForDisplay: string | null;
+}
+
 const locales = {
   af,
   ar,
@@ -163,10 +168,7 @@ const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) )
 
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
-const formatGMTTimeWithTimeZone = ( date: any ): {
-  dateForServer: ?string,
-  dateForDisplay: ?string
-} => {
+const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
   if ( !date ) { return {
     dateForServer: null,
     dateForDisplay: null

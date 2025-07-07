@@ -26,8 +26,13 @@ const useSpeciesSeen = ( id: number ) => {
   return seenTaxa;
 };
 
-const createTaxonomyList = ( ancestors: any[], scientificName: string ) => {
-  const taxonomyList: any[] = [];
+interface Taxon {
+  rank: string;
+  name: string | null;
+}
+
+const createTaxonomyList = ( ancestors: Taxon[], scientificName?: string | null ) => {
+  const taxonomyList: Taxon[] = [];
   const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
   ancestors.forEach( ( ancestor ) => {
     if ( ranks.includes( ancestor.rank ) ) {

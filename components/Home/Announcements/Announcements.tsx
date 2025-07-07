@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useCallback, useContext, useEffect } from "react";
 import inatjs from "inaturalistjs";
 import { View } from "react-native";

@@ -1,5 +1,3 @@
-// @flow
-
 import { useState, useEffect } from "react";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
@@ -7,8 +5,8 @@ import inatjs from "inaturalistjs";
 import i18n from "../../../i18n";
 import realmConfig from "../../../models";
 
-const useSpeciesSeen = ( id: number ): any => {
-  const [seenTaxa, setSeenTaxa] = useState( );
+const useSpeciesSeen = ( id: number ) => {
+  const [seenTaxa, setSeenTaxa] = useState<any>( );
 
   useEffect( ( ) => {
     const fetchSpeciesSeen = async ( ) => {
@@ -28,8 +26,8 @@ const useSpeciesSeen = ( id: number ): any => {
   return seenTaxa;
 };
 
-const createTaxonomyList = ( ancestors, scientificName ) => {
-  const taxonomyList = [];
+const createTaxonomyList = ( ancestors: any[], scientificName: string ) => {
+  const taxonomyList: any[] = [];
   const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
   ancestors.forEach( ( ancestor ) => {
     if ( ranks.includes( ancestor.rank ) ) {
@@ -45,8 +43,8 @@ const createTaxonomyList = ( ancestors, scientificName ) => {
   return taxonomyList;
 };
 
-const useTaxonDetails = ( id: number ): any => {
-  const [taxonDetails, setTaxonDetails] = useState( null );
+const useTaxonDetails = ( id: number ) => {
+  const [taxonDetails, setTaxonDetails] = useState<any>( null );
 
   useEffect( ( ) => {
     const fetchTaxonDetails = async ( ) => {

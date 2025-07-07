@@ -15,7 +15,6 @@ import {
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { isNumber } from "lodash";
-import type { Node } from "react";
 import { useSharedValue } from "react-native-worklets-core";
 import { Prediction } from "vision-camera-plugin-inatvision";
 
@@ -49,7 +48,7 @@ import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
 const logger = log.extend( "ARCamera.js" );
 
-const ARCamera = ( ): Node => {
+const ARCamera = ( ) => {
   useEffect( () => {
     logger.debug( "Uses vision camera" );
   }, [] );

@@ -33,7 +33,7 @@ const Webshell = makeWebshell(
   } )
 );
 
-const AutoheightWebView = ( webshellProps ): React.Node => {
+const AutoheightWebView = ( webshellProps: any ) => {
   const { autoheightWebshellProps } = useAutoheight( {
     webshellProps
   } );
@@ -41,15 +41,15 @@ const AutoheightWebView = ( webshellProps ): React.Node => {
 };
 
 
-const Announcements = ( ): React.Node => {
-  const [announcements, setAnnouncements] = React.useState( undefined );
+const Announcements = ( ) => {
+  const [announcements, setAnnouncements] = React.useState<any[] | undefined>( undefined );
 
   const netInfo = useNetInfo();
   const { isConnected } = netInfo;
 
   const navigation = useNavigation();
 
-  const onLinkPress = ( target ) => {
+  const onLinkPress = ( target: any ) => {
     navigation.navigate( "FullAnnouncement", { uri: target.uri } );
   };
 

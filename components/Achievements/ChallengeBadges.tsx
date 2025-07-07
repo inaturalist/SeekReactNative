@@ -11,11 +11,16 @@ import BadgeContainer from "./BadgeContainer";
 import { useFetchChallenges } from "./hooks/achievementHooks";
 
 interface ChallengeBadge {
-  name: string;
-  availableDate: Date;
   index: number;
-  earnedIconName?: string;
-  percentComplete?: number;
+  startedDate: Date;
+  availableDate: Date;
+  backgroundName: string;
+  sponsorName: string;
+  secondLogo: string;
+  badgeName: string;
+  percentComplete: number;
+  name: string;
+  earnedIconName: string;
 }
 
 const ChallengeBadges = ( ) => {
@@ -31,7 +36,7 @@ const ChallengeBadges = ( ) => {
   const renderChallengesGrid = useMemo( ( ) => sets.map( ( set, index ) => {
     const setOfFive = challengeBadges.slice( sets[index], sets[index + 1] );
 
-    const renderChallengeBadge = ( item: any ) => {
+    const renderChallengeBadge = ( item: ChallengeBadge ) => {
       const openChallengeBadgeModal = ( ) => {
         openModal();
         setChallenge( item );

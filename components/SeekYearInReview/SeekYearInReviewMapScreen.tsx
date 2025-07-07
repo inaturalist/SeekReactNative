@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Image, TouchableOpacity } from "react-native";
 import MapView, { PROVIDER_DEFAULT, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import { viewStyles, textStyles } from "../../styles/species/rangeMap";
@@ -18,7 +17,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-const SeekYearInReviewMapScreen = ( ): Node => {
+const SeekYearInReviewMapScreen = ( ) => {
   const navigation = useNavigation();
   const { params } = useRoute();
   const { year, region } = params;

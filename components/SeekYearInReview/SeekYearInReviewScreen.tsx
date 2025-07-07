@@ -5,8 +5,6 @@ import { View, Image, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
-import type { Node } from "react";
-
 import {
   viewStyles,
   textStyles,
@@ -66,7 +64,7 @@ const SubstringStyledText = ( { text, greenText }: { text: any, greenText: any }
   );
 };
 
-const SeekYearInReviewScreen = (): Node => {
+const SeekYearInReviewScreen = () => {
   // The year to show stats for
   const now = new Date();
   let year = now.getFullYear();

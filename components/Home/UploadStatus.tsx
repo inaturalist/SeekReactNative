@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useEffect, useState, useRef } from "react";
 import { View, Image, Animated, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";

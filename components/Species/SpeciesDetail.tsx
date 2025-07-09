@@ -45,7 +45,6 @@ const SpeciesDetail = ( ) => {
   const details = taxonDetails && taxonDetails.details;
   const scientificName = taxon && taxon.scientificName;
 
-  // eslint-disable-next-line no-shadow
 
   const [state, dispatch] = useReducer( ( state: State, action: Action ): State => {
     switch ( action.type ) {

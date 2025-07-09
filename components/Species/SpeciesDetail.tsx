@@ -25,6 +25,45 @@ import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import styles from "../../styles/uiComponents/scrollWithHeader";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
+interface State {
+  error: string | null;
+  selectedText: boolean;
+}
+
+enum ACTION {
+  ERROR = "ERROR",
+  NO_ERROR = "NO_ERROR",
+  CLEAR_SELECTION = "CLEAR_SELECTION",
+  HIGHLIGHT_SELECTION = "HIGHLIGHT_SELECTION"
+}
+
+type Action =
+  | { type: ACTION.ERROR }
+  | { type: ACTION.NO_ERROR }
+  | { type: ACTION.CLEAR_SELECTION }
+  | { type: ACTION.HIGHLIGHT_SELECTION };
+
+function reducer( state: State, action: Action ) {
+  switch ( action.type ) {
+    case ACTION.ERROR:
+      return { ...state, error: "internet" };
+    case ACTION.NO_ERROR:
+      return { ...state, error: null };
+    case ACTION.CLEAR_SELECTION:
+      return {
+        ...state,
+        selectedText: false
+      };
+    case ACTION.HIGHLIGHT_SELECTION:
+      return {
+        ...state,
+        selectedText: true
+      };
+    default:
+      throw new Error( );
+  }
+}
+
 const SpeciesDetail = ( ) => {
   const internet = useInternetStatus( );
   const { id } = useSpeciesDetail( );
@@ -46,26 +85,7 @@ const SpeciesDetail = ( ) => {
   const scientificName = taxon && taxon.scientificName;
 
 
-  const [state, dispatch] = useReducer( ( state: State, action: Action ): State => {
-    switch ( action.type ) {
-      case "ERROR":
-        return { ...state, error: "internet" };
-      case "NO_ERROR":
-        return { ...state, error: null };
-      case "CLEAR_SELECTION":
-        return {
-          ...state,
-          selectedText: false
-        };
-      case "HIGHLIGHT_SELECTION":
-        return {
-          ...state,
-          selectedText: true
-        };
-      default:
-        throw new Error( );
-    }
-  }, {
+  const [state, dispatch] = useReducer( reducer, {
     error: internet === false ? "internet" : null,
     selectedText: false
   } );

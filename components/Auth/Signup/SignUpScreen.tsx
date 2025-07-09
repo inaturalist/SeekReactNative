@@ -94,7 +94,11 @@ class SignUpScreen extends Component<Props, State> {
       headers
     } )
       .then( response => response.json( ) )
-      .then( ( responseJson ) => {
+      .then( ( responseJson: {
+        error_description?: string;
+        error?: number;
+        access_token: string;
+      } ) => {
         const errorDescription = responseJson.error_description;
         if ( errorDescription ) {
           this.setErrorOrMessage( errorDescription );
@@ -136,7 +140,12 @@ class SignUpScreen extends Component<Props, State> {
       headers
     } )
       .then( response => response.json( ) )
-      .then( ( responseJson ) => {
+      .then( ( responseJson: {
+        errors: string[];
+        id?: number;
+        message: string;
+        status: number;
+      } ) => {
         const { errors, id, message } = responseJson;
 
         if ( responseJson.status === 201 ) {

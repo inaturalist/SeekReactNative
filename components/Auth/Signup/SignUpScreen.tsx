@@ -150,7 +150,7 @@ class SignUpScreen extends Component<Props, State> {
     this.createNewiNatUser( newUser );
   }
 
-  updateUsername( value ) {
+  updateUsername( value: string ): void {
     const { user } = this.state;
 
     this.setState( {
@@ -161,7 +161,7 @@ class SignUpScreen extends Component<Props, State> {
     } );
   }
 
-  updatePassword( value ) {
+  updatePassword( value: string ): void {
     const { user } = this.state;
 
     this.setState( {
@@ -185,7 +185,7 @@ class SignUpScreen extends Component<Props, State> {
               <GreenText allowFontScaling={false} smaller text="inat_login.username" />
             </View>
             <InputField
-              handleTextChange={( value ) => this.updateUsername( value )}
+              handleTextChange={( value: string ) => this.updateUsername( value )}
               placeholder={i18n.t( "inat_login.username" )}
               text={user.login}
               type="username"
@@ -194,7 +194,7 @@ class SignUpScreen extends Component<Props, State> {
               <GreenText allowFontScaling={false} smaller text="inat_login.password" />
             </View>
             <InputField
-              handleTextChange={( value ) => this.updatePassword( value )}
+              handleTextChange={( value: string ) => this.updatePassword( value )}
               placeholder="*********"
               text={user.password}
               type="password"

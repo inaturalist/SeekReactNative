@@ -61,7 +61,7 @@ class SignUpScreen extends Component<Props, State> {
     } );
   }
 
-  submitSuccess( ) {
+  submitSuccess( ): void {
     const { navigation } = this.props;
     navigation.navigate( "LoginSuccess" );
   }

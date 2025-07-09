@@ -30,7 +30,7 @@ const SpeciesDetail = ( ) => {
   const { id } = useSpeciesDetail( );
   const { isLandscape, width } = useAppOrientation( );
   const columnWidth = width / 3;
-  const scrollView = useRef( null );
+  const scrollView = useRef<ScrollView>( null );
   const navigation = useNavigation( );
   // not actually using params at the moment
   const { params } = useRoute( );
@@ -46,7 +46,8 @@ const SpeciesDetail = ( ) => {
   const scientificName = taxon && taxon.scientificName;
 
   // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
+
+  const [state, dispatch] = useReducer( ( state: State, action: Action ): State => {
     switch ( action.type ) {
       case "ERROR":
         return { ...state, error: "internet" };

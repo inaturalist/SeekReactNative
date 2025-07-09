@@ -95,15 +95,15 @@ const SpeciesDetail = ( ) => {
     selectedText
   } = state;
 
-  const clearSelectedText = ( ) => dispatch( { type:"CLEAR_SELECTION" } );
-  const highlightSelectedText = useCallback( ( ) => dispatch( { type: "HIGHLIGHT_SELECTION" } ), [] );
+  const clearSelectedText = ( ) => dispatch( { type: ACTION.CLEAR_SELECTION } );
+  const highlightSelectedText = useCallback( ( ) => dispatch( { type: ACTION.HIGHLIGHT_SELECTION } ), [] );
 
   const checkInternetConnection = useCallback( ( ) => {
     checkForInternet( ).then( ( network ) => {
       if ( network === "none" || network === "unknown" ) {
-        dispatch( { type: "ERROR" } );
+        dispatch( { type: ACTION.ERROR } );
       } else {
-        dispatch( { type: "NO_ERROR" } );
+        dispatch( { type: ACTION.NO_ERROR } );
       }
     } );
   }, [] );

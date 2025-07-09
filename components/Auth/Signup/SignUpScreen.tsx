@@ -45,7 +45,7 @@ class SignUpScreen extends Component<Props, State> {
     };
   }
 
-  setErrorOrMessage( error: ?string ) {
+  setErrorOrMessage( error: string | null ): void {
     this.setState( { error } );
   }
 

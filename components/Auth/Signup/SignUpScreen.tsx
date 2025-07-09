@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import * as RNLocalize from "react-native-localize";
-import type { Node } from "react";
 
 import i18n from "../../../i18n";
 import config from "../../../config";
@@ -16,13 +15,25 @@ import { createJwtToken } from "../../../utility/helpers";
 import { UserContext } from "../../UserContext";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
-type Props = {
-  route: any,
-  navigation: any
+interface User {
+  login: string;
+  password: string;
+  password_confirmation: string;
 }
+
+interface State {
+  user: User;
+  error: string | null;
+}
+
+interface Props {
+  route: object;
+  navigation: object;
+}
+
 const site = "https://www.inaturalist.org";
 
-class SignUpScreen extends Component<Props> {
+class SignUpScreen extends Component<Props, State> {
   constructor( { route }: Props ) {
     super( );
 
@@ -163,7 +174,7 @@ class SignUpScreen extends Component<Props> {
     } );
   }
 
-  render( ): Node {
+  render( ) {
     const { error, user } = this.state;
 
     return (

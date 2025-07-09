@@ -27,8 +27,14 @@ interface State {
 }
 
 interface Props {
-  route: object;
-  navigation: object;
+  route: {
+    params: {
+      user: User;
+    };
+  };
+  navigation: {
+    navigate: ( screen: string ) => void;
+  };
 }
 
 const site = "https://www.inaturalist.org";
@@ -66,7 +72,7 @@ class SignUpScreen extends Component<Props, State> {
     navigation.navigate( "LoginSuccess" );
   }
 
-  retrieveOAuthToken( newUser: Object ) {
+  retrieveOAuthToken( newUser: { updateLogin: () => void } ): void {
     const { user } = this.state;
     const params = {
       client_id: config.appId,
@@ -107,7 +113,7 @@ class SignUpScreen extends Component<Props, State> {
       } );
   }
 
-  createNewiNatUser( newUser: Object ) {
+  createNewiNatUser( newUser: { updateLogin: () => void } ): void {
     const { user } = this.state;
     const token = createJwtToken( );
     const params = {
@@ -146,7 +152,7 @@ class SignUpScreen extends Component<Props, State> {
       } );
   }
 
-  submit( newUser: Object ) {
+  submit( newUser: { updateLogin: () => void } ): void {
     this.createNewiNatUser( newUser );
   }
 

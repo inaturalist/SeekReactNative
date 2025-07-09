@@ -49,7 +49,7 @@ class SignUpScreen extends Component<Props, State> {
     this.setState( { error } );
   }
 
-  resetForm( ) {
+  resetForm( ): void {
     const { user } = this.state;
     this.setState( {
       user: {

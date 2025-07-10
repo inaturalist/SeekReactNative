@@ -7,6 +7,7 @@ import inatjs from "inaturalistjs";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
+import type { TruncatedCoords } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import realmConfig from "../models";
 
@@ -98,11 +99,8 @@ const useLocationPermission = (): boolean | null => {
   return granted;
 };
 
-const useTruncatedUserCoords = ( granted: boolean | null ): {
-  latitude: number,
-  longitude: number
-} => {
-  const [coords, setCoords] = useState( null );
+const useTruncatedUserCoords = ( granted: boolean | null ): TruncatedCoords | null => {
+  const [coords, setCoords] = useState<TruncatedCoords | null>( null );
 
   useEffect( ( ) => {
     let isCurrent = true;

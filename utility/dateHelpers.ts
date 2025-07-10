@@ -12,6 +12,9 @@ import {
   differenceInHours,
   isSameMonth
 } from "date-fns";
+import type {
+  Locale
+} from "date-fns";
 import TimeZone from "date-fns-tz";
 import * as RNLocalize from "react-native-localize";
 import {

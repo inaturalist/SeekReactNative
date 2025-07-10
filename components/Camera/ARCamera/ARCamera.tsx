@@ -45,6 +45,7 @@ import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
+import { Camera, TakePhotoOptions } from "react-native-vision-camera";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -63,7 +64,7 @@ const ARCamera = ( ) => {
 
   const isFocused = useIsFocused( );
   const navigation = useNavigation( );
-  const camera = useRef<any>( null );
+  const camera = useRef<Camera>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
@@ -302,7 +303,7 @@ const ARCamera = ( ) => {
     if ( !camera.current ) {
       return;
     }
-    const takePhotoOptions = {
+    const takePhotoOptions: TakePhotoOptions = {
       flash: "off",
       enableShutterSound: false
     };

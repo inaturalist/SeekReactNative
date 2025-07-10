@@ -143,8 +143,8 @@ const fetchSpeciesSeenDate = ( taxaId: number ): Promise<?string> => (
   // $FlowFixMe
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
-        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( ( t ) => t.id );
       .then( ( realm: Realm ) => {
+        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( ( t ) => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
           const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
           const seenDate = formatShortMonthDayYear( seenTaxa[0].date );

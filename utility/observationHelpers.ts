@@ -8,6 +8,7 @@ import { createNotification } from "./notificationHelpers";
 import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
 import { setISOTime } from "./dateHelpers";
+import type { ObservationImage } from "../components/Providers/ObservationProvider";
 
 const checkForPowerUsers = ( length: number, newLength: number ) => {
   if ( length < newLength ) {
@@ -24,14 +25,7 @@ const addToCollection = async ( observation: {
     iconic_taxon_id: number;
     ancestor_ids: number[];
   };
-}, image: {
-  predictions: Array<Object>
-  latitude?: number;
-  longitude?: number;
-  uri: string;
-  time: number;
-  errorCode: number;
-} ) => {
+}, image: ObservationImage ) => {
   const {
     latitude,
     longitude,

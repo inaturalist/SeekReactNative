@@ -13,7 +13,7 @@ interface Prediction {
   combined_score: number;
   ancestor_ids: number[];
 }
-interface ObservationImage {
+export interface ObservationImage {
   predictions: Prediction[];
   errorCode: number;
   latitude: number;

@@ -1,5 +1,3 @@
-// @flow
-
 import { useState, useEffect, useCallback } from "react";
 import { AppState, AppStateStatus, Platform } from "react-native";
 import Realm from "realm";

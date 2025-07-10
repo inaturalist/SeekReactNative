@@ -13,7 +13,7 @@ const checkForInternet = (): Promise<?string> => (
   new Promise( ( resolve ) => {
     NetInfo.fetch().then( ( { type } ) => {
       resolve( type );
-    } ).catch( () => {
+    } ).catch( ( ) => {
       resolve( null );
     } );
   } )
@@ -34,7 +34,6 @@ const shuffleList = ( list: Array<Object> ): Array<Object> => {
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {
     const j = Math.floor( Math.random() * ( i + 1 ) );
-    // $FlowFixMe
     [newList[i], newList[j]] = [list[j], list[i]];
   }
 
@@ -43,11 +42,11 @@ const shuffleList = ( list: Array<Object> ): Array<Object> => {
 
 const HAS_LAUNCHED = "has_launched";
 
-const setAppLaunched = () => {
+const setAppLaunched = ( ) => {
   AsyncStorage.setItem( HAS_LAUNCHED, "true" );
 };
 
-const checkIfFirstLaunch = async (): Promise<boolean> => {
+const checkIfFirstLaunch = async ( ): Promise<boolean> => {
   try {
     const hasLaunched = await AsyncStorage.getItem( HAS_LAUNCHED );
     if ( hasLaunched === null ) {
@@ -66,7 +65,7 @@ const setCameraLaunched = ( boolean: boolean ) => {
   AsyncStorage.setItem( CAMERA_LAUNCHED, boolean.toString() );
 };
 
-const checkIfCameraLaunched = async (): Promise<boolean> => {
+const checkIfCameraLaunched = async ( ): Promise<boolean> => {
   try {
     const cameraLaunched = await AsyncStorage.getItem( CAMERA_LAUNCHED );
     if ( cameraLaunched === null || cameraLaunched === "false" ) {
@@ -81,11 +80,11 @@ const checkIfCameraLaunched = async (): Promise<boolean> => {
 
 const CARD_SHOWN = "card_shown";
 
-const setCardShown = () => {
+const setCardShown = ( ) => {
   AsyncStorage.setItem( CARD_SHOWN, "true" );
 };
 
-const checkIfCardShown = async (): Promise<boolean> => {
+const checkIfCardShown = async ( ): Promise<boolean> => {
   try {
     const hasShown = await AsyncStorage.getItem( CARD_SHOWN );
     if ( hasShown === null ) {
@@ -102,7 +101,7 @@ const setRoute = ( route: string ) => {
   AsyncStorage.setItem( "route", route );
 };
 
-const getRoute = async (): Promise<string> => {
+const getRoute = async ( ): Promise<string> => {
   try {
     const route = await AsyncStorage.getItem( "route" );
     return route;
@@ -111,19 +110,19 @@ const getRoute = async (): Promise<string> => {
   }
 };
 
-const fetchNumberSpeciesSeen = (): Promise<number> => (
-  new Promise<any>( ( resolve ) => {
+const fetchNumberSpeciesSeen = ( ): Promise<number> => (
+  new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const { length } = realm.objects( "TaxonRealm" );
         resolve( length );
-      } ).catch( () => {
+      } ).catch( ( ) => {
         resolve( 0 );
       } );
   } )
 );
 
-const createJwtToken = (): string => {
+const createJwtToken = ( ): string => {
   const claims = {
     application: "SeekRN",
     exp: new Date().getTime() / 1000 + 300
@@ -144,7 +143,7 @@ const localizeNumber = ( number: number ): string => {
 
 const localizePercentage = ( number: number ): string => i18n.numberToPercentage( number, { precision: 0 } );
 
-const hideLogs = () => {
+const hideLogs = ( ) => {
   LogBox.ignoreLogs( [
     "Picker has been extracted",
     "VirtualizedLists should never be nested"

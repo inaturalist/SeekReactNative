@@ -162,7 +162,7 @@ const ARCamera = ( ) => {
     if ( err === null && error === null ) {
       return;
     }
-    dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
+    dispatch( { type: ACTION.ERROR, error: err, errorEvent: errEvent } );
   }, [error] );
 
   const navigateToResults = useCallback( async ( uri, predictions ) => {
@@ -226,7 +226,7 @@ const ARCamera = ( ) => {
   }, [handleCameraRollSaveError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id: number, filter: boolean | null ) => {
-    dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
+    dispatch( { type: ACTION.FILTER_TAXON, taxonId: id, negativeFilter: filter } );
   }, [] );
 
   const handleTaxaDetected = ( event: { predictions: Prediction[] } ) => {
@@ -249,7 +249,7 @@ const ARCamera = ( ) => {
     const unwantedTaxa = [1044608, 1044607, 973699, 152504, 1128037];
     wantedPredictions = wantedPredictions.filter( p => !unwantedTaxa.includes( p.taxon_id ) );
 
-    dispatch( { type: "SET_PREDICTIONS", predictions: wantedPredictions } );
+    dispatch( { type: ACTION.SET_PREDICTIONS, predictions: wantedPredictions } );
 
     // Find species prediction
     const speciesPredictions = predictions.filter( p => p.rank === "species" );
@@ -364,7 +364,7 @@ const ARCamera = ( ) => {
   }, [sortedPredictions, handleCaptureError] );
 
   const takePicture = useCallback( async () => {
-    dispatch( { type: "PHOTO_TAKEN" } );
+    dispatch( { type: ACTION.PHOTO_TAKEN } );
 
     if ( Platform.OS === "ios" ) {
       await visionCameraTakePhoto( ( photo ) => savePhoto( photo ) );
@@ -377,7 +377,7 @@ const ARCamera = ( ) => {
     visionCameraTakePhoto
   ] );
 
-  const resetState = ( ) => dispatch( { type: "RESET_STATE" } );
+  const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
 
   const requestAndroidPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" ) {

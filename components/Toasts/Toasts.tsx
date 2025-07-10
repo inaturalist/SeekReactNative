@@ -12,13 +12,23 @@ import { viewStyles } from "../../styles/toasts/badgeToast";
 const { height } = Dimensions.get( "window" );
 
 interface Props {
-  badge?: object;
-  challenge?: object;
+  badge?: {
+    earnedDate: Date;
+    intlName: string;
+    infoText: string;
+    earnedIconName: string;
+  };
+  challenge?: {
+    startedDate: Date;
+    percentComplete: number;
+    index: number;
+    name: string;
+  };
 }
 
 interface State {
-  badgesShown: Set<any>;
-  challengesShown: Set<any>;
+  badgesShown: Set<string>;
+  challengesShown: Set<string>;
   badgeIsShowing: boolean;
 }
 

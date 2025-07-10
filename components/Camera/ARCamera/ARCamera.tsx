@@ -170,7 +170,7 @@ const ARCamera = ( ) => {
     dispatch( { type: ACTION.ERROR, error: err, errorEvent: errEvent } );
   }, [error] );
 
-  const navigateToResults = useCallback( async ( uri, predictions ) => {
+  const navigateToResults = useCallback( async ( uri: string, predictions: Prediction[] ) => {
     const userImage = {
       time: createTimestamp( ), // add current time to AR camera photos
       uri,
@@ -205,7 +205,7 @@ const ARCamera = ( ) => {
     } );
   }, [startObservationWithImage, navigation, login] );
 
-  const handleCameraRollSaveError = useCallback( async ( uri, predictions, e ) => {
+  const handleCameraRollSaveError = useCallback( async ( uri: string, predictions: Prediction[], e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 

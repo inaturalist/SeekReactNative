@@ -97,7 +97,6 @@ const ARCamera = ( ) => {
 
   const pictureTaken = useSharedValue( false );
 
-  // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state: State, action: Action ) => {
     switch ( action.type ) {
       case ACTION.RESET_PREDICTIONS:

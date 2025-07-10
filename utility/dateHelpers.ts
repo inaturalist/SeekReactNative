@@ -189,7 +189,7 @@ const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
   };
 };
 
-const formatYearMonthDay = ( date: any ): string => {
+const formatYearMonthDay = ( date: string | Date | null | undefined ): string => {
   if ( date && typeof date === "string" ) {
     return format( parseISO( date ), "yyyy-MM-dd" );
   }

@@ -16,7 +16,8 @@ import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { isNumber } from "lodash";
 import { useSharedValue } from "react-native-worklets-core";
-import { Prediction } from "vision-camera-plugin-inatvision";
+import type { Prediction } from "vision-camera-plugin-inatvision";
+import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 
 import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
@@ -45,7 +46,6 @@ import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
-import { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 
 const logger = log.extend( "ARCamera.js" );
 

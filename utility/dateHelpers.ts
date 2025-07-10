@@ -97,7 +97,11 @@ const locales = {
   "zh-TW": zhTW
 };
 
-const setLocale = ( ) => {
+interface LocaleConfig {
+  locale?: Locale;
+}
+
+const setLocale = ( ): LocaleConfig => {
   if ( locales[i18n.locale] ) {
     return { locale: locales[i18n.locale] };
   } else if ( locales[localeNoHyphens( i18n.locale )] ) {

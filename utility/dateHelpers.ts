@@ -1,5 +1,3 @@
-// @flow
-
 import Realm from "realm";
 import { Platform } from "react-native";
 import {
@@ -41,6 +39,7 @@ import {
   ptBR,
   nb,
   nl,
+  // TODO: figure out what else to use here for no
   no,
   ro,
   ru,

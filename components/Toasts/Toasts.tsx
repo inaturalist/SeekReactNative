@@ -16,25 +16,31 @@ interface Props {
   challenge?: object;
 }
 
-class Toasts extends Component<Props> {
-  animatedBadge: any;
-  animatedChallenge: any;
+interface State {
+  badgesShown: Set<any>;
+  challengesShown: Set<any>;
+  badgeIsShowing: boolean;
+}
 
-  INITIAL_STATE = {
+class Toasts extends Component<Props, State> {
+  animatedBadge: Animated.Value;
+  animatedChallenge: Animated.Value;
+
+  INITIAL_STATE: State = {
     // Array that signifies which badge toasts have already been shown, stores the earnedDate prop
     badgesShown: new Set(),
     challengesShown: new Set(),
     badgeIsShowing: false
   };
 
-  constructor() {
-    super();
+  constructor( props: Props ) {
+    super( props );
     this.state = this.INITIAL_STATE;
     this.animatedBadge = new Animated.Value( -120 );
     this.animatedChallenge = new Animated.Value( -120 );
   }
 
-  componentDidUpdate( prevProps: Object ) {
+  componentDidUpdate( prevProps: Props ) {
     const { badge, challenge } = this.props;
     if ( prevProps.badge !== badge ) {
       this.showBadgeToast();

@@ -49,6 +49,22 @@ import { Camera, TakePhotoOptions } from "react-native-vision-camera";
 
 const logger = log.extend( "ARCamera.js" );
 
+interface State {
+  allPredictions: Prediction[];
+  error: string | null;
+  errorEvent: string | null;
+  negativeFilter: boolean;
+  taxonId: number | null;
+}
+
+const initialState: State = {
+  allPredictions: [],
+  error: null,
+  errorEvent: null,
+  negativeFilter: false,
+  taxonId: null
+};
+
 enum ACTION {
   RESET_PREDICTIONS = "RESET_PREDICTIONS",
   SET_PREDICTIONS = "SET_PREDICTIONS",
@@ -104,13 +120,7 @@ const ARCamera = ( ) => {
       default:
         throw new Error( );
     }
-  }, {
-    allPredictions: [],
-    error: null,
-    errorEvent: null,
-    negativeFilter: false,
-    taxonId: null
-  } );
+  }, initialState );
 
   const {
     allPredictions,

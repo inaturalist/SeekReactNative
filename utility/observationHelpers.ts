@@ -9,7 +9,7 @@ import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
 import { setISOTime } from "./dateHelpers";
 
-const checkForPowerUsers = ( length, newLength ) => {
+const checkForPowerUsers = ( length: number, newLength: number ) => {
   if ( length < newLength ) {
     if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
       createNotification( "badgeEarned" );

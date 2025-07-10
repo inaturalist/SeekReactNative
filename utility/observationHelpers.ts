@@ -47,7 +47,7 @@ const addToCollection = async ( observation: {
   Realm.open( realmConfig ).then( ( realm ) => {
     const { length } = realm.objects( "TaxonRealm" );
 
-    realm.write( () => {
+    realm.write( ( ) => {
       let defaultPhoto;
       if ( uri ) {
         defaultPhoto = realm.create( "PhotoRealm", {
@@ -81,7 +81,7 @@ const addToCollection = async ( observation: {
 
 const removeFromCollection = ( id: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
-    realm.write( () => {
+    realm.write( ( ) => {
       const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
       const taxonToDelete = obsToDelete[0].taxon;
       const photoObjToDelete = taxonToDelete.defaultPhoto;

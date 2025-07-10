@@ -4,7 +4,6 @@ import {
   View,
   Dimensions
 } from "react-native";
-import type { Node } from "react";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
@@ -43,7 +42,7 @@ class Toasts extends Component<Props> {
     if ( prevProps.challenge !== challenge ) {
       // If a badge is showing, wait until it's done before showing the challenge toast
       if ( this.state.badgeIsShowing ) {
-        setTimeout( () => this.showChallengeToast(), this.entranceSpeed + this.exitSpeed + this.displayTime + 200 );
+        setTimeout( ( ) => this.showChallengeToast(), this.entranceSpeed + this.exitSpeed + this.displayTime + 200 );
       } else {
         this.showChallengeToast();
       }
@@ -67,7 +66,7 @@ class Toasts extends Component<Props> {
     useNativeDriver: true
   };
 
-  showBadgeToast = () => {
+  showBadgeToast = ( ) => {
     const { badge } = this.props;
     const { badgesShown } = this.state;
     if ( !badge ) {return;}
@@ -85,14 +84,14 @@ class Toasts extends Component<Props> {
     this.setState( {
       badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
       badgeIsShowing: true
-    }, () => {
-      setTimeout( () => {
+    }, ( ) => {
+      setTimeout( ( ) => {
         this.setState( { badgeIsShowing: false } );
       }, this.entranceSpeed + this.exitSpeed + this.displayTime );
     } );
   };
 
-  showChallengeToast = () => {
+  showChallengeToast = ( ) => {
     const { challenge } = this.props;
     const { challengesShown } = this.state;
 
@@ -115,7 +114,7 @@ class Toasts extends Component<Props> {
     } );
   };
 
-  render(): Node {
+  render() {
     const { badge, challenge } = this.props;
 
     return (

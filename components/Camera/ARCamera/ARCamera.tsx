@@ -213,7 +213,7 @@ const ARCamera = ( ) => {
     // need readwrite permission, but since version 2.17.0 we don't want to
     // ask for that anymore, and use *add only* permission only.
     CameraRoll.save( photo.uri, { } )
-      .then( ( uri ) => {
+      .then( ( uri: string ) => {
         logger.debug( "CameraRoll.save resolved" );
         // A placeholder uri means we don't know the real URI, probably b/c we
         // only had write permission so we were able to write the photo to the
@@ -225,7 +225,7 @@ const ARCamera = ( ) => {
       .catch( ( e ) => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
-  const filterByTaxonId = useCallback( ( id: number, filter: ?boolean ) => {
+  const filterByTaxonId = useCallback( ( id: number, filter: boolean | null ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
   }, [] );
 
@@ -491,7 +491,6 @@ const ARCamera = ( ) => {
         onPress={navToSettings}
         style={[viewStyles.settingsButton, viewStyles.shadow]}
       >
-        {/* $FlowFixMe */}
         <Image
           tintColor={colors.white}
           style={imageStyles.settingsIcon}

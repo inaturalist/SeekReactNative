@@ -45,7 +45,7 @@ import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
-import { Camera, TakePhotoOptions } from "react-native-vision-camera";
+import { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -80,6 +80,11 @@ type Action = { type: ACTION.RESET_PREDICTIONS }
   | { type: ACTION.RESET_STATE }
   | { type: ACTION.FILTER_TAXON; taxonId: string | null; negativeFilter: boolean }
   | { type: ACTION.ERROR; error: string; errorEvent: string };
+
+interface HandledPhoto extends PhotoFile {
+  predictions: Prediction[];
+  uri: string;
+}
 
 const ARCamera = ( ) => {
   useEffect( () => {
@@ -208,7 +213,7 @@ const ARCamera = ( ) => {
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
-  const savePhoto = useCallback( async ( photo: { uri: string, predictions: Array<Object> } ) => {
+  const savePhoto = useCallback( async ( photo: HandledPhoto ) => {
     // One quirk of CameraRoll is that if you want to write to an album, you
     // need readwrite permission, but since version 2.17.0 we don't want to
     // ask for that anymore, and use *add only* permission only.
@@ -301,7 +306,7 @@ const ARCamera = ( ) => {
     }
   }, [updateError] );
 
-  const requestAndroidSavePermissions = useCallback( ( photo ) => {
+  const requestAndroidSavePermissions = useCallback( ( photo: HandledPhoto ) => {
     const checkPermissions = async ( ) => {
       const result = await checkSavePermissions( );
       logger.debug( `checkSavePermission resolved with: ${result}` );
@@ -367,9 +372,9 @@ const ARCamera = ( ) => {
     dispatch( { type: ACTION.PHOTO_TAKEN } );
 
     if ( Platform.OS === "ios" ) {
-      await visionCameraTakePhoto( ( photo ) => savePhoto( photo ) );
+      await visionCameraTakePhoto( ( photo: HandledPhoto ) => savePhoto( photo ) );
     } else if ( Platform.OS === "android" ) {
-      await visionCameraTakePhoto( ( photo ) => requestAndroidSavePermissions( photo ) );
+      await visionCameraTakePhoto( ( photo: HandledPhoto ) => requestAndroidSavePermissions( photo ) );
     }
   }, [
     savePhoto,

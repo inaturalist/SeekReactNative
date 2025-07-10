@@ -99,7 +99,7 @@ const removeFromCollection = ( id: number ) => {
   } );
 };
 
-const sortNewestToOldest = ( observations ) => {
+const sortNewestToOldest = ( observations: { data: any[] }[] ) => {
   observations.sort( ( a, b ) => {
     if ( a.data.length > b.data.length ) {
       return -1;

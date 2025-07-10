@@ -139,8 +139,7 @@ const isWithin7Days = ( date: number ): boolean => {
 
 const formatShortMonthDayYear = ( date: Date ): string => format( date, "PP", setLocale( ) );
 
-const fetchSpeciesSeenDate = ( taxaId: number ): Promise<?string> => (
-  // $FlowFixMe
+const fetchSpeciesSeenDate = ( taxaId: number ): Promise<string | null> => (
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm: Realm ) => {

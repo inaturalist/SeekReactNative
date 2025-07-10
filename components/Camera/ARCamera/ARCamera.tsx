@@ -48,6 +48,14 @@ import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
 const logger = log.extend( "ARCamera.js" );
 
+enum ACTION {
+  RESET_PREDICTIONS = "RESET_PREDICTIONS",
+  SET_PREDICTIONS = "SET_PREDICTIONS",
+  PHOTO_TAKEN = "PHOTO_TAKEN",
+  RESET_STATE = "RESET_STATE",
+  FILTER_TAXON = "FILTER_TAXON",
+  ERROR = "ERROR"
+}
 const ARCamera = ( ) => {
   useEffect( () => {
     logger.debug( "Uses vision camera" );
@@ -67,21 +75,21 @@ const ARCamera = ( ) => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "RESET_PREDICTIONS":
+      case ACTION.RESET_PREDICTIONS:
         return { ...state, allPredictions: [] };
-      case "SET_PREDICTIONS":
+      case ACTION.SET_PREDICTIONS:
         return { ...state, allPredictions: action.predictions };
-      case "PHOTO_TAKEN":
+      case ACTION.PHOTO_TAKEN:
         pictureTaken.value = true;
         return { ...state };
-      case "RESET_STATE":
+      case ACTION.RESET_STATE:
         pictureTaken.value = false;
         return {
           ...state,
           error: null,
           allPredictions: []
         };
-      case "FILTER_TAXON":
+      case ACTION.FILTER_TAXON:
         pictureTaken.value = false;
         return {
           ...state,
@@ -90,7 +98,7 @@ const ARCamera = ( ) => {
           error: null,
           allPredictions: []
         };
-      case "ERROR":
+      case ACTION.ERROR:
         return { ...state, error: action.error, errorEvent: action.errorEvent };
       default:
         throw new Error( );

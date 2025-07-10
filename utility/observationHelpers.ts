@@ -19,18 +19,18 @@ const checkForPowerUsers = ( length, newLength ) => {
 
 const addToCollection = async ( observation: {
   taxon: {
-    id: number,
-    name: string,
-    iconic_taxon_id: number,
-    ancestor_ids: Array<number>
-  }
+    id: number;
+    name: string;
+    iconic_taxon_id: number;
+    ancestor_ids: number[];
+  };
 }, image: {
-  latitude?: number,
-  longitude?: number,
-  uri: string,
-  time: number,
-  errorCode: number,
   predictions: Array<Object>
+  latitude?: number;
+  longitude?: number;
+  uri: string;
+  time: number;
+  errorCode: number;
 } ) => {
   const {
     latitude,

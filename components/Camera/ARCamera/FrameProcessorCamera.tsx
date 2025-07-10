@@ -25,17 +25,17 @@ import useFocusTap from "./hooks/useFocusTap";
 
 let framesProcessingTime: number[] = [];
 
-interface ErrorMessage {
+export interface ErrorMessage {
   nativeEvent: {
     error?: string;
   };
 }
-interface ReasonMessage {
+export interface ReasonMessage {
   nativeEvent: {
     reason?: string;
   };
 }
-interface LogMessage {
+export interface LogMessage {
   nativeEvent: {
     log: string;
   };

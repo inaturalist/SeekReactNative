@@ -42,7 +42,7 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { UserContext } from "../../UserContext";
-import FrameProcessorCamera from "./FrameProcessorCamera";
+import FrameProcessorCamera, { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
@@ -267,7 +267,7 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleCameraError = ( event: { nativeEvent: { error?: string } } ) => {
+  const handleCameraError = ( event: ErrorMessage ) => {
     const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
@@ -282,7 +282,7 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleClassifierError = ( event: { nativeEvent?: { error: string } } ) => {
+  const handleClassifierError = ( event: ErrorMessage ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
       updateError( "classifier", event.nativeEvent.error );
     } else {
@@ -290,7 +290,7 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleDeviceNotSupported = ( event: { nativeEvent?: { reason: string } } ) => {
+  const handleDeviceNotSupported = ( event: ReasonMessage ) => {
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "device", event.nativeEvent.reason );
     } else {
@@ -298,7 +298,7 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleCaptureError = useCallback( ( event: { nativeEvent?: { reason: string } } ) => {
+  const handleCaptureError = useCallback( ( event: ReasonMessage ) => {
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "take", event.nativeEvent.reason );
     } else {

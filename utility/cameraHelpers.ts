@@ -3,14 +3,15 @@ import { getSystemVersion } from "react-native-device-info";
 
 import { writeToDebugLog, checkPhotoSize } from "./photoHelpers";
 import i18n from "../i18n";
+import type { LogMessage } from "../components/Camera/ARCamera/FrameProcessorCamera";
 
-const handleLog = ( event: { nativeEvent: { log: string } } ): void => {
+const handleLog = ( event: LogMessage ): void => {
   if ( Platform.OS === "android" ) {
     writeToDebugLog( event.nativeEvent.log );
   }
 };
 
-const showCameraSaveFailureAlert = async ( e: string, uri: string ): Promise<void> => {
+const showCameraSaveFailureAlert = async ( e: any, uri: string ): Promise<void> => {
   const size = await checkPhotoSize( uri );
   Alert.alert(
     i18n.t( "social.error_title" ),

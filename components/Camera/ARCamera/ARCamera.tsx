@@ -73,6 +73,14 @@ enum ACTION {
   FILTER_TAXON = "FILTER_TAXON",
   ERROR = "ERROR"
 }
+
+type Action = { type: ACTION.RESET_PREDICTIONS }
+  | { type: ACTION.SET_PREDICTIONS; predictions: Prediction[] }
+  | { type: ACTION.PHOTO_TAKEN }
+  | { type: ACTION.RESET_STATE }
+  | { type: ACTION.FILTER_TAXON; taxonId: number; negativeFilter: boolean }
+  | { type: ACTION.ERROR; error: string; errorEvent: string };
+
 const ARCamera = ( ) => {
   useEffect( () => {
     logger.debug( "Uses vision camera" );
@@ -90,7 +98,7 @@ const ARCamera = ( ) => {
   const pictureTaken = useSharedValue( false );
 
   // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
+  const [state, dispatch] = useReducer( ( state: State, action: Action ) => {
     switch ( action.type ) {
       case ACTION.RESET_PREDICTIONS:
         return { ...state, allPredictions: [] };

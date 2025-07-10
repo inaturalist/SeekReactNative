@@ -53,8 +53,8 @@ interface State {
   allPredictions: Prediction[];
   error: string | null;
   errorEvent: string | null;
+  taxonId: string | null;
   negativeFilter: boolean;
-  taxonId: number | null;
 }
 
 const initialState: State = {
@@ -78,7 +78,7 @@ type Action = { type: ACTION.RESET_PREDICTIONS }
   | { type: ACTION.SET_PREDICTIONS; predictions: Prediction[] }
   | { type: ACTION.PHOTO_TAKEN }
   | { type: ACTION.RESET_STATE }
-  | { type: ACTION.FILTER_TAXON; taxonId: number; negativeFilter: boolean }
+  | { type: ACTION.FILTER_TAXON; taxonId: string | null; negativeFilter: boolean }
   | { type: ACTION.ERROR; error: string; errorEvent: string };
 
 const ARCamera = ( ) => {
@@ -225,7 +225,7 @@ const ARCamera = ( ) => {
       .catch( ( e ) => handleCameraRollSaveError( photo.uri, photo.predictions, e ) );
   }, [handleCameraRollSaveError, navigateToResults] );
 
-  const filterByTaxonId = useCallback( ( id: number, filter: boolean | null ) => {
+  const filterByTaxonId = useCallback( ( id: string | null, filter: boolean ) => {
     dispatch( { type: ACTION.FILTER_TAXON, taxonId: id, negativeFilter: filter } );
   }, [] );
 

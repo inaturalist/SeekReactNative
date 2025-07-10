@@ -15,9 +15,13 @@ const useScrollToTop = (
   scrollView: {
     current: {
       scrollTo: ( {
-        x: number,
-        y: number,
-        animated: boolean
+        x,
+        y,
+        animated
+      }: {
+        x: number;
+        y: number;
+        animated: boolean;
       } ) => void
     }
   },
@@ -33,6 +37,7 @@ const useScrollToTop = (
   }, [scrollView] );
 
   useEffect( () => {
+    // TODO: unsubscribe from listener
     navigation.addListener( "focus", () => {
       if ( route !== "Challenges" ) {
         scrollToTop();

@@ -47,7 +47,7 @@ const useScrollToTop = (
 };
 
 const useLocationName = ( latitude: number | null, longitude: number | null ): string | null => {
-  const [location, setLocation] = useState( null );
+  const [location, setLocation] = useState<string | null>( null );
 
   useEffect( () => {
     let isCurrent = true;
@@ -76,7 +76,7 @@ const useLocationName = ( latitude: number | null, longitude: number | null ): s
 };
 
 const useLocationPermission = (): boolean | null => {
-  const [granted, setGranted] = useState( null );
+  const [granted, setGranted] = useState<boolean | null>( null );
 
   useEffect( () => {
     let isCurrent = true;
@@ -142,7 +142,7 @@ const useTruncatedUserCoords = ( granted: boolean | null ): TruncatedCoords | nu
 };
 
 const useInternetStatus = ( ): boolean => {
-  const [internet, setInternet] = useState( true );
+  const [internet, setInternet] = useState<boolean>( true );
 
   useEffect( ( ) => {
     let isCurrent = true;
@@ -169,7 +169,7 @@ const useInternetStatus = ( ): boolean => {
 };
 
 const useEmulator = ( ): boolean => {
-  const [emulator, setEmulator] = useState( false );
+  const [emulator, setEmulator] = useState<boolean>( false );
 
   useEffect( ( ) => {
     let isCurrent = true;
@@ -196,14 +196,14 @@ const useUploadedObservationCount = ( {
   year,
   triggerReload
 }: {
-  login: string | null,
-  username: string,
-  year: number,
-  triggerReload: boolean
-} ): any => {
-  const [observationCount, setObservationCount] = useState( null );
+  login: string | null;
+  username: string;
+  year: number | null;
+  triggerReload: boolean;
+} ): number | null => {
+  const [observationCount, setObservationCount] = useState<number | null>( null );
 
-  const updateSavedLogin = async ( newCount ) => {
+  const updateSavedLogin = async ( newCount: number ) => {
     try {
       const realm = await Realm.open( realmConfig );
       const savedLogin = realm.objects( "LoginRealm" );
@@ -256,8 +256,8 @@ const useUploadedObservationCount = ( {
 };
 
 // TODO: this is the same as in useFetchAchievements
-const useSpeciesCount = (): any => {
-  const [speciesCount, setSpeciesCount] = useState( null );
+const useSpeciesCount = (): number | null => {
+  const [speciesCount, setSpeciesCount] = useState<number | null>( null );
   useEffect( () => {
     const fetchSpeciesCount = async () => {
       try {
@@ -275,7 +275,7 @@ const useSpeciesCount = (): any => {
 };
 
 const useIsForeground = (): boolean => {
-  const [isForeground, setIsForeground] = useState( true );
+  const [isForeground, setIsForeground] = useState<boolean>( true );
 
   useEffect( () => {
     const onChange = ( state: AppStateStatus ): void => {

@@ -40,14 +40,14 @@ const useScrollToTop = (
   }, [route, navigation, scrollToTop] );
 };
 
-const useLocationName = ( latitude: ?number, longitude: ?number ): ?string => {
+const useLocationName = ( latitude: number | null, longitude: number | null ): string | null => {
   const [location, setLocation] = useState( null );
 
   useEffect( () => {
     let isCurrent = true;
 
     // reverseGeocodeLocation
-    fetchLocationName( latitude, longitude ).then( ( locationName: ?string ) => {
+    fetchLocationName( latitude, longitude ).then( ( locationName: string | null ) => {
       if ( isCurrent ) {
         if ( locationName === null ) {
           setLocation( i18n.t( "location_picker.undefined" ) ); // for oceans
@@ -69,7 +69,7 @@ const useLocationName = ( latitude: ?number, longitude: ?number ): ?string => {
   return location;
 };
 
-const useLocationPermission = (): ?boolean => {
+const useLocationPermission = (): boolean | null => {
   const [granted, setGranted] = useState( null );
 
   useEffect( () => {
@@ -98,7 +98,7 @@ const useLocationPermission = (): ?boolean => {
   return granted;
 };
 
-const useTruncatedUserCoords = ( granted: ?boolean ): ?{
+const useTruncatedUserCoords = ( granted: boolean | null ): {
   latitude: number,
   longitude: number
 } => {
@@ -193,10 +193,10 @@ const useUploadedObservationCount = ( {
   year,
   triggerReload
 }: {
-  login: ?string,
+  login: string | null,
   username: string,
   year: number,
-  triggerReload: Boolean
+  triggerReload: boolean
 } ): any => {
   const [observationCount, setObservationCount] = useState( null );
 

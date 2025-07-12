@@ -16,7 +16,11 @@ import {
 } from "./dateHelpers";
 import { checkSavePermissions } from "./androidHelpers.android";
 
-const writeToDebugLog = ( newLine: string ) => {
+interface Location {
+  latitude: number;
+  longitude: number;
+}
+const writeToDebugLog = ( newLine: string ): void => {
   let line = newLine;
 
   const date = newLine.split( " " );
@@ -47,7 +51,7 @@ const deleteDebugLogAfter7Days = (): void => {
   }
 };
 
-const checkForPhotoMetaData = ( location: Object ): boolean => {
+const checkForPhotoMetaData = ( location: Location | null ): boolean => {
   if ( location ) {
     if ( Object.keys( location ).length !== 0 && location.latitude ) {
       return true;

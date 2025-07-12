@@ -41,12 +41,14 @@ const setPreciseImageCoords = (
   return image;
 };
 
+interface Image {
+  time: number;
+  uri: string;
+  predictions: Prediction[];
+}
+
 // this is only being called from AR camera
-const fetchImageLocationOrErrorCode = async ( image: {
-  time: number,
-  uri: string,
-  predictions: Array<Object>
-}, login: ?string ): Promise<{ image: Object, errorCode: number }> => {
+const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: any, errorCode: number }> => {
   const fetchLocation = async ( ) => {
     try {
       if ( !login ) {

@@ -302,7 +302,7 @@ const checkForNumSuccessfulUploads = async ( ): Promise<number> => {
     .filtered( "uploadSucceeded == true AND notificationShown == false" ).length;
 };
 
-const markUploadsAsSeen = async ( ) => {
+const markUploadsAsSeen = async ( ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
   const uploads = realm.objects( "UploadPhotoRealm" );
 
@@ -323,7 +323,7 @@ const markCurrentUploadAsSeen = async ( upload: {
   photo: {
     notificationShown: boolean
   }
-} ) => {
+} ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
 
   try {

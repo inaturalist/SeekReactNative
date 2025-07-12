@@ -67,7 +67,6 @@ const resizeImage = async ( path: string, width: number, height?: number, output
       "JPEG", // compressFormat
       100, // quality
       0, // rotation
-      // $FlowFixMe
       outputPath, // outputPath
       true // keep metadata
     );

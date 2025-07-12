@@ -128,7 +128,7 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   return photoUpload;
 };
 
-const saveObservationId = async ( id: number, photo: Object ) => {
+const saveObservationId = async ( id: number, photo: { id: number } ): Promise<{ id: number } | undefined> => {
   const realm = await Realm.open( realmConfig );
   try {
     realm.write( ( ) => {

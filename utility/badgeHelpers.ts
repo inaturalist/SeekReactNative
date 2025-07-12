@@ -17,20 +17,20 @@ const createNewBadge = ( realm: Realm, badge: Badge ): void => {
   } );
 };
 
-const deleteBadge = ( realm, badge ) => {
+const deleteBadge = ( realm: Realm, badge: Badge ): void => {
   realm.write( () => {
     badge.earned = false;
     badge.earnedDate = null;
   } );
 };
 
-const checkBadgeEarned = ( realm, badge, observationsSeen ) => {
+const checkBadgeEarned = ( realm: Realm, badge: Badge, observationsSeen: number ): void => {
   if ( observationsSeen >= badge.count ) {
     createNewBadge( realm, badge );
   }
 };
 
-const recalculateBadges = async ( ) => {
+const recalculateBadges = async ( ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
 
   try {
@@ -39,7 +39,7 @@ const recalculateBadges = async ( ) => {
     // looping through unearned badges only causes the loop not to complete when some badges are set to earned
     const badges = realm.objects( "BadgeRealm" );
 
-    badges.forEach( badge => {
+    badges.forEach( ( badge: Badge ) => {
       // this fixes a bug where earned was being set to false for all badges in setupBadges code
       if ( badge.earnedDate !== null ) {
         realm.write( ( ) => {
@@ -62,13 +62,13 @@ const recalculateBadges = async ( ) => {
   }
 };
 
-const deleteBadges = () => {
+const deleteBadges = (): void => {
   Realm.open( realmConfig )
-    .then( ( realm ) => {
+    .then( ( realm: Realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
 
-      earnedBadges.forEach( ( badge ) => {
+      earnedBadges.forEach( ( badge: Badge ) => {
         if ( !badge || badge.count === 0 ) { // check for !badge so realm doesn't catch error
           return;
         }
@@ -88,11 +88,11 @@ const deleteBadges = () => {
     } );
 };
 
-const setupBadges = ( ) => {
-  Realm.open( realmConfig ).then( ( realm ) => {
+const setupBadges = ( ): void => {
+  Realm.open( realmConfig ).then( ( realm: Realm ) => {
     realm.write( () => {
       const dict = Object.keys( badgesDict );
-      dict.forEach( ( badgeType ) => {
+      dict.forEach( ( badgeType: string ) => {
         const badges = badgesDict[badgeType];
 
         try {
@@ -105,7 +105,6 @@ const setupBadges = ( ) => {
             earnedIconName: badges.earnedIconName,
             infoText: badges.infoText,
             index: badges.index,
-            // $FlowFixMe
             earned: badges.earned
           }, true );
         } catch ( e ) {
@@ -119,13 +118,13 @@ const setupBadges = ( ) => {
   } );
 };
 
-const setBadgesEarned = ( badges ) => {
+const setBadgesEarned = ( badges: string ): void => {
   AsyncStorage.setItem( "badgesEarned", badges );
 };
 
-const checkNumberOfBadgesEarned = () => {
+const checkNumberOfBadgesEarned = (): void => {
   Realm.open( realmConfig )
-    .then( ( realm ) => {
+    .then( ( realm: Realm ) => {
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
       setBadgesEarned( earnedBadges.toString() );
       recalculateBadges();
@@ -134,7 +133,7 @@ const checkNumberOfBadgesEarned = () => {
     } );
 };
 
-const getBadgesEarned = async (): Promise<string> => {
+const getBadgesEarned = async (): Promise<string | unknown> => {
   try {
     const earned = await AsyncStorage.getItem( "badgesEarned" );
     return earned;

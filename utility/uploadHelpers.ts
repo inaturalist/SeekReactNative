@@ -182,7 +182,7 @@ interface Observation {
   vision: boolean;
 }
 
-const uploadObservation = async ( observation: Observation ): Promise<any> => {
+const uploadObservation = async ( observation: Observation ): Promise<boolean | ErrorType | undefined> => {
   const login = await fetchAccessToken( );
   logger.debug( `login: ${login}` );
   const taxonId = await checkInactiveTaxonIds( observation.taxon_id );
@@ -249,7 +249,7 @@ const uploadObservation = async ( observation: Observation ): Promise<any> => {
   }
 };
 
-const saveObservationToRealm = async ( observation: Observation, uri: string ): Promise<any> => {
+const saveObservationToRealm = async ( observation: Observation, uri: string ): Promise<boolean | ErrorType | undefined> => {
   const realm = await Realm.open( realmConfig );
   const obsUUID = createUUID.v4();
   const photoUUID = createUUID.v4();

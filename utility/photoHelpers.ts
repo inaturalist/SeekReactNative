@@ -20,6 +20,14 @@ interface Location {
   latitude: number;
   longitude: number;
 }
+
+interface Image {
+  latitude?: number;
+  longitude?: number;
+  uri: string;
+  time?: number;
+}
+
 const writeToDebugLog = ( newLine: string ): void => {
   let line = newLine;
 
@@ -244,7 +252,7 @@ const moveAndroidFilesToInternalStorage = async (): Promise<void> => {
   }
 };
 
-const replacePhoto = async ( id: number, image: Object ) => {
+const replacePhoto = async ( id: number, image: Image ): Promise<void> => {
   const {
     latitude,
     longitude,

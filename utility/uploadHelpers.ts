@@ -221,7 +221,7 @@ const uploadObservation = async ( observation: Observation ): Promise<any> => {
       const { id } = response[0];
       logger.debug( `id: ${id}` );
 
-      const photo: Object = await saveObservationId( id, observation.photo );
+      const photo = await saveObservationId( id, observation.photo );
       return await uploadPhoto( photo, token );
     } else {
       // don't try to create an observation which has already been uploaded to

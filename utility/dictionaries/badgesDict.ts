@@ -1,4 +1,17 @@
-const badges = {
+type Badges = {
+  [key: string]: {
+    infoText: string;
+    name: string;
+    intlName: string;
+    count: number;
+    earnedIconName: string;
+    index: number;
+    earned?: boolean;
+    iconicTaxonName?: string;
+    iconicTaxonId?: number;
+  };
+};
+const badges: Badges = {
   tadpole: {
     infoText: "",
     name: "Tadpole",

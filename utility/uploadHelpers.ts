@@ -328,7 +328,7 @@ const markCurrentUploadAsSeen = async ( upload: {
   }
 };
 
-const checkForUploads = async ( ): Promise<any> => {
+const checkForUploads = async ( ) => {
   const realm = await Realm.open( realmConfig );
   return realm.objects( "UploadObservationRealm" );
 };

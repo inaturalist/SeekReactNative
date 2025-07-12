@@ -270,7 +270,7 @@ const replacePhoto = async ( id: number, image: Object ) => {
   } );
 };
 
-const formatBytes = ( bytes: number, decimals: number = 2 ) => {
+const formatBytes = ( bytes: number, decimals: number = 2 ): string => {
   // https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
   if ( bytes === 0 ) {return "0 Bytes";}
 

@@ -1,18 +1,16 @@
 import { Platform } from "react-native";
 
-import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";
+import { Coords, fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates, TruncatedCoords } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { log } from "../react-native-logs.config";
+import { Prediction } from "vision-camera-plugin-inatvision";
 
 const logger = log.extend( "resultsHelpers.js" );
 
 const setImageCoords = (
-  coords?: {
-    latitude: number,
-    longitude: number
-  },
-  image: Object
-): Object => {
+  coords: TruncatedCoords,
+  image: Image,
+): Image => {
   if ( coords )  {
     image.latitude = coords.latitude;
     image.longitude = coords.longitude;
@@ -22,13 +20,9 @@ const setImageCoords = (
 };
 
 const setPreciseImageCoords = (
-  coords?: {
-    latitude: number,
-    longitude: number,
-    accuracy: number
-  },
-  image: Object
-): Object => {
+  coords: Coords,
+  image: Image,
+): Image => {
   if ( coords )  {
     // keeping the lat/lng that we store in realm truncated even if the user is logged in
     image.latitude = truncateCoordinates( coords.latitude );
@@ -45,10 +39,17 @@ interface Image {
   time: number;
   uri: string;
   predictions: Prediction[];
+  latitude?: number;
+  longitude?: number;
+  preciseCoords?: {
+    latitude: number | null;
+    longitude: number | null;
+    accuracy: number | null;
+  };
 }
 
 // this is only being called from AR camera
-const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: any, errorCode: number }> => {
+const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: Image, errorCode: number }> => {
   const fetchLocation = async ( ) => {
     try {
       if ( !login ) {

@@ -183,10 +183,10 @@ const getThumbnailName = ( thumbnail: string | null ): string | null => {
   return uri;
 };
 
-const findDuplicates = ( list ) => {
+const findDuplicates = ( list: any[] ): any[] => {
   const sorted = list.slice().sort();
 
-  const duplicates = [];
+  const duplicates: any[] = [];
   for ( let i = 0; i < sorted.length - 1; i += 1 ) {
     if ( sorted[i + 1] === sorted[i] && sorted[i] !== null ) {
       if ( !duplicates.includes( sorted[i] ) ) {

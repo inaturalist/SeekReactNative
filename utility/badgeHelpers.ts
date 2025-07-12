@@ -10,6 +10,12 @@ interface Badge {
   earnedDate: Date | null;
   iconicTaxonId: number;
 }
+
+interface NewBadgeResult {
+  latestBadge: Badge | null;
+  latestLevel: Badge | null;
+}
+
 const createNewBadge = ( realm: Realm, badge: Badge ): void => {
   realm.write( () => {
     badge.earned = true;
@@ -133,7 +139,7 @@ const checkNumberOfBadgesEarned = (): void => {
     } );
 };
 
-const getBadgesEarned = async (): Promise<string | unknown> => {
+const getBadgesEarned = async (): Promise<string | null> => {
   try {
     const earned = await AsyncStorage.getItem( "badgesEarned" );
     return earned;
@@ -142,17 +148,14 @@ const getBadgesEarned = async (): Promise<string | unknown> => {
   }
 };
 
-const checkForNewBadges = async (): Promise<{
-  latestBadge: ?Object,
-  latestLevel: ?Object
-}> => {
+const checkForNewBadges = async (): Promise<NewBadgeResult> => {
   const badgesEarned = await getBadgesEarned();
 
   return (
     new Promise( ( resolve ) => {
-      Realm.open( realmConfig ).then( ( realm ) => {
-        let latestBadge;
-        let latestLevel;
+      Realm.open( realmConfig ).then( ( realm: Realm ) => {
+        let latestBadge: Badge;
+        let latestLevel: Badge;
 
         const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
         const badges = earnedBadges.sorted( "earnedDate", true );
@@ -184,10 +187,10 @@ const checkForNewBadges = async (): Promise<{
   );
 };
 
-const createBadgeSetList = ( badges: Array<Object> ): Array<number> => {
+const createBadgeSetList = ( badges: Badge[] ): number[] => {
   const numOfSets = Math.ceil( badges.length / 5 );
 
-  const sets = [];
+  const sets: number[] = [];
 
   for ( let i = 0; i < numOfSets; i += 1 ) {
     sets.push( i * 5 );

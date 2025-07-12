@@ -96,7 +96,7 @@ const localizeAttributions = ( attribution: string, licenseCode: string, screen:
   const userName = attribution.split( "," )[0];
   const name = userName.split( ") " )[1];
 
-  let licenseText;
+  let licenseText: string;
 
   if ( licenseCode === "cc0" ) {
     licenseText = i18n.t( "attributions.all" );

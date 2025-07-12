@@ -19,7 +19,7 @@ const logger = log.extend( "uploadHelpers.js" );
 //     )
 // ] );
 
-const saveUploadSucceeded = async ( id: number ) => {
+const saveUploadSucceeded = async ( id: number ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
   const photo = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
 
@@ -32,7 +32,7 @@ const saveUploadSucceeded = async ( id: number ) => {
   }
 };
 
-const saveUploadFailed = async ( id: number ) => {
+const saveUploadFailed = async ( id: number ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
   const photo = realm.objects( "UploadPhotoRealm" ).filtered( `id == ${id}` )[0];
 
@@ -49,11 +49,18 @@ const resizeImageForUpload = async ( uri: string, outputPath?: string ): Promise
   return await resizeImage( uri, 2048, 2048, outputPath );
 };
 
+interface ErrorType {
+  error: {
+    type: string;
+    errorText?: string;
+  }
+}
+
 const appendPhotoToObservation = async ( photo: {
   id: number,
   uuid: string,
   uri: string
-}, token: string, uri: string ) => {
+}, token: string, uri: string ): Promise<boolean | ErrorType | undefined> => {
   const { id, uuid } = photo;
   const photoParams = {
     "observation_photo[observation_id]": id,
@@ -92,7 +99,7 @@ const appendPhotoToObservation = async ( photo: {
   }
 };
 
-const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ) => {
+const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ): Promise<boolean | ErrorType | undefined> => {
   const { uri, id } = photo;
 
   // const alreadyResized = uri.includes( "/SeekUploads" );

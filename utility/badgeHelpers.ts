@@ -4,7 +4,13 @@ import Realm from "realm";
 import realmConfig from "../models/index";
 import badgesDict from "./dictionaries/badgesDict";
 
-const createNewBadge = ( realm, badge ) => {
+interface Badge {
+  count: number;
+  earned: boolean;
+  earnedDate: Date | null;
+  iconicTaxonId: number;
+}
+const createNewBadge = ( realm: Realm, badge: Badge ): void => {
   realm.write( () => {
     badge.earned = true;
     badge.earnedDate = new Date();

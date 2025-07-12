@@ -9,7 +9,7 @@ import i18n from "../i18n";
 import config from "../config";
 import realmConfig from "../models/index";
 
-const checkForInternet = (): Promise<?string> => (
+const checkForInternet = ( ): Promise<string | null> => (
   new Promise( ( resolve ) => {
     NetInfo.fetch().then( ( { type } ) => {
       resolve( type );

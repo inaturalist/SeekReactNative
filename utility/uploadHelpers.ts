@@ -247,18 +247,7 @@ const uploadObservation = async ( observation: Observation ): Promise<any> => {
   }
 };
 
-const saveObservationToRealm = async ( observation: {
-  observed_on_string: string | null,
-  taxon_id: number | null,
-  geoprivacy: string,
-  captive_flag: boolean,
-  place_guess: string | null,
-  latitude: number | null,
-  longitude: number | null,
-  positional_accuracy: number | null,
-  description: string | null,
-  vision: boolean
-}, uri: string ): Promise<any> => {
+const saveObservationToRealm = async ( observation: Observation, uri: string ): Promise<any> => {
   const realm = await Realm.open( realmConfig );
   const obsUUID = createUUID.v4();
   const photoUUID = createUUID.v4();

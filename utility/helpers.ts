@@ -19,7 +19,7 @@ const checkForInternet = ( ): Promise<string | null> => (
   } )
 );
 
-const capitalizeNames = ( name: string ): ?string => {
+const capitalizeNames = ( name: string ): string | undefined => {
   if ( name === null ) {
     return;
   }

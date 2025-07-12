@@ -1,4 +1,3 @@
-// @flow
 import ImageResizer from "@bam.tech/react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";

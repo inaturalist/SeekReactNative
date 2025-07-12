@@ -99,7 +99,7 @@ const appendPhotoToObservation = async ( photo: {
   }
 };
 
-const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, token: string ): Promise<boolean | ErrorType | undefined> => {
+const uploadPhoto = async ( photo: Photo, token: string ): Promise<boolean | ErrorType | undefined> => {
   const { uri, id } = photo;
 
   // const alreadyResized = uri.includes( "/SeekUploads" );
@@ -163,6 +163,8 @@ const checkInactiveTaxonIds = async ( id ) => {
 
 interface Photo {
   id: number;
+  uri: string;
+  uuid: string;
 }
 
 interface Observation {

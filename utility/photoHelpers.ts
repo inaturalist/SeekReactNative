@@ -230,7 +230,7 @@ const checkForDirectory = async ( dir: string ): Promise<boolean> => {
   }
 };
 
-const moveAndroidFilesToInternalStorage = async () => {
+const moveAndroidFilesToInternalStorage = async (): Promise<void> => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const dirExists = await checkForDirectory( oldAndroidDir );
 

@@ -165,7 +165,7 @@ const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   }
 };
 
-const deleteFile = ( filepath: string ) => {
+const deleteFile = ( filepath: string ): void => {
   RNFS.unlink( filepath ).then( () => {
     console.log( "unused backup filepath deleted: ", filepath );
   } ).catch( ( err ) => {

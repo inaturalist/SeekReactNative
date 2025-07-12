@@ -173,7 +173,7 @@ const deleteFile = ( filepath: string ): void => {
   } );
 };
 
-const getThumbnailName = ( thumbnail ) => {
+const getThumbnailName = ( thumbnail: string | null ): string | null => {
   if ( thumbnail === null ) { // some photos were added before we started implementing backups
     return null;
   }

@@ -118,8 +118,8 @@ const localizeAttributionsLandscape = ( attribution: string, licenseCode: string
   return `\u00A9${userName} (${licenseCode.toUpperCase()})`;
 };
 
-const createBackupUri = async ( uri: string, uuid?: ?string ): Promise<?string> => {
-  let newImageName;
+const createBackupUri = async ( uri: string, uuid?: string | null ): Promise<string | null> => {
+  let newImageName: string;
 
   const timestamp = namePhotoByTime();
 

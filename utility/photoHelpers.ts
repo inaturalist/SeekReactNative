@@ -199,7 +199,7 @@ const updateRealmThumbnails = () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
-      const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
+      const backups = databasePhotos.map( ( photo ) => getThumbnailName( photo.backupUri ) );
       // check out backup names in realm
 
       const duplicates = findDuplicates( backups );

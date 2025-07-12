@@ -33,7 +33,7 @@ const writeToDebugLog = ( newLine: string ) => {
   } );
 };
 
-const deleteDebugLogAfter7Days = () => {
+const deleteDebugLogAfter7Days = (): void => {
   if ( Platform.OS === "android" ) {
     RNFS.stat( pathLogs ).then( ( { ctime } ) => {
       if ( !isWithin7Days( ctime ) ) {

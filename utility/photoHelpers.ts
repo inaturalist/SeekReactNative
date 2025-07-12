@@ -153,7 +153,7 @@ const createBackupUri = async ( uri: string, uuid?: string | null ): Promise<str
   }
 };
 
-const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
+const moveFileAndUpdateRealm = async ( timestamp: string, photo: any, realm: Realm ): Promise<void> => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const oldFile = `${oldAndroidDir}/${timestamp}`;
   const newFile = `${dirPictures}/${timestamp}`;

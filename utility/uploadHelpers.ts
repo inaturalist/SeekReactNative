@@ -128,7 +128,7 @@ const uploadPhoto = async ( photo: { uri: string, id: number, uuid: string }, to
   return photoUpload;
 };
 
-const saveObservationId = async ( id: number, photo: { id: number } ): Promise<{ id: number } | undefined> => {
+const saveObservationId = async ( id: number, photo: Photo ): Promise<Photo | undefined> => {
   const realm = await Realm.open( realmConfig );
   try {
     realm.write( ( ) => {
@@ -161,20 +161,26 @@ const checkInactiveTaxonIds = async ( id ) => {
   }
 };
 
-const uploadObservation = async ( observation: {
-  uuid: string,
-  observed_on_string: string | null,
-  taxon_id: number | null,
-  geoprivacy: string,
-  captive_flag: boolean,
-  place_guess: string | null,
-  latitude: number | null,
-  longitude: number | null,
-  positional_accuracy: number | null,
-  description: string | null,
-  photo: any,
-  vision: boolean
-} ): Promise<any> => {
+interface Photo {
+  id: number;
+}
+
+interface Observation {
+  uuid: string;
+  observed_on_string: string | null;
+  taxon_id: number | null;
+  geoprivacy: string;
+  captive_flag: boolean;
+  place_guess: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  positional_accuracy: number | null;
+  description: string | null;
+  photo: Photo;
+  vision: boolean;
+}
+
+const uploadObservation = async ( observation: Observation ): Promise<any> => {
   const login = await fetchAccessToken( );
   logger.debug( `login: ${login}` );
   const taxonId = await checkInactiveTaxonIds( observation.taxon_id );

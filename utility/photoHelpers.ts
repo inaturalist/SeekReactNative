@@ -195,7 +195,7 @@ const findDuplicates = ( list ) => {
   return duplicates;
 };
 
-const updateRealmThumbnails = () => {
+const updateRealmThumbnails = (): void => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );

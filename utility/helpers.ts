@@ -29,7 +29,7 @@ const capitalizeNames = ( name: string ): string | undefined => {
   return titleCaseName;
 };
 
-const shuffleList = ( list: Array<Object> ): Array<Object> => {
+const shuffleList = ( list: any[] ): any[] => {
   const newList = list;
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {

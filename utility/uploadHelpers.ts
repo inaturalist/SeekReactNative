@@ -163,16 +163,16 @@ const checkInactiveTaxonIds = async ( id ) => {
 
 const uploadObservation = async ( observation: {
   uuid: string,
-  observed_on_string: ?string,
-  taxon_id: ?number,
+  observed_on_string: string | null,
+  taxon_id: number | null,
   geoprivacy: string,
   captive_flag: boolean,
-  place_guess: ?string,
-  latitude: ?number,
-  longitude: ?number,
-  positional_accuracy: ?number,
-  description: ?string,
-  photo: Object,
+  place_guess: string | null,
+  latitude: number | null,
+  longitude: number | null,
+  positional_accuracy: number | null,
+  description: string | null,
+  photo: any,
   vision: boolean
 } ): Promise<any> => {
   const login = await fetchAccessToken( );

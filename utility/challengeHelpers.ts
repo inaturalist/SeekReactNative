@@ -13,21 +13,21 @@ import i18n from "../i18n";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 
-const setChallengeProgress = async ( index: any ): Promise<any> => AsyncStorage.setItem( "challengeProgress", index.toString() );
+const setChallengeProgress = async ( index: number ): Promise<void> => AsyncStorage.setItem( "challengeProgress", index.toString() );
 
-const fetchIncompleteChallenges = ( realm ) => {
+const fetchIncompleteChallenges = ( realm: Realm ): any => {
   const incomplete = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND startedDate != null" );
   return incomplete;
 };
 
-const fetchObservationsAfterChallengeStarted = ( realm: any, challenge: Object ): Array<Object> => {
+const fetchObservationsAfterChallengeStarted = ( realm: Realm, challenge: { startedDate: Date } ): Array<any> => {
   const { startedDate } = challenge;
 
-  const seenTaxa = [];
+  const seenTaxa: any[] = [];
   const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
 
   if ( startedDate ) {
-    observations.forEach( ( observation ) => {
+    observations.forEach( ( observation: any ) => {
       if ( observation.date >= startedDate ) {
         seenTaxa.push( observation );
       }

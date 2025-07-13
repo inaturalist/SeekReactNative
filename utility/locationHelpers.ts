@@ -70,8 +70,8 @@ const fetchTruncatedUserLocation = ( ): Promise<TruncatedCoords> => (
   } )
 );
 
-const setPlaceName = ( results: Array<Object> ) => {
-  let placeName = null;
+const setPlaceName = ( results: GeocodeResult[] ): string | null => {
+  let placeName: string | null = null;
 
   const { locality, subAdminArea, adminArea, country, feature } = results[0];
 

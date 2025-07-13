@@ -1,4 +1,4 @@
-import { Alert, Linking, Platform } from "react-native";
+import { Alert, AlertButton, Linking, Platform } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Geolocation from "react-native-geolocation-service";
 
@@ -154,9 +154,9 @@ const fetchCoordsByLocationName = async ( location: string ): Promise<LocationRe
   }
 };
 
-const createLocationAlert = ( errorCode: number ) => {
-  let body;
-  const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
+const createLocationAlert = ( errorCode: number ): void => {
+  let body: string;
+  const button: AlertButton[] = [{ text: i18n.t( "posting.ok" ), style: "default" }];
 
   if ( errorCode === 1 ) {
     body = i18n.t( "results.error_location" );

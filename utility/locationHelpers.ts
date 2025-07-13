@@ -21,9 +21,17 @@ interface GeocodeResult {
   adminArea?: string;
   country?: string;
   feature?: string;
-  position?: {
+  position: {
     lat: number;
     lng: number;
+  };
+}
+
+interface LocationResult {
+  placeName: string | null;
+  position: {
+    lat: number | null;
+    lng: number | null;
   };
 }
 
@@ -119,14 +127,8 @@ const fetchLocationName = ( lat: number | null, lng: number | null ): Promise<st
   } )
 );
 
-const fetchCoordsByLocationName = async ( location: string ): Promise<{
-  placeName: ?string,
-  position: {
-    lat: ?number,
-    lng: ?number
-  }
-}> => {
-  const emptyResults = {
+const fetchCoordsByLocationName = async ( location: string ): Promise<LocationResult> => {
+  const emptyResults: LocationResult = {
     placeName: null,
     position: {
       lat: null,

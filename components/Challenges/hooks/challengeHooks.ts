@@ -6,11 +6,21 @@ import { recalculateChallenges, fetchObservationsAfterChallengeStarted } from ".
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { taxonDictForMissions } from "../../../utility/dictionaries/taxonomyDicts";
 import { fetchTruncatedUserLocation, TruncatedCoords } from "../../../utility/locationHelpers";
+
+interface Challenge {
+  numbersObserved: any;
+}
+
 interface Section {
   id: number;
   data: any[];
   header: string;
   empty: string;
+}
+
+interface Mission {
+  mission: any;
+  observations: any;
 }
 
 const createChallengeSections = ( challenges: any ): Section[] => {
@@ -108,8 +118,8 @@ const useFetchChallenges = ( ): any[] => {
   return list.data;
 };
 
-const useFetchMissions = ( challenge: Object ): any => {
-  const [missions, setMissions] = useState( [] );
+const useFetchMissions = ( challenge: Challenge ): Mission[] => {
+  const [missions, setMissions] = useState<Mission[]>( [] );
 
   useEffect( ( ) => {
     const { numbersObserved } = challenge;

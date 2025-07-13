@@ -86,7 +86,7 @@ const updateNumberObservedPerMission = ( challenge: Challenge, count: number, nu
   return totalSeen;
 };
 
-const checkForAncestors = ( seenTaxa: Array<Object>, taxaId: number ): Array<number> => {
+const checkForAncestors = ( seenTaxa: any[], taxaId: number ): number[] => {
   const taxaWithAncestors = seenTaxa.filter( ( t ) => (
     t.taxon && t.taxon.ancestorIds.length > 0
   ) );

@@ -20,7 +20,7 @@ const fetchIncompleteChallenges = ( realm: Realm ): any => {
   return incomplete;
 };
 
-const fetchObservationsAfterChallengeStarted = ( realm: Realm, challenge: { startedDate: Date } ): Array<any> => {
+const fetchObservationsAfterChallengeStarted = ( realm: Realm, challenge: { startedDate: Date } ): any[] => {
   const { startedDate } = challenge;
 
   const seenTaxa: any[] = [];

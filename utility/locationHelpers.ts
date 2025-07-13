@@ -15,6 +15,18 @@ export interface Coords {
   accuracy: number;
 }
 
+interface GeocodeResult {
+  locality?: string;
+  subAdminArea?: string;
+  adminArea?: string;
+  country?: string;
+  feature?: string;
+  position?: {
+    lat: number;
+    lng: number;
+  };
+}
+
 const requestiOSPermissions = async ( ): Promise<Geolocation.AuthorizationResult | undefined> => {
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );

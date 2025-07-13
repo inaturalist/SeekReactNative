@@ -9,6 +9,7 @@ import { fetchTruncatedUserLocation, TruncatedCoords } from "../../../utility/lo
 
 interface Challenge {
   startedDate: Date;
+  index: number;
   numbersObserved: any;
 }
 

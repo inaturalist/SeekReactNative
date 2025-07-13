@@ -162,8 +162,8 @@ const recalculateChallenges = (): void => {
   } );
 };
 
-const startChallenge = ( index: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
+const startChallenge = ( index: number ): void => {
     const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
 
     challenges.forEach( ( challenge ) => {

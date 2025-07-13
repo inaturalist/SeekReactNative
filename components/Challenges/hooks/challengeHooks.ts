@@ -76,10 +76,11 @@ const convertDataToFlashListFormat = ( sections: Section[] ): any[] => {
   return convertedList;
 };
 
-
-
-const useFetchChallenges = ( ): any => {
-  const [list, setList] = useState( {
+const useFetchChallenges = ( ): any[] => {
+  const [list, setList] = useState<{
+    data: any[];
+    changes: any;
+  }>( {
     data: [],
     changes: null
   } );
@@ -91,7 +92,7 @@ const useFetchChallenges = ( ): any => {
       // https://github.com/realm/realm-js/issues/2345#issuecomment-619565280
       const query = ( ) => realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
 
-      const handleChange = ( newData, newChanges ) => {
+      const handleChange = ( newData: any, newChanges: any ) => {
         setList( { data: convertDataToFlashListFormat( createChallengeSections( newData ) ), changes: newChanges } );
       };
 

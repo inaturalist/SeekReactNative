@@ -22,7 +22,7 @@ const requestiOSPermissions = async ( ): Promise<Geolocation.AuthorizationResult
   }
 };
 
-const fetchUserLocation = ( enableHighAccuracy: ?boolean = false ): Promise<Coords> => (
+const fetchUserLocation = ( enableHighAccuracy: boolean = false ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const { latitude, longitude, accuracy } = coords;

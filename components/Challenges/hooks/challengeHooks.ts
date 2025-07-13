@@ -27,6 +27,7 @@ interface Mission {
 interface Taxon {
   taxon: {
     ancestorIds: any;
+    iconicTaxonId: number;
   };
 }
 

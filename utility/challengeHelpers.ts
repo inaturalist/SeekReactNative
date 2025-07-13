@@ -371,7 +371,7 @@ const fetchUnobservedChallengeTaxaIds = ( missions: Mission[], index: number ): 
   };
 
   missions.map( ( mission, i ) => {
-    const missionCompleted = missionDetails[i] && missionDetails[i].number === mission.observations;
+    const missionCompleted: boolean = missionDetails[i] && missionDetails[i].number === mission.observations;
 
     if ( missionCompleted ) { return; }
     fetchUnobservedMissionTaxaIds( missionDetails[i].types );

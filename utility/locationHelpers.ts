@@ -188,9 +188,9 @@ const checkForTruncatedCoordinates = ( latitude: number ): boolean => {
   return false;
 };
 
-const createAlertUserLocationOnMaps = ( errorCode: number ) => {
-  let body;
-  const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
+const createAlertUserLocationOnMaps = ( errorCode: number ): void => {
+  let body: string;
+  const button: AlertButton[] = [{ text: i18n.t( "posting.ok" ), style: "default" }];
 
   if ( errorCode === 1 ) {
     body = i18n.t( "species_nearby.no_location" );

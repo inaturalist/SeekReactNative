@@ -165,7 +165,7 @@ const fetchMatchingAncestors = ( seenTaxa: Taxon[], taxaForMission: number[] ): 
   return matchingAncestors;
 };
 
-const findSpeciesObserved = ( seenTaxa, challenge ) => {
+const findSpeciesObserved = ( seenTaxa: Taxon[], challenge: Challenge ): Taxon[] => {
   const challengeMonth = missionsDict[challenge.index];
   const challengeMissions = Object.keys( challengeMonth );
 

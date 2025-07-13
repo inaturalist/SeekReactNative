@@ -15,7 +15,7 @@ export interface Coords {
   accuracy: number;
 }
 
-const requestiOSPermissions = async ( ): Promise<string | undefined> => {
+const requestiOSPermissions = async ( ): Promise<Geolocation.AuthorizationResult | undefined> => {
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );
     return permission;

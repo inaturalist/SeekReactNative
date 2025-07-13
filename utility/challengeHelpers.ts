@@ -380,7 +380,7 @@ const fetchUnobservedChallengeTaxaIds = ( missions: Mission[], index: number ): 
   return unobservedTaxaIds;
 };
 
-const fetchAllObservedTaxaIds = async ( ): Promise<Array<Object>> => {
+const fetchAllObservedTaxaIds = async ( ): Promise<number[]> => {
   try {
     const realm = await Realm.open( realmConfig );
     const observations = realm.objects( "TaxonRealm" );

@@ -135,7 +135,7 @@ const calculateTaxaSeenPerMission = ( types: string[], seenTaxa: SeenTaxon[] ): 
   return count;
 };
 
-const recalculateChallenges = () => {
+const recalculateChallenges = (): void => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const incompleteChallenges = fetchIncompleteChallenges( realm );
 

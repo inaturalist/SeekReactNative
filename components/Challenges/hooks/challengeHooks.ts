@@ -56,8 +56,8 @@ const createChallengeSections = ( challenges: any ): Section[] => {
     }
 };
 
-const convertDataToFlashListFormat = ( sections ) => {
-  let convertedList = [];
+const convertDataToFlashListFormat = ( sections: Section[] ): any[] => {
+  let convertedList: any[] = [];
   sections.map( ( section ) => {
     const { data, id, header, empty } = section;
 

@@ -25,6 +25,9 @@ interface Mission {
 }
 
 interface Taxon {
+  taxon: {
+    ancestorIds: any;
+  };
 }
 
 const createChallengeSections = ( challenges: any ): Section[] => {
@@ -141,8 +144,8 @@ const useFetchMissions = ( challenge: Challenge ): Mission[] => {
   return missions;
 };
 
-const fetchMatchingAncestors = ( seenTaxa, taxaForMission ) => {
-  const matchingAncestors = [];
+const fetchMatchingAncestors = ( seenTaxa: Taxon[], taxaForMission: number[] ): Taxon[] => {
+  const matchingAncestors: Taxon[] = [];
 
   const taxaWithAncestors = seenTaxa.filter( ( t ) => (
     t.taxon && t.taxon.ancestorIds.length > 0

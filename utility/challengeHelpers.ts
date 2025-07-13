@@ -359,8 +359,8 @@ const fetchUnobservedChallengeTaxaIds = ( missions: Array<Object>, index: number
   const unobservedTaxaIds = [];
   const missionDetails = Object.keys( missionsDict[index] ).map( mission => missionsDict[index][mission] );
 
-  const fetchUnobservedMissionTaxaIds = ( taxaTypes ) => {
-    taxaTypes.forEach( type => {
+  const fetchUnobservedMissionTaxaIds = ( taxaTypes: string[] ) => {
+    taxaTypes.forEach( ( type ) => {
       const taxaId = taxonDictForMissions[type];
       unobservedTaxaIds.push( taxaId );
     } );

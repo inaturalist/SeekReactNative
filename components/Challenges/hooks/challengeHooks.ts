@@ -5,16 +5,22 @@ import realmConfig from "../../../models";
 import { recalculateChallenges, fetchObservationsAfterChallengeStarted } from "../../../utility/challengeHelpers";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { taxonDictForMissions } from "../../../utility/dictionaries/taxonomyDicts";
-import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, TruncatedCoords } from "../../../utility/locationHelpers";
+interface Section {
+  id: number;
+  data: any[];
+  header: string;
+  empty: string;
+}
 
-const createChallengeSections = ( challenges ) => {
+const createChallengeSections = ( challenges: any ): Section[] => {
   const started = challenges.filtered( "startedDate != null AND percentComplete != 100" );
     const notStarted = challenges.filtered( "startedDate == null" );
     const completed = challenges.filtered( "startedDate != null AND percentComplete == 100" );
 
     const noChallenges = notStarted.length === 0 && started.length === 0;
 
-    const twoSections = [{
+    const twoSections: Section[] = [{
       id: 0,
       data: [],
       header: "",
@@ -26,7 +32,7 @@ const createChallengeSections = ( challenges ) => {
       empty: "no_completed_challenges"
     }];
 
-    const threeSections = [{
+    const threeSections: Section[] = [{
       id: 0,
       data: started,
       header: "challenges.in_progress",

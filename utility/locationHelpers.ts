@@ -135,7 +135,7 @@ const fetchCoordsByLocationName = async ( location: string ): Promise<{
   };
 
   try {
-    const results = await Geocoder.geocodeAddress( location );
+    const results: GeocodeResult[] = await Geocoder.geocodeAddress( location );
 
     if ( results.length === 0 ) { return emptyResults; }
 

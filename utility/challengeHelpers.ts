@@ -36,20 +36,28 @@ const fetchObservationsAfterChallengeStarted = ( realm: Realm, challenge: { star
   return seenTaxa;
 };
 
-const checkForChallengeInProgress = ( percentComplete, prevPercent, challenge ) => {
+interface Challenge {
+  index: number;
+  percentComplete: number;
+  numbersObserved: number[];
+  totalSpecies: number;
+  completedDate: Date;
+}
+
+const checkForChallengeInProgress = ( percentComplete: number, prevPercent: number, challenge: Challenge ): void => {
   if ( percentComplete >= 75 && prevPercent < 75 ) {
     createNotification( "challengeProgress", challenge.index );
   }
 };
 
-const checkForChallengeComplete = ( percentComplete, challenge ) => {
+const checkForChallengeComplete = ( percentComplete: number, challenge: Challenge ): void => {
   if ( percentComplete === 100 ) {
     challenge.completedDate = new Date();
     createNotification( "challengeCompleted", challenge.index );
   }
 };
 
-const updateChallengePercentages = ( challenge ) => {
+const updateChallengePercentages = ( challenge: Challenge ): void => {
   const prevPercent = challenge.percentComplete;
   const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val, 0 );
   const newPercent = calculatePercent( totalSeen, challenge.totalSpecies );
@@ -65,7 +73,7 @@ const updateChallengePercentages = ( challenge ) => {
   checkForChallengeInProgress( newPercent, prevPercent, challenge );
 };
 
-const updateNumberObservedPerMission = ( challenge, count, number ) => {
+const updateNumberObservedPerMission = ( challenge: Challenge, count: number, number: number ): number => {
   let totalSeen = 0;
 
   if ( count <= number ) {

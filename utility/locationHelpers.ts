@@ -4,7 +4,6 @@ import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
 
-const requestiOSPermissions = async ( ) => {
 export interface TruncatedCoords {
   latitude: number;
   longitude: number;
@@ -16,6 +15,7 @@ export interface Coords {
   accuracy: number;
 }
 
+const requestiOSPermissions = async ( ): Promise<string | undefined> => {
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );
     return permission;

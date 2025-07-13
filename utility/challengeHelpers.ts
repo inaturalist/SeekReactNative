@@ -90,7 +90,7 @@ const checkForAncestors = ( seenTaxa: any[], taxaId: number ): number[] => {
   const taxaWithAncestors = seenTaxa.filter( ( t ) => (
     t.taxon && t.taxon.ancestorIds.length > 0
   ) );
-  const matchingAncestors = [];
+  const matchingAncestors: number[] = [];
 
   taxaWithAncestors.forEach( ( taxon ) => {
     const { ancestorIds } = taxon.taxon;

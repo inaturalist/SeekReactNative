@@ -13,7 +13,7 @@ import i18n from "../i18n";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 
-const setChallengeProgress = async ( index: any ): any => AsyncStorage.setItem( "challengeProgress", index.toString() );
+const setChallengeProgress = async ( index: any ): Promise<any> => AsyncStorage.setItem( "challengeProgress", index.toString() );
 
 const fetchIncompleteChallenges = ( realm ) => {
   const incomplete = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND startedDate != null" );

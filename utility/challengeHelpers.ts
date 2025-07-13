@@ -221,7 +221,7 @@ const showAdminAlert = ( ): void => {
   );
 };
 
-const setupChallenges = async ( isAdmin: boolean ): Promise<any> => {
+const setupChallenges = async ( isAdmin: boolean ): Promise<void> => {
   try {
     const realm = await Realm.open( realmConfig );
     const dict = Object.keys( challengesDict );

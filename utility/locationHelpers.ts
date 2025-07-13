@@ -5,22 +5,23 @@ import Geolocation from "react-native-geolocation-service";
 import i18n from "../i18n";
 
 const requestiOSPermissions = async ( ) => {
+export interface TruncatedCoords {
+  latitude: number;
+  longitude: number;
+}
+
+export interface Coords {
+  latitude: number;
+  longitude: number;
+  accuracy: number;
+}
+
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );
     return permission;
   }
 };
 
-type TruncatedCoords = {
-  latitude: number,
-  longitude: number
-}
-
-export type Coords = {
-  latitude: number,
-  longitude: number,
-  accuracy: number
-}
 const fetchUserLocation = ( enableHighAccuracy: ?boolean = false ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {

@@ -177,7 +177,11 @@ const startChallenge = ( index: number ): void => {
   } );
 };
 
-const setChallengeDetails = ( date: Date ) => {
+const setChallengeDetails = ( date: Date ): {
+  logo: string;
+  secondLogo: string;
+  sponsorName: string;
+} => {
   const year = getYear( date );
   const month = getMonth( date );
 

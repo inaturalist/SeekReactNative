@@ -169,9 +169,9 @@ const findSpeciesObserved = ( seenTaxa, challenge ) => {
   const challengeMonth = missionsDict[challenge.index];
   const challengeMissions = Object.keys( challengeMonth );
 
-  let species = [];
-  let ancestors = [];
-  let taxaForMission = [];
+  let species: Taxon[] = [];
+  let ancestors: Taxon[] = [];
+  let taxaForMission: number[] = [];
 
   challengeMissions.forEach( ( mission ) => {
     const { types, number } = challengeMonth[mission];

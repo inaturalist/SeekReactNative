@@ -94,7 +94,7 @@ const useFetchStats = ( year: number ): StatsState => {
         );
         const countObservationsThisYear = observationsThisYear.length;
 
-        function getRandom( arr, n ) {
+        function getRandom( arr: any[], n: number ) {
           let len = arr.length;
           const result = new Array( n ),
             taken = new Array( len );
@@ -110,7 +110,7 @@ const useFetchStats = ( year: number ): StatsState => {
           return result;
         }
         // Get ten random observations from this year
-        let randomObservations = [];
+        let randomObservations: any[] = [];
         if ( countObservationsThisYear > 10 ) {
           randomObservations = getRandom( observationsThisYear, 10 );
         } else {
@@ -119,7 +119,7 @@ const useFetchStats = ( year: number ): StatsState => {
 
         // Get the top three of iconicTaxa observed over the year
         const reduced = observationsThisYear.reduce(
-          ( iconicTaxa, observation ) => {
+          ( iconicTaxa: any, observation: any ) => {
             const iconicTaxonId = observation.taxon.iconicTaxonId;
             iconicTaxa[iconicTaxonId] = iconicTaxa[iconicTaxonId] + 1 || 1;
             return iconicTaxa;
@@ -130,7 +130,7 @@ const useFetchStats = ( year: number ): StatsState => {
           .sort( ( a, b ) => reduced[b] - reduced[a] )
           .slice( 0, 3 );
 
-        const _badges = [];
+        const _badges: any[] = [];
         const badges = realm.objects( "BadgeRealm" );
         topThreeIconicTaxonIds.forEach( ( id ) => {
           if ( id === null ) {
@@ -158,7 +158,7 @@ const useFetchStats = ( year: number ): StatsState => {
           .sorted( "count", true );
 
         // Get histogram data
-        const histogram = observationsThisYear.reduce( ( data, observation ) => {
+        const histogram = observationsThisYear.reduce( ( data: any[], observation: any ) => {
           const month = observation.date.getMonth();
           data[month] = { count: data[month]?.count + 1 || 1, month: month + 1  };
           return data;

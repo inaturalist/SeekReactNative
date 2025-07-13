@@ -186,9 +186,9 @@ const useFetchStats = ( year: number ): StatsState => {
   return state;
 };
 
-const useFetchChallengesForYear = ( year ): any => {
-  const [challengeBadges, setChallengeBadges] = useState( [] );
-  const [challengeCount, setChallengeCount] = useState( undefined );
+const useFetchChallengesForYear = ( year: number ): { challengeBadges: any[]; challengeCount: number | undefined } => {
+  const [challengeBadges, setChallengeBadges] = useState<any[]>( [] );
+  const [challengeCount, setChallengeCount] = useState<number | undefined>( undefined );
 
   useEffect( () => {
     recalculateChallenges( );

@@ -217,8 +217,14 @@ const useFetchSpeciesObserved = ( challenge: Object ): Array<Object> => {
   return speciesObserved;
 };
 
-const useFetchTruncatedUserCoords = ( ): any => {
-  const [coords, setCoords] = useState( {
+const useFetchTruncatedUserCoords = ( ): TruncatedCoords | {
+  latitude: null;
+  longitude: null;
+} => {
+  const [coords, setCoords] = useState<TruncatedCoords | {
+    latitude: null;
+    longitude: null;
+  }>( {
     latitude: null,
     longitude: null
   } );
@@ -238,7 +244,6 @@ const useFetchTruncatedUserCoords = ( ): any => {
 
   return coords;
 };
-
 
 export {
   useFetchChallenges,

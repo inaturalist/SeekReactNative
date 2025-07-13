@@ -313,7 +313,10 @@ const getChallengeProgress = async (): Promise<number | null | unknown> => {
   }
 };
 
-const checkForChallengesCompleted = async ( ): Promise<Object> => {
+const checkForChallengesCompleted = async ( ): Promise<{
+  challengeInProgress: any | null;
+  challengeComplete: any | null;
+}> => {
   const prevChallengesCompleted = await getChallengesCompleted();
   const challengeProgressIndex = await getChallengeProgress();
 

@@ -203,7 +203,7 @@ const setChallengeDetails = ( date: Date ) => {
   }
 };
 
-const showAdminAlert = ( ) => {
+const showAdminAlert = ( ): void => {
   // this lets admins know that they should expect to see the
   // newest challenge before the start of the month
   Alert.alert(
@@ -220,7 +220,7 @@ const setupChallenges = async ( isAdmin: boolean ): Promise<any> => {
     let adminAlertShown = false;
 
     realm.write( ( ) => {
-      dict.forEach( ( challengesType, i ) => {
+      dict.forEach( ( challengesType: string, i: number ) => {
         const challenge = challengesDict[challengesType];
         const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
         const isCurrent = isWithinCurrentMonth( challenge.availableDate );

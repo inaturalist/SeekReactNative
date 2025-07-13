@@ -5,8 +5,8 @@ import { addMonths, isEqual } from "date-fns";
 import realmConfig from "../../../models";
 import { recalculateChallenges } from "../../../utility/challengeHelpers";
 
-const useCountObservationsForYear = ( year ): any => {
-  const [countObservationsThisYear, setCountObservationsThisYear] = useState( null );
+const useCountObservationsForYear = ( year: number ): number | null => {
+  const [countObservationsThisYear, setCountObservationsThisYear] = useState<number | null>( null );
 
   useEffect( () => {
     const fetchCount = async () => {

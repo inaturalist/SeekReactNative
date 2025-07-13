@@ -8,6 +8,7 @@ import { taxonDictForMissions } from "../../../utility/dictionaries/taxonomyDict
 import { fetchTruncatedUserLocation, TruncatedCoords } from "../../../utility/locationHelpers";
 
 interface Challenge {
+  startedDate: Date;
   numbersObserved: any;
 }
 
@@ -21,6 +22,9 @@ interface Section {
 interface Mission {
   mission: any;
   observations: any;
+}
+
+interface Taxon {
 }
 
 const createChallengeSections = ( challenges: any ): Section[] => {
@@ -215,8 +219,8 @@ const findSpeciesObserved = ( seenTaxa, challenge ) => {
   return species;
 };
 
-const useFetchSpeciesObserved = ( challenge: Object ): Array<Object> => {
-  const [speciesObserved, setSpeciesObserved] = useState( [] );
+const useFetchSpeciesObserved = ( challenge: Challenge ): Taxon[] => {
+  const [speciesObserved, setSpeciesObserved] = useState<Taxon[]>( [] );
 
   useEffect( ( ) => {
     const fetchSpeciesObservedForChallenge = ( ) => {

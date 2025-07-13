@@ -60,8 +60,16 @@ const useObservationsForYear = ( year: number ): any => {
   return observationsForYear;
 };
 
-const useFetchStats = ( year ): any => {
-  const [state, setState] = useState( {
+interface StatsState {
+  level: any;
+  observationsThisYear: any[];
+  topThreeSpeciesBadges: any[];
+  randomObservations: any[];
+  histogram: any[];
+}
+
+const useFetchStats = ( year: number ): StatsState => {
+  const [state, setState] = useState<StatsState>( {
     level: null,
     observationsThisYear: [],
     topThreeSpeciesBadges: [],

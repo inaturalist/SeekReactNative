@@ -102,11 +102,16 @@ const checkForAncestors = ( seenTaxa: any[], taxaId: number ): number[] => {
   return matchingAncestors;
 };
 
-const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
+interface SeenTaxon {
+  taxon: {
+    iconicTaxonId: number
+  }
+}
+const calculateTaxaSeenPerMission = ( types: string[], seenTaxa: SeenTaxon[] ): number => {
   let count = 0;
 
   types.forEach( ( taxa ) => {
-    let taxaPerMission;
+    let taxaPerMission: number;
 
     if ( taxa === "all" ) {
       taxaPerMission = seenTaxa.length;

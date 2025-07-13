@@ -355,9 +355,13 @@ const checkForChallengesCompleted = async ( ): Promise<{
   );
 };
 
-const fetchUnobservedChallengeTaxaIds = ( missions: Array<Object>, index: number ): Array<Object> => {
-  const unobservedTaxaIds = [];
-  const missionDetails = Object.keys( missionsDict[index] ).map( mission => missionsDict[index][mission] );
+interface Mission {
+  observations: number;
+}
+
+const fetchUnobservedChallengeTaxaIds = ( missions: Mission[], index: number ): number[] => {
+  const unobservedTaxaIds: number[] = [];
+  const missionDetails = Object.keys( missionsDict[index] ).map( ( mission ) => missionsDict[index][mission] );
 
   const fetchUnobservedMissionTaxaIds = ( taxaTypes: string[] ) => {
     taxaTypes.forEach( ( type ) => {

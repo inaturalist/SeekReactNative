@@ -267,7 +267,7 @@ const setupChallenges = async ( isAdmin: boolean ): Promise<any> => {
   }
 };
 
-const setChallengesCompleted = ( challenges ) => {
+const setChallengesCompleted = ( challenges: string ): void => {
   AsyncStorage.setItem( "challengesCompleted", challenges );
 };
 

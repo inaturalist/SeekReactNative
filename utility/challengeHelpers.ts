@@ -292,7 +292,7 @@ const checkNumberOfChallengesCompleted = (): void => {
     } );
 };
 
-const getChallengesCompleted = async () => {
+const getChallengesCompleted = async (): Promise<string | unknown> => {
   try {
     const earned = await AsyncStorage.getItem( "challengesCompleted" );
     return earned;
@@ -301,7 +301,7 @@ const getChallengesCompleted = async () => {
   }
 };
 
-const getChallengeProgress = async () => {
+const getChallengeProgress = async (): Promise<number | null | unknown> => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
     if ( index !== "none" && index !== null ) {

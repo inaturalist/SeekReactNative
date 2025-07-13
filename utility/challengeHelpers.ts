@@ -271,9 +271,9 @@ const setChallengesCompleted = ( challenges: string ): void => {
   AsyncStorage.setItem( "challengesCompleted", challenges );
 };
 
-const checkNumberOfChallengesCompleted = () => {
+const checkNumberOfChallengesCompleted = (): void => {
   Realm.open( realmConfig )
-    .then( ( realm ) => {
+    .then( ( realm: Realm ) => {
       const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "startedDate != null AND percentComplete == 100" ).length;
 
       setChallengesCompleted( challengesCompleted.toString() );

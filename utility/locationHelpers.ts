@@ -92,7 +92,7 @@ const setPlaceName = ( results: Array<Object> ) => {
   return placeName;
 };
 
-const fetchLocationName = ( lat: ?number, lng: ?number ): Promise<?string> => (
+const fetchLocationName = ( lat: number | null, lng: number | null ): Promise<string | null> => (
   new Promise( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( results ) => {
       if ( results.length === 0 ) {

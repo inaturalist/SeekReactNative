@@ -34,7 +34,7 @@ const useCountObservationsForYear = ( year: number ): number | null => {
   return countObservationsThisYear;
 };
 
-const useObservationsForYear = ( year ): any => {
+const useObservationsForYear = ( year: number ): any => {
   const [observationsForYear, setObservationsThisYear] = useState( null );
   useEffect( () => {
     const fetchObservations = async () => {

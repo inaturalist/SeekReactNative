@@ -94,7 +94,7 @@ const setPlaceName = ( results: GeocodeResult[] ): string | null => {
 
 const fetchLocationName = ( lat: number | null, lng: number | null ): Promise<string | null> => (
   new Promise( ( resolve, reject ) => {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( results ) => {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( results: GeocodeResult[] ) => {
       if ( results.length === 0 ) {
         resolve( null );
       }

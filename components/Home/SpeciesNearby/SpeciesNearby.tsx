@@ -19,6 +19,13 @@ import createUserAgent from "../../../utility/userAgent";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
+interface State {
+  error: string | null;
+  showModal: boolean;
+  loading: boolean;
+  fetching: boolean;
+}
+
 enum ACTION_TYPE {
   ERROR = "ERROR",
   NO_ERROR = "NO_ERROR",
@@ -26,6 +33,13 @@ enum ACTION_TYPE {
   SET_LOADING = "SET_LOADING",
   SET_FETCHING = "SET_FETCHING"
 }
+
+type Action =
+  | { type: ACTION_TYPE.ERROR; error: string }
+  | { type: ACTION_TYPE.NO_ERROR }
+  | { type: ACTION_TYPE.SHOW_MODAL; showModal: boolean }
+  | { type: ACTION_TYPE.SET_LOADING; loading: boolean }
+  | { type: ACTION_TYPE.SET_FETCHING };
 function reducer( state: State, action: Action ) {
     switch ( action.type ) {
       case ACTION_TYPE.ERROR:

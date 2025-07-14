@@ -1,6 +1,7 @@
 import React, { useCallback, useReducer, useEffect } from "react";
 import { View, Platform, Modal } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { PositionError} from "react-native-geolocation-service";
 
 import { viewStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
@@ -108,7 +109,7 @@ const SpeciesNearby = ( ) => {
   const getGeolocation = useCallback( ( ) => {
     fetchTruncatedUserLocation( ).then( ( { latitude, longitude } ) => {
       updateLatLng( latitude, longitude );
-    } ).catch( ( code ) => {
+    } ).catch( ( code: PositionError ) => {
       if ( code === 5 ) {
         setAndroidAccuracyLocationError( );
       } else {

@@ -73,7 +73,7 @@ const SpeciesNearby = ( ) => {
     dispatch( { type: ACTION_TYPE.SET_LOADING, loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
 
-  const updateDowntimeError = useCallback( ( ) => dispatch( { type: "ERROR", error: "downtime" } ), [] );
+  const updateDowntimeError = useCallback( ( ) => dispatch( { type: ACTION_TYPE.ERROR, error: "downtime" } ), [] );
 
   const setLocationError = useCallback( ( ) => {
     if ( error !== "species_nearby_requires_location" ) {

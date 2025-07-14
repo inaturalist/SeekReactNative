@@ -1,7 +1,6 @@
 import React, { useCallback, useReducer, useEffect } from "react";
 import { View, Platform, Modal } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import type { Node } from "react";
 
 import { viewStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
@@ -20,9 +19,6 @@ import createUserAgent from "../../../utility/userAgent";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
-const SpeciesNearby = ( ): Node => {
-  const { speciesNearby, setSpeciesNearby } = useSpeciesNearby( );
-  const granted = useLocationPermission( );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -40,6 +36,10 @@ const SpeciesNearby = ( ): Node => {
         throw new Error( );
     }
   }, {
+const SpeciesNearby = ( ) => {
+  const { speciesNearby, setSpeciesNearby } = useSpeciesNearby( );
+  const granted = useLocationPermission( );
+
     error: speciesNearby.isConnected === false ? "internet_error" : null,
     showModal: false,
     loading: speciesNearby.taxa.length === 0,

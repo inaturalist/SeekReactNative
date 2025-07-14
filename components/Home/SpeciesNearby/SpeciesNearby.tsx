@@ -71,7 +71,7 @@ const SpeciesNearby = ( ) => {
 
   const { error, showModal, loading, fetching } = state;
 
-  const updateLatLng = useCallback( ( latitude, longitude ) => {
+  const updateLatLng = useCallback( ( latitude: number, longitude: number ) => {
     setSpeciesNearby( {
       ...speciesNearby,
       latitude,

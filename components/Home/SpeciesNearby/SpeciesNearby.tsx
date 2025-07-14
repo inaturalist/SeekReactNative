@@ -80,7 +80,7 @@ const SpeciesNearby = ( ) => {
     dispatch( { type: ACTION_TYPE.SET_LOADING, loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
 
-  const updateTaxaType = useCallback( ( type ) => {
+  const updateTaxaType = useCallback( ( type: string ) => {
     setSpeciesNearby( {
       ...speciesNearby,
       taxaType: type

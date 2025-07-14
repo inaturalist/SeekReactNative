@@ -19,17 +19,24 @@ import createUserAgent from "../../../utility/userAgent";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
+enum ACTION_TYPE {
+  ERROR = "ERROR",
+  NO_ERROR = "NO_ERROR",
+  SHOW_MODAL = "SHOW_MODAL",
+  SET_LOADING = "SET_LOADING",
+  SET_FETCHING = "SET_FETCHING"
+}
 function reducer( state: State, action: Action ) {
     switch ( action.type ) {
-      case "ERROR":
+      case ACTION_TYPE.ERROR:
         return { ...state, error: action.error };
-      case "NO_ERROR":
+      case ACTION_TYPE.NO_ERROR:
         return { ...state, error: null, fetching: false };
-      case "SHOW_MODAL":
+      case ACTION_TYPE.SHOW_MODAL:
         return { ...state, showModal: action.showModal };
-      case "SET_LOADING":
+      case ACTION_TYPE.SET_LOADING:
         return { ...state, loading: action.loading, fetching: false, error: null };
-      case "SET_FETCHING":
+      case ACTION_TYPE.SET_FETCHING:
         return { ...state, fetching: true };
       default:
         throw new Error( );
@@ -55,7 +62,7 @@ const SpeciesNearby = ( ) => {
       latitude,
       longitude
     } );
-    dispatch( { type: "SET_LOADING", loading: true } );
+    dispatch( { type: ACTION_TYPE.SET_LOADING, loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
 
   const updateTaxaType = useCallback( ( type ) => {
@@ -63,25 +70,25 @@ const SpeciesNearby = ( ) => {
       ...speciesNearby,
       taxaType: type
     } );
-    dispatch( { type: "SET_LOADING", loading: true } );
+    dispatch( { type: ACTION_TYPE.SET_LOADING, loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
 
   const updateDowntimeError = useCallback( ( ) => dispatch( { type: "ERROR", error: "downtime" } ), [] );
 
   const setLocationError = useCallback( ( ) => {
     if ( error !== "species_nearby_requires_location" ) {
-      dispatch( { type: "ERROR", error: "species_nearby_requires_location" } );
+      dispatch( { type: ACTION_TYPE.ERROR, error: "species_nearby_requires_location" } );
     }
    }, [error] );
 
   const setAndroidAccuracyLocationError = useCallback( ( ) => {
     if ( error !== "species_nearby_requires_android_accuracy" ) {
-      dispatch( { type: "ERROR", error: "species_nearby_requires_android_accuracy" } );
+      dispatch( { type: ACTION_TYPE.ERROR, error: "species_nearby_requires_android_accuracy" } );
     }
   }, [error] );
 
-  const openLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: true } ), [] );
-  const closeLocationPicker = useCallback( ( ) => dispatch( { type: "SHOW_MODAL", showModal: false } ), [] );
+  const openLocationPicker = useCallback( ( ) => dispatch( { type: ACTION_TYPE.SHOW_MODAL, showModal: true } ), [] );
+  const closeLocationPicker = useCallback( ( ) => dispatch( { type: ACTION_TYPE.SHOW_MODAL, showModal: false } ), [] );
 
   const getGeolocation = useCallback( ( ) => {
     fetchTruncatedUserLocation( ).then( ( { latitude, longitude } ) => {
@@ -106,9 +113,9 @@ const SpeciesNearby = ( ) => {
   const checkInternet = useCallback( ( ) => {
     const { isConnected } = speciesNearby;
     if ( isConnected === false ) {
-      dispatch( { type: "ERROR", error: "internet_error" } );
+      dispatch( { type: ACTION_TYPE.ERROR, error: "internet_error" } );
     } else if ( error === "internet_error" && isConnected ) {
-      dispatch( { type: "NO_ERROR" } );
+      dispatch( { type: ACTION_TYPE.NO_ERROR } );
     }
   }, [error, speciesNearby] );
 
@@ -144,7 +151,6 @@ const SpeciesNearby = ( ) => {
       };
 
       if ( taxonIds[taxaType] ) {
-        // $FlowFixMe
         params.taxon_id = taxonIds[taxaType];
       }
 
@@ -153,7 +159,7 @@ const SpeciesNearby = ( ) => {
       const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
       const options = { headers: { "User-Agent": createUserAgent() } };
 
-      dispatch( { type: "SET_FETCHING", fetching: true } );
+      dispatch( { type: ACTION_TYPE.SET_FETCHING } );
 
       fetch( `${site}?${queryString}`, options )
         .then( response => response.json( ) )
@@ -163,13 +169,13 @@ const SpeciesNearby = ( ) => {
             ...speciesNearby,
             taxa: newTaxa
           } );
-          dispatch( { type: "SET_LOADING", loading: false } );
+          dispatch( { type: ACTION_TYPE.SET_LOADING, loading: false } );
          } )
         .catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
           if ( e instanceof SyntaxError ) { // this is from the iNat server being down
             updateDowntimeError( );
           } else if ( e.message === "Network request failed" ) {
-            dispatch( { type: "ERROR", error: "internet_error" } );
+            dispatch( { type: ACTION_TYPE.ERROR, error: "internet_error" } );
           }
         } );
     };

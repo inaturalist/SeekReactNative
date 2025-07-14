@@ -19,7 +19,7 @@ interface Params {
   taxon_id: number | undefined;
 }
 
-const fetchSpeciesNearby = async ( params: Params ): Promise<any> => {
+const fetchSpeciesNearby = async ( params: Params ): Promise<string | any[]> => {
   const staticParams = {
     per_page: 20,
     observed_on: new Date( ),
@@ -41,7 +41,7 @@ const fetchSpeciesNearby = async ( params: Params ): Promise<any> => {
 
   try {
     const response = await fetch( url, options );
-    const { results } = await response.json( );
+    const { results }: { results: { taxon: any }[] } = await response.json( );
     const newTaxa = results.map( r => r.taxon );
     return newTaxa;
   } catch ( e ) {

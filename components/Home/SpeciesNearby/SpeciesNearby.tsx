@@ -171,7 +171,7 @@ const SpeciesNearby = ( ) => {
       }
 
       const site = "https://api.inaturalist.org/v1/taxa/nearby";
-      const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
+      const queryString = Object.keys( params ).map( key => `${key}=${params[key as keyof ApiParams]}` ).join( "&" );
       const options = { headers: { "User-Agent": createUserAgent() } };
 
       dispatch( { type: ACTION_TYPE.SET_FETCHING } );

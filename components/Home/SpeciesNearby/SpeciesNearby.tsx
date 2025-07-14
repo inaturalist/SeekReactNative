@@ -189,7 +189,7 @@ const SpeciesNearby = ( ) => {
 
       fetch( `${site}?${queryString}`, options )
         .then( response => response.json( ) )
-        .then( ( { results } ) => {
+        .then( ( { results }: { results: { taxon: any }[] } ) => {
           const newTaxa = results.map( r => r.taxon );
           setSpeciesNearby( {
             ...speciesNearby,

@@ -42,6 +42,17 @@ type Action =
   | { type: ACTION_TYPE.SET_LOADING; loading: boolean }
   | { type: ACTION_TYPE.SET_FETCHING };
 
+interface ApiParams {
+  per_page: number;
+  lat: number;
+  lng: number | null;
+  observed_on: Date;
+  seek_exceptions: boolean;
+  locale: string;
+  all_photos: boolean;
+  taxon_id?: number;
+}
+
 function reducer( state: State, action: Action ) {
     switch ( action.type ) {
       case ACTION_TYPE.ERROR:
@@ -156,7 +167,7 @@ const SpeciesNearby = ( ) => {
         return;
       }
 
-      const params = {
+      const params: ApiParams = {
         per_page: 20,
         lat: latitude,
         lng: longitude,

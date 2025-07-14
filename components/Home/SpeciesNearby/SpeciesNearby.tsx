@@ -19,8 +19,7 @@ import createUserAgent from "../../../utility/userAgent";
 import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
 
-  // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
+function reducer( state: State, action: Action ) {
     switch ( action.type ) {
       case "ERROR":
         return { ...state, error: action.error };
@@ -35,11 +34,13 @@ import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
       default:
         throw new Error( );
     }
-  }, {
+}
+
 const SpeciesNearby = ( ) => {
   const { speciesNearby, setSpeciesNearby } = useSpeciesNearby( );
   const granted = useLocationPermission( );
 
+  const [state, dispatch] = useReducer( reducer, {
     error: speciesNearby.isConnected === false ? "internet_error" : null,
     showModal: false,
     loading: speciesNearby.taxa.length === 0,

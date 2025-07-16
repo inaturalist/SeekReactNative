@@ -3,7 +3,6 @@ import { View, BackHandler } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
-import type { Node } from "react";
 
 import { getRoute } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
@@ -17,7 +16,6 @@ import ObsList from "./ObsList";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import { resetRouter } from "../../utility/navigationHelpers";
 
-const Observations = ( ): Node => {
 interface Taxon {
   id: number;
   iconicTaxonId?: number | undefined;
@@ -37,6 +35,8 @@ interface Photo {
 interface ItemToDelete extends Taxon {
   photo: Photo;
 }
+
+const Observations = ( ) => {
   const navigation = useNavigation( );
   const [observations, setObservations] = useState( [] );
   const [showModal, setModal] = useState( false );

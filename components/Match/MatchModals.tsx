@@ -30,20 +30,23 @@ interface State {
   challengeShown: boolean;
   challengeModal: boolean;
   levelModal: boolean;
+  replacePhotoModal: boolean | undefined;
 }
 
 enum ACTION_TYPE {
   SET_BADGES = "SET_BADGES",
   SET_CHALLENGES = "SET_CHALLENGES",
   SET_CHALLENGE_MODAL = "SET_CHALLENGE_MODAL",
-  SET_LEVEL_MODAL = "SET_LEVEL_MODAL"
+  SET_LEVEL_MODAL = "SET_LEVEL_MODAL",
+  CLOSE_REPLACE_PHOTO_MODAL = "CLOSE_REPLACE_PHOTO_MODAL"
 }
 
 type Action =
   | { type: ACTION_TYPE.SET_BADGES; latestLevel: any; latestBadge: any }
   | { type: ACTION_TYPE.SET_CHALLENGES; challenge: any; challengeInProgress: any }
   | { type: ACTION_TYPE.SET_CHALLENGE_MODAL; challengeModal: boolean; challengeShown: boolean }
-  | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean };
+  | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean }
+  | { type: ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL; };
 
 interface Props {
   observation: Observation;
@@ -55,51 +58,57 @@ interface Props {
   scientificNames: boolean;
 }
 
-const initialState: State = {
-    latestLevel: null,
-    levelShown: null,
-    badge: null,
-    challenge: null,
-    challengeInProgress: null,
-    challengeShown: false,
-    challengeModal: false,
-    levelModal: false
-};
-
-function reducer( state: State, action: Action ) {
-    switch ( action.type ) {
-      case ACTION_TYPE.SET_BADGES:
-        return {
-          ...state,
-          latestLevel: action.latestLevel,
-          badge: action.latestBadge,
-          replacePhotoModal: false
-        };
-      case ACTION_TYPE.SET_CHALLENGES:
-        return {
-          ...state,
-          challenge: action.challenge,
-          challengeInProgress: action.challengeInProgress,
-          replacePhotoModal: false
-        };
-      case ACTION_TYPE.SET_CHALLENGE_MODAL:
-        return {
-          ...state,
-          challengeModal: action.challengeModal,
-          challengeShown: action.challengeShown,
-          replacePhotoModal: false
-        };
-      case ACTION_TYPE.SET_LEVEL_MODAL:
-        return {
-          ...state,
-          levelModal: action.levelModal,
-          levelShown: action.levelShown,
-          replacePhotoModal: false
-        };
-      default:
-        throw new Error( );
-    }
+function reducer( state: State, action: Action ): State {
+  switch ( action.type ) {
+    case ACTION_TYPE.SET_BADGES:
+      return {
+        ...state,
+        latestLevel: action.latestLevel,
+        badge: action.latestBadge,
+        replacePhotoModal: false
+      };
+    case ACTION_TYPE.SET_CHALLENGES:
+      return {
+        ...state,
+        challenge: action.challenge,
+        challengeInProgress: action.challengeInProgress,
+        replacePhotoModal: false
+      };
+    case ACTION_TYPE.SET_CHALLENGE_MODAL:
+      return {
+        ...state,
+        challengeModal: action.challengeModal,
+        challengeShown: action.challengeShown,
+        replacePhotoModal: false
+      };
+    case ACTION_TYPE.SET_LEVEL_MODAL:
+      return {
+        ...state,
+        levelModal: action.levelModal,
+        levelShown: action.levelShown,
+        replacePhotoModal: false
+      };
+    case ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL:
+      return {
+        ...state,
+        replacePhotoModal: false
+      };
+    default:
+      throw new Error();
   }
+}
+
+const initialState = {
+  latestLevel: null,
+  levelShown: null,
+  badge: null,
+  challenge: null,
+  challengeInProgress: null,
+  challengeShown: false,
+  challengeModal: false,
+  levelModal: false,
+  replacePhotoModal: undefined
+};
 
 const MatchModals = ( {
   observation,

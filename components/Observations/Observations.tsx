@@ -40,9 +40,9 @@ const Observations = ( ) => {
   const navigation = useNavigation( );
   const [observations, setObservations] = useState( [] );
   const [showModal, setModal] = useState( false );
-  const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
   const [searchText, setSearchText] = useState( "" );
+  const [itemToDelete, setItemToDelete] = useState<ItemToDelete | null>( null );
 
   useFocusEffect(
     useCallback( ( ) => {

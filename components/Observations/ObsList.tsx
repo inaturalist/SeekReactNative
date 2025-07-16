@@ -34,7 +34,7 @@ const ObsList = ( {
   const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
   const [itemScrolledId, setItemScrolledId] = useState( null );
-  const [hasAnimated, setHasAnimated] = useState( false );
+  const [hasAnimated, setHasAnimated] = useState<boolean>( false );
 
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 

@@ -23,7 +23,7 @@ interface Props {
     iconicTaxonId: number;
     preferredCommonName: string;
     name: string;
-    photo: Object;
+    photo: object;
     id: number;
   };
 }

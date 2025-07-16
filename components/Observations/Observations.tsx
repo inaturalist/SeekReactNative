@@ -71,7 +71,7 @@ const Observations = ( ) => {
 
   const closeModal = ( ) => setModal( false );
 
-  const setupObsList = ( realm, species, hideSections = false ) => {
+  const setupObsList = ( species: any, hideSections: boolean = false ) => {
     const obs = createSectionList( species, hideSections );
     setObservations( obs );
     setLoading( false );
@@ -96,7 +96,7 @@ const Observations = ( ) => {
 
     // wait until all commonNames are fetched before setting up obsList
     Promise.all( commonNames ).then( ( result ) => {
-      setupObsList( realm, species );
+      setupObsList( species );
     } );
   };
 
@@ -117,7 +117,7 @@ const Observations = ( ) => {
   const resetObservations = useCallback( ( ) => {
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" );
-      setupObsList( realm, species );
+      setupObsList( species );
     } ).catch( ( ) => {
         // console.log( "Err: ", err )
     } );
@@ -130,7 +130,7 @@ const Observations = ( ) => {
     if ( text.length >= 1 ) {
       Realm.open( realmConfig ).then( ( realm ) => {
         const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}' OR taxon.preferredCommonName CONTAINS[c] '${text}'` );
-        setupObsList( realm, species, true );
+        setupObsList( species, true );
       } ).catch( ( ) => {
         // console.log( "Err: ", err )
       } );

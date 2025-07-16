@@ -21,6 +21,16 @@ import { useCommonName } from "../../utility/customHooks/useCommonName";
 import { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
+interface State {
+  latestLevel: any | null;
+  levelShown: any | null;
+  badge: any | null;
+  challenge: any | null;
+  challengeInProgress: any | null;
+  challengeShown: boolean;
+  challengeModal: boolean;
+  levelModal: boolean;
+}
 
 enum ACTION_TYPE {
   SET_BADGES = "SET_BADGES",

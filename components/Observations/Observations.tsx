@@ -18,6 +18,25 @@ import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import { resetRouter } from "../../utility/navigationHelpers";
 
 const Observations = ( ): Node => {
+interface Taxon {
+  id: number;
+  iconicTaxonId?: number | undefined;
+  preferredCommonName?: string | undefined;
+  name: string;
+  defaultPhoto?: {
+    backupUri?: string;
+    mediumUrl?: string;
+    lastUpdated?: Date;
+  }
+}
+
+interface Photo {
+  uri: string;
+}
+
+interface ItemToDelete extends Taxon {
+  photo: Photo;
+}
   const navigation = useNavigation( );
   const [observations, setObservations] = useState( [] );
   const [showModal, setModal] = useState( false );
@@ -38,7 +57,7 @@ const Observations = ( ): Node => {
     }, [navigation] )
   );
 
-  const openModal = useCallback( ( photo, taxon ) => {
+  const openModal = useCallback( ( photo: Photo, taxon: Taxon ) => {
     const { id, preferredCommonName, name, iconicTaxonId } = taxon;
     setItemToDelete( {
       id,

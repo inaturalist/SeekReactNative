@@ -136,13 +136,12 @@ const MatchModals = ( {
     challenge,
     challengeShown,
     levelModal,
-    challengeModal
+    challengeModal,
+    replacePhotoModal
   } = state;
 
-  const [replacePhotoModal, setReplacePhotoModal] = useState( undefined );
-
   const closeChallengeModal = ( ) => dispatch( { type: ACTION_TYPE.SET_CHALLENGE_MODAL, challengeModal: false, challengeShown: true } );
-  const closeReplacePhotoModal = ( ) => setReplacePhotoModal( false );
+  const closeReplacePhotoModal = ( ) => dispatch( { type: ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL } );
   const closeLevelModal = ( ) => dispatch( { type: ACTION_TYPE.SET_LEVEL_MODAL, levelModal: false, levelShown: true } );
 
   useEffect( ( ) => {

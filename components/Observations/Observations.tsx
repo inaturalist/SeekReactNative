@@ -72,7 +72,7 @@ const Observations = ( ) => {
   const closeModal = ( ) => setModal( false );
 
   const setupObsList = ( realm, species, hideSections = false ) => {
-    const obs = createSectionList( realm, species, hideSections );
+    const obs = createSectionList( species, hideSections );
     setObservations( obs );
     setLoading( false );
   };

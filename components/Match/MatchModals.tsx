@@ -22,7 +22,6 @@ import { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 
-  const navigation = useNavigation( );
 enum ACTION_TYPE {
   SET_BADGES = "SET_BADGES",
   SET_CHALLENGES = "SET_CHALLENGES",
@@ -102,6 +101,7 @@ const MatchModals = ( {
   scientificNames
 }: Props ) => {
   const { setId } = useSpeciesDetail( );
+  const navigation = useNavigation( );
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
   const taxaId = taxon && taxon.taxaId;

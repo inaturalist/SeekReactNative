@@ -6,7 +6,6 @@ import React, {
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
@@ -22,25 +21,7 @@ import { useCommonName } from "../../utility/customHooks/useCommonName";
 import { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
-type Props = {
-  observation: Observation,
-  screenType: string,
-  closeFlagModal: ( misidentified: boolean ) => void,
-  setNavigationPath: Function,
-  flagModal: boolean,
-  navPath: ?string,
-  scientificNames: boolean
-};
 
-const MatchModals = ( {
-  observation,
-  screenType,
-  closeFlagModal,
-  setNavigationPath,
-  flagModal,
-  navPath,
-  scientificNames
-}: Props ): Node => {
   const { setId } = useSpeciesDetail( );
   const navigation = useNavigation( );
   const taxon = observation && observation.taxon;
@@ -48,6 +29,15 @@ const MatchModals = ( {
   const taxaId = taxon && taxon.taxaId;
 
   const commonName = useCommonName( taxaId );
+interface Props {
+  observation: Observation;
+  screenType: string;
+  closeFlagModal: ( misidentified: boolean ) => void;
+  setNavigationPath: ( path: string | null ) => void;
+  flagModal: boolean;
+  navPath: string | null;
+  scientificNames: boolean;
+}
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -93,6 +83,15 @@ const MatchModals = ( {
     challengeModal: false,
     levelModal: false
   } );
+const MatchModals = ( {
+  observation,
+  screenType,
+  closeFlagModal,
+  setNavigationPath,
+  flagModal,
+  navPath,
+  scientificNames
+}: Props ) => {
   const {
     levelShown,
     latestLevel,

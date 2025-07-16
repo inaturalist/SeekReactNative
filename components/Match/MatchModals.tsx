@@ -106,6 +106,7 @@ const MatchModals = ( {
   navPath,
   scientificNames
 }: Props ) => {
+  const [state, dispatch] = useReducer( reducer, initialState );
   const {
     levelShown,
     latestLevel,

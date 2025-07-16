@@ -138,7 +138,7 @@ const Observations = ( ): Node => {
     return unsub;
   } );
 
-  const deleteObservation = async ( id ) => {
+  const deleteObservation = async ( id: number ) => {
     await removeFromCollection( id );
     setObservations( [] );
     fetchObservations( );

@@ -104,7 +104,7 @@ const Observations = ( ): Node => {
     } );
   }, [] );
 
-  const fetchFilteredObservations = useCallback( ( text ) => {
+  const fetchFilteredObservations = useCallback( ( text: string ) => {
     setSearchText( text );
 
     // otherwise hard to use search in languages with characters

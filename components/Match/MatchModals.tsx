@@ -22,11 +22,7 @@ import { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 
-  const { setId } = useSpeciesDetail( );
   const navigation = useNavigation( );
-  const taxon = observation && observation.taxon;
-  const seenDate = taxon && taxon.seenDate;
-  const taxaId = taxon && taxon.taxaId;
 enum ACTION_TYPE {
   SET_BADGES = "SET_BADGES",
   SET_CHALLENGES = "SET_CHALLENGES",
@@ -105,6 +101,11 @@ const MatchModals = ( {
   navPath,
   scientificNames
 }: Props ) => {
+  const { setId } = useSpeciesDetail( );
+  const taxon = observation && observation.taxon;
+  const seenDate = taxon && taxon.seenDate;
+  const taxaId = taxon && taxon.taxaId;
+
   const commonName = useCommonName( taxaId );
 
   const [state, dispatch] = useReducer( reducer, initialState );

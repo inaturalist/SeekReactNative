@@ -39,8 +39,18 @@ interface Props {
   scientificNames: boolean;
 }
 
-  // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
+const initialState: State = {
+    latestLevel: null,
+    levelShown: null,
+    badge: null,
+    challenge: null,
+    challengeInProgress: null,
+    challengeShown: false,
+    challengeModal: false,
+    levelModal: false
+};
+
+function reducer( state: State, action: Action ) {
     switch ( action.type ) {
       case "SET_BADGES":
         return {
@@ -73,16 +83,8 @@ interface Props {
       default:
         throw new Error( );
     }
-  }, {
-    latestLevel: null,
-    levelShown: null,
-    badge: null,
-    challenge: null,
-    challengeInProgress: null,
-    challengeShown: false,
-    challengeModal: false,
-    levelModal: false
-  } );
+  }
+
 const MatchModals = ( {
   observation,
   screenType,

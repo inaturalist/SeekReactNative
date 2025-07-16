@@ -27,6 +27,18 @@ import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
   const taxon = observation && observation.taxon;
   const seenDate = taxon && taxon.seenDate;
   const taxaId = taxon && taxon.taxaId;
+enum ACTION_TYPE {
+  SET_BADGES = "SET_BADGES",
+  SET_CHALLENGES = "SET_CHALLENGES",
+  SET_CHALLENGE_MODAL = "SET_CHALLENGE_MODAL",
+  SET_LEVEL_MODAL = "SET_LEVEL_MODAL"
+}
+
+type Action =
+  | { type: ACTION_TYPE.SET_BADGES; latestLevel: any; latestBadge: any }
+  | { type: ACTION_TYPE.SET_CHALLENGES; challenge: any; challengeInProgress: any }
+  | { type: ACTION_TYPE.SET_CHALLENGE_MODAL; challengeModal: boolean; challengeShown: boolean }
+  | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean };
 
   const commonName = useCommonName( taxaId );
 interface Props {
@@ -52,28 +64,28 @@ const initialState: State = {
 
 function reducer( state: State, action: Action ) {
     switch ( action.type ) {
-      case "SET_BADGES":
+      case ACTION_TYPE.SET_BADGES:
         return {
           ...state,
           latestLevel: action.latestLevel,
           badge: action.latestBadge,
           replacePhotoModal: false
         };
-      case "SET_CHALLENGES":
+      case ACTION_TYPE.SET_CHALLENGES:
         return {
           ...state,
           challenge: action.challenge,
           challengeInProgress: action.challengeInProgress,
           replacePhotoModal: false
         };
-      case "SET_CHALLENGE_MODAL":
+      case ACTION_TYPE.SET_CHALLENGE_MODAL:
         return {
           ...state,
           challengeModal: action.challengeModal,
           challengeShown: action.challengeShown,
           replacePhotoModal: false
         };
-      case "SET_LEVEL_MODAL":
+      case ACTION_TYPE.SET_LEVEL_MODAL:
         return {
           ...state,
           levelModal: action.levelModal,
@@ -107,9 +119,9 @@ const MatchModals = ( {
 
   const [replacePhotoModal, setReplacePhotoModal] = useState( undefined );
 
-  const closeChallengeModal = ( ) => dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: false, challengeShown: true } );
+  const closeChallengeModal = ( ) => dispatch( { type: ACTION_TYPE.SET_CHALLENGE_MODAL, challengeModal: false, challengeShown: true } );
   const closeReplacePhotoModal = ( ) => setReplacePhotoModal( false );
-  const closeLevelModal = ( ) => dispatch( { type: "SET_LEVEL_MODAL", levelModal: false, levelShown: true } );
+  const closeLevelModal = ( ) => dispatch( { type: ACTION_TYPE.SET_LEVEL_MODAL, levelModal: false, levelShown: true } );
 
   useEffect( ( ) => {
     if ( levelModal ) {
@@ -147,23 +159,23 @@ const MatchModals = ( {
   }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
 
   const checkBadges = ( ) => {
-    checkForNewBadges( ).then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
-      dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
+    checkForNewBadges( ).then( ( { latestLevel, latestBadge }: { latestLevel: any; latestBadge: any } ) => {
+      dispatch( { type: ACTION_TYPE.SET_BADGES, latestLevel, latestBadge } );
     } ).catch( ( ) => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = ( ) => {
-    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
-      dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
+    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress }: { challengeComplete: any; challengeInProgress: any } ) => {
+      dispatch( { type: ACTION_TYPE.SET_CHALLENGES, challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( ( ) => console.log( "could not check for challenges" ) );
   };
 
   const checkModals = useCallback( ( ) => {
     if ( challenge && !challengeShown ) {
-      dispatch( { type: "SET_CHALLENGE_MODAL", challengeModal: true, challengeShown: false } );
+      dispatch( { type: ACTION_TYPE.SET_CHALLENGE_MODAL, challengeModal: true, challengeShown: false } );
     } else if ( latestLevel && !levelShown ) {
-      dispatch( { type: "SET_LEVEL_MODAL", levelModal: true, levelShown: false } );
+      dispatch( { type: ACTION_TYPE.SET_LEVEL_MODAL, levelModal: true, levelShown: false } );
     } else {
       navigateTo( );
     }

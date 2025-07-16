@@ -40,7 +40,6 @@ type Action =
   | { type: ACTION_TYPE.SET_CHALLENGE_MODAL; challengeModal: boolean; challengeShown: boolean }
   | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean };
 
-  const commonName = useCommonName( taxaId );
 interface Props {
   observation: Observation;
   screenType: string;
@@ -106,6 +105,8 @@ const MatchModals = ( {
   navPath,
   scientificNames
 }: Props ) => {
+  const commonName = useCommonName( taxaId );
+
   const [state, dispatch] = useReducer( reducer, initialState );
   const {
     levelShown,

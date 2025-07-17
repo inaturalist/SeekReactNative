@@ -4,7 +4,7 @@ import Realm from "realm";
 import realmConfig from "../models/index";
 import badgesDict from "./dictionaries/badgesDict";
 
-interface Badge {
+export interface Badge {
   count: number;
   earned: boolean;
   earnedDate: Date | null;

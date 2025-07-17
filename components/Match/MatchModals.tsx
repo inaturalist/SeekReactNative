@@ -7,7 +7,7 @@ import React, {
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
 
-import { checkForNewBadges } from "../../utility/badgeHelpers";
+import { Badge, checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
@@ -43,7 +43,7 @@ enum ACTION_TYPE {
 }
 
 type Action =
-  | { type: ACTION_TYPE.SET_BADGES; latestLevel: any; latestBadge: any }
+  | { type: ACTION_TYPE.SET_BADGES; latestLevel: Badge | null; latestBadge: Badge | null }
   | { type: ACTION_TYPE.SET_CHALLENGES; challenge: any; challengeInProgress: any }
   | { type: ACTION_TYPE.SET_CHALLENGE_MODAL; challengeModal: boolean; challengeShown: boolean }
   | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean }
@@ -187,13 +187,13 @@ const MatchModals = ( {
   }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
 
   const checkBadges = ( ) => {
-    checkForNewBadges( ).then( ( { latestLevel, latestBadge }: { latestLevel: any; latestBadge: any } ) => {
+    checkForNewBadges( ).then( ( { latestLevel, latestBadge } ) => {
       dispatch( { type: ACTION_TYPE.SET_BADGES, latestLevel, latestBadge } );
     } ).catch( ( ) => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = ( ) => {
-    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress }: { challengeComplete: any; challengeInProgress: any } ) => {
+    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress } ) => {
       dispatch( { type: ACTION_TYPE.SET_CHALLENGES, challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( ( ) => console.log( "could not check for challenges" ) );

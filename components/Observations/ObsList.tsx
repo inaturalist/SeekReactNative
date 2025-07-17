@@ -51,7 +51,7 @@ const ObsList = ( {
     updateObs( updatedObs );
   };
 
-  const sectionIsHidden = ( id ) => hiddenSections.includes( id );
+  const sectionIsHidden = ( id: number ) => hiddenSections.includes( id );
 
   let convertedData = [];
   observations.map( ( section ) => {

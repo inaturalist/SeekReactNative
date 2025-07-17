@@ -13,13 +13,17 @@ import SearchEmpty from "./SearchEmpty";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
   fetchFilteredObservations: Function,
-  observations: Array<Object>,
   searchText: string,
   openModal: Function,
   updateObs: Function,
   clearText: Function
+interface Section {
+  data: Observation[];
+  id: number;
+}
+interface Props {
+  observations: Section[];
 }
 
 const ObsList = ( {

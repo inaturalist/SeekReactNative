@@ -1,7 +1,6 @@
 import React, { useState, useRef, useMemo } from "react";
 import { View, Keyboard } from "react-native";
 import { FlashList } from "@shopify/flash-list";
-import type { Node } from "react";
 
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
@@ -30,7 +29,7 @@ const ObsList = ( {
   openModal,
   updateObs,
   clearText
-}: Props ): Node => {
+}: Props ) => {
   const [hiddenSections, setHiddenSections] = useState<number[]>( [] );
   const [itemScrolledId, setItemScrolledId] = useState<number | null>( null );
   const [hasAnimated, setHasAnimated] = useState<boolean>( false );

@@ -1,8 +1,7 @@
 import React, {
   useEffect,
   useCallback,
-  useReducer,
-  useState
+  useReducer
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";

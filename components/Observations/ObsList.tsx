@@ -32,7 +32,7 @@ const ObsList = ( {
   clearText
 }: Props ): Node => {
   const sectionList = useRef( null );
-  const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
+  const [hiddenSections, setHiddenSections] = useState<number[]>( [] );
   const [itemScrolledId, setItemScrolledId] = useState<number | null>( null );
   const [hasAnimated, setHasAnimated] = useState<boolean>( false );
 

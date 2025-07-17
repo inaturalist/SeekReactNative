@@ -22,6 +22,7 @@ interface Section {
   data: Observation[];
   id: number;
 }
+
 interface ConvertedDataItem {
   type?: string;
   id: number;

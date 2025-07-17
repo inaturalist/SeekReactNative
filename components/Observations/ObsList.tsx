@@ -38,7 +38,7 @@ const ObsList = ( {
 
   const updateItemScrolledId = ( id: number | null ) => setItemScrolledId( id );
 
-  const toggleSection = ( id ) => {
+  const toggleSection = ( id: number ) => {
     const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
     const idToHide = hiddenSections.indexOf( id );
 

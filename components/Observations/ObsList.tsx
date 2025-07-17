@@ -31,7 +31,6 @@ const ObsList = ( {
   updateObs,
   clearText
 }: Props ): Node => {
-  const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState<number[]>( [] );
   const [itemScrolledId, setItemScrolledId] = useState<number | null>( null );
   const [hasAnimated, setHasAnimated] = useState<boolean>( false );
@@ -128,7 +127,6 @@ const ObsList = ( {
   return (
     <FlashList
       testID="observations-list"
-      ref={sectionList}
       estimatedItemSize={24}
       keyboardDismissMode="on-drag"
       onScroll={dismissKeyboard}

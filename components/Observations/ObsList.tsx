@@ -33,10 +33,10 @@ const ObsList = ( {
 }: Props ): Node => {
   const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
-  const [itemScrolledId, setItemScrolledId] = useState( null );
+  const [itemScrolledId, setItemScrolledId] = useState<number | null>( null );
   const [hasAnimated, setHasAnimated] = useState<boolean>( false );
 
-  const updateItemScrolledId = ( id ) => setItemScrolledId( id );
+  const updateItemScrolledId = ( id: number | null ) => setItemScrolledId( id );
 
   const toggleSection = ( id ) => {
     const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList

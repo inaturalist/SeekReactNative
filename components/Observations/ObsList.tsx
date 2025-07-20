@@ -31,6 +31,11 @@ type Taxon = {
 };
 
 interface ConvertedDataItem {
+  taxon: Taxon;
+  photo: string;
+  toAnimate: boolean;
+  isLast?: boolean;
+
   id: number;
   type?: "header" | "footer" | "footerHidden" | "footerEmpty" | "observation";
   dataLength?: number;

@@ -35,9 +35,9 @@ interface ConvertedDataItem {
   photo: string;
   toAnimate: boolean;
   isLast?: boolean;
-
-  id: number;
   type?: "header" | "footer" | "footerHidden" | "footerEmpty" | "observation";
+  id: number;
+
   dataLength?: number;
 }
 

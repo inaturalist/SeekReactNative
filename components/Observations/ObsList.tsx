@@ -34,8 +34,8 @@ type Taxon = {
 };
 
 interface ConvertedDataItem {
-  type?: string;
   id: number;
+  type?: "header" | "footer" | "footerHidden" | "footerEmpty" | "observation";
   dataLength?: number;
 }
 

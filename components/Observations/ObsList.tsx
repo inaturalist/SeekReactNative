@@ -15,7 +15,6 @@ import { baseTextStyles } from "../../styles/textStyles";
 
   fetchFilteredObservations: Function,
   openModal: Function,
-  updateObs: Function,
 interface Observation {
   id: number;
   data: any[];
@@ -43,6 +42,7 @@ interface Props {
   observations: Observation[];
   searchText: string;
   openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;
+  updateObs: ( observations: Observation[] ) => void;
   clearText: () => void;
 }
 

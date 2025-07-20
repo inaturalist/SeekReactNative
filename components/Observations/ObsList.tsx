@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { View, Keyboard } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 
@@ -58,7 +58,8 @@ const ObsList = ( {
   updateObs,
   clearText
 }: Props ) => {
-  const [hiddenSections, setHiddenSections] = useState<number[]>( [] );
+  // TODO: preferably we should use setHiddenSections to change state
+  const [hiddenSections] = useState<number[]>( [] );
   const [itemScrolledId, setItemScrolledId] = useState<number | null>( null );
   const [hasAnimated, setHasAnimated] = useState<boolean>( false );
 

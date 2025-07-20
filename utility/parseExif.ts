@@ -42,7 +42,7 @@ export const parseExifDateToLocalTimezone = ( datetime: string ): Date | null =>
 // Parses EXIF date time into a date object
 export const parseExif = async ( photoUri: string | null ): Promise<Record<string, any> | null> => {
   try {
-    return readExif( photoUri || "" );
+    return readExif( photoUri );
   } catch ( e ) {
     console.error( e, "Couldn't parse EXIF" );
     return null;
@@ -53,7 +53,7 @@ export const formatExifDateAsString = ( datetime: string ): string => {
   const zonedDate = parseExifDateToLocalTimezone( datetime );
   // this returns a string, in the same format as photos which fall back to the
   // photo timestamp instead of exif data
-  return formatISONoTimezone( zonedDate || new Date() );
+  return formatISONoTimezone( zonedDate );
 };
 
 interface UnifiedExif {

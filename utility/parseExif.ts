@@ -71,12 +71,12 @@ export const readExifFromMultiplePhotos = async (
   const unifiedExif: UnifiedExif = {};
 
   const responses = await Promise.allSettled( photoUris.map( parseExif ) );
-  const allExifPhotos: Array<{
+  const allExifPhotos: {
     latitude: number;
     longitude: number;
     positional_accuracy: number;
     date: string;
-  }> = responses.filter( ( r ) => r.value ).map( ( r ) => ( r ).value );
+  }[] = responses.filter( ( r ) => r.value ).map( ( r ) => ( r ).value );
 
   allExifPhotos
     .filter( ( x ) => x )

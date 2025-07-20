@@ -14,7 +14,6 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
   fetchFilteredObservations: Function,
-  openModal: Function,
 interface Observation {
   id: number;
   data: any[];

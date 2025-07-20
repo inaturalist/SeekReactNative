@@ -1,11 +1,9 @@
 module.exports = ( api ) => {
   const presets = [
-    "module:@react-native/babel-preset",
-    "@babel/preset-flow"
+    "module:@react-native/babel-preset"
   ];
   const plugins = [
     "react-native-worklets-core/plugin",
-    "@babel/plugin-transform-flow-strip-types",
     [
       "module-resolver",
       {

@@ -21,6 +21,18 @@ interface Section {
   id: number;
 }
 
+type Taxon = {
+  id: number;
+  iconicTaxonId?: number | undefined;
+  preferredCommonName?: string | undefined;
+  name: string;
+  defaultPhoto?: {
+    backupUri?: string,
+    mediumUrl?: string,
+    lastUpdated?: Date;
+  }
+};
+
 interface ConvertedDataItem {
   type?: string;
   id: number;
@@ -30,6 +42,7 @@ interface ConvertedDataItem {
 interface Props {
   observations: Section[];
   searchText: string;
+  openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;
   clearText: () => void;
 }
 

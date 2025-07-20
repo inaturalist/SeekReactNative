@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import {
   View,

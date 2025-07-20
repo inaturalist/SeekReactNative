@@ -37,8 +37,8 @@ interface ConvertedDataItem {
   isLast?: boolean;
   type?: "header" | "footer" | "footerHidden" | "footerEmpty" | "observation";
   id: number;
+  dataLength: number;
 
-  dataLength?: number;
 }
 
 interface Props {

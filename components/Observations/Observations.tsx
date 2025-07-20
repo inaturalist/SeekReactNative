@@ -95,7 +95,7 @@ const Observations = ( ) => {
     } );
 
     // wait until all commonNames are fetched before setting up obsList
-    Promise.all( commonNames ).then( ( result ) => {
+    Promise.all( commonNames ).then( ( ) => {
       setupObsList( species );
     } );
   };

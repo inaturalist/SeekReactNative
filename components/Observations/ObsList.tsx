@@ -14,7 +14,6 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
   fetchFilteredObservations: Function,
-  searchText: string,
   openModal: Function,
   updateObs: Function,
   clearText: Function
@@ -31,6 +30,7 @@ interface ConvertedDataItem {
 
 interface Props {
   observations: Section[];
+  searchText: string;
 }
 
 const ObsList = ( {

@@ -16,7 +16,6 @@ import { baseTextStyles } from "../../styles/textStyles";
   fetchFilteredObservations: Function,
   openModal: Function,
   updateObs: Function,
-  clearText: Function
 interface Section {
   data: Observation[];
   id: number;
@@ -31,6 +30,7 @@ interface ConvertedDataItem {
 interface Props {
   observations: Section[];
   searchText: string;
+  clearText: () => void;
 }
 
 const ObsList = ( {

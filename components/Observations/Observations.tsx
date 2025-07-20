@@ -83,7 +83,7 @@ const Observations = ( ) => {
   };
 
   const fetchCommonNames = ( realm, species ) => {
-    const commonNames = [];
+    const commonNames: Promise<void>[] = [];
 
     species.forEach( ( { taxon } ) => {
       if ( !taxon ) {

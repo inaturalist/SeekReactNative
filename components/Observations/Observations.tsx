@@ -82,7 +82,7 @@ const Observations = ( ) => {
     setLoading( false );
   };
 
-  const fetchCommonNames = ( realm, species ) => {
+  const fetchCommonNames = ( realm: Realm, species: { taxon: { id: number;  } }[] ) => {
     const commonNames: Promise<void>[] = [];
 
     species.forEach( ( { taxon } ) => {

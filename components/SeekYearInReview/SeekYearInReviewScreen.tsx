@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useContext, useState, useCallback } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";

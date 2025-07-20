@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useMemo, useCallback } from "react";
 import {
   TouchableOpacity,

@@ -108,7 +108,7 @@ const ObsList = ( {
     }
   } );
 
-  const renderItem = ( item ) => {
+  const renderItem = ( item: ConvertedDataItem ) => {
     return (
       <>
         <ObservationCard

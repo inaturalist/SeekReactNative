@@ -16,6 +16,11 @@ import ObsList from "./ObsList";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import { resetRouter } from "../../utility/navigationHelpers";
 
+interface Observation {
+  id: number;
+  data: any[];
+}
+
 interface Taxon {
   id: number;
   iconicTaxonId?: number | undefined;
@@ -38,7 +43,7 @@ interface ItemToDelete extends Taxon {
 
 const Observations = ( ) => {
   const navigation = useNavigation( );
-  const [observations, setObservations] = useState( [] );
+  const [observations, setObservations] = useState<Observation[]>( [] );
   const [showModal, setModal] = useState<boolean>( false );
   const [itemToDelete, setItemToDelete] = useState<ItemToDelete | null>( null );
   const [loading, setLoading] = useState<boolean>( true );
@@ -168,7 +173,7 @@ const Observations = ( ) => {
     resetObservations( );
   }, [resetObservations] );
 
-  const updateObs = useCallback( ( obs ) => setObservations( obs ), [] );
+  const updateObs = useCallback( ( obs: Observation[] ) => setObservations( obs ), [] );
 
   return (
     <ViewWithHeader header="observations.header">

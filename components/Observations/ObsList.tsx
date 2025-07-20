@@ -16,9 +16,9 @@ import { baseTextStyles } from "../../styles/textStyles";
   fetchFilteredObservations: Function,
   openModal: Function,
   updateObs: Function,
-interface Section {
-  data: Observation[];
+interface Observation {
   id: number;
+  data: any[];
 }
 
 type Taxon = {
@@ -40,7 +40,7 @@ interface ConvertedDataItem {
 }
 
 interface Props {
-  observations: Section[];
+  observations: Observation[];
   searchText: string;
   openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;
   clearText: () => void;

@@ -79,7 +79,7 @@ const ObsList = ( {
 
   const sectionIsHidden = ( id: number ) => hiddenSections.includes( id );
 
-  let convertedData = [];
+  let convertedData: ConvertedDataItem[] = [];
   observations.map( ( section ) => {
     const { data, id } = section;
     // Push header data
@@ -150,7 +150,7 @@ const ObsList = ( {
 
   const dismissKeyboard = () => Keyboard.dismiss();
 
-  const extractKey = ( item, index ) => item + index;
+  const extractKey = ( item: ConvertedDataItem, index: number ) => item + index;
   return (
     <FlashList
       testID="observations-list"

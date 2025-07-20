@@ -67,8 +67,8 @@ const Announcements = ( ) => {
     const options = { api_token: apiToken };
     inatjs.announcements
       .search( params, options )
-      .then( ( { total_results, results } ) => {
-        // TODO: if total_results > results, should we paginate and get more?
+      .then( ( { results } ) => {
+        // TODO: .then also returns total_results; if > results, should we paginate and get more?
         // Array of { id, body, dismissible }
         const homeAnnouncements = results
           // Filter by placement on mobile home screen

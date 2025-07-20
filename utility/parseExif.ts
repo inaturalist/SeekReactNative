@@ -76,7 +76,7 @@ export const readExifFromMultiplePhotos = async (
     longitude: number;
     positional_accuracy: number;
     date: string;
-  }> = responses.filter( ( r ) => r.status === "fulfilled" ).map( ( r ) => ( r as PromiseFulfilledResult<any> ).value );
+  }> = responses.filter( ( r ) => r.value ).map( ( r ) => ( r ).value );
 
   allExifPhotos
     .filter( ( x ) => x )

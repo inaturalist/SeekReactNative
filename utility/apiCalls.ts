@@ -2,7 +2,24 @@ import createUserAgent from "./userAgent";
 import i18n from "../i18n";
 import { createJwtToken } from "./helpers";
 
-const fetchSpeciesNearby = async ( params: Object ): any => {
+interface ApiParams {
+  per_page: number;
+  lat: number;
+  lng: number | null;
+  observed_on: Date;
+  seek_exceptions: boolean;
+  locale: string;
+  all_photos: boolean;
+  taxon_id: number | undefined;
+}
+
+interface Params {
+  lat: number;
+  lng: number;
+  taxon_id: number | undefined;
+}
+
+const fetchSpeciesNearby = async ( params: Params ): Promise<string | any[]> => {
   const staticParams = {
     per_page: 20,
     observed_on: new Date( ),
@@ -11,20 +28,20 @@ const fetchSpeciesNearby = async ( params: Object ): any => {
     all_photos: true // this allows for ARR license filtering
   };
 
-  const allParams = {
+  const allParams: ApiParams = {
     ...staticParams,
     ...params
   };
 
   const site = "https://api.inaturalist.org/v1/taxa/nearby";
-  const queryString = Object.keys( allParams ).map( key => `${key}=${allParams[key.toString( )]}` ).join( "&" );
+  const queryString = Object.keys( allParams ).map( key => `${key}=${allParams[key.toString( ) as keyof ApiParams]}` ).join( "&" );
 
   const options = { headers: { "User-Agent": createUserAgent( ) } };
   const url = `${site}?${queryString}`;
 
   try {
     const response = await fetch( url, options );
-    const { results } = await response.json( );
+    const { results }: { results: { taxon: any }[] } = await response.json( );
     const newTaxa = results.map( r => r.taxon );
     return newTaxa;
   } catch ( e ) {

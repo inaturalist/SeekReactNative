@@ -20,13 +20,8 @@ import { baseTextStyles } from "../../styles/textStyles";
 type Props = {
   closeModal: ( ) => void,
   challenge: {
-    index: number,
-    percentComplete: number,
-    startedDate: Date,
     availableDate: Date,
     backgroundName: string,
-    name: string,
-    logo: string,
     sponsorName: string,
     secondLogo: string,
     earnedIconName: string,

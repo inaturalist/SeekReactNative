@@ -34,8 +34,10 @@ const GalleryButton = ( { setIsActive }: Props ) => {
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
-  const navigateToResults = ( uri, time, location, predictions: InatVision.Prediction[]
- ) => {
+  const navigateToResults = ( uri, time, location: {
+    latitude: number;
+    longitude: number;
+  }, predictions: InatVision.Prediction[] ) => {
     const image = {
       time,
       uri,
@@ -89,7 +91,10 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     }
   };
 
-  const getPredictions = ( uri, timestamp, location ) => {
+  const getPredictions = ( uri, timestamp, location: {
+    latitude: number | undefined;
+    longitude: number | undefined;
+  } ) => {
     const path = uri.split( "file://" );
     const reactUri = Platform.OS === "android" ? path[1] : uri;
 

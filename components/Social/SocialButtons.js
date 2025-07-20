@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useContext, useEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";

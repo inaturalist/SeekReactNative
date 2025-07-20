@@ -10,7 +10,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   loading: boolean;
-  iconicTaxonId: number;
+  iconicTaxonId: number | null;
 }
 
 const IconicTaxaName = ( { loading, iconicTaxonId }: Props ) => {

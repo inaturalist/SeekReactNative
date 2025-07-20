@@ -13,7 +13,6 @@ import SearchEmpty from "./SearchEmpty";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-  fetchFilteredObservations: Function,
 interface Observation {
   id: number;
   data: any[];
@@ -38,6 +37,7 @@ interface ConvertedDataItem {
 }
 
 interface Props {
+  fetchFilteredObservations: ( text: string ) => void;
   observations: Observation[];
   searchText: string;
   openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;

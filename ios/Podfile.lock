@@ -1366,7 +1366,7 @@ PODS:
     - React-Core
   - react-native-restart (0.0.27):
     - React-Core
-  - react-native-safe-area-context (4.14.1):
+  - react-native-safe-area-context (5.5.2):
     - React-Core
   - react-native-webview (11.26.1):
     - React-Core
@@ -2274,7 +2274,7 @@ SPEC CHECKSUMS:
   react-native-pager-view: 449b44f857b1fd1eb17c3bc82c5f8623393b867e
   react-native-render-html: fc0eadab8b59ec87f34ea2355232a89b6c70364d
   react-native-restart: 0bc732f4461709022a742bb29bcccf6bbc5b4863
-  react-native-safe-area-context: 758e894ca5a9bd1868d2a9cfbca7326a2b6bf9dc
+  react-native-safe-area-context: 0f7bf11598f9a61b7ceac8dc3f59ef98697e99e1
   react-native-webview: ec195db71ebf55705d7b46a7da5f1b1746bb7efd
   react-native-worklets-core: bfbf1cce2251a85a23d739e46a77682a29fc8889
   React-nativeconfig: 8efdb1ef1e9158c77098a93085438f7e7b463678

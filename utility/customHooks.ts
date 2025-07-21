@@ -37,12 +37,13 @@ const useScrollToTop = (
   }, [scrollView] );
 
   useEffect( () => {
-    // TODO: unsubscribe from listener
-    navigation.addListener( "focus", () => {
+    const unsubscribe = navigation.addListener( "focus", () => {
       if ( route !== "Challenges" ) {
         scrollToTop();
       }
     } );
+
+    return unsubscribe;
   }, [route, navigation, scrollToTop] );
 };
 

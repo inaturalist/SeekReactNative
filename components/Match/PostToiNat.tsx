@@ -35,9 +35,11 @@ const PostToiNat = ( { color, taxaInfo }: Props ) => {
   };
 
   useEffect( ( ) => {
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       fetchPostingStatus( );
     } );
+
+    return unsubscribe;
   }, [navigation] );
 
   // TODO: navigation to TS

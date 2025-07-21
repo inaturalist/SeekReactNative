@@ -128,9 +128,11 @@ const SpeciesDetail = ( ) => {
   useEffect( ( ) => {
     // would be nice to stop refetch when a user goes to range map and back
     // and also wikipedia and back or iNat obs and back
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       resetScreen( );
     } );
+
+    return unsubscribe;
   }, [navigation, resetScreen] );
 
   const predictions = params ? params.image : null;

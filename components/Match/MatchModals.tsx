@@ -219,7 +219,7 @@ const MatchModals = ( {
   }, [navPath, checkModals] );
 
   useEffect( ( ) => {
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       if ( screenType === "newSpecies" ) {
         checkChallenges( );
         checkBadges( );
@@ -231,12 +231,18 @@ const MatchModals = ( {
       }
     } );
 
-    navigation.addListener( "blur", ( ) => {
+    return unsubscribe;
+  }, [navigation, screenType, replacePhotoModal] );
+
+  useEffect( ( ) => {
+    const unsubscribe = navigation.addListener( "blur", ( ) => {
       if ( screenType === "newSpecies" ) {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, screenType, replacePhotoModal] );
+
+    return unsubscribe;
+  }, [navigation, screenType] );
 
   return (
     <>

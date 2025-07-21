@@ -20,9 +20,11 @@ const NotificationsScreen = ( ) => {
   useScrollToTop( scrollView );
 
   useEffect( ( ) => {
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       markNotificationsAsViewed( );
     } );
+
+    return unsubscribe;
   }, [navigation] );
 
   const renderItem = ( { item }: { item: Notification } ) => <NotificationCard item={item} />;

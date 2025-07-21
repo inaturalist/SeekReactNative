@@ -412,13 +412,15 @@ const ARCamera = ( ) => {
       }
     };
 
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       setObservation( null );
       // reset when camera loads, not when leaving page, for quicker transition
       resetState( );
       checkForFirstCameraLaunch( );
       requestAndroidPermissions( );
     } );
+
+    return unsubscribe;
   }, [navigation, requestAndroidPermissions, setObservation] );
 
   useFocusEffect(

@@ -80,10 +80,12 @@ const HomeScreen = ( ) => {
       }
     };
 
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       checkUploads( );
     } );
-  } );
+
+    return unsubscribe;
+  }, [navigation] );
 
   useEffect( ( ) => {
     if ( successfulUploads > 0 ) {

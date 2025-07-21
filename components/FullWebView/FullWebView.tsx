@@ -73,7 +73,7 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
   }
 
   React.useEffect( ( ) => {
-    navigation.addListener( "blur", async ( ) => {
+    const unsubscribe = navigation.addListener( "blur", async ( ) => {
       // Log out user if they navigate away from the webview and checking
       // if server does no longer send back a token
       const login = await fetchAccessToken();
@@ -85,6 +85,8 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
         }
       }
     } );
+
+    return unsubscribe;
   }, [navigation, updateLogin] );
 
   const renderWebview = ( ) => {

@@ -155,11 +155,11 @@ const Observations = ( ) => {
   };
 
   useEffect( ( ) => {
-    const unsub = navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       fetchRoute( );
     } );
 
-    return unsub;
+    return unsubscribe;
   } );
 
   const deleteObservation = async ( id: number ) => {

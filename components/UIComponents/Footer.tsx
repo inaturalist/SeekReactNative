@@ -43,11 +43,13 @@ const Footer = () => {
       } );
     };
 
-    navigation.addListener( "focus", () => {
+    const unsubscribe = navigation.addListener( "focus", () => {
       fetchNotifications();
     } );
-    return ( ) => {
+
+    return () => {
       isCurrent = false;
+      unsubscribe();
     };
   }, [navigation] );
 

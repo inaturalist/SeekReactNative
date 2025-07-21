@@ -70,9 +70,11 @@ const SeekYearInReviewMapScreen = ( ) => {
   };
 
   useEffect( ( ) => {
-    navigation.addListener( "focus", ( ) => {
+    const unsubscribe = navigation.addListener( "focus", ( ) => {
       getUserLocation();
     } );
+
+    return unsubscribe;
   }, [navigation] );
 
   if ( mapRegion.latitude === undefined ) {

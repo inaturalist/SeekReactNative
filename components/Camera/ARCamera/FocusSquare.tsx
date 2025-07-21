@@ -9,7 +9,6 @@ interface Props {
 const FocusSquare = ( { animatedStyle }: Props ) => {
   if ( _.isEmpty( animatedStyle ) ) { return null; }
   return (
-    // $FlowIgnore
     <Animated.View
       style={[
         styles.focusSquare,

@@ -23,8 +23,8 @@ const Donation = ( { navigation, route } ) => {
 
   const { params } = route;
 
-  const standardCampaign = `${urls.DONORBOX}${urls.DONORBOX_STANDARD_CAMPAIGN}&utm_source=android`;
-  const seekYearInReviewCampaign = `${urls.DONORBOX}&utm_campaign=${params?.utmCampaign}&utm_source=android`;
+  const standardCampaign = `${urls.DONATE_BASE_URL}${urls.UTM_STANDARD_CAMPAIGN}&utm_source=android`;
+  const seekYearInReviewCampaign = `${urls.DONATE_BASE_URL}&utm_campaign=${params?.utmCampaign}&utm_source=android`;
   const donationPage = params?.utmCampaign ? seekYearInReviewCampaign : standardCampaign;
   const redirectForiOS = "inaturalist.org/donate-seek";
 

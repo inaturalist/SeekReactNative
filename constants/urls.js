@@ -1,4 +1,4 @@
 export default {
-  DONORBOX: "https://donorbox.org/support-seek-by-inaturalist?utm_medium=seek",
-  DONORBOX_STANDARD_CAMPAIGN: "&utm_campaign=settings"
+  DONATE_BASE_URL: "https://www.inaturalist.org/donate?utm_medium=seek",
+  UTM_STANDARD_CAMPAIGN: "&utm_campaign=settings"
 };

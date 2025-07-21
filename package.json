@@ -84,7 +84,7 @@
     "react-native-tab-view": "^3.5.2",
     "react-native-vision-camera": "^4.7.0",
     "react-native-webp-format": "^1.2.0",
-    "react-native-webview": "^11.26.1",
+    "react-native-webview": "^13.15.0",
     "react-native-worklets-core": "1.5.0",
     "realm": "^12.14.2",
     "uuid": "^11.1.0",

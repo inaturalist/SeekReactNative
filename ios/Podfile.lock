@@ -1368,8 +1368,27 @@ PODS:
     - React-Core
   - react-native-safe-area-context (5.5.2):
     - React-Core
-  - react-native-webview (11.26.1):
+  - react-native-webview (13.15.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.10.14.00)
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-worklets-core (1.5.0):
     - DoubleConversion
     - glog
@@ -2275,7 +2294,7 @@ SPEC CHECKSUMS:
   react-native-render-html: fc0eadab8b59ec87f34ea2355232a89b6c70364d
   react-native-restart: 0bc732f4461709022a742bb29bcccf6bbc5b4863
   react-native-safe-area-context: 0f7bf11598f9a61b7ceac8dc3f59ef98697e99e1
-  react-native-webview: ec195db71ebf55705d7b46a7da5f1b1746bb7efd
+  react-native-webview: ab7d17cb9fd64af9f4a9e3936248364995518f74
   react-native-worklets-core: bfbf1cce2251a85a23d739e46a77682a29fc8889
   React-nativeconfig: 8efdb1ef1e9158c77098a93085438f7e7b463678
   React-NativeModulesApple: cebca2e5320a3d66e123cade23bd90a167ffce5e

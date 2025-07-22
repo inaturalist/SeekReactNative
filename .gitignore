@@ -34,6 +34,7 @@ local.properties
 *.hprof
 android/app/src/main/res/values/config.xml
 android/app/release/
+.cxx/
 
 # node.js
 #

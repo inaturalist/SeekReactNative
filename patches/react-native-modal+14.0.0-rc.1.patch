@@ -1,0 +1,19 @@
+diff --git a/node_modules/react-native-modal/dist/modal.js b/node_modules/react-native-modal/dist/modal.js
+index 74edee4..042e1db 100644
+--- a/node_modules/react-native-modal/dist/modal.js
++++ b/node_modules/react-native-modal/dist/modal.js
+@@ -515,8 +515,13 @@ export class ReactNativeModal extends React.Component {
+         if (this.state.isSwipeable) {
+             panHandlers = { ...this.panResponder.panHandlers };
+             if (useNativeDriver) {
++                const translateTransform = this.state.pan.getTranslateTransform();
+                 panPosition = {
+-                    transform: this.state.pan.getTranslateTransform(),
++                    transform: translateTransform.map(transform => {
++                        const key = Object.keys(transform)[0];
++                        const value = transform[key];
++                        return { [key]: typeof value === 'object' && value !== null && '_value' in value ? value._value : value };
++                    }),                
+                 };
+             }
+             else {

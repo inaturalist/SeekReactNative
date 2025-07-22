@@ -1,7 +1,9 @@
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import Share from "react-native-share";
 import { Platform, Alert, Image, Linking } from "react-native";
-import Marker from "react-native-image-marker";
+// I have removed this dependency because it was blocking an update to react-native 0.77.2
+// and the social screens that import these functions are not used in the app currently.
+// import Marker from "react-native-image-marker";
 import RNFS from "react-native-fs";
 
 import i18n from "../i18n";
@@ -88,7 +90,8 @@ const addTextToWatermark = async( userImage: string, text, position: number, wid
   };
 
   try {
-    const path: string = await Marker.markText( imageOptions );
+    // const path: string = await Marker.markText( imageOptions );
+    const path = null; // temporarily returning null since Marker is not available
     const uri = Platform.OS === "android" ? "file://" + path : path;
     return uri;
   } catch ( e ) {
@@ -157,7 +160,8 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
   }
 
   try {
-    const path: string = await Marker.markImage( imageOptions );
+    // const path: string = await Marker.markImage( imageOptions );
+    const path = null; // temporarily returning null since Marker is not available
     const watermarkedImage: string = Platform.OS === "android" ? "file://" + path : path;
     const uriWithCommonName = await addTextToWatermark( watermarkedImage, commonName, 1, width, height, scale );
     const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, width, height, scale );

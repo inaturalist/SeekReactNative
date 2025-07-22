@@ -1829,8 +1829,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNShare (9.4.1):
-    - React-Core
   - RNStoreReview (0.4.3):
     - React-Core
   - RNSVG (15.12.0):
@@ -1957,7 +1955,6 @@ DEPENDENCIES:
   - RNQuickAction (from `../node_modules/react-native-quick-actions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
-  - RNShare (from `../node_modules/react-native-share`)
   - RNStoreReview (from `../node_modules/react-native-store-review`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
@@ -2169,8 +2166,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
-  RNShare:
-    :path: "../node_modules/react-native-share"
   RNStoreReview:
     :path: "../node_modules/react-native-store-review"
   RNSVG:
@@ -2282,7 +2277,6 @@ SPEC CHECKSUMS:
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
   RNReanimated: 9314062225482de1f3359245705191e9aacfe85c
   RNScreens: 9ef996b6041d0960a4794a845f7d0808b171b4ef
-  RNShare: 729e789e672f91e43bfa6cfbb6e668b927bff15d
   RNStoreReview: 613c43e9132998ed41a65946e20c223c91b36464
   RNSVG: 4a789b2408851b376e3055c3798ce310a35d0fe7
   SDWebImage: f29024626962457f3470184232766516dee8dfea

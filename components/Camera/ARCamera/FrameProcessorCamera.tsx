@@ -18,7 +18,8 @@ import {
   Camera,
   useCameraDevice,
   useCameraFormat,
-  useFrameProcessor
+  useFrameProcessor,
+  useLocationPermission as useLocationPermissionCamera
 } from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
@@ -76,6 +77,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const granted = useLocationPermission( );
   const coords = useTruncatedUserCoords( granted );
+  const location = useLocationPermissionCamera();
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
@@ -357,6 +359,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             onError={onError}
             outputOrientation="device"
             photoQualityBalance="speed"
+            enableLocation={location.hasPermission}
           />
         </GestureDetector>
         <FocusSquare

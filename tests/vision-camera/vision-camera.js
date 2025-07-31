@@ -149,3 +149,9 @@ export const mockUseCameraFormat = ( _device ) => {
   };
   return format;
 };
+
+export const mockUseLocationPermission = () => {
+  return {
+    hasPermission: true
+  };
+};

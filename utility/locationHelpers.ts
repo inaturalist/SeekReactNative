@@ -196,7 +196,7 @@ const createAlertUserLocationOnMaps = ( errorCode: number ): void => {
     body = i18n.t( "species_nearby.no_location" );
     if ( Platform.OS === "android" ) {
       button.unshift( {
-        text: i18n.t( "species_nearby.enable_location" ),
+        text: i18n.t( "results.enable_location_button" ),
         onPress: () => Linking.openSettings()
       } );
     }

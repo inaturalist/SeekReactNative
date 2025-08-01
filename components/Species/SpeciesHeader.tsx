@@ -52,9 +52,9 @@ const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSel
         return true; // following custom Android back behavior template in React Navigation
       };
 
-      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+      const backHandler = BackHandler.addEventListener( "hardwareBackPress", onBackPress );
 
-      return ( ) => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+      return ( ) => backHandler.remove();
     }, [backAction] )
   );
 

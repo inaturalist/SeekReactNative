@@ -7,7 +7,7 @@ const {
  * Metro configuration for React Native
  * https://reactnative.dev/docs/metro
  *
- * @type {import('metro-config').MetroConfig}
+ * @type {import('@react-native/metro-config').MetroConfig}
  */
 const config = {
   resolver: {

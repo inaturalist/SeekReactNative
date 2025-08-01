@@ -35,15 +35,15 @@ local.properties
 android/app/src/main/res/values/config.xml
 android/app/release/
 .cxx/
+*.keystore
+!debug.keystore
+.kotlin/
 
 # node.js
 #
 node_modules/
 npm-debug.log
 yarn-error.log
-
-*.keystore
-!debug.keystore
 
 # fastlane
 # https://docs.fastlane.tools/best-practices/source-control/

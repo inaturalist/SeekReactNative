@@ -15,7 +15,7 @@ interface Coordinates {
   y: number;
 }
 
-const useFocusTap = ( cameraRef: React.RefObject<Camera>, supportsFocus: boolean ) => {
+const useFocusTap = ( cameraRef: React.RefObject<Camera | null>, supportsFocus: boolean ) => {
   const [tappedCoordinates, setTappedCoordinates] = useState<Coordinates | null>( null );
   const focusOpacity = useRef( new Animated.Value( 0 ) ).current;
 

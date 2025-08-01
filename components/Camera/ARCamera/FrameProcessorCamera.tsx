@@ -43,7 +43,7 @@ export interface LogMessage {
 }
 
 interface Props {
-  cameraRef: React.RefObject<Camera>;
+  cameraRef: React.RefObject<Camera | null>;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
   negativeFilter: boolean;

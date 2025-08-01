@@ -79,7 +79,7 @@ def pass = project.hasProperty('SEEK_RELEASE_KEY_PASSWORD') ? project.property('
  * The preferred build flavor of JavaScriptCore (JSC)
  *
  * For example, to use the international variant, you can use:
- * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
+ * `def jscFlavor = io.github.react-native-community:jsc-android-intl:2026004.+`
  *
  * The international variant includes ICU i18n library and necessary data
  * allowing to use e.g. `Date.toLocaleString` and `String.localeCompare` that
@@ -88,7 +88,7 @@ def pass = project.hasProperty('SEEK_RELEASE_KEY_PASSWORD') ? project.property('
  */
 // def jscFlavor = 'org.webkit:android-jsc:+'
 // adding international version for timezone support with date-fns-tz in posting to iNat
-def jscFlavor = 'org.webkit:android-jsc-intl:+'
+def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
 android {
     ndkVersion rootProject.ext.ndkVersion

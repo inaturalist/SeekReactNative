@@ -100,7 +100,7 @@
     "@react-native/metro-config": "0.77.2",
     "@react-native/typescript-config": "0.77.2",
     "@testing-library/jest-native": "^5.4.3",
-    "@testing-library/react-native": "^12.4.3",
+    "@testing-library/react-native": "^13.2.2",
     "@types/jest": "^29.5.13",
     "@types/lodash": "^4.17.0",
     "@types/react": "^18.2.6",
@@ -141,9 +141,6 @@
     "setupFiles": [
       "./node_modules/react-native-gesture-handler/jestSetup.js",
       "<rootDir>/tests/jest.setup.js"
-    ],
-    "setupFilesAfterEnv": [
-      "@testing-library/react-native/extend-expect"
     ],
     "testMatch": [
       "<rootDir>/tests/**/*.test.js"

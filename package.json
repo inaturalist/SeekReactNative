@@ -27,7 +27,7 @@
     "@formidable-webview/webshell": "^2.6.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-camera-roll/camera-roll": "github:inaturalist/react-native-cameraroll",
-    "@react-native-clipboard/clipboard": "^1.13.2",
+    "@react-native-clipboard/clipboard": "^1.16.3",
     "@react-native-community/datetimepicker": "^8.4.2",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-native-masked-view/masked-view": "^0.2.9",

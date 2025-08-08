@@ -1261,7 +1261,7 @@ PODS:
     - React-Core
   - react-native-maps (1.7.1):
     - React-Core
-  - react-native-netinfo (9.4.1):
+  - react-native-netinfo (11.4.1):
     - React-Core
   - react-native-pager-view (6.8.1):
     - DoubleConversion
@@ -2225,7 +2225,7 @@ SPEC CHECKSUMS:
   react-native-image-resizer: 24c5d06fae2176dc0caed4b6396e02befb44064a
   react-native-mail: 6e83813066984b26403d3fdfe79ac7bb31857e3c
   react-native-maps: 38394e3f4258d7fe8f1241c2624b91acf35e2dd5
-  react-native-netinfo: 58a62fc2fc7245875718b99ac9914c307e1523ca
+  react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-pager-view: 11662c698c8f11d39e05891316d2a144fa00adc4
   react-native-render-html: fc0eadab8b59ec87f34ea2355232a89b6c70364d
   react-native-restart: 0bc732f4461709022a742bb29bcccf6bbc5b4863

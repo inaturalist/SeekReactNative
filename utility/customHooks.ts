@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import { AppState, AppStateStatus, Platform } from "react-native";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
-import DeviceInfo from "react-native-device-info";
 import inatjs from "inaturalistjs";
 
 import i18n from "../i18n";
@@ -169,28 +168,6 @@ const useInternetStatus = ( ): boolean => {
   return internet;
 };
 
-const useEmulator = ( ): boolean => {
-  const [emulator, setEmulator] = useState<boolean>( false );
-
-  useEffect( ( ) => {
-    let isCurrent = true;
-
-    const checkForEmulator = async ( ) => {
-      const isEmulator = await DeviceInfo.isEmulator( );
-      if ( isCurrent ) {
-        setEmulator( isEmulator );
-      }
-    };
-
-    checkForEmulator( );
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [] );
-
-  return emulator;
-};
-
 const useUploadedObservationCount = ( {
   login,
   username,
@@ -295,7 +272,6 @@ export {
   useLocationPermission,
   useTruncatedUserCoords,
   useInternetStatus,
-  useEmulator,
   useUploadedObservationCount,
   useSpeciesCount,
   useIsForeground

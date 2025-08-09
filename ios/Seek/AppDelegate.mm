@@ -1,19 +1,25 @@
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
+
+@interface AppDelegate ()
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.moduleName = @"Seek";
+  self.reactNativeFactory = [[RCTReactNativeFactory alloc] initWithDelegate:self];
   self.dependencyProvider = [RCTAppDependencyProvider new];
-  // You can add your custom initial props in the dictionary below.
-  // They will be passed down to the ViewController used by React Native.
-  self.initialProps = @{};
 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+  [self.reactNativeFactory startReactNativeWithModuleName:@"Seek"
+                                                 inWindow:self.window
+                                        initialProperties:[self prepareInitialProps]
+                                            launchOptions:launchOptions];
+
+  return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
@@ -24,9 +30,9 @@
 - (NSURL *)bundleURL
 {
 #if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+  [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot: @"index"];
 #else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  [NSBundle.mainBundle urlForResource: @"main" withExtension: @"jsbundle"];
 #endif
 }
 

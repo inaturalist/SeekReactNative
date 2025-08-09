@@ -16,7 +16,7 @@
 
   [self.reactNativeFactory startReactNativeWithModuleName:@"Seek"
                                                  inWindow:self.window
-                                        initialProperties:[self prepareInitialProps]
+                                        initialProperties:@{}
                                             launchOptions:launchOptions];
 
   return YES;
@@ -30,9 +30,9 @@
 - (NSURL *)bundleURL
 {
 #if DEBUG
-  [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot: @"index"];
+  return [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot: @"index"];
 #else
-  [NSBundle.mainBundle urlForResource: @"main" withExtension: @"jsbundle"];
+  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
 

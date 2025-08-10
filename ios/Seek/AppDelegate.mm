@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+
 #import <React/RCTBundleURLProvider.h>
 #import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
 
@@ -30,7 +31,7 @@
 - (NSURL *)bundleURL
 {
 #if DEBUG
-  return [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot: @"index"];
+  return [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot:@"index"];
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif

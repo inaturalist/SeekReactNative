@@ -18,6 +18,12 @@ const LanguageProvider = ( { children }: LanguageProviderProps ) => {
   const getLanguagePreference = async ( ) => setLanguage( await getLanguage( ) );
   const toggleLanguagePreference = ( ) => getLanguagePreference( );
 
+  const handleAppStateChange = React.useCallback( () => {
+    if ( preferredLanguage === "device" ) {
+      handleLocalizationChange();
+    }
+  }, [preferredLanguage] );
+
   React.useEffect( ( ) => {
     // wait until check for stored language is completed
     if ( !preferredLanguage ) { return; }
@@ -26,10 +32,10 @@ const LanguageProvider = ( { children }: LanguageProviderProps ) => {
 
   React.useEffect( ( ) => {
     getLanguagePreference( );
-    AppState.addEventListener( "change", handleLocalizationChange );
+    const listener = AppState.addEventListener( "change", handleAppStateChange );
 
-    return ( ) => AppState.removeEventListener( "change", handleLocalizationChange );
-  }, [] );
+		return () => listener.remove();
+  }, [handleAppStateChange] );
 
   const value = {
     toggleLanguagePreference,

@@ -9,7 +9,7 @@ buildscript {
         ndkVersion = "27.1.12297006"
         kotlinVersion = "2.0.21"
         // This specifies which tensorflow-lite version to use for our vision-plugin.
-        tensorflowVersion = "2.14.0"
+        tensorflowVersion = "2.17.0"
     }
     repositories {
         google()

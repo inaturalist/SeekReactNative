@@ -54,13 +54,7 @@ const Footer = () => {
   }, [navigation] );
 
   const navToDrawer = ( ) => {
-    // notifications is different because it needs to be in a stack nav
-    // to enable animation in from the right
-    if ( route.name === "Notifications" ) {
-      navigation.navigate( "Drawer" );
-    } else {
-      navigation.openDrawer( );
-    }
+    navigation.openDrawer( );
   };
 
   return (

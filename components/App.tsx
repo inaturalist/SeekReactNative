@@ -5,8 +5,7 @@ import {
 } from "react-native-exception-handler";
 import {
   getVersion,
-  getBuildNumber,
-  getUsedMemory
+  getBuildNumber
 } from "react-native-device-info";
 
 import RootStack from "./Navigation/RootStack";
@@ -19,6 +18,7 @@ import { AppOrientationProvider } from "./Providers/AppOrientationProvider";
 import { ChallengeProvider } from "./Providers/ChallengeProvider";
 import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
 import { log } from "../react-native-logs.config";
+import { LogLevels, logToApi } from "../utility/apiCalls";
 
 const logger = log.extend( "App.js" );
 
@@ -43,14 +43,13 @@ setJSExceptionHandler( jsErrorHandler, true );
 setNativeExceptionHandler(
   async ( exceptionString ) => {
     try {
-      const crashData = {
-        error: exceptionString,
-        memoryUsage: await getUsedMemory(),
-        timestamp: new Date().toISOString(),
-        appVersion: getVersion()
-      };
-
-      logger.error( `Native Error: ${exceptionString}`, crashData );
+      logToApi( {
+        level: LogLevels.ERROR,
+        message: exceptionString,
+        context: "App.tsx",
+        errorType: "native"
+      } );
+      logger.error( `Native Error: ${exceptionString}` );
     } catch ( e ) {
       // Last-ditch attempt to log something
       logger.error(

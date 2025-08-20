@@ -9,6 +9,7 @@ import { baseTextStyles } from "../styles/textStyles";
 import StyledText from "./UIComponents/StyledText";
 import GreenButton from "./UIComponents/Buttons/GreenButton";
 import { ScrollView } from "react-native";
+import { LogLevels, logToApi } from "../utility/apiCalls";
 
 const logger = log.extend( "ErrorBoundary" );
 
@@ -32,6 +33,13 @@ class ErrorBoundary extends React.Component {
       error.stack = info.componentStack;
     }
     logger.error( error );
+    logToApi( {
+      level: LogLevels.ERROR,
+      context: "ErrorBoundary",
+      message: error.message,
+      errorType: error.constructor?.name,
+      backtrace: error.stack
+    } );
   }
 
   render() {

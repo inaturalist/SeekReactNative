@@ -22,7 +22,7 @@ import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
 import { log } from "../react-native-logs.config";
 import { LogLevels, logToApi } from "../utility/apiCalls";
 
-const logger = log.extend( "App.js" );
+const logger = log.extend( "App.tsx" );
 
 const jsErrorHandler = ( e, isFatal ) => {
   // not 100% sure why jsErrorHandler logs e.name and e.message as undefined sometimes,

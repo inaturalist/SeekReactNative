@@ -89,6 +89,7 @@ const App = ( ) => {
                 <SpeciesDetailProvider>
                   <GestureHandlerRootView style={style}>
                     <SafeAreaProvider>
+                        <RootStack />
                     </SafeAreaProvider>
                   </GestureHandlerRootView>
                 </SpeciesDetailProvider>

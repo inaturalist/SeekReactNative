@@ -1037,5 +1037,11 @@
   "model": {
     "not_found_error": "No se encontró el modelo",
     "not_found_error_description": "Mientras se cargaba la aplicación, no se encontró el modelo de idenficación. Tu experiencia de la cámara no tendrá identificación."
+  },
+  "error_boundary": {
+    "something_went_wrong": "Something went wrong.",
+    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
+    "restart": "RESTART APP",
+    "error": "Error"
   }
 }

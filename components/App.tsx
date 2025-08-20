@@ -29,7 +29,7 @@ const jsErrorHandler = ( e, isFatal ) => {
 
   // possibly also related to error boundaries in React 16+:
   // https://github.com/a7ul/react-native-exception-handler/issues/60
-  if ( !e.name && !e.message ) {return;}
+  // if ( !e.name && !e.message ) {return;}
   logger.error( `JS Error: ${isFatal ? "Fatal:" : ""} ${e.stack}` );
   logToApi( {
     level: LogLevels.ERROR,

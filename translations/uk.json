@@ -1037,5 +1037,11 @@
   "model": {
     "not_found_error": "Модель не знайдено",
     "not_found_error_description": "Під час завантаження застосунку, модель ідентифікації не знайдена. Ваш досвід роботи з камерою буде без ідентифікації."
+  },
+  "error_boundary": {
+    "something_went_wrong": "Something went wrong.",
+    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
+    "restart": "RESTART APP",
+    "error": "Error"
   }
 }

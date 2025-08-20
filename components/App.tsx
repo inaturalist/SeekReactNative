@@ -21,6 +21,7 @@ import { ChallengeProvider } from "./Providers/ChallengeProvider";
 import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
 import { log } from "../react-native-logs.config";
 import { LogLevels, logToApi } from "../utility/apiCalls";
+import ErrorBoundary from "./ErrorBoundary";
 
 const logger = log.extend( "App.tsx" );
 
@@ -89,7 +90,9 @@ const App = ( ) => {
                 <SpeciesDetailProvider>
                   <GestureHandlerRootView style={style}>
                     <SafeAreaProvider>
+                      <ErrorBoundary>
                         <RootStack />
+                      </ErrorBoundary>
                     </SafeAreaProvider>
                   </GestureHandlerRootView>
                 </SpeciesDetailProvider>

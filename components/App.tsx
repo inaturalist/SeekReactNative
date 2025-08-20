@@ -7,6 +7,8 @@ import {
   getVersion,
   getBuildNumber
 } from "react-native-device-info";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import RootStack from "./Navigation/RootStack";
 import { hideLogs } from "../utility/helpers";
@@ -69,6 +71,8 @@ setNativeExceptionHandler(
   true // Enable on iOS
 );
 
+const style = { flex: 1 } as const;
+
 const App = ( ) => {
   useEffect( () => {
     hideLogs( );
@@ -83,7 +87,10 @@ const App = ( ) => {
             <SpeciesNearbyProvider>
               <ChallengeProvider>
                 <SpeciesDetailProvider>
-                  <RootStack />
+                  <GestureHandlerRootView style={style}>
+                    <SafeAreaProvider>
+                    </SafeAreaProvider>
+                  </GestureHandlerRootView>
                 </SpeciesDetailProvider>
               </ChallengeProvider>
             </SpeciesNearbyProvider>

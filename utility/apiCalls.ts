@@ -58,7 +58,8 @@ interface Log {
   level: LogLevels;
   message: string;
   context: string;
-  errorType: string;
+  // Currently, on the API error_type is only used if log level is "error"
+  errorType?: string;
 }
 const logToApi = async ( { level, message, context, errorType }: Log ): Promise<any> => {
   const site = "https://api.inaturalist.org/v2/log";

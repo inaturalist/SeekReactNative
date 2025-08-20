@@ -58,8 +58,7 @@ function useAppLog() {
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( achievementsLogState ),
-        context: "RootStack achievementsState v1",
-        errorType: "0"
+        context: "RootStack achievementsState v1"
       } );
     };
 
@@ -83,8 +82,7 @@ function useAppLog() {
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( challengesLogState ),
-        context: "RootStack challengesState v1",
-        errorType: "0"
+        context: "RootStack challengesState v1"
       } );
     };
 
@@ -106,8 +104,7 @@ function useAppLog() {
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( observationsLogState ),
-        context: "RootStack observationsState v1",
-        errorType: "0"
+        context: "RootStack observationsState v1"
       } );
     };
 

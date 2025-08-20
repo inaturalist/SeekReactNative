@@ -185,15 +185,13 @@ const ARCamera = ( ) => {
     logToApi( {
       level: LogLevels.INFO,
       message: `hasCoordinates ${hasCoordinates}`,
-      context: "takePhoto",
-      errorType: errorCode?.toString() || "0"
+      context: "takePhoto"
     } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
     logToApi( {
       level: LogLevels.INFO,
       message: `rankLevel ${rankLevel}`,
-      context: "takePhoto rankLevel",
-      errorType: errorCode?.toString() || "0"
+      context: "takePhoto rankLevel"
     } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;

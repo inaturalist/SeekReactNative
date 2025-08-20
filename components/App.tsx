@@ -3,7 +3,11 @@ import {
   setJSExceptionHandler,
   setNativeExceptionHandler
 } from "react-native-exception-handler";
-import { getVersion, getBuildNumber } from "react-native-device-info";
+import {
+  getVersion,
+  getBuildNumber,
+  getUsedMemory
+} from "react-native-device-info";
 
 import RootStack from "./Navigation/RootStack";
 import { hideLogs } from "../utility/helpers";
@@ -36,9 +40,28 @@ setJSExceptionHandler( jsErrorHandler, true );
 // only works in bundled mode; will show red screen in dev mode
 // tested this by raising an exception in RNGestureHandler.m
 // https://stackoverflow.com/questions/63270492/how-to-raise-native-error-in-react-native-app
-setNativeExceptionHandler( exceptionString => {
-  logger.error( `Native Error: ${exceptionString}` );
-} );
+setNativeExceptionHandler(
+  async ( exceptionString ) => {
+    try {
+      const crashData = {
+        error: exceptionString,
+        memoryUsage: await getUsedMemory(),
+        timestamp: new Date().toISOString(),
+        appVersion: getVersion()
+      };
+
+      logger.error( `Native Error: ${exceptionString}`, crashData );
+    } catch ( e ) {
+      // Last-ditch attempt to log something
+      logger.error(
+        `Native Error: ${exceptionString} (failed to save context)`,
+        e
+      );
+    }
+  },
+  true, // Force quit the app to prevent zombie states
+  true // Enable on iOS
+);
 
 const App = ( ) => {
   useEffect( () => {

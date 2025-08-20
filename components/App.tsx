@@ -33,20 +33,19 @@ const jsErrorHandler = ( e, isFatal ) => {
   // possibly also related to error boundaries in React 16+:
   // https://github.com/a7ul/react-native-exception-handler/issues/60
   // if ( !e.name && !e.message ) {return;}
-    if ( isFatal ) {
-      logger.error( "Fatal JS Error: ", e.stack );
-      logToApi( {
-        level: LogLevels.ERROR,
-        context: "App.tsx",
-        message: e.message,
-        errorType: e.constructor?.name,
-        backtrace: e.stack
-      } );
-    } else {
-      // This should get logged by ErrorBoundary. For some reason this handler
-      // gets called too, so we don't want to double-report errors
-    }
-
+  if ( isFatal ) {
+    logger.error( "Fatal JS Error: ", e.stack );
+    logToApi( {
+      level: LogLevels.ERROR,
+      context: "App.tsx",
+      message: e.message,
+      errorType: e.constructor?.name,
+      backtrace: e.stack
+    } );
+  } else {
+    // This should get logged by ErrorBoundary. For some reason this handler
+    // gets called too, so we don't want to double-report errors
+  }
 };
 
 // record JS exceptions

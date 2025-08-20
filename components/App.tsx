@@ -34,7 +34,7 @@ const jsErrorHandler = ( e, isFatal ) => {
   // https://github.com/a7ul/react-native-exception-handler/issues/60
   // if ( !e.name && !e.message ) {return;}
   if ( isFatal ) {
-    logger.error( "Fatal JS Error: ", e.stack );
+    logger.error( `Fatal JS Error: ${e.stack}` );
     logToApi( {
       level: LogLevels.ERROR,
       context: "App.tsx",

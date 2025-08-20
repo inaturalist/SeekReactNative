@@ -74,8 +74,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       logToApi( {
         level: LogLevels.INFO,
         message: `rankLevel ${rankLevel}`,
-        context: "getPredictionsForImage rankLevel",
-        errorType: "0"
+        context: "getPredictionsForImage rankLevel"
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
       startObservationWithImage( image, () => {
         navigation.navigate( "Match" );
@@ -85,8 +84,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
         level: LogLevels.INFO,
         message: "Online vision would have been used here, but fetching online results has been removed, " +
           "if you see this message it means that some device was not able to get offline vision.",
-        context: "GalleryButton",
-        errorType: "0"
+        context: "GalleryButton"
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     }
   };

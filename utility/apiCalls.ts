@@ -58,9 +58,11 @@ interface Log {
   level: LogLevels;
   message: string;
   context: string;
-  errorType: string;
+  // Currently, on the API error_type is only used if log level is "error"
+  errorType?: string;
+  backtrace?: string;
 }
-const logToApi = async ( { level, message, context, errorType }: Log ): Promise<any> => {
+const logToApi = async ( { level, message, context, errorType, backtrace }: Log ): Promise<any> => {
   const site = "https://api.inaturalist.org/v2/log";
 
   const formData = {
@@ -68,7 +70,8 @@ const logToApi = async ( { level, message, context, errorType }: Log ): Promise<
     level,
     message,
     context,
-    error_type: errorType
+    error_type: errorType,
+    backtrace
   };
 
   const options = {

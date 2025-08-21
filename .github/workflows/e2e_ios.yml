@@ -1,0 +1,155 @@
+##
+# Run e2e tests
+##
+name: e2e-iOS
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - 'main'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  checksecret:
+    name: check for oauth client
+    runs-on: macos-13
+    outputs:
+      is_SECRETS_PRESENT_set: ${{ steps.checksecret_job.outputs.is_SECRETS_PRESENT_set }}
+    steps:
+      - name: Check whether unity activation requests should be done
+        id: checksecret_job
+        env:
+            SECRETS_PRESENT: ${{ secrets.OAUTH_CLIENT_SECRET }}
+        run: |
+            echo "is_SECRETS_PRESENT_set: ${{ env.SECRETS_PRESENT != '' }}"
+            echo "::set-output name=is_SECRETS_PRESENT_set::${{ env.SECRETS_PRESENT != '' }}"
+
+  test:
+    needs: checksecret
+    if: needs.checksecret.outputs.is_SECRETS_PRESENT_set == 'true'
+    runs-on: macos-13
+    # Kill the task if not finished after 120 minutes
+    timeout-minutes: 120
+
+    steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+    - name: Install Node.js, NPM and Yarn
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Setup Ruby version according to .ruby-version with cached gems
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true        
+
+    - name: Cache node modules
+      uses: actions/cache@v4
+      id: cache
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Rebuild detox from cache
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: npx detox clean-framework-cache && npx detox build-framework-cache
+
+    # supposedly our current cache includes native modules like Realm
+    # that have compiled binaries specific to the environment where they were installed
+    # which might not be the same as the github actions environment
+    # so we need to rebuild them
+    - name: Rebuild native modules
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: npm rebuild
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install
+
+    - name: Cache Pods
+      uses: actions/cache@v4
+      id: podcache
+      with:
+        path: ios/Pods
+        key: pods-${{ hashFiles('**/Podfile.lock') }}
+
+    - name: Update Pods
+      run: |
+        gem update cocoapods xcodeproj
+        cd ios && pod install && cd ..
+
+    # Generate the secret files needed for a release build
+    - name: Create .env file
+      env:
+        OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
+        OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+        E2E_TEST_USERNAME: ${{ secrets.E2E_TEST_USERNAME }}
+        E2E_TEST_PASSWORD: ${{ secrets.E2E_TEST_PASSWORD }}
+        JWT_ANONYMOUS_API_SECRET: ${{ secrets.JWT_ANONYMOUS_API_SECRET }}
+      run: |
+        printf 'API_URL=https://stagingapi.inaturalist.org/v2\nOAUTH_API_URL=https://staging.inaturalist.org\nJWT_ANONYMOUS_API_SECRET=%s\nOAUTH_CLIENT_ID=%s\nOAUTH_CLIENT_SECRET=%s\nE2E_TEST_USERNAME=%s\nE2E_TEST_PASSWORD=%s\nGMAPS_API_KEY=%s\nANDROID_MODEL_FILE_NAME=INatVision_Small_2_fact256_8bit.tflite\nANDROID_TAXONOMY_FILE_NAME=taxonomy.csv\nANDROID_GEOMODEL_FILE_NAME=INatGeomodel_Small_2_8bit.tflite\nIOS_MODEL_FILE_NAME=INatVision_Small_2_fact256_8bit.mlmodel\nIOS_TAXONOMY_FILE_NAME=taxonomy.json\nIOS_GEOMODEL_FILE_NAME=INatGeomodel_Small_2_8bit.mlmodel\nCV_MODEL_VERSION=small_2\n' \
+        "$JWT_ANONYMOUS_API_SECRET" \
+        "$OAUTH_CLIENT_ID" \
+        "$OAUTH_CLIENT_SECRET" \
+        "$E2E_TEST_USERNAME" \
+        "$E2E_TEST_PASSWORD" \
+        "$GMAPS_API_KEY" > .env
+
+    # Download all linked model files not included in the repository (otherwise build will error out), requires .env file
+    - name: Download the example cv model and taxonomy file into the ios folder
+      run: npm run add-example-model
+
+    # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+    # This will be available for all subsequent steps
+    - name: Set MOCK_MODE to e2e
+      run: echo "MOCK_MODE=e2e" >> "$GITHUB_ENV"
+
+    # Install prerequisites for detox and build app, and test
+    - name: Install macOS dependencies
+      env:
+        HOMEBREW_NO_AUTO_UPDATE: 1
+        HOMEBREW_NO_INSTALL_CLEANUP: 1
+      run: |
+        brew tap wix/brew
+        brew install applesimutils
+
+    - name: Build test app
+      run: npm run e2e:build:ios
+
+    - name: Ensure servers are running
+      run: |
+        # is rails running?
+        curl -I --fail "https://staging.inaturalist.org/ping"
+        # is node running & is ES working?
+        curl -I --fail "https://stagingapi.inaturalist.org/v2/taxa"
+
+    - name: Run e2e test
+      run: npm run e2e:test:ios -- --cleanup --take-screenshots failing --record-videos failing --record-logs all -l trace
+    
+    # The artifacts for the failing tests are available for download on github.com on the page of the individual actions run
+    - name: Store Detox artifacts on test failure
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: detox-artifacts
+        path: artifacts
+
+  notify:
+    name: Notify Slack
+    needs: test
+    if: ${{ success() || failure() }}
+    runs-on: macos-13
+    steps:
+      - uses: iRoachie/slack-github-actions@v2.3.0
+        if: env.SLACK_WEBHOOK_URL != null
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BUILDS_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -14,23 +14,23 @@ concurrency:
   cancel-in-progress: true
   
 jobs:
-  checksecret:
-    name: check for oauth client
-    runs-on: macos-13
-    outputs:
-      is_SECRETS_PRESENT_set: ${{ steps.checksecret_job.outputs.is_SECRETS_PRESENT_set }}
-    steps:
-      - name: Check whether unity activation requests should be done
-        id: checksecret_job
-        env:
-            SECRETS_PRESENT: ${{ secrets.OAUTH_CLIENT_SECRET }}
-        run: |
-            echo "is_SECRETS_PRESENT_set: ${{ env.SECRETS_PRESENT != '' }}"
-            echo "::set-output name=is_SECRETS_PRESENT_set::${{ env.SECRETS_PRESENT != '' }}"
+  # checksecret:
+  #   name: check for oauth client
+  #   runs-on: macos-13
+  #   outputs:
+  #     is_SECRETS_PRESENT_set: ${{ steps.checksecret_job.outputs.is_SECRETS_PRESENT_set }}
+  #   steps:
+  #     - name: Check whether unity activation requests should be done
+  #       id: checksecret_job
+  #       env:
+  #           SECRETS_PRESENT: ${{ secrets.OAUTH_CLIENT_SECRET }}
+  #       run: |
+  #           echo "is_SECRETS_PRESENT_set: ${{ env.SECRETS_PRESENT != '' }}"
+  #           echo "::set-output name=is_SECRETS_PRESENT_set::${{ env.SECRETS_PRESENT != '' }}"
 
   test:
-    needs: checksecret
-    if: needs.checksecret.outputs.is_SECRETS_PRESENT_set == 'true'
+    # needs: checksecret
+    # if: needs.checksecret.outputs.is_SECRETS_PRESENT_set == 'true'
     runs-on: macos-13
     # Kill the task if not finished after 120 minutes
     timeout-minutes: 120

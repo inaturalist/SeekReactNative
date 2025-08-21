@@ -44,6 +44,7 @@
     "geolib": "^3.3.4",
     "i18n-js": "^4.3.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
+    "lodash": "^4.17.21",
     "react": "19.0.0",
     "react-native": "0.78.3",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",

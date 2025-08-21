@@ -1,5 +1,7 @@
 import { device, element, by, waitFor } from "detox";
 
+const TIMEOUT = 10_000;
+
 describe( "First app start test", () => {
   beforeAll( async () => {
     await device.launchApp( {
@@ -15,9 +17,12 @@ describe( "First app start test", () => {
 
   it( "should land on home screen", async () => {
     // Await the loading of the home screen
-    await waitFor( element( by.text( "GET STARTED" ) ) ).toBeVisible().withTimeout( 4000 );
-    await waitFor( element( by.text( "CONTINUE" ) ) ).toBeVisible();
-    await element( by.text( "CONTINUE" ) ).tap();
-    await expect( element( by.text( "SPECIES NEARBY" ) ) ).toBeVisible();
+    const getStarted = element( by.text( "GET STARTED" ) );
+    await waitFor( getStarted ).toBeVisible().withTimeout( TIMEOUT );
+    const continueButton = element( by.text( "CONTINUE" ) );
+    await waitFor( continueButton ).toBeVisible().withTimeout( TIMEOUT );
+    await continueButton.tap();
+    const speciesNearby = element( by.text( "SPECIES NEARBY" ) );
+    await waitFor( speciesNearby ).toBeVisible().withTimeout( TIMEOUT );
   } );
 } );

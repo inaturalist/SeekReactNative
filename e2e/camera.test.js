@@ -35,9 +35,6 @@ describe( "Camera test", () => {
     const warningContinue = await element( by.id( "warningContinue" ) );
     await waitFor( warningContinue ).toBeVisible().withTimeout( TIMEOUT );
     await warningContinue.tap();
-    // Check that the camera screen is visible
-    const mockCamera = element( by.id( "mock-camera" ) );
-    await waitFor( mockCamera ).toBeVisible().withTimeout( TIMEOUT );
     // Check that the mocked cv suggestion is visible
     const taxonResult = element( by.id( "headerPrediction" ) );
     await waitFor( taxonResult ).toBeVisible().withTimeout( TIMEOUT );

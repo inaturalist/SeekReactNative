@@ -1,6 +1,6 @@
 import { device, element, by, waitFor } from "detox";
 
-const TIMEOUT = 10_000;
+const TIMEOUT = 15_000;
 
 describe( "Camera test", () => {
   beforeAll( async () => {

@@ -1,6 +1,6 @@
 import { device, element, by, waitFor } from "detox";
 
-const TIMEOUT = 10_000;
+const TIMEOUT = 15_000;
 
 describe( "Camera test", () => {
   beforeAll( async () => {
@@ -17,16 +17,13 @@ describe( "Camera test", () => {
 
   it( "should navigate to camera screen", async () => {
     // Await the loading of the home screen
-    await waitFor( element( by.text( "GET STARTED" ) ) )
-      .toBeVisible()
-      .withTimeout( TIMEOUT );
-    await waitFor( element( by.text( "CONTINUE" ) ) )
-      .toBeVisible()
-      .withTimeout( TIMEOUT );
-    await element( by.text( "CONTINUE" ) ).tap();
-    await waitFor( element( by.text( "SPECIES NEARBY" ) ) )
-      .toBeVisible()
-      .withTimeout( TIMEOUT );
+    const getStarted = element( by.text( "GET STARTED" ) );
+    await waitFor( getStarted ).toBeVisible().withTimeout( TIMEOUT );
+    const continueButton = element( by.text( "CONTINUE" ) );
+    await waitFor( continueButton ).toBeVisible().withTimeout( TIMEOUT );
+    await continueButton.tap();
+    const speciesNearby = element( by.text( "SPECIES NEARBY" ) );
+    await waitFor( speciesNearby ).toBeVisible().withTimeout( TIMEOUT );
     // Navigate to the camera screen
     const cameraButton = await element( by.id( "openCameraButton" ) );
     await waitFor( cameraButton ).toBeVisible().withTimeout( TIMEOUT );

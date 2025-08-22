@@ -61,7 +61,7 @@
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.5.2",
-    "react-native-logs": "^5.0.1",
+    "react-native-logs": "^5.3.0",
     "react-native-mail": "^6.1.1",
     "react-native-maps": "1.20.1",
     "react-native-modal": "^14.0.0-rc.1",

@@ -1039,9 +1039,9 @@
     "not_found_error_description": "Under indlæsning af appen, blev idenfikationsmodellen ikke fundet. Din kamera-oplevelse vil være uden identifikation."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Noget gik galt.",
+    "if_youre_seeing_this_error": "Hvis du ser dette, og du er online, er iNat-personale allerede blevet underrettet. Tak for at finde en fejl! Hvis du er offline, bedes du tage et skærmbillede og sende os en e-mail, når du er tilbage på internettet.",
+    "restart": "GENSTART APP",
+    "error": "Fejl"
   }
 }

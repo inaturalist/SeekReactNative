@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { isEmpty } from "lodash";
 import React from "react";
 import { Animated, StyleSheet } from "react-native";
 
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const FocusSquare = ( { animatedStyle }: Props ) => {
-  if ( _.isEmpty( animatedStyle ) ) { return null; }
+  if ( isEmpty( animatedStyle ) ) { return null; }
   return (
     <Animated.View
       style={[

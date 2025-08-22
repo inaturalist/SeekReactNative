@@ -10,6 +10,9 @@ buildscript {
         kotlinVersion = "2.0.21"
         // This specifies which tensorflow-lite version to use for our vision-plugin.
         tensorflowVersion = "2.17.0"
+        // RN-maps uses this version of play-services-location, but RN-geolocation-service
+        // uses 17.0.0 but is overridable like so
+        playServicesLocationVersion = "21.0.1"
     }
     repositories {
         google()

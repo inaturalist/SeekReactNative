@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { View, Alert, ScrollView } from "react-native";
-import HTML from "react-native-render-html";
+import HTML, {
+  HTMLElementModel,
+  HTMLContentModel
+} from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 import Modal from "react-native-modal";
 
@@ -150,6 +153,21 @@ const LicensePhotosScreen = ( ) => {
 
   const licensePhotos = user.preferred_observation_license ? true : false;
 
+  const customHTMLElementModels = {
+    "terms": HTMLElementModel.fromCustomModel( {
+      tagName: "terms",
+      contentModel: HTMLContentModel.textual
+    } ),
+    "privacy": HTMLElementModel.fromCustomModel( {
+      tagName: "privacy",
+      contentModel: HTMLContentModel.textual
+    } ),
+    "guidelines": HTMLElementModel.fromCustomModel( {
+      tagName: "guidelines",
+      contentModel: HTMLContentModel.textual
+    } )
+  };
+
   return (
     <ScrollWithHeader header="login.sign_up" style={styles.bottomPadding}>
       <View style={styles.leftTextMargins}>
@@ -180,6 +198,7 @@ const LicensePhotosScreen = ( ) => {
           <HTML
             source={{ html: agreeToTermsHTML }}
             tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
+            customHTMLElementModels={customHTMLElementModels}
             renderers={{
               terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
               privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },

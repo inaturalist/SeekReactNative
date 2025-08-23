@@ -195,6 +195,10 @@ const TermsOfServiceScreen = ( ) => {
         source={{ html }}
         systemFonts={htmlFonts}
         renderersProps={renderersProps}
+        defaultTextProps={{
+          allowFontScaling: true,
+          maxFontSizeMultiplier: 2
+        }}
         baseStyle={viewStyles.textContainer}
         tagsStyles={{
           p: { ...baseTextStyles.bodySpaced, ...textStyles.text },

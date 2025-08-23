@@ -23,6 +23,7 @@ import {
 } from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
+import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
 let framesProcessingTime: number[] = [];
 
@@ -279,6 +280,13 @@ const FrameProcessorCamera = ( props: Props ) => {
   const onError = useCallback(
     ( error: CameraRuntimeError ) => {
       console.log( "error", error );
+      logToApi( {
+        level: LogLevels.ERROR,
+        context: "FrameProcessorCamera.tsx",
+        message: error.message,
+        errorType: error.constructor?.name,
+        backtrace: error.stack
+      } );
       let returnString = error.code;
       // If there is no error code, log the error and return because we don't know what to do with it
       if ( !error.code ) {

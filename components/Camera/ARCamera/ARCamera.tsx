@@ -370,7 +370,16 @@ const ARCamera = ( ) => {
       // TODO: this callback only ever uses photo.uri and photo.predictions, so we can just pass those directly
       callback( photo );
     } )
-    .catch( ( e ) => handleCaptureError( { nativeEvent: { error: e } } ) );
+    .catch( ( e ) => {
+      logToApi( {
+        level: LogLevels.ERROR,
+        context: "ARCamera.tsx",
+        message: e.message,
+        errorType: e.constructor?.name,
+        backtrace: e.stack
+      } );
+      handleCaptureError( { nativeEvent: { reason: e } } );
+    } );
   }, [sortedPredictions, handleCaptureError] );
 
   const takePicture = useCallback( async () => {

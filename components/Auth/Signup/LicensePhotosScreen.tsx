@@ -124,8 +124,8 @@ const LicensePhotosScreen = ( ) => {
       source={{ html: dataTransferLearnMoreHTML }}
       tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
       renderers={{
-        privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
-        terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" }
+        privacy: ( ) => renderLink( "Privacy", "privacy" ),
+        terms: ( ) => renderLink( "TermsOfService", "terms" )
       }}
     />
   );
@@ -200,9 +200,9 @@ const LicensePhotosScreen = ( ) => {
             tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
             customHTMLElementModels={customHTMLElementModels}
             renderers={{
-              terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
-              privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
-              guidelines: { renderer: ( ) => renderLink( "CommunityGuidelines", "guidelines" ), wrapper: "Text" }
+              terms: ( ) => renderLink( "TermsOfService", "terms" ),
+              privacy: ( ) => renderLink( "Privacy", "privacy" ),
+              guidelines: ( ) => renderLink( "CommunityGuidelines", "guidelines" )
             }}
           />
         )}

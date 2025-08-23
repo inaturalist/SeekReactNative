@@ -502,6 +502,10 @@ const PrivacyPolicyScreen = () => {
           source={{ html: iNatHtml }}
           systemFonts={htmlFonts}
           renderersProps={renderersProps}
+          defaultTextProps={{
+            allowFontScaling: true,
+            maxFontSizeMultiplier: 2
+          }}
           containerStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
@@ -516,6 +520,10 @@ const PrivacyPolicyScreen = () => {
           source={{ html: seekHtml }}
           systemFonts={htmlFonts}
           renderersProps={renderersProps}
+          defaultTextProps={{
+            allowFontScaling: true,
+            maxFontSizeMultiplier: 2
+          }}
           containerStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },

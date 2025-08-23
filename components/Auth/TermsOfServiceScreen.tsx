@@ -180,18 +180,19 @@ const TermsOfServiceScreen = ( ) => {
   © Copyright 2024 iNaturalist. All rights reserved.
 </p>`;
 
-  const DEFAULT_PROPS = {
-    onLinkPress( ) {
-      return;
+
+  const renderersProps: Partial<RenderersProps> = {
+    a: {
+      onPress: () => null
     }
   };
 
   return (
     <ScrollWithHeader header="inat_signup.terms">
       <HTML
-        {...DEFAULT_PROPS}
         containerStyle={viewStyles.textContainer}
         source={{ html }}
+        renderersProps={renderersProps}
         tagsStyles={{
           p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
           a: { ...baseTextStyles.bodySpaced, ...textStyles.text },

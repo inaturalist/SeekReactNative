@@ -199,7 +199,7 @@ const TermsOfServiceScreen = ( ) => {
           strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
           ul: textStyles.list,
           ol: textStyles.list
-        } }
+        }}
       />
     </ScrollWithHeader>
   );

@@ -1,4 +1,2 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-npm run lint
+# Run lint on staged files and run flow
+npm run lint:staged

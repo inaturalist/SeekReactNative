@@ -95,3 +95,6 @@ utility/commonNames/*
 
 #realm
 db.realm*
+
+# Eslint cache
+.eslintcache

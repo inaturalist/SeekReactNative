@@ -4,6 +4,7 @@ import HTML, { RenderersProps } from "react-native-render-html";
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { baseTextStyles } from "../../styles/textStyles";
+import { dimensions, htmlFonts } from "../../styles/global";
 
 const TermsOfServiceScreen = ( ) => {
   const html = `<p><strong><em>Revised July 11, 2023</em></strong></p>
@@ -191,7 +192,9 @@ const TermsOfServiceScreen = ( ) => {
     <ScrollWithHeader header="inat_signup.terms">
       <HTML
         containerStyle={viewStyles.textContainer}
+        contentWidth={dimensions.width}
         source={{ html }}
+        systemFonts={htmlFonts}
         renderersProps={renderersProps}
         tagsStyles={{
           p: { ...baseTextStyles.bodySpaced, ...textStyles.text },

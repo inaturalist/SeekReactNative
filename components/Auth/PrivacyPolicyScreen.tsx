@@ -506,7 +506,7 @@ const PrivacyPolicyScreen = () => {
             allowFontScaling: true,
             maxFontSizeMultiplier: 2
           }}
-          containerStyle={viewStyles.textContainer}
+          baseStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
             h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
@@ -524,7 +524,7 @@ const PrivacyPolicyScreen = () => {
             allowFontScaling: true,
             maxFontSizeMultiplier: 2
           }}
-          containerStyle={viewStyles.textContainer}
+          baseStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
             h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },

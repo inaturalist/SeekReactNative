@@ -1,4 +1,5 @@
 import { Dimensions } from "react-native";
+import { defaultSystemFonts } from "react-native-render-html";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -49,6 +50,11 @@ export const fonts = {
   italic: "Lato-Italic",
   boldItalic: "Lato-BoldItalic"
 };
+
+export const htmlFonts = [
+  fonts.regular,
+  ...defaultSystemFonts
+];
 
 export const dimensions = {
   width,

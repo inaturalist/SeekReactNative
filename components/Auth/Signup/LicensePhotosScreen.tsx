@@ -197,8 +197,15 @@ const LicensePhotosScreen = ( ) => {
         children={(
           <HTML
             source={{ html: agreeToTermsHTML }}
-            tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
+            tagsStyles={{
+              p: { ...baseTextStyles.body, ...styles.licenseText }
+            }}
             customHTMLElementModels={customHTMLElementModels}
+            systemFonts={htmlFonts}
+            defaultTextProps={{
+              allowFontScaling: true,
+              maxFontSizeMultiplier: 2
+            }}
             renderers={{
               terms: ( ) => renderLink( "TermsOfService", "terms" ),
               privacy: ( ) => renderLink( "Privacy", "privacy" ),

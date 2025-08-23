@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import Modal from "react-native-modal";
 
 import i18n from "../../../i18n";
-import { colors } from "../../../styles/global";
+import { colors, htmlFonts } from "../../../styles/global";
 import styles from "../../../styles/auth/signup";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import ErrorMessage from "../ErrorMessage";

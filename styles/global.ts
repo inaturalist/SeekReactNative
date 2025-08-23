@@ -53,6 +53,8 @@ export const fonts = {
 
 export const htmlFonts = [
   fonts.regular,
+  fonts.bold,
+  fonts.italic,
   ...defaultSystemFonts
 ];
 

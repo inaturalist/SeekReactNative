@@ -1,9 +1,10 @@
 import * as React from "react";
-import HTML from "react-native-render-html";
+import HTML, { RenderersProps } from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { baseTextStyles } from "../../styles/textStyles";
+import { dimensions, htmlFonts } from "../../styles/global";
 
 const CommunityGuidelines = ( ) => {
   const html = `<div class="last column span-18">
@@ -186,26 +187,35 @@ const CommunityGuidelines = ( ) => {
   </ul>
 </div>`;
 
-  const DEFAULT_PROPS = {
-    onLinkPress( ) {
-      return;
+  const renderersProps: Partial<RenderersProps> = {
+    a: {
+      onPress: () => null
     }
   };
 
   return (
     <ScrollWithHeader header="inat_signup.guidelines">
       <HTML
-        {...DEFAULT_PROPS}
-        containerStyle={viewStyles.textContainer}
+        contentWidth={dimensions.width}
         source={{ html }}
-        tagsStyles={
-          {
-            p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-            strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
-            h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
-            a: { ...baseTextStyles.bodySpaced, ...textStyles.text }
-          }
-        }
+        systemFonts={htmlFonts}
+        renderersProps={renderersProps}
+        defaultTextProps={{
+          allowFontScaling: true,
+          maxFontSizeMultiplier: 2
+        }}
+        baseStyle={viewStyles.textContainer}
+        tagsStyles={{
+          p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
+          h3: { ...baseTextStyles.bodySpacedBold, ...textStyles.text },
+          a: {
+            ...baseTextStyles.bodySpaced,
+            textDecorationLine: "underline" as const
+          },
+          li: textStyles.list,
+          strong: baseTextStyles.bodySpacedBold,
+          i: baseTextStyles.bodySpacedItalic
+        }}
       />
     </ScrollWithHeader>
   );

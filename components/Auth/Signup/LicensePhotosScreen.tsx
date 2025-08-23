@@ -122,6 +122,14 @@ const LicensePhotosScreen = ( ) => {
   const dataTransferHTML = ( ) => (
     <HTML
       source={{ html: dataTransferLearnMoreHTML }}
+      customHTMLElementModels={customHTMLElementModels}
+      // eslint-disable-next-line react-native/no-inline-styles
+      baseStyle={{ marginBottom: 80 }}
+      systemFonts={htmlFonts}
+      defaultTextProps={{
+        allowFontScaling: true,
+        maxFontSizeMultiplier: 2
+      }}
       tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
       renderers={{
         privacy: ( ) => renderLink( "Privacy", "privacy" ),

@@ -9,6 +9,7 @@ import { textStyles } from "../../../styles/species/species";
 import { useCommonName } from "../../../utility/customHooks/useCommonName";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { htmlFonts } from "../../../styles/global";
 
 interface Props {
   readonly loading: boolean;
@@ -45,7 +46,16 @@ const About = ( {
       {!loading ? <>
         {about && html && (
           <>
-            <HTML baseFontStyle={baseTextStyles.body} source={{ html }} />
+            <HTML
+              baseStyle={baseTextStyles.body}
+              source={{ html }}
+              systemFonts={htmlFonts}
+              defaultTextProps={{ allowFontScaling: true, maxFontSizeMultiplier: 2 }}
+              tagsStyles={{
+                strong: baseTextStyles.bodySpacedBold,
+                i: baseTextStyles.bodySpacedItalic
+              }}
+            />
             <StyledText style={baseTextStyles.body}>
               {/* TODO: the parentheses should probably be part of the string? Because in some cultures maybe they would different character for tis. */}
               {"\n("}

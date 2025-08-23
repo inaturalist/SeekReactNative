@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import HTML from "react-native-render-html";
+import HTML, { RenderersProps } from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
@@ -488,9 +488,9 @@ const PrivacyPolicyScreen = () => {
 
 <p><i>Revised on July 11, 2023.</i></p>`;
 
-  const DEFAULT_PROPS = {
-    onLinkPress( ) {
-      return;
+  const renderersProps: Partial<RenderersProps> = {
+    a: {
+      onPress: ( ) => null
     }
   };
 
@@ -501,7 +501,7 @@ const PrivacyPolicyScreen = () => {
           contentWidth={dimensions.width}
           source={{ html: iNatHtml }}
           systemFonts={htmlFonts}
-          {...DEFAULT_PROPS}
+          renderersProps={renderersProps}
           containerStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
@@ -515,7 +515,7 @@ const PrivacyPolicyScreen = () => {
           contentWidth={dimensions.width}
           source={{ html: seekHtml }}
           systemFonts={htmlFonts}
-          {...DEFAULT_PROPS}
+          renderersProps={renderersProps}
           containerStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },

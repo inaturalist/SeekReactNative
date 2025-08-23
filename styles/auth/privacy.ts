@@ -10,7 +10,8 @@ const viewStyles = StyleSheet.create( {
 
 const textStyles = StyleSheet.create( {
   list: {
-    marginLeft: -15
+    marginLeft: 2,
+    marginTop: -3
   },
   text: {
     marginBottom: 20

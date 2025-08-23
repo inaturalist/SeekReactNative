@@ -1312,7 +1312,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-render-html (5.1.1):
+  - react-native-render-html (6.3.4):
     - React-Core
   - react-native-restart (0.0.27):
     - React-Core
@@ -2254,7 +2254,7 @@ SPEC CHECKSUMS:
   react-native-maps: 9febd31278b35cd21e4fad2cf6fa708993be5dab
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-pager-view: 11662c698c8f11d39e05891316d2a144fa00adc4
-  react-native-render-html: fc0eadab8b59ec87f34ea2355232a89b6c70364d
+  react-native-render-html: 5afc4751f1a98621b3009432ef84c47019dcb2bd
   react-native-restart: 0bc732f4461709022a742bb29bcccf6bbc5b4863
   react-native-safe-area-context: 0f7bf11598f9a61b7ceac8dc3f59ef98697e99e1
   react-native-webview: 3772c8537fd6d7869791820a7b154fb546bcef7b

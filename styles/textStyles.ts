@@ -384,9 +384,15 @@ const baseTextStyles = StyleSheet.create( {
     fontFamily: fonts.italic
   },
   bodySpaced,
-  bodySpacedMedium: {
+  bodySpacedBold: {
     ...bodySpaced,
-    fontFamily: fonts.medium
+    fontFamily: fonts.bold,
+    fontWeight: "bold" as const
+  },
+  bodySpacedItalic: {
+    ...bodySpaced,
+    fontFamily: fonts.italic,
+    fontStyle: "italic" as const
   },
   emptyState,
   emptyStateGreen: {

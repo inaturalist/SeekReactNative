@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { View, Alert, ScrollView } from "react-native";
-import HTML from "react-native-render-html";
+import HTML, {
+  HTMLElementModel,
+  HTMLContentModel
+} from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 import Modal from "react-native-modal";
 
 import i18n from "../../../i18n";
-import { colors } from "../../../styles/global";
+import { colors, htmlFonts } from "../../../styles/global";
 import styles from "../../../styles/auth/signup";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import ErrorMessage from "../ErrorMessage";
@@ -82,7 +85,7 @@ const LicensePhotosScreen = ( ) => {
             setShowModal( false );
           }
         }}
-        style={styles.linkText}
+        style={[baseTextStyles.body, styles.linkText]}
       >
         {i18n.t( `inat_signup.${text}` )}
       </StyledText>
@@ -119,10 +122,18 @@ const LicensePhotosScreen = ( ) => {
   const dataTransferHTML = ( ) => (
     <HTML
       source={{ html: dataTransferLearnMoreHTML }}
+      customHTMLElementModels={customHTMLElementModels}
+      // eslint-disable-next-line react-native/no-inline-styles
+      baseStyle={{ marginBottom: 80 }}
+      systemFonts={htmlFonts}
+      defaultTextProps={{
+        allowFontScaling: true,
+        maxFontSizeMultiplier: 2
+      }}
       tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
       renderers={{
-        privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
-        terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" }
+        privacy: ( ) => renderLink( "Privacy", "privacy" ),
+        terms: ( ) => renderLink( "TermsOfService", "terms" )
       }}
     />
   );
@@ -149,6 +160,21 @@ const LicensePhotosScreen = ( ) => {
   const disableButton = !agreeTerms || !user.pi_consent || !user.data_transfer_consent;
 
   const licensePhotos = user.preferred_observation_license ? true : false;
+
+  const customHTMLElementModels = {
+    "terms": HTMLElementModel.fromCustomModel( {
+      tagName: "terms",
+      contentModel: HTMLContentModel.textual
+    } ),
+    "privacy": HTMLElementModel.fromCustomModel( {
+      tagName: "privacy",
+      contentModel: HTMLContentModel.textual
+    } ),
+    "guidelines": HTMLElementModel.fromCustomModel( {
+      tagName: "guidelines",
+      contentModel: HTMLContentModel.textual
+    } )
+  };
 
   return (
     <ScrollWithHeader header="login.sign_up" style={styles.bottomPadding}>
@@ -179,11 +205,19 @@ const LicensePhotosScreen = ( ) => {
         children={(
           <HTML
             source={{ html: agreeToTermsHTML }}
-            tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
+            tagsStyles={{
+              p: { ...baseTextStyles.body, ...styles.licenseText }
+            }}
+            customHTMLElementModels={customHTMLElementModels}
+            systemFonts={htmlFonts}
+            defaultTextProps={{
+              allowFontScaling: true,
+              maxFontSizeMultiplier: 2
+            }}
             renderers={{
-              terms: { renderer: ( ) => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
-              privacy: { renderer: ( ) => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
-              guidelines: { renderer: ( ) => renderLink( "CommunityGuidelines", "guidelines" ), wrapper: "Text" }
+              terms: ( ) => renderLink( "TermsOfService", "terms" ),
+              privacy: ( ) => renderLink( "Privacy", "privacy" ),
+              guidelines: ( ) => renderLink( "CommunityGuidelines", "guidelines" )
             }}
           />
         )}

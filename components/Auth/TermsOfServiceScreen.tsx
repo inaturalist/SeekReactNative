@@ -195,8 +195,8 @@ const TermsOfServiceScreen = ( ) => {
         tagsStyles={ {
           p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
           a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-          h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
           strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
+          h3: { ...baseTextStyles.bodySpacedBold, ...textStyles.text },
           ul: textStyles.list,
           ol: textStyles.list
         }}

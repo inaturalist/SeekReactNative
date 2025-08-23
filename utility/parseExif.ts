@@ -1,6 +1,6 @@
 // Copied from iNatNext on 2024-12-10
 import { formatISO } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 import { readExif } from "react-native-exif-reader";
 
 function formatISONoTimezone( date: Date ): string {
@@ -30,7 +30,7 @@ export const parseExifDateToLocalTimezone = ( datetime: string ): Date | null =>
   // react-native-exif-reader formats the date based on GMT time,
   // so we create a date object here using GMT time, not the user's local timezone
   const isoDate = `${datetime}Z`;
-  const zonedDate = utcToZonedTime( isoDate, "GMT" );
+  const zonedDate = toZonedTime( isoDate, "GMT" );
 
   if ( !zonedDate || zonedDate.toString().match( /invalid/i ) ) {
     throw new UsePhotoExifDateFormatError( "Date was not formatted correctly" );

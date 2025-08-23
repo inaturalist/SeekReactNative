@@ -1,0 +1,21 @@
+diff --git a/node_modules/date-fns-tz/dist/cjs/_lib/tzIntlTimeZoneName/index.js b/node_modules/date-fns-tz/dist/cjs/_lib/tzIntlTimeZoneName/index.js
+index 2211eee..c618343 100644
+--- a/node_modules/date-fns-tz/dist/cjs/_lib/tzIntlTimeZoneName/index.js
++++ b/node_modules/date-fns-tz/dist/cjs/_lib/tzIntlTimeZoneName/index.js
+@@ -16,10 +16,12 @@ function tzIntlTimeZoneName(length, date, options) {
+ exports.tzIntlTimeZoneName = tzIntlTimeZoneName;
+ function partsTimeZone(dtf, date) {
+     const formatted = dtf.formatToParts(date);
+-    for (let i = formatted.length - 1; i >= 0; --i) {
+-        if (formatted[i].type === 'timeZoneName') {
+-            return formatted[i].value;
+-        }
++    // Hack around https://github.com/facebook/hermes/issues/1601 and
++    // https://github.com/marnusw/date-fns-tz/issues/306 by assuming all
++    // parts after timeZoneName are actually a part of timeZoneName
++    const idx = formatted.map(part => part.type).indexOf('timeZoneName');
++    if ( idx ) {
++        return formatted.slice(idx, formatted.length).map(part => part.value).join( "" );
+     }
+     return undefined;
+ }

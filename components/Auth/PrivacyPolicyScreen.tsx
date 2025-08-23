@@ -509,9 +509,14 @@ const PrivacyPolicyScreen = () => {
           baseStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-            h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
-            a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-            li: textStyles.list
+            h3: { ...baseTextStyles.bodySpacedBold, ...textStyles.text },
+            a: {
+              ...baseTextStyles.bodySpaced,
+              textDecorationLine: "underline" as const
+            },
+            li: textStyles.list,
+            strong: baseTextStyles.bodySpacedBold,
+            i: baseTextStyles.bodySpacedItalic
           }}
         />
       ) : (
@@ -527,9 +532,15 @@ const PrivacyPolicyScreen = () => {
           baseStyle={viewStyles.textContainer}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-            h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
-            a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-            li: textStyles.list
+            h3: { ...baseTextStyles.bodySpacedBold, ...textStyles.text },
+            a: {
+              ...baseTextStyles.bodySpaced,
+              ...textStyles.text,
+              textDecorationLine: "underline" as const
+            },
+            li: textStyles.list,
+            strong: baseTextStyles.bodySpacedBold,
+            i: baseTextStyles.bodySpacedItalic
           }}
         />
       )}

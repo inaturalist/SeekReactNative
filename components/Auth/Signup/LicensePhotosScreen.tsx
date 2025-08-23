@@ -82,7 +82,7 @@ const LicensePhotosScreen = ( ) => {
             setShowModal( false );
           }
         }}
-        style={styles.linkText}
+        style={[baseTextStyles.body, styles.linkText]}
       >
         {i18n.t( `inat_signup.${text}` )}
       </StyledText>

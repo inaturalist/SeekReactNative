@@ -192,7 +192,7 @@ const TermsOfServiceScreen = ( ) => {
         {...DEFAULT_PROPS}
         containerStyle={viewStyles.textContainer}
         source={{ html }}
-        tagsStyles={ {
+        tagsStyles={{
           p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
           a: { ...baseTextStyles.bodySpaced, ...textStyles.text },
           strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },

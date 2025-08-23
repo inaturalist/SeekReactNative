@@ -202,14 +202,15 @@ const TermsOfServiceScreen = ( ) => {
         baseStyle={viewStyles.textContainer}
         tagsStyles={{
           p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
-          strong: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
           h3: { ...baseTextStyles.bodySpacedBold, ...textStyles.text },
           a: {
             ...baseTextStyles.bodySpaced,
             textDecorationLine: "underline" as const
           },
           ul: textStyles.list,
-          ol: textStyles.list
+          ol: textStyles.list,
+          strong: baseTextStyles.bodySpacedBold,
+          i: baseTextStyles.bodySpacedItalic
         }}
       />
     </ScrollWithHeader>

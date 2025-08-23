@@ -1039,9 +1039,9 @@
     "not_found_error_description": "Beim Laden der App wurde das Modell zur Identifikation nicht gefunden. Deine Kamera-Nutzung wird ohne Bestimmungen angezeigt werden."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Etwas ist schief gelaufen.",
+    "if_youre_seeing_this_error": "Wenn du dies siehst und online bist, wurden die iNat-Mitarbeitenden bereits informiert. Danke, dass du einen Fehler gefunden hast! Wenn du offline bist, mache bitte einen Screenshot und schicke uns eine E-Mail, wenn du wieder mit dem Internet verbunden bist.",
+    "restart": "APP NEUSTARTEN",
+    "error": "Fehler"
   }
 }

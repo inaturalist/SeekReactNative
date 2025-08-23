@@ -13,6 +13,7 @@
     "clean-start": "npx react-native clean-project-auto && npx pod-install && npm run clean && npm start -- --reset-cache",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
+    "lint:staged": "npx lint-staged",
     "test": "TZ=UTC jest",
     "test:watch": "TZ=UTC jest --watch",
     "prepare": "husky install",
@@ -150,5 +151,10 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --max-warnings=0 --cache-location .eslintcache"
+    ]
   }
 }

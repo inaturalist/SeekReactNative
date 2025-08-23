@@ -5,6 +5,7 @@ import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { UserContext } from "../UserContext";
 import { baseTextStyles } from "../../styles/textStyles";
+import { dimensions, htmlFonts } from "../../styles/global";
 
 const PrivacyPolicyScreen = () => {
   const { login } = useContext( UserContext );
@@ -497,9 +498,11 @@ const PrivacyPolicyScreen = () => {
     <ScrollWithHeader header="inat_signup.privacy">
       {login ? (
         <HTML
+          contentWidth={dimensions.width}
+          source={{ html: iNatHtml }}
+          systemFonts={htmlFonts}
           {...DEFAULT_PROPS}
           containerStyle={viewStyles.textContainer}
-          source={{ html: iNatHtml }}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
             h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },
@@ -509,9 +512,11 @@ const PrivacyPolicyScreen = () => {
         />
       ) : (
         <HTML
+          contentWidth={dimensions.width}
+          source={{ html: seekHtml }}
+          systemFonts={htmlFonts}
           {...DEFAULT_PROPS}
           containerStyle={viewStyles.textContainer}
-          source={{ html: seekHtml }}
           tagsStyles={{
             p: { ...baseTextStyles.bodySpaced, ...textStyles.text },
             h3: { ...baseTextStyles.bodySpacedMedium, ...textStyles.text },

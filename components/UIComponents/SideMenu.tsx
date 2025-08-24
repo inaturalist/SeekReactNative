@@ -6,7 +6,6 @@ import { viewStyles, imageStyles, textStyles } from "../../styles/uiComponents/s
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
-import { resetRouter } from "../../utility/navigationHelpers";
 import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
@@ -14,17 +13,11 @@ const SideMenu = ( { navigation } ) => {
   const { navigate } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
-  const navHome = ( ) => resetRouter( navigation );
-
   const navToPath = ( path: string ) => {
-    if ( path === "Home" ) {
-      navHome( );
-    } else {
-      if ( path === "Observations" ) {
-        setRoute( "SideMenu" );
-      }
-      navigate( path );
+    if ( path === "Observations" ) {
+      setRoute( "SideMenu" );
     }
+    navigate( path );
   };
 
   const renderMenuItems = ( ) => menuItems.map( ( item, i ) => {
@@ -37,7 +30,7 @@ const SideMenu = ( { navigation } ) => {
         key={item}
         accessibilityLabel={name}
         accessible
-        onPress={() => navToPath( path )}
+        onPress={( ) => navToPath( path )}
         style={[viewStyles.menuItem, i < menuItems.length - 1 && viewStyles.divider]}
       >
         <Image
@@ -54,7 +47,7 @@ const SideMenu = ( { navigation } ) => {
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
-        onPress={navHome}
+        onPress={( ) => navToPath( "Home" )}
       >
         <Image source={logoImages.seek} style={imageStyles.seekLogo} />
       </Pressable>

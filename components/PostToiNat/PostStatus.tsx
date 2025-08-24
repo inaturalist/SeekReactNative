@@ -40,7 +40,9 @@ const PostStatus = ( ) => {
   };
 
   // TODO: navigation TS
-  const navToMatch = ( ) => navigation.navigate( "Match" );
+  const navToMatch = ( ) => navigation.popTo( "Drawer", {
+    screen: "Match"
+  } );
 
   return (
     <SafeAreaView style={viewStyles.container}>

@@ -37,7 +37,7 @@ const config = { headerShown: false } as const;
 const defaultConfig = { ...config, cardStyleInterpolator: forFade } as const;
 const verticalConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS } as const;
 // animation is off for resetting screen from AR Camera
-const drawerConfig = { ...config,  animationEnabled: false } as const;
+const drawerConfig = { ...config,  animation: "none" } as const;
 
 const screenOptions = { gestureEnabled: false } as const;
 const modal = { presentation: "modal" } as const;

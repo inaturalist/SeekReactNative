@@ -39,7 +39,7 @@ const NotificationsScreen = ( ) => {
   const extractKey = ( item: Notification, index: number ) => item + index;
 
   return (
-    <ViewWithHeader testID="notifications-screen-container" header="notifications.header" footer={false}>
+    <ViewWithHeader testID="notifications-screen-container" header="notifications.header">
       <FlashList
         ref={scrollView}
         estimatedItemSize={106}

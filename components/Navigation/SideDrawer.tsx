@@ -15,16 +15,19 @@ import Home from "../Home/HomeScreen";
 import Species from "../Species/SpeciesDetail";
 import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
 import SeekYearInReviewMapScreen from "../SeekYearInReview/SeekYearInReviewMapScreen";
+import Notifications from "../Notifications/Notifications";
 
 const Drawer = createDrawerNavigator( );
 const drawerContent = props => <SideMenu {...props} />;
 
-const config = { headerShown: false } as const;
-const screenOptions = { ...config, drawerType: "front" } as const;
+const screenOptions = {
+  headerShown: false,
+  drawerType: "front"
+} as const;
 
 const SideDrawer = ( ) => (
   <Drawer.Navigator
-    initialRouteName="Drawer"
+    initialRouteName="Home"
     drawerContent={drawerContent}
     screenOptions={screenOptions}
     backBehavior="history"
@@ -44,6 +47,7 @@ const SideDrawer = ( ) => (
     <Drawer.Screen name="DebugEmailScreen" component={DebugEmailScreen} />
     <Drawer.Screen name="SeekYearInReview" component={SeekYearInReview} />
     <Drawer.Screen name="SeekYearInReviewMapScreen" component={SeekYearInReviewMapScreen} />
+    <Drawer.Screen name="Notifications" component={Notifications} />
   </Drawer.Navigator>
 );
 

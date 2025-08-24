@@ -27,7 +27,6 @@ import ParentalConsentScreen from "../Auth/Signup/ParentalConsentScreen";
 import ParentCheckEmailScreen from "../Auth/Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
-import Notifications from "../Notifications/Notifications";
 import Social from "../Social/SocialScreen";
 import useAppLog from "./hooks/useAppLog";
 
@@ -37,9 +36,8 @@ const config = { headerShown: false } as const;
 
 const defaultConfig = { ...config, cardStyleInterpolator: forFade } as const;
 const verticalConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS } as const;
-const notificationsConfig = { ...config, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS } as const;
 // animation is off for resetting screen from AR Camera
-const drawerConfig = { ...config,  animationEnabled: false } as const;
+const drawerConfig = { ...config,  animation: "none" } as const;
 
 const screenOptions = { gestureEnabled: false } as const;
 const modal = { presentation: "modal" } as const;
@@ -80,10 +78,6 @@ const App = ( ) => {
             component={CommunityGuidelines}
             options={defaultConfig}
           />
-          {/* Removed Footer from Notification screen because animation from right
-          doesn't work if it's in drawer, but this screen would also need access to open the drawer
-          if the footer is shown */}
-          <Stack.Screen name="Notifications" component={Notifications} options={notificationsConfig} />
           <Stack.Screen name="RangeMap" component={RangeMap} options={defaultConfig} />
           <Stack.Screen name="Wikipedia" component={Wikipedia} options={verticalConfig} />
           <Stack.Screen name="CameraHelp" component={CameraHelp} options={defaultConfig} />

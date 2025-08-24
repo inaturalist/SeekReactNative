@@ -446,7 +446,11 @@ const ARCamera = ( ) => {
   );
 
   const navHome = ( ) => resetRouter( navigation );
-  const navToSettings = ( ) => navigation.navigate( "Settings" );
+  const navToSettings = () =>
+    navigation.navigate( "Drawer", {
+      screen: "Settings"
+    } );
+
 
   const confidenceThresholdNumber = 70;
 

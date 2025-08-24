@@ -25,7 +25,7 @@ const screenOptions = { ...config, drawerType: "front" } as const;
 
 const SideDrawer = ( ) => (
   <Drawer.Navigator
-    initialRouteName="Drawer"
+    initialRouteName="Home"
     drawerContent={drawerContent}
     screenOptions={screenOptions}
     backBehavior="history"

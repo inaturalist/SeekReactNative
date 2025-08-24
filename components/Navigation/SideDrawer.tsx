@@ -20,8 +20,10 @@ import Notifications from "../Notifications/Notifications";
 const Drawer = createDrawerNavigator( );
 const drawerContent = props => <SideMenu {...props} />;
 
-const config = { headerShown: false } as const;
-const screenOptions = { ...config, drawerType: "front" } as const;
+const screenOptions = {
+  headerShown: false,
+  drawerType: "front"
+} as const;
 
 const SideDrawer = ( ) => (
   <Drawer.Navigator

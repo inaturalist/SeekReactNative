@@ -4,7 +4,7 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
-import { getRoute } from "../../utility/helpers";
+import { getRoute, StoredRoutes } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import realmConfig from "../../models";
 import styles from "../../styles/observations/observations";
@@ -147,7 +147,7 @@ const Observations = ( ) => {
   const fetchRoute = async ( ) => {
     const routeName = await getRoute( );
     // don't fetch if user is toggling back and forth from SpeciesDetail screens
-    if ( routeName !== "Observations" ) {
+    if ( routeName !== StoredRoutes.Observations ) {
       setSearchText( "" );
       setLoading( true );
       fetchObservations( );

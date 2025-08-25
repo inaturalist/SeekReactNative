@@ -13,7 +13,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import BulletedList from "../../iNaturalist/BulletedList";
 
 const LoginSuccessScreen = ( ) => {
-  const { navigate } = useNavigation();
+  const { popTo } = useNavigation();
 
   return (
     <ScrollWithHeader header="inat_signup.welcome">
@@ -36,7 +36,7 @@ const LoginSuccessScreen = ( ) => {
       </View>
       <View style={styles.marginLarge} />
       <GreenButton
-        handlePress={() => navigate( "Drawer" )}
+        handlePress={() => popTo( "Drawer" )}
         login
         text="inat_signup.continue"
       />

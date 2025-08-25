@@ -13,22 +13,26 @@ const fontScale = PixelRatio.getFontScale( );
 const regular = {
   color: colors.black,
   fontFamily: fonts.regular
-};
+} as const;
+
 const bold = {
   color: colors.black,
   fontFamily: fonts.bold
-};
+} as const;
+
 const boldItalic = {
   fontFamily: fonts.boldItalic
-};
+} as const;
+
 const italic = {
   color: colors.black,
   fontFamily: fonts.italic
-};
+} as const;
+
 const medium = {
   color: colors.black,
   fontFamily: fonts.medium
-};
+} as const;
 
 const header = {
   color: colors.seekForestGreen,
@@ -36,7 +40,7 @@ const header = {
   fontSize: 18,
   letterSpacing: 1,
   lineHeight: 22
-};
+} as const;
 
 const button = {
   color: colors.white,
@@ -44,14 +48,14 @@ const button = {
   fontSize: ( fontScale > 1 ) ? 15 : 17,
   letterSpacing: 1,
   lineHeight: 21
-};
+} as const;
 
 const buttonSmall = {
   color: colors.white,
   fontFamily: fonts.bold,
   fontSize: ( fontScale > 1 ) ? 13 : 15,
   lineHeight: 21
-};
+} as const;
 
 const body = {
   color: colors.black,
@@ -59,7 +63,7 @@ const body = {
   fontSize: 15,
   letterSpacing: 0,
   lineHeight: 21
-};
+} as const;
 
 const bodySpaced = {
   color: colors.black,
@@ -67,7 +71,7 @@ const bodySpaced = {
   fontSize: 15,
   letterSpacing: 0,
   lineHeight: 23
-};
+} as const;
 
 const bodySmall = {
   color: colors.black,
@@ -75,7 +79,7 @@ const bodySmall = {
   fontSize: 13,
   letterSpacing: 0,
   lineHeight: 21
-};
+} as const;
 
 const bodyBlackSmallScreens = {
   color: colors.black,
@@ -83,7 +87,7 @@ const bodyBlackSmallScreens = {
   fontSize: 14,
   letterSpacing: 0,
   lineHeight: 14
-};
+} as const;
 
 const emptyState = {
   color: colors.black,
@@ -91,7 +95,7 @@ const emptyState = {
   fontSize: 18,
   letterSpacing: 0,
   lineHeight: 24
-};
+} as const;
 
 const highlight = {
   color: colors.seekForestGreen,
@@ -99,7 +103,7 @@ const highlight = {
   fontSize: 17,
   letterSpacing: 1,
   lineHeight: 24
-};
+} as const;
 
 const banner = {
   color: colors.white,
@@ -107,7 +111,7 @@ const banner = {
   fontSize: 18,
   letterSpacing: 1,
   lineHeight: 22
-};
+} as const;
 
 const bannerSmall = {
   color: colors.white,
@@ -115,21 +119,21 @@ const bannerSmall = {
   fontSize: 14,
   letterSpacing: 0.42,
   lineHeight: 34
-};
+} as const;
 
 const modalBanner = {
   color: colors.white,
   fontFamily: fonts.bold,
   fontSize: 18,
   letterSpacing: 1.12
-};
+} as const;
 
 const sideMenu = {
   color: colors.white,
   fontFamily: fonts.bold,
   fontSize: 17,
   letterSpacing: 1.0
-};
+} as const;
 
 const challengeMonth = {
   color: colors.white,
@@ -137,7 +141,7 @@ const challengeMonth = {
   fontSize: ( fontScale > 1 ) ? 15 : 17,
   letterSpacing: 0.75,
   lineHeight: 21
-};
+} as const;
 
 const challengeTitle = {
   color: colors.white,
@@ -145,14 +149,14 @@ const challengeTitle = {
   fontSize: ( fontScale > 1 ) ? 19 : 22,
   letterSpacing: 1.0,
   lineHeight: 27
-};
+} as const;
 
 const challengeDescription = {
   color: colors.white,
   fontFamily: fonts.medium,
   fontSize: 16,
   lineHeight: 24
-};
+} as const;
 
 const smallLightHeading = {
   color: colors.black,
@@ -160,7 +164,7 @@ const smallLightHeading = {
   fontSize: 13,
   letterSpacing: 0.75,
   lineHeight: 16
-};
+} as const;
 
 const challengeItemTitle = {
   color: colors.seekForestGreen,
@@ -168,21 +172,21 @@ const challengeItemTitle = {
   fontSize: 16,
   letterSpacing: 0.89,
   lineHeight: 20
-};
+} as const;
 
 const challengeItemButton = {
   color: colors.seekForestGreen,
   fontFamily: fonts.bold,
   fontSize: 13,
   lineHeight: 17
-};
+} as const;
 
 const toastLink = {
   color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 13,
   lineHeight: 21
-};
+} as const;
 
 const species = {
   color: colors.black,
@@ -190,21 +194,21 @@ const species = {
   fontSize: 29,
   lineHeight: 35,
   letterSpacing: 0.3
-};
+} as const;
 
 const speciesSmall = {
   color: colors.black,
   fontFamily: fonts.italic,
   fontSize: 18,
   lineHeight: 21
-};
+} as const;
 
 const link = {
   color: colors.linkText,
   fontFamily: fonts.regular,
   fontSize: 17,
   textDecorationLine: "underline" as const
-};
+} as const;
 
 const forgotPasswordLink = {
   color: colors.seekForestGreen,
@@ -212,66 +216,66 @@ const forgotPasswordLink = {
   fontSize: 16,
   lineHeight: 21,
   textDecorationLine: "underline" as const
-};
+} as const;
 
 const number = {
   color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 19,
   lineHeight: 21
-};
+} as const;
 
 const chartAxis = {
   fill: colors.seekTeal,
   fontFamily: fonts.regular,
   fontSize: 18
-};
+} as const;
 
 const onboarding = {
   color: colors.white,
   fontFamily: fonts.medium,
   fontSize: height > 570 ? 19 : 16,
   lineHeight: 24
-};
+} as const;
 
 const prediction = {
   color: colors.white,
   fontFamily: fonts.bold,
   fontSize: 20
-};
+} as const;
 
 const picker = {
   color: colors.seekForestGreen,
   fontFamily: fonts.bold,
   fontSize: enabledLargeFonts() ? 13 : 18,
   letterSpacing: Platform.OS === "ios" ? 1.0 : 0
-};
+} as const;
 
 const inputField = {
   color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 15
-};
+} as const;
 
 const postSectionHeader = {
   color: colors.seekForestGreen,
   fontFamily: fonts.bold,
   fontSize: 17,
   letterSpacing: 1.0
-};
+} as const;
 
 const loginOrSignup = {
   color: colors.white,
   fontFamily: fonts.medium,
   fontSize: 17,
   lineHeight: 19
-};
+} as const;
 
 const loginError = {
   color: colors.seekiNatGreen,
   fontFamily: fonts.bold,
   fontSize: 17
-};
+} as const;
 
 const passwordEmailHeader = {
   color: colors.seekForestGreen,
@@ -279,34 +283,34 @@ const passwordEmailHeader = {
   fontSize: 23,
   letterSpacing: 1.0,
   lineHeight: 30
-};
+} as const;
 
 const linkedAccountHeader = {
   color: colors.black,
   fontFamily: fonts.medium,
   fontSize: 21,
   lineHeight: 28
-};
+} as const;
 
 const donationLink = {
   color: colors.greenGradientLight,
   fontFamily: fonts.regular,
   fontSize: 17,
   letterSpacing: 1.0
-};
+} as const;
 
 const coords = {
   color: colors.placeholderGray,
   fontFamily: fonts.regular,
   fontSize: 12
-};
+} as const;
 
 const sectionNumber = {
   color: colors.black,
   fontFamily: fonts.regular,
   fontSize: 18,
   letterSpacing: 0.78
-};
+} as const;
 
 const baseTextStyles = StyleSheet.create( {
   regular,

@@ -13,7 +13,7 @@ import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
 import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import Toasts from "../Toasts/Toasts";
-import { fetchNumberSpeciesSeen, setRoute } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen, setRoute, StoredRoutes } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks/useCommonName";
@@ -176,7 +176,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       setId( taxaId );
       // return user to match screen
-      setRoute( "Match" );
+      setRoute( StoredRoutes.Match );
       // params are not actually working here, and I'm not sure why
       navigation.navigate( "Species" );
     } else if ( navPath === "Drawer" ) {

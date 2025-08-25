@@ -97,11 +97,21 @@ const checkIfCardShown = async ( ): Promise<boolean> => {
   }
 };
 
-const setRoute = ( route: string ) => {
+export enum StoredRoutes {
+  Achievements = "Achievements",
+  ChallengeDetails = "ChallengeDetails",
+  Home = "Home",
+  Match = "Match",
+  Observations = "Observations",
+  SeekYearInReview = "SeekYearInReview",
+  SideMenu = "SideMenu",
+}
+
+const setRoute = ( route: StoredRoutes ) => {
   AsyncStorage.setItem( "route", route );
 };
 
-const getRoute = async ( ): Promise<string> => {
+const getRoute = async ( ): Promise<StoredRoutes> => {
   try {
     const route = await AsyncStorage.getItem( "route" );
     return route;

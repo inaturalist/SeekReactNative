@@ -10,7 +10,7 @@ import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 const SideMenu = ( { navigation } ) => {
-  const { navigate } = navigation;
+  const { navigate, popTo } = navigation;
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
   const navToPath = ( path: string ) => {
@@ -47,7 +47,9 @@ const SideMenu = ( { navigation } ) => {
       <Pressable
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
-        onPress={( ) => navToPath( "Home" )}
+        // Home should definitively be in the stack, as it is the initial route of the app.
+        // So we can just pop back to it.
+        onPress={( ) => popTo( "Home" )}
       >
         <Image source={logoImages.seek} style={imageStyles.seekLogo} />
       </Pressable>

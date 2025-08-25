@@ -31,7 +31,6 @@ const SocialScreen = ( ): Node => {
   const { image } = observation;
   const { uri } = image;
   const cropViewRef = useRef( );
-  // const { navigate } = useNavigation( );
   const { params } = useRoute( );
   const { taxon, commonName } = params;
   const { scientificName } = taxon;

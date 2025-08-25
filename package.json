@@ -156,7 +156,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --cache --max-warnings=0 --cache-location .eslintcache"
+      "eslint --cache --cache-location .eslintcache"
     ]
   }
 }

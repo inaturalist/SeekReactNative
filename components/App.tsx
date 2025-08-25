@@ -15,7 +15,7 @@ import { hideLogs } from "../utility/helpers";
 import { LanguageProvider } from "./Providers/LanguageProvider";
 import { SpeciesNearbyProvider } from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
-import { ObservationProvider } from "./Providers/ObservationProvider";
+// import { ObservationProvider } from "./Providers/ObservationProvider";
 import { AppOrientationProvider } from "./Providers/AppOrientationProvider";
 import { ChallengeProvider } from "./Providers/ChallengeProvider";
 import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
@@ -89,7 +89,7 @@ const App = ( ) => {
     <AppOrientationProvider>
       <UserLoginProvider>
         <LanguageProvider>
-          <ObservationProvider>
+          {/* <ObservationProvider> */}
             <SpeciesNearbyProvider>
               <ChallengeProvider>
                 <SpeciesDetailProvider>
@@ -103,7 +103,7 @@ const App = ( ) => {
                 </SpeciesDetailProvider>
               </ChallengeProvider>
             </SpeciesNearbyProvider>
-          </ObservationProvider>
+          {/* </ObservationProvider> */}
         </LanguageProvider>
       </UserLoginProvider>
     </AppOrientationProvider>

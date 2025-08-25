@@ -67,6 +67,7 @@ const LanguagePicker = () => {
         text: i18n.t( "settings.confirm" ),
         onPress: ( ) => {
           // this changes translations on Settings screen in real-time
+          // eslint-disable-next-line react-hooks/react-compiler
           i18n.locale = value;
           toggleLanguage( value );
           toggleLanguagePreference();

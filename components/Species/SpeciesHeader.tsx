@@ -4,7 +4,7 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import SpeciesPhotos from "./SpeciesPhotos";
 import { viewStyles } from "../../styles/species/species";
-import { getRoute } from "../../utility/helpers";
+import { getRoute, StoredRoutes } from "../../utility/helpers";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
 import SpeciesName from "./SpeciesName";
@@ -35,10 +35,16 @@ const SpeciesHeader = ( { loading, photos, taxon, id, selectedText, highlightSel
     const routeName = await getRoute( );
     if ( routeName ) {
       // ChallengeDetails, Observations, Home, or Match, or SeekYearInReview
-      if ( routeName === "SideMenu" ) {
-        resetRouter( navigation );
+      if ( routeName === StoredRoutes.SideMenu
+        || routeName === StoredRoutes.Home
+        || routeName === StoredRoutes.Match
+        || routeName === StoredRoutes.Observations
+        || routeName === StoredRoutes.SeekYearInReview
+        || routeName === StoredRoutes.ChallengeDetails
+      ) {
+        navigation.popTo( "Drawer", { screen: routeName } );
       } else {
-        navigation.navigate( routeName );
+        navigation.popTo( routeName );
       }
     } else {
       resetRouter( navigation );

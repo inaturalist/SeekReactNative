@@ -20,7 +20,7 @@ const ParentCheckEmailScreen = ( { navigation } ) => (
       <View style={styles.marginTop} />
       <GreenButton
         fontSize={16}
-        handlePress={() => navigation.navigate( "Drawer" )}
+        handlePress={() => navigation.popTo( "Drawer" )}
         login
         text="inat_signup.continue_no_log_in"
       />

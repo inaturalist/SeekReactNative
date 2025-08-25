@@ -19,7 +19,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 const LoginOrSignupScreen = ( { navigation } ) => {
   const navToLogin = ( ) => navigation.navigate( "Login" );
   const navToAge = ( ) => navigation.navigate( "Age" );
-  const navToDrawer = ( ) => navigation.navigate( "Drawer" );
+  const navToDrawer = ( ) => navigation.popTo( "Drawer" );
 
   return (
     <ImageBackground

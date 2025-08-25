@@ -20,7 +20,7 @@ const PasswordEmailScreen = ( { navigation } ) => (
       </StyledText>
       <View style={styles.greenButtonMargin} />
       <GreenButton
-        handlePress={() => navigation.navigate( "LoginOrSignup" )}
+        handlePress={() => navigation.popTo( "LoginOrSignup" )}
         login
         text="inat_login.return_login"
       />

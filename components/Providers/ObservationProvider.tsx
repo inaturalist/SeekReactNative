@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, PropsWithChildren } from "react";
 import inatjs from "inaturalistjs";
 
 import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
@@ -39,8 +39,7 @@ const ObservationContext = React.createContext<
   } | undefined
 >( undefined );
 
-type ObservationProviderProps = {children: React.ReactNode}
-const ObservationProvider = ( { children }: ObservationProviderProps ) => {
+const ObservationProvider = ( { children }: PropsWithChildren ) => {
   const [observation, setObservation] = useState<Observation | null>( null );
 
   const threshold = 70;

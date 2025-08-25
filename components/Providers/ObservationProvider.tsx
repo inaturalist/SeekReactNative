@@ -161,7 +161,7 @@ const ObservationProvider = ( { children }: ObservationProviderProps ) => {
     console.log( "checkForSpecies result:", species );
     const ancestor = checkForAncestor( predictions );
     console.log( "checkForAncestor result:", ancestor );
-    let taxon = undefined;
+    let taxon;
     if ( species ) {
       taxon = await handleSpecies( image, species );
       console.log( "handleSpecies result:", taxon );

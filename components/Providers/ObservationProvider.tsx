@@ -61,7 +61,7 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
     return iconicTaxonId[0] || 1;
   };
 
-  const fetchPhoto = useCallback( async ( id: number ) => {
+  const fetchPhoto = useCallback( async ( id: number ): Promise<string | undefined | null> => {
     // probably should break this into a helper function to use in other places
     // like species nearby fetches for better offline experience
     const fetchWithTimeout = ( timeout: number ) => Promise.race( [
@@ -79,15 +79,8 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
       // not sure how long we really want to wait for this
       // started with 500 which was apparently too slow, now 5 seconds
       const { results } = await fetchWithTimeout( 5000 );
-      const taxa: {
-        default_photo: {
-          medium_url: string;
-        };
-      } = results[0];
-      const defaultPhoto = taxa && taxa.default_photo && taxa.default_photo.medium_url
-        ? taxa.default_photo.medium_url
-        : null;
-      return defaultPhoto;
+      const taxa = results[0];
+      return taxa.default_photo.medium_url;
     } catch ( e ) {
       return null;
     }

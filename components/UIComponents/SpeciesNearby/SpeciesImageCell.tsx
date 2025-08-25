@@ -5,7 +5,7 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { setRoute } from "../../../utility/helpers";
+import { setRoute, StoredRoutes } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName } from "../../../utility/customHooks/useCommonName";
 import { useSeenTaxa } from "../../../utility/customHooks/useSeenTaxa";
@@ -71,7 +71,13 @@ const SpeciesImageCell = ( { item }: Props ) => {
       navigation.push( "Drawer", { screen: "Species" } );
     } else {
       // Match is for common ancestor match screen with species nearby card
-      setRoute( name === "Match" ? "Match" : "Home" );
+      if ( name === "ChallengeDetails" ) {
+        setRoute( StoredRoutes.ChallengeDetails );
+      } else if ( name === "Match" ) {
+        setRoute( StoredRoutes.Match );
+      } else {
+        setRoute( StoredRoutes.Home );
+      }
       navigate( "Species" );
     }
   };

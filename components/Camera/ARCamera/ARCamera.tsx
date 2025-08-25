@@ -76,7 +76,6 @@ enum ACTION {
 
 type Action = { type: ACTION.RESET_PREDICTIONS }
   | { type: ACTION.SET_PREDICTIONS; predictions: Prediction[] }
-  | { type: ACTION.PHOTO_TAKEN }
   | { type: ACTION.RESET_STATE }
   | { type: ACTION.FILTER_TAXON; taxonId: string | null; negativeFilter: boolean }
   | { type: ACTION.ERROR; error: string; errorEvent: string };
@@ -108,10 +107,8 @@ const ARCamera = ( ) => {
         return { ...state, allPredictions: [] };
       case ACTION.SET_PREDICTIONS:
         return { ...state, allPredictions: action.predictions };
-      case ACTION.PHOTO_TAKEN:
-        pictureTaken.value = true;
-        return { ...state };
       case ACTION.RESET_STATE:
+        // eslint-disable-next-line react-hooks/react-compiler
         pictureTaken.value = false;
         return {
           ...state,
@@ -383,7 +380,7 @@ const ARCamera = ( ) => {
   }, [sortedPredictions, handleCaptureError] );
 
   const takePicture = useCallback( async () => {
-    dispatch( { type: ACTION.PHOTO_TAKEN } );
+    pictureTaken.value = true;
 
     if ( Platform.OS === "ios" ) {
       await visionCameraTakePhoto( ( photo: HandledPhoto ) => savePhoto( photo ) );
@@ -393,7 +390,8 @@ const ARCamera = ( ) => {
   }, [
     savePhoto,
     requestAndroidSavePermissions,
-    visionCameraTakePhoto
+    visionCameraTakePhoto,
+    pictureTaken
   ] );
 
   const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );

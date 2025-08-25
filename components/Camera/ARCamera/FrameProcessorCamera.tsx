@@ -1,5 +1,5 @@
 import { useIsFocused, useNavigation } from "@react-navigation/native";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraRuntimeError } from "react-native-vision-camera";
@@ -24,8 +24,6 @@ import {
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
-
-let framesProcessingTime: number[] = [];
 
 export interface ErrorMessage {
   nativeEvent: {
@@ -79,6 +77,8 @@ const FrameProcessorCamera = ( props: Props ) => {
   const granted = useLocationPermission( );
   const coords = useTruncatedUserCoords( granted );
   const location = useLocationPermissionCamera();
+
+  const framesProcessingTime = useRef<number[]>( [] );
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
   const requestCameraPermission = useCallback( async () => {
@@ -189,10 +189,10 @@ const FrameProcessorCamera = ( props: Props ) => {
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
     console.log( "result.timeElapsed", result.timeElapsed );
-    framesProcessingTime.push( timeTaken );
-    if ( framesProcessingTime.length >= 10 ) {
-      const avgTime = framesProcessingTime.reduce( ( a, b ) => a + b, 0 ) / 10;
-      framesProcessingTime = [];
+    framesProcessingTime.current.push( timeTaken );
+    if ( framesProcessingTime.current.length >= 10 ) {
+      const avgTime = framesProcessingTime.current.reduce( ( a, b ) => a + b, 0 ) / 10;
+      framesProcessingTime.current = [];
       onLog( {
         nativeEvent: {
           log: `Average frame processing time over 10 frames: ${avgTime}ms`

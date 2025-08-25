@@ -20,7 +20,7 @@ const BackArrow = ( { green = false, route = null }: Props ) => {
 
   const handlePress = ( ) => {
     if ( route ) {
-      navigation.navigate( route );
+      navigation.popTo( route );
     } else {
       navigation.goBack();
     }

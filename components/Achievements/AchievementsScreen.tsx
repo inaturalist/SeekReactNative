@@ -15,7 +15,7 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import BannerHeader from "../UIComponents/BannerHeader";
 import StyledText from "../UIComponents/StyledText";
 import { useFetchAchievements } from "./hooks/achievementHooks";
-import { localizeNumber, setRoute } from "../../utility/helpers";
+import { localizeNumber, setRoute, StoredRoutes } from "../../utility/helpers";
 import { useSpeciesCount } from "../../utility/customHooks";
 import { baseTextStyles } from "../../styles/textStyles";
 
@@ -25,7 +25,7 @@ const AchievementsScreen = ( ) => {
   const navigation = useNavigation( );
 
   const navToObservations = useCallback( ( ) => {
-    setRoute( "Achievements" );
+    setRoute( StoredRoutes.Achievements );
     navigation.navigate( "Observations" );
   }, [navigation] );
 

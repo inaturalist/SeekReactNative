@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { Image, Pressable, ScrollView, Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { setRoute } from "../../utility/helpers";
+import { setRoute, StoredRoutes } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
@@ -71,7 +71,7 @@ const ObservationCard = ( {
 
   const handleSpeciesCardPress = ( ) => {
     setId( id );
-    setRoute( "Observations" );
+    setRoute( StoredRoutes.Observations );
     navigate( "Species" );
   };
 

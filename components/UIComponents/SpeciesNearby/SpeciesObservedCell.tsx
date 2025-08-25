@@ -10,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { setRoute } from "../../../utility/helpers";
+import { setRoute, StoredRoutes } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName } from "../../../utility/customHooks/useCommonName";
 import { useSeenTaxa } from "../../../utility/customHooks/useSeenTaxa";
@@ -39,7 +39,7 @@ const SpeciesObservedCell = ( { item }: Props ) => {
   const currentUserPhoto = useUserPhoto( seenTaxa );
 
   const navToSpeciesDetails = () => {
-    setRoute( "ChallengeDetails" );
+    setRoute( StoredRoutes.ChallengeDetails );
     setId( taxon.id );
     navigate( "Species" );
   };

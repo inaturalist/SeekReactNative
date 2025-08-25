@@ -5,7 +5,7 @@ import i18n from "../../i18n";
 import { viewStyles, imageStyles, textStyles } from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
-import { capitalizeNames, setRoute } from "../../utility/helpers";
+import { capitalizeNames, setRoute, StoredRoutes } from "../../utility/helpers";
 import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
@@ -15,7 +15,7 @@ const SideMenu = ( { navigation } ) => {
 
   const navToPath = ( path: string ) => {
     if ( path === "Observations" ) {
-      setRoute( "SideMenu" );
+      setRoute( StoredRoutes.SideMenu );
     }
     navigate( path );
   };

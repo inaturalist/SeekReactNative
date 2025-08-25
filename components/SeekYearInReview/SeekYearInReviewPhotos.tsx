@@ -17,7 +17,7 @@ import StyledText from "../UIComponents/StyledText";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatDateToDisplayShort } from "../../utility/dateHelpers";
-import { setRoute } from "../../utility/helpers";
+import { setRoute, StoredRoutes } from "../../utility/helpers";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
@@ -33,7 +33,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ) => {
       return;
     }
     setId( observation.taxon.id );
-    setRoute( "SeekYearInReview" );
+    setRoute( StoredRoutes.SeekYearInReview );
     navigation.navigate( "Species" );
   };
 

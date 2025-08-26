@@ -6,6 +6,7 @@ import i18n from "../i18n";
 import type { LogMessage } from "../components/Camera/ARCamera/FrameProcessorCamera";
 
 const handleLog = ( event: LogMessage ): void => {
+  console.log( event.nativeEvent.log );
   if ( Platform.OS === "android" ) {
     writeToDebugLog( event.nativeEvent.log );
   }

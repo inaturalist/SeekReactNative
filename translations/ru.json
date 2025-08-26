@@ -1039,9 +1039,9 @@
     "not_found_error_description": "При загрузке приложения модель идентификации не найдена. Ваш опыт работы с камерой не будет идентифицирован."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Что-то пошло не так.",
+    "if_youre_seeing_this_error": "Если вы видите это и вы сейчас онлайн, сотрудники iNat уже осведомлены об этом. Спасибо за обнаружение ошибки! Если вы не в сети, сделайте скриншот и отправьте нам письмо, когда будете в интернете.",
+    "restart": "ПЕРЕЗАГРУЗИТЕ ПРИЛОЖЕНИЕ",
+    "error": "Ошибка"
   }
 }

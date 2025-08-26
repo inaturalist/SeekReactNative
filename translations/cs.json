@@ -1039,9 +1039,9 @@
     "not_found_error_description": "Při načítání aplikace nebyl nalezen identifikační model. Váš fotoaparát nemůže použít identifikaci."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Něco se pokazilo.",
+    "if_youre_seeing_this_error": "Pokud se vám tato zpráva zobrazuje a jste online, zaměstnanci iNat již byli informováni. Děkujeme za nalezení chyby! Pokud jste offline, udělejte si prosím snímek obrazovky a pošlete nám e-mail, až budete opět na internetu.",
+    "restart": "RESTARTOVAT APLIKACI",
+    "error": "Chyba"
   }
 }

@@ -130,6 +130,9 @@
     "react-test-renderer": "19.0.0",
     "typescript": "5.0.4"
   },
+  "overrides": {
+    "eslint-plugin-react-hooks": "^6.0.0-rc.1"
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

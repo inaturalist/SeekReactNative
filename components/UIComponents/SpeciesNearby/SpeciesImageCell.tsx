@@ -47,9 +47,11 @@ const SpeciesImageCell = ( { item }: Props ) => {
   const seenTaxa = useSeenTaxa( item.id );
   const commonName = useCommonName( item.id );
 
-  const photo = item.default_photo;
-
   const renderSpeciesImage = ( ) => {
+    const photo = item.default_photo;
+    if ( !photo ) {
+      return null;
+    }
     const extraPhotos = item.taxonPhotos || item.taxon_photos;
     let source = iconicTaxa[item.iconic_taxon_id];
 
@@ -84,7 +86,7 @@ const SpeciesImageCell = ( { item }: Props ) => {
 
   return (
     <TouchableOpacity onPress={navToNextScreen} style={viewStyles.gridCell}>
-      {photo && renderSpeciesImage( )}
+      {renderSpeciesImage( )}
       {seenTaxa && <Image source={icons.speciesObserved} style={[viewStyles.checkbox, viewStyles.speciesImageCheckbox]} />}
       <StyledText
         numberOfLines={3}

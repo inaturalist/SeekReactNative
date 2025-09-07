@@ -1654,7 +1654,7 @@ PODS:
     - SDWebImageWebPCoder
   - RealmJS (12.14.2):
     - React
-  - RNCAsyncStorage (1.23.1):
+  - RNCAsyncStorage (2.2.0):
     - React-Core
   - RNCClipboard (1.16.3):
     - React-Core
@@ -2290,7 +2290,7 @@ SPEC CHECKSUMS:
   ReactNativeExceptionHandler: a23922ca00122b050ae9412f960061791c232c47
   ReactNativeWebPFormat: a1a41d3f99b40fe262978a4a551f5d459963efde
   RealmJS: ff8a7d6d6e339c1b3410a96ceb4151b151fe56f5
-  RNCAsyncStorage: aa75595c1aefa18f868452091fa0c411a516ce11
+  RNCAsyncStorage: b44e8a4e798c3e1f56bffccd0f591f674fb9198f
   RNCClipboard: f6679d470d0da2bce2a37b0af7b9e0bf369ecda5
   RNCMaskedView: 4b5b12efdee55966f1d68f32d4b3401c2acf05c2
   RNCPicker: da0f1c9411208c1ca52bc98383db54a06e0a3862

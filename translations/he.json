@@ -1039,9 +1039,9 @@
     "not_found_error_description": "בטעינת האפליקציה, לא נמצא מודל הזיהוי. חוויית המצלמה שלך תהיה ללא זיהוי."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "משהו השתבש.",
+    "if_youre_seeing_this_error": "אם את.ה רואה את זה ואת.ה מחובר.ת, צוות iNat כבר קיבל הודעה. תודה שמצאת באג! אם את.ה במצב לא מקוון, נא לצלם צילום מסך ולשלוח לנו דוא\"ל כשיחזור החיבור שלך לאינטרנט.",
+    "restart": "איפוס אפליקציה",
+    "error": "שגיאה"
   }
 }

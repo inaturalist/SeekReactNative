@@ -123,10 +123,10 @@
     "linked_account": "您已经将一个 iNaturalist 关联到 Seek 了！",
     "posting": " 同步至 iNaturalist",
     "posting_details": "您可以在将 Seek 观察结果添加到您的观察记录后立即发布至 iNaturalist 中。 如果您想稍后将其发布到 iNaturalist ，请使用 iNaturalist 应用程序或网站。",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Seek观察记录未同步",
+    "observations_stored_only_in_app": "您在 Seek 中的观察记录存储在您的设备上，没有在iNaturalist在线备份。",
+    "observations_bullet_1": "删除Seek App 将删除您在应用中所有的观察记录。",
+    "observations_bullet_2": "把Seek转移到新设备将不会传输您用此App进行的观察。",
     "observations_3": "Seek 不会将您的观察记录同步到其他设备。",
     "agree_to_terms": "我同意 <terms>{{terms}}</terms> 和 <privacy>{{privacy}}</privacy>，并且已经审阅过 <guidelines>{{guidelines}}</guidelines>。",
     "guidelines": "社区指南",
@@ -1039,9 +1039,9 @@
     "not_found_error_description": "在加载应用时找不到鉴定模型。您的相机体验将不会包括鉴定。"
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "发生未知错误。",
+    "if_youre_seeing_this_error": "如果你看到这个并且你在线，就说明iNat员工已经得到了通知。 感谢您找到一个漏洞！如果您离线，请截图并在您重访互联网时发送一封电子邮件。",
+    "restart": "重启应用程序",
+    "error": "错误"
   }
 }

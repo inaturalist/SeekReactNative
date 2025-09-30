@@ -58,7 +58,7 @@
     "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "2.22.1",
     "react-native-get-random-values": "^1.11.0",
-    "react-native-image-picker": "github:inaturalist/react-native-image-picker",
+    "react-native-image-picker": "github:inaturalist/react-native-image-picker#c980801d738b960f00d901a01d3d23e2a04c203a",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.5.2",

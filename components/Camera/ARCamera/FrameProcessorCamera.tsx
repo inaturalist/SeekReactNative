@@ -354,7 +354,7 @@ const FrameProcessorCamera = ( props: Props ) => {
         <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
           <Camera
             ref={cameraRef}
-            style={styles.camera}
+            style={StyleSheet.absoluteFill}
             device={device}
             format={format}
             exposure={exposure}
@@ -377,13 +377,5 @@ const FrameProcessorCamera = ( props: Props ) => {
     )
   );
 };
-
-const styles = StyleSheet.create( {
-  camera: {
-    width: "100%",
-    height: "100%",
-    zIndex: -1
-  }
-} );
 
 export default FrameProcessorCamera;

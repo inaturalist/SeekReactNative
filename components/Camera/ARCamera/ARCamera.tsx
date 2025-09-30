@@ -482,6 +482,7 @@ const ARCamera = ( ) => {
 
   return (
     <View style={viewStyles.container}>
+      {renderCamera()}
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -520,7 +521,6 @@ const ARCamera = ( ) => {
           source={icons.menuSettings}
         />
       </TouchableOpacity>
-      {renderCamera( )}
     </View>
   );
 };

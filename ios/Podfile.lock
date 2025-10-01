@@ -1287,14 +1287,27 @@ PODS:
     - React
   - react-native-get-random-values (1.11.0):
     - React-Core
-  - react-native-image-picker (7.0.2):
-    - RCT-Folly
+  - react-native-image-picker (8.2.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
     - RCTRequired
     - RCTTypeSafety
-    - React
-    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
     - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-image-resizer (3.0.11):
     - DoubleConversion
     - glog
@@ -2544,7 +2557,7 @@ SPEC CHECKSUMS:
   react-native-geocoder: 18a0a1ab624c3ff22405f40534f84ad4958b5653
   react-native-geolocation-service: 32b2c2a3b91e70ce2a8d0c684801aaeb0a07e0ec
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
-  react-native-image-picker: 5c48538a3ded00fe6848c3472e66f6863c73e702
+  react-native-image-picker: 84b261e109faa7312bca59f1f65c8f2b22865496
   react-native-image-resizer: 9e24efe3828c08a8d5553393f33695a086406340
   react-native-mail: 6e83813066984b26403d3fdfe79ac7bb31857e3c
   react-native-maps: 9febd31278b35cd21e4fad2cf6fa708993be5dab

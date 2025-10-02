@@ -180,10 +180,10 @@ const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
   }; }
 
   const timeZone = RNLocalize.getTimeZone( );
-  const zonedDate = toZonedTime( date, timeZone );
+  const zonedDate = TimeZone.toZonedTime( date, timeZone );
   const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
   return {
-    dateForServer: formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
+    dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
     dateForDisplay: formatDateToDisplay( zonedDate )
   };
 };

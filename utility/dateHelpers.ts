@@ -15,8 +15,7 @@ import {
 import type {
   Locale
 } from "date-fns";
-import { toZonedTime, formatInTimeZone } from "date-fns-tz";
-
+import * as TimeZone from "date-fns-tz";
 import * as RNLocalize from "react-native-localize";
 import {
   af,
@@ -181,10 +180,10 @@ const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
   }; }
 
   const timeZone = RNLocalize.getTimeZone( );
-  const zonedDate = toZonedTime( date, timeZone );
+  const zonedDate = TimeZone.toZonedTime( date, timeZone );
   const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
   return {
-    dateForServer: formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
+    dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
     dateForDisplay: formatDateToDisplay( zonedDate )
   };
 };

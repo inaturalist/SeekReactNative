@@ -16,6 +16,7 @@ import Species from "../Species/SpeciesDetail";
 import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
 import SeekYearInReviewMapScreen from "../SeekYearInReview/SeekYearInReviewMapScreen";
 import Notifications from "../Notifications/Notifications";
+import ARCamera from "../Camera/ARCamera/ARCamera";
 
 const Drawer = createDrawerNavigator( );
 const drawerContent = props => <SideMenu {...props} />;
@@ -33,6 +34,7 @@ const SideDrawer = ( ) => (
     backBehavior="history"
   >
     <Drawer.Screen name="Home" component={Home} />
+    <Drawer.Screen name="Camera" component={ARCamera} />
     <Drawer.Screen name="Achievements" component={Achievements} />
     <Drawer.Screen name="Challenges" component={Challenges} />
     <Drawer.Screen name="ChallengeDetails" component={ChallengeDetails} />

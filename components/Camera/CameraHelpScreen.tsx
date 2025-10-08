@@ -20,7 +20,7 @@ const CameraHelpScreen = ( ) => {
   ];
 
   return (
-    <ScrollWithHeader header="camera_help.title" route="Camera">
+    <ScrollWithHeader header="camera_help.title">
       {/* TODO: extract the taxonomical ranks out of this image to make them translatable */}
       <Image source={icons.cameraHelpTop} style={imageStyles.topImage} />
       <View style={viewStyles.textContainer}>

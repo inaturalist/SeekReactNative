@@ -331,7 +331,7 @@ const ARCamera = ( ) => {
       // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
       // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
       // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-      setIsActive( false );
+      // setIsActive( false );
       // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
       photo.predictions = predictions;
       photo.uri = photo.path;

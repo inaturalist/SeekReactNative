@@ -18,6 +18,7 @@ import { colors } from "../../../styles/global";
 import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
 import StyledText from "../../UIComponents/StyledText";
+import TouchableOpacityWithDebounce from "../../UIComponents/Buttons/TouchableOpacityWithDebounce";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 import GalleryButton from "./GalleryButton";
@@ -175,7 +176,7 @@ const ARCameraOverlay = ( {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity
+        <TouchableOpacityWithDebounce
           accessibilityLabel={i18n.t( "accessibility.take_photo" )}
           accessible
           testID="takePhotoButton"
@@ -190,7 +191,7 @@ const ARCameraOverlay = ( {
                 : icons.arCameraButton
             }
           />
-        </TouchableOpacity>
+        </TouchableOpacityWithDebounce>
 
         <View style={viewStyles.rightControls}>
           <GalleryButton setIsActive={setIsActive} />

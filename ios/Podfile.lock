@@ -2045,7 +2045,7 @@ PODS:
     - Yoga
   - RNFS (2.20.0):
     - React-Core
-  - RNGestureHandler (2.22.1):
+  - RNGestureHandler (2.28.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2055,6 +2055,7 @@ PODS:
     - React-Core
     - React-debug
     - React-Fabric
+    - React-FabricComponents
     - React-featureflags
     - React-graphics
     - React-hermes
@@ -2823,7 +2824,7 @@ SPEC CHECKSUMS:
   RNDeviceInfo: d863506092aef7e7af3a1c350c913d867d795047
   RNFlashList: 9a636f9c1d8473a9ebba4d089dbb90c99278dc11
   RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
-  RNGestureHandler: f524a307d1e3c5d8e969ff7a47fdb7ff83e4abc9
+  RNGestureHandler: c50b05a3941646c4e4098344033ca4609b42be85
   RNLocalize: a46aae37770c521a04f389892f10111b7f51ac4d
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
   RNReanimated: 77cb290489b14454ed89681ae01c179a5b0b6ac5

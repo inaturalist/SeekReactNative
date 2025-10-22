@@ -1041,7 +1041,7 @@
   "error_boundary": {
     "something_went_wrong": "Something went wrong.",
     "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "restart": "RIAAVVIA APP",
+    "error": "Errore"
   }
 }

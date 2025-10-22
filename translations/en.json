@@ -315,7 +315,7 @@
     "enable_location": "Your observation has no location",
     "enable_location_button": "ENABLE LOCATION",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
-    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",    
+    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
     "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",

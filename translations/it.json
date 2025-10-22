@@ -123,10 +123,10 @@
     "linked_account": "Hai collegato un profilo di iNaturalist a Seek!",
     "posting": "Pubblicando su iNaturalist",
     "posting_details": "Puoi pubblicare le osservazioni effettuate su Seek a iNaturalist immediatamente dopo averle aggiunte alle tue osservazioni. Se vorresti pubblicarle su iNaturalist in seguito, sei pregato di usare l'app o il sito web di iNaturalist.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Ricerca osservazioni non sincronizzate",
+    "observations_stored_only_in_app": "Le tue osservazioni in Seek sono memorizzate in questa app sul tuo dispositivo, NON sono salvate online da iNaturalist.",
+    "observations_bullet_1": "L'eliminazione dell'app Seek eliminerà tutte le tue osservazioni nell'app.",
+    "observations_bullet_2": "Il trasferimento di Seek su un nuovo dispositivo non trasferirà le osservazioni di Seek con l'app.",
     "observations_3": "Seek non sincronizza le tue osservazioni su altri dispositivi.",
     "agree_to_terms": "Acconsento ai <terms>{{terms}}</terms> e la <privacy>{{privacy}}</privacy>, e ho revisionato le <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Linee Guida della Community",
@@ -1039,8 +1039,8 @@
     "not_found_error_description": "Durante il caricamento dell'app, il modello di idenficazione non è stato trovato. L'esperienza della fotocamera sarà senza identificazione."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
+    "something_went_wrong": "Qualcosa è andato storto.",
+    "if_youre_seeing_this_error": "Se stai vedendo questo e sei online, il personale di iNat è già stato avvisato. Grazie per aver trovato un bug! Se sei offline, scatta uno screenshot e inviaci un'email quando sei di nuovo su Internet.",
     "restart": "RIAAVVIA APP",
     "error": "Errore"
   }

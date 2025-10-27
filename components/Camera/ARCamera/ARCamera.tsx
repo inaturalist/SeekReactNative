@@ -96,6 +96,10 @@ const ARCamera = ( ) => {
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
+  useFocusEffect( () => {
+    setIsActive( true );
+  } );
+
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
 

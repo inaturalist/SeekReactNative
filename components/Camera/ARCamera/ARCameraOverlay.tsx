@@ -55,7 +55,10 @@ const ARCameraOverlay = ( {
   const rankToRender = prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
   const userSettings = useFetchUserSettings( );
-  const autoCapture = userSettings?.autoCapture;
+  // TODO: Disabled autoCapture due to issues
+  console.log( userSettings?.autoCapture );
+  // const autoCapture = userSettings?.autoCapture;
+  const autoCapture = false;
   const [filterIndex, setFilterIndex] = useState<number | null>( null );
 
   const settings = useMemo( ( ) => ( [

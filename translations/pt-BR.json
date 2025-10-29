@@ -28,8 +28,8 @@
   },
   "updates_card": {
     "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 80,000 species in the latest version of Seek!"
+    "updated_id_model": "Atualizamos nosso modelo de identificação!",
+    "over_x_species": "Agora você pode identificar mais de 80.000 espécies na versão mais recente do Seek!"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICAR NO  INATURALIST",
@@ -123,7 +123,7 @@
     "linked_account": "Você vinculou uma conta iNaturalist ao Seek!",
     "posting": "Publicando no iNaturalist",
     "posting_details": "Você pode publicar observações feitas no Seek para o iNaturalist imediatamente após tê-las adicionado às suas observações. Se você deseja publicá-las no iNaturalist mais tarde, por favor, use o aplicativo iNaturalist ou o website.",
-    "observations_not_synced": "Seek Observations not synced",
+    "observations_not_synced": "Observações do Seek não sincronizadas",
     "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
     "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
     "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
@@ -381,7 +381,7 @@
     "error_save": "Não foi possível salvar a foto."
   },
   "gallery": {
-    "import_photos_from": "Import Photos From"
+    "import_photos_from": "Importar fotos de"
   },
   "camera_help": {
     "title": "Câmera do Seek",
@@ -649,7 +649,7 @@
     "back": "Voltar à tela anterior",
     "user_location": "Voltar à sua localização atual",
     "open_help": "Abrir tela de ajuda da câmera",
-    "open_gallery": "Open photo gallery",
+    "open_gallery": "Abrir galeria de fotos",
     "open_posting_help": "Abrir publicação na tela de ajuda do iNaturalist",
     "take_photo": "Toque para tirar uma foto",
     "scroll_left": "Toque para rolar à esquerda",
@@ -1039,9 +1039,9 @@
     "not_found_error_description": "Ao carregar o aplicativo, o modelo de identificação não foi encontrado. A sua experiência na câmera ficará sem identificação."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
+    "something_went_wrong": "Algo deu errado.",
     "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
     "restart": "RESTART APP",
-    "error": "Error"
+    "error": "Erro"
   }
 }

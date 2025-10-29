@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
 import { FlashList } from "@shopify/flash-list";
+import type { FlashListRef } from "@shopify/flash-list";
 import { useNavigation, useScrollToTop } from "@react-navigation/native";
 
 import { viewStyles } from "../../styles/notifications";
@@ -14,7 +15,7 @@ import useFetchNotifications, { Notification } from "./hooks/notificationHooks";
 
 const NotificationsScreen = ( ) => {
   const navigation = useNavigation( );
-  const scrollView = useRef( null );
+  const scrollView = useRef<FlashListRef<Notification>>( null );
   const notifications = useFetchNotifications( );
 
   useScrollToTop( scrollView );

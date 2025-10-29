@@ -1,6 +1,7 @@
 import React, { useRef, useState, useCallback } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
-import { FlashList, ViewToken } from "@shopify/flash-list";
+import { FlashList } from "@shopify/flash-list";
+import type { FlashListRef, ViewToken } from "@shopify/flash-list";
 import { useRoute } from "@react-navigation/native";
 
 import styles from "../../styles/uiComponents/horizontalScroll";
@@ -13,7 +14,7 @@ interface Props {
 
 const HorizontalScroll = ( { photoList }: Props ) => {
   const { name } = useRoute();
-  const flashList = useRef<FlashList<JSX.Element>>( null );
+  const flashList = useRef<FlashListRef<JSX.Element>>( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
     viewAreaCoveragePercentThreshold: 95

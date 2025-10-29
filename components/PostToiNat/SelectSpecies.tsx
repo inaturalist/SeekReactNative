@@ -170,7 +170,6 @@ const SelectSpecies = ( {
         </View>
         <FlashList
           ref={sectionList}
-          estimatedItemSize={100}
           contentContainerStyle={viewStyles.whiteContainer}
           data={data}
           initialNumToRender={5}

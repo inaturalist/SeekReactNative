@@ -59,7 +59,6 @@ const HorizontalScroll = ( { photoList }: Props ) => {
     <View style={containerStyle}>
       <FlashList
         testID="horizontal-scroll"
-        estimatedItemSize={350}
         ref={flashList}
         bounces={false}
         viewabilityConfig={viewConfigRef.current}

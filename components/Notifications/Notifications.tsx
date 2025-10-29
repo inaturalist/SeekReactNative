@@ -42,7 +42,6 @@ const NotificationsScreen = ( ) => {
     <ViewWithHeader testID="notifications-screen-container" header="notifications.header">
       <FlashList
         ref={scrollView}
-        estimatedItemSize={106}
         contentContainerStyle={viewStyles.containerWhite}
         data={notifications}
         keyExtractor={extractKey}

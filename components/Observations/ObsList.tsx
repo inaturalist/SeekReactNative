@@ -155,7 +155,6 @@ const ObsList = ( {
   return (
     <FlashList
       testID="observations-list"
-      estimatedItemSize={24}
       keyboardDismissMode="on-drag"
       onScroll={dismissKeyboard}
       scrollEventThrottle={1}

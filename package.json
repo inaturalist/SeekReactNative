@@ -37,7 +37,7 @@
     "@react-navigation/drawer": "^7.5.7",
     "@react-navigation/native": "^7.1.17",
     "@react-navigation/stack": "^7.4.7",
-    "@shopify/flash-list": "^1.8.3",
+    "@shopify/flash-list": "^2.2.0",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.2.0",
     "deprecated-react-native-prop-types": "^5.0.0",

@@ -31,7 +31,6 @@ const ChallengeScreen = ( ) => {
   return (
     <ViewWithHeader testID="challenge-screen-container" header="challenges.header">
       <FlashList
-        estimatedItemSize={100}
         scrollEventThrottle={1}
         contentContainerStyle={styles.challengeList}
         data={list}

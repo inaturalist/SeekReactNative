@@ -8,6 +8,7 @@ import {
   Keyboard
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
+import type { FlashListRef } from "@shopify/flash-list";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 import { colors } from "../../styles/global";
@@ -54,7 +55,7 @@ const SelectSpecies = ( {
   updateTaxon,
   seekId
 }: Props ) => {
-  const sectionList = useRef( null );
+  const sectionList = useRef<FlashListRef<Suggestion>>( null );
 
   const seekSuggestion: Suggestion[] = [{
     image,
@@ -170,7 +171,6 @@ const SelectSpecies = ( {
         </View>
         <FlashList
           ref={sectionList}
-          estimatedItemSize={100}
           contentContainerStyle={viewStyles.whiteContainer}
           data={data}
           initialNumToRender={5}

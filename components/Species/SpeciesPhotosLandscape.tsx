@@ -89,7 +89,6 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
       return (
         <FlashList
           testID="species-photos-landscape"
-          estimatedItemSize={470}
           data={photos}
           contentContainerStyle={viewStyles.landscapeBackground}
           renderItem={renderPhoto}

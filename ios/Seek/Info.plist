@@ -23,21 +23,21 @@
 	<key>CFBundleVersion</key>
 	<string>406</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
-	<false />
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>
 		<string>org.inaturalist.inaturalist</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
-	<true />
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
-		<false />
+		<false/>
 		<key>NSAllowsLocalNetworking</key>
-		<true />
+		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We use the camera so you can get identifications of your nature photos.</string>
@@ -51,6 +51,8 @@
 	<string>We use the photo library so you can get identifications of your nature photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We use the photo library so you can get identifications of your nature photos.</string>
+	<key>RCTNewArchEnabled</key>
+	<true/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Bold.ttf</string>
@@ -78,7 +80,7 @@
 		<string>arm64</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
-	<true />
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -90,6 +92,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false />
+	<false/>
 </dict>
 </plist>

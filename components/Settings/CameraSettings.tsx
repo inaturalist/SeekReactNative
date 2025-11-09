@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-// TODO: Disabled autoCapture due to issues
-// import { View, Switch } from "react-native";
-import { View } from "react-native";
+import { View, Switch } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
 
 import i18n from "../../i18n";
-// TODO: Disabled autoCapture due to issues
-// import { viewStyles, textStyles } from "../../styles/settings";
-import { viewStyles } from "../../styles/settings";
+import { viewStyles, textStyles } from "../../styles/settings";
 import { updateUserSetting } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
 import realmConfig from "../../models";
@@ -39,17 +35,16 @@ const CameraSettings = ( ) => {
     setSettings( newSettings );
   };
 
-  // TODO: Disabled autoCapture due to issues
-  // const setAutoCapture = async ( ) => {
-  //   const value = await updateUserSetting( "autoCapture", !settings.autoCapture );
-  //   const newSettings: Object = {
-  //     scientificNames: settings.scientificNames,
-  //     autoCapture: value
-  //   };
-  //   setSettings( newSettings );
-  // };
+  const setAutoCapture = async ( ) => {
+    const value = await updateUserSetting( "autoCapture", !settings.autoCapture );
+    const newSettings: Object = {
+      scientificNames: settings.scientificNames,
+      autoCapture: value
+    };
+    setSettings( newSettings );
+  };
 
-  // const switchTrackColor = { true: colors.seekForestGreen };
+  const switchTrackColor = { true: colors.seekForestGreen };
 
   const handleRadioButtonPress = ( value: number ) => updateIndex( value );
 
@@ -105,8 +100,7 @@ const CameraSettings = ( ) => {
           </RadioButton>
         )}
       </View>
-      {/* TODO: Disabled autoCapture due to issues */}
-      {/* <View style={[viewStyles.row, viewStyles.radioButtonSmallMargin]}>
+      <View style={[viewStyles.row, viewStyles.radioButtonSmallMargin]}>
         <Switch
           style={viewStyles.switch}
           value={settings.autoCapture}
@@ -118,7 +112,7 @@ const CameraSettings = ( ) => {
         <StyledText style={[baseTextStyles.body, textStyles.autoCaptureText]}>
           {i18n.t( "settings.auto_capture" )}
         </StyledText>
-      </View> */}
+      </View>
     </>
   );
 };

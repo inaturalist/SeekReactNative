@@ -4,7 +4,6 @@ import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
-import Reanimated from "react-native-reanimated";
 
 import {
   useIsForeground,
@@ -24,7 +23,6 @@ import {
 } from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
-import useZoom from "./hooks/useZoom";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
 export interface ErrorMessage {
@@ -56,11 +54,6 @@ interface Props {
   onLog: ( event: LogMessage ) => void;
   isActive: boolean;
 }
-
-const ReanimatedCamera = Reanimated.createAnimatedComponent( Camera );
-Reanimated.addWhitelistedNativeProps( {
-  zoom: true
-} );
 
 const FrameProcessorCamera = ( props: Props ) => {
   const {
@@ -185,16 +178,6 @@ const FrameProcessorCamera = ( props: Props ) => {
       InatVision.removeLogListener();
     };
   }, [onLog] );
-
-  const {
-    animatedProps,
-    // handleZoomButtonPress,
-    panToZoom,
-    pinchToZoom
-    // showZoomButton,
-    // zoomTextValue,
-    // resetZoom
-  } = useZoom( device );
 
   const {
     animatedStyle,
@@ -368,19 +351,16 @@ const FrameProcessorCamera = ( props: Props ) => {
   return (
     device && cameraPermissionStatus === "granted" && (
       <>
-        <GestureDetector
-          gesture={Gesture.Simultaneous( tapToFocus, panToZoom, pinchToZoom )}
-        >
-          <ReanimatedCamera
+        <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
+          <Camera
             ref={cameraRef}
             style={StyleSheet.absoluteFill}
             device={device}
-            animatedProps={animatedProps}
             format={format}
             exposure={exposure}
             isActive={active}
             photo={true}
-            enableZoomGesture={false}
+            enableZoomGesture
             zoom={device.neutralZoom}
             frameProcessor={frameProcessor}
             pixelFormat="yuv"

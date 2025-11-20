@@ -6,8 +6,7 @@ import {
   dimensions
 } from "../global";
 
-// added decimal because this was going off the screen on Android Pixel 4
-const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
+const badgeIconWidth = Math.min( 455, dimensions.width ) / 4;
 
 const viewStyles = StyleSheet.create( {
   center,

@@ -1,6 +1,6 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import jwt from "react-native-jwt-io";
+import rs from "jsrsasign";
 import Realm from "realm";
 import { LogBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
@@ -132,13 +132,29 @@ const fetchNumberSpeciesSeen = ( ): Promise<number> => (
   } )
 );
 
+/**
+ * Encodes a JWT. Lifted from react-native-jwt-io
+ * https://github.com/maxweb4u/react-native-jwt-io/blob/7f926da46ff536dbb531dd8ae7177ab4ff28c43f/src/jwt.js#L21
+ */
+const encodeJWT = ( payload: object, key: string, algorithm?: string ) => {
+  algorithm = typeof algorithm !== "undefined"
+    ? algorithm
+    : "HS256";
+  return rs.jws.JWS.sign(
+    algorithm,
+    JSON.stringify( { alg: algorithm, typ: "JWT" } ),
+    JSON.stringify( payload ),
+    key
+  );
+};
+
 const createJwtToken = ( ): string => {
   const claims = {
     application: "SeekRN",
     exp: new Date().getTime() / 1000 + 300
   };
 
-  const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+  const token = encodeJWT( claims, config.jwtSecret, "HS512" );
   return token;
 };
 

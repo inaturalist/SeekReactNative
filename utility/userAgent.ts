@@ -1,11 +1,33 @@
+import { Platform } from "react-native";
 import {
-  getVersion,
+  getApiLevel,
+  getBrand,
   getBuildNumber,
+  getDeviceId,
+  getDeviceType,
   getSystemName,
   getSystemVersion,
-  getDeviceType
+  getVersion
 } from "react-native-device-info";
 
-const createUserAgent = ( ): string => `Seek/${getVersion()} ${getDeviceType()} (Build ${getBuildNumber()}) ${getSystemName()}/${getSystemVersion()}`;
+const DETAILS = [
+  `Build ${getBuildNumber()}`,
+  `${getSystemName()} ${getSystemVersion()}`,
+  getDeviceId( ),
+  getDeviceType( )
+];
+
+async function getOtherDetails( ) {
+  DETAILS.push( `${getBrand( )}` );
+  if ( Platform.OS === "android" ) {
+    DETAILS.push( `SDK ${await getApiLevel( )}` );
+  }
+}
+getOtherDetails( );
+
+// User agent being used, when calling the iNat APIs
+function createUserAgent( ) {
+  return `Seek/${getVersion()} (${DETAILS.join( "; " )})`;
+}
 
 export default createUserAgent;

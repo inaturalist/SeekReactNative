@@ -123,10 +123,10 @@
     "linked_account": "U het ’n iNaturalist-rekening aan Seek gekoppel!",
     "posting": "Besig om te Plaas op iNaturalist",
     "posting_details": "U kan onmiddellik na die invoer van hierdie waarnemings in Seek, dit na iNaturalist versend. Indien u dit later op iNaturalist wil plaas moet u asb. die iNaturalist-toep en webwerf gebruik.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Seek Waarnemings is nie gesinkroniseer nie.",
+    "observations_stored_only_in_app": "U waarnemings in Seek word op u toestel bewaar en word NIE aanlyn gerugsteun deur iNaturalist NIE.",
+    "observations_bullet_1": "Deur die Seek toep uit te vee sal al u waarnemings in die toep ook uitgevee word.",
+    "observations_bullet_2": "Om Seek oor te skuif na 'n nuwe toestel sal nie u Seek waarnemings saam met die toep skuif nie.",
     "observations_3": "Seek sinchroniseer nie u waarnemings met ander toestelle nie.",
     "agree_to_terms": "Ek stem in tot die <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ek het die <guidelines>{{guidelines}}</guidelines> nagegaan.",
     "guidelines": "Gemeenskapsriglyne",
@@ -928,7 +928,7 @@
     "october_2022_challenge_name_parasite": "Parasiet-uitdaging",
     "october_2022_mission_1": "Vind 3 spesies vanuit:\n\nOrde Ixodida (Bosluise);\nFamilie Culicidae (Muskiete);\nOrde Siphonaptera (Vlooie);\nParvorde Phthiraptera (Luise);\nOrde Santalales (Mistels);\nGenus Cuscuta (Dodders);\nFamilie Orobanchaceae (Broomrapes)",
     "october_2022_description_parasitic_organisms": "Parasitiese organismes voed op ander organismes sonder om hulle dood te maak. Geleedpotiges soos bosluise, muskiete, vlooie, en luise is aangepas om op gewerwelde diere te voed, insluitend mense en/of huisdiere. Daar is ook parasitiese plante wat nie fotosinteer nie omdat hulle staatmaak op suiker wat deur hul gasheer-plant produseer word.",
-    "october_2022_action_parasites": "Parasites can also spread diseases while moving from host to host. What diseases can be spread by parasites in your area? What steps can you take to protect yourself from infection?",
+    "october_2022_action_parasites": "Parasiete kan ook siektes versprei terwyl hulle van gasheer tot gasheer beweeg. Watter siektes kan deur parasiete in u area versprei word? Watter stappe kan u neem om uself teen infeksie te beskerm?",
     "november_2022_challenge_name_urban_nature": "Stedelike Natuur-Uitdaging",
     "november_2022_mission_1": "Find 4 species from:\n\nFamily Brassicaceae (Mustards);\nFamily Lamiaceae (Mints);\nFamily Poaceae (Grasses);\nOrder Blattodea (Cockroaches and Termites);\nOrder Rodentia (Rodents);\nOrder Columbiformes (Pigeons and Doves);\nFamily Corvidae (Crows, Jays, and Magpies);\nGenus Passer (Sparrows);\nGenus Acridotheres (Mynas);\nInfraorder Gekkota (Geckos)",
     "november_2022_description_some_species_well_adapted": "Some species are well-adapted to developed areas. Even in cities, you can find wild biodiversity in pavement cracks, empty lots, visiting gardens, and even in our homes (perhaps as unwanted visitors).",
@@ -1039,9 +1039,9 @@
     "not_found_error_description": "Die identifikasiemodel kon nie tydens die laai van die toep gevind word nie. U kamera ervaring sal sonder indentifikasie wees."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Iets het fout gegaan.",
+    "if_youre_seeing_this_error": "Indien u hierdie sien en aanlyn is, is iNat werkers alreeds in kennis gestel. Dankie dat u 'n fout gevind het! Indien u nie aanlyn is nie, neem asseblief 'n skermgree en stuur aan ons 'n e-pos wanneer u terug op die Internet is.",
+    "restart": "HERSTEL TOEP",
+    "error": "Fout"
   }
 }

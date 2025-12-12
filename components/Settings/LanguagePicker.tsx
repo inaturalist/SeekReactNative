@@ -104,7 +104,6 @@ const LanguagePicker = () => {
       {deviceLanguageSupported( ) && renderDeviceCheckbox}
       <RNPickerSelect
         hideIcon
-        // @ts-ignore
         Icon={showIcon}
         items={localeList}
         onValueChange={handleValueChange}

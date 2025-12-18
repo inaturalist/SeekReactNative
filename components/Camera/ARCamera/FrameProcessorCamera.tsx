@@ -118,7 +118,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   const [permissionCount, setPermissionCount] = useState( 0 );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
-      "ultra-wide-angle-camera",
+      // "ultra-wide-angle-camera",
       "wide-angle-camera",
       "telephoto-camera"
     ]

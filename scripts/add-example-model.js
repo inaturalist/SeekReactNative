@@ -77,7 +77,7 @@ const downloadAndroid = async ( argv ) => {
 
 const downloadIOS = async () => {
   const iosDestination = path.join( __dirname, "..", "ios" );
-  const iosModelFilename = "optimized_model_v2_13.mlmodel";
+  const iosModelFilename = "optimized_model_v2_20.mlmodel";
   const iosModel = path.join( iosDestination, iosModelFilename );
 
   console.log( "Checking ios model files..." );
@@ -107,14 +107,14 @@ const downloadIOS = async () => {
   await dl.start().catch( ( err ) => console.error( err ) );
   console.log( "Downloaded!" );
   const dl2 = new DownloaderHelper( iosGeo, iosDestination, {
-    fileName: "geomodel_v2_13.mlmodel"
+    fileName: "geomodel_v2_20.mlmodel"
   } );
   dl2.on( "end", () => console.log( "Download Completed" ) );
   dl2.on( "error", ( err ) => console.log( "Download Failed", err ) );
   await dl2.start().catch( ( err ) => console.error( err ) );
   console.log( "Downloaded!" );
   const dl3 = new DownloaderHelper( taxonomyJSON, iosDestination, {
-    fileName: "taxonomy_v2_13.json"
+    fileName: "taxonomy_v2_20.json"
   } );
   dl3.on( "end", () => console.log( "Download Completed" ) );
   dl3.on( "error", ( err ) => console.log( "Download Failed", err ) );

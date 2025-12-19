@@ -8,7 +8,7 @@ export default {
   ANDROID_MODEL_FILE_NAME: "INatVision_Small_2_fact256_8bit.tflite",
   ANDROID_GEOMODEL_FILE_NAME: "INatGeomodel_Small_2_8bit.tflite",
   ANDROID_TAXONOMY_FILE_NAME: "taxonomy.csv",
-  IOS_MODEL_FILE_NAME: "optimized_model_v2_13.mlmodel",
-  IOS_GEOMODEL_FILE_NAME: "geomodel_v2_13.mlmodel",
-  IOS_TAXONOMY_FILE_NAME: "taxonomy_v2_13.json"
+  IOS_MODEL_FILE_NAME: "optimized_model_v2_20.mlmodel",
+  IOS_GEOMODEL_FILE_NAME: "geomodel_v2_20.mlmodel",
+  IOS_TAXONOMY_FILE_NAME: "taxonomy_v2_20.json"
 };

@@ -2,7 +2,8 @@
   "ignorePatterns": ["**/vendor/**"],
   "extends": ["@react-native"],
   "plugins": [
-    "@stylistic"
+    "@stylistic",
+    "import"
   ],
   "rules": {
     "quotes": [2, "double"],
@@ -16,6 +17,7 @@
         "fixStyle": "separate-type-imports"
       }
     ],
+    "import/consistent-type-specifier-style": [2, "prefer-top-level"],
     "prettier/prettier": 0,
     "react-hooks/react-compiler": "error"
   },

@@ -26,7 +26,7 @@ interface Props {
   readonly id: number;
 }
 
-const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
+const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ) => {
   const { isLandscape, width } = useAppOrientation( );
   const columnWidth = width / 3;
   const seenTaxa = useSeenTaxa( id );

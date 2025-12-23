@@ -3,7 +3,7 @@
   "extends": ["@react-native"],
   "rules": {
     "quotes": [2, "double"],
-    "comma-dangle": [2, "never"],
+    "comma-dangle": [2, "always-multiline"],
     "space-in-parens": [2, "always"],
     "@typescript-eslint/array-type": 2,
     "prettier/prettier": 0,

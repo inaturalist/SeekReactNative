@@ -4,13 +4,13 @@ import realmConfig from "../../models";
 
 type Observation = {
   uuidString?: string;
-  date?: Date,
+  date?: Date;
   taxon: {
     defaultPhoto?: {
       backupUri?: string;
       mediumUrl?: string;
       lastUpdated?: Date;
-    }};
+    };};
   latitude?: number;
   longitude?: number;
 }

@@ -15,7 +15,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   dateToDisplay: string | null;
-  handleDatePicked: ( date: Date ) => void
+  handleDatePicked: ( date: Date ) => void;
 }
 
 const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {

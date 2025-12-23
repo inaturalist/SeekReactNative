@@ -26,7 +26,7 @@ interface Props {
     secondLogo: string;
     earnedIconName: string;
     badgeName: string;
-  }
+  };
 };
 
 const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {

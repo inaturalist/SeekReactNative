@@ -7,12 +7,12 @@ import { dirPictures } from "../dirStorage";
 const useUserPhoto = ( item: {
   taxon: {
     defaultPhoto?: {
-      backupUri?: string,
-      mediumUrl?: string,
+      backupUri?: string;
+      mediumUrl?: string;
       lastUpdated?: Date;
-    }
-  },
-  uuidString?: string
+    };
+  };
+  uuidString?: string;
  } | null ): { uri: string } => {
    const [photo, setPhoto] = useState<{ uri: string } | null>( null );
 

@@ -13,9 +13,9 @@ import IconicTaxaName from "./IconicTaxaName";
 interface Props {
   readonly loading: boolean;
   readonly photos: {
-    attribution: string,
-    license_code: string,
-    medium_url: string
+    attribution: string;
+    license_code: string;
+    medium_url: string;
   }[];
   readonly taxon: {
     scientificName: string;

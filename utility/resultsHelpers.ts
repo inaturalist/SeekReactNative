@@ -50,7 +50,7 @@ interface Image {
 }
 
 // this is only being called from AR camera
-const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: Image, errorCode: number }> => {
+const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: Image; errorCode: number }> => {
   const fetchLocation = async ( ) => {
     try {
       if ( !login ) {

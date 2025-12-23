@@ -30,7 +30,7 @@ interface Props {
     positional_accuracy: number | null;
     description: string | null;
     vision: boolean;
-  }
+  };
 }
 
 const LocationPickerCard = ( { location, updateLocation, observation }: Props ) => {

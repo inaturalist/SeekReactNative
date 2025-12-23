@@ -16,7 +16,7 @@ interface Props {
     longitude: number | null;
     latitudeDelta: number;
     longitudeDelta: number;
-  },
+  };
   onRegionChange: ( region: Region ) => void;
   returnToUserLocation: ( ) => void;
   posting?: boolean;

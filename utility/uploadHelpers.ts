@@ -53,13 +53,13 @@ interface ErrorType {
   error: {
     type: string;
     errorText?: string;
-  }
+  };
 }
 
 const appendPhotoToObservation = async ( photo: {
-  id: number,
-  uuid: string,
-  uri: string
+  id: number;
+  uuid: string;
+  uri: string;
 }, token: string, uri: string ): Promise<boolean | ErrorType | undefined> => {
   const { id, uuid } = photo;
   const photoParams = {
@@ -312,8 +312,8 @@ const markUploadsAsSeen = async ( ): Promise<void> => {
 
 const markCurrentUploadAsSeen = async ( upload: {
   photo: {
-    notificationShown: boolean
-  }
+    notificationShown: boolean;
+  };
 } ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
 

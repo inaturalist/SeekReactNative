@@ -16,7 +16,7 @@ interface Props {
     commonName?: string | null;
     taxaId?: number | null;
     scientificName?: string | null;
-  }
+  };
 }
 
 const PostToiNat = ( { color, taxaInfo }: Props ) => {

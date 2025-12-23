@@ -40,7 +40,7 @@ import LevelModal from "../Modals/LevelModal";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
-const SubstringStyledText = ( { text, greenText }: { text: any, greenText: any } ) => {
+const SubstringStyledText = ( { text, greenText }: { text: any; greenText: any } ) => {
   // Split the text into an array using whitespace
   if ( typeof text !== "string" ) {
     return null;

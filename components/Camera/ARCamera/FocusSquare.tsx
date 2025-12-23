@@ -3,7 +3,7 @@ import React from "react";
 import { Animated, StyleSheet } from "react-native";
 
 interface Props {
-  animatedStyle: Object
+  animatedStyle: Object;
 }
 
 const FocusSquare = ( { animatedStyle }: Props ) => {

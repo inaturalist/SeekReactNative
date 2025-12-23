@@ -41,12 +41,12 @@ export enum ACTION {
   RESET_STATE = "RESET_STATE",
 }
 type State = {
-  similarSpecies: Taxon[],
-  loading: boolean,
+  similarSpecies: Taxon[];
+  loading: boolean;
 }
 type Action =
   | { type: ACTION.RESET_STATE }
-  | { type: ACTION.SHOW_SIMILAR_SPECIES, similarSpecies: Taxon[] }
+  | { type: ACTION.SHOW_SIMILAR_SPECIES; similarSpecies: Taxon[] }
 
 interface Props {
   readonly id: number | null;

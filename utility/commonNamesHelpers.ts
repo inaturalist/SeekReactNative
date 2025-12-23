@@ -27,7 +27,7 @@ const getTaxonCommonName = ( taxonID?: number ) => (
   } )
 );
 
-const addCommonNamesFromFile = ( realm, commonNamesDict: { i: number; l: string; n: string; }[], seekLocale: string ) => {
+const addCommonNamesFromFile = ( realm, commonNamesDict: { i: number; l: string; n: string }[], seekLocale: string ) => {
   commonNamesDict.forEach( ( commonNameRow ) => {
     if ( commonNameRow.l === seekLocale ) {
       // only create realm objects if language matches current locale

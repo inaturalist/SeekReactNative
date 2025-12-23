@@ -18,7 +18,7 @@ interface Props {
 }
 
 const SeekYearInReviewChart = ( { data }: Props ) => {
-  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp, y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
+  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp; y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
     <Circle
       key={`circle-${value.month}`}
       cx={x( value.month )}

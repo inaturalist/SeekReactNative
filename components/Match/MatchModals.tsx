@@ -47,8 +47,8 @@ type Action =
   | { type: ACTION_TYPE.SET_CHALLENGES; challenge: any; challengeInProgress: any }
   | { type: ACTION_TYPE.SET_CHALLENGE_MODAL; challengeModal: boolean; challengeShown: boolean }
   | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean }
-  | { type: ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL; }
-  | { type: ACTION_TYPE.OPEN_REPLACE_PHOTO_MODAL; };
+  | { type: ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL }
+  | { type: ACTION_TYPE.OPEN_REPLACE_PHOTO_MODAL };
 
 interface Props {
   observation: Observation;

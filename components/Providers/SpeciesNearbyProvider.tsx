@@ -5,21 +5,21 @@ import { useNetInfo } from "@react-native-community/netinfo";
 import { useLocationName } from "../../utility/customHooks";
 
 type SpeciesNearbyState = {
-  latitude: number | null,
-  longitude: number | null,
-  taxaType: string,
+  latitude: number | null;
+  longitude: number | null;
+  taxaType: string;
   // TODO: what type here?
   // Result of query to: const site = "https://api.inaturalist.org/v1/taxa/nearby";
-  taxa: any[],
-  isConnected: boolean | null
+  taxa: any[];
+  isConnected: boolean | null;
 };
 interface SpeciesNearby extends SpeciesNearbyState {
-  location: string | null
+  location: string | null;
 }
 const SpeciesNearbyContext = React.createContext<
   {
-    speciesNearby: SpeciesNearby,
-    setSpeciesNearby: React.Dispatch<React.SetStateAction<SpeciesNearbyState>>
+    speciesNearby: SpeciesNearby;
+    setSpeciesNearby: React.Dispatch<React.SetStateAction<SpeciesNearbyState>>;
   } | undefined
 >( undefined );
 

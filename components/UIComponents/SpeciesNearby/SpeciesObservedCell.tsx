@@ -26,7 +26,7 @@ interface Props {
       name: string;
       iconicTaxonId: number;
     };
-  }
+  };
 }
 
 const SpeciesObservedCell = ( { item }: Props ) => {

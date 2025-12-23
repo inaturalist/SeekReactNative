@@ -104,8 +104,8 @@ const checkForAncestors = ( seenTaxa: any[], taxaId: number ): number[] => {
 
 interface SeenTaxon {
   taxon: {
-    iconicTaxonId: number
-  }
+    iconicTaxonId: number;
+  };
 }
 const calculateTaxaSeenPerMission = ( types: string[], seenTaxa: SeenTaxon[] ): number => {
   let count = 0;

@@ -22,8 +22,8 @@ const useScrollToTop = (
         x: number;
         y: number;
         animated: boolean;
-      } ) => void
-    }
+      } ) => void;
+    };
   },
   navigation: any,
   route: any

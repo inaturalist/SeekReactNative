@@ -16,8 +16,8 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly level: {
-    earnedIconName: string,
-    intlName: string
+    earnedIconName: string;
+    intlName: string;
   };
   readonly speciesCount?: number;
   readonly closeModal: () => void;

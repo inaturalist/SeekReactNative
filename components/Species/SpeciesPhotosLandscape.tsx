@@ -32,7 +32,7 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ) => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
-  const renderPhoto = ( { item, index }: { item: Photo, index: number} ) => {
+  const renderPhoto = ( { item, index }: { item: Photo; index: number} ) => {
     const photo = item;
 
     if ( !photo.license_code && index !== 0 ) {

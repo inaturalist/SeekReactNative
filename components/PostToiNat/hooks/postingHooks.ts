@@ -3,7 +3,8 @@ import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
 import { capitalizeNames } from "../../../utility/helpers";
-import { Coords, fetchUserLocation } from "../../../utility/locationHelpers";
+import type { Coords} from "../../../utility/locationHelpers";
+import { fetchUserLocation } from "../../../utility/locationHelpers";
 
 export type Suggestion = {
   defaultPhoto: {

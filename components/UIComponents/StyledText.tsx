@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, TextProps } from "react-native";
+import type { TextProps } from "react-native";
+import { Text } from "react-native";
 
 import { leftText } from "../../styles/global";
 

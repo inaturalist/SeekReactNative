@@ -5,7 +5,8 @@ import realmConfig from "../../../models";
 import { recalculateChallenges, fetchObservationsAfterChallengeStarted } from "../../../utility/challengeHelpers";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { taxonDictForMissions } from "../../../utility/dictionaries/taxonomyDicts";
-import { fetchTruncatedUserLocation, TruncatedCoords } from "../../../utility/locationHelpers";
+import type { TruncatedCoords } from "../../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 
 interface Challenge {
   startedDate: Date;

@@ -1,7 +1,8 @@
 import * as React from "react";
+import type {
+  ImageSourcePropType} from "react-native";
 import {
   Image,
-  ImageSourcePropType,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -16,7 +17,7 @@ import { markNotificationAsSeen } from "../../utility/notificationHelpers";
 import StyledText from "../UIComponents/StyledText";
 import { useChallenge } from "../Providers/ChallengeProvider";
 import { baseTextStyles } from "../../styles/textStyles";
-import { Notification } from "./hooks/notificationHooks";
+import type { Notification } from "./hooks/notificationHooks";
 
 interface Props {
   readonly item: Notification;

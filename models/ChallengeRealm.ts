@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class ChallengeRealm extends Realm.Object {
   static schema: ObjectSchema = {

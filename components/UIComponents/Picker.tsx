@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, useCallback } from "react";
+import type { PropsWithChildren} from "react";
+import React, { useCallback } from "react";
 import RNPickerSelect from "react-native-picker-select";
 
 const placeholder = {};

@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, useState } from "react";
+import type { PropsWithChildren} from "react";
+import React, { useState } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
 
 import { useLocationName } from "../../utility/customHooks";

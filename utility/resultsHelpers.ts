@@ -1,9 +1,10 @@
 import { Platform } from "react-native";
 
-import { Coords, fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates, TruncatedCoords } from "./locationHelpers";
+import type { Coords, TruncatedCoords } from "./locationHelpers";
+import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { log } from "../react-native-logs.config";
-import { Prediction } from "vision-camera-plugin-inatvision";
+import type { Prediction } from "vision-camera-plugin-inatvision";
 
 const logger = log.extend( "resultsHelpers.js" );
 

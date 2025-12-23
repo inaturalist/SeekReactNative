@@ -16,8 +16,8 @@ import { dimensions } from "../../../styles/global";
 import { useFetchUserLocation } from "../hooks/postingHooks";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-import { Region } from "react-native-maps";
-import { Coords } from "../../../utility/locationHelpers";
+import type { Region } from "react-native-maps";
+import type { Coords } from "../../../utility/locationHelpers";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;

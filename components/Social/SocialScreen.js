@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
-import type { Node } from "react";
+import { Node } from "react";
 
 import { colors, dimensions } from "../../styles/global";
 import { viewStyles, textStyles, imageStyles } from "../../styles/social/social";

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import HTML, { RenderersProps } from "react-native-render-html";
+import type { RenderersProps } from "react-native-render-html";
+import HTML from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";

@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, useRef } from "react";
+import type { PropsWithChildren} from "react";
+import React, { useRef } from "react";
 import {
   View,
   ScrollView,

@@ -11,7 +11,7 @@ import { renderHeaderText, renderText, setGradients } from "../../utility/matchH
 import { useCommonName } from "../../utility/customHooks/useCommonName";
 import StyledText from "../UIComponents/StyledText";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
-import { Observation } from "../Providers/ObservationProvider";
+import type { Observation } from "../Providers/ObservationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {

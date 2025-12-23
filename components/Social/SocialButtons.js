@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import type { Node } from "react";
+import { Node } from "react";
 
 import { viewStyles, textStyles } from "../../styles/social/social";
 import { dimensions, colors } from "../../styles/global";

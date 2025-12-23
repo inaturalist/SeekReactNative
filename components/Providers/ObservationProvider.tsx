@@ -1,4 +1,5 @@
-import React, { useState, useCallback, PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
+import React, { useState, useCallback } from "react";
 import inatjs from "inaturalistjs";
 
 import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";

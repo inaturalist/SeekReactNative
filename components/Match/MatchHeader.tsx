@@ -6,7 +6,7 @@ import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { setGradients } from "../../utility/matchHelpers";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
-import { Observation } from "../Providers/ObservationProvider";
+import type { Observation } from "../Providers/ObservationProvider";
 
 interface Props {
   observation: Observation;

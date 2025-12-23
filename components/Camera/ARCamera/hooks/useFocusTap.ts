@@ -2,12 +2,13 @@ import {
   useCallback, useMemo, useRef, useState,
 } from "react";
 import { Animated } from "react-native";
+import type {
+  GestureStateChangeEvent,
+  TapGestureHandlerEventPayload} from "react-native-gesture-handler";
 import {
   Gesture,
-  GestureStateChangeEvent,
-  TapGestureHandlerEventPayload,
 } from "react-native-gesture-handler";
-import { Camera } from "../helpers/visionCameraWrapper";
+import type { Camera } from "../helpers/visionCameraWrapper";
 const HALF_SIZE_FOCUS_BOX = 40;
 
 interface Coordinates {

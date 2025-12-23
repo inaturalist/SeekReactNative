@@ -4,13 +4,13 @@ import React, {
   useRef,
   useCallback,
   useContext,
-  useState
+  useState,
 } from "react";
 import {
   Image,
   TouchableOpacity,
   View,
-  Platform
+  Platform,
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
@@ -26,11 +26,11 @@ import CameraError from "../CameraError";
 import {
   checkForSystemVersion,
   handleLog,
-  showCameraSaveFailureAlert
+  showCameraSaveFailureAlert,
 } from "../../../utility/cameraHelpers";
 import {
   checkCameraPermissions,
-  checkSavePermissions
+  checkSavePermissions,
 } from "../../../utility/androidHelpers.android";
 import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { createTimestamp } from "../../../utility/dateHelpers";
@@ -42,7 +42,8 @@ import { colors } from "../../../styles/global";
 import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import { UserContext } from "../../UserContext";
-import FrameProcessorCamera, { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
+import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
+import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
@@ -62,7 +63,7 @@ const initialState: State = {
   error: null,
   errorEvent: null,
   negativeFilter: false,
-  taxonId: null
+  taxonId: null,
 };
 
 enum ACTION {
@@ -113,7 +114,7 @@ const ARCamera = ( ) => {
         return {
           ...state,
           error: null,
-          allPredictions: []
+          allPredictions: [],
         };
       case ACTION.FILTER_TAXON:
         pictureTaken.value = false;
@@ -122,7 +123,7 @@ const ARCamera = ( ) => {
           negativeFilter: action.negativeFilter,
           taxonId: action.taxonId,
           error: null,
-          allPredictions: []
+          allPredictions: [],
         };
       case ACTION.ERROR:
         return { ...state, error: action.error, errorEvent: action.errorEvent };
@@ -136,7 +137,7 @@ const ARCamera = ( ) => {
     error,
     errorEvent,
     negativeFilter,
-    taxonId
+    taxonId,
   } = state;
 
   // As of react-native-worklets-core v1.3.3 there is a discrepancy in the way objects are returned from
@@ -150,7 +151,7 @@ const ARCamera = ( ) => {
       combined_score: p.combined_score,
       taxon_id: p.taxon_id,
       ancestor_ids: p.ancestor_ids,
-      rank: p.rank
+      rank: p.rank,
     } ) )
     .sort( ( a, b ) => b.rank_level - a.rank_level );
   const lowestRankPrediction = sortedPredictions[sortedPredictions.length - 1];
@@ -171,7 +172,7 @@ const ARCamera = ( ) => {
     const userImage = {
       time: createTimestamp( ), // add current time to AR camera photos
       uri,
-      predictions
+      predictions,
     };
 
     // AR camera photos don't come with a location
@@ -182,20 +183,20 @@ const ARCamera = ( ) => {
     logToApi( {
       level: LogLevels.INFO,
       message: `hasCoordinates ${hasCoordinates}`,
-      context: "takePhoto"
+      context: "takePhoto",
     } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     const rankLevel = image?.predictions.sort( ( a, b ) => a.rank_level - b.rank_level )[0]?.rank_level || 100;
     logToApi( {
       level: LogLevels.INFO,
       message: `rankLevel ${rankLevel}`,
-      context: "takePhoto rankLevel"
+      context: "takePhoto rankLevel",
     } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     logger.debug( "fetchImageLocationOrErrorCode resolved" );
     image.errorCode = errorCode;
     image.arCamera = true;
     startObservationWithImage( image, () => {
       navigation.navigate( "Drawer", {
-        screen: "Match"
+        screen: "Match",
       } );
     } );
   }, [startObservationWithImage, navigation, login] );
@@ -322,7 +323,7 @@ const ARCamera = ( ) => {
     }
     const takePhotoOptions: TakePhotoOptions = {
       flash: "off",
-      enableShutterSound: false
+      enableShutterSound: false,
     };
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
@@ -373,7 +374,7 @@ const ARCamera = ( ) => {
         context: "ARCamera.tsx",
         message: e.message,
         errorType: e.constructor?.name,
-        backtrace: e.stack
+        backtrace: e.stack,
       } );
       handleCaptureError( { nativeEvent: { reason: e } } );
     } );
@@ -391,7 +392,7 @@ const ARCamera = ( ) => {
     savePhoto,
     requestAndroidSavePermissions,
     visionCameraTakePhoto,
-    pictureTaken
+    pictureTaken,
   ] );
 
   const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
@@ -446,7 +447,7 @@ const ARCamera = ( ) => {
   const navHome = ( ) => resetRouter( navigation );
   const navToSettings = () =>
     navigation.navigate( "Drawer", {
-      screen: "Settings"
+      screen: "Settings",
     } );
 
 

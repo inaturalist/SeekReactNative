@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class ChallengeRealm extends Realm.Object {
   static schema: ObjectSchema = {
@@ -23,8 +24,8 @@ class ChallengeRealm extends Realm.Object {
       // this is the dark version of the logo
       secondLogo: { type: "string" },
       badgeName: { type: "string" },
-      index: { type: "int", default: 0 }
-    }
+      index: { type: "int", default: 0 },
+    },
   };
 }
 

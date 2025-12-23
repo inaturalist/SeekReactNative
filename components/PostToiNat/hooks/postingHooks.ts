@@ -3,7 +3,8 @@ import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
 import { capitalizeNames } from "../../../utility/helpers";
-import { Coords, fetchUserLocation } from "../../../utility/locationHelpers";
+import type { Coords} from "../../../utility/locationHelpers";
+import { fetchUserLocation } from "../../../utility/locationHelpers";
 
 export type Suggestion = {
   defaultPhoto: {
@@ -23,7 +24,7 @@ const useSearchSpecies = ( speciesName: string | null ) => {
         q: speciesName,
         per_page: 5,
         is_active: true,
-        locale: i18n.locale
+        locale: i18n.locale,
       };
 
       inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
@@ -39,7 +40,7 @@ const useSearchSpecies = ( speciesName: string | null ) => {
               && capitalizeNames( s.preferred_common_name ),
             scientificName: s.name,
             id: s.id,
-            iconicTaxonId: s.iconic_taxon_id
+            iconicTaxonId: s.iconic_taxon_id,
           };
         } );
 
@@ -77,5 +78,5 @@ const useFetchUserLocation = ( ) => {
 
 export {
   useSearchSpecies,
-  useFetchUserLocation
+  useFetchUserLocation,
 };

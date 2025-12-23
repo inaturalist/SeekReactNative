@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -31,14 +31,14 @@ interface Props {
 const DeleteModal = ( {
   closeModal,
   deleteObservation,
-  itemToDelete
+  itemToDelete,
 }: Props ) => {
   const {
     id,
     photo,
     preferredCommonName,
     name,
-    iconicTaxonId
+    iconicTaxonId,
   } = itemToDelete;
 
   const deleteObs = ( ) => {
@@ -70,7 +70,7 @@ const DeleteModal = ( {
         taxon={{
           preferredCommonName,
           name,
-          iconicTaxonId
+          iconicTaxonId,
         }}
         photo={photo}
       />

@@ -37,13 +37,13 @@ interface Props {
   observed?: boolean;
 }
 
-const SpeciesNearbyList = ( { taxa, observed }: Props ): Node => {
+const SpeciesNearbyList = ( { taxa, observed }: Props ) => {
   const getItemLayout = useCallback( ( data: any, index: number ) => (
     // skips measurement of dynamic content for faster loading
     {
       length: ( 28 + 108 ),
       offset: ( 28 + 108 ) * index,
-      index
+      index,
     }
   ), [] );
 

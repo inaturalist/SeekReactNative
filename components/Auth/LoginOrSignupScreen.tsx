@@ -3,7 +3,7 @@ import {
   View,
   Image,
   ScrollView,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 
 import i18n from "../../i18n";

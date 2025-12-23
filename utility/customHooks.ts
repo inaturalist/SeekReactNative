@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { AppState, AppStateStatus, Platform } from "react-native";
+import type { AppStateStatus} from "react-native";
+import { AppState, Platform } from "react-native";
 import Realm from "realm";
 import NetInfo from "@react-native-community/netinfo";
 import inatjs from "inaturalistjs";
@@ -16,13 +17,13 @@ const useScrollToTop = (
       scrollTo: ( {
         x,
         y,
-        animated
+        animated,
       }: {
         x: number;
         y: number;
         animated: boolean;
-      } ) => void
-    }
+      } ) => void;
+    };
   },
   navigation: any,
   route: any
@@ -30,7 +31,7 @@ const useScrollToTop = (
   const scrollToTop = useCallback( () => {
     if ( scrollView && scrollView.current !== null ) {
       scrollView.current.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
+        x: 0, y: 0, animated: Platform.OS === "android",
       } );
     }
   }, [scrollView] );
@@ -172,7 +173,7 @@ const useUploadedObservationCount = ( {
   login,
   username,
   year,
-  triggerReload
+  triggerReload,
 }: {
   login: string | null;
   username: string;
@@ -204,7 +205,7 @@ const useUploadedObservationCount = ( {
       // TODO: rewrite to not use API request but local data only, otherwise data from other phones (but same login) would also show here
       let params = {
         oauth_application_id: 333,
-        user_id: username
+        user_id: username,
       };
       if ( year ) {
         params = {...params, year};
@@ -274,5 +275,5 @@ export {
   useInternetStatus,
   useUploadedObservationCount,
   useSpeciesCount,
-  useIsForeground
+  useIsForeground,
 };

@@ -3,7 +3,7 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -13,8 +13,8 @@ import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
 interface Props {
-  readonly openFlagModal: () => void,
-  readonly setNavigationPath: ( path: string ) => void
+  readonly openFlagModal: () => void;
+  readonly setNavigationPath: ( path: string ) => void;
 }
 
 const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   Image,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 
 import styles from "../../../styles/posting/postToiNat";
@@ -15,7 +15,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   dateToDisplay: string | null;
-  handleDatePicked: ( date: Date ) => void
+  handleDatePicked: ( date: Date ) => void;
 }
 
 const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {

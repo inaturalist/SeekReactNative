@@ -23,7 +23,7 @@ const mockChallenges = [
     secondLogo: "iNat",
     sponsorName: "Seek",
     startedDate: new Date( "2022-12-08T12:38:04.813Z" ),
-    totalSpecies: 5
+    totalSpecies: 5,
   },
   {
     action: "seek_2021_challenges.september_2021_action",
@@ -43,12 +43,12 @@ const mockChallenges = [
     secondLogo: "iNat",
     sponsorName: "Seek",
     startedDate: new Date( "2022-12-08T12:59:06.180Z" ),
-    totalSpecies: 10
+    totalSpecies: 10,
   },
   {
     header: "challenges.not_started",
     id: 1,
-    type: "header"
+    type: "header",
   },
   {
     action: "seek_challenges.action_dec_2020",
@@ -68,7 +68,7 @@ const mockChallenges = [
     secondLogo: "iNat",
     sponsorName: "Seek",
     startedDate: null,
-    totalSpecies: 10
+    totalSpecies: 10,
   },
   {
     action: "seek_2023_challenges.august_2023_action_insect",
@@ -88,12 +88,12 @@ const mockChallenges = [
     secondLogo: "iNat",
     sponsorName: "Seek",
     startedDate: null,
-    totalSpecies: 10
+    totalSpecies: 10,
   },
   {
     header: "challenges.completed",
     id: 2,
-    type: "header"
+    type: "header",
   },
   {
     action: "challenges.action_october",
@@ -113,7 +113,7 @@ const mockChallenges = [
     secondLogo: "wwfop",
     sponsorName: "Our Planet",
     startedDate: new Date( "2022-12-08T12:38:04.813Z" ),
-    totalSpecies: 5
+    totalSpecies: 5,
   },
   {
     action: "challenges.action_september",
@@ -133,15 +133,15 @@ const mockChallenges = [
     secondLogo: "wwfop",
     sponsorName: "Our Planet",
     startedDate: new Date( "2022-12-08T12:38:04.813Z" ),
-    totalSpecies: 10
-  }
+    totalSpecies: 10,
+  },
 ];
 
 jest.mock(
   "../../../../../components/Challenges/hooks/challengeHooks",
   () => ( {
     __esModule: true,
-    useFetchChallenges: jest.fn( () => mockChallenges )
+    useFetchChallenges: jest.fn( () => mockChallenges ),
   } )
 );
 

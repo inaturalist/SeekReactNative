@@ -1,9 +1,10 @@
 import { Platform } from "react-native";
 
-import { Coords, fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates, TruncatedCoords } from "./locationHelpers";
+import type { Coords, TruncatedCoords } from "./locationHelpers";
+import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { log } from "../react-native-logs.config";
-import { Prediction } from "vision-camera-plugin-inatvision";
+import type { Prediction } from "vision-camera-plugin-inatvision";
 
 const logger = log.extend( "resultsHelpers.js" );
 
@@ -49,7 +50,7 @@ interface Image {
 }
 
 // this is only being called from AR camera
-const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: Image, errorCode: number }> => {
+const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null ): Promise<{ image: Image; errorCode: number }> => {
   const fetchLocation = async ( ) => {
     try {
       if ( !login ) {
@@ -66,7 +67,7 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
       if ( !login ) {
         return {
           image,
-          errorCode: code
+          errorCode: code,
         };
       } else {
         return {
@@ -75,10 +76,10 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
             preciseCoords: {
               latitude: null,
               longitude: null,
-              accuracy: null
-            }
+              accuracy: null,
+            },
           },
-          errorCode: code
+          errorCode: code,
         };
       }
     }
@@ -100,5 +101,5 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
 
 export {
   setImageCoords,
-  fetchImageLocationOrErrorCode
+  fetchImageLocationOrErrorCode,
 };

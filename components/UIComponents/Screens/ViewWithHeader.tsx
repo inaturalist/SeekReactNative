@@ -6,9 +6,8 @@ import styles from "../../../styles/uiComponents/scrollWithHeader";
 import GreenHeader from "../GreenHeader";
 import Footer from "../Footer";
 
-interface Props {
+interface Props extends React.PropsWithChildren {
   testID?: string;
-  children: React.ReactNode;
   header: string;
   footer?: boolean;
 }

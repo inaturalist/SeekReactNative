@@ -42,7 +42,7 @@ const createTaxonomyList = ( ancestors: Taxon[], scientificName?: string | null 
 
   taxonomyList.push( {
     rank: "species",
-    name: scientificName || null
+    name: scientificName || null,
   } );
 
   return taxonomyList;
@@ -85,7 +85,7 @@ const useTaxonDetails = ( id: number ) => {
           taxon: {
             id: taxa.id,
             scientificName,
-            iconicTaxonId: taxa.iconic_taxon_id
+            iconicTaxonId: taxa.iconic_taxon_id,
           },
           photos: photosWithLicense,
           details: {
@@ -94,9 +94,9 @@ const useTaxonDetails = ( id: number ) => {
             timesSeen: taxa.observations_count,
             ancestors: createTaxonomyList( taxa.ancestors, scientificName ),
             stats: {
-              endangered: ( conservationStatus && conservationStatus.status_name === "endangered" ) || false
-            }
-          }
+              endangered: ( conservationStatus && conservationStatus.status_name === "endangered" ) || false,
+            },
+          },
         } );
       } catch ( e ) {
         console.log( e, "couldn't fetch taxon details" );
@@ -110,5 +110,5 @@ const useTaxonDetails = ( id: number ) => {
 
 export {
   useSpeciesSeen,
-  useTaxonDetails
+  useTaxonDetails,
 };

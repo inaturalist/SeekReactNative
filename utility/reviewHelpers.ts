@@ -9,7 +9,7 @@ const updateReviews = ( realm: Realm, reviews ): void => {
     if ( reviews.length === 0 ) {
       realm.create( "ReviewRealm", {
         date: new Date(),
-        timesSeen: 1
+        timesSeen: 1,
       } );
     } else {
       reviews[0].timesSeen += 1;
@@ -43,5 +43,5 @@ const showStoreReview = ( ): void => {
 };
 
 export {
-  showStoreReview
+  showStoreReview,
 };

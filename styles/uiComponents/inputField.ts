@@ -9,8 +9,8 @@ const textStyles = StyleSheet.create( {
     borderWidth: 1,
     height: 37,
     marginHorizontal: dimensions.height > 570 ? 34 : 20,
-    paddingHorizontal: 15
-  }
+    paddingHorizontal: 15,
+  },
 } );
 
 export default textStyles;

@@ -2,7 +2,7 @@ import React, {
   useReducer,
   useEffect,
   useRef,
-  useCallback
+  useCallback,
 } from "react";
 import { ScrollView, Platform, View, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -52,12 +52,12 @@ function reducer( state: State, action: Action ) {
     case ACTION.CLEAR_SELECTION:
       return {
         ...state,
-        selectedText: false
+        selectedText: false,
       };
     case ACTION.HIGHLIGHT_SELECTION:
       return {
         ...state,
-        selectedText: true
+        selectedText: true,
       };
     default:
       throw new Error( );
@@ -87,12 +87,12 @@ const SpeciesDetail = ( ) => {
 
   const [state, dispatch] = useReducer( reducer, {
     error: internet === false ? "internet" : null,
-    selectedText: false
+    selectedText: false,
   } );
 
   const {
     error,
-    selectedText
+    selectedText,
   } = state;
 
   const clearSelectedText = ( ) => dispatch( { type: ACTION.CLEAR_SELECTION } );
@@ -112,7 +112,7 @@ const SpeciesDetail = ( ) => {
     const scrollToTop = ( ) => {
       if ( scrollView.current ) {
         scrollView.current.scrollTo( {
-          x: 0, y: 0, animated: Platform.OS === "android"
+          x: 0, y: 0, animated: Platform.OS === "android",
         } );
       }
     };

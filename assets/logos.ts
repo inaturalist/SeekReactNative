@@ -1,8 +1,6 @@
-import { ImageSourcePropType } from "react-native";
+import type { ImageSourcePropType } from "react-native";
 
-type Logos = {
-  [key: string]: ImageSourcePropType;
-};
+type Logos = Record<string, ImageSourcePropType>;
 
 const logos: Logos = {
   seek: require( "./logos/logo-seek-splash-2020.webp" ),
@@ -20,7 +18,7 @@ const logos: Logos = {
   iNatBadge: require( "./logos/img-iNatbadge.webp" ),
   BeesChallengeBadgeView: require( "./logos/BeesChallenge_BadgeView.webp" ),
   BeesChallengeChallengeDetail: require( "./logos/BeesChallenge_ChallengeDetail.webp" ),
-  BeesChallengeTopLogo: require( "./logos/BeesChallenge_TopLogo.webp" )
+  BeesChallengeTopLogo: require( "./logos/BeesChallenge_TopLogo.webp" ),
 };
 
 export default logos;

@@ -5,37 +5,37 @@ import modelFiles from "../constants/modelFileNames";
 
 export const dirHome: string = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/Seek`,
-  android: `${RNFS.DocumentDirectoryPath}/Seek` // start using internal storage
+  android: `${RNFS.DocumentDirectoryPath}/Seek`, // start using internal storage
 } );
 
 export const dirModel: string = Platform.select( {
   ios: `${RNFS.MainBundlePath}/${modelFiles.IOSMODEL}`,
-  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDMODEL}`
+  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDMODEL}`,
 } );
 
 export const dirGeomodel: string = Platform.select( {
   ios: `${RNFS.MainBundlePath}/${modelFiles.IOSGEOMODEL}`,
-  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDGEOMODEL}`
+  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDGEOMODEL}`,
 } );
 
 export const dirTaxonomy: string = Platform.select( {
   ios: `${RNFS.MainBundlePath}/${modelFiles.IOSTAXONOMY}`,
-  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`
+  android: `${RNFS.DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`,
 } );
 
 export const fileNameLogs = "seek-log.txt";
 export const dirLogs: string = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}`,
-  android: `${RNFS.DocumentDirectoryPath}`
+  android: `${RNFS.DocumentDirectoryPath}`,
 } );
 export const pathLogs = `${dirLogs}/${fileNameLogs}`;
 
 export const dirPictures: string = Platform.select( {
   ios: `${dirHome}/Pictures`,
-  android: `${dirHome}/SeekPictures`
+  android: `${dirHome}/SeekPictures`,
 } );
 
 export const dirPhotosForUpload: string = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/SeekUploads`,
-  android: `${RNFS.DocumentDirectoryPath}/SeekUploads`
+  android: `${RNFS.DocumentDirectoryPath}/SeekUploads`,
 } );

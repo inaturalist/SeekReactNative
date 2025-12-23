@@ -7,7 +7,7 @@ import icons from "../../assets/icons";
 import { viewStyles } from "../../styles/seekYearInReview/seekYearInReview";
 import {
   useLocationPermission,
-  useTruncatedUserCoords
+  useTruncatedUserCoords,
 } from "../../utility/customHooks";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { getBounds, getCenterOfBounds } from "geolib";
@@ -44,7 +44,7 @@ const SeekYearInReviewMap = ( { year, observations }: Props ) => {
         ),
         longitudeDelta: Math.abs(
           ( center.longitude - Math.min( bounds.maxLng, bounds.minLng ) ) * 2
-        )
+        ),
       };
     },
     [observations, userCoords],
@@ -84,7 +84,7 @@ const SeekYearInReviewMap = ( { year, observations }: Props ) => {
           <Marker
             coordinate={{
               latitude: userCoords.latitude,
-              longitude: userCoords.longitude
+              longitude: userCoords.longitude,
             }}
           >
             <Image source={icons.locationPin} />

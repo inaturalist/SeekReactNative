@@ -1,28 +1,28 @@
 import { StyleSheet } from "react-native";
 import {
   center,
-  row
+  row,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
   center,
   noChallengeTextContainer: {
-    marginLeft: 28
+    marginLeft: 28,
   },
-  row
+  row,
 } );
 
 const textStyles = StyleSheet.create( {
   text: {
-    marginTop: 11
+    marginTop: 11,
   },
   textWidth: {
-    width: 195
-  }
+    width: 195,
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };
 

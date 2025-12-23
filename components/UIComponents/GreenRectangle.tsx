@@ -15,13 +15,13 @@ interface Props {
 const GreenRectangle = ( { text, color, letterSpacing, textColor }: Props ) => (
   <View style={[
     viewStyles.greenButton,
-    color ? { backgroundColor: color } : {}
+    color ? { backgroundColor: color } : {},
   ]}>
     <StyledText style={[
       baseTextStyles.challengeItemTitleWhite,
       textStyles.greenButtonText,
       letterSpacing && { letterSpacing },
-      textColor && { color: textColor }
+      textColor && { color: textColor },
     ]}>
       {text.toLocaleUpperCase()}
     </StyledText>

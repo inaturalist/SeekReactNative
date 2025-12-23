@@ -42,7 +42,7 @@ const renderText = ( screenType: string, seenDate: string | null | undefined, im
   return text;
 };
 
-const setGradients = ( screenType: string ): { gradientDark: string, gradientLight: string } => {
+const setGradients = ( screenType: string ): { gradientDark: string; gradientLight: string } => {
   let gradientDark;
   let gradientLight;
 
@@ -60,7 +60,7 @@ const setGradients = ( screenType: string ): { gradientDark: string, gradientLig
   return { gradientDark, gradientLight };
 };
 
-const setScreenType = ( taxon: { taxaId: number, rank: number }, seenDate: string | null | undefined ): string => {
+const setScreenType = ( taxon: { taxaId: number; rank: number }, seenDate: string | null | undefined ): string => {
   if ( !taxon ) { return "unidentified"; }
 
   const { taxaId, rank } = taxon;
@@ -80,5 +80,5 @@ export {
   renderHeaderText,
   renderText,
   setGradients,
-  setScreenType
+  setScreenType,
 };

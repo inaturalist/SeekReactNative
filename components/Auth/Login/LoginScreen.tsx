@@ -31,12 +31,12 @@ const LoginScreen = ( ) => {
       grant_type: "password",
       username,
       password,
-      locale: i18n.locale
+      locale: i18n.locale,
     };
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent( )
+      "User-Agent": createUserAgent( ),
     };
 
     const site = "https://www.inaturalist.org";
@@ -47,7 +47,7 @@ const LoginScreen = ( ) => {
       fetch( `${site}/oauth/token`, {
         method: "POST",
         body: JSON.stringify( params ),
-        headers
+        headers,
       } )
         .then( response => response.json( ) )
         .then( ( responseJson ) => {

@@ -7,7 +7,7 @@ describe( "Camera test", () => {
     await device.launchApp( {
       newInstance: true,
       permissions: { location: "always", camera: "YES", microphone: "YES", medialibrary: "YES", photos: "YES" },
-      languageAndLocale: { language: "en", locale: "US" }
+      languageAndLocale: { language: "en", locale: "US" },
     } );
   } );
 

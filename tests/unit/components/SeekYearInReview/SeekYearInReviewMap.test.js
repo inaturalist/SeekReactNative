@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "tests/jest-utils";
 import SeekYearInReviewMap from "../../../../components/SeekYearInReview/SeekYearInReviewMap";
 
 const mockNavigate = {
-  navigate: jest.fn()
+  navigate: jest.fn(),
 };
 
 jest.mock( "@react-navigation/native", () => {
@@ -13,9 +13,9 @@ jest.mock( "@react-navigation/native", () => {
     ...actualNav,
     useNavigation: () => ( {
       ...mockNavigate,
-      dispatch: jest.fn()
+      dispatch: jest.fn(),
     } ),
-    useRoute: () => ( {} )
+    useRoute: () => ( {} ),
   };
 } );
 
@@ -24,20 +24,20 @@ const mockObservations = [
         latitude: 42,
         longitude: -42,
         taxon: {},
-        uuidString: "some-uuid1"
+        uuidString: "some-uuid1",
     },
     {
         latitude: -42,
         longitude: 42,
         taxon: {},
-        uuidString: "some-uuid2"
+        uuidString: "some-uuid2",
     },
     {
         latitude: 42,
         longitude: 42,
         taxon: {},
-        uuidString: "some-uuid3"
-    }
+        uuidString: "some-uuid3",
+    },
 ];
 
 const year = 2022;

@@ -1,4 +1,5 @@
-import React, { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
+import React from "react";
 import { TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
@@ -27,7 +28,7 @@ const GreenButton = ( {
   fontSize,
   text,
   width = null,
-  allowFontScaling = true
+  allowFontScaling = true,
 }: Props ) => {
   let widthStyle = null;
 
@@ -42,7 +43,7 @@ const GreenButton = ( {
         viewStyles.greenButton,
         color ? { backgroundColor: color } : {},
         login && viewStyles.loginHeight,
-        widthStyle
+        widthStyle,
       ]}
       disabled={disabled}
       testID={testID || "greenButton"}
@@ -52,7 +53,7 @@ const GreenButton = ( {
           baseTextStyles.button,
           textStyles.buttonText,
           letterSpacing && { letterSpacing },
-          fontSize && { fontSize }
+          fontSize && { fontSize },
         ]}
         allowFontScaling={allowFontScaling}
       >

@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import {
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import Realm from "realm";
 

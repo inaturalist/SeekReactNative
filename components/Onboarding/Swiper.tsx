@@ -10,14 +10,14 @@ import Button from "./Button";
 const gradientColors = {
   "0": ["#50c49c", "#1b6537"],
   "1": ["#43b7a8", "#1d5d49"],
-  "2": ["#3ab6bb", "#184b56"]
+  "2": ["#3ab6bb", "#184b56"],
 };
 
 const Swiper = ( { children }: PropsWithChildren ) => {
   const flatList = useRef( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
-    viewAreaCoveragePercentThreshold: 95
+    viewAreaCoveragePercentThreshold: 95,
   } );
   const [scrollIndex, setScrollIndex] = useState( 0 );
 

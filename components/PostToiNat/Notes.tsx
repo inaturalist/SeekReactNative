@@ -8,7 +8,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 type description = "description";
 interface Props {
-  updateObservation: ( description: description, text: string ) => void
+  updateObservation: ( description: description, text: string ) => void;
 }
 
 const Notes = ( { updateObservation }: Props ) => (

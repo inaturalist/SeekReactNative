@@ -33,7 +33,7 @@ const UserLoginProvider = ( { children }: PropsWithChildren ) => {
             loginToken: token,
             username: profile.login,
             profilePhoto: profile.icon_url,
-            isAdmin: checkINatAdminStatus( profile )
+            isAdmin: checkINatAdminStatus( profile ),
           } );
         } );
       } else if (
@@ -83,7 +83,7 @@ const UserLoginProvider = ( { children }: PropsWithChildren ) => {
         login: savedLogin[0].username,
         // icon_url is higher resolution than icon
         icon: savedLogin[0].profilePhoto,
-        isAdmin: savedLogin[0].isAdmin
+        isAdmin: savedLogin[0].isAdmin,
       };
       setUserProfile( profileObj );
       setupChallenges( savedLogin[0].isAdmin );
@@ -100,7 +100,7 @@ const UserLoginProvider = ( { children }: PropsWithChildren ) => {
   const userContextValue = {
     login,
     updateLogin,
-    userProfile
+    userProfile,
   };
 
   return (

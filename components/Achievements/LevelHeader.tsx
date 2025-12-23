@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import {
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 

@@ -28,7 +28,7 @@ const SpeciesNearbyMatch = ( { ancestorId, image }: Props ) => {
     const params = {
       lat: image.latitude,
       lng: image.longitude,
-      taxon_id: ancestorId
+      taxon_id: ancestorId,
     };
 
     const fetchTaxa = async ( ) => {

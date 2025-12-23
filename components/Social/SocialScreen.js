@@ -5,11 +5,11 @@ import {
   ImageBackground,
   Modal,
   TouchableOpacity,
-  Platform
+  Platform,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
-import type { Node } from "react";
+import { Node } from "react";
 
 import { colors, dimensions } from "../../styles/global";
 import { viewStyles, textStyles, imageStyles } from "../../styles/social/social";
@@ -74,7 +74,7 @@ const SocialScreen = ( ): Node => {
     height: 0,
     showModal: false,
     absoluteFilePath: null,
-    disabled: true
+    disabled: true,
   } );
 
   const {
@@ -88,7 +88,7 @@ const SocialScreen = ( ): Node => {
     height,
     showModal,
     absoluteFilePath,
-    disabled
+    disabled,
   } = state;
 
   const noWatermark = tab === "original";

@@ -7,23 +7,23 @@ const viewStyles = StyleSheet.create( {
     paddingVertical: 18,
     paddingHorizontal: 23,
     position: "absolute",
-    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
+    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }],
   },
   challengeDetails: {
-    paddingTop: 28
+    paddingTop: 28,
   },
   rotateRTL: {
-    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
-  }
+    transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }],
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   green: {
-    tintColor: colors.seekForestGreen
-  }
+    tintColor: colors.seekForestGreen,
+  },
 } );
 
 export {
   imageStyles,
-  viewStyles
+  viewStyles,
 };

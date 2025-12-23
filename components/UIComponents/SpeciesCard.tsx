@@ -3,7 +3,7 @@ import {
   Image,
   TouchableOpacity,
   View,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 
 import { viewStyles, textStyles } from "../../styles/uiComponents/speciesCard";
@@ -27,7 +27,7 @@ const SpeciesCard = ( {
   handlePress,
   photo,
   allowFontScaling = true,
-  taxon
+  taxon,
 }: Props ) => {
   const { preferredCommonName, name, iconicTaxonId } = taxon;
 
@@ -36,7 +36,7 @@ const SpeciesCard = ( {
       onPress={handlePress}
       style={[
         !handlePress ? viewStyles.notTouchable : viewStyles.touchableArea,
-        viewStyles.row
+        viewStyles.row,
       ]}
       disabled={!handlePress}
     >

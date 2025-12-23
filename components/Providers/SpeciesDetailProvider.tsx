@@ -1,3 +1,4 @@
+import type { PropsWithChildren} from "react";
 import React, { useState } from "react";
 
 const SpeciesDetailContext = React.createContext<
@@ -9,8 +10,7 @@ const SpeciesDetailContext = React.createContext<
   } | undefined
 >( undefined );
 
-type SpeciesDetailProps = {children: React.ReactNode}
-const SpeciesDetailProvider = ( { children }: SpeciesDetailProps ) => {
+const SpeciesDetailProvider = ( { children }: PropsWithChildren ) => {
   const [id, setId] = useState<number | null>( null );
   const [region, setRegion] = useState<string | null>( null );
 
@@ -18,7 +18,7 @@ const SpeciesDetailProvider = ( { children }: SpeciesDetailProps ) => {
     id,
     region,
     setId,
-    setRegion
+    setRegion,
   };
 
   return (

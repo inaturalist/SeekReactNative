@@ -11,36 +11,36 @@ const viewStyles = StyleSheet.create( {
     right: 15,
     zIndex: 1,
     backgroundColor: colors.ccGray,
-    borderRadius: 50
+    borderRadius: 50,
   },
   photoContainer: {
     backgroundColor: colors.black,
     height: 250,
-    width
+    width,
   },
   errorContainer: {
     justifyContent: "center",
     backgroundColor: colors.black,
-    height: 250
-  }
+    height: 250,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   errorText: {
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   image: {
     height: 250,
     resizeMode: "contain",
-    width
-  }
+    width,
+  },
 } );
 
 export {
   textStyles,
   viewStyles,
-  imageStyles
+  imageStyles,
 };

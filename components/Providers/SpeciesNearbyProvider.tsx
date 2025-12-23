@@ -1,29 +1,29 @@
+import type { PropsWithChildren} from "react";
 import React, { useState } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
 
 import { useLocationName } from "../../utility/customHooks";
 
 type SpeciesNearbyState = {
-  latitude: number | null,
-  longitude: number | null,
-  taxaType: string,
+  latitude: number | null;
+  longitude: number | null;
+  taxaType: string;
   // TODO: what type here?
   // Result of query to: const site = "https://api.inaturalist.org/v1/taxa/nearby";
-  taxa: any[],
-  isConnected: boolean | null
+  taxa: any[];
+  isConnected: boolean | null;
 };
 interface SpeciesNearby extends SpeciesNearbyState {
-  location: string | null
+  location: string | null;
 }
 const SpeciesNearbyContext = React.createContext<
   {
-    speciesNearby: SpeciesNearby,
-    setSpeciesNearby: React.Dispatch<React.SetStateAction<SpeciesNearbyState>>
+    speciesNearby: SpeciesNearby;
+    setSpeciesNearby: React.Dispatch<React.SetStateAction<SpeciesNearbyState>>;
   } | undefined
 >( undefined );
 
-type SpeciesNearbyProps = {children: React.ReactNode}
-const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
+const SpeciesNearbyProvider = ( { children }: PropsWithChildren ) => {
   const netInfo = useNetInfo( );
   const { isConnected } = netInfo;
   const [speciesNearby, setSpeciesNearby] = useState<SpeciesNearbyState>( {
@@ -31,7 +31,7 @@ const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
     longitude: null,
     taxaType: "all",
     taxa: [],
-    isConnected
+    isConnected,
   } );
 
   const location = useLocationName( speciesNearby.latitude, speciesNearby.longitude );
@@ -39,9 +39,9 @@ const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
   const value = {
     speciesNearby: {
       ...speciesNearby,
-      location
+      location,
     },
-    setSpeciesNearby
+    setSpeciesNearby,
   };
 
   return (

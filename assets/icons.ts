@@ -1,8 +1,6 @@
-import { ImageSourcePropType } from "react-native";
+import type { ImageSourcePropType } from "react-native";
 
-type Icons = {
-  [key: string]: ImageSourcePropType;
-};
+type Icons = Record<string, ImageSourcePropType>;
 
 const icons: Icons = {
   completed: require( "./icons/icon-completed.webp" ),
@@ -66,7 +64,7 @@ const icons: Icons = {
   iNat_valueprop_bullet_3: require( "./icons/icon-obs-green.webp" ),
   iNat_valueprop_bullet_4: require( "./icons/icon-person-green.webp" ),
   noProfilePhoto: require( "./icons/img-inatlogin-nophoto.webp" ),
-  gallery: require( "./icons/icon-gallery.webp" )
+  gallery: require( "./icons/icon-gallery.webp" ),
 };
 
 export default icons;

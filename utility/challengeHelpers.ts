@@ -104,8 +104,8 @@ const checkForAncestors = ( seenTaxa: any[], taxaId: number ): number[] => {
 
 interface SeenTaxon {
   taxon: {
-    iconicTaxonId: number
-  }
+    iconicTaxonId: number;
+  };
 }
 const calculateTaxaSeenPerMission = ( types: string[], seenTaxa: SeenTaxon[] ): number => {
   let count = 0;
@@ -189,25 +189,25 @@ const setChallengeDetails = ( date: Date ): {
     return {
       logo: "op",
       secondLogo: "wwfop",
-      sponsorName: "Our Planet"
+      sponsorName: "Our Planet",
     };
   } else if ( year === 2021 && month < 6 ) {
     return {
       logo: "natGeo",
       secondLogo: "natGeoBlack",
-      sponsorName: "NatGeo"
+      sponsorName: "NatGeo",
     };
   } else if ( year === 2022 && ( month === 4 || month === 5 ) ) {
     return {
       logo: "BeesChallengeTopLogo",
       secondLogo: "BeesChallengeChallengeDetail",
-      sponsorName: "My Garden"
+      sponsorName: "My Garden",
     };
   } else {
     return {
       logo: "iNatWhite",
       secondLogo: "iNat",
-      sponsorName: "Seek"
+      sponsorName: "Seek",
     };
   }
 };
@@ -257,7 +257,7 @@ const setupChallenges = async ( isAdmin: boolean ): Promise<void> => {
             secondLogo,
             sponsorName,
             badgeName: challenge.badgeName || "seek_challenges.badge",
-            index: i
+            index: i,
           }, true );
 
           // need to check if challenge is available within this month,
@@ -343,12 +343,12 @@ const checkForChallengesCompleted = async ( ): Promise<{
 
         resolve( {
           challengeInProgress: challengeInProgress || null,
-          challengeComplete: challengeComplete || null
+          challengeComplete: challengeComplete || null,
         } );
       } ).catch( () => {
         resolve( {
           challengeInProgress: null,
-          challengeComplete: null
+          challengeComplete: null,
         } );
       } );
     } )
@@ -403,5 +403,5 @@ export {
   fetchObservationsAfterChallengeStarted,
   checkForAncestors,
   fetchUnobservedChallengeTaxaIds,
-  fetchAllObservedTaxaIds
+  fetchAllObservedTaxaIds,
 };

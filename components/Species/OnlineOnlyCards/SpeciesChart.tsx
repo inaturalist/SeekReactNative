@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { View } from "react-native";
-import { Circle, NumberProp } from "react-native-svg";
+import type { NumberProp } from "react-native-svg";
+import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 
 import { colors } from "../../../styles/global";
@@ -58,7 +59,7 @@ const SpeciesChart = ( { id, region }: Props ) => {
     };
   } , [createHistogram] );
 
-  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp, y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
+  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp; y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
     <Circle
       key={`circle-${value.month}`}
       cx={x( value.month )}

@@ -21,7 +21,7 @@ const AppIconSubHeader = ( { icon, text, largeIcon }: Props ) => {
       viewStyles.row,
       viewStyles.secondHeader,
       viewStyles.appIconSubHeader,
-      isTablet && viewStyles.tabletContainer
+      isTablet && viewStyles.tabletContainer,
     ]}>
       <Image
         source={icon === "inat" ? logos.iNatAppIcon : logos.seekAppIcon}
@@ -31,7 +31,7 @@ const AppIconSubHeader = ( { icon, text, largeIcon }: Props ) => {
         baseTextStyles.emptyState,
         largeIcon ? textStyles.smallerTextWidth : textStyles.secondHeaderText,
         isTablet && viewStyles.tabletContainer,
-        ( isTablet && largeIcon ) && viewStyles.landscapeContainerLargeIcon
+        ( isTablet && largeIcon ) && viewStyles.landscapeContainerLargeIcon,
       ]}>
         {text}
       </StyledText>

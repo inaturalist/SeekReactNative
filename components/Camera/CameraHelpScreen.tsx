@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   View,
-  Image
+  Image,
 } from "react-native";
 
 import { imageStyles, viewStyles, textStyles } from "../../styles/camera/help";
@@ -16,7 +16,7 @@ const CameraHelpScreen = ( ) => {
     i18n.t( "camera_help.tip_1" ),
     i18n.t( "camera_help.tip_2" ),
     i18n.t( "camera_help.tip_3" ),
-    i18n.t( "camera_help.tip_4" )
+    i18n.t( "camera_help.tip_4" ),
   ];
 
   return (

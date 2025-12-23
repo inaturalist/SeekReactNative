@@ -1,8 +1,6 @@
-import { ImageSourcePropType } from "react-native";
+import type { ImageSourcePropType } from "react-native";
 
-type Badges = {
-  [key: string]: ImageSourcePropType;
-};
+type Badges = Record<string, ImageSourcePropType>;
 
 const badges: Badges = {
   badge_empty: require( "./badges/Badge_Empty.webp" ),
@@ -108,7 +106,7 @@ const badges: Badges = {
   badge_inaturalist_september2024: require( "./badges/seekChallenges/badge_inat_september2024.webp" ),
   badge_inaturalist_october2024: require( "./badges/seekChallenges/badge_inat_october2024.webp" ),
   badge_inaturalist_november2024: require( "./badges/seekChallenges/badge_inat_november2024.webp" ),
-  badge_inaturalist_december2024: require( "./badges/seekChallenges/badge_inat_december2024.webp" )
+  badge_inaturalist_december2024: require( "./badges/seekChallenges/badge_inat_december2024.webp" ),
 };
 
 export default badges;

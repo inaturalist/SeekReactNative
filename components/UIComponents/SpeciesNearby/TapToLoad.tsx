@@ -17,13 +17,13 @@ const TapToLoad = ( { handlePress, backgroundColor }: Props ) => (
     style={[
       viewStyles.center,
       viewStyles.speciesNearbyContainer,
-      backgroundColor === "white" && viewStyles.challengeContainer
+      backgroundColor === "white" && viewStyles.challengeContainer,
     ]}
   >
     <StyledText
       style={[
         textStyles.text,
-        backgroundColor === "white" ? baseTextStyles.body : baseTextStyles.bodyWhite
+        backgroundColor === "white" ? baseTextStyles.body : baseTextStyles.bodyWhite,
       ]}>
         {i18n.t( "results.tap" )}
     </StyledText>

@@ -9,7 +9,7 @@ const viewStyles = StyleSheet.create( {
     paddingVertical: 20,
     position: "absolute",
     top: 1010,
-    zIndex: 1
+    zIndex: 1,
   },
   rightArrow: {
     paddingLeft: 20,
@@ -18,32 +18,32 @@ const viewStyles = StyleSheet.create( {
     position: "absolute",
     right: 0,
     top: 1010,
-    zIndex: 1
+    zIndex: 1,
   },
   rotate: {
-    transform: [{ rotate: I18nManager.isRTL ? "0deg" : "180deg" }]
+    transform: [{ rotate: I18nManager.isRTL ? "0deg" : "180deg" }],
   },
   rotateRTL: {
-    transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }]
+    transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }],
   },
   speciesLeftArrow: {
-    top: 100
+    top: 100,
   },
   speciesPhotoContainer: {
-    backgroundColor: colors.black
+    backgroundColor: colors.black,
   },
   speciesRightArrow: {
-    top: 100
+    top: 100,
   },
   yearInReviewArrow: {
-    top: 70
+    top: 70,
   },
   bigContainer: {
-    height: 375
+    height: 375,
   },
   smallContainer: {
-    height: 250
-  }
+    height: 250,
+  },
 } );
 
 export default viewStyles;

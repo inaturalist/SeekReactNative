@@ -47,7 +47,7 @@ class SignUpScreen extends Component<Props, State> {
 
     this.state = {
       user: { ...user },
-      error: null
+      error: null,
     };
   }
 
@@ -62,8 +62,8 @@ class SignUpScreen extends Component<Props, State> {
         ...user,
         login: "",
         password: "",
-        password_confirmation: ""
-      }
+        password_confirmation: "",
+      },
     } );
   }
 
@@ -80,18 +80,18 @@ class SignUpScreen extends Component<Props, State> {
       grant_type: "password",
       username: user.login,
       password: user.password,
-      locale: i18n.locale
+      locale: i18n.locale,
     };
 
     const headers = {
       "Content-Type": "application/json",
-      "User-Agent": createUserAgent( )
+      "User-Agent": createUserAgent( ),
     };
 
     fetch( `${site}/oauth/token`, {
       method: "POST",
       body: JSON.stringify( params ),
-      headers
+      headers,
     } )
       .then( response => response.json( ) )
       .then( ( responseJson: {
@@ -124,20 +124,20 @@ class SignUpScreen extends Component<Props, State> {
       user: {
         ...user,
         locale: i18n.locale,
-        time_zone: RNLocalize.getTimeZone( )
-      }
+        time_zone: RNLocalize.getTimeZone( ),
+      },
     };
 
     const headers = {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent( ),
-      "Authorization": token
+      "Authorization": token,
     };
 
     fetch( `${site}/users.json`, {
       method: "POST",
       body: JSON.stringify( params ),
-      headers
+      headers,
     } )
       .then( response => response.json( ) )
       .then( ( responseJson: {
@@ -171,8 +171,8 @@ class SignUpScreen extends Component<Props, State> {
     this.setState( {
       user: {
         ...user,
-        login: value
-      }
+        login: value,
+      },
     } );
   }
 
@@ -184,8 +184,8 @@ class SignUpScreen extends Component<Props, State> {
         ...user,
         password: value,
         // note: we don't have a UI for password confirmation
-        password_confirmation: value
-      }
+        password_confirmation: value,
+      },
     } );
   }
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   Image,
   TouchableOpacity,
-  Modal
+  Modal,
 } from "react-native";
 
 import styles from "../../styles/posting/postToiNat";
@@ -30,7 +30,7 @@ interface Props {
 const PostingHeader = ( {
   taxon,
   image,
-  updateTaxon
+  updateTaxon,
 }: Props ) => {
   const [showModal, setShowModal] = useState( false );
 

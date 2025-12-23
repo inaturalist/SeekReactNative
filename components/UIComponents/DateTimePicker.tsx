@@ -13,7 +13,7 @@ const DatePicker = ( {
   datetime = false,
   isDateTimePickerVisible,
   onDatePicked,
-  toggleDateTimePicker
+  toggleDateTimePicker,
 }: Props ) => {
   const colorScheme = Appearance.getColorScheme();
 

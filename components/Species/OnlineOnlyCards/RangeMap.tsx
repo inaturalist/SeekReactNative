@@ -49,7 +49,7 @@ const RangeMap = () => {
           latitude,
           longitude,
           latitudeDelta,
-          longitudeDelta
+          longitudeDelta,
         } );
       }
     } ).catch( ( error ) => {
@@ -70,7 +70,7 @@ const RangeMap = () => {
       latitude: user.latitude,
       longitude: user.longitude,
       latitudeDelta,
-      longitudeDelta
+      longitudeDelta,
     } );
   };
 

@@ -6,14 +6,14 @@ const viewStyles = StyleSheet.create( {
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
-      height: 1
+      height: 1,
     },
     shadowOpacity: 1,
-    shadowRadius: 3
+    shadowRadius: 3,
   },
   plantFilter: {
     bottom: 203 - 41,
-    position: "absolute"
+    position: "absolute",
   },
   landscapeHelpBubble: {
     bottom: 26 + 65 + 18,
@@ -22,15 +22,15 @@ const viewStyles = StyleSheet.create( {
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 20,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.seekForestGreen,
   },
   landscapeHelpBubbleSpecies: {
-    backgroundColor: colors.seekGreen
+    backgroundColor: colors.seekGreen,
   },
   helpBubble: {
     bottom: 26 + 65 + 18,
     width: 293,
-    position: "absolute"
+    position: "absolute",
   },
   cameraControlsContainer: {
     position: "absolute",
@@ -41,7 +41,7 @@ const viewStyles = StyleSheet.create( {
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 32,
-    paddingBottom: 31
+    paddingBottom: 31,
   },
   cameraControlsContainerLandscape: {
     position: "absolute",
@@ -52,7 +52,7 @@ const viewStyles = StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 32,
-    gap: 50
+    gap: 50,
   },
   leftControls: {
     flexDirection: "row",
@@ -60,13 +60,13 @@ const viewStyles = StyleSheet.create( {
     justifyContent: "center",
     gap: 20,
     width: 100,
-    height: 60
+    height: 60,
   },
   rightControls: {
     justifyContent: "center",
     width: 100,
     height: 60,
-    alignItems: "center"
+    alignItems: "center",
   },
   galleryButton: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -77,30 +77,30 @@ const viewStyles = StyleSheet.create( {
     borderRadius: 10,
     padding: 16,
     width: 60,
-    height: 60
-  }
+    height: 60,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   scanText: {
-    textAlign: "center"
+    textAlign: "center",
   },
   textShadow: {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 3
-  }
+    textShadowRadius: 3,
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   gallery: {
     height: 24,
-    width: 24
-  }
+    width: 24,
+  },
 } );
 
 export {
   viewStyles,
   textStyles,
-  imageStyles
+  imageStyles,
 };

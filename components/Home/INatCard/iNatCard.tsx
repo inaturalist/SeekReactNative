@@ -17,7 +17,7 @@ const INatCard = ( ) => {
   return (
     <View style={[
       viewStyles.container,
-      challenge && viewStyles.topMarginWithChallenge
+      challenge && viewStyles.topMarginWithChallenge,
     ]}>
       <View style={viewStyles.headerPadding}>
         <GreenText text="about_inat.inaturalist" />

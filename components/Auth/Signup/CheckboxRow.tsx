@@ -18,7 +18,7 @@ const CheckboxRow = ( {
   isChecked,
   toggleCheckbox,
   text,
-  children
+  children,
 }: Props ) => (
   <View style={[styles.row, styles.margin]}>
     <Checkbox

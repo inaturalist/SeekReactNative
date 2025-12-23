@@ -4,8 +4,7 @@ import { View } from "react-native";
 import styles from "../../../styles/uiComponents/modals/whiteModal";
 import BackButton from "../Buttons/ModalBackButton";
 
-interface Props {
-  readonly children: React.ReactNode;
+interface Props extends React.PropsWithChildren {
   readonly closeModal?: ( ) => void;
   readonly noButton?: boolean;
   readonly width?: number | null;
@@ -17,7 +16,7 @@ const WhiteModal = ( {
   closeModal = () => {},
   noButton = false,
   width = null,
-  accessibilityLabel
+  accessibilityLabel,
 }: Props ) => {
   let widthStyle = null;
 

@@ -54,5 +54,5 @@ const checkSavePermissions = async ( ): Promise<boolean | string> => {
 export {
   checkCameraPermissions,
   checkLocationPermissions,
-  checkSavePermissions
+  checkSavePermissions,
 };

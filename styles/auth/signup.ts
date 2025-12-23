@@ -4,60 +4,60 @@ import {
   colors,
   center,
   row,
-  dimensions
+  dimensions,
 } from "../global";
 
 export default StyleSheet.create( {
   scrollView: {
-    paddingTop: 40
+    paddingTop: 40,
   },
   bottomPadding: {
-    paddingBottom: dimensions.height / 2
+    paddingBottom: dimensions.height / 2,
   },
   center,
   checkBox: {
     paddingBottom: 18,
     paddingLeft: 34,
     paddingRight: 18,
-    paddingTop: 18
+    paddingTop: 18,
   },
   container: {
     backgroundColor: colors.white,
-    flex: 1
+    flex: 1,
   },
   darkText: {
     color: colors.black,
     fontSize: 20,
-    textAlign: "center"
+    textAlign: "center",
   },
   dateButton: {
     alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
     borderRadius: 6,
     height: 43,
-    width: 237
+    width: 237,
   },
   flexCenter: {
     flexGrow: 1,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   greenButtonMargin: {
-    marginTop: dimensions.height < 570 ? 10 : 51
+    marginTop: dimensions.height < 570 ? 10 : 51,
   },
   header: {
     marginHorizontal: 22,
-    textAlign: "center"
+    textAlign: "center",
   },
   headerText: {
     marginTop: 22,
-    textAlign: "center"
+    textAlign: "center",
   },
   whiteContainer: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   keyboardText: {
     marginHorizontal: ( Platform.OS === "android" || dimensions.height < 570 ) ? 24 : 28,
-    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 20
+    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 20,
   },
   leftTextMargins: {
     alignSelf: "flex-start",
@@ -65,44 +65,44 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     marginBottom: 8,
     marginLeft: 39,
-    marginTop: 16
+    marginTop: 16,
   },
   licenseText: {
-    maxWidth: dimensions.width / 2 + 80
+    maxWidth: dimensions.width / 2 + 80,
   },
   margin: {
-    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 17
+    marginTop: ( Platform.OS === "android" || dimensions.height < 570 ) ? 10 : 17,
   },
   marginExtraLarge: {
-    marginBottom: 98
+    marginBottom: 98,
   },
   marginLarge: {
-    marginBottom: 68
+    marginBottom: 68,
   },
   marginLeft: {
-    marginLeft: 76
+    marginLeft: 76,
   },
   marginLeftSmall: {
-    marginLeft: 14
+    marginLeft: 14,
   },
   marginSmall: {
-    marginTop: 2
+    marginTop: 2,
   },
   marginTopSmall: {
-    marginTop: 29
+    marginTop: 29,
   },
   marginTop: {
-    marginTop: 51
+    marginTop: 51,
   },
   row,
   text: {
     marginHorizontal: 38,
     marginTop: 20,
-    textAlign: "center"
+    textAlign: "center",
   },
   linkText: {
     color: colors.seekForestGreen,
     textDecorationLine: "underline",
-    padding: 10
-  }
+    padding: 10,
+  },
 } );

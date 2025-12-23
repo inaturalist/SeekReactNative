@@ -48,17 +48,17 @@ function useAppLog() {
       const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
       const level = {
         earnedDate: levelsEarned[0]?.earnedDate,
-        index: levelsEarned[0]?.index
+        index: levelsEarned[0]?.index,
       };
 
       const achievementsLogState = {
         level,
-        speciesBadges
+        speciesBadges,
       };
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( achievementsLogState ),
-        context: "RootStack achievementsState v1"
+        context: "RootStack achievementsState v1",
       } );
     };
 
@@ -76,13 +76,13 @@ function useAppLog() {
         name: challenge.name,
         startedDate: challenge.startedDate,
         percentComplete: challenge.percentComplete,
-        completedDate: challenge.completedDate
+        completedDate: challenge.completedDate,
       } ) );
 
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( challengesLogState ),
-        context: "RootStack challengesState v1"
+        context: "RootStack challengesState v1",
       } );
     };
 
@@ -98,13 +98,13 @@ function useAppLog() {
       const observationsLogState = observations.map( observation => ( {
         date: observation.date,
         taxonID: observation.taxon.id,
-        iconicTaxonId: observation.taxon.iconicTaxonId
+        iconicTaxonId: observation.taxon.iconicTaxonId,
       } ) );
 
       await logToApi( {
         level: LogLevels.INFO,
         message: JSON.stringify( observationsLogState ),
-        context: "RootStack observationsState v1"
+        context: "RootStack observationsState v1",
       } );
     };
 

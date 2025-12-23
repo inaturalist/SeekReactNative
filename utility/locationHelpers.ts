@@ -1,4 +1,5 @@
-import { Alert, AlertButton, Linking, Platform } from "react-native";
+import type { AlertButton} from "react-native";
+import { Alert, Linking, Platform } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Geolocation from "react-native-geolocation-service";
 
@@ -49,7 +50,7 @@ const fetchUserLocation = ( enableHighAccuracy: boolean = false ): Promise<Coord
       resolve( {
         latitude,
         longitude,
-        accuracy
+        accuracy,
       } );
     }, ( { code } ) => {
       reject( code );
@@ -61,7 +62,7 @@ const fetchUserLocation = ( enableHighAccuracy: boolean = false ): Promise<Coord
       maximumAge: 20000,
       // added timeout and removed requestiOSPermissions for precise locations
       // since this sometimes wasn't resolving or rejecting
-      timeout: 7000
+      timeout: 7000,
     } );
   } )
 );
@@ -76,7 +77,7 @@ const fetchTruncatedUserLocation = ( ): Promise<TruncatedCoords> => (
       const longitude = truncateCoordinates( coords.longitude );
       const truncatedCoords = {
         latitude,
-        longitude
+        longitude,
       };
       resolve( truncatedCoords );
     }, ( { code } ) => {
@@ -85,7 +86,7 @@ const fetchTruncatedUserLocation = ( ): Promise<TruncatedCoords> => (
     }, {
       timeout: 7000,
       showLocationDialog: false,
-      maximumAge: 5000
+      maximumAge: 5000,
     } );
   } )
 );
@@ -132,8 +133,8 @@ const fetchCoordsByLocationName = async ( location: string ): Promise<LocationRe
     placeName: null,
     position: {
       lat: null,
-      lng: null
-    }
+      lng: null,
+    },
   };
 
   try {
@@ -146,7 +147,7 @@ const fetchCoordsByLocationName = async ( location: string ): Promise<LocationRe
 
     return {
       placeName,
-      position
+      position,
     };
   } catch ( e ) {
     console.log( e, "couldn't fetch coords by location name" );
@@ -163,7 +164,7 @@ const createLocationAlert = ( errorCode: number ): void => {
     if ( Platform.OS === "android" ) {
       button.unshift( {
         text: i18n.t( "results.enable_location_button" ),
-        onPress: () => Linking.openSettings()
+        onPress: () => Linking.openSettings(),
       } );
     }
   } else if ( errorCode === 2 ) {
@@ -197,7 +198,7 @@ const createAlertUserLocationOnMaps = ( errorCode: number ): void => {
     if ( Platform.OS === "android" ) {
       button.unshift( {
         text: i18n.t( "results.enable_location_button" ),
-        onPress: () => Linking.openSettings()
+        onPress: () => Linking.openSettings(),
       } );
     }
   } else if ( errorCode === 2 ) {
@@ -219,5 +220,5 @@ export {
   createLocationAlert,
   checkForTruncatedCoordinates,
   createAlertUserLocationOnMaps,
-  fetchCoordsByLocationName
+  fetchCoordsByLocationName,
 };

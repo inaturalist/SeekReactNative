@@ -87,7 +87,7 @@ const ChallengeDetailsHeader = ( { challenge, showMission }: Props ) => {
             imageStyles.logo,
             challenge.logo === "iNatWhite" && imageStyles.iNatLogo,
             challenge.logo === "natGeo" && imageStyles.natGeoLogo,
-            challenge.logo === "BeesChallengeTopLogo" && imageStyles.myGardenLogo
+            challenge.logo === "BeesChallengeTopLogo" && imageStyles.myGardenLogo,
           ]}
         />
         {challenge && <ChallengeTitle challenge={challenge} />}

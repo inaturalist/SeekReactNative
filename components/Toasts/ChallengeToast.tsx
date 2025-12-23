@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 

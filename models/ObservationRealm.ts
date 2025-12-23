@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class ObservationRealm extends Realm.Object {
   static schema: ObjectSchema = {
@@ -9,8 +10,8 @@ class ObservationRealm extends Realm.Object {
       date: "date?",
       taxon: "TaxonRealm?",
       latitude: { type: "float", optional: true, default: 0.0 },
-      longitude: { type: "float", optional: true, default: 0.0 }
-    }
+      longitude: { type: "float", optional: true, default: 0.0 },
+    },
   };
 }
 

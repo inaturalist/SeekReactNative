@@ -5,7 +5,7 @@ const styles = StyleSheet.create( {
   backgroundImage: {
     alignItems: "center",
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   joint: {
     bottom: 38,
@@ -13,13 +13,13 @@ const styles = StyleSheet.create( {
     position: "absolute",
     resizeMode: "contain",
     tintColor: colors.white,
-    width: 270
+    width: 270,
   },
   logo: {
     height: 112,
     resizeMode: "contain",
-    width: 303
-  }
+    width: 303,
+  },
 } );
 
 export default styles;

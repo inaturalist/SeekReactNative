@@ -88,5 +88,5 @@ export {
   loadUserLanguagePreference,
   setDisplayLanguage,
   deviceLanguageSupported,
-  localeNoHyphens
+  localeNoHyphens,
 };

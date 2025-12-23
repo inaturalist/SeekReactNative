@@ -1,10 +1,11 @@
+import type { PropsWithChildren} from "react";
 import React, { useRef } from "react";
 import {
   View,
   ScrollView,
   Platform,
   StatusBar,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -18,10 +19,9 @@ import LoadingWheel from "../LoadingWheel";
 import { colors } from "../../../styles/global";
 import Footer from "../Footer";
 
-interface Props {
+interface Props extends PropsWithChildren {
   testID?: string;
   header: string;
-  children: React.ReactNode;
   route?: string;
   loading?: boolean;
   footer?: boolean;
@@ -33,7 +33,7 @@ const ScrollWithHeader = ( {
   header,
   route = null,
   loading = false,
-  footer = false
+  footer = false,
 }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {
   View,
-  Image
+  Image,
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 
@@ -26,13 +26,13 @@ interface Props {
   readonly id: number;
 }
 
-const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
+const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ) => {
   const { isLandscape, width } = useAppOrientation( );
   const columnWidth = width / 3;
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
 
-  const renderPhoto = ( { item, index }: { item: Photo, index: number} ) => {
+  const renderPhoto = ( { item, index }: { item: Photo; index: number} ) => {
     const photo = item;
 
     if ( !photo.license_code && index !== 0 ) {
@@ -46,8 +46,8 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
           style={[
             imageStyles.image, {
               width: columnWidth,
-              height: columnWidth
-            }
+              height: columnWidth,
+            },
           ]}
         />
         {photo.attribution && photo.license_code && (
@@ -55,7 +55,7 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
             baseTextStyles.button,
             textStyles.ccButtonText,
             isLandscape && baseTextStyles.buttonRegular,
-            { maxWidth: columnWidth }
+            { maxWidth: columnWidth },
           ]}>
             {localizeAttributionsLandscape( photo.attribution, photo.license_code )}
           </StyledText>

@@ -38,7 +38,7 @@ class ErrorBoundary extends React.Component {
       context: "ErrorBoundary",
       message: error.message,
       errorType: error.constructor?.name,
-      backtrace: error.stack
+      backtrace: error.stack,
     } );
   }
 

@@ -17,7 +17,7 @@ const useFetchAchievements = ( ): AchievementState => {
     speciesBadges: [],
     level: null,
     nextLevelCount: 0,
-    badgesEarned: null
+    badgesEarned: null,
   } );
 
   useEffect( ( ) => {
@@ -46,7 +46,7 @@ const useFetchAchievements = ( ): AchievementState => {
           speciesBadges,
           level: levelsEarned[0],
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-          badgesEarned
+          badgesEarned,
         } );
       } catch ( e ) {
         console.log( e, "couldn't open realm: achievements" );
@@ -71,7 +71,7 @@ const useFetchChallenges = ( ): ChallengeBadge[] => {
     const createBadge = ( latestBadge: ChallengeBadge, numOfMonths: number ): ChallengeBadge => ( {
       name: "",
       availableDate: addMonths( latestBadge.availableDate, numOfMonths ),
-      index: latestBadge.index + numOfMonths
+      index: latestBadge.index + numOfMonths,
     } );
 
     const createPlaceholderBadges = ( badges: ChallengeBadge[] ): ChallengeBadge[] => {
@@ -124,5 +124,5 @@ const useFetchChallenges = ( ): ChallengeBadge[] => {
 
 export {
   useFetchAchievements,
-  useFetchChallenges
+  useFetchChallenges,
 };

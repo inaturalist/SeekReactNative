@@ -5,20 +5,20 @@ import { colors } from "../../styles/global";
 const viewStyles = StyleSheet.create( {
   challengeList: {
     backgroundColor: colors.white,
-    paddingBottom: 23
+    paddingBottom: 23,
   },
   header: {
     marginBottom: 10,
     marginLeft: 22,
-    marginTop: 26
+    marginTop: 26,
   },
   separator: {
-    marginTop: 23
+    marginTop: 23,
   },
   noChallenges: {
     marginBottom: 23,
-    marginTop: 39
-  }
+    marginTop: 39,
+  },
 } );
 
 export default viewStyles;

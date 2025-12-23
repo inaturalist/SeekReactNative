@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   View,
   Image,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { isAfter } from "date-fns";
 import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
@@ -17,16 +17,16 @@ import backgrounds from "../../assets/backgrounds";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  closeModal: ( ) => void,
+interface Props {
+  closeModal: ( ) => void;
   challenge: {
-    availableDate: Date,
-    backgroundName: string,
-    sponsorName: string,
-    secondLogo: string,
-    earnedIconName: string,
-    badgeName: string
-  }
+    availableDate: Date;
+    backgroundName: string;
+    sponsorName: string;
+    secondLogo: string;
+    earnedIconName: string;
+    badgeName: string;
+  };
 };
 
 const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
@@ -58,7 +58,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
           sponsorName: challenge.sponsorName.toLocaleUpperCase( ),
           date: challenge.sponsorName === "Our Planet"
             ? formatMonth( challenge.availableDate ).toLocaleUpperCase( )
-            : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( )
+            : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( ),
         } )}
       </StyledText>
       <StyledText style={[baseTextStyles.body, textStyles.text]}>
@@ -73,7 +73,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
           // TODO: where is this style coming from?
           viewStyles.logo,
           challenge.secondLogo === "iNat" && imageStyles.iNatLogo,
-          challenge.secondLogo === "natGeoBlack" && imageStyles.natGeoLogo
+          challenge.secondLogo === "natGeoBlack" && imageStyles.natGeoLogo,
         ]}
       />
       <View style={viewStyles.marginBottom} />

@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "tests/jest-utils";
 import SeekYearInReviewPhotos from "../../../../components/SeekYearInReview/SeekYearInReviewPhotos";
 
 const mockNavigate = {
-  navigate: jest.fn()
+  navigate: jest.fn(),
 };
 
 jest.mock( "@react-navigation/native", () => {
@@ -13,9 +13,9 @@ jest.mock( "@react-navigation/native", () => {
     ...actualNav,
     useNavigation: () => ( {
       ...mockNavigate,
-      dispatch: jest.fn()
+      dispatch: jest.fn(),
     } ),
-    useRoute: () => ( {} )
+    useRoute: () => ( {} ),
   };
 } );
 
@@ -29,14 +29,14 @@ const mockObservations = [
       defaultPhoto: {
         backupUri: "some_uri",
         lastUpdated: null,
-        mediumUrl: "some_medium_url"
+        mediumUrl: "some_medium_url",
       },
       iconicTaxonId: 1,
       id: 4242,
       name: "some_name_1",
-      preferredCommonName: "some_common_name_1"
+      preferredCommonName: "some_common_name_1",
     },
-    uuidString: "some_uuid_2"
+    uuidString: "some_uuid_2",
   },
   {
     date: new Date( "2022-12-01T10:19:54.000Z" ),
@@ -47,14 +47,14 @@ const mockObservations = [
       defaultPhoto: {
         backupUri: "some_uri",
         lastUpdated: null,
-        mediumUrl: "some_medium_url"
+        mediumUrl: "some_medium_url",
       },
       iconicTaxonId: 1,
       id: 4242,
       name: "some_name_2",
-      preferredCommonName: null
+      preferredCommonName: null,
     },
-    uuidString: "some_uuid_2"
+    uuidString: "some_uuid_2",
   },
   {
     date: new Date( "2022-12-03T10:19:54.000Z" ),
@@ -65,21 +65,21 @@ const mockObservations = [
       defaultPhoto: {
         backupUri: "some_uri",
         lastUpdated: null,
-        mediumUrl: "some_medium_url"
+        mediumUrl: "some_medium_url",
       },
       iconicTaxonId: 1,
       id: 4242,
       name: "some_name_3",
-      preferredCommonName: null
+      preferredCommonName: null,
     },
-    uuidString: "some_uuid_2"
-  }
+    uuidString: "some_uuid_2",
+  },
 ];
 
 jest.mock( "../../../../utility/customHooks/useSeenTaxa", () => {
   return {
     __esModule: true,
-    useSeenTaxa: jest.fn( () => mockObservations[0] )
+    useSeenTaxa: jest.fn( () => mockObservations[0] ),
   };
 } );
 
@@ -87,8 +87,8 @@ jest.mock( "../../../../utility/customHooks/useUserPhoto", () => {
   return {
     __esModule: true,
     useUserPhoto: jest.fn( () => ( {
-        uri: "some_uri"
-    } ) )
+        uri: "some_uri",
+    } ) ),
   };
 } );
 
@@ -103,19 +103,19 @@ const containerID = "year-in-review-photos-container";
 const scrollEventData = {
   nativeEvent: {
     contentOffset: {
-      x: 500
+      x: 500,
     },
     contentSize: {
       // Dimensions of the scrollable content
       height: 500,
-      width: 100
+      width: 100,
     },
     layoutMeasurement: {
       // Dimensions of the device
       height: 100,
-      width: 100
-    }
-  }
+      width: 100,
+    },
+  },
 };
 
 describe( "SeekYearInReviewPhotos", () => {

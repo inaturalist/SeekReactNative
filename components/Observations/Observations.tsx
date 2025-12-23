@@ -30,7 +30,7 @@ interface Taxon {
     backupUri?: string;
     mediumUrl?: string;
     lastUpdated?: Date;
-  }
+  };
 }
 
 interface Photo {
@@ -69,7 +69,7 @@ const Observations = ( ) => {
       photo,
       preferredCommonName,
       name,
-      iconicTaxonId
+      iconicTaxonId,
     } );
     setModal( true );
   }, [] );
@@ -82,7 +82,7 @@ const Observations = ( ) => {
     setLoading( false );
   };
 
-  const fetchCommonNames = ( realm: Realm, species: { taxon: { id: number;  } }[] ) => {
+  const fetchCommonNames = ( realm: Realm, species: { taxon: { id: number  } }[] ) => {
     const commonNames: Promise<void>[] = [];
 
     species.forEach( ( { taxon } ) => {

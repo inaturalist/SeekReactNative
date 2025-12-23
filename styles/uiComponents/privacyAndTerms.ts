@@ -2,31 +2,31 @@ import { StyleSheet } from "react-native";
 
 import {
   row,
-  center
+  center,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
   center,
   marginLeft: {
-    marginLeft: 14
+    marginLeft: 14,
   },
-  row
+  row,
 } );
 
 const textStyles = StyleSheet.create( {
   textLink: {
     fontSize: 16,
     marginTop: 26,
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
   },
   signupTextLink: {
     marginTop: 23,
     textAlign: "center",
-    textDecorationLine: "underline"
-  }
+    textDecorationLine: "underline",
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };

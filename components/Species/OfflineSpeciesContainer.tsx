@@ -31,7 +31,7 @@ const OfflineSpeciesContainer = ( {
   id,
   details,
   predictions,
-  checkForInternet
+  checkForInternet,
 }: Props ) => {
   const ancestors = details && details.ancestors;
 

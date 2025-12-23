@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react-native";
 import {
   useUploadedObservationCount,
-  useSpeciesCount
+  useSpeciesCount,
 } from "../../../utility/customHooks";
 
 jest.mock( "inaturalistjs", () => ( {
@@ -11,11 +11,11 @@ jest.mock( "inaturalistjs", () => ( {
       search: jest.fn( ( params, options ) => {
         const total_results = params?.year === 2021 ? 12 : 42;
         return {
-          total_results
+          total_results,
         };
-      } )
-    }
-  }
+      } ),
+    },
+  },
 } ) );
 
 const login = "some-token";

@@ -14,7 +14,7 @@ import { name as appName } from "./app.json";
 import createUserAgent from "./utility/userAgent";
 
 inatjs.setConfig( {
-  userAgent: createUserAgent( )
+  userAgent: createUserAgent( ),
 } );
 
 const App = ( ) => (

@@ -1,5 +1,6 @@
 import React from "react";
-import { createStackNavigator, CardStyleInterpolators, StackCardInterpolationProps } from "@react-navigation/stack";
+import type { StackCardInterpolationProps } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Drawer from "./SideDrawer";

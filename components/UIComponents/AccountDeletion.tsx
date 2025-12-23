@@ -15,7 +15,7 @@ const AccountDeletion = ( ) => {
 
   const navToDelete = ( ) => navigate( "FullAnnouncement", {
     uri: "https://www.inaturalist.org/users/delete",
-    loggedIn: true
+    loggedIn: true,
   } );
 
   if ( Platform.OS === "android" ) {
@@ -30,7 +30,7 @@ const AccountDeletion = ( ) => {
       <View style={viewStyles.paddingAboveText}>
         <StyledText style={[
           baseTextStyles.body,
-          isLandscape && viewStyles.landscapeContainerRestrictedWidth
+          isLandscape && viewStyles.landscapeContainerRestrictedWidth,
         ]}>
           {i18n.t( "settings.delete_account" )}
         </StyledText>

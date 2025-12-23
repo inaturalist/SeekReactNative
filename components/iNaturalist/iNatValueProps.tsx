@@ -11,7 +11,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 const INatValueProps = ( ) => [1, 2, 3, 4].map( ( item ) => (
   <View key={item.toString()} style={[
     viewStyles.valuePropBullets,
-    viewStyles.bulletContainer
+    viewStyles.bulletContainer,
   ]}>
     <View style={viewStyles.iconContainer}>
       <Image

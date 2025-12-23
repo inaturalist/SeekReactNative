@@ -73,5 +73,5 @@ export {
   savePostingSuccess,
   fetchPostingSuccess,
   formatError,
-  fetchUserProfile
+  fetchUserProfile,
 };

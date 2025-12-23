@@ -17,7 +17,7 @@ const createNotification = ( type: string, challengeIndex?: number ) => {
         challengeIndex,
         index: notifications.length,
         seen: false,
-        viewed: false
+        viewed: false,
       } );
     } );
   } ).catch( ( err ) => {
@@ -67,5 +67,5 @@ export {
   createNotification,
   markNotificationAsSeen,
   markNotificationsAsViewed,
-  isDuplicateNotification
+  isDuplicateNotification,
 };

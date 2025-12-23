@@ -6,8 +6,8 @@ const imageStyles = StyleSheet.create( {
   fullSizeImage: {
     height: dimensions.height,
     width: dimensions.width,
-    resizeMode: "stretch"
-  }
+    resizeMode: "stretch",
+  },
 } );
 
 export default imageStyles;

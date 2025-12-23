@@ -6,16 +6,16 @@ const { width } = dimensions;
 
 const viewStyles = StyleSheet.create( {
   center: {
-    alignItems: "center"
+    alignItems: "center",
   },
   container: {
     marginBottom: 32,
     marginHorizontal: 20,
-    marginTop: 37
+    marginTop: 37,
   },
   margins: {
-    marginHorizontal: 20
-  }
+    marginHorizontal: 20,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
@@ -25,29 +25,29 @@ const textStyles = StyleSheet.create( {
     marginHorizontal: 27,
     marginTop: 16,
     maxWidth: 256,
-    textAlign: "center"
+    textAlign: "center",
   },
   nameText: {
     marginHorizontal: 34,
     marginTop: 9,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   imageStyle: {
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   emptyBadgeImage: {
     height: width < 366 ? ( width / 2 ) : ( 366 / 2 ),
     justifyContent: "center",
     marginBottom: 25,
-    width: width < 366 ? ( width / 2 ) : ( 366 / 2 )
-  }
+    width: width < 366 ? ( width / 2 ) : ( 366 / 2 ),
+  },
 } );
 
 export {
   viewStyles,
   textStyles,
-  imageStyles
+  imageStyles,
 };

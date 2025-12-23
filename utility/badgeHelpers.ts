@@ -111,7 +111,7 @@ const setupBadges = ( ): void => {
             earnedIconName: badges.earnedIconName,
             infoText: badges.infoText,
             index: badges.index,
-            earned: badges.earned
+            earned: badges.earned,
           }, true );
         } catch ( e ) {
           console.log( "error creating data", e );
@@ -175,12 +175,12 @@ const checkForNewBadges = async (): Promise<NewBadgeResult> => {
 
         resolve( {
           latestBadge: latestBadge || null,
-          latestLevel: latestLevel || null
+          latestLevel: latestLevel || null,
         } );
       } ).catch( () => {
         resolve( {
           latestBadge: null,
-          latestLevel: null
+          latestLevel: null,
         } );
       } );
     } )
@@ -206,5 +206,5 @@ export {
   checkForNewBadges,
   getBadgesEarned,
   deleteBadges,
-  createBadgeSetList
+  createBadgeSetList,
 };

@@ -18,7 +18,7 @@ const SpeciesDetail = ( ) => {
 
   const radioButtons = [
     { label: i18n.t( "settings.seasonality_option_1" ), value: 0 },
-    { label: i18n.t( "settings.seasonality_option_2" ), value: 1 }
+    { label: i18n.t( "settings.seasonality_option_2" ), value: 1 },
   ];
 
   const updateIndex = async ( i: number ) => {

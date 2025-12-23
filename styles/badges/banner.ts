@@ -7,21 +7,21 @@ const viewStyles = StyleSheet.create( {
     marginTop: 40,
     paddingTop: 5,
     width: 284,
-    alignSelf: "center"
+    alignSelf: "center",
   },
   modal: {
     marginBottom: 26,
-    marginTop: 32
-  }
+    marginTop: 32,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   bannerText: {
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

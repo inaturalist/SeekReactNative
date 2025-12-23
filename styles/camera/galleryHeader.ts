@@ -5,20 +5,20 @@ const pickerContainer = {
   alignItems: "center",
   flexDirection: "row",
   flexWrap: "nowrap",
-  paddingHorizontal: 30
+  paddingHorizontal: 30,
 };
 
 const viewStyles = StyleSheet.create( {
   inputIOSContainer: pickerContainer,
   viewContainer: {
-    alignItems: "center"
+    alignItems: "center",
   },
   inputAndroidContainer: pickerContainer,
   carot: {
-    marginRight: 15
+    marginRight: 15,
   },
   inputIOS: baseTextStyles.picker,
-  inputAndroid: baseTextStyles.picker
+  inputAndroid: baseTextStyles.picker,
 } );
 
 export default viewStyles;

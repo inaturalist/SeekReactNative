@@ -43,9 +43,9 @@ const PostScreen = ( ) => {
           taxon: {
             name: action.selectedSpecies.name,
             taxaId: action.selectedSpecies.id,
-            preferredCommonName: action.selectedSpecies.updatedCommonName
+            preferredCommonName: action.selectedSpecies.updatedCommonName,
           },
-          editedObservation: action.editedObservation
+          editedObservation: action.editedObservation,
         };
       case "UPDATE_OBSERVATION":
         return { ...state, editedObservation: action.editedObservation };
@@ -68,15 +68,15 @@ const PostScreen = ( ) => {
       positional_accuracy: Math.trunc( accuracy ),
       taxon_id: taxaId,
       // this shows that the id is recommended by computer vision
-      vision: true
+      vision: true,
     },
     taxon: {
       preferredCommonName: commonName,
       name: scientificName,
-      taxaId
+      taxaId,
     },
     disabled: false,
-    displayDate: initialDisplayDate
+    displayDate: initialDisplayDate,
   } );
 
   const { editedObservation, taxon, disabled, displayDate } = state;
@@ -88,7 +88,7 @@ const PostScreen = ( ) => {
       ...editedObservation,
       latitude: coords.latitude,
       longitude: coords.longitude,
-      positional_accuracy: Math.trunc( coords.accuracy )
+      positional_accuracy: Math.trunc( coords.accuracy ),
     } } );
   }, [editedObservation] );
 
@@ -105,8 +105,8 @@ const PostScreen = ( ) => {
       editedObservation: {
         ...editedObservation,
         taxon_id: id,
-        vision: false
-      }
+        vision: false,
+      },
     } );
 
   }, [editedObservation] );
@@ -115,8 +115,8 @@ const PostScreen = ( ) => {
     type: "UPDATE_OBSERVATION",
     editedObservation: {
       ...editedObservation,
-      [key]: value
-    }
+      [key]: value,
+    },
   } ), [editedObservation] );
 
   useEffect( ( ) => {

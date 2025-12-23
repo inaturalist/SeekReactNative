@@ -3,7 +3,7 @@ import {
   View,
   Alert,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 
 import i18n from "../../i18n";

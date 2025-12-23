@@ -1,15 +1,15 @@
+import type { PropsWithChildren} from "react";
 import React, { useCallback } from "react";
 import RNPickerSelect from "react-native-picker-select";
 
 const placeholder = {};
 
-interface Props {
+interface Props extends PropsWithChildren {
   handleValueChange: ( value: string ) => void;
   itemList: {
     label: string;
     value: string;
   }[];
-  children: React.ReactNode;
   disabled?: boolean;
 }
 
@@ -17,7 +17,7 @@ const Picker = ( {
   handleValueChange,
   children,
   itemList,
-  disabled
+  disabled,
 }: Props ) => {
   const showIcon = useCallback( () => <></>, [] );
 

@@ -1,7 +1,7 @@
 import {
   logger,
   fileAsyncTransport,
-  consoleTransport
+  consoleTransport,
 } from "react-native-logs";
 import RNFS from "react-native-fs";
 import { fileNameLogs } from "./utility/dirStorage";
@@ -18,9 +18,9 @@ const config = {
   transport,
   transportOptions: {
     FS: RNFS,
-    fileName: fileNameLogs
+    fileName: fileNameLogs,
   },
-  dateFormat: "iso"
+  dateFormat: "iso",
 };
 
 const log = logger.createLogger( config );

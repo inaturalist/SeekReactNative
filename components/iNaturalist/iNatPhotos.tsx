@@ -16,7 +16,7 @@ const INatStatsPhotos = ( ) => {
   const photos: {
     photoUrl?: string;
     commonName: string;
-    attribution: string
+    attribution: string;
   }[] = useFetchPhotos( );
 
   const renderPhotos = ( ) => photos.map( ( photo, index ) => (

@@ -23,24 +23,24 @@ const DonateCard = ( ) => {
     <View style={viewStyles.whiteContainer}>
       <StyledText style={[
         baseTextStyles.header,
-        name !== "Settings" && textStyles.header
+        name !== "Settings" && textStyles.header,
       ]}>
         {i18n.t( "settings.donate_header" ).toLocaleUpperCase( )}
       </StyledText>
       <View style={[
         viewStyles.paddingAboveText,
-        isHomeScreen && viewStyles.textContainer
+        isHomeScreen && viewStyles.textContainer,
       ]}>
         <StyledText style={[
           baseTextStyles.body,
-          isLandscape && viewStyles.landscapeContainerRestrictedWidth
+          isLandscape && viewStyles.landscapeContainerRestrictedWidth,
         ]}>
           {i18n.t( "settings.donate_description" )}
         </StyledText>
       </View>
       <View style={[
         viewStyles.marginGreenButton,
-        isHomeScreen && viewStyles.marginGreenButtonLarge
+        isHomeScreen && viewStyles.marginGreenButtonLarge,
       ]} />
       { Platform.OS !== "ios" && <>
         <GreenButton

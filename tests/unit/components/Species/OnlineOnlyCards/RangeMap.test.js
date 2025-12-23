@@ -15,18 +15,18 @@ jest.mock( "@react-navigation/native", () => {
         if ( event === "focus" ) {
           callback();
         }
-      }
+      },
     } ),
     useRoute: () => ( {
       params: {
         region: {
           latitude: 42.1234567,
-          longitude: 42.1234567
+          longitude: 42.1234567,
         },
         id: "some_id",
-        seenDate: "some_date"
-      }
-    } )
+        seenDate: "some_date",
+      },
+    } ),
   };
 } );
 
@@ -36,10 +36,10 @@ jest.mock( "../../../../../utility/locationHelpers", () => ( {
     return new Promise( ( resolve ) => {
       resolve( {
         latitude: 42.42,
-        longitude: 42.42
+        longitude: 42.42,
       } );
     } );
-  }
+  },
 } ) );
 
 const containerID = "range-map-container";

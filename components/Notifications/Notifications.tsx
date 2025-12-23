@@ -11,7 +11,8 @@ import Padding from "../UIComponents/Padding";
 import BottomSpacer from "../UIComponents/BottomSpacer";
 import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
-import useFetchNotifications, { Notification } from "./hooks/notificationHooks";
+import type { Notification } from "./hooks/notificationHooks";
+import useFetchNotifications from "./hooks/notificationHooks";
 
 const NotificationsScreen = ( ) => {
   const navigation = useNavigation( );

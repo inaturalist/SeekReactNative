@@ -15,7 +15,7 @@ const iconicTaxaNames: IconicTaxaById = {
   40151: "species_detail.mammal",
   1: "taxon_picker.other",
   47686: "taxon_picker.other", // protozoans can be observed and have a non-animalia / iconic taxon group ancestor,
-  48222: "taxon_picker.other" // kelp
+  48222: "taxon_picker.other", // kelp
 };
 
 const iconicTaxaIds = [
@@ -30,7 +30,7 @@ const iconicTaxaIds = [
   47115,
   40151,
   47686,
-  48222
+  48222,
 ];
 
 const iconicTaxaNamesById: IconicTaxaById = {
@@ -44,7 +44,7 @@ const iconicTaxaNamesById: IconicTaxaById = {
   47158: "taxon_picker.insects",
   47115: "taxon_picker.mollusks",
   40151: "taxon_picker.mammals",
-  1: "taxon_picker.other"
+  1: "taxon_picker.other",
 };
 
 const iconicTaxonDictSelectSpecies: IconicTaxaById = {
@@ -60,7 +60,7 @@ const iconicTaxonDictSelectSpecies: IconicTaxaById = {
   47178: "taxon_picker.fish",
   47115: "taxon_picker.mollusks",
   47686: "posting.protozoans",
-  48222: "posting.kelp"
+  48222: "posting.kelp",
 };
 
 const iconicScientificNames: IconicTaxaById = {
@@ -76,28 +76,20 @@ const iconicScientificNames: IconicTaxaById = {
   47178: "Actinopterygii",
   47115: "Mollusca",
   47686: "Protozoa",
-  48222: "Chromista"
+  48222: "Chromista",
 };
 
-interface Ranks {
-  [key: string]: string;
-}
-
-const ranks: Ranks = {
+const ranks: Record<string, string> = {
   kingdom: "camera.kingdom",
   phylum: "camera.phylum",
   class: "camera.class",
   order: "camera.order",
   family: "camera.family",
   genus: "camera.genus",
-  species: "camera.species"
+  species: "camera.species",
 };
 
-interface TaxaIds {
-  [key: string]: number | null;
-}
-
-const taxonIds: TaxaIds = {
+const taxonIds: Record<string, number | null> = {
   birds: 3,
   amphibians: 20978,
   reptiles: 26036,
@@ -108,7 +100,7 @@ const taxonIds: TaxaIds = {
   arachnids: 47119,
   fungi: 47170,
   plants: 47126,
-  all: null
+  all: null,
 };
 
 const taxonDictForMissions: TaxaIds = {
@@ -249,7 +241,7 @@ const taxonDictForMissions: TaxaIds = {
   mantid: 48111,
   mollusks: 47115,
   plants: 47126,
-  reptiles: 26036
+  reptiles: 26036,
 };
 
 export {
@@ -260,5 +252,5 @@ export {
   iconicScientificNames,
   ranks,
   taxonDictForMissions,
-  taxonIds
+  taxonIds,
 };

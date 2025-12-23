@@ -1,5 +1,6 @@
 import * as React from "react";
-import HTML, { RenderersProps } from "react-native-render-html";
+import type { RenderersProps } from "react-native-render-html";
+import HTML from "react-native-render-html";
 
 import { viewStyles, textStyles } from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
@@ -184,8 +185,8 @@ const TermsOfServiceScreen = ( ) => {
 
   const renderersProps: Partial<RenderersProps> = {
     a: {
-      onPress: () => null
-    }
+      onPress: () => null,
+    },
   };
 
   return (
@@ -197,7 +198,7 @@ const TermsOfServiceScreen = ( ) => {
         renderersProps={renderersProps}
         defaultTextProps={{
           allowFontScaling: true,
-          maxFontSizeMultiplier: 2
+          maxFontSizeMultiplier: 2,
         }}
         baseStyle={viewStyles.textContainer}
         tagsStyles={{
@@ -205,12 +206,12 @@ const TermsOfServiceScreen = ( ) => {
           h3: { ...baseTextStyles.bodySpacedBold, ...textStyles.text },
           a: {
             ...baseTextStyles.bodySpaced,
-            textDecorationLine: "underline" as const
+            textDecorationLine: "underline" as const,
           },
           ul: textStyles.list,
           ol: textStyles.list,
           strong: baseTextStyles.bodySpacedBold,
-          i: baseTextStyles.bodySpacedItalic
+          i: baseTextStyles.bodySpacedItalic,
         }}
       />
     </ScrollWithHeader>

@@ -3,7 +3,7 @@ import {
   View,
   Image,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -15,8 +15,7 @@ import iconicTaxa from "../../../assets/iconicTaxa";
 import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 
-interface Props {
-  readonly children: any;
+interface Props extends React.PropsWithChildren {
   readonly closeModal: () => void;
   readonly color: string;
   readonly userImage: string;
@@ -30,7 +29,7 @@ const ModalWithGradient = ( {
   color,
   userImage,
   originalImage,
-  displayDate = null
+  displayDate = null,
 }: Props ) => (
   <View style={viewStyles.container}>
     <LinearGradient

@@ -4,14 +4,14 @@ import { center, colors, row } from "../global";
 const viewStyles = StyleSheet.create( {
   center,
   container: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   header: {
     paddingBottom: 21,
     paddingHorizontal: 22,
-    paddingTop: 25
+    paddingTop: 25,
   },
-  row
+  row,
 } );
 
 const imageStyles = StyleSheet.create( {
@@ -19,21 +19,21 @@ const imageStyles = StyleSheet.create( {
     height: 68,
     marginRight: 28,
     resizeMode: "contain",
-    width: 68
-  }
+    width: 68,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   text: {
-    marginTop: 11
+    marginTop: 11,
   },
   textWidth: {
-    width: 215
-  }
+    width: 215,
+  },
 } );
 
 export {
   viewStyles,
   imageStyles,
-  textStyles
+  textStyles,
 };

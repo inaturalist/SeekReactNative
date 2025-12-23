@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class BadgeRealm extends Realm.Object {
   static schema: ObjectSchema = {
@@ -14,8 +15,8 @@ class BadgeRealm extends Realm.Object {
       count: { type: "int", default: 0 },
       earnedIconName: "string?",
       infoText: "string?",
-      index: { type: "int", default: 0 }
-    }
+      index: { type: "int", default: 0 },
+    },
   };
 }
 

@@ -15,20 +15,20 @@ const mockPhotos = [
         original_dimensions: [{}],
         square_url:
         "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
-        url: "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg"
-    }
+        url: "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
+    },
 ];
 const mockLoading = false;
 const mockId = undefined;
 
 jest.mock( "../../../../utility/customHooks/useSeenTaxa", () => ( {
   __esModule: true,
-  useSeenTaxa: jest.fn( () => null )
+  useSeenTaxa: jest.fn( () => null ),
 } ) );
 
 jest.mock( "../../../../utility/customHooks/useUserPhoto", () => ( {
   __esModule: true,
-  useUserPhoto: jest.fn( () => ( { uri: "some_uri"} ) )
+  useUserPhoto: jest.fn( () => ( { uri: "some_uri"} ) ),
 } ) );
 
 const containerID = "species-photos-landscape";

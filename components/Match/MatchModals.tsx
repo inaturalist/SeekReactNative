@@ -1,12 +1,13 @@
 import React, {
   useEffect,
   useCallback,
-  useReducer
+  useReducer,
 } from "react";
 import Modal from "react-native-modal";
 import { useNavigation } from "@react-navigation/native";
 
-import { Badge, checkForNewBadges } from "../../utility/badgeHelpers";
+import type { Badge} from "../../utility/badgeHelpers";
+import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
@@ -17,7 +18,7 @@ import { fetchNumberSpeciesSeen, setRoute, StoredRoutes } from "../../utility/he
 import { showStoreReview } from "../../utility/reviewHelpers";
 import RNModal from "../UIComponents/Modals/Modal";
 import { useCommonName } from "../../utility/customHooks/useCommonName";
-import { Observation } from "../Providers/ObservationProvider";
+import type { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
 interface State {
@@ -46,8 +47,8 @@ type Action =
   | { type: ACTION_TYPE.SET_CHALLENGES; challenge: any; challengeInProgress: any }
   | { type: ACTION_TYPE.SET_CHALLENGE_MODAL; challengeModal: boolean; challengeShown: boolean }
   | { type: ACTION_TYPE.SET_LEVEL_MODAL; levelModal: boolean; levelShown: boolean }
-  | { type: ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL; }
-  | { type: ACTION_TYPE.OPEN_REPLACE_PHOTO_MODAL; };
+  | { type: ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL }
+  | { type: ACTION_TYPE.OPEN_REPLACE_PHOTO_MODAL };
 
 interface Props {
   observation: Observation;
@@ -66,38 +67,38 @@ function reducer( state: State, action: Action ): State {
         ...state,
         latestLevel: action.latestLevel,
         badge: action.latestBadge,
-        replacePhotoModal: false
+        replacePhotoModal: false,
       };
     case ACTION_TYPE.SET_CHALLENGES:
       return {
         ...state,
         challenge: action.challenge,
         challengeInProgress: action.challengeInProgress,
-        replacePhotoModal: false
+        replacePhotoModal: false,
       };
     case ACTION_TYPE.SET_CHALLENGE_MODAL:
       return {
         ...state,
         challengeModal: action.challengeModal,
         challengeShown: action.challengeShown,
-        replacePhotoModal: false
+        replacePhotoModal: false,
       };
     case ACTION_TYPE.SET_LEVEL_MODAL:
       return {
         ...state,
         levelModal: action.levelModal,
         levelShown: action.levelShown,
-        replacePhotoModal: false
+        replacePhotoModal: false,
       };
     case ACTION_TYPE.CLOSE_REPLACE_PHOTO_MODAL:
       return {
         ...state,
-        replacePhotoModal: false
+        replacePhotoModal: false,
       };
     case ACTION_TYPE.OPEN_REPLACE_PHOTO_MODAL:
       return {
         ...state,
-        replacePhotoModal: true
+        replacePhotoModal: true,
       };
     default:
       throw new Error();
@@ -113,7 +114,7 @@ const initialState = {
   challengeShown: false,
   challengeModal: false,
   levelModal: false,
-  replacePhotoModal: undefined
+  replacePhotoModal: undefined,
 };
 
 const MatchModals = ( {
@@ -123,7 +124,7 @@ const MatchModals = ( {
   setNavigationPath,
   flagModal,
   navPath,
-  scientificNames
+  scientificNames,
 }: Props ) => {
   const { setId } = useSpeciesDetail( );
   const navigation = useNavigation( );
@@ -143,7 +144,7 @@ const MatchModals = ( {
     challengeShown,
     levelModal,
     challengeModal,
-    replacePhotoModal
+    replacePhotoModal,
   } = state;
 
   const closeChallengeModal = ( ) => dispatch( { type: ACTION_TYPE.SET_CHALLENGE_MODAL, challengeModal: false, challengeShown: true } );
@@ -166,7 +167,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.reset( {
         index: 0,
-        routes: [{ name: "Home" }]
+        routes: [{ name: "Home" }],
       } );
       navigation.navigate( "Camera" );
     } else if ( navPath === "Social" ) {

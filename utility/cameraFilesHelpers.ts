@@ -105,5 +105,5 @@ const addARCameraFiles = async () => {
 };
 
 export {
-  addARCameraFiles
+  addARCameraFiles,
 };

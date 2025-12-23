@@ -75,7 +75,7 @@ const ProfileImageAndLogin = ( { count, reload }: Props ) => {
           style={[
             baseTextStyles.emptyState,
             textStyles.loginNameText,
-            !isHomeScreen && textStyles.whiteText
+            !isHomeScreen && textStyles.whiteText,
           ]}
         >
           {isHomeScreen

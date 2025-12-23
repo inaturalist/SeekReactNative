@@ -3,7 +3,7 @@ import { Image } from "react-native";
 import MapView, {
   PROVIDER_DEFAULT,
   UrlTile,
-  Marker
+  Marker,
 } from "react-native-maps";
 import { useNavigation } from "@react-navigation/native";
 
@@ -26,7 +26,7 @@ interface Props {
 const SpeciesMap = ( {
   region,
   id,
-  seenDate
+  seenDate,
 }: Props ) => {
   const [mapReady, setMapReady] = useState( false );
   const navigation = useNavigation( );
@@ -61,7 +61,7 @@ const SpeciesMap = ( {
           <Marker
             coordinate={{
               latitude: region.latitude,
-              longitude: region.longitude
+              longitude: region.longitude,
             }}
           >
             <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />

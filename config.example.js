@@ -10,5 +10,5 @@ export default {
   ANDROID_TAXONOMY_FILE_NAME: "taxonomy.csv",
   IOS_MODEL_FILE_NAME: "optimized_model_v2_20.mlmodel",
   IOS_GEOMODEL_FILE_NAME: "geomodel_v2_20.mlmodel",
-  IOS_TAXONOMY_FILE_NAME: "taxonomy_v2_20.json"
+  IOS_TAXONOMY_FILE_NAME: "taxonomy_v2_20.json",
 };

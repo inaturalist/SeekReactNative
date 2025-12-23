@@ -22,7 +22,7 @@ const drawerContent = props => <SideMenu {...props} />;
 
 const screenOptions = {
   headerShown: false,
-  drawerType: "front"
+  drawerType: "front",
 } as const;
 
 const SideDrawer = ( ) => (

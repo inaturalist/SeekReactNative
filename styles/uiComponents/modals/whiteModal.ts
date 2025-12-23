@@ -11,9 +11,9 @@ const viewStyles = StyleSheet.create( {
     maxWidth: 366,
     width: dimensions.width > 350
       ? dimensions.width - dimensions.width * 0.1
-      : dimensions.width
+      : dimensions.width,
     // this creates margins on smaller screen sizes
-  }
+  },
 } );
 
 export default viewStyles;

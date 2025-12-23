@@ -25,7 +25,7 @@ const UploadStatus = ( {
   successfulUploads,
   numPendingUploads,
   updateSuccessfulUploads,
-  closeCard
+  closeCard,
 }: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   const navigation = useNavigation();
@@ -40,14 +40,14 @@ const UploadStatus = ( {
       toValue: progress,
       duration: 100,
       // width is not supported by native driver
-      useNativeDriver: false
+      useNativeDriver: false,
     } ).start( );
   },[progress] );
 
   const width = animation.current.interpolate( {
     inputRange: [0, 100],
     outputRange: ["0%", "100%"],
-    extrapolate: "clamp"
+    extrapolate: "clamp",
   } );
 
   const setUploadText = ( ) => {

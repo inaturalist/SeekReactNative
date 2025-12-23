@@ -14,7 +14,7 @@ interface Props {
   challenge: {
     index: number;
     percentComplete: number;
-  }
+  };
 }
 
 const ChallengeMissionCard = ( { challenge }: Props ) => {

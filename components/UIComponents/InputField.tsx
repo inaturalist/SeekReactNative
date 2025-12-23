@@ -1,5 +1,6 @@
 import * as React from "react";
-import { TextInput, Platform, KeyboardTypeOptions } from "react-native";
+import type { KeyboardTypeOptions } from "react-native";
+import { TextInput, Platform } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
 import { colors } from "../../styles/global";
@@ -17,7 +18,7 @@ const InputField = ( {
   handleTextChange,
   placeholder,
   text,
-  type
+  type,
 }: Props ) => {
   let keyboardType: KeyboardTypeOptions = "default";
   if ( type === "emailAddress" ) {

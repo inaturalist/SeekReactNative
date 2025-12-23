@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   Image,
-  View
+  View,
 } from "react-native";
 
 import i18n from "../../../i18n";
@@ -21,15 +21,15 @@ interface Props {
 const GeoprivacyPicker = ( { updateObservation, geoprivacy }: Props ) => {
   const geoprivacyTypes = [{
     label: i18n.t( "posting.open" ),
-    value: "open"
+    value: "open",
   },
   {
     label: i18n.t( "posting.obscured" ),
-    value: "obscured"
+    value: "obscured",
   },
   {
     label: i18n.t( "posting.private" ),
-    value: "private"
+    value: "private",
   }];
 
   const setGeoprivacy = ( value: string ) => updateObservation( "geoprivacy", value );

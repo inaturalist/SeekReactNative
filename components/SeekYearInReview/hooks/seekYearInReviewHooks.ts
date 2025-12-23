@@ -74,7 +74,7 @@ const useFetchStats = ( year: number ): StatsState => {
     observationsThisYear: [],
     topThreeSpeciesBadges: [],
     randomObservations: [],
-    histogram: []
+    histogram: [],
   } );
 
   useEffect( () => {
@@ -174,7 +174,7 @@ const useFetchStats = ( year: number ): StatsState => {
           observationsThisYear,
           topThreeSpeciesBadges,
           randomObservations,
-          histogram
+          histogram,
         } );
       } catch ( e ) {
         console.log( e, "couldn't open realm for fetching year in review stats" );
@@ -195,7 +195,7 @@ const useFetchChallengesForYear = ( year: number ): { challengeBadges: any[]; ch
     const createBadge = ( latestBadge: any, numOfMonths: number ) => ( {
       name: "",
       availableDate: addMonths( latestBadge.availableDate, numOfMonths ),
-      index: latestBadge.index + numOfMonths
+      index: latestBadge.index + numOfMonths,
     } );
 
     const createPlaceholderBadges = ( badges: any[] ) => {
@@ -262,5 +262,5 @@ export {
   useFetchStats,
   useCountObservationsForYear,
   useObservationsForYear,
-  useFetchChallengesForYear
+  useFetchChallengesForYear,
 };

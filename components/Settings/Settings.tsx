@@ -20,7 +20,7 @@ const SettingsScreen = ( ) => {
       <View style={[
         viewStyles.marginHorizontal,
         viewStyles.marginTop,
-        isTablet && viewStyles.tabletContainer
+        isTablet && viewStyles.tabletContainer,
       ]}>
         <CameraSettings />
         <SpeciesDetail />

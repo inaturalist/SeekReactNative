@@ -3,11 +3,11 @@ import * as React from "react";
 import i18n from "../../i18n";
 import FullWebView from "../FullWebView/FullWebView";
 
-type Props = {
+interface Props {
   // TODO: navigation TS
-  navigation: any,
+  navigation: any;
   // TODO: navigation TS
-  route: any
+  route: any;
 };
 
 const FullAnnouncement = ( { navigation, route }: Props ) => {

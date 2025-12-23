@@ -15,17 +15,17 @@ type Taxon = {
   preferredCommonName?: string | undefined;
   name: string;
   defaultPhoto?: {
-    backupUri?: string,
-    mediumUrl?: string,
+    backupUri?: string;
+    mediumUrl?: string;
     lastUpdated?: Date;
-  }
+  };
 };
 interface Props {
   readonly item: {
     taxon: Taxon;
     photo: string;
   };
-  readonly openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;
+  readonly openModal: ( photo: { uri: string }, taxon: Taxon ) => void;
   readonly updateItemScrolledId: ( id: number | null ) => void;
   readonly itemScrolledId: number | null;
   readonly toAnimate: boolean;
@@ -40,7 +40,7 @@ const ObservationCard = ( {
   itemScrolledId,
   toAnimate,
   hasAnimated,
-  setHasAnimated
+  setHasAnimated,
 }: Props ) => {
   const { setId } = useSpeciesDetail( );
   const scrollView = useRef<ScrollView>( null );
@@ -56,7 +56,7 @@ const ObservationCard = ( {
     const scrollLeft = ( ) => {
       if ( scrollView.current ) {
         scrollView.current.scrollTo( {
-          x: 0, y: 0, duration: 300
+          x: 0, y: 0, duration: 300,
         } );
       }
     };
@@ -81,19 +81,19 @@ const ObservationCard = ( {
     const entrance = {
       toValue: -( 73 + 24 ),
       duration: 200,
-      useNativeDriver: true
+      useNativeDriver: true,
     };
 
     const exit = {
       toValue: 0,
       delay: 2000,
       duration: 200,
-      useNativeDriver: true
+      useNativeDriver: true,
     };
 
     Animated.sequence( [
       Animated.timing( animation, entrance ),
-      Animated.timing( animation, exit )
+      Animated.timing( animation, exit ),
     ] ).start( );
   }, [animation] );
 

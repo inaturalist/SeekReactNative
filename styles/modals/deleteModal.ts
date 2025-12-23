@@ -1,48 +1,48 @@
 import { StyleSheet } from "react-native";
 import {
-  row
+  row,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
   flagBackButton: {
     marginLeft: 33,
-    marginRight: 29
+    marginRight: 29,
   },
   flagHeader: {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     height: 62,
-    width: "100%"
+    width: "100%",
   },
   flagTextContainer: {
     justifyContent: "flex-end",
-    marginTop: 15
+    marginTop: 15,
   },
   margin: {
-    marginTop: 27
+    marginTop: 27,
   },
   marginLarge: {
-    marginTop: 32
+    marginTop: 32,
   },
   marginSmall: {
-    marginTop: 16
+    marginTop: 16,
   },
-  row
+  row,
 } );
 
 const textStyles = StyleSheet.create( {
   buttonText: {
     marginRight: 15,
     paddingTop: 9,
-    textAlign: "center"
+    textAlign: "center",
   },
   text: {
     textAlign: "center",
-    width: 292
-  }
+    width: 292,
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

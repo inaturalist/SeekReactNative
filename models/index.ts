@@ -24,8 +24,8 @@ export default {
     TaxonRealm,
     UploadObservationRealm,
     UploadPhotoRealm,
-    UserSettingsRealm
+    UserSettingsRealm,
   ],
   schemaVersion: 39,
-  path: "db.realm"
+  path: "db.realm",
 };

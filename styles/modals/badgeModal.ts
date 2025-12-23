@@ -1,7 +1,7 @@
 import { StyleSheet, I18nManager } from "react-native";
 import {
   colors,
-  dimensions
+  dimensions,
 } from "../global";
 
 const { width } = dimensions;
@@ -29,10 +29,10 @@ const viewStyles = StyleSheet.create( {
     right: 0,
     top: 190 - 27,
     transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }],
-    zIndex: 1
+    zIndex: 1,
   },
   carousel: {
-    alignItems: "center"
+    alignItems: "center",
   },
   leftArrow: {
     left: 0,
@@ -40,62 +40,62 @@ const viewStyles = StyleSheet.create( {
     position: "absolute",
     top: 190 - 27,
     transform: [{ rotate: I18nManager.isRTL ? "0deg" : "180deg" }],
-    zIndex: 1
+    zIndex: 1,
   },
   margin: {
-    marginBottom: 9
+    marginBottom: 9,
   },
   marginBottom: {
-    marginBottom: 27
+    marginBottom: 27,
   },
   marginLarge: {
-    marginTop: 39
+    marginTop: 39,
   },
   marginMedium: {
-    marginBottom: 11
+    marginBottom: 11,
   },
   row: {
     flexDirection: "row",
-    flexWrap: "nowrap"
-  }
+    flexWrap: "nowrap",
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   bullets: {
     color: colors.seekForestGreen,
     fontSize: 37,
-    marginHorizontal: 41
+    marginHorizontal: 41,
   },
   nameText: {
     marginHorizontal: 27,
-    textAlign: "center"
+    textAlign: "center",
   },
   transparent: {
-    color: colors.white
-  }
+    color: colors.white,
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   imageStyle: {
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   smallImage: {
     height: 57,
     marginHorizontal: 20,
     resizeMode: "contain",
-    width: 57
+    width: 57,
   },
   badgeIcon: {
     height: setImageWidth( ),
     justifyContent: "center",
     marginBottom: 25,
     width: setImageWidth( ),
-    marginHorizontal: setCarouselHorizontalMargins( )
-  }
+    marginHorizontal: setCarouselHorizontalMargins( ),
+  },
 } );
 
 export {
   textStyles,
   viewStyles,
-  imageStyles
+  imageStyles,
 };

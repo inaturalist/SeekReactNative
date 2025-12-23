@@ -2,56 +2,56 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   row,
-  center
+  center,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
   center,
   marginMiddle: {
-    marginRight: 29
+    marginRight: 29,
   },
-  row
+  row,
 } );
 
 const textStyles = StyleSheet.create( {
   challengeHeader: {
-    marginHorizontal: 31
+    marginHorizontal: 31,
   },
   challengeName: {
     marginTop: 5,
-    marginHorizontal: 31
+    marginHorizontal: 31,
   },
   longText: {
     fontSize: 13,
-    lineHeight: 21
+    lineHeight: 21,
   },
   text: {
-    textAlign: "center"
+    textAlign: "center",
   },
   badgeText: {
-    maxWidth: 178
-  }
+    maxWidth: 178,
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   white: {
-    tintColor: colors.white
+    tintColor: colors.white,
   },
   badge: {
     height: 105,
     resizeMode: "contain",
-    width: 105
+    width: 105,
   },
   badgeSmall: {
     height: 79,
     resizeMode: "contain",
-    width: 79
-  }
+    width: 79,
+  },
 } );
 
 export {
   viewStyles,
   textStyles,
-  imageStyles
+  imageStyles,
 };
 

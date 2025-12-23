@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import {
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import Mailer from "react-native-mail";
 import Clipboard from "@react-native-clipboard/clipboard";
@@ -30,7 +30,7 @@ const EmailText = () => {
 
   const emailParams = {
     subject: "Help with Seek",
-    helpEmail
+    helpEmail,
   };
 
   const sendEmail = () => {
@@ -39,7 +39,7 @@ const EmailText = () => {
         subject: emailParams.subject,
         recipients: [emailParams.helpEmail],
         bccRecipients: [],
-        isHTML: true
+        isHTML: true,
       },
       ( error, event ) => {
         Clipboard.setString( helpEmail );

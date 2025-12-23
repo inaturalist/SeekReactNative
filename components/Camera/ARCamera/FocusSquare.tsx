@@ -3,7 +3,7 @@ import React from "react";
 import { Animated, StyleSheet } from "react-native";
 
 interface Props {
-  animatedStyle: Object
+  animatedStyle: Object;
 }
 
 const FocusSquare = ( { animatedStyle }: Props ) => {
@@ -12,7 +12,7 @@ const FocusSquare = ( { animatedStyle }: Props ) => {
     <Animated.View
       style={[
         styles.focusSquare,
-        animatedStyle
+        animatedStyle,
       ]}
     />
   );
@@ -24,8 +24,8 @@ const styles = StyleSheet.create( {
     position: "absolute",
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: "white"
-  }
+    borderColor: "white",
+  },
 } );
 
 export default FocusSquare;

@@ -47,7 +47,7 @@ const ChallengeBadgeRow = ( { challenge, large = false }: Props ) => {
           large
             ? [baseTextStyles.challengeDescription, textStyles.text]
             : baseTextStyles.bodyWhite,
-          longText && textStyles.longText
+          longText && textStyles.longText,
         ]}
       >
         {text}

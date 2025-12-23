@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   View,
-  Image
+  Image,
 } from "react-native";
 import { useNetInfo } from "@react-native-community/netinfo";
 
@@ -49,7 +49,7 @@ const ErrorMessage = ( { error }: Props ) => {
     <View style={[
       viewStyles.errorMargin,
       viewStyles.row,
-      error === "credentials" && viewStyles.smallerMargin
+      error === "credentials" && viewStyles.smallerMargin,
     ]}
     >
       <Image source={icons.error} style={imageStyles.image} />

@@ -7,13 +7,12 @@ const ChallengeContext = React.createContext<
   } | undefined
 >( undefined );
 
-type ChallengeProviderProps = {children: React.ReactNode}
-const ChallengeProvider = ( { children }: ChallengeProviderProps ) => {
+const ChallengeProvider = ( { children }: React.PropsWithChildren ) => {
   const [challengeIndex, setIndex] = React.useState<number | null>( null );
 
   const value = {
     challengeIndex,
-    setIndex
+    setIndex,
   };
 
   return (
@@ -33,5 +32,5 @@ function useChallenge() {
 
 export {
   ChallengeProvider,
-  useChallenge
+  useChallenge,
 };

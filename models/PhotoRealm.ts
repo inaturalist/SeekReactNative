@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class PhotoRealm extends Realm.Object {
   static schema: ObjectSchema = {
@@ -6,8 +7,8 @@ class PhotoRealm extends Realm.Object {
     properties: {
       mediumUrl: "string?",
       backupUri: "string?",
-      lastUpdated: "date?"
-    }
+      lastUpdated: "date?",
+    },
   };
 }
 

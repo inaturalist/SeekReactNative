@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   TouchableOpacity,
-  Image
+  Image,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -9,7 +9,7 @@ import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 
-type Props = {
+interface Props {
   readonly green?: boolean;
   readonly route?: string | null;
 }

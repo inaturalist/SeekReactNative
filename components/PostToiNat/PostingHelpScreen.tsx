@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   View,
-  Image
+  Image,
 } from "react-native";
 
 import { viewStyles, textStyles, imageStyles } from "../../styles/posting/postingHelp";

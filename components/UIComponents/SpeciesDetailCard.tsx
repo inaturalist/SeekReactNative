@@ -6,8 +6,7 @@ import GreenText from "./GreenText";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 
 
-interface Props {
-  readonly children: React.ReactNode;
+interface Props extends React.PropsWithChildren {
   readonly text: string;
   readonly hide?: boolean;
 }

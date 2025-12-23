@@ -6,9 +6,9 @@ import { viewStyles, imageStyles } from "../../../styles/camera/gallery";
 interface Item {
   node?: {
     image?: {
-      uri?: string
-    }
-  }
+      uri?: string;
+    };
+  };
 }
 interface Props {
   item: Item;

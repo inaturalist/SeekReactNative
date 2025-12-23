@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import {
-  colors
+  colors,
 } from "../../global";
 
 const maxColumnWidth = 455;
@@ -8,37 +8,37 @@ const maxColumnWidth = 455;
 const viewStyles = StyleSheet.create( {
   whiteContainer: {
     paddingTop: 35,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   marginGreenButton: {
-    marginTop: 22
+    marginTop: 22,
   },
   marginGreenButtonLarge: {
-    marginTop: 33
+    marginTop: 33,
   },
   marginBottom: {
-    marginTop: 48
+    marginTop: 48,
   },
   textContainer: {
     paddingHorizontal: 33,
-    paddingTop: 21
+    paddingTop: 21,
   },
   paddingAboveText: {
-    paddingTop: 15
+    paddingTop: 15,
   },
   landscapeContainerRestrictedWidth: {
     width: maxColumnWidth,
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   header: {
-    paddingLeft: 22
-  }
+    paddingLeft: 22,
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

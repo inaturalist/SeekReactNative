@@ -3,7 +3,7 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Modal
+  Modal,
 } from "react-native";
 
 import styles from "../../../styles/posting/postToiNat";
@@ -30,7 +30,7 @@ interface Props {
     positional_accuracy: number | null;
     description: string | null;
     vision: boolean;
-  }
+  };
 }
 
 const LocationPickerCard = ( { location, updateLocation, observation }: Props ) => {

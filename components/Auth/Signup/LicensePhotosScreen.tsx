@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Alert, ScrollView } from "react-native";
 import HTML, {
   HTMLElementModel,
-  HTMLContentModel
+  HTMLContentModel,
 } from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 import Modal from "react-native-modal";
@@ -35,7 +35,7 @@ const LicensePhotosScreen = ( ) => {
     preferred_observation_license: false,
     preferred_photo_license: false,
     pi_consent: false,
-    data_transfer_consent: false
+    data_transfer_consent: false,
   } );
 
   const { email } = user;
@@ -49,19 +49,19 @@ const LicensePhotosScreen = ( ) => {
   const toggleLicensePhotos = ( ) => setUser( {
     ...user,
     preferred_observation_license: !user.preferred_observation_license ? "CC-BY-NC" : null,
-    preferred_photo_license: !user.preferred_photo_license ? "CC-BY-NC" : null
+    preferred_photo_license: !user.preferred_photo_license ? "CC-BY-NC" : null,
  } );
 
   const toggleAgreeTerms = ( ) => setAgreeTerms( !agreeTerms );
 
   const togglePIConsent = ( ) => setUser( {
     ...user,
-    pi_consent: !user.pi_consent
+    pi_consent: !user.pi_consent,
  } );
 
   const toggleDataTransferConsent = ( ) => setUser( {
     ...user,
-    data_transfer_consent: !user.data_transfer_consent
+    data_transfer_consent: !user.data_transfer_consent,
  } );
 
   const submit = ( ) => {
@@ -96,7 +96,7 @@ const LicensePhotosScreen = ( ) => {
 
   const handleEmailInput = ( value: string ) => setUser( {
     ...user,
-    email: value
+    email: value,
   } );
 
   const showLicensingAlert = ( ) => (
@@ -128,12 +128,12 @@ const LicensePhotosScreen = ( ) => {
       systemFonts={htmlFonts}
       defaultTextProps={{
         allowFontScaling: true,
-        maxFontSizeMultiplier: 2
+        maxFontSizeMultiplier: 2,
       }}
       tagsStyles={{ p: { ...baseTextStyles.body, ...styles.licenseText } }}
       renderers={{
         privacy: ( ) => renderLink( "Privacy", "privacy" ),
-        terms: ( ) => renderLink( "TermsOfService", "terms" )
+        terms: ( ) => renderLink( "TermsOfService", "terms" ),
       }}
     />
   );
@@ -164,16 +164,16 @@ const LicensePhotosScreen = ( ) => {
   const customHTMLElementModels = {
     "terms": HTMLElementModel.fromCustomModel( {
       tagName: "terms",
-      contentModel: HTMLContentModel.textual
+      contentModel: HTMLContentModel.textual,
     } ),
     "privacy": HTMLElementModel.fromCustomModel( {
       tagName: "privacy",
-      contentModel: HTMLContentModel.textual
+      contentModel: HTMLContentModel.textual,
     } ),
     "guidelines": HTMLElementModel.fromCustomModel( {
       tagName: "guidelines",
-      contentModel: HTMLContentModel.textual
-    } )
+      contentModel: HTMLContentModel.textual,
+    } ),
   };
 
   return (
@@ -206,18 +206,18 @@ const LicensePhotosScreen = ( ) => {
           <HTML
             source={{ html: agreeToTermsHTML }}
             tagsStyles={{
-              p: { ...baseTextStyles.body, ...styles.licenseText }
+              p: { ...baseTextStyles.body, ...styles.licenseText },
             }}
             customHTMLElementModels={customHTMLElementModels}
             systemFonts={htmlFonts}
             defaultTextProps={{
               allowFontScaling: true,
-              maxFontSizeMultiplier: 2
+              maxFontSizeMultiplier: 2,
             }}
             renderers={{
               terms: ( ) => renderLink( "TermsOfService", "terms" ),
               privacy: ( ) => renderLink( "Privacy", "privacy" ),
-              guidelines: ( ) => renderLink( "CommunityGuidelines", "guidelines" )
+              guidelines: ( ) => renderLink( "CommunityGuidelines", "guidelines" ),
             }}
           />
         )}

@@ -11,28 +11,28 @@ const viewStyles = StyleSheet.create( {
     marginBottom: spaceBelowTags,
     marginRight: 10,
     paddingBottom: 4,
-    paddingTop: 4
+    paddingTop: 4,
   },
   tagContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginHorizontal: 28
+    marginHorizontal: 28,
   },
   tagAndSeenDate: {
-    marginBottom: 26 - spaceBelowTags
+    marginBottom: 26 - spaceBelowTags,
   },
   noTags: {
-    marginTop: 29
-  }
+    marginTop: 29,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   tagText: {
-    paddingHorizontal: 9
-  }
+    paddingHorizontal: 9,
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };

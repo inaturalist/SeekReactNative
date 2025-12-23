@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 
 import i18n from "../../../i18n";
@@ -24,7 +24,7 @@ const Button = ( {
   large = false,
   text,
   greenText = false,
-  login = false
+  login = false,
 }: Props ) => (
   <TouchableOpacity
     testID={testID || "button"}
@@ -35,7 +35,7 @@ const Button = ( {
       large && viewStyles.largeButton,
       large && viewStyles.extraPadding,
       !!color && { backgroundColor: color },
-      login && viewStyles.login
+      login && viewStyles.login,
     ]}
   >
     <StyledText style={[greenText ? baseTextStyles.buttonGreen : baseTextStyles.button, textStyles.buttonText]}>

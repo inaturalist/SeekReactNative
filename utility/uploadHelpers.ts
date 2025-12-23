@@ -53,13 +53,13 @@ interface ErrorType {
   error: {
     type: string;
     errorText?: string;
-  }
+  };
 }
 
 const appendPhotoToObservation = async ( photo: {
-  id: number,
-  uuid: string,
-  uri: string
+  id: number;
+  uuid: string;
+  uri: string;
 }, token: string, uri: string ): Promise<boolean | ErrorType | undefined> => {
   const { id, uuid } = photo;
   const photoParams = {
@@ -68,8 +68,8 @@ const appendPhotoToObservation = async ( photo: {
     file: new FileUpload( {
       uri,
       name: "photo.jpeg",
-      type: "image/jpeg"
-    } )
+      type: "image/jpeg",
+    } ),
   };
 
   const options = { api_token: token };
@@ -81,8 +81,8 @@ const appendPhotoToObservation = async ( photo: {
     if ( e.message === "timeout" ) {
       return {
         error: {
-          type: "timeout"
-        }
+          type: "timeout",
+        },
       };
     }
 
@@ -92,8 +92,8 @@ const appendPhotoToObservation = async ( photo: {
       return {
         error: {
           type: "photo",
-          errorText: e.message
-        }
+          errorText: e.message,
+        },
       };
     }
   }
@@ -115,8 +115,8 @@ const uploadPhoto = async ( photo: Photo, token: string ): Promise<boolean | Err
     return {
       error: {
         type: "photo",
-        errorText: i18n.t( "post_to_inat_card.error_photo" )
-      }
+        errorText: i18n.t( "post_to_inat_card.error_photo" ),
+      },
     };
   }
   const photoUpload = await appendPhotoToObservation( photo, token, resizedPhoto );
@@ -203,8 +203,8 @@ const uploadObservation = async ( observation: Observation ): Promise<boolean | 
       positional_accuracy: observation.positional_accuracy,
       description: observation.description,
       // this shows that the id is recommended by computer vision
-      owners_identification_from_vision_requested: observation.vision
-    }
+      owners_identification_from_vision_requested: observation.vision,
+    },
   };
 
   const token = await fetchJSONWebToken( login );
@@ -236,15 +236,15 @@ const uploadObservation = async ( observation: Observation ): Promise<boolean | 
     if ( e.message === "timeout" ) {
       return {
         error: {
-          type: "timeout"
-        }
+          type: "timeout",
+        },
       };
     }
     return {
       error: {
         type: "observation",
-        errorText: e.message
-      }
+        errorText: e.message,
+      },
     };
   }
 };
@@ -269,12 +269,12 @@ const saveObservationToRealm = async ( observation: Observation, uri: string ): 
         uri,
         uploadSucceeded: false,
         uuid: photoUUID,
-        notificationShown: false
+        notificationShown: false,
       } );
       realm.create( "UploadObservationRealm", {
         ...observation,
         uuid: obsUUID,
-        photo
+        photo,
       }, true );
     } );
 
@@ -312,8 +312,8 @@ const markUploadsAsSeen = async ( ): Promise<void> => {
 
 const markCurrentUploadAsSeen = async ( upload: {
   photo: {
-    notificationShown: boolean
-  }
+    notificationShown: boolean;
+  };
 } ): Promise<void> => {
   const realm = await Realm.open( realmConfig );
 
@@ -340,5 +340,5 @@ export {
   markUploadsAsSeen,
   checkForUploads,
   uploadObservation,
-  markCurrentUploadAsSeen
+  markCurrentUploadAsSeen,
 };

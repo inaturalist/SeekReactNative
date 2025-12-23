@@ -15,8 +15,8 @@ const AppOrientationContext = React.createContext<
     height: number;
   } | undefined
 >( undefined );
-type AppOrientationProviderProps = {children: React.ReactNode}
-const AppOrientationProvider = ( { children }: AppOrientationProviderProps ) => {
+
+const AppOrientationProvider = ( { children }: React.PropsWithChildren ) => {
   const [isLandscape, setIsLandscape] = React.useState( landscape );
   const [isTablet, setIsTablet] = React.useState<boolean | null>( null );
 
@@ -35,7 +35,7 @@ const AppOrientationProvider = ( { children }: AppOrientationProviderProps ) => 
     isLandscape,
     isTablet,
     width: dim.width,
-    height: dim.height
+    height: dim.height,
   };
 
   return (
@@ -53,5 +53,5 @@ function useAppOrientation() {
 
 export {
   AppOrientationProvider,
-  useAppOrientation
+  useAppOrientation,
 };

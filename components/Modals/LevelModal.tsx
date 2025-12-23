@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   View,
-  Image
+  Image,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -16,8 +16,8 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly level: {
-    earnedIconName: string,
-    intlName: string
+    earnedIconName: string;
+    intlName: string;
   };
   readonly speciesCount?: number;
   readonly closeModal: () => void;
@@ -28,7 +28,7 @@ const LevelModal = ( {
   level,
   speciesCount,
   closeModal,
-  screen = null
+  screen = null,
 }: Props ) => (
   <WhiteModal closeModal={closeModal}>
     <View style={viewStyles.headerMargins}>

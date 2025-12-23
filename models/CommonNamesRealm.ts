@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class CommonNamesRealm extends Realm.Object {
   static schema: ObjectSchema = {
@@ -6,8 +7,8 @@ class CommonNamesRealm extends Realm.Object {
     properties: {
       taxon_id: "int",
       locale: "string",
-      name: "string"
-    }
+      name: "string",
+    },
   };
 }
 

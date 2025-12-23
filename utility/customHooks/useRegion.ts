@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const createRegion = ( region: { latitude: number, longitude: number } ) => {
+const createRegion = ( region: { latitude: number; longitude: number } ) => {
   const latitudeDelta = 0.2;
   const longitudeDelta = 0.2;
 
@@ -8,7 +8,7 @@ const createRegion = ( region: { latitude: number, longitude: number } ) => {
     latitude: region.latitude,
     longitude: region.longitude,
     latitudeDelta,
-    longitudeDelta
+    longitudeDelta,
   };
 };
 

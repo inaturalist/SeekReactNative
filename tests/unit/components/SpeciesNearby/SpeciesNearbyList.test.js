@@ -23,7 +23,7 @@ const mockTaxa = [
       original_dimensions: [{}],
       square_url:
         "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
-      url: "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg"
+      url: "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
     },
     english_common_name: "Red-tailed Hawk",
     extinct: false,
@@ -64,26 +64,26 @@ const mockTaxa = [
           square_url:
             "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
           type: "LocalPhoto",
-          url: "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg"
+          url: "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/square.jpg",
         },
-        taxon_id: 5212
-      }
+        taxon_id: 5212,
+      },
     ],
     taxon_schemes_count: 9,
     universal_search_rank: 164650,
-    wikipedia_url: "https://en.wikipedia.org/wiki/Red-tailed_hawk"
-  }
+    wikipedia_url: "https://en.wikipedia.org/wiki/Red-tailed_hawk",
+  },
 ];
 const mockObserved = undefined;
 
 jest.mock( "../../../../utility/customHooks/useSeenTaxa", () => ( {
   __esModule: true,
-  useSeenTaxa: jest.fn( () => null )
+  useSeenTaxa: jest.fn( () => null ),
 } ) );
 
 jest.mock( "../../../../utility/customHooks", () => ( {
   __esModule: true,
-  useCommonName: jest.fn( () => "Red-tailed Hawk" )
+  useCommonName: jest.fn( () => "Red-tailed Hawk" ),
 } ) );
 
 const containerID = "species-nearby-list";

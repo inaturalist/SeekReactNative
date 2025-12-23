@@ -1,7 +1,7 @@
 import React, {
   useState,
   useEffect,
-  useCallback
+  useCallback,
 } from "react";
 import { BackHandler, Platform } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";

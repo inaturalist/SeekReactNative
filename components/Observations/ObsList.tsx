@@ -24,10 +24,10 @@ type Taxon = {
   preferredCommonName?: string | undefined;
   name: string;
   defaultPhoto?: {
-    backupUri?: string,
-    mediumUrl?: string,
+    backupUri?: string;
+    mediumUrl?: string;
     lastUpdated?: Date;
-  }
+  };
 };
 
 interface ConvertedDataItem {
@@ -45,7 +45,7 @@ interface Props {
   fetchFilteredObservations: ( text: string ) => void;
   observations: Observation[];
   searchText: string;
-  openModal: ( photo: { uri: string; }, taxon: Taxon ) => void;
+  openModal: ( photo: { uri: string }, taxon: Taxon ) => void;
   updateObs: ( observations: Observation[] ) => void;
   clearText: () => void;
 }
@@ -56,7 +56,7 @@ const ObsList = ( {
   searchText,
   openModal,
   updateObs,
-  clearText
+  clearText,
 }: Props ) => {
   // TODO: preferably we should use setHiddenSections to change state
   const [hiddenSections] = useState<number[]>( [] );

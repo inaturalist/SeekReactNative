@@ -7,7 +7,7 @@ const landscapeMaxWidth = 455;
 
 const viewStyles = StyleSheet.create( {
   header: {
-    minHeight: 136 + 25 + 26
+    minHeight: 136 + 25 + 26,
   },
   center,
   row,
@@ -15,63 +15,63 @@ const viewStyles = StyleSheet.create( {
     marginLeft: 22,
     paddingBottom: 26,
     paddingTop: 25,
-    width: 170
+    width: 170,
   },
   badgesTextContainer: {
     justifyContent: "center",
     alignSelf: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    width: badgeIconWidth * 3 + 12 * 3
+    width: badgeIconWidth * 3 + 12 * 3,
   },
   badgeTextContainer: {
     width: badgeIconWidth,
-    marginHorizontal: 6
+    marginHorizontal: 6,
   },
   textContainer: {
-    marginHorizontal: 26
+    marginHorizontal: 26,
   },
   tabletContainer: {
     width: landscapeMaxWidth,
-    alignSelf: "center"
+    alignSelf: "center",
   },
   map: {
     height: 189,
-    marginBottom: 20
+    marginBottom: 20,
   },
   divider: {
-    height: 45
+    height: 45,
   },
   smallDivider: {
-    height: 18
-  }
+    height: 18,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   lightText: {
-    marginBottom: 10
+    marginBottom: 10,
   },
   center: {
-    textAlign: "center"
+    textAlign: "center",
   },
   caption: {
     marginTop: 16,
     textAlign: "center",
-    maxWidth: 245
-  }
+    maxWidth: 245,
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
   levelImage: {
     resizeMode: "contain",
     height: 136,
-    width: 136
+    width: 136,
   },
   image: {
     height: 186,
     width: dimensions.width,
-    resizeMode: "cover"
-  }
+    resizeMode: "cover",
+  },
 } );
 
 

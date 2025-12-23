@@ -81,7 +81,7 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ) => {
         lat: latitude,
         lng: longitude,
         taxon_id: unobservedTaxaIds.join( "," ),
-        without_taxon_id: []
+        without_taxon_id: [],
       };
 
       fetchSpecies( params );
@@ -118,7 +118,7 @@ const SpeciesNearbyChallenge = ( { challenge }: Props ) => {
           <View style={viewStyles.marginMedium} />
           <View style={[
             viewStyles.center,
-            viewStyles.speciesNearbyErrorContainer
+            viewStyles.speciesNearbyErrorContainer,
           ]}>
             <StyledText style={baseTextStyles.body}>{i18n.t( "challenges.no_species_nearby" )}</StyledText>
           </View>

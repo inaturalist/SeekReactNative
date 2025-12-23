@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, useState } from "react";
+import type { PropsWithChildren} from "react";
+import React, { useState } from "react";
 import { Pressable, View } from "react-native";
 import Clipboard from "@react-native-clipboard/clipboard";
 

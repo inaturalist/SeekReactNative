@@ -29,7 +29,7 @@ const useFetchPhotos = ( ): ProjectPhoto[] => {
         quality_grade: "research",
         lrank: "species",
         hrank: "species",
-        locale: i18n.locale
+        locale: i18n.locale,
       };
 
       inatjs.observations.search( params ).then( ( { results } ) => {
@@ -56,7 +56,7 @@ const useFetchPhotos = ( ): ProjectPhoto[] => {
                   defaultPhoto.attribution,
                   defaultPhoto.license_code,
                   "iNatStats"
-                )
+                ),
               } );
             }
           }
@@ -80,5 +80,5 @@ const useFetchPhotos = ( ): ProjectPhoto[] => {
 };
 
 export {
-  useFetchPhotos
+  useFetchPhotos,
 };

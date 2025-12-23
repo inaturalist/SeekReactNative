@@ -1,6 +1,4 @@
-type Languages = {
-  [key: string]: string;
-};
+type Languages = Record<string, string>;
 
 // using names from https://github.com/inaturalist/iNaturalistAndroid/blob/master/iNaturalist/src/main/res/values/constants.xml
 // and Google Translate for Sinhala
@@ -39,7 +37,7 @@ const languages: Languages = {
   tr: "Türkçe",
   uk: "Українська",
   "zh-CN": "中文 (中国)",
-  "zh-TW": "中文 (台灣)"
+  "zh-TW": "中文 (台灣)",
 };
 
 export default languages;

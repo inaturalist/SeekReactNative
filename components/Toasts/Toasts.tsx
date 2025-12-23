@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   Animated,
   View,
-  Dimensions
+  Dimensions,
 } from "react-native";
 
 import BadgeToast from "./BadgeToast";
@@ -40,7 +40,7 @@ class Toasts extends Component<Props, State> {
     // Array that signifies which badge toasts have already been shown, stores the earnedDate prop
     badgesShown: new Set(),
     challengesShown: new Set(),
-    badgeIsShowing: false
+    badgeIsShowing: false,
   };
 
   constructor( props: Props ) {
@@ -72,14 +72,14 @@ class Toasts extends Component<Props, State> {
   entrance = {
     toValue: 0,
     duration: this.entranceSpeed,
-    useNativeDriver: true
+    useNativeDriver: true,
   };
 
   exit = {
     toValue: height > 570 ? -170 : -120,
     delay: this.displayTime,
     duration: this.exitSpeed,
-    useNativeDriver: true
+    useNativeDriver: true,
   };
 
   showBadgeToast = ( ) => {
@@ -92,14 +92,14 @@ class Toasts extends Component<Props, State> {
 
     const badgeToast = [
       Animated.timing( this.animatedBadge, this.entrance ),
-      Animated.timing( this.animatedBadge, this.exit )
+      Animated.timing( this.animatedBadge, this.exit ),
     ];
 
     const badgeSequence = [badgeToast[0], badgeToast[1]];
     Animated.sequence( badgeSequence ).start();
     this.setState( {
       badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
-      badgeIsShowing: true
+      badgeIsShowing: true,
     }, ( ) => {
       setTimeout( ( ) => {
         this.setState( { badgeIsShowing: false } );
@@ -119,14 +119,14 @@ class Toasts extends Component<Props, State> {
 
     const challengeToast = [
       Animated.timing( this.animatedChallenge, this.entrance ),
-      Animated.timing( this.animatedChallenge, this.exit )
+      Animated.timing( this.animatedChallenge, this.exit ),
     ];
 
     const challengeSequence = [challengeToast[0], challengeToast[1]];
     Animated.sequence( challengeSequence ).start();
 
     this.setState( {
-      challengesShown: new Set( challengesShown ).add( challengeIdentifier )
+      challengesShown: new Set( challengesShown ).add( challengeIdentifier ),
     } );
   };
 
@@ -142,8 +142,8 @@ class Toasts extends Component<Props, State> {
             style={[
               viewStyles.animatedStyle,
               {
-                transform: [{ translateY: this.animatedBadge }]
-              }
+                transform: [{ translateY: this.animatedBadge }],
+              },
             ]}
           >
             <BadgeToast badge={badge} />
@@ -154,8 +154,8 @@ class Toasts extends Component<Props, State> {
             style={[
               viewStyles.animatedStyle,
               {
-                transform: [{ translateY: this.animatedChallenge }]
-              }
+                transform: [{ translateY: this.animatedChallenge }],
+              },
             ]}
           >
             <ChallengeToast challenge={challenge} />

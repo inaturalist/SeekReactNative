@@ -41,7 +41,7 @@ const PostStatus = ( ) => {
 
   // TODO: navigation TS
   const navToMatch = ( ) => navigation.popTo( "Drawer", {
-    screen: "Match"
+    screen: "Match",
   } );
 
   return (

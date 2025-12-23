@@ -151,7 +151,7 @@ const encodeJWT = ( payload: object, key: string, algorithm?: string ) => {
 const createJwtToken = ( ): string => {
   const claims = {
     application: "SeekRN",
-    exp: new Date().getTime() / 1000 + 300
+    exp: new Date().getTime() / 1000 + 300,
   };
 
   const token = encodeJWT( claims, config.jwtSecret, "HS512" );
@@ -163,7 +163,7 @@ const localizeNumber = ( number: number ): string => {
   return i18n.formatNumber( number, {
     precision: 0,
     delimiter: groupingSeparator,
-    separator: decimalSeparator
+    separator: decimalSeparator,
   } );
 };
 
@@ -172,7 +172,7 @@ const localizePercentage = ( number: number ): string => i18n.numberToPercentage
 const hideLogs = ( ) => {
   LogBox.ignoreLogs( [
     "Picker has been extracted",
-    "VirtualizedLists should never be nested"
+    "VirtualizedLists should never be nested",
   ] );
 };
 
@@ -190,5 +190,5 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  hideLogs
+  hideLogs,
 };

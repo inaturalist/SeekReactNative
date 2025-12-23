@@ -1,4 +1,5 @@
-import Realm, { ObjectSchema } from "realm";
+import type { ObjectSchema } from "realm";
+import Realm from "realm";
 
 class UploadObservationRealm extends Realm.Object {
   static schema: ObjectSchema = {
@@ -16,8 +17,8 @@ class UploadObservationRealm extends Realm.Object {
       positional_accuracy: "int?",
       description: "string?",
       photo: "UploadPhotoRealm",
-      vision: "bool"
-    }
+      vision: "bool",
+    },
   };
 }
 

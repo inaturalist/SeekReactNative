@@ -1,7 +1,7 @@
 import React, { useCallback, useReducer, useEffect } from "react";
 import { View, Platform, Modal } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { PositionError} from "react-native-geolocation-service";
+import type { PositionError} from "react-native-geolocation-service";
 
 import { viewStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
@@ -78,7 +78,7 @@ const SpeciesNearby = ( ) => {
     error: speciesNearby.isConnected === false ? "internet_error" : null,
     showModal: false,
     loading: speciesNearby.taxa.length === 0,
-    fetching: false
+    fetching: false,
   } );
 
   const { error, showModal, loading, fetching } = state;
@@ -87,7 +87,7 @@ const SpeciesNearby = ( ) => {
     setSpeciesNearby( {
       ...speciesNearby,
       latitude,
-      longitude
+      longitude,
     } );
     dispatch( { type: ACTION_TYPE.SET_LOADING, loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
@@ -95,7 +95,7 @@ const SpeciesNearby = ( ) => {
   const updateTaxaType = useCallback( ( type: string ) => {
     setSpeciesNearby( {
       ...speciesNearby,
-      taxaType: type
+      taxaType: type,
     } );
     dispatch( { type: ACTION_TYPE.SET_LOADING, loading: true } );
   }, [speciesNearby, setSpeciesNearby] );
@@ -174,7 +174,7 @@ const SpeciesNearby = ( ) => {
         observed_on: new Date(),
         seek_exceptions: true,
         locale: i18n.locale,
-        all_photos: true // this allows for ARR license filtering
+        all_photos: true, // this allows for ARR license filtering
       };
 
       if ( taxonIds[taxaType] ) {
@@ -193,7 +193,7 @@ const SpeciesNearby = ( ) => {
           const newTaxa = results.map( r => r.taxon );
           setSpeciesNearby( {
             ...speciesNearby,
-            taxa: newTaxa
+            taxa: newTaxa,
           } );
           dispatch( { type: ACTION_TYPE.SET_LOADING, loading: false } );
          } )

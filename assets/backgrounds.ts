@@ -1,8 +1,6 @@
-import { ImageSourcePropType } from "react-native";
+import type { ImageSourcePropType } from "react-native";
 
-type Backgrounds = {
-  [key: string]: ImageSourcePropType;
-};
+type Backgrounds = Record<string, ImageSourcePropType>;
 
 const backgrounds: Backgrounds = {
   splash: require( "./backgrounds/bg-splash-2020.webp" ),
@@ -72,7 +70,7 @@ const backgrounds: Backgrounds = {
   "img-challengedetail-september2024": require( "./backgrounds/challenges/img-challengedetail_september2024.webp" ),
   "img-challengedetail-october2024": require( "./backgrounds/challenges/img-challengedetail_october2024.webp" ),
   "img-challengedetail-november2024": require( "./backgrounds/challenges/img-challengedetail_november2024.webp" ),
-  "img-challengedetail-december2024": require( "./backgrounds/challenges/img-challengedetail_december2024.webp" )
+  "img-challengedetail-december2024": require( "./backgrounds/challenges/img-challengedetail_december2024.webp" ),
 };
 
 export default backgrounds;

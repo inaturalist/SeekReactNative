@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   TouchableOpacity,
-  Alert
+  Alert,
 } from "react-native";
 import inatjs from "inaturalistjs";
 
@@ -45,7 +45,7 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ) => {
         lat: region.latitude,
         lng: region.longitude,
         radius: 50,
-        taxon_id: id
+        taxon_id: id,
       };
 
       inatjs.observations.search( params ).then( ( { results } ) => {
@@ -59,7 +59,7 @@ const SpeciesStats = ( { loading, stats, region, id, seenDate }: Props ) => {
               endemic,
               introduced,
               native,
-              endangered: stats.endangered
+              endangered: stats.endangered,
             };
 
             const show = Object.keys( tags ).filter( t => tags[t] === true );

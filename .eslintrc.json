@@ -1,10 +1,23 @@
 {
   "ignorePatterns": ["**/vendor/**"],
   "extends": ["@react-native"],
+  "plugins": [
+    "@stylistic",
+    "import"
+  ],
   "rules": {
     "quotes": [2, "double"],
-    "comma-dangle": [2, "never"],
+    "comma-dangle": [2, "always-multiline"],
     "space-in-parens": [2, "always"],
+    "@stylistic/member-delimiter-style": 2,
+    "@typescript-eslint/array-type": 2,
+    "@typescript-eslint/consistent-type-imports": [
+      2,
+      {
+        "fixStyle": "separate-type-imports"
+      }
+    ],
+    "import/consistent-type-specifier-style": [2, "prefer-top-level"],
     "prettier/prettier": 0,
     "react-hooks/react-compiler": "error"
   },

@@ -3,7 +3,7 @@ import {
   View,
   TouchableOpacity,
   Image,
-  Platform
+  Platform,
 } from "react-native";
 import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -57,7 +57,7 @@ const Donation = ( { navigation, route } ) => {
             <StyledText style={[
               baseTextStyles.donationLink,
               textStyles.donateText,
-              selectedText && viewStyles.selectedPressableArea
+              selectedText && viewStyles.selectedPressableArea,
             ]}>
               {redirectForiOS}
             </StyledText>

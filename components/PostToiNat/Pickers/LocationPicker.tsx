@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   TouchableOpacity,
-  Image
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -16,8 +16,8 @@ import { dimensions } from "../../../styles/global";
 import { useFetchUserLocation } from "../hooks/postingHooks";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
-import { Region } from "react-native-maps";
-import { Coords } from "../../../utility/locationHelpers";
+import type { Region } from "react-native-maps";
+import type { Coords } from "../../../utility/locationHelpers";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
@@ -33,7 +33,7 @@ const LocationPicker = ( {
   latitude,
   longitude,
   updateLocation,
-  closeLocationPicker
+  closeLocationPicker,
 }: Props ) => {
   const initialAccuracy = 90;
   const [accuracy, setAccuracy] = useState( initialAccuracy );
@@ -46,7 +46,7 @@ const LocationPicker = ( {
     latitude: null,
     longitude: null,
     latitudeDelta,
-    longitudeDelta
+    longitudeDelta,
   } );
   const userCoords = useFetchUserLocation( );
 
@@ -67,7 +67,7 @@ const LocationPicker = ( {
       latitude: lat,
       longitude: long,
       latitudeDelta,
-      longitudeDelta
+      longitudeDelta,
     } );
   };
 

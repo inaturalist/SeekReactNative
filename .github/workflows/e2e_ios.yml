@@ -97,6 +97,7 @@ jobs:
       run: npm run e2e:build:ios
 
     - name: Ensure servers are running
+      id: status_check
       run: |
         # is rails running?
         curl -I --fail "https://staging.inaturalist.org/ping"
@@ -104,15 +105,26 @@ jobs:
         curl -I --fail "https://stagingapi.inaturalist.org/v2/taxa"
 
     - name: Run e2e test
-      run: npm run e2e:test:ios -- --cleanup --take-screenshots failing --record-videos failing --record-logs all -l trace
+      run: |
+        npm run e2e:test:ios
+
+    - name: Run e2e test (retry, with logs)
+      # do not retry if status check fails
+      if: ${{ failure() && steps.status_check.outcome != 'failure' }}
+      run: |
+        # provide more debugging context on retry failure
+        # we're explicitly not using `detox test --retries` for this reason
+        npm run e2e:test:ios -- --take-screenshots failing --record-videos failing --record-logs all -l trace
     
     # The artifacts for the failing tests are available for download on github.com on the page of the individual actions run
     - name: Store Detox artifacts on test failure
       uses: actions/upload-artifact@v4
-      if: failure()
+      # no artifacts if status check fails
+      if: ${{ failure() && steps.status_check.outcome != 'failure' }}
       with:
         name: detox-artifacts
         path: artifacts
+        retention-days: 5
 
   notify:
     name: Notify Slack

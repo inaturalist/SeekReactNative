@@ -17,15 +17,15 @@ import backgrounds from "../../assets/backgrounds";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
-type Props = {
-  closeModal: ( ) => void,
+interface Props {
+  closeModal: ( ) => void;
   challenge: {
-    availableDate: Date,
-    backgroundName: string,
-    sponsorName: string,
-    secondLogo: string,
-    earnedIconName: string,
-    badgeName: string
+    availableDate: Date;
+    backgroundName: string;
+    sponsorName: string;
+    secondLogo: string;
+    earnedIconName: string;
+    badgeName: string;
   }
 };
 

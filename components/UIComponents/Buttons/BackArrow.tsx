@@ -9,7 +9,7 @@ import i18n from "../../../i18n";
 import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 
-type Props = {
+interface Props {
   readonly green?: boolean;
   readonly route?: string | null;
 }

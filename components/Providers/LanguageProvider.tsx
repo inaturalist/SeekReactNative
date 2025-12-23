@@ -11,8 +11,7 @@ const LanguageContext = React.createContext<
   } | undefined
 >( undefined );
 
-type LanguageProviderProps = {children: React.ReactNode}
-const LanguageProvider = ( { children }: LanguageProviderProps ) => {
+const LanguageProvider = ( { children }: React.PropsWithChildren ) => {
   const [preferredLanguage, setLanguage] = React.useState<string | null>( null );
 
   const getLanguagePreference = async ( ) => setLanguage( await getLanguage( ) );

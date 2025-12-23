@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
 
 import { useLocationName } from "../../utility/customHooks";
@@ -22,8 +22,7 @@ const SpeciesNearbyContext = React.createContext<
   } | undefined
 >( undefined );
 
-type SpeciesNearbyProps = {children: React.ReactNode}
-const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
+const SpeciesNearbyProvider = ( { children }: PropsWithChildren ) => {
   const netInfo = useNetInfo( );
   const { isConnected } = netInfo;
   const [speciesNearby, setSpeciesNearby] = useState<SpeciesNearbyState>( {

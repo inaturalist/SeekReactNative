@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { PropsWithChildren, useRef } from "react";
 import {
   View,
   ScrollView,
@@ -18,10 +18,9 @@ import LoadingWheel from "../LoadingWheel";
 import { colors } from "../../../styles/global";
 import Footer from "../Footer";
 
-interface Props {
+interface Props extends PropsWithChildren {
   testID?: string;
   header: string;
-  children: React.ReactNode;
   route?: string;
   loading?: boolean;
   footer?: boolean;

@@ -8,7 +8,7 @@ jest.mock(
   "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks",
   () => ( {
     __esModule: true,
-    useCountObservationsForYear: jest.fn( () => 100 )
+    useCountObservationsForYear: jest.fn( () => 100 ),
   } )
 );
 

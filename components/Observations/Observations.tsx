@@ -69,7 +69,7 @@ const Observations = ( ) => {
       photo,
       preferredCommonName,
       name,
-      iconicTaxonId
+      iconicTaxonId,
     } );
     setModal( true );
   }, [] );

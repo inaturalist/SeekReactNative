@@ -13,7 +13,7 @@ const ChallengeProvider = ( { children }: ChallengeProviderProps ) => {
 
   const value = {
     challengeIndex,
-    setIndex
+    setIndex,
   };
 
   return (
@@ -33,5 +33,5 @@ function useChallenge() {
 
 export {
   ChallengeProvider,
-  useChallenge
+  useChallenge,
 };

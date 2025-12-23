@@ -66,7 +66,7 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
       if ( !login ) {
         return {
           image,
-          errorCode: code
+          errorCode: code,
         };
       } else {
         return {
@@ -75,10 +75,10 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
             preciseCoords: {
               latitude: null,
               longitude: null,
-              accuracy: null
-            }
+              accuracy: null,
+            },
           },
-          errorCode: code
+          errorCode: code,
         };
       }
     }
@@ -100,5 +100,5 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
 
 export {
   setImageCoords,
-  fetchImageLocationOrErrorCode
+  fetchImageLocationOrErrorCode,
 };

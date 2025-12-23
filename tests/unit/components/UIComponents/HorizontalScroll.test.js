@@ -13,7 +13,7 @@ const mockPhotoList = [
     </View>,
     <View key={2} >
         <Text>Item 3</Text>
-    </View>
+    </View>,
 ];
 
 const containerTestId = "horizontal-scroll";

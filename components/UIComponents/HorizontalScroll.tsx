@@ -17,7 +17,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
   const flashList = useRef<FlashListRef<JSX.Element>>( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
-    viewAreaCoveragePercentThreshold: 95
+    viewAreaCoveragePercentThreshold: 95,
   } );
   const length = photoList.length - 1;
   const [scrollIndex, setScrollIndex] = useState( 0 );
@@ -81,7 +81,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
           style={[
             styles.leftArrow,
             isSpeciesScreen && styles.speciesLeftArrow,
-            isYearInReviewScreen && styles.yearInReviewArrow
+            isYearInReviewScreen && styles.yearInReviewArrow,
           ]}
         >
           <Image source={icons.swipeRight} style={styles.rotate} />
@@ -96,7 +96,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
           style={[
             styles.rightArrow,
             isSpeciesScreen && styles.speciesRightArrow,
-            isYearInReviewScreen && styles.yearInReviewArrow
+            isYearInReviewScreen && styles.yearInReviewArrow,
           ]}
         >
           <Image source={icons.swipeRight} style={styles.rotateRTL} />

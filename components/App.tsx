@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import {
   setJSExceptionHandler,
-  setNativeExceptionHandler
+  setNativeExceptionHandler,
 } from "react-native-exception-handler";
 import {
   getVersion,
-  getBuildNumber
+  getBuildNumber,
 } from "react-native-device-info";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -40,7 +40,7 @@ const jsErrorHandler = ( e, isFatal ) => {
       context: "App.tsx",
       message: e.message,
       errorType: e.constructor?.name,
-      backtrace: e.stack
+      backtrace: e.stack,
     } );
   } else {
     // This should get logged by ErrorBoundary. For some reason this handler
@@ -62,7 +62,7 @@ setNativeExceptionHandler(
         level: LogLevels.ERROR,
         message: exceptionString,
         context: "App.tsx",
-        errorType: "native"
+        errorType: "native",
       } );
       logger.error( `Native Error: ${exceptionString}` );
     } catch ( e ) {

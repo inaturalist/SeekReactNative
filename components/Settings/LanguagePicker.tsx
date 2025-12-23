@@ -62,7 +62,7 @@ const LanguagePicker = () => {
       {
         text: i18n.t( "delete.no" ),
         onPress: ( ) => null,
-        style: "cancel"
+        style: "cancel",
       }, {
         text: i18n.t( "settings.confirm" ),
         onPress: ( ) => {
@@ -71,8 +71,8 @@ const LanguagePicker = () => {
           i18n.locale = value;
           toggleLanguage( value );
           toggleLanguagePreference();
-        }
-      }
+        },
+      },
     ] );
   }, [toggleLanguagePreference] );
 

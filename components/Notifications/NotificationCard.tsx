@@ -3,7 +3,7 @@ import {
   Image,
   ImageSourcePropType,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 

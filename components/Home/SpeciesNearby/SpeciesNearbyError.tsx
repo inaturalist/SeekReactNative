@@ -3,7 +3,7 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { useNetInfo } from "@react-native-community/netinfo";
 
@@ -28,7 +28,7 @@ const SpeciesNearbyError = ( {
   error,
   checkInternet,
   checkLocation,
-  openLocationPicker
+  openLocationPicker,
 }: Props ) => {
   const { speciesNearby, setSpeciesNearby } = useSpeciesNearby( );
   const netInfo = useNetInfo( );
@@ -38,7 +38,7 @@ const SpeciesNearbyError = ( {
     if ( error === "internet_error" && isConnected ) {
       setSpeciesNearby( {
         ...speciesNearby,
-        isConnected
+        isConnected,
       } );
       checkInternet( );
     } else if ( error ) {

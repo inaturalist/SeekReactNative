@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {
   View,
-  Image
+  Image,
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 
@@ -46,8 +46,8 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
           style={[
             imageStyles.image, {
               width: columnWidth,
-              height: columnWidth
-            }
+              height: columnWidth,
+            },
           ]}
         />
         {photo.attribution && photo.license_code && (
@@ -55,7 +55,7 @@ const SpeciesPhotosLandscape = ( { loading, photos, id }: Props ): Node => {
             baseTextStyles.button,
             textStyles.ccButtonText,
             isLandscape && baseTextStyles.buttonRegular,
-            { maxWidth: columnWidth }
+            { maxWidth: columnWidth },
           ]}>
             {localizeAttributionsLandscape( photo.attribution, photo.license_code )}
           </StyledText>

@@ -71,7 +71,7 @@ const i18n = new I18n( {
   tr,
   uk,
   "zh-CN": zhCN,
-  "zh-TW": zhTW
+  "zh-TW": zhTW,
 } );
 
 i18n.enableFallback = true;

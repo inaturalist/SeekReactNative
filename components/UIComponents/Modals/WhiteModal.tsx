@@ -17,7 +17,7 @@ const WhiteModal = ( {
   closeModal = () => {},
   noButton = false,
   width = null,
-  accessibilityLabel
+  accessibilityLabel,
 }: Props ) => {
   let widthStyle = null;
 

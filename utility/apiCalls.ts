@@ -25,12 +25,12 @@ const fetchSpeciesNearby = async ( params: Params ): Promise<string | any[]> => 
     observed_on: new Date( ),
     seek_exceptions: true,
     locale: i18n.locale,
-    all_photos: true // this allows for ARR license filtering
+    all_photos: true, // this allows for ARR license filtering
   };
 
   const allParams: ApiParams = {
     ...staticParams,
-    ...params
+    ...params,
   };
 
   const site = "https://api.inaturalist.org/v1/taxa/nearby";
@@ -71,7 +71,7 @@ const logToApi = async ( { level, message, context, errorType, backtrace }: Log 
     message,
     context,
     error_type: errorType,
-    backtrace
+    backtrace,
   };
 
   const options = {
@@ -79,9 +79,9 @@ const logToApi = async ( { level, message, context, errorType, backtrace }: Log 
     headers: {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent( ),
-      "Authorization": createJwtToken( )
+      "Authorization": createJwtToken( ),
     },
-    body: JSON.stringify( formData )
+    body: JSON.stringify( formData ),
   };
 
   try {
@@ -94,5 +94,5 @@ const logToApi = async ( { level, message, context, errorType, backtrace }: Log 
 
 export {
   fetchSpeciesNearby,
-  logToApi
+  logToApi,
 };

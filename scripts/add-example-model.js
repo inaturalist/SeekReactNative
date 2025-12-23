@@ -100,21 +100,21 @@ const downloadIOS = async () => {
   await fs.mkdir( iosDestination, { recursive: true } );
 
   const dl = new DownloaderHelper( iosCV, iosDestination, {
-    fileName: iosModelFilename
+    fileName: iosModelFilename,
   } );
   dl.on( "end", () => console.log( "Download Completed" ) );
   dl.on( "error", ( err ) => console.log( "Download Failed", err ) );
   await dl.start().catch( ( err ) => console.error( err ) );
   console.log( "Downloaded!" );
   const dl2 = new DownloaderHelper( iosGeo, iosDestination, {
-    fileName: "geomodel_v2_20.mlmodel"
+    fileName: "geomodel_v2_20.mlmodel",
   } );
   dl2.on( "end", () => console.log( "Download Completed" ) );
   dl2.on( "error", ( err ) => console.log( "Download Failed", err ) );
   await dl2.start().catch( ( err ) => console.error( err ) );
   console.log( "Downloaded!" );
   const dl3 = new DownloaderHelper( taxonomyJSON, iosDestination, {
-    fileName: "taxonomy_v2_20.json"
+    fileName: "taxonomy_v2_20.json",
   } );
   dl3.on( "end", () => console.log( "Download Completed" ) );
   dl3.on( "error", ( err ) => console.log( "Download Failed", err ) );
@@ -178,7 +178,7 @@ yargs
   .option( "androidFlavor", {
     alias: "f",
     type: "string",
-    description: "Android flavor to download model files into"
+    description: "Android flavor to download model files into",
   } )
   .command(
     "$0",

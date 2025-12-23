@@ -29,7 +29,7 @@ const ErrorScreen = ( { error, number }: Props ) => {
     errorText = i18n.t( "results.error_species" );
   } else if ( error === "downtime" ) {
     errorText = i18n.t( "results.error_downtime_plural", {
-      count: number || i18n.t( "results.error_few" )
+      count: number || i18n.t( "results.error_few" ),
     } );
   } else if ( error === "login" ) {
     errorText = i18n.t( "post_to_inat_card.error_login" );

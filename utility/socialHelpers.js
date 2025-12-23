@@ -23,7 +23,7 @@ const shareToFacebook = async ( url: string ): Promise<any> => {
   const shareOptions = {
     url,
     // social: Share.Social.FACEBOOK
-    social: null // temporarily set to null since Share is not available
+    social: null, // temporarily set to null since Share is not available
   };
 
   const fbInstalled = await Linking.canOpenURL( "fb://profile" );
@@ -90,7 +90,7 @@ const addTextToWatermark = async( userImage: string, text, position: number, wid
     fontName: position === 1 ? fonts.semibold : fonts.bookItalic,
     fontSize: setFontSize( scale ),
     scale: 1,
-    quality: 100
+    quality: 100,
   };
 
   try {
@@ -154,7 +154,7 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
     X: 0,
     markerScale: setMarkerScale( scale, width, height ), // scale of icon
     quality: 100, // quality of image
-    saveFormat: "jpeg"
+    saveFormat: "jpeg",
   };
 
   if ( height > width ) {
@@ -193,5 +193,5 @@ export {
   saveToCameraRoll,
   addWatermark,
   getAssetFileAbsolutePath,
-  getImageSize
+  getImageSize,
 };

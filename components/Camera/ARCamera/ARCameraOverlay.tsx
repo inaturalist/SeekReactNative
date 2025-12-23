@@ -3,7 +3,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Platform
+  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -48,7 +48,7 @@ const ARCameraOverlay = ( {
   pictureTaken,
   cameraLoaded,
   filterByTaxonId,
-  setIsActive
+  setIsActive,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -64,22 +64,22 @@ const ARCameraOverlay = ( {
       taxonId: null,
       text: i18n.t( "camera.filters_off" ),
       icon: icons.plantFilterOff,
-      color: colors.cameraFilterGray
+      color: colors.cameraFilterGray,
     },
     {
       negativeFilter: false,
       taxonId: "47126",
       text: i18n.t( "camera.plant_filter" ),
       icon: icons.plantsFilter,
-      color: null
+      color: null,
     },
     {
       negativeFilter: true,
       taxonId: "47126",
       text: i18n.t( "camera.non_plant_filter" ),
       icon: icons.nonPlantsFilter,
-      color: colors.seekTeal
-    }
+      color: colors.seekTeal,
+    },
   ] ), [] );
 
   const toggleFilterIndex = ( ) => {

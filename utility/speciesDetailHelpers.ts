@@ -23,7 +23,7 @@ const fetchHistogram = async ( id: number, region?: Region ): Promise<HistogramD
   const params: any = {
     date_field: "observed",
     interval: "month_of_year",
-    taxon_id: id
+    taxon_id: id,
   };
 
   if ( region ) {
@@ -41,5 +41,5 @@ const fetchHistogram = async ( id: number, region?: Region ): Promise<HistogramD
 };
 
 export {
-  fetchHistogram
+  fetchHistogram,
 };

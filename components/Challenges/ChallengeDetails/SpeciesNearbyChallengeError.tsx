@@ -30,7 +30,7 @@ const SpeciesNearbyChallengeError = ( { error }: Props ) => {
       <View style={viewStyles.marginMedium} />
       <View style={[
         viewStyles.center,
-        viewStyles.speciesNearbyErrorContainer
+        viewStyles.speciesNearbyErrorContainer,
       ]}>
         <StyledText style={[baseTextStyles.body, textStyles.speciesNearbyErrorText]}>{setErrorText( )}</StyledText>
       </View>

@@ -13,7 +13,7 @@ const AllTheProviders = ( { children } ) => {
     <LanguageProvider
       value={{
         preferredLanguage: "en",
-        toggleLanguagePreference: jest.fn()
+        toggleLanguagePreference: jest.fn(),
       }}
     >
       <UserContext.Provider
@@ -21,8 +21,8 @@ const AllTheProviders = ( { children } ) => {
           login: "some_token",
           userProfile: {
             login: "some_name",
-            icon: "some_photo"
-          }
+            icon: "some_photo",
+          },
         }}
       >
         <AppOrientationProvider value={{}}>
@@ -31,7 +31,7 @@ const AllTheProviders = ( { children } ) => {
               id: 1,
               region: {},
               setId: jest.fn(),
-              setRegion: jest.fn()
+              setRegion: jest.fn(),
             }}
           >
             <ChallengeProvider value={{}}>

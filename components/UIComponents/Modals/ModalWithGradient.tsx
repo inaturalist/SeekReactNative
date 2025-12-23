@@ -3,7 +3,7 @@ import {
   View,
   Image,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -30,7 +30,7 @@ const ModalWithGradient = ( {
   color,
   userImage,
   originalImage,
-  displayDate = null
+  displayDate = null,
 }: Props ) => (
   <View style={viewStyles.container}>
     <LinearGradient

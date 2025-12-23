@@ -57,12 +57,12 @@ function reducer( s: State, action: Action ): State {
     case ACTION.SHOW_SIMILAR_SPECIES:
       return {
         similarSpecies: action.similarSpecies,
-        loading: false
+        loading: false,
       };
     case ACTION.RESET_STATE:
       return {
         similarSpecies: [],
-        loading: true
+        loading: true,
       };
     default:
       throw new Error();
@@ -70,7 +70,7 @@ function reducer( s: State, action: Action ): State {
 }
 const initialState = {
   similarSpecies: [],
-  loading: true
+  loading: true,
 };
 
 const SimilarSpecies = ( { id }: Props ) => {
@@ -78,7 +78,7 @@ const SimilarSpecies = ( { id }: Props ) => {
 
   const {
     similarSpecies,
-    loading
+    loading,
   } = state;
 
   const { length } = similarSpecies;
@@ -93,7 +93,7 @@ const SimilarSpecies = ( { id }: Props ) => {
           per_page: 20,
           taxon_id: id,
           without_taxon_id: 43584,
-          locale: i18n.locale
+          locale: i18n.locale,
         };
 
         inatjs.identifications.similar_species( params ).then( ( { results } ) => {

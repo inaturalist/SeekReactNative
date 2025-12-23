@@ -11,7 +11,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<string | {
   const headers = {
     "Content-Type": "application/json",
     "User-Agent": createUserAgent(),
-    Authorization: `Bearer ${loginToken}`
+    Authorization: `Bearer ${loginToken}`,
   };
 
   const site = "https://www.inaturalist.org";
@@ -27,22 +27,22 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<string | {
         error: {
           type: "downtime",
           errorText: e.message,
-          numOfHours: handleServerError( e )
-        }
+          numOfHours: handleServerError( e ),
+        },
       };
     }
     if ( e.message === "timeout" ) {
       return {
         error: {
-          type: "timeout"
-        }
+          type: "timeout",
+        },
       };
     }
     return {
       error: {
         type: "login",
-        errorText: e.message
-      }
+        errorText: e.message,
+      },
     };
   }
 };

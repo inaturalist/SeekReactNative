@@ -56,7 +56,7 @@ const ObsList = ( {
   searchText,
   openModal,
   updateObs,
-  clearText
+  clearText,
 }: Props ) => {
   // TODO: preferably we should use setHiddenSections to change state
   const [hiddenSections] = useState<number[]>( [] );

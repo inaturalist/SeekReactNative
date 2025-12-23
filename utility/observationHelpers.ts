@@ -30,7 +30,7 @@ const addToCollection = async ( observation: {
     latitude,
     longitude,
     uri,
-    time
+    time,
   } = image;
   const { taxon } = observation;
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
@@ -48,7 +48,7 @@ const addToCollection = async ( observation: {
           // mediumUrl should probably be renamed 'originalPhoto'
           // so as not to confuse it with medium_url from the API call
           mediumUrl: uri,
-          backupUri
+          backupUri,
         } );
       }
       const newTaxon = realm.create( "TaxonRealm", {
@@ -56,14 +56,14 @@ const addToCollection = async ( observation: {
         name: taxon.name,
         iconicTaxonId: taxon.iconic_taxon_id,
         ancestorIds: taxon.ancestor_ids,
-        defaultPhoto
+        defaultPhoto,
       } );
       realm.create( "ObservationRealm", {
         uuidString: createUUID.v4(),
         date: time ? setISOTime( time ) : new Date(),
         taxon: newTaxon,
         latitude: latitude || null,
-        longitude: longitude || null
+        longitude: longitude || null,
       } );
     } );
     const newLength = realm.objects( "TaxonRealm" ).length;
@@ -146,5 +146,5 @@ const createSectionList = ( species: any, hideSections: boolean ): {id: number; 
 export {
   addToCollection,
   removeFromCollection,
-  createSectionList
+  createSectionList,
 };

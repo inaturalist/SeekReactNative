@@ -29,5 +29,5 @@ const handleServerError = ( error: ServerError ): number | string | null => {
 };
 
 export {
-  handleServerError
+  handleServerError,
 };

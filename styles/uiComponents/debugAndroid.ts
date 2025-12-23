@@ -5,12 +5,12 @@ const viewStyles = StyleSheet.create( {
   background: {
     backgroundColor: colors.white,
     flex: 1,
-    paddingHorizontal: 23
+    paddingHorizontal: 23,
   },
   center: {
     flex: 1,
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 } );
 
 export default viewStyles;

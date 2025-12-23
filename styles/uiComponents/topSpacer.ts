@@ -9,7 +9,7 @@ const viewStyles = StyleSheet.create( {
     height: 1050,
     left: 0,
     position: "absolute",
-    right: 0
+    right: 0,
   },
   iosSpacer: {
     backgroundColor: colors.seekForestGreen,
@@ -17,8 +17,8 @@ const viewStyles = StyleSheet.create( {
     left: 0,
     position: "absolute",
     right: 0,
-    top: -1000
-  }
+    top: -1000,
+  },
 } );
 
 export default viewStyles;

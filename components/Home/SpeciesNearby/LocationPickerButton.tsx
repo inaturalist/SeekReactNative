@@ -2,7 +2,7 @@ import React from "react";
 import {
   View,
   TouchableOpacity,
-  Image
+  Image,
 } from "react-native";
 
 import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
@@ -20,7 +20,7 @@ interface Props {
 const LocationPickerButton = ( {
   openLocationPicker,
   disabled,
-  location
+  location,
 }: Props ) => {
   const locationText = location ? location : i18n.t( "species_nearby.no_location" );
   return (

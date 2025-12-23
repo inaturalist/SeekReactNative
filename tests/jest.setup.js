@@ -14,7 +14,7 @@ import {
   mockCamera,
   mockSortDevices,
   mockUseCameraDevice,
-  mockUseCameraFormat
+  mockUseCameraFormat,
 } from "./vision-camera/vision-camera";
 
 require( "react-native-reanimated" ).setUpTests();
@@ -28,13 +28,13 @@ jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 jest.mock( "vision-camera-plugin-inatvision" );
 jest.mock( "react-native-worklets-core", () => ( {
   Worklets: {
-    createRunInJsFn: jest.fn()
-  }
+    createRunInJsFn: jest.fn(),
+  },
 } ) );
 
 jest.mock( "react-native-fs", () => {
   const RNFS = {
-    moveFile: async () => "testdata"
+    moveFile: async () => "testdata",
   };
 
   return RNFS;
@@ -49,7 +49,7 @@ jest.mock( "react-native-exception-handler", () => ( {
     .mockImplementation( ( ) => mockErrorHandler() ),
   setNativeExceptionHandler: jest
     .fn()
-    .mockImplementation( ( ) => mockErrorHandler() )
+    .mockImplementation( ( ) => mockErrorHandler() ),
 } ) );
 
 jest.mock( "@react-navigation/native", () => {
@@ -64,10 +64,10 @@ jest.mock( "@react-navigation/native", () => {
         if ( event === "focus" ) {
           callback();
         }
-      }
+      },
     } ),
     useRoute: () => ( {} ),
-    useScrollToTop: () => jest.fn()
+    useScrollToTop: () => jest.fn(),
   };
 } );
 
@@ -77,12 +77,12 @@ jest.mock( "react-native-geolocation-service", () => ( {
       coords: {
         latitude: 42.42,
         longitude: 42.42,
-        accuracy: 42
-      }
+        accuracy: 42,
+      },
     };
     successCallback( position );
   } ),
-  requestAuthorization: jest.fn().mockImplementation( () => Promise.resolve( true ) )
+  requestAuthorization: jest.fn().mockImplementation( () => Promise.resolve( true ) ),
 } ) );
 
 jest.mock( "react-native-geocoder", () => ( {
@@ -102,11 +102,11 @@ jest.mock( "react-native-geocoder", () => ( {
           streetName: "Bush St",
           streetNumber: "771",
           subAdminArea: "San Francisco",
-          subLocality: "Union Square"
-        }
+          subLocality: "Union Square",
+        },
       ] );
     } );
-  } )
+  } ),
 } ) );
 
 jest.mock( "realm", () => {
@@ -121,7 +121,7 @@ jest.mock( "realm", () => {
                 return {
                   filtered: jest.fn( () => {
                     return new Array( 0 );
-                  } )
+                  } ),
                 };
               case "LoginRealm":
                 return [{ observationCount: 42 }];
@@ -135,8 +135,8 @@ jest.mock( "realm", () => {
                     nextScreen: "ChallengeDetails",
                     seen: true,
                     title: "notifications.new_challenge",
-                    viewed: true
-                  }
+                    viewed: true,
+                  },
                 ];
               case "TaxonRealm":
                 return new Array( 42 );
@@ -151,14 +151,14 @@ jest.mock( "realm", () => {
                       defaultPhoto: {
                         backupUri: "some_uri",
                         lastUpdated: null,
-                        mediumUrl: "some_medium_url"
+                        mediumUrl: "some_medium_url",
                       },
                       iconicTaxonId: 1,
                       id: 4242,
                       name: "some_name_1",
-                      preferredCommonName: "some_common_name_1"
+                      preferredCommonName: "some_common_name_1",
                     },
-                    uuidString: "some_uuid_2"
+                    uuidString: "some_uuid_2",
                   },
                   {
                     date: new Date( "2022-12-02T10:19:54.000Z" ),
@@ -169,21 +169,21 @@ jest.mock( "realm", () => {
                       defaultPhoto: {
                         backupUri: "some_uri",
                         lastUpdated: null,
-                        mediumUrl: "some_medium_url"
+                        mediumUrl: "some_medium_url",
                       },
                       iconicTaxonId: 1,
                       id: 4242,
                       name: "some_name_2",
-                      preferredCommonName: null
+                      preferredCommonName: null,
                     },
-                    uuidString: "some_uuid_2"
-                  }
+                    uuidString: "some_uuid_2",
+                  },
                 ];
               default:
                 break;
             }
           } ),
-          write: jest.fn( () => {} )
+          write: jest.fn( () => {} ),
         } );
       } )
   );
@@ -197,8 +197,8 @@ jest.mock( "react-native-vision-camera", () => ( {
   useCameraFormat: mockUseCameraFormat,
   useFrameProcessor: jest.fn(),
   VisionCameraProxy: {
-    initFrameProcessorPlugin: jest.fn()
-  }
+    initFrameProcessorPlugin: jest.fn(),
+  },
 } ) );
 
 jest.mock( "@react-native-camera-roll/camera-roll", () => ( {
@@ -209,7 +209,7 @@ jest.mock( "@react-native-camera-roll/camera-roll", () => ( {
           resolve( {
             page_info: {
               end_cursor: jest.fn(),
-              has_next_page: false
+              has_next_page: false,
             },
             edges: [
               {
@@ -223,11 +223,11 @@ jest.mock( "@react-native-camera-roll/camera-roll", () => ( {
                     width: 1080,
                     fileSize: 123456,
                     playableDuration: NaN,
-                    orientation: 1
-                  }
-                }
-              }
-            ]
+                    orientation: 1,
+                  },
+                },
+              },
+            ],
           } );
         } )
     ),
@@ -235,8 +235,8 @@ jest.mock( "@react-native-camera-roll/camera-roll", () => ( {
       // Expecting album titles as keys and photo counts as values
       // "My Amazing album": 12
     } ) ),
-    save: jest.fn( ( _uri, _options = {} ) => "test_url" )
-  }
+    save: jest.fn( ( _uri, _options = {} ) => "test_url" ),
+  },
 } ) );
 
 

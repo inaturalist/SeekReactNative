@@ -31,5 +31,5 @@ const checkForSystemVersion = ( ): string => {
 export {
   handleLog,
   showCameraSaveFailureAlert,
-  checkForSystemVersion
+  checkForSystemVersion,
 };

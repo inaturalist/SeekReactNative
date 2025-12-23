@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   View,
   Image,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 

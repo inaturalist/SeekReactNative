@@ -11,7 +11,7 @@ import {
   mockCamera,
   mockUseCameraDevice,
   mockUseCameraFormat,
-  mockUseLocationPermission
+  mockUseLocationPermission,
 } from "tests/vision-camera/vision-camera";
 
 const Camera = mockCamera;
@@ -24,5 +24,5 @@ export {
   useCameraDevice,
   useCameraFormat,
   useFrameProcessor,
-  useLocationPermission
+  useLocationPermission,
 };

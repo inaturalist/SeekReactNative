@@ -12,7 +12,7 @@ import {
   isWithin7Days,
   formatYearMonthDay,
   formatHourMonthSecond,
-  setISOTime
+  setISOTime,
 } from "./dateHelpers";
 import { checkSavePermissions } from "./androidHelpers.android";
 
@@ -257,7 +257,7 @@ const replacePhoto = async ( id: number, image: Image ): Promise<void> => {
     latitude,
     longitude,
     uri,
-    time
+    time,
   } = image;
   const backupUri = await createBackupUri( uri );
   // edit realm photo object attached to observation
@@ -312,5 +312,5 @@ export {
   writeToDebugLog,
   deleteDebugLogAfter7Days,
   replacePhoto,
-  checkPhotoSize
+  checkPhotoSize,
 };

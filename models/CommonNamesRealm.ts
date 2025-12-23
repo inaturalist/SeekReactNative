@@ -6,8 +6,8 @@ class CommonNamesRealm extends Realm.Object {
     properties: {
       taxon_id: "int",
       locale: "string",
-      name: "string"
-    }
+      name: "string",
+    },
   };
 }
 

@@ -20,7 +20,7 @@ const logos: Logos = {
   iNatBadge: require( "./logos/img-iNatbadge.webp" ),
   BeesChallengeBadgeView: require( "./logos/BeesChallenge_BadgeView.webp" ),
   BeesChallengeChallengeDetail: require( "./logos/BeesChallenge_ChallengeDetail.webp" ),
-  BeesChallengeTopLogo: require( "./logos/BeesChallenge_TopLogo.webp" )
+  BeesChallengeTopLogo: require( "./logos/BeesChallenge_TopLogo.webp" ),
 };
 
 export default logos;

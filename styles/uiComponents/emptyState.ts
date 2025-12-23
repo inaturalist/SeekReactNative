@@ -5,28 +5,28 @@ const viewStyles = StyleSheet.create( {
     flexGrow: 1,
     justifyContent: "center",
     marginHorizontal: 28,
-    marginVertical: 32
+    marginVertical: 32,
   },
   greenButtonMargin: {
-    marginTop: 32
-  }
+    marginTop: 32,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   headerText: {
     alignSelf: "center",
     maxWidth: 279,
-    textAlign: "center"
+    textAlign: "center",
   },
   text: {
     alignSelf: "center",
     marginTop: 24,
     maxWidth: 455,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };

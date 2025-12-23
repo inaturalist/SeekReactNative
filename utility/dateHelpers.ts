@@ -10,10 +10,10 @@ import {
   fromUnixTime,
   subDays,
   differenceInHours,
-  isSameMonth
+  isSameMonth,
 } from "date-fns";
 import type {
-  Locale
+  Locale,
 } from "date-fns";
 import * as TimeZone from "date-fns-tz";
 import * as RNLocalize from "react-native-localize";
@@ -51,7 +51,7 @@ import {
   tr,
   uk,
   zhCN,
-  zhTW
+  zhTW,
 } from "date-fns/locale";
 
 import realmConfig from "../models/index";
@@ -97,7 +97,7 @@ const locales = {
   tr,
   uk,
   "zh-CN": zhCN,
-  "zh-TW": zhTW
+  "zh-TW": zhTW,
 };
 
 interface LocaleConfig {
@@ -176,7 +176,7 @@ const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) )
 const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
   if ( !date ) { return {
     dateForServer: null,
-    dateForDisplay: null
+    dateForDisplay: null,
   }; }
 
   const timeZone = RNLocalize.getTimeZone( );
@@ -184,7 +184,7 @@ const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
   const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
   return {
     dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
-    dateForDisplay: formatDateToDisplay( zonedDate )
+    dateForDisplay: formatDateToDisplay( zonedDate ),
   };
 };
 
@@ -241,5 +241,5 @@ export {
   isAndroidDateInFuture,
   formatGMTTimeWithTimeZone,
   isDateInFuture,
-  formatDateToDisplayShort
+  formatDateToDisplayShort,
 };

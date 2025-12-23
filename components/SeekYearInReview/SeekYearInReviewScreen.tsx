@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import {
   viewStyles,
   textStyles,
-  imageStyles
+  imageStyles,
 } from "../../styles/seekYearInReview/seekYearInReview";
 import { colors } from "../../styles/global";
 import { UserContext } from "../UserContext";
@@ -14,11 +14,11 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import {
   useFetchStats,
   useCountObservationsForYear,
-  useFetchChallengesForYear
+  useFetchChallengesForYear,
 } from "./hooks/seekYearInReviewHooks";
 import {
   useUploadedObservationCount,
-  useSpeciesCount
+  useSpeciesCount,
 } from "../../utility/customHooks";
 
 import badgeImages from "../../assets/badges";
@@ -130,7 +130,7 @@ const SeekYearInReviewScreen = () => {
               <StyledText style={[baseTextStyles.challengeTitle]}>
                 {i18n
                   .t( "seek_year_in_review.x_new_species", {
-                    count: countObservationsThisYear
+                    count: countObservationsThisYear,
                   } )
                   .toLocaleUpperCase()}
               </StyledText>
@@ -145,7 +145,7 @@ const SeekYearInReviewScreen = () => {
       <View
         style={[
           viewStyles.textContainer,
-          isTablet && viewStyles.tabletContainer
+          isTablet && viewStyles.tabletContainer,
         ]}
       >
         {state.topThreeSpeciesBadges.length > 0 && (
@@ -233,7 +233,7 @@ const SeekYearInReviewScreen = () => {
                 "seek_year_in_review.x_uploaded_observations_text_1",
                 {
                   count,
-                  year
+                  year,
                 }
               )}
               greenText={count}
@@ -254,7 +254,7 @@ const SeekYearInReviewScreen = () => {
       <View
         style={[
           viewStyles.textContainer,
-          isTablet && viewStyles.tabletContainer
+          isTablet && viewStyles.tabletContainer,
         ]}
       >
         {challengeCount > 0 ? (
@@ -267,7 +267,7 @@ const SeekYearInReviewScreen = () => {
             <SubstringStyledText
               text={i18n.t( "seek_year_in_review.x_challenges_earned_text", {
                 count: challengeCount,
-                year
+                year,
               } )}
               greenText={challengeCount}
             />

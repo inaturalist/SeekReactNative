@@ -3,7 +3,7 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Modal
+  Modal,
 } from "react-native";
 
 import styles from "../../../styles/posting/postToiNat";

@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
 import {
-  center
+  center,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
   center,
   noChallengeContainer: {
     paddingBottom: 49,
-    paddingTop: 24
-  }
+    paddingTop: 24,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
@@ -17,15 +17,15 @@ const textStyles = StyleSheet.create( {
     lineHeight: 18,
     marginTop: 10,
     textAlign: "center",
-    width: 229
+    width: 229,
   },
   noChallengeText: {
     textAlign: "center",
-    width: 229
-  }
+    width: 229,
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };

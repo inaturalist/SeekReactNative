@@ -1,6 +1,6 @@
 const {getDefaultConfig, mergeConfig} = require( "@react-native/metro-config" );
 const {
-  resolver: { sourceExts }
+  resolver: { sourceExts },
 } = getDefaultConfig();
 
 /**
@@ -50,17 +50,17 @@ const config = {
       "otf",
       "ttf",
       // Archives (virtual files)
-      "zip"
-    ]
+      "zip",
+    ],
   },
   transformer: {
     getTransformOptions: async () => ( {
       transform: {
         experimentalImportSupport: true,
-        inlineRequires: true
-      }
-    } )
-  }
+        inlineRequires: true,
+      },
+    } ),
+  },
 };
 
 module.exports = mergeConfig( getDefaultConfig( __dirname ), config );

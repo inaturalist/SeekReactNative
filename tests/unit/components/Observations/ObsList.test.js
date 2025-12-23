@@ -18,9 +18,9 @@ const mockObservations = [
             "iconicTaxonId": 47126,
             "id": 54329,
             "name": "some_name_1",
-            "preferredCommonName": "some_common_name_1"
+            "preferredCommonName": "some_common_name_1",
         },
-        "uuidString": "15aa735d-5d01-4667-8e82-02d2088d0b5a"
+        "uuidString": "15aa735d-5d01-4667-8e82-02d2088d0b5a",
     },
     {
         "date": new Date( "2022-12-02T10:19:12.000Z" ),
@@ -35,9 +35,9 @@ const mockObservations = [
             "iconicTaxonId": 47126,
             "id": 54329,
             "name": "some_name_2",
-            "preferredCommonName": "some_common_name_2"
+            "preferredCommonName": "some_common_name_2",
         },
-        "uuidString": "daa32e9e-4e12-492e-ab3a-8ca3b0782339"
+        "uuidString": "daa32e9e-4e12-492e-ab3a-8ca3b0782339",
     },
     {
         "date": new Date( "2022-12-02T10:17:21.000Z" ),
@@ -52,9 +52,9 @@ const mockObservations = [
             "iconicTaxonId": 47126,
             "id": 54329,
             "name": "some_name_3",
-            "preferredCommonName": "some_common_name_3"
+            "preferredCommonName": "some_common_name_3",
         },
-        "uuidString": "1976be58-6db2-4743-83c8-f1f871a28b1e"
+        "uuidString": "1976be58-6db2-4743-83c8-f1f871a28b1e",
     }],
     id: 47126 },
   { data: [], id: 3 },
@@ -66,15 +66,15 @@ const mockObservations = [
   { data: [], id: 20978 },
   { data: [], id: 47178 },
   { data: [], id: 47170 },
-  { data: [], id: 1 }
+  { data: [], id: 1 },
 ];
 
 jest.mock( "../../../../utility/customHooks/useUserPhoto", () => {
   return {
     __esModule: true,
     useUserPhoto: jest.fn( () => ( {
-      uri: "some_uri"
-    } ) )
+      uri: "some_uri",
+    } ) ),
   };
 } );
 

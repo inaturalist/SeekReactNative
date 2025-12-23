@@ -2,14 +2,14 @@ import React from "react";
 import {
   View,
   Image,
-  Pressable
+  Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import {
   viewStyles,
   textStyles,
-  imageStyles
+  imageStyles,
 } from "../../styles/seekYearInReview/seekYearInReview";
 import i18n from "../../i18n";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
@@ -48,7 +48,7 @@ const SeekYearInReviewPhotoItem = ( { observation, index } ) => {
         {i18n.t( "seek_year_in_review.observed_on", {
           speciesName:
             observation?.taxon?.preferredCommonName || observation?.taxon?.name,
-          date: formatDateToDisplayShort( observation?.date )
+          date: formatDateToDisplayShort( observation?.date ),
         } )}
       </StyledText>
     </Pressable>

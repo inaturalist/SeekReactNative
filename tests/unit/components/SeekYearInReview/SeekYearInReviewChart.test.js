@@ -15,7 +15,7 @@ const mockData = [
   { count: 19, month: 9 },
   { count: 20, month: 10 },
   { count: 21, month: 11 },
-  { count: 22, month: 12 }
+  { count: 22, month: 12 },
 ];
 
 const renderPhotos = () => {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   Image,
-  View
+  View,
 } from "react-native";
 
 import i18n from "../../i18n";

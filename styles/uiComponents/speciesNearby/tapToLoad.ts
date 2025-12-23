@@ -1,28 +1,28 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  center
+  center,
 } from "../../global";
 
 const viewStyles = StyleSheet.create( {
   center,
   speciesNearbyContainer: {
     backgroundColor: colors.seekTeal,
-    paddingVertical: 15
+    paddingVertical: 15,
   },
   challengeContainer: {
-    backgroundColor: colors.white
-  }
+    backgroundColor: colors.white,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   text: {
     maxWidth: 245,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };

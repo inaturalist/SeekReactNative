@@ -4,7 +4,7 @@ import {
   ScrollView,
   Platform,
   StatusBar,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -33,7 +33,7 @@ const ScrollWithHeader = ( {
   header,
   route = null,
   loading = false,
-  footer = false
+  footer = false,
 }: Props ) => {
   const navigation = useNavigation();
   const { name } = useRoute();

@@ -39,7 +39,7 @@ const LanguageProvider = ( { children }: LanguageProviderProps ) => {
 
   const value = {
     toggleLanguagePreference,
-    preferredLanguage
+    preferredLanguage,
   };
   return (
     <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
@@ -56,5 +56,5 @@ function useLanguage() {
 
 export {
   LanguageProvider,
-  useLanguage
+  useLanguage,
 };

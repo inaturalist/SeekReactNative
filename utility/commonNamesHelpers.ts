@@ -34,7 +34,7 @@ const addCommonNamesFromFile = ( realm, commonNamesDict: { i: number; l: string;
       realm.create( "CommonNamesRealm", {
         taxon_id: commonNameRow.i,
         locale: commonNameRow.l,
-        name: commonNameRow.n
+        name: commonNameRow.n,
       }, true );
     }
   } );
@@ -77,5 +77,5 @@ const setupCommonNames = ( preferredLanguage: string ) => {
 
 export {
   getTaxonCommonName,
-  setupCommonNames
+  setupCommonNames,
 };

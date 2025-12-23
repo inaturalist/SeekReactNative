@@ -28,7 +28,7 @@ const ForgotPasswordScreen = ( ) => {
     const headers = {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent( ),
-      "Authorization": token
+      "Authorization": token,
     };
 
     const site = "https://www.inaturalist.org";
@@ -36,7 +36,7 @@ const ForgotPasswordScreen = ( ) => {
     fetch( `${site}/users/password`, {
       method: "POST",
       body: JSON.stringify( params ),
-      headers
+      headers,
     } ).then( ( responseJson ) => {
       const { status } = responseJson;
       if ( status === 200 ) {

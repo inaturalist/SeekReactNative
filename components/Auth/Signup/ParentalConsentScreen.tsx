@@ -31,13 +31,13 @@ const ParentalConsentScreen = ( { navigation } ) => {
     const token = createJwtToken();
 
     const params = {
-      email
+      email,
     };
 
     const headers = {
       "Content-Type": "application/json",
       "Authorization": token,
-      "User-Agent": createUserAgent()
+      "User-Agent": createUserAgent(),
     };
 
     const site = "https://www.inaturalist.org";
@@ -45,7 +45,7 @@ const ParentalConsentScreen = ( { navigation } ) => {
     fetch( `${site}/users/parental_consent`, {
       method: "POST",
       body: JSON.stringify( params ),
-      headers
+      headers,
     } )
       .then( ( responseJson ) => {
         const { status } = responseJson;

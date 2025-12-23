@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
   Image,
-  Platform
+  Platform,
 } from "react-native";
 
 import i18n from "../../../i18n";
@@ -45,7 +45,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       errorCode: 0,
       latitude: null,
       longitude: null,
-      preciseCoords: {}
+      preciseCoords: {},
     };
 
     if ( checkForPhotoMetaData( location ) ) {
@@ -57,14 +57,14 @@ const GalleryButton = ( { setIsActive }: Props ) => {
         image.preciseCoords = {
           latitude,
           longitude,
-          accuracy: null
+          accuracy: null,
         };
       }
     } else if ( login ) {
       image.preciseCoords = {
         latitude: null,
         longitude: null,
-        accuracy: null
+        accuracy: null,
       };
     }
 
@@ -74,11 +74,11 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       logToApi( {
         level: LogLevels.INFO,
         message: `rankLevel ${rankLevel}`,
-        context: "getPredictionsForImage rankLevel"
+        context: "getPredictionsForImage rankLevel",
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
       startObservationWithImage( image, () => {
         navigation.navigate( "Drawer", {
-          screen: "Match"
+          screen: "Match",
         } );
       } );
     } else {
@@ -86,7 +86,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
         level: LogLevels.INFO,
         message: "Online vision would have been used here, but fetching online results has been removed, " +
           "if you see this message it means that some device was not able to get offline vision.",
-        context: "GalleryButton"
+        context: "GalleryButton",
       } ).catch( ( logError ) => logger.error( "logToApi failed:", logError ) );
     }
   };
@@ -108,7 +108,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       geomodelPath: dirGeomodel,
       location: hasLocation
         ? location
-        : undefined
+        : undefined,
     } )
       .then( ( result ) => {
         const { predictions } = result;
@@ -129,7 +129,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
       includeBase64: false,
       forceOldAndroidPhotoPicker: true,
       chooserTitle: i18n.t( "gallery.import_photos_from" ),
-      presentationStyle: "overFullScreen"
+      presentationStyle: "overFullScreen",
     } );
 
     if ( !response || response.didCancel || !response.assets || response.errorCode ) {

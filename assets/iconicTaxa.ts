@@ -15,7 +15,7 @@ const iconicTaxa: IconicTaxa = {
   "47158": require( "./iconicTaxa/img-nullobs-insect.webp" ),
   "47115": require( "./iconicTaxa/img-nullobs-snail.webp" ),
   "40151": require( "./iconicTaxa/img-nullobs-mammal.webp" ),
-  "1": require( "./iconicTaxa/img-nullobs-unknown.webp" )
+  "1": require( "./iconicTaxa/img-nullobs-unknown.webp" ),
 };
 
 export default iconicTaxa;

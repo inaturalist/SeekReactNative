@@ -6,8 +6,8 @@ class PhotoRealm extends Realm.Object {
     properties: {
       mediumUrl: "string?",
       backupUri: "string?",
-      lastUpdated: "date?"
-    }
+      lastUpdated: "date?",
+    },
   };
 }
 

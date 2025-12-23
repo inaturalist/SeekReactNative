@@ -12,8 +12,8 @@ class UserSettingsRealm extends Realm.Object<UserSettingsRealm> {
       autoCapture: { type: "bool", default: false },
       localSeasonality: { type: "bool", default: false },
       scientificNames: { type: "bool", default: false },
-      appVersion: { type: "string", default: "2.0.0" }
-    }
+      appVersion: { type: "string", default: "2.0.0" },
+    },
   };
 }
 

@@ -24,7 +24,7 @@ const About = ( {
   about,
   wikiUrl,
   id,
-  scientificName
+  scientificName,
 }: Props ) => {
   const navigation = useNavigation();
   // TODO: UserContext TS
@@ -53,7 +53,7 @@ const About = ( {
               defaultTextProps={{ allowFontScaling: true, maxFontSizeMultiplier: 2 }}
               tagsStyles={{
                 strong: baseTextStyles.bodySpacedBold,
-                i: baseTextStyles.bodySpacedItalic
+                i: baseTextStyles.bodySpacedItalic,
               }}
             />
             <StyledText style={baseTextStyles.body}>

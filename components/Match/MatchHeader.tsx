@@ -17,7 +17,7 @@ interface Props {
 const MatchHeader = ( {
   observation,
   screenType,
-  setNavigationPath
+  setNavigationPath,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const taxon = observation && observation.taxon;
@@ -42,7 +42,7 @@ const MatchHeader = ( {
               styles.imageCell,
               styles.marginLeft,
               isLandscape && styles.landscapeImage,
-              isLandscape && styles.largeMargin
+              isLandscape && styles.largeMargin,
             ]}
           />
         )}

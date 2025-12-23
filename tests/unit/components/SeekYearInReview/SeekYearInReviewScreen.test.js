@@ -3,16 +3,16 @@ import { render, screen, fireEvent } from "tests/jest-utils";
 
 import SeekYearInReviewScreen from "../../../../components/SeekYearInReview/SeekYearInReviewScreen";
 import {
-  UserContext
+  UserContext,
 } from "../../../../components/UserContext";
 import {
   useFetchStats,
-  useFetchChallengesForYear
+  useFetchChallengesForYear,
 } from "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks";
 import { useUploadedObservationCount } from "../../../../utility/customHooks";
 
 const mockNavigate = {
-  navigate: jest.fn()
+  navigate: jest.fn(),
 };
 
 jest.mock( "@react-navigation/native", () => {
@@ -27,9 +27,9 @@ jest.mock( "@react-navigation/native", () => {
         if ( event === "focus" ) {
           callback();
         }
-      }
+      },
     } ),
-    useRoute: () => ( {} )
+    useRoute: () => ( {} ),
   };
 } );
 
@@ -44,7 +44,7 @@ const mockState = {
     index: 1,
     infoText: "",
     intlName: "levels.cub",
-    name: "Cub"
+    name: "Cub",
   },
   countBadgesThisYear: 10,
   observationsThisYear: [
@@ -52,20 +52,20 @@ const mockState = {
       "latitude": 42,
       "longitude": -42,
       "taxon": {},
-      "uuidString": "some-uuid1"
+      "uuidString": "some-uuid1",
     },
     {
       "latitude": -42,
       "longitude": 42,
       "taxon": {},
-      "uuidString": "some-uuid2"
+      "uuidString": "some-uuid2",
     },
     {
       "latitude": 42,
       "longitude": 42,
       "taxon": {},
-      "uuidString": "some-uuid3"
-    }
+      "uuidString": "some-uuid3",
+    },
   ],
   topThreeSpeciesBadges: [
     {
@@ -79,7 +79,7 @@ const mockState = {
       infoText: "badges.plant_1",
       intlName: "badges.name_plant_1",
       name: "1st Plant",
-      observationsThisYear: 24
+      observationsThisYear: 24,
     },
     {
       count: 5,
@@ -92,7 +92,7 @@ const mockState = {
       infoText: "badges.bird_1",
       intlName: "badges.name_bird_1",
       name: "1st Bird",
-      observationsThisYear: 23
+      observationsThisYear: 23,
     },
     {
       count: 5,
@@ -105,8 +105,8 @@ const mockState = {
       infoText: "badges.mammal_1",
       intlName: "badges.name_mammal_1",
       name: "1st Mammal",
-      observationsThisYear: 22
-    }
+      observationsThisYear: 22,
+    },
   ],
   randomObservations: [],
   histogram: [
@@ -121,8 +121,8 @@ const mockState = {
     { count: 19, month: 9 },
     { count: 20, month: 10 },
     { count: 21, month: 11 },
-    { count: 22, month: 12 }
-  ]
+    { count: 22, month: 12 },
+  ],
 };
 
 const mockChallenges = {
@@ -145,7 +145,7 @@ const mockChallenges = {
       "secondLogo": "wwfop",
       "sponsorName": "Our Planet",
       "startedDate": new Date( "2022-03-31T22:00:00.000Z" ),
-      "totalSpecies": 10
+      "totalSpecies": 10,
     },
     {
       "action": "challenges.action_may",
@@ -165,7 +165,7 @@ const mockChallenges = {
       "secondLogo": "wwfop",
       "sponsorName": "Our Planet",
       "startedDate": new Date( "2022-03-31T22:00:00.000Z" ),
-      "totalSpecies": 20
+      "totalSpecies": 20,
     },
     {
       "action": "challenges.action_june",
@@ -185,10 +185,10 @@ const mockChallenges = {
       "secondLogo": "wwfop",
       "sponsorName": "Our Planet",
       "startedDate": new Date( "2022-03-31T22:00:00.000Z" ),
-      "totalSpecies": 13
-    }
+      "totalSpecies": 13,
+    },
   ],
-  challengeCount: 3
+  challengeCount: 3,
 };
 
 jest.mock(
@@ -197,7 +197,7 @@ jest.mock(
     __esModule: true,
     useFetchStats: jest.fn( () => mockState ),
     useCountObservationsForYear: jest.fn( () => 100 ),
-    useFetchChallengesForYear: jest.fn( () => mockChallenges )
+    useFetchChallengesForYear: jest.fn( () => mockChallenges ),
   } )
 );
 
@@ -209,15 +209,15 @@ jest.mock(
       ...actual,
       __esModule: true,
       useUploadedObservationCount: jest.fn( () => 60 ),
-      useSpeciesCount: jest.fn( () => 55 )
+      useSpeciesCount: jest.fn( () => 55 ),
     };
   }
 );
 
 const renderScreen = ( {
-      login
+      login,
     } = {
-      login: "test"
+      login: "test",
     } ) => {
   jest.useFakeTimers( { advanceTimers: true, now: new Date( "2022-10-11" ) } );
   return render(
@@ -331,9 +331,9 @@ describe( "SeekYearInReviewScreen", () => {
           latitude: undefined,
           longitude: undefined,
           taxon: {},
-          uuidString: "some-uuid1"
-        }
-      ]
+          uuidString: "some-uuid1",
+        },
+      ],
     } );
     renderScreen();
     await screen.findByTestId( containerID );
@@ -390,7 +390,7 @@ describe( "SeekYearInReviewScreen", () => {
   test( "should not show challenges section without completed challenges", async () => {
     useFetchChallengesForYear.mockReturnValue( {
       challengeBadges: [],
-      challengeCount: 0
+      challengeCount: 0,
     } );
     renderScreen();
     await screen.findByTestId( containerID );

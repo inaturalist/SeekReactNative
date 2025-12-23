@@ -5,7 +5,7 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import type { FlashListRef } from "@shopify/flash-list";
@@ -53,7 +53,7 @@ const SelectSpecies = ( {
   toggleSpeciesModal,
   image,
   updateTaxon,
-  seekId
+  seekId,
 }: Props ) => {
   const sectionList = useRef<FlashListRef<Suggestion>>( null );
 
@@ -62,7 +62,7 @@ const SelectSpecies = ( {
     commonName: seekId.preferredCommonName,
     scientificName: seekId.name,
     id: seekId.taxaId,
-    iconicTaxonId: null
+    iconicTaxonId: null,
   }];
   const [textInput, setTextInput] = useState<string | null>( null );
 
@@ -76,7 +76,7 @@ const SelectSpecies = ( {
       ),
       scientificName: iconicScientificNames[taxonId],
       id: taxonId,
-      iconicTaxonId: taxonId
+      iconicTaxonId: taxonId,
     };
   } );
 
@@ -86,17 +86,17 @@ const SelectSpecies = ( {
   if ( suggestions.length === 0 ) {
     data = [
       { header: "posting.id", type: "header" },
-      ...seekSuggestion
+      ...seekSuggestion,
     ];
   } else {
     data = [
       { header: "posting.id", type: "headerNoText" },
-      ...suggestions
+      ...suggestions,
     ];
   }
   data = data.concat( [
       { header: "posting.major_taxa", type: "header" },
-      ...majorTaxa
+      ...majorTaxa,
   ] );
 
   const handleTextChange = useCallback( ( text: string ) => setTextInput( text ), [] );
@@ -110,7 +110,7 @@ const SelectSpecies = ( {
     const taxon = {
       preferredCommonName: item.commonName,
       name: item.scientificName,
-      iconicTaxonId: item.iconicTaxonId
+      iconicTaxonId: item.iconicTaxonId,
     };
 
     const photo = item.image && { uri: item.image }; // account for null case

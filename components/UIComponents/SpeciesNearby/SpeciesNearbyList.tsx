@@ -43,7 +43,7 @@ const SpeciesNearbyList = ( { taxa, observed }: Props ): Node => {
     {
       length: ( 28 + 108 ),
       offset: ( 28 + 108 ) * index,
-      index
+      index,
     }
   ), [] );
 

@@ -71,7 +71,7 @@ const setupUserSettings = async ( ) => {
       realm.create( "UserSettingsRealm", {
         autoCapture,
         localSeasonality,
-        scientificNames
+        scientificNames,
       }, true );
     } );
   } catch ( e ) {
@@ -119,5 +119,5 @@ export {
   setupUserSettings,
   updateUserSetting,
   deleteFromAsyncStorage,
-  fetchFromAsyncStorage
+  fetchFromAsyncStorage,
 };

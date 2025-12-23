@@ -6,30 +6,30 @@ const viewStyles = StyleSheet.create( {
     padding: 18,
     position: "absolute",
     right: 23 - 18,
-    top: 0
+    top: 0,
   },
   bottom: {
     backgroundColor: colors.seekForestGreen,
-    height: 60
+    height: 60,
   },
   container: {
     backgroundColor: colors.seekForestGreen,
-    flex: 1
+    flex: 1,
   },
   header: {
     backgroundColor: colors.seekForestGreen,
-    height: 55
-  }
+    height: 55,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   text: {
     alignSelf: "center",
-    top: 19
-  }
+    top: 19,
+  },
 } );
 
 export {
   viewStyles,
-  textStyles
+  textStyles,
 };

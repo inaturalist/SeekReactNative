@@ -24,7 +24,7 @@ const GreenText = ( {
   center = false,
   color = null,
   allowFontScaling = true,
-  noTranslation
+  noTranslation,
 }: Props ) => (
   <StyledText
     style={[
@@ -33,7 +33,7 @@ const GreenText = ( {
       smaller && baseTextStyles.highlight,
       center && styles.center,
       color && { color },
-      style
+      style,
     ]}
     allowFontScaling={allowFontScaling}
   >

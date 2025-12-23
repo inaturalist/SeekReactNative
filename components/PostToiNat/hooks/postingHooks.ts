@@ -23,7 +23,7 @@ const useSearchSpecies = ( speciesName: string | null ) => {
         q: speciesName,
         per_page: 5,
         is_active: true,
-        locale: i18n.locale
+        locale: i18n.locale,
       };
 
       inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
@@ -39,7 +39,7 @@ const useSearchSpecies = ( speciesName: string | null ) => {
               && capitalizeNames( s.preferred_common_name ),
             scientificName: s.name,
             id: s.id,
-            iconicTaxonId: s.iconic_taxon_id
+            iconicTaxonId: s.iconic_taxon_id,
           };
         } );
 
@@ -77,5 +77,5 @@ const useFetchUserLocation = ( ) => {
 
 export {
   useSearchSpecies,
-  useFetchUserLocation
+  useFetchUserLocation,
 };

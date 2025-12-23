@@ -3,7 +3,7 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import Realm from "realm";
 import { useNavigation, useRoute } from "@react-navigation/native";

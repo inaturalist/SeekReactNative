@@ -31,7 +31,7 @@ const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
     longitude: null,
     taxaType: "all",
     taxa: [],
-    isConnected
+    isConnected,
   } );
 
   const location = useLocationName( speciesNearby.latitude, speciesNearby.longitude );
@@ -39,9 +39,9 @@ const SpeciesNearbyProvider = ( { children }: SpeciesNearbyProps ) => {
   const value = {
     speciesNearby: {
       ...speciesNearby,
-      location
+      location,
     },
-    setSpeciesNearby
+    setSpeciesNearby,
   };
 
   return (

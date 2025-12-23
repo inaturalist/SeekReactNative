@@ -25,7 +25,7 @@ const MatchContainer = ( {
   observation,
   screenType,
   setNavigationPath,
-  scientificNames
+  scientificNames,
 }: Props ) => {
   const { isLandscape } = useAppOrientation();
   const navigation = useNavigation();
@@ -48,7 +48,7 @@ const MatchContainer = ( {
     // don't pass taxon data in when user has flagged as misidentification
     commonName: screenType === "unidentified" ? null : commonName,
     taxaId: screenType === "unidentified" ? null : taxaId,
-    scientificName: screenType === "unidentified" ? null : scientificName
+    scientificName: screenType === "unidentified" ? null : scientificName,
   };
 
   const headerText = renderHeaderText( screenType, rank );

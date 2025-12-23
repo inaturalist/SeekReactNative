@@ -19,7 +19,7 @@ const badges: Badges = {
     count: 0,
     earnedIconName: "levelbadge-0",
     index: 0,
-    earned: true
+    earned: true,
   },
   cub: {
     infoText: "",
@@ -27,7 +27,7 @@ const badges: Badges = {
     intlName: "levels.cub",
     count: 3,
     earnedIconName: "levelbadge-3",
-    index: 1
+    index: 1,
   },
   tracker: {
     infoText: "",
@@ -35,7 +35,7 @@ const badges: Badges = {
     intlName: "levels.tracker",
     count: 15,
     earnedIconName: "levelbadge-15",
-    index: 2
+    index: 2,
   },
   surveyor: {
     infoText: "",
@@ -43,7 +43,7 @@ const badges: Badges = {
     intlName: "levels.surveyor",
     count: 30,
     earnedIconName: "levelbadge-30",
-    index: 3
+    index: 3,
   },
   seeker: {
     infoText: "",
@@ -51,7 +51,7 @@ const badges: Badges = {
     intlName: "levels.seeker",
     count: 50,
     earnedIconName: "levelbadge-50",
-    index: 4
+    index: 4,
   },
   biologist: {
     infoText: "",
@@ -59,7 +59,7 @@ const badges: Badges = {
     intlName: "levels.biologist",
     count: 75,
     earnedIconName: "levelbadge-75",
-    index: 5
+    index: 5,
   },
   naturalist: {
     infoText: "",
@@ -67,7 +67,7 @@ const badges: Badges = {
     intlName: "levels.naturalist",
     count: 100,
     earnedIconName: "levelbadge-100",
-    index: 6
+    index: 6,
   },
   explorer: {
     infoText: "",
@@ -75,7 +75,7 @@ const badges: Badges = {
     intlName: "levels.explorer",
     count: 125,
     earnedIconName: "levelbadge-125",
-    index: 7
+    index: 7,
   },
   adventurer: {
     infoText: "",
@@ -83,7 +83,7 @@ const badges: Badges = {
     intlName: "levels.adventurer",
     count: 150,
     earnedIconName: "levelbadge-150",
-    index: 8
+    index: 8,
   },
   bird1: {
     infoText: "badges.bird_1",
@@ -93,7 +93,7 @@ const badges: Badges = {
     iconicTaxonId: 3,
     count: 1,
     earnedIconName: "badge_bird_1",
-    index: 100
+    index: 100,
   },
   amphibian1: {
     infoText: "badges.amphibian_1",
@@ -103,7 +103,7 @@ const badges: Badges = {
     iconicTaxonId: 20978,
     count: 1,
     earnedIconName: "badge_amphibian_1",
-    index: 101
+    index: 101,
   },
   reptile1: {
     infoText: "badges.reptile_1",
@@ -113,7 +113,7 @@ const badges: Badges = {
     iconicTaxonId: 26036,
     count: 1,
     earnedIconName: "badge_reptile_1",
-    index: 102
+    index: 102,
   },
   mammal1: {
     infoText: "badges.mammal_1",
@@ -123,7 +123,7 @@ const badges: Badges = {
     iconicTaxonId: 40151,
     count: 1,
     earnedIconName: "badge_mammal_1",
-    index: 103
+    index: 103,
   },
   fish1: {
     infoText: "badges.fish_1",
@@ -133,7 +133,7 @@ const badges: Badges = {
     iconicTaxonId: 47178,
     count: 1,
     earnedIconName: "badge_fish_1",
-    index: 104
+    index: 104,
   },
   mollusk1: {
     infoText: "badges.mollusk_1",
@@ -143,7 +143,7 @@ const badges: Badges = {
     iconicTaxonId: 47115,
     count: 1,
     earnedIconName: "badge_mollusk_1",
-    index: 105
+    index: 105,
   },
   insect1: {
     infoText: "badges.insect_1",
@@ -153,7 +153,7 @@ const badges: Badges = {
     iconicTaxonId: 47158,
     count: 1,
     earnedIconName: "badge_insect_1",
-    index: 106
+    index: 106,
   },
   arachnid1: {
     infoText: "badges.arachnid_1",
@@ -163,7 +163,7 @@ const badges: Badges = {
     iconicTaxonId: 47119,
     count: 1,
     earnedIconName: "badge_arachnid_1",
-    index: 107
+    index: 107,
   },
   fungi1: {
     infoText: "badges.fungi_1",
@@ -173,7 +173,7 @@ const badges: Badges = {
     iconicTaxonId: 47170,
     count: 1,
     earnedIconName: "badge_fungi_1",
-    index: 108
+    index: 108,
   },
   plant1: {
     infoText: "badges.plant_1",
@@ -183,7 +183,7 @@ const badges: Badges = {
     iconicTaxonId: 47126,
     count: 1,
     earnedIconName: "badge_plant_1",
-    index: 109
+    index: 109,
   },
   bird5: {
     infoText: "badges.bird_5",
@@ -193,7 +193,7 @@ const badges: Badges = {
     iconicTaxonId: 3,
     count: 5,
     earnedIconName: "badge_bird_2",
-    index: 200
+    index: 200,
   },
   amphibian5: {
     infoText: "badges.amphibian_5",
@@ -203,7 +203,7 @@ const badges: Badges = {
     iconicTaxonId: 20978,
     count: 5,
     earnedIconName: "badge_amphibian_2",
-    index: 201
+    index: 201,
   },
   reptile5: {
     infoText: "badges.reptile_5",
@@ -213,7 +213,7 @@ const badges: Badges = {
     iconicTaxonId: 26036,
     count: 5,
     earnedIconName: "badge_reptile_2",
-    index: 202
+    index: 202,
   },
   mammal5: {
     infoText: "badges.mammal_5",
@@ -223,7 +223,7 @@ const badges: Badges = {
     iconicTaxonId: 40151,
     count: 5,
     earnedIconName: "badge_mammal_2",
-    index: 203
+    index: 203,
   },
   fish5: {
     infoText: "badges.fish_5",
@@ -233,7 +233,7 @@ const badges: Badges = {
     iconicTaxonId: 47178,
     count: 5,
     earnedIconName: "badge_fish_2",
-    index: 204
+    index: 204,
   },
   mollusk5: {
     infoText: "badges.mollusk_5",
@@ -243,7 +243,7 @@ const badges: Badges = {
     iconicTaxonId: 47115,
     count: 5,
     earnedIconName: "badge_mollusk_2",
-    index: 205
+    index: 205,
   },
   insect5: {
     infoText: "badges.insect_5",
@@ -253,7 +253,7 @@ const badges: Badges = {
     iconicTaxonId: 47158,
     count: 5,
     earnedIconName: "badge_insect_2",
-    index: 206
+    index: 206,
   },
   arachnid5: {
     infoText: "badges.arachnid_5",
@@ -263,7 +263,7 @@ const badges: Badges = {
     iconicTaxonId: 47119,
     count: 5,
     earnedIconName: "badge_arachnid_2",
-    index: 207
+    index: 207,
   },
   fungi5: {
     infoText: "badges.fungi_5",
@@ -273,7 +273,7 @@ const badges: Badges = {
     iconicTaxonId: 47170,
     count: 5,
     earnedIconName: "badge_fungi_2",
-    index: 208
+    index: 208,
   },
   plant5: {
     infoText: "badges.plant_5",
@@ -283,7 +283,7 @@ const badges: Badges = {
     iconicTaxonId: 47126,
     count: 5,
     earnedIconName: "badge_plant_2",
-    index: 209
+    index: 209,
   },
   bird15: {
     infoText: "badges.bird_15",
@@ -293,7 +293,7 @@ const badges: Badges = {
     iconicTaxonId: 3,
     count: 15,
     earnedIconName: "badge_bird_3",
-    index: 300
+    index: 300,
   },
   amphibian15: {
     infoText: "badges.amphibian_15",
@@ -303,7 +303,7 @@ const badges: Badges = {
     iconicTaxonId: 20978,
     count: 15,
     earnedIconName: "badge_amphibian_3",
-    index: 301
+    index: 301,
   },
   reptile15: {
     infoText: "badges.reptile_15",
@@ -313,7 +313,7 @@ const badges: Badges = {
     iconicTaxonId: 26036,
     count: 15,
     earnedIconName: "badge_reptile_3",
-    index: 302
+    index: 302,
   },
   mammal15: {
     infoText: "badges.mammal_15",
@@ -323,7 +323,7 @@ const badges: Badges = {
     iconicTaxonId: 40151,
     count: 15,
     earnedIconName: "badge_mammal_3",
-    index: 303
+    index: 303,
   },
   fish15: {
     infoText: "badges.fish_15",
@@ -333,7 +333,7 @@ const badges: Badges = {
     iconicTaxonId: 47178,
     count: 15,
     earnedIconName: "badge_fish_3",
-    index: 304
+    index: 304,
   },
   mollusk15: {
     infoText: "badges.mollusk_15",
@@ -343,7 +343,7 @@ const badges: Badges = {
     iconicTaxonId: 47115,
     count: 15,
     earnedIconName: "badge_mollusk_3",
-    index: 305
+    index: 305,
   },
   insect15: {
     infoText: "badges.insect_15",
@@ -353,7 +353,7 @@ const badges: Badges = {
     iconicTaxonId: 47158,
     count: 15,
     earnedIconName: "badge_insect_3",
-    index: 306
+    index: 306,
   },
   arachnid15: {
     infoText: "badges.arachnid_15",
@@ -363,7 +363,7 @@ const badges: Badges = {
     iconicTaxonId: 47119,
     count: 15,
     earnedIconName: "badge_arachnid_3",
-    index: 307
+    index: 307,
   },
   fungi15: {
     infoText: "badges.fungi_15",
@@ -373,7 +373,7 @@ const badges: Badges = {
     iconicTaxonId: 47170,
     count: 15,
     earnedIconName: "badge_fungi_3",
-    index: 308
+    index: 308,
   },
   plant20: {
     infoText: "badges.plant_20",
@@ -383,8 +383,8 @@ const badges: Badges = {
     iconicTaxonId: 47126,
     count: 20,
     earnedIconName: "badge_plant_3",
-    index: 309
-  }
+    index: 309,
+  },
 };
 
 export default badges;

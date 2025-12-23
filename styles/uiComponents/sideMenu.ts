@@ -7,19 +7,19 @@ const viewStyles = StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     flex: 1,
     flexGrow: 1,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   divider: {
     borderBottomWidth: 1,
-    borderBottomColor: colors.dividerWhite
+    borderBottomColor: colors.dividerWhite,
   },
   menuItem: {
     paddingVertical: 21,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    flexWrap: "nowrap"
-  }
+    flexWrap: "nowrap",
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
@@ -28,26 +28,26 @@ const imageStyles = StyleSheet.create( {
     marginHorizontal: 25,
     resizeMode: "contain",
     tintColor: colors.menuItems,
-    width: 27
+    width: 27,
   },
   seekLogo: {
     alignSelf: "center",
     height: 79,
     marginVertical: 62 - 21,
     resizeMode: "contain",
-    width: 223
-  }
+    width: 223,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   text: {
     flex: 1,
-    paddingEnd: 4
-  }
+    paddingEnd: 4,
+  },
 } );
 
 export {
   textStyles,
   imageStyles,
-  viewStyles
+  viewStyles,
 };

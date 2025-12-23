@@ -68,7 +68,7 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
       inatjs.taxa.fetch( id ),
       new Promise( ( _, reject ) =>
           setTimeout( ( ) => reject( new Error( "timeout" ) ), timeout )
-        )
+        ),
     ] );
 
     try {
@@ -95,7 +95,7 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
         taxaId: Number( species.taxon_id ),
         speciesSeenImage: photo,
         scientificName: species.name,
-        seenDate
+        seenDate,
       };
     };
 
@@ -105,8 +105,8 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
           id: Number( species.taxon_id ),
           name: species.name,
           iconic_taxon_id: checkForIconicTaxonId( species.ancestor_ids ),
-          ancestor_ids: species.ancestor_ids
-        }
+          ancestor_ids: species.ancestor_ids,
+        },
       };
     };
 
@@ -137,7 +137,7 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
       taxaId: ancestor.taxon_id,
       speciesSeenImage: photo,
       scientificName: ancestor.name,
-      rank: ancestor.rank_level
+      rank: ancestor.rank_level,
     };
   }, [fetchPhoto] );
 
@@ -173,7 +173,7 @@ const ObservationProvider = ( { children }: PropsWithChildren ) => {
   const value = {
     observation,
     setObservation,
-    startObservationWithImage
+    startObservationWithImage,
   };
   return (
     <ObservationContext.Provider value={value}>{children}</ObservationContext.Provider>

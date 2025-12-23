@@ -2,7 +2,7 @@ import React, { useMemo, useCallback } from "react";
 import {
   TouchableOpacity,
   Image,
-  View
+  View,
 } from "react-native";
 
 import i18n from "../../../i18n";
@@ -27,7 +27,7 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
 
     return list.map( ( item ) => ( {
       label: i18n.t( `taxon_picker.${item}` ).toLocaleUpperCase(),
-      value: item
+      value: item,
     } ) );
   }, [] );
 

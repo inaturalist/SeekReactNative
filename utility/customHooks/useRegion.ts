@@ -8,7 +8,7 @@ const createRegion = ( region: { latitude: number, longitude: number } ) => {
     latitude: region.latitude,
     longitude: region.longitude,
     latitudeDelta,
-    longitudeDelta
+    longitudeDelta,
   };
 };
 

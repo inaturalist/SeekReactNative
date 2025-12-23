@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import {
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 import { useNavigation } from "@react-navigation/native";

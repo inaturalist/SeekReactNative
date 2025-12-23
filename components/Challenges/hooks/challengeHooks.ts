@@ -44,29 +44,29 @@ const createChallengeSections = ( challenges: any ): Section[] => {
       id: 0,
       data: [],
       header: "",
-      empty: ""
+      empty: "",
     }, {
       id: 1,
       data: completed,
       header: "challenges.completed",
-      empty: "no_completed_challenges"
+      empty: "no_completed_challenges",
     }];
 
     const threeSections: Section[] = [{
       id: 0,
       data: started,
       header: "challenges.in_progress",
-      empty: "no_challenges_in_progress"
+      empty: "no_challenges_in_progress",
     }, {
       id: 1,
       data: notStarted,
       header: "challenges.not_started",
-      empty: "no_new_challenges_header"
+      empty: "no_new_challenges_header",
     }, {
       id: 2,
       data: completed,
       header: "challenges.completed",
-      empty: "no_completed_challenges"
+      empty: "no_completed_challenges",
     }];
 
     if ( noChallenges ) {
@@ -102,7 +102,7 @@ const useFetchChallenges = ( ): any[] => {
     changes: any;
   }>( {
     data: [],
-    changes: null
+    changes: null,
   } );
 
   useEffect( ( ) => {
@@ -138,7 +138,7 @@ const useFetchMissions = ( challenge: Challenge ): Mission[] => {
 
     const newMissions = missionList.map( ( mission, i ) => ( {
       mission,
-      observations: observationsList[i]
+      observations: observationsList[i],
     } ) );
 
     setMissions( newMissions );
@@ -253,7 +253,7 @@ const useFetchTruncatedUserCoords = ( ): TruncatedCoords | {
     longitude: null;
   }>( {
     latitude: null,
-    longitude: null
+    longitude: null,
   } );
 
   useEffect( ( ) => {
@@ -276,5 +276,5 @@ export {
   useFetchChallenges,
   useFetchMissions,
   useFetchSpeciesObserved,
-  useFetchTruncatedUserCoords
+  useFetchTruncatedUserCoords,
 };

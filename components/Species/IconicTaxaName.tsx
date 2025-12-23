@@ -22,7 +22,7 @@ const IconicTaxaName = ( { loading, iconicTaxonId }: Props ) => {
         style={[
           baseTextStyles.headerWhite,
           textStyles.iconicTaxaText,
-          isLandscape && textStyles.largerPadding
+          isLandscape && textStyles.largerPadding,
         ]}
       >
         {!loading ? (

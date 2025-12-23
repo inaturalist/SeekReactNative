@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   dimensions,
-  row
+  row,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -10,16 +10,16 @@ const viewStyles = StyleSheet.create( {
     justifyContent: "center",
     marginBottom: dimensions.height > 570 ? 27 : 18,
     marginHorizontal: dimensions.height > 570 ? 34 : 20,
-    marginTop: dimensions.height > 570 ? 30 : 21
+    marginTop: dimensions.height > 570 ? 30 : 21,
   },
   row,
   smallerMargin: {
-    marginTop: dimensions.height > 570 ? 19 : 10
+    marginTop: dimensions.height > 570 ? 19 : 10,
   },
   textContainer: {
     flexDirection: "row",
-    flexWrap: "wrap"
-  }
+    flexWrap: "wrap",
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
@@ -28,11 +28,11 @@ const imageStyles = StyleSheet.create( {
     marginRight: 15,
     resizeMode: "contain",
     tintColor: colors.seekiNatGreen,
-    width: 27
-  }
+    width: 27,
+  },
 } );
 
 export {
   viewStyles,
-  imageStyles
+  imageStyles,
 };

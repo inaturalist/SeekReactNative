@@ -4,7 +4,7 @@ import {
   Image,
   ImageBackground,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -37,7 +37,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
   const [scrollIndex, setScrollIndex] = useState( 0 );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
-    viewAreaCoveragePercentThreshold: 95
+    viewAreaCoveragePercentThreshold: 95,
   } );
 
   useEffect( () => {

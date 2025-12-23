@@ -19,7 +19,7 @@ const CameraSettings = ( ) => {
   const [settings, setSettings] = useState<State>( {} );
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
-    { label: i18n.t( "settings.scientific_names" ), value: 1 }
+    { label: i18n.t( "settings.scientific_names" ), value: 1 },
   ];
 
   const updateIndex = async( i: number ) => {
@@ -30,7 +30,7 @@ const CameraSettings = ( ) => {
     const value = await updateUserSetting( "scientificNames", newValue );
     const newSettings: Object = {
       autoCapture: settings.autoCapture,
-      scientificNames: value
+      scientificNames: value,
     };
     setSettings( newSettings );
   };
@@ -39,7 +39,7 @@ const CameraSettings = ( ) => {
     const value = await updateUserSetting( "autoCapture", !settings.autoCapture );
     const newSettings: Object = {
       scientificNames: settings.scientificNames,
-      autoCapture: value
+      autoCapture: value,
     };
     setSettings( newSettings );
   };

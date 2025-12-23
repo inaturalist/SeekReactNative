@@ -14,8 +14,8 @@ class NotificationRealm extends Realm.Object {
       seen: { type: "bool", default: false },
       // this is true so past notifications don't show as unviewed
       // it will be marked false when new notification is created
-      viewed: { type: "bool", default: true }
-    }
+      viewed: { type: "bool", default: true },
+    },
   };
 }
 

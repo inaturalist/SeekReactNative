@@ -93,7 +93,7 @@ const SpeciesImageCell = ( { item }: Props ) => {
         style={[
           name === "ChallengeDetails" ? baseTextStyles.body : baseTextStyles.bodyWhite,
           textStyles.speciesNameText,
-          !commonName && baseTextStyles.italicWhite
+          !commonName && baseTextStyles.italicWhite,
         ]}>
       {commonName
           ? i18n.locale === "de" ? commonName.replace( /(- |-)/g, "-\n" ) : commonName

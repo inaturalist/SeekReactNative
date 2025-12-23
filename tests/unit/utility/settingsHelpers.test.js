@@ -5,7 +5,7 @@ import {
   toggleLanguage,
   getLanguage,
   getAutoCapture,
-  getSeasonality
+  getSeasonality,
 } from "../../../utility/settingsHelpers";
 
 describe( "getScientificNames", () => {

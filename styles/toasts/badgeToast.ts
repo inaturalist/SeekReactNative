@@ -7,37 +7,37 @@ const viewStyles = StyleSheet.create( {
     position: "absolute",
     right: 0,
     top: 0,
-    zIndex: 1
+    zIndex: 1,
   },
   progress: {
     height: 59,
     position: "absolute",
     right: 24,
-    width: 59
+    width: 59,
   },
   row: {
     alignItems: "center",
     flexDirection: "row",
     paddingLeft: 21,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   topContainer: {
-    zIndex: 1
-  }
+    zIndex: 1,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   description: {
-    marginTop: 1
+    marginTop: 1,
   },
   headerText: {
     marginTop: 16,
-    maxWidth: dimensions.width - 59 - ( 24 * 2 )
+    maxWidth: dimensions.width - 59 - ( 24 * 2 ),
   },
   view: {
     marginTop: 8,
-    marginBottom: 21
-  }
+    marginBottom: 21,
+  },
 } );
 
 const imageStyles = StyleSheet.create( {
@@ -46,12 +46,12 @@ const imageStyles = StyleSheet.create( {
     width: 75,
     resizeMode: "contain",
     position: "absolute",
-    right: 17
-  }
+    right: 17,
+  },
 } );
 
 export {
   viewStyles,
   textStyles,
-  imageStyles
+  imageStyles,
 };

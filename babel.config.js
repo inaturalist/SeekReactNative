@@ -1,6 +1,6 @@
 module.exports = ( api ) => {
   const presets = [
-    "module:@react-native/babel-preset"
+    "module:@react-native/babel-preset",
   ];
   const plugins = [
     "babel-plugin-react-compiler", // must run first!
@@ -9,29 +9,29 @@ module.exports = ( api ) => {
       "module-resolver",
       {
         alias: {
-          tests: "./tests"
-        }
-      }
+          tests: "./tests",
+        },
+      },
     ],
     // Reanimated 2 plugin has to be listed last https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/
     // processNestedWorklets is required for vision-camera together with reanimated to work
     [
       "react-native-reanimated/plugin",
       {
-        processNestedWorklets: true
-      }
-    ]
+        processNestedWorklets: true,
+      },
+    ],
   ];
   const productionPlugins = ["transform-remove-console"].concat( plugins );
 
   if ( api.env( "production" ) ) {
     return {
       presets,
-      plugins: productionPlugins
+      plugins: productionPlugins,
     };
   }
   return {
     presets,
-    plugins
+    plugins,
   };
 };

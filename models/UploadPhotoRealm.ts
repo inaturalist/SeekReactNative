@@ -12,8 +12,8 @@ class UploadPhotoRealm extends Realm.Object {
       // this addresses edge case where the user can never complete upload
       // like if they deleted the photo from their camera roll
       // after posting to iNat
-      uploadFailed: { type: "bool", default: false }
-    }
+      uploadFailed: { type: "bool", default: false },
+    },
   };
 }
 

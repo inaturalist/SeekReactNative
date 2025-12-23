@@ -33,7 +33,7 @@ const DebugEmailScreen = ( ) => {
 
   const emailParams = {
     subject: `Seek ${device} Logs (version ${appVersion} - ${buildVersion})`,
-    helpEmail: "help+seek@inaturalist.org"
+    helpEmail: "help+seek@inaturalist.org",
   };
 
   const sendEmailAttachment = ( ) => {
@@ -46,9 +46,9 @@ const DebugEmailScreen = ( ) => {
         attachments: [
           {
             path: pathLogs, // The absolute path of the file from which to read data.
-            mimeType: "text/plain"
-          }
-        ]
+            mimeType: "text/plain",
+          },
+        ],
       },
       ( error, event ) => {
         setFailed( true );

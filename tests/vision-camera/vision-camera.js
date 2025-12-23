@@ -19,10 +19,10 @@ const mockFrame = {
   getNativeBuffer: () => ( {
     // Returns a fake pointer
     pointer: 0,
-    delete: () => null
+    delete: () => null,
   } ),
   incrementRefCount: () => null,
-  decrementRefCount: () => null
+  decrementRefCount: () => null,
 };
 
 const style = { flex: 1, backgroundColor: "red" };
@@ -30,8 +30,8 @@ export class mockCamera extends React.PureComponent {
   static async getAvailableCameraDevices() {
     return [
       {
-        position: "back"
-      }
+        position: "back",
+      },
     ];
   }
 
@@ -59,7 +59,7 @@ export class mockCamera extends React.PureComponent {
     // TODO: this only works on iOS
     return CameraRoll.getPhotos( {
       first: 20,
-      assetType: "Photos"
+      assetType: "Photos",
     } )
       .then( async ( r ) => {
         /*
@@ -91,8 +91,8 @@ export class mockCamera extends React.PureComponent {
           ...testPhoto,
           path: newPath,
           metadata: {
-            Orientation: testPhoto.orientation
-          }
+            Orientation: testPhoto.orientation,
+          },
         };
       } )
       .catch( ( err ) => {
@@ -124,7 +124,7 @@ export const mockUseCameraDevice = ( _deviceType ) => {
     supportsFocus: true,
     supportsLowLightBoost: false,
     supportsParallelVideoProcessing: true,
-    supportsRawCapture: true
+    supportsRawCapture: true,
   };
   return device;
 };
@@ -145,13 +145,13 @@ export const mockUseCameraFormat = ( _device ) => {
     supportsVideoHdr: false,
     videoHeight: 2160,
     videoStabilizationModes: ["off", "cinematic", "cinematic-extended"],
-    videoWidth: 3840
+    videoWidth: 3840,
   };
   return format;
 };
 
 export const mockUseLocationPermission = () => {
   return {
-    hasPermission: true
+    hasPermission: true,
   };
 };

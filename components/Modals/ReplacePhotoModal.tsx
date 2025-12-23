@@ -30,7 +30,7 @@ const ReplacePhotoModal = ( {
   seenDate,
   taxon,
   scientificNames,
-  commonName
+  commonName,
 }: Props ) => {
   const { observation } = useObservation();
   const { taxaId, scientificName } = taxon;

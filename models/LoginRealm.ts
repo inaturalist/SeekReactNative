@@ -8,8 +8,8 @@ class LoginRealm extends Realm.Object {
       username: "string?",
       profilePhoto: "string?",
       isAdmin: { type: "bool", default: false },
-      observationCount: { type: "int", default: 0 }
-    }
+      observationCount: { type: "int", default: 0 },
+    },
   };
 }
 

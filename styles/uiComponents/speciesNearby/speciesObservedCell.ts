@@ -4,14 +4,14 @@ const viewStyles = StyleSheet.create( {
   cellImage: {
     borderRadius: 108 / 2,
     height: 108,
-    width: 108
+    width: 108,
   },
   cellTitle: {
     flexDirection: "row",
     height: 92,
     justifyContent: "center",
     paddingTop: 13,
-    width: 108
+    width: 108,
   },
   checkbox: {
     position: "absolute",
@@ -19,29 +19,29 @@ const viewStyles = StyleSheet.create( {
     bottom: 0,
     zIndex: 1,
     height: 24,
-    width: 24
+    width: 24,
   },
   speciesImageCheckbox: {
-    bottom: 91
+    bottom: 91,
   },
   gridCell: {
     marginRight: 23,
     width: 108,
-    height: 205
-  }
+    height: 205,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   cellTitleText: {
-    textAlign: "center"
+    textAlign: "center",
   },
   speciesNameText: {
     paddingTop: 13,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

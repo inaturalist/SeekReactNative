@@ -54,7 +54,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
               const taxon = {
                 rank: rankNames[rankIndex],
                 name: ancestor.name,
-                preferred_common_name: name
+                preferred_common_name: name,
               };
 
               return taxon;
@@ -96,7 +96,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
             <View>
               <StyledText style={[
                 baseTextStyles.bodyBold,
-                ancestor.rank === "species" && baseTextStyles.boldItalic
+                ancestor.rank === "species" && baseTextStyles.boldItalic,
               ]}>
                 {ancestor.rank !== "species" && `${capitalizeNames( i18n.t( `camera.${ancestor.rank}` ) ) || ""} `}
                 {ancestor.name}
@@ -104,7 +104,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
               <StyledText style={[
                 baseTextStyles.body,
                 textStyles.taxonomyText,
-                !ancestor.preferred_common_name && baseTextStyles.italic
+                !ancestor.preferred_common_name && baseTextStyles.italic,
               ]}>
                 {ancestor.preferred_common_name
                   ? capitalizeNames( ancestor.preferred_common_name )

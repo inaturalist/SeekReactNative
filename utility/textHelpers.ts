@@ -49,5 +49,5 @@ const enabledLargeFonts = ( ): boolean => getFontScale( ) > 1;
 export {
   setChallengeDetailsButtonText,
   setCameraHelpText,
-  enabledLargeFonts
+  enabledLargeFonts,
 };

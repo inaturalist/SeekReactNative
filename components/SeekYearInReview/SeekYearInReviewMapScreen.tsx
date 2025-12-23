@@ -43,7 +43,7 @@ const SeekYearInReviewMapScreen = ( ) => {
             latitude,
             longitude,
             latitudeDelta,
-            longitudeDelta
+            longitudeDelta,
           } );
         }
       } )
@@ -65,7 +65,7 @@ const SeekYearInReviewMapScreen = ( ) => {
       latitude: user.latitude,
       longitude: user.longitude,
       latitudeDelta,
-      longitudeDelta
+      longitudeDelta,
     } );
   };
 

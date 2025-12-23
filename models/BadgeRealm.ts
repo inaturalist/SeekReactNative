@@ -14,8 +14,8 @@ class BadgeRealm extends Realm.Object {
       count: { type: "int", default: 0 },
       earnedIconName: "string?",
       infoText: "string?",
-      index: { type: "int", default: 0 }
-    }
+      index: { type: "int", default: 0 },
+    },
   };
 }
 

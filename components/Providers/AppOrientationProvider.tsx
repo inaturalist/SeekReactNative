@@ -35,7 +35,7 @@ const AppOrientationProvider = ( { children }: AppOrientationProviderProps ) => 
     isLandscape,
     isTablet,
     width: dim.width,
-    height: dim.height
+    height: dim.height,
   };
 
   return (
@@ -53,5 +53,5 @@ function useAppOrientation() {
 
 export {
   AppOrientationProvider,
-  useAppOrientation
+  useAppOrientation,
 };

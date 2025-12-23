@@ -5,8 +5,8 @@ class ReviewRealm extends Realm.Object {
     name: "ReviewRealm",
     properties: {
       date: "date",
-      timesSeen: { type: "int", default: 0 }
-    }
+      timesSeen: { type: "int", default: 0 },
+    },
   };
 }
 

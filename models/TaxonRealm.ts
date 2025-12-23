@@ -10,8 +10,8 @@ class TaxonRealm extends Realm.Object {
       preferredCommonName: "string?", // remove this
       defaultPhoto: "PhotoRealm?", // this should be a PhotoRealm object, but that type is causing errors
       iconicTaxonId: { type: "int", default: 0 },
-      ancestorIds: "int[]"
-    }
+      ancestorIds: "int[]",
+    },
   };
 }
 

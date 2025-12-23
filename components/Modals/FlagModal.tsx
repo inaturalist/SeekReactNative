@@ -28,7 +28,7 @@ const FlagModal = ( {
   closeModal,
   seenDate,
   scientificNames,
-  commonName
+  commonName,
 }: Props ) => {
   const { observation } = useObservation();
   if ( !observation ) {

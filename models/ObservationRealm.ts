@@ -9,8 +9,8 @@ class ObservationRealm extends Realm.Object {
       date: "date?",
       taxon: "TaxonRealm?",
       latitude: { type: "float", optional: true, default: 0.0 },
-      longitude: { type: "float", optional: true, default: 0.0 }
-    }
+      longitude: { type: "float", optional: true, default: 0.0 },
+    },
   };
 }
 

@@ -17,7 +17,7 @@ const Picker = ( {
   handleValueChange,
   children,
   itemList,
-  disabled
+  disabled,
 }: Props ) => {
   const showIcon = useCallback( () => <></>, [] );
 

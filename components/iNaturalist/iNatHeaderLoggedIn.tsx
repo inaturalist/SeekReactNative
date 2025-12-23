@@ -18,7 +18,7 @@ const INatHeaderLoggedIn = ( ) => {
   const count = useUploadedObservationCount( {
     login,
     username: userProfile.login,
-    triggerReload
+    triggerReload,
   } );
 
   const reload = () => { setTriggerReload( !triggerReload ); };

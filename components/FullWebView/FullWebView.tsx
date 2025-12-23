@@ -3,7 +3,7 @@ import * as React from "react";
 import {
   View,
   TouchableOpacity,
-  Image
+  Image,
 } from "react-native";
 import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -67,8 +67,8 @@ const FullWebView = ( { navigation, headerText, uri, loggedIn }: Props ) => {
     source = {
       ...source,
       headers: {
-        Authorization: token
-      }
+        Authorization: token,
+      },
     };
   }
 

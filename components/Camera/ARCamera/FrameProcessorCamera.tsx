@@ -8,7 +8,7 @@ import { Worklets } from "react-native-worklets-core";
 import {
   useIsForeground,
   useLocationPermission,
-  useTruncatedUserCoords
+  useTruncatedUserCoords,
 } from "../../../utility/customHooks";
 import InatVision from "./helpers/visionPluginWrapper";
 import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -19,7 +19,7 @@ import {
   useCameraDevice,
   useCameraFormat,
   useFrameProcessor,
-  useLocationPermission as useLocationPermissionCamera
+  useLocationPermission as useLocationPermissionCamera,
 } from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
@@ -67,7 +67,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     onClassifierError,
     onCaptureError,
     onLog,
-    isActive
+    isActive,
   } = props;
 
   const navigation = useNavigation( );
@@ -99,8 +99,8 @@ const FrameProcessorCamera = ( props: Props ) => {
       const returnError: { nativeEvent: { error?: string } } = {
         nativeEvent: {
           error:
-            "Camera Input Failed: This app is not authorized to use Back Camera."
-        }
+            "Camera Input Failed: This app is not authorized to use Back Camera.",
+        },
       };
       onCameraError( returnError );
     }
@@ -120,8 +120,8 @@ const FrameProcessorCamera = ( props: Props ) => {
     physicalDevices: [
       // "ultra-wide-angle-camera",
       "wide-angle-camera",
-      "telephoto-camera"
-    ]
+      "telephoto-camera",
+    ],
   } );
   const frontDevice = useCameraDevice( "front" );
   let device = backDevice;
@@ -138,7 +138,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     { videoAspectRatio },
     { photoAspectRatio },
     { photoResolution: "max" },
-    { videoResolution: "max" }
+    { videoResolution: "max" },
   ] );
   if ( Platform.OS === "android" ) {
     console.log( "Android is not using a specific camera format because we never got around to" );
@@ -168,7 +168,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     if ( Platform.OS === "android" ) {
       InatVision.addLogListener( ( event: { log: string } ) => {
         const returnEvent = {
-          nativeEvent: event
+          nativeEvent: event,
         };
         onLog( returnEvent );
       } );
@@ -181,7 +181,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const {
     animatedStyle,
-    tapToFocus
+    tapToFocus,
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( undefined );
@@ -195,8 +195,8 @@ const FrameProcessorCamera = ( props: Props ) => {
       framesProcessingTime.current = [];
       onLog( {
         nativeEvent: {
-          log: `Average frame processing time over 10 frames: ${avgTime}ms`
-        }
+          log: `Average frame processing time over 10 frames: ${avgTime}ms`,
+        },
       } );
     }
     onTaxaDetected( result );
@@ -245,8 +245,8 @@ const FrameProcessorCamera = ( props: Props ) => {
             location: {
               latitude: geoModelCellLocation?.latitude,
               longitude: geoModelCellLocation?.longitude,
-              elevation: geoModelCellLocation?.elevation
-            }
+              elevation: geoModelCellLocation?.elevation,
+            },
           } );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;
@@ -255,7 +255,7 @@ const FrameProcessorCamera = ( props: Props ) => {
           // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
           console.log( `Error: ${classifierError.message}` );
           const returnError = {
-            nativeEvent: { error: classifierError.message }
+            nativeEvent: { error: classifierError.message },
           };
           handleError( returnError );
         }
@@ -273,7 +273,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       lastTimestamp,
       fps,
       hasUserLocation,
-      geoModelCellLocation
+      geoModelCellLocation,
     ]
   );
 
@@ -285,7 +285,7 @@ const FrameProcessorCamera = ( props: Props ) => {
         context: "FrameProcessorCamera.tsx",
         message: error.message,
         errorType: error.constructor?.name,
-        backtrace: error.stack
+        backtrace: error.stack,
       } );
       let returnString = error.code;
       // If there is no error code, log the error and return because we don't know what to do with it
@@ -298,7 +298,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       // If it is a "device/" error, return the error code
       if ( error.code.includes( "device/" ) ) {
         const returnReason: { nativeEvent: { reason?: string } } = {
-          nativeEvent: { reason: error.code }
+          nativeEvent: { reason: error.code },
         };
         onDeviceNotSupported( returnReason );
         return;
@@ -306,7 +306,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
       if ( error.code.includes( "capture/" ) ) {
         const returnReason: { nativeEvent: { reason?: string } } = {
-          nativeEvent: { reason: error.code }
+          nativeEvent: { reason: error.code },
         };
         onCaptureError( returnReason );
         return;
@@ -315,7 +315,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       // If the error code is "frame-processor/unavailable" handle the error as classifier error
       if ( error.code === "frame-processor/unavailable" ) {
         const returnError: { nativeEvent: { error?: string } } = {
-          nativeEvent: { error: error.code }
+          nativeEvent: { error: error.code },
         };
         onClassifierError( returnError );
         return;
@@ -340,7 +340,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       }
 
       const returnError: { nativeEvent: { error?: string } } = {
-        nativeEvent: { error: returnString }
+        nativeEvent: { error: returnString },
       };
       onCameraError( returnError );
     },

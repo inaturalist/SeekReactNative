@@ -15,8 +15,8 @@ const setQuickActions = ( ): void => {
       subtitle: i18n.t( "shortcut.subtitle" ),
       icon: "camerabutton", // Icons instructions below
       userInfo: {
-        url: "app://Camera" // Provide any custom data like deep linking URL
-      }
+        url: "app://Camera", // Provide any custom data like deep linking URL
+      },
     }] );
   }
 };
@@ -53,7 +53,7 @@ interface Navigation {
 const resetRouter = ( navigation: Navigation ): any => navigation.dispatch(
   CommonActions.reset( {
     index: 1,
-    routes: [{ name: "Drawer" }]
+    routes: [{ name: "Drawer" }],
   } )
 );
 
@@ -61,5 +61,5 @@ export {
   setQuickActions,
   checkForHotStarts,
   checkForColdStarts,
-  resetRouter
+  resetRouter,
 };

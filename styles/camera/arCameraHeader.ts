@@ -3,7 +3,7 @@ import {
   colors,
   dimensions,
   row,
-  center
+  center,
 } from "../global";
 
 const { height } = dimensions;
@@ -14,30 +14,30 @@ const viewStyles = StyleSheet.create( {
   portraitDotsRow: {
     width: 262,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   greenButton: {
-    alignItems: "center"
+    alignItems: "center",
   },
   header: {
     position: "absolute",
-    top: height > 700 ? 89 : 58
+    top: height > 700 ? 89 : 58,
   },
   landscapeHeader: {
     borderRadius: 20,
     backgroundColor: colors.seekForestGreen,
     paddingVertical: 15,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   landscapeHeaderSpecies: {
-    backgroundColor: colors.seekGreen
+    backgroundColor: colors.seekGreen,
   },
   landscapeDots: {
     backgroundColor: colors.white,
     borderRadius: 10 / 2,
     height: 10,
     marginHorizontal: 16,
-    width: 10
+    width: 10,
   },
   landscapeDotsGreen: {
     backgroundColor: colors.speciesNearbyGreen,
@@ -46,16 +46,16 @@ const viewStyles = StyleSheet.create( {
     marginBottom: 3,
     marginHorizontal: 16,
     marginTop: 3,
-    width: 6
+    width: 6,
   },
   row,
   center,
   noLeftMargin: {
-    marginLeft: 0
+    marginLeft: 0,
   },
   noRightMargin: {
-    marginRight: 0
-  }
+    marginRight: 0,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
@@ -64,11 +64,11 @@ const textStyles = StyleSheet.create( {
     textAlign: "center",
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 3
-  }
+    textShadowRadius: 3,
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

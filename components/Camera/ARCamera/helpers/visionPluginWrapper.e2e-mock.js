@@ -11,9 +11,9 @@ const mockModelResult = {
       rank: "species",
       combined_score: 96.8,
       taxon_id: 51779,
-      ancestor_ids: [47126, 211194, 47124, 71289, 51890, 62379]
-    }
-  ]
+      ancestor_ids: [47126, 211194, 47124, 71289, 51890, 62379],
+    },
+  ],
 };
 
 const mockVision = ( ) => {
@@ -31,5 +31,5 @@ const mockVision = ( ) => {
 */
 export default {
   ...InatVision,
-  inatVision: mockVision
+  inatVision: mockVision,
 };

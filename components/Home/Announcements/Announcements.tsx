@@ -8,7 +8,7 @@ import makeWebshell, {
   HandleHTMLDimensionsFeature,
   ForceResponsiveViewportFeature,
   ForceElementSizeFeature,
-  useAutoheight
+  useAutoheight,
 } from "@formidable-webview/webshell";
 
 import { UserContext } from "../../UserContext";
@@ -29,13 +29,13 @@ const Webshell = makeWebshell(
   new ForceElementSizeFeature( {
     target: "body",
     heightValue: "auto",
-    widthValue: "auto"
+    widthValue: "auto",
   } )
 );
 
 const AutoheightWebView = ( webshellProps: any ) => {
   const { autoheightWebshellProps } = useAutoheight( {
-    webshellProps
+    webshellProps,
   } );
   return <Webshell {...autoheightWebshellProps} />;
 };
@@ -60,7 +60,7 @@ const Announcements = ( ) => {
       fields: "body,dismissible,start,end,placement",
       placement: "mobile",
       locale,
-      per_page: 20
+      per_page: 20,
     };
     const accessToken = await fetchAccessToken();
     const apiToken = await fetchJSONWebToken( accessToken );
@@ -86,7 +86,7 @@ const Announcements = ( ) => {
   const { userProfile } = useContext( UserContext );
 
   const { login } = userProfile || {
-    login: null
+    login: null,
   };
 
   useEffect( ( ) => {

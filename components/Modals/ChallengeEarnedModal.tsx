@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   View,
   Image,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { isAfter } from "date-fns";
 import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
@@ -58,7 +58,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
           sponsorName: challenge.sponsorName.toLocaleUpperCase( ),
           date: challenge.sponsorName === "Our Planet"
             ? formatMonth( challenge.availableDate ).toLocaleUpperCase( )
-            : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( )
+            : formatMonthYear( challenge.availableDate ).toLocaleUpperCase( ),
         } )}
       </StyledText>
       <StyledText style={[baseTextStyles.body, textStyles.text]}>
@@ -73,7 +73,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
           // TODO: where is this style coming from?
           viewStyles.logo,
           challenge.secondLogo === "iNat" && imageStyles.iNatLogo,
-          challenge.secondLogo === "natGeoBlack" && imageStyles.natGeoLogo
+          challenge.secondLogo === "natGeoBlack" && imageStyles.natGeoLogo,
         ]}
       />
       <View style={viewStyles.marginBottom} />

@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  center
+  center,
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -11,33 +11,33 @@ const viewStyles = StyleSheet.create( {
     backgroundColor: colors.white,
     borderRadius: 10 / 2,
     height: 10,
-    width: 10
+    width: 10,
   },
   button: {
     backgroundColor: colors.seekTeal,
     borderRadius: 34,
     height: 50,
     justifyContent: "center",
-    width: 293
+    width: 293,
   },
   buttonUncolored: {
     height: 50,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   buttonContainer: {
-    marginBottom: 51
+    marginBottom: 51,
   },
   buttonHeight: {
-    padding: 15
+    padding: 15,
   },
   center,
   container: {
-    flex: 1
+    flex: 1,
   },
   contentContainer: {
     alignItems: "center",
     justifyContent: "flex-end",
-    width
+    width,
   },
   dot: {
     backgroundColor: colors.darkGray,
@@ -46,36 +46,36 @@ const viewStyles = StyleSheet.create( {
     marginBottom: 3,
     marginHorizontal: 16,
     marginTop: 3,
-    width: 6
+    width: 6,
   },
   image: {
-    alignItems: "center"
+    alignItems: "center",
   },
   margin: {
-    marginTop: 29
+    marginTop: 29,
   },
   pagination: {
     flexDirection: "row",
     marginBottom: height > 570 ? 37 : 27,
-    marginTop: height > 570 ? 57 : 27
-  }
+    marginTop: height > 570 ? 57 : 27,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   skipText: {
     textAlign: "center",
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
   },
   text: {
     maxWidth: 292,
-    textAlign: "center"
+    textAlign: "center",
   },
   continue: {
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

@@ -43,7 +43,7 @@ const MatchScreen = ( ) => {
     }
   }, {
     navPath: null,
-    flagModal: false
+    flagModal: false,
   } );
 
   const { navPath, flagModal } = state;

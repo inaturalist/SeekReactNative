@@ -25,7 +25,7 @@ const LocationMap = ( {
   region,
   onRegionChange,
   returnToUserLocation,
-  posting = false
+  posting = false,
 }: Props ) => (
   <View style={viewStyles.container}>
     {region.latitude ? (

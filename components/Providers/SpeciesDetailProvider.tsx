@@ -18,7 +18,7 @@ const SpeciesDetailProvider = ( { children }: SpeciesDetailProps ) => {
     id,
     region,
     setId,
-    setRegion
+    setRegion,
   };
 
   return (

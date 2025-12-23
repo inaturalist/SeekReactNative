@@ -12,7 +12,7 @@ const renderScreen = () => {
       seekId={{
         name: "some_name",
         preferredCommonName: "some_common_name",
-        taxaId: 49322
+        taxaId: 49322,
       }}
     />
   );

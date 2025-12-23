@@ -18,11 +18,11 @@ interface Props {
 const CaptivePicker = ( { updateObservation, captive }: Props ) => {
   const captiveTypes = [{
     label: i18n.t( "posting.no" ),
-    value: false
+    value: false,
   },
   {
     label: i18n.t( "posting.yes" ),
-    value: true
+    value: true,
   }];
 
   const handleChange = ( value: boolean ) => updateObservation( "captive_flag", value );

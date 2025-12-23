@@ -27,7 +27,7 @@ const SpeciesName = ( { loading, taxon, id, selectedText, highlightSelectedText 
         <StyledText
           style={[
             baseTextStyles.speciesSmall,
-            selectedText && viewStyles.selectedPressableArea
+            selectedText && viewStyles.selectedPressableArea,
           ]}
         >
           {!loading ? scientificName : null}

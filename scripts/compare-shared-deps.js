@@ -8,7 +8,7 @@ const inat = JSON.parse( fs.readFileSync( "./package.json", "utf-8" ) );
 // === Combine dependencies and devDependencies ===
 const mergeDeps = ( pkg ) => ( {
   ...pkg.dependencies,
-  ...pkg.devDependencies
+  ...pkg.devDependencies,
 } );
 
 const seekDeps = mergeDeps( seek );

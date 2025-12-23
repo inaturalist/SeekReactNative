@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   View,
   TouchableOpacity,
-  Image
+  Image,
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 

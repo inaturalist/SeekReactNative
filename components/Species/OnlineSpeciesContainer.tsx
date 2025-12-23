@@ -16,7 +16,7 @@ import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import {
   useLocationPermission,
-  useTruncatedUserCoords
+  useTruncatedUserCoords,
 } from "../../utility/customHooks";
 import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
@@ -51,14 +51,14 @@ const OnlineSpeciesContainer = ( {
   id,
   details,
   predictions,
-  scientificName
+  scientificName,
 }: Props ) => {
   const {
     stats,
     about,
     wikiUrl,
     ancestors,
-    timesSeen
+    timesSeen,
   } = details;
 
   const seenTaxa = useSeenTaxa( id );

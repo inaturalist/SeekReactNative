@@ -12,7 +12,7 @@ const mockNotifications = [
     nextScreen: "ChallengeDetails",
     seen: false,
     title: "notifications.new_challenge",
-    viewed: false
+    viewed: false,
   },
   {
     challengeIndex: 36,
@@ -22,15 +22,15 @@ const mockNotifications = [
     nextScreen: "ChallengeDetails",
     seen: true,
     title: "notifications.new_challenge",
-    viewed: true
-  }
+    viewed: true,
+  },
 ];
 
 jest.mock(
   "../../../../components/Notifications/hooks/notificationHooks",
   () => ( {
     __esModule: true,
-    default: jest.fn( () => mockNotifications )
+    default: jest.fn( () => mockNotifications ),
   } )
 );
 

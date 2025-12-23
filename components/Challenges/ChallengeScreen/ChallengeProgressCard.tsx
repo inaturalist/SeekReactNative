@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   Image,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -38,7 +38,7 @@ const ChallengeProgressCard = ( { challenge }: Props ) => {
     percentComplete,
     startedDate,
     index,
-    earnedIconName
+    earnedIconName,
   } = challenge;
   let rightIcon;
 

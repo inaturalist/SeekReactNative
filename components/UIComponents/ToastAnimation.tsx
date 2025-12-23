@@ -16,7 +16,7 @@ const ToastAnimation = ( {
   toastText,
   finishAnimation,
   styles,
-  rectangleColor
+  rectangleColor,
 }: Props ) => {
   const fadeOut = useRef( new Animated.Value( 0 ) ).current;
 
@@ -25,20 +25,20 @@ const ToastAnimation = ( {
     const entrance = {
       toValue: 1,
       duration: 0,
-      useNativeDriver: true
+      useNativeDriver: true,
     };
 
     const exit = {
       toValue: 0,
       delay: 2000,
       duration: 200,
-      useNativeDriver: true
+      useNativeDriver: true,
     };
 
     if ( startAnimation && isCurrent ) {
       Animated.sequence( [
         Animated.timing( fadeOut, entrance ),
-        Animated.timing( fadeOut, exit )
+        Animated.timing( fadeOut, exit ),
       ] ).start( ( { finished } ) => {
         if ( finished && finishAnimation ) {
           finishAnimation( );
@@ -52,7 +52,7 @@ const ToastAnimation = ( {
 
   const animatedStyles = [{
     ...styles,
-    opacity: fadeOut
+    opacity: fadeOut,
   }];
 
   return (

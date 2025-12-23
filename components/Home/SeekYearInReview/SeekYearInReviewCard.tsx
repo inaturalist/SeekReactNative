@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import i18n from "../../../i18n";
 import {
   viewStyles,
-  textStyles
+  textStyles,
 } from "../../../styles/home/seekYearInReview";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { UserContext } from "../../UserContext";
@@ -50,7 +50,7 @@ const SeekYearInReviewCard = ( ) => {
         <StyledText
           style={[
             baseTextStyles.body,
-            isLandscape && viewStyles.landscapeContainerRestrictedWidth
+            isLandscape && viewStyles.landscapeContainerRestrictedWidth,
           ]}
         >
           {i18n.t( "seek_year_in_review.description" )}

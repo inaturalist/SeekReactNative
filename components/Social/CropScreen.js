@@ -22,7 +22,7 @@ const CropScreen = ( {
   uri,
   cropViewRef,
   handleImageCrop,
-  closeModal
+  closeModal,
 }: Props ): React.Node => (
   <SafeAreaView style={viewStyles.cropScreenContainer} edges={["top"]}>
     <View style={viewStyles.header}>

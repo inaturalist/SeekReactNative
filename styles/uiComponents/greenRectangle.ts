@@ -5,17 +5,17 @@ const viewStyles = StyleSheet.create( {
   greenButton: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
-    paddingVertical: 6
-  }
+    paddingVertical: 6,
+  },
 } );
 
 const textStyles = StyleSheet.create( {
   greenButtonText: {
-    paddingHorizontal: 10
-  }
+    paddingHorizontal: 10,
+  },
 } );
 
 export {
   textStyles,
-  viewStyles
+  viewStyles,
 };

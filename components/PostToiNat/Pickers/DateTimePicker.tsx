@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   Image,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 
 import styles from "../../../styles/posting/postToiNat";

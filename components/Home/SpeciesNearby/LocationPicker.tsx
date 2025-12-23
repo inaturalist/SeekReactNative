@@ -3,7 +3,7 @@ import {
   View,
   TextInput,
   Image,
-  Platform
+  Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -29,7 +29,7 @@ interface Props {
 
 const LocationPicker = ( {
   updateLatLng,
-  closeLocationPicker
+  closeLocationPicker,
 }: Props ) => {
   const { speciesNearby } = useSpeciesNearby( );
   const { latitude, longitude, location } = speciesNearby;
@@ -38,7 +38,7 @@ const LocationPicker = ( {
     latitudeDelta,
     longitudeDelta,
     latitude,
-    longitude
+    longitude,
   } );
   const [inputLocation, setInputLocation] = useState( location );
 
@@ -53,7 +53,7 @@ const LocationPicker = ( {
       latitude: lat,
       longitude: lng,
       latitudeDelta,
-      longitudeDelta
+      longitudeDelta,
     } );
   };
 
@@ -93,7 +93,7 @@ const LocationPicker = ( {
           latitude: lat,
           longitude: long,
           latitudeDelta,
-          longitudeDelta
+          longitudeDelta,
         } );
       }
     } ).catch( e => createAlertUserLocationOnMaps( e ) );

@@ -80,5 +80,5 @@ export {
   renderHeaderText,
   renderText,
   setGradients,
-  setScreenType
+  setScreenType,
 };

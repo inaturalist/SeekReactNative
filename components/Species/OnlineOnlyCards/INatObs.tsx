@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import inatjs from "inaturalistjs";
 import { useNavigation } from "@react-navigation/native";
@@ -36,7 +36,7 @@ const INatObs = ( { id, timesSeen, region }: Props ) => {
         lat: region.latitude,
         lng: region.longitude,
         radius: 50,
-        taxon_id: id
+        taxon_id: id,
       };
 
       // TODO: iNat API TS ?
@@ -83,7 +83,7 @@ const INatObs = ( { id, timesSeen, region }: Props ) => {
               )}
               <StyledText style={[
                 baseTextStyles.emptyState,
-                region.latitude && viewStyles.margin
+                region.latitude && viewStyles.margin,
               ]}
               >
                 {i18n.t( "species_detail.worldwide" )}

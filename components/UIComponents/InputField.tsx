@@ -17,7 +17,7 @@ const InputField = ( {
   handleTextChange,
   placeholder,
   text,
-  type
+  type,
 }: Props ) => {
   let keyboardType: KeyboardTypeOptions = "default";
   if ( type === "emailAddress" ) {

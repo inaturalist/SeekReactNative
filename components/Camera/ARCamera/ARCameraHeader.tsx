@@ -74,7 +74,7 @@ const ARCameraHeader = ( { prediction }: Props ) => {
         ? viewStyles.landscapeDots
         : viewStyles.landscapeDotsGreen,
       index === 0 && viewStyles.noLeftMargin,
-      index === 6 && viewStyles.noRightMargin
+      index === 6 && viewStyles.noRightMargin,
     ]}
     />
   ) );

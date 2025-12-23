@@ -40,7 +40,7 @@ export const colors: Colors = {
   settingsGray: "#999999",
   cameraFilterGray: "#858585",
   skeletonGray: "#d1d5da",
-  ccGray: "#363636"
+  ccGray: "#363636",
 };
 
 export const fonts = {
@@ -48,33 +48,33 @@ export const fonts = {
   bold: "Lato-Bold",
   regular: "Lato-Regular",
   italic: "Lato-Italic",
-  boldItalic: "Lato-BoldItalic"
+  boldItalic: "Lato-BoldItalic",
 };
 
 export const htmlFonts = [
   fonts.regular,
   fonts.bold,
   fonts.italic,
-  ...defaultSystemFonts
+  ...defaultSystemFonts,
 ];
 
 export const dimensions = {
   width,
-  height
+  height,
 };
 
 export const center = {
   alignItems: "center" as const,
-  justifyContent: "center" as const
+  justifyContent: "center" as const,
 };
 
 export const leftText = {
-  textAlign: "left" as const
+  textAlign: "left" as const,
 };
 
 export const row = {
   alignItems: "center" as const,
   flexDirection: "row" as const,
-  flexWrap: "nowrap" as const
+  flexWrap: "nowrap" as const,
 };
 

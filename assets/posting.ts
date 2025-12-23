@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type Posting = {
-  [key: string]: ImageSourcePropType;
-};
+type Posting = Record<string, ImageSourcePropType>;
 
 const posting: Posting = {
   captive: require( "./posting/icon-captive.webp" ),

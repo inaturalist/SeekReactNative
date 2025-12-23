@@ -1,17 +1,15 @@
-type Challenges = {
-  [key: string]: {
-    name: string;
-    description: string;
-    totalSpecies: number;
-    backgroundName: string;
-    earnedIconName: string;
-    missions: string[];
-    availableDate: Date;
-    photographer?: string;
-    action: string;
-    badgeName?: string;
-  };
-};
+type Challenges = Record<string, {
+  name: string;
+  description: string;
+  totalSpecies: number;
+  backgroundName: string;
+  earnedIconName: string;
+  missions: string[];
+  availableDate: Date;
+  photographer?: string;
+  action: string;
+  badgeName?: string;
+}>;
 const challenges: Challenges = {
   april: {
     name: "challenges.connectivity",

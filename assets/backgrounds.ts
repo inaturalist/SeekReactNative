@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type Backgrounds = {
-  [key: string]: ImageSourcePropType;
-};
+type Backgrounds = Record<string, ImageSourcePropType>;
 
 const backgrounds: Backgrounds = {
   splash: require( "./backgrounds/bg-splash-2020.webp" ),

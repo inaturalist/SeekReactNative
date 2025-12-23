@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type Icons = {
-  [key: string]: ImageSourcePropType;
-};
+type Icons = Record<string, ImageSourcePropType>;
 
 const icons: Icons = {
   completed: require( "./icons/icon-completed.webp" ),

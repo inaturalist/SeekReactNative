@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type Badges = {
-  [key: string]: ImageSourcePropType;
-};
+type Badges = Record<string, ImageSourcePropType>;
 
 const badges: Badges = {
   badge_empty: require( "./badges/Badge_Empty.webp" ),

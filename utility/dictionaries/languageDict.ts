@@ -1,6 +1,4 @@
-type Languages = {
-  [key: string]: string;
-};
+type Languages = Record<string, string>;
 
 // using names from https://github.com/inaturalist/iNaturalistAndroid/blob/master/iNaturalist/src/main/res/values/constants.xml
 // and Google Translate for Sinhala

@@ -1,11 +1,9 @@
-type Notifications = {
-  [key: string]: {
-    title: string;
-    message: string;
-    iconName: string;
-    nextScreen: string;
-  };
-};
+type Notifications = Record<string, {
+  title: string;
+  message: string;
+  iconName: string;
+  nextScreen: string;
+}>;
 const notifications: Notifications = {
   challengeProgress: {
     title: "notifications.almost_finished",

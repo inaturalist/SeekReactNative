@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type IconicTaxa = {
-  [key: string]: ImageSourcePropType;
-};
+type IconicTaxa = Record<string, ImageSourcePropType>;
 
 const iconicTaxa: IconicTaxa = {
   "47126": require( "./iconicTaxa/img-nullobs-plant.webp" ),

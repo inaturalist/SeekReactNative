@@ -79,11 +79,7 @@ const iconicScientificNames: IconicTaxaById = {
   48222: "Chromista",
 };
 
-interface Ranks {
-  [key: string]: string;
-}
-
-const ranks: Ranks = {
+const ranks: Record<string, string> = {
   kingdom: "camera.kingdom",
   phylum: "camera.phylum",
   class: "camera.class",
@@ -93,11 +89,7 @@ const ranks: Ranks = {
   species: "camera.species",
 };
 
-interface TaxaIds {
-  [key: string]: number | null;
-}
-
-const taxonIds: TaxaIds = {
+const taxonIds: Record<string, number | null> = {
   birds: 3,
   amphibians: 20978,
   reptiles: 26036,

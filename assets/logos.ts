@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type Logos = {
-  [key: string]: ImageSourcePropType;
-};
+type Logos = Record<string, ImageSourcePropType>;
 
 const logos: Logos = {
   seek: require( "./logos/logo-seek-splash-2020.webp" ),

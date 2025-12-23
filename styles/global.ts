@@ -3,9 +3,7 @@ import { defaultSystemFonts } from "react-native-render-html";
 
 const { width, height } = Dimensions.get( "window" );
 
-type Colors = {
-  [key: string]: string;
-};
+type Colors = Record<string, string>;
 export const colors: Colors = {
   white: "#ffffff",
   black: "#000000",

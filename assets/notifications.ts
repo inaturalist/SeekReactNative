@@ -1,8 +1,6 @@
 import type { ImageSourcePropType } from "react-native";
 
-type Notifications = {
-  [key: string]: ImageSourcePropType;
-};
+type Notifications = Record<string, ImageSourcePropType>;
 
 const notifications: Notifications = {
   bird: require( "./logos/iNatStatsSpeciesDetail-Bird.webp" ),

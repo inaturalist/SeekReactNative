@@ -84,17 +84,15 @@ jobs:
     - name: Set MOCK_MODE to e2e
       run: echo "MOCK_MODE=e2e" >> "$GITHUB_ENV"
 
-    # Install prerequisites for detox and build app, and test
-    - name: Install macOS dependencies
-      env:
-        HOMEBREW_NO_AUTO_UPDATE: 1
-        HOMEBREW_NO_INSTALL_CLEANUP: 1
-      run: |
-        brew tap wix/brew
-        brew install applesimutils
-
     - name: Build test app
       run: npm run e2e:build:ios
+
+    - name: Upload iOS Detox app build
+      uses: actions/upload-artifact@v4
+      with:
+        name: detox_app
+        path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
+        retention-days: 5
 
   test:
     needs: build

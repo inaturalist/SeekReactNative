@@ -101,6 +101,54 @@ jobs:
     timeout-minutes: 60
 
     steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+    - name: Download iOS Detox app build
+      uses: actions/download-artifact@v5
+      with:
+        name: detox_app
+        path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
+
+    - name: Cache node modules
+      uses: actions/cache@v4
+      id: cache
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Rebuild detox from cache
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: npx detox clean-framework-cache && npx detox build-framework-cache
+
+    # supposedly our current cache includes native modules like Realm
+    # that have compiled binaries specific to the environment where they were installed
+    # which might not be the same as the github actions environment
+    # so we need to rebuild them
+    - name: Rebuild native modules
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: npm rebuild
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install
+
+    # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+    # This will be available for all subsequent steps
+    - name: Set MOCK_MODE to e2e
+      run: echo "MOCK_MODE=e2e" >> "$GITHUB_ENV"
+
+    # Install prerequisites for detox and build app, and test
+    - name: Install macOS dependencies
+      env:
+        HOMEBREW_NO_AUTO_UPDATE: 1
+        HOMEBREW_NO_INSTALL_CLEANUP: 1
+      run: |
+        brew tap wix/brew
+        brew install applesimutils
+
     - name: Ensure servers are running
       id: status_check
       run: |

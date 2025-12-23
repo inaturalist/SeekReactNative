@@ -14,10 +14,10 @@ concurrency:
   cancel-in-progress: true
   
 jobs:
-  test:
+  build:
     runs-on: macos-15
-    # Kill the task if not finished after 120 minutes
-    timeout-minutes: 120
+    # Kill the job if not finished after 60 minutes
+    timeout-minutes: 60
 
     steps:
     - name: Check out Git repository
@@ -84,6 +84,62 @@ jobs:
     - name: Set MOCK_MODE to e2e
       run: echo "MOCK_MODE=e2e" >> "$GITHUB_ENV"
 
+    - name: Build test app
+      run: npm run e2e:build:ios
+
+    - name: Upload iOS Detox app build
+      uses: actions/upload-artifact@v4
+      with:
+        name: detox_app
+        path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
+        retention-days: 5
+
+  test:
+    needs: build
+    runs-on: macos-15
+    # Kill the job if not finished after 60 minutes
+    timeout-minutes: 60
+
+    steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+    - name: Download iOS Detox app build
+      uses: actions/download-artifact@v5
+      with:
+        name: detox_app
+        path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
+
+    - name: Cache node modules
+      uses: actions/cache@v4
+      id: cache
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Rebuild detox from cache
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: npx detox clean-framework-cache && npx detox build-framework-cache
+
+    # supposedly our current cache includes native modules like Realm
+    # that have compiled binaries specific to the environment where they were installed
+    # which might not be the same as the github actions environment
+    # so we need to rebuild them
+    - name: Rebuild native modules
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: npm rebuild
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install
+
+    # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+    # This will be available for all subsequent steps
+    - name: Set MOCK_MODE to e2e
+      run: echo "MOCK_MODE=e2e" >> "$GITHUB_ENV"
+
     # Install prerequisites for detox and build app, and test
     - name: Install macOS dependencies
       env:
@@ -92,9 +148,6 @@ jobs:
       run: |
         brew tap wix/brew
         brew install applesimutils
-
-    - name: Build test app
-      run: npm run e2e:build:ios
 
     - name: Ensure servers are running
       id: status_check

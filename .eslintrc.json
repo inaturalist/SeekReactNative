@@ -8,6 +8,7 @@
     "quotes": [2, "double"],
     "comma-dangle": [2, "always-multiline"],
     "space-in-parens": [2, "always"],
+    "@stylistic/member-delimiter-style": 2,
     "@typescript-eslint/array-type": 2,
     "@typescript-eslint/consistent-type-imports": [
       2,

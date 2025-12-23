@@ -1,6 +1,9 @@
 {
   "ignorePatterns": ["**/vendor/**"],
   "extends": ["@react-native"],
+  "plugins": [
+    "@stylistic"
+  ],
   "rules": {
     "quotes": [2, "double"],
     "comma-dangle": [2, "always-multiline"],

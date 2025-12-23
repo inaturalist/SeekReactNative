@@ -200,7 +200,7 @@ const formatYearMonthDay = ( date: string | Date | null | undefined ): string =>
 
 const formatHourMonthSecond = (): string => format( new Date(), "H:mm:ss" );
 
-const createShortMonthsList = ( ): Array<string> => {
+const createShortMonthsList = ( ): string[] => {
   const months = Array.from( { length: 12 }, ( v, i ) => i + 1 );
 
   return months.map( i => {

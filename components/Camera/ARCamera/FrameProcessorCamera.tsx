@@ -2,7 +2,7 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import type { CameraRuntimeError } from "react-native-vision-camera";
+import type { CameraDevice, CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
 
 import {
@@ -16,7 +16,6 @@ import usePatchedRunAsync from "../../../utility/visionCameraPatches";
 
 import {
   Camera,
-  useCameraDevice,
   useCameraFormat,
   useFrameProcessor,
   useLocationPermission as useLocationPermissionCamera,
@@ -43,6 +42,7 @@ export interface LogMessage {
 
 interface Props {
   cameraRef: React.RefObject<Camera | null>;
+  device: CameraDevice;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
   negativeFilter: boolean;
@@ -58,6 +58,7 @@ interface Props {
 const FrameProcessorCamera = ( props: Props ) => {
   const {
     cameraRef,
+    device,
     confidenceThreshold,
     filterByTaxonId,
     negativeFilter,
@@ -116,19 +117,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   const [permissionCount, setPermissionCount] = useState( 0 );
-  const backDevice = useCameraDevice( "back", {
-    physicalDevices: [
-      // "ultra-wide-angle-camera",
-      "wide-angle-camera",
-      "telephoto-camera",
-    ],
-  } );
-  const frontDevice = useCameraDevice( "front" );
-  let device = backDevice;
-  // If there is no back camera, use the front camera
-  if ( !device ) {
-    device = frontDevice;
-  }
+
   // Select the camera format based on the screen aspect ratio on ai camera as it is full-screen
   const screen = Dimensions.get( "screen" );
   const videoAspectRatio = screen.height / screen.width;

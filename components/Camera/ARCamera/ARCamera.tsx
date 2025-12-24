@@ -47,6 +47,7 @@ import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
+import { useCameraDevice } from "./helpers/visionCameraWrapper";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -96,6 +97,20 @@ const ARCamera = ( ) => {
   const camera = useRef<Camera>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
+
+  const backDevice = useCameraDevice( "back", {
+    physicalDevices: [
+      // "ultra-wide-angle-camera",
+      "wide-angle-camera",
+      "telephoto-camera",
+    ],
+  } );
+  const frontDevice = useCameraDevice( "front" );
+  let device = backDevice;
+  // If there is no back camera, use the front camera
+  if ( !device ) {
+    device = frontDevice;
+  }
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -461,9 +476,13 @@ const ARCamera = ( ) => {
   }
 
   const renderCamera = () => {
+    if ( !device ) {
+      return null;
+    }
     return (
       <FrameProcessorCamera
         cameraRef={camera}
+        device={device}
         confidenceThreshold={confidenceThresholdNumber}
         onCameraError={handleCameraError}
         // onCameraPermissionMissing was an empty callback

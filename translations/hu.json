@@ -7,7 +7,7 @@
     "no_species": "Úgy tűnik, a közelben még sok faj nincs felfedezve! Változtasd meg a helyed vagy szélesítsd a faj szűrő beállításait.",
     "input_location_above_map": "Nem található hely; írd be a hely nevét a térkép betöltéséhez és a közelben található fajok kereséséhez",
     "error_alert_location_services": "A folytatáshoz kapcsold be a helyszolgáltatásokat az eszközöd beállításaiban",
-    "species_nearby_requires_location": "A közeli fajok megjelenítéséhez hozzá kell férnünk a helyzetedhez. Kérjük endedélyezd ezt a beállításoknál.",
+    "species_nearby_requires_location": "A közeli fajok megjelenítéséhez hozzá kell férnünk a helyzetedhez. Kérünk engedélyezd ezt a beállításoknál.",
     "species_nearby_requires_android_accuracy": "A közeli fajok megjelenítéséhez szükség van a helyzetedre. Kérjük kapcsold be a helymeghatározást a beállításoknál.",
     "choose_location_on_map": "VÁLASSZ HELYET A TÉRKÉPEN"
   },
@@ -123,10 +123,10 @@
     "linked_account": "Összekapcsoltad az iNaturalist fiókod a Seek-kel!",
     "posting": "Posztolj az iNaturalist-ra",
     "posting_details": "Elküldheted a fotóidat a Seek-en keresztül az iNaturalist-ra, amint hozzáadtadtad őket a felfedezéseidhez. Ha később szeretnéd közzétenni őket, azt az iNaturalist appon vagy a weboldalon teheted meg.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "A Seek megfigyelések nincsenek szinkronizálva",
+    "observations_stored_only_in_app": "A Seek-ben történt felfedezéseid a készülékre lesznek lementve ebbe az alkalmazásba, ezekről NEM készül online másolat az iNaturalistra.",
+    "observations_bullet_1": "Az app törlésével minden Seek felfedezésed is automatikusan törlődni fog.",
+    "observations_bullet_2": "Ha átviszed a Seek-et egy másik készülékre a megifgyeléseid nem mennek át együtt az alkalmazással.",
     "observations_3": "A Seek nem hangolja össze a felfedezéseid más készülékekkel.",
     "agree_to_terms": "Elfogadom a <terms>{{terms}}</terms> és a <privacy>{{privacy}}</privacy>, illetve elolvastam a <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Közösségi irányelvek",
@@ -1039,9 +1039,9 @@
     "not_found_error_description": "Az alkalmazás betöltése során a gépi látás modell nem áll rendelkezésre. A Kamera működése korlátozott, a határozás nem áll rendelkezésre."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Valami hiba történt.",
+    "if_youre_seeing_this_error": "Ha látod ezt és online vagy akkor az iNat személyzete már értesült. Köszönjük, hogy találtál egy hibát! Ha pedig nem vagy az Internethez csatlakozva kérünk készíts egy képernyőfényképet és  küldj nekünk egy emailt miután visszakapcsolódtál az Internetre.",
+    "restart": "INDÍTSD ÚJRA AZ ALKALMAZÁST",
+    "error": "Hiba"
   }
 }

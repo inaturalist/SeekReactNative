@@ -30,6 +30,9 @@
 ## Manual Linking
 Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). Any exceptions are listed in the `react-native.config.js` file.
 
+### Rozenite (React Native DevTools plugins)
+You may optionally, as an environment variable, set the Rozenite env var to enable the Rozenite React Native DevTools plugins: `WITH_ROZENITE=true npm start`. This makes the installed Rozenite plugins available in React Native DevTools in their respective tabs.
+
 ## Tests
 We currently have three kinds of tests:
 

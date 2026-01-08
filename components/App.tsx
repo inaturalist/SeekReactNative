@@ -22,6 +22,7 @@ import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
 import { log } from "../react-native-logs.config";
 import { LogLevels, logToApi } from "../utility/apiCalls";
 import ErrorBoundary from "./ErrorBoundary";
+import { useNetworkActivityDevTools } from "@rozenite/network-activity-plugin";
 
 const logger = log.extend( "App.tsx" );
 
@@ -80,6 +81,9 @@ setNativeExceptionHandler(
 const style = { flex: 1 } as const;
 
 const App = ( ) => {
+  // note: automatically disabled in Production builds
+  useNetworkActivityDevTools();
+  
   useEffect( () => {
     hideLogs( );
     logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );

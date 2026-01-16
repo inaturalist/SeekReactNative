@@ -158,11 +158,11 @@ jobs:
         curl -I --fail "https://stagingapi.inaturalist.org/v2/taxa"
 
     - name: Run e2e test
-        # don't mark job as error so that retries so that we can rely on the retry to succeed and mark job & workflow green
-        continue-on-error: true
-        id: first_test_run
-        run: |
-          npm run e2e:test:ios
+      # don't mark job as error so that retries so that we can rely on the retry to succeed and mark job & workflow green
+      continue-on-error: true
+      id: first_test_run
+      run: |
+        npm run e2e:test:ios
 
     - name: Run e2e test (retry, with logs)
       # if first_test_run fails, but we `continue-on-error`, failure() is false. so we need to check it's specific _outcome_

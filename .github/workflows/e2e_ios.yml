@@ -158,7 +158,7 @@ jobs:
         curl -I --fail "https://stagingapi.inaturalist.org/v2/taxa"
 
     - name: Run e2e test
-      # don't mark job as error so that retries so that we can rely on the retry to succeed and mark job & workflow green
+      # don't mark job as error so that we can rely on the retry to succeed and mark job & workflow green
       continue-on-error: true
       id: first_test_run
       run: |

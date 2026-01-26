@@ -1,7 +1,5 @@
 import * as React from "react";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import { Appearance } from "react-native";
-
 interface Props {
   toggleDateTimePicker: () => void;
   onDatePicked: ( date: Date ) => void;
@@ -15,7 +13,6 @@ const DatePicker = ( {
   onDatePicked,
   toggleDateTimePicker,
 }: Props ) => {
-  const colorScheme = Appearance.getColorScheme();
 
   const customHeader = ( ) => <></>;
 
@@ -23,7 +20,8 @@ const DatePicker = ( {
     <DateTimePicker
       display="spinner"
       customHeaderIOS={customHeader}
-      isDarkModeEnabled={colorScheme === "dark"}
+      isDarkModeEnabled={false}
+      themeVariant="light"
       isVisible={isDateTimePickerVisible}
       maximumDate={new Date()}
       minimumDate={new Date( 1900, 0, 1 )}

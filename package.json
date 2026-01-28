@@ -48,7 +48,7 @@
     "jsrsasign": "^11.1.0",
     "lodash": "^4.17.23",
     "react": "19.1.0",
-    "react-native": "0.80.2",
+    "react-native": "0.81.5",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^14.0.4",
@@ -94,13 +94,13 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
-    "@react-native-community/cli": "19.1.2",
-    "@react-native-community/cli-platform-android": "19.1.2",
-    "@react-native-community/cli-platform-ios": "19.1.2",
-    "@react-native/babel-preset": "0.80.2",
-    "@react-native/eslint-config": "0.80.2",
-    "@react-native/metro-config": "0.80.2",
-    "@react-native/typescript-config": "0.80.2",
+    "@react-native-community/cli": "20.0.0",
+    "@react-native-community/cli-platform-android": "20.0.0",
+    "@react-native-community/cli-platform-ios": "20.0.0",
+    "@react-native/babel-preset": "0.81.5",
+    "@react-native/eslint-config": "0.81.5",
+    "@react-native/metro-config": "0.81.5",
+    "@react-native/typescript-config": "0.81.5",
     "@rozenite/metro": "^1.1.0",
     "@rozenite/network-activity-plugin": "^1.1.0",
     "@stylistic/eslint-plugin": "^3.1.0",
@@ -132,7 +132,7 @@
     "prettier": "^3.2.2",
     "react-native-clean-project": "^4.0.3",
     "react-test-renderer": "19.1.0",
-    "typescript": "5.0.4"
+    "typescript": "^5.8.3"
   },
   "overrides": {
     "eslint-plugin-react-hooks": "^6.0.0-rc.1"
@@ -159,7 +159,7 @@
     ]
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

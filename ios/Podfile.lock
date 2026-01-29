@@ -3425,34 +3425,6 @@ SPEC CHECKSUMS:
   React: 914f8695f9bf38e6418228c2ffb70021e559f92f
   React-callinvoker: 23cd4e33928608bd0cc35357597568b8b9a5f068
   React-Codegen: 4b8b4817cea7a54b83851d4c1f91f79aa73de30a
-  React-Core: b23cdaaa9d76389d958c06af3c57aa6ad611c542
-  React-CoreModules: 8e0f562e5695991e455abbebe1e968af71d52553
-  React-cxxreact: 6ccbe0cc2c652b29409b14b23cfb3cd74e084691
-  React-debug: ab52e07f7148480ea61c5e9b68408d749c6e2b8f
-  React-defaultsnativemodule: 291d2b0a93c399056121f4f0acc7f46d155a38ec
-  React-domnativemodule: c4968302e857bd422df8eec50a3cd4d078bd4ac0
-  React-Fabric: 7e3ba48433b87a416052c4077d5965aff64cb8c9
-  React-FabricComponents: 21de255cf52232644d12d3288cced1f0c519b25d
-  React-FabricImage: 15a0961a0ab34178f1c803aa0a7d28f21322ffc3
-  React-featureflags: 4e5dad365d57e3c3656447dfdad790f75878d9f4
-  React-featureflagsnativemodule: 5eac59389131c2b87d165dac4094b5e86067fabb
-  React-graphics: 2f9b3db89f156afd793da99f23782f400f58c1ee
-  React-hermes: cc8c77acee1406c258622cd8abbee9049f6b5761
-  React-idlecallbacksnativemodule: 1d7e1f73b624926d16db956e87c4885ef485664a
-  React-ImageManager: 8b6066f6638fba7d4a94fbd0b39b477ea8aced58
-  React-jserrorhandler: e5a4626d65b0eda9a11c43a9f14d0423d8a7080d
-  React-jsi: ea5c640ea63c127080f158dac7f4f393d13d415c
-  React-jsiexecutor: cf7920f82e46fe9a484c15c9f31e67d7179aa826
-  React-jsinspector: 094e3cb99952a0024fa977fa04706e68747cba18
-  React-jsinspectorcdp: dca545979146e3ecbdc999c0789dab55beecc140
-  React-jsinspectornetwork: 0a105fe74b0b1a93f70409d955c8a0556dc17c59
-  React-jsinspectortracing: 76088dd78a2de3ea637a860cdf39a6d9c2637d6b
-  React-jsitooling: a2e1e87382aae2294bc94a6e9682b9bc83da1d36
-  React-jsitracing: 45827be59e673f4c54175c150891301138846906
-  React-logger: 7cfc7b1ae1f8e5fe5097f9c746137cc3a8fad4ce
-  React-Mapbuffer: 8f620d1794c6b59a8c3862c3ae820a2e9e6c9bb0
-  React-microtasksnativemodule: dcf5321c9a41659a6718df8a5f202af1577c6825
-  react-native-cameraroll: 5c5fb716af11f6178dca48271ae065cd786a0a02
   React-Core: 6a0a97598e9455348113bfe4c573fe8edac34469
   React-CoreModules: a88a6ca48b668401b9780e272e2a607e70f9f955
   React-cxxreact: 06265fd7e8d5c3b6b49e00d328ef76e5f1ae9c8b
@@ -3480,7 +3452,7 @@ SPEC CHECKSUMS:
   React-logger: a913317214a26565cd4c045347edf1bcacb80a3f
   React-Mapbuffer: 017336879e2e0fb7537bbc08c24f34e2384c9260
   React-microtasksnativemodule: 63ee6730cec233feab9cdcc0c100dc28a12e4165
-  react-native-cameraroll: 5c5fb716af11f6178dca48271ae065cd786a0a02
+  react-native-cameraroll: ae31ba7ee17d31c5ee05d7bb248742e3af482783
   react-native-exif-reader: 0a3beb46ef9f33e4dda5f50795a01b6b510c1459
   react-native-geocoder: 18a0a1ab624c3ff22405f40534f84ad4958b5653
   react-native-geolocation-service: 32b2c2a3b91e70ce2a8d0c684801aaeb0a07e0ec

@@ -1,6 +1,8 @@
-const { withRozenite } = require( "@rozenite/metro" );
- 
 const { getDefaultConfig, mergeConfig } = require( "@react-native/metro-config" );
+const { withRozenite } = require( "@rozenite/metro" );
+const {
+  withRozeniteRequireProfiler,
+} = require( "@rozenite/require-profiler-plugin/metro" );
 
 const {
   resolver: { sourceExts },
@@ -68,5 +70,8 @@ const config = {
 
 module.exports = withRozenite(
   mergeConfig( getDefaultConfig( __dirname ), config ),
-  { enabled: process.env.WITH_ROZENITE === "true" }
+  {
+    enabled: process.env.WITH_ROZENITE === "true",
+    enhanceMetroConfig: ( _config ) => withRozeniteRequireProfiler( _config ),
+  },
 );

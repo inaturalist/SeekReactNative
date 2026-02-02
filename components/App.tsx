@@ -23,6 +23,7 @@ import { log } from "../react-native-logs.config";
 import { LogLevels, logToApi } from "../utility/apiCalls";
 import ErrorBoundary from "./ErrorBoundary";
 import { useNetworkActivityDevTools } from "@rozenite/network-activity-plugin";
+import { useRequireProfilerDevTools } from "@rozenite/require-profiler-plugin";
 
 const logger = log.extend( "App.tsx" );
 
@@ -83,7 +84,7 @@ const style = { flex: 1 } as const;
 const App = ( ) => {
   // note: automatically disabled in Production builds
   useNetworkActivityDevTools();
-  
+  useRequireProfilerDevTools();
   useEffect( () => {
     hideLogs( );
     logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );

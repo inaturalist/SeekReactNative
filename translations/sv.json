@@ -123,10 +123,10 @@
     "linked_account": "Du har kopplat ett iNaturalist-konto till Seek!",
     "posting": "Posta på iNaturalist",
     "posting_details": "Du kan lägga upp fynd gjorda i Seek på iNaturalist omedelbart efter att du har lagt till dem i dina fynd. Om du vill lägga upp dem på iNaturalist senare kan du använda iNaturalist-appen eller webbplatsen.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Seek-fynd inte synkroniserade",
+    "observations_stored_only_in_app": "Dina fynd i Seek lagras i denna app på din enhet, de säkerhetskopieras INTE online av iNaturalist.",
+    "observations_bullet_1": "Genom att radera Seek raderas också alla dina fynd i appen.",
+    "observations_bullet_2": "Att överföra Seek till en ny enhet innebär inte att dina Seek-fynd förs över med appen.",
     "observations_3": "Seek synkroniserar inte dina fynd med andra enheter.",
     "agree_to_terms": "Jag godkänner <terms>{{terms}}</terms> och <privacy>{{privacy}}</privacy>, och jag har granskat <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Communityns riktlinjer",
@@ -1039,9 +1039,9 @@
     "not_found_error_description": "När appen lästes in hittades inte bildigenkänningsmodellen. Kamerafunktionen kommer att sakna artbestämning."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Något gick fel.",
+    "if_youre_seeing_this_error": "Om du ser detta och du är online, har iNat-personal redan underrättats. Tack för att du hittade en bugg! Om du är offline, ta en skärmdump och skicka oss ett mejl när du är tillbaka på internet.",
+    "restart": "STARTA OM APPEN",
+    "error": "Fel"
   }
 }

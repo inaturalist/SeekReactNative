@@ -22,6 +22,7 @@ const greenButton = {
 const buttonContainer = {
   paddingVertical: 19,
   alignItems: "center" as const,
+  zIndex: -100,
 };
 
 const viewStyles = StyleSheet.create( {

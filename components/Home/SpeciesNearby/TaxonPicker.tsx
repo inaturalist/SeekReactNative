@@ -1,6 +1,5 @@
 import React, { useMemo, useCallback } from "react";
 import {
-  TouchableOpacity,
   Image,
   View,
 } from "react-native";
@@ -34,14 +33,14 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
   const handleValueChange = useCallback( ( value: string ) => updateTaxaType( value ), [updateTaxaType] );
 
   const renderTaxonPicker = useMemo( () => (
-    <TouchableOpacity style={[viewStyles.row, viewStyles.marginLeft]}>
+    <View style={[viewStyles.row, viewStyles.marginLeft]}>
       <Image source={icons.filter} style={imageStyles.image} />
       <View style={viewStyles.whiteButton}>
         <StyledText style={baseTextStyles.buttonGreen}>
           {i18n.t( `taxon_picker.${taxaType}` ).toLocaleUpperCase()}
         </StyledText>
       </View>
-    </TouchableOpacity>
+    </View>
   ), [taxaType] );
 
   return (

@@ -114,6 +114,9 @@ const LanguagePicker = () => {
         touchableWrapperProps={{ testID: "picker" }}
         disabled={!displayLanguage}
         style={pickerStyles}
+        pickerProps={{
+          themeVariant: "light",
+        }}
       />
     </View>
   );

@@ -33,6 +33,9 @@ const CaptivePicker = ( { updateObservation, captive }: Props ) => {
       onValueChange={handleChange}
       placeholder={{}}
       useNativeAndroidPickerStyle={false}
+      pickerProps={{
+        themeVariant: "light",
+      }}
     >
       <View style={styles.thinCard}>
         <Image source={posting.captive} />

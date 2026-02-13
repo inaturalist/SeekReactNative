@@ -138,6 +138,7 @@ const PostScreen = ( ) => {
   };
 
   const saveObservation = ( ) => {
+    // If the location ended up with 0,0 coordinates. Not sure how but we do have som eobservations on null island.
     if (
       editedObservation.latitude === 0 ||
       editedObservation.longitude === 0
@@ -145,6 +146,14 @@ const PostScreen = ( ) => {
       Alert.alert(
         i18n.t( "posting.error_title_2" ),
         i18n.t( "posting.error_message_2" )
+      );
+      return;
+    }
+    // If the location is undefined, i.e. location permissions were not granted
+    if ( !editedObservation.latitude || !editedObservation.longitude ) {
+      Alert.alert(
+        i18n.t( "posting.error_title_no_location" ),
+        i18n.t( "posting.error_message_no_location" ),
       );
       return;
     }

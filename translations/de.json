@@ -598,7 +598,9 @@
     "protozoans": "Protozoen",
     "kelp": "Braunalgen, Diatomeen & Verwandte",
     "error_title_2": "Standortfehler",
-    "error_message_2": "Es sieht so aus, als ob dein Standort nicht korrekt aufgezeichnet wurde! Bitte überprüfe deinen Standort."
+    "error_message_2": "Es sieht so aus, als ob dein Standort nicht korrekt aufgezeichnet wurde! Bitte überprüfe deinen Standort.",
+    "error_title_no_location": "Standort erforderlich",
+    "error_message_no_location": "Alle auf iNaturalist hochgeladenen Beobachtungen benötigen einen Standort, um für wissenschaftliche Auswertungen hilfreich zu sein."
   },
   "posting_status": {
     "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",

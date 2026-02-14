@@ -598,7 +598,9 @@
     "protozoans": "Protozoer",
     "kelp": "Kelp, kiselalger och närbesläktade",
     "error_title_2": "Platsfel",
-    "error_message_2": "Ser ut som att din plats inte sparades korrekt! Vänligen dubbelkolla din plats."
+    "error_message_2": "Ser ut som att din plats inte sparades korrekt! Vänligen dubbelkolla din plats.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICERAR PÅ INATURALIST I BAKGRUNDEN",

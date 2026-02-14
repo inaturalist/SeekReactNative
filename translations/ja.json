@@ -598,7 +598,9 @@
     "protozoans": "原生動物",
     "kelp": "褐藻、珪藻、その他藻類",
     "error_title_2": "位置情報エラー",
-    "error_message_2": "位置情報が正しく記録されていないようです！位置情報が正しいか確認してください。"
+    "error_message_2": "位置情報が正しく記録されていないようです！位置情報が正しいか確認してください。",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "バックグラウンドで INATURALIST に投稿",

@@ -598,7 +598,9 @@
     "protozoans": "原生動物",
     "kelp": "海帶、矽藻及相關生物",
     "error_title_2": "地點錯誤",
-    "error_message_2": "您記錄的地點似乎不正確！請仔細檢查您的位置資訊。"
+    "error_message_2": "您記錄的地點似乎不正確！請仔細檢查您的位置資訊。",
+    "error_title_no_location": "需要位置資訊",
+    "error_message_no_location": "所有張貼到 iNaturalist 的觀察紀錄，皆需標註位置資訊，才能幫助到科學家。"
   },
   "posting_status": {
     "posting_to_inat_background": "在後臺張貼到 INATURALIST",

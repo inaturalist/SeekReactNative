@@ -598,7 +598,9 @@
     "protozoans": "Protozoarios",
     "kelp": "Algas pardas, diatomeas y parientes",
     "error_title_2": "Error de ubicación",
-    "error_message_2": "¡Parece que tu ubicación no se ha grabado correctamente! Por favor, comprueba tu ubicación."
+    "error_message_2": "¡Parece que tu ubicación no se ha grabado correctamente! Por favor, comprueba tu ubicación.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR EN INATURALIST EN SEGUNDO PLANO",

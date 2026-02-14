@@ -598,7 +598,9 @@
     "protozoans": "Eenselliges",
     "kelp": "Seewier, diatome en verwante",
     "error_title_2": "Liggingsfout",
-    "error_message_2": "Dit lyk asof u ligging nie reg opgeneem is nie! Gaan asseblief u ligging weer na."
+    "error_message_2": "Dit lyk asof u ligging nie reg opgeneem is nie! Gaan asseblief u ligging weer na.",
+    "error_title_no_location": "Benodig ligging ",
+    "error_message_no_location": "Alle waarnemings wat op iNaturalist geplaas word het 'n ligging nodig om wetenskaplikes te kan help."
   },
   "posting_status": {
     "posting_to_inat_background": "BESIG OM IN DIE AGTERGROND OP INATURALIST TE PLAAS",

@@ -598,7 +598,9 @@
     "protozoans": "Protozoer",
     "kelp": "Tarer, Kiselalger og Allierte",
     "error_title_2": "Location error",
-    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location."
+    "error_message_2": "Looks like your location wasn’t recorded correctly! Please double-check your location.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "LASTER OPP TIL INATURALIST I BAKGRUNNEN",

@@ -27,9 +27,9 @@
     "inat_admin": "Administradors d'iNat: Gràcies per posar a prova Seek! Esteu veient el darrer repte abans de començament de més amb la finalitat de provar-lo."
   },
   "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 90,000 species in the latest version of Seek!"
+    "header": "Actualitzacions de Seek",
+    "updated_id_model": "Hem actualitzat el nostre Model d'Identificació!",
+    "over_x_species": "Ara pots identificar més de 90.000 espècies en la darrera versió de Seek!"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "ENVIA A INATURALIST",
@@ -123,10 +123,10 @@
     "linked_account": "Has enllaçat un compte d'iNaturalist a Seek!",
     "posting": "Enviant a iNaturalist",
     "posting_details": "Pots enviar les observacions fetes amb Seek a iNaturalist immediatament després d'haver-les afegit a les teves observacions. Si les vols enviar a iNaturalist després, utilitza l'App d'iNaturalist o el lloc web.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Observacions de Seek no sincronitzades",
+    "observations_stored_only_in_app": "Les teves observacions a Seek s'emmagatzemen en aquesta aplicació del teu dispositiu, i iNaturalist NO en fa una còpia de seguretat en línia.",
+    "observations_bullet_1": "Si desinstal·leu l'aplicació Seek, també eliminareu totes les vostres observacions a l'aplicació.",
+    "observations_bullet_2": "Les vostres observacions de Seek no es transferiran amb l'aplicació en transferir Seek a un nou dispositiu.",
     "observations_3": "Seek no sincronitza les teves observacions amb altres dispositius.",
     "agree_to_terms": "Estic d'acord amb les  <terms>{{terms}}</terms> i <privacy>{{privacy}}</privacy>, i he revisat les <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Directrius de la comunitat",
@@ -381,7 +381,7 @@
     "error_save": "No es pot guardar la foto"
   },
   "gallery": {
-    "import_photos_from": "Import Photos From"
+    "import_photos_from": "Importa Fotos De"
   },
   "camera_help": {
     "title": "Càmera de Seek",
@@ -564,9 +564,9 @@
   },
   "about": {
     "header": "Quant a",
-    "seek_designed_by": "Seek is designed & developed by the iNaturalist team:",
+    "seek_designed_by": "Seek ha estat dissenyat i desenvolupat per l'equip d'iNaturalist:",
     "joint_initiative": "iNaturalist és una iniciativa conjunta de la California Academy of Sciences i National Geographic Society.",
-    "support_from": "Seek was originally created with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.",
+    "support_from": "Seek ha estat creat per l'equip d'iNaturalist amb el suport de la California Academy of Sciences, la National Geographic Society, Our Planet a Netflix, WWF, HHMI Tangled Bank Studios i Visipedia.",
     "inat_team_credits_5": "Yaron Budowski, Amanda Bullington, Tony Iwane, Johannes Klein, Patrick Leary, Joanne Lin, Scott Loarie, Abhas Misraraj, Sylvain Morin, Carrie Seltzer, Alex Shepard, Thea Skaff, Angie Ta, Ken-ichi Ueda, Kirk van Gorkom, Jason Walthall, and Jane Weeden. Special thanks to Grant Van Horn from Visipedia for help with the computer vision technology, and the iNaturalist community.",
     "version": "Versió",
     "help": "Per ajuda amb Seek, pots contactar amb help+seek@inaturalist.org.",

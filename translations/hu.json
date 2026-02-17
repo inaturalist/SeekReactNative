@@ -598,7 +598,9 @@
     "protozoans": "Állati egysejtűek",
     "kelp": "Hínárok, kovamoszatok és társaik",
     "error_title_2": "Hibás helyadatok",
-    "error_message_2": "Úgy tűnik helyadataid hibásak. Kérlek ellenőrizd újra!"
+    "error_message_2": "Úgy tűnik helyadataid hibásak. Kérlek ellenőrizd újra!",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "KÜLDÉS AZ INATURALISTRA A HÁTTÉRBEN",

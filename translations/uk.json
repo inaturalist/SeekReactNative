@@ -598,7 +598,9 @@
     "protozoans": "Найпростіші",
     "kelp": "Ламінарієві, Діатомеї та споріднені",
     "error_title_2": "Помилка розташування",
-    "error_message_2": "Здається, ваше місцезнаходження не коректно записано! Будь ласка, перевірте ваше місце розташування."
+    "error_message_2": "Здається, ваше місцезнаходження не коректно записано! Будь ласка, перевірте ваше місце розташування.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "ЗАВАНТАЖЕННЯ ДО INATURALIST У ФОНОВОМУ РЕЖИМІ",

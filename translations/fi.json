@@ -598,7 +598,9 @@
     "protozoans": "Alkueläimet",
     "kelp": "Ruskolevät, piilevät ja näiden sukulaiset",
     "error_title_2": "Sijaintivirhe",
-    "error_message_2": "Näyttää siltä, että sijaintiasi ei ole tallennettu oikein! Tarkista sijaintisi."
+    "error_message_2": "Näyttää siltä, että sijaintiasi ei ole tallennettu oikein! Tarkista sijaintisi.",
+    "error_title_no_location": "Sijainti tarvitaan",
+    "error_message_no_location": "Kaikki iNaturalistiin lähetetyt havainnot tarvitsevat sijainnin, jotta ne ovat hyödyllistä tutkijoille."
   },
   "posting_status": {
     "posting_to_inat_background": "LÄHETTÄÄ INATURALISTIIN TAUSTALLA",

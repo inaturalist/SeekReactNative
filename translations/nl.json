@@ -598,7 +598,9 @@
     "protozoans": "Eencelligen",
     "kelp": "Zeewier, diatomeeën en verwanten",
     "error_title_2": "Fout bij het ophalen van locatie",
-    "error_message_2": "Het lijkt erop dat je locatie niet correct is opgeslagen! Controleer je locatie."
+    "error_message_2": "Het lijkt erop dat je locatie niet correct is opgeslagen! Controleer je locatie.",
+    "error_title_no_location": "Locatie vereist",
+    "error_message_no_location": "Alle waarnemingen die in iNaturalist zijn geplaatst hebben een locatie nodig om zinvol te zijn voor wetenschappers."
   },
   "posting_status": {
     "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",

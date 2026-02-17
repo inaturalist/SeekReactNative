@@ -30,6 +30,9 @@ const Picker = ( {
       placeholder={placeholder}
       useNativeAndroidPickerStyle={false}
       disabled={disabled}
+      pickerProps={{
+        themeVariant: "light",
+      }}
     >
       {children}
     </RNPickerSelect>

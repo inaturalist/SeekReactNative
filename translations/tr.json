@@ -598,7 +598,9 @@
     "protozoans": "Tek Hücreliler",
     "kelp": "Yosun, Diyatomlar ve Benzerleri",
     "error_title_2": "Konum hatası",
-    "error_message_2": "Görünüşe göre konumun doğru kaydedilmemiş! Lütfen konumunu iki kez kontrol et."
+    "error_message_2": "Görünüşe göre konumun doğru kaydedilmemiş! Lütfen konumunu iki kez kontrol et.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "ARKA PLANDA INATURALIST'E GÖNDERİLİYOR",

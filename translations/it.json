@@ -598,7 +598,9 @@
     "protozoans": "Protozoi",
     "kelp": "Alghe, Diatomee e Affini",
     "error_title_2": "Errore di localizzazione",
-    "error_message_2": "Sembra che la tua posizione non sia stata registrata correttamente! Per favore ricontrolla la tua posizione."
+    "error_message_2": "Sembra che la tua posizione non sia stata registrata correttamente! Per favore ricontrolla la tua posizione.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBBLICANDO SU INATURALIST IN BACKGROUND",

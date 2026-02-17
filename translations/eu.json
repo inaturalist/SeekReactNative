@@ -598,7 +598,9 @@
     "protozoans": "Protozooak",
     "kelp": "Alga, Arreak eta Ahaideak",
     "error_title_2": "Kokapen-errorea",
-    "error_message_2": "Badirudi zure kokapena ez dela ondo erregistratu! Egiaztatu mesedez zure kokapena."
+    "error_message_2": "Badirudi zure kokapena ez dela ondo erregistratu! Egiaztatu mesedez zure kokapena.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "INATURALIST-EN PUBLIKATZEN ATZEKO PLANOAN",

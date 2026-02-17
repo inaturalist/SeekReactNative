@@ -598,7 +598,9 @@
     "protozoans": "Protozoare",
     "kelp": "Laminarii, Diatomee și Similare",
     "error_title_2": "Eroare de locație",
-    "error_message_2": "Se pare că locația ta nu a fost înregistrată corect! Te rugăm să verifici din nou locația ta."
+    "error_message_2": "Se pare că locația ta nu a fost înregistrată corect! Te rugăm să verifici din nou locația ta.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTARE PE INATURALIST ÎN FUNDAL",

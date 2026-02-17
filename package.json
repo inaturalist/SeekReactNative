@@ -64,7 +64,7 @@
     "react-native-localize": "^3.5.2",
     "react-native-logs": "^5.3.0",
     "react-native-mail": "^6.1.1",
-    "react-native-maps": "1.20.1",
+    "react-native-maps": "^1.27.1",
     "react-native-modal": "^14.0.0-rc.1",
     "react-native-modal-datetime-picker": "^18.0.0",
     "react-native-pager-view": "^6.8.1",

@@ -598,7 +598,9 @@
     "protozoans": "Prvoci",
     "kelp": "Chaluhy, rozsivky a príbuzné rody",
     "error_title_2": "Chyba načítania polohy",
-    "error_message_2": "Vyzerá to, že vaša poloha nebola zaznamenaná správne! Skontrolujte prosím svoju polohu."
+    "error_message_2": "Vyzerá to, že vaša poloha nebola zaznamenaná správne! Skontrolujte prosím svoju polohu.",
+    "error_title_no_location": "Location required",
+    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "POSIELAM DO INATURALISTU NA POZADIE",

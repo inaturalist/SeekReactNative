@@ -454,7 +454,6 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/react-native-cameraroll/RNCameraRollPrivacyInfo.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-picker/RNImagePickerPrivacyInfo.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/react-native-maps/ReactNativeMapsPrivacy.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -470,7 +469,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCameraRollPrivacyInfo.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNImagePickerPrivacyInfo.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReactNativeMapsPrivacy.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

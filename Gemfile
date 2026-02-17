@@ -12,12 +12,8 @@ gem "xcodeproj", "< 1.26.0"
 gem "bigdecimal"
 gem "logger"
 gem "benchmark"
-gem "mutex_m"
 
 gem "fastlane"
-# Currently fastlane support for ruby 3.4.x is not finished, so we need to add
-# this here because fastlane does not specifically add this dependency.
-gem "abbrev"
 
 plugins_path = File.join(File.dirname(__FILE__), "fastlane", "Pluginfile")
 eval_gemfile(plugins_path) if File.exist?(plugins_path)

@@ -1,0 +1,98 @@
+diff --git a/node_modules/react-native-image-picker/README.md b/node_modules/react-native-image-picker/README.md
+index 708c7d1..ed5b33c 100644
+--- a/node_modules/react-native-image-picker/README.md
++++ b/node_modules/react-native-image-picker/README.md
+@@ -124,6 +124,7 @@ The `callback` will be called with a response object, refer to [The Response Obj
+ | presentationStyle       | OK  | NO      | NO  | Controls how the picker is presented. `currentContext`, `pageSheet`, `fullScreen`, `formSheet`, `popover`, `overFullScreen`, `overCurrentContext`. Default is `currentContext`.                                                            |
+ | formatAsMp4             | OK  | NO      | NO  | Converts the selected video to MP4 (iOS Only).                                                                                                                                                                                             |
+ | assetRepresentationMode | OK  | OK      | NO  | A mode that determines which representation to use if an asset contains more than one on iOS or disables HEIC/HEIF to JPEG conversion on Android if set to 'current'. Possible values: 'auto', 'current', 'compatible'. Default is 'auto'. |
++| forceOldAndroidPhotoPicker | NO  | OK      | NO  | If true, forces to use old photo picker on Android, since new one redacts EXIF metadata (see https://issuetracker.google.com/issues/243294058)                                                                                  |
+ 
+ |
+ 
+@@ -142,7 +143,7 @@ The `callback` will be called with a response object, refer to [The Response Obj
+ | ------------ | --- | ------- | --- | ----------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+ | base64       | OK  | OK      | OK  | PHOTO ONLY  | NO                   | The base64 string of the image (photos only)                                                                                                                                                                                                                                   |
+ | uri          | OK  | OK      | OK  | BOTH        | NO                   | The file uri in app specific cache storage. Except when picking **video from Android gallery** where you will get read only content uri, to get file uri in this case copy the file to app specific storage using any react-native library. For web it uses the base64 as uri. |
+-| originalPath | NO  | OK      | NO  | BOTH        | NO                   | The original file path.                                                                                                                                                                                                                                                        |
++| originalPath | OK  | OK      | NO  | BOTH        | NO                   | The original file path.                                                                                                                                                                                                                                                        |
+ | width        | OK  | OK      | OK  | BOTH        | NO                   | Asset dimensions                                                                                                                                                                                                                                                               |
+ | height       | OK  | OK      | OK  | BOTH        | NO                   | Asset dimensions                                                                                                                                                                                                                                                               |
+ | fileSize     | OK  | OK      | NO  | BOTH        | NO                   | The file size                                                                                                                                                                                                                                                                  |
+diff --git a/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/ImagePickerModuleImpl.java b/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/ImagePickerModuleImpl.java
+index 56149f1..48ea38c 100644
+--- a/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/ImagePickerModuleImpl.java
++++ b/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/ImagePickerModuleImpl.java
+@@ -162,7 +162,37 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
+         }
+ 
+         try {
+-            currentActivity.startActivityForResult(libraryIntent, requestCode);
++            if (this.options.forceOldAndroidPhotoPicker) {
++                // Since we're forcing the old Android photo picker - we use a method that is used to selecting
++                // any type of file, and the Google Photos app (for example) won't show up in the side menu
++                // of that selector - so we need a hybrid approach which shows
++                Intent pickIntent = new Intent(Intent.ACTION_PICK);
++                if (!isSingleSelect) {
++                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
++                        pickIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
++                    } else {
++                        if ((selectionLimit != 1) && (!libraryIntent.getAction().equals(Intent.ACTION_GET_CONTENT)))  {
++                            int maxNum = selectionLimit;
++                            if (selectionLimit == 0) maxNum = MediaStore.getPickImagesMaxLimit();
++                            pickIntent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, maxNum);
++                        }
++                    }
++                }
++                if (isPhoto) {
++                    pickIntent.setType("image/*");
++                } else if (isVideo) {
++                    pickIntent.setType("video/*");
++                } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
++                    pickIntent.setType("*/*");
++                    pickIntent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
++                }
++                String chooserTitle = this.options.chooserTitle != null ? this.options.chooserTitle : "Import Photos From";
++                Intent chooserIntent = Intent.createChooser(pickIntent, chooserTitle);
++                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{libraryIntent});
++                currentActivity.startActivityForResult(chooserIntent, requestCode);
++            } else {
++                currentActivity.startActivityForResult(libraryIntent, requestCode);
++            }
+         } catch (ActivityNotFoundException e) {
+             callback.invoke(getErrorMap(errOthers, e.getMessage()));
+             this.callback = null;
+diff --git a/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/Options.java b/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/Options.java
+index 21970d5..b1cd9e9 100644
+--- a/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/Options.java
++++ b/node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/Options.java
+@@ -19,6 +19,8 @@ public class Options {
+     Boolean useFrontCamera = false;
+     String mediaType;
+     String[] restrictMimeTypes;
++    Boolean forceOldAndroidPhotoPicker = false;
++    String chooserTitle = null;
+ 
+     Options(ReadableMap options) {
+         mediaType = options.getString("mediaType");
+@@ -28,6 +30,8 @@ public class Options {
+         selectionLimit = options.getInt("selectionLimit");
+         includeBase64 = options.getBoolean("includeBase64");
+         includeExtra = options.getBoolean("includeExtra");
++        forceOldAndroidPhotoPicker = options.getBoolean("forceOldAndroidPhotoPicker");
++        chooserTitle = options.getString("chooserTitle");
+ 
+         String videoQualityString = options.getString("videoQuality");
+         if (!TextUtils.isEmpty(videoQualityString) && !videoQualityString.toLowerCase().equals("high")) {
+diff --git a/node_modules/react-native-image-picker/ios/ImagePickerManager.mm b/node_modules/react-native-image-picker/ios/ImagePickerManager.mm
+index 93e99be..b42b3be 100644
+--- a/node_modules/react-native-image-picker/ios/ImagePickerManager.mm
++++ b/node_modules/react-native-image-picker/ios/ImagePickerManager.mm
+@@ -207,6 +207,7 @@ -(NSMutableDictionary *)mapImageToAsset:(UIImage *)image data:(NSData *)data phA
+     if(phAsset){
+         asset[@"timestamp"] = [self getDateTimeInUTC:phAsset.creationDate];
+         asset[@"id"] = phAsset.localIdentifier;
++        asset[@"originalPath"] = [NSString stringWithFormat:@"ph://%@", phAsset.localIdentifier];
+         // Add more extra data here ...
+     }
+ 

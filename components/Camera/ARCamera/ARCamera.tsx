@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
-import { isNumber } from "lodash";
+import isNumber from "lodash/isNumber";
 import { useSharedValue } from "react-native-worklets-core";
 import type { Prediction } from "vision-camera-plugin-inatvision";
 import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";

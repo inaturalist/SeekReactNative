@@ -49,7 +49,7 @@ class ErrorBoundary extends React.Component {
       return (
         <SafeAreaView style={viewStyles.container} edges={["top"]}>
           <ScrollView contentContainerStyle={viewStyles.scrollView}>
-            <StyledText style={[baseTextStyles.emptyState]}>
+            <StyledText style={baseTextStyles.emptyState}>
               {i18n.t( "error_boundary.something_went_wrong" )}
             </StyledText>
             <StyledText style={[baseTextStyles.body, textStyles.text, viewStyles.marginBottom]}>

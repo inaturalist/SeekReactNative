@@ -127,7 +127,7 @@ const SeekYearInReviewScreen = () => {
                   .t( "seek_year_in_review.in_year_observed", { year } )
                   .toLocaleUpperCase()}
               </StyledText>
-              <StyledText style={[baseTextStyles.challengeTitle]}>
+              <StyledText style={baseTextStyles.challengeTitle}>
                 {i18n
                   .t( "seek_year_in_review.x_new_species", {
                     count: countObservationsThisYear,
@@ -156,7 +156,7 @@ const SeekYearInReviewScreen = () => {
                 .toLocaleUpperCase()}
             />
             <SpeciesBadges speciesBadges={state.topThreeSpeciesBadges} />
-            <View style={[viewStyles.badgesTextContainer]}>
+            <View style={viewStyles.badgesTextContainer}>
               <GreenText
                 style={viewStyles.badgeTextContainer}
                 center
@@ -183,7 +183,7 @@ const SeekYearInReviewScreen = () => {
                 />
               )}
             </View>
-            <View style={[viewStyles.badgesTextContainer]}>
+            <View style={viewStyles.badgesTextContainer}>
               <StyledText
                 style={[viewStyles.badgeTextContainer, baseTextStyles.emptyState, textStyles.center]}
               >

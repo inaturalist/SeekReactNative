@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-exception-handler/android/build.gradle b/node_modules/react-native-exception-handler/android/build.gradle
+index c1dca20..21596d5 100644
+--- a/node_modules/react-native-exception-handler/android/build.gradle
++++ b/node_modules/react-native-exception-handler/android/build.gradle
+@@ -1,7 +1,7 @@
+ 
+ buildscript {
+     repositories {
+-        jcenter()
++        mavenCentral()
+     }
+ 
+     dependencies {

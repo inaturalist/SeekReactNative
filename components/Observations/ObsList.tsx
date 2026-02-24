@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { View, Keyboard } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 
@@ -63,22 +63,31 @@ const ObsList = ( {
   const [itemScrolledId, setItemScrolledId] = useState<number | null>( null );
   const [hasAnimated, setHasAnimated] = useState<boolean>( false );
 
-  const updateItemScrolledId = ( id: number | null ) => setItemScrolledId( id );
+  const updateItemScrolledId = useCallback(
+    ( id: number | null ) => setItemScrolledId( id ),
+    []
+  );
 
-  const toggleSection = ( id: number ) => {
-    const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
-    const idToHide = hiddenSections.indexOf( id );
+  const toggleSection = useCallback(
+    ( id: number ) => {
+      const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
+      const idToHide = hiddenSections.indexOf( id );
 
-    if ( idToHide !== -1 ) {
-      hiddenSections.splice( idToHide, 1 );
-    } else {
-      hiddenSections.push( id );
-    }
+      if ( idToHide !== -1 ) {
+        hiddenSections.splice( idToHide, 1 );
+      } else {
+        hiddenSections.push( id );
+      }
 
-    updateObs( updatedObs );
-  };
+      updateObs( updatedObs );
+    },
+    [observations, hiddenSections, updateObs],
+  );
 
-  const sectionIsHidden = ( id: number ) => hiddenSections.includes( id );
+  const sectionIsHidden = useCallback(
+    ( id: number ) => hiddenSections.includes( id ),
+    [hiddenSections]
+  );
 
   let convertedData: ConvertedDataItem[] = [];
   observations.map( ( section ) => {
@@ -109,24 +118,63 @@ const ObsList = ( {
     }
   } );
 
-  const renderItem = ( item: ConvertedDataItem ) => {
-    return (
-      <>
-        <ObservationCard
-          item={item}
-          itemScrolledId={itemScrolledId}
-          openModal={openModal}
-          updateItemScrolledId={updateItemScrolledId}
-          toAnimate={item.toAnimate}
-          hasAnimated={hasAnimated}
-          setHasAnimated={setHasAnimated}
-        />
-        {item.isLast && (
-          <View style={styles.bottomOfSectionPadding} />
-        )}
-      </>
-    );
-  };
+  const renderItem = useCallback(
+    ( { item }: { item: ConvertedDataItem } ) => {
+      if ( item.type === "header" ) {
+        // Render header
+        return (
+          <SectionHeader
+            id={item.id}
+            dataLength={item.dataLength}
+            open={!sectionIsHidden( item.id )}
+            toggleSection={toggleSection}
+          />
+        );
+      }
+      if ( item.type === "footerHidden" ) {
+        // Render footer for hidden section
+        return <View style={styles.hiddenSectionSeparator} />;
+      }
+      if ( item.type === "footerEmpty" ) {
+        // Render footer for hidden section
+        const iconicTaxon = iconicTaxaNamesById[item.id].split( "." )[1];
+        return (
+          <StyledText style={[baseTextStyles.body, styles.emptyText]}>
+            {i18n.t( `observations.not_seen_${iconicTaxon}` )}
+          </StyledText>
+        );
+      }
+      if ( item.type === "footer" ) {
+        // Render footer
+        return <View style={styles.sectionWithDataSeparator} />;
+      } else {
+        // Render item
+        return (
+          <>
+            <ObservationCard
+              item={item}
+              itemScrolledId={itemScrolledId}
+              openModal={openModal}
+              updateItemScrolledId={updateItemScrolledId}
+              toAnimate={item.toAnimate}
+              hasAnimated={hasAnimated}
+              setHasAnimated={setHasAnimated}
+            />
+            {item.isLast && <View style={styles.bottomOfSectionPadding} />}
+          </>
+        );
+      }
+    },
+    [
+      sectionIsHidden,
+      toggleSection,
+      itemScrolledId,
+      openModal,
+      updateItemScrolledId,
+      hasAnimated,
+      setHasAnimated,
+    ],
+  );
 
   const renderListFooter = () => <View style={styles.padding} />;
 
@@ -163,36 +211,7 @@ const ObsList = ( {
       stickySectionHeadersEnabled={false}
       keyExtractor={extractKey}
       ListHeaderComponent={renderHeader}
-      renderItem={( { item } ) => {
-        if ( item.type === "header" ) {
-          // Render header
-          return (
-            <SectionHeader
-              id={item.id}
-              dataLength={item.dataLength}
-              open={!sectionIsHidden( item.id )}
-              toggleSection={toggleSection}
-            />
-          );
-        } if ( item.type === "footerHidden" ) {
-          // Render footer for hidden section
-          return <View style={styles.hiddenSectionSeparator} />;
-        } if ( item.type === "footerEmpty" ) {
-          // Render footer for hidden section
-          const iconicTaxon = iconicTaxaNamesById[item.id].split( "." )[1];
-          return (
-            <StyledText style={[baseTextStyles.body, styles.emptyText]}>
-              {i18n.t( `observations.not_seen_${iconicTaxon}` )}
-            </StyledText>
-          );
-        } if ( item.type === "footer" ) {
-          // Render footer
-          return <View style={styles.sectionWithDataSeparator} />;
-        } else {
-          // Render item
-          return renderItem( item );
-        }
-      }}
+      renderItem={renderItem}
       getItemType={( item ) => {
         if ( item.hasOwnProperty( "type" ) ) {
           return item.type;

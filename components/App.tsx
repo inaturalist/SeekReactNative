@@ -11,7 +11,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import RootStack from "./Navigation/RootStack";
-import { hideLogs } from "../utility/helpers";
 import { LanguageProvider } from "./Providers/LanguageProvider";
 import { SpeciesNearbyProvider } from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
@@ -86,7 +85,6 @@ const App = ( ) => {
   useNetworkActivityDevTools();
   useRequireProfilerDevTools();
   useEffect( () => {
-    hideLogs( );
     logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );
   }, [] );
 

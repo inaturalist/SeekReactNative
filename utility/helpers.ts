@@ -2,7 +2,6 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import rs from "jsrsasign";
 import Realm from "realm";
-import { LogBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
 
 import i18n from "../i18n";
@@ -169,13 +168,6 @@ const localizeNumber = ( number: number ): string => {
 
 const localizePercentage = ( number: number ): string => i18n.numberToPercentage( number, { precision: 0 } );
 
-const hideLogs = ( ) => {
-  LogBox.ignoreLogs( [
-    "Picker has been extracted",
-    "VirtualizedLists should never be nested",
-  ] );
-};
-
 export {
   capitalizeNames,
   checkIfFirstLaunch,
@@ -190,5 +182,4 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  hideLogs,
 };

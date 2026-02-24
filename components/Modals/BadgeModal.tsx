@@ -40,6 +40,13 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
     viewAreaCoveragePercentThreshold: 95,
   } );
 
+  const scroll = ( index: number ) => {
+    setScrollIndex( index );
+    if ( flatList && flatList.current !== null ) {
+      flatList.current.scrollToIndex( { index, animated: true } );
+    }
+  };
+  
   useEffect( () => {
     const earnedBadges = badges.filter( ( badge ) => badge.earned );
     // Assuming the badges are sorted by count
@@ -60,13 +67,6 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
   const length = badges.length - 1;
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
-
-  const scroll = ( index: number ) => {
-    setScrollIndex( index );
-    if ( flatList && flatList.current !== null ) {
-      flatList.current.scrollToIndex( { index, animated: true } );
-    }
-  };
 
   const scrollRight = ( ) => scroll( nextIndex );
   const scrollLeft = ( ) => scroll( prevIndex );

@@ -32,6 +32,26 @@ const LanguagePicker = () => {
 
   const [pickerValue, setPickerValue] = useState( displayLanguage );
 
+  const showAlert = useCallback( ( value: string ) => {
+    const valueLabel = languages[value];
+    Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
+      {
+        text: i18n.t( "delete.no" ),
+        onPress: ( ) => null,
+        style: "cancel",
+      }, {
+        text: i18n.t( "settings.confirm" ),
+        onPress: ( ) => {
+          // this changes translations on Settings screen in real-time
+          // eslint-disable-next-line react-hooks/react-compiler
+          i18n.locale = value;
+          toggleLanguage( value );
+          toggleLanguagePreference();
+        },
+      },
+    ] );
+  }, [toggleLanguagePreference] );
+  
   const handleValueChange = useCallback( ( value: string ) => {
     // this prevents the double render on new Android install
     // without this, the user changes the language
@@ -55,26 +75,6 @@ const LanguagePicker = () => {
     }
     Platform.OS === "ios" ? setPickerValue( value ) : showAlert( value );
   }, [displayLanguage, preferredLanguage, toggleLanguagePreference, showAlert] );
-
-  const showAlert = useCallback( ( value: string ) => {
-    const valueLabel = languages[value];
-    Alert.alert( null, i18n.t( "settings.change_language", { language: valueLabel } ), [
-      {
-        text: i18n.t( "delete.no" ),
-        onPress: ( ) => null,
-        style: "cancel",
-      }, {
-        text: i18n.t( "settings.confirm" ),
-        onPress: ( ) => {
-          // this changes translations on Settings screen in real-time
-          // eslint-disable-next-line react-hooks/react-compiler
-          i18n.locale = value;
-          toggleLanguage( value );
-          toggleLanguagePreference();
-        },
-      },
-    ] );
-  }, [toggleLanguagePreference] );
 
   const onDonePress = useCallback( ( ) => {
     showAlert( pickerValue );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 
@@ -28,6 +28,31 @@ const ChallengeScreen = ( ) => {
 
   const extractKey = ( item: Item, index: number ) => item + index;
 
+  const renderItem = useCallback( ( { item }: { item: Item } ) => {
+    if ( item.type === "header" ) {
+      // Render header
+      return (
+        <View style={styles.header}>
+          <GreenText text={item.header} />
+        </View>
+      );
+    }
+    if ( item.type === "empty" ) {
+      // Render empty card
+      return <EmptyChallengesCard type={item.empty} />;
+    }
+    if ( item.type === "noChallenges" ) {
+      // Render no challenges text
+      return (
+        <View style={styles.noChallenges}>
+          <NoChallenges />
+        </View>
+      );
+    }
+    // Render item
+    return <ChallengeProgressCard challenge={item} />;
+  }, [] );
+
   return (
     <ViewWithHeader testID="challenge-screen-container" header="challenges.header">
       <FlashList
@@ -35,27 +60,7 @@ const ChallengeScreen = ( ) => {
         contentContainerStyle={styles.challengeList}
         data={list}
         keyExtractor={extractKey}
-        renderItem={( { item }: { item: Item } ) => {
-          if ( item.type === "header" ) {
-            // Render header
-            return <View style={styles.header}>
-              <GreenText text={item.header} />
-            </View>;
-          } else if ( item.type === "empty" ) {
-            // Render empty card
-            return <EmptyChallengesCard type={item.empty} />;
-          } else if ( item.type === "noChallenges" ) {
-            // Render no challenges text
-            return <View style={styles.noChallenges}>
-              <NoChallenges />
-            </View>;
-          } else {
-            // Render item
-            return <ChallengeProgressCard
-              challenge={item}
-            />;
-          }
-        }}
+        renderItem={renderItem}
         getItemType={( item ) => {
           if ( item.hasOwnProperty( "type" ) ) {
             return item.type;

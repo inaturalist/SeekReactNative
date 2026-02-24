@@ -101,30 +101,39 @@ const SelectSpecies = ( {
 
   const handleTextChange = useCallback( ( text: string ) => setTextInput( text ), [] );
 
-  const renderItem = ( item: any ) => {
-    const handlePress = ( ) => {
-      updateTaxon( item.id, item.commonName, item.scientificName );
-      toggleSpeciesModal( );
-    };
+  const renderItem = useCallback(
+    ( { item }: { item: any } ) => {
+      if ( item.type === "header" ) {
+        return (
+          <View style={viewStyles.headerMargins}>
+            <GreenText text={item.header} />
+          </View>
+        );
+      }
+      if ( item.type === "headerNoText" ) {
+        return <View style={viewStyles.suggestionsTopMargin} />;
+      }
+      const handlePress = () => {
+        updateTaxon( item.id, item.commonName, item.scientificName );
+        toggleSpeciesModal();
+      };
 
-    const taxon = {
-      preferredCommonName: item.commonName,
-      name: item.scientificName,
-      iconicTaxonId: item.iconicTaxonId,
-    };
+      const taxon = {
+        preferredCommonName: item.commonName,
+        name: item.scientificName,
+        iconicTaxonId: item.iconicTaxonId,
+      };
 
-    const photo = item.image && { uri: item.image }; // account for null case
+      const photo = item.image && { uri: item.image }; // account for null case
 
-    return (
-      <View key={`${item.scientificName}${item.id}`} style={viewStyles.card}>
-        <SpeciesCard
-          taxon={taxon}
-          handlePress={handlePress}
-          photo={photo}
-        />
-      </View>
-    );
-  };
+      return (
+        <View key={`${item.scientificName}${item.id}`} style={viewStyles.card}>
+          <SpeciesCard taxon={taxon} handlePress={handlePress} photo={photo} />
+        </View>
+      );
+    },
+    [updateTaxon, toggleSpeciesModal],
+  );
 
   const extractKey = ( item: any, index: number ) => item + index;
 
@@ -177,19 +186,7 @@ const SelectSpecies = ( {
           stickySectionHeadersEnabled={false}
           keyExtractor={extractKey}
           ListFooterComponent={renderPadding}
-          renderItem={( { item }: { item: any } ) => {
-            if ( item.type === "header" ) {
-              return (
-                <View style={viewStyles.headerMargins}>
-                  <GreenText text={item.header} />
-                </View>
-              );
-            }
-            if ( item.type === "headerNoText" ) {
-              return <View style={viewStyles.suggestionsTopMargin} />;
-            }
-            return renderItem( item );
-          }}
+          renderItem={renderItem}
           getItemType={( item: any ) => {
             if ( item.hasOwnProperty( "type" ) ) {
               return item.type;

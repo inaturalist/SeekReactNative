@@ -27,7 +27,7 @@ const INatHeaderLoggedIn = ( ) => {
     <>
       <LinearGradient
         colors={[colors.greenGradientDark, colors.greenGradientLight]}
-        style={[viewStyles.linearGradient]}
+        style={viewStyles.linearGradient}
       >
         <ProfileImageAndLogin count={count} reload={reload} />
         {Platform.OS === "android" && <OpenINatButton />}

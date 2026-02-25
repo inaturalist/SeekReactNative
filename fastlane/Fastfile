@@ -358,9 +358,6 @@ lane :github_release do | options |
 
   last_tag = last_git_tag
   changes = changelog_from_git_commits( pretty: "# * %h %s (%an, %ai)" )
-  if last_tag && changes.empty? && !options[:force]
-    UI.abort_with_message! "Nothing has changed since the last tag (#{last_tag})"
-  end
 
   # Prompt for release notes
   instructions = <<~INSTRUCTIONS

@@ -600,7 +600,9 @@
     "error_title_2": "Ошибка в местоположении",
     "error_message_2": "Похоже, ваше местоположение было записано неправильно! Пожалуйста, проверьте ваше местоположение.",
     "error_title_no_location": "Необходимо указать местоположение",
-    "error_message_no_location": "Во всех наблюдениях, отправленных в iNaturalist, должны быть указаны местоположения, тогда они имеют ценность для ученых."
+    "error_message_no_location": "Во всех наблюдениях, отправленных в iNaturalist, должны быть указаны местоположения, тогда они имеют ценность для ученых.",
+    "error_title_no_date": "Date required",
+    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "ВЫГРУЖАТЬ В INATURALIST В ФОНОВОМ РЕЖИМЕ",

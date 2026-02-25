@@ -349,7 +349,7 @@ lane :github_release do
   original_branch = git_branch
   system "git checkout #{last_tag}", exception: true
   build_number = android_get_version_code( )
-  if build_number.to_s != last_tag.split( "+" ).last
+  if build_number.to_s != last_tag.split( "-" ).last
     UI.abort_with_message! <<~MSG
       The last tag doesn't match the current build number. Either make a new
       tag or check out the tag before releasing.

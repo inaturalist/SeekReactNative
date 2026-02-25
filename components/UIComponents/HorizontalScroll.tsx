@@ -12,13 +12,15 @@ interface Props {
   photoList: JSX.Element[];
 }
 
+const viewabilityConfig = {
+  waitForInteraction: true,
+  viewAreaCoveragePercentThreshold: 95,
+};
+
 const HorizontalScroll = ( { photoList }: Props ) => {
   const { name } = useRoute();
   const flashList = useRef<FlashListRef<JSX.Element>>( null );
-  const viewConfigRef = useRef( {
-    waitForInteraction: true,
-    viewAreaCoveragePercentThreshold: 95,
-  } );
+
   const length = photoList.length - 1;
   const [scrollIndex, setScrollIndex] = useState( 0 );
 
@@ -62,8 +64,8 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         testID="horizontal-scroll"
         ref={flashList}
         bounces={false}
-        viewabilityConfig={viewConfigRef.current}
         onViewableItemsChanged={onViewRef.current}
+        viewabilityConfig={viewabilityConfig}
         contentContainerStyle={contentContainerStyle}
         data={photoList}
         horizontal

@@ -600,7 +600,9 @@
     "error_title_2": "Eror lokasi",
     "error_message_2": "Sepertinya lokasimu tidak dicatat dengan benar! Cek kembali lokasimu.",
     "error_title_no_location": "Lokasi diperlukan",
-    "error_message_no_location": "Semua pengamatan yang diunggah ke iNaturalist memerlukan lokasi supaya berguna bagi para ilmuwan."
+    "error_message_no_location": "Semua pengamatan yang diunggah ke iNaturalist memerlukan lokasi supaya berguna bagi para ilmuwan.",
+    "error_title_no_date": "Tanggal wajib",
+    "error_message_no_date": "Semua pengamatan yang diunggah ke iNaturalist memerlukan tanggal supaya berguna bagi para ilmuwan."
   },
   "posting_status": {
     "posting_to_inat_background": "MENGUNGGAH KE INATURALIST DI LATAR BELAKANG",

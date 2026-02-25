@@ -18,6 +18,9 @@ import type { Region } from "react-native-maps";
 import type { Coords } from "../../../utility/locationHelpers";
 import posting from "../../../assets/posting";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
+import {
+  fetchCoordsByLocationName,
+} from "../../../utility/locationHelpers";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
@@ -49,6 +52,8 @@ const LocationPicker = ( {
     latitudeDelta,
     longitudeDelta,
   } );
+  const [inputLocation, setInputLocation] = useState( undefined );
+  // const [inputLocation, setInputLocation] = useState( location );
   const [initialCenter, setInitialCenter] = useState<{ latitude: number; longitude: number } | null>( null );
   const userCoords = useFetchUserLocation( );
 
@@ -118,6 +123,24 @@ const LocationPicker = ( {
     closeLocationPicker( );
   };
 
+  const setCoordsByLocationName = async ( newLocation: string ) => {
+    const { placeName, position } =
+      await fetchCoordsByLocationName( newLocation );
+    const { lng, lat } = position;
+
+    if ( !placeName || !lng ) {
+      return;
+    }
+
+    setInputLocation( placeName );
+    setRegion( {
+      latitude: lat,
+      longitude: lng,
+      latitudeDelta,
+      longitudeDelta,
+    } );
+  };
+
   const changeText = ( text: string ) => setCoordsByLocationName( text );
 
   const displayMap = ( ) => (
@@ -144,11 +167,11 @@ const LocationPicker = ( {
             style={imageStyles.white}
           />
           <TextInput
-            // accessibilityLabel={inputLocation}
+            accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
             onChangeText={changeText}
-            // placeholder={inputLocation || i18n.t("species_nearby.no_location")}
+            placeholder={inputLocation || i18n.t( "species_nearby.no_location" )}
             placeholderTextColor={colors.placeholderGray}
             style={[baseTextStyles.inputField, textStyles.inputField]}
             textContentType="addressCity"

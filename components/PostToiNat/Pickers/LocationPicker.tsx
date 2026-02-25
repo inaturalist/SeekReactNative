@@ -118,6 +118,8 @@ const LocationPicker = ( {
     closeLocationPicker( );
   };
 
+  const changeText = ( text: string ) => setCoordsByLocationName( text );
+
   const displayMap = ( ) => (
     <LocationMap
       onRegionChange={handleRegionChange}
@@ -145,7 +147,7 @@ const LocationPicker = ( {
             // accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
-            // onChangeText={changeText}
+            onChangeText={changeText}
             // placeholder={inputLocation || i18n.t("species_nearby.no_location")}
             placeholderTextColor={colors.placeholderGray}
             style={[baseTextStyles.inputField, textStyles.inputField]}

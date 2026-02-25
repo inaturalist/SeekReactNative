@@ -356,11 +356,17 @@ lane :github_release do
     MSG
   end
 
+  last_tag = last_git_tag
+  changes = changelog_from_git_commits( pretty: "# * %h %s (%an, %ai)" )
+  if last_tag && changes.empty? && !options[:force]
+    UI.abort_with_message! "Nothing has changed since the last tag (#{last_tag})"
+  end
+
   # Prompt for release notes
   instructions = <<~INSTRUCTIONS
 
 
-    # Enter notes about what's new in #{tag}. Lines beginning with # will be ignored.
+    # Enter notes about what's new in #{last_tag}. Lines beginning with # will be ignored.
     # Keep notes within the 500 character limit required by Google Play.
     #
     # Here's what changed since the last tag:

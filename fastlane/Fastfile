@@ -28,6 +28,20 @@ ANDROID_BUILD_GRADLE = File.join(PROJECT_ROOT, "android", "app", "build.gradle")
 VERSION = File.open( "../package.json" ) {| f | JSON.parse( f.read )["version"] }
 PACKAGE_ID = CredentialsManager::AppfileConfig.try_fetch_value( :package_name )
 
+editor_cmd = [
+  ENV.fetch( "EDITOR", nil ),
+  `git config core.editor`,
+  `which vi`
+].map {| e | e.to_s.strip }.detect {| e | !e.empty? }
+if editor_cmd.nil?
+  UI.abort_with_message! <<~NO_EDITOR_ERROR
+    Could not find an editor, not even vi. Set the EDITOR environmental
+    variable or the core.editor git config"
+  NO_EDITOR_ERROR
+end
+editor_cmd_needs_to_wait = ( editor_cmd =~ /^code / || editor_cmd =~ /^subl / ) && !editor_cmd.include?( "-w" )
+EDITOR = editor_cmd_needs_to_wait ? "#{editor_cmd} -w" : editor_cmd
+
 def android_taxonomy_present?
   path = File.join( ANDROID_CAMERA_PATH, "taxonomy_v2_20.csv" )
   unless File.exist?( path )

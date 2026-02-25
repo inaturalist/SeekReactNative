@@ -25,6 +25,23 @@ interface Datum {
   count: number;
 }
 
+interface DecoratorProps {
+  readonly data: Datum[];
+  // These are propped in by LineChart, don't know how to satisfy TS here
+  x: ( _: number ) => NumberProp;
+  y: ( _: number ) => NumberProp;
+}
+
+const Decorator = ( { data, x, y }: DecoratorProps ) => data.map( ( value ) => (
+  <Circle
+    key={`circle-${value.month}`}
+    cx={x( value.month )}
+    cy={y( value.count )}
+    fill={colors.seekiNatGreen}
+    r={4}
+  />
+) );
+
 const SpeciesChart = ( { id, region }: Props ) => {
   const settings = useFetchUserSettings( ) as { localSeasonality?: boolean };
   const localSeasonality = settings?.localSeasonality;
@@ -59,16 +76,6 @@ const SpeciesChart = ( { id, region }: Props ) => {
     };
   } , [createHistogram] );
 
-  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp; y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
-    <Circle
-      key={`circle-${value.month}`}
-      cx={x( value.month )}
-      cy={y( value.count )}
-      fill={colors.seekiNatGreen}
-      r={4}
-    />
-  ) );
-
   const xAccessor = ( { item }: { item: Datum } ) => item.month;
   const yAccessor = ( { item }: { item: Datum } ) => item.count;
   const lineChartSvg = { stroke: colors.seekForestGreen };
@@ -98,7 +105,7 @@ const SpeciesChart = ( { id, region }: Props ) => {
           xAccessor={xAccessor}
           yAccessor={yAccessor}
         >
-          <Decorator />
+          <Decorator data={data} />
         </LineChart>
         {xAxis}
       </View>

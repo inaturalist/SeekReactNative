@@ -17,17 +17,23 @@ interface Props {
   readonly data: Datum[];
 }
 
-const SeekYearInReviewChart = ( { data }: Props ) => {
-  const Decorator = ( { x, y }: { x: ( _: number ) => NumberProp; y: ( _: number ) => NumberProp } ) => data.map( ( value ) => (
-    <Circle
-      key={`circle-${value.month}`}
-      cx={x( value.month )}
-      cy={y( value.count )}
-      fill={colors.seekiNatGreen}
-      r={4}
-    />
-  ) );
+interface DecoratorProps {
+  readonly data: Datum[];
+  x: ( _: number ) => NumberProp;
+  y: ( _: number ) => NumberProp;
+}
 
+const Decorator = ( { data, x, y }: DecoratorProps ) => data.map( ( value ) => (
+  <Circle
+    key={`circle-${value.month}`}
+    cx={x( value.month )}
+    cy={y( value.count )}
+    fill={colors.seekiNatGreen}
+    r={4}
+  />
+) );
+
+const SeekYearInReviewChart = ( { data }: Props ) => {
   const xAccessor = ( { item }: { item: Datum } ) => item.month;
   const yAccessor = ( { item }: { item: Datum } ) => item.count;
   const lineChartSvg = { stroke: colors.seekForestGreen };
@@ -60,7 +66,7 @@ const SeekYearInReviewChart = ( { data }: Props ) => {
         xAccessor={xAccessor}
         yAccessor={yAccessor}
       >
-        <Decorator />
+        <Decorator data={data} />
       </LineChart>
       {xAxis}
     </View>

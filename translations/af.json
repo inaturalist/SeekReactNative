@@ -600,7 +600,9 @@
     "error_title_2": "Liggingsfout",
     "error_message_2": "Dit lyk asof u ligging nie reg opgeneem is nie! Gaan asseblief u ligging weer na.",
     "error_title_no_location": "Benodig ligging ",
-    "error_message_no_location": "Alle waarnemings wat op iNaturalist geplaas word het 'n ligging nodig om wetenskaplikes te kan help."
+    "error_message_no_location": "Alle waarnemings wat op iNaturalist geplaas word het 'n ligging nodig om wetenskaplikes te kan help.",
+    "error_title_no_date": "Date required",
+    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
   },
   "posting_status": {
     "posting_to_inat_background": "BESIG OM IN DIE AGTERGROND OP INATURALIST TE PLAAS",

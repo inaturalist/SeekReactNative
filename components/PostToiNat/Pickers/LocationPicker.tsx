@@ -31,6 +31,7 @@ interface Props {
   readonly longitude: number | null;
   readonly updateLocation: ( latitude: number | null, longitude: number | null, accuracy: number ) => void;
   readonly closeLocationPicker: ( ) => void;
+  readonly location: string | null;
 }
 
 const LocationPicker = ( {
@@ -38,6 +39,7 @@ const LocationPicker = ( {
   longitude,
   updateLocation,
   closeLocationPicker,
+  location,
 }: Props ) => {
   const initialAccuracy = 90;
   const [accuracy, setAccuracy] = useState( initialAccuracy );
@@ -53,7 +55,6 @@ const LocationPicker = ( {
     longitudeDelta,
   } );
   const [inputLocation, setInputLocation] = useState( undefined );
-  // const [inputLocation, setInputLocation] = useState( location );
   const [initialCenter, setInitialCenter] = useState<{ latitude: number; longitude: number } | null>( null );
   const userCoords = useFetchUserLocation( );
 
@@ -171,7 +172,7 @@ const LocationPicker = ( {
             accessible
             autoCapitalize="words"
             onChangeText={changeText}
-            placeholder={inputLocation || i18n.t( "species_nearby.no_location" )}
+            placeholder={inputLocation || location || i18n.t( "species_nearby.no_location" )}
             placeholderTextColor={colors.placeholderGray}
             style={[baseTextStyles.inputField, textStyles.inputField]}
             textContentType="addressCity"

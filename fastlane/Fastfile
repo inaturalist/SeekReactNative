@@ -340,7 +340,7 @@ def prompt_for_release_notes( options = {} )
   release_notes
 end
 
-lane :github_release do
+lane :github_release do | options |
   desc "Make github release for the latest tag and make builds"
   last_tag = last_git_tag
   if last_tag.nil? || last_tag.empty?

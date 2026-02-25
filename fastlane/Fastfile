@@ -19,8 +19,29 @@ end
 
 default_platform(:android)
 
-ANDROID_CAMERA_PATH = File.join( "..", "android", "app", "src", "main", "assets", "camera" )
-IOS_CAMERA_PATH = File.join( "..", "ios" )
+PROJECT_ROOT = File.expand_path("..", File.dirname(__FILE__))
+ANDROID_CAMERA_PATH = File.join(PROJECT_ROOT, "android", "app", "src", "main", "assets", "camera")
+IOS_CAMERA_PATH = File.join(PROJECT_ROOT, "ios")
+
+ANDROID_BUILD_GRADLE = File.join(PROJECT_ROOT, "android", "app", "build.gradle")
+
+def android_get_version_code(gradle_file: ANDROID_BUILD_GRADLE)
+  path = File.expand_path(gradle_file, PROJECT_ROOT)
+  UI.user_error!("Gradle file not found: #{path}") unless File.exist?(path)
+  content = File.read(path)
+  match = content.match(/versionCode\s+(\d+)/)
+  UI.user_error!("Could not find versionCode in #{path}") unless match
+  match[1].to_i
+end
+
+def android_get_version_name(gradle_file: ANDROID_BUILD_GRADLE)
+  path = File.expand_path(gradle_file, PROJECT_ROOT)
+  UI.user_error!("Gradle file not found: #{path}") unless File.exist?(path)
+  content = File.read(path)
+  match = content.match(/versionName\s+"([^"]+)"/)
+  UI.user_error!("Could not find versionName in #{path}") unless match
+  match[1]
+end
 
 def android_taxonomy_present?
   path = File.join( ANDROID_CAMERA_PATH, "taxonomy_v2_20.csv" )

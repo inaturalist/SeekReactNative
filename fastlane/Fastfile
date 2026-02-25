@@ -25,23 +25,22 @@ IOS_CAMERA_PATH = File.join(PROJECT_ROOT, "ios")
 
 ANDROID_BUILD_GRADLE = File.join(PROJECT_ROOT, "android", "app", "build.gradle")
 
-def android_get_version_code(gradle_file: ANDROID_BUILD_GRADLE)
-  path = File.expand_path(gradle_file, PROJECT_ROOT)
-  UI.user_error!("Gradle file not found: #{path}") unless File.exist?(path)
-  content = File.read(path)
-  match = content.match(/versionCode\s+(\d+)/)
-  UI.user_error!("Could not find versionCode in #{path}") unless match
-  match[1].to_i
-end
+VERSION = File.open( "../package.json" ) {| f | JSON.parse( f.read )["version"] }
+PACKAGE_ID = CredentialsManager::AppfileConfig.try_fetch_value( :package_name )
 
-def android_get_version_name(gradle_file: ANDROID_BUILD_GRADLE)
-  path = File.expand_path(gradle_file, PROJECT_ROOT)
-  UI.user_error!("Gradle file not found: #{path}") unless File.exist?(path)
-  content = File.read(path)
-  match = content.match(/versionName\s+"([^"]+)"/)
-  UI.user_error!("Could not find versionName in #{path}") unless match
-  match[1]
+editor_cmd = [
+  ENV.fetch( "EDITOR", nil ),
+  `git config core.editor`,
+  `which vi`
+].map {| e | e.to_s.strip }.detect {| e | !e.empty? }
+if editor_cmd.nil?
+  UI.abort_with_message! <<~NO_EDITOR_ERROR
+    Could not find an editor, not even vi. Set the EDITOR environmental
+    variable or the core.editor git config"
+  NO_EDITOR_ERROR
 end
+editor_cmd_needs_to_wait = ( editor_cmd =~ /^code / || editor_cmd =~ /^subl / ) && !editor_cmd.include?( "-w" )
+EDITOR = editor_cmd_needs_to_wait ? "#{editor_cmd} -w" : editor_cmd
 
 def android_taxonomy_present?
   path = File.join( ANDROID_CAMERA_PATH, "taxonomy_v2_20.csv" )
@@ -79,6 +78,39 @@ end
 def required_ios_files_present?
   ios_taxonomy_present?
   ios_model_present?
+end
+
+def get_apk_path( build_number = nil )
+  build_number ||= get_build_number( xcodeproj: XCODEPROJ )
+  File.expand_path( File.join(
+    __dir__,
+    "..",
+    "android",
+    "app",
+    "build",
+    "outputs",
+    "apk",
+    "release",
+    "#{PACKAGE_ID}-v#{VERSION}+#{build_number}-release.apk"
+  ) )
+end
+
+def android_get_version_code(gradle_file: ANDROID_BUILD_GRADLE)
+  path = File.expand_path(gradle_file, PROJECT_ROOT)
+  UI.user_error!("Gradle file not found: #{path}") unless File.exist?(path)
+  content = File.read(path)
+  match = content.match(/versionCode\s+(\d+)/)
+  UI.user_error!("Could not find versionCode in #{path}") unless match
+  match[1].to_i
+end
+
+def android_get_version_name(gradle_file: ANDROID_BUILD_GRADLE)
+  path = File.expand_path(gradle_file, PROJECT_ROOT)
+  UI.user_error!("Gradle file not found: #{path}") unless File.exist?(path)
+  content = File.read(path)
+  match = content.match(/versionName\s+"([^"]+)"/)
+  UI.user_error!("Could not find versionName in #{path}") unless match
+  match[1]
 end
 
 platform :ios do
@@ -212,6 +244,22 @@ platform :android do
     )
   end
 
+  lane :build_apk do
+  desc "Build apk for github releases"
+    build_number = android_get_version_code( )
+    # Build APK. This should write
+    # android/app/build/outputs/apk/release/PACKAGE_ID-vVERSION_NAME+VERSION_CODE-release.apk
+    apk_path = get_apk_path( build_number )
+    if File.exist?( apk_path )
+      UI.important "APK already exists at #{apk_path}"
+    else
+      gradle( task: "build", project_dir: "android", flags: "-x lint" )
+    end
+    unless File.exist?( apk_path )
+      UI.abort_with_message! "Failed to create APK at #{apk_path}"
+    end
+  end
+
  desc "Distributes an Android bundle to the Play Store internal beta track"
  lane :internal do
     required_android_files_present?
@@ -273,4 +321,97 @@ platform :android do
     )
   end
 
+end
+
+def prompt_for_release_notes( options = {} )
+  instructions = options[:instructions] || ""
+  # Get release notes
+  # Bit silly but takes advantage of existing syntax highlighting
+  fname = "COMMIT_EDITMSG"
+  File.open( fname, "w" ) do | f |
+    f << instructions
+  end
+  system "#{EDITOR} #{fname}", exception: true
+  release_notes = ""
+  File.readlines( fname ).each do | line |
+    release_notes += line unless line[0] == "#"
+  end
+  release_notes.strip!
+  FileUtils.rm( fname )
+  if release_notes.strip.empty?
+    if options[:reset_git_repo_on_fail]
+      reset_git_repo skip_clean: true
+    end
+    UI.abort_with_message! "You gotta enter release notes!"
+  end
+  if release_notes.strip.length > 500
+    if options[:reset_git_repo_on_fail]
+      reset_git_repo skip_clean: true
+    end
+    UI.abort_with_message! "Release notes must be 500 characters or less"
+  end
+  # Return the release notes
+  release_notes
+end
+
+lane :github_release do | options |
+  desc "Make github release for the latest tag and make builds"
+  last_tag = last_git_tag
+  if last_tag.nil? || last_tag.empty?
+    UI.abort_with_message! "No tags have been added yet. Try starting with `fastlane tag`"
+  end
+  original_branch = git_branch
+  system "git checkout #{last_tag}", exception: true
+  build_number = android_get_version_code( )
+  if build_number.to_s != last_tag.split( "-" ).last
+    UI.abort_with_message! <<~MSG
+      The last tag doesn't match the current build number. Either make a new
+      tag or check out the tag before releasing.
+    MSG
+  end
+
+  last_tag = last_git_tag
+  changes = changelog_from_git_commits( pretty: "# * %h %s (%an, %ai)" )
+
+  # Prompt for release notes
+  instructions = <<~INSTRUCTIONS
+
+
+    # Enter notes about what's new in #{last_tag}. Lines beginning with # will be ignored.
+    # Keep notes within the 500 character limit required by Google Play.
+    #
+    # Here's what changed since the last tag:
+    #{changes}
+  INSTRUCTIONS
+  # At the moment we are not bothered about translating those into other languages
+  release_notes = prompt_for_release_notes( instructions: instructions, reset_git_repo_on_fail: true )
+
+  apk_path = File.expand_path( get_apk_path( build_number ) )
+  if File.exist?( apk_path )
+    UI.success "Found APK at #{apk_path}"
+  else
+    UI.abort_with_message! "Failed to find APK at #{apk_path}"
+  end
+
+  github_release = get_github_release(
+    url: "inaturalist/SeekReactNative",
+    version: last_tag,
+    api_token: ENV.fetch( "GITHUB_TOKEN", nil )
+  )
+  if github_release
+    UI.important "Release already exists at #{github_release['url']}. You need to manually upload any missing assets."
+  else
+    set_github_release(
+      repository_name: "inaturalist/SeekReactNative",
+      api_token: ENV.fetch( "GITHUB_TOKEN", nil ),
+      name: last_tag,
+      tag_name: last_tag,
+      description: release_notes,
+      # This is really just a fallback in case last_tag isn't really a tag
+      commitish: "main",
+      upload_assets: [apk_path],
+      is_prerelease: true
+    )
+  end
+  system "git checkout #{original_branch}", exception: true
 end

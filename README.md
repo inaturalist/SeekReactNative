@@ -77,3 +77,15 @@ When a language is at least 20% translated on Crowdin, follow these steps to ena
 5. Generate a compressed `commonNames.tar.gz` directory via staging and copy it to your local machine
 6. Spot check that common name translations look correct, then overwrite existing files in `utility/commonNames`.
 7. If needed, load additional files via `addCommonNamesFromFile` function in `utility/commonNamesHelpers.js`.
+
+## Releasing a new version
+1. Write release notes based on commits since the last release. Try to keep them brief but emphasize what's new and what's fixed. Just keep them in a text editor; you'll save them at a later step.
+1. Edit `package.json` and update the `version` per semantic versioning rules: bump the patch version if the only changes were bug fixes, bump minor version if there were new features, and bump the major version if the app was completely re-written or can't import data from previous versions.
+1. `npm install` to set the version in `package-lock.json`
+1. Commit changes
+1. Bump the build numbers
+1. Commit changes
+1. `bundle exec fastlane android internal`
+1. `bundle exec fastlane ios beta`
+1. `bundle exec fastlane android build_apk`
+1. `bundle exec fastlane github_release`

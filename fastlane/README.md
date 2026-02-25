@@ -13,6 +13,17 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
+### github_release
+
+```sh
+[bundle exec] fastlane github_release
+```
+
+
+
+----
+
+
 ## iOS
 
 ### ios beta
@@ -51,6 +62,14 @@ Distributes a beta version of Seek on TestFlight
 ```
 
 Upload description to Google Play
+
+### android build_apk
+
+```sh
+[bundle exec] fastlane android build_apk
+```
+
+
 
 ### android internal
 

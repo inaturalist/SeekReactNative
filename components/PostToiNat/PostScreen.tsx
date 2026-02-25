@@ -149,6 +149,14 @@ const PostScreen = ( ) => {
       );
       return;
     }
+    // If the location ended up with null as its observed_on_string.
+    if ( editedObservation.observed_on_string === null ) {
+      Alert.alert(
+        i18n.t( "posting.error_title_no_date" ),
+        i18n.t( "posting.error_message_no_date" ),
+      );
+      return;
+    }
     // If the location is undefined, i.e. location permissions were not granted
     if ( !editedObservation.latitude || !editedObservation.longitude ) {
       Alert.alert(

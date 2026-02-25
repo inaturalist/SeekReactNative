@@ -12,7 +12,7 @@ import { viewStyles } from "../../../styles/home/locationPicker";
 import { viewHeaderStyles, textStyles } from "../../../styles/uiComponents/greenHeader";
 import icons from "../../../assets/icons";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import { dimensions } from "../../../styles/global";
+import { colors, dimensions } from "../../../styles/global";
 import { useFetchUserLocation } from "../hooks/postingHooks";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
@@ -21,6 +21,7 @@ import type { Coords } from "../../../utility/locationHelpers";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
+const COORD_EPSILON = 1e-6;
 
 interface Props {
   readonly latitude: number | null;
@@ -48,7 +49,20 @@ const LocationPicker = ( {
     latitudeDelta,
     longitudeDelta,
   } );
+  const [initialCenter, setInitialCenter] = useState<{ latitude: number; longitude: number } | null>( null );
   const userCoords = useFetchUserLocation( );
+
+  useEffect( ( ) => {
+    if ( region.latitude != null && region.longitude != null && initialCenter === null ) {
+      setInitialCenter( { latitude: region.latitude, longitude: region.longitude } );
+    }
+  }, [region.latitude, region.longitude, initialCenter] );
+
+  const hasUserChangedLocation = initialCenter != null
+    && region.latitude != null
+    && region.longitude != null
+    && ( Math.abs( region.latitude - initialCenter.latitude ) > COORD_EPSILON
+      || Math.abs( region.longitude - initialCenter.longitude ) > COORD_EPSILON );
 
   const handleRegionChange = ( newRegion: Region ) => {
     const sizeOfCrossHairIcon = 127;
@@ -129,8 +143,10 @@ const LocationPicker = ( {
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>
         <GreenButton
+          color={!hasUserChangedLocation ? colors.seekTransparent : null}
           handlePress={handleLocationChange}
           text="posting.save_location"
+          disabled={!hasUserChangedLocation}
         />
       </View>
     </SafeAreaView>

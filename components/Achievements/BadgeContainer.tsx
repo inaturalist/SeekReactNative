@@ -15,7 +15,7 @@ interface Props {
 
 const BadgeContainer = ( { data, renderItem }: Props ) => (
   <View testID="badge-container" style={viewStyles.imageContainer}>
-    {data.map( ( item, index ) => (
+    {data.filter( Boolean ).map( ( item, index ) => (
       <View key={`${item.name}-${item.earnedIconName}-${index}`}>
         {renderItem( item )}
       </View>

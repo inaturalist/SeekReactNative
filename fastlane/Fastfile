@@ -230,6 +230,22 @@ platform :android do
     )
   end
 
+  lane :build_apk do
+  desc "Build apk for github releases"
+    build_number = android_get_version_code( )
+    # Build APK. This should write
+    # android/app/build/outputs/apk/release/PACKAGE_ID-vVERSION_NAME+VERSION_CODE-release.apk
+    apk_path = get_apk_path( build_number )
+    if File.exist?( apk_path )
+      UI.important "APK already exists at #{apk_path}"
+    else
+      gradle( task: "build", project_dir: "android", flags: "-x lint" )
+    end
+    unless File.exist?( apk_path )
+      UI.abort_with_message! "Failed to create APK at #{apk_path}"
+    end
+  end
+
  desc "Distributes an Android bundle to the Play Store internal beta track"
  lane :internal do
     required_android_files_present?

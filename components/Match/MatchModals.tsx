@@ -272,7 +272,7 @@ const MatchModals = ( {
         }
       />
       <Modal
-        isVisible={replacePhotoModal}
+        isVisible={!!replacePhotoModal && !!taxon}
         useNativeDriverForBackdrop
         useNativeDriver
         // the following two lines prevent flickering

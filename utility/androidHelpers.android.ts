@@ -1,5 +1,15 @@
 import { PermissionsAndroid, Platform } from "react-native";
 
+const onlyCheckLocationPermissions = async ( ): Promise<boolean> => {
+  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
+
+  try {
+    return await PermissionsAndroid.check( location );
+  } catch ( err ) {
+    return err;
+  }
+};
+
 const checkLocationPermissions = async ( ): Promise<boolean> => {
   const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
@@ -55,4 +65,5 @@ export {
   checkCameraPermissions,
   checkLocationPermissions,
   checkSavePermissions,
+  onlyCheckLocationPermissions,
 };

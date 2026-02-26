@@ -4,6 +4,7 @@ import Geocoder from "react-native-geocoder";
 import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
+import { onlyCheckLocationPermissions } from "./androidHelpers.android";
 
 export interface TruncatedCoords {
   latitude: number;
@@ -34,6 +35,14 @@ interface LocationResult {
     lat: number | null;
     lng: number | null;
   };
+}
+
+const checkLocationPermissionGranted = async( ): Promise<boolean> => {
+  if ( Platform.OS === "android" ) {
+    return await onlyCheckLocationPermissions();
+  } else {
+    
+  }
 }
 
 const requestiOSPermissions = async ( ): Promise<Geolocation.AuthorizationResult | undefined> => {
@@ -213,6 +222,7 @@ const createAlertUserLocationOnMaps = ( errorCode: number ): void => {
 };
 
 export {
+  checkLocationPermissionGranted,
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,

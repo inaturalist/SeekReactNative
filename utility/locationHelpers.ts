@@ -37,20 +37,21 @@ interface LocationResult {
   };
 }
 
-const checkLocationPermissionGranted = async( ): Promise<boolean> => {
-  if ( Platform.OS === "android" ) {
-    return await onlyCheckLocationPermissions();
-  } else {
-    
-  }
-}
-
 const requestiOSPermissions = async ( ): Promise<Geolocation.AuthorizationResult | undefined> => {
   if ( Platform.OS === "ios" ) {
     const permission = await Geolocation.requestAuthorization( "whenInUse" );
     return permission;
   }
 };
+
+const checkLocationPermissionGranted = async( ): Promise<boolean> => {
+  if ( Platform.OS === "android" ) {
+    return await onlyCheckLocationPermissions();
+  } else {
+    const permission = await requestiOSPermissions();
+    return permission === "granted";
+  }
+}
 
 const fetchUserLocation = ( enableHighAccuracy: boolean = false ): Promise<Coords> => (
   new Promise( ( resolve, reject ) => {

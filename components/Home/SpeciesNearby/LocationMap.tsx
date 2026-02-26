@@ -1,5 +1,6 @@
 import * as React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import type { AlertButton } from "react-native";
+import { View, Image, TouchableOpacity, Alert, Platform, Linking } from "react-native";
 import type { Region } from "react-native-maps";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
@@ -9,6 +10,7 @@ import postingIcons from "../../../assets/posting";
 import i18n from "../../../i18n";
 import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { checkLocationPermissionGranted } from "../../../utility/locationHelpers";
 
 interface Props {
   region: {
@@ -28,7 +30,25 @@ const LocationMap = ( {
   returnToUserLocation,
   posting = false,
 }: Props ) => {
-  const onUserLocationPressed = ( ) => {
+  const onUserLocationPressed = async ( ) => {
+    const granted = await checkLocationPermissionGranted();
+    if ( !granted ) {
+      const button: AlertButton[] = [
+        { text: i18n.t( "posting.ok" ), style: "default" },
+      ];
+      if ( Platform.OS === "android" ) {
+        button.unshift( {
+          text: i18n.t( "results.enable_location_button" ),
+          onPress: () => Linking.openSettings(),
+        } );
+      }
+      Alert.alert(
+        i18n.t( "species_nearby.need_location_permissions" ),
+        i18n.t( "species_nearby.please_allow_location_permissions" ),
+        button,
+      );
+      return;
+    }
     returnToUserLocation( );
   };
   return (

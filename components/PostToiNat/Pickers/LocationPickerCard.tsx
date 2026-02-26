@@ -55,6 +55,7 @@ const LocationPickerCard = ( { location, updateLocation, observation }: Props ) 
             longitude={observation.longitude}
             closeLocationPicker={closeModal}
             updateLocation={updateLocation}
+            location={location}
           />
         </SafeAreaProvider>
       </Modal>

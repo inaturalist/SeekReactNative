@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
-  TouchableOpacity,
   Image,
+  TextInput,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
-import { viewStyles } from "../../../styles/home/locationPicker";
-import { viewHeaderStyles, textStyles } from "../../../styles/uiComponents/greenHeader";
-import icons from "../../../assets/icons";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors, dimensions } from "../../../styles/global";
 import { useFetchUserLocation } from "../hooks/postingHooks";
@@ -18,6 +16,11 @@ import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 import type { Region } from "react-native-maps";
 import type { Coords } from "../../../utility/locationHelpers";
+import posting from "../../../assets/posting";
+import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
+import {
+  fetchCoordsByLocationName,
+} from "../../../utility/locationHelpers";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;
@@ -28,6 +31,7 @@ interface Props {
   readonly longitude: number | null;
   readonly updateLocation: ( latitude: number | null, longitude: number | null, accuracy: number ) => void;
   readonly closeLocationPicker: ( ) => void;
+  readonly location: string | null;
 }
 
 const LocationPicker = ( {
@@ -35,6 +39,7 @@ const LocationPicker = ( {
   longitude,
   updateLocation,
   closeLocationPicker,
+  location,
 }: Props ) => {
   const initialAccuracy = 90;
   const [accuracy, setAccuracy] = useState( initialAccuracy );
@@ -49,6 +54,7 @@ const LocationPicker = ( {
     latitudeDelta,
     longitudeDelta,
   } );
+  const [inputLocation, setInputLocation] = useState( undefined );
   const [initialCenter, setInitialCenter] = useState<{ latitude: number; longitude: number } | null>( null );
   const userCoords = useFetchUserLocation( );
 
@@ -118,6 +124,26 @@ const LocationPicker = ( {
     closeLocationPicker( );
   };
 
+  const setCoordsByLocationName = async ( newLocation: string ) => {
+    const { placeName, position } =
+      await fetchCoordsByLocationName( newLocation );
+    const { lng, lat } = position;
+
+    if ( !placeName || !lng ) {
+      return;
+    }
+
+    setInputLocation( placeName );
+    setRegion( {
+      latitude: lat,
+      longitude: lng,
+      latitudeDelta,
+      longitudeDelta,
+    } );
+  };
+
+  const changeText = ( text: string ) => setCoordsByLocationName( text );
+
   const displayMap = ( ) => (
     <LocationMap
       onRegionChange={handleRegionChange}
@@ -129,16 +155,29 @@ const LocationPicker = ( {
 
   return (
     <SafeAreaView style={viewStyles.container} edges={["top"]}>
-      <View style={[viewHeaderStyles.container, viewHeaderStyles.center]}>
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.back" )}
-          accessible
-          onPress={closeLocationPicker}
-          style={viewStyles.backButton}
-        >
-          <Image source={icons.backButton} />
-        </TouchableOpacity>
-        <StyledText style={[baseTextStyles.button, textStyles.text]}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</StyledText>
+      <View style={viewStyles.header}>
+        <BackArrow handlePress={closeLocationPicker} />
+        <View style={viewStyles.marginLarge} />
+        <StyledText style={[baseTextStyles.button, textStyles.headerText]}>
+          {i18n.t( "posting.edit_location" ).toLocaleUpperCase()}
+        </StyledText>
+        <View style={[viewStyles.row, viewStyles.inputRow]}>
+          <Image
+            source={posting.location}
+            tintColor={colors.white}
+            style={imageStyles.white}
+          />
+          <TextInput
+            accessibilityLabel={inputLocation}
+            accessible
+            autoCapitalize="words"
+            onChangeText={changeText}
+            placeholder={inputLocation || location || i18n.t( "species_nearby.no_location" )}
+            placeholderTextColor={colors.placeholderGray}
+            style={[baseTextStyles.inputField, textStyles.inputField]}
+            textContentType="addressCity"
+          />
+        </View>
       </View>
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>

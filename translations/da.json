@@ -9,7 +9,9 @@
     "error_alert_location_services": "For at fortsætte skal du aktivere placeringstjenester i dine enhedsindstillinger",
     "species_nearby_requires_location": "Arter i nærheden kræver din placering. Aktivér placering i indstillinger",
     "species_nearby_requires_android_accuracy": "Arter i nærheden kræver din placering. Kontroller at placeringstjenester er aktiveret.",
-    "choose_location_on_map": "VÆLG PLACERING PÅ KORT"
+    "choose_location_on_map": "VÆLG PLACERING PÅ KORT",
+    "need_location_permissions": "Har brug for placeringstilladelser",
+    "please_allow_location_permissions": "Tillad venligst placeringstilladelser i Indstillinger -> Seek"
   },
   "get_started": {
     "header": "Kom i gang",

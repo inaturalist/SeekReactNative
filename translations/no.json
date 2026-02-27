@@ -9,7 +9,9 @@
     "error_alert_location_services": "For å fortsette, slå på stedstilgang i enhetensinnstillingene",
     "species_nearby_requires_location": "Arter i nærheten trenger din plassering. Vennligst aktiver stedstilgang i innstillinger",
     "species_nearby_requires_android_accuracy": "Arter i nærheten krever din posisjon. Vennligst sjekk at stedstjenester er aktivert.",
-    "choose_location_on_map": "VELG STED PÅ KARTET"
+    "choose_location_on_map": "VELG STED PÅ KARTET",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Kom i gang",

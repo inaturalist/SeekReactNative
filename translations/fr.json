@@ -9,7 +9,9 @@
     "error_alert_location_services": "Pour continuer, activez les services de localisation dans les paramètres de votre appareil",
     "species_nearby_requires_location": "Les espèces à proximité nécessitent votre emplacement. Veuillez activer la localisation dans les paramètres",
     "species_nearby_requires_android_accuracy": "Pour la fonction « Espèces à proximité », votre position doit être connue. Veuillez vérifier que les services de géolocalisation sont activés.",
-    "choose_location_on_map": "CHOISIR LA LOCALISATION SUR LA CARTE"
+    "choose_location_on_map": "CHOISIR LA LOCALISATION SUR LA CARTE",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Démarrer",

@@ -9,7 +9,9 @@
     "error_alert_location_services": "Um fortzufahren, aktiviere den Standortdienst in deinen Geräteeinstellungen",
     "species_nearby_requires_location": "Die Funktion 'Arten in der Nähe' benötigt deinen Standort. Bitte aktiviere die Ortung in den Einstellungen",
     "species_nearby_requires_android_accuracy": "Die Funktion 'Arten in der Nähe' benötigt Standortinformationen. Bitte überprüfe, ob Ortungsdienste aktiviert sind.",
-    "choose_location_on_map": "ORT AUF KARTE WÄHLEN"
+    "choose_location_on_map": "ORT AUF KARTE WÄHLEN",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Erste Schritte",

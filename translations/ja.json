@@ -9,7 +9,9 @@
     "error_alert_location_services": "続けるには、デバイスの設定から位置情報サービスをオンにしてください",
     "species_nearby_requires_location": "近くの種はあなたの位置情報が必要です。設定で位置情報を有効にしてください。",
     "species_nearby_requires_android_accuracy": "近くの種はあなたの位置情報を必要とします。位置情報サービスが有効になっていることを確認してください。",
-    "choose_location_on_map": "地図上の場所を選択"
+    "choose_location_on_map": "地図上の場所を選択",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "始めよう！",

@@ -9,7 +9,9 @@
     "error_alert_location_services": "To continue, turn on location services in your device settings",
     "species_nearby_requires_location": "Species nearby requires your location. Please enable location in settings",
     "species_nearby_requires_android_accuracy": "पास की प्रजातियाँ देखने के लिए आपकी लोकेशन चाहिए। कृपया चेक करें कि लोकेशन सर्विसेस चालू हैं।",
-    "choose_location_on_map": "नक्शे पर लोकेशन चुनें।"
+    "choose_location_on_map": "नक्शे पर लोकेशन चुनें।",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "शुरु हो जाएँ",

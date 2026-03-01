@@ -9,7 +9,9 @@
     "error_alert_location_services": "A folytatáshoz kapcsold be a helyszolgáltatásokat az eszközöd beállításaiban",
     "species_nearby_requires_location": "A közeli fajok megjelenítéséhez hozzá kell férnünk a helyzetedhez. Kérünk engedélyezd ezt a beállításoknál.",
     "species_nearby_requires_android_accuracy": "A közeli fajok megjelenítéséhez szükség van a helyzetedre. Kérjük kapcsold be a helymeghatározást a beállításoknál.",
-    "choose_location_on_map": "VÁLASSZ HELYET A TÉRKÉPEN"
+    "choose_location_on_map": "VÁLASSZ HELYET A TÉRKÉPEN",
+    "need_location_permissions": "Helymeghatározás engedélyezése szükséges",
+    "please_allow_location_permissions": "Kérünk engedélyezd a helymeghatározást itt: Beállítások -> Seek"
   },
   "get_started": {
     "header": "Kezdjük!",
@@ -599,10 +601,10 @@
     "kelp": "Hínárok, kovamoszatok és társaik",
     "error_title_2": "Hibás helyadatok",
     "error_message_2": "Úgy tűnik helyadataid hibásak. Kérlek ellenőrizd újra!",
-    "error_title_no_location": "Location required",
-    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_location": "Helyszín megadása szükséges",
+    "error_message_no_location": "Minden iNaturalistra feltöltött megfigyelésnek kell legyen hely adata, ahhoz hogy hasznos legyen a tudósok számára.",
+    "error_title_no_date": "Dátum megadása szükséges",
+    "error_message_no_date": "Minden iNaturalistra feltöltött megfigyelésnek kell legyen dátuma, ahhoz hogy hasznos legyen a tudósok számára."
   },
   "posting_status": {
     "posting_to_inat_background": "KÜLDÉS AZ INATURALISTRA A HÁTTÉRBEN",

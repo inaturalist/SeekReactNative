@@ -9,7 +9,9 @@
     "error_alert_location_services": "Για να συνεχίσετε, ενεργοποιήστε τις υπηρεσίες τοποθεσίας στις ρυθμίσεις της συσκευής σας",
     "species_nearby_requires_location": "Για τα κοντινά σας είδη, απαιτείται η τοποθεσία σας. Παρακαλώ ενεργοποιήστε τις υπηρεσίες τοποθεσίας στις ρυθμίσεις.",
     "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
-    "choose_location_on_map": "ΕΠΙΛΕΞΤΕ ΤΟΠΟΘΕΣΙΑ ΣΤΟΝ ΧΑΡΤΗ"
+    "choose_location_on_map": "ΕΠΙΛΕΞΤΕ ΤΟΠΟΘΕΣΙΑ ΣΤΟΝ ΧΑΡΤΗ",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Ξεκινήστε",

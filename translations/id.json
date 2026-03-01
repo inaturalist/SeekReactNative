@@ -9,7 +9,9 @@
     "error_alert_location_services": "Untuk melanjutkan, harap menyalakan layanan lokasi di pengaturan perangkatmu",
     "species_nearby_requires_location": "Spesies di sekitar memerlukan lokasimu. Harap menyalakan lokasi di pengaturan",
     "species_nearby_requires_android_accuracy": "Spesies di dekatmu memerlukan lokasimu. Silakan periksa apakah layanan lokasimu sudah diaktifkan.",
-    "choose_location_on_map": "PILIH LOKASI DI PETA"
+    "choose_location_on_map": "PILIH LOKASI DI PETA",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Memulai",

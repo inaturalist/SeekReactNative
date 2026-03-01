@@ -9,7 +9,9 @@
     "error_alert_location_services": "Um fortzufahren, aktiviere den Standortdienst in deinen Geräteeinstellungen",
     "species_nearby_requires_location": "Die Funktion 'Arten in der Nähe' benötigt deinen Standort. Bitte aktiviere die Ortung in den Einstellungen",
     "species_nearby_requires_android_accuracy": "Die Funktion 'Arten in der Nähe' benötigt Standortinformationen. Bitte überprüfe, ob Ortungsdienste aktiviert sind.",
-    "choose_location_on_map": "ORT AUF KARTE WÄHLEN"
+    "choose_location_on_map": "ORT AUF KARTE WÄHLEN",
+    "need_location_permissions": "Standortberechtigung benötigt",
+    "please_allow_location_permissions": "Bitte erlaube die Standortberechtigungen unter Einstellungen -> Seek"
   },
   "get_started": {
     "header": "Erste Schritte",
@@ -601,8 +603,8 @@
     "error_message_2": "Es sieht so aus, als ob dein Standort nicht korrekt aufgezeichnet wurde! Bitte überprüfe deinen Standort.",
     "error_title_no_location": "Standort erforderlich",
     "error_message_no_location": "Alle auf iNaturalist hochgeladenen Beobachtungen benötigen einen Standort, um für wissenschaftliche Auswertungen hilfreich zu sein.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_date": "Datum erforderlich",
+    "error_message_no_date": "Alle auf iNaturalist hochgeladenen Beobachtungen benötigen ein Datum, um für wissenschaftliche Auswertungen hilfreich zu sein."
   },
   "posting_status": {
     "posting_to_inat_background": "WIRD IM HINTERGRUND NACH INATURALIST ÜBERTRAGEN",

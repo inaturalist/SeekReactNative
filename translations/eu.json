@@ -9,7 +9,9 @@
     "error_alert_location_services": "Jarraitzeko, piztu edo gaitu kokapen zerbitzuak zure gailuaren ezarpenetan",
     "species_nearby_requires_location": "Inguruko espezietan ibiltzeko, zure kokapena beharko. Mesedez, gaitu kokapen zerbitzuren bat ezarpenetan",
     "species_nearby_requires_android_accuracy": "Gertu dauden espezieak funtzioak zure kokapena behar du. Egiaztatu ezazu mesedez zure kokapen-zerbitzua gaituta dagoela.",
-    "choose_location_on_map": "HAUTATU KOKAPENA MAPAN"
+    "choose_location_on_map": "HAUTATU KOKAPENA MAPAN",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Hasi erabiltzen",

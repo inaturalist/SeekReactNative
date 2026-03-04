@@ -9,7 +9,9 @@
     "error_alert_location_services": "Zet locatiediensten aan in de instellingen van je apparaat om door te gaan",
     "species_nearby_requires_location": "Soorten in de buurt vereist je locatie. Activeer de locatiediensten in je instellingen",
     "species_nearby_requires_android_accuracy": "Soorten in de buurt heeft jouw locatie nodig. Controleer of locatieservices zijn ingeschakeld.",
-    "choose_location_on_map": "KIES LOCATIE OP MAP"
+    "choose_location_on_map": "KIES LOCATIE OP MAP",
+    "need_location_permissions": "Locatiemachtigingen nodig",
+    "please_allow_location_permissions": "Sta locatiemachtigingen toe in Instellingen -> Seek"
   },
   "get_started": {
     "header": "Aan de slag",
@@ -601,8 +603,8 @@
     "error_message_2": "Het lijkt erop dat je locatie niet correct is opgeslagen! Controleer je locatie.",
     "error_title_no_location": "Locatie vereist",
     "error_message_no_location": "Alle waarnemingen die in iNaturalist zijn geplaatst hebben een locatie nodig om zinvol te zijn voor wetenschappers.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_date": "Datum vereist",
+    "error_message_no_date": "Alle waarnemingen die in iNaturalist zijn geplaatst hebben een datum nodig om zinvol te zijn voor wetenschappers."
   },
   "posting_status": {
     "posting_to_inat_background": "STUUR NAAR  INATURALIST OP DE ACHTERGROND",

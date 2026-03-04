@@ -9,7 +9,9 @@
     "error_alert_location_services": "Per continua, activa els serveis d'ubicació a la configuració del teu dispositiu",
     "species_nearby_requires_location": "Espècies properes necessita la teva ubicació. Si us plau, activa la localització a la configuració.",
     "species_nearby_requires_android_accuracy": "Espècies Properes necessita la teva ubicació. Si us plau, comprova que els serveis de localització estan activats",
-    "choose_location_on_map": "ESCULL LOCALITZACIÓ EN EL MAPA"
+    "choose_location_on_map": "ESCULL LOCALITZACIÓ EN EL MAPA",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Començar",

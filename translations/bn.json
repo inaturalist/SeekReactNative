@@ -9,7 +9,9 @@
     "error_alert_location_services": "কন্টিনিউ করতে আপনার লোকেশন সার্ভিস সেটিং থেকে অন করুন। ",
     "species_nearby_requires_location": "কাছাকাছি প্রজাতি আপনার অবস্থান প্রয়োজন. অনুগ্রহ করে সেটিংসে লোকেশন অন করুন৷",
     "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
-    "choose_location_on_map": "ম্যাপ-এ আপনার লোকেশন চুজ করুন। "
+    "choose_location_on_map": "ম্যাপ-এ আপনার লোকেশন চুজ করুন। ",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "শুরু করুন",

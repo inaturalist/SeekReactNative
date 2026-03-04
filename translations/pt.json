@@ -9,7 +9,9 @@
     "error_alert_location_services": "Para continuar, liga os serviços de localização nas definições do teu dispositivo",
     "species_nearby_requires_location": "\"Espécies próximas\" requer a tua localização. Por favor liga a localização nas definições",
     "species_nearby_requires_android_accuracy": "\"Espécies próximas\" requer a tua localização. Por favor verifica se os serviços de localização estão ativos.",
-    "choose_location_on_map": "ESCOLHE A LOCALIZAÇÃO NO MAPA"
+    "choose_location_on_map": "ESCOLHE A LOCALIZAÇÃO NO MAPA",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Começar",

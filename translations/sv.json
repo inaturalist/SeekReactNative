@@ -9,7 +9,9 @@
     "error_alert_location_services": "För att fortsätta, aktivera platstjänster i enhetsinställningarna",
     "species_nearby_requires_location": "Arter i närheten behöver din plats. Aktivera plats i inställningarna",
     "species_nearby_requires_android_accuracy": "Arter i närheten behöver din plats. Kontrollera att platstjänster är aktiverade.",
-    "choose_location_on_map": "VÄLJ PLATS PÅ KARTAN"
+    "choose_location_on_map": "VÄLJ PLATS PÅ KARTAN",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Kom igång",

@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { Animated } from "react-native";
+import React from "react";
 
 import GreenRectangle from "../UIComponents/GreenRectangle";
+import ToastWrapper from "./ToastWrapper";
 
 interface Props {
   startAnimation: boolean;
@@ -18,47 +18,14 @@ const ToastAnimation = ( {
   styles,
   rectangleColor,
 }: Props ) => {
-  const fadeOut = useRef( new Animated.Value( 0 ) ).current;
-
-  useEffect( ( ) => {
-    let isCurrent = true;
-    const entrance = {
-      toValue: 1,
-      duration: 0,
-      useNativeDriver: true,
-    };
-
-    const exit = {
-      toValue: 0,
-      delay: 2000,
-      duration: 200,
-      useNativeDriver: true,
-    };
-
-    if ( startAnimation && isCurrent ) {
-      Animated.sequence( [
-        Animated.timing( fadeOut, entrance ),
-        Animated.timing( fadeOut, exit ),
-      ] ).start( ( { finished } ) => {
-        if ( finished && finishAnimation ) {
-          finishAnimation( );
-        }
-      } );
-    }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [fadeOut, startAnimation, finishAnimation] );
-
-  const animatedStyles = [{
-    ...styles,
-    opacity: fadeOut,
-  }];
-
   return (
-    <Animated.View style={animatedStyles}>
+    <ToastWrapper
+      startAnimation={startAnimation}
+      finishAnimation={finishAnimation}
+      styles={styles}
+    >
       <GreenRectangle text={toastText} color={rectangleColor} />
-    </Animated.View>
+    </ToastWrapper>
   );
 };
 

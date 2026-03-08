@@ -23,6 +23,7 @@ import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 import GalleryButton from "./GalleryButton";
 import Flash from "./Flash";
+import CameraFlip from "./CameraFlip";
 
 interface Prediction {
   name: string;
@@ -155,13 +156,9 @@ const ARCameraOverlay = ( {
             : viewStyles.secondaryCameraControlsContainerLandscape
         }
       >
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.open_help" )}
-          accessible
-          onPress={flipCamera}
-        >
-          <Image source={icons.iNat_valueprop_bullet_1} />
-        </TouchableOpacity>
+        <CameraFlip
+          flipCamera={flipCamera}
+        />
         <Flash
           toggleFlash={toggleFlash}
           hasFlash={true}

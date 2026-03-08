@@ -48,6 +48,7 @@ import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
+import { useLocationPermission } from "../../../utility/customHooks";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -121,6 +122,22 @@ const ARCamera = ( ) => {
     ...( hasFlash && { flash: "off" } as const ),
   } as const;
   const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
+
+  const granted = useLocationPermission();
+  const [userDisabledLocation, setUserDisabledLocation] = useState( false );
+  const useLocation = granted && !userDisabledLocation;
+  const [locationStatusVisible, setLocationStatusVisible] = useState( false );
+  // This triggers the animation
+  console.log( "locationStatusVisible", locationStatusVisible );
+
+  const toggleLocation = () => {
+    if ( !granted ) {
+      return;
+    }
+    setUserDisabledLocation( ( prev ) => !prev );
+    // Always show status when button is pressed
+    setLocationStatusVisible( true );
+  };
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -519,6 +536,8 @@ const ARCamera = ( ) => {
         negativeFilter={negativeFilter}
         // type is replaced with logic in FrameProcessorCamera
         isActive={isActive}
+        useLocation={useLocation}
+        granted={granted}
       />
     );
   };
@@ -545,6 +564,8 @@ const ARCamera = ( ) => {
             hasFlash={hasFlash}
             takePhotoOptions={takePhotoOptions}
             toggleFlash={toggleFlash}
+            toggleLocation={toggleLocation}
+            useLocation={useLocation}
           />
         )
       }

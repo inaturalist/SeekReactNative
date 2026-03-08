@@ -47,6 +47,7 @@ interface Props {
   hasFlash?: boolean;
   takePhotoOptions: TakePhotoOptions;
   toggleLocation: ( ) => void;
+  useLocation: boolean;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -63,6 +64,7 @@ const ARCameraOverlay = ( {
   hasFlash,
   takePhotoOptions,
   toggleLocation,
+  useLocation,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -172,7 +174,7 @@ const ARCameraOverlay = ( {
         />
         <Location
           toggleLocation={toggleLocation}
-          useLocation={true}
+          useLocation={useLocation}
         />
       </View>
       {isAndroid && showFilterText( )}

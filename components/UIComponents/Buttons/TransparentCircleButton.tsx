@@ -2,14 +2,7 @@ import React from "react";
 import type { GestureResponderEvent, ImageSourcePropType } from "react-native";
 import { Image, Pressable, View } from "react-native";
 
-export const CIRCLE_OPTIONS_CLASSES = [
-  "bg-black/50",
-  "items-center",
-  "justify-center",
-  "rounded-full",
-].join( " " );
-
-export const CIRCLE_SIZE = "h-[40px] w-[40px]";
+import viewStyles from "../../../styles/uiComponents/buttons/transparentCircleButton";
 
 interface Props {
   onPress: ( _event?: GestureResponderEvent ) => void;
@@ -26,26 +19,19 @@ const TransparentCircleButton = ( {
   source,
   testID,
 }: Props ) => (
-  // <INatIconButton
-  //   className={classnames( CIRCLE_OPTIONS_CLASSES, optionalClasses, CIRCLE_SIZE )}
-  //   onPress={onPress}
-  //   accessibilityLabel={accessibilityLabel}
-  //   accessibilityHint={accessibilityHint}
-  //   icon={icon}
-  //   color={colors.white}
-  //   size={20}
-  //   testID={testID}
-  // />
   <Pressable
     accessibilityHint={accessibilityHint}
     accessibilityLabel={accessibilityLabel}
     accessibilityRole="button"
     onPress={onPress}
-    // style={( { pressed } ) => [...wrapperStyle, { opacity: getOpacity( pressed ) }]}
+    style={( { pressed } ) => [
+      viewStyles.wrapperStyle,
+      { opacity: pressed ? 0.5 : 1 },
+    ]}
     testID={testID}
   >
     <View>
-      <Image source={source} />
+      <Image source={source} width={20} height={20} />
     </View>
   </Pressable>
 );

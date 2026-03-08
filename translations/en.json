@@ -664,7 +664,9 @@
     "get_started_modal": "Tips for getting started",
     "flash": "Flash",
     "disable_flash": "Disable flash",
-    "enable_flash": "Enable flash"
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera."
   },
   "review": {
     "title": "Rate this app",

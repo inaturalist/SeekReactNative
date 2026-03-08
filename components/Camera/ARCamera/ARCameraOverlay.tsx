@@ -145,7 +145,7 @@ const ARCameraOverlay = ( {
 
   return (
     <>
-      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
+      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white} />}
       <ARCameraHeader prediction={prediction} />
       <View
         style={

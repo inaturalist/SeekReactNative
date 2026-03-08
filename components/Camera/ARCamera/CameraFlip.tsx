@@ -1,8 +1,8 @@
 import React from "react";
 
+import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import TransparentCircleButton from "../../UIComponents/Buttons/TransparentCircleButton";
-import icons from "../../../assets/icons";
 
 interface Props {
   flipCamera: ( ) => void;

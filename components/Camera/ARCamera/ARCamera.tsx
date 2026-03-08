@@ -98,6 +98,7 @@ const ARCamera = ( ) => {
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
+  const [cameraPosition, setCameraPosition] = useState<"front" | "back">( "back" );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
       // "ultra-wide-angle-camera",
@@ -106,9 +107,9 @@ const ARCamera = ( ) => {
     ],
   } );
   const frontDevice = useCameraDevice( "front" );
-  let device = backDevice;
+  let device = cameraPosition === "back" ? backDevice : frontDevice;
   // If there is no back camera, use the front camera
-  if ( !device ) {
+  if ( !backDevice ) {
     device = frontDevice;
   }
 
@@ -174,6 +175,11 @@ const ARCamera = ( ) => {
   const [showModal, setShowModal] = useState( false );
   const cameraLoaded = useSharedValue( false );
   const speciesTimeoutSet = useSharedValue( false );
+
+  const flipCamera = () => {
+    const newPosition = cameraPosition === "back" ? "front" : "back";
+    setCameraPosition( newPosition );
+  };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -518,6 +524,7 @@ const ARCamera = ( ) => {
             cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
             setIsActive={setIsActive}
+            flipCamera={flipCamera}
           />
         )
       }

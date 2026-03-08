@@ -666,7 +666,10 @@
     "disable_flash": "Disable flash",
     "enable_flash": "Enable flash",
     "flip_camera": "Flip camera",
-    "use_other_camera": "Use the device's other camera."
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Rate this app",

@@ -2,8 +2,8 @@ import React from "react";
 import type { TakePhotoOptions } from "react-native-vision-camera";
 
 import i18n from "../../../i18n";
-import TransparentCircleButton from "../../UIComponents/Buttons/TransparentCircleButton";
 import icons from "../../../assets/icons";
+import TransparentCircleButton from "../../UIComponents/Buttons/TransparentCircleButton";
 
 interface Props {
   toggleFlash: ( ) => void;

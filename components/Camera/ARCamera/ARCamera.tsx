@@ -113,6 +113,15 @@ const ARCamera = ( ) => {
     device = frontDevice;
   }
 
+  const hasFlash = device?.hasFlash;
+  const initialPhotoOptions = {
+    // We had this set to true in Seek but received many reports of it not respecting OS-wide sound
+    // level and scared away wildlife. So maybe better to just disable it.
+    enableShutterSound: false,
+    ...( hasFlash && { flash: "off" } as const ),
+  } as const;
+  const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
+
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
 
@@ -179,6 +188,15 @@ const ARCamera = ( ) => {
   const flipCamera = () => {
     const newPosition = cameraPosition === "back" ? "front" : "back";
     setCameraPosition( newPosition );
+  };
+
+  const toggleFlash = ( ) => {
+    setTakePhotoOptions( {
+      ...takePhotoOptions,
+      flash: takePhotoOptions.flash === "on"
+        ? "off"
+        : "on",
+    } );
   };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
@@ -342,12 +360,11 @@ const ARCamera = ( ) => {
     if ( !camera.current ) {
       return;
     }
-    const takePhotoOptions: TakePhotoOptions = {
-      flash: "off",
-      enableShutterSound: false,
-    };
+
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
+
+    console.log( "takePhotoOptions", takePhotoOptions );
 
     camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
       // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
@@ -399,7 +416,7 @@ const ARCamera = ( ) => {
       } );
       handleCaptureError( { nativeEvent: { reason: e } } );
     } );
-  }, [sortedPredictions, handleCaptureError] );
+  }, [sortedPredictions, handleCaptureError, takePhotoOptions] );
 
   const takePicture = useCallback( async () => {
     pictureTaken.value = true;
@@ -525,6 +542,9 @@ const ARCamera = ( ) => {
             filterByTaxonId={filterByTaxonId}
             setIsActive={setIsActive}
             flipCamera={flipCamera}
+            hasFlash={hasFlash}
+            takePhotoOptions={takePhotoOptions}
+            toggleFlash={toggleFlash}
           />
         )
       }

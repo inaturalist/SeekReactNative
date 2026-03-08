@@ -25,6 +25,7 @@ import GalleryButton from "./GalleryButton";
 import Flash from "./Flash";
 import CameraFlip from "./CameraFlip";
 import Location from "./Location";
+import type { TakePhotoOptions } from "react-native-vision-camera";
 
 interface Prediction {
   name: string;
@@ -43,6 +44,8 @@ interface Props {
   setIsActive: ( arg0: boolean ) => void;
   flipCamera: ( ) => void;
   toggleFlash: ( ) => void;
+  hasFlash?: boolean;
+  takePhotoOptions: TakePhotoOptions;
   toggleLocation: ( ) => void;
 }
 
@@ -57,6 +60,8 @@ const ARCameraOverlay = ( {
   setIsActive,
   flipCamera,
   toggleFlash,
+  hasFlash,
+  takePhotoOptions,
   toggleLocation,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
@@ -162,13 +167,8 @@ const ARCameraOverlay = ( {
         />
         <Flash
           toggleFlash={toggleFlash}
-          hasFlash={true}
-          takePhotoOptions={{ flash: "on" }}
-        />
-        <Flash
-          toggleFlash={toggleFlash}
-          hasFlash={true}
-          takePhotoOptions={{ flash: "off" }}
+          hasFlash={hasFlash}
+          takePhotoOptions={takePhotoOptions}
         />
         <Location
           toggleLocation={toggleLocation}

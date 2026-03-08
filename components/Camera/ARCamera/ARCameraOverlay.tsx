@@ -48,6 +48,8 @@ interface Props {
   takePhotoOptions: TakePhotoOptions;
   toggleLocation: ( ) => void;
   useLocation: boolean;
+  locationStatusVisible: boolean;
+  handleLocationStatusEnd: ( ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -65,6 +67,8 @@ const ARCameraOverlay = ( {
   takePhotoOptions,
   toggleLocation,
   useLocation,
+  locationStatusVisible,
+  handleLocationStatusEnd,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -177,6 +181,19 @@ const ARCameraOverlay = ( {
           useLocation={useLocation}
         />
       </View>
+      {locationStatusVisible && (
+        <ToastAnimation
+          startAnimation={locationStatusVisible}
+          finishAnimation={handleLocationStatusEnd}
+          styles={viewStyles.plantFilter}
+          toastText={
+            useLocation
+              ? i18n.t( "camera.using_location" )
+              : i18n.t( "camera.not_using_location" )
+          }
+          rectangleColor={colors.plantsFilter}
+        />
+      )}
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation

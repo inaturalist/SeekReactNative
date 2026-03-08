@@ -17,7 +17,6 @@ import {
   Camera,
   useCameraFormat,
   useFrameProcessor,
-  useLocationPermission as useLocationPermissionCamera,
 } from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
@@ -53,7 +52,7 @@ interface Props {
   onLog: ( event: LogMessage ) => void;
   isActive: boolean;
   useLocation: boolean;
-  granted: boolean;
+  hasPermission: boolean;
 }
 
 const FrameProcessorCamera = ( props: Props ) => {
@@ -71,15 +70,14 @@ const FrameProcessorCamera = ( props: Props ) => {
     onLog,
     isActive,
     useLocation,
-    granted,
+    hasPermission,
   } = props;
 
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const isForeground = useIsForeground( );
 
-  const coords = useTruncatedUserCoords( granted );
-  const location = useLocationPermissionCamera();
+  const coords = useTruncatedUserCoords( hasPermission );
 
   const framesProcessingTime = useRef<number[]>( [] );
 
@@ -360,7 +358,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             onError={onError}
             outputOrientation="device"
             photoQualityBalance="speed"
-            enableLocation={location.hasPermission}
+            enableLocation={hasPermission}
           />
         </GestureDetector>
         <FocusSquare

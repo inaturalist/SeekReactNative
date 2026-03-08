@@ -48,7 +48,9 @@ import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
-import { useLocationPermission } from "../../../utility/customHooks";
+import {
+  useLocationPermission as useLocationPermissionCamera,
+} from "./helpers/visionCameraWrapper";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -123,15 +125,16 @@ const ARCamera = ( ) => {
   } as const;
   const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
 
-  const granted = useLocationPermission();
+  const location = useLocationPermissionCamera();
+  const { hasPermission } = location;
   const [userDisabledLocation, setUserDisabledLocation] = useState( false );
-  const useLocation = granted && !userDisabledLocation;
+  const useLocation = hasPermission && !userDisabledLocation;
   const [locationStatusVisible, setLocationStatusVisible] = useState( false );
   // This triggers the animation
   console.log( "locationStatusVisible", locationStatusVisible );
 
   const toggleLocation = () => {
-    if ( !granted ) {
+    if ( !hasPermission ) {
       return;
     }
     setUserDisabledLocation( ( prev ) => !prev );
@@ -537,7 +540,7 @@ const ARCamera = ( ) => {
         // type is replaced with logic in FrameProcessorCamera
         isActive={isActive}
         useLocation={useLocation}
-        granted={granted}
+        hasPermission={hasPermission}
       />
     );
   };

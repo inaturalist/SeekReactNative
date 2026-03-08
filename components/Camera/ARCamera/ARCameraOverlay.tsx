@@ -24,6 +24,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import GalleryButton from "./GalleryButton";
 import Flash from "./Flash";
 import CameraFlip from "./CameraFlip";
+import Location from "./Location";
 
 interface Prediction {
   name: string;
@@ -169,13 +170,14 @@ const ARCameraOverlay = ( {
           hasFlash={true}
           takePhotoOptions={{ flash: "off" }}
         />
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.open_help" )}
-          accessible
-          onPress={toggleLocation}
-        >
-          <Image source={icons.iNat_valueprop_bullet_1} />
-        </TouchableOpacity>
+        <Location
+          toggleLocation={toggleLocation}
+          useLocation={true}
+        />
+        <Location
+          toggleLocation={toggleLocation}
+          useLocation={false}
+        />
       </View>
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (

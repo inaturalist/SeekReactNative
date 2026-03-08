@@ -130,8 +130,6 @@ const ARCamera = ( ) => {
   const [userDisabledLocation, setUserDisabledLocation] = useState( false );
   const useLocation = hasPermission && !userDisabledLocation;
   const [locationStatusVisible, setLocationStatusVisible] = useState( false );
-  // This triggers the animation
-  console.log( "locationStatusVisible", locationStatusVisible );
 
   const toggleLocation = () => {
     if ( !hasPermission ) {
@@ -140,6 +138,10 @@ const ARCamera = ( ) => {
     setUserDisabledLocation( ( prev ) => !prev );
     // Always show status when button is pressed
     setLocationStatusVisible( true );
+  };
+
+  const handleLocationStatusEnd = () => {
+    setLocationStatusVisible( false );
   };
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
@@ -569,6 +571,8 @@ const ARCamera = ( ) => {
             toggleFlash={toggleFlash}
             toggleLocation={toggleLocation}
             useLocation={useLocation}
+            locationStatusVisible={locationStatusVisible}
+            handleLocationStatusEnd={handleLocationStatusEnd}
           />
         )
       }

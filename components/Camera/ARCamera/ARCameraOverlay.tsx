@@ -174,10 +174,6 @@ const ARCameraOverlay = ( {
           toggleLocation={toggleLocation}
           useLocation={true}
         />
-        <Location
-          toggleLocation={toggleLocation}
-          useLocation={false}
-        />
       </View>
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (

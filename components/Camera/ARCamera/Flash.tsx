@@ -24,19 +24,19 @@ const Flash = ( {
     case "on":
       source = icons.cameraHelp;
       testID = "flash-button-label-flash";
-      accessibilityHint = i18n.t( "Disable-flash" );
+      accessibilityHint = i18n.t( "accessibility.disable_flash" );
       break;
     default: // default to off if no flash
       source = icons.iNat_valueprop_bullet_1;
       testID = "flash-button-label-flash-off";
-      accessibilityHint = i18n.t( "Enable-flash" );
+      accessibilityHint = i18n.t( "accessibility.enable_flash" );
   }
 
   return (
     <TransparentCircleButton
       onPress={toggleFlash}
       testID={testID}
-      accessibilityLabel={i18n.t( "Flash" )}
+      accessibilityLabel={i18n.t( "accessibility.flash" )}
       accessibilityHint={accessibilityHint}
       source={source}
     />

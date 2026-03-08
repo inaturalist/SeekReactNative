@@ -661,7 +661,10 @@
     "scroll_left": "Scroll left",
     "scroll_right": "Scroll right",
     "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "get_started_modal": "Tips for getting started",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash"
   },
   "review": {
     "title": "Rate this app",

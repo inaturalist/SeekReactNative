@@ -26,6 +26,7 @@ import Flash from "./Flash";
 import CameraFlip from "./CameraFlip";
 import Location from "./Location";
 import type { TakePhotoOptions } from "react-native-vision-camera";
+import ToastAnimationWithText from "../../UIComponents/ToastAnimationWithText";
 
 interface Prediction {
   name: string;
@@ -182,10 +183,15 @@ const ARCameraOverlay = ( {
         />
       </View>
       {locationStatusVisible && (
-        <ToastAnimation
+        <ToastAnimationWithText
           startAnimation={locationStatusVisible}
           finishAnimation={handleLocationStatusEnd}
           styles={viewStyles.plantFilter}
+          helpText={
+            useLocation
+              ? i18n.t( "camera.best_for_wild_organisms" )
+              : i18n.t( "camera.best_for_captive_organisms" )
+          }
           toastText={
             useLocation
               ? i18n.t( "camera.using_location" )

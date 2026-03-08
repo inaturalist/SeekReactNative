@@ -32,6 +32,19 @@ const viewStyles = StyleSheet.create( {
     width: 293,
     position: "absolute",
   },
+  secondaryCameraControlsContainer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 32,
+    paddingBottom: 31,
+  },
+  secondaryCameraControlsContainerLandscape: {
+  },
   cameraControlsContainer: {
     position: "absolute",
     bottom: 0,

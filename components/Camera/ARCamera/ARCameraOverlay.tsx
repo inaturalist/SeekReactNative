@@ -38,6 +38,9 @@ interface Props {
   cameraLoaded: boolean;
   filterByTaxonId: ( taxonId: string | null, negativeFilter: boolean ) => void;
   setIsActive: ( arg0: boolean ) => void;
+  flipCamera: ( ) => void;
+  toggleFlash: ( ) => void;
+  toggleLocation: ( ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -49,6 +52,9 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId,
   setIsActive,
+  flipCamera,
+  toggleFlash,
+  toggleLocation,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -141,6 +147,35 @@ const ARCameraOverlay = ( {
     <>
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
       <ARCameraHeader prediction={prediction} />
+      <View
+        style={
+          isLandscape
+            ? viewStyles.secondaryCameraControlsContainer
+            : viewStyles.secondaryCameraControlsContainerLandscape
+        }
+      >
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.open_help" )}
+          accessible
+          onPress={flipCamera}
+        >
+          <Image source={icons.iNat_valueprop_bullet_1} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.open_help" )}
+          accessible
+          onPress={toggleFlash}
+        >
+          <Image source={icons.iNat_valueprop_bullet_1} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.open_help" )}
+          accessible
+          onPress={toggleLocation}
+        >
+          <Image source={icons.iNat_valueprop_bullet_1} />
+        </TouchableOpacity>
+      </View>
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation

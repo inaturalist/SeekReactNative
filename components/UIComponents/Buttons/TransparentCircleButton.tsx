@@ -1,6 +1,6 @@
 import React from "react";
 import type { GestureResponderEvent, ImageSourcePropType } from "react-native";
-import { Image, Pressable, View } from "react-native";
+import { Image, Pressable } from "react-native";
 
 import viewStyles from "../../../styles/uiComponents/buttons/transparentCircleButton";
 
@@ -30,9 +30,7 @@ const TransparentCircleButton = ( {
     ]}
     testID={testID}
   >
-    <View>
-      <Image source={source} width={20} height={20} />
-    </View>
+    <Image source={source} width={20} height={20} />
   </Pressable>
 );
 

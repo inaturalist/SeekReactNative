@@ -22,6 +22,7 @@ import TouchableOpacityWithDebounce from "../../UIComponents/Buttons/TouchableOp
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 import GalleryButton from "./GalleryButton";
+import Flash from "./Flash";
 
 interface Prediction {
   name: string;
@@ -161,13 +162,16 @@ const ARCameraOverlay = ( {
         >
           <Image source={icons.iNat_valueprop_bullet_1} />
         </TouchableOpacity>
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.open_help" )}
-          accessible
-          onPress={toggleFlash}
-        >
-          <Image source={icons.iNat_valueprop_bullet_1} />
-        </TouchableOpacity>
+        <Flash
+          toggleFlash={toggleFlash}
+          hasFlash={true}
+          takePhotoOptions={{ flash: "on" }}
+        />
+        <Flash
+          toggleFlash={toggleFlash}
+          hasFlash={true}
+          takePhotoOptions={{ flash: "off" }}
+        />
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.open_help" )}
           accessible

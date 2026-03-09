@@ -383,6 +383,8 @@
     "error_save": "Could not save photo.",
     "using_location": "Using location",
     "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
     "flash_on": "Flash on",
     "flash_off": "Flash off"
   },

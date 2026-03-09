@@ -11,6 +11,7 @@ interface Props {
   styles: Object;
   finishAnimation?: () => void;
   rectangleColor: string | null;
+  textStyles: Object;
 }
 
 const ToastAnimation = ( {
@@ -20,6 +21,7 @@ const ToastAnimation = ( {
   finishAnimation,
   styles,
   rectangleColor,
+  textStyles,
 }: Props ) => {
   return (
     <ToastWrapper
@@ -27,7 +29,7 @@ const ToastAnimation = ( {
       finishAnimation={finishAnimation}
       styles={styles}
     >
-      <StyledText>{helpText}</StyledText>
+      <StyledText style={textStyles} >{helpText}</StyledText>
       <GreenRectangle text={toastText} color={rectangleColor} />
     </ToastWrapper>
   );

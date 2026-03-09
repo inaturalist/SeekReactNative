@@ -191,6 +191,11 @@ const ARCameraOverlay = ( {
           startAnimation={locationStatusVisible}
           finishAnimation={handleLocationStatusEnd}
           styles={viewStyles.plantFilter}
+          textStyles={[
+            baseTextStyles.buttonSmall,
+            textStyles.scanText,
+            !isLandscape && textStyles.textShadow,
+          ]}
           helpText={
             useLocation
               ? i18n.t( "camera.best_for_wild_organisms" )

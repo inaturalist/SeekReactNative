@@ -14,6 +14,7 @@ const viewStyles = StyleSheet.create( {
   plantFilter: {
     bottom: 203 - 41,
     position: "absolute",
+    gap: 12,
   },
   landscapeHelpBubble: {
     bottom: 26 + 65 + 18,

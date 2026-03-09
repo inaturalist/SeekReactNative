@@ -214,7 +214,7 @@ const ARCameraOverlay = ( {
           startAnimation={flashStatusVisible}
           finishAnimation={handleFlashStatusEnd}
           styles={viewStyles.plantFilter}
-          toastText={hasFlash ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
+          toastText={takePhotoOptions.flash === "on" ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
           rectangleColor={colors.plantsFilter}
         />
       )}

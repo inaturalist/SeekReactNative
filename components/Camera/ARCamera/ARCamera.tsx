@@ -124,7 +124,8 @@ const ARCamera = ( ) => {
     ...( hasFlash && { flash: "off" } as const ),
   } as const;
   const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
-
+  const [flashStatusVisible, setFlashStatusVisible] = useState( false );
+  
   const location = useLocationPermissionCamera();
   const { hasPermission } = location;
   const [userDisabledLocation, setUserDisabledLocation] = useState( false );
@@ -142,6 +143,10 @@ const ARCamera = ( ) => {
 
   const handleLocationStatusEnd = () => {
     setLocationStatusVisible( false );
+  };
+
+  const handleFlashStatusEnd = () => {
+    setFlashStatusVisible( false );
   };
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
@@ -219,6 +224,7 @@ const ARCamera = ( ) => {
         ? "off"
         : "on",
     } );
+    setFlashStatusVisible( true );
   };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
@@ -569,10 +575,12 @@ const ARCamera = ( ) => {
             hasFlash={hasFlash}
             takePhotoOptions={takePhotoOptions}
             toggleFlash={toggleFlash}
+            flashStatusVisible={flashStatusVisible}
             toggleLocation={toggleLocation}
             useLocation={useLocation}
             locationStatusVisible={locationStatusVisible}
             handleLocationStatusEnd={handleLocationStatusEnd}
+            handleFlashStatusEnd={handleFlashStatusEnd}
           />
         )
       }

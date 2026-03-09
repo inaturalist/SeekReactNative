@@ -47,10 +47,12 @@ interface Props {
   toggleFlash: ( ) => void;
   hasFlash?: boolean;
   takePhotoOptions: TakePhotoOptions;
+  flashStatusVisible: boolean;
   toggleLocation: ( ) => void;
   useLocation: boolean;
   locationStatusVisible: boolean;
   handleLocationStatusEnd: ( ) => void;
+  handleFlashStatusEnd: ( ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -66,10 +68,12 @@ const ARCameraOverlay = ( {
   toggleFlash,
   hasFlash,
   takePhotoOptions,
+  flashStatusVisible,
   toggleLocation,
   useLocation,
   locationStatusVisible,
   handleLocationStatusEnd,
+  handleFlashStatusEnd,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -197,6 +201,15 @@ const ARCameraOverlay = ( {
               ? i18n.t( "camera.using_location" )
               : i18n.t( "camera.not_using_location" )
           }
+          rectangleColor={colors.plantsFilter}
+        />
+      )}
+      {flashStatusVisible && (
+        <ToastAnimation
+          startAnimation={flashStatusVisible}
+          finishAnimation={handleFlashStatusEnd}
+          styles={viewStyles.plantFilter}
+          toastText={hasFlash ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
           rectangleColor={colors.plantsFilter}
         />
       )}

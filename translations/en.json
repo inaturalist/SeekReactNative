@@ -380,7 +380,9 @@
     "plant_filter": "Plants only",
     "non_plant_filter": "Non-plants only",
     "filters_off": "Filters off",
-    "error_save": "Could not save photo."
+    "error_save": "Could not save photo.",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Import Photos From"

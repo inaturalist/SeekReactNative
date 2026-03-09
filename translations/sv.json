@@ -603,8 +603,8 @@
     "error_message_2": "Ser ut som att din plats inte sparades korrekt! Vänligen dubbelkolla din plats.",
     "error_title_no_location": "Platsåtkomst nödvändig",
     "error_message_no_location": "Alla fynd som publiceras på iNaturalist behöver en plats för att vara användbara för forskare.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_date": "Datum nödvändigt",
+    "error_message_no_date": "Alla fynd som publiceras på iNaturalist behöver ett datum för att vara användbara för forskare."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICERAR PÅ INATURALIST I BAKGRUNDEN",

@@ -14,41 +14,37 @@ const ToastWrapper = ( {
   finishAnimation,
   styles,
 }: Props ) => {
-  const fadeOut = useRef( new Animated.Value( 0 ) ).current;
+  const opacity = useRef( new Animated.Value( 0 ) ).current;
 
-  useEffect( ( ) => {
-    let isCurrent = true;
-    const entrance = {
-      toValue: 1,
-      duration: 0,
-      useNativeDriver: true,
-    };
-
-    const exit = {
-      toValue: 0,
-      delay: 2000,
-      duration: 200,
-      useNativeDriver: true,
-    };
-
-    if ( startAnimation && isCurrent ) {
+  useEffect( () => {
+    if ( startAnimation ) {
       Animated.sequence( [
-        Animated.timing( fadeOut, entrance ),
-        Animated.timing( fadeOut, exit ),
-      ] ).start( ( { finished } ) => {
-        if ( finished && finishAnimation ) {
+        Animated.timing( opacity, {
+          toValue: 1,
+          duration: 200,
+          useNativeDriver: true,
+        } ),
+        Animated.delay( 2000 ),
+        Animated.timing( opacity, {
+          toValue: 0,
+          duration: 200,
+          useNativeDriver: true,
+        } ),
+      ] ).start( ( ) => {
+        if ( finishAnimation ) {
           finishAnimation( );
         }
       } );
     }
-    return ( ) => {
-      isCurrent = false;
-    };
-  }, [fadeOut, startAnimation, finishAnimation] );
+  }, [startAnimation, opacity, finishAnimation] );
+
+  if ( !startAnimation ) {
+    return null;
+  }
 
   const animatedStyles = [{
     ...styles,
-    opacity: fadeOut,
+    opacity,
   }];
 
   return (

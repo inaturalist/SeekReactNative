@@ -381,6 +381,8 @@
     "non_plant_filter": "Non-plants only",
     "filters_off": "Filters off",
     "error_save": "Could not save photo.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
     "flash_on": "Flash on",
     "flash_off": "Flash off"
   },

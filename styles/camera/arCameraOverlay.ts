@@ -44,6 +44,15 @@ const viewStyles = StyleSheet.create( {
     gap: 30,
   },
   secondaryCameraControlsContainerLandscape: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 24,
+    gap: 30,
   },
   cameraControlsContainer: {
     position: "absolute",

@@ -22,12 +22,12 @@ const Flash = ( {
   let source;
   switch ( takePhotoOptions.flash ) {
     case "on":
-      source = icons.cameraHelp;
+      source = icons.flash_on;
       testID = "flash-button-label-flash";
       accessibilityHint = i18n.t( "accessibility.disable_flash" );
       break;
     default: // default to off if no flash
-      source = icons.iNat_valueprop_bullet_1;
+      source = icons.flash_off;
       testID = "flash-button-label-flash-off";
       accessibilityHint = i18n.t( "accessibility.enable_flash" );
   }

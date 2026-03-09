@@ -16,7 +16,7 @@ const CameraFlip = ( {
       onPress={flipCamera}
       accessibilityLabel={i18n.t( "accessibility.flip_camera" )}
       accessibilityHint={i18n.t( "accessibility.use_other_camera" )}
-      source={icons.iNat_valueprop_bullet_1}
+      source={icons.cameraflip}
     />
   );
 };

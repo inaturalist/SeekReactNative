@@ -17,11 +17,11 @@ const Location = ( {
   let accessibilityHint = "";
   let source;
   if ( useLocation ) {
-    source = icons.cameraHelp;
+    source = icons.location_on;
     testID = "location-button-label-location";
     accessibilityHint = i18n.t( "accessibility.disable_location" );
   } else {
-    source = icons.iNat_valueprop_bullet_1;
+    source = icons.location_off;
     testID = "location-button-label-location-off";
     accessibilityHint = i18n.t( "accessibility.disable_location" );
   }

@@ -164,7 +164,7 @@ const ARCameraOverlay = ( {
       <ARCameraHeader prediction={prediction} />
       <View
         style={
-          isLandscape
+          !isLandscape
             ? viewStyles.secondaryCameraControlsContainer
             : viewStyles.secondaryCameraControlsContainerLandscape
         }

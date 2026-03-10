@@ -48,6 +48,9 @@ import { log } from "../../../react-native-logs.config";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
+import {
+  useLocationPermission as useLocationPermissionCamera,
+} from "./helpers/visionCameraWrapper";
 
 const logger = log.extend( "ARCamera.js" );
 
@@ -98,6 +101,7 @@ const ARCamera = ( ) => {
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
+  const [cameraPosition, setCameraPosition] = useState<"front" | "back">( "back" );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
       // "ultra-wide-angle-camera",
@@ -106,11 +110,44 @@ const ARCamera = ( ) => {
     ],
   } );
   const frontDevice = useCameraDevice( "front" );
-  let device = backDevice;
+  let device = cameraPosition === "back" ? backDevice : frontDevice;
   // If there is no back camera, use the front camera
-  if ( !device ) {
+  if ( !backDevice ) {
     device = frontDevice;
   }
+
+  const hasFlash = device?.hasFlash;
+  const initialPhotoOptions = {
+    // We had this set to true in Seek but received many reports of it not respecting OS-wide sound
+    // level and scared away wildlife. So maybe better to just disable it.
+    enableShutterSound: false,
+    ...( hasFlash && { flash: "off" } as const ),
+  } as const;
+  const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
+  const [flashStatusVisible, setFlashStatusVisible] = useState( false );
+  
+  const location = useLocationPermissionCamera();
+  const { hasPermission } = location;
+  const [userDisabledLocation, setUserDisabledLocation] = useState( false );
+  const useLocation = hasPermission && !userDisabledLocation;
+  const [locationStatusVisible, setLocationStatusVisible] = useState( false );
+
+  const toggleLocation = () => {
+    if ( !hasPermission ) {
+      return;
+    }
+    setUserDisabledLocation( ( prev ) => !prev );
+    // Always show status when button is pressed
+    setLocationStatusVisible( true );
+  };
+
+  const handleLocationStatusEnd = () => {
+    setLocationStatusVisible( false );
+  };
+
+  const handleFlashStatusEnd = () => {
+    setFlashStatusVisible( false );
+  };
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );
@@ -174,6 +211,21 @@ const ARCamera = ( ) => {
   const [showModal, setShowModal] = useState( false );
   const cameraLoaded = useSharedValue( false );
   const speciesTimeoutSet = useSharedValue( false );
+
+  const flipCamera = () => {
+    const newPosition = cameraPosition === "back" ? "front" : "back";
+    setCameraPosition( newPosition );
+  };
+
+  const toggleFlash = ( ) => {
+    setTakePhotoOptions( {
+      ...takePhotoOptions,
+      flash: takePhotoOptions.flash === "on"
+        ? "off"
+        : "on",
+    } );
+    setFlashStatusVisible( true );
+  };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
     // don't update error on first camera load
@@ -336,10 +388,7 @@ const ARCamera = ( ) => {
     if ( !camera.current ) {
       return;
     }
-    const takePhotoOptions: TakePhotoOptions = {
-      flash: "off",
-      enableShutterSound: false,
-    };
+
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
 
@@ -393,7 +442,7 @@ const ARCamera = ( ) => {
       } );
       handleCaptureError( { nativeEvent: { reason: e } } );
     } );
-  }, [sortedPredictions, handleCaptureError] );
+  }, [sortedPredictions, handleCaptureError, takePhotoOptions] );
 
   const takePicture = useCallback( async () => {
     pictureTaken.value = true;
@@ -496,6 +545,8 @@ const ARCamera = ( ) => {
         negativeFilter={negativeFilter}
         // type is replaced with logic in FrameProcessorCamera
         isActive={isActive}
+        useLocation={useLocation}
+        hasPermission={hasPermission}
       />
     );
   };
@@ -518,6 +569,16 @@ const ARCamera = ( ) => {
             cameraLoaded={cameraLoaded.value}
             filterByTaxonId={filterByTaxonId}
             setIsActive={setIsActive}
+            flipCamera={flipCamera}
+            hasFlash={hasFlash}
+            takePhotoOptions={takePhotoOptions}
+            toggleFlash={toggleFlash}
+            flashStatusVisible={flashStatusVisible}
+            toggleLocation={toggleLocation}
+            useLocation={useLocation}
+            locationStatusVisible={locationStatusVisible}
+            handleLocationStatusEnd={handleLocationStatusEnd}
+            handleFlashStatusEnd={handleFlashStatusEnd}
           />
         )
       }

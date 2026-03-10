@@ -65,6 +65,11 @@ const icons: Icons = {
   iNat_valueprop_bullet_4: require( "./icons/icon-person-green.webp" ),
   noProfilePhoto: require( "./icons/img-inatlogin-nophoto.webp" ),
   gallery: require( "./icons/icon-gallery.webp" ),
+  flash_on: require( "./icons/flash-on.webp" ),
+  flash_off: require( "./icons/flash-off.webp" ),
+  cameraflip: require( "./icons/cameraflip.webp" ),
+  location_on: require( "./icons/location-on.webp" ),
+  location_off: require( "./icons/location-off.webp" ),
 };
 
 export default icons;

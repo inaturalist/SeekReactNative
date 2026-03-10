@@ -7,7 +7,6 @@ import { Worklets } from "react-native-worklets-core";
 
 import {
   useIsForeground,
-  useLocationPermission,
   useTruncatedUserCoords,
 } from "../../../utility/customHooks";
 import InatVision from "./helpers/visionPluginWrapper";
@@ -18,7 +17,6 @@ import {
   Camera,
   useCameraFormat,
   useFrameProcessor,
-  useLocationPermission as useLocationPermissionCamera,
 } from "./helpers/visionCameraWrapper";
 import FocusSquare from "./FocusSquare";
 import useFocusTap from "./hooks/useFocusTap";
@@ -53,6 +51,8 @@ interface Props {
   onCaptureError: ( error: ReasonMessage ) => void;
   onLog: ( event: LogMessage ) => void;
   isActive: boolean;
+  useLocation: boolean;
+  hasPermission: boolean;
 }
 
 const FrameProcessorCamera = ( props: Props ) => {
@@ -69,15 +69,15 @@ const FrameProcessorCamera = ( props: Props ) => {
     onCaptureError,
     onLog,
     isActive,
+    useLocation,
+    hasPermission,
   } = props;
 
   const navigation = useNavigation( );
   const isFocused = useIsFocused( );
   const isForeground = useIsForeground( );
 
-  const granted = useLocationPermission( );
-  const coords = useTruncatedUserCoords( granted );
-  const location = useLocationPermissionCamera();
+  const coords = useTruncatedUserCoords( hasPermission );
 
   const framesProcessingTime = useRef<number[]>( [] );
 
@@ -197,6 +197,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const patchedRunAsync = usePatchedRunAsync();
   const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
+  const useGeomodel = useLocation && hasUserLocation;
   // The vision-plugin has a function to look up the location of the user in a h3 gridded world
   // unfortunately, I was not able to run this new function in the worklets directly,
   // so we need to do this here before calling the useFrameProcessor hook.
@@ -229,7 +230,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             confidenceThreshold,
             filterByTaxonId,
             negativeFilter,
-            useGeomodel: hasUserLocation,
+            useGeomodel,
             geomodelPath: dirGeomodel,
             location: {
               latitude: geoModelCellLocation?.latitude,
@@ -263,6 +264,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       fps,
       hasUserLocation,
       geoModelCellLocation,
+      useGeomodel,
     ]
   );
 
@@ -356,7 +358,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             onError={onError}
             outputOrientation="device"
             photoQualityBalance="speed"
-            enableLocation={location.hasPermission}
+            enableLocation={hasPermission}
           />
         </GestureDetector>
         <FocusSquare

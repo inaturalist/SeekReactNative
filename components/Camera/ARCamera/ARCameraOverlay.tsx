@@ -22,6 +22,11 @@ import TouchableOpacityWithDebounce from "../../UIComponents/Buttons/TouchableOp
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
 import GalleryButton from "./GalleryButton";
+import Flash from "./Flash";
+import CameraFlip from "./CameraFlip";
+import Location from "./Location";
+import type { TakePhotoOptions } from "react-native-vision-camera";
+import ToastAnimationWithText from "../../UIComponents/ToastAnimationWithText";
 
 interface Prediction {
   name: string;
@@ -38,6 +43,16 @@ interface Props {
   cameraLoaded: boolean;
   filterByTaxonId: ( taxonId: string | null, negativeFilter: boolean ) => void;
   setIsActive: ( arg0: boolean ) => void;
+  flipCamera: ( ) => void;
+  toggleFlash: ( ) => void;
+  hasFlash?: boolean;
+  takePhotoOptions: TakePhotoOptions;
+  flashStatusVisible: boolean;
+  toggleLocation: ( ) => void;
+  useLocation: boolean;
+  locationStatusVisible: boolean;
+  handleLocationStatusEnd: ( ) => void;
+  handleFlashStatusEnd: ( ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -49,6 +64,16 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId,
   setIsActive,
+  flipCamera,
+  toggleFlash,
+  hasFlash,
+  takePhotoOptions,
+  flashStatusVisible,
+  toggleLocation,
+  useLocation,
+  locationStatusVisible,
+  handleLocationStatusEnd,
+  handleFlashStatusEnd,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -139,8 +164,60 @@ const ARCameraOverlay = ( {
 
   return (
     <>
-      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white}/>}
+      {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white} />}
       <ARCameraHeader prediction={prediction} />
+      <View
+        style={
+          !isLandscape
+            ? viewStyles.secondaryCameraControlsContainer
+            : viewStyles.secondaryCameraControlsContainerLandscape
+        }
+      >
+        <CameraFlip
+          flipCamera={flipCamera}
+        />
+        <Flash
+          toggleFlash={toggleFlash}
+          hasFlash={hasFlash}
+          takePhotoOptions={takePhotoOptions}
+        />
+        <Location
+          toggleLocation={toggleLocation}
+          useLocation={useLocation}
+        />
+      </View>
+      {locationStatusVisible && (
+        <ToastAnimationWithText
+          startAnimation={locationStatusVisible}
+          finishAnimation={handleLocationStatusEnd}
+          styles={viewStyles.plantFilter}
+          textStyles={[
+            baseTextStyles.buttonSmall,
+            textStyles.scanText,
+            !isLandscape && textStyles.textShadow,
+          ]}
+          helpText={
+            useLocation
+              ? i18n.t( "camera.best_for_wild_organisms" )
+              : i18n.t( "camera.best_for_captive_organisms" )
+          }
+          toastText={
+            useLocation
+              ? i18n.t( "camera.using_location" )
+              : i18n.t( "camera.not_using_location" )
+          }
+          rectangleColor={colors.plantsFilter}
+        />
+      )}
+      {flashStatusVisible && (
+        <ToastAnimation
+          startAnimation={flashStatusVisible}
+          finishAnimation={handleFlashStatusEnd}
+          styles={viewStyles.plantFilter}
+          toastText={takePhotoOptions.flash === "on" ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
+          rectangleColor={colors.plantsFilter}
+        />
+      )}
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation

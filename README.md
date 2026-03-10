@@ -88,4 +88,5 @@ When a language is at least 20% translated on Crowdin, follow these steps to ena
 1. `bundle exec fastlane android internal`
 1. `bundle exec fastlane ios beta`
 1. `bundle exec fastlane android build_apk`
-1. `bundle exec fastlane github_release`
+<!-- TODO: needs to make a tag before next step -->
+<!-- 1. `bundle exec fastlane github_release` -->

@@ -392,8 +392,6 @@ const ARCamera = ( ) => {
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
 
-    console.log( "takePhotoOptions", takePhotoOptions );
-
     camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
       // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
       // setting the camera as inactive here is the closest thing to that, although there is a small delay visible

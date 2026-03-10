@@ -9,7 +9,9 @@
     "error_alert_location_services": "Для продолжения включите службы определения местоположения в настройках устройства",
     "species_nearby_requires_location": "Для отображения видов поблизости требуется ваше местоположение. Пожалуйста, задайте указание местоположения в настройках",
     "species_nearby_requires_android_accuracy": "Для опции \"виды поблизости\" требуется ваше местоположение. Пожалуйста, убедитесь, что службы геолокации включены.",
-    "choose_location_on_map": "ВЫБЕРИТЕ МЕСТОПОЛОЖЕНИЕ НА КАРТЕ"
+    "choose_location_on_map": "ВЫБЕРИТЕ МЕСТОПОЛОЖЕНИЕ НА КАРТЕ",
+    "need_location_permissions": "Необходим доступ к местоположению",
+    "please_allow_location_permissions": "Пожалуйста, дайте доступ к местоположению в настройках Seek"
   },
   "get_started": {
     "header": "Начать",
@@ -601,8 +603,8 @@
     "error_message_2": "Похоже, ваше местоположение было записано неправильно! Пожалуйста, проверьте ваше местоположение.",
     "error_title_no_location": "Необходимо указать местоположение",
     "error_message_no_location": "Во всех наблюдениях, отправленных в iNaturalist, должны быть указаны местоположения, тогда они имеют ценность для ученых.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_date": "Требуется задать дату",
+    "error_message_no_date": "Для того чтобы ученые могли воспользоваться данные, размещаемыми в iNaturalist, должна быть задана дата наблюдения."
   },
   "posting_status": {
     "posting_to_inat_background": "ВЫГРУЖАТЬ В INATURALIST В ФОНОВОМ РЕЖИМЕ",

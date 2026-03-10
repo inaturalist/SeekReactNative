@@ -9,7 +9,9 @@
     "error_alert_location_services": "請在您裝置的設定中開啟定位功能才能繼續",
     "species_nearby_requires_location": "附近的物種需要您的位置資訊。請在設定中開啟定位功能",
     "species_nearby_requires_android_accuracy": "附近的物種需要您的位置資訊。請檢查定位功能是否已開啟。",
-    "choose_location_on_map": "挑選在地圖上的位置"
+    "choose_location_on_map": "挑選在地圖上的位置",
+    "need_location_permissions": "需要位置權限",
+    "please_allow_location_permissions": "請到裝置的設定 -> Seek 中允許位置權限"
   },
   "get_started": {
     "header": "開始",

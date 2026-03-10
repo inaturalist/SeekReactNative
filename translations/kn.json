@@ -9,7 +9,9 @@
     "error_alert_location_services": "ಮುಂದುವರೆಯಲು, ನಿಮ್ಮ ಸಾಧನದ ಸಂಯೋಜನೆಗಳಲ್ಲಿ ಸ್ಥಳ ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
     "species_nearby_requires_location": "ಸಮೀಪದ ಜೀವಿವರ್ಗಗಳಿಗೆ ನಿಮ್ಮ ಸ್ಥಳದ ಅಗತ್ಯವಿದೆ. ದಯವಿಟ್ಟು ಸ್ಥಳ ಸೇವೆಗಳನ್ನು ಸಂಯೋಜನೆಗಳಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಿ",
     "species_nearby_requires_android_accuracy": "Species nearby requires your location. Please check that location services are enabled.",
-    "choose_location_on_map": "ಭೂಪಟದಲ್ಲಿ ಸ್ಥಳವನ್ನು ಆರಿಸಿ"
+    "choose_location_on_map": "ಭೂಪಟದಲ್ಲಿ ಸ್ಥಳವನ್ನು ಆರಿಸಿ",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "ಬನ್ನಿ ಆರಂಭಿಸೋಣ",

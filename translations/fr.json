@@ -9,7 +9,9 @@
     "error_alert_location_services": "Pour continuer, activez les services de localisation dans les paramètres de votre appareil",
     "species_nearby_requires_location": "Les espèces à proximité nécessitent votre emplacement. Veuillez activer la localisation dans les paramètres",
     "species_nearby_requires_android_accuracy": "Pour la fonction « Espèces à proximité », votre position doit être connue. Veuillez vérifier que les services de géolocalisation sont activés.",
-    "choose_location_on_map": "CHOISIR LA LOCALISATION SUR LA CARTE"
+    "choose_location_on_map": "CHOISIR LA LOCALISATION SUR LA CARTE",
+    "need_location_permissions": "Permissions de géolocalisation nécessaires",
+    "please_allow_location_permissions": "Veuillez autoriser la géolocalisation dans Paramètres → Seek"
   },
   "get_started": {
     "header": "Démarrer",
@@ -123,10 +125,10 @@
     "linked_account": "Vous avez relié un compte iNaturalist à Seek !",
     "posting": "Publier sur iNaturalist",
     "posting_details": "Vous pouvez publier les observations faites avec Seek sur iNaturalist juste après les avoir ajoutées à vos observations. Si vous souhaitez les publier sur iNaturalist plus tard, merci d’utiliser l’application iNaturalist ou le site web directement.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Observations Seek non synchronisées",
+    "observations_stored_only_in_app": "Vos observations Seek sont stockées dans cette application sur votre appareil, elles ne sont PAS sauvegardées en ligne par iNaturalist.",
+    "observations_bullet_1": "Supprimer l'application Seek mènera à la suppression de toutes vos observations dans l'application.",
+    "observations_bullet_2": "Transférer Seek sur un nouvel appareil ne transfèrera pas vos observations Seek avec l'application.",
     "observations_3": "Seek ne synchronise pas vos observations sur d'autres appareils.",
     "agree_to_terms": "J’accepte les <terms>{{terms}}</terms> et la <privacy>{{privacy}}</privacy>, j’ai également pris connaissance des <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Règles de la communauté",
@@ -599,10 +601,10 @@
     "kelp": "Laminaires, diatomées et apparentées",
     "error_title_2": "Erreur de géolocalisation",
     "error_message_2": "Il semble que le lieu n'ait pas été enregistré correctement! Veuillez vérifier votre géolocalisation.",
-    "error_title_no_location": "Location required",
-    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_location": "Position requise",
+    "error_message_no_location": "Toutes les observations postées sur iNaturalist ont besoin d'une géolocalisation pour être utile aux chercheurs.",
+    "error_title_no_date": "Date requise",
+    "error_message_no_date": "Toutes les observations postées sur iNaturalist ont besoin d'une date pour être utiles aux chercheurs."
   },
   "posting_status": {
     "posting_to_inat_background": "POSTER SUR INATURALIST EN ARRIERE-PLAN",
@@ -1043,9 +1045,9 @@
     "not_found_error_description": "Modèle d'identification introuvable au chargement de l'application. Vous pouvez prendre des photos, mais les organismes ne seront pas identifiés."
   },
   "error_boundary": {
-    "something_went_wrong": "Something went wrong.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
-    "error": "Error"
+    "something_went_wrong": "Une erreur s'est produite.",
+    "if_youre_seeing_this_error": "Si vous voyez ceci et que vous êtes connecté.e à internet, l'équipe iNat a déjà été contactée. Merci d'avoir trouvé un bug ! Si vous n'êtes pas connecté.e à internet, veuillez prendre une capture d'écran et nous envoyer un mail quand vous serez de retour en ligne.",
+    "restart": "REDÉMARRER L'APPLICATION",
+    "error": "Erreur"
   }
 }

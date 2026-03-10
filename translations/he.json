@@ -9,7 +9,9 @@
     "error_alert_location_services": "על מנת להמשיך, יש להפעיל את שירותי המיקום בהגדרות המכשיר שלך",
     "species_nearby_requires_location": "איתור מינים בסביבה דורש את מיקומך. נא לאשר שיתוף מיקום בהגדרות",
     "species_nearby_requires_android_accuracy": "איתור מינים בקרבתך דורש מיקום שלך. נא לבדוק ששירותי מיקום מופעלים.",
-    "choose_location_on_map": "יש לבחור מיקום על המפה"
+    "choose_location_on_map": "יש לבחור מיקום על המפה",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "לצאת לדרך",

@@ -9,7 +9,9 @@
     "error_alert_location_services": "Aktiveer liggingdienste in u toestelinstellings om voort te gaan",
     "species_nearby_requires_location": "Spesies in die omgewing het u ligging nodig. Aktiveer asb. ligging in instellings\n",
     "species_nearby_requires_android_accuracy": "Spesies in die omgewing het u ligging nodig. Maak asb. seker u liggingdienste is geaktiveer.",
-    "choose_location_on_map": "KIES LIGGING OP KAART"
+    "choose_location_on_map": "KIES LIGGING OP KAART",
+    "need_location_permissions": "Toestemming benodig vir jou posisie",
+    "please_allow_location_permissions": "Gee asseblief toestemming vir jou posisie in Settings -> Seek"
   },
   "get_started": {
     "header": "Val weg",
@@ -601,8 +603,8 @@
     "error_message_2": "Dit lyk asof u ligging nie reg opgeneem is nie! Gaan asseblief u ligging weer na.",
     "error_title_no_location": "Benodig ligging ",
     "error_message_no_location": "Alle waarnemings wat op iNaturalist geplaas word het 'n ligging nodig om wetenskaplikes te kan help.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_date": "Datum benodig",
+    "error_message_no_date": "Alle waarnemings wat op iNaturalist geplaas word het 'n datum nodig om wetenskaplikes te kan help."
   },
   "posting_status": {
     "posting_to_inat_background": "BESIG OM IN DIE AGTERGROND OP INATURALIST TE PLAAS",

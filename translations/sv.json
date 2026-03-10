@@ -9,7 +9,9 @@
     "error_alert_location_services": "För att fortsätta, aktivera platstjänster i enhetsinställningarna",
     "species_nearby_requires_location": "Arter i närheten behöver din plats. Aktivera plats i inställningarna",
     "species_nearby_requires_android_accuracy": "Arter i närheten behöver din plats. Kontrollera att platstjänster är aktiverade.",
-    "choose_location_on_map": "VÄLJ PLATS PÅ KARTAN"
+    "choose_location_on_map": "VÄLJ PLATS PÅ KARTAN",
+    "need_location_permissions": "Behöver platsåtkomst",
+    "please_allow_location_permissions": "Vänligen tillåt platsåtkomst i Inställningar -> Seek"
   },
   "get_started": {
     "header": "Kom igång",
@@ -599,10 +601,10 @@
     "kelp": "Kelp, kiselalger och närbesläktade",
     "error_title_2": "Platsfel",
     "error_message_2": "Ser ut som att din plats inte sparades korrekt! Vänligen dubbelkolla din plats.",
-    "error_title_no_location": "Location required",
-    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_location": "Platsåtkomst nödvändig",
+    "error_message_no_location": "Alla fynd som publiceras på iNaturalist behöver en plats för att vara användbara för forskare.",
+    "error_title_no_date": "Datum nödvändigt",
+    "error_message_no_date": "Alla fynd som publiceras på iNaturalist behöver ett datum för att vara användbara för forskare."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICERAR PÅ INATURALIST I BAKGRUNDEN",

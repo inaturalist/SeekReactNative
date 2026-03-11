@@ -380,7 +380,13 @@
     "plant_filter": "Iba rastliny",
     "non_plant_filter": "Bez rastlín",
     "filters_off": "Filtre vypnuté",
-    "error_save": "Fotku nemožno uložiť."
+    "error_save": "Fotku nemožno uložiť.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Importovať fotky z"
@@ -661,7 +667,15 @@
     "scroll_left": "Kliknutím posuňte vľavo",
     "scroll_right": "Kliknutím posuňte vpravo",
     "warning_modal": "Varovanie AR kamery",
-    "get_started_modal": "Tipy pre začiatok"
+    "get_started_modal": "Tipy pre začiatok",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Ohodnoťte túto aplikáciu",

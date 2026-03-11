@@ -1,11 +1,12 @@
 import type { PropsWithChildren } from "react";
 import React, { useRef, useEffect } from "react";
+import type { ViewStyle } from "react-native";
 import { Animated } from "react-native";
 
 interface Props extends PropsWithChildren {
   startAnimation: boolean;
   finishAnimation?: ( ) => void;
-  styles: Object;
+  styles: ViewStyle;
 }
 
 const ToastWrapper = ( {

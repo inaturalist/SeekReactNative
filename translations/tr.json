@@ -380,7 +380,13 @@
     "plant_filter": "Yalnızca bitkiler",
     "non_plant_filter": "Bitkiler hariç tüm canlılar",
     "filters_off": "Filtreler kapalı",
-    "error_save": "Fotoğraf kaydedilemedi."
+    "error_save": "Fotoğraf kaydedilemedi.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Fotoğrafları Şuradan İçe Aktar"
@@ -661,7 +667,15 @@
     "scroll_left": "Sola kaydır",
     "scroll_right": "Sağa kaydır",
     "warning_modal": "AR kamera uyarıları",
-    "get_started_modal": "Başlangıç ipuçları"
+    "get_started_modal": "Başlangıç ipuçları",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Bu uygulamayı oylayın",

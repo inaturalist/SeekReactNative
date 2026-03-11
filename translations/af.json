@@ -380,7 +380,13 @@
     "plant_filter": "Slegs plante",
     "non_plant_filter": "Slegs nie-plante",
     "filters_off": "Filters af",
-    "error_save": "Kon nie foto stoor nie."
+    "error_save": "Kon nie foto stoor nie.",
+    "using_location": "Gebruik ligging",
+    "not_using_location": "Gebruik nie ligging",
+    "best_for_wild_organisms": "Beter vir wilde origanismes",
+    "best_for_captive_organisms": "Beter vir tuinplante, troeteldiere, of gevange organismes",
+    "flash_on": "Flits aan",
+    "flash_off": "Flits af"
   },
   "gallery": {
     "import_photos_from": "Trek Foto's in Vanaf"
@@ -661,7 +667,15 @@
     "scroll_left": "Skuif na links",
     "scroll_right": "Skuif regs",
     "warning_modal": "AR-kamerawaarskuwings",
-    "get_started_modal": "Wenke om te begin"
+    "get_started_modal": "Wenke om te begin",
+    "flash": "Flits",
+    "disable_flash": "Skakel flits af",
+    "enable_flash": "Skakel flits aan",
+    "flip_camera": "Draai kamera",
+    "use_other_camera": "Gebruik die toestel se ander kamera.",
+    "location": "Ligging",
+    "disable_location": "Skakel ligging af",
+    "enable_location": "Skakel ligging aan"
   },
   "review": {
     "title": "Beoordeel hierdie toep",

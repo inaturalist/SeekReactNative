@@ -380,7 +380,13 @@
     "plant_filter": "Plantes uniquement",
     "non_plant_filter": "Non-plante seulement",
     "filters_off": "Filtres désactivés",
-    "error_save": "Impossible d'enregistrer la photo."
+    "error_save": "Impossible d'enregistrer la photo.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Importer des photos depuis"
@@ -661,7 +667,15 @@
     "scroll_left": "Appuyez pour faire défiler à gauche",
     "scroll_right": "Appuyez pour faire défiler à droite",
     "warning_modal": "Avertissements de la caméra AR",
-    "get_started_modal": "Conseils pour démarrer"
+    "get_started_modal": "Conseils pour démarrer",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Évaluez cette appli",

@@ -380,7 +380,13 @@
     "plant_filter": "Endast växter",
     "non_plant_filter": "Endast icke-växter",
     "filters_off": "Filter av",
-    "error_save": "Kunde inte spara bilden."
+    "error_save": "Kunde inte spara bilden.",
+    "using_location": "Använder plats",
+    "not_using_location": "Använder inte plats",
+    "best_for_wild_organisms": "Bäst för vilda organismer",
+    "best_for_captive_organisms": "Bäst för trädgårdsväxter, husdjur, eller organismer i fångenskap",
+    "flash_on": "Blixt på",
+    "flash_off": "Blixt av"
   },
   "gallery": {
     "import_photos_from": "Importera bilder från"
@@ -661,7 +667,15 @@
     "scroll_left": "Skrolla vänster",
     "scroll_right": "Skrolla höger",
     "warning_modal": "AR-kameravarningar",
-    "get_started_modal": "Tips för att komma igång"
+    "get_started_modal": "Tips för att komma igång",
+    "flash": "Blixt",
+    "disable_flash": "Inaktivera blixt",
+    "enable_flash": "Aktivera blixt",
+    "flip_camera": "Växla kamera",
+    "use_other_camera": "Använd enhetens andra kamera.",
+    "location": "Plats",
+    "disable_location": "Inaktivera platstjänst",
+    "enable_location": "Aktivera platstjänst"
   },
   "review": {
     "title": "Betygsätt appen",

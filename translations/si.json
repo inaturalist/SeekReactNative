@@ -380,7 +380,13 @@
     "plant_filter": "ශාක පමණි",
     "non_plant_filter": "ශාක නොවන දෑ පමණි",
     "filters_off": "පෙරහන් අක්‍රියයි",
-    "error_save": "Could not save photo."
+    "error_save": "Could not save photo.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Import Photos From"
@@ -661,7 +667,15 @@
     "scroll_left": "වමට අනුචලනය කිරීමට තට්ටු කරන්න",
     "scroll_right": "දකුණට අනුචලනය කිරීමට තට්ටු කරන්න",
     "warning_modal": "AR camera warnings",
-    "get_started_modal": "Tips for getting started"
+    "get_started_modal": "Tips for getting started",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "මෙම යෙදුම ශ්‍රේණිගත කරන්න",

@@ -380,7 +380,13 @@
     "plant_filter": "Nur Pflanzen",
     "non_plant_filter": "Nur Nicht-Pflanzen",
     "filters_off": "Filter aus",
-    "error_save": "Foto konnte nicht gespeichert werden."
+    "error_save": "Foto konnte nicht gespeichert werden.",
+    "using_location": "Standort verwenden",
+    "not_using_location": "Standort nicht verwenden",
+    "best_for_wild_organisms": "Empfohlen für wilde Lebewesen",
+    "best_for_captive_organisms": "Empfohlen für Gartenpflanzen, Haustiere oder Zootiere",
+    "flash_on": "Blitz an",
+    "flash_off": "Blitz aus"
   },
   "gallery": {
     "import_photos_from": "Fotos importieren von"
@@ -661,7 +667,15 @@
     "scroll_left": "Zum Scrollen nach links tippen",
     "scroll_right": "Zum Scrollen nach rechts tippen",
     "warning_modal": "AR-Kamera-Warnungen",
-    "get_started_modal": "Tipps zum Einstieg"
+    "get_started_modal": "Tipps zum Einstieg",
+    "flash": "Blitz",
+    "disable_flash": "Blitz deaktivieren",
+    "enable_flash": "Blitz aktivieren",
+    "flip_camera": "Kamera wechseln",
+    "use_other_camera": "Verwende die andere Kamera des Geräts.",
+    "location": "Standort",
+    "disable_location": "Standort deaktivieren",
+    "enable_location": "Standort aktivieren"
   },
   "review": {
     "title": "Bewerte diese App",

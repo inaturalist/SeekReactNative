@@ -380,7 +380,13 @@
     "plant_filter": "צמחים בלבד",
     "non_plant_filter": "יצורים שאינם צמחים בלבד",
     "filters_off": "ללא פילטרים",
-    "error_save": "לא היה ניתן לשמור את התמונה."
+    "error_save": "לא היה ניתן לשמור את התמונה.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "ייבוא תמונות מ"
@@ -661,7 +667,15 @@
     "scroll_left": "לגלול שמאלה",
     "scroll_right": "לגלול ימינה",
     "warning_modal": "אזהרות מצלמת מציאות רבודה",
-    "get_started_modal": "טיפים לתחילת הדרך"
+    "get_started_modal": "טיפים לתחילת הדרך",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "לדירוג אפליקציה זו",

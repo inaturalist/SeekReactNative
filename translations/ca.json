@@ -380,7 +380,13 @@
     "plant_filter": "Únicament plantes",
     "non_plant_filter": "Únicament No plantes",
     "filters_off": "Filtres apagats",
-    "error_save": "No es pot guardar la foto"
+    "error_save": "No es pot guardar la foto",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Importa Fotos De"
@@ -661,7 +667,15 @@
     "scroll_left": "Desplaçament a l'esquerra",
     "scroll_right": "Desplaçament a la dreta",
     "warning_modal": "Advertències sobre la càmera de R.A.",
-    "get_started_modal": "Consell per començar"
+    "get_started_modal": "Consell per començar",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Valora aquesta aplicació",

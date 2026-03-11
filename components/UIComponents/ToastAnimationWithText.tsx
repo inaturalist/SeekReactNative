@@ -5,7 +5,7 @@ import ToastWrapper from "./ToastWrapper";
 import StyledText from "./StyledText";
 
 interface Props {
-  startAnimation: boolean;
+  visible: boolean;
   toastText: string;
   helpText: string;
   styles: Object;
@@ -14,8 +14,8 @@ interface Props {
   textStyles: Object;
 }
 
-const ToastAnimation = ( {
-  startAnimation,
+const ToastAnimationWithText = ( {
+  visible,
   toastText,
   helpText,
   finishAnimation,
@@ -25,7 +25,7 @@ const ToastAnimation = ( {
 }: Props ) => {
   return (
     <ToastWrapper
-      startAnimation={startAnimation}
+      visible={visible}
       finishAnimation={finishAnimation}
       styles={styles}
     >
@@ -35,4 +35,4 @@ const ToastAnimation = ( {
   );
 };
 
-export default ToastAnimation;
+export default ToastAnimationWithText;

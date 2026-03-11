@@ -188,7 +188,7 @@ const ARCameraOverlay = ( {
       </View>
       {locationStatusVisible && (
         <ToastAnimationWithText
-          startAnimation={locationStatusVisible}
+          visible={locationStatusVisible}
           finishAnimation={handleLocationStatusEnd}
           styles={viewStyles.plantFilter}
           textStyles={[
@@ -211,7 +211,7 @@ const ARCameraOverlay = ( {
       )}
       {flashStatusVisible && (
         <ToastAnimation
-          startAnimation={flashStatusVisible}
+          visible={flashStatusVisible}
           finishAnimation={handleFlashStatusEnd}
           styles={viewStyles.plantFilter}
           toastText={takePhotoOptions.flash === "on" ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
@@ -221,7 +221,7 @@ const ARCameraOverlay = ( {
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
-          startAnimation={filterIndex === 0}
+          visible={filterIndex === 0}
           styles={viewStyles.plantFilter}
           toastText={settings[filterIndex].text}
           rectangleColor={settings[filterIndex].color}

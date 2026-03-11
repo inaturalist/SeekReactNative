@@ -380,7 +380,13 @@
     "plant_filter": "Somente plantas",
     "non_plant_filter": "Somente espécies que não sejam plantas",
     "filters_off": "Filtros desativados",
-    "error_save": "Não foi possível salvar a foto."
+    "error_save": "Não foi possível salvar a foto.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Importar fotos de"
@@ -661,7 +667,15 @@
     "scroll_left": "Toque para rolar à esquerda",
     "scroll_right": "Toque para rolar à direita",
     "warning_modal": "Avisos de câmera AR",
-    "get_started_modal": "Dicas para começar"
+    "get_started_modal": "Dicas para começar",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Avaliar este aplicativo",

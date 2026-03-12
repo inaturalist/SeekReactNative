@@ -148,9 +148,9 @@ const ARCamera = ( ) => {
     setVisibleToast( useLocation ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
   };
 
-  const handleToastEnd = () => {
+  const handleToastEnd = useCallback( () => {
     setVisibleToast( TOAST.NONE );
-  };
+  }, [] );
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
   const { login } = useContext( UserContext );

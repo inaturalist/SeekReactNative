@@ -79,6 +79,14 @@ enum ACTION {
   ERROR = "ERROR"
 }
 
+export enum TOAST {
+  NONE = "NONE",
+  FLASH_OFF = "FLASH_OFF",
+  FLASH_ON = "FLASH_ON",
+  LOCATION_OFF = "LOCATION_OFF",
+  LOCATION_ON = "LOCATION_ON",
+}
+
 type Action = { type: ACTION.RESET_PREDICTIONS }
   | { type: ACTION.SET_PREDICTIONS; predictions: Prediction[] }
   | { type: ACTION.RESET_STATE }
@@ -124,13 +132,12 @@ const ARCamera = ( ) => {
     ...( hasFlash && { flash: "off" } as const ),
   } as const;
   const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
-  const [flashStatusVisible, setFlashStatusVisible] = useState( false );
+  const [visibleToast, setVisibleToast] = useState( TOAST.NONE );
   
   const location = useLocationPermissionCamera();
   const { hasPermission } = location;
   const [userDisabledLocation, setUserDisabledLocation] = useState( false );
   const useLocation = hasPermission && !userDisabledLocation;
-  const [locationStatusVisible, setLocationStatusVisible] = useState( false );
 
   const toggleLocation = () => {
     if ( !hasPermission ) {
@@ -138,15 +145,11 @@ const ARCamera = ( ) => {
     }
     setUserDisabledLocation( ( prev ) => !prev );
     // Always show status when button is pressed
-    setLocationStatusVisible( true );
+    setVisibleToast( useLocation ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
   };
 
-  const handleLocationStatusEnd = () => {
-    setLocationStatusVisible( false );
-  };
-
-  const handleFlashStatusEnd = () => {
-    setFlashStatusVisible( false );
+  const handleToastEnd = () => {
+    setVisibleToast( TOAST.NONE );
   };
 
   // determines whether or not to fetch untruncated coords or precise coords for posting to iNat
@@ -224,7 +227,7 @@ const ARCamera = ( ) => {
         ? "off"
         : "on",
     } );
-    setFlashStatusVisible( true );
+    setVisibleToast( takePhotoOptions.flash === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
   };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
@@ -559,29 +562,26 @@ const ARCamera = ( ) => {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-      {error
-        ? <CameraError error={error} errorEvent={errorEvent} />
-        : (
-          <ARCameraOverlay
-            prediction={lowestRankPrediction}
-            pictureTaken={pictureTaken.value}
-            takePicture={takePicture}
-            cameraLoaded={cameraLoaded.value}
-            filterByTaxonId={filterByTaxonId}
-            setIsActive={setIsActive}
-            flipCamera={flipCamera}
-            hasFlash={hasFlash}
-            takePhotoOptions={takePhotoOptions}
-            toggleFlash={toggleFlash}
-            flashStatusVisible={flashStatusVisible}
-            toggleLocation={toggleLocation}
-            useLocation={useLocation}
-            locationStatusVisible={locationStatusVisible}
-            handleLocationStatusEnd={handleLocationStatusEnd}
-            handleFlashStatusEnd={handleFlashStatusEnd}
-          />
-        )
-      }
+      {error ? (
+        <CameraError error={error} errorEvent={errorEvent} />
+      ) : (
+        <ARCameraOverlay
+          prediction={lowestRankPrediction}
+          pictureTaken={pictureTaken.value}
+          takePicture={takePicture}
+          cameraLoaded={cameraLoaded.value}
+          filterByTaxonId={filterByTaxonId}
+          setIsActive={setIsActive}
+          flipCamera={flipCamera}
+          hasFlash={hasFlash}
+          takePhotoOptions={takePhotoOptions}
+          toggleFlash={toggleFlash}
+          visibleToast={visibleToast}
+          toggleLocation={toggleLocation}
+          useLocation={useLocation}
+          handleToastEnd={handleToastEnd}
+        />
+      )}
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible

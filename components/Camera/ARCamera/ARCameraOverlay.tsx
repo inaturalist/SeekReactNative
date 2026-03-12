@@ -27,6 +27,7 @@ import CameraFlip from "./CameraFlip";
 import Location from "./Location";
 import type { TakePhotoOptions } from "react-native-vision-camera";
 import ToastAnimationWithText from "../../UIComponents/ToastAnimationWithText";
+import { TOAST } from "./ARCamera";
 
 interface Prediction {
   name: string;
@@ -47,12 +48,10 @@ interface Props {
   toggleFlash: ( ) => void;
   hasFlash?: boolean;
   takePhotoOptions: TakePhotoOptions;
-  flashStatusVisible: boolean;
+  visibleToast: TOAST;
   toggleLocation: ( ) => void;
   useLocation: boolean;
-  locationStatusVisible: boolean;
-  handleLocationStatusEnd: ( ) => void;
-  handleFlashStatusEnd: ( ) => void;
+  handleToastEnd: ( ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -68,12 +67,10 @@ const ARCameraOverlay = ( {
   toggleFlash,
   hasFlash,
   takePhotoOptions,
-  flashStatusVisible,
+  visibleToast,
   toggleLocation,
   useLocation,
-  locationStatusVisible,
-  handleLocationStatusEnd,
-  handleFlashStatusEnd,
+  handleToastEnd,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -187,9 +184,9 @@ const ARCameraOverlay = ( {
         />
       </View>
       <ToastAnimationWithText
-        visible={locationStatusVisible && useLocation}
-        finishAnimation={handleLocationStatusEnd}
         testID="locationOnToast"
+        visible={visibleToast === TOAST.LOCATION_ON}
+        finishAnimation={handleToastEnd}
         styles={viewStyles.plantFilter}
         textStyles={[
           baseTextStyles.buttonSmall,
@@ -201,9 +198,9 @@ const ARCameraOverlay = ( {
         rectangleColor={colors.plantsFilter}
       />
       <ToastAnimationWithText
-        visible={locationStatusVisible && !useLocation}
-        finishAnimation={handleLocationStatusEnd}
         testID="locationOffToast"
+        visible={visibleToast === TOAST.LOCATION_OFF}
+        finishAnimation={handleToastEnd}
         styles={viewStyles.plantFilter}
         textStyles={[
           baseTextStyles.buttonSmall,
@@ -215,17 +212,17 @@ const ARCameraOverlay = ( {
         rectangleColor={colors.plantsFilter}
       />
       <ToastAnimation
-        visible={flashStatusVisible && takePhotoOptions.flash === "on"}
-        finishAnimation={handleFlashStatusEnd}
         testID="flashOnToast"
+        visible={visibleToast === TOAST.FLASH_ON}
+        finishAnimation={handleToastEnd}
         styles={viewStyles.plantFilter}
         toastText={i18n.t( "camera.flash_on" )}
         rectangleColor={colors.plantsFilter}
       />
       <ToastAnimation
-        visible={flashStatusVisible && takePhotoOptions.flash === "off"}
-        finishAnimation={handleFlashStatusEnd}
         testID="flashOffToast"
+        visible={visibleToast === TOAST.FLASH_OFF}
+        finishAnimation={handleToastEnd}
         styles={viewStyles.plantFilter}
         toastText={i18n.t( "camera.flash_off" )}
         rectangleColor={colors.plantsFilter}

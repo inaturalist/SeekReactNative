@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import type { StackCardInterpolationProps } from "@react-navigation/stack";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { useReactNavigationDevTools } from "@rozenite/react-navigation-plugin";
 
 import Drawer from "./SideDrawer";
 import Splash from "../Splash";
@@ -48,8 +49,12 @@ const Stack = createStackNavigator( );
 const App = ( ) => {
   useAppLog( );
 
+  const navigationRef = useRef( null );
+  // Enable React Navigation DevTools in development
+  useReactNavigationDevTools( { ref: navigationRef } );
+  
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator >
         <Stack.Group screenOptions={screenOptions}>
           <Stack.Screen name="Splash" component={Splash} options={defaultConfig} />

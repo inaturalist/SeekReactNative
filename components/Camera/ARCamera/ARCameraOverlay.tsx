@@ -186,7 +186,11 @@ const ARCameraOverlay = ( {
       <ToastAnimationWithText
         testID="locationOnToast"
         visible={visibleToast === TOAST.LOCATION_ON}
-        finishAnimation={handleToastEnd}
+        finishAnimation={() => { 
+          if ( visibleToast === TOAST.LOCATION_ON ) {
+            handleToastEnd();
+          }
+        }}
         styles={viewStyles.plantFilter}
         textStyles={[
           baseTextStyles.buttonSmall,
@@ -200,7 +204,11 @@ const ARCameraOverlay = ( {
       <ToastAnimationWithText
         testID="locationOffToast"
         visible={visibleToast === TOAST.LOCATION_OFF}
-        finishAnimation={handleToastEnd}
+        finishAnimation={() => { 
+          if ( visibleToast === TOAST.LOCATION_OFF ) {
+            handleToastEnd();
+          }
+        }}
         styles={viewStyles.plantFilter}
         textStyles={[
           baseTextStyles.buttonSmall,
@@ -214,7 +222,11 @@ const ARCameraOverlay = ( {
       <ToastAnimation
         testID="flashOnToast"
         visible={visibleToast === TOAST.FLASH_ON}
-        finishAnimation={handleToastEnd}
+        finishAnimation={() => { 
+          if ( visibleToast === TOAST.FLASH_ON ) {
+            handleToastEnd();
+          }
+        }}
         styles={viewStyles.plantFilter}
         toastText={i18n.t( "camera.flash_on" )}
         rectangleColor={colors.plantsFilter}
@@ -222,7 +234,11 @@ const ARCameraOverlay = ( {
       <ToastAnimation
         testID="flashOffToast"
         visible={visibleToast === TOAST.FLASH_OFF}
-        finishAnimation={handleToastEnd}
+        finishAnimation={() => { 
+          if ( visibleToast === TOAST.FLASH_OFF ) {
+            handleToastEnd();
+          }
+        }}
         styles={viewStyles.plantFilter}
         toastText={i18n.t( "camera.flash_off" )}
         rectangleColor={colors.plantsFilter}

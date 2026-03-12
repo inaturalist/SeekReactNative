@@ -1,23 +1,26 @@
 import type { PropsWithChildren } from "react";
 import React, { useRef, useEffect } from "react";
+import type { ViewStyle } from "react-native";
 import { Animated } from "react-native";
 
 interface Props extends PropsWithChildren {
-  startAnimation: boolean;
+  testID?: string;
+  visible: boolean;
   finishAnimation?: ( ) => void;
-  styles: Object;
+  styles: ViewStyle;
 }
 
 const ToastWrapper = ( {
+  testID,
   children,
-  startAnimation,
+  visible,
   finishAnimation,
   styles,
 }: Props ) => {
   const opacity = useRef( new Animated.Value( 0 ) ).current;
 
   useEffect( () => {
-    if ( startAnimation ) {
+    if ( visible ) {
       Animated.sequence( [
         Animated.timing( opacity, {
           toValue: 1,
@@ -36,9 +39,9 @@ const ToastWrapper = ( {
         }
       } );
     }
-  }, [startAnimation, opacity, finishAnimation] );
+  }, [visible, opacity, finishAnimation] );
 
-  if ( !startAnimation ) {
+  if ( !visible ) {
     return null;
   }
 
@@ -48,7 +51,7 @@ const ToastWrapper = ( {
   }];
 
   return (
-    <Animated.View style={animatedStyles}>
+    <Animated.View testID={testID} style={animatedStyles}>
       {children}
     </Animated.View>
   );

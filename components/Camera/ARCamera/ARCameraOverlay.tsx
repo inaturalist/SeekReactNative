@@ -27,6 +27,7 @@ import CameraFlip from "./CameraFlip";
 import Location from "./Location";
 import type { TakePhotoOptions } from "react-native-vision-camera";
 import ToastAnimationWithText from "../../UIComponents/ToastAnimationWithText";
+import { TOAST } from "./ARCamera";
 
 interface Prediction {
   name: string;
@@ -47,12 +48,10 @@ interface Props {
   toggleFlash: ( ) => void;
   hasFlash?: boolean;
   takePhotoOptions: TakePhotoOptions;
-  flashStatusVisible: boolean;
+  visibleToast: TOAST;
   toggleLocation: ( ) => void;
   useLocation: boolean;
-  locationStatusVisible: boolean;
-  handleLocationStatusEnd: ( ) => void;
-  handleFlashStatusEnd: ( ) => void;
+  handleToastEnd: ( ) => void;
 }
 
 const isAndroid = Platform.OS === "android";
@@ -68,12 +67,10 @@ const ARCameraOverlay = ( {
   toggleFlash,
   hasFlash,
   takePhotoOptions,
-  flashStatusVisible,
+  visibleToast,
   toggleLocation,
   useLocation,
-  locationStatusVisible,
-  handleLocationStatusEnd,
-  handleFlashStatusEnd,
+  handleToastEnd,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { navigate } = useNavigation( );
@@ -186,47 +183,60 @@ const ARCameraOverlay = ( {
           useLocation={useLocation}
         />
       </View>
-      {locationStatusVisible && (
-        <ToastAnimationWithText
-          startAnimation={locationStatusVisible}
-          finishAnimation={handleLocationStatusEnd}
-          styles={viewStyles.plantFilter}
-          textStyles={[
-            baseTextStyles.buttonSmall,
-            textStyles.scanText,
-            !isLandscape && textStyles.textShadow,
-          ]}
-          helpText={
-            useLocation
-              ? i18n.t( "camera.best_for_wild_organisms" )
-              : i18n.t( "camera.best_for_captive_organisms" )
-          }
-          toastText={
-            useLocation
-              ? i18n.t( "camera.using_location" )
-              : i18n.t( "camera.not_using_location" )
-          }
-          rectangleColor={colors.plantsFilter}
-        />
-      )}
-      {flashStatusVisible && (
-        <ToastAnimation
-          startAnimation={flashStatusVisible}
-          finishAnimation={handleFlashStatusEnd}
-          styles={viewStyles.plantFilter}
-          toastText={takePhotoOptions.flash === "on" ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
-          rectangleColor={colors.plantsFilter}
-        />
-      )}
-      {isAndroid && showFilterText( )}
+      {isAndroid && visibleToast === TOAST.NONE && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
-          startAnimation={filterIndex === 0}
+          testID="filterOffToast"
+          visible={filterIndex === 0}
           styles={viewStyles.plantFilter}
           toastText={settings[filterIndex].text}
           rectangleColor={settings[filterIndex].color}
         />
       )}
+      <ToastAnimationWithText
+        testID="locationOnToast"
+        visible={visibleToast === TOAST.LOCATION_ON}
+        finishAnimation={handleToastEnd}
+        styles={viewStyles.plantFilter}
+        textStyles={[
+          baseTextStyles.buttonSmall,
+          textStyles.scanText,
+          !isLandscape && textStyles.textShadow,
+        ]}
+        helpText={i18n.t( "camera.best_for_wild_organisms" )}
+        toastText={i18n.t( "camera.using_location" )}
+        rectangleColor={colors.plantsFilter}
+      />
+      <ToastAnimationWithText
+        testID="locationOffToast"
+        visible={visibleToast === TOAST.LOCATION_OFF}
+        finishAnimation={handleToastEnd}
+        styles={viewStyles.plantFilter}
+        textStyles={[
+          baseTextStyles.buttonSmall,
+          textStyles.scanText,
+          !isLandscape && textStyles.textShadow,
+        ]}
+        helpText={i18n.t( "camera.best_for_captive_organisms" )}
+        toastText={i18n.t( "camera.not_using_location" )}
+        rectangleColor={colors.plantsFilter}
+      />
+      <ToastAnimation
+        testID="flashOnToast"
+        visible={visibleToast === TOAST.FLASH_ON}
+        finishAnimation={handleToastEnd}
+        styles={viewStyles.plantFilter}
+        toastText={i18n.t( "camera.flash_on" )}
+        rectangleColor={colors.plantsFilter}
+      />
+      <ToastAnimation
+        testID="flashOffToast"
+        visible={visibleToast === TOAST.FLASH_OFF}
+        finishAnimation={handleToastEnd}
+        styles={viewStyles.plantFilter}
+        toastText={i18n.t( "camera.flash_off" )}
+        rectangleColor={colors.plantsFilter}
+      />
       <View style={setTaxonomicRankColorStyles( )}>
         <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>

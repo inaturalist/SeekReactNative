@@ -34,7 +34,7 @@ const CopyButton = ( { stringToCopy, children, handleHighlight }: Props ) => {
         <View>
           {copied && (
             <ToastAnimation
-              startAnimation={copied}
+              visible={copied}
               styles={viewStyles.copiedAnimation}
               toastText={i18n.t( "species_detail.copied" )}
               finishAnimation={finishAnimation}

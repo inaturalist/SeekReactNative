@@ -4,12 +4,14 @@ import type { ViewStyle } from "react-native";
 import { Animated } from "react-native";
 
 interface Props extends PropsWithChildren {
+  testID?: string;
   visible: boolean;
   finishAnimation?: ( ) => void;
   styles: ViewStyle;
 }
 
 const ToastWrapper = ( {
+  testID,
   children,
   visible,
   finishAnimation,
@@ -32,7 +34,6 @@ const ToastWrapper = ( {
           useNativeDriver: true,
         } ),
       ] ).start( ( ) => {
-        console.log( "visible", visible );
         if ( finishAnimation ) {
           finishAnimation( );
         }
@@ -50,7 +51,7 @@ const ToastWrapper = ( {
   }];
 
   return (
-    <Animated.View style={animatedStyles}>
+    <Animated.View testID={testID} style={animatedStyles}>
       {children}
     </Animated.View>
   );

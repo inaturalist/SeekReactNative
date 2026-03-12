@@ -5,6 +5,7 @@ import ToastWrapper from "./ToastWrapper";
 import StyledText from "./StyledText";
 
 interface Props {
+  testID?: string;
   visible: boolean;
   toastText: string;
   helpText: string;
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const ToastAnimationWithText = ( {
+  testID,
   visible,
   toastText,
   helpText,
@@ -25,6 +27,7 @@ const ToastAnimationWithText = ( {
 }: Props ) => {
   return (
     <ToastWrapper
+      testID={testID}
       visible={visible}
       finishAnimation={finishAnimation}
       styles={styles}

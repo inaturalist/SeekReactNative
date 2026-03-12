@@ -4,6 +4,7 @@ import GreenRectangle from "../UIComponents/GreenRectangle";
 import ToastWrapper from "./ToastWrapper";
 
 interface Props {
+  testID?: string;
   visible: boolean;
   toastText: string;
   styles: Object;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const ToastAnimation = ( {
+  testID,
   visible,
   toastText,
   finishAnimation,
@@ -20,6 +22,7 @@ const ToastAnimation = ( {
 }: Props ) => {
   return (
     <ToastWrapper
+      testID={testID}
       visible={visible}
       finishAnimation={finishAnimation}
       styles={styles}

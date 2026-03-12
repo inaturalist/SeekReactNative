@@ -189,6 +189,7 @@ const ARCameraOverlay = ( {
       <ToastAnimationWithText
         visible={locationStatusVisible && useLocation}
         finishAnimation={handleLocationStatusEnd}
+        testID="locationOnToast"
         styles={viewStyles.plantFilter}
         textStyles={[
           baseTextStyles.buttonSmall,
@@ -202,6 +203,7 @@ const ARCameraOverlay = ( {
       <ToastAnimationWithText
         visible={locationStatusVisible && !useLocation}
         finishAnimation={handleLocationStatusEnd}
+        testID="locationOffToast"
         styles={viewStyles.plantFilter}
         textStyles={[
           baseTextStyles.buttonSmall,
@@ -215,6 +217,7 @@ const ARCameraOverlay = ( {
       <ToastAnimation
         visible={flashStatusVisible && takePhotoOptions.flash === "on"}
         finishAnimation={handleFlashStatusEnd}
+        testID="flashOnToast"
         styles={viewStyles.plantFilter}
         toastText={i18n.t( "camera.flash_on" )}
         rectangleColor={colors.plantsFilter}
@@ -222,6 +225,7 @@ const ARCameraOverlay = ( {
       <ToastAnimation
         visible={flashStatusVisible && takePhotoOptions.flash === "off"}
         finishAnimation={handleFlashStatusEnd}
+        testID="flashOffToast"
         styles={viewStyles.plantFilter}
         toastText={i18n.t( "camera.flash_off" )}
         rectangleColor={colors.plantsFilter}
@@ -229,6 +233,7 @@ const ARCameraOverlay = ( {
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation
+          testID="filterOffToast"
           visible={filterIndex === 0}
           styles={viewStyles.plantFilter}
           toastText={settings[filterIndex].text}

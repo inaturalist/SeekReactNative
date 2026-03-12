@@ -183,6 +183,16 @@ const ARCameraOverlay = ( {
           useLocation={useLocation}
         />
       </View>
+      {isAndroid && visibleToast === TOAST.NONE && showFilterText( )}
+      {( isAndroid && filterIndex === 0 ) && (
+        <ToastAnimation
+          testID="filterOffToast"
+          visible={filterIndex === 0}
+          styles={viewStyles.plantFilter}
+          toastText={settings[filterIndex].text}
+          rectangleColor={settings[filterIndex].color}
+        />
+      )}
       <ToastAnimationWithText
         testID="locationOnToast"
         visible={visibleToast === TOAST.LOCATION_ON}
@@ -227,16 +237,6 @@ const ARCameraOverlay = ( {
         toastText={i18n.t( "camera.flash_off" )}
         rectangleColor={colors.plantsFilter}
       />
-      {isAndroid && showFilterText( )}
-      {( isAndroid && filterIndex === 0 ) && (
-        <ToastAnimation
-          testID="filterOffToast"
-          visible={filterIndex === 0}
-          styles={viewStyles.plantFilter}
-          toastText={settings[filterIndex].text}
-          rectangleColor={settings[filterIndex].color}
-        />
-      )}
       <View style={setTaxonomicRankColorStyles( )}>
         <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
       </View>

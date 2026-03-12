@@ -186,38 +186,46 @@ const ARCameraOverlay = ( {
           useLocation={useLocation}
         />
       </View>
-      {locationStatusVisible && (
-        <ToastAnimationWithText
-          visible={locationStatusVisible}
-          finishAnimation={handleLocationStatusEnd}
-          styles={viewStyles.plantFilter}
-          textStyles={[
-            baseTextStyles.buttonSmall,
-            textStyles.scanText,
-            !isLandscape && textStyles.textShadow,
-          ]}
-          helpText={
-            useLocation
-              ? i18n.t( "camera.best_for_wild_organisms" )
-              : i18n.t( "camera.best_for_captive_organisms" )
-          }
-          toastText={
-            useLocation
-              ? i18n.t( "camera.using_location" )
-              : i18n.t( "camera.not_using_location" )
-          }
-          rectangleColor={colors.plantsFilter}
-        />
-      )}
-      {flashStatusVisible && (
-        <ToastAnimation
-          visible={flashStatusVisible}
-          finishAnimation={handleFlashStatusEnd}
-          styles={viewStyles.plantFilter}
-          toastText={takePhotoOptions.flash === "on" ? i18n.t( "camera.flash_on" ) : i18n.t( "camera.flash_off" )}
-          rectangleColor={colors.plantsFilter}
-        />
-      )}
+      <ToastAnimationWithText
+        visible={locationStatusVisible && useLocation}
+        finishAnimation={handleLocationStatusEnd}
+        styles={viewStyles.plantFilter}
+        textStyles={[
+          baseTextStyles.buttonSmall,
+          textStyles.scanText,
+          !isLandscape && textStyles.textShadow,
+        ]}
+        helpText={i18n.t( "camera.best_for_wild_organisms" )}
+        toastText={i18n.t( "camera.using_location" )}
+        rectangleColor={colors.plantsFilter}
+      />
+      <ToastAnimationWithText
+        visible={locationStatusVisible && !useLocation}
+        finishAnimation={handleLocationStatusEnd}
+        styles={viewStyles.plantFilter}
+        textStyles={[
+          baseTextStyles.buttonSmall,
+          textStyles.scanText,
+          !isLandscape && textStyles.textShadow,
+        ]}
+        helpText={i18n.t( "camera.best_for_captive_organisms" )}
+        toastText={i18n.t( "camera.not_using_location" )}
+        rectangleColor={colors.plantsFilter}
+      />
+      <ToastAnimation
+        visible={flashStatusVisible && takePhotoOptions.flash === "on"}
+        finishAnimation={handleFlashStatusEnd}
+        styles={viewStyles.plantFilter}
+        toastText={i18n.t( "camera.flash_on" )}
+        rectangleColor={colors.plantsFilter}
+      />
+      <ToastAnimation
+        visible={flashStatusVisible && takePhotoOptions.flash === "off"}
+        finishAnimation={handleFlashStatusEnd}
+        styles={viewStyles.plantFilter}
+        toastText={i18n.t( "camera.flash_off" )}
+        rectangleColor={colors.plantsFilter}
+      />
       {isAndroid && showFilterText( )}
       {( isAndroid && filterIndex === 0 ) && (
         <ToastAnimation

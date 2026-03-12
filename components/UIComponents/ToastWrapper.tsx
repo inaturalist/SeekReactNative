@@ -32,6 +32,7 @@ const ToastWrapper = ( {
           useNativeDriver: true,
         } ),
       ] ).start( ( ) => {
+        console.log( "visible", visible );
         if ( finishAnimation ) {
           finishAnimation( );
         }

@@ -380,7 +380,13 @@
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre av",
-    "error_save": "Kunne ikke lagre bilde."
+    "error_save": "Kunne ikke lagre bilde.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Import Photos From"
@@ -661,7 +667,15 @@
     "scroll_left": "Trykk for å scrolle til venstre",
     "scroll_right": "Trykk for å scrolle til høyre",
     "warning_modal": "AR-kamera-advarsler",
-    "get_started_modal": "Tips for å komme i gang"
+    "get_started_modal": "Tips for å komme i gang",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Vurder denne appen",

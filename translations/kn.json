@@ -380,7 +380,13 @@
     "plant_filter": "ಗಿಡಗಳು ಮಾತ್ರ",
     "non_plant_filter": "ಸಸ್ಯವರ್ಗಕ್ಕೆ ಸೇರದವುಗಳು ಮಾತ್ರ",
     "filters_off": "Filters off",
-    "error_save": "ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ."
+    "error_save": "ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Import Photos From"
@@ -661,7 +667,15 @@
     "scroll_left": "ಎಡಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ",
     "scroll_right": "ಬಲಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ",
     "warning_modal": "AR ಕ್ಯಾಮೆರಾ ಎಚ್ಚರಿಕೆಗಳು",
-    "get_started_modal": "ಆರಂಭಿಸಲು ಸಲಹಾಸೂಚನೆಗಳು"
+    "get_started_modal": "ಆರಂಭಿಸಲು ಸಲಹಾಸೂಚನೆಗಳು",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Rate this app",

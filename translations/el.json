@@ -380,7 +380,13 @@
     "plant_filter": "Μόνο φυτά",
     "non_plant_filter": "Μόνο μη φυτά",
     "filters_off": "Φίλτρα απενεργοποιημένα",
-    "error_save": "Could not save photo."
+    "error_save": "Could not save photo.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Import Photos From"
@@ -661,7 +667,15 @@
     "scroll_left": "Σκρόλαρε Αριστερά",
     "scroll_right": "Σκρόλαρε δεξιά",
     "warning_modal": "Προειδοποιήσεις AR κάμερας",
-    "get_started_modal": "Συμβουλές για να ξεκινήσετε"
+    "get_started_modal": "Συμβουλές για να ξεκινήσετε",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Αξιολογήστε αυτήν την εφαρμογή",

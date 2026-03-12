@@ -9,7 +9,9 @@
     "error_alert_location_services": "Pentru a continua, activați serviciile de poziționare disponibile pe dispozitivul dumneavoastră.",
     "species_nearby_requires_location": "Speciile din apropiere necesită locația ta. Te rugăm să activezi locația în setări",
     "species_nearby_requires_android_accuracy": "Speciile din apropiere necesită locația ta. Verifică dacă serviciile de localizare sunt activate.",
-    "choose_location_on_map": "ALEGEȚI POZIȚIA PE HARTĂ"
+    "choose_location_on_map": "ALEGEȚI POZIȚIA PE HARTĂ",
+    "need_location_permissions": "Need location permissions",
+    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
   },
   "get_started": {
     "header": "Să începem",
@@ -378,7 +380,13 @@
     "plant_filter": "Numai plante",
     "non_plant_filter": "Numai non-plante",
     "filters_off": "Filtre dezactivate",
-    "error_save": "Fotografia nu a putut fi salvată."
+    "error_save": "Fotografia nu a putut fi salvată.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Import Photos From"
@@ -659,7 +667,15 @@
     "scroll_left": "Atinge pentru derulare la stânga",
     "scroll_right": "Atinge pentru derulare la dreapta",
     "warning_modal": "Avertismente ale camerei AR",
-    "get_started_modal": "Sfaturi pentru a începe"
+    "get_started_modal": "Sfaturi pentru a începe",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Evaluează aplicația",

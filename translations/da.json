@@ -380,7 +380,13 @@
     "plant_filter": "Kun planter",
     "non_plant_filter": "Kun ikke-planter",
     "filters_off": "Filtre fra",
-    "error_save": "Kunne ikke gemme foto."
+    "error_save": "Kunne ikke gemme foto.",
+    "using_location": "Bruger placering",
+    "not_using_location": "Bruger ikke placering",
+    "best_for_wild_organisms": "Bedst til vilde organismer",
+    "best_for_captive_organisms": "Bedst til haveplanter, kæledyr eller organismer i fangenskab",
+    "flash_on": "Blitz til",
+    "flash_off": "Blitz fra"
   },
   "gallery": {
     "import_photos_from": "Importer fotos fra"
@@ -661,7 +667,15 @@
     "scroll_left": "Scroll mod venstre",
     "scroll_right": "Scrolle mod højre",
     "warning_modal": "AR-kamera advarsler",
-    "get_started_modal": "Tips til at komme i gang"
+    "get_started_modal": "Tips til at komme i gang",
+    "flash": "Blitz",
+    "disable_flash": "Deaktivér blitz",
+    "enable_flash": "Aktivér blitz",
+    "flip_camera": "Skift kamera",
+    "use_other_camera": "Brug enhedens andet kamera.",
+    "location": "Placering",
+    "disable_location": "Deaktivér placering",
+    "enable_location": "Aktivér placering"
   },
   "review": {
     "title": "Bedøm denne app",

@@ -380,7 +380,13 @@
     "plant_filter": "植物のみ",
     "non_plant_filter": "植物以外のみ",
     "filters_off": "フィルターオフ",
-    "error_save": "写真を保存できませんでした。"
+    "error_save": "写真を保存できませんでした。",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "写真のインポート"
@@ -661,7 +667,15 @@
     "scroll_left": "タップすると、左へスクロールできます。",
     "scroll_right": "タップすると、右へスクロールできます。",
     "warning_modal": "AR カメラの警告",
-    "get_started_modal": "始めるにあたる注意点"
+    "get_started_modal": "始めるにあたる注意点",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "このアプリを評価する",

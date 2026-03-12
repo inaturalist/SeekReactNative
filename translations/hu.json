@@ -380,7 +380,13 @@
     "plant_filter": "Csak növények",
     "non_plant_filter": "Csak nem-növények",
     "filters_off": "Szűrők kikapcsolva",
-    "error_save": "A fénykép mentése sikertelen."
+    "error_save": "A fénykép mentése sikertelen.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Fotók importálása innen:"
@@ -661,7 +667,15 @@
     "scroll_left": "Görgetés balra",
     "scroll_right": "Görgetés jobbra",
     "warning_modal": "AR kamera figyelmeztetés",
-    "get_started_modal": "Tippek a kezdéshez"
+    "get_started_modal": "Tippek a kezdéshez",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Értékeld az appot!",

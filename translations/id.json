@@ -380,7 +380,13 @@
     "plant_filter": "Tumbuhan saja",
     "non_plant_filter": "Bukan tumbuhan saja",
     "filters_off": "Matikan saringan",
-    "error_save": "Tidak dapat menyimpan foto."
+    "error_save": "Tidak dapat menyimpan foto.",
+    "using_location": "Using location",
+    "not_using_location": "Not using location",
+    "best_for_wild_organisms": "Best for wild organisms",
+    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
+    "flash_on": "Flash on",
+    "flash_off": "Flash off"
   },
   "gallery": {
     "import_photos_from": "Impor Gambar Dari"
@@ -661,7 +667,15 @@
     "scroll_left": "Gulirkan ke kiri",
     "scroll_right": "Gulirkan ke kanan",
     "warning_modal": "Peringatan kamera AR",
-    "get_started_modal": "Kiat untuk memulai"
+    "get_started_modal": "Kiat untuk memulai",
+    "flash": "Flash",
+    "disable_flash": "Disable flash",
+    "enable_flash": "Enable flash",
+    "flip_camera": "Flip camera",
+    "use_other_camera": "Use the device's other camera.",
+    "location": "Location",
+    "disable_location": "Disable location",
+    "enable_location": "Enable location"
   },
   "review": {
     "title": "Nilai aplikasi ini",

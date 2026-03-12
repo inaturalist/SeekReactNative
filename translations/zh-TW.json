@@ -5,7 +5,7 @@
     "no_location": "沒有位置資訊",
     "no_gps": "未找到 GPS 訊號。請仔細檢查您是否開啟了 GPS",
     "no_species": "似乎尚未在附近觀察到大量物種！請嘗試變更您所在位置或擴大物種篩選範圍。",
-    "input_location_above_map": "找不到位置資訊；在上面輸入位置名稱，以載入地圖並尋找附近的物種",
+    "input_location_above_map": "找不到位置；在上面輸入位置名稱，以載入地圖並尋找附近的物種",
     "error_alert_location_services": "請在您裝置的設定中開啟定位功能才能繼續",
     "species_nearby_requires_location": "附近的物種需要您的位置資訊。請在設定中開啟定位功能",
     "species_nearby_requires_android_accuracy": "附近的物種需要您的位置資訊。請檢查定位功能是否已開啟。",
@@ -380,7 +380,13 @@
     "plant_filter": "篩選器僅允許植物",
     "non_plant_filter": "篩選器僅允許非植物",
     "filters_off": "關閉篩選器",
-    "error_save": "無法儲存照片。"
+    "error_save": "無法儲存照片。",
+    "using_location": "正在使用定位功能",
+    "not_using_location": "沒有使用定位功能",
+    "best_for_wild_organisms": "最適合野生的生物",
+    "best_for_captive_organisms": "最適合花園植物、寵物或圈養／栽培的生物",
+    "flash_on": "閃光燈開啟",
+    "flash_off": "閃光燈關閉"
   },
   "gallery": {
     "import_photos_from": "匯入照片"
@@ -661,7 +667,15 @@
     "scroll_left": "向左滑動",
     "scroll_right": "向右滑動",
     "warning_modal": "AR 相機警告",
-    "get_started_modal": "入門提示"
+    "get_started_modal": "入門提示",
+    "flash": "閃光燈",
+    "disable_flash": "停用閃光燈",
+    "enable_flash": "啟用閃光燈",
+    "flip_camera": "切換鏡頭",
+    "use_other_camera": "使用裝置上的另一組鏡頭。",
+    "location": "定位",
+    "disable_location": "停用定位",
+    "enable_location": "啟用定位"
   },
   "review": {
     "title": "為這個應用程式評分",

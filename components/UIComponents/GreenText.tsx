@@ -1,4 +1,5 @@
 import React from "react";
+import type { TextStyle } from "react-native";
 
 import styles from "../../styles/uiComponents/greenText";
 import i18n from "../../i18n";
@@ -6,7 +7,7 @@ import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  readonly style?: Object;
+  readonly style?: TextStyle;
   readonly text: string;
   readonly small?: boolean;
   readonly smaller?: boolean;

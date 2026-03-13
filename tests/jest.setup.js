@@ -18,6 +18,10 @@ import {
 } from "./vision-camera/vision-camera";
 
 require( "react-native-reanimated" ).setUpTests();
+// Reanimated 4.2 + Worklets 0.7: Jest loads native worklets which fails in Node. See:
+// https://github.com/software-mansion/react-native-reanimated/discussions/8806
+// we can remove this once the fix is released
+jest.mock( "react-native-worklets", () => require( "react-native-worklets/src/mock" ) );
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 jest.mock( "react-native-device-info", () => mockRNDeviceInfo );

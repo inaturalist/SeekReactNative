@@ -1,5 +1,12 @@
-import React, { useRef, useEffect, useCallback, useMemo } from "react";
-import { Image, Pressable, ScrollView, Animated } from "react-native";
+import React, { useRef, useEffect, useCallback } from "react";
+import { Image, Pressable, ScrollView } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withSequence,
+  withDelay,
+} from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
 
 import { setRoute, StoredRoutes } from "../../utility/helpers";
@@ -45,7 +52,10 @@ const ObservationCard = ( {
   const { setId } = useSpeciesDetail( );
   const scrollView = useRef<ScrollView>( null );
   const { navigate } = useNavigation( );
-  const animation = useMemo( ( ) => new Animated.Value( -0 ), [] );
+  const translateX = useSharedValue( 0 );
+  const animatedStyle = useAnimatedStyle( ( ) => ( {
+    transform: [{ translateX: translateX.get( ) } ],
+  } ) );
 
   const { taxon } = item;
   const { id } = taxon;
@@ -78,24 +88,13 @@ const ObservationCard = ( {
   const handleHorizontalScroll = ( ) => updateItemScrolledId( id );
 
   const animate = useCallback( ( ) => {
-    const entrance = {
-      toValue: -( 73 + 24 ),
-      duration: 200,
-      useNativeDriver: true,
-    };
-
-    const exit = {
-      toValue: 0,
-      delay: 2000,
-      duration: 200,
-      useNativeDriver: true,
-    };
-
-    Animated.sequence( [
-      Animated.timing( animation, entrance ),
-      Animated.timing( animation, exit ),
-    ] ).start( );
-  }, [animation] );
+    translateX.set(
+      withSequence(
+        withTiming( -( 73 + 24 ), { duration: 200 } ),
+        withDelay( 2000, withTiming( 0, { duration: 200 } ) ),
+      ),
+    );
+  }, [translateX] );
 
   useEffect( ( ) => {
     if ( toAnimate && !hasAnimated ) {
@@ -112,7 +111,7 @@ const ObservationCard = ( {
       onScrollBeginDrag={handleHorizontalScroll}
       showsHorizontalScrollIndicator={false}
     >
-      <Animated.View style={[styles.row, { transform: [{ translateX: animation }] }]}>
+      <Animated.View style={[styles.row, animatedStyle]}>
         <SpeciesCard
           taxon={taxon}
           handlePress={handleSpeciesCardPress}

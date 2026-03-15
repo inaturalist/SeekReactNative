@@ -1,13 +1,17 @@
-import isEmpty from "lodash/isEmpty";
 import React from "react";
-import { Animated, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import type { AnimatedStyle } from "react-native-reanimated";
+import Animated from "react-native-reanimated";
+
+import type { Coordinates } from "./hooks/useFocusTap";
 
 interface Props {
-  animatedStyle: Object;
+  animatedStyle: AnimatedStyle;
+  tappedCoordinates: Coordinates | null;
 }
 
-const FocusSquare = ( { animatedStyle }: Props ) => {
-  if ( isEmpty( animatedStyle ) ) { return null; }
+const FocusSquare = ( { animatedStyle, tappedCoordinates }: Props ) => {
+  if ( !tappedCoordinates ) { return null; }
   return (
     <Animated.View
       style={[

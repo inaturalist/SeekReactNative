@@ -171,6 +171,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   const {
     animatedStyle,
     tapToFocus,
+    tappedCoordinates,
   } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( undefined );
@@ -363,6 +364,7 @@ const FrameProcessorCamera = ( props: Props ) => {
         </GestureDetector>
         <FocusSquare
           animatedStyle={animatedStyle}
+          tappedCoordinates={tappedCoordinates}
         />
       </>
     )

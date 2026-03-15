@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
-  Animated,
   View,
   Dimensions,
 } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
@@ -34,17 +37,12 @@ const Toasts = ( {
   badge,
   challenge,
 }: Props ) => {
-  animatedBadge: Animated.Value;
-  animatedChallenge: Animated.Value;
+  const animatedBadge = useSharedValue( -120 );
+  const animatedChallenge = useSharedValue( -120 );
 
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
   const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
-
-  // constructor( props: Props ) {
-  //   this.animatedBadge = new Animated.Value( -120 );
-  //   this.animatedChallenge = new Animated.Value( -120 );
-  // }
 
   // componentDidUpdate( prevProps: Props ) {
   //   if ( prevProps.badge !== badge ) {

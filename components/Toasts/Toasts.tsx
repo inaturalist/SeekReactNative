@@ -26,6 +26,9 @@ interface Props {
   };
 }
 
+const ENTRANCE_SPEED = 700;
+const EXIT_SPEED = 1000;
+const DISPLAY_TIME = 3000;
 
 const Toasts = ( {
   badge,
@@ -57,23 +60,20 @@ const Toasts = ( {
     }
   }
 
-  entranceSpeed = 700;
-  exitSpeed = 1000;
-  displayTime = 3000;
 
   entrance = {
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
   const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
     toValue: 0,
-    duration: this.entranceSpeed,
+    duration: ENTRANCE_SPEED,
     useNativeDriver: true,
   };
 
   exit = {
     toValue: height > 570 ? -170 : -120,
-    delay: this.displayTime,
-    duration: this.exitSpeed,
+    delay: DISPLAY_TIME,
+    duration: EXIT_SPEED,
     useNativeDriver: true,
   };
 

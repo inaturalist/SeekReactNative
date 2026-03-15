@@ -115,9 +115,7 @@ const Toasts = ( {
     const challengeSequence = [challengeToast[0], challengeToast[1]];
     Animated.sequence( challengeSequence ).start();
 
-    this.setState( {
-      challengesShown: new Set( challengesShown ).add( challengeIdentifier ),
-    } );
+    setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
   };
 
   return (

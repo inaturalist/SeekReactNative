@@ -10,8 +10,8 @@
     "species_nearby_requires_location": "Specie nelle vicinanze richiede la tua posizione. Abilita la localizzazione nelle impostazioni",
     "species_nearby_requires_android_accuracy": "Le specie nelle vicinanze richiedono la tua posizione. Controlla che i servizi di localizzazione siano abilitati.",
     "choose_location_on_map": "SCEGLI LA POSIZIONE SULLA MAPPA",
-    "need_location_permissions": "Need location permissions",
-    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
+    "need_location_permissions": "Permessi di localizzazione necessari",
+    "please_allow_location_permissions": "Consenti i permessi di localizzazione nelle impostazioni -> Seek"
   },
   "get_started": {
     "header": "Iniziamo",
@@ -381,12 +381,12 @@
     "non_plant_filter": "Solo non vegetali",
     "filters_off": "Filtri disattivati",
     "error_save": "Impossibile salvare la foto.",
-    "using_location": "Using location",
-    "not_using_location": "Not using location",
-    "best_for_wild_organisms": "Best for wild organisms",
-    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
-    "flash_on": "Flash on",
-    "flash_off": "Flash off"
+    "using_location": "Uso della posizione",
+    "not_using_location": "Non utilizzo della posizione",
+    "best_for_wild_organisms": "Ideale per organismi selvatici",
+    "best_for_captive_organisms": "Ideale per piante da giardino, animali domestici o organismi in cattività",
+    "flash_on": "Flash acceso",
+    "flash_off": "Flash spento"
   },
   "gallery": {
     "import_photos_from": "Importa Foto Da"
@@ -607,10 +607,10 @@
     "kelp": "Alghe, Diatomee e Affini",
     "error_title_2": "Errore di localizzazione",
     "error_message_2": "Sembra che la tua posizione non sia stata registrata correttamente! Per favore ricontrolla la tua posizione.",
-    "error_title_no_location": "Location required",
-    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_location": "Posizione necessaria",
+    "error_message_no_location": "Tutte le osservazioni inviate a iNaturalist hanno bisogno di una posizione per essere utili agli scienziati.",
+    "error_title_no_date": "Data richiesta",
+    "error_message_no_date": "Tutte le osservazioni inviate a iNaturalist hanno bisogno di una data per essere utili agli scienziati."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBBLICANDO SU INATURALIST IN BACKGROUND",
@@ -669,13 +669,13 @@
     "warning_modal": "Avvisi della fotocamera AR",
     "get_started_modal": "Suggerimenti per iniziare",
     "flash": "Flash",
-    "disable_flash": "Disable flash",
-    "enable_flash": "Enable flash",
-    "flip_camera": "Flip camera",
-    "use_other_camera": "Use the device's other camera.",
-    "location": "Location",
-    "disable_location": "Disable location",
-    "enable_location": "Enable location"
+    "disable_flash": "Disabilita flash",
+    "enable_flash": "Abilita flash",
+    "flip_camera": "Capovolgi fotocamera",
+    "use_other_camera": "Usa l'altra fotocamera del dispositivo.",
+    "location": "Posizione",
+    "disable_location": "Disabilita posizione",
+    "enable_location": "Attiva posizione"
   },
   "review": {
     "title": "Valuta quest'app",

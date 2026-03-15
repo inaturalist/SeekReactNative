@@ -38,7 +38,14 @@ const Toasts = ( {
   challenge,
 }: Props ) => {
   const animatedBadge = useSharedValue( -120 );
+  const animatedBadgeStyle = useAnimatedStyle( () => ( {
+    transform: [{ translateY: animatedBadge.value }],
+  } ) );
   const animatedChallenge = useSharedValue( -120 );
+  const animatedChallengeStyle = useAnimatedStyle( () => ( {
+    transform: [{ translateY: animatedChallenge.value }],
+  } ) );
+
 
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
@@ -113,29 +120,15 @@ const Toasts = ( {
   };
 
   return (
-    <View
-      style={viewStyles.topContainer}
-    >
+    <View style={viewStyles.topContainer}>
       {badge && (
-        <Animated.View
-          style={[
-            viewStyles.animatedStyle,
-            {
-              transform: [{ translateY: this.animatedBadge }],
-            },
-          ]}
-        >
+        <Animated.View style={[viewStyles.animatedStyle, animatedBadgeStyle]}>
           <BadgeToast badge={badge} />
         </Animated.View>
       )}
       {challenge && (
         <Animated.View
-          style={[
-            viewStyles.animatedStyle,
-            {
-              transform: [{ translateY: this.animatedChallenge }],
-            },
-          ]}
+          style={[viewStyles.animatedStyle, animatedChallengeStyle]}
         >
           <ChallengeToast challenge={challenge} />
         </Animated.View>

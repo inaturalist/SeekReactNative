@@ -87,11 +87,8 @@ const Toasts = ( {
         ),
       ),
     );
-
-    // this.setState( {
-    //   badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
-    //   badgeIsShowing: true,
-    // } );
+    setBadgesShown( new Set( badgesShown ).add( badge?.earnedDate.toString() ) );
+    setBadgeIsShowing( true );
   };
 
   const showChallengeToast = ( ) => {

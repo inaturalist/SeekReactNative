@@ -61,16 +61,16 @@ const Toasts = ( {
   }
 
 
-  entrance = {
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
   const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
+  const entrance = {
     toValue: 0,
     duration: ENTRANCE_SPEED,
     useNativeDriver: true,
   };
 
-  exit = {
+  const exit = {
     toValue: height > 570 ? -170 : -120,
     delay: DISPLAY_TIME,
     duration: EXIT_SPEED,
@@ -84,8 +84,8 @@ const Toasts = ( {
     }
 
     const badgeToast = [
-      Animated.timing( this.animatedBadge, this.entrance ),
-      Animated.timing( this.animatedBadge, this.exit ),
+      Animated.timing( this.animatedBadge, entrance ),
+      Animated.timing( this.animatedBadge, exit ),
     ];
 
     const badgeSequence = [badgeToast[0], badgeToast[1]];
@@ -108,8 +108,8 @@ const Toasts = ( {
     if ( challengesShown.has( challengeIdentifier ) ) {return;}
 
     const challengeToast = [
-      Animated.timing( this.animatedChallenge, this.entrance ),
-      Animated.timing( this.animatedChallenge, this.exit ),
+      Animated.timing( this.animatedChallenge, entrance ),
+      Animated.timing( this.animatedChallenge, exit ),
     ];
 
     const challengeSequence = [challengeToast[0], challengeToast[1]];

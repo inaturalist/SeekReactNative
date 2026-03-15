@@ -6,6 +6,9 @@ import {
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
+  withSequence,
+  withTiming,
+  withDelay,
 } from "react-native-reanimated";
 
 import BadgeToast from "./BadgeToast";
@@ -65,32 +68,22 @@ const Toasts = ( {
   //   }
   // }  
 
-  const entrance = {
-    toValue: 0,
-    duration: ENTRANCE_SPEED,
-    useNativeDriver: true,
-  };
-
-  const exit = {
-    toValue: height > 570 ? -170 : -120,
-    delay: DISPLAY_TIME,
-    duration: EXIT_SPEED,
-    useNativeDriver: true,
-  };
-
   const showBadgeToast = ( ) => {
     if ( !badge ) {return;}
     if ( badgesShown.has( badge.earnedDate.toString() ) ) {
       return;
     }
 
-    const badgeToast = [
-      Animated.timing( this.animatedBadge, entrance ),
-      Animated.timing( this.animatedBadge, exit ),
-    ];
+    animatedBadge.set(
+      withSequence(
+        withTiming( 0, { duration: ENTRANCE_SPEED } ),
+        withDelay(
+          DISPLAY_TIME,
+          withTiming( height > 570 ? -170 : -120, { duration: EXIT_SPEED } ),
+        ),
+      ),
+    );
 
-    const badgeSequence = [badgeToast[0], badgeToast[1]];
-    Animated.sequence( badgeSequence ).start();
     // this.setState( {
     //   badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
     //   badgeIsShowing: true,
@@ -108,13 +101,15 @@ const Toasts = ( {
       challenge.percentComplete.toString();
     if ( challengesShown.has( challengeIdentifier ) ) {return;}
 
-    const challengeToast = [
-      Animated.timing( this.animatedChallenge, entrance ),
-      Animated.timing( this.animatedChallenge, exit ),
-    ];
-
-    const challengeSequence = [challengeToast[0], challengeToast[1]];
-    Animated.sequence( challengeSequence ).start();
+    animatedChallenge.set(
+      withSequence(
+        withTiming( 0, { duration: ENTRANCE_SPEED } ),
+        withDelay(
+          DISPLAY_TIME,
+          withTiming( height > 570 ? -170 : -120, { duration: EXIT_SPEED } ),
+        ),
+      ),
+    );
 
     setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
   };

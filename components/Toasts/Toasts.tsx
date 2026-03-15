@@ -86,14 +86,14 @@ const Toasts = ( {
 
     const badgeSequence = [badgeToast[0], badgeToast[1]];
     Animated.sequence( badgeSequence ).start();
-    this.setState( {
-      badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
-      badgeIsShowing: true,
-    }, ( ) => {
-      setTimeout( ( ) => {
-        this.setState( { badgeIsShowing: false } );
-      }, this.entranceSpeed + this.exitSpeed + this.displayTime );
-    } );
+    // this.setState( {
+    //   badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
+    //   badgeIsShowing: true,
+    // }, ( ) => {
+    //   setTimeout( ( ) => {
+    //     this.setState( { badgeIsShowing: false } );
+    //   }, ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME );
+    // } );
   };
 
   const showChallengeToast = ( ) => {

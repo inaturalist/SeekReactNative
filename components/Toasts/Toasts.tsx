@@ -54,20 +54,6 @@ const Toasts = ( {
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
   const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
 
-  // componentDidUpdate( prevProps: Props ) {
-  //   if ( prevProps.badge !== badge ) {
-  //     this.showBadgeToast();
-  //   }
-  //   if ( prevProps.challenge !== challenge ) {
-  //     // If a badge is showing, wait until it's done before showing the challenge toast
-  //     if ( this.state.badgeIsShowing ) {
-  //       setTimeout( ( ) => this.showChallengeToast(), ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200 );
-  //     } else {
-  //       this.showChallengeToast();
-  //     }
-  //   }
-  // }  
-
   const showBadgeToast = ( ) => {
     if ( !badge ) {return;}
     if ( badgesShown.has( badge.earnedDate.toString() ) ) {
@@ -110,6 +96,20 @@ const Toasts = ( {
 
     setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
   };
+
+    // componentDidUpdate( prevProps: Props ) {
+  //   if ( prevProps.badge !== badge ) {
+  //     this.showBadgeToast();
+  //   }
+  //   if ( prevProps.challenge !== challenge ) {
+  //     // If a badge is showing, wait until it's done before showing the challenge toast
+  //     if ( this.state.badgeIsShowing ) {
+  //       setTimeout( ( ) => this.showChallengeToast(), ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200 );
+  //     } else {
+  //       this.showChallengeToast();
+  //     }
+  //   }
+  // }  
 
   return (
     <View style={viewStyles.topContainer}>

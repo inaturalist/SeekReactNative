@@ -77,9 +77,7 @@ const Toasts = ( {
     useNativeDriver: true,
   };
 
-  showBadgeToast = ( ) => {
-    const { badge } = this.props;
-    const { badgesShown } = this.state;
+  const showBadgeToast = ( ) => {
     if ( !badge ) {return;}
     if ( badgesShown.has( badge.earnedDate.toString() ) ) {
       return;
@@ -102,10 +100,7 @@ const Toasts = ( {
     } );
   };
 
-  showChallengeToast = ( ) => {
-    const { challenge } = this.props;
-    const { challengesShown } = this.state;
-
+  const showChallengeToast = ( ) => {
     if ( !challenge ) {return;}
     const challengeIdentifier =
       challenge.startedDate.toString() +

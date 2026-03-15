@@ -79,7 +79,11 @@ const Toasts = ( {
         withTiming( 0, { duration: ENTRANCE_SPEED } ),
         withDelay(
           DISPLAY_TIME,
-          withTiming( height > 570 ? -170 : -120, { duration: EXIT_SPEED } ),
+          withTiming( height > 570 ? -170 : -120, { duration: EXIT_SPEED }, ( finished ) => {
+            if ( finished ) {
+              setBadgeIsShowing( false );
+            }
+          } ),
         ),
       ),
     );
@@ -87,10 +91,6 @@ const Toasts = ( {
     // this.setState( {
     //   badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
     //   badgeIsShowing: true,
-    // }, ( ) => {
-    //   setTimeout( ( ) => {
-    //     this.setState( { badgeIsShowing: false } );
-    //   }, ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME );
     // } );
   };
 

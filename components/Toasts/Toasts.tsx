@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   View,
   Dimensions,
@@ -49,10 +49,8 @@ const Toasts = ( {
     transform: [{ translateY: animatedChallenge.value }],
   } ) );
 
-
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
-  const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
 
   const showBadgeToast = useCallback( ( ) => {
     if ( !badge ) { return; }
@@ -97,25 +95,19 @@ const Toasts = ( {
     setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
   }, [challenge, challengesShown, animatedChallenge] );
 
-  const prevProps = useRef( { badge, challenge } );
+  // First, if we have a badge to show, we show it.
+  useEffect( ( ) => {
+    if ( badge ) {
+      showBadgeToast();
+      return;
+    }
+  }, [badge, showBadgeToast] );
 
   useEffect( ( ) => {
-    const prev = prevProps.current;
-    if ( prev.badge !== badge ) {
-      showBadgeToast();
+    if ( !badge && challenge ) {
+      showChallengeToast();
     }
-    if ( prev.challenge !== challenge ) {
-      if ( badgeIsShowing ) {
-        setTimeout(
-          ( ) => showChallengeToast(),
-          ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200,
-        );
-      } else {
-        showChallengeToast();
-      }
-    }
-    prevProps.current = { badge, challenge };
-  }, [badge, challenge, badgeIsShowing, showBadgeToast, showChallengeToast] );
+  }, [badge, challenge, showChallengeToast] );
 
   return (
     <View style={viewStyles.topContainer}>

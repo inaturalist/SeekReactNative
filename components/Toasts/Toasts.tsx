@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import {
   View,
   Dimensions,
@@ -54,8 +54,8 @@ const Toasts = ( {
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
   const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
 
-  const showBadgeToast = ( ) => {
-    if ( !badge ) {return;}
+  const showBadgeToast = useCallback( ( ) => {
+    if ( !badge ) { return; }
     if ( badgesShown.has( badge.earnedDate.toString() ) ) {
       return;
     }
@@ -75,9 +75,9 @@ const Toasts = ( {
     );
     setBadgesShown( new Set( badgesShown ).add( badge?.earnedDate.toString() ) );
     setBadgeIsShowing( true );
-  };
+  }, [badge, badgesShown, animatedBadge] );
 
-  const showChallengeToast = ( ) => {
+  const showChallengeToast = useCallback( ( ) => {
     if ( !challenge ) {return;}
     const challengeIdentifier =
       challenge.startedDate.toString() +
@@ -95,21 +95,27 @@ const Toasts = ( {
     );
 
     setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
-  };
+  }, [challenge, challengesShown, animatedChallenge] );
 
-    // componentDidUpdate( prevProps: Props ) {
-  //   if ( prevProps.badge !== badge ) {
-  //     this.showBadgeToast();
-  //   }
-  //   if ( prevProps.challenge !== challenge ) {
-  //     // If a badge is showing, wait until it's done before showing the challenge toast
-  //     if ( this.state.badgeIsShowing ) {
-  //       setTimeout( ( ) => this.showChallengeToast(), ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200 );
-  //     } else {
-  //       this.showChallengeToast();
-  //     }
-  //   }
-  // }  
+  const prevProps = useRef( { badge, challenge } );
+
+  useEffect( ( ) => {
+    const prev = prevProps.current;
+    if ( prev.badge !== badge ) {
+      showBadgeToast();
+    }
+    if ( prev.challenge !== challenge ) {
+      if ( badgeIsShowing ) {
+        setTimeout(
+          ( ) => showChallengeToast(),
+          ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200,
+        );
+      } else {
+        showChallengeToast();
+      }
+    }
+    prevProps.current = { badge, challenge };
+  }, [badge, challenge, badgeIsShowing, showBadgeToast, showChallengeToast] );
 
   return (
     <View style={viewStyles.topContainer}>

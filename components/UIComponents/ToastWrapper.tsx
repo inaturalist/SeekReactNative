@@ -1,7 +1,14 @@
 import type { PropsWithChildren } from "react";
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import type { ViewStyle } from "react-native";
-import { Animated } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withSequence,
+  withDelay,
+} from "react-native-reanimated";
+import { scheduleOnRN } from "react-native-worklets";
 
 interface Props extends PropsWithChildren {
   testID?: string;
@@ -17,41 +24,33 @@ const ToastWrapper = ( {
   finishAnimation,
   styles,
 }: Props ) => {
-  const opacity = useRef( new Animated.Value( 0 ) ).current;
+  const opacity = useSharedValue( 0 );
+  const animatedStyle = useAnimatedStyle( ( ) => ( { opacity: opacity.get( ) } ) );
 
   useEffect( () => {
     if ( visible ) {
-      Animated.sequence( [
-        Animated.timing( opacity, {
-          toValue: 1,
-          duration: 200,
-          useNativeDriver: true,
-        } ),
-        Animated.delay( 2000 ),
-        Animated.timing( opacity, {
-          toValue: 0,
-          duration: 200,
-          useNativeDriver: true,
-        } ),
-      ] ).start( ( ) => {
-        if ( finishAnimation ) {
-          finishAnimation( );
-        }
-      } );
+      opacity.set(
+        withSequence(
+          withTiming( 1, { duration: 200 } ),
+          withDelay(
+            2000,
+            withTiming( 0, { duration: 200 }, ( finished ) => {
+              if ( finished && finishAnimation ) {
+                scheduleOnRN( finishAnimation );
+              }
+            } ),
+          ),
+        ),
+      );
     }
-  }, [visible, opacity, finishAnimation] );
+  }, [visible, finishAnimation, opacity] );
 
   if ( !visible ) {
     return null;
   }
 
-  const animatedStyles = [{
-    ...styles,
-    opacity,
-  }];
-
   return (
-    <Animated.View testID={testID} style={animatedStyles}>
+    <Animated.View testID={testID} style={[styles, animatedStyle]}>
       {children}
     </Animated.View>
   );

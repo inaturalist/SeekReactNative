@@ -25,7 +25,7 @@ const ToastWrapper = ( {
   styles,
 }: Props ) => {
   const opacity = useSharedValue( 0 );
-  const animatedStyle = useAnimatedStyle( ( ) => ( { opacity: opacity.get( ) } ) );
+  const animatedStyle = useAnimatedStyle( ( ) => ( { opacity: opacity.value } ) );
 
   useEffect( () => {
     if ( visible ) {

@@ -54,7 +54,7 @@ const ObservationCard = ( {
   const { navigate } = useNavigation( );
   const translateX = useSharedValue( 0 );
   const animatedStyle = useAnimatedStyle( ( ) => ( {
-    transform: [{ translateX: translateX.get( ) } ],
+    transform: [{ translateX: translateX.value } ],
   } ) );
 
   const { taxon } = item;

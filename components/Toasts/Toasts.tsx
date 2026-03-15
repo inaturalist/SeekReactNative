@@ -37,33 +37,29 @@ const Toasts = ( {
   animatedBadge: Animated.Value;
   animatedChallenge: Animated.Value;
 
-
-  constructor( props: Props ) {
-    super( props );
-    this.state = this.INITIAL_STATE;
-    this.animatedBadge = new Animated.Value( -120 );
-    this.animatedChallenge = new Animated.Value( -120 );
-  }
-
-  componentDidUpdate( prevProps: Props ) {
-    const { badge, challenge } = this.props;
-    if ( prevProps.badge !== badge ) {
-      this.showBadgeToast();
-    }
-    if ( prevProps.challenge !== challenge ) {
-      // If a badge is showing, wait until it's done before showing the challenge toast
-      if ( this.state.badgeIsShowing ) {
-        setTimeout( ( ) => this.showChallengeToast(), this.entranceSpeed + this.exitSpeed + this.displayTime + 200 );
-      } else {
-        this.showChallengeToast();
-      }
-    }
-  }
-
-
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
   const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
+
+  // constructor( props: Props ) {
+  //   this.animatedBadge = new Animated.Value( -120 );
+  //   this.animatedChallenge = new Animated.Value( -120 );
+  // }
+
+  // componentDidUpdate( prevProps: Props ) {
+  //   if ( prevProps.badge !== badge ) {
+  //     this.showBadgeToast();
+  //   }
+  //   if ( prevProps.challenge !== challenge ) {
+  //     // If a badge is showing, wait until it's done before showing the challenge toast
+  //     if ( this.state.badgeIsShowing ) {
+  //       setTimeout( ( ) => this.showChallengeToast(), ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200 );
+  //     } else {
+  //       this.showChallengeToast();
+  //     }
+  //   }
+  // }  
+
   const entrance = {
     toValue: 0,
     duration: ENTRANCE_SPEED,

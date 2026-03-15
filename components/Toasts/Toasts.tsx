@@ -32,7 +32,10 @@ interface State {
   badgeIsShowing: boolean;
 }
 
-class Toasts extends Component<Props, State> {
+const Toasts = ( {
+  badge,
+  challenge,
+}: Props ) => {
   animatedBadge: Animated.Value;
   animatedChallenge: Animated.Value;
 
@@ -130,40 +133,36 @@ class Toasts extends Component<Props, State> {
     } );
   };
 
-  render() {
-    const { badge, challenge } = this.props;
-
-    return (
-      <View
-        style={viewStyles.topContainer}
-      >
-        {badge && (
-          <Animated.View
-            style={[
-              viewStyles.animatedStyle,
-              {
-                transform: [{ translateY: this.animatedBadge }],
-              },
-            ]}
-          >
-            <BadgeToast badge={badge} />
-          </Animated.View>
-        )}
-        {challenge && (
-          <Animated.View
-            style={[
-              viewStyles.animatedStyle,
-              {
-                transform: [{ translateY: this.animatedChallenge }],
-              },
-            ]}
-          >
-            <ChallengeToast challenge={challenge} />
-          </Animated.View>
-        )}
-      </View>
-    );
-  }
+  return (
+    <View
+      style={viewStyles.topContainer}
+    >
+      {badge && (
+        <Animated.View
+          style={[
+            viewStyles.animatedStyle,
+            {
+              transform: [{ translateY: this.animatedBadge }],
+            },
+          ]}
+        >
+          <BadgeToast badge={badge} />
+        </Animated.View>
+      )}
+      {challenge && (
+        <Animated.View
+          style={[
+            viewStyles.animatedStyle,
+            {
+              transform: [{ translateY: this.animatedChallenge }],
+            },
+          ]}
+        >
+          <ChallengeToast challenge={challenge} />
+        </Animated.View>
+      )}
+    </View>
+  );
 }
 
 export default Toasts;

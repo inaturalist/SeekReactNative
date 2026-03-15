@@ -99,7 +99,7 @@ const Toasts = ( {
     if ( challenge ) {
       setTimeout( () => {
         showChallengeToast();
-      }, ENTRANCE_SPEED + DISPLAY_TIME / 2 );
+      }, ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200 );
     }
   }, [badge, challenge, badgesShown, animatedBadge, showChallengeToast] );
 

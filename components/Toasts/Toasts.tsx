@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Animated,
   View,
@@ -26,11 +26,6 @@ interface Props {
   };
 }
 
-interface State {
-  badgesShown: Set<string>;
-  challengesShown: Set<string>;
-  badgeIsShowing: boolean;
-}
 
 const Toasts = ( {
   badge,
@@ -39,12 +34,6 @@ const Toasts = ( {
   animatedBadge: Animated.Value;
   animatedChallenge: Animated.Value;
 
-  INITIAL_STATE: State = {
-    // Array that signifies which badge toasts have already been shown, stores the earnedDate prop
-    badgesShown: new Set(),
-    challengesShown: new Set(),
-    badgeIsShowing: false,
-  };
 
   constructor( props: Props ) {
     super( props );
@@ -73,6 +62,9 @@ const Toasts = ( {
   displayTime = 3000;
 
   entrance = {
+  const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
+  const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
+  const [badgeIsShowing, setBadgeIsShowing] = useState<boolean>( false )
     toValue: 0,
     duration: this.entranceSpeed,
     useNativeDriver: true,

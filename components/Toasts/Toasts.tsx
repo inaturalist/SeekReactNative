@@ -52,35 +52,15 @@ const Toasts = ( {
   const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
   const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
 
-  const showBadgeToast = useCallback( ( ) => {
-    if ( !badge ) { return; }
-    if ( badgesShown.has( badge.earnedDate.toString() ) ) {
+  const showChallengeToast = useCallback( () => {
+    if ( !challenge ) {
       return;
     }
-
-    animatedBadge.set(
-      withSequence(
-        withTiming( 0, { duration: ENTRANCE_SPEED } ),
-        withDelay(
-          DISPLAY_TIME,
-          withTiming( height > 570 ? -170 : -120, { duration: EXIT_SPEED }, ( finished ) => {
-            if ( finished ) {
-              setBadgeIsShowing( false );
-            }
-          } ),
-        ),
-      ),
-    );
-    setBadgesShown( new Set( badgesShown ).add( badge?.earnedDate.toString() ) );
-    setBadgeIsShowing( true );
-  }, [badge, badgesShown, animatedBadge] );
-
-  const showChallengeToast = useCallback( ( ) => {
-    if ( !challenge ) {return;}
     const challengeIdentifier =
-      challenge.startedDate.toString() +
-      challenge.percentComplete.toString();
-    if ( challengesShown.has( challengeIdentifier ) ) {return;}
+      challenge.startedDate.toString() + challenge.percentComplete.toString();
+    if ( challengesShown.has( challengeIdentifier ) ) {
+      return;
+    }
 
     animatedChallenge.set(
       withSequence(
@@ -94,6 +74,34 @@ const Toasts = ( {
 
     setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
   }, [challenge, challengesShown, animatedChallenge] );
+
+  const showBadgeToast = useCallback( () => {
+    if ( !badge ) {
+      return;
+    }
+    if ( badgesShown.has( badge.earnedDate.toString() ) ) {
+      return;
+    }
+
+    animatedBadge.set(
+      withSequence(
+        withTiming( 0, { duration: ENTRANCE_SPEED } ),
+        withDelay(
+          DISPLAY_TIME,
+          withTiming(
+            height > 570 ? -170 : -120,
+            { duration: EXIT_SPEED },
+          ),
+        ),
+      ),
+    );
+    setBadgesShown( new Set( badgesShown ).add( badge?.earnedDate.toString() ) );
+    if ( challenge ) {
+      setTimeout( () => {
+        showChallengeToast();
+      }, ENTRANCE_SPEED + DISPLAY_TIME / 2 );
+    }
+  }, [badge, challenge, badgesShown, animatedBadge, showChallengeToast] );
 
   // First, if we have a badge to show, we show it.
   useEffect( ( ) => {

@@ -14,7 +14,8 @@ import {
   Gesture,
 } from "react-native-gesture-handler";
 import type { Camera } from "../helpers/visionCameraWrapper";
-const HALF_SIZE_FOCUS_BOX = 40;
+
+export const HALF_SIZE_FOCUS_BOX = 40;
 
 export interface Coordinates {
   x: number;
@@ -30,8 +31,6 @@ const useFocusTap = ( cameraRef: React.RefObject<Camera | null>, supportsFocus: 
   const animatedStyle = useAnimatedStyle( ( ) => ( {
     left: focusLeft.value,
     top: focusTop.value,
-    width: HALF_SIZE_FOCUS_BOX * 2,
-    height: HALF_SIZE_FOCUS_BOX * 2,
     opacity: focusOpacity.value,
   } ) );
 

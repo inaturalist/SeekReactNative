@@ -2071,7 +2071,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-worklets-core (1.6.2):
+  - react-native-worklets-core (1.6.3):
     - boost
     - DoubleConversion
     - fast_float
@@ -3559,7 +3559,7 @@ SPEC CHECKSUMS:
   react-native-restart: 0bc732f4461709022a742bb29bcccf6bbc5b4863
   react-native-safe-area-context: 0a3b034bb63a5b684dd2f5fffd3c90ef6ed41ee8
   react-native-webview: d73728424a0e24989d71ffdc6fcf15d5f74ff4a2
-  react-native-worklets-core: 2b8f8cd5c1fe549ae658a757e3d7b84eab21a6fb
+  react-native-worklets-core: 835d47ccea7d1fb664d2f9bb433a7c4307e69234
   React-NativeModulesApple: cbceb3c4cb726838c461b13802a76cefa6f3476f
   React-oscompat: eb0626e8ba1a2c61673c991bf9dc21834898475d
   React-perflogger: 509e1f9a3ee28df71b0a66de806ac515ce951246

@@ -2669,7 +2669,7 @@ PODS:
     - Yoga
   - RNCMaskedView (0.2.9):
     - React-Core
-  - RNCPicker (2.11.1):
+  - RNCPicker (2.11.4):
     - boost
     - DoubleConversion
     - fast_float
@@ -3596,7 +3596,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: fd44f4b03e007e642e98df6726737bc66e9ba609
   RNCClipboard: e560338bf6cc4656a09ff90610b62ddc0dbdad65
   RNCMaskedView: 4b5b12efdee55966f1d68f32d4b3401c2acf05c2
-  RNCPicker: 70fd0622147f0ca1b9c5e1be2069a4fb2e8ec461
+  RNCPicker: 35fc66f352403cdfe99d53b541f5180482ca2bc5
   RNDateTimePicker: ca1dc7e24d0b4839877f0ab619e7bca5db715289
   RNDeviceInfo: 4c852998208b60dc192ae3529e5867817719ad1e
   RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8

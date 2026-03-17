@@ -32,7 +32,7 @@
     "@react-native-community/datetimepicker": "^8.4.4",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-native-masked-view/masked-view": "^0.2.9",
-    "@react-native-picker/picker": "^2.11.1",
+    "@react-native-picker/picker": "^2.11.4",
     "@react-native/normalize-color": "^2.1.0",
     "@react-navigation/drawer": "^7.5.7",
     "@react-navigation/native": "^7.1.17",

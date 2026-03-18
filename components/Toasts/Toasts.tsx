@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
-  Animated,
   View,
   Dimensions,
 } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSequence,
+  withTiming,
+  withDelay,
+} from "react-native-reanimated";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
@@ -26,144 +32,107 @@ interface Props {
   };
 }
 
-interface State {
-  badgesShown: Set<string>;
-  challengesShown: Set<string>;
-  badgeIsShowing: boolean;
-}
+const ENTRANCE_SPEED = 700;
+const EXIT_SPEED = 1000;
+const DISPLAY_TIME = 3000;
 
-class Toasts extends Component<Props, State> {
-  animatedBadge: Animated.Value;
-  animatedChallenge: Animated.Value;
+const Toasts = ( {
+  badge,
+  challenge,
+}: Props ) => {
+  const animatedBadge = useSharedValue( -120 );
+  const animatedBadgeStyle = useAnimatedStyle( () => ( {
+    transform: [{ translateY: animatedBadge.value }],
+  } ) );
+  const animatedChallenge = useSharedValue( -120 );
+  const animatedChallengeStyle = useAnimatedStyle( () => ( {
+    transform: [{ translateY: animatedChallenge.value }],
+  } ) );
 
-  INITIAL_STATE: State = {
-    // Array that signifies which badge toasts have already been shown, stores the earnedDate prop
-    badgesShown: new Set(),
-    challengesShown: new Set(),
-    badgeIsShowing: false,
-  };
+  const [badgesShown, setBadgesShown] = useState<Set<string>>( new Set() )
+  const [challengesShown, setChallengesShown] = useState<Set<string>>( new Set() )
 
-  constructor( props: Props ) {
-    super( props );
-    this.state = this.INITIAL_STATE;
-    this.animatedBadge = new Animated.Value( -120 );
-    this.animatedChallenge = new Animated.Value( -120 );
-  }
-
-  componentDidUpdate( prevProps: Props ) {
-    const { badge, challenge } = this.props;
-    if ( prevProps.badge !== badge ) {
-      this.showBadgeToast();
+  const showChallengeToast = useCallback( () => {
+    if ( !challenge ) {
+      return;
     }
-    if ( prevProps.challenge !== challenge ) {
-      // If a badge is showing, wait until it's done before showing the challenge toast
-      if ( this.state.badgeIsShowing ) {
-        setTimeout( ( ) => this.showChallengeToast(), this.entranceSpeed + this.exitSpeed + this.displayTime + 200 );
-      } else {
-        this.showChallengeToast();
-      }
+    const challengeIdentifier =
+      challenge.startedDate.toString() + challenge.percentComplete.toString();
+    if ( challengesShown.has( challengeIdentifier ) ) {
+      return;
     }
-  }
 
-  entranceSpeed = 700;
-  exitSpeed = 1000;
-  displayTime = 3000;
+    animatedChallenge.set(
+      withSequence(
+        withTiming( 0, { duration: ENTRANCE_SPEED } ),
+        withDelay(
+          DISPLAY_TIME,
+          withTiming( height > 570 ? -170 : -120, { duration: EXIT_SPEED } ),
+        ),
+      ),
+    );
 
-  entrance = {
-    toValue: 0,
-    duration: this.entranceSpeed,
-    useNativeDriver: true,
-  };
+    setChallengesShown( new Set( challengesShown ).add( challengeIdentifier ) );
+  }, [challenge, challengesShown, animatedChallenge] );
 
-  exit = {
-    toValue: height > 570 ? -170 : -120,
-    delay: this.displayTime,
-    duration: this.exitSpeed,
-    useNativeDriver: true,
-  };
-
-  showBadgeToast = ( ) => {
-    const { badge } = this.props;
-    const { badgesShown } = this.state;
-    if ( !badge ) {return;}
+  const showBadgeToast = useCallback( () => {
+    if ( !badge ) {
+      return;
+    }
     if ( badgesShown.has( badge.earnedDate.toString() ) ) {
       return;
     }
 
-    const badgeToast = [
-      Animated.timing( this.animatedBadge, this.entrance ),
-      Animated.timing( this.animatedBadge, this.exit ),
-    ];
-
-    const badgeSequence = [badgeToast[0], badgeToast[1]];
-    Animated.sequence( badgeSequence ).start();
-    this.setState( {
-      badgesShown: new Set( badgesShown ).add( badge?.earnedDate.toString() ),
-      badgeIsShowing: true,
-    }, ( ) => {
-      setTimeout( ( ) => {
-        this.setState( { badgeIsShowing: false } );
-      }, this.entranceSpeed + this.exitSpeed + this.displayTime );
-    } );
-  };
-
-  showChallengeToast = ( ) => {
-    const { challenge } = this.props;
-    const { challengesShown } = this.state;
-
-    if ( !challenge ) {return;}
-    const challengeIdentifier =
-      challenge.startedDate.toString() +
-      challenge.percentComplete.toString();
-    if ( challengesShown.has( challengeIdentifier ) ) {return;}
-
-    const challengeToast = [
-      Animated.timing( this.animatedChallenge, this.entrance ),
-      Animated.timing( this.animatedChallenge, this.exit ),
-    ];
-
-    const challengeSequence = [challengeToast[0], challengeToast[1]];
-    Animated.sequence( challengeSequence ).start();
-
-    this.setState( {
-      challengesShown: new Set( challengesShown ).add( challengeIdentifier ),
-    } );
-  };
-
-  render() {
-    const { badge, challenge } = this.props;
-
-    return (
-      <View
-        style={viewStyles.topContainer}
-      >
-        {badge && (
-          <Animated.View
-            style={[
-              viewStyles.animatedStyle,
-              {
-                transform: [{ translateY: this.animatedBadge }],
-              },
-            ]}
-          >
-            <BadgeToast badge={badge} />
-          </Animated.View>
-        )}
-        {challenge && (
-          <Animated.View
-            style={[
-              viewStyles.animatedStyle,
-              {
-                transform: [{ translateY: this.animatedChallenge }],
-              },
-            ]}
-          >
-            <ChallengeToast challenge={challenge} />
-          </Animated.View>
-        )}
-      </View>
+    animatedBadge.set(
+      withSequence(
+        withTiming( 0, { duration: ENTRANCE_SPEED } ),
+        withDelay(
+          DISPLAY_TIME,
+          withTiming(
+            height > 570 ? -170 : -120,
+            { duration: EXIT_SPEED },
+          ),
+        ),
+      ),
     );
-  }
+    setBadgesShown( new Set( badgesShown ).add( badge?.earnedDate.toString() ) );
+    if ( challenge ) {
+      setTimeout( () => {
+        showChallengeToast();
+      }, ENTRANCE_SPEED + EXIT_SPEED + DISPLAY_TIME + 200 );
+    }
+  }, [badge, challenge, badgesShown, animatedBadge, showChallengeToast] );
+
+  // First, if we have a badge to show, we show it.
+  useEffect( ( ) => {
+    if ( badge ) {
+      showBadgeToast();
+      return;
+    }
+  }, [badge, showBadgeToast] );
+
+  useEffect( ( ) => {
+    if ( !badge && challenge ) {
+      showChallengeToast();
+    }
+  }, [badge, challenge, showChallengeToast] );
+
+  return (
+    <View style={viewStyles.topContainer}>
+      {badge && (
+        <Animated.View style={[viewStyles.animatedStyle, animatedBadgeStyle]}>
+          <BadgeToast badge={badge} />
+        </Animated.View>
+      )}
+      {challenge && (
+        <Animated.View
+          style={[viewStyles.animatedStyle, animatedChallengeStyle]}
+        >
+          <ChallengeToast challenge={challenge} />
+        </Animated.View>
+      )}
+    </View>
+  );
 }
 
 export default Toasts;

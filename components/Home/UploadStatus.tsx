@@ -1,5 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import { View, Image, Animated, Pressable } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Image, Pressable } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
@@ -29,26 +34,13 @@ const UploadStatus = ( {
 }: Props ) => {
   // progress bar adapted from: https://blog.logrocket.com/how-to-build-a-progress-bar-with-react-native/
   const navigation = useNavigation();
-  let animation = useRef( new Animated.Value( 0 ) );
-  const [progress, setProgress] = useState( 0 );
+  const progress = useSharedValue( 0 );
+  const animatedStyle = useAnimatedStyle( ( ) => ( {
+    width: `${progress.value}%`,
+  } ) );
   const [isUploading, setIsUploading] = useState( false );
   const [error, setError] = useState( null );
   const internet = useInternetStatus( );
-
-  useEffect( ( ) => {
-    Animated.timing( animation.current, {
-      toValue: progress,
-      duration: 100,
-      // width is not supported by native driver
-      useNativeDriver: false,
-    } ).start( );
-  },[progress] );
-
-  const width = animation.current.interpolate( {
-    inputRange: [0, 100],
-    outputRange: ["0%", "100%"],
-    extrapolate: "clamp",
-  } );
 
   const setUploadText = ( ) => {
     if ( successfulUploads > 0 ) {
@@ -95,7 +87,7 @@ const UploadStatus = ( {
         completedProgress += tick;
         currentUploads += 1;
 
-        setProgress( completedProgress );
+        progress.set( withTiming( completedProgress, { duration: 100 } ) );
         markCurrentUploadAsSeen( observation );
 
         if ( currentUploads === numPendingUploads ) {
@@ -116,6 +108,8 @@ const UploadStatus = ( {
     if ( numPendingUploads > 0 && !isUploading ) {
       // only check uploads once
       if ( isCurrent ) {
+        // TODO: don't we need to reset here?
+        // progress.set( 0 );
         setIsUploading( true );
         checkUploads( );
       }
@@ -124,7 +118,7 @@ const UploadStatus = ( {
     return ( ) => {
       isCurrent = false;
     };
-  }, [numPendingUploads, isUploading, updateSuccessfulUploads] );
+  }, [numPendingUploads, isUploading, updateSuccessfulUploads, progress] );
 
   const retryUploads = ( ) => resetRouter( navigation );
 
@@ -166,7 +160,7 @@ const UploadStatus = ( {
           <View style={viewStyles.progressBar}>
             {successfulUploads > 0
               ? <View style={[viewStyles.absoluteFill, viewStyles.fullWidth]} />
-              : <Animated.View style={[viewStyles.absoluteFill, { width }]} />}
+              : <Animated.View style={[viewStyles.absoluteFill, animatedStyle]} />}
           </View>
         )}
       </View>

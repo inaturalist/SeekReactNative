@@ -36,7 +36,7 @@ const ObservationContext = React.createContext<
   {
     observation: Observation | null;
     setObservation: React.Dispatch<React.SetStateAction<any>>;
-    startObservationWithImage: ( image: ObservationImage, callback: () => void ) => void;
+    startObservationWithImage: ( _image: ObservationImage, _callback: () => void ) => void;
   } | undefined
 >( undefined );
 

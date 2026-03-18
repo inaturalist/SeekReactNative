@@ -105,9 +105,9 @@ android {
         versionName "2.18.0"
         // for creating ic_seek_adaptiveappicon.xml
         vectorDrawables.useSupportLibrary = true
-        setProperty("archivesBaseName", applicationId + "-v" + versionName + "+" + versionCode)
     }
 
+    base.archivesName = defaultConfig.applicationId + "-v" + defaultConfig.versionName + "+" + defaultConfig.versionCode
     
     signingConfigs {
         release {

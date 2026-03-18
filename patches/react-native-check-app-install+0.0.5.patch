@@ -1,8 +1,27 @@
 diff --git a/node_modules/react-native-check-app-install/android/build.gradle b/node_modules/react-native-check-app-install/android/build.gradle
-index d374b27..38d9215 100644
+index d374b27..c339cef 100644
 --- a/node_modules/react-native-check-app-install/android/build.gradle
 +++ b/node_modules/react-native-check-app-install/android/build.gradle
-@@ -43,5 +43,5 @@ repositories {
+@@ -5,7 +5,7 @@ def safeExtGet(prop, fallback) {
+ buildscript {
+     repositories {
+         google()
+-        jcenter()
++        mavenCentral()
+     }
+ 
+     dependencies {
+@@ -34,8 +34,7 @@ android {
+ 
+ repositories {
+     google()
+-    mavenLocal()
+-    jcenter()
++    mavenCentral()
+     maven {
+         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+         url "$projectDir/../../../node_modules/react-native/android"
+@@ -43,5 +42,5 @@ repositories {
  }
  
  dependencies {

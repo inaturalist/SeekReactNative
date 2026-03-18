@@ -12,7 +12,6 @@ use_frameworks! linkage: :static
 
 target 'Seek' do
   config = use_native_modules!
-  # pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools'
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -21,13 +20,11 @@ target 'Seek' do
   )
 
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
-    # End of added lines
   end
 end

@@ -109,7 +109,7 @@ const UploadStatus = ( {
       // only check uploads once
       if ( isCurrent ) {
         // TODO: don't we need to reset here?
-        progress.set( 0 );
+        // progress.set( 0 );
         setIsUploading( true );
         checkUploads( );
       }

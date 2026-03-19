@@ -96,3 +96,16 @@ index 93e99be..b42b3be 100644
          // Add more extra data here ...
      }
  
+diff --git a/node_modules/react-native-image-picker/lib/typescript/types.d.ts b/node_modules/react-native-image-picker/lib/typescript/types.d.ts
+index 2d703a7..595e6cd 100644
+--- a/node_modules/react-native-image-picker/lib/typescript/types.d.ts
++++ b/node_modules/react-native-image-picker/lib/typescript/types.d.ts
+@@ -14,6 +14,8 @@ export interface OptionsCommon {
+ export interface ImageLibraryOptions extends OptionsCommon {
+     selectionLimit?: number;
+     restrictMimeTypes?: string[];
++    forceOldAndroidPhotoPicker?: boolean;
++    chooserTitle?: string;
+ }
+ export interface CameraOptions extends OptionsCommon {
+     durationLimit?: number;

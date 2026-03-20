@@ -1,5 +1,9 @@
 {
   "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "strict": true
+  },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["flow-typed", "**/node_modules", "**/Pods"]
 }

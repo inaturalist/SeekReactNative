@@ -31,6 +31,7 @@ import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
 import Social from "../Social/SocialScreen";
 import useAppLog from "./hooks/useAppLog";
+import type { RootStackParamList } from "./types";
 
 const forFade = ( { current }: StackCardInterpolationProps ) => ( { cardStyle: { opacity: current.progress } } );
 
@@ -44,7 +45,7 @@ const drawerConfig = { ...config,  animation: "none" } as const;
 const screenOptions = { gestureEnabled: false } as const;
 const modal = { presentation: "modal" } as const;
 
-const Stack = createStackNavigator( );
+const Stack = createStackNavigator<RootStackParamList>( );
 
 const App = ( ) => {
   useAppLog( );

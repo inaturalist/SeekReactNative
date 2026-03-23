@@ -16,8 +16,9 @@ import Species from "../Species/SpeciesDetail";
 import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
 import SeekYearInReviewMapScreen from "../SeekYearInReview/SeekYearInReviewMapScreen";
 import Notifications from "../Notifications/Notifications";
+import type { DrawerParamList } from "./types";
 
-const Drawer = createDrawerNavigator( );
+const Drawer = createDrawerNavigator<DrawerParamList>( );
 const drawerContent = props => <SideMenu {...props} />;
 
 const screenOptions = {

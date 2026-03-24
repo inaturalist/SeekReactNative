@@ -2797,7 +2797,7 @@ PODS:
     - React-Core
   - RNFS (2.20.0):
     - React-Core
-  - RNGestureHandler (2.28.0):
+  - RNGestureHandler (2.30.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -3676,7 +3676,7 @@ SPEC CHECKSUMS:
   RNDateTimePicker: ca1dc7e24d0b4839877f0ab619e7bca5db715289
   RNDeviceInfo: 4c852998208b60dc192ae3529e5867817719ad1e
   RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
-  RNGestureHandler: e1cc4de7646eb557ad62d1271d8eac73c304a896
+  RNGestureHandler: 91eb97c0546ba67b62cf7b96156c7361478a70bd
   RNLocalize: d8ccb568b40c72c767714db3808ce66a1ecf444a
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
   RNReanimated: bfcebdcb7a58c4514f06d1ffe9f3af7ece04331b

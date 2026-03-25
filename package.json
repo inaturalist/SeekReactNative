@@ -57,7 +57,7 @@
     "react-native-fs": "^2.20.0",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-geolocation-service": "^5.3.1",
-    "react-native-gesture-handler": "^2.28.0",
+    "react-native-gesture-handler": "^2.30.0",
     "react-native-get-random-values": "^1.11.0",
     "react-native-image-picker": "^8.2.1",
     "react-native-linear-gradient": "^2.8.3",

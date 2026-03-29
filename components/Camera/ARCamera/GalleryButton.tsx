@@ -15,7 +15,7 @@ import { UserContext } from "../../UserContext";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
-import { readExifFromMultiplePhotos } from "../../../utility/parseExif";
+import readExifFromMultiplePhotos from "../../../utility/parseExif";
 import { getUnixTime } from "date-fns";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import InatVision from "./helpers/visionPluginWrapper";

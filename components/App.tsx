@@ -14,6 +14,7 @@ import RootStack from "./Navigation/RootStack";
 import { LanguageProvider } from "./Providers/LanguageProvider";
 import { SpeciesNearbyProvider } from "./Providers/SpeciesNearbyProvider";
 import UserLoginProvider from "./Providers/UserLoginProvider";
+import { CameraLocationPreferenceProvider } from "./Providers/CameraLocationPreferenceProvider";
 import { ObservationProvider } from "./Providers/ObservationProvider";
 import { AppOrientationProvider } from "./Providers/AppOrientationProvider";
 import { ChallengeProvider } from "./Providers/ChallengeProvider";
@@ -92,21 +93,23 @@ const App = ( ) => {
     <AppOrientationProvider>
       <UserLoginProvider>
         <LanguageProvider>
-          <ObservationProvider>
-            <SpeciesNearbyProvider>
-              <ChallengeProvider>
-                <SpeciesDetailProvider>
-                  <GestureHandlerRootView style={style}>
-                    <SafeAreaProvider>
-                      <ErrorBoundary>
-                        <RootStack />
-                      </ErrorBoundary>
-                    </SafeAreaProvider>
-                  </GestureHandlerRootView>
-                </SpeciesDetailProvider>
-              </ChallengeProvider>
-            </SpeciesNearbyProvider>
-          </ObservationProvider>
+          <CameraLocationPreferenceProvider>
+            <ObservationProvider>
+              <SpeciesNearbyProvider>
+                <ChallengeProvider>
+                  <SpeciesDetailProvider>
+                    <GestureHandlerRootView style={style}>
+                      <SafeAreaProvider>
+                        <ErrorBoundary>
+                          <RootStack />
+                        </ErrorBoundary>
+                      </SafeAreaProvider>
+                    </GestureHandlerRootView>
+                  </SpeciesDetailProvider>
+                </ChallengeProvider>
+              </SpeciesNearbyProvider>
+            </ObservationProvider>
+          </CameraLocationPreferenceProvider>
         </LanguageProvider>
       </UserLoginProvider>
     </AppOrientationProvider>

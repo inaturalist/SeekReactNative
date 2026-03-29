@@ -4,7 +4,7 @@ import { toZonedTime } from "date-fns-tz";
 import type { ExifTags } from "@lodev09/react-native-exify";
 import * as Exify from "@lodev09/react-native-exify";
 
-function formatISONoTimezone( date: Date ): string {
+function formatISONoTimezone( date: Date | null ): string {
   if ( !date ) {
     return "";
   }

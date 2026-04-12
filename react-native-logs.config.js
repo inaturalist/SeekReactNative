@@ -3,7 +3,7 @@ import {
   fileAsyncTransport,
   consoleTransport,
 } from "react-native-logs";
-import RNFS from "react-native-fs";
+import * as RNFS from "@dr.pogodin/react-native-fs";
 import { fileNameLogs } from "./utility/dirStorage";
 
 // Configure without transport for test. If you want to write output during

@@ -2695,6 +2695,34 @@ PODS:
     - SocketRocket
   - ReactNativeExceptionHandler (2.10.10):
     - React-Core
+  - ReactNativeFs (2.36.1):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
   - ReactNativeWebPFormat (1.2.0):
     - React-Core
     - SDWebImageWebPCoder
@@ -2815,8 +2843,6 @@ PODS:
     - SocketRocket
     - Yoga
   - RNDeviceInfo (15.0.2):
-    - React-Core
-  - RNFS (2.20.0):
     - React-Core
   - RNGestureHandler (2.30.0):
     - boost
@@ -3342,6 +3368,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeExceptionHandler (from `../node_modules/react-native-exception-handler`)
+  - "ReactNativeFs (from `../node_modules/@dr.pogodin/react-native-fs`)"
   - ReactNativeWebPFormat (from `../node_modules/react-native-webp-format`)
   - RealmJS (from `../node_modules/realm`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
@@ -3350,7 +3377,6 @@ DEPENDENCIES:
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
-  - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNQuickAction (from `../node_modules/react-native-quick-actions`)
@@ -3554,6 +3580,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeExceptionHandler:
     :path: "../node_modules/react-native-exception-handler"
+  ReactNativeFs:
+    :path: "../node_modules/@dr.pogodin/react-native-fs"
   ReactNativeWebPFormat:
     :path: "../node_modules/react-native-webp-format"
   RealmJS:
@@ -3570,8 +3598,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/datetimepicker"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
-  RNFS:
-    :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
@@ -3688,6 +3714,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 0bce2d209e2e802589f4c5ff76d21618200e74cb
   ReactCommon: 801eff8cb9c940c04d3a89ce399c343ee3eff654
   ReactNativeExceptionHandler: a23922ca00122b050ae9412f960061791c232c47
+  ReactNativeFs: 5a434035a6290b212fe23bdeb2eed70709df129d
   ReactNativeWebPFormat: a1a41d3f99b40fe262978a4a551f5d459963efde
   RealmJS: 1c37c6bdfe060f4caa0f9175aa0eedb962622ee1
   RNCAsyncStorage: fd44f4b03e007e642e98df6726737bc66e9ba609
@@ -3696,7 +3723,6 @@ SPEC CHECKSUMS:
   RNCPicker: 35fc66f352403cdfe99d53b541f5180482ca2bc5
   RNDateTimePicker: ca1dc7e24d0b4839877f0ab619e7bca5db715289
   RNDeviceInfo: 4c852998208b60dc192ae3529e5867817719ad1e
-  RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
   RNGestureHandler: 91eb97c0546ba67b62cf7b96156c7361478a70bd
   RNLocalize: d8ccb568b40c72c767714db3808ce66a1ecf444a
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d

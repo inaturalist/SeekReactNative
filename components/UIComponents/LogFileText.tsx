@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import RNFS from "react-native-fs";
+import { stat, readFile } from "@dr.pogodin/react-native-fs";
 import { ScrollView } from "react-native";
 
 import StyledText from "./StyledText";
@@ -12,11 +12,11 @@ interface Props {
 const LogFileText = ( {}: Props ) => {
   const [logContents, setLogContents] = React.useState( "" );
 
-  const { mtime: logFileMtime } = RNFS.stat( pathLogs );
+  const { mtime: logFileMtime } = stat( pathLogs );
 
   useEffect( () => {
     async function fetchLogContents() {
-      const contents = await RNFS.readFile( pathLogs );
+      const contents = await readFile( pathLogs );
       setLogContents( contents.split( "\n" ).slice( -100 ).join( "\n" ) );
     }
     fetchLogContents();

@@ -36,7 +36,7 @@ jest.mock( "react-native-worklets-core", () => ( {
   },
 } ) );
 
-jest.mock( "react-native-fs", () => {
+jest.mock( "@dr.pogodin/react-native-fs", () => {
   const RNFS = {
     moveFile: async () => "testdata",
   };

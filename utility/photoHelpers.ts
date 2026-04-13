@@ -1,5 +1,12 @@
 import ImageResizer from "@bam.tech/react-native-image-resizer";
-import RNFS from "react-native-fs";
+import {
+  appendFile,
+  stat,
+  unlink,
+  mkdir,
+  moveFile,
+  ExternalStorageDirectoryPath,
+} from "@dr.pogodin/react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
 
@@ -37,7 +44,7 @@ const writeToDebugLog = ( newLine: string ): void => {
     line = `${formatYearMonthDay()} ${formatHourMonthSecond()}: ${newLine}`;
   }
 
-  RNFS.appendFile( pathLogs, `${line}\n` ).then( () => {
+  appendFile( pathLogs, `${line}\n` ).then( () => {
     // console.log( result, "result of appending debug log" );
   } ).catch( ( e ) => {
     console.log( e, "error while appending debug log" );
@@ -46,9 +53,9 @@ const writeToDebugLog = ( newLine: string ): void => {
 
 const deleteDebugLogAfter7Days = (): void => {
   if ( Platform.OS === "android" ) {
-    RNFS.stat( pathLogs ).then( ( { ctime } ) => {
+    stat( pathLogs ).then( ( { ctime } ) => {
       if ( !isWithin7Days( ctime ) ) {
-        RNFS.unlink( pathLogs )
+        unlink( pathLogs )
           .then( () => {
             console.log( "deleted debug logs that were 7 days old", pathLogs );
           } ).catch( ( err ) => {
@@ -90,9 +97,9 @@ const resizeImage = async ( path: string, width: number, height?: number, output
 
 const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ): Promise<any> => (
   new Promise( ( resolve ) => {
-    RNFS.mkdir( dirPictures ) // doesn't throw error if directory already exists
+    mkdir( dirPictures ) // doesn't throw error if directory already exists
       .then( () => {
-        RNFS.moveFile( filePath, newFilepath )
+        moveFile( filePath, newFilepath )
           .then( () => {
             resolve( true );
           } ).catch( ( error ) => {
@@ -162,7 +169,7 @@ const createBackupUri = async ( uri: string, uuid?: string | null ): Promise<str
 };
 
 const moveFileAndUpdateRealm = async ( timestamp: string, photo: any, realm: Realm ): Promise<void> => {
-  const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+  const oldAndroidDir = `${ExternalStorageDirectoryPath}/Seek/Pictures`;
   const oldFile = `${oldAndroidDir}/${timestamp}`;
   const newFile = `${dirPictures}/${timestamp}`;
 
@@ -176,7 +183,7 @@ const moveFileAndUpdateRealm = async ( timestamp: string, photo: any, realm: Rea
 };
 
 const deleteFile = ( filepath: string ): void => {
-  RNFS.unlink( filepath ).then( () => {
+  unlink( filepath ).then( () => {
     console.log( "unused backup filepath deleted: ", filepath );
   } ).catch( ( err ) => {
     console.log( err.message );
@@ -229,7 +236,7 @@ const updateRealmThumbnails = (): void => {
 
 const checkForDirectory = async ( dir: string ): Promise<boolean> => {
   try {
-    const exists = await RNFS.stat( dir );
+    const exists = await stat( dir );
     if ( exists ) {
       return true;
     }
@@ -241,7 +248,7 @@ const checkForDirectory = async ( dir: string ): Promise<boolean> => {
 };
 
 const moveAndroidFilesToInternalStorage = async (): Promise<void> => {
-  const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+  const oldAndroidDir = `${ExternalStorageDirectoryPath}/Seek/Pictures`;
   const dirExists = await checkForDirectory( oldAndroidDir );
 
   if ( dirExists ) {
@@ -295,7 +302,7 @@ const formatBytes = ( bytes: number, decimals: number = 2 ): string => {
 
 const checkPhotoSize = async ( file: string ): Promise<string> => {
   // this returns size in bytes
-  const stats = await RNFS.stat( file );
+  const stats = await stat( file );
   return formatBytes( Number( stats.size ) );
 };
 

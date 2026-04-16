@@ -6,17 +6,13 @@ on:
   pull_request:
   push:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  pre_build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: fkirc/skip-duplicate-actions@master
-        with:
-          github_token: ${{ github.token }}
-          cancel_others: true
   test:
     name: Run Tests
-    needs: pre_build
     runs-on: ubuntu-latest
     steps:
     - name: Check out Git repository

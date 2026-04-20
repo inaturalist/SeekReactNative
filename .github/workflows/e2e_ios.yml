@@ -21,12 +21,12 @@ jobs:
 
     steps:
     - name: Check out Git repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
 
     - name: Install Node.js, NPM and Yarn
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 22
 
@@ -36,7 +36,7 @@ jobs:
         bundler-cache: true        
 
     - name: Cache node modules
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: cache
       with:
         path: node_modules
@@ -59,7 +59,7 @@ jobs:
       run: npm install
 
     - name: Cache Pods
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: podcache
       with:
         path: ios/Pods
@@ -88,7 +88,7 @@ jobs:
       run: npm run e2e:build:ios
 
     - name: Upload iOS Detox app build
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: detox_app
         path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
@@ -102,18 +102,18 @@ jobs:
 
     steps:
     - name: Check out Git repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
 
     - name: Download iOS Detox app build
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v7
       with:
         name: detox_app
         path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
 
     - name: Cache node modules
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: cache
       with:
         path: node_modules
@@ -174,7 +174,7 @@ jobs:
     
     # The artifacts for the failing tests are available for download on github.com on the page of the individual actions run
     - name: Store Detox artifacts on test failure
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       # don't run this if it's status check that failed or if our first test run passes (no first_test_run check needed)
       if: ${{ failure() && steps.status_check.outcome != 'failure' }}
       with:

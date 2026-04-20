@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@bam.tech/react-native-image-resizer": "^3.0.11",
+    "@dr.pogodin/react-native-fs": "^2.36.1",
     "@formidable-webview/webshell": "^2.6.0",
     "@lodev09/react-native-exify": "^1.0.3",
     "@react-native-async-storage/async-storage": "^2.2.0",
@@ -54,7 +55,6 @@
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^15.0.1",
     "react-native-exception-handler": "^2.10.10",
-    "react-native-fs": "^2.20.0",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "^2.30.0",

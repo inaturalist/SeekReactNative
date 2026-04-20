@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import RNFS from "react-native-fs";
+import { readFile, DocumentDirectoryPath, exists } from "@dr.pogodin/react-native-fs";
 import { Platform } from "react-native";
 
 import { dirPictures } from "../dirStorage";
@@ -35,7 +35,7 @@ const useUserPhoto = ( item: {
            setPhoto( { uri: backupFilepath } );
          }
        } else {
-         RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
+         readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
            if ( isCurrent ) {
              setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
            }
@@ -49,14 +49,14 @@ const useUserPhoto = ( item: {
    }, [item] );
 
    const checkV1 = useCallback( async ( uuidString: string, isCurrent ) => {
-     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+     const seekv1Photos = `${DocumentDirectoryPath}/large`;
      const photoPath = `${seekv1Photos}/${uuidString}`;
 
      try {
-       const isv1Photo = await RNFS.exists( photoPath );
+       const isv1Photo = await exists( photoPath );
 
        if ( isv1Photo ) {
-         RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+         readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
            if ( isCurrent ) {
              setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
            }

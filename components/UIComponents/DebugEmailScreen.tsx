@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Mailer from "react-native-mail";
 import { getVersion, getBuildNumber, getSystemName } from "react-native-device-info";
-import RNFS from "react-native-fs";
+import { readFile } from "@dr.pogodin/react-native-fs";
 
 import GreenButton from "./Buttons/GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
@@ -21,7 +21,7 @@ const DebugEmailScreen = ( ) => {
   // Get log file contents on initial render
   useEffect( ( ) => {
     async function fetchLogContents( ) {
-      const contents = await RNFS.readFile( pathLogs );
+      const contents = await readFile( pathLogs );
       setLogContents( contents );
     }
     fetchLogContents( );

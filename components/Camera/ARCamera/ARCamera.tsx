@@ -45,6 +45,7 @@ import { UserContext } from "../../UserContext";
 import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { log } from "../../../react-native-logs.config";
+import { useCameraLocationPreference } from "../../Providers/CameraLocationPreferenceProvider";
 import { useObservation } from "../../Providers/ObservationProvider";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
@@ -136,7 +137,7 @@ const ARCamera = ( ) => {
   
   const location = useLocationPermissionCamera();
   const { hasPermission } = location;
-  const [userDisabledLocation, setUserDisabledLocation] = useState( false );
+  const { userDisabledLocation, setUserDisabledLocation } = useCameraLocationPreference();
   const useLocation = hasPermission && !userDisabledLocation;
 
   const toggleLocation = () => {

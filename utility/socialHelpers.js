@@ -6,7 +6,7 @@ import { Platform, Alert, Image, Linking } from "react-native";
 // I have removed this dependency because it was blocking an update to react-native 0.77.2
 // and the social screens that import these functions are not used in the app currently.
 // import Marker from "react-native-image-marker";
-import RNFS from "react-native-fs";
+import { stat, TemporaryDirectoryPath, copyAssetsFileIOS } from "@dr.pogodin/react-native-fs";
 
 import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
@@ -60,7 +60,7 @@ const saveToCameraRoll = async ( uri: string ): Promise<?string> => {
 };
 
 const getAndroidCameraRollPath = async ( uri: string ) => {
-  const { originalFilepath } = await RNFS.stat( uri );
+  const { originalFilepath } = await stat( uri );
   return "file://" + originalFilepath;
 };
 
@@ -178,10 +178,10 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
 // adapted from https://stackoverflow.com/questions/50909390/react-native-how-to-get-file-asset-image-absolute-path
 const getAssetFileAbsolutePath = async ( assetPath: string ): Promise<?string> => {
   if ( Platform.OS === "android" ) { return assetPath; }
-  const dest = `${RNFS.TemporaryDirectoryPath}${Math.random().toString( 36 ).substring( 7 )}.jpg`;
+  const dest = `${TemporaryDirectoryPath}${Math.random().toString( 36 ).substring( 7 )}.jpg`;
 
   try {
-    let absolutePath = await RNFS.copyAssetsFileIOS( assetPath, dest, 0, 0 );
+    let absolutePath = await copyAssetsFileIOS( assetPath, dest, 0, 0 );
     return "file://" + absolutePath;
   } catch ( err ) {
     console.log( err );

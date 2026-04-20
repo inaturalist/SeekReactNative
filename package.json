@@ -48,9 +48,9 @@
     "i18n-js": "^4.3.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "jsrsasign": "^11.1.1",
-    "lodash": "^4.18.1",
-    "react": "19.1.1",
-    "react-native": "0.82.1",
+    "lodash": "^4.17.23",
+    "react": "19.2.0",
+    "react-native": "0.83.4",
     "react-native-check-app-install": "github:redpandatronicsuk/react-native-check-app-install",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^15.0.1",
@@ -98,10 +98,10 @@
     "@react-native-community/cli": "20.0.0",
     "@react-native-community/cli-platform-android": "20.0.0",
     "@react-native-community/cli-platform-ios": "20.0.0",
-    "@react-native/babel-preset": "0.82.1",
-    "@react-native/eslint-config": "0.82.1",
-    "@react-native/metro-config": "0.82.1",
-    "@react-native/typescript-config": "0.82.1",
+    "@react-native/babel-preset": "0.83.4",
+    "@react-native/eslint-config": "0.83.4",
+    "@react-native/metro-config": "0.83.4",
+    "@react-native/typescript-config": "0.83.4",
     "@rozenite/metro": "^1.6.0",
     "@rozenite/network-activity-plugin": "^1.6.0",
     "@rozenite/react-navigation-plugin": "^1.6.0",
@@ -111,7 +111,7 @@
     "@testing-library/react-native": "^13.3.3",
     "@types/jest": "^29.5.13",
     "@types/lodash": "^4.17.23",
-    "@types/react": "^19.1.1",
+    "@types/react": "^19.2.0",
     "@types/react-dom": "^19.1.0",
     "@types/react-native-check-box": "^2.1.6",
     "@types/react-native-simple-radio-button": "^2.7.7",
@@ -134,7 +134,7 @@
     "patch-package": "^8.0.1",
     "prettier": "^3.2.2",
     "react-native-clean-project": "^4.0.3",
-    "react-test-renderer": "19.1.1",
+    "react-test-renderer": "19.2.0",
     "typescript": "^5.8.3"
   },
   "overrides": {
@@ -162,7 +162,7 @@
     ]
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19.4"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

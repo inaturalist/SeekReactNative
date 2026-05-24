@@ -1,0 +1,34 @@
+---
+name: Report a code-level technical issue
+about: Create a report to help us improve, with code-level/engineering specific concerns
+title: ''
+type: Bug
+assignees: ''
+
+---
+
+[//]: # (For feature requests and bug reports not specifically concerning code, please use https://forum.inaturalist.org/c/bug-reports. To request a feature, use https://forum.inaturalist.org/c/feature-requests. To ask a technical question, use https://github.com/inaturalist/inaturalist/discussions. To report a security vulnerability, email help+security@inaturalist.org)
+
+**Describe the bug**
+A clear and concise description of what the bug is, preferably with citations to the relevant code in this github repo.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Tap on '....'
+3. Scroll down to '....'
+4. See error
+
+**Expected behavior**
+A clear and concise description of what you expected to happen.
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Context (please complete the following information):**
+ - Device: [e.g. iPhone 16]
+ - OS: [e.g. iOS 26.5]
+ - App version: [e.g. 1.0.20]
+
+**Additional context**
+Add any other context about the problem here.

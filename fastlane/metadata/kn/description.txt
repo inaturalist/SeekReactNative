@@ -1,23 +1,23 @@
-Use the power of image recognition technology to identify the plants and animals all around you. Earn badges for seeing different types of plants, birds, fungi and more!
+ಚಿತ್ರ ಗುರುತಿಸುವಿಕೆ ತಂತ್ರಜ್ಞಾನದ ಬಲವನ್ನು ಬಳಸಿ ನಿಮ್ಮ ಸುತ್ತಮುತ್ತಲಿನ ಸಸ್ಯ ಮತ್ತು ಪ್ರಾಣಿ ಪಕ್ಷಿಗಳನ್ನು ಗುರುತಿಸಿ.  ವಿವಿಧ ಬಗೆಯ ಸಸ್ಯ, ಹಕ್ಕಿ, ಶಿಲೀಂದ್ರ ಮತ್ತು ಇನ್ನೂ ಹಲವಾರನ್ನು ಗಮನಿಸಿ ಮತ್ತು ಪದಕಗಳನ್ನು ಗಳಿಸಿ!
 
-• Get outside and point the Seek Camera at living things
-• Identify wildlife, plants, and fungi and learn about the organisms all around you
-• Earn badges for observing different types of species and participating in challenges
+• ಹೊರಗೆ ಬನ್ನಿ ಮತ್ತು ಸೀಕ್ ನ ಕ್ಯಾಮೆರಾವನ್ನು ಜೀವಂತ ವಸ್ತುಗಳ ಕಡೆಗೆ ತಿರುಗಿಸಿ
+• ವನ್ಯಜೀವಿ, ಸಸ್ಯಗಳು, ಶಿಲೀಂದ್ರಗಳನ್ನು ಗುರುತಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಸುತ್ತ ಮುತ್ತಲಿನ ಎಲ್ಲಾ ಜೀವಿಗಳ ಬಗ್ಗೆ ತಿಳಿಯಿರಿ.
+• ವಿವಿಧ ಬಗೆಯ ಪ್ರಭೇದಗಳನ್ನು ವೀಕ್ಷಿಸುವ ಮೂಲಕ ಹಾಗೂ ಸ್ಪರ್ಧೆಗಳಲ್ಲಿ ಭಾಗವಹಿಸುವ ಮೂಲಕ ಪದಕಗಳನ್ನು ಗಳಿಸಿ
 
-OPEN THE CAMERA AND START SEEKING!
+ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ ಮತ್ತು ಸೀಕಿಂಗ್ ಶುರು ಮಾಡಿ!
 
 ಅಣಬೆ, ಹೂವು ಅಥವಾ ಕೀಟವೊಂದು ಕಂಡಿತೇ, ಮತ್ತು ಅದು ಏನೆಂದು ನಿಮಗೆ ಖಾತ್ರಿಯಿಲ್ಲವೇ? Seek ಕ್ಯಾಮೆರವನ್ನು ತೆರೆದು ಅದಕ್ಕೆ ಗೊತ್ತಿರಬಹುದಾ ನೋಡಿ!
 
-Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. Add different species to your observations and learn all about them in the process! The more observations you make, the more badges you’ll earn!
+Drawing from millions of wildlife observations on iNaturalist, Seek shows you lists of commonly recorded insects, birds, plants, amphibians, and more in your area. Scan the environment with the Seek Camera to identify organisms using the tree of life. ನಿಮ್ಮ ವೀಕ್ಷಣೆಗಳಲ್ಲಿ ವಿವಿಧ ಬಗೆಯ ಪ್ರಭೇದಗಳನ್ನು ಸೇರಿಸಿ ಮತ್ತು ಈ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ಅವುಗಳ ಬಗ್ಗೆ ಎಲ್ಲವನ್ನೂ ಕಲಿಯಿರಿ. ನೀವು ಹೆಚ್ಚು ಹೆಚ್ಚು ವೀಕ್ಷಣೆ ಮಾಡಿದಷ್ಟೂ ಹೆಚ್ಚಿನ ಪದಕಗಳನ್ನು ಗಳಿಸುವಿರಿ!
 
-This is a great app for families who want to spend more time exploring nature together, and for anyone who wants to learn more about the life all around them.
+ನಿಸರ್ಗವನ್ನು ಅನ್ವೇಷಿಸಲು ಕುಟುಂಬದೊಂದಿಗೆ ಸಮಯ ಮೀಸಲಿರಿಸುವ ಮತ್ತು ತಮ್ಮ ಸುತ್ತಮುತ್ತಲಿನ ಪರಿಸರದ ಬಗ್ಗೆ ಅರಿಯಲು ಇಚ್ಛಿಸುವ ಪ್ರತಿಯೊಬ್ಬರಿಗೂ ಇದು ಒಂದು ಅತ್ಯದ್ಭುತ ಅಪ್ ಆಗಿದೆ. 
 
-KID-SAFE
+ಮಕ್ಕಳ-ಸ್ನೇಹಿ
 
-Seek does not require registration and does not collect any user data by default. Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so.
+ಸೀಕ್ ಗೆ ನೋಂದಣಿಯ ಅಗತ್ಯವಿಲ್ಲ ಮತ್ತು ಇದು ಯಾವುದೇ ಬಗೆಯ ಬಳಕೆದಾರರ ದತ್ತಾಂಶವನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ. ನೀವು ಐನ್ಯಾಚುರಲಿಸ್ಟ್ ಖಾತೆಯಿಂದ ಸೈನ್ ಇನ್ ಆದಲ್ಲಿ ಕೆಲವು ಬಳಕೆದಾರರ ದತ್ತಾಂಶವು ಸಂಗ್ರಹವಾಗುತ್ತದೆ, ಆದರೆ ನೀವು ಹಾಗೆ ಮಾಡಲು 13 ಅಥವಾ ಅದಕ್ಕೂ ಹೆಚ್ಚಿನ ವಯೋಮಾನದವರಾಗಿರಬೇಕು ಅಥವಾ ನಿಮ್ಮ ಪಾಲಕರ ಅನುಮತಿ ಹೊಂದಿರಬೇಕು.
 
 Seek will ask permission to turn on location services, but your location is obscured to respect your privacy while still allowing species suggestions from your general area. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
 
 Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
 
-Seek is part of iNaturalist, a not-for-profit organization. Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.
+ಸೀಕ್ ಐನ್ಯಾಚುರಲಿಸ್ಟ್ ನ ಒಂದು ಭಾಗವಾಗಿದೆ, ಇದು ಲಾಭರಹಿತ ಸೇವಾ ಸಂಸ್ಥೆ Seek was made by the iNaturalist team with support from the California Academy of Sciences, the National Geographic Society, Our Planet on Netflix, WWF, HHMI Tangled Bank Studios, and Visipedia.

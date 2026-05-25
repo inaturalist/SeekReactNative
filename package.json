@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@bam.tech/react-native-image-resizer": "^3.0.11",
-    "@dr.pogodin/react-native-fs": "^2.36.1",
+    "@dr.pogodin/react-native-fs": "^2.38.2",
     "@formidable-webview/webshell": "^2.6.0",
     "@lodev09/react-native-exify": "^1.0.3",
     "@react-native-async-storage/async-storage": "^2.2.0",

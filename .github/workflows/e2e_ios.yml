@@ -33,7 +33,14 @@ jobs:
     - name: Setup Ruby version according to .ruby-version with cached gems
       uses: ruby/setup-ruby@v1
       with:
-        bundler-cache: true        
+        bundler-cache: true
+
+    # Required workaround for Firebase & XCode >26.0.1
+    # https://github.com/actions/runner-images/issues/13135#issuecomment-3397914993
+    - name: Set Xcode Toolchain
+      shell: bash
+      run: |
+        echo "TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault" >> $GITHUB_ENV
 
     - name: Cache node modules
       uses: actions/cache@v5

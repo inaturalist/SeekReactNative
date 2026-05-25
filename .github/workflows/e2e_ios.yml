@@ -15,7 +15,7 @@ concurrency:
   
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-26
     # Kill the job if not finished after 60 minutes
     timeout-minutes: 60
 
@@ -96,7 +96,7 @@ jobs:
 
   test:
     needs: build
-    runs-on: macos-15
+    runs-on: macos-26
     # Kill the job if not finished after 60 minutes
     timeout-minutes: 60
 
@@ -186,7 +186,7 @@ jobs:
     name: Notify Slack
     needs: test
     if: ${{ success() || failure() }}
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
       - uses: iRoachie/slack-github-actions@v2.3.0
         if: env.SLACK_WEBHOOK_URL != null

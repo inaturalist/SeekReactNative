@@ -15,14 +15,16 @@ const onlyCheckLocationPermissions = async ( ): Promise<boolean> => {
 };
 
 const checkLocationPermissions = async ( ): Promise<boolean> => {
-  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
-
   try {
-    const granted = await PermissionsAndroid.request( location );
-    if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-      return true;
-    }
-    return false;
+    const results = await PermissionsAndroid.requestMultiple( [
+      ACCESS_FINE_LOCATION,
+      ACCESS_COARSE_LOCATION,
+    ] );
+    const { GRANTED } = PermissionsAndroid.RESULTS;
+    return (
+      results[ACCESS_FINE_LOCATION] === GRANTED
+      || results[ACCESS_COARSE_LOCATION] === GRANTED
+    );
   } catch ( err ) {
     return err;
   }

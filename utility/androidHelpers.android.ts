@@ -1,24 +1,30 @@
 import { PermissionsAndroid, Platform } from "react-native";
 
-const onlyCheckLocationPermissions = async ( ): Promise<boolean> => {
-  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
+const { ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION } = PermissionsAndroid.PERMISSIONS;
 
+const onlyCheckLocationPermissions = async ( ): Promise<boolean> => {
   try {
-    return await PermissionsAndroid.check( location );
+    // On Android 12+ the user may grant only approximate (coarse) location,
+    // leaving fine location denied. Either is sufficient for our use cases.
+    const fine = await PermissionsAndroid.check( ACCESS_FINE_LOCATION );
+    if ( fine ) return true;
+    return await PermissionsAndroid.check( ACCESS_COARSE_LOCATION );
   } catch ( err ) {
     return err;
   }
 };
 
 const checkLocationPermissions = async ( ): Promise<boolean> => {
-  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
-
   try {
-    const granted = await PermissionsAndroid.request( location );
-    if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-      return true;
-    }
-    return false;
+    const results = await PermissionsAndroid.requestMultiple( [
+      ACCESS_FINE_LOCATION,
+      ACCESS_COARSE_LOCATION,
+    ] );
+    const { GRANTED } = PermissionsAndroid.RESULTS;
+    return (
+      results[ACCESS_FINE_LOCATION] === GRANTED
+      || results[ACCESS_COARSE_LOCATION] === GRANTED
+    );
   } catch ( err ) {
     return err;
   }

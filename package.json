@@ -122,6 +122,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "babel-plugin-react-compiler": "^19.1.0-rc.3",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "chalk": "^5.4.1",
     "decompress": "^4.2.1",
     "detox": "^20.50.1",
     "eslint": "^8.57.1",
@@ -138,7 +139,8 @@
     "prettier": "^3.2.2",
     "react-native-clean-project": "^4.0.3",
     "react-test-renderer": "19.2.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "yargs": "^17.7.2"
   },
   "jest": {
     "preset": "react-native",

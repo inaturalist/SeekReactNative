@@ -1,10 +1,14 @@
 {
   "ignorePatterns": ["**/vendor/**"],
-  "extends": ["@react-native"],
+  "extends": [
+    "@react-native",
+    "plugin:react-hooks/recommended"
+  ],
   "plugins": [
     "@stylistic",
     "import",
-    "lodash"
+    "lodash",
+    "react-hooks"
   ],
   "rules": {
     "@stylistic/member-delimiter-style": 2,
@@ -20,7 +24,17 @@
     "lodash/import-scope": 2,
     "prettier/prettier": 0,
     "quotes": [2, "double"],
-    "react-hooks/react-compiler": "error",
+    // React-Hooks Plugin
+    // The following rules are made available via `eslint-plugin-react-hooks`
+    "react-hooks/exhaustive-deps": 2,
+    // React Compiler
+    // These rules are specific to React Compiler.
+    "react-hooks/static-components": 1,
+    "react-hooks/set-state-in-effect": 1,
+    "react-hooks/refs": 1,
+    "react-hooks/preserve-manual-memoization": 1,
+    "react-hooks/purity": 1,
+    "react-hooks/immutability": 1,
     "space-in-parens": [2, "always"]
   },
   "settings": {

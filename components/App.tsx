@@ -24,6 +24,13 @@ import { LogLevels, logToApi } from "../utility/apiCalls";
 import ErrorBoundary from "./ErrorBoundary";
 import { useNetworkActivityDevTools } from "@rozenite/network-activity-plugin";
 import { useRequireProfilerDevTools } from "@rozenite/require-profiler-plugin";
+import * as RNFS from "@dr.pogodin/react-native-fs";
+import {
+  createRNFSAdapter,
+  useFileSystemDevTools,
+} from "@rozenite/file-system-plugin";
+import { createAsyncStorageAdapter, useRozeniteStoragePlugin } from "@rozenite/storage-plugin";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const logger = log.extend( "App.tsx" );
 
@@ -81,10 +88,23 @@ setNativeExceptionHandler(
 
 const style = { flex: 1 } as const;
 
+const storageAdapters = [
+  createAsyncStorageAdapter( {
+    storage: AsyncStorage,
+  } ),
+];
+
 const App = ( ) => {
   // note: automatically disabled in Production builds
   useNetworkActivityDevTools();
   useRequireProfilerDevTools();
+  useFileSystemDevTools( {
+    adapter: createRNFSAdapter( RNFS ),
+  } );
+  useRozeniteStoragePlugin( {
+    storages: storageAdapters,
+  } );
+
   useEffect( () => {
     logger.info( `App start. Version: ${getVersion()} Build: ${getBuildNumber()}` );
   }, [] );

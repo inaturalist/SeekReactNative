@@ -21,6 +21,7 @@
     ],
     "comma-dangle": [2, "always-multiline"],
     "import/consistent-type-specifier-style": [2, "prefer-top-level"],
+    "import/no-extraneous-dependencies": [2, {}],
     "lodash/import-scope": 2,
     "prettier/prettier": 0,
     "quotes": [2, "double"],

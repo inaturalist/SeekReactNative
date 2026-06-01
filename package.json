@@ -46,7 +46,7 @@
     "fbjs": "^3.0.5",
     "geolib": "^3.3.4",
     "i18n-js": "^4.3.2",
-    "inaturalistjs": "github:inaturalist/inaturalistjs",
+    "inaturalistjs": "github:inaturalist/inaturalistjs#70d6f5dd639aa10ae3208215ac6eef84825d6d2e",
     "jsrsasign": "^11.1.1",
     "lodash": "^4.18.1",
     "react": "19.2.0",

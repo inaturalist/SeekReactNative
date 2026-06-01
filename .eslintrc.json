@@ -6,9 +6,6 @@
     "import"
   ],
   "rules": {
-    "quotes": [2, "double"],
-    "comma-dangle": [2, "always-multiline"],
-    "space-in-parens": [2, "always"],
     "@stylistic/member-delimiter-style": 2,
     "@typescript-eslint/array-type": 2,
     "@typescript-eslint/consistent-type-imports": [
@@ -17,9 +14,12 @@
         "fixStyle": "separate-type-imports"
       }
     ],
+    "comma-dangle": [2, "always-multiline"],
     "import/consistent-type-specifier-style": [2, "prefer-top-level"],
     "prettier/prettier": 0,
-    "react-hooks/react-compiler": "error"
+    "quotes": [2, "double"],
+    "react-hooks/react-compiler": "error",
+    "space-in-parens": [2, "always"]
   },
   "settings": {
     "import/resolver": {

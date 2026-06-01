@@ -165,7 +165,6 @@ const ARCamera = ( ) => {
       case ACTION.SET_PREDICTIONS:
         return { ...state, allPredictions: action.predictions };
       case ACTION.RESET_STATE:
-        // eslint-disable-next-line react-hooks/react-compiler
         pictureTaken.value = false;
         return {
           ...state,

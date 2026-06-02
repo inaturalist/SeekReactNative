@@ -138,7 +138,8 @@
     "prettier": "^3.2.2",
     "react-native-clean-project": "^4.0.3",
     "react-test-renderer": "19.2.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "yargs": "^17.7.2"
   },
   "jest": {
     "preset": "react-native",

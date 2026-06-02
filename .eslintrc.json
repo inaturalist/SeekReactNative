@@ -37,7 +37,7 @@
     "@typescript-eslint/no-require-imports": [
       2,
       {
-        "allow": ["\\.(png|jpg|jpeg|gif|svg)$"]
+        "allow": ["\\.(png|webp)$"]
       }
     ],
     "@typescript-eslint/no-unsafe-function-type": 1,

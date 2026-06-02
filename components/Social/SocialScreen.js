@@ -112,7 +112,7 @@ const SocialScreen = ( ): Node => {
 
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
-  const createWatermark = useCallback( async ( uriToWatermark: string, type: string ) => {
+  const createWatermark = useCallback( async ( uriToWatermark: string, _type: string ) => {
     if ( noWatermark ) {
       return;
     }

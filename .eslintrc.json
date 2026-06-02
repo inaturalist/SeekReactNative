@@ -40,6 +40,10 @@
         "allow": ["\\.(png|webp)$"]
       }
     ],
+    // TODO: I have disabled this for now because my current PR is only concerned about adding the
+    // ruleset as iNat has it. Apparently, we have a lot of these errors but they all need dedicated
+    // typing effort of whatever is an error here, i.e. no quick-fix.
+    "@typescript-eslint/no-explicit-any": 1,
     "@typescript-eslint/no-unsafe-function-type": 1,
     "@typescript-eslint/no-unused-vars": [
       2,

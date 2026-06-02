@@ -40,7 +40,7 @@ export enum ACTION {
   SHOW_SIMILAR_SPECIES = "SHOW_SIMILAR_SPECIES",
   RESET_STATE = "RESET_STATE",
 }
-type State = {
+interface State {
   similarSpecies: Taxon[];
   loading: boolean;
 }

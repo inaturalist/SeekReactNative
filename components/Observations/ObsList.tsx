@@ -18,7 +18,7 @@ interface Observation {
   data: any[];
 }
 
-type Taxon = {
+interface Taxon {
   id: number;
   iconicTaxonId?: number | undefined;
   preferredCommonName?: string | undefined;
@@ -28,7 +28,7 @@ type Taxon = {
     mediumUrl?: string;
     lastUpdated?: Date;
   };
-};
+}
 
 interface ConvertedDataItem {
   taxon: Taxon;

@@ -6,7 +6,7 @@ import { capitalizeNames } from "../../../utility/helpers";
 import type { Coords} from "../../../utility/locationHelpers";
 import { fetchUserLocation } from "../../../utility/locationHelpers";
 
-export type Suggestion = {
+export interface Suggestion {
   defaultPhoto: {
     medium_url: string;
   };

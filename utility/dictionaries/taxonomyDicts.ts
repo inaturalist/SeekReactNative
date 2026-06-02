@@ -1,6 +1,6 @@
-type IconicTaxaById = {
+interface IconicTaxaById {
   [key: number]: string;
-};
+}
 
 const iconicTaxaNames: IconicTaxaById = {
   47126: "species_detail.plant",

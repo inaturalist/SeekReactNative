@@ -16,7 +16,7 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
 
-type Taxon = {
+interface Taxon {
   id: number;
   iconicTaxonId?: number | undefined;
   preferredCommonName?: string | undefined;
@@ -26,7 +26,7 @@ type Taxon = {
     mediumUrl?: string;
     lastUpdated?: Date;
   };
-};
+}
 interface Props {
   readonly item: {
     taxon: Taxon;

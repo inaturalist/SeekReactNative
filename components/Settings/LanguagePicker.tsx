@@ -72,7 +72,11 @@ const LanguagePicker = () => {
       toggleLanguagePreference();
       return;
     }
-    Platform.OS === "ios" ? setPickerValue( value ) : showAlert( value );
+    if ( Platform.OS === "ios" ) {
+      setPickerValue( value );
+    } else {
+      showAlert( value );
+    }
   }, [displayLanguage, preferredLanguage, toggleLanguagePreference, showAlert] );
 
   const onDonePress = useCallback( ( ) => {

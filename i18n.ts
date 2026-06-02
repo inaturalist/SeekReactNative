@@ -81,10 +81,10 @@ i18n.enableFallback = true;
   // Takes a count that might be a localized string with delimiters and turns it
   // into a number we can use for determining the right plural form
   function normalizeCount( count, locale ) {
-    var separator = i18n.t( "number.format.separator", { locale: locale } );
-    var delimiter = i18n.t( "number.format.delimiter", { locale: locale } );
-    var pieces = count.toString().split( separator );
-    var parsableString = pieces.join( "." );
+    const separator = i18n.t( "number.format.separator", { locale: locale } );
+    const delimiter = i18n.t( "number.format.delimiter", { locale: locale } );
+    const pieces = count.toString().split( separator );
+    let parsableString = pieces.join( "." );
     if ( pieces.length === 2 ) {
       parsableString = pieces[0].replace( delimiter, "" ) + "." + pieces[1];
     } else {
@@ -95,10 +95,10 @@ i18n.enableFallback = true;
 
   // Common pluralization rules
   function eastSlavic( count, locale ) {
-    var n = normalizeCount( count, locale ) || 0;
-    var mod10 = n % 10;
-    var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, locale ) || 0;
+    const mod10 = n % 10;
+    const mod100 = n % 100;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( mod10 === 1 && mod100 !== 11 ) {
       return ["one"];
     }
@@ -119,29 +119,29 @@ i18n.enableFallback = true;
   }
 
   function westSlavic( count, locale ) {
-    var n = normalizeCount( count, locale ) || 0;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, locale ) || 0;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 1 ) {return ["one"];}
     if ( n >= 2 && n <= 4 && isWhole ) {return ["few"];}
     return ["other"];
   }
 
   function oneUptoTwoOther( count, locale ) {
-    var n = normalizeCount( count, locale ) || 0;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, locale ) || 0;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     return n && n >= 0 && n < 2 && isWhole ? ["one"] : ["other"];
   }
 
   function oneFewOther( count, locale ) {
-    var n = normalizeCount( count, locale ) || 0;
-    var frac = ( n % 1 );
+    let n = normalizeCount( count, locale ) || 0;
+    const frac = ( n % 1 );
 
     if ( frac > 0 ) {
       n = parseInt( frac.toString( ).split( "." )[1], 2 );
     }
 
-    var mod10 = n % 10;
-    var mod100 = n % 100;
+    const mod10 = n % 10;
+    const mod100 = n % 100;
 
     if ( mod10 === 1 && mod100 !== 11 ) {
       return ["one"];
@@ -167,9 +167,9 @@ i18n.enableFallback = true;
 
   // Add pluralization rules for locales
   i18n.pluralization.register( "ar", ( _i18n, count ) => {
-    var n = normalizeCount( count, "ar" ) || 0;
-    var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, "ar" ) || 0;
+    const mod100 = n % 100;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 0 ) {
       return ["zero"];
     }
@@ -185,9 +185,9 @@ i18n.enableFallback = true;
     return ["other"];
   } );
   i18n.pluralization.register( "br", ( _i18n, count ) => {
-    var n = normalizeCount( count, "br" ) || 0;
-    var mod10 = n % 10;
-    var mod100 = n % 100;
+    const n = normalizeCount( count, "br" ) || 0;
+    const mod10 = n % 10;
+    const mod100 = n % 100;
     if ( mod10 === 1 && [11, 71, 91].indexOf( mod100 ) < 0 ) {
       return ["one"];
     }
@@ -206,10 +206,10 @@ i18n.enableFallback = true;
   i18n.pluralization.register( "ja", other );
   i18n.pluralization.register( "ko", other );
   i18n.pluralization.register( "lt", ( _i18n, count ) => {
-    var n = normalizeCount( count, "lt" ) || 0;
-    var mod10 = n % 10;
-    var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, "lt" ) || 0;
+    const mod10 = n % 10;
+    const mod100 = n % 100;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if (
       mod10 === 1
       && !( mod100 >= 11 && mod100 <= 19 )
@@ -228,8 +228,8 @@ i18n.enableFallback = true;
     return ["other"];
   } );
   i18n.pluralization.register( "mk", ( _i18n, count ) => {
-    var n = normalizeCount( count, "mk" ) || 0;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, "mk" ) || 0;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if (
       n % 10 === 1
       && n !== 11
@@ -240,10 +240,10 @@ i18n.enableFallback = true;
     return ["other"];
   } );
   i18n.pluralization.register( "pl", ( _i18n, count ) => {
-    var n = normalizeCount( count, "pl" ) || 0;
-    var mod10 = n % 10;
-    var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, "pl" ) || 0;
+    const mod10 = n % 10;
+    const mod100 = n % 100;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 1 ) {
       return ["one"];
     }
@@ -263,9 +263,9 @@ i18n.enableFallback = true;
     return ["other"];
   } );
   i18n.pluralization.register( "ro", ( _i18n, count ) => {
-    var n = normalizeCount( count, "ro" ) || 0;
-    var mod100 = n % 100;
-    var isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
+    const n = normalizeCount( count, "ro" ) || 0;
+    const mod100 = n % 100;
+    const isWhole = parseInt( n, 0 ) === n; // eslint-disable-line radix
     if ( n === 1 ) {
       return ["one"];
     }

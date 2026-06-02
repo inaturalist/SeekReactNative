@@ -26,7 +26,7 @@ const useRegion = (
     longitude: number;
     latitudeDelta: number;
     longitudeDelta: number;
-  } | {}>( {} );
+  } | object>( {} );
 
   const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );
 

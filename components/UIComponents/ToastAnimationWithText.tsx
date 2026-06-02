@@ -9,10 +9,10 @@ interface Props {
   visible: boolean;
   toastText: string;
   helpText: string;
-  styles: Object;
+  styles: object;
   finishAnimation?: () => void;
   rectangleColor: string | null;
-  textStyles: Object;
+  textStyles: object;
 }
 
 const ToastAnimationWithText = ( {

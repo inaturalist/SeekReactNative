@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import realmConfig from "../../models";
 
-type Observation = {
+interface Observation {
   uuidString?: string;
   date?: Date;
   taxon: {

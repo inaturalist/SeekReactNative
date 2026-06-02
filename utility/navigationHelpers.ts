@@ -41,13 +41,13 @@ const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( stri
     } else {
       resetRouter( "Drawer" );
     }
-  } catch ( e ) {
+  } catch ( _e ) {
     resetRouter( "Drawer" );
   }
 };
 
 interface Navigation {
-  dispatch: Object;
+  dispatch: object;
 }
 
 const resetRouter = ( navigation: Navigation ): any => navigation.dispatch(

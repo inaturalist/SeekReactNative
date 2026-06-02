@@ -28,7 +28,7 @@ const CameraSettings = ( ) => {
       return;
     }
     const value = await updateUserSetting( "scientificNames", newValue );
-    const newSettings: Object = {
+    const newSettings = {
       autoCapture: settings.autoCapture,
       scientificNames: value,
     };
@@ -37,7 +37,7 @@ const CameraSettings = ( ) => {
 
   const setAutoCapture = async ( ) => {
     const value = await updateUserSetting( "autoCapture", !settings.autoCapture );
-    const newSettings: Object = {
+    const newSettings = {
       scientificNames: settings.scientificNames,
       autoCapture: value,
     };

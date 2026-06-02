@@ -14,7 +14,7 @@ import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   handlePress?: () => void;
-  photo: Object;
+  photo: object;
   allowFontScaling?: boolean;
   taxon: {
     iconicTaxonId?: number;

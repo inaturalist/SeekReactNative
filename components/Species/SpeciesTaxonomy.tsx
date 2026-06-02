@@ -32,7 +32,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
 
   useEffect( ( ) => {
     const rankNames = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
-    let ranks = [70, 60, 50, 40, 30, 20, 10];
+    const ranks = [70, 60, 50, 40, 30, 20, 10];
 
     const createAncestors = ( ) => {
       const predictionAncestors: Promise<Taxon>[] = [];

@@ -44,7 +44,7 @@ const fetchSpeciesNearby = async ( params: Params ): Promise<string | any[]> => 
     const { results }: { results: { taxon: any }[] } = await response.json( );
     const newTaxa = results.map( r => r.taxon );
     return newTaxa;
-  } catch ( e ) {
+  } catch ( _e ) {
     return "unknown";
   }
 };
@@ -87,7 +87,7 @@ const logToApi = async ( { level, message, context, errorType, backtrace }: Log 
   try {
     const response = await fetch( site, options );
     return response;
-  } catch ( e ) {
+  } catch ( _e ) {
     return "unknown";
   }
 };

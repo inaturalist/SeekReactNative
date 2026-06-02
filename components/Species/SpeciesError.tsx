@@ -12,7 +12,7 @@ import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
-  readonly seenTaxa: Object | null;
+  readonly seenTaxa: object | null;
   readonly checkForInternet: () => void;
 }
 

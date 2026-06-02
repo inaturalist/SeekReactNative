@@ -19,9 +19,9 @@ type Props = {
 
 const CropScreen = ( {
   saveCrop,
-  uri,
-  cropViewRef,
-  handleImageCrop,
+  uri: _uri,
+  cropViewRef: _cropViewRef,
+  handleImageCrop: _handleImageCrop,
   closeModal,
 }: Props ): React.Node => (
   <SafeAreaView style={viewStyles.cropScreenContainer} edges={["top"]}>

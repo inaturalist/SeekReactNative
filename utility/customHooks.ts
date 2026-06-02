@@ -88,7 +88,7 @@ const useLocationPermission = (): boolean | null => {
         if ( isCurrent ) {
           setGranted( status );
         }
-      } catch ( e ) {
+      } catch ( _e ) {
         if ( isCurrent ) {
           setGranted( false );
         }
@@ -121,7 +121,7 @@ const useTruncatedUserCoords = ( granted: boolean | null ): TruncatedCoords | nu
             setCoords( userCoords );
           }
         }
-      } catch ( e ) {
+      } catch ( _e ) {
         setCoords( null );
       }
     };
@@ -193,7 +193,7 @@ const useUploadedObservationCount = ( {
         } );
       }
       return savedLogin[0].observationCount;
-    } catch ( e ) {
+    } catch ( _e ) {
       console.log( "couldn't update saved login" );
     }
   };

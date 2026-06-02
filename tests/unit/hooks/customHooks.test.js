@@ -8,7 +8,7 @@ jest.mock( "inaturalistjs", () => ( {
   __esModule: true,
   default: {
     observations: {
-      search: jest.fn( ( params, options ) => {
+      search: jest.fn( ( params, _options ) => {
         const total_results = params?.year === 2021 ? 12 : 42;
         return {
           total_results,

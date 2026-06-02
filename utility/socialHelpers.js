@@ -20,7 +20,7 @@ type ImageSize = {
 
 const shareToFacebook = async ( url: string ): Promise<any> => {
   // this shares to newsfeed, story, or profile photo on Android
-  const shareOptions = {
+  const _shareOptions = {
     url,
     // social: Share.Social.FACEBOOK
     social: null, // temporarily set to null since Share is not available
@@ -81,7 +81,7 @@ const addTextToWatermark = async( userImage: string, text, position: number, wid
     }
   };
 
-  const imageOptions = {
+  const _imageOptions = {
     src: userImage,
     text,
     X: xPosition( scale ), // left
@@ -111,7 +111,7 @@ const getImageSize = ( uri: string ): Promise<ImageSize> => (
   } )
 );
 
-const setMarkerScale = ( scale, width: number, height: number ) => {
+const setMarkerScale = ( scale, _width: number, _height: number ) => {
   // horizontal photos
   // if ( height < width ) {
   //   return scale * 2;

@@ -90,7 +90,7 @@ const resizeImage = async ( path: string, width: number, height?: number, output
     );
 
     return uri;
-  } catch ( e ) {
+  } catch ( _e ) {
     return "";
   }
 };

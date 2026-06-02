@@ -7,7 +7,7 @@ interface Props {
   testID?: string;
   visible: boolean;
   toastText: string;
-  styles: Object;
+  styles: object;
   finishAnimation?: ( ) => void;
   rectangleColor: string | null;
 }

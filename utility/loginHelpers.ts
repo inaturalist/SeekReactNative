@@ -18,7 +18,7 @@ const fetchAccessToken = async ( ): Promise<string | null> => {
   try {
     const token = await AsyncStorage.getItem( "access_token" );
     return token;
-  } catch ( error ) {
+  } catch ( _error ) {
     return "";
   }
 };
@@ -27,7 +27,7 @@ const removeAccessToken = async ( ): Promise<boolean | void> => {
   try {
     const token = await AsyncStorage.removeItem( "access_token" );
     return token;
-  } catch ( error ) {
+  } catch ( _error ) {
     return false;
   }
 };
@@ -40,7 +40,7 @@ const fetchPostingSuccess = async ( ): Promise<string | boolean | null> => {
   try {
     const success = await AsyncStorage.getItem( "posting_success" );
     return success;
-  } catch ( error ) {
+  } catch ( _error ) {
     return false;
   }
 };
@@ -60,7 +60,7 @@ const fetchUserProfile = async ( login: string ): Promise<any> => {
     const options = { api_token: apiToken };
     const { results } = await inatjs.users.me( options );
     return results[0];
-  } catch ( e ) {
+  } catch ( _e ) {
     return null;
   }
 };

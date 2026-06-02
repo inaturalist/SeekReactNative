@@ -35,7 +35,7 @@ const fetchHistogram = async ( id: number, region?: Region ): Promise<HistogramD
   try {
     const { results } = await inatjs.observations.histogram( params );
     return createHistogramChartData( results );
-  } catch ( e ) {
+  } catch ( _e ) {
     return [];
   }
 };

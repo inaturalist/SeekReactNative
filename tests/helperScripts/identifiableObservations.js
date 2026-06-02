@@ -1,6 +1,6 @@
 // A list of inaturalist observations in the browser that should ID to species in the camera
 
-const plantObs = [
+const _plantObs = [
   "https://www.inaturalist.org/observations/53860842",
   "https://www.inaturalist.org/observations/122541881",
   "https://www.inaturalist.org/observations/139053635",
@@ -10,7 +10,7 @@ const plantObs = [
   "https://www.inaturalist.org/observations/137834274",
 ];
 
-const insectObs = [
+const _insectObs = [
   "https://www.inaturalist.org/observations/140247122",
   "https://www.inaturalist.org/observations/4953316",
   "https://www.inaturalist.org/observations/64221",
@@ -19,7 +19,7 @@ const insectObs = [
   "https://www.inaturalist.org/observations/142284141",
 ];
 
-const birdsObs = [
+const _birdsObs = [
   "https://www.inaturalist.org/observations/2643958",
   "https://www.inaturalist.org/observations/126012542",
   "https://www.inaturalist.org/observations/4832742",
@@ -28,16 +28,16 @@ const birdsObs = [
   "https://www.inaturalist.org/observations/10445658",
 ];
 
-const arachnidObs = [
+const _arachnidObs = [
   "https://www.inaturalist.org/observations/96447963",
 ];
 
-const mammalObs = [
+const _mammalObs = [
   "https://www.inaturalist.org/observations/16046036",
   "https://www.inaturalist.org/observations/7362330",
 ];
 
-const fishObs = [
+const _fishObs = [
   "https://www.inaturalist.org/observations/32460005",
   "https://www.inaturalist.org/observations/43340772",
 ];

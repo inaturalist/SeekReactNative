@@ -5,7 +5,10 @@ import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";
 import commonNames from "../utility/commonNames";
 
+// TODO: do these need to be require?
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const Realm = require( "realm" );
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const realmConfig = require( "../models/index" );
 
 const getTaxonCommonName = ( taxonID?: number ) => (

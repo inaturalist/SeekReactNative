@@ -81,7 +81,7 @@ const SpeciesPhotos = ( { loading, photos, id }: Props ) => {
   }, [photos, userPhoto] );
 
   useEffect( ( ) => {
-    let errorState = setTimeout( ( ) => setError( true ), 1500 );
+    const errorState = setTimeout( ( ) => setError( true ), 1500 );
 
     if ( userPhoto || photos.length > 0 ) {
       // custom userPhoto hook takes a bit of time to fetch, so wrapping this in timeout

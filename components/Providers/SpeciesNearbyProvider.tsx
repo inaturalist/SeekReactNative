@@ -4,7 +4,7 @@ import { useNetInfo } from "@react-native-community/netinfo";
 
 import { useLocationName } from "../../utility/customHooks";
 
-type SpeciesNearbyState = {
+interface SpeciesNearbyState {
   latitude: number | null;
   longitude: number | null;
   taxaType: string;
@@ -12,7 +12,7 @@ type SpeciesNearbyState = {
   // Result of query to: const site = "https://api.inaturalist.org/v1/taxa/nearby";
   taxa: any[];
   isConnected: boolean | null;
-};
+}
 interface SpeciesNearby extends SpeciesNearbyState {
   location: string | null;
 }

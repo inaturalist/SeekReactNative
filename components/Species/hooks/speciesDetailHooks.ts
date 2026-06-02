@@ -54,7 +54,7 @@ interface TaxonDetails {
     scientificName: string;
     iconicTaxonId: number;
   };
-  photos: Object[];
+  photos: object[];
   details: {
     wikiUrl: string;
     about: string;

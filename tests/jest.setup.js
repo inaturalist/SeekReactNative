@@ -90,8 +90,8 @@ jest.mock( "react-native-geolocation-service", () => ( {
 } ) );
 
 jest.mock( "react-native-geocoder", () => ( {
-  geocodePosition: jest.fn().mockImplementation( ( { lat, lng } ) => {
-    return new Promise( ( resolve, reject ) => {
+  geocodePosition: jest.fn().mockImplementation( ( { lat: _lat, lng: _lng } ) => {
+    return new Promise( ( resolve, _reject ) => {
       resolve( [
         {
           adminArea: "CA",
@@ -116,7 +116,7 @@ jest.mock( "react-native-geocoder", () => ( {
 jest.mock( "realm", () => {
   const actualRealm = jest.requireActual( "realm" );
   actualRealm.open = jest.fn(
-    ( config ) =>
+    ( _config ) =>
       new Promise( ( resolve ) => {
         resolve( {
           objects: jest.fn( ( table ) => {

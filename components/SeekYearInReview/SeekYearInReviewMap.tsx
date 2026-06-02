@@ -34,7 +34,9 @@ const SeekYearInReviewMap = ( { year, observations }: Props ) => {
         return { latitude, longitude };
       } );
       const bounds = getBounds( coordsArray );
-      userCoords && coordsArray.push( userCoords );
+      if ( userCoords ) {
+        coordsArray.push( userCoords );
+      }
       const center = getCenterOfBounds( coordsArray );
       return {
         latitude: center.latitude,

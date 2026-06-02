@@ -10,7 +10,8 @@
   "extends": [
     "@react-native",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:react-native-a11y/ios"
   ],
   "plugins": [
     "@stylistic",
@@ -75,6 +76,20 @@
     "react-hooks/preserve-manual-memoization": 1,
     "react-hooks/purity": 1,
     "react-hooks/immutability": 1,
+    "react-native-a11y/has-accessibility-hint": 0,
+    "react-native-a11y/has-accessibility-props": 1,
+    "react-native-a11y/has-valid-accessibility-actions": 1,
+    "react-native-a11y/has-valid-accessibility-component-type": 1,
+    "react-native-a11y/has-valid-accessibility-descriptors": 1,
+    "react-native-a11y/has-valid-accessibility-ignores-invert-colors": 1,
+    "react-native-a11y/has-valid-accessibility-live-region": 1,
+    "react-native-a11y/has-valid-accessibility-role": 1,
+    "react-native-a11y/has-valid-accessibility-state": 1,
+    "react-native-a11y/has-valid-accessibility-states": 1,
+    "react-native-a11y/has-valid-accessibility-traits": 1,
+    "react-native-a11y/has-valid-accessibility-value": 1,
+    "react-native-a11y/has-valid-important-for-accessibility": 1,
+    "react-native-a11y/no-nested-touchables": 1,
     "space-in-parens": [2, "always"]
   },
   "settings": {

@@ -1,11 +1,11 @@
-import * as React from "react";
-import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import * as React from "react";
+import { TouchableOpacity, View } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/onboarding";
 import i18n from "../../i18n";
-import StyledText from "../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../styles/onboarding";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   index: number;

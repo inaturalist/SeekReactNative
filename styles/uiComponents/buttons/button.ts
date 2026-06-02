@@ -1,10 +1,11 @@
-import { StyleSheet, Platform } from "react-native";
+import { Platform, StyleSheet } from "react-native";
+
+import { enabledLargeFonts } from "../../../utility/textHelpers";
 import {
   center,
   colors,
   dimensions,
 } from "../../global";
-import { enabledLargeFonts } from "../../../utility/textHelpers";
 
 const viewStyles = StyleSheet.create( {
   button: {
@@ -35,6 +36,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

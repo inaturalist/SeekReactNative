@@ -1,8 +1,7 @@
+import { waitFor } from "@testing-library/react-native";
+import inaturalistjs from "inaturalistjs";
 import React from "react";
 import { render, screen } from "tests/jest-utils";
-import { waitFor } from "@testing-library/react-native";
-
-import inaturalistjs from "inaturalistjs";
 
 import Announcements from "../../../../components/Home/Announcements/Announcements";
 

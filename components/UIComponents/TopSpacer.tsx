@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Platform } from "react-native";
+import { Platform, View } from "react-native";
 
 import styles from "../../styles/uiComponents/topSpacer";
 

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { dimensions, colors } from "../global";
+
+import { colors, dimensions } from "../global";
 
 const viewStyles = StyleSheet.create( {
   container: {
@@ -35,6 +36,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

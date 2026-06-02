@@ -1,15 +1,15 @@
+import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import { Image, StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/posting/postModal";
 import posting from "../../assets/posting";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { useInternetStatus } from "../../utility/customHooks";
-import StyledText from "../UIComponents/StyledText";
+import i18n from "../../i18n";
+import { textStyles, viewStyles } from "../../styles/posting/postModal";
 import { baseTextStyles } from "../../styles/textStyles";
+import { useInternetStatus } from "../../utility/customHooks";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+import StyledText from "../UIComponents/StyledText";
 
 const PostStatus = ( ) => {
   const navigation = useNavigation( );

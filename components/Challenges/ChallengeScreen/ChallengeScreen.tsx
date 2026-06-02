@@ -1,14 +1,14 @@
+import { FlashList } from "@shopify/flash-list";
 import React, { useCallback } from "react";
 import { View } from "react-native";
-import { FlashList } from "@shopify/flash-list";
 
 import styles from "../../../styles/challenges/challenges";
-import ChallengeProgressCard from "./ChallengeProgressCard";
-import GreenText from "../../UIComponents/GreenText";
 import NoChallenges from "../../Home/Challenges/NoChallenges";
-import EmptyChallengesCard from "./EmptyChallengesCard";
+import GreenText from "../../UIComponents/GreenText";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import { useFetchChallenges } from "../hooks/challengeHooks";
+import ChallengeProgressCard from "./ChallengeProgressCard";
+import EmptyChallengesCard from "./EmptyChallengesCard";
 
 interface Item {
   type: string;

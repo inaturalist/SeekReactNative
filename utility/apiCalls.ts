@@ -1,6 +1,6 @@
-import createUserAgent from "./userAgent";
 import i18n from "../i18n";
 import { createJwtToken } from "./helpers";
+import createUserAgent from "./userAgent";
 
 interface ApiParams {
   per_page: number;

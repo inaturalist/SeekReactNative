@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/iNaturalist/bulletedList";
-import i18n from "../../i18n";
 import icons from "../../assets/icons";
-import StyledText from "../UIComponents/StyledText";
+import i18n from "../../i18n";
+import { textStyles, viewStyles } from "../../styles/iNaturalist/bulletedList";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "../UIComponents/StyledText";
 
 
 const INatValueProps = ( ) => [1, 2, 3, 4].map( ( item ) => (

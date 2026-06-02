@@ -1,21 +1,21 @@
-import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import * as React from "react";
 
-import SideMenu from "../UIComponents/SideMenu";
-import Achievements from "../Achievements/AchievementsScreen";
-import Challenges from "../Challenges/ChallengeScreen/ChallengeScreen";
-import Observations from "../Observations/Observations";
-import iNatStats from "../iNaturalist/iNatStats";
 import About from "../About/AboutScreen";
-import Settings from "../Settings/Settings";
+import Achievements from "../Achievements/AchievementsScreen";
 import ChallengeDetails from "../Challenges/ChallengeDetails/ChallengeDetailsScreen";
-import Match from "../Match/MatchScreen";
-import DebugEmailScreen from "../UIComponents/DebugEmailScreen";
+import Challenges from "../Challenges/ChallengeScreen/ChallengeScreen";
 import Home from "../Home/HomeScreen";
-import Species from "../Species/SpeciesDetail";
-import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
-import SeekYearInReviewMapScreen from "../SeekYearInReview/SeekYearInReviewMapScreen";
+import iNatStats from "../iNaturalist/iNatStats";
+import Match from "../Match/MatchScreen";
 import Notifications from "../Notifications/Notifications";
+import Observations from "../Observations/Observations";
+import SeekYearInReviewMapScreen from "../SeekYearInReview/SeekYearInReviewMapScreen";
+import SeekYearInReview from "../SeekYearInReview/SeekYearInReviewScreen";
+import Settings from "../Settings/Settings";
+import Species from "../Species/SpeciesDetail";
+import DebugEmailScreen from "../UIComponents/DebugEmailScreen";
+import SideMenu from "../UIComponents/SideMenu";
 import type { DrawerParamList } from "./types";
 
 const Drawer = createDrawerNavigator<DrawerParamList>( );

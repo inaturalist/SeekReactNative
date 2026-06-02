@@ -1,5 +1,6 @@
-import { StyleSheet, PixelRatio } from "react-native";
-import { colors, center, fonts, dimensions, row, padding } from "../global";
+import { PixelRatio, StyleSheet } from "react-native";
+
+import { center, colors, dimensions, fonts, padding, row } from "../global";
 
 const { getFontScale } = PixelRatio;
 
@@ -156,7 +157,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

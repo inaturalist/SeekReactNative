@@ -1,14 +1,14 @@
-import * as React from "react";
-import { Platform, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
+import * as React from "react";
+import { Platform, View } from "react-native";
 
 import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/uiComponents/cards/donateCard";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { textStyles, viewStyles } from "../../../styles/uiComponents/cards/donateCard";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import GreenButton from "../Buttons/GreenButton";
 import StyledText from "../StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
-import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 
 const DonateCard = ( ) => {
   const { navigate } = useNavigation( );

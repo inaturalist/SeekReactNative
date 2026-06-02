@@ -3,10 +3,10 @@ import { View } from "react-native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
+import { baseTextStyles } from "../../../styles/textStyles";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 // TODO: navigation TS
 const PasswordEmailScreen = ( { navigation } ) => (

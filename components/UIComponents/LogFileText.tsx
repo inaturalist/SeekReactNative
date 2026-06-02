@@ -1,9 +1,9 @@
+import { readFile, stat } from "@dr.pogodin/react-native-fs";
 import React, { useEffect } from "react";
-import { stat, readFile } from "@dr.pogodin/react-native-fs";
 import { ScrollView } from "react-native";
 
-import StyledText from "./StyledText";
 import { pathLogs } from "../../utility/dirStorage";
+import StyledText from "./StyledText";
 
 interface Props {
   navigation: any;

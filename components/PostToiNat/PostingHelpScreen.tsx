@@ -1,15 +1,15 @@
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
 
-import { viewStyles, textStyles, imageStyles } from "../../styles/posting/postingHelp";
-import i18n from "../../i18n";
 import icons from "../../assets/posting";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/posting/postingHelp";
+import { baseTextStyles } from "../../styles/textStyles";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 const PostingHelpScreen = ( ) => (
   <ScrollWithHeader header="posting_help.header">

@@ -1,14 +1,14 @@
 import React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
-import { baseTextStyles } from "../../../styles/textStyles";
 import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
+import { imageStyles, viewStyles } from "../../../styles/home/speciesNearby";
+import { baseTextStyles } from "../../../styles/textStyles";
 import StyledText from "../../UIComponents/StyledText";
 
 interface Props {

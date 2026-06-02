@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/match/speciesNearby";
-import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
-import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
-import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
-import { fetchSpeciesNearby } from "../../utility/apiCalls";
-import StyledText from "../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../styles/match/speciesNearby";
 import { baseTextStyles } from "../../styles/textStyles";
+import { fetchSpeciesNearby } from "../../utility/apiCalls";
+import LoadingWheel from "../UIComponents/LoadingWheel";
+import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
+import TapToLoad from "../UIComponents/SpeciesNearby/TapToLoad";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   readonly ancestorId: number | null | undefined;

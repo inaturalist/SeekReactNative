@@ -1,20 +1,20 @@
 import * as React from "react";
 import {
-  View,
   Image,
   TouchableOpacity,
+  View,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/modals/deleteModal";
-import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
-import SpeciesCard from "../UIComponents/SpeciesCard";
-import WhiteModal from "../UIComponents/Modals/WhiteModal";
-import Button from "../UIComponents/Buttons/Button";
-import StyledText from "../UIComponents/StyledText";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import { textStyles, viewStyles } from "../../styles/modals/deleteModal";
 import { baseTextStyles } from "../../styles/textStyles";
+import Button from "../UIComponents/Buttons/Button";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import SpeciesCard from "../UIComponents/SpeciesCard";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   closeModal: ( ) => void;

@@ -1,21 +1,21 @@
 
 import * as React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { WebView } from "react-native-webview";
 
-import { viewStyles, textStyles } from "../../styles/fullWebView/fullWebView";
 import icons from "../../assets/icons";
-import StyledText from "../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../styles/fullWebView/fullWebView";
 import { baseTextStyles } from "../../styles/textStyles";
-import createUserAgent from "../../utility/userAgent";
 import { fetchAccessToken, removeAccessToken } from "../../utility/loginHelpers";
 import { fetchJSONWebToken } from "../../utility/tokenHelpers";
+import createUserAgent from "../../utility/userAgent";
 import ErrorScreen from "../Camera/Gallery/Error";
+import StyledText from "../UIComponents/StyledText";
 import { UserContext } from "../UserContext";
 
 interface Props {

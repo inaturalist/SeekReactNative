@@ -2,8 +2,8 @@ import * as React from "react";
 import { View } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
-import { viewStyles, textStyles } from "../../styles/uiComponents/percentCircle";
 import { colors } from "../../styles/global";
+import { textStyles, viewStyles } from "../../styles/uiComponents/percentCircle";
 import { calculatePercent } from "../../utility/challengeHelpers";
 import StyledText from "./StyledText";
 

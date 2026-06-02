@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import {
-  View,
-  TextInput,
   Image,
   Platform,
+  TextInput,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import i18n from "../../../i18n";
-import LocationMap from "./LocationMap";
-import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName, createAlertUserLocationOnMaps, fetchCoordsByLocationName } from "../../../utility/locationHelpers";
 import posting from "../../../assets/posting";
+import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
-import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
-import StyledText from "../../UIComponents/StyledText";
-import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/home/locationPicker";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { createAlertUserLocationOnMaps, fetchCoordsByLocationName, fetchLocationName, fetchTruncatedUserLocation, truncateCoordinates } from "../../../utility/locationHelpers";
+import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import StyledText from "../../UIComponents/StyledText";
+import LocationMap from "./LocationMap";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;

@@ -1,7 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
+import { getBounds, getCenterOfBounds } from "geolib";
 import React, { useCallback } from "react";
 import { Image } from "react-native";
-import MapView, { PROVIDER_DEFAULT, Marker } from "react-native-maps";
-import { useNavigation } from "@react-navigation/native";
+import MapView, { Marker,PROVIDER_DEFAULT } from "react-native-maps";
 
 import icons from "../../assets/icons";
 import { viewStyles } from "../../styles/seekYearInReview/seekYearInReview";
@@ -10,7 +11,6 @@ import {
   useTruncatedUserCoords,
 } from "../../utility/customHooks";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { getBounds, getCenterOfBounds } from "geolib";
 
 interface Props {
   readonly year: number;

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import { render, screen } from "tests/jest-utils";
 
 import HorizontalScroll from "../../../../components/UIComponents/HorizontalScroll";

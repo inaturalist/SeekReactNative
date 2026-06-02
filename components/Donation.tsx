@@ -1,20 +1,20 @@
 import * as React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
   Platform,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { WebView } from "react-native-webview";
 
-import i18n from "../i18n";
-import { viewStyles, textStyles } from "../styles/species/donation";
 import icons from "../assets/icons";
 import urls from "../constants/urls";
+import i18n from "../i18n";
+import { textStyles, viewStyles } from "../styles/species/donation";
+import { baseTextStyles } from "../styles/textStyles";
 import CopyButton from "./UIComponents/Buttons/CopyButton";
 import StyledText from "./UIComponents/StyledText";
-import { baseTextStyles } from "../styles/textStyles";
 
 const Donation = ( { navigation, route } ) => {
   const goBack = ( ) => navigation.goBack( );

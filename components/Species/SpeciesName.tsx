@@ -1,10 +1,10 @@
 import React from "react";
 
-import { viewStyles, textStyles } from "../../styles/species/species";
+import { textStyles, viewStyles } from "../../styles/species/species";
+import { baseTextStyles } from "../../styles/textStyles";
 import { useCommonName } from "../../utility/customHooks/useCommonName";
 import CopyButton from "../UIComponents/Buttons/CopyButton";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly loading: boolean;

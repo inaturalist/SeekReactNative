@@ -3,18 +3,18 @@ import { View } from "react-native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
+import { colors } from "../../../styles/global";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { createJwtToken } from "../../../utility/helpers";
+import { checkIsEmailValid } from "../../../utility/loginHelpers";
+import createUserAgent from "../../../utility/userAgent";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ErrorMessage from "../ErrorMessage";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
 import GreenText from "../../UIComponents/GreenText";
 import InputField from "../../UIComponents/InputField";
-import { checkIsEmailValid } from "../../../utility/loginHelpers";
-import { createJwtToken } from "../../../utility/helpers";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
-import createUserAgent from "../../../utility/userAgent";
-import { colors } from "../../../styles/global";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
+import ErrorMessage from "../ErrorMessage";
 
 const ParentalConsentScreen = ( { navigation } ) => {
   const [email, setEmail] = useState( "" );

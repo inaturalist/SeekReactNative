@@ -1,16 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import {
-  View,
   Image,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { viewStyles, imageStyles, textStyles } from "../../styles/toasts/badgeToast";
 import badges from "../../assets/badges";
-import StyledText from "../UIComponents/StyledText";
+import i18n from "../../i18n";
 import { baseTextStyles } from "../../styles/textStyles";
+import { imageStyles, textStyles, viewStyles } from "../../styles/toasts/badgeToast";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   readonly badge: {

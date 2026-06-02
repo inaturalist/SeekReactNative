@@ -5,11 +5,13 @@ import "@shopify/flash-list/jestSetup";
 // uuid, so we're importing it first thing in the entry point.
 // https://www.npmjs.com/package/uuid#react-native--expo
 import "react-native-get-random-values";
+
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
+import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
 import * as mockRNLocalize from "react-native-localize/mock";
-import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
+
 import {
   mockCamera,
   mockSortDevices,

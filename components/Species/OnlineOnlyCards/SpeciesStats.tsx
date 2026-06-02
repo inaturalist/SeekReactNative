@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
 import inatjs from "inaturalistjs";
+import React, { useEffect, useState } from "react";
+import {
+  Alert,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/species/speciesStats";
-import StyledText from "../../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../../styles/species/speciesStats";
 import { baseTextStyles } from "../../../styles/textStyles";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   readonly loading: boolean;

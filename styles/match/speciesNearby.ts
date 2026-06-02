@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
+
 import {
-  colors,
   center,
+  colors,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {

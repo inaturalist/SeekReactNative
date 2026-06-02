@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 
-import { textStyles } from "../../../styles/iNaturalist/iNatStats";
 import i18n from "../../../i18n";
-import GreenButton from "../Buttons/GreenButton";
+import { textStyles } from "../../../styles/iNaturalist/iNatStats";
+import { baseTextStyles } from "../../../styles/textStyles";
 import { removeAccessToken } from "../../../utility/loginHelpers";
 import { UserContext } from "../../UserContext";
+import GreenButton from "../Buttons/GreenButton";
 import StyledText from "../StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 const INatSignOut = ( ) => {
   const { updateLogin } = useContext( UserContext );

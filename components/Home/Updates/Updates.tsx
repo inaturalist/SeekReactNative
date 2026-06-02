@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/home/updates";
 import { baseTextStyles } from "../../../styles/textStyles";
-import { viewStyles, imageStyles, textStyles } from "../../../styles/home/updates";
 import GreenText from "../../UIComponents/GreenText";
 import StyledText from "../../UIComponents/StyledText";
 

@@ -1,12 +1,12 @@
-import React, { useState, useCallback, useMemo } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import React, { useCallback, useMemo, useState } from "react";
+import { Image, TouchableOpacity, View } from "react-native";
 
-import ChallengeModal from "../Modals/ChallengeEarnedModal";
-import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import badgeImages from "../../assets/badges";
 import { imageStyles, viewStyles } from "../../styles/badges/achievements";
-import Modal from "../UIComponents/Modals/Modal";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
+import ChallengeModal from "../Modals/ChallengeEarnedModal";
+import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
+import Modal from "../UIComponents/Modals/Modal";
 import BadgeContainer from "./BadgeContainer";
 import { useFetchChallenges } from "./hooks/achievementHooks";
 

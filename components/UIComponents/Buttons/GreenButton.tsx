@@ -3,9 +3,9 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 
 import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/uiComponents/buttons/greenButton";
-import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { textStyles, viewStyles } from "../../../styles/uiComponents/buttons/greenButton";
+import StyledText from "../StyledText";
 
 interface Props extends ComponentPropsWithoutRef<typeof TouchableOpacity> {
   readonly color?: string | null;

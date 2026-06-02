@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/match/match";
-import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { setGradients } from "../../utility/matchHelpers";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import type { Observation } from "../Providers/ObservationProvider";
+import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 
 interface Props {
   observation: Observation;

@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+
 import {
   colors,
-  row,
   dimensions,
+  row,
 } from "./global";
 
 const { width } = dimensions;
@@ -57,7 +58,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

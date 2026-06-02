@@ -1,4 +1,5 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
 import { colors } from "../global";
 
 const { width } = Dimensions.get( "screen" );
@@ -40,7 +41,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

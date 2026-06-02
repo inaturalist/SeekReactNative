@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback } from "react";
-import { Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useCallback, useEffect } from "react";
+import { Image, ImageBackground } from "react-native";
 
-import styles from "../styles/splash";
-import logos from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
-import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
-import { addARCameraFiles } from "../utility/cameraFilesHelpers";
+import logos from "../assets/logos";
+import styles from "../styles/splash";
 import { setupBadges } from "../utility/badgeHelpers";
-import { checkForHotStarts, checkForColdStarts, setQuickActions } from "../utility/navigationHelpers";
+import { addARCameraFiles } from "../utility/cameraFilesHelpers";
+import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
+import { checkForColdStarts, checkForHotStarts, setQuickActions } from "../utility/navigationHelpers";
 import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
 import { useAppOrientation } from "./Providers/AppOrientationProvider";
 

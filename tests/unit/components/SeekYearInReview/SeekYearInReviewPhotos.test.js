@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "tests/jest-utils";
+import { fireEvent, render, screen } from "tests/jest-utils";
 
 import SeekYearInReviewPhotos from "../../../../components/SeekYearInReview/SeekYearInReviewPhotos";
 

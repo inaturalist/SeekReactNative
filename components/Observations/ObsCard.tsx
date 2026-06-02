@@ -1,20 +1,20 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import { useNavigation } from "@react-navigation/native";
+import React, { useCallback, useEffect, useRef } from "react";
 import { Image, Pressable, ScrollView } from "react-native";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
-  withTiming,
-  withSequence,
+  useSharedValue,
   withDelay,
+  withSequence,
+  withTiming,
 } from "react-native-reanimated";
-import { useNavigation } from "@react-navigation/native";
 
-import { setRoute, StoredRoutes } from "../../utility/helpers";
-import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
-import SpeciesCard from "../UIComponents/SpeciesCard";
+import styles from "../../styles/observations/obsCard";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
+import { setRoute, StoredRoutes } from "../../utility/helpers";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
+import SpeciesCard from "../UIComponents/SpeciesCard";
 
 interface Taxon {
   id: number;

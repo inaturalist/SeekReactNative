@@ -1,9 +1,10 @@
-import {
-  logger,
-  fileAsyncTransport,
-  consoleTransport,
-} from "react-native-logs";
 import * as RNFS from "@dr.pogodin/react-native-fs";
+import {
+  consoleTransport,
+  fileAsyncTransport,
+  logger,
+} from "react-native-logs";
+
 import { fileNameLogs } from "./utility/dirStorage";
 
 // Configure without transport for test. If you want to write output during

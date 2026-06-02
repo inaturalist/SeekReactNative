@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
-import { View, Platform } from "react-native";
+import { Platform, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import { viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { colors } from "../../styles/global";
-import BulletedList from "./BulletedList";
-import OpenINatButton from "../UIComponents/Buttons/OpenINatButton";
-import ProfileImageAndLogin from "./ProfileImageAndLogin";
+import { viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { useUploadedObservationCount } from "../../utility/customHooks";
-import { UserContext } from "../UserContext";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import OpenINatButton from "../UIComponents/Buttons/OpenINatButton";
+import { UserContext } from "../UserContext";
+import BulletedList from "./BulletedList";
+import ProfileImageAndLogin from "./ProfileImageAndLogin";
 
 const INatHeaderLoggedIn = ( ) => {
   const [triggerReload, setTriggerReload] = useState( false );

@@ -1,53 +1,53 @@
+import { CameraRoll } from "@react-native-camera-roll/camera-roll";
+import { useFocusEffect, useIsFocused, useNavigation } from "@react-navigation/native";
+import isNumber from "lodash/isNumber";
 import React, {
-  useReducer,
-  useEffect,
-  useRef,
   useCallback,
   useContext,
+  useEffect,
+  useReducer,
+  useRef,
   useState,
 } from "react";
 import {
   Image,
+  Platform,
   TouchableOpacity,
   View,
-  Platform,
 } from "react-native";
-import { CameraRoll } from "@react-native-camera-roll/camera-roll";
-import { useNavigation, useIsFocused, useFocusEffect } from "@react-navigation/native";
-import isNumber from "lodash/isNumber";
+import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 import { useSharedValue } from "react-native-worklets-core";
 import type { Prediction } from "vision-camera-plugin-inatvision";
-import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 
-import i18n from "../../../i18n";
-import { viewStyles, imageStyles } from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
-import CameraError from "../CameraError";
+import i18n from "../../../i18n";
+import { log } from "../../../react-native-logs.config";
+import { imageStyles, viewStyles } from "../../../styles/camera/arCamera";
+import { colors } from "../../../styles/global";
+import {
+  checkCameraPermissions,
+  checkSavePermissions,
+} from "../../../utility/androidHelpers.android";
+import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
   checkForSystemVersion,
   handleLog,
   showCameraSaveFailureAlert,
 } from "../../../utility/cameraHelpers";
-import {
-  checkCameraPermissions,
-  checkSavePermissions,
-} from "../../../utility/androidHelpers.android";
-import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { createTimestamp } from "../../../utility/dateHelpers";
-import ARCameraOverlay from "./ARCameraOverlay";
+import { checkIfCameraLaunched } from "../../../utility/helpers";
+import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
-import { checkIfCameraLaunched } from "../../../utility/helpers";
-import { colors } from "../../../styles/global";
-import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
-import { UserContext } from "../../UserContext";
-import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
-import FrameProcessorCamera from "./FrameProcessorCamera";
-import { log } from "../../../react-native-logs.config";
 import { useCameraLocationPreference } from "../../Providers/CameraLocationPreferenceProvider";
 import { useObservation } from "../../Providers/ObservationProvider";
-import { LogLevels, logToApi } from "../../../utility/apiCalls";
+import Modal from "../../UIComponents/Modals/Modal";
+import { UserContext } from "../../UserContext";
+import CameraError from "../CameraError";
+import ARCameraOverlay from "./ARCameraOverlay";
+import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
+import FrameProcessorCamera from "./FrameProcessorCamera";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
 import {
   useLocationPermission as useLocationPermissionCamera,

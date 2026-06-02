@@ -1,15 +1,15 @@
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/species/rangeMap";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
+import { textStyles, viewStyles } from "../../styles/species/rangeMap";
+import { baseTextStyles } from "../../styles/textStyles";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly closeModal: () => void;

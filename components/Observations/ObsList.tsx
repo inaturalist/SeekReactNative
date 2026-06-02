@@ -1,17 +1,17 @@
-import React, { useState, useMemo, useCallback } from "react";
-import { View, Keyboard } from "react-native";
 import { FlashList } from "@shopify/flash-list";
+import React, { useCallback, useMemo, useState } from "react";
+import { Keyboard, View } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
+import { baseTextStyles } from "../../styles/textStyles";
 import { iconicTaxaNamesById } from "../../utility/dictionaries/taxonomyDicts";
 import EmptyState from "../UIComponents/EmptyState";
+import StyledText from "../UIComponents/StyledText";
 import ObservationCard from "./ObsCard";
-import SectionHeader from "./SectionHeader";
 import SearchBar from "./SearchBar";
 import SearchEmpty from "./SearchEmpty";
-import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
+import SectionHeader from "./SectionHeader";
 
 interface Observation {
   id: number;

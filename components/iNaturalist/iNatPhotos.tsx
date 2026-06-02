@@ -1,13 +1,13 @@
-import React from "react";
-import { View, Image } from "react-native";
 import { useNetInfo } from "@react-native-community/netinfo";
+import React from "react";
+import { Image, View } from "react-native";
 
-import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
-import HorizontalScroll from "../UIComponents/HorizontalScroll";
-import { useFetchPhotos } from "./hooks/inatHooks";
-import StyledText from "../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { baseTextStyles } from "../../styles/textStyles";
+import HorizontalScroll from "../UIComponents/HorizontalScroll";
+import StyledText from "../UIComponents/StyledText";
+import { useFetchPhotos } from "./hooks/inatHooks";
 
 const INatStatsPhotos = ( ) => {
   const netInfo = useNetInfo();

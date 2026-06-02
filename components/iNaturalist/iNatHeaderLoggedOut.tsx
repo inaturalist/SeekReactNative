@@ -1,14 +1,14 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-import { viewStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
-import GreenText from "../UIComponents/GreenText";
-import INatValueProps from "./iNatValueProps";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import AppIconSubHeader from "./AppIconSubHeader";
+import { viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+import GreenText from "../UIComponents/GreenText";
+import AppIconSubHeader from "./AppIconSubHeader";
+import INatValueProps from "./iNatValueProps";
 
 const INatHeaderLoggedOut = ( ) => {
   const navigation = useNavigation( );

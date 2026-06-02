@@ -1,13 +1,13 @@
+import inatjs from "inaturalistjs";
 import React, { useEffect, useMemo, useReducer } from "react";
 import { View } from "react-native";
-import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/similarSpecies";
-import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 
 interface Taxon {
   taxon: {

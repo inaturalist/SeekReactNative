@@ -1,20 +1,20 @@
-import React, { useState, useContext } from "react";
-import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useContext, useState } from "react";
+import { TouchableOpacity, View } from "react-native";
 
+import config from "../../../config";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
-import InputField from "../../UIComponents/InputField";
-import GreenText from "../../UIComponents/GreenText";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ErrorMessage from "../ErrorMessage";
+import { baseTextStyles } from "../../../styles/textStyles";
 import { saveAccessToken } from "../../../utility/loginHelpers";
-import config from "../../../config";
 import createUserAgent from "../../../utility/userAgent";
-import { UserContext } from "../../UserContext";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import GreenText from "../../UIComponents/GreenText";
+import InputField from "../../UIComponents/InputField";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
+import { UserContext } from "../../UserContext";
+import ErrorMessage from "../ErrorMessage";
 
 const LoginScreen = ( ) => {
   const { navigate } = useNavigation( );

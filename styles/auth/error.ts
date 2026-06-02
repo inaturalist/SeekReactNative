@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import {
   colors,
   dimensions,
@@ -33,6 +34,6 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   imageStyles,
+  viewStyles,
 };

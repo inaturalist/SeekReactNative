@@ -1,20 +1,20 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
 
+import i18n from "../../../i18n";
 import { viewStyles } from "../../../styles/challenges/challengeDetails";
+import { colors } from "../../../styles/global";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { fetchSpeciesNearby } from "../../../utility/apiCalls";
+import { fetchAllObservedTaxaIds, fetchUnobservedChallengeTaxaIds } from "../../../utility/challengeHelpers";
+import { useInternetStatus } from "../../../utility/customHooks";
+import GreenText from "../../UIComponents/GreenText";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import TapToLoad from "../../UIComponents/SpeciesNearby/TapToLoad";
-import GreenText from "../../UIComponents/GreenText";
-import { useFetchMissions, useFetchTruncatedUserCoords } from "../hooks/challengeHooks";
-import { fetchAllObservedTaxaIds, fetchUnobservedChallengeTaxaIds } from "../../../utility/challengeHelpers";
-import { fetchSpeciesNearby } from "../../../utility/apiCalls";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import i18n from "../../../i18n";
-import SpeciesNearbyChallengeError from "./SpeciesNearbyChallengeError";
-import { useInternetStatus } from "../../../utility/customHooks";
-import { colors } from "../../../styles/global";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
+import { useFetchMissions, useFetchTruncatedUserCoords } from "../hooks/challengeHooks";
+import SpeciesNearbyChallengeError from "./SpeciesNearbyChallengeError";
 
 interface Props {
   challenge: any;

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { colors, row, dimensions } from "../global";
+
+import { colors, dimensions, row } from "../global";
 
 const backgroundHeight = dimensions.height;
 const bottomPadding = 100;
@@ -86,6 +87,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

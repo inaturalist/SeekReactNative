@@ -1,18 +1,18 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { View, Alert, Platform } from "react-native";
+import { Alert, Platform, View } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
-import { viewStyles } from "../../styles/settings";
 import { colors } from "../../styles/global";
-import languages from "../../utility/dictionaries/languageDict";
-import { useLanguage } from "../Providers/LanguageProvider";
-import { toggleLanguage } from "../../utility/settingsHelpers";
-import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
-import StyledText from "../UIComponents/StyledText";
+import { viewStyles } from "../../styles/settings";
 import { baseTextStyles } from "../../styles/textStyles";
+import languages from "../../utility/dictionaries/languageDict";
+import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
+import { toggleLanguage } from "../../utility/settingsHelpers";
+import { useLanguage } from "../Providers/LanguageProvider";
+import StyledText from "../UIComponents/StyledText";
 
 const localeList = Object.keys( languages ).map( ( locale ) => (
   { value: locale, label: languages[locale].toLocaleUpperCase() }

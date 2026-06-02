@@ -2,14 +2,14 @@ import * as React from "react";
 import { View } from "react-native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/modals/flagModal";
 import { colors } from "../../styles/global";
+import { textStyles, viewStyles } from "../../styles/modals/flagModal";
+import { baseTextStyles } from "../../styles/textStyles";
+import { removeFromCollection } from "../../utility/observationHelpers";
+import { useObservation } from "../Providers/ObservationProvider";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
-import { removeFromCollection } from "../../utility/observationHelpers";
 import StyledText from "../UIComponents/StyledText";
-import { useObservation } from "../Providers/ObservationProvider";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   taxon: {

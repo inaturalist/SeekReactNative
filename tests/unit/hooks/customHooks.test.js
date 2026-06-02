@@ -1,7 +1,8 @@
-import { renderHook, act } from "@testing-library/react-native";
+import { act, renderHook } from "@testing-library/react-native";
+
 import {
-  useUploadedObservationCount,
   useSpeciesCount,
+  useUploadedObservationCount,
 } from "../../../utility/customHooks";
 
 jest.mock( "inaturalistjs", () => ( {

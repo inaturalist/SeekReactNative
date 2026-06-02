@@ -1,24 +1,24 @@
-import React, { useCallback, useReducer, useEffect } from "react";
-import { View, Platform, Modal } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import React, { useCallback, useEffect, useReducer } from "react";
+import { Modal, Platform, View } from "react-native";
 import type { PositionError} from "react-native-geolocation-service";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import i18n from "../../../i18n";
+import { colors } from "../../../styles/global";
 import { viewStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
-import i18n from "../../../i18n";
-import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
-import TaxonPicker from "./TaxonPicker";
-import LocationPickerButton from "./LocationPickerButton";
 import { useLocationPermission } from "../../../utility/customHooks";
-import SpeciesNearbyError from "./SpeciesNearbyError";
-import LocationPicker from "./LocationPicker";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import { colors } from "../../../styles/global";
-import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import createUserAgent from "../../../utility/userAgent";
-import StyledText from "../../UIComponents/StyledText";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
+import StyledText from "../../UIComponents/StyledText";
+import LocationPicker from "./LocationPicker";
+import LocationPickerButton from "./LocationPickerButton";
+import SpeciesNearbyError from "./SpeciesNearbyError";
+import TaxonPicker from "./TaxonPicker";
 
 interface State {
   error: string | null;

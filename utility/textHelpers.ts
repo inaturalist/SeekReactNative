@@ -47,7 +47,7 @@ const setCameraHelpText = ( rankToRender?: string ): string => {
 const enabledLargeFonts = ( ): boolean => getFontScale( ) > 1;
 
 export {
-  setChallengeDetailsButtonText,
-  setCameraHelpText,
   enabledLargeFonts,
+  setCameraHelpText,
+  setChallengeDetailsButtonText,
 };

@@ -1,15 +1,15 @@
-import { useState, useEffect, useCallback } from "react";
+import NetInfo from "@react-native-community/netinfo";
+import inatjs from "inaturalistjs";
+import { useCallback, useEffect, useState } from "react";
 import type { AppStateStatus} from "react-native";
 import { AppState, Platform } from "react-native";
 import Realm from "realm";
-import NetInfo from "@react-native-community/netinfo";
-import inatjs from "inaturalistjs";
 
 import i18n from "../i18n";
-import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
-import type { TruncatedCoords } from "./locationHelpers";
-import { checkLocationPermissions } from "./androidHelpers.android";
 import realmConfig from "../models";
+import { checkLocationPermissions } from "./androidHelpers.android";
+import type { TruncatedCoords } from "./locationHelpers";
+import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
 
 const useScrollToTop = (
   scrollView: {
@@ -268,12 +268,12 @@ const useIsForeground = (): boolean => {
 };
 
 export {
-  useScrollToTop,
+  useInternetStatus,
+  useIsForeground,
   useLocationName,
   useLocationPermission,
-  useTruncatedUserCoords,
-  useInternetStatus,
-  useUploadedObservationCount,
+  useScrollToTop,
   useSpeciesCount,
-  useIsForeground,
+  useTruncatedUserCoords,
+  useUploadedObservationCount,
 };

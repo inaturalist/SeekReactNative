@@ -1,5 +1,5 @@
-import createUserAgent from "./userAgent";
 import { handleServerError } from "./serverHelpers";
+import createUserAgent from "./userAgent";
 
 const fetchJSONWebToken = async ( loginToken: string ): Promise<string | {
   error: {

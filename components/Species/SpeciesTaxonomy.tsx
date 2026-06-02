@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { View, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Image, View } from "react-native";
 
-import { capitalizeNames } from "../../utility/helpers";
-import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
-import { viewStyles, textStyles } from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
-import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
 import i18n from "../../i18n";
-import StyledText from "../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../styles/species/speciesTaxonomy";
 import { baseTextStyles } from "../../styles/textStyles";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
+import { capitalizeNames } from "../../utility/helpers";
+import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
+import StyledText from "../UIComponents/StyledText";
 
 interface Taxon {
   rank: string;

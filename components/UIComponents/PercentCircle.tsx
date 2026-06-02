@@ -1,11 +1,11 @@
 import React from "react";
 import ProgressCircle from "react-native-progress-circle";
 
-import { viewStyles, textStyles } from "../../styles/uiComponents/percentCircle";
 import { colors } from "../../styles/global";
+import { baseTextStyles } from "../../styles/textStyles";
+import { textStyles, viewStyles } from "../../styles/uiComponents/percentCircle";
 import { localizePercentage } from "../../utility/helpers";
 import StyledText from "./StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly challenge: {

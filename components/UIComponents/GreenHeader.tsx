@@ -1,17 +1,17 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import * as React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
 
+import posting from "../../assets/posting";
 import i18n from "../../i18n";
+import { baseTextStyles } from "../../styles/textStyles";
 import { textStyles, viewHeaderStyles } from "../../styles/uiComponents/greenHeader";
 import BackArrow from "./Buttons/BackArrow";
-import posting from "../../assets/posting";
 import StyledText from "./StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly route?: string | null;

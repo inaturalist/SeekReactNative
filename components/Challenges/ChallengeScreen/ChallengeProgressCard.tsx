@@ -1,21 +1,21 @@
+import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import {
   Image,
   TouchableOpacity,
   View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../../i18n";
-import { imageStyles, viewStyles, textStyles } from "../../../styles/challenges/challengeProgress";
-import PercentCircle from "../../UIComponents/PercentCircle";
-import { startChallenge } from "../../../utility/challengeHelpers";
-import icons from "../../../assets/icons";
-import { formatMonthYear } from "../../../utility/dateHelpers";
 import badges from "../../../assets/badges";
-import StyledText from "../../UIComponents/StyledText";
+import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/challenges/challengeProgress";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { startChallenge } from "../../../utility/challengeHelpers";
+import { formatMonthYear } from "../../../utility/dateHelpers";
 import { useChallenge } from "../../Providers/ChallengeProvider";
+import PercentCircle from "../../UIComponents/PercentCircle";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   readonly challenge: {

@@ -2,9 +2,9 @@ import React from "react";
 import { Pressable } from "react-native";
 
 import i18n from "../../../i18n";
+import { baseTextStyles } from "../../../styles/textStyles";
 import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/tapToLoad";
 import StyledText from "../StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   handlePress: ( ) => void;

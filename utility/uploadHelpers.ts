@@ -1,13 +1,13 @@
-import Realm from "realm";
 import inatjs, { FileUpload } from "inaturalistjs";
+import Realm from "realm";
 import * as createUUID from "uuid";
 
-import realmConfig from "../models/index";
-import { resizeImage } from "./photoHelpers";
-import { fetchAccessToken } from "./loginHelpers";
-import { fetchJSONWebToken } from "./tokenHelpers";
 import i18n from "../i18n";
+import realmConfig from "../models/index";
 import { log } from "../react-native-logs.config";
+import { fetchAccessToken } from "./loginHelpers";
+import { resizeImage } from "./photoHelpers";
+import { fetchJSONWebToken } from "./tokenHelpers";
 
 const logger = log.extend( "uploadHelpers.js" );
 
@@ -334,11 +334,11 @@ const checkForUploads = async ( ) => {
 };
 
 export {
+  checkForNumSuccessfulUploads,
+  checkForUploads,
+  markCurrentUploadAsSeen,
+  markUploadsAsSeen,
   resizeImageForUpload,
   saveObservationToRealm,
-  checkForNumSuccessfulUploads,
-  markUploadsAsSeen,
-  checkForUploads,
   uploadObservation,
-  markCurrentUploadAsSeen,
 };

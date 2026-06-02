@@ -1,17 +1,17 @@
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/modals/warningModal";
-import { dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
+import { dimensions } from "../../styles/global";
+import { imageStyles, textStyles, viewStyles } from "../../styles/modals/warningModal";
+import { baseTextStyles } from "../../styles/textStyles";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   closeModal: ( ) => void;

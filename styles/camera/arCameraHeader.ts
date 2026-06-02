@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+
 import {
+  center,
   colors,
   dimensions,
   row,
-  center,
 } from "../global";
 
 const { height } = dimensions;

@@ -1,5 +1,4 @@
 import i18n from "../i18n";
-
 import { serverBackOnlineTime } from "./dateHelpers";
 
 interface ServerError {

@@ -1,18 +1,18 @@
+import Clipboard from "@react-native-clipboard/clipboard";
 import React, { useContext, useState } from "react";
 import {
-  View,
   TouchableOpacity,
+  View,
 } from "react-native";
 import Mailer from "react-native-mail";
-import Clipboard from "@react-native-clipboard/clipboard";
 
-import { viewStyles, textStyles } from "../../styles/about";
 import i18n from "../../i18n";
+import { textStyles, viewStyles } from "../../styles/about";
+import { colors } from "../../styles/global";
+import { baseTextStyles } from "../../styles/textStyles";
 import StyledText from "../UIComponents/StyledText";
 import ToastAnimation from "../UIComponents/ToastAnimation";
-import { colors } from "../../styles/global";
 import { UserContext } from "../UserContext";
-import { baseTextStyles } from "../../styles/textStyles";
 
 const EmailText = () => {
   const { login } = useContext( UserContext );

@@ -1,11 +1,11 @@
+import { useRoute } from "@react-navigation/native";
 import * as React from "react";
 import { View } from "react-native";
-import { useRoute } from "@react-navigation/native";
 
-import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/emptyList";
 import i18n from "../../../i18n";
-import StyledText from "../StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/emptyList";
+import StyledText from "../StyledText";
 
 const EmptyList = ( ) => {
   const { name } = useRoute( );

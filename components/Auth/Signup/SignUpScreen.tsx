@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import * as RNLocalize from "react-native-localize";
 
-import i18n from "../../../i18n";
 import config from "../../../config";
+import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
-import InputField from "../../UIComponents/InputField";
-import GreenText from "../../UIComponents/GreenText";
-import ErrorMessage from "../ErrorMessage";
-import { saveAccessToken, formatError } from "../../../utility/loginHelpers";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import createUserAgent from "../../../utility/userAgent";
 import { createJwtToken } from "../../../utility/helpers";
-import { UserContext } from "../../UserContext";
+import { formatError, saveAccessToken } from "../../../utility/loginHelpers";
+import createUserAgent from "../../../utility/userAgent";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import GreenText from "../../UIComponents/GreenText";
+import InputField from "../../UIComponents/InputField";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import { UserContext } from "../../UserContext";
+import ErrorMessage from "../ErrorMessage";
 
 interface User {
   login: string;

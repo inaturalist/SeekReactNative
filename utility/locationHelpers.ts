@@ -223,13 +223,13 @@ const createAlertUserLocationOnMaps = ( errorCode: number ): void => {
 };
 
 export {
+  checkForTruncatedCoordinates,
   checkLocationPermissionGranted,
-  truncateCoordinates,
-  fetchUserLocation,
+  createAlertUserLocationOnMaps,
+  createLocationAlert,
+  fetchCoordsByLocationName,
   fetchLocationName,
   fetchTruncatedUserLocation,
-  createLocationAlert,
-  checkForTruncatedCoordinates,
-  createAlertUserLocationOnMaps,
-  fetchCoordsByLocationName,
+  fetchUserLocation,
+  truncateCoordinates,
 };

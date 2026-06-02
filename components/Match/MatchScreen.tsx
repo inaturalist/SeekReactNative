@@ -1,21 +1,21 @@
-import React, { useReducer, useCallback, useRef } from "react";
-import { BackHandler, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useFocusEffect } from "@react-navigation/native";
+import React, { useCallback, useReducer, useRef } from "react";
+import { BackHandler, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
-import Footer from "../UIComponents/Footer";
-import MatchFooter from "./MatchFooter";
-import Padding from "../UIComponents/Padding";
-import TopSpacer from "../UIComponents/TopSpacer";
-import MatchHeader from "./MatchHeader";
-import MatchContainer from "./MatchContainer";
 import { useScrollToTop } from "../../utility/customHooks";
 import { useFetchUserSettings } from "../../utility/customHooks/useFetchUserSettings";
 import { setGradients, setScreenType } from "../../utility/matchHelpers";
-import MatchModals from "./MatchModals";
 import { useObservation } from "../Providers/ObservationProvider";
+import Footer from "../UIComponents/Footer";
+import Padding from "../UIComponents/Padding";
+import TopSpacer from "../UIComponents/TopSpacer";
+import MatchContainer from "./MatchContainer";
+import MatchFooter from "./MatchFooter";
+import MatchHeader from "./MatchHeader";
+import MatchModals from "./MatchModals";
 
 const MatchScreen = ( ) => {
   const { observation } = useObservation();

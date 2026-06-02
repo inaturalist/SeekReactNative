@@ -1,4 +1,5 @@
-import { StyleSheet, PixelRatio } from "react-native";
+import { PixelRatio, StyleSheet } from "react-native";
+
 import {
   colors,
   dimensions,
@@ -29,6 +30,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

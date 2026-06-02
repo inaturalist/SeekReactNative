@@ -1,14 +1,14 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import SpeciesTaxonomy from "./SpeciesTaxonomy";
-import Padding from "../UIComponents/Padding";
-import { viewStyles, textStyles } from "../../styles/species/species";
 import i18n from "../../i18n";
-import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
-import SpeciesError from "./SpeciesError";
-import StyledText from "../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../styles/species/species";
 import { baseTextStyles } from "../../styles/textStyles";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import Padding from "../UIComponents/Padding";
+import StyledText from "../UIComponents/StyledText";
+import SpeciesError from "./SpeciesError";
+import SpeciesTaxonomy from "./SpeciesTaxonomy";
 
 interface Props {
   readonly details: {

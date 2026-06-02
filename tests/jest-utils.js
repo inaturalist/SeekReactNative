@@ -1,12 +1,12 @@
-import React from "react";
 import { render } from "@testing-library/react-native";
+import React from "react";
 
-import { UserContext } from "../components/UserContext";
-import { LanguageProvider } from "../components/Providers/LanguageProvider";
 import { AppOrientationProvider } from "../components/Providers/AppOrientationProvider";
 import { ChallengeProvider } from "../components/Providers/ChallengeProvider";
+import { LanguageProvider } from "../components/Providers/LanguageProvider";
 import { ObservationProvider } from "../components/Providers/ObservationProvider";
 import { SpeciesDetailProvider } from "../components/Providers/SpeciesDetailProvider";
+import { UserContext } from "../components/UserContext";
 
 const AllTheProviders = ( { children } ) => {
   return (

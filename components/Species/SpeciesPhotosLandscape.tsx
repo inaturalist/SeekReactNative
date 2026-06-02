@@ -1,19 +1,19 @@
+import { FlashList } from "@shopify/flash-list";
 import React, { useEffect } from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
-import { FlashList } from "@shopify/flash-list";
 
-import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotosLandscape";
-import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
-import StyledText from "../UIComponents/StyledText";
-import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
-import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import { imageStyles, textStyles, viewStyles } from "../../styles/species/speciesPhotosLandscape";
+import { baseTextStyles } from "../../styles/textStyles";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
-import { baseTextStyles } from "../../styles/textStyles";
+import { localizeAttributionsLandscape } from "../../utility/photoHelpers";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import LoadingWheel from "../UIComponents/LoadingWheel";
+import StyledText from "../UIComponents/StyledText";
 
 interface Photo {
   medium_url: string;

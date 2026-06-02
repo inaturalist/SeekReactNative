@@ -1,15 +1,15 @@
 import * as React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/species/speciesError";
 import icons from "../../assets/icons";
-import StyledText from "../UIComponents/StyledText";
+import i18n from "../../i18n";
+import { textStyles, viewStyles } from "../../styles/species/speciesError";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   readonly seenTaxa: object | null;

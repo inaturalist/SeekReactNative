@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { View } from "react-native";
-import Mailer from "react-native-mail";
-import { getVersion, getBuildNumber, getSystemName } from "react-native-device-info";
 import { readFile } from "@dr.pogodin/react-native-fs";
+import React, { useEffect, useState } from "react";
+import { View } from "react-native";
+import { getBuildNumber, getSystemName, getVersion } from "react-native-device-info";
+import Mailer from "react-native-mail";
 
-import GreenButton from "./Buttons/GreenButton";
+import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/debugAndroid";
 import { pathLogs } from "../../utility/dirStorage";
-import ViewWithHeader from "./Screens/ViewWithHeader";
 import CopyButton from "./Buttons/CopyButton";
+import GreenButton from "./Buttons/GreenButton";
+import ViewWithHeader from "./Screens/ViewWithHeader";
 import StyledText from "./StyledText";
-import i18n from "../../i18n";
 // import LogFileText from "./LogFileText";
 
 const DebugEmailScreen = ( ) => {

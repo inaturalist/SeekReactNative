@@ -1,16 +1,16 @@
-import React, { useState, useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { View } from "react-native";
 import type { NumberProp } from "react-native-svg";
 import { Circle } from "react-native-svg";
-import { XAxis, LineChart } from "react-native-svg-charts";
+import { LineChart, XAxis } from "react-native-svg-charts";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/speciesChart";
-import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
 import { fetchHistogram } from "../../../utility/speciesDetailHelpers";
-import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
-import { baseTextStyles } from "../../../styles/textStyles";
+import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 
 interface Props {
   readonly id: number;

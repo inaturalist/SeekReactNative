@@ -1,18 +1,18 @@
-import React from "react";
-import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { TouchableOpacity, View } from "react-native";
 
-import styles from "../../styles/match/match";
-import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
-import SpeciesNearby from "./SpeciesNearby";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
+import styles from "../../styles/match/match";
+import { baseTextStyles } from "../../styles/textStyles";
 import { useCommonName } from "../../utility/customHooks/useCommonName";
-import StyledText from "../UIComponents/StyledText";
+import { renderHeaderText, renderText, setGradients } from "../../utility/matchHelpers";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import type { Observation } from "../Providers/ObservationProvider";
-import { baseTextStyles } from "../../styles/textStyles";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+import StyledText from "../UIComponents/StyledText";
+import PostToiNat from "./PostToiNat";
+import SpeciesNearby from "./SpeciesNearby";
 
 interface Props {
   observation: Observation;

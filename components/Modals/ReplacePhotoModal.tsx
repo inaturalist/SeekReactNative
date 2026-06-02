@@ -3,16 +3,16 @@ import { View } from "react-native";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
-import { viewStyles, textStyles } from "../../styles/modals/flagModal";
-import Button from "../UIComponents/Buttons/Button";
-import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
-import { replacePhoto } from "../../utility/photoHelpers";
+import { textStyles, viewStyles } from "../../styles/modals/flagModal";
+import { baseTextStyles } from "../../styles/textStyles";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
-import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
+import { replacePhoto } from "../../utility/photoHelpers";
 import { useObservation } from "../Providers/ObservationProvider";
+import Button from "../UIComponents/Buttons/Button";
+import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   closeModal: () => void;

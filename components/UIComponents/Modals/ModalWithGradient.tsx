@@ -1,19 +1,19 @@
 import * as React from "react";
 import {
-  View,
   Image,
   ImageBackground,
   TouchableOpacity,
+  View,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import i18n from "../../../i18n";
-import icons from "../../../assets/icons";
-import { viewStyles, textStyles } from "../../../styles/uiComponents/modals/modalWithGradient";
-import { colors } from "../../../styles/global";
 import iconicTaxa from "../../../assets/iconicTaxa";
-import StyledText from "../StyledText";
+import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import { colors } from "../../../styles/global";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { textStyles, viewStyles } from "../../../styles/uiComponents/modals/modalWithGradient";
+import StyledText from "../StyledText";
 
 interface Props extends React.PropsWithChildren {
   readonly closeModal: () => void;

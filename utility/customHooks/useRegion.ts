@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const createRegion = ( region: { latitude: number; longitude: number } ) => {
   const latitudeDelta = 0.2;

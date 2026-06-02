@@ -1,20 +1,20 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
   Image,
+  Modal,
   TouchableOpacity,
   View,
-  Modal,
 } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import styles from "../../../styles/posting/postToiNat";
-import i18n from "../../../i18n";
-import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
-import LocationPicker from "./LocationPicker";
+import posting from "../../../assets/posting";
+import i18n from "../../../i18n";
+import styles from "../../../styles/posting/postToiNat";
+import { baseTextStyles } from "../../../styles/textStyles";
 import { truncateCoordinates } from "../../../utility/locationHelpers";
 import StyledText from "../../UIComponents/StyledText";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { baseTextStyles } from "../../../styles/textStyles";
+import LocationPicker from "./LocationPicker";
 
 interface Props {
   location: string | null;

@@ -1,11 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Image } from "react-native";
 import MapView, {
+  Marker,
   PROVIDER_DEFAULT,
   UrlTile,
-  Marker,
 } from "react-native-maps";
-import { useNavigation } from "@react-navigation/native";
 
 import icons from "../../../assets/icons";
 import styles from "../../../styles/species/speciesMap";

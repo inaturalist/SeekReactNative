@@ -2,11 +2,11 @@ import React from "react";
 import { View } from "react-native";
 
 import i18n from "../../i18n";
-import { iconicTaxaNames } from "../../utility/dictionaries/taxonomyDicts";
 import { textStyles, viewStyles } from "../../styles/species/species";
-import StyledText from "../UIComponents/StyledText";
-import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../styles/textStyles";
+import { iconicTaxaNames } from "../../utility/dictionaries/taxonomyDicts";
+import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   loading: boolean;

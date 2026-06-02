@@ -1,15 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Realm from "realm";
-import { getYear, getMonth } from "date-fns";
+import { getMonth, getYear } from "date-fns";
 import { Alert } from "react-native";
+import Realm from "realm";
 
-import { createNotification, isDuplicateNotification } from "./notificationHelpers";
-import { taxonDictForMissions } from "./dictionaries/taxonomyDicts";
-import missionsDict from "./dictionaries/missionsDict";
-import realmConfig from "../models/index";
-import challengesDict from "./dictionaries/challengesDict";
-import { checkIfChallengeAvailable, isWithinCurrentMonth, isDateInFuture } from "./dateHelpers";
 import i18n from "../i18n";
+import realmConfig from "../models/index";
+import { checkIfChallengeAvailable, isDateInFuture, isWithinCurrentMonth } from "./dateHelpers";
+import challengesDict from "./dictionaries/challengesDict";
+import missionsDict from "./dictionaries/missionsDict";
+import { taxonDictForMissions } from "./dictionaries/taxonomyDicts";
+import { createNotification, isDuplicateNotification } from "./notificationHelpers";
 
 const calculatePercent = ( seen: number, total: number ): number => Math.round( ( seen / total ) * 100 );
 
@@ -393,15 +393,15 @@ const fetchAllObservedTaxaIds = async ( ): Promise<number[]> => {
 };
 
 export {
-  recalculateChallenges,
   calculatePercent,
-  startChallenge,
-  setupChallenges,
-  checkNumberOfChallengesCompleted,
-  setChallengeProgress,
-  checkForChallengesCompleted,
-  fetchObservationsAfterChallengeStarted,
   checkForAncestors,
-  fetchUnobservedChallengeTaxaIds,
+  checkForChallengesCompleted,
+  checkNumberOfChallengesCompleted,
   fetchAllObservedTaxaIds,
+  fetchObservationsAfterChallengeStarted,
+  fetchUnobservedChallengeTaxaIds,
+  recalculateChallenges,
+  setChallengeProgress,
+  setupChallenges,
+  startChallenge,
 };

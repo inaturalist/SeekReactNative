@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
 
 const { height } = Dimensions.get( "window" );
 
@@ -36,7 +36,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

@@ -1,4 +1,5 @@
-import { StyleSheet, I18nManager } from "react-native";
+import { I18nManager,StyleSheet } from "react-native";
+
 import {
   colors,
   dimensions,
@@ -95,7 +96,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

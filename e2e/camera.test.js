@@ -1,4 +1,4 @@
-import { device, element, by, waitFor } from "detox";
+import { by, device, element, waitFor } from "detox";
 
 const TIMEOUT = 15_000;
 

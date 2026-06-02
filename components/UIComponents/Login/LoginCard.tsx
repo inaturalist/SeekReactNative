@@ -1,10 +1,10 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import { UserContext } from "../../UserContext";
-import INatSignOut from "./iNatSignOut";
-import INatLogin from "./iNatLogin";
 import { viewStyles } from "../../../styles/iNaturalist/iNatStats";
+import { UserContext } from "../../UserContext";
+import INatLogin from "./iNatLogin";
+import INatSignOut from "./iNatSignOut";
 
 const LoginCard = ( ) => {
   const { login } = React.useContext( UserContext );

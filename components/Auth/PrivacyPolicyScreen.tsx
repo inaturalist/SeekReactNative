@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import type { RenderersProps } from "react-native-render-html";
 import HTML from "react-native-render-html";
 
-import { viewStyles, textStyles } from "../../styles/auth/privacy";
+import { textStyles, viewStyles } from "../../styles/auth/privacy";
+import { dimensions, htmlFonts } from "../../styles/global";
+import { baseTextStyles } from "../../styles/textStyles";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import { UserContext } from "../UserContext";
-import { baseTextStyles } from "../../styles/textStyles";
-import { dimensions, htmlFonts } from "../../styles/global";
 
 const PrivacyPolicyScreen = () => {
   const { login } = useContext( UserContext );

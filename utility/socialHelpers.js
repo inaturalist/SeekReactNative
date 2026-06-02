@@ -1,16 +1,16 @@
+// I have removed this dependency because it was blocking an update to react-native 0.77.2
+// and the social screens that import these functions are not used in the app currently.
+// import Marker from "react-native-image-marker";
+import { copyAssetsFileIOS, stat, TemporaryDirectoryPath } from "@dr.pogodin/react-native-fs";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 // I have removed this dependency because it was blocking an update to react-native 0.77.2
 // and the social screens that import these functions are not used in the app currently.
 // import Share from "react-native-share";
-import { Platform, Alert, Image, Linking } from "react-native";
-// I have removed this dependency because it was blocking an update to react-native 0.77.2
-// and the social screens that import these functions are not used in the app currently.
-// import Marker from "react-native-image-marker";
-import { stat, TemporaryDirectoryPath, copyAssetsFileIOS } from "@dr.pogodin/react-native-fs";
+import { Alert, Image, Linking, Platform } from "react-native";
 
-import i18n from "../i18n";
 import backgrounds from "../assets/backgrounds";
-import { colors, fonts, dimensions } from "../styles/global";
+import i18n from "../i18n";
+import { colors, dimensions, fonts } from "../styles/global";
 import { showCameraSaveFailureAlert } from "./cameraHelpers";
 
 type ImageSize = {
@@ -189,9 +189,9 @@ const getAssetFileAbsolutePath = async ( assetPath: string ): Promise<?string> =
 };
 
 export {
-  shareToFacebook,
-  saveToCameraRoll,
   addWatermark,
   getAssetFileAbsolutePath,
   getImageSize,
+  saveToCameraRoll,
+  shareToFacebook,
 };

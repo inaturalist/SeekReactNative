@@ -1,9 +1,9 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/uiComponents/greenRectangle";
-import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
+import { textStyles, viewStyles } from "../../styles/uiComponents/greenRectangle";
+import StyledText from "./StyledText";
 
 interface Props {
   text: string;

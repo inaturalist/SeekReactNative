@@ -1,23 +1,23 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import type { PropsWithChildren} from "react";
 import React, { useRef } from "react";
 import {
-  View,
-  ScrollView,
-  Platform,
-  StatusBar,
   Keyboard,
+  Platform,
+  ScrollView,
+  StatusBar,
+  View,
 } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { colors } from "../../../styles/global";
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
 import BottomSpacer from "../BottomSpacer";
-import GreenHeader from "../GreenHeader";
-import Padding from "../Padding";
-import LoadingWheel from "../LoadingWheel";
-import { colors } from "../../../styles/global";
 import Footer from "../Footer";
+import GreenHeader from "../GreenHeader";
+import LoadingWheel from "../LoadingWheel";
+import Padding from "../Padding";
 
 interface Props extends PropsWithChildren {
   testID?: string;

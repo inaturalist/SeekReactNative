@@ -1,26 +1,26 @@
-import React, { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import * as ImagePicker from "react-native-image-picker";
+import { getUnixTime } from "date-fns";
+import React, { useContext, useState } from "react";
 import {
-  TouchableOpacity,
-  View,
   Image,
   Platform,
+  TouchableOpacity,
+  View,
 } from "react-native";
+import * as ImagePicker from "react-native-image-picker";
 
-import i18n from "../../../i18n";
-import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
-import { dirTaxonomy, dirModel, dirGeomodel } from "../../../utility/dirStorage";
-import { UserContext } from "../../UserContext";
-import { useObservation } from "../../Providers/ObservationProvider";
-import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import icons from "../../../assets/icons";
-import readExifFromMultiplePhotos from "../../../utility/parseExif";
-import { getUnixTime } from "date-fns";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import InatVision from "./helpers/visionPluginWrapper";
+import i18n from "../../../i18n";
 import { log } from "../../../react-native-logs.config";
+import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
+import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage";
+import readExifFromMultiplePhotos from "../../../utility/parseExif";
+import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
+import { useObservation } from "../../Providers/ObservationProvider";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import { UserContext } from "../../UserContext";
+import InatVision from "./helpers/visionPluginWrapper";
 
 const logger = log.extend( "GalleryButton.tsx" );
 

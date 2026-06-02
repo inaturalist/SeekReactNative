@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import inatjs from "inaturalistjs";
 import { useNetInfo } from "@react-native-community/netinfo";
+import inatjs from "inaturalistjs";
+import { useEffect, useState } from "react";
 
 import i18n from "../../../i18n";
 import { capitalizeNames, shuffleList } from "../../../utility/helpers";

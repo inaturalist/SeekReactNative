@@ -1,15 +1,15 @@
+import { useNetInfo } from "@react-native-community/netinfo";
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
-import { useNetInfo } from "@react-native-community/netinfo";
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import { viewStyles, imageStyles } from "../../styles/auth/error";
-import StyledText from "../UIComponents/StyledText";
+import { imageStyles, viewStyles } from "../../styles/auth/error";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   readonly error: string;

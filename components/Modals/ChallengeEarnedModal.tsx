@@ -1,21 +1,21 @@
+import { isAfter } from "date-fns";
 import * as React from "react";
 import {
-  View,
   Image,
   ImageBackground,
+  View,
 } from "react-native";
-import { isAfter } from "date-fns";
-import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
 
-import { viewStyles, imageStyles, textStyles } from "../../styles/modals/challengeEarnedModal";
-import i18n from "../../i18n";
-import logos from "../../assets/logos";
+import backgrounds from "../../assets/backgrounds";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import WhiteModal from "../UIComponents/Modals/WhiteModal";
-import backgrounds from "../../assets/backgrounds";
-import StyledText from "../UIComponents/StyledText";
+import logos from "../../assets/logos";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/modals/challengeEarnedModal";
 import { baseTextStyles } from "../../styles/textStyles";
+import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   closeModal: ( ) => void;

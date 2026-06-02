@@ -2,12 +2,12 @@ import * as React from "react";
 import { Image, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
+import icons from "../../../assets/icons";
+import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
 import styles from "../../../styles/posting/postToiNat";
-import posting from "../../../assets/posting";
-import icons from "../../../assets/icons";
-import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import StyledText from "../../UIComponents/StyledText";
 
 type Captive = "captive_flag";
 interface Props {

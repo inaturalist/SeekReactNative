@@ -1,25 +1,25 @@
-import React, { useCallback, useContext, useEffect } from "react";
-import inatjs from "inaturalistjs";
-import { View } from "react-native";
-import { useNetInfo } from "@react-native-community/netinfo";
-import { WebView } from "react-native-webview";
 import makeWebshell, {
-  HandleLinkPressFeature,
-  HandleHTMLDimensionsFeature,
-  ForceResponsiveViewportFeature,
   ForceElementSizeFeature,
+  ForceResponsiveViewportFeature,
+  HandleHTMLDimensionsFeature,
+  HandleLinkPressFeature,
   useAutoheight,
 } from "@formidable-webview/webshell";
-
-import { UserContext } from "../../UserContext";
-import { viewStyles, textStyles } from "../../../styles/home/announcements";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import i18n from "../../../i18n";
-import { fetchJSONWebToken } from "../../../utility/tokenHelpers";
-import { fetchAccessToken } from "../../../utility/loginHelpers";
+import { useNetInfo } from "@react-native-community/netinfo";
 import { useNavigation } from "@react-navigation/native";
-import StyledText from "../../UIComponents/StyledText";
+import inatjs from "inaturalistjs";
+import React, { useCallback, useContext, useEffect } from "react";
+import { View } from "react-native";
+import { WebView } from "react-native-webview";
+
+import i18n from "../../../i18n";
+import { textStyles, viewStyles } from "../../../styles/home/announcements";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { fetchAccessToken } from "../../../utility/loginHelpers";
+import { fetchJSONWebToken } from "../../../utility/tokenHelpers";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import StyledText from "../../UIComponents/StyledText";
+import { UserContext } from "../../UserContext";
 
 const Webshell = makeWebshell(
   WebView,

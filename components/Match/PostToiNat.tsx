@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useContext, useEffect, useState } from "react";
+import { View } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/match/match";
+import { baseTextStyles } from "../../styles/textStyles";
 import { fetchPostingSuccess } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { UserContext } from "../UserContext";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
+import { UserContext } from "../UserContext";
 
 interface Props {
   readonly color: string;

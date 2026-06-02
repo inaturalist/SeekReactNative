@@ -1,8 +1,8 @@
 import React from "react";
 
-import StyledText from "./StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 import { dimensions } from "../../styles/global";
+import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "./StyledText";
 
 interface Props {
   readonly text: string;

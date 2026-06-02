@@ -1,10 +1,10 @@
-import * as RNLocalize from "react-native-localize";
 import { I18nManager, Platform } from "react-native";
+import * as RNLocalize from "react-native-localize";
 import RNRestart from "react-native-restart";
 
-import languages from "./dictionaries/languageDict";
 import i18n from "../i18n";
 import { setupCommonNames } from "./commonNamesHelpers";
+import languages from "./dictionaries/languageDict";
 
 const deviceLanguageSupported = ( ): boolean => {
   const { languageCode } = RNLocalize.getLocales()[0];
@@ -82,11 +82,11 @@ const setDisplayLanguage = ( preferredLanguage: string ): string => {
 };
 
 export {
-  setDeviceLanguageOrFallback,
-  setLanguageCodeOrFallback,
+  deviceLanguageSupported,
   handleLocalizationChange,
   loadUserLanguagePreference,
-  setDisplayLanguage,
-  deviceLanguageSupported,
   localeNoHyphens,
+  setDeviceLanguageOrFallback,
+  setDisplayLanguage,
+  setLanguageCodeOrFallback,
 };

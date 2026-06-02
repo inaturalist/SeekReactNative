@@ -1,6 +1,6 @@
-import { Platform, DeviceEventEmitter } from "react-native";
-import QuickActions from "react-native-quick-actions";
 import { CommonActions } from "@react-navigation/native";
+import { DeviceEventEmitter, Platform } from "react-native";
+import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
 
@@ -58,8 +58,8 @@ const resetRouter = ( navigation: Navigation ): any => navigation.dispatch(
 );
 
 export {
-  setQuickActions,
-  checkForHotStarts,
   checkForColdStarts,
+  checkForHotStarts,
   resetRouter,
+  setQuickActions,
 };

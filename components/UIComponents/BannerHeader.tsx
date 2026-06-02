@@ -1,10 +1,10 @@
 import React from "react";
 import { ImageBackground } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/badges/banner";
 import icons from "../../assets/icons";
-import StyledText from "./StyledText";
+import { textStyles, viewStyles } from "../../styles/badges/banner";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "./StyledText";
 
 interface Props {
   readonly text: string;

@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions, I18nManager } from "react-native";
+import { Dimensions, I18nManager, StyleSheet } from "react-native";
 
 import { colors } from "../global";
 

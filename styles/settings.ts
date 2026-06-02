@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+
 import {
-  colors,
-  row,
   center,
+  colors,
   dimensions,
+  row,
 } from "./global";
 import { baseTextStyles } from "./textStyles";
 

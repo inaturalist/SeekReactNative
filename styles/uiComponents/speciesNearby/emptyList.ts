@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { dimensions } from "../../global";
 
 const viewStyles = StyleSheet.create( {

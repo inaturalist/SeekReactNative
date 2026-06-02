@@ -1,21 +1,20 @@
-import StyledText from "../../UIComponents/StyledText";
-
-import React from "react";
-import { View, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { ImageBackground, TouchableOpacity, View } from "react-native";
 
-import GreenText from "../../UIComponents/GreenText";
-import NoChallenges from "./NoChallenges";
-import useLatestChallenge from "./hooks/challengeCardHooks";
-import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/home/challenges";
 import backgrounds from "../../../assets/backgrounds";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
-import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
-import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
+import { textStyles, viewStyles } from "../../../styles/home/challenges";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useChallenge } from "../../Providers/ChallengeProvider";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
+import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
+import GreenText from "../../UIComponents/GreenText";
+import StyledText from "../../UIComponents/StyledText";
+import useLatestChallenge from "./hooks/challengeCardHooks";
+import NoChallenges from "./NoChallenges";
 
 const ChallengeCard = ( ) => {
   const { setIndex } = useChallenge( );

@@ -1,16 +1,16 @@
 import * as React from "react";
 import {
   Image,
+  ImageBackground,
   TouchableOpacity,
   View,
-  ImageBackground,
 } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/uiComponents/speciesCard";
 import iconicTaxa from "../../assets/iconicTaxa";
 import i18n from "../../i18n";
-import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
+import { textStyles, viewStyles } from "../../styles/uiComponents/speciesCard";
+import StyledText from "./StyledText";
 
 interface Props {
   handlePress?: () => void;

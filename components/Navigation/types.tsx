@@ -3,8 +3,8 @@
  * https://reactnavigation.org/docs/typescript/?config=dynamic
  */
 
-import type { CompositeScreenProps, NavigatorScreenParams } from "@react-navigation/native";
 import type { DrawerScreenProps } from "@react-navigation/drawer";
+import type { CompositeScreenProps, NavigatorScreenParams } from "@react-navigation/native";
 import type { StackScreenProps } from "@react-navigation/stack";
 
 // Note from the documentation:

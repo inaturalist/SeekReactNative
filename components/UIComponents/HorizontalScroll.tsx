@@ -1,12 +1,12 @@
-import React, { useRef, useState, useCallback } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import { FlashList } from "@shopify/flash-list";
-import type { FlashListRef, ViewToken } from "@shopify/flash-list";
 import { useRoute } from "@react-navigation/native";
+import type { FlashListRef, ViewToken } from "@shopify/flash-list";
+import { FlashList } from "@shopify/flash-list";
+import React, { useCallback, useRef, useState } from "react";
+import { Image, TouchableOpacity, View } from "react-native";
 
-import styles from "../../styles/uiComponents/horizontalScroll";
-import i18n from "../../i18n";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
+import styles from "../../styles/uiComponents/horizontalScroll";
 
 interface Props {
   photoList: JSX.Element[];

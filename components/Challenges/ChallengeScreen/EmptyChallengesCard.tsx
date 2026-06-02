@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
 
-import { viewStyles, textStyles } from "../../../styles/challenges/emptyChallenges";
 import i18n from "../../../i18n";
-import StyledText from "../../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../../styles/challenges/emptyChallenges";
 import { baseTextStyles } from "../../../styles/textStyles";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   type: string;

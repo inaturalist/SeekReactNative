@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { row, center, dimensions } from "../global";
+
+import { center, dimensions, row } from "../global";
 
 // added decimal because this was going off the screen on Android Pixel 4
 const badgeIconWidth = Math.min( 455, dimensions.width ) / 4.0005;
@@ -75,4 +76,4 @@ const imageStyles = StyleSheet.create( {
 } );
 
 
-export { viewStyles, textStyles, imageStyles };
+export { imageStyles, textStyles, viewStyles };

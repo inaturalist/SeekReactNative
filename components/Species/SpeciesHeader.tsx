@@ -1,14 +1,14 @@
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, { useCallback } from "react";
 import { BackHandler } from "react-native";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
-import SpeciesPhotos from "./SpeciesPhotos";
 import { viewStyles } from "../../styles/species/species";
 import { getRoute, StoredRoutes } from "../../utility/helpers";
-import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import { resetRouter } from "../../utility/navigationHelpers";
-import SpeciesName from "./SpeciesName";
+import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import IconicTaxaName from "./IconicTaxaName";
+import SpeciesName from "./SpeciesName";
+import SpeciesPhotos from "./SpeciesPhotos";
 
 interface Props {
   readonly loading: boolean;

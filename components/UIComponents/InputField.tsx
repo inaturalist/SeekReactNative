@@ -1,10 +1,10 @@
 import * as React from "react";
 import type { KeyboardTypeOptions } from "react-native";
-import { TextInput, Platform } from "react-native";
+import { Platform, TextInput } from "react-native";
 
-import styles from "../../styles/uiComponents/inputField";
 import { colors } from "../../styles/global";
 import { baseTextStyles } from "../../styles/textStyles";
+import styles from "../../styles/uiComponents/inputField";
 
 type TextContentTypes = "emailAddress" | "username" | "password";
 interface Props {

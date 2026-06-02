@@ -2,9 +2,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
 import Realm from "realm";
 
+import realmConfig from "../../../models/index";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
-import realmConfig from "../../../models/index";
 
 const executeInNewMonth = async ( callback: () => void, keySubstring: string ) => {
   const storageKeyBase = "lastRunMonth";

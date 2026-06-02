@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+
 import {
-  colors,
   center,
-  row,
+  colors,
   dimensions,
+  row,
 } from "../global";
 
 const badgeIconWidth = Math.min( 455, dimensions.width ) / 4;
@@ -84,6 +85,6 @@ const imageStyles = StyleSheet.create( {
 
 export {
   imageStyles,
-  viewStyles,
   textStyles,
+  viewStyles,
 };

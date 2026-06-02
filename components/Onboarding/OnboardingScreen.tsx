@@ -4,12 +4,12 @@ import {
   View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/onboarding";
-import Swiper from "./Swiper";
 import icons from "../../assets/icons";
-import StyledText from "../UIComponents/StyledText";
+import i18n from "../../i18n";
+import { textStyles, viewStyles } from "../../styles/onboarding";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "../UIComponents/StyledText";
+import Swiper from "./Swiper";
 
 const OnboardingScreen = ( ) => (
   <Swiper>

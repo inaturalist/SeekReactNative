@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/camera/arCameraHeader";
 import icons from "../../../assets/icons";
-import { ranks } from "../../../utility/dictionaries/taxonomyDicts";
-import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
-import GreenRectangle from "../../UIComponents/GreenRectangle";
+import i18n from "../../../i18n";
+import { textStyles, viewStyles } from "../../../styles/camera/arCameraHeader";
 import { colors } from "../../../styles/global";
-import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
-import StyledText from "../../UIComponents/StyledText";
-import { useAppOrientation } from "../../Providers/AppOrientationProvider";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
+import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
+import { ranks } from "../../../utility/dictionaries/taxonomyDicts";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import GreenRectangle from "../../UIComponents/GreenRectangle";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Prediction {
   name: string;

@@ -47,7 +47,7 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  textStyles,
   imageStyles,
+  textStyles,
   viewStyles,
 };

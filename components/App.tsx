@@ -1,36 +1,36 @@
-import React, { useEffect } from "react";
-import {
-  setJSExceptionHandler,
-  setNativeExceptionHandler,
-} from "react-native-exception-handler";
-import {
-  getVersion,
-  getBuildNumber,
-} from "react-native-device-info";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-
-import RootStack from "./Navigation/RootStack";
-import { LanguageProvider } from "./Providers/LanguageProvider";
-import { SpeciesNearbyProvider } from "./Providers/SpeciesNearbyProvider";
-import UserLoginProvider from "./Providers/UserLoginProvider";
-import { CameraLocationPreferenceProvider } from "./Providers/CameraLocationPreferenceProvider";
-import { ObservationProvider } from "./Providers/ObservationProvider";
-import { AppOrientationProvider } from "./Providers/AppOrientationProvider";
-import { ChallengeProvider } from "./Providers/ChallengeProvider";
-import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
-import { log } from "../react-native-logs.config";
-import { LogLevels, logToApi } from "../utility/apiCalls";
-import ErrorBoundary from "./ErrorBoundary";
-import { useNetworkActivityDevTools } from "@rozenite/network-activity-plugin";
-import { useRequireProfilerDevTools } from "@rozenite/require-profiler-plugin";
 import * as RNFS from "@dr.pogodin/react-native-fs";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   createRNFSAdapter,
   useFileSystemDevTools,
 } from "@rozenite/file-system-plugin";
+import { useNetworkActivityDevTools } from "@rozenite/network-activity-plugin";
+import { useRequireProfilerDevTools } from "@rozenite/require-profiler-plugin";
 import { createAsyncStorageAdapter, useRozeniteStoragePlugin } from "@rozenite/storage-plugin";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useEffect } from "react";
+import {
+  getBuildNumber,
+  getVersion,
+} from "react-native-device-info";
+import {
+  setJSExceptionHandler,
+  setNativeExceptionHandler,
+} from "react-native-exception-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+import { log } from "../react-native-logs.config";
+import { LogLevels, logToApi } from "../utility/apiCalls";
+import ErrorBoundary from "./ErrorBoundary";
+import RootStack from "./Navigation/RootStack";
+import { AppOrientationProvider } from "./Providers/AppOrientationProvider";
+import { CameraLocationPreferenceProvider } from "./Providers/CameraLocationPreferenceProvider";
+import { ChallengeProvider } from "./Providers/ChallengeProvider";
+import { LanguageProvider } from "./Providers/LanguageProvider";
+import { ObservationProvider } from "./Providers/ObservationProvider";
+import { SpeciesDetailProvider } from "./Providers/SpeciesDetailProvider";
+import { SpeciesNearbyProvider } from "./Providers/SpeciesNearbyProvider";
+import UserLoginProvider from "./Providers/UserLoginProvider";
 
 const logger = log.extend( "App.tsx" );
 

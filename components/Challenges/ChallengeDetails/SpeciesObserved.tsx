@@ -7,7 +7,7 @@ import GreenText from "../../UIComponents/GreenText";
 import { useFetchSpeciesObserved } from "../hooks/challengeHooks";
 
 interface Props {
-  challenge: Object;
+  challenge: object;
 }
 
 const SpeciesObserved = ( { challenge }: Props ) => {

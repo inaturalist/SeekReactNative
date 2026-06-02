@@ -156,7 +156,7 @@ const checkInactiveTaxonIds = async ( id ) => {
       // if no longer active or taxon replaced by 2 taxa, roll up to nearest common ancestor
       return ancestorIds[ancestorIds.length - 1];
     }
-  } catch ( e ) {
+  } catch ( _e ) {
     return id;
   }
 };

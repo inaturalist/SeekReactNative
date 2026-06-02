@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Platform, Linking } from "react-native";
-//@ts-ignore
+//@ts-expect-error package does not provide types
 import { AppInstalledChecker } from "react-native-check-app-install";
 import SendIntentAndroid from "react-native-send-intent";
 
@@ -19,7 +19,7 @@ const OpenINatButton = ( ) => {
     try {
       const canOpen = await Linking.canOpenURL( iOSUrlScheme );
       openUrl( canOpen ? iOSUrlScheme : appStore );
-    } catch ( e ) {
+    } catch ( _e ) {
       openUrl( appStore );
     }
   };
@@ -35,7 +35,7 @@ const OpenINatButton = ( ) => {
       } else {
         openUrl( playStore );
       }
-    } catch ( e ) {
+    } catch ( _e ) {
       openUrl( playStore );
     }
   };

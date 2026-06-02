@@ -9,6 +9,7 @@ import type { StackScreenProps } from "@react-navigation/stack";
 
 // Note from the documentation:
 // The type containing the mapping must be a type alias. It cannot be an interface.
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type DrawerParamList = {
   Home: undefined;
   Achievements: undefined;
@@ -28,6 +29,7 @@ export type DrawerParamList = {
 
 // Note from the documentation:
 // The type containing the mapping must be a type alias. It cannot be an interface.
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type RootStackParamList = {
   Splash: undefined;
   Onboarding: undefined;
@@ -67,7 +69,9 @@ export type DrawerStackScreenProps<T extends keyof DrawerParamList> =
 
 // https://reactnavigation.org/docs/typescript/?config=dynamic#specifying-default-types-for-usenavigation-link-ref-etc
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace ReactNavigation {
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     interface RootParamList extends RootStackParamList {}
   }
 }

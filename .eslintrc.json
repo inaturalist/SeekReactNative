@@ -26,6 +26,19 @@
         "fixStyle": "separate-type-imports"
       }
     ],
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true,
+        "caughtErrors": "all",
+        // needed a special case for catch blocks that use _ to define an unused error
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     "comma-dangle": [2, "always-multiline"],
     "import/consistent-type-specifier-style": [2, "prefer-top-level"],
     "import/no-extraneous-dependencies": [2, {}],

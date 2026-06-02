@@ -1,5 +1,12 @@
 {
   "ignorePatterns": ["**/vendor/**"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
   "extends": [
     "@react-native",
     "plugin:react-hooks/recommended"

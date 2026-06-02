@@ -173,6 +173,7 @@ const downloadCommonNames = async () => {
 
 };
 
+// eslint-disable-next-line no-unused-expressions, @typescript-eslint/no-unused-expressions
 yargs
   .usage( "Usage: $0 [args]" )
   .option( "androidFlavor", {

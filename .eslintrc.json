@@ -9,23 +9,38 @@
   },
   "extends": [
     "@react-native",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended"
   ],
   "plugins": [
     "@stylistic",
+    "@typescript-eslint",
     "import",
     "lodash",
     "react-hooks"
   ],
   "rules": {
     "@stylistic/member-delimiter-style": 2,
-    "@typescript-eslint/array-type": 2,
+    "@typescript-eslint/array-type": [
+      2,
+      {
+        "default": "array"
+      }
+    ],
+    "@typescript-eslint/consistent-type-definitions": [2, "interface"],
     "@typescript-eslint/consistent-type-imports": [
       2,
       {
         "fixStyle": "separate-type-imports"
       }
     ],
+    "@typescript-eslint/no-require-imports": [
+      2,
+      {
+        "allow": ["\\.(png|jpg|jpeg|gif|svg)$"]
+      }
+    ],
+    "@typescript-eslint/no-unsafe-function-type": 1,
     "@typescript-eslint/no-unused-vars": [
       2,
       {
@@ -64,6 +79,24 @@
     }
   },
   "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/consistent-type-definitions": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-require-imports": "off",
+        "@typescript-eslint/no-unsafe-function-type": "off",
+        "@typescript-eslint/no-wrapper-object-types": "off",
+        "@stylistic/member-delimiter-style": "off",
+        "import/consistent-type-specifier-style": "off"
+      }
+    },
+    {
+      "files": ["**/__mocks__/**/*", "**/*mock*", "**/*.mock.*"],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off"
+      }
+    },
     {
       "files": ["tests/**/*", "__mocks__/**/*", "e2e/**/*"],
       "env": { "jest": true }

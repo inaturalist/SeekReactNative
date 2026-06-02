@@ -10,7 +10,8 @@
   "extends": [
     "@react-native",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:react-native-a11y/ios"
   ],
   "plugins": [
     "@stylistic",

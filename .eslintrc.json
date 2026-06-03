@@ -18,6 +18,7 @@
     "@typescript-eslint",
     "import",
     "lodash",
+    "module-resolver",
     "react-hooks",
     "simple-import-sort"
   ],
@@ -64,6 +65,7 @@
     "import/consistent-type-specifier-style": [2, "prefer-top-level"],
     "import/no-extraneous-dependencies": [2, {}],
     "lodash/import-scope": 2,
+    "module-resolver/use-alias": 2,
     "prettier/prettier": 0,
     "quotes": [2, "double"],
     // React-Hooks Plugin

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
-import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import MapView, { Marker,PROVIDER_DEFAULT, UrlTile } from "react-native-maps";
 
-import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/species/rangeMap";
-import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import { textStyles, viewStyles } from "../../../styles/species/rangeMap";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
 import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;

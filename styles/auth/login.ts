@@ -1,10 +1,10 @@
-import { StyleSheet, Platform } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 import {
-  colors,
-  row,
   center,
+  colors,
   dimensions,
+  row,
 } from "../global";
 
 export default StyleSheet.create( {

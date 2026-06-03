@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import inatjs from "inaturalistjs";
+import React, { useEffect, useState } from "react";
 import {
-  View,
   Image,
   TouchableOpacity,
+  View,
 } from "react-native";
-import inatjs from "inaturalistjs";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../../styles/species/iNatObs";
 import logos from "../../../assets/logos";
-import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
-import { localizeNumber } from "../../../utility/helpers";
-import StyledText from "../../UIComponents/StyledText";
+import i18n from "../../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/species/iNatObs";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { localizeNumber } from "../../../utility/helpers";
+import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   readonly id: number | null;

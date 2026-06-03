@@ -1,10 +1,10 @@
 import React from "react";
-import StyledText from "../../UIComponents/StyledText";
 
 import i18n from "../../../i18n";
+import { baseTextStyles } from "../../../styles/textStyles";
 import { textStyles } from "../../../styles/uiComponents/challenges";
 import { formatMonthYear } from "../../../utility/dateHelpers";
-import { baseTextStyles } from "../../../styles/textStyles";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   challenge: {

@@ -1,11 +1,11 @@
 import * as React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
 import logos from "../../assets/logos";
-import StyledText from "../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   icon: string;

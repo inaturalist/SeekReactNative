@@ -2,10 +2,10 @@ import React from "react";
 import { View } from "react-native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/observations/searchEmpty";
+import { textStyles, viewStyles } from "../../styles/observations/searchEmpty";
+import { baseTextStyles } from "../../styles/textStyles";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   clearText: ( ) => void;

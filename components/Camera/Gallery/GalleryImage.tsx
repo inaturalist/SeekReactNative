@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
 
-import { viewStyles, imageStyles } from "../../../styles/camera/gallery";
+import { imageStyles, viewStyles } from "../../../styles/camera/gallery";
 
 interface Item {
   node?: {

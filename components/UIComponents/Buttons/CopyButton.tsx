@@ -1,12 +1,12 @@
+import Clipboard from "@react-native-clipboard/clipboard";
 import type { PropsWithChildren} from "react";
 import React, { useState } from "react";
 import { Pressable, View } from "react-native";
-import Clipboard from "@react-native-clipboard/clipboard";
 
 import i18n from "../../../i18n";
+import { colors } from "../../../styles/global";
 import viewStyles from "../../../styles/uiComponents/buttons/copyButton";
 import ToastAnimation from "../../UIComponents/ToastAnimation";
-import { colors } from "../../../styles/global";
 
 interface Props extends PropsWithChildren {
   stringToCopy: string;

@@ -1,15 +1,15 @@
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
 
-import { imageStyles, viewStyles, textStyles } from "../../styles/camera/help";
-import i18n from "../../i18n";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/camera/help";
+import { baseTextStyles } from "../../styles/textStyles";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 const CameraHelpScreen = ( ) => {
   const tips = [

@@ -1,23 +1,23 @@
-import React, { useCallback } from "react";
-import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useCallback } from "react";
+import { TouchableOpacity, View } from "react-native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/badges/achievements";
+import { textStyles, viewStyles } from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
-import LevelHeader from "./LevelHeader";
-import SpeciesBadges from "./SpeciesBadges";
-import ChallengeBadges from "./ChallengeBadges";
+import { baseTextStyles } from "../../styles/textStyles";
+import { useSpeciesCount } from "../../utility/customHooks";
+import { localizeNumber, setRoute, StoredRoutes } from "../../utility/helpers";
+import BannerHeader from "../UIComponents/BannerHeader";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/Login/LoginCard";
-import Spacer from "../UIComponents/TopSpacer";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import BannerHeader from "../UIComponents/BannerHeader";
 import StyledText from "../UIComponents/StyledText";
+import Spacer from "../UIComponents/TopSpacer";
+import ChallengeBadges from "./ChallengeBadges";
 import { useFetchAchievements } from "./hooks/achievementHooks";
-import { localizeNumber, setRoute, StoredRoutes } from "../../utility/helpers";
-import { useSpeciesCount } from "../../utility/customHooks";
-import { baseTextStyles } from "../../styles/textStyles";
+import LevelHeader from "./LevelHeader";
+import SpeciesBadges from "./SpeciesBadges";
 
 const AchievementsScreen = ( ) => {
   const state = useFetchAchievements( );

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { TextInput } from "react-native";
 
-import styles from "../../styles/posting/postToiNat";
-import { colors } from "../../styles/global";
 import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import styles from "../../styles/posting/postToiNat";
 import { baseTextStyles } from "../../styles/textStyles";
 
 type description = "description";

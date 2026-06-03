@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
 import { View } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/iNaturalist/iNatStats";
 import i18n from "../../i18n";
-import GreenText from "../UIComponents/GreenText";
-import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import INatPhotos from "./iNatPhotos";
-import BulletedList from "./BulletedList";
-import { UserContext } from "../UserContext";
-import AppIconSubHeader from "./AppIconSubHeader";
-import INatHeaderLoggedOut from "./iNatHeaderLoggedOut";
-import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
-import LoginCard from "../UIComponents/Login/LoginCard";
-import StyledText from "../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import GreenText from "../UIComponents/GreenText";
+import LoginCard from "../UIComponents/Login/LoginCard";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../UIComponents/StyledText";
+import { UserContext } from "../UserContext";
+import AppIconSubHeader from "./AppIconSubHeader";
+import BulletedList from "./BulletedList";
+import INatHeaderLoggedIn from "./iNatHeaderLoggedIn";
+import INatHeaderLoggedOut from "./iNatHeaderLoggedOut";
+import INatPhotos from "./iNatPhotos";
 
 const INatStats = ( ) => {
   const { login } = useContext( UserContext );

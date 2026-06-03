@@ -1,20 +1,20 @@
 import * as React from "react";
 import {
-  View,
   Image,
-  ScrollView,
   ImageBackground,
+  ScrollView,
+  View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { colors } from "../../styles/global";
-import { viewStyles, textStyles, imageStyles } from "../../styles/auth/loginOrSignup";
-import logoImages from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
-import Button from "../UIComponents/Buttons/Button";
-import { enabledLargeFonts } from "../../utility/textHelpers";
-import StyledText from "../UIComponents/StyledText";
+import logoImages from "../../assets/logos";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/auth/loginOrSignup";
+import { colors } from "../../styles/global";
 import { baseTextStyles } from "../../styles/textStyles";
+import { enabledLargeFonts } from "../../utility/textHelpers";
+import Button from "../UIComponents/Buttons/Button";
+import StyledText from "../UIComponents/StyledText";
 
 const LoginOrSignupScreen = ( { navigation } ) => {
   const navToLogin = ( ) => navigation.navigate( "Login" );

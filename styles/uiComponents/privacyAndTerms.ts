@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 
 import {
-  row,
   center,
+  row,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -27,6 +27,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

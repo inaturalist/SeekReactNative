@@ -1,12 +1,12 @@
 import * as React from "react";
 import {
-  TouchableOpacity,
   Image,
+  TouchableOpacity,
 } from "react-native";
 
+import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/buttons/modalBackButton";
-import icons from "../../../assets/icons";
 
 interface Props {
   readonly closeModal: ( ) => void;

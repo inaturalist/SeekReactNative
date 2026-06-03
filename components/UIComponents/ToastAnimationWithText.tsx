@@ -1,8 +1,8 @@
 import React from "react";
 
 import GreenRectangle from "../UIComponents/GreenRectangle";
-import ToastWrapper from "./ToastWrapper";
 import StyledText from "./StyledText";
+import ToastWrapper from "./ToastWrapper";
 
 interface Props {
   testID?: string;

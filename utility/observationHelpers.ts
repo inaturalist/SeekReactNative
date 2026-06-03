@@ -1,14 +1,14 @@
 import Realm from "realm";
-
 import * as createUUID from "uuid";
-import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
-import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
-import { createBackupUri, deleteFile } from "./photoHelpers";
-import { createNotification } from "./notificationHelpers";
-import realmConfig from "../models/index";
-import { dirPictures } from "./dirStorage";
-import { setISOTime } from "./dateHelpers";
+
 import type { ObservationImage } from "../components/Providers/ObservationProvider";
+import realmConfig from "../models/index";
+import { checkNumberOfBadgesEarned, deleteBadges } from "./badgeHelpers";
+import { checkNumberOfChallengesCompleted, recalculateChallenges } from "./challengeHelpers";
+import { setISOTime } from "./dateHelpers";
+import { dirPictures } from "./dirStorage";
+import { createNotification } from "./notificationHelpers";
+import { createBackupUri, deleteFile } from "./photoHelpers";
 
 const checkForPowerUsers = ( length: number, newLength: number ) => {
   if ( length < newLength ) {
@@ -145,6 +145,6 @@ const createSectionList = ( species: any, hideSections: boolean ): {id: number; 
 
 export {
   addToCollection,
-  removeFromCollection,
   createSectionList,
+  removeFromCollection,
 };

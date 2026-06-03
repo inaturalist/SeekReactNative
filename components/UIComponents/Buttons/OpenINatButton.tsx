@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Platform, Linking } from "react-native";
+import { Linking, Platform } from "react-native";
 //@ts-expect-error package does not provide types
 import { AppInstalledChecker } from "react-native-check-app-install";
 import SendIntentAndroid from "react-native-send-intent";
 
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
 
 const OpenINatButton = ( ) => {
   const openUrl = async ( url: string ) => {

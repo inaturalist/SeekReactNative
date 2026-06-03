@@ -1,33 +1,33 @@
-import React, { useState, useEffect, useMemo } from "react";
-import {
-  View,
-  Image,
-  TouchableOpacity,
-  Platform,
-} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
-import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/camera/arCameraOverlay";
-import icons from "../../../assets/icons";
-import { setCameraHelpText } from "../../../utility/textHelpers";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import ARCameraHeader from "./ARCameraHeader";
-import GreenRectangle from "../../UIComponents/GreenRectangle";
-import { colors } from "../../../styles/global";
-import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
-import ToastAnimation from "../../UIComponents/ToastAnimation";
-import StyledText from "../../UIComponents/StyledText";
-import TouchableOpacityWithDebounce from "../../UIComponents/Buttons/TouchableOpacityWithDebounce";
-import { useAppOrientation } from "../../Providers/AppOrientationProvider";
-import { baseTextStyles } from "../../../styles/textStyles";
-import GalleryButton from "./GalleryButton";
-import Flash from "./Flash";
-import CameraFlip from "./CameraFlip";
-import Location from "./Location";
+import React, { useEffect, useMemo, useState } from "react";
+import {
+  Image,
+  Platform,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import type { TakePhotoOptions } from "react-native-vision-camera";
+
+import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import { textStyles, viewStyles } from "../../../styles/camera/arCameraOverlay";
+import { colors } from "../../../styles/global";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { useFetchUserSettings } from "../../../utility/customHooks/useFetchUserSettings";
+import { setCameraHelpText } from "../../../utility/textHelpers";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import TouchableOpacityWithDebounce from "../../UIComponents/Buttons/TouchableOpacityWithDebounce";
+import GreenRectangle from "../../UIComponents/GreenRectangle";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import StyledText from "../../UIComponents/StyledText";
+import ToastAnimation from "../../UIComponents/ToastAnimation";
 import ToastAnimationWithText from "../../UIComponents/ToastAnimationWithText";
 import { TOAST } from "./ARCamera";
+import ARCameraHeader from "./ARCameraHeader";
+import CameraFlip from "./CameraFlip";
+import Flash from "./Flash";
+import GalleryButton from "./GalleryButton";
+import Location from "./Location";
 
 interface Prediction {
   name: string;

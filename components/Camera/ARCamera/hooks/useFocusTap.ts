@@ -1,11 +1,6 @@
 import {
   useCallback, useMemo, useState,
 } from "react";
-import {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-} from "react-native-reanimated";
 import type {
   GestureStateChangeEvent,
   TapGestureHandlerEventPayload,
@@ -13,6 +8,12 @@ import type {
 import {
   Gesture,
 } from "react-native-gesture-handler";
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
+
 import type { Camera } from "../helpers/visionCameraWrapper";
 
 export const HALF_SIZE_FOCUS_BOX = 40;

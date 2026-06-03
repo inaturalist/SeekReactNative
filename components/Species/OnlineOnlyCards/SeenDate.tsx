@@ -1,12 +1,12 @@
 import * as React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import { viewStyles } from "../../../styles/species/species";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import StyledText from "../../UIComponents/StyledText";
-import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import { viewStyles } from "../../../styles/species/species";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   readonly loading: boolean;

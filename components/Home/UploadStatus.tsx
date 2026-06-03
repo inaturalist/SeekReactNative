@@ -1,23 +1,23 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { View, Image, Pressable } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
+  useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/home/uploadStatus";
-import logos from "../../assets/logos";
 import icons from "../../assets/icons";
-import { uploadObservation, markCurrentUploadAsSeen, checkForUploads } from "../../utility/uploadHelpers";
-import { useInternetStatus } from "../../utility/customHooks";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
+import logos from "../../assets/logos";
+import i18n from "../../i18n";
 import { colors } from "../../styles/global";
-import { resetRouter } from "../../utility/navigationHelpers";
-import StyledText from "../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../styles/home/uploadStatus";
 import { baseTextStyles } from "../../styles/textStyles";
+import { useInternetStatus } from "../../utility/customHooks";
+import { resetRouter } from "../../utility/navigationHelpers";
+import { checkForUploads, markCurrentUploadAsSeen, uploadObservation } from "../../utility/uploadHelpers";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   successfulUploads: number;

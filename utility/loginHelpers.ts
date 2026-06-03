@@ -66,12 +66,12 @@ const fetchUserProfile = async ( login: string ): Promise<any> => {
 };
 
 export {
-  saveAccessToken,
-  fetchAccessToken,
-  removeAccessToken,
   checkIsEmailValid,
-  savePostingSuccess,
+  fetchAccessToken,
   fetchPostingSuccess,
-  formatError,
   fetchUserProfile,
+  formatError,
+  removeAccessToken,
+  saveAccessToken,
+  savePostingSuccess,
 };

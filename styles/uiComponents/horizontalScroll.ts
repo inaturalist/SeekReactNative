@@ -1,4 +1,5 @@
-import { StyleSheet, I18nManager } from "react-native";
+import { I18nManager, StyleSheet } from "react-native";
+
 import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {

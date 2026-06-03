@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { colors } from "../global";
 
 const spaceBelowTags = 6;
@@ -33,6 +34,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

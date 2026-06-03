@@ -2,10 +2,10 @@ import * as React from "react";
 import type { RenderersProps } from "react-native-render-html";
 import HTML from "react-native-render-html";
 
-import { viewStyles, textStyles } from "../../styles/auth/privacy";
-import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import { baseTextStyles } from "../../styles/textStyles";
+import { textStyles, viewStyles } from "../../styles/auth/privacy";
 import { dimensions, htmlFonts } from "../../styles/global";
+import { baseTextStyles } from "../../styles/textStyles";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const CommunityGuidelines = ( ) => {
   const html = `<div class="last column span-18">

@@ -1,14 +1,14 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import type { PropsWithChildren} from "react";
 import React, { useRef } from "react";
-import { ScrollView, Platform, StatusBar } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { Platform, ScrollView, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
 import BottomSpacer from "../BottomSpacer";
-import Padding from "../Padding";
 import Footer from "../Footer";
+import Padding from "../Padding";
 
 interface Props extends PropsWithChildren {
   showUploadCard?: boolean;

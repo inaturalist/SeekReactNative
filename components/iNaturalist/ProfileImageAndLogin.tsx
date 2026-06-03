@@ -1,15 +1,15 @@
-import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import { useRoute } from "@react-navigation/native";
 import { useNetInfo } from "@react-native-community/netinfo";
+import { useRoute } from "@react-navigation/native";
+import React from "react";
+import { Image, TouchableOpacity, View } from "react-native";
 
-import { viewStyles, textStyles, imageStyles } from "../../styles/iNaturalist/iNatStats";
+import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import i18n from "../../i18n";
-import { UserContext } from "../UserContext";
-import icons from "../../assets/icons";
-import StyledText from "../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../styles/iNaturalist/iNatStats";
 import { baseTextStyles } from "../../styles/textStyles";
+import StyledText from "../UIComponents/StyledText";
+import { UserContext } from "../UserContext";
 
 interface Props {
   count?: number;

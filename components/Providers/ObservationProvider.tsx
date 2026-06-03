@@ -1,11 +1,11 @@
-import type { PropsWithChildren } from "react";
-import React, { useState, useCallback } from "react";
 import inatjs from "inaturalistjs";
+import type { PropsWithChildren } from "react";
+import React, { useCallback, useState } from "react";
 
-import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
-import { addToCollection } from "../../utility/observationHelpers";
+import { iconicTaxaIds } from "../../utility/dictionaries/taxonomyDicts";
 import { createLocationAlert } from "../../utility/locationHelpers";
+import { addToCollection } from "../../utility/observationHelpers";
 
 interface Prediction {
   name: string;

@@ -1,23 +1,23 @@
+import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import {
-  View,
   Image,
   ImageBackground,
+  View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { viewStyles, imageStyles, textStyles } from "../../styles/modals/challengeUnearnedModal";
-import BannerHeader from "../UIComponents/BannerHeader";
 import badgeImages from "../../assets/badges";
-import { checkIfChallengeAvailable, formatMonthYear, formatMonth } from "../../utility/dateHelpers";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/modals/challengeUnearnedModal";
+import { baseTextStyles } from "../../styles/textStyles";
+import { checkIfChallengeAvailable, formatMonth, formatMonthYear } from "../../utility/dateHelpers";
+import { useChallenge } from "../Providers/ChallengeProvider";
+import BannerHeader from "../UIComponents/BannerHeader";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
-import PercentCircle from "../UIComponents/PercentCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
+import PercentCircle from "../UIComponents/PercentCircle";
 import StyledText from "../UIComponents/StyledText";
-import { useChallenge } from "../Providers/ChallengeProvider";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly closeModal: ( ) => void;

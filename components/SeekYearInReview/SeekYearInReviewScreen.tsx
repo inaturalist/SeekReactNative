@@ -1,44 +1,43 @@
-import React, { useContext, useState, useCallback } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
-
-import {
-  viewStyles,
-  textStyles,
-  imageStyles,
-} from "../../styles/seekYearInReview/seekYearInReview";
-import { colors } from "../../styles/global";
-import { UserContext } from "../UserContext";
-import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import {
-  useFetchStats,
-  useCountObservationsForYear,
-  useFetchChallengesForYear,
-} from "./hooks/seekYearInReviewHooks";
-import {
-  useUploadedObservationCount,
-  useSpeciesCount,
-} from "../../utility/customHooks";
+import React, { useCallback, useContext, useState } from "react";
+import { Image, TouchableOpacity, View } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import badgeImages from "../../assets/badges";
 import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import {
+  imageStyles,
+  textStyles,
+  viewStyles,
+} from "../../styles/seekYearInReview/seekYearInReview";
+import { baseTextStyles } from "../../styles/textStyles";
+import {
+  useSpeciesCount,
+  useUploadedObservationCount,
+} from "../../utility/customHooks";
 // TODO: refactor into component folder
 import SpeciesBadges from "../Achievements/SpeciesBadges";
-import SeekYearInReviewMap from "./SeekYearInReviewMap";
-// TODO: this a copy from SpeciesChart. Could be refactored into dumb component with onl styling, and data as prop
-import SeekYearInReviewChart from "./SeekYearInReviewChart";
-// TODO: this a copy from ChallengeBadges, with only the data fetching hook swaped out. Could be refactored into dumb component with only styling, and data as prop
-import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
-import StyledText from "../UIComponents/StyledText";
-import BannerHeader from "../UIComponents/BannerHeader";
-import GreenText from "../UIComponents/GreenText";
-import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import Modal from "../UIComponents/Modals/Modal";
 import LevelModal from "../Modals/LevelModal";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
-import { baseTextStyles } from "../../styles/textStyles";
+import BannerHeader from "../UIComponents/BannerHeader";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+import GreenText from "../UIComponents/GreenText";
+import Modal from "../UIComponents/Modals/Modal";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../UIComponents/StyledText";
+import { UserContext } from "../UserContext";
+import {
+  useCountObservationsForYear,
+  useFetchChallengesForYear,
+  useFetchStats,
+} from "./hooks/seekYearInReviewHooks";
+// TODO: this a copy from ChallengeBadges, with only the data fetching hook swaped out. Could be refactored into dumb component with only styling, and data as prop
+import SeekYearInReviewChallengeBadges from "./SeekYearInReviewChallengeBadges";
+// TODO: this a copy from SpeciesChart. Could be refactored into dumb component with onl styling, and data as prop
+import SeekYearInReviewChart from "./SeekYearInReviewChart";
+import SeekYearInReviewMap from "./SeekYearInReviewMap";
+import SeekYearInReviewPhotos from "./SeekYearInReviewPhotos";
 
 const SubstringStyledText = ( { text, greenText }: { text: any; greenText: any } ) => {
   // Split the text into an array using whitespace

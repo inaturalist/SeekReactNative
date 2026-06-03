@@ -1,27 +1,27 @@
 import ImageResizer from "@bam.tech/react-native-image-resizer";
 import {
   appendFile,
-  stat,
-  unlink,
+  ExternalStorageDirectoryPath,
   mkdir,
   moveFile,
-  ExternalStorageDirectoryPath,
+  stat,
+  unlink,
 } from "@dr.pogodin/react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
 
-import realmConfig from "../models/index";
-import { dirPictures, pathLogs } from "./dirStorage";
 import i18n from "../i18n";
+import realmConfig from "../models/index";
 import { dimensions } from "../styles/global";
+import { checkSavePermissions } from "./androidHelpers.android";
 import {
-  namePhotoByTime,
-  isWithin7Days,
-  formatYearMonthDay,
   formatHourMonthSecond,
+  formatYearMonthDay,
+  isWithin7Days,
+  namePhotoByTime,
   setISOTime,
 } from "./dateHelpers";
-import { checkSavePermissions } from "./androidHelpers.android";
+import { dirPictures, pathLogs } from "./dirStorage";
 
 interface Location {
   latitude: number;
@@ -307,17 +307,17 @@ const checkPhotoSize = async ( file: string ): Promise<string> => {
 };
 
 export {
+  checkForDirectory,
   checkForPhotoMetaData,
-  resizeImage,
-  movePhotoToAppStorage,
+  checkPhotoSize,
+  createBackupUri,
+  deleteDebugLogAfter7Days,
+  deleteFile,
   localizeAttributions,
   localizeAttributionsLandscape,
-  createBackupUri,
   moveAndroidFilesToInternalStorage,
-  deleteFile,
-  checkForDirectory,
-  writeToDebugLog,
-  deleteDebugLogAfter7Days,
+  movePhotoToAppStorage,
   replacePhoto,
-  checkPhotoSize,
+  resizeImage,
+  writeToDebugLog,
 };

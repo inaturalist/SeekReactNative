@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { View, BackHandler } from "react-native";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import Realm from "realm";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import React, { useCallback, useEffect, useState } from "react";
+import { BackHandler, View } from "react-native";
 import Modal from "react-native-modal";
+import Realm from "realm";
 
-import { getRoute, StoredRoutes } from "../../utility/helpers";
-import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import realmConfig from "../../models";
+import { colors } from "../../styles/global";
 import styles from "../../styles/observations/observations";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
+import { getRoute, StoredRoutes } from "../../utility/helpers";
+import { resetRouter } from "../../utility/navigationHelpers";
 import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";
 import DeleteModal from "../Modals/DeleteModal";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import { colors } from "../../styles/global";
-import ObsList from "./ObsList";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
-import { resetRouter } from "../../utility/navigationHelpers";
+import ObsList from "./ObsList";
 
 interface Observation {
   id: number;

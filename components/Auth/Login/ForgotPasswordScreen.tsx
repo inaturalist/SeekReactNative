@@ -1,19 +1,19 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
-import { checkIsEmailValid } from "../../../utility/loginHelpers";
-import ErrorMessage from "../ErrorMessage";
-import InputField from "../../UIComponents/InputField";
-import GreenText from "../../UIComponents/GreenText";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import createUserAgent from "../../../utility/userAgent";
-import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
-import { createJwtToken } from "../../../utility/helpers";
-import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { createJwtToken } from "../../../utility/helpers";
+import { checkIsEmailValid } from "../../../utility/loginHelpers";
+import createUserAgent from "../../../utility/userAgent";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import GreenText from "../../UIComponents/GreenText";
+import InputField from "../../UIComponents/InputField";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../../UIComponents/StyledText";
+import ErrorMessage from "../ErrorMessage";
 
 const ForgotPasswordScreen = ( ) => {
   const { navigate } = useNavigation( );

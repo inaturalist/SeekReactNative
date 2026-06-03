@@ -2,11 +2,11 @@ import type { PropsWithChildren } from "react";
 import React, { useEffect } from "react";
 import type { ViewStyle } from "react-native";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
-  withTiming,
-  withSequence,
+  useSharedValue,
   withDelay,
+  withSequence,
+  withTiming,
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 

@@ -1,11 +1,12 @@
 import {
-  StyleSheet,
   Platform,
+  StyleSheet,
 } from "react-native";
+
 import {
   colors,
-  row,
   dimensions,
+  row,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -57,7 +58,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
-  textStyles,
   imageStyles,
+  textStyles,
+  viewStyles,
 };

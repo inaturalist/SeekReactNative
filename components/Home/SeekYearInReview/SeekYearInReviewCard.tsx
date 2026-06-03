@@ -1,18 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import {
-  viewStyles,
   textStyles,
+  viewStyles,
 } from "../../../styles/home/seekYearInReview";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import { UserContext } from "../../UserContext";
-import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
-import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import { useCountObservationsForYear } from "../../SeekYearInReview/hooks/seekYearInReviewHooks";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import StyledText from "../../UIComponents/StyledText";
+import { UserContext } from "../../UserContext";
 
 
 const SeekYearInReviewCard = ( ) => {

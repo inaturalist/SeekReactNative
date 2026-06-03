@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  View,
   Image,
   TextInput,
+  View,
 } from "react-native";
+import type { Region } from "react-native-maps";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import i18n from "../../../i18n";
-import LocationMap from "../../Home/SpeciesNearby/LocationMap";
-import { imageStyles, textStyles, viewStyles } from "../../../styles/home/locationPicker";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import { colors, dimensions } from "../../../styles/global";
-import { useFetchUserLocation } from "../hooks/postingHooks";
-import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
-import type { Region } from "react-native-maps";
-import type { Coords } from "../../../utility/locationHelpers";
 import posting from "../../../assets/posting";
-import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
+import i18n from "../../../i18n";
+import { colors, dimensions } from "../../../styles/global";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/home/locationPicker";
+import { baseTextStyles } from "../../../styles/textStyles";
+import type { Coords } from "../../../utility/locationHelpers";
 import {
   fetchCoordsByLocationName,
 } from "../../../utility/locationHelpers";
+import LocationMap from "../../Home/SpeciesNearby/LocationMap";
+import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import StyledText from "../../UIComponents/StyledText";
+import { useFetchUserLocation } from "../hooks/postingHooks";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = latitudeDelta;

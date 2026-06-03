@@ -5,22 +5,21 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraDevice, CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
 
+import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
   useIsForeground,
   useTruncatedUserCoords,
 } from "../../../utility/customHooks";
-import InatVision from "./helpers/visionPluginWrapper";
-import { dirModel, dirGeomodel, dirTaxonomy } from "../../../utility/dirStorage";
+import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import usePatchedRunAsync from "../../../utility/visionCameraPatches";
-
+import FocusSquare from "./FocusSquare";
 import {
   Camera,
   useCameraFormat,
   useFrameProcessor,
 } from "./helpers/visionCameraWrapper";
-import FocusSquare from "./FocusSquare";
+import InatVision from "./helpers/visionPluginWrapper";
 import useFocusTap from "./hooks/useFocusTap";
-import { LogLevels, logToApi } from "../../../utility/apiCalls";
 
 export interface ErrorMessage {
   nativeEvent: {

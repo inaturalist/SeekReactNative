@@ -3,10 +3,10 @@ import { View } from "react-native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
+import { baseTextStyles } from "../../../styles/textStyles";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 const ParentCheckEmailScreen = ( { navigation } ) => (
   <ScrollWithHeader header="login.sign_up">

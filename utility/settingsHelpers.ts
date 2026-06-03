@@ -1,5 +1,5 @@
-import Realm from "realm";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Realm from "realm";
 
 import realmConfig from "../models/index";
 import { setDeviceLanguageOrFallback } from "./languageHelpers";
@@ -111,13 +111,13 @@ const deleteFromAsyncStorage = async ( key: string ): Promise<boolean> => {
 };
 
 export {
-  getScientificNames,
-  toggleLanguage,
-  getLanguage,
-  getAutoCapture,
-  getSeasonality,
-  setupUserSettings,
-  updateUserSetting,
   deleteFromAsyncStorage,
   fetchFromAsyncStorage,
+  getAutoCapture,
+  getLanguage,
+  getScientificNames,
+  getSeasonality,
+  setupUserSettings,
+  toggleLanguage,
+  updateUserSetting,
 };

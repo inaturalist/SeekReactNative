@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { colors, row } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -77,7 +78,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

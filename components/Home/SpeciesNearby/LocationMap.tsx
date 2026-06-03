@@ -1,16 +1,16 @@
 import * as React from "react";
 import type { AlertButton } from "react-native";
-import { View, Image, TouchableOpacity, Alert, Platform, Linking } from "react-native";
+import { Alert, Image, Linking, Platform, TouchableOpacity, View } from "react-native";
 import type { Region } from "react-native-maps";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
-import { textStyles, viewStyles, imageStyles } from "../../../styles/home/locationPicker";
 import icons from "../../../assets/icons";
 import postingIcons from "../../../assets/posting";
 import i18n from "../../../i18n";
-import StyledText from "../../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/home/locationPicker";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { checkLocationPermissionGranted } from "../../../utility/locationHelpers";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   region: {

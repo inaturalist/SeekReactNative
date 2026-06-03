@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
 import type { PropsWithChildren } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Realm from "realm";
 
-import { UserContext } from "../UserContext";
-import { fetchAccessToken, fetchUserProfile } from "../../utility/loginHelpers";
-import { setupChallenges } from "../../utility/challengeHelpers";
 import realmConfig from "../../models";
+import { setupChallenges } from "../../utility/challengeHelpers";
+import { fetchAccessToken, fetchUserProfile } from "../../utility/loginHelpers";
+import { UserContext } from "../UserContext";
 
 const UserLoginProvider = ( { children }: PropsWithChildren ) => {
   const [login, setLogin] = useState( null );

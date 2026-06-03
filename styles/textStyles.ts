@@ -1,10 +1,10 @@
-import { StyleSheet, PixelRatio, Dimensions, Platform } from "react-native";
+import { Dimensions, PixelRatio, Platform, StyleSheet } from "react-native";
 
+import { enabledLargeFonts } from "../utility/textHelpers";
 import {
   colors,
   fonts,
 } from "./global";
-import { enabledLargeFonts } from "../utility/textHelpers";
 
 const { height } = Dimensions.get( "window" );
 

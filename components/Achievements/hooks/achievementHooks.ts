@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
+import { useEffect, useState } from "react";
+import Realm from "realm";
 
 import realmConfig from "../../../models";
 import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";

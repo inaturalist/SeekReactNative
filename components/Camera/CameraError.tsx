@@ -1,13 +1,13 @@
+import { useRoute } from "@react-navigation/native";
 import * as React from "react";
 import { Linking, Platform, View } from "react-native";
-import { useRoute } from "@react-navigation/native";
 import { getSystemVersion } from "react-native-device-info";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/camera/cameraError";
+import { textStyles, viewStyles } from "../../styles/camera/cameraError";
+import { baseTextStyles } from "../../styles/textStyles";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly error: string;

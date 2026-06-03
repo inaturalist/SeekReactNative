@@ -1,30 +1,30 @@
-import React, { useReducer, useEffect, useCallback, useRef } from "react";
+import { useRoute } from "@react-navigation/native";
+import React, { useCallback, useEffect, useReducer, useRef } from "react";
+import { Node } from "react";
 import {
-  View,
   Image,
   ImageBackground,
   Modal,
-  TouchableOpacity,
   Platform,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useRoute } from "@react-navigation/native";
 import Checkbox from "react-native-check-box";
-import { Node } from "react";
 
-import { colors, dimensions } from "../../styles/global";
-import { viewStyles, textStyles, imageStyles } from "../../styles/social/social";
 import icons from "../../assets/icons";
-import GreenText from "../UIComponents/GreenText";
-import BackArrow from "../UIComponents/Buttons/BackArrow";
 import i18n from "../../i18n";
-import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
-import { addWatermark, getAssetFileAbsolutePath } from "../../utility/socialHelpers";
+import { colors, dimensions } from "../../styles/global";
+import { imageStyles, textStyles, viewStyles } from "../../styles/social/social";
 import { resizeImage } from "../../utility/photoHelpers";
+import { addWatermark, getAssetFileAbsolutePath } from "../../utility/socialHelpers";
+import { useObservation } from "../Providers/ObservationProvider";
+import BackArrow from "../UIComponents/Buttons/BackArrow";
+import GreenText from "../UIComponents/GreenText";
+import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
+import StyledText from "../UIComponents/StyledText";
+import CropScreen from "./CropScreen";
 import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
-import CropScreen from "./CropScreen";
-import StyledText from "../UIComponents/StyledText";
-import { useObservation } from "../Providers/ObservationProvider";
 
 const SocialScreen = ( ): Node => {
   const { observation } = useObservation();

@@ -1,14 +1,14 @@
-import * as React from "react";
-import { View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import * as React from "react";
+import { Pressable, View } from "react-native";
 
-import { viewStyles, textStyles } from "../../../styles/home/inatCard";
 import i18n from "../../../i18n";
+import { textStyles, viewStyles } from "../../../styles/home/inatCard";
+import { baseTextStyles } from "../../../styles/textStyles";
+import AppIconSubHeader from "../../iNaturalist/AppIconSubHeader";
 import INatValueProps from "../../iNaturalist/iNatValueProps";
 import INatLogin from "../../UIComponents/Login/iNatLogin";
-import AppIconSubHeader from "../../iNaturalist/AppIconSubHeader";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   challenge?: boolean;

@@ -245,11 +245,11 @@ const taxonDictForMissions: TaxaIds = {
 };
 
 export {
+  iconicScientificNames,
+  iconicTaxaIds,
   iconicTaxaNames,
   iconicTaxaNamesById,
-  iconicTaxaIds,
   iconicTaxonDictSelectSpecies,
-  iconicScientificNames,
   ranks,
   taxonDictForMissions,
   taxonIds,

@@ -38,7 +38,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

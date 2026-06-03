@@ -1,22 +1,22 @@
-import React, { useReducer, useEffect, useCallback } from "react";
-import { Alert, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import React, { useCallback, useEffect, useReducer } from "react";
+import { Alert, View } from "react-native";
 
-import styles from "../../styles/posting/postToiNat";
-import { savePostingSuccess } from "../../utility/loginHelpers";
 import i18n from "../../i18n";
-import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
-import CaptivePicker from "./Pickers/CaptivePicker";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { setISOTime, isAndroidDateInFuture, formatGMTTimeWithTimeZone } from "../../utility/dateHelpers";
+import styles from "../../styles/posting/postToiNat";
 import { useLocationName } from "../../utility/customHooks";
-import Notes from "./Notes";
-import LocationPickerCard from "./Pickers/LocationPickerCard";
-import DatePicker from "./Pickers/DateTimePicker";
-import PostingHeader from "./PostingHeader";
-import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import { formatGMTTimeWithTimeZone, isAndroidDateInFuture, setISOTime } from "../../utility/dateHelpers";
+import { savePostingSuccess } from "../../utility/loginHelpers";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 import { useObservation } from "../Providers/ObservationProvider";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import Notes from "./Notes";
+import CaptivePicker from "./Pickers/CaptivePicker";
+import DatePicker from "./Pickers/DateTimePicker";
+import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
+import LocationPickerCard from "./Pickers/LocationPickerCard";
+import PostingHeader from "./PostingHeader";
 
 const PostScreen = ( ) => {
   const { observation } = useObservation( );

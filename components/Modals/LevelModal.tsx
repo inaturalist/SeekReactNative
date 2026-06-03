@@ -1,18 +1,18 @@
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/modals/levelModal";
-import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import { imageStyles, textStyles, viewStyles } from "../../styles/modals/levelModal";
+import { baseTextStyles } from "../../styles/textStyles";
 import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {
   readonly level: {

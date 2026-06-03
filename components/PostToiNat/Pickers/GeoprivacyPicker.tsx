@@ -4,13 +4,13 @@ import {
   View,
 } from "react-native";
 
+import icons from "../../../assets/icons";
+import posting from "../../../assets/posting";
 import i18n from "../../../i18n";
 import styles from "../../../styles/posting/postToiNat";
-import posting from "../../../assets/posting";
-import icons from "../../../assets/icons";
+import { baseTextStyles } from "../../../styles/textStyles";
 import Picker from "../../UIComponents/Picker";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 type Geoprivacy = "geoprivacy";
 interface Props {

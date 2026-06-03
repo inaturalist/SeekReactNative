@@ -1,18 +1,18 @@
+import { useNavigation, useScrollToTop } from "@react-navigation/native";
+import type { FlashListRef } from "@shopify/flash-list";
+import { FlashList } from "@shopify/flash-list";
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
-import { FlashList } from "@shopify/flash-list";
-import type { FlashListRef } from "@shopify/flash-list";
-import { useNavigation, useScrollToTop } from "@react-navigation/native";
 
 import { viewStyles } from "../../styles/notifications";
-import NotificationCard from "./NotificationCard";
+import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
+import BottomSpacer from "../UIComponents/BottomSpacer";
 import EmptyState from "../UIComponents/EmptyState";
 import Padding from "../UIComponents/Padding";
-import BottomSpacer from "../UIComponents/BottomSpacer";
-import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 import ViewWithHeader from "../UIComponents/Screens/ViewWithHeader";
 import type { Notification } from "./hooks/notificationHooks";
 import useFetchNotifications from "./hooks/notificationHooks";
+import NotificationCard from "./NotificationCard";
 
 const NotificationsScreen = ( ) => {
   const navigation = useNavigation( );

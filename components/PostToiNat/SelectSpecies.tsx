@@ -1,29 +1,29 @@
-import React, { useState, useRef, useCallback } from "react";
-import {
-  View,
-  StatusBar,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  Keyboard,
-} from "react-native";
-import { FlashList } from "@shopify/flash-list";
 import type { FlashListRef } from "@shopify/flash-list";
+import { FlashList } from "@shopify/flash-list";
+import React, { useCallback, useRef, useState } from "react";
+import {
+  Image,
+  Keyboard,
+  StatusBar,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import { colors } from "../../styles/global";
-import { viewStyles, textStyles, imageStyles } from "../../styles/posting/selectSpecies";
-import i18n from "../../i18n";
-import posting from "../../assets/posting";
-import SpeciesCard from "../UIComponents/SpeciesCard";
-import GreenText from "../UIComponents/GreenText";
 import icons from "../../assets/icons";
-import Padding from "../UIComponents/Padding";
-import { useSearchSpecies } from "./hooks/postingHooks";
-import { iconicTaxonDictSelectSpecies, iconicScientificNames } from "../../utility/dictionaries/taxonomyDicts";
-import { capitalizeNames } from "../../utility/helpers";
-import StyledText from "../UIComponents/StyledText";
+import posting from "../../assets/posting";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import { imageStyles, textStyles, viewStyles } from "../../styles/posting/selectSpecies";
 import { baseTextStyles } from "../../styles/textStyles";
+import { iconicScientificNames, iconicTaxonDictSelectSpecies } from "../../utility/dictionaries/taxonomyDicts";
+import { capitalizeNames } from "../../utility/helpers";
+import GreenText from "../UIComponents/GreenText";
+import Padding from "../UIComponents/Padding";
+import SpeciesCard from "../UIComponents/SpeciesCard";
+import StyledText from "../UIComponents/StyledText";
+import { useSearchSpecies } from "./hooks/postingHooks";
 
 interface Taxon {
   name: string;

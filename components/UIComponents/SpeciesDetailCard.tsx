@@ -2,8 +2,8 @@ import * as React from "react";
 import { View } from "react-native";
 
 import { viewStyles } from "../../styles/species/species";
-import GreenText from "./GreenText";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import GreenText from "./GreenText";
 
 
 interface Props extends React.PropsWithChildren {

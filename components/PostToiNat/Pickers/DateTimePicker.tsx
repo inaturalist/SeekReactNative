@@ -5,13 +5,13 @@ import {
   View,
 } from "react-native";
 
-import styles from "../../../styles/posting/postToiNat";
-import i18n from "../../../i18n";
-import posting from "../../../assets/posting";
 import icons from "../../../assets/icons";
+import posting from "../../../assets/posting";
+import i18n from "../../../i18n";
+import styles from "../../../styles/posting/postToiNat";
+import { baseTextStyles } from "../../../styles/textStyles";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import StyledText from "../../UIComponents/StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 interface Props {
   dateToDisplay: string | null;

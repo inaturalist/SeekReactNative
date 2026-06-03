@@ -1,6 +1,6 @@
 import React from "react";
-import { render, screen, fireEvent } from "tests/jest-utils";
 import { Alert } from "react-native";
+import { fireEvent, render, screen } from "tests/jest-utils";
 
 import LanguagePicker from "../../../../components/Settings/LanguagePicker";
 import { toggleLanguage } from "../../../../utility/settingsHelpers";

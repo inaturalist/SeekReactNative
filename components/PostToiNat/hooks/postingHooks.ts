@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import inatjs from "inaturalistjs";
+import { useEffect, useState } from "react";
 
 import i18n from "../../../i18n";
 import { capitalizeNames } from "../../../utility/helpers";
@@ -77,6 +77,6 @@ const useFetchUserLocation = ( ) => {
 };
 
 export {
-  useSearchSpecies,
   useFetchUserLocation,
+  useSearchSpecies,
 };

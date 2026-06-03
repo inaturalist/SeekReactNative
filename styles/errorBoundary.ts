@@ -19,6 +19,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

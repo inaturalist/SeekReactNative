@@ -1,25 +1,25 @@
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, {
-  useState,
-  useEffect,
   useCallback,
+  useEffect,
+  useState,
 } from "react";
 import { BackHandler, Platform } from "react-native";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
-import SeekYearInReviewCard from "./SeekYearInReview/SeekYearInReviewCard";
-import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
-import Announcements from "./Announcements/Announcements";
-import GetStarted from "../Modals/GetStarted";
-import ChallengeCard from "./Challenges/ChallengeCard";
-import Updates from "./Updates/Updates";
 import { checkIfCardShown } from "../../utility/helpers";
+import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
+import { checkForNumSuccessfulUploads, checkForUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
+import GetStarted from "../Modals/GetStarted";
+import DonateCard from "../UIComponents/Cards/DonateCard";
 import RNModal from "../UIComponents/Modals/Modal";
 import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
-import UploadStatus from "./UploadStatus";
-import { checkForUploads, checkForNumSuccessfulUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
-import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
+import Announcements from "./Announcements/Announcements";
+import ChallengeCard from "./Challenges/ChallengeCard";
 import INatCard from "./INatCard/iNatCard";
-import DonateCard from "../UIComponents/Cards/DonateCard";
+import SeekYearInReviewCard from "./SeekYearInReview/SeekYearInReviewCard";
+import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
+import Updates from "./Updates/Updates";
+import UploadStatus from "./UploadStatus";
 
 const HomeScreen = ( ) => {
   const navigation = useNavigation( );

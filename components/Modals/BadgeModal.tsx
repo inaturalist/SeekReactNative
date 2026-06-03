@@ -1,22 +1,22 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
-  View,
+  FlatList,
   Image,
   ImageBackground,
-  FlatList,
   TouchableOpacity,
+  View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/modals/badgeModal";
 import badgeImages from "../../assets/badges";
-import BannerHeader from "../UIComponents/BannerHeader";
-import LargeProgressCircle from "../UIComponents/LargeProgressCircle";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/modals/badgeModal";
+import { baseTextStyles } from "../../styles/textStyles";
+import BannerHeader from "../UIComponents/BannerHeader";
 import GreenText from "../UIComponents/GreenText";
+import LargeProgressCircle from "../UIComponents/LargeProgressCircle";
 import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 
 interface Badge {
   earned: boolean;

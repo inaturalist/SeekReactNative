@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
   ImageBackground,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import Realm from "realm";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Realm from "realm";
 
-import realmConfig from "../../models";
-import { viewStyles, imageStyles } from "../../styles/uiComponents/footer";
-import icons from "../../assets/icons";
-import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
-import { colors } from "../../styles/global";
+import icons from "../../assets/icons";
 import logos from "../../assets/logos";
+import i18n from "../../i18n";
+import realmConfig from "../../models";
+import { colors } from "../../styles/global";
+import { imageStyles, viewStyles } from "../../styles/uiComponents/footer";
 
 const Footer = () => {
   let challenge;

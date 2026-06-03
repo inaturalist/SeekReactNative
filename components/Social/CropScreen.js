@@ -4,10 +4,10 @@ import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { dimensions } from "../../styles/global";
+import { viewStyles } from "../../styles/social/social";
+import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
-import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
-import { viewStyles } from "../../styles/social/social";
 
 type Props = {
   saveCrop: Function,

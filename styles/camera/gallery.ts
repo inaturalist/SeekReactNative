@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
+
 import {
-  row,
   dimensions,
+  row,
 } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -27,6 +28,6 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   imageStyles,
+  viewStyles,
 };

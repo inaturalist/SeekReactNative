@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { viewStyles, textStyles } from "../../../styles/home/noChallenges";
-import StyledText from "../../UIComponents/StyledText";
+import i18n from "../../../i18n";
+import { textStyles, viewStyles } from "../../../styles/home/noChallenges";
 import { baseTextStyles } from "../../../styles/textStyles";
+import StyledText from "../../UIComponents/StyledText";
 
 const NoChallenges = ( ) => (
   <View style={[viewStyles.row, viewStyles.center]}>

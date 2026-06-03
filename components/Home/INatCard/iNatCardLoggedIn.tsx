@@ -1,11 +1,10 @@
 import * as React from "react";
-import { View, Platform } from "react-native";
+import { Platform, View } from "react-native";
 
 import { viewStyles } from "../../../styles/home/inatCard";
-
 import BulletedList from "../../iNaturalist/BulletedList";
-import OpenINatButton from "../../UIComponents/Buttons/OpenINatButton";
 import ProfileImageAndLogin from "../../iNaturalist/ProfileImageAndLogin";
+import OpenINatButton from "../../UIComponents/Buttons/OpenINatButton";
 
 const INatCardLoggedIn = ( ) => (
   <View style={viewStyles.textContainer}>

@@ -1,4 +1,5 @@
-import { Dimensions, StyleSheet, Platform } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
+
 import { colors } from "../global";
 
 const { width, height } = Dimensions.get( "screen" );

@@ -1,15 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
-import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useContext, useEffect, useState } from "react";
 import { Node } from "react";
+import { TouchableOpacity, View } from "react-native";
 
-import { viewStyles, textStyles } from "../../styles/social/social";
-import { dimensions, colors } from "../../styles/global";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
 import i18n from "../../i18n";
-import { shareToFacebook, saveToCameraRoll } from "../../utility/socialHelpers";
-import { UserContext } from "../UserContext";
+import { colors, dimensions } from "../../styles/global";
+import { textStyles, viewStyles } from "../../styles/social/social";
+import { saveToCameraRoll, shareToFacebook } from "../../utility/socialHelpers";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
+import { UserContext } from "../UserContext";
 
 type Props = {
   image: ?string,

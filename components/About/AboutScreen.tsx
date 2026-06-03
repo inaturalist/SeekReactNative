@@ -1,22 +1,22 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import {
   Image,
-  View,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { getVersion, getBuildNumber } from "react-native-device-info";
-import { useNavigation } from "@react-navigation/native";
+import { getBuildNumber, getVersion } from "react-native-device-info";
 
-import { viewStyles, imageStyles, textStyles } from "../../styles/about";
 import logos from "../../assets/logos";
 import i18n from "../../i18n";
-import { UserContext } from "../UserContext";
-import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
-import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
-import StyledText from "../UIComponents/StyledText";
-import EmailText from "./EmailText";
+import { imageStyles, textStyles, viewStyles } from "../../styles/about";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
+import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../UIComponents/StyledText";
+import { UserContext } from "../UserContext";
+import EmailText from "./EmailText";
 
 const AboutScreen = ( ) => {
   const navigation = useNavigation();

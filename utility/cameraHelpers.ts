@@ -1,9 +1,9 @@
-import { Platform, Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 import { getSystemVersion } from "react-native-device-info";
 
-import { writeToDebugLog, checkPhotoSize } from "./photoHelpers";
-import i18n from "../i18n";
 import type { LogMessage } from "../components/Camera/ARCamera/FrameProcessorCamera";
+import i18n from "../i18n";
+import { checkPhotoSize, writeToDebugLog } from "./photoHelpers";
 
 const handleLog = ( event: LogMessage ): void => {
   console.log( event.nativeEvent.log );
@@ -29,7 +29,7 @@ const checkForSystemVersion = ( ): string => {
 };
 
 export {
+  checkForSystemVersion,
   handleLog,
   showCameraSaveFailureAlert,
-  checkForSystemVersion,
 };

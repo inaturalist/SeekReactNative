@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  View,
   Alert,
   Image,
   TouchableOpacity,
+  View,
 } from "react-native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/species/speciesPhotos";
-import LoadingWheel from "../UIComponents/LoadingWheel";
-import { localizeAttributions } from "../../utility/photoHelpers";
-import HorizontalScroll from "../UIComponents/HorizontalScroll";
 import { colors } from "../../styles/global";
-import StyledText from "../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../styles/species/speciesPhotos";
+import { baseTextStyles } from "../../styles/textStyles";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
-import { baseTextStyles } from "../../styles/textStyles";
+import { localizeAttributions } from "../../utility/photoHelpers";
+import HorizontalScroll from "../UIComponents/HorizontalScroll";
+import LoadingWheel from "../UIComponents/LoadingWheel";
+import StyledText from "../UIComponents/StyledText";
 
 interface Photo {
   attribution: string;

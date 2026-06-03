@@ -1,26 +1,26 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import SpeciesStats from "./OnlineOnlyCards/SpeciesStats";
-import SimilarSpecies from "./OnlineOnlyCards/SimilarSpecies";
-import SpeciesChart from "./OnlineOnlyCards/SpeciesChart";
-import SpeciesMap from "./OnlineOnlyCards/SpeciesMap";
-import SpeciesTaxonomy from "./SpeciesTaxonomy";
-import INatObs from "./OnlineOnlyCards/INatObs";
-import Padding from "../UIComponents/Padding";
-import { viewStyles, textStyles } from "../../styles/species/species";
 import i18n from "../../i18n";
-import About from "./OnlineOnlyCards/About";
-import SeenDate from "./OnlineOnlyCards/SeenDate";
-import { formatShortMonthDayYear } from "../../utility/dateHelpers";
-import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import { textStyles, viewStyles } from "../../styles/species/species";
+import { baseTextStyles } from "../../styles/textStyles";
 import {
   useLocationPermission,
   useTruncatedUserCoords,
 } from "../../utility/customHooks";
-import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
 import { useRegion } from "../../utility/customHooks/useRegion";
+import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
+import { formatShortMonthDayYear } from "../../utility/dateHelpers";
+import Padding from "../UIComponents/Padding";
+import StyledText from "../UIComponents/StyledText";
+import About from "./OnlineOnlyCards/About";
+import INatObs from "./OnlineOnlyCards/INatObs";
+import SeenDate from "./OnlineOnlyCards/SeenDate";
+import SimilarSpecies from "./OnlineOnlyCards/SimilarSpecies";
+import SpeciesChart from "./OnlineOnlyCards/SpeciesChart";
+import SpeciesMap from "./OnlineOnlyCards/SpeciesMap";
+import SpeciesStats from "./OnlineOnlyCards/SpeciesStats";
+import SpeciesTaxonomy from "./SpeciesTaxonomy";
 
 interface Props {
   readonly loading: boolean;

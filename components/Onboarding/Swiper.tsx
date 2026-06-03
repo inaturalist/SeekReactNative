@@ -1,11 +1,11 @@
-import React, { useState, useRef, useCallback } from "react";
 import type { PropsWithChildren } from "react";
-import { View, FlatList } from "react-native";
+import React, { useCallback, useRef, useState } from "react";
+import { FlatList, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import { viewStyles } from "../../styles/onboarding";
-import Dots from "./Dots";
 import Button from "./Button";
+import Dots from "./Dots";
 
 const gradientColors = {
   "0": ["#50c49c", "#1b6537"],

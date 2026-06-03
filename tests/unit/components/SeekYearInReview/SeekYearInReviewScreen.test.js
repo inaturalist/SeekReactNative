@@ -1,14 +1,14 @@
 import React from "react";
-import { render, screen, fireEvent } from "tests/jest-utils";
+import { fireEvent, render, screen } from "tests/jest-utils";
 
+import {
+  useFetchChallengesForYear,
+  useFetchStats,
+} from "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks";
 import SeekYearInReviewScreen from "../../../../components/SeekYearInReview/SeekYearInReviewScreen";
 import {
   UserContext,
 } from "../../../../components/UserContext";
-import {
-  useFetchStats,
-  useFetchChallengesForYear,
-} from "../../../../components/SeekYearInReview/hooks/seekYearInReviewHooks";
 import { useUploadedObservationCount } from "../../../../utility/customHooks";
 
 const mockNavigate = {

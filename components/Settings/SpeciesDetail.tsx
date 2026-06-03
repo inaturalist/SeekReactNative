@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { View, Platform } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Platform, View } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import Realm from "realm";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/settings";
-import { updateUserSetting } from "../../utility/settingsHelpers";
-import { useLocationPermission } from "../../utility/customHooks";
-import { colors } from "../../styles/global";
 import realmConfig from "../../models";
-import StyledText from "../UIComponents/StyledText";
+import { colors } from "../../styles/global";
+import { textStyles, viewStyles } from "../../styles/settings";
 import { baseTextStyles } from "../../styles/textStyles";
+import { useLocationPermission } from "../../utility/customHooks";
+import { updateUserSetting } from "../../utility/settingsHelpers";
+import StyledText from "../UIComponents/StyledText";
 
 const SpeciesDetail = ( ) => {
   const granted = useLocationPermission( );

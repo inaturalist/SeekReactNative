@@ -2,8 +2,8 @@ import React from "react";
 import { View } from "react-native";
 
 import { viewStyles } from "../../../styles/challenges/challengeDetails";
-import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import { useFetchSpeciesObserved } from "../hooks/challengeHooks";
 
 interface Props {

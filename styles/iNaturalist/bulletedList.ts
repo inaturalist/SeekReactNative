@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import {
   dimensions,
 } from "../global";
@@ -36,6 +37,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

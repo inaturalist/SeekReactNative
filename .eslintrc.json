@@ -18,7 +18,8 @@
     "@typescript-eslint",
     "import",
     "lodash",
-    "react-hooks"
+    "react-hooks",
+    "simple-import-sort"
   ],
   "rules": {
     "@stylistic/member-delimiter-style": 2,
@@ -90,6 +91,8 @@
     "react-native-a11y/has-valid-accessibility-value": 1,
     "react-native-a11y/has-valid-important-for-accessibility": 1,
     "react-native-a11y/no-nested-touchables": 1,
+    "simple-import-sort/imports": 2,
+    "simple-import-sort/exports": 2,
     "space-in-parens": [2, "always"]
   },
   "settings": {

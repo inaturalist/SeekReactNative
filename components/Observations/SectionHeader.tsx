@@ -1,20 +1,20 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  View,
   Image,
   TouchableOpacity,
+  View,
 } from "react-native";
 import Realm from "realm";
 
-import i18n from "../../i18n";
-import { colors } from "../../styles/global";
-import styles from "../../styles/observations/sectionHeader";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import { iconicTaxaNamesById } from "../../utility/dictionaries/taxonomyDicts";
+import i18n from "../../i18n";
 import realmConfig from "../../models/index";
-import StyledText from "../UIComponents/StyledText";
+import { colors } from "../../styles/global";
+import styles from "../../styles/observations/sectionHeader";
 import { baseTextStyles } from "../../styles/textStyles";
+import { iconicTaxaNamesById } from "../../utility/dictionaries/taxonomyDicts";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   id: number;

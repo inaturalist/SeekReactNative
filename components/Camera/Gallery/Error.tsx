@@ -3,10 +3,10 @@ import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
-import GreenHeader from "../../UIComponents/GreenHeader";
-import { viewStyles, textStyles } from "../../../styles/camera/error";
-import StyledText from "../../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../../styles/camera/error";
 import { baseTextStyles } from "../../../styles/textStyles";
+import GreenHeader from "../../UIComponents/GreenHeader";
+import StyledText from "../../UIComponents/StyledText";
 
 enum Error {
   image = "image",

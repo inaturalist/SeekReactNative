@@ -2,8 +2,8 @@ import React, { useCallback } from "react";
 import { FlatList } from "react-native";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesNearbyList";
-import SpeciesImageCell from "./SpeciesImageCell";
 import EmptyList from "./EmptyList";
+import SpeciesImageCell from "./SpeciesImageCell";
 import SpeciesObservedCell from "./SpeciesObservedCell";
 
 interface Taxon {

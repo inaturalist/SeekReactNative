@@ -1,11 +1,11 @@
-import * as React from "react";
 import { useNavigation } from "@react-navigation/native";
+import * as React from "react";
 
-import { textStyles } from "../../../styles/iNaturalist/iNatStats";
 import i18n from "../../../i18n";
+import { textStyles } from "../../../styles/iNaturalist/iNatStats";
+import { baseTextStyles } from "../../../styles/textStyles";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import StyledText from "../StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
 
 const INatLogin = ( ) => {
   const navigation = useNavigation( );

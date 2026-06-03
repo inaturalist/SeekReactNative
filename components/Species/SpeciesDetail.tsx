@@ -1,29 +1,29 @@
-import React, {
-  useReducer,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react";
-import { ScrollView, Platform, View, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import React, {
+  useCallback,
+  useEffect,
+  useReducer,
+  useRef,
+} from "react";
+import { Platform, ScrollView, StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { viewStyles } from "../../styles/species/species";
-import { checkForInternet } from "../../utility/helpers";
-import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
-import SpeciesHeader from "./SpeciesHeader";
-import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
-import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
-import GreenHeader from "../UIComponents/GreenHeader";
-import SpeciesName from "./SpeciesName";
-import IconicTaxaName from "./IconicTaxaName";
+import styles from "../../styles/uiComponents/scrollWithHeader";
 import { useInternetStatus } from "../../utility/customHooks";
 import { useCommonName } from "../../utility/customHooks/useCommonName";
-import { useTaxonDetails } from "./hooks/speciesDetailHooks";
-import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
+import { checkForInternet } from "../../utility/helpers";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
-import styles from "../../styles/uiComponents/scrollWithHeader";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
+import GreenHeader from "../UIComponents/GreenHeader";
+import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
+import { useTaxonDetails } from "./hooks/speciesDetailHooks";
+import IconicTaxaName from "./IconicTaxaName";
+import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
+import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
+import SpeciesHeader from "./SpeciesHeader";
+import SpeciesName from "./SpeciesName";
+import SpeciesPhotosLandscape from "./SpeciesPhotosLandscape";
 
 interface State {
   error: string | null;

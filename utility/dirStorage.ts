@@ -1,5 +1,5 @@
-import { Platform } from "react-native";
 import { DocumentDirectoryPath, MainBundlePath } from "@dr.pogodin/react-native-fs";
+import { Platform } from "react-native";
 
 import modelFiles from "../constants/modelFileNames";
 

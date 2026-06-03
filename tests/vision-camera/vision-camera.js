@@ -1,10 +1,10 @@
+import {
+  copyAssetsFileIOS,
+  TemporaryDirectoryPath,
+} from "@dr.pogodin/react-native-fs";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import React from "react";
 import { View } from "react-native";
-import {
-  TemporaryDirectoryPath,
-  copyAssetsFileIOS,
-} from "@dr.pogodin/react-native-fs";
 
 const mockFrame = {
   isValid: true,

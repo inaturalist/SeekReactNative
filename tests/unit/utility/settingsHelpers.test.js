@@ -1,11 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import {
-  getScientificNames,
-  toggleLanguage,
-  getLanguage,
   getAutoCapture,
+  getLanguage,
+  getScientificNames,
   getSeasonality,
+  toggleLanguage,
 } from "../../../utility/settingsHelpers";
 
 describe( "getScientificNames", () => {

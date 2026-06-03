@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { row, dimensions } from "../global";
+import { dimensions, row } from "../global";
 
 const viewStyles = StyleSheet.create( {
   card: {

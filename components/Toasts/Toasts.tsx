@@ -1,19 +1,19 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  View,
   Dimensions,
+  View,
 } from "react-native";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
+  useSharedValue,
+  withDelay,
   withSequence,
   withTiming,
-  withDelay,
 } from "react-native-reanimated";
 
+import { viewStyles } from "../../styles/toasts/badgeToast";
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
-import { viewStyles } from "../../styles/toasts/badgeToast";
 
 const { height } = Dimensions.get( "window" );
 

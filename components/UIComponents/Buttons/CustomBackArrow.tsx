@@ -1,13 +1,13 @@
 import * as React from "react";
-import {
-  TouchableOpacity,
-  Image,
-} from "react-native";
 import type { ViewStyle } from "react-native";
+import {
+  Image,
+  TouchableOpacity,
+} from "react-native";
 
-import i18n from "../../../i18n";
-import { viewStyles, imageStyles } from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
+import { imageStyles, viewStyles } from "../../../styles/uiComponents/buttons/backArrow";
 
 interface Props {
   readonly green?: boolean;

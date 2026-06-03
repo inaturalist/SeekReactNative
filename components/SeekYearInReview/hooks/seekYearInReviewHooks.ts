@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import Realm from "realm";
 import { addMonths, isEqual } from "date-fns";
+import { useEffect, useState } from "react";
+import Realm from "realm";
 
 import realmConfig from "../../../models";
 import { recalculateChallenges } from "../../../utility/challengeHelpers";
@@ -259,8 +259,8 @@ const useFetchChallengesForYear = ( year: number ): { challengeBadges: any[]; ch
 };
 
 export {
-  useFetchStats,
   useCountObservationsForYear,
-  useObservationsForYear,
   useFetchChallengesForYear,
+  useFetchStats,
+  useObservationsForYear,
 };

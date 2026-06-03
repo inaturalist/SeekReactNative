@@ -4,8 +4,8 @@ import Checkbox from "react-native-check-box";
 
 import styles from "../../../styles/auth/signup";
 import { colors } from "../../../styles/global";
-import StyledText from "../../UIComponents/StyledText";
 import { baseTextStyles } from "../../../styles/textStyles";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   isChecked: boolean;

@@ -1,25 +1,25 @@
+import { useNavigation } from "@react-navigation/native";
 import React, {
-  useEffect,
   useCallback,
+  useEffect,
   useReducer,
 } from "react";
 import Modal from "react-native-modal";
-import { useNavigation } from "@react-navigation/native";
 
 import type { Badge} from "../../utility/badgeHelpers";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import LevelModal from "../Modals/LevelModal";
-import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
-import FlagModal from "../Modals/FlagModal";
-import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
-import Toasts from "../Toasts/Toasts";
+import { useCommonName } from "../../utility/customHooks/useCommonName";
 import { fetchNumberSpeciesSeen, setRoute, StoredRoutes } from "../../utility/helpers";
 import { showStoreReview } from "../../utility/reviewHelpers";
-import RNModal from "../UIComponents/Modals/Modal";
-import { useCommonName } from "../../utility/customHooks/useCommonName";
+import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
+import FlagModal from "../Modals/FlagModal";
+import LevelModal from "../Modals/LevelModal";
+import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import type { Observation } from "../Providers/ObservationProvider";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
+import Toasts from "../Toasts/Toasts";
+import RNModal from "../UIComponents/Modals/Modal";
 
 interface State {
   latestLevel: any | null;

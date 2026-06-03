@@ -1,16 +1,16 @@
 import * as React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
   ImageBackground,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { viewStyles } from "../../styles/uiComponents/footer";
+import backgrounds from "../../assets/backgrounds";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import backgrounds from "../../assets/backgrounds";
+import { viewStyles } from "../../styles/uiComponents/footer";
 
 interface Props {
   readonly openFlagModal: () => void;

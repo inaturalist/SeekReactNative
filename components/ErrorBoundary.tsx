@@ -1,15 +1,15 @@
 import React from "react";
+import { ScrollView } from "react-native";
 import RNRestart from "react-native-restart";
-import { log } from "../react-native-logs.config";
-import i18n from "../i18n";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { viewStyles, textStyles } from "../styles/errorBoundary";
+import i18n from "../i18n";
+import { log } from "../react-native-logs.config";
+import { textStyles, viewStyles } from "../styles/errorBoundary";
 import { baseTextStyles } from "../styles/textStyles";
-import StyledText from "./UIComponents/StyledText";
-import GreenButton from "./UIComponents/Buttons/GreenButton";
-import { ScrollView } from "react-native";
 import { LogLevels, logToApi } from "../utility/apiCalls";
+import GreenButton from "./UIComponents/Buttons/GreenButton";
+import StyledText from "./UIComponents/StyledText";
 
 const logger = log.extend( "ErrorBoundary" );
 

@@ -1,8 +1,8 @@
 import * as StoreReview from "react-native-store-review";
 import Realm from "realm";
 
-import { isWithinPastYear } from "./dateHelpers";
 import realmConfig from "../models/index";
+import { isWithinPastYear } from "./dateHelpers";
 
 const updateReviews = ( realm: Realm, reviews ): void => {
   realm.write( ( ) => {

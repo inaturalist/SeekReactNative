@@ -1,21 +1,21 @@
+import { useNetInfo } from "@react-native-community/netinfo";
 import * as React from "react";
 import {
-  View,
-  TouchableOpacity,
   Image,
   ImageBackground,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useNetInfo } from "@react-native-community/netinfo";
 
-import i18n from "../../../i18n";
-import { viewStyles, textStyles } from "../../../styles/home/error";
-import icons from "../../../assets/icons";
 import backgrounds from "../../../assets/backgrounds";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import icons from "../../../assets/icons";
+import i18n from "../../../i18n";
 import { colors } from "../../../styles/global";
-import StyledText from "../../UIComponents/StyledText";
+import { textStyles, viewStyles } from "../../../styles/home/error";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   error: string;

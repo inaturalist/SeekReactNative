@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Realm from "realm";
 
 import realmConfig from "../../../models";
-import { recalculateChallenges, fetchObservationsAfterChallengeStarted } from "../../../utility/challengeHelpers";
+import { fetchObservationsAfterChallengeStarted, recalculateChallenges } from "../../../utility/challengeHelpers";
 import missionsDict from "../../../utility/dictionaries/missionsDict";
 import { taxonDictForMissions } from "../../../utility/dictionaries/taxonomyDicts";
 import type { TruncatedCoords } from "../../../utility/locationHelpers";

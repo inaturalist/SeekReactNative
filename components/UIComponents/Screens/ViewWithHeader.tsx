@@ -3,8 +3,8 @@ import { StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
-import GreenHeader from "../GreenHeader";
 import Footer from "../Footer";
+import GreenHeader from "../GreenHeader";
 
 interface Props extends React.PropsWithChildren {
   testID?: string;

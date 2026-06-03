@@ -1,9 +1,9 @@
 import { getVersion } from "react-native-device-info";
 
-import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
-import { capitalizeNames } from "./helpers";
 import i18n from "../i18n";
 import commonNames from "../utility/commonNames";
+import { capitalizeNames } from "./helpers";
+import { localeNoHyphens, setDisplayLanguage } from "./languageHelpers";
 
 // TODO: do these need to be require?
 // eslint-disable-next-line @typescript-eslint/no-require-imports

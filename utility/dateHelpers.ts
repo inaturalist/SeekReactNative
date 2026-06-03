@@ -1,22 +1,18 @@
-import Realm from "realm";
-import { Platform } from "react-native";
-import {
-  subYears,
-  isAfter,
-  parseISO,
-  format,
-  getUnixTime,
-  formatISO,
-  fromUnixTime,
-  subDays,
-  differenceInHours,
-  isSameMonth,
-} from "date-fns";
 import type {
   Locale,
 } from "date-fns";
-import * as TimeZone from "date-fns-tz";
-import * as RNLocalize from "react-native-localize";
+import {
+  differenceInHours,
+  format,
+  formatISO,
+  fromUnixTime,
+  getUnixTime,
+  isAfter,
+  isSameMonth,
+  parseISO,
+  subDays,
+  subYears,
+} from "date-fns";
 import {
   af,
   ar,
@@ -26,8 +22,8 @@ import {
   da,
   de,
   el,
-  es,
   enUS,
+  es,
   eu,
   fi,
   fr,
@@ -37,13 +33,13 @@ import {
   id,
   it,
   ja,
-  pl,
-  pt,
-  ptBR,
   nb,
   nl,
   // TODO: figure out what else to use here for no
   no,
+  pl,
+  pt,
+  ptBR,
   ro,
   ru,
   sk,
@@ -53,9 +49,13 @@ import {
   zhCN,
   zhTW,
 } from "date-fns/locale";
+import * as TimeZone from "date-fns-tz";
+import { Platform } from "react-native";
+import * as RNLocalize from "react-native-localize";
+import Realm from "realm";
 
-import realmConfig from "../models/index";
 import i18n from "../i18n";
+import realmConfig from "../models/index";
 import { localeNoHyphens } from "./languageHelpers";
 
 interface GMTTimeResult {
@@ -223,23 +223,23 @@ const isDateInFuture = ( selectedDate: Date ): boolean => isAfter( selectedDate,
 
 export {
   checkIfChallengeAvailable,
-  requiresParent,
-  isWithinPastYear,
-  fetchSpeciesSeenDate,
-  createTimestamp,
-  namePhotoByTime,
-  setISOTime,
-  formatYearMonthDay,
-  formatShortMonthDayYear,
   createShortMonthsList,
-  isWithin7Days,
-  formatHourMonthSecond,
-  formatMonthYear,
-  formatMonth,
-  serverBackOnlineTime,
-  isWithinCurrentMonth,
-  isAndroidDateInFuture,
-  formatGMTTimeWithTimeZone,
-  isDateInFuture,
+  createTimestamp,
+  fetchSpeciesSeenDate,
   formatDateToDisplayShort,
+  formatGMTTimeWithTimeZone,
+  formatHourMonthSecond,
+  formatMonth,
+  formatMonthYear,
+  formatShortMonthDayYear,
+  formatYearMonthDay,
+  isAndroidDateInFuture,
+  isDateInFuture,
+  isWithin7Days,
+  isWithinCurrentMonth,
+  isWithinPastYear,
+  namePhotoByTime,
+  requiresParent,
+  serverBackOnlineTime,
+  setISOTime,
 };

@@ -1,16 +1,16 @@
-import * as React from "react";
-import { View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import * as React from "react";
+import { Image, View } from "react-native";
 
-import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeDetails";
-import i18n from "../../../i18n";
 import logos from "../../../assets/logos";
-import ChallengeMissionCard from "./ChallengeMissionCard";
-import GreenText from "../../UIComponents/GreenText";
-import SpeciesObserved from "./SpeciesObserved";
-import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
-import StyledText from "../../UIComponents/StyledText";
+import i18n from "../../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/challenges/challengeDetails";
 import { baseTextStyles } from "../../../styles/textStyles";
+import GreenText from "../../UIComponents/GreenText";
+import StyledText from "../../UIComponents/StyledText";
+import ChallengeMissionCard from "./ChallengeMissionCard";
+import SpeciesNearbyChallenge from "./SpeciesNearbyChallenge";
+import SpeciesObserved from "./SpeciesObserved";
 
 interface Props {
   challenge: {

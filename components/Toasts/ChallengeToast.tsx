@@ -1,16 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import {
-  View,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/toasts/badgeToast";
+import { baseTextStyles } from "../../styles/textStyles";
+import { textStyles, viewStyles } from "../../styles/toasts/badgeToast";
+import { useChallenge } from "../Providers/ChallengeProvider";
 import PercentCircle from "../UIComponents/PercentCircle";
 import StyledText from "../UIComponents/StyledText";
-import { baseTextStyles } from "../../styles/textStyles";
-import { useChallenge } from "../Providers/ChallengeProvider";
 
 interface Props {
   readonly challenge: {

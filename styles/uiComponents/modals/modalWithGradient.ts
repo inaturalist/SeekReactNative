@@ -1,4 +1,5 @@
-import { StyleSheet, Platform } from "react-native";
+import { Platform, StyleSheet } from "react-native";
+
 import {
   colors,
   row,
@@ -74,6 +75,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

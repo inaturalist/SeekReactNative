@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { row, colors } from "../global";
+
+import { colors, row } from "../global";
 
 const viewStyles = StyleSheet.create( {
   row,
@@ -45,7 +46,7 @@ const imageStyles = StyleSheet.create( {
 } );
 
 export {
+  imageStyles,
   textStyles,
   viewStyles,
-  imageStyles,
 };

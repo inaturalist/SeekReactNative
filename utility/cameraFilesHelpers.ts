@@ -1,16 +1,16 @@
-import { Alert, Platform } from "react-native";
 import {
   copyFileAssets,
-  readDirAssets,
-  readDir,
   DocumentDirectoryPath,
   MainBundlePath,
+  readDir,
+  readDirAssets,
   unlink,
 } from "@dr.pogodin/react-native-fs";
+import { Alert, Platform } from "react-native";
 
-import i18n from "../i18n";
-import { dirModel, dirGeomodel, dirTaxonomy } from "./dirStorage";
 import modelFiles from "../constants/modelFileNames";
+import i18n from "../i18n";
+import { dirGeomodel, dirModel, dirTaxonomy } from "./dirStorage";
 
 const addCameraFilesAndroid = () => {
   const copyFilesAndroid = ( source: string, destination: string ) => {

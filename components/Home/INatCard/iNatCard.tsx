@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { View } from "react-native";
 
 import { viewStyles } from "../../../styles/home/inatCard";
-import INatCardLoggedIn from "./iNatCardLoggedIn";
-import INatCardLoggedOut from "./iNatCardLoggedOut";
+import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import GreenText from "../../UIComponents/GreenText";
 import { UserContext } from "../../UserContext";
 import useLatestChallenge from "../Challenges/hooks/challengeCardHooks";
-import GreenText from "../../UIComponents/GreenText";
-import { useAppOrientation } from "../../Providers/AppOrientationProvider";
+import INatCardLoggedIn from "./iNatCardLoggedIn";
+import INatCardLoggedOut from "./iNatCardLoggedOut";
 
 const INatCard = ( ) => {
   const { login } = useContext( UserContext );

@@ -1,17 +1,17 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import * as React from "react";
-import { TouchableOpacity, Image } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { Image, TouchableOpacity } from "react-native";
 
-import { viewStyles, textStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
+import iconicTaxa from "../../../assets/iconicTaxa";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import { setRoute, StoredRoutes } from "../../../utility/helpers";
-import iconicTaxa from "../../../assets/iconicTaxa";
+import { baseTextStyles } from "../../../styles/textStyles";
+import { textStyles, viewStyles } from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import { useCommonName } from "../../../utility/customHooks/useCommonName";
 import { useSeenTaxa } from "../../../utility/customHooks/useSeenTaxa";
-import StyledText from "../StyledText";
-import { baseTextStyles } from "../../../styles/textStyles";
+import { setRoute, StoredRoutes } from "../../../utility/helpers";
 import { useSpeciesDetail } from "../../Providers/SpeciesDetailProvider";
+import StyledText from "../StyledText";
 
 interface Props {
   readonly item: {

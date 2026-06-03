@@ -1,16 +1,16 @@
-import React, { useMemo, useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import {
   Image,
   View,
 } from "react-native";
 
-import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { viewStyles, imageStyles } from "../../../styles/home/speciesNearby";
-import { baseTextStyles } from "../../../styles/textStyles";
 import Picker from "../../../components/UIComponents/Picker";
-import StyledText from "../../UIComponents/StyledText";
+import i18n from "../../../i18n";
+import { imageStyles, viewStyles } from "../../../styles/home/speciesNearby";
+import { baseTextStyles } from "../../../styles/textStyles";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
+import StyledText from "../../UIComponents/StyledText";
 
 interface Props {
   readonly updateTaxaType: ( value: string ) => void;

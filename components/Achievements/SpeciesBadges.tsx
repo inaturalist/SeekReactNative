@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import Realm from "realm";
+import React, { useCallback, useState } from "react";
+import { Image, TouchableOpacity, View } from "react-native";
 import Modal from "react-native-modal";
+import Realm from "realm";
 
+import badgeImages from "../../assets/badges";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
-import BadgeModal from "../Modals/BadgeModal";
-import badgeImages from "../../assets/badges";
-import { viewStyles, imageStyles } from "../../styles/badges/achievements";
+import { imageStyles, viewStyles } from "../../styles/badges/achievements";
 import { createBadgeSetList } from "../../utility/badgeHelpers";
+import BadgeModal from "../Modals/BadgeModal";
 import BadgeContainer from "./BadgeContainer";
 
 interface SpeciesBadge {

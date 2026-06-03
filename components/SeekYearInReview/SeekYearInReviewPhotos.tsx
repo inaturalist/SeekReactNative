@@ -1,25 +1,25 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
-  View,
   Image,
   Pressable,
+  View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-import {
-  viewStyles,
-  textStyles,
-  imageStyles,
-} from "../../styles/seekYearInReview/seekYearInReview";
 import i18n from "../../i18n";
-import HorizontalScroll from "../UIComponents/HorizontalScroll";
-import StyledText from "../UIComponents/StyledText";
+import {
+  imageStyles,
+  textStyles,
+  viewStyles,
+} from "../../styles/seekYearInReview/seekYearInReview";
+import { baseTextStyles } from "../../styles/textStyles";
 import { useSeenTaxa } from "../../utility/customHooks/useSeenTaxa";
 import { useUserPhoto } from "../../utility/customHooks/useUserPhoto";
 import { formatDateToDisplayShort } from "../../utility/dateHelpers";
 import { setRoute, StoredRoutes } from "../../utility/helpers";
 import { useSpeciesDetail } from "../Providers/SpeciesDetailProvider";
-import { baseTextStyles } from "../../styles/textStyles";
+import HorizontalScroll from "../UIComponents/HorizontalScroll";
+import StyledText from "../UIComponents/StyledText";
 
 const SeekYearInReviewPhotoItem = ( { observation, index } ) => {
   const seenTaxa = useSeenTaxa( observation?.taxon?.id );

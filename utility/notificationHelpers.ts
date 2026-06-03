@@ -65,7 +65,7 @@ const isDuplicateNotification = ( realm: Realm, i: number ): boolean => {
 
 export {
   createNotification,
+  isDuplicateNotification,
   markNotificationAsSeen,
   markNotificationsAsViewed,
-  isDuplicateNotification,
 };

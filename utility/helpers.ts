@@ -1,11 +1,11 @@
-import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import NetInfo from "@react-native-community/netinfo";
 import rs from "jsrsasign";
-import Realm from "realm";
 import * as RNLocalize from "react-native-localize";
+import Realm from "realm";
 
-import i18n from "../i18n";
 import config from "../config";
+import i18n from "../i18n";
 import realmConfig from "../models/index";
 
 const checkForInternet = ( ): Promise<string | null> => (
@@ -170,16 +170,16 @@ const localizePercentage = ( number: number ): string => i18n.numberToPercentage
 
 export {
   capitalizeNames,
-  checkIfFirstLaunch,
-  checkIfCardShown,
-  checkIfCameraLaunched,
-  shuffleList,
-  setCameraLaunched,
-  setRoute,
-  getRoute,
   checkForInternet,
-  fetchNumberSpeciesSeen,
+  checkIfCameraLaunched,
+  checkIfCardShown,
+  checkIfFirstLaunch,
   createJwtToken,
+  fetchNumberSpeciesSeen,
+  getRoute,
   localizeNumber,
   localizePercentage,
+  setCameraLaunched,
+  setRoute,
+  shuffleList,
 };

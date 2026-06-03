@@ -1,20 +1,20 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
-  View,
   Image,
   TouchableOpacity,
+  View,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import LevelModal from "../Modals/LevelModal";
-import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
-import { textStyles, viewStyles, imageStyles } from "../../styles/badges/achievements";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
-import Modal from "../UIComponents/Modals/Modal";
-import { localizeNumber } from "../../utility/helpers";
-import StyledText from "../UIComponents/StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
+import { localizeNumber } from "../../utility/helpers";
+import LevelModal from "../Modals/LevelModal";
+import Modal from "../UIComponents/Modals/Modal";
+import StyledText from "../UIComponents/StyledText";
 
 interface Props {
   level: {

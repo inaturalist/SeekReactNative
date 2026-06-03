@@ -1,15 +1,15 @@
 import * as React from "react";
 import {
-  View,
   Image,
+  View,
 } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, imageStyles } from "../../styles/modals/getStarted";
 import icons from "../../assets/icons";
-import GreenText from "../UIComponents/GreenText";
+import i18n from "../../i18n";
+import { imageStyles, viewStyles } from "../../styles/modals/getStarted";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import DescriptionText from "../UIComponents/DescriptionText";
+import GreenText from "../UIComponents/GreenText";
 
 interface Props {
   readonly closeModal: () => void;

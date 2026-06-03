@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { View, Alert, ScrollView } from "react-native";
-import HTML, {
-  HTMLElementModel,
-  HTMLContentModel,
-} from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import { Alert, ScrollView, View } from "react-native";
 import Modal from "react-native-modal";
+import HTML, {
+  HTMLContentModel,
+  HTMLElementModel,
+} from "react-native-render-html";
 
 import i18n from "../../../i18n";
-import { colors, htmlFonts } from "../../../styles/global";
 import styles from "../../../styles/auth/signup";
-import { checkIsEmailValid } from "../../../utility/loginHelpers";
-import ErrorMessage from "../ErrorMessage";
-import InputField from "../../UIComponents/InputField";
-import GreenText from "../../UIComponents/GreenText";
-import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
-import CheckboxRow from "./CheckboxRow";
-import WhiteModal from "../../UIComponents/Modals/WhiteModal";
-import StyledText from "../../UIComponents/StyledText";
+import { colors, htmlFonts } from "../../../styles/global";
 import { baseTextStyles } from "../../../styles/textStyles";
+import { checkIsEmailValid } from "../../../utility/loginHelpers";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import GreenText from "../../UIComponents/GreenText";
+import InputField from "../../UIComponents/InputField";
+import WhiteModal from "../../UIComponents/Modals/WhiteModal";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
+import StyledText from "../../UIComponents/StyledText";
+import ErrorMessage from "../ErrorMessage";
+import CheckboxRow from "./CheckboxRow";
 
 const LicensePhotosScreen = ( ) => {
   const { navigate } = useNavigation( );

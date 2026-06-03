@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from "react";
 import {
   Image,
-  TouchableOpacity,
   Modal,
+  TouchableOpacity,
 } from "react-native";
 
-import styles from "../../styles/posting/postToiNat";
 import posting from "../../assets/posting";
-import SelectSpecies from "./SelectSpecies";
+import styles from "../../styles/posting/postToiNat";
 import SpeciesCard from "../UIComponents/SpeciesCard";
+import SelectSpecies from "./SelectSpecies";
 
 interface Taxon {
   name: string;

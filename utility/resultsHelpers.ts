@@ -1,10 +1,10 @@
 import { Platform } from "react-native";
+import type { Prediction } from "vision-camera-plugin-inatvision";
 
+import { log } from "../react-native-logs.config";
+import { checkLocationPermissions } from "./androidHelpers.android";
 import type { Coords, TruncatedCoords } from "./locationHelpers";
 import { fetchTruncatedUserLocation, fetchUserLocation, truncateCoordinates } from "./locationHelpers";
-import { checkLocationPermissions } from "./androidHelpers.android";
-import { log } from "../react-native-logs.config";
-import type { Prediction } from "vision-camera-plugin-inatvision";
 
 const logger = log.extend( "resultsHelpers.js" );
 
@@ -100,6 +100,6 @@ const fetchImageLocationOrErrorCode = async ( image: Image, login: string | null
 };
 
 export {
-  setImageCoords,
   fetchImageLocationOrErrorCode,
+  setImageCoords,
 };

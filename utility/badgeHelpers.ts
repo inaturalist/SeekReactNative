@@ -200,11 +200,11 @@ const createBadgeSetList = ( badges: Badge[] ): number[] => {
 };
 
 export {
+  checkForNewBadges,
+  checkNumberOfBadgesEarned,
+  createBadgeSetList,
+  deleteBadges,
+  getBadgesEarned,
   recalculateBadges,
   setupBadges,
-  checkNumberOfBadgesEarned,
-  checkForNewBadges,
-  getBadgesEarned,
-  deleteBadges,
-  createBadgeSetList,
 };

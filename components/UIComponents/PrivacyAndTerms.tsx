@@ -1,11 +1,11 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import * as React from "react";
 import { View } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import { viewStyles, textStyles } from "../../styles/uiComponents/privacyAndTerms";
-import StyledText from "./StyledText";
 import { baseTextStyles } from "../../styles/textStyles";
+import { textStyles, viewStyles } from "../../styles/uiComponents/privacyAndTerms";
+import StyledText from "./StyledText";
 
 interface Props {
   login?: boolean;

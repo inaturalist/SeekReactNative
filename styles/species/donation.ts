@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { colors } from "../global";
 
 const viewStyles = StyleSheet.create( {
@@ -50,6 +51,6 @@ const textStyles = StyleSheet.create( {
 } );
 
 export {
-  viewStyles,
   textStyles,
+  viewStyles,
 };

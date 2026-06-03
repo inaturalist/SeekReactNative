@@ -1,15 +1,15 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
 
-import { viewStyles, textStyles, imageStyles } from "../../../styles/challenges/challengeMission";
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
-import PercentCircle from "../../UIComponents/PercentCircle";
-import GreenText from "../../UIComponents/GreenText";
-import missionsDict from "../../../utility/dictionaries/missionsDict";
-import { useFetchMissions } from "../hooks/challengeHooks";
-import StyledText from "../../UIComponents/StyledText";
+import { imageStyles, textStyles, viewStyles } from "../../../styles/challenges/challengeMission";
 import { baseTextStyles } from "../../../styles/textStyles";
+import missionsDict from "../../../utility/dictionaries/missionsDict";
+import GreenText from "../../UIComponents/GreenText";
+import PercentCircle from "../../UIComponents/PercentCircle";
+import StyledText from "../../UIComponents/StyledText";
+import { useFetchMissions } from "../hooks/challengeHooks";
 
 interface Props {
   challenge: {

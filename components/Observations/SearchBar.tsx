@@ -1,11 +1,11 @@
 import React from "react";
-import { View, TextInput, Image, TouchableOpacity } from "react-native";
+import { Image, TextInput, TouchableOpacity, View } from "react-native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/observations/searchBar";
-import { colors } from "../../styles/global";
-import posting from "../../assets/posting";
 import icons from "../../assets/icons";
+import posting from "../../assets/posting";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import { imageStyles, textStyles, viewStyles } from "../../styles/observations/searchBar";
 import { baseTextStyles } from "../../styles/textStyles";
 
 interface Props {

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import Realm from "realm";
 import inatjs from "inaturalistjs";
+import { useEffect, useState } from "react";
+import Realm from "realm";
 
 import i18n from "../../../i18n";
 import realmConfig from "../../../models";

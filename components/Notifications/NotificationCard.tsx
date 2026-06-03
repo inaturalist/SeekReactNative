@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import type {
   ImageSourcePropType} from "react-native";
@@ -6,17 +7,16 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { viewStyles, textStyles, imageStyles } from "../../styles/notifications";
-import notifications from "../../assets/notifications";
-import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
-import { markNotificationAsSeen } from "../../utility/notificationHelpers";
-import StyledText from "../UIComponents/StyledText";
-import { useChallenge } from "../Providers/ChallengeProvider";
+import notifications from "../../assets/notifications";
+import i18n from "../../i18n";
+import { imageStyles, textStyles, viewStyles } from "../../styles/notifications";
 import { baseTextStyles } from "../../styles/textStyles";
+import challengesDict from "../../utility/dictionaries/challengesDict";
+import { markNotificationAsSeen } from "../../utility/notificationHelpers";
+import { useChallenge } from "../Providers/ChallengeProvider";
+import StyledText from "../UIComponents/StyledText";
 import type { Notification } from "./hooks/notificationHooks";
 
 interface Props {

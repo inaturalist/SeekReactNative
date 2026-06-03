@@ -28,7 +28,8 @@ jobs:
     - name: Install Node.js, NPM and Yarn
       uses: actions/setup-node@v6
       with:
-        node-version: 22
+        node-version-file: '.nvmrc'
+        cache: 'npm'
 
     - name: Setup Ruby version according to .ruby-version with cached gems
       uses: ruby/setup-ruby@v1

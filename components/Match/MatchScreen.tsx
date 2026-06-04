@@ -83,7 +83,7 @@ const MatchScreen = ( ) => {
   }
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top"]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top", "bottom"]}>
       <MatchModals
         observation={observation}
         screenType={screenType}

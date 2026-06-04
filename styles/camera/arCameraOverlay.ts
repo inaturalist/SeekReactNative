@@ -13,13 +13,11 @@ const viewStyles = StyleSheet.create( {
     shadowRadius: 3,
   },
   plantFilter: {
-    bottom: 203 - 41,
     position: "absolute",
     alignItems: "center",
     gap: 12,
   },
   landscapeHelpBubble: {
-    bottom: 26 + 65 + 18,
     width: 293,
     position: "absolute",
     borderRadius: 20,
@@ -31,7 +29,6 @@ const viewStyles = StyleSheet.create( {
     backgroundColor: colors.seekGreen,
   },
   helpBubble: {
-    bottom: 26 + 65 + 18,
     width: 293,
     position: "absolute",
   },
@@ -39,7 +36,6 @@ const viewStyles = StyleSheet.create( {
     position: "absolute",
     right: 0,
     top: 0,
-    bottom: 0,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -50,7 +46,6 @@ const viewStyles = StyleSheet.create( {
     position: "absolute",
     left: 0,
     top: 0,
-    bottom: 0,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -59,7 +54,6 @@ const viewStyles = StyleSheet.create( {
   },
   cameraControlsContainer: {
     position: "absolute",
-    bottom: 0,
     left: 0,
     right: 0,
     flexDirection: "row",
@@ -72,7 +66,6 @@ const viewStyles = StyleSheet.create( {
     position: "absolute",
     right: 0,
     top: 0,
-    bottom: 0,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",

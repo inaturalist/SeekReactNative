@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { TakePhotoOptions } from "react-native-vision-camera";
 
 import icons from "../../../assets/icons";
@@ -73,6 +74,7 @@ const ARCameraOverlay = ( {
   handleToastEnd,
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
+  const { bottom } = useSafeAreaInsets( );
   const { navigate } = useNavigation( );
   const rankToRender = prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
@@ -140,7 +142,7 @@ const ARCameraOverlay = ( {
     }
 
     return (
-      <View style={viewStyles.plantFilter}>
+      <View style={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}>
         <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
       </View>
     );
@@ -151,12 +153,15 @@ const ARCameraOverlay = ( {
   const setTaxonomicRankColorStyles = ( ) => {
     if ( isLandscape ) {
       if ( rankToRender === "species" ) {
-        return [viewStyles.landscapeHelpBubble, viewStyles.landscapeHelpBubbleSpecies];
+        return [viewStyles.landscapeHelpBubble, { bottom: bottom + 26 + 65 + 18 }, viewStyles.landscapeHelpBubbleSpecies];
       } else {
-        return viewStyles.landscapeHelpBubble;
+        return [
+          viewStyles.landscapeHelpBubble,
+          { bottom: bottom + 26 + 65 + 18 },
+        ];
       }
     }
-    return viewStyles.helpBubble;
+    return [viewStyles.helpBubble, { bottom: bottom + 26 + 65 + 18 }];
   };
 
   return (
@@ -164,11 +169,12 @@ const ARCameraOverlay = ( {
       {( pictureTaken || !cameraLoaded ) && <LoadingWheel color={colors.white} />}
       <ARCameraHeader prediction={prediction} />
       <View
-        style={
+        style={[
           !isLandscape
             ? viewStyles.secondaryCameraControlsContainer
-            : viewStyles.secondaryCameraControlsContainerLandscape
-        }
+            : viewStyles.secondaryCameraControlsContainerLandscape,
+          { bottom },
+        ]}
       >
         <CameraFlip
           flipCamera={flipCamera}
@@ -188,7 +194,7 @@ const ARCameraOverlay = ( {
         <ToastAnimation
           testID="filterOffToast"
           visible={filterIndex === 0}
-          styles={viewStyles.plantFilter}
+          styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
           toastText={settings[filterIndex].text}
           rectangleColor={settings[filterIndex].color}
         />
@@ -197,7 +203,7 @@ const ARCameraOverlay = ( {
         testID="locationOnToast"
         visible={visibleToast === TOAST.LOCATION_ON}
         finishAnimation={handleToastEnd}
-        styles={viewStyles.plantFilter}
+        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
         textStyles={[
           baseTextStyles.buttonSmall,
           textStyles.scanText,
@@ -211,7 +217,7 @@ const ARCameraOverlay = ( {
         testID="locationOffToast"
         visible={visibleToast === TOAST.LOCATION_OFF}
         finishAnimation={handleToastEnd}
-        styles={viewStyles.plantFilter}
+        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
         textStyles={[
           baseTextStyles.buttonSmall,
           textStyles.scanText,
@@ -225,7 +231,7 @@ const ARCameraOverlay = ( {
         testID="flashOnToast"
         visible={visibleToast === TOAST.FLASH_ON}
         finishAnimation={handleToastEnd}
-        styles={viewStyles.plantFilter}
+        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
         toastText={i18n.t( "camera.flash_on" )}
         rectangleColor={colors.plantsFilter}
       />
@@ -233,7 +239,7 @@ const ARCameraOverlay = ( {
         testID="flashOffToast"
         visible={visibleToast === TOAST.FLASH_OFF}
         finishAnimation={handleToastEnd}
-        styles={viewStyles.plantFilter}
+        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
         toastText={i18n.t( "camera.flash_off" )}
         rectangleColor={colors.plantsFilter}
       />
@@ -242,7 +248,10 @@ const ARCameraOverlay = ( {
       </View>
 
       <View style={
-        isLandscape ? viewStyles.cameraControlsContainerLandscape : viewStyles.cameraControlsContainer
+        [
+          isLandscape ? viewStyles.cameraControlsContainerLandscape : viewStyles.cameraControlsContainer,
+          { bottom },
+        ]
       }>
         <View style={viewStyles.leftControls}>
           {isAndroid && (

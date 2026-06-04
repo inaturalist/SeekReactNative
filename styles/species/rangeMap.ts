@@ -11,7 +11,6 @@ const viewStyles = StyleSheet.create( {
     paddingBottom: ( Platform.OS === "ios" && height > 670 ) ? 23 : 13,
     paddingLeft: 22,
     paddingRight: 28,
-    bottom: 0,
     left: 0,
     position: "absolute",
   },
@@ -23,7 +22,6 @@ const viewStyles = StyleSheet.create( {
     width: "100%",
   },
   locationIcon: {
-    bottom: 19,
     position: "absolute",
     right: 19,
   },

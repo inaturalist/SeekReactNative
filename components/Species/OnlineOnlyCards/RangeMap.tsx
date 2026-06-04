@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
 import MapView, { Marker,PROVIDER_DEFAULT, UrlTile } from "react-native-maps";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
@@ -17,6 +18,7 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 const RangeMap = () => {
+  const { bottom } = useSafeAreaInsets( );
   const navigation = useNavigation();
   const { params } = useRoute();
   // TODO: navigation TS
@@ -118,7 +120,7 @@ const RangeMap = () => {
       </MapView>
       <TouchableOpacity
         onPress={openModal}
-        style={viewStyles.legend}
+        style={[viewStyles.legend, { bottom }]}
       >
         <StyledText style={[baseTextStyles.modalBanner, textStyles.whiteText]}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
@@ -130,7 +132,7 @@ const RangeMap = () => {
           accessible
           testID="user-location-button"
           onPress={updateMap}
-          style={viewStyles.locationIcon}
+          style={[viewStyles.locationIcon, { bottom: 19 + bottom }]}
         >
           <Image source={icons.indicator} />
         </TouchableOpacity>

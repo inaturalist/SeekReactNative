@@ -154,7 +154,7 @@ const LocationPicker = ( {
   );
 
   return (
-    <SafeAreaView style={viewStyles.container} edges={["top"]}>
+    <SafeAreaView style={viewStyles.container} edges={["top", "bottom"]}>
       <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
         <View style={viewStyles.marginLarge} />

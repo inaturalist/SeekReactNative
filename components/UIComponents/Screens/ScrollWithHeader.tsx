@@ -62,6 +62,7 @@ const ScrollWithHeader = ( {
         <ScrollView
           ref={scrollView}
           contentContainerStyle={styles.containerWhite}
+          style={styles.containerWhite}
           keyboardDismissMode={name === "Post" ? "on-drag" : "none"}
           onScroll={hideKeyboard}
           scrollEventThrottle={hideKeyboardThrottle}

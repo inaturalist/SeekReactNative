@@ -45,6 +45,7 @@ const NotificationsScreen = ( ) => {
       <FlashList
         ref={scrollView}
         contentContainerStyle={viewStyles.containerWhite}
+        style={viewStyles.containerWhite}
         data={notifications}
         keyExtractor={extractKey}
         ListFooterComponent={renderFooter}

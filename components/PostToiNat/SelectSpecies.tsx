@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import icons from "../../assets/icons";
 import posting from "../../assets/posting";
@@ -141,63 +141,61 @@ const SelectSpecies = ( {
   const dismissKeyboard = ( ) => Keyboard.dismiss( );
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView
-        testID="select-species-container"
-        style={viewStyles.container}
-        edges={["top"]}
-      >
-        <StatusBar barStyle="light-content" />
-        <View style={viewStyles.header}>
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.back" )}
-            accessible
-            onPress={toggleSpeciesModal}
-            style={viewStyles.backButton}
-          >
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-          <StyledText style={[baseTextStyles.button, textStyles.topHeader]}>
-            {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
-          </StyledText>
-        </View>
-        <View style={viewStyles.photoContainer}>
-          {image && <Image source={{ uri: image }} style={imageStyles.image} />}
-        </View>
-        <View style={viewStyles.row}>
-          <Image
-            source={posting.searchGreen}
-            tintColor={colors.white}
-            style={imageStyles.search}
-          />
-          <TextInput
-            onChangeText={handleTextChange}
-            placeholder={i18n.t( "posting.look_up" )}
-            placeholderTextColor={colors.placeholderGray}
-            style={[baseTextStyles.inputField, textStyles.inputField]}
-            defaultValue={textInput}
-          />
-        </View>
-        <FlashList
-          ref={sectionList}
-          contentContainerStyle={viewStyles.whiteContainer}
-          data={data}
-          initialNumToRender={5}
-          stickySectionHeadersEnabled={false}
-          keyExtractor={extractKey}
-          ListFooterComponent={renderPadding}
-          renderItem={renderItem}
-          getItemType={( item: any ) => {
-            if ( item.hasOwnProperty( "type" ) ) {
-              return item.type;
-            }
-            return "suggestion";
-          }}
-          keyboardDismissMode="on-drag"
-          onScroll={dismissKeyboard}
+    <SafeAreaView
+      testID="select-species-container"
+      style={viewStyles.container}
+      edges={["top", "bottom"]}
+    >
+      <StatusBar barStyle="light-content" />
+      <View style={viewStyles.header}>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.back" )}
+          accessible
+          onPress={toggleSpeciesModal}
+          style={viewStyles.backButton}
+        >
+          <Image source={icons.backButton} />
+        </TouchableOpacity>
+        <StyledText style={[baseTextStyles.button, textStyles.topHeader]}>
+          {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
+        </StyledText>
+      </View>
+      <View style={viewStyles.photoContainer}>
+        {image && <Image source={{ uri: image }} style={imageStyles.image} />}
+      </View>
+      <View style={viewStyles.row}>
+        <Image
+          source={posting.searchGreen}
+          tintColor={colors.white}
+          style={imageStyles.search}
         />
-      </SafeAreaView>
-    </SafeAreaProvider>
+        <TextInput accessibilityLabel="Text input field"
+          onChangeText={handleTextChange}
+          placeholder={i18n.t( "posting.look_up" )}
+          placeholderTextColor={colors.placeholderGray}
+          style={[baseTextStyles.inputField, textStyles.inputField]}
+          defaultValue={textInput}
+        />
+      </View>
+      <FlashList
+        ref={sectionList}
+        contentContainerStyle={viewStyles.whiteContainer}
+        data={data}
+        initialNumToRender={5}
+        stickySectionHeadersEnabled={false}
+        keyExtractor={extractKey}
+        ListFooterComponent={renderPadding}
+        renderItem={renderItem}
+        getItemType={( item: any ) => {
+          if ( item.hasOwnProperty( "type" ) ) {
+            return item.type;
+          }
+          return "suggestion";
+        }}
+        keyboardDismissMode="on-drag"
+        onScroll={dismissKeyboard}
+      />
+    </SafeAreaView>
   );
 };
 

@@ -13,7 +13,7 @@ interface Props extends React.PropsWithChildren {
 }
 
 const ViewWithHeader = ( { testID, children, header, footer = true }: Props ) => (
-  <SafeAreaView testID={testID} style={styles.container} edges={["top"]}>
+  <SafeAreaView testID={testID} style={styles.container} edges={["top", "bottom"]}>
     <StatusBar barStyle="light-content" />
     <GreenHeader header={header} />
     {children}

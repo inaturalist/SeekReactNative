@@ -35,7 +35,7 @@ const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ) =>
   }
 
   return (
-    <SafeAreaView style={[styles.container, backgroundColor]} edges={["top"]}>
+    <SafeAreaView style={[styles.container, backgroundColor]} edges={["top", "bottom"]}>
       <StatusBar barStyle="light-content" />
       <ScrollView
         ref={scrollView}

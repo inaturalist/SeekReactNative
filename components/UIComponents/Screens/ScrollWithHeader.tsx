@@ -51,7 +51,7 @@ const ScrollWithHeader = ( {
   };
 
   return (
-    <SafeAreaView testID={testID} style={styles.container} edges={["top"]}>
+    <SafeAreaView testID={testID} style={styles.container} edges={["top", "bottom"]}>
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
       {loading ? (

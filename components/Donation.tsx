@@ -31,7 +31,7 @@ const Donation = ( { navigation, route } ) => {
   const highlightSelectedText = ( ) => setSelectedText( true );
 
   return (
-    <SafeAreaView style={viewStyles.container} edges={["top"]}>
+    <SafeAreaView style={viewStyles.container} edges={["top", "bottom"]}>
       <View style={viewStyles.header}>
         <StyledText style={[baseTextStyles.button, textStyles.text]}>
           {i18n.t( "settings.donate" ).toLocaleUpperCase( )}

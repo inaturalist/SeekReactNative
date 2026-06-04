@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import {
   Image,
+  Platform,
   TextInput,
   View,
 } from "react-native";
@@ -153,8 +154,13 @@ const LocationPicker = ( {
     />
   );
 
+  const edges = ["top"];
+  if ( Platform.OS === "android" ) {
+    edges.push( "bottom" );
+  }
+
   return (
-    <SafeAreaView style={viewStyles.container} edges={["top", "bottom"]}>
+    <SafeAreaView style={viewStyles.container} edges={edges}>
       <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
         <View style={viewStyles.marginLarge} />

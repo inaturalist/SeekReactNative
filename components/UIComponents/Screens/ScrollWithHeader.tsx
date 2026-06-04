@@ -50,8 +50,13 @@ const ScrollWithHeader = ( {
     }
   };
 
+  const edges = ["top"];
+  if ( Platform.OS === "android" ) {
+    edges.push( "bottom" );
+  }
+
   return (
-    <SafeAreaView testID={testID} style={styles.container} edges={["top", "bottom"]}>
+    <SafeAreaView testID={testID} style={styles.container} edges={edges}>
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
       {loading ? (

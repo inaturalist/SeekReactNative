@@ -34,8 +34,13 @@ const ScrollNoHeader = ( { children, showUploadCard, footer = true }: Props ) =>
     backgroundColor = styles.containerWhite;
   }
 
+  const edges = ["top"];
+  if ( Platform.OS === "android" ) {
+    edges.push( "bottom" );
+  }
+
   return (
-    <SafeAreaView style={[styles.container, backgroundColor]} edges={["top", "bottom"]}>
+    <SafeAreaView style={[styles.container, backgroundColor]} edges={edges}>
       <StatusBar barStyle="light-content" />
       <ScrollView
         ref={scrollView}

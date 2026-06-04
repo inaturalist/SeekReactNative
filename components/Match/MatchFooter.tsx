@@ -18,7 +18,7 @@ interface Props {
 }
 
 const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
-  <SafeAreaView style={viewStyles.safeArea} edges={["right", "bottom", "left"]}>
+  <SafeAreaView style={viewStyles.safeArea} edges={["right", "left"]}>
     <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
       <View style={[viewStyles.navbar, viewStyles.row, viewStyles.shadow]}>
         <TouchableOpacity

@@ -40,6 +40,7 @@ import { savePostingSuccess } from "../../../utility/loginHelpers";
 import { resetRouter } from "../../../utility/navigationHelpers";
 import { fetchImageLocationOrErrorCode } from "../../../utility/resultsHelpers";
 import WarningModal from "../../Modals/WarningModal";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import { useCameraLocationPreference } from "../../Providers/CameraLocationPreferenceProvider";
 import { useObservation } from "../../Providers/ObservationProvider";
 import Modal from "../../UIComponents/Modals/Modal";
@@ -105,7 +106,7 @@ const ARCamera = ( ) => {
   }, [] );
 
   const isFocused = useIsFocused( );
-  const navigation = useNavigation( );
+  const navigation = useNavigation<RootStackScreenProps<"Camera">["navigation"]>( );
   const camera = useRef<Camera>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );

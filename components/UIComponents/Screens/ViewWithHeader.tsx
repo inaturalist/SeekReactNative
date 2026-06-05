@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StatusBar } from "react-native";
+import { Platform, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
@@ -12,8 +12,13 @@ interface Props extends React.PropsWithChildren {
   footer?: boolean;
 }
 
+const edges = ["top"];
+if ( Platform.OS === "android" ) {
+  edges.push( "bottom" );
+}
+
 const ViewWithHeader = ( { testID, children, header, footer = true }: Props ) => (
-  <SafeAreaView testID={testID} style={styles.container} edges={["top", "bottom"]}>
+  <SafeAreaView testID={testID} style={styles.container} edges={edges}>
     <StatusBar barStyle="light-content" />
     <GreenHeader header={header} />
     {children}

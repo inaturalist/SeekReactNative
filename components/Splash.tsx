@@ -10,14 +10,15 @@ import { addARCameraFiles } from "../utility/cameraFilesHelpers";
 import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { checkForColdStarts, checkForHotStarts, setQuickActions } from "../utility/navigationHelpers";
 import { deleteFromAsyncStorage, setupUserSettings } from "../utility/settingsHelpers";
+import type { RootStackParamList, RootStackScreenProps } from "./Navigation/types";
 import { useAppOrientation } from "./Providers/AppOrientationProvider";
 
 const SplashScreen = ( ) => {
   const { isTablet } = useAppOrientation( );
-  const navigation = useNavigation( );
+  const navigation = useNavigation<RootStackScreenProps<"Splash">["navigation"]>( );
   const navToCamera = useCallback( ( ) => navigation.navigate( "Camera" ), [navigation] );
 
-  const resetRouter = useCallback( ( name ) => {
+  const resetRouter = useCallback( ( name: keyof RootStackParamList ) => {
     setTimeout( ( ) => navigation.reset( { routes: [{ name }] } ), 2000 );
   }, [navigation] );
 

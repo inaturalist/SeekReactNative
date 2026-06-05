@@ -4,11 +4,12 @@ import { View } from "react-native";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
 import { baseTextStyles } from "../../../styles/textStyles";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
 
-const ParentCheckEmailScreen = ( { navigation } ) => (
+const ParentCheckEmailScreen = ( { navigation }: RootStackScreenProps<"ParentCheck"> ) => (
   <ScrollWithHeader header="login.sign_up">
     <View style={styles.flexCenter}>
       <StyledText style={[baseTextStyles.passwordEmailHeader, styles.headerText]}>

@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useReducer, useRef } from "react";
-import { BackHandler, ScrollView } from "react-native";
+import { BackHandler, Platform, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
@@ -82,8 +82,13 @@ const MatchScreen = ( ) => {
     return null;
   }
 
+  const edges = ["top"];
+  if ( Platform.OS === "android" ) {
+    edges.push( "bottom" );
+  }
+
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top", "bottom"]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={edges}>
       <MatchModals
         observation={observation}
         screenType={screenType}

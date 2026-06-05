@@ -75,6 +75,7 @@ const ARCameraOverlay = ( {
 }: Props ) => {
   const { isLandscape } = useAppOrientation( );
   const { bottom } = useSafeAreaInsets( );
+  const actualBottom = Platform.OS === "android" ? bottom : 0;
   const { navigate } = useNavigation( );
   const rankToRender = prediction?.rank || null;
   const helpText = setCameraHelpText( rankToRender );
@@ -142,8 +143,13 @@ const ARCameraOverlay = ( {
     }
 
     return (
-      <View style={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}>
-        <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
+      <View
+        style={[viewStyles.plantFilter, { bottom: actualBottom + 203 - 41 }]}
+      >
+        <GreenRectangle
+          text={settings[filterIndex].text}
+          color={settings[filterIndex].color}
+        />
       </View>
     );
   };
@@ -153,15 +159,19 @@ const ARCameraOverlay = ( {
   const setTaxonomicRankColorStyles = ( ) => {
     if ( isLandscape ) {
       if ( rankToRender === "species" ) {
-        return [viewStyles.landscapeHelpBubble, { bottom: bottom + 26 + 65 + 18 }, viewStyles.landscapeHelpBubbleSpecies];
+        return [
+          viewStyles.landscapeHelpBubble,
+          { bottom: actualBottom + 26 + 65 + 18 },
+          viewStyles.landscapeHelpBubbleSpecies,
+        ];
       } else {
         return [
           viewStyles.landscapeHelpBubble,
-          { bottom: bottom + 26 + 65 + 18 },
+          { bottom: actualBottom + 26 + 65 + 18 },
         ];
       }
     }
-    return [viewStyles.helpBubble, { bottom: bottom + 26 + 65 + 18 }];
+    return [viewStyles.helpBubble, { bottom: actualBottom + 26 + 65 + 18 }];
   };
 
   return (
@@ -173,28 +183,23 @@ const ARCameraOverlay = ( {
           !isLandscape
             ? viewStyles.secondaryCameraControlsContainer
             : viewStyles.secondaryCameraControlsContainerLandscape,
-          { bottom },
+          { bottom: actualBottom },
         ]}
       >
-        <CameraFlip
-          flipCamera={flipCamera}
-        />
+        <CameraFlip flipCamera={flipCamera} />
         <Flash
           toggleFlash={toggleFlash}
           hasFlash={hasFlash}
           takePhotoOptions={takePhotoOptions}
         />
-        <Location
-          toggleLocation={toggleLocation}
-          useLocation={useLocation}
-        />
+        <Location toggleLocation={toggleLocation} useLocation={useLocation} />
       </View>
-      {isAndroid && visibleToast === TOAST.NONE && showFilterText( )}
-      {( isAndroid && filterIndex === 0 ) && (
+      {isAndroid && visibleToast === TOAST.NONE && showFilterText()}
+      {isAndroid && filterIndex === 0 && (
         <ToastAnimation
           testID="filterOffToast"
           visible={filterIndex === 0}
-          styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
+          styles={[viewStyles.plantFilter, { bottom: actualBottom + 203 - 41 }]}
           toastText={settings[filterIndex].text}
           rectangleColor={settings[filterIndex].color}
         />
@@ -203,7 +208,7 @@ const ARCameraOverlay = ( {
         testID="locationOnToast"
         visible={visibleToast === TOAST.LOCATION_ON}
         finishAnimation={handleToastEnd}
-        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
+        styles={[viewStyles.plantFilter, { bottom: actualBottom + 203 - 41 }]}
         textStyles={[
           baseTextStyles.buttonSmall,
           textStyles.scanText,
@@ -217,7 +222,7 @@ const ARCameraOverlay = ( {
         testID="locationOffToast"
         visible={visibleToast === TOAST.LOCATION_OFF}
         finishAnimation={handleToastEnd}
-        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
+        styles={[viewStyles.plantFilter, { bottom: actualBottom + 203 - 41 }]}
         textStyles={[
           baseTextStyles.buttonSmall,
           textStyles.scanText,
@@ -231,7 +236,7 @@ const ARCameraOverlay = ( {
         testID="flashOnToast"
         visible={visibleToast === TOAST.FLASH_ON}
         finishAnimation={handleToastEnd}
-        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
+        styles={[viewStyles.plantFilter, { bottom: actualBottom + 203 - 41 }]}
         toastText={i18n.t( "camera.flash_on" )}
         rectangleColor={colors.plantsFilter}
       />
@@ -239,28 +244,44 @@ const ARCameraOverlay = ( {
         testID="flashOffToast"
         visible={visibleToast === TOAST.FLASH_OFF}
         finishAnimation={handleToastEnd}
-        styles={[viewStyles.plantFilter, { bottom: bottom + 203 - 41 }]}
+        styles={[viewStyles.plantFilter, { bottom: actualBottom + 203 - 41 }]}
         toastText={i18n.t( "camera.flash_off" )}
         rectangleColor={colors.plantsFilter}
       />
-      <View style={setTaxonomicRankColorStyles( )}>
-        <StyledText style={[baseTextStyles.buttonSmall, textStyles.scanText, !isLandscape && textStyles.textShadow]}>{helpText}</StyledText>
+      <View style={setTaxonomicRankColorStyles()}>
+        <StyledText
+          style={[
+            baseTextStyles.buttonSmall,
+            textStyles.scanText,
+            !isLandscape && textStyles.textShadow,
+          ]}
+        >
+          {helpText}
+        </StyledText>
       </View>
 
-      <View style={
-        [
-          isLandscape ? viewStyles.cameraControlsContainerLandscape : viewStyles.cameraControlsContainer,
-          { bottom },
-        ]
-      }>
+      <View
+        style={[
+          isLandscape
+            ? viewStyles.cameraControlsContainerLandscape
+            : viewStyles.cameraControlsContainer,
+          { bottom: actualBottom },
+        ]}
+      >
         <View style={viewStyles.leftControls}>
           {isAndroid && (
             <TouchableOpacity
-              accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
+              accessibilityLabel={
+                filterIndex ? settings[filterIndex].text : settings[0].text
+              }
               accessible
               onPress={toggleFilterIndex}
             >
-              <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
+              <Image
+                source={
+                  filterIndex ? settings[filterIndex].icon : settings[0].icon
+                }
+              />
             </TouchableOpacity>
           )}
           <TouchableOpacity

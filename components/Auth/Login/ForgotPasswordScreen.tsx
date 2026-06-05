@@ -8,6 +8,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import { createJwtToken } from "../../../utility/helpers";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import GreenText from "../../UIComponents/GreenText";
 import InputField from "../../UIComponents/InputField";
@@ -16,7 +17,7 @@ import StyledText from "../../UIComponents/StyledText";
 import ErrorMessage from "../ErrorMessage";
 
 const ForgotPasswordScreen = ( ) => {
-  const { navigate } = useNavigation( );
+  const { navigate } = useNavigation<RootStackScreenProps<"Forgot">["navigation"]>( );
   const [email, setEmail] = useState( "" );
   const [error, setError] = useState( false );
   const token = createJwtToken( );

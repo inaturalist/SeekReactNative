@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, Platform, TouchableOpacity } from "react-native";
 import MapView, { Marker,PROVIDER_DEFAULT, UrlTile } from "react-native-maps";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -19,6 +19,7 @@ const longitudeDelta = 0.2;
 
 const RangeMap = () => {
   const { bottom } = useSafeAreaInsets( );
+  const actualBottom = Platform.OS === "android" ? bottom : 0;
   const navigation = useNavigation();
   const { params } = useRoute();
   // TODO: navigation TS
@@ -89,7 +90,11 @@ const RangeMap = () => {
   }
 
   return (
-    <ViewWithHeader testID="range-map-container" header="species_detail.range_map" footer={false}>
+    <ViewWithHeader
+      testID="range-map-container"
+      header="species_detail.range_map"
+      footer={false}
+    >
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -108,19 +113,27 @@ const RangeMap = () => {
           urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
         />
         {seenDate && (
-          <Marker coordinate={{ latitude: region.latitude, longitude: region.longitude }}>
+          <Marker
+            coordinate={{
+              latitude: region.latitude,
+              longitude: region.longitude,
+            }}
+          >
             <Image source={icons.cameraOnMap} />
           </Marker>
         )}
         {user.latitude && user.longitude && (
-          <Marker coordinate={{ latitude: user.latitude, longitude: user.longitude }}>
+          <Marker
+            coordinate={{ latitude: user.latitude, longitude: user.longitude }}
+          >
             <Image source={icons.locationPin} />
           </Marker>
         )}
       </MapView>
       <TouchableOpacity
+        accessibilityRole="button"
         onPress={openModal}
-        style={[viewStyles.legend, { bottom }]}
+        style={[viewStyles.legend, { bottom: actualBottom }]}
       >
         <StyledText style={[baseTextStyles.modalBanner, textStyles.whiteText]}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
@@ -132,7 +145,7 @@ const RangeMap = () => {
           accessible
           testID="user-location-button"
           onPress={updateMap}
-          style={[viewStyles.locationIcon, { bottom: 19 + bottom }]}
+          style={[viewStyles.locationIcon, { bottom: actualBottom + 19 }]}
         >
           <Image source={icons.indicator} />
         </TouchableOpacity>

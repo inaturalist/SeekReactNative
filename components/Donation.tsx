@@ -30,13 +30,19 @@ const Donation = ( { navigation, route } ) => {
 
   const highlightSelectedText = ( ) => setSelectedText( true );
 
+  const edges = ["top"];
+  if ( Platform.OS === "android" ) {
+    edges.push( "bottom" );
+  }
+  
   return (
-    <SafeAreaView style={viewStyles.container} edges={["top", "bottom"]}>
+    <SafeAreaView style={viewStyles.container} edges={edges}>
       <View style={viewStyles.header}>
         <StyledText style={[baseTextStyles.button, textStyles.text]}>
           {i18n.t( "settings.donate" ).toLocaleUpperCase( )}
         </StyledText>
         <TouchableOpacity
+          accessibilityRole="button"
           onPress={goBack}
           style={viewStyles.back}
         >

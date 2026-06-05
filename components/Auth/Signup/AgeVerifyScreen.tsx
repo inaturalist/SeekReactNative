@@ -6,6 +6,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { formatYearMonthDay, requiresParent } from "../../../utility/dateHelpers";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
@@ -13,21 +14,21 @@ import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import StyledText from "../../UIComponents/StyledText";
 
 const AgeVerifyScreen = () => {
-  const { navigate } = useNavigation();
-  const [date, setDate] = useState( formatYearMonthDay() );
+  const { navigate } = useNavigation<RootStackScreenProps<"Age">["navigation"]>( );
+  const [date, setDate] = useState( formatYearMonthDay( ) );
   const [isPickerVisible, setPicker] = useState( false );
 
-  const openPicker = () => setPicker( true );
-  const closePicker = useCallback( () => setPicker( false ), [] );
+  const openPicker = ( ) => setPicker( true );
+  const closePicker = useCallback( ( ) => setPicker( false ), [] );
 
   const handleDatePicked = useCallback( ( newDate: Date ) => {
     if ( newDate ) {
-      closePicker();
+      closePicker( );
       setDate( formatYearMonthDay( newDate ) );
     }
   }, [closePicker] );
 
-  const submit = () => {
+  const submit = ( ) => {
     if ( requiresParent( date ) ) {
       navigate( "Parent" );
     } else {

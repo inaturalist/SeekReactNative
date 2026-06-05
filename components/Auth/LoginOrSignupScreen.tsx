@@ -13,10 +13,11 @@ import { imageStyles, textStyles, viewStyles } from "../../styles/auth/loginOrSi
 import { colors } from "../../styles/global";
 import { baseTextStyles } from "../../styles/textStyles";
 import { enabledLargeFonts } from "../../utility/textHelpers";
+import type { RootStackScreenProps } from "../Navigation/types";
 import Button from "../UIComponents/Buttons/Button";
 import StyledText from "../UIComponents/StyledText";
 
-const LoginOrSignupScreen = ( { navigation } ) => {
+const LoginOrSignupScreen = ( { navigation }: RootStackScreenProps<"LoginOrSignup"> ) => {
   const navToLogin = ( ) => navigation.navigate( "Login" );
   const navToAge = ( ) => navigation.navigate( "Age" );
   const navToDrawer = ( ) => navigation.popTo( "Drawer" );

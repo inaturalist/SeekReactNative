@@ -8,11 +8,12 @@ import i18n from "../../i18n";
 import { textStyles, viewStyles } from "../../styles/posting/postModal";
 import { baseTextStyles } from "../../styles/textStyles";
 import { useInternetStatus } from "../../utility/customHooks";
+import type { RootStackScreenProps } from "../Navigation/types";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
 
 const PostStatus = ( ) => {
-  const navigation = useNavigation( );
+  const navigation = useNavigation<RootStackScreenProps<"PostStatus">["navigation"]>( );
   const internet = useInternetStatus( );
 
   const setHeaderText = ( ) => {
@@ -39,7 +40,6 @@ const PostStatus = ( ) => {
     }
   };
 
-  // TODO: navigation TS
   const navToMatch = ( ) => navigation.popTo( "Drawer", {
     screen: "Match",
   } );

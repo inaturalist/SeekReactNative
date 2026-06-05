@@ -8,6 +8,7 @@ import styles from "../../../styles/auth/login";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { saveAccessToken } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import GreenText from "../../UIComponents/GreenText";
 import InputField from "../../UIComponents/InputField";
@@ -17,7 +18,7 @@ import { UserContext } from "../../UserContext";
 import ErrorMessage from "../ErrorMessage";
 
 const LoginScreen = ( ) => {
-  const { navigate } = useNavigation( );
+  const { navigate } = useNavigation<RootStackScreenProps<"Login">["navigation"]>( );
   const { updateLogin } = useContext( UserContext );
   const [username, setUsername] = useState( "" );
   const [password, setPassword] = useState( "" );

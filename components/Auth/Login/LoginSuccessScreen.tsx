@@ -6,6 +6,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import { baseTextStyles } from "../../../styles/textStyles";
 import BulletedList from "../../iNaturalist/BulletedList";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import GreenText from "../../UIComponents/GreenText";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
@@ -13,7 +14,8 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
 
 const LoginSuccessScreen = ( ) => {
-  const { popTo } = useNavigation();
+  const { popTo } =
+    useNavigation<RootStackScreenProps<"LoginSuccess">["navigation"]>();
 
   return (
     <ScrollWithHeader header="inat_signup.welcome">

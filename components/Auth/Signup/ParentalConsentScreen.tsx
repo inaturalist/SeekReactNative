@@ -8,6 +8,7 @@ import { baseTextStyles } from "../../../styles/textStyles";
 import { createJwtToken } from "../../../utility/helpers";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
+import type { RootStackScreenProps } from "../../Navigation/types";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import GreenText from "../../UIComponents/GreenText";
 import InputField from "../../UIComponents/InputField";
@@ -16,7 +17,7 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../../UIComponents/StyledText";
 import ErrorMessage from "../ErrorMessage";
 
-const ParentalConsentScreen = ( { navigation } ) => {
+const ParentalConsentScreen = ( { navigation }: RootStackScreenProps<"Parent"> ) => {
   const [email, setEmail] = useState( "" );
   const [error, setError] = useState<Error | string | null>( null );
   const [loading, setLoading] = useState( false );

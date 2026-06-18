@@ -4,7 +4,6 @@ import React, { useCallback, useRef, useState } from "react";
 import {
   Image,
   Keyboard,
-  Platform,
   StatusBar,
   TextInput,
   TouchableOpacity,
@@ -143,16 +142,11 @@ const SelectSpecies = ( {
   </SafeAreaView>;
   const dismissKeyboard = ( ) => Keyboard.dismiss( );
 
-  const edges = ["top"];
-  if ( Platform.OS === "android" ) {
-    edges.push( "bottom" );
-  }
-  
   return (
     <SafeAreaView
       testID="select-species-container"
       style={viewStyles.container}
-      edges={edges}
+      edges={["top"]}
     >
       <StatusBar barStyle="light-content" />
       <View style={viewStyles.header}>

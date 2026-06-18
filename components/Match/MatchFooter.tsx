@@ -2,6 +2,7 @@ import * as React from "react";
 import {
   Image,
   ImageBackground,
+  Platform,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -17,8 +18,12 @@ interface Props {
   readonly setNavigationPath: ( path: string ) => void;
 }
 
+const edges = ["right", "left"];
+if ( Platform.OS === "android" ) {
+  edges.push( "bottom" );
+}
 const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
-  <SafeAreaView style={viewStyles.safeArea} edges={["right", "left"]}>
+  <SafeAreaView style={viewStyles.safeArea} edges={edges}>
     <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
       <View style={[viewStyles.navbar, viewStyles.row, viewStyles.shadow]}>
         <TouchableOpacity

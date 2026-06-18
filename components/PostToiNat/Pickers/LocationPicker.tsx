@@ -187,12 +187,14 @@ const LocationPicker = ( {
       </View>
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>
-        <GreenButton
-          color={!hasUserChangedLocation ? colors.seekTransparent : null}
-          handlePress={handleLocationChange}
-          text="posting.save_location"
-          disabled={!hasUserChangedLocation}
-        />
+        <SafeAreaView edges={["bottom"]}>
+          <GreenButton
+            color={!hasUserChangedLocation ? colors.seekTransparent : null}
+            handlePress={handleLocationChange}
+            text="posting.save_location"
+            disabled={!hasUserChangedLocation}
+          />
+        </SafeAreaView>
       </View>
     </SafeAreaView>
   );

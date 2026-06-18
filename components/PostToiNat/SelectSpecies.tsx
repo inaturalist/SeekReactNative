@@ -138,7 +138,9 @@ const SelectSpecies = ( {
 
   const extractKey = ( item: any, index: number ) => item + index;
 
-  const renderPadding = ( ) => <Padding />;
+  const renderPadding = ( ) => <SafeAreaView edges={["bottom"]}>
+    <Padding />
+  </SafeAreaView>;
   const dismissKeyboard = ( ) => Keyboard.dismiss( );
 
   const edges = ["top"];

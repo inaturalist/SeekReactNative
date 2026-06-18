@@ -144,11 +144,13 @@ const LocationPicker = ( {
         returnToUserLocation={returnToUserLocation}
       />
       <View style={viewStyles.footer}>
-        <GreenButton
-          handlePress={searchNearLocation}
-          letterSpacing={0.68}
-          text="location_picker.button"
-        />
+        <SafeAreaView edges={["bottom"]}>
+          <GreenButton
+            handlePress={searchNearLocation}
+            letterSpacing={0.68}
+            text="location_picker.button"
+          />
+        </SafeAreaView>
       </View>
     </SafeAreaView>
   );

@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
@@ -43,6 +44,7 @@ const LoginSuccessScreen = ( ) => {
         text="inat_signup.continue"
       />
       <PrivacyAndTerms />
+      <SafeAreaView edges={["bottom"]} />
     </ScrollWithHeader>
   );
 };

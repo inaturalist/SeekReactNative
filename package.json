@@ -21,6 +21,11 @@
     "e2e:build:ios": "npx detox build --configuration ios.release",
     "e2e:test:ios": "npx detox test --configuration ios.release",
     "e2e:ios": "npm run e2e:build:ios && npm run e2e:test:ios",
+    "e2e:build:android": "MOCK_MODE=e2e npx detox build --configuration android.release",
+    "e2e:test:android": "MOCK_MODE=e2e npx detox test --configuration android.release",
+    "e2e:android": "npm run e2e:build:android && npm run e2e:test:android",
+    "e2e:android:build": "npm run e2e:build:android",
+    "e2e:android:test": "npm run e2e:test:android",
     "add-example-model": "node scripts/add-example-model.js"
   },
   "dependencies": {

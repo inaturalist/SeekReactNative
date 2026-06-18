@@ -31,6 +31,14 @@ module.exports = {
         type: "iPhone 17 Pro",
       },
     },
+    emulator: {
+      type: "android.emulator",
+      device: {
+        // Make sure to follow the guide to setup an AOSP emulator if testing locally
+        // https://wix.github.io/Detox/docs/guide/android-dev-env#android-aosp-emulators
+        avdName: "Pixel_5_API_34_AOSP",
+      },
+    },
   },
   configurations: {
     "ios.debug": {

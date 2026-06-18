@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import {
   Image,
-  Platform,
   TextInput,
   View,
 } from "react-native";
@@ -154,13 +153,8 @@ const LocationPicker = ( {
     />
   );
 
-  const edges = ["top"];
-  if ( Platform.OS === "android" ) {
-    edges.push( "bottom" );
-  }
-
   return (
-    <SafeAreaView style={viewStyles.container} edges={edges}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
         <View style={viewStyles.marginLarge} />
@@ -187,12 +181,14 @@ const LocationPicker = ( {
       </View>
       {region.latitude && displayMap( )}
       <View style={viewStyles.footer}>
-        <GreenButton
-          color={!hasUserChangedLocation ? colors.seekTransparent : null}
-          handlePress={handleLocationChange}
-          text="posting.save_location"
-          disabled={!hasUserChangedLocation}
-        />
+        <SafeAreaView edges={["bottom"]}>
+          <GreenButton
+            color={!hasUserChangedLocation ? colors.seekTransparent : null}
+            handlePress={handleLocationChange}
+            text="posting.save_location"
+            disabled={!hasUserChangedLocation}
+          />
+        </SafeAreaView>
       </View>
     </SafeAreaView>
   );

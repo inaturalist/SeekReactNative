@@ -13,7 +13,7 @@ const viewStyles = StyleSheet.create( {
   },
   footer: {
     backgroundColor: colors.white,
-    paddingBottom: dimensions.height > 670 ? 35 : 15,
+    paddingBottom: 8,
     paddingTop: 15,
   },
   greenCircle: {

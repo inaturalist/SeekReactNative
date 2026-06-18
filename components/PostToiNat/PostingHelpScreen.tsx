@@ -3,6 +3,7 @@ import {
   Image,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import icons from "../../assets/posting";
 import i18n from "../../i18n";
@@ -60,6 +61,7 @@ const PostingHelpScreen = ( ) => (
       <View style={viewStyles.margin} />
       <StyledText style={[baseTextStyles.bodyItalic, textStyles.italicText]}>{i18n.t( "posting_help.addendum" )}</StyledText>
     </View>
+    <SafeAreaView edges={["bottom"]} />
   </ScrollWithHeader>
 );
 

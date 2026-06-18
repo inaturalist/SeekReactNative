@@ -3,6 +3,7 @@ import {
   Image,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
@@ -60,6 +61,7 @@ const CameraHelpScreen = ( ) => {
           </View>
         ) )}
       </View>
+      <SafeAreaView edges={["bottom"]} />
     </ScrollWithHeader>
   );
 };

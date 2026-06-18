@@ -111,13 +111,8 @@ const LocationPicker = ( {
 
   const changeText = ( text: string ) => setCoordsByLocationName( text );
 
-  const edges = ["top"];
-  if ( Platform.OS === "android" ) {
-    edges.push( "bottom" );
-  }
-
   return (
-    <SafeAreaView style={viewStyles.container} edges={edges}>
+    <SafeAreaView style={viewStyles.container} edges={["top"]}>
       <View style={viewStyles.header}>
         <BackArrow handlePress={closeLocationPicker} />
         <View style={viewStyles.marginLarge} />
@@ -144,11 +139,13 @@ const LocationPicker = ( {
         returnToUserLocation={returnToUserLocation}
       />
       <View style={viewStyles.footer}>
-        <GreenButton
-          handlePress={searchNearLocation}
-          letterSpacing={0.68}
-          text="location_picker.button"
-        />
+        <SafeAreaView edges={["bottom"]}>
+          <GreenButton
+            handlePress={searchNearLocation}
+            letterSpacing={0.68}
+            text="location_picker.button"
+          />
+        </SafeAreaView>
       </View>
     </SafeAreaView>
   );

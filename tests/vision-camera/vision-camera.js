@@ -1,10 +1,12 @@
 import {
   copyAssetsFileIOS,
+  copyFile,
+  ExternalDirectoryPath,
   TemporaryDirectoryPath,
 } from "@dr.pogodin/react-native-fs";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import React from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 
 const mockFrame = {
   isValid: true,
@@ -59,7 +61,30 @@ export class mockCamera extends React.PureComponent {
 
 
   async takePhoto( ) {
-    // TODO: this only works on iOS
+    if ( Platform.OS === "android" ) {
+      /*
+        copyAssetsFileIOS is iOS-only and Android emulators have no stock gallery
+        photos. Instead, copy the test image that was pushed to the app's external
+        files directory by the beforeAll `adb push e2e/animal.jpg`.
+        ExternalDirectoryPath = /sdcard/Android/data/<package>/files/
+        which is readable by the app without extra permissions. The real example
+        cv model then runs on this still image on the suggestions screen.
+      */
+      const sourcePath = `${ExternalDirectoryPath}/e2e_test.jpg`;
+      const destPath = `${TemporaryDirectoryPath}temp.jpg`;
+      try {
+        await copyFile( sourcePath, destPath );
+        return {
+          path: destPath,
+          metadata: { Orientation: 1 },
+        };
+      } catch ( err ) {
+        console.log( "Error copying test photo on Android:", err );
+        return null;
+      }
+    }
+
+    // iOS: read the simulator's stock gallery photos and treat one as a new photo.
     return CameraRoll.getPhotos( {
       first: 20,
       assetType: "Photos",

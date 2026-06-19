@@ -129,7 +129,7 @@ export async function iNatE2eAfterEach( device ) {
 
     // Fall back to manual termination if Detox method fails or device is unavailable
     const deviceId = await getSimulatorId();
-    const bundleId = "org.inaturalist.iNaturalistMobile";
+    const bundleId = "org.inaturalist.seek";
 
     if ( deviceId && bundleId ) {
       console.log( "Using manual termination via simctl" );

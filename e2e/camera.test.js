@@ -1,19 +1,17 @@
 import { by, device, element, waitFor } from "detox";
 
+import {
+  iNatE2eAfterEach,
+  iNatE2eBeforeAll,
+  iNatE2eBeforeEach,
+} from "./helpers";
+
 const TIMEOUT = 15_000;
 
 describe( "Camera test", () => {
-  beforeAll( async () => {
-    await device.launchApp( {
-      newInstance: true,
-      permissions: { location: "always", camera: "YES", microphone: "YES", medialibrary: "YES", photos: "YES" },
-      languageAndLocale: { language: "en", locale: "US" },
-    } );
-  } );
-
-  beforeEach( async () => {
-    await device.reloadReactNative();
-  } );
+  beforeAll( async () => iNatE2eBeforeAll( device ) );
+  beforeEach( async () => iNatE2eBeforeEach( device ) );
+  afterEach( async () => iNatE2eAfterEach( device ) );
 
   it( "should navigate to camera screen", async () => {
     // Await the loading of the home screen

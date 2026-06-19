@@ -26,3 +26,33 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+allprojects {
+    repositories {
+        // Detox Android setup
+        maven {
+          url("$rootDir/../node_modules/detox/Detox-android")
+        }
+    }
+}
+
+// Force minSdkVersion for libraries that hardcode a lower value than the project's
+// (e.g. react-native-mail). This is needed for assembleAndroidTest (used by Detox)
+// which builds per-module test APKs that would otherwise fail manifest merging.
+subprojects { sub ->
+    if (sub.state.executed) {
+        if (sub.hasProperty('android') && sub.android.defaultConfig.minSdkVersion != null
+            && sub.android.defaultConfig.minSdkVersion.apiLevel < rootProject.ext.minSdkVersion) {
+            sub.android.defaultConfig.minSdkVersion rootProject.ext.minSdkVersion
+        }
+    } else {
+        sub.afterEvaluate {
+            if (it.hasProperty('android')) {
+                if (it.android.defaultConfig.minSdkVersion != null
+                    && it.android.defaultConfig.minSdkVersion.apiLevel < rootProject.ext.minSdkVersion) {
+                    it.android.defaultConfig.minSdkVersion rootProject.ext.minSdkVersion
+                }
+            }
+        }
+    }
+}

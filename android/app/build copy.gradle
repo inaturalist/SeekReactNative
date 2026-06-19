@@ -105,8 +105,9 @@ android {
         versionName "2.18.0"
         // for creating ic_seek_adaptiveappicon.xml
         vectorDrawables.useSupportLibrary = true
+
         // Detox Android setup
-        testBuildType System.getProperty('testBuildType', 'debug')
+        testBuildType System.getProperty( 'testBuildType', 'debug' )
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         // Detox end
     }
@@ -128,28 +129,19 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // Detox Android setup: only takes effect if enableProguardInReleaseBuilds is turned on
+            proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
             signingConfig signingConfigs.release
             ndk {
                 // attempt to get rid of warning in Play Console
                 debugSymbolLevel "FULL"
             }
-            // Detox Android setup
-            proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
         }
     }
     
 }
 
 dependencies {
-    // Detox Android setup
-    androidTestImplementation('com.wix:detox:+') {
-        // accessibility-test-framework pulls in protobuf-lite:3.0.1 which conflicts
-        // with protobuf-javalite:3.25.5 used by Firebase, crashing the app on launch
-        exclude group: 'com.google.protobuf', module: 'protobuf-lite'
-    }
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    // Detox end
-
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     if (hermesEnabled.toBoolean()) {
@@ -157,4 +149,10 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Detox Android setup
+    androidTestImplementation('com.wix:detox:+')
+    // Required for getAttributes() to work in Detox on Android
+    implementation("com.google.android.material:material:1.3.0")
+    // Detox end
 }

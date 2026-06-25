@@ -92,7 +92,7 @@
     "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#e8c4782cee82e781e8dc7016fffedbbd95070931"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
+    "@babel/core": "^7.29.6",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
     "@react-native-community/cli": "20.0.0",

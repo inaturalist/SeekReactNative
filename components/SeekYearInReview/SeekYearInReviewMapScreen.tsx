@@ -1,7 +1,8 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, Platform, TouchableOpacity } from "react-native";
 import MapView, { Marker,PROVIDER_DEFAULT } from "react-native-maps";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
@@ -21,6 +22,8 @@ const SeekYearInReviewMapScreen = ( ) => {
   const navigation = useNavigation();
   const { params } = useRoute();
   const { year, region } = params;
+  const { bottom } = useSafeAreaInsets( );
+  const actualBottom = Platform.OS === "android" ? bottom : 0;
   const [showModal, setModal] = useState( false );
   const [user, setUser] = useState( {} );
   const [mapRegion, setMapRegion] = useState( region );
@@ -119,7 +122,7 @@ const SeekYearInReviewMapScreen = ( ) => {
           </Marker>
         )}
       </MapView>
-      <TouchableOpacity onPress={openModal} style={viewStyles.legend}>
+      <TouchableOpacity accessibilityRole="button" onPress={openModal} style={[viewStyles.legend, { bottom: actualBottom }]}>
         <StyledText style={[baseTextStyles.modalBanner, textStyles.whiteText]}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
         </StyledText>
@@ -130,7 +133,7 @@ const SeekYearInReviewMapScreen = ( ) => {
           accessible
           testID="user-location-button"
           onPress={updateMap}
-          style={viewStyles.locationIcon}
+          style={[viewStyles.locationIcon, { bottom: actualBottom + 19 }]}
         >
           <Image source={icons.indicator} />
         </TouchableOpacity>

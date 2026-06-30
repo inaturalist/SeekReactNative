@@ -11,7 +11,7 @@
     "species_nearby_requires_android_accuracy": "\"Espécies próximas\" requer a tua localização. Por favor verifica se os serviços de localização estão ativos.",
     "choose_location_on_map": "ESCOLHE A LOCALIZAÇÃO NO MAPA",
     "need_location_permissions": "Precisa de permissão de localização",
-    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
+    "please_allow_location_permissions": "Se faz favor, permite acesso à localização em Definições > Seek"
   },
   "get_started": {
     "header": "Começar",
@@ -29,9 +29,9 @@
     "inat_admin": "Administradores do iNat: obrigada por testares o Seek! Estás a ver o desafio iNat mais recente antes do ínicio do mês para propósitos de testagem."
   },
   "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 90,000 species in the latest version of Seek!"
+    "header": "Atualizações do Seek",
+    "updated_id_model": "Atualizámos o nosso Modelo de Identificação!",
+    "over_x_species": "Já podes identificar mais de 90.000 espécies na última versão do Seek!"
   },
   "post_to_inat_card": {
     "post_to_inaturalist": "POSTAR NO INATURALIST",
@@ -70,8 +70,8 @@
       "other": "O servidor do iNaturalist está em manutenção. Por favor tenta novamente daqui a {{count}} horas."
     },
     "error_unknown": "O carregamento falhou. Detalhes do erro: {{errorText}}",
-    "error_login": "Login token failed. Please log in to your iNaturalist account in Seek from the iNaturalist or Achievements screen before trying again.",
-    "error_photo": "Photo can no longer be accessed on device.",
+    "error_login": "Token de início de sessão falhado. Por favor, inicia sessão na tua conta do iNaturalist no Seek desde o iNaturalist ou da página de Conquista antes de tentares novamente.",
+    "error_photo": "A fotografia já não pode ser acedida no dispositivo.",
     "error_downtime_a_few_hours": "O servidor do iNaturalist está em manutenção. Por favor tenta novamente daqui a umas horas."
   },
   "notifications": {
@@ -92,14 +92,14 @@
     "about": "Ao entrar com o iNaturalist, podes postar observações na comunidade online através do Seek.",
     "skip_login": "Continuar sem subscrever",
     "error_email": "Por favor, introduz um endereço de e-mail válido",
-    "error_credentials": "Incorrect username or password",
+    "error_credentials": "Nome de utilizador ou palavra-passe incorretos.",
     "error_username_taken": "Este nome de utilizador já está a ser usado",
     "error_no_username": "Nome de utilizador / e-mail em falta",
     "error_no_password": "Password em falta",
     "error_internet": "Sem ligação à Internet",
     "error_request_could_not_be_completed": "O teu pedido não pôde ser completado.",
     "error_no_client": "Autenticação de cliente falhada devido a cliente desconhecido, autenticação de cliente não incluída, ou método de autenticação não suportado.",
-    "error_grant_invalid": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+    "error_grant_invalid": "A autorização fornecida é inválida, expirou, foi revogada, não corresponde ao URI de redirecionamento usado no pedido de autorização, ou foi emitida para outro cliente."
   },
   "inat_signup": {
     "welcome": "Bem-vindo a Seek!",
@@ -125,10 +125,10 @@
     "linked_account": "Ligaste uma conta iNaturalist ao Seek!",
     "posting": "Postar no iNaturalist",
     "posting_details": "Podes postar no iNaturalist observações feitas no Seek assim que as tenhas adicionado às tuas observações. Se quiseres postá-las no iNaturalist mais tarde, por favor usa a app iNaturalist ou o website.",
-    "observations_not_synced": "Seek Observations not synced",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_not_synced": "Observações do Seek não sincronizadas",
+    "observations_stored_only_in_app": "As tuas observações no Seek são armazenadas nesta aplicação no teu dispositivo, NÃO são armazenadas online pelo iNaturalist.",
+    "observations_bullet_1": "Apagar a aplicação vai apagar todas as tuas observações feitas no Seek.",
+    "observations_bullet_2": "Transferir o Seek para um novo dispositivo não vai transferir as tuas observações com a aplicação.",
     "observations_3": "O Seek não sincroniza as tuas observações com outros dispositivos.",
     "agree_to_terms": "Concordo com os <terms>{{terms}}</terms> e <privacy>{{privacy}}</privacy>, e li as <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Normas da Comunidade",
@@ -140,9 +140,9 @@
     "about_licenses": "Sobre Licenças",
     "transfer_data": "Concordo que as minhas informações pessoais sejam transferidas para os Estados Unidos da América",
     "learn_more_about_data_transfer": "Algumas leis de privacidade de dados, como o Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia, requerem consentimento explícito para transferir informações pessoais das suas jurisdições para outras jurisdições onde a proteção legal desta informação não é considerada adequada. A partir de 2020, a União Europeia já não considera os Estados Unidos uma jurisdição que proporciona uma proteção legal adequada das informações pessoais, especificamente devido à possibilidade de o governo dos EUA vigiar dados que entram nos EUA. É possível que outras jurisdições não tenham a mesma opinião.",
-    "learn_more_about_data_transfer_2": "Using iNaturalist requires the storage of personal information like your email address, all iNaturalist data is stored in the United States, and we cannot be sure what legal jurisdiction you are in when you are using iNaturalist, so in order to comply with privacy laws like the GDPR, you must acknowledge that you understand and accept this risk and consent to transferring your personal information to iNaturalist's servers in the US.",
-    "learn_more_about_data_transfer_3": "To learn more about what information we collect and how we use it, please see our <privacy>{{privacy}}</privacy> and <terms>{{terms}}</terms>.",
-    "learn_more_about_data_transfer_4": "There is no way to have an iNaturalist account without storing personal information, so the only way to revoke this consent is to delete your account."
+    "learn_more_about_data_transfer_2": "O uso do iNaturalist requer o armazenamento de informações pessoais como o teu endereço de e-mail. Todos os dados do iNaturalist são armazenados nos Estados Unidos, e não podemos ter a certeza sobre a jurisdição legal em que te encontras quando usas o iNaturalist. Para estar em conformidade com as leis de privacidade como o GDPR, deves confirmar que compreendes e aceitas este risco e que nos dás consentimento para transferir as tuas informações pessoais para os servidores do iNaturalist nos EUA.",
+    "learn_more_about_data_transfer_3": "Para saber mais sobre que informações recolhemos e como as usamos, consulta a nossa <privacy>{{privacy}}</privacy> e <terms>{{terms}}</terms>.",
+    "learn_more_about_data_transfer_4": "Não há forma de ter uma conta iNaturalist sem armazenar informações pessoais, pelo que a única forma de revogar esse consentimento é excluindo a tua conta."
   },
   "inat_login": {
     "log_in_with_inat": "Iniciar sessão na tua conta de iNaturalist",
@@ -209,14 +209,14 @@
     "biodiversity": "Desafio de Biodiversidade",
     "productivity": "Desafio da Comunidade",
     "resilience": "Desafio das Florestas",
-    "farming": "Grasslands Challenge",
+    "farming": "Desafio Pradarias",
     "flow": "Desafio da Água Doce",
     "hotspots": "Desafio do Alto Mar",
     "ice": "Desafio do Clima",
-    "badge_name_april": "Connectivity Badge",
+    "badge_name_april": "Emblema de Conectividade",
     "badge_name_may": "Crachá da Biodiversidade",
     "badge_name_june": "Crachá da Comunidade",
-    "badge_name_august": "Grasslands Badge",
+    "badge_name_august": "Emblema Pradarias",
     "badge_name_september": "Crachá da Água Doce",
     "badge_name_october": "Crachá do Alto Mar",
     "badge_name_november": "Crachá das Florestas",
@@ -266,7 +266,7 @@
     "august_description": "Os grandes animais das planícies de pastagem estão a perder o seu habitat para os terrenos agrícolas, mas não são a única forma de vida selvagem afetada pela nossa produção de alimentos. As populações de insetos estão a diminuir no nosso planeta, em parte porque as colheitas substituem os seus habitats e são pulverizadas com pesticidas para matar insetos. Precisamos de insetos polinizadores para as nossas culturas e plantas selvagens floresceres, e muitos anfíbios, répteis, aves e mamíferos dependem de insetos para se alimentarem. Procure os insetos à sua volta e dedique-lhes algum amor!",
     "september_description": "A água doce é essencial para toda a vida na terra, e os habitats de água doce servem de casa a mais de 10% de todos os animais conhecidos e quase metade de todas as espécies de peixes conhecidas. Rios, riachos e lagos permitem que a vida selvagem percorra grandes distâncias para completar seus ciclos de vida. Procure lagoas, riachos, rios e lagos na sua área e veja que espécies de água doce consegue localizar.",
     "october_description": "Os mares cobrem vastas áreas do nosso planeta, e sem a tecnologia moderna os humanos teriam muita dificuldade em cruzar estas enormes extensões. Muitas espécies de ave, no entanto, fazem precisamente isso todos os anos. Milhões de aves migram de um país para outro para escapar ao frio e encontrar comida. Manter registos de quando migra a vida selvagem pode-nos ajudar a perceber como é que as alterações climáticas estão afectar o mundo natural. Procura aves que visitam a tua área e descobre onde mais passam o seu tempo.",
-    "december_description": "Climate change is not just affecting the frozen worlds at our planet’s poles. Rising temperatures and changing weather patterns can cause species to move out of habitats that become uncomfortable and into areas that couldn’t support them before. It can also mean that changes linked to seasons (known as ‘phenology’) such as leaf fall, bud burst and flowering start to take place at different times. This may cause problems for other species that are hard to predict. Seek out your local plant life and see how your local environment may be changing.",
+    "december_description": "As alterações climáticas estão a afetar os mundos gelados nos polos do nosso planeta. O aumento das temperaturas e a alteração dos padrões climatéricos podem levar as espécies a saírem de habitats que se tornam desconfortáveis e a deslocarem-se para áreas que não os poderiam suportar antes. Isso pode ainda significar que as alterações ligadas às estações do ano (conhecidas como \"fenologia\"), como a queda das folhas, o abrolhamento e a floração, começam a ter lugar em épocas diferentes. Isto pode causar problemas a outras espécies que não são fáceis de prever. Procura a tua flora local e percebe como o teu ambiente local pode estar a mudar.                   ",
     "mission_1_june": "Encontre 6 plantas diferentes (produtores)",
     "mission_2_june": "Encontre quaisquer 3 grilhos, gafanhotos, borboletas, mariposas, lagartas ou mamíferos comedores de plantas (herbívoros)",
     "mission_3_june": "Encontre 2 diferentes aracnídeos, mantídeos ou mamíferos comedores de carne (carnívoros)",
@@ -275,7 +275,7 @@
     "mission_1_august": "Encontre 10 insetos diferentes",
     "mission_1_september": "Encontre quaisquer 10 espécies diferentes de: libélulas, anfíbios, peixes, patos, musgos, fetos, lírios da água, bolbos ou taboas",
     "mission_1_october": "Encontre 5 aves",
-    "mission_1_december": "Find 20 plants",
+    "mission_1_december": "Encontra 20 plantas",
     "photographer_april": "Photo © Netflix / Silverback Films",
     "photographer_may": "Photo © Huw Cordey, Netflix / Silverback Films",
     "photographer_june": "Photo © Grace Frank, Netflix / Silverback Films",

@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Image,
   ImageBackground,
-  Platform,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -14,16 +13,12 @@ import i18n from "../../i18n";
 import { viewStyles } from "../../styles/uiComponents/footer";
 
 interface Props {
-  readonly openFlagModal: () => void;
+  readonly openFlagModal: ( ) => void;
   readonly setNavigationPath: ( path: string ) => void;
 }
 
-const edges = ["right", "left"];
-if ( Platform.OS === "android" ) {
-  edges.push( "bottom" );
-}
 const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
-  <SafeAreaView style={viewStyles.safeArea} edges={edges}>
+  <SafeAreaView style={viewStyles.safeArea} edges={["right", "left", "bottom"]}>
     <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
       <View style={[viewStyles.navbar, viewStyles.row, viewStyles.shadow]}>
         <TouchableOpacity
@@ -45,7 +40,7 @@ const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.flag" )}
           accessible
-          onPress={() => openFlagModal()}
+          onPress={() => openFlagModal( )}
           style={viewStyles.flagPadding}
         >
           <Image source={icons.flag} />

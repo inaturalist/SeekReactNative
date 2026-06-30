@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import {
   Image,
   ImageBackground,
-  Platform,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -58,12 +57,8 @@ const Footer = () => {
     navigation.openDrawer( );
   };
 
-  const edges = ["right", "left"];
-  if ( Platform.OS === "android" ) {
-    edges.push( "bottom" );
-  }
   return (
-    <SafeAreaView style={viewStyles.safeArea} edges={edges}>
+    <SafeAreaView style={viewStyles.safeArea} edges={["right", "left", "bottom"]}>
       <ImageBackground source={backgrounds.navBar} style={viewStyles.container}>
         <View style={[viewStyles.navbar, viewStyles.row, viewStyles.shadow]}>
           <TouchableOpacity

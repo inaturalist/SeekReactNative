@@ -155,6 +155,7 @@ jobs:
         HOMEBREW_NO_INSTALL_CLEANUP: 1
       run: |
         brew tap wix/brew
+        brew trust --formula wix/brew/applesimutils
         brew install applesimutils
 
     - name: Ensure servers are running

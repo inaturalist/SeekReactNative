@@ -89,7 +89,7 @@
     "react-native-worklets-core": "^1.6.3",
     "realm": "^20.2.0",
     "uuid": "^11.1.1",
-    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#e8c4782cee82e781e8dc7016fffedbbd95070931"
+    "vision-camera-plugin-inatvision": "github:inaturalist/vision-camera-plugin-inatvision#0354705c124e3a9fabcca3e5881e64cd93d2f0df"
   },
   "devDependencies": {
     "@babel/core": "^7.29.6",

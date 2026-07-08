@@ -43,28 +43,28 @@ editor_cmd_needs_to_wait = ( editor_cmd =~ /^code / || editor_cmd =~ /^subl / ) 
 EDITOR = editor_cmd_needs_to_wait ? "#{editor_cmd} -w" : editor_cmd
 
 def android_taxonomy_present?
-  path = File.join( ANDROID_CAMERA_PATH, "taxonomy_v2_20.csv" )
+  path = File.join( ANDROID_CAMERA_PATH, "taxonomy_v2_30.csv" )
   unless File.exist?( path )
     UI.abort_with_message! "Android production taxonomy file is missing at #{path}"
   end
 end
 
 def ios_taxonomy_present?
-  path = File.join( IOS_CAMERA_PATH, "taxonomy_v2_20.json" )
+  path = File.join( IOS_CAMERA_PATH, "taxonomy_v2_30.json" )
   unless File.exist?( path )
     UI.abort_with_message! "iOS production taxonomy file is missing at #{path}"
   end
 end
 
 def android_model_present?
-  path = File.join( ANDROID_CAMERA_PATH, "optimized_model_v2_20.tflite" )
+  path = File.join( ANDROID_CAMERA_PATH, "optimized_model_v2_30.tflite" )
   unless File.exist?( path )
     UI.abort_with_message! "Android production vision model file is missing at #{path}"
   end
 end
 
 def ios_model_present?
-  path = File.join( IOS_CAMERA_PATH, "optimized_model_v2_20.mlmodel" )
+  path = File.join( IOS_CAMERA_PATH, "optimized_model_v2_30.mlmodel" )
   unless File.exist?( path )
     UI.abort_with_message! "iOS production vision model file is missing at #{path}"
   end

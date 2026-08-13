@@ -22,18 +22,6 @@ interface Props {
       medium_url: string;
       license_code: string | null;
     };
-    taxonPhotos: {
-      photo: {
-        medium_url: string;
-        license_code: string;
-      };
-    }[];
-    taxon_photos: {
-      photo: {
-        medium_url: string;
-        license_code: string;
-      };
-    }[];
   };
 }
 
@@ -52,16 +40,10 @@ const SpeciesImageCell = ( { item }: Props ) => {
     if ( !photo ) {
       return null;
     }
-    const extraPhotos = item.taxonPhotos || item.taxon_photos;
     let source = iconicTaxa[item.iconic_taxon_id];
 
     if ( photo.medium_url ) {
       source = { uri: photo.medium_url };
-    } else if ( extraPhotos ) {
-      const licensed = extraPhotos.find( p => p.photo.license_code );
-      if ( licensed ) {
-        source = { uri: licensed.photo.medium_url };
-      }
     }
 
     return <Image source={source} style={viewStyles.cellImage} />;

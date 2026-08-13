@@ -4,10 +4,10 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { BackHandler, Platform } from "react-native";
+import { BackHandler } from "react-native";
 
 import { checkIfCardShown } from "../../utility/helpers";
-import { deleteDebugLogAfter7Days } from "../../utility/photoHelpers";
+import { cleanupLogFiles } from "../../utility/logManagementHelpers";
 import { checkForNumSuccessfulUploads, checkForUploads, markUploadsAsSeen } from "../../utility/uploadHelpers";
 import GetStarted from "../Modals/GetStarted";
 import DonateCard from "../UIComponents/Cards/DonateCard";
@@ -38,9 +38,7 @@ const HomeScreen = ( ) => {
     const checkForFirstLaunch = async ( ) => {
       // also adding some other app startup type things in here
       // that don't need to run in App.js or Splash.js
-      if ( Platform.OS === "android" ) {
-        deleteDebugLogAfter7Days( ); // delete debug logs on Android
-      }
+      cleanupLogFiles( );
       const isFirstLaunch = await checkIfCardShown( );
       if ( isFirstLaunch ) {
         openModal( );

@@ -7,7 +7,6 @@ import {
   stat,
   unlink,
 } from "@dr.pogodin/react-native-fs";
-import { Platform } from "react-native";
 import Realm from "realm";
 
 import i18n from "../i18n";
@@ -17,11 +16,14 @@ import { checkSavePermissions } from "./androidHelpers.android";
 import {
   formatHourMonthSecond,
   formatYearMonthDay,
-  isWithin7Days,
   namePhotoByTime,
   setISOTime,
 } from "./dateHelpers";
-import { dirPictures, pathLogs } from "./dirStorage";
+import { dirPictures } from "./dirStorage";
+import {
+  ensureLogDirectory,
+  getTodayLogFilePath,
+} from "./logManagementHelpers";
 
 interface Location {
   latitude: number;
@@ -44,26 +46,11 @@ const writeToDebugLog = ( newLine: string ): void => {
     line = `${formatYearMonthDay()} ${formatHourMonthSecond()}: ${newLine}`;
   }
 
-  appendFile( pathLogs, `${line}\n` ).then( () => {
-    // console.log( result, "result of appending debug log" );
-  } ).catch( ( e ) => {
-    console.log( e, "error while appending debug log" );
-  } );
-};
-
-const deleteDebugLogAfter7Days = (): void => {
-  if ( Platform.OS === "android" ) {
-    stat( pathLogs ).then( ( { ctime } ) => {
-      if ( !isWithin7Days( ctime ) ) {
-        unlink( pathLogs )
-          .then( () => {
-            console.log( "deleted debug logs that were 7 days old", pathLogs );
-          } ).catch( ( err ) => {
-            console.log( err.message );
-          } );
-      }
-    } ).catch( e => console.log( e, "debug log file does not exist" ) );
-  }
+  ensureLogDirectory()
+    .then( () => appendFile( getTodayLogFilePath(), `${line}\n` ) )
+    .catch( ( e ) => {
+      console.log( e, "error while appending debug log" );
+    } );
 };
 
 const checkForPhotoMetaData = ( location: Location | null ): boolean => {
@@ -311,7 +298,6 @@ export {
   checkForPhotoMetaData,
   checkPhotoSize,
   createBackupUri,
-  deleteDebugLogAfter7Days,
   deleteFile,
   localizeAttributions,
   localizeAttributionsLandscape,

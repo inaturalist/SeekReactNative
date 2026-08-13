@@ -55,7 +55,7 @@ const SpeciesImageCell = ( { item }: Props ) => {
     const extraPhotos = item.taxonPhotos || item.taxon_photos;
     let source = iconicTaxa[item.iconic_taxon_id];
 
-    if ( photo.medium_url && photo.license_code ) {
+    if ( photo.medium_url ) {
       source = { uri: photo.medium_url };
     } else if ( extraPhotos ) {
       const licensed = extraPhotos.find( p => p.photo.license_code );

@@ -5,7 +5,20 @@ import {
   logger,
 } from "react-native-logs";
 
-import { fileNameLogs } from "./utility/dirStorage";
+import { pathLogs } from "./utility/dirStorage";
+
+// before introducing {date-today} rolling logs, we had a single logfile
+// kept as a code reference so cleanup can delete leftover files on update
+export const legacyLogfilePath = pathLogs;
+
+export const logFileNamePrefix = "seek-log";
+const logFileName = `${logFileNamePrefix}.{date-today}.txt`;
+
+export const logFileDirectory = `${RNFS.DocumentDirectoryPath}/logs`;
+
+RNFS.exists( logFileDirectory ).then( exists => ( exists
+  ? Promise.resolve()
+  : RNFS.mkdir( logFileDirectory ) ) );
 
 // Configure without transport for test. If you want to write output during
 // tests, use console.log
@@ -17,11 +30,17 @@ if ( process?.env?.NODE_ENV !== "test" ) {
 
 const config = {
   transport,
+  dateFormat: "iso",
+  severity: __DEV__
+    ? "debug"
+    : "info",
   transportOptions: {
     FS: RNFS,
-    fileName: fileNameLogs,
+    fileName: logFileName,
+    filePath: logFileDirectory,
+    // logname.{date-today}.txt => logname.2026-3-11.txt (note, no padded 0)
+    fileNameDateType: "iso",
   },
-  dateFormat: "iso",
 };
 
 const log = logger.createLogger( config );

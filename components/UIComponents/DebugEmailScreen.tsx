@@ -1,12 +1,12 @@
-import { readFile } from "@dr.pogodin/react-native-fs";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
-import { getBuildNumber, getSystemName, getVersion } from "react-native-device-info";
-import Mailer from "react-native-mail";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/debugAndroid";
-import { pathLogs } from "../../utility/dirStorage";
+import {
+  emailRecentLogs,
+  useLogPreview,
+} from "../../utility/logManagementHelpers";
 import CopyButton from "./Buttons/CopyButton";
 import GreenButton from "./Buttons/GreenButton";
 import ViewWithHeader from "./Screens/ViewWithHeader";
@@ -14,48 +14,15 @@ import StyledText from "./StyledText";
 // import LogFileText from "./LogFileText";
 
 const DebugEmailScreen = ( ) => {
-  // Log file content state
-  const [logContents, setLogContents] = useState( "" );
+  const logPreview = useLogPreview();
   const [failed, setFailed] = useState( false );
 
-  // Get log file contents on initial render
-  useEffect( ( ) => {
-    async function fetchLogContents( ) {
-      const contents = await readFile( pathLogs );
-      setLogContents( contents );
-    }
-    fetchLogContents( );
-  }, [ ] );
-
-  const appVersion = getVersion( );
-  const buildVersion = getBuildNumber( );
-  const device = getSystemName( );
-
-  const emailParams = {
-    subject: `Seek ${device} Logs (version ${appVersion} - ${buildVersion})`,
-    helpEmail: "help+seek@inaturalist.org",
-  };
-
   const sendEmailAttachment = ( ) => {
-    Mailer.mail(
-      {
-        subject: emailParams.subject,
-        recipients: [emailParams.helpEmail],
-        bccRecipients: [],
-        isHTML: true,
-        attachments: [
-          {
-            path: pathLogs, // The absolute path of the file from which to read data.
-            mimeType: "text/plain",
-          },
-        ],
-      },
-      ( error, event ) => {
-        setFailed( true );
-        console.log( "error", error );
-        console.log( "event", event );
-      }
-    );
+    emailRecentLogs( ( error, event ) => {
+      setFailed( true );
+      console.log( "error", error );
+      console.log( "event", event );
+    } );
   };
 
   return (
@@ -63,9 +30,9 @@ const DebugEmailScreen = ( ) => {
       <View style={styles.background}>
         <View style={styles.center}>
           <GreenButton handlePress={sendEmailAttachment} text="debug.logs" />
-          { failed &&
+          { failed && logPreview &&
             <CopyButton
-              stringToCopy={logContents}
+              stringToCopy={logPreview.text}
               handleHighlight={() => console.log( "highlighted" )}
             >
               <StyledText>{i18n.t( "debug.copy_logs" )}</StyledText>

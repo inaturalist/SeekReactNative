@@ -49,7 +49,6 @@ interface ApiParams {
   observed_on: Date;
   seek_exceptions: boolean;
   locale: string;
-  all_photos: boolean;
   taxon_id?: number;
 }
 
@@ -174,7 +173,6 @@ const SpeciesNearby = ( ) => {
         observed_on: new Date(),
         seek_exceptions: true,
         locale: i18n.locale,
-        all_photos: true, // this allows for ARR license filtering
       };
 
       if ( taxonIds[taxaType] ) {

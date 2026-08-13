@@ -20,7 +20,7 @@ interface Props {
     iconic_taxon_id: number;
     default_photo: {
       medium_url: string;
-      license_code: string;
+      license_code: string | null;
     };
     taxonPhotos: {
       photo: {

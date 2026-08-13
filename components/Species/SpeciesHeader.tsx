@@ -14,7 +14,7 @@ interface Props {
   readonly loading: boolean;
   readonly photos: {
     attribution: string;
-    license_code: string;
+    license_code: string | null;
     medium_url: string;
   }[];
   readonly taxon: {

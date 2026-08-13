@@ -44,7 +44,7 @@ const useFetchPhotos = ( ): ProjectPhoto[] => {
             return;
           }
 
-          if ( defaultPhoto.license_code && defaultPhoto.original_dimensions ) {
+          if ( defaultPhoto.original_dimensions ) {
             // some original dimensions can be null
             if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
               projectPhotos.push( {

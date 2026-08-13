@@ -122,16 +122,12 @@ const FrameProcessorCamera = ( props: Props ) => {
   const videoAspectRatio = screen.height / screen.width;
   const photoAspectRatio = screen.height / screen.width;
   // Select a format that provides the highest resolution primarily for videos, then photos
-  const iosFormat = useCameraFormat( device, [
+  const format = useCameraFormat( device, [
     { videoAspectRatio },
     { photoAspectRatio },
     { photoResolution: "max" },
     { videoResolution: "max" },
   ] );
-  if ( Platform.OS === "android" ) {
-    console.log( "Android is not using a specific camera format because we never got around to" );
-  }
-  const format = Platform.OS === "ios" ? iosFormat : undefined;
 
   // Set the exposure to the middle of the min and max exposure
   const exposure = ( device.maxExposure + device.minExposure ) / 2;

@@ -23,6 +23,7 @@ export const dirTaxonomy: string = Platform.select( {
   android: `${DocumentDirectoryPath}/${modelFiles.ANDROIDTAXONOMY}`,
 } );
 
+// legacy single-file log path; kept as a code reference for cleanup on update
 export const fileNameLogs = "seek-log.txt";
 export const dirLogs: string = Platform.select( {
   ios: `${DocumentDirectoryPath}`,

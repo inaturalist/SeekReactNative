@@ -18,7 +18,6 @@ import ChallengeCard from "./Challenges/ChallengeCard";
 import INatCard from "./INatCard/iNatCard";
 import SeekYearInReviewCard from "./SeekYearInReview/SeekYearInReviewCard";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
-import Updates from "./Updates/Updates";
 import UploadStatus from "./UploadStatus";
 
 const HomeScreen = ( ) => {
@@ -111,7 +110,6 @@ const HomeScreen = ( ) => {
       <SpeciesNearby />
       <Announcements />
       <SeekYearInReviewCard />
-      <Updates />
       <ChallengeCard />
       <INatCard />
       <DonateCard />

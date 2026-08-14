@@ -28,11 +28,6 @@
     "new_join": "Προσθέστε παρατηρήσεις με την κάμερα Seek για να κερδίσετε το έμβλημα Πρόκλησης!",
     "inat_admin": "iNat admins: Ευχαριστούμε για τη δοκιμή του Seek! Βλέπετε την τελευταία πρόκληση iNat πριν από την έναρξη του μήνα για δοκιμαστικούς σκοπούς."
   },
-  "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 100,000 species in the latest version of Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "ΑΝΑΡΤΗΣΤΕ ΣΤΟ iNATURALIST",
     "uploading_x_observations": {

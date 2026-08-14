@@ -28,11 +28,6 @@
     "new_join": "¡Añade observaciones con la cámara de Seek para ganar la insignia del Desafío!",
     "inat_admin": "Administradores de iNat: ¡Gracias por testear Seek! Estás viendo el último reto de iNat antes de principios de mes para poder probarlo."
   },
-  "updates_card": {
-    "header": "Actualizaciones de Seek",
-    "updated_id_model": "¡Hemos actualizado nuestro Modelo de Identificación!",
-    "over_x_species": "¡Ahora puedes identificar más de 100.000 especies con la última versión de Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "PUBLICAR EN  INATURALIST",
     "uploading_x_observations": {

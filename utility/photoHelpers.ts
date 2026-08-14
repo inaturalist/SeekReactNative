@@ -96,30 +96,41 @@ const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ): P
   } )
 );
 
-const localizeAttributions = ( attribution: string, licenseCode: string, screen: string ): string => {
+const localizeAttributions = (
+  attribution: string,
+  licenseCode: string | null,
+  screen: string
+): string => {
   const userName = attribution.split( "," )[0];
   const name = userName.split( ") " )[1];
 
   let licenseText: string;
 
-  if ( licenseCode === "cc0" ) {
+  if ( !licenseCode || licenseCode === "cc0" ) {
     licenseText = i18n.t( "attributions.all" );
   } else {
     licenseText = i18n.t( "attributions.some" );
   }
 
+  const licenseSuffix = licenseCode ? ` (${licenseCode.toUpperCase()})` : "";
+
   if ( screen === "iNatStats" ) {
-    return `${name} · ${licenseText} (${licenseCode.toUpperCase()})`;
+    return `${name} · ${licenseText}${licenseSuffix}`;
   }
 
-  return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
+  return `${userName} ${licenseText}${licenseSuffix}`;
 };
 
-const localizeAttributionsLandscape = ( attribution: string, licenseCode: string ): string => {
+const localizeAttributionsLandscape = (
+  attribution: string,
+  licenseCode: string | null
+): string => {
   const nameAndCC = attribution.split( "," )[0];
   const userName = nameAndCC.split( ")" )[1];
 
-  return `\u00A9${userName} (${licenseCode.toUpperCase()})`;
+  const licenseSuffix = licenseCode ? ` (${licenseCode.toUpperCase()})` : "";
+
+  return `\u00A9${userName}${licenseSuffix}`;
 };
 
 const createBackupUri = async ( uri: string, uuid?: string | null ): Promise<string | null> => {

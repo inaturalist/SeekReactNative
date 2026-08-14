@@ -19,7 +19,7 @@ import StyledText from "../UIComponents/StyledText";
 
 interface Photo {
   attribution: string;
-  license_code: string;
+  license_code: string | null;
   medium_url: string;
 }
 interface Props {
@@ -48,7 +48,9 @@ const SpeciesPhotos = ( { loading, photos, id }: Props ) => {
           style={viewStyles.ccButton}
         >
           <StyledText style={baseTextStyles.button}>
-            {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
+            {photo.license_code
+              ? i18n.t( "species_detail.cc" ).toLocaleUpperCase()
+              : "\u00A9"}
           </StyledText>
         </TouchableOpacity>
       </View>
@@ -72,7 +74,7 @@ const SpeciesPhotos = ( { loading, photos, id }: Props ) => {
     }
 
     photos.forEach( ( photo ) => {
-      if ( photo.license_code && list.length < 9 ) {
+      if ( photo.medium_url && list.length < 9 ) {
         list.push( renderPhoto( photo ) );
       }
     } );

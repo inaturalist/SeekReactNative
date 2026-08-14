@@ -40,4 +40,19 @@ describe( "SpeciesPhotosLandscape", () => {
     expect( container ).toBeTruthy();
     expect( screen ).toMatchSnapshot();
   } );
+
+  test( "should render all-rights-reserved photos with attribution", async () => {
+    const arrPhotos = [
+      {
+        attribution: "(c) Gary McDonald, all rights reserved, uploaded by Gary McDonald",
+        license_code: null,
+        medium_url: "https://static.inaturalist.org/photos/1114606/medium.JPG",
+      },
+    ];
+
+    render( <SpeciesPhotosLandscape photos={arrPhotos} loading={mockLoading} id={mockId} /> );
+    const container = await screen.findByTestId( containerID );
+    expect( container ).toBeTruthy();
+    expect( screen.getByText( /Gary McDonald/ ) ).toBeTruthy();
+  } );
 } );

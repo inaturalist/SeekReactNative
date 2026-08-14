@@ -79,7 +79,9 @@ const useTaxonDetails = ( id: number ) => {
         const scientificName = taxa.name;
         const conservationStatus = taxa.taxon_photos[0]?.taxon.conservation_status;
 
-        const photosWithLicense = taxa.taxon_photos.map( ( p ) => p.photo ).filter( p => p.license_code );
+        const taxonPhotos = taxa.taxon_photos
+          .map( ( p ) => p.photo )
+          .filter( ( p ) => p.medium_url );
 
         setTaxonDetails( {
           taxon: {
@@ -87,7 +89,7 @@ const useTaxonDetails = ( id: number ) => {
             scientificName,
             iconicTaxonId: taxa.iconic_taxon_id,
           },
-          photos: photosWithLicense,
+          photos: taxonPhotos,
           details: {
             wikiUrl: taxa.wikipedia_url,
             about: taxa.wikipedia_summary && taxa.wikipedia_summary,

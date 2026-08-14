@@ -28,11 +28,6 @@
     "new_join": "Fedezz fel újdonságokat a Seek Kamerával, és szerezd meg a Kihívás jelvényt!",
     "inat_admin": "iNat adminok: Köszönjük, hogy részt veszel a Seek tesztelésében! A legújabb iNat kihívást a hónap kezdete előtt tesztelési céllal láthatod."
   },
-  "updates_card": {
-    "header": "Seek hírek",
-    "updated_id_model": "Felfrissítettük az Azonosító Modellünket!",
-    "over_x_species": "Most már azonosíthatsz több, mint 90000 fajt a Seek legújabb verziójában!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "KÜLDÉS AZ INATURALISTRA",
     "uploading_x_observations": {

@@ -28,11 +28,6 @@
     "new_join": "Tilføj observationer med Seek-kameraet for at modtage udfordringsmærket!",
     "inat_admin": "iNat-administratorer: Tak for at teste Seek! Du ser den nyeste iNat-udfordring inden begyndelsen af måneden for at kunne teste."
   },
-  "updates_card": {
-    "header": "Seek-opdateringer",
-    "updated_id_model": "Vi har opdateret vores identifikationsmodel!",
-    "over_x_species": "I den seneste version af Seek kan du nu identificere over 90.000 arter!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "TILFØJ TIL INATURALIST",
     "uploading_x_observations": {

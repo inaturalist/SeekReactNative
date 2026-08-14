@@ -28,11 +28,6 @@
     "new_join": "Voeg waarnemings met die Seek Kamera by om die Uitdaging-kenteken te verdien!",
     "inat_admin": "iNat-admins: dankie dat u Seek toets! U sien die nuutste iNat-uitdaging voor die begin van die maand, vir toetsdoeleindes."
   },
-  "updates_card": {
-    "header": "Seek Opdaterings",
-    "updated_id_model": "Ons het ons Identifiseringsmodel opdateer!",
-    "over_x_species": "U kan nou meer as 90 000 spesies identifiseer met die nuutste weergawe van Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "PLAAS OP INATURALIST",
     "uploading_x_observations": {

@@ -28,11 +28,6 @@
     "new_join": "使用 Seek 相机拍照观察来赢得挑战徽章",
     "inat_admin": "iNat 管理员：感谢您测试Seek！您看到的是在月初之前用作测试的最新 iNat 挑战。"
   },
-  "updates_card": {
-    "header": "Seek更新",
-    "updated_id_model": "我们已经更新了我们的鉴定模型！",
-    "over_x_species": "您现在可以在最新版本的Seek中鉴定超过 90000个物种！"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "发表至 INATURALIST ",
     "uploading_x_observations": {

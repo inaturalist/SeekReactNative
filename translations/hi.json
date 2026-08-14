@@ -28,11 +28,6 @@
     "new_join": "चैलेंज बैज जीतने के लिए Seek कैमरा से प्रजातियों को कैप्चर करें!",
     "inat_admin": "iNat एडमिन्स: Seek का परीक्षण करने के लिए धन्यवाद! आप परीक्षण के लिए महीने की शुरुआत से पहले नया iNat चुनौती देख रहे हैं।"
   },
-  "updates_card": {
-    "header": "Seek अपडेट्स",
-    "updated_id_model": "हमने अपने पहचान मॉडल को अपडेट किया है!",
-    "over_x_species": "You can now identify over 100,000 species in the latest version of Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "iNaturalist पर डालें",
     "uploading_x_observations": {

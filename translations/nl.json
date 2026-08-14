@@ -28,11 +28,6 @@
     "new_join": "Voeg waarnemingen toe met de Seek Camera om de badge Uitdaging te verdienen!",
     "inat_admin": "iNat admins: bedankt voor het testen van Seek! Je ziet de nieuwste iNat uitdaging vóór het begin van de maand, voor testdoeleinden."
   },
-  "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We hebben ons determinatiemodel bijgewerkt!",
-    "over_x_species": "Je kunt nu meer dan 100.000 soorten determineren met de laatste versie van Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "STUUR NAAR  INATURALIST",
     "uploading_x_observations": {

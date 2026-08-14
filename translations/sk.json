@@ -28,11 +28,6 @@
     "new_join": "Pridajte pozorovanie pomocou Seek fotoaparátu a získajte Odznak výzvy!",
     "inat_admin": "Správcovia iNat: ďakujeme za testovanie Seeku! Na testovacie účely vidíte najnovšiu výzvu iNat ešte pred začiatkom mesiaca."
   },
-  "updates_card": {
-    "header": "Aktualizácia Seeku",
-    "updated_id_model": "Aktualizovali sme náš identifikačný model!",
-    "over_x_species": "S najnovšou verziou Seeku môžete teraz určiť viac ako 90 000 druhov!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "NAHRAŤ DO INATURALIST",
     "uploading_x_observations": {

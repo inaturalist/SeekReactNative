@@ -28,11 +28,6 @@
     "new_join": "Tambahkan pengamatan dengan Kamera Seek untuk mendapatkan lencana Tantangan!",
     "inat_admin": "Pengelola iNat: terima kasih sudah mencoba Seek! Kamu sedang melihat tantangan iNat terbaru sebelum awal bulan sebagai percobaan."
   },
-  "updates_card": {
-    "header": "Berita Seek",
-    "updated_id_model": "Kami telah memperbarui Model Identifikasi kami!",
-    "over_x_species": "Kamu sekarang bisa mengidentifikasi lebih dari 90.000 spesies di versi terbaru Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "UNGGAH POSTINGAN KE INATURALIST",
     "uploading_x_observations": {

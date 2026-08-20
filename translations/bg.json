@@ -28,11 +28,6 @@
     "new_join": "Наблюдавай със Seek камера, за вземеш значката \"Предизвикателство\".",
     "inat_admin": "iNat admins: благодаря, че тества Seek! Виждаш най-новото iNat предизвикателзтв преди старта на месеца."
   },
-  "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 100,000 species in the latest version of Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "ПУБЛИКУВАЙ В INATURALIST",
     "uploading_x_observations": {

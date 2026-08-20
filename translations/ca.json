@@ -28,11 +28,6 @@
     "new_join": "Afegeix observacions amb la Càmera de Seek per guanyar la insígnia del Repte!",
     "inat_admin": "Administradors d'iNat: Gràcies per posar a prova Seek! Esteu veient el darrer repte abans de començament de més amb la finalitat de provar-lo."
   },
-  "updates_card": {
-    "header": "Actualitzacions de Seek",
-    "updated_id_model": "Hem actualitzat el nostre Model d'Identificació!",
-    "over_x_species": "Ara pots identificar més de 90.000 espècies en la darrera versió de Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "ENVIA A INATURALIST",
     "uploading_x_observations": {

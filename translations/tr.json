@@ -28,11 +28,6 @@
     "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlem ekleyin!",
     "inat_admin": "iNat yöneticileri: Seek'i test ettiğiniz için teşekkürler! Test amacıyla, iNat mücadelesini ay başlamadan önce görüyorsunuz."
   },
-  "updates_card": {
-    "header": "Seek Güncellemeleri",
-    "updated_id_model": "Tanımlama Modelimizi güncelledik!",
-    "over_x_species": "Seek'in son sürümünde artık 100.000'den fazla türü tanımlayabilirsiniz!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALIST'E GÖNDER",
     "uploading_x_observations": {

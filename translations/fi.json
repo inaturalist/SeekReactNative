@@ -28,11 +28,6 @@
     "new_join": "Tee havaintoja Seek-kameralla ansaitaksesi Haaste-merkin!",
     "inat_admin": "iNat ylläpito: kiitos, että olet kokeillut Seekiä! Näet uusimmat iNat-haasteet ennen kuukauden alkua testausta varten."
   },
-  "updates_card": {
-    "header": "Seek Updates",
-    "updated_id_model": "We’ve updated our Identification Model!",
-    "over_x_species": "You can now identify over 100,000 species in the latest version of Seek!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "LÄHETÄ INATURALISTIIN",
     "uploading_x_observations": {

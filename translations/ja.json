@@ -28,11 +28,6 @@
     "new_join": "Seekカメラで観察してチャレンジバッジを獲得しましょう！",
     "inat_admin": "iNat 管理者:Seekをテストしていただきありがとうございます！テスト用に月が始まる前ですが最新のiNatチャレンジをご覧いただいています。"
   },
-  "updates_card": {
-    "header": "Seekの更新",
-    "updated_id_model": "識別モデルを更新しました！",
-    "over_x_species": "最新バージョンの Seek では、90,000 種以上の種を識別できるようになりました!"
-  },
   "post_to_inat_card": {
     "post_to_inaturalist": "INATURALISTに投稿する",
     "uploading_x_observations": {

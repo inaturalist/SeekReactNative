@@ -10,8 +10,8 @@
     "species_nearby_requires_location": "Para encontrar espécies próximas, é necessário ativar a sua localização. Por favor, ative a localização nas configurações",
     "species_nearby_requires_android_accuracy": "Espécie nas proximidades requer sua localização. Por favor, verifique se os serviços de localização estão habilitados.",
     "choose_location_on_map": "ESCOLHA A LOCALIZAÇÃO NO MAPA",
-    "need_location_permissions": "Need location permissions",
-    "please_allow_location_permissions": "Please allow location permissions in Settings -> Seek"
+    "need_location_permissions": "Precisa de permissões de localização",
+    "please_allow_location_permissions": "Permita o acesso à localização em Configurações -> Seek"
   },
   "get_started": {
     "header": "Iniciar",
@@ -121,9 +121,9 @@
     "posting": "Publicando no iNaturalist",
     "posting_details": "Você pode publicar observações feitas no Seek para o iNaturalist imediatamente após tê-las adicionado às suas observações. Se você deseja publicá-las no iNaturalist mais tarde, por favor, use o aplicativo iNaturalist ou o website.",
     "observations_not_synced": "Observações do Seek não sincronizadas",
-    "observations_stored_only_in_app": "Your observations in Seek are stored in this app on your device, they are NOT backed up online by iNaturalist.",
-    "observations_bullet_1": "Deleting the Seek app will delete all of your observations in the app.",
-    "observations_bullet_2": "Transferring Seek to a new device will not transfer your Seek observations with the app.",
+    "observations_stored_only_in_app": "Suas observações no Seek são armazenadas neste aplicativo no seu dispositivo, elas NÃO são salvas online pelo iNaturalist.",
+    "observations_bullet_1": "Excluir o aplicativo Seek excluirá todas as suas observações no aplicativo.",
+    "observations_bullet_2": "Transferir o Seek para um novo dispositivo não irá transferir suas observações do Seek com o aplicativo.",
     "observations_3": "Seek não sincroniza suas observações com outros dispositivos.",
     "agree_to_terms": "Eu concordo com <terms>{{terms}}</terms> e <privacy>{{privacy}}</privacy>, e revisei a <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Diretrizes da Comunidade",
@@ -376,12 +376,12 @@
     "non_plant_filter": "Somente espécies que não sejam plantas",
     "filters_off": "Filtros desativados",
     "error_save": "Não foi possível salvar a foto.",
-    "using_location": "Using location",
-    "not_using_location": "Not using location",
-    "best_for_wild_organisms": "Best for wild organisms",
-    "best_for_captive_organisms": "Best for garden plants, pets, or captive organisms",
-    "flash_on": "Flash on",
-    "flash_off": "Flash off"
+    "using_location": "Usando a localização",
+    "not_using_location": "Não usando a localização",
+    "best_for_wild_organisms": "Melhor para organismos selvagens",
+    "best_for_captive_organisms": "Melhor para plantas de jardim, animais de estimação ou organismos em cativeiro",
+    "flash_on": "Flash ligado",
+    "flash_off": "Flash desligado"
   },
   "gallery": {
     "import_photos_from": "Importar fotos de"
@@ -602,10 +602,10 @@
     "kelp": "Algas, diatomáceas e similares",
     "error_title_2": "Erro de localização",
     "error_message_2": "Parece que seu local não foi registrado corretamente! Por favor, verifique sua localização mais uma vez.",
-    "error_title_no_location": "Location required",
-    "error_message_no_location": "All observations posted to iNaturalist need a location to be helpful to scientists.",
-    "error_title_no_date": "Date required",
-    "error_message_no_date": "All observations posted to iNaturalist need a date to be helpful to scientists."
+    "error_title_no_location": "Localização necessária",
+    "error_message_no_location": "Todas as observações publicadas no iNaturalist precisam de localização para serem úteis aos cientistas.",
+    "error_title_no_date": "Data necessária",
+    "error_message_no_date": "Todas as observações publicadas no iNaturalist precisam de uma data para serem úteis aos cientistas."
   },
   "posting_status": {
     "posting_to_inat_background": "PUBLICAR NO INATURALIST EM SEGUNDO PLANO",
@@ -664,13 +664,13 @@
     "warning_modal": "Avisos de câmera AR",
     "get_started_modal": "Dicas para começar",
     "flash": "Flash",
-    "disable_flash": "Disable flash",
-    "enable_flash": "Enable flash",
-    "flip_camera": "Flip camera",
-    "use_other_camera": "Use the device's other camera.",
-    "location": "Location",
-    "disable_location": "Disable location",
-    "enable_location": "Enable location"
+    "disable_flash": "Desligar flash",
+    "enable_flash": "Ligar flash",
+    "flip_camera": "Inverter câmera",
+    "use_other_camera": "Use a outra câmera do dispositivo.",
+    "location": "Localização",
+    "disable_location": "Desativar localização",
+    "enable_location": "Ativar localização"
   },
   "review": {
     "title": "Avaliar este aplicativo",

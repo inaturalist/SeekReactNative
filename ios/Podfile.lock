@@ -3201,7 +3201,7 @@ PODS:
     - RNWorklets
     - SocketRocket
     - Yoga
-  - RNScreens (4.15.4):
+  - RNScreens (4.25.2):
     - boost
     - DoubleConversion
     - fast_float
@@ -3228,10 +3228,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNScreens/common (= 4.15.4)
+    - RNScreens/common (= 4.25.2)
     - SocketRocket
     - Yoga
-  - RNScreens/common (4.15.4):
+  - RNScreens/common (4.25.2):
     - boost
     - DoubleConversion
     - fast_float
@@ -3850,8 +3850,8 @@ SPEC CHECKSUMS:
   fast_float: b32c788ed9c6a8c584d114d0047beda9664e7cc6
   FBLazyVector: 07433c4ab85da44d0b5ceac374ff4e1d57c7aa23
   fmt: 530618a01105dae0fa3a2f27c81ae11fa8f67eac
-  glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
-  hermes-engine: e61dc9fc730c83f3ac0b3782af7c3d9c14cd0561
+  glog: 0456694f3aaf09460b660ea327cfc11defbeea4c
+  hermes-engine: f37e1d6f1eb198649a60b3f17b6f685a6ac12470
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   RCT-Folly: b29feb752b08042c62badaef7d453f3bb5e6ae23
   RCTDeprecation: f05668eea7b0e209e77e8ab1dc6a5e3b342f6f65
@@ -3953,7 +3953,7 @@ SPEC CHECKSUMS:
   RNLocalize: d8ccb568b40c72c767714db3808ce66a1ecf444a
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
   RNReanimated: c7f41b239964ff97c0ac083b2f1801d3d754516e
-  RNScreens: 4f2aed147a2775017923789d8a0a2d377712ec2e
+  RNScreens: cfb11dc33b79eac5e09a10b25e1ad0c2499d5b8b
   RNStoreReview: 8f6061907efb6474757db004ee8faac728fd2ada
   RNSVG: c7b9ee1f2352f984e79d6e3238645b81ced60516
   RNWorklets: a3184955a41f2be46898a937e2821469c8c8da42

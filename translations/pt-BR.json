@@ -1055,8 +1055,8 @@
   },
   "error_boundary": {
     "something_went_wrong": "Algo deu errado.",
-    "if_youre_seeing_this_error": "If you're seeing this and you're online, iNat staff have already been notified. Thanks for finding a bug! If you're offline, please take a screenshot and send us an email when you're back on the Internet.",
-    "restart": "RESTART APP",
+    "if_youre_seeing_this_error": "Se você está vendo isto e está conectado à internet, a equipe do iNat já foi notificada. Obrigado por encontrar um erro! Se você não está conectado, por favor tire uma captura de tela e envie-a por e-mail quando estiver novamente conectado à internet.",
+    "restart": "REINICIAR APLICATIVO",
     "error": "Erro"
   }
 }

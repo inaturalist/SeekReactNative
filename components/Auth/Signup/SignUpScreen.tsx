@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import * as RNLocalize from "react-native-localize";
 
-import config from "../../../config";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
 import EnvConfig from "../../../utility/envConfig";
@@ -76,8 +75,8 @@ class SignUpScreen extends Component<Props, State> {
   retrieveOAuthToken( newUser: { updateLogin: () => void } ): void {
     const { user } = this.state;
     const params = {
-      client_id: config.appId,
-      client_secret: config.appSecret,
+      client_id: EnvConfig.appId,
+      client_secret: EnvConfig.appSecret,
       grant_type: "password",
       username: user.login,
       password: user.password,

@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 
-import config from "../../../config";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import { baseTextStyles } from "../../../styles/textStyles";
@@ -28,8 +27,8 @@ const LoginScreen = ( ) => {
 
   const retrieveOAuthToken = ( ) => {
     const params = {
-      client_id: config.appId,
-      client_secret: config.appSecret,
+      client_id: EnvConfig.appId,
+      client_secret: EnvConfig.appSecret,
       grant_type: "password",
       username,
       password,

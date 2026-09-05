@@ -20,6 +20,12 @@ const EnvConfig = {
   jwtSecret: __DEV__
     ? config.stagingJwtSecret || config.jwtSecret
     : config.jwtSecret,
+  appId: __DEV__
+    ? config.stagingAppId || config.appId
+    : config.appId,
+  appSecret: __DEV__
+    ? config.stagingAppSecret || config.appSecret
+    : config.appSecret,
 };
 
 export default EnvConfig;

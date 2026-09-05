@@ -1,3 +1,4 @@
+import EnvConfig from "./envConfig";
 import { handleServerError } from "./serverHelpers";
 import createUserAgent from "./userAgent";
 
@@ -14,7 +15,7 @@ const fetchJSONWebToken = async ( loginToken: string ): Promise<string | {
     Authorization: `Bearer ${loginToken}`,
   };
 
-  const site = "https://www.inaturalist.org";
+  const site = EnvConfig.oauthApiURL;
 
   try {
     const r = await fetch( `${site}/users/api_token`, { headers } );

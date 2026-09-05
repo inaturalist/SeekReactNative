@@ -171,6 +171,7 @@ const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", {
 
 const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
+const SERVER_DATETIME_PATTERN = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
 const ZONE_ABBREVIATION_TOKEN = /z+/;
 
 // Hermes' Intl.DateTimeFormat has incomplete ICU time zone name data for
@@ -203,11 +204,11 @@ const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
 
   const timeZone = RNLocalize.getTimeZone( );
   const zonedDate = TimeZone.toZonedTime( date, timeZone );
-  const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
 
   try {
+    const serverPattern = SERVER_DATETIME_PATTERN;
     return {
-      dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, formatOpts ),
+      dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, serverPattern, formatOpts ),
       dateForDisplay: formatDateToDisplay( zonedDate ),
     };
   } catch ( error ) {

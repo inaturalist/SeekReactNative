@@ -203,6 +203,7 @@ const formatGMTTimeWithTimeZone = ( date: Date | string ): GMTTimeResult => {
   }
   const formatOpts = { locale: enUS };
 
+  const parsedDate = typeof date === "string" ? parseISO( date ) : date;
   const timeZone = RNLocalize.getTimeZone( );
   const zonedDate = TimeZone.toZonedTime( date, timeZone );
 
@@ -210,15 +211,14 @@ const formatGMTTimeWithTimeZone = ( date: Date | string ): GMTTimeResult => {
     let serverPattern = SERVER_DATETIME_PATTERN;
     if (
       ZONE_ABBREVIATION_TOKEN.test( serverPattern )
-      && timeZoneAbbreviationIsUnreliable( zonedDate, timeZone, enUS )
-      // && timeZoneAbbreviationIsUnreliable( parsedDate, timeZone, enUS )
+      && timeZoneAbbreviationIsUnreliable( parsedDate, timeZone, enUS )
     ) {
       // Fall back to a numeric offset (e.g. "GMT+10") instead of an
       // abbreviation Hermes can't reliably resolve for this zone
       serverPattern = serverPattern.replace( ZONE_ABBREVIATION_TOKEN, "O" );
     }
     return {
-      dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, serverPattern, formatOpts ),
+      dateForServer: TimeZone.formatInTimeZone( parsedDate, timeZone, serverPattern, formatOpts ),
       dateForDisplay: formatDateToDisplay( zonedDate ),
     };
   } catch ( error ) {

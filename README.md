@@ -12,7 +12,10 @@
 
 ## Setup files
 1. Go to `android/app/src/main/res/values` and rename `config.example.xml` to `config.xml` (and change its values to match your API keys)
-2. Rename `config.example.js` to `config.js` and change the JWT secret.
+2. Rename `config.example.js` to `config.js` and change the JWT secret and OAuth credentials.
+   - **Debug builds** (`npm run ios` / `npm run android`) connect to **iNaturalist staging** automatically.
+   - Add optional `stagingJwtSecret`, `stagingAppId`, and `stagingAppSecret` in `config.js` for staging login and anonymous API access. If omitted, the production values are used as a fallback.
+   - **Release builds** always use production (`jwtSecret`, `appId`, `appSecret`).
 3. Add AR Camera model and taxonomy files.
     1. Add the example model files by executing `npm run add-example-model`. If that does not work continue with the next steps.
     1. If the download script fails: The sample model files are available in the latest release in this [`repository`](https://github.com/inaturalist/model-files).

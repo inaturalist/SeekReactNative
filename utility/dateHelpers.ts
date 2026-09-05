@@ -199,12 +199,13 @@ const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
       dateForDisplay: null,
     };
   }
+  const formatOpts = { locale: enUS };
 
   const timeZone = RNLocalize.getTimeZone( );
   const zonedDate = TimeZone.toZonedTime( date, timeZone );
   const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
   return {
-    dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
+    dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, formatOpts ),
     dateForDisplay: formatDateToDisplay( zonedDate ),
   };
 };

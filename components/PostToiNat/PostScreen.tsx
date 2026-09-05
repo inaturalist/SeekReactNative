@@ -127,7 +127,7 @@ const PostScreen = ( ) => {
     }
   }, [location, editedObservation, updateObservation] );
 
-  const handleDatePicked = ( selectedDate ) => {
+  const handleDatePicked = ( selectedDate: Date ) => {
     if ( selectedDate ) {
       const isFuture = isAndroidDateInFuture( selectedDate );
       const formattedDate = formatGMTTimeWithTimeZone( isFuture ? new Date( ) : selectedDate );

@@ -165,7 +165,7 @@ const namePhotoByTime = (): string => format( new Date(), "ddMMyy_HHmmSSSS" );
 
 const locale = locales[i18n.locale] || locales[i18n.locale.split( "-" )[0]];
 
-const formatDateToDisplay = ( date: any ): string => format( date, "PPPPpaaa", { locale } );
+const formatDateToDisplay = ( date: Date ): string => format( date, "PPPPpaaa", { locale } );
 
 const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", { locale } );
 

@@ -5,6 +5,7 @@ import * as RNLocalize from "react-native-localize";
 import config from "../../../config";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/signup";
+import EnvConfig from "../../../utility/envConfig";
 import { createJwtToken } from "../../../utility/helpers";
 import { formatError, saveAccessToken } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
@@ -37,7 +38,7 @@ interface Props {
   };
 }
 
-const site = "https://www.inaturalist.org";
+const site = EnvConfig.oauthApiURL;
 
 class SignUpScreen extends Component<Props, State> {
   constructor( { route }: Props ) {

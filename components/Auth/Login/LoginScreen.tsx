@@ -6,6 +6,7 @@ import config from "../../../config";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import { baseTextStyles } from "../../../styles/textStyles";
+import EnvConfig from "../../../utility/envConfig";
 import { saveAccessToken } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
 import type { RootStackScreenProps } from "../../Navigation/types";
@@ -40,7 +41,7 @@ const LoginScreen = ( ) => {
       "User-Agent": createUserAgent( ),
     };
 
-    const site = "https://www.inaturalist.org";
+    const site = EnvConfig.oauthApiURL;
 
     if ( !username || !password ) {
       setError( true );

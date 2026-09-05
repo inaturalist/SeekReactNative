@@ -171,6 +171,25 @@ const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", {
 
 const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
+const ZONE_ABBREVIATION_TOKEN = /z+/;
+
+// Hermes' Intl.DateTimeFormat has incomplete ICU time zone name data for
+// some zones (seen so far: Australia/Sydney, Asia/Kolkata, Asia/Singapore)
+// and silently resolves the abbreviated zone name to the literal string
+// "GMT" instead of the real timezone abbreviation (like "AEST") - see
+// https://github.com/facebook/hermes/issues/1601 and
+// https://github.com/marnusw/date-fns-tz/issues/306.
+function timeZoneAbbreviationIsUnreliable(
+  date: Date,
+  timeZone: string,
+  locale: Locale,
+): boolean {
+  const offset = TimeZone.formatInTimeZone( date, timeZone, "xxx", { locale } );
+  if ( offset === "+00:00" ) {
+    return false;
+  }
+  return TimeZone.formatInTimeZone( date, timeZone, "zzz", { locale } ) === "GMT";
+}
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
 const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {

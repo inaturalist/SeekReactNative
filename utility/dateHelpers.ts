@@ -192,10 +192,6 @@ function timeZoneAbbreviationIsUnreliable(
   return TimeZone.formatInTimeZone( date, timeZone, "zzz", { locale } ) === "GMT";
 }
 
-function formatDisplayDateInTimeZone( parsedDate: Date, timeZone: string ): string {
-    return formatDateToDisplay( TimeZone.toZonedTime( parsedDate, timeZone ) );
-}
-
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
 // date: can be Date from Picker, or an iso string
@@ -223,7 +219,7 @@ const formatGMTTimeWithTimeZone = ( date: Date | string ): GMTTimeResult => {
     }
     return {
       dateForServer: TimeZone.formatInTimeZone( parsedDate, timeZone, serverPattern, formatOpts ),
-      dateForDisplay: formatDisplayDateInTimeZone( parsedDate, timeZone ),
+      dateForDisplay: formatDateToDisplay( TimeZone.toZonedTime( parsedDate, timeZone ) ),
     };
   } catch ( error ) {
     throw error;

@@ -193,10 +193,12 @@ function timeZoneAbbreviationIsUnreliable(
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
 const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
-  if ( !date ) { return {
-    dateForServer: null,
-    dateForDisplay: null,
-  }; }
+  if ( !date ) {
+    return {
+      dateForServer: null,
+      dateForDisplay: null,
+    };
+  }
 
   const timeZone = RNLocalize.getTimeZone( );
   const zonedDate = TimeZone.toZonedTime( date, timeZone );

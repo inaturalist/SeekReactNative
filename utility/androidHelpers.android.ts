@@ -67,9 +67,34 @@ const checkSavePermissions = async ( ): Promise<boolean | string> => {
   }
 };
 
+const requestGalleryMediaPermissions = async ( ): Promise<void> => {
+  if ( Platform.OS !== "android" ) {
+    return;
+  }
+
+  const { PERMISSIONS } = PermissionsAndroid;
+  const permissions = [PERMISSIONS.ACCESS_MEDIA_LOCATION];
+
+  if ( Platform.Version <= 29 ) {
+    permissions.push( PERMISSIONS.WRITE_EXTERNAL_STORAGE );
+  } else if ( Platform.Version >= 33 ) {
+    permissions.push( PERMISSIONS.READ_MEDIA_IMAGES );
+  } else {
+    permissions.push( PERMISSIONS.READ_EXTERNAL_STORAGE );
+  }
+
+  try {
+    await PermissionsAndroid.requestMultiple( permissions );
+  } catch ( e ) {
+    // Do not block gallery import if permission request fails; GPS may be missing.
+    console.error( "Failed to request gallery media permissions:", e );
+  }
+};
+
 export {
   checkCameraPermissions,
   checkLocationPermissions,
   checkSavePermissions,
   onlyCheckLocationPermissions,
+  requestGalleryMediaPermissions,
 };

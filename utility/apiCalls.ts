@@ -62,7 +62,7 @@ interface Log {
   backtrace?: string;
 }
 const logToApi = async ( { level, message, context, errorType, backtrace }: Log ): Promise<any> => {
-  const site = "https://api.inaturalist.org/v2/log";
+  const site = `${EnvConfig.apiHost}/v2/log`;
 
   const formData = {
     timestamp: new Date().toISOString(),

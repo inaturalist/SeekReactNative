@@ -1,0 +1,40 @@
+diff --git a/node_modules/react-native-maps/ios/AirMaps/AIRMapUrlTile.m b/node_modules/react-native-maps/ios/AirMaps/AIRMapUrlTile.m
+index f77f627..1822bfa 100644
+--- a/node_modules/react-native-maps/ios/AirMaps/AIRMapUrlTile.m
++++ b/node_modules/react-native-maps/ios/AirMaps/AIRMapUrlTile.m
+@@ -10,6 +10,26 @@
+ #import <React/UIView+React.h>
+ #import "AIRMapUrlTileCachedOverlay.h"
+ 
++// On iOS, a plain MKTileOverlayRenderer intermittently never paints its tiles, leaving
++// the tile layer invisible until the user pans or zooms. MapKit invalidates tile overlays
++// when other overlays are added or removed, which our maps do constantly. Rendering
++// through a subclass avoids it -- but note the overrides below are pure super calls:
++// they look like dead code and are not, and nobody has established why subclassing
++// makes any difference. Don't "clean this up" without retesting on iOS.
++// MapKit bug, Apple-confirmed: https://developer.apple.com/forums/thread/125631
++// Only known workaround, filed as FB9957545: https://github.com/briancoyner/MKOverlayRendererBug
++@interface AIRMapUrlTileRenderer : MKTileOverlayRenderer
++@end
++@implementation AIRMapUrlTileRenderer
++- (BOOL)canDrawMapRect:(MKMapRect)mapRect zoomScale:(MKZoomScale)zoomScale {
++ return [super canDrawMapRect:mapRect zoomScale:zoomScale];
++}
++- (void)drawMapRect:(MKMapRect)mapRect zoomScale:(MKZoomScale)zoomScale inContext:(CGContextRef)context {
++ [super drawMapRect:mapRect zoomScale:zoomScale inContext:context];
++}
++@end
++
++
+ @implementation AIRMapUrlTile 
+ 
+ - (void)setShouldReplaceMapContent:(BOOL)shouldReplaceMapContent
+@@ -145,7 +165,7 @@ - (void)createTileOverlayAndRendererIfPossible
+ 
+     [self updateProperties];
+ 
+-    self.renderer = [[MKTileOverlayRenderer alloc] initWithTileOverlay:self.tileOverlay];
++    self.renderer = [[AIRMapUrlTileRenderer alloc] initWithTileOverlay:self.tileOverlay];
+     if (_opacitySet) {
+         self.renderer.alpha = self.opacity;
+     }

@@ -4,6 +4,10 @@ export default {
   appId: "SEEK_APP_ID_FOR_LOGIN",
   appSecret: "SEEK_APP_SECRET_FOR_LOGIN",
   redirectURI: "SEEK_APP_REDIRECT_URI",
+  // Optional: used in Debug builds (__DEV__) when connecting to staging
+  stagingJwtSecret: "STAGING_JWT_SECRET_FOR_SIGNING_ANONYMOUS_TOKENS",
+  stagingAppId: "SEEK_STAGING_APP_ID_FOR_LOGIN",
+  stagingAppSecret: "SEEK_STAGING_APP_SECRET_FOR_LOGIN",
   // Model file names for Android and iOS
   ANDROID_MODEL_FILE_NAME: "INatVision_Small_2_fact256_8bit.tflite",
   ANDROID_GEOMODEL_FILE_NAME: "INatGeomodel_Small_2_8bit.tflite",

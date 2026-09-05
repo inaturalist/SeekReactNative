@@ -5,6 +5,7 @@ import { Platform, View } from "react-native";
 import i18n from "../../i18n";
 import { baseTextStyles } from "../../styles/textStyles";
 import { viewStyles } from "../../styles/uiComponents/cards/donateCard";
+import EnvConfig from "../../utility/envConfig";
 import { useAppOrientation } from "../Providers/AppOrientationProvider";
 import Button from "./Buttons/Button";
 import StyledText from "./StyledText";
@@ -14,7 +15,7 @@ const AccountDeletion = ( ) => {
   const { isLandscape } = useAppOrientation( );
 
   const navToDelete = ( ) => navigate( "FullAnnouncement", {
-    uri: "https://www.inaturalist.org/users/delete",
+    uri: `${EnvConfig.oauthApiURL}/users/delete`,
     loggedIn: true,
   } );
 

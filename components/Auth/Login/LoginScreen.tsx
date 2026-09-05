@@ -2,10 +2,10 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 
-import config from "../../../config";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import { baseTextStyles } from "../../../styles/textStyles";
+import EnvConfig from "../../../utility/envConfig";
 import { saveAccessToken } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
 import type { RootStackScreenProps } from "../../Navigation/types";
@@ -27,8 +27,8 @@ const LoginScreen = ( ) => {
 
   const retrieveOAuthToken = ( ) => {
     const params = {
-      client_id: config.appId,
-      client_secret: config.appSecret,
+      client_id: EnvConfig.appId,
+      client_secret: EnvConfig.appSecret,
       grant_type: "password",
       username,
       password,
@@ -40,7 +40,7 @@ const LoginScreen = ( ) => {
       "User-Agent": createUserAgent( ),
     };
 
-    const site = "https://www.inaturalist.org";
+    const site = EnvConfig.oauthApiURL;
 
     if ( !username || !password ) {
       setError( true );

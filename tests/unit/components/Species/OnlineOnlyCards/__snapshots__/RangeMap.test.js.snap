@@ -136,7 +136,7 @@ exports[`RangeMap should change map region to user's location when button is pre
   >
     <AIRMapUrlTile
       tileSize={512}
-      urlTemplate="https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=some_id&color=%2377B300&verifiable=true"
+      urlTemplate="https://stagingapi.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=some_id&color=%2377B300&verifiable=true"
     />
     <AIRMapMarker
       coordinate={
@@ -441,7 +441,7 @@ exports[`RangeMap should render correctly 1`] = `
   >
     <AIRMapUrlTile
       tileSize={512}
-      urlTemplate="https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=some_id&color=%2377B300&verifiable=true"
+      urlTemplate="https://stagingapi.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=some_id&color=%2377B300&verifiable=true"
     />
     <AIRMapMarker
       coordinate={

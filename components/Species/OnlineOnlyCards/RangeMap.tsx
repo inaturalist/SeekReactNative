@@ -8,6 +8,7 @@ import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import { textStyles, viewStyles } from "../../../styles/species/rangeMap";
 import { baseTextStyles } from "../../../styles/textStyles";
+import EnvConfig from "../../../utility/envConfig";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
@@ -110,7 +111,7 @@ const RangeMap = () => {
       >
         <UrlTile
           tileSize={512}
-          urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
+          urlTemplate={`${EnvConfig.apiURL}/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
         />
         {seenDate && (
           <Marker

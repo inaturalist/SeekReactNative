@@ -2,8 +2,8 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import type { CameraDevice, CameraRuntimeError } from "react-native-vision-camera";
 import { Worklets } from "react-native-worklets-core";
+import type {CameraDevice, CameraPhotoOutput, CameraRuntimeError} from "react-native-vision-camera";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
@@ -52,6 +52,7 @@ interface Props {
   isActive: boolean;
   useLocation: boolean;
   hasPermission: boolean;
+  photoOutput: CameraPhotoOutput;
 }
 
 const FrameProcessorCamera = ( props: Props ) => {
@@ -70,6 +71,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     isActive,
     useLocation,
     hasPermission,
+    photoOutput,
   } = props;
 
   const navigation = useNavigation( );
@@ -355,6 +357,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             outputOrientation="device"
             photoQualityBalance="speed"
             enableLocation={hasPermission}
+            outputs={[photoOutput]}
           />
         </GestureDetector>
         <FocusSquare

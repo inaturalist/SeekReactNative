@@ -52,6 +52,7 @@ import FrameProcessorCamera from "./FrameProcessorCamera";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
 import {
   useLocationPermission as useLocationPermissionCamera,
+  usePhotoOutput,
 } from "./helpers/visionCameraWrapper";
 
 const logger = log.extend( "ARCamera.js" );
@@ -389,6 +390,7 @@ const ARCamera = ( ) => {
     checkPermissions( );
   }, [savePhoto] );
 
+  const photoOutput = usePhotoOutput();
   const visionCameraTakePhoto = useCallback( async ( callback ) => {
     if ( !camera.current ) {
       return;
@@ -552,6 +554,7 @@ const ARCamera = ( ) => {
         isActive={isActive}
         useLocation={useLocation}
         hasPermission={hasPermission}
+        photoOutput={photoOutput}
       />
     );
   };

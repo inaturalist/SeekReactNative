@@ -11,7 +11,6 @@ import {
   useTruncatedUserCoords,
 } from "../../../utility/customHooks";
 import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage";
-import usePatchedRunAsync from "../../../utility/visionCameraPatches";
 import FocusSquare from "./FocusSquare";
 import {
   Camera,

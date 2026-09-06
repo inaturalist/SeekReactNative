@@ -114,9 +114,10 @@ const ARCamera = ( ) => {
   const [cameraPosition, setCameraPosition] = useState<"front" | "back">( "back" );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
-      // "ultra-wide-angle-camera",
-      "wide-angle-camera",
-      "telephoto-camera",
+      // TODO: check this on iPhone 17
+      "ultra-wide-angle",
+      "wide-angle",
+      "telephoto",
     ],
   } );
   const frontDevice = useCameraDevice( "front" );

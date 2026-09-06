@@ -9,7 +9,7 @@ interface SpeciesNearbyState {
   longitude: number | null;
   taxaType: string;
   // TODO: what type here?
-  // Result of query to: const site = "https://api.inaturalist.org/v1/taxa/nearby";
+  // Result of query to: EnvConfig.apiURL/taxa/nearby
   taxa: any[];
   isConnected: boolean | null;
 }

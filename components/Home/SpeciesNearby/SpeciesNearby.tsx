@@ -9,6 +9,7 @@ import { viewStyles } from "../../../styles/home/speciesNearby";
 import { baseTextStyles } from "../../../styles/textStyles";
 import { useLocationPermission } from "../../../utility/customHooks";
 import { taxonIds } from "../../../utility/dictionaries/taxonomyDicts";
+import EnvConfig from "../../../utility/envConfig";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import createUserAgent from "../../../utility/userAgent";
 import { useSpeciesNearby } from "../../Providers/SpeciesNearbyProvider";
@@ -179,7 +180,7 @@ const SpeciesNearby = ( ) => {
         params.taxon_id = taxonIds[taxaType];
       }
 
-      const site = "https://api.inaturalist.org/v1/taxa/nearby";
+      const site = `${EnvConfig.apiURL}/taxa/nearby`;
       const queryString = Object.keys( params ).map( key => `${key}=${params[key as keyof ApiParams]}` ).join( "&" );
       const options = { headers: { "User-Agent": createUserAgent() } };
 

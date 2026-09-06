@@ -1,4 +1,5 @@
 import i18n from "../i18n";
+import EnvConfig from "./envConfig";
 import { createJwtToken } from "./helpers";
 import createUserAgent from "./userAgent";
 
@@ -31,7 +32,7 @@ const fetchSpeciesNearby = async ( params: Params ): Promise<string | any[]> => 
     ...params,
   };
 
-  const site = "https://api.inaturalist.org/v1/taxa/nearby";
+  const site = `${EnvConfig.apiURL}/taxa/nearby`;
   const queryString = Object.keys( allParams ).map( key => `${key}=${allParams[key.toString( ) as keyof ApiParams]}` ).join( "&" );
 
   const options = { headers: { "User-Agent": createUserAgent( ) } };
@@ -61,7 +62,7 @@ interface Log {
   backtrace?: string;
 }
 const logToApi = async ( { level, message, context, errorType, backtrace }: Log ): Promise<any> => {
-  const site = "https://api.inaturalist.org/v2/log";
+  const site = `${EnvConfig.apiHost}/v2/log`;
 
   const formData = {
     timestamp: new Date().toISOString(),

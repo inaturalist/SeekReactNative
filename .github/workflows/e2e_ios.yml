@@ -43,28 +43,8 @@ jobs:
       run: |
         echo "TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault" >> $GITHUB_ENV
 
-    - name: Cache node modules
-      uses: actions/cache@v5
-      id: cache
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('**/package-lock.json') }}
-
-    - name: Rebuild detox from cache
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: npx detox clean-framework-cache && npx detox build-framework-cache
-
-    # supposedly our current cache includes native modules like Realm
-    # that have compiled binaries specific to the environment where they were installed
-    # which might not be the same as the github actions environment
-    # so we need to rebuild them
-    - name: Rebuild native modules
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: npm rebuild
-
     - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: npm install
+      run: npm ci
 
     - name: Cache Pods
       uses: actions/cache@v5
@@ -120,28 +100,14 @@ jobs:
         name: detox_app
         path: ios/build/Build/Products/Release-iphonesimulator/Seek.app
 
-    - name: Cache node modules
-      uses: actions/cache@v5
-      id: cache
+    - name: Install Node.js, NPM and Yarn
+      uses: actions/setup-node@v6
       with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('**/package-lock.json') }}
-
-    - name: Rebuild detox from cache
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: npx detox clean-framework-cache && npx detox build-framework-cache
-
-    # supposedly our current cache includes native modules like Realm
-    # that have compiled binaries specific to the environment where they were installed
-    # which might not be the same as the github actions environment
-    # so we need to rebuild them
-    - name: Rebuild native modules
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: npm rebuild
+        node-version-file: '.nvmrc'
+        cache: 'npm'
 
     - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: npm install
+      run: npm ci
 
     # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
     # This will be available for all subsequent steps

@@ -6,7 +6,6 @@ import React, {
   useContext,
   useEffect,
   useReducer,
-  useRef,
   useState,
 } from "react";
 import {
@@ -15,9 +14,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 import { useSharedValue } from "react-native-worklets-core";
 import type { Prediction } from "vision-camera-plugin-inatvision";
+import type { PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
 
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";

@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { Worklets } from "react-native-worklets-core";
-import type {CameraDevice, CameraPhotoOutput, CameraRuntimeError} from "react-native-vision-camera";
+import type {CameraDevice, CameraPhotoOutput, CameraRef, CameraRuntimeError} from "react-native-vision-camera";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
@@ -78,7 +78,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const coords = useTruncatedUserCoords( hasPermission );
   
-  const cameraRef = useRef( null );
+  const cameraRef = useRef<CameraRef>( null );
   const framesProcessingTime = useRef<number[]>( [] );
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );

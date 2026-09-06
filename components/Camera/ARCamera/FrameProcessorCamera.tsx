@@ -14,7 +14,6 @@ import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage"
 import FocusSquare from "./FocusSquare";
 import {
   Camera,
-  useCameraFormat,
   useFrameProcessor,
   useCameraPermission,
 } from "./helpers/visionCameraWrapper";
@@ -122,13 +121,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   const screen = Dimensions.get( "screen" );
   const videoAspectRatio = screen.height / screen.width;
   const photoAspectRatio = screen.height / screen.width;
-  // Select a format that provides the highest resolution primarily for videos, then photos
-  const format = useCameraFormat( device, [
-    { videoAspectRatio },
-    { photoAspectRatio },
-    { photoResolution: "max" },
-    { videoResolution: "max" },
-  ] );
 
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {
@@ -340,7 +332,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             ref={cameraRef}
             style={StyleSheet.absoluteFill}
             device={device}
-            format={format}
             isActive={active}
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
@@ -349,6 +340,11 @@ const FrameProcessorCamera = ( props: Props ) => {
             photoQualityBalance="speed"
             enableLocation={hasPermission}
             outputs={[photoOutput]}
+            constraints={[
+              // { videoAspectRatio },
+              // { photoAspectRatio },
+              { resolutionBias: photoOutput },
+            ]}
             enableNativeZoomGesture={true}
           />
         </GestureDetector>

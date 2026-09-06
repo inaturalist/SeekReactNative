@@ -392,21 +392,19 @@ const ARCamera = ( ) => {
 
   const photoOutput = usePhotoOutput();
   const visionCameraTakePhoto = useCallback( async ( callback ) => {
-    if ( !camera.current ) {
-      return;
-    }
-
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
 
-    camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
-      // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
-      // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
-      // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-      setIsActive( false );
+    try {
+      const photo = await photoOutput.capturePhotoToFile( takePhotoOptions, {
+        // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
+        // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
+        // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
+        onDidCapturePhoto: () => setIsActive( false ),
+      } );
       // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
       photo.predictions = predictions;
-      photo.uri = photo.path;
+      photo.uri = photo.filePath;
       // Photo:
       /*
         {
@@ -438,8 +436,7 @@ const ARCamera = ( ) => {
 
       // TODO: this callback only ever uses photo.uri and photo.predictions, so we can just pass those directly
       callback( photo );
-    } )
-    .catch( ( e ) => {
+    } catch( e ) {
       logToApi( {
         level: LogLevels.ERROR,
         context: "ARCamera.tsx",
@@ -448,8 +445,9 @@ const ARCamera = ( ) => {
         backtrace: e.stack,
       } );
       handleCaptureError( { nativeEvent: { reason: e } } );
-    } );
-  }, [sortedPredictions, handleCaptureError, takePhotoOptions] );
+
+    }
+  }, [sortedPredictions, handleCaptureError, takePhotoOptions, photoOutput] );
 
   const takePicture = useCallback( async () => {
     pictureTaken.value = true;

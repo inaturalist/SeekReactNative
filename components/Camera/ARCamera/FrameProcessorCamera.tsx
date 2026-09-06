@@ -344,8 +344,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             format={format}
             isActive={active}
             photo={true}
-            enableZoomGesture
-            zoom={device.neutralZoom}
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
             onError={onError}
@@ -353,6 +351,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             photoQualityBalance="speed"
             enableLocation={hasPermission}
             outputs={[photoOutput]}
+            enableNativeZoomGesture={true}
           />
         </GestureDetector>
         <FocusSquare

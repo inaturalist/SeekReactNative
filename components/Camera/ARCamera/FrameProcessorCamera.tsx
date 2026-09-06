@@ -16,6 +16,7 @@ import {
   Camera,
   useCameraFormat,
   useFrameProcessor,
+  useCameraPermission,
 } from "./helpers/visionCameraWrapper";
 import InatVision from "./helpers/visionPluginWrapper";
 import useFocusTap from "./hooks/useFocusTap";
@@ -108,11 +109,11 @@ const FrameProcessorCamera = ( props: Props ) => {
     setCameraPermissionStatus( permission );
   }, [onCameraError] );
 
+
+  const { hasPermission: hasCameraPermission, requestPermission: requestCameraPermission } = useCameraPermission();
   useEffect( () => {
-    if ( cameraPermissionStatus === "not-determined" ) {
-      requestCameraPermission();
-    }
-  }, [cameraPermissionStatus, requestCameraPermission] );
+    if ( !hasCameraPermission ) requestCameraPermission();
+  }, [hasCameraPermission, requestCameraPermission] );
 
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
@@ -337,7 +338,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const active = isActive && isFocused && isForeground;
   return (
-    device && cameraPermissionStatus === "granted" && (
+    device && hasPermission && (
       <>
         <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
           <Camera

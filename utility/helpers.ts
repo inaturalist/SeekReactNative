@@ -4,9 +4,9 @@ import rs from "jsrsasign";
 import * as RNLocalize from "react-native-localize";
 import Realm from "realm";
 
-import config from "../config";
 import i18n from "../i18n";
 import realmConfig from "../models/index";
+import EnvConfig from "./envConfig";
 
 const checkForInternet = ( ): Promise<string | null> => (
   new Promise( ( resolve ) => {
@@ -153,7 +153,7 @@ const createJwtToken = ( ): string => {
     exp: new Date().getTime() / 1000 + 300,
   };
 
-  const token = encodeJWT( claims, config.jwtSecret, "HS512" );
+  const token = encodeJWT( claims, EnvConfig.jwtSecret, "HS512" );
   return token;
 };
 

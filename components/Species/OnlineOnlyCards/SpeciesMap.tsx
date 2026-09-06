@@ -9,6 +9,7 @@ import MapView, {
 
 import icons from "../../../assets/icons";
 import styles from "../../../styles/species/speciesMap";
+import EnvConfig from "../../../utility/envConfig";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 
@@ -54,7 +55,7 @@ const SpeciesMap = ( {
         {mapReady && (
           <UrlTile
             tileSize={512}
-            urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
+            urlTemplate={`${EnvConfig.apiURL}/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
           />
         )}
         {mapReady && (

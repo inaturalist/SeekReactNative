@@ -11,9 +11,12 @@ import { AppRegistry } from "react-native";
 
 import { name as appName } from "./app.json";
 import SeekApp from "./components/App";
+import EnvConfig from "./utility/envConfig";
 import createUserAgent from "./utility/userAgent";
 
 inatjs.setConfig( {
+  apiURL: EnvConfig.apiURL,
+  writeApiURL: EnvConfig.writeApiURL,
   userAgent: createUserAgent( ),
 } );
 

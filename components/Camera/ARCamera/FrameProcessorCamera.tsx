@@ -168,7 +168,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     animatedStyle,
     tapToFocus,
     tappedCoordinates,
-  } = useFocusTap( props.cameraRef, device.supportsFocus );
 
   const [lastTimestamp, setLastTimestamp] = useState( undefined );
   const fps = 1;
@@ -334,6 +333,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     },
     [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
   );
+  } = useFocusTap( cameraRef );
 
   const active = isActive && isFocused && isForeground;
   return (

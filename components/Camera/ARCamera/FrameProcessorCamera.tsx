@@ -38,7 +38,6 @@ export interface LogMessage {
 }
 
 interface Props {
-  cameraRef: React.RefObject<Camera | null>;
   device: CameraDevice;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
@@ -57,7 +56,6 @@ interface Props {
 
 const FrameProcessorCamera = ( props: Props ) => {
   const {
-    cameraRef,
     device,
     confidenceThreshold,
     filterByTaxonId,
@@ -79,7 +77,8 @@ const FrameProcessorCamera = ( props: Props ) => {
   const isForeground = useIsForeground( );
 
   const coords = useTruncatedUserCoords( hasPermission );
-
+  
+  const cameraRef = useRef( null );
   const framesProcessingTime = useRef<number[]>( [] );
 
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );

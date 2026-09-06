@@ -108,7 +108,6 @@ const ARCamera = ( ) => {
 
   const isFocused = useIsFocused( );
   const navigation = useNavigation<RootStackScreenProps<"Camera">["navigation"]>( );
-  const camera = useRef<Camera>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
@@ -541,7 +540,6 @@ const ARCamera = ( ) => {
     }
     return (
       <FrameProcessorCamera
-        cameraRef={camera}
         device={device}
         confidenceThreshold={confidenceThresholdNumber}
         onCameraError={handleCameraError}

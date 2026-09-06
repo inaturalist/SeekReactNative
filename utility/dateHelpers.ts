@@ -165,27 +165,72 @@ const namePhotoByTime = (): string => format( new Date(), "ddMMyy_HHmmSSSS" );
 
 const locale = locales[i18n.locale] || locales[i18n.locale.split( "-" )[0]];
 
-const formatDateToDisplay = ( date: any ): string => format( date, "PPPPpaaa", { locale } );
+const formatDateToDisplay = ( date: Date ): string => format( date, "PPPPpaaa", { locale } );
 
 const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", { locale } );
 
 const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
+const SERVER_DATETIME_PATTERN = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
+const SERVER_DATETIME_PATTERN_NO_ZONE = "EEE MMM dd yyyy HH:mm:ss";
+const ZONE_ABBREVIATION_TOKEN = /z+/;
+
+// Hermes' Intl.DateTimeFormat has incomplete ICU time zone name data for
+// some zones (seen so far: Australia/Sydney, Asia/Kolkata, Asia/Singapore)
+// and silently resolves the abbreviated zone name to the literal string
+// "GMT" instead of the real timezone abbreviation (like "AEST") - see
+// https://github.com/facebook/hermes/issues/1601 and
+// https://github.com/marnusw/date-fns-tz/issues/306.
+function timeZoneAbbreviationIsUnreliable(
+  date: Date,
+  timeZone: string,
+  locale: Locale,
+): boolean {
+  const offset = TimeZone.formatInTimeZone( date, timeZone, "xxx", { locale } );
+  if ( offset === "+00:00" ) {
+    return false;
+  }
+  return TimeZone.formatInTimeZone( date, timeZone, "zzz", { locale } ) === "GMT";
+}
+
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
-const formatGMTTimeWithTimeZone = ( date: any ): GMTTimeResult => {
-  if ( !date ) { return {
-    dateForServer: null,
-    dateForDisplay: null,
-  }; }
+// date: can be Date from Picker, or an iso string
+const formatGMTTimeWithTimeZone = ( date: Date | string ): GMTTimeResult => {
+  if ( !date ) {
+    return {
+      dateForServer: null,
+      dateForDisplay: null,
+    };
+  }
+  const formatOpts = { locale: enUS };
 
+  const parsedDate = typeof date === "string" ? parseISO( date ) : date;
   const timeZone = RNLocalize.getTimeZone( );
-  const zonedDate = TimeZone.toZonedTime( date, timeZone );
-  const pattern = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
-  return {
-    dateForServer: TimeZone.formatInTimeZone( zonedDate, timeZone, pattern, { locale: enUS } ),
-    dateForDisplay: formatDateToDisplay( zonedDate ),
-  };
+
+  try {
+    let serverPattern = SERVER_DATETIME_PATTERN;
+    if (
+      ZONE_ABBREVIATION_TOKEN.test( serverPattern )
+      && timeZoneAbbreviationIsUnreliable( parsedDate, timeZone, enUS )
+    ) {
+      // Fall back to a numeric offset (e.g. "GMT+10") instead of an
+      // abbreviation Hermes can't reliably resolve for this zone
+      serverPattern = serverPattern.replace( ZONE_ABBREVIATION_TOKEN, "O" );
+    }
+    return {
+      dateForServer: TimeZone.formatInTimeZone( parsedDate, timeZone, serverPattern, formatOpts ),
+      dateForDisplay: formatDateToDisplay( TimeZone.toZonedTime( parsedDate, timeZone ) ),
+    };
+  } catch ( error ) {
+    if ( error instanceof RangeError ) {
+      return {
+        dateForServer: format( parsedDate, SERVER_DATETIME_PATTERN_NO_ZONE, formatOpts ),
+        dateForDisplay: formatDateToDisplay( parsedDate ),
+      };
+    }
+    throw error;
+  }
 };
 
 const formatYearMonthDay = ( date: string | Date | null | undefined ): string => {

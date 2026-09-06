@@ -5,6 +5,7 @@ import { View } from "react-native";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import { baseTextStyles } from "../../../styles/textStyles";
+import EnvConfig from "../../../utility/envConfig";
 import { createJwtToken } from "../../../utility/helpers";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import createUserAgent from "../../../utility/userAgent";
@@ -32,7 +33,7 @@ const ForgotPasswordScreen = ( ) => {
       "Authorization": token,
     };
 
-    const site = "https://www.inaturalist.org";
+    const site = EnvConfig.oauthApiURL;
 
     fetch( `${site}/users/password`, {
       method: "POST",

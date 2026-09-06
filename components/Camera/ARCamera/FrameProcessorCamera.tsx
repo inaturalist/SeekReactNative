@@ -189,7 +189,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     onClassifierError( error );
   } );
 
-  const patchedRunAsync = usePatchedRunAsync();
   const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
   const useGeomodel = useLocation && hasUserLocation;
   // The vision-plugin has a function to look up the location of the user in a h3 gridded world

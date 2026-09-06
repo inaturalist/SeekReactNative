@@ -51,7 +51,7 @@ import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
 import {
-  useLocationPermission as useLocationPermissionCamera,
+  useLocation,
   usePhotoOutput,
 } from "./helpers/visionCameraWrapper";
 
@@ -138,10 +138,16 @@ const ARCamera = ( ) => {
   const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
   const [visibleToast, setVisibleToast] = useState( TOAST.NONE );
   
-  const location = useLocationPermissionCamera();
-  const { hasPermission } = location;
+  const location = useLocation();
+  const { hasPermission, requestPermission } = location;
+  useEffect( () => {
+    if ( !hasPermission ) {
+      requestPermission();
+    }
+  }, [hasPermission, requestPermission] );
+
   const { userDisabledLocation, setUserDisabledLocation } = useCameraLocationPreference();
-  const useLocation = hasPermission && !userDisabledLocation;
+  const useLocation2 = hasPermission && !userDisabledLocation;
 
   const toggleLocation = () => {
     if ( !hasPermission ) {
@@ -149,7 +155,7 @@ const ARCamera = ( ) => {
     }
     setUserDisabledLocation( ( prev ) => !prev );
     // Always show status when button is pressed
-    setVisibleToast( useLocation ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
+    setVisibleToast( useLocation2 ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
   };
 
   const handleToastEnd = useCallback( () => {
@@ -550,7 +556,7 @@ const ARCamera = ( ) => {
         negativeFilter={negativeFilter}
         // type is replaced with logic in FrameProcessorCamera
         isActive={isActive}
-        useLocation={useLocation}
+        useLocation={useLocation2}
         hasPermission={hasPermission}
         photoOutput={photoOutput}
       />
@@ -581,7 +587,7 @@ const ARCamera = ( ) => {
           toggleFlash={toggleFlash}
           visibleToast={visibleToast}
           toggleLocation={toggleLocation}
-          useLocation={useLocation}
+          useLocation={useLocation2}
           handleToastEnd={handleToastEnd}
         />
       )}

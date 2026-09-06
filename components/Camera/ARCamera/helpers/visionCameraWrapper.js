@@ -3,15 +3,19 @@
 import {
   Camera,
   useCameraDevice,
-  useCameraFormat,
-  useFrameProcessor,
-  useLocationPermission,
+  useCameraPermission,
+  usePhotoOutput,
+  // useCameraFormat,
+  // useFrameProcessor,
+  // useLocationPermission,
 } from "react-native-vision-camera";
 
 export {
   Camera,
   useCameraDevice,
-  useCameraFormat,
-  useFrameProcessor,
-  useLocationPermission,
+  useCameraPermission,
+  usePhotoOutput,
+  // useCameraFormat,
+  // useFrameProcessor,
+  // useLocationPermission,
 };

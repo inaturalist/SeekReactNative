@@ -32,11 +32,6 @@ jest.mock( "@react-native-community/netinfo", () => mockRNCNetInfo );
 jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 
 jest.mock( "vision-camera-plugin-inatvision" );
-jest.mock( "react-native-worklets-core", () => ( {
-  Worklets: {
-    createRunInJsFn: jest.fn(),
-  },
-} ) );
 
 jest.mock( "@dr.pogodin/react-native-fs", () => {
   const RNFS = {

@@ -130,9 +130,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     { videoResolution: "max" },
   ] );
 
-  // Set the exposure to the middle of the min and max exposure
-  const exposure = ( device.maxExposure + device.minExposure ) / 2;
-
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {
       InatVision.resetStoredResults();
@@ -168,6 +165,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     animatedStyle,
     tapToFocus,
     tappedCoordinates,
+  } = useFocusTap( cameraRef );
 
   const [lastTimestamp, setLastTimestamp] = useState( undefined );
   const fps = 1;
@@ -333,7 +331,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     },
     [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
   );
-  } = useFocusTap( cameraRef );
 
   const active = isActive && isFocused && isForeground;
   return (
@@ -345,7 +342,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             style={StyleSheet.absoluteFill}
             device={device}
             format={format}
-            exposure={exposure}
             isActive={active}
             photo={true}
             enableZoomGesture

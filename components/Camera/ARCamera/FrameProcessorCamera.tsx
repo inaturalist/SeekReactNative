@@ -343,7 +343,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             device={device}
             format={format}
             isActive={active}
-            photo={true}
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
             onError={onError}

@@ -82,9 +82,10 @@ const readExifFromMultiplePhotos = async ( photoUris: string[] ) => {
     positional_accuracy?: number;
   } = {};
 
-  // TODO: when uri starts with content do we need to check if we have required permission
-  // Android Read content:// (Android < 10) READ_EXTERNAL_STORAGE
-  // Android Read content:// (Android 10+) READ_MEDIA_IMAGES + ACCESS_MEDIA_LOCATION
+  // Gallery import reads EXIF from local file:// copies made by react-native-image-picker.
+  // On Android 10+, GPS EXIF is restored via copyExif after the picker copies photos; requires
+  // runtime ACCESS_MEDIA_LOCATION (requested in GalleryButton). See react-native-image-picker
+  // PR 2365: https://github.com/react-native-image-picker/react-native-image-picker/pull/2365
   const normalizedUris = photoUris.map( uri => ( uri.startsWith( "/" )
     ? `file://${uri}`
     : uri ) );

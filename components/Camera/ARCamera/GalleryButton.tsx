@@ -13,6 +13,7 @@ import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import { log } from "../../../react-native-logs.config";
 import { viewStyles } from "../../../styles/camera/arCameraOverlay";
+import { requestGalleryMediaPermissions } from "../../../utility/androidHelpers.android";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import readExifFromMultiplePhotos from "../../../utility/parseExif";
@@ -121,6 +122,11 @@ const GalleryButton = ( { setIsActive }: Props ) => {
 
   const showPhotoGallery = async () => {
     setIsActive( false );
+    // Android: ACCESS_MEDIA_LOCATION must be granted before the picker copies photos,
+    // or GPS EXIF is redacted from the cached copy we read later (MOB-1656).
+    if ( Platform.OS === "android" ) {
+      await requestGalleryMediaPermissions();
+    }
     // According to the native code of the image picker library, it never rejects the promise,
     // just returns a response object with errorCode
     const response = await ImagePicker.launchImageLibrary( {

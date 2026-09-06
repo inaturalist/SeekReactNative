@@ -1,0 +1,28 @@
+diff --git a/node_modules/react-native-worklets/Common/cpp/worklets/WorkletRuntime/WorkletHermesRuntime.cpp b/node_modules/react-native-worklets/Common/cpp/worklets/WorkletRuntime/WorkletHermesRuntime.cpp
+index 22388b6..48fe9ae 100644
+--- a/node_modules/react-native-worklets/Common/cpp/worklets/WorkletRuntime/WorkletHermesRuntime.cpp
++++ b/node_modules/react-native-worklets/Common/cpp/worklets/WorkletRuntime/WorkletHermesRuntime.cpp
+@@ -63,8 +63,11 @@ WorkletHermesRuntime::WorkletHermesRuntime(
+     const std::string &name)
+     : jsi::WithRuntimeDecorator<WorkletsReentrancyCheck>(*runtime, reentrancyCheck_), runtime_(std::move(runtime)) {
+ #if HERMES_ENABLE_DEBUGGER && !defined(HERMES_V1_ENABLED)
+-  auto adapter = std::make_unique<HermesExecutorRuntimeAdapter>(*runtime_, jsQueue);
+-  debugToken_ = chrome::enableDebugging(std::move(adapter), name);
++  // Skip worklet debug target registration to avoid RN 0.83.5+ false-positive
++  // "multiple React Native hosts" in DevTools, which disables Network and
++  // Performance tabs. See react-native-community/discussions-and-proposals#954.
++  (void)jsQueue;
++  (void)name;
+ #endif // HERMES_ENABLE_DEBUGGER && !defined(HERMES_V1_ENABLED)
+ 
+ #ifndef NDEBUG
+@@ -92,8 +95,7 @@ WorkletHermesRuntime::WorkletHermesRuntime(
+ 
+ WorkletHermesRuntime::~WorkletHermesRuntime() {
+ #if HERMES_ENABLE_DEBUGGER && !defined(HERMES_V1_ENABLED)
+-  // We have to disable debugging before the runtime is destroyed.
+-  chrome::disableDebugging(debugToken_);
++  // Paired with skipped enableDebugging above.
+ #endif // HERMES_ENABLE_DEBUGGER && !defined(HERMES_V1_ENABLED)
+ }
+ 

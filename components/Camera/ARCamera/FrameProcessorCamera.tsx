@@ -151,7 +151,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     tappedCoordinates,
   } = useFocusTap( cameraRef );
 
-  const [lastTimestamp, setLastTimestamp] = useState( undefined );
+  const [lastTimestamp, setLastTimestamp] = useState<number | undefined>( undefined );
   const fps = 1;
   const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );

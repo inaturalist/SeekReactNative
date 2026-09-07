@@ -327,7 +327,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const active = isActive && isFocused && isForeground;
   return (
-    device && hasPermission && (
+    device && hasCameraPermission && (
       <>
         <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
           <Camera

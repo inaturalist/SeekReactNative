@@ -336,7 +336,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
             onError={onError}
-            outputOrientation="device"
             enableLocation={hasPermission}
             outputs={[photoOutput]}
             constraints={[
@@ -345,6 +344,7 @@ const FrameProcessorCamera = ( props: Props ) => {
               { resolutionBias: photoOutput },
             ]}
             enableNativeZoomGesture={true}
+            orientationSource="device"
           />
         </GestureDetector>
         <FocusSquare

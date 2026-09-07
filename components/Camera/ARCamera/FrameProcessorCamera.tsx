@@ -104,10 +104,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     */
   }, [hasCameraPermission, requestCameraPermission] );
 
-  // Currently, we are asking for camera permission on focus of the screen, that results in one render
-  // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
-  const [permissionCount, setPermissionCount] = useState( 0 );
-
   // Select the camera format based on the screen aspect ratio on ai camera as it is full-screen
   const screen = Dimensions.get( "screen" );
   const videoAspectRatio = screen.height / screen.width;
@@ -243,6 +239,10 @@ const FrameProcessorCamera = ( props: Props ) => {
       useGeomodel,
     ]
   );
+  // Currently, we are asking for camera permission on focus of the screen, that results in one render
+  // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
+  // TODO: relates to below
+  // const [permissionCount, setPermissionCount] = useState( 0 );
 
   const onError = useCallback(
     ( error: Error ) => {

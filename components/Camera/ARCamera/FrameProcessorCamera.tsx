@@ -148,7 +148,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const [lastTimestamp, setLastTimestamp] = useState<number | undefined>( undefined );
   const fps = 1;
-  const handleResult = ( result: InatVision.Result, timeTaken: number ) => {
+  const handleResult = useCallback( ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
     console.log( "result.timeElapsed", result.timeElapsed );
     framesProcessingTime.current.push( timeTaken );
@@ -162,7 +162,13 @@ const FrameProcessorCamera = ( props: Props ) => {
       } );
     }
     onTaxaDetected( result );
-  };
+  }, [onLog, onTaxaDetected] );
+  useEffect( () => {
+    handleResult( {
+      predictions: [],
+      timestamp: Date.now(),
+    }, 100 );
+  }, [] );
 
   const handleError = ( error: ErrorMessage ) => {
     onClassifierError( error );

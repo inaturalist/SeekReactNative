@@ -80,18 +80,16 @@ const FrameProcessorCamera = ( props: Props ) => {
   const cameraRef = useRef<CameraRef>( null );
   const framesProcessingTime = useRef<number[]>( [] );
 
-  const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
-  const requestCameraPermission = useCallback( async () => {
+  const { hasPermission: hasCameraPermission, requestPermission: requestCameraPermission } = useCameraPermission();
+  useEffect( () => {
     // Checking camera permission status, if granted set it and return
-    const status = Camera.getCameraPermissionStatus();
-    if ( status === "granted" ) {
-      setCameraPermissionStatus( status );
-      return;
-    }
-    console.log( "Requesting camera permission..." );
-    const permission = await Camera.requestCameraPermission();
-    console.log( `Camera permission status: ${permission}` );
-
+    console.log( `Camera permission status: hasCameraPermission is ${hasCameraPermission}` );
+    if ( !hasCameraPermission ) {
+      console.log( "Requesting camera permission..." );
+      requestCameraPermission( );
+    };
+    // TODO: figure out how to do this with new API
+    /*
     if ( permission === "denied" ) {
       // If the user has not granted permission we have to show an error message
       // This string is returned from the legacy camera when the user has not granted the needed permissions
@@ -104,13 +102,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       };
       onCameraError( returnError );
     }
-    setCameraPermissionStatus( permission );
-  }, [onCameraError] );
-
-
-  const { hasPermission: hasCameraPermission, requestPermission: requestCameraPermission } = useCameraPermission();
-  useEffect( () => {
-    if ( !hasCameraPermission ) requestCameraPermission();
+      */
   }, [hasCameraPermission, requestCameraPermission] );
 
   // Currently, we are asking for camera permission on focus of the screen, that results in one render

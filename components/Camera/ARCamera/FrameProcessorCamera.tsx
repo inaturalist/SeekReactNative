@@ -61,9 +61,9 @@ const FrameProcessorCamera = ( props: Props ) => {
     negativeFilter,
     onTaxaDetected,
     onCameraError,
-    onDeviceNotSupported,
+    // onDeviceNotSupported,
     onClassifierError,
-    onCaptureError,
+    // onCaptureError,
     onLog,
     isActive,
     useLocation,
@@ -109,6 +109,8 @@ const FrameProcessorCamera = ( props: Props ) => {
   const screen = Dimensions.get( "screen" );
   const videoAspectRatio = screen.height / screen.width;
   const photoAspectRatio = screen.height / screen.width;
+  console.log( "videoAspectRatio", videoAspectRatio );
+  console.log( "photoAspectRatio", photoAspectRatio );
 
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {

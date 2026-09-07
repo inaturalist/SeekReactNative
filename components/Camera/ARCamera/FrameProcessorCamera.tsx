@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { Worklets } from "react-native-worklets-core";
-import type {CameraDevice, CameraPhotoOutput, CameraRef, CameraRuntimeError} from "react-native-vision-camera";
+import type { CameraDevice, CameraPhotoOutput, CameraRef } from "react-native-vision-camera";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
@@ -254,7 +254,7 @@ const FrameProcessorCamera = ( props: Props ) => {
   );
 
   const onError = useCallback(
-    ( error: CameraRuntimeError ) => {
+    ( error: Error ) => {
       console.log( "error", error );
       logToApi( {
         level: LogLevels.ERROR,
@@ -263,7 +263,11 @@ const FrameProcessorCamera = ( props: Props ) => {
         errorType: error.constructor?.name,
         backtrace: error.stack,
       } );
-      let returnString = error.code;
+      const returnString = error.message;
+      // TODO: VC4 was sending detailed error codes on what parts of the setup were broken
+      // VC5 does no such thing? Figure out how to react to a variety of errors that can be thrown here.
+      /*
+      const returnString = error.code;
       // If there is no error code, log the error and return because we don't know what to do with it
       if ( !error.code ) {
         console.log( "Camera runtime error without error code:" );
@@ -314,13 +318,19 @@ const FrameProcessorCamera = ( props: Props ) => {
           "Camera Input Failed: This app is not authorized to use Back Camera.";
         returnString = permissions;
       }
-
+      */
       const returnError: { nativeEvent: { error?: string } } = {
         nativeEvent: { error: returnString },
       };
       onCameraError( returnError );
     },
-    [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
+    [
+      // permissionCount,
+      onCameraError,
+      // onDeviceNotSupported,
+      // onClassifierError,
+      // onCaptureError
+    ]
   );
 
   const active = isActive && isFocused && isForeground;
@@ -335,7 +345,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             isActive={active}
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
-            onError={onError}
             enableLocation={hasPermission}
             outputs={[photoOutput]}
             constraints={[
@@ -344,6 +353,7 @@ const FrameProcessorCamera = ( props: Props ) => {
               { resolutionBias: photoOutput },
             ]}
             enableNativeZoomGesture={true}
+            onError={onError}
             orientationSource="device"
           />
         </GestureDetector>

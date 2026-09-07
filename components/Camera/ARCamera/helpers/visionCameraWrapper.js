@@ -2,6 +2,7 @@
 // so we can mock them for e2e tests in simulators without camera.
 import {
   Camera,
+  useAsyncRunner,
   useCameraDevice,
   useCameraPermission,
   useFrameOutput,
@@ -11,6 +12,7 @@ import { useLocation } from "react-native-vision-camera-location";
 
 export {
   Camera,
+  useAsyncRunner,
   useCameraDevice,
   useCameraPermission,
   useFrameOutput,

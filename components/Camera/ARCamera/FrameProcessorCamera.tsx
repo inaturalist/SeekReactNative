@@ -2,7 +2,6 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import { Worklets } from "react-native-worklets-core";
 import type { CameraDevice, CameraPhotoOutput, CameraRef } from "react-native-vision-camera";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
@@ -153,7 +152,7 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const [lastTimestamp, setLastTimestamp] = useState<number | undefined>( undefined );
   const fps = 1;
-  const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
+  const handleResult = ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
     console.log( "result.timeElapsed", result.timeElapsed );
     framesProcessingTime.current.push( timeTaken );
@@ -167,11 +166,11 @@ const FrameProcessorCamera = ( props: Props ) => {
       } );
     }
     onTaxaDetected( result );
-  } );
+  };
 
-  const handleError = Worklets.createRunOnJS( ( error: ErrorMessage ) => {
+  const handleError = ( error: ErrorMessage ) => {
     onClassifierError( error );
-  } );
+  };
 
   const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
   const useGeomodel = useLocation && hasUserLocation;

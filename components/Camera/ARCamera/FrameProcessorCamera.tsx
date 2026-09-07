@@ -14,6 +14,7 @@ import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage"
 import FocusSquare from "./FocusSquare";
 import {
   Camera,
+  useAsyncRunner,
   useCameraPermission,
   useFrameOutput,
 } from "./helpers/visionCameraWrapper";
@@ -177,50 +178,59 @@ const FrameProcessorCamera = ( props: Props ) => {
     ? InatVision.getCellLocation( coords )
     : null;
 
+  const asyncRunner = useAsyncRunner( );
   const frameOutput = useFrameOutput( {
     allowDeferredStart: true,
     enablePhysicalBufferRotation: true,
     pixelFormat: "yuv",
     onFrame( frame ) {
       "worklet";
-      try {
-        // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
-        // react-native-worklets-core documentation for what is supported in those worklets.
-        // If there is no lastTimestamp, i.e. the first time this runs do not compare
-        const timestamp = Date.now();
-        if ( lastTimestamp ) {
-          const timeSinceLastFrame = timestamp - lastTimestamp;
-          if ( timeSinceLastFrame < 1000 / fps ) {
-            return;
+      const wasHandled = asyncRunner.runAsync( () => {
+        "worklet";
+        try {
+          // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
+          // react-native-worklets-core documentation for what is supported in those worklets.
+          // If there is no lastTimestamp, i.e. the first time this runs do not compare
+          const timestamp = Date.now();
+          if ( lastTimestamp ) {
+            const timeSinceLastFrame = timestamp - lastTimestamp;
+            if ( timeSinceLastFrame < 1000 / fps ) {
+              return;
+            }
           }
+          const timeBefore = new Date().getTime();
+          const result = InatVision.inatVision( frame, {
+            version: "2.13",
+            modelPath: dirModel,
+            taxonomyPath: dirTaxonomy,
+            confidenceThreshold,
+            filterByTaxonId,
+            negativeFilter,
+            useGeomodel,
+            geomodelPath: dirGeomodel,
+            location: {
+              latitude: geoModelCellLocation?.latitude,
+              longitude: geoModelCellLocation?.longitude,
+              elevation: geoModelCellLocation?.elevation,
+            },
+          } );
+          const timeAfter = Date.now();
+          const timeTaken = timeAfter - timeBefore;
+          scheduleOnRN( handleResult, result, timeTaken );
+        } catch ( classifierError ) {
+          // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
+          console.log( `Error: ${classifierError.message}` );
+          const returnError = {
+            nativeEvent: { error: classifierError.message },
+          };
+          scheduleOnRN( onClassifierError, returnError );
+        } finally {
+          frame.dispose();
         }
-        const timeBefore = new Date().getTime();
-        const result = InatVision.inatVision( frame, {
-          version: "2.13",
-          modelPath: dirModel,
-          taxonomyPath: dirTaxonomy,
-          confidenceThreshold,
-          filterByTaxonId,
-          negativeFilter,
-          useGeomodel,
-          geomodelPath: dirGeomodel,
-          location: {
-            latitude: geoModelCellLocation?.latitude,
-            longitude: geoModelCellLocation?.longitude,
-            elevation: geoModelCellLocation?.elevation,
-          },
-        } );
-        const timeAfter = Date.now();
-        const timeTaken = timeAfter - timeBefore;
-        scheduleOnRN( handleResult, result, timeTaken );
-      } catch ( classifierError ) {
-        // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
-        console.log( `Error: ${classifierError.message}` );
-        const returnError = {
-          nativeEvent: { error: classifierError.message },
-        };
-        scheduleOnRN( onClassifierError, returnError );
-      } finally {
+      } );
+
+      if ( !wasHandled ) {
+        // `asyncRunner` is busy - drop this Frame!
         frame.dispose();
       }
     },

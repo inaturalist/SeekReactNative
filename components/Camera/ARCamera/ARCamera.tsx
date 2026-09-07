@@ -14,9 +14,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import type { Prediction } from "vision-camera-plugin-inatvision";
 import { useSharedValue } from "react-native-reanimated";
 import type { PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
+import type { Prediction } from "vision-camera-plugin-inatvision";
 
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";

@@ -102,7 +102,7 @@ const FrameProcessorCamera = ( props: Props ) => {
       };
       onCameraError( returnError );
     }
-      */
+    */
   }, [hasCameraPermission, requestCameraPermission] );
 
   // Currently, we are asking for camera permission on focus of the screen, that results in one render

@@ -337,7 +337,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             pixelFormat="yuv"
             onError={onError}
             outputOrientation="device"
-            photoQualityBalance="speed"
             enableLocation={hasPermission}
             outputs={[photoOutput]}
             constraints={[

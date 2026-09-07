@@ -394,7 +394,9 @@ const ARCamera = ( ) => {
     checkPermissions( );
   }, [savePhoto] );
 
-  const photoOutput = usePhotoOutput();
+  const photoOutput = usePhotoOutput( {
+    qualityPrioritization: "speed",
+  } );
   const visionCameraTakePhoto = useCallback( async ( callback ) => {
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];

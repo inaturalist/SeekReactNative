@@ -15,7 +15,7 @@ import {
   View,
 } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
-import type { PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
+import type { CapturePhotoSettings, PhotoFile } from "react-native-vision-camera";
 import type { Prediction } from "vision-camera-plugin-inatvision";
 
 import icons from "../../../assets/icons";
@@ -131,9 +131,9 @@ const ARCamera = ( ) => {
     // We had this set to true in Seek but received many reports of it not respecting OS-wide sound
     // level and scared away wildlife. So maybe better to just disable it.
     enableShutterSound: false,
-    ...( hasFlash && { flash: "off" } as const ),
+    ...( hasFlash && { flashMode: "off" } as const ),
   } as const;
-  const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
+  const [takePhotoOptions, setTakePhotoOptions] = useState<CapturePhotoSettings>( initialPhotoOptions );
   const [visibleToast, setVisibleToast] = useState( TOAST.NONE );
   
   const location = useLocation();
@@ -230,11 +230,11 @@ const ARCamera = ( ) => {
   const toggleFlash = ( ) => {
     setTakePhotoOptions( {
       ...takePhotoOptions,
-      flash: takePhotoOptions.flash === "on"
+      flashMode: takePhotoOptions.flashMode === "on"
         ? "off"
         : "on",
     } );
-    setVisibleToast( takePhotoOptions.flash === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
+    setVisibleToast( takePhotoOptions.flashMode === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
   };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {

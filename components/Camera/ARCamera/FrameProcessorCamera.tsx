@@ -337,7 +337,6 @@ const FrameProcessorCamera = ( props: Props ) => {
             isActive={active}
             frameProcessor={frameProcessor}
             pixelFormat="yuv"
-            enableLocation={hasPermission}
             outputs={[photoOutput]}
             constraints={[
               // { videoAspectRatio },

@@ -402,7 +402,10 @@ const ARCamera = ( ) => {
     const predictions = [...sortedPredictions];
 
     try {
-      const photo = await photoOutput.capturePhotoToFile( takePhotoOptions, {
+      const photo = await photoOutput.capturePhotoToFile( {
+        ...takePhotoOptions,
+        location: location.currentLocation,
+      }, {
         // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
         // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
         // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
@@ -453,7 +456,7 @@ const ARCamera = ( ) => {
       handleCaptureError( { nativeEvent: { reason: e } } );
 
     }
-  }, [sortedPredictions, handleCaptureError, takePhotoOptions, photoOutput] );
+  }, [sortedPredictions, handleCaptureError, takePhotoOptions, location, photoOutput] );
 
   const takePicture = useCallback( async () => {
     pictureTaken.value = true;

@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraDevice, CameraPhotoOutput, CameraRef } from "react-native-vision-camera";
+import { scheduleOnRN } from "react-native-worklets";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
@@ -13,8 +14,8 @@ import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage"
 import FocusSquare from "./FocusSquare";
 import {
   Camera,
-  useFrameProcessor,
   useCameraPermission,
+  useFrameOutput,
 } from "./helpers/visionCameraWrapper";
 import InatVision from "./helpers/visionPluginWrapper";
 import useFocusTap from "./hooks/useFocusTap";
@@ -173,68 +174,56 @@ const FrameProcessorCamera = ( props: Props ) => {
   const geoModelCellLocation = hasUserLocation
     ? InatVision.getCellLocation( coords )
     : null;
-  const frameProcessor = useFrameProcessor(
-    ( frame ) => {
-      "worklet";
 
-      // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
-      // react-native-worklets-core documentation for what is supported in those worklets.
-      // If there is no lastTimestamp, i.e. the first time this runs do not compare
-      const timestamp = Date.now();
-      if ( lastTimestamp ) {
-        const timeSinceLastFrame = timestamp - lastTimestamp;
-        if ( timeSinceLastFrame < 1000 / fps ) {
-          return;
+  const frameOutput = useFrameOutput( {
+    allowDeferredStart: true,
+    enablePhysicalBufferRotation: true,
+    pixelFormat: "yuv",
+    onFrame( frame ) {
+      "worklet";
+      try {
+        // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
+        // react-native-worklets-core documentation for what is supported in those worklets.
+        // If there is no lastTimestamp, i.e. the first time this runs do not compare
+        const timestamp = Date.now();
+        if ( lastTimestamp ) {
+          const timeSinceLastFrame = timestamp - lastTimestamp;
+          if ( timeSinceLastFrame < 1000 / fps ) {
+            return;
+          }
         }
+        const timeBefore = new Date().getTime();
+        const result = InatVision.inatVision( frame, {
+          version: "2.13",
+          modelPath: dirModel,
+          taxonomyPath: dirTaxonomy,
+          confidenceThreshold,
+          filterByTaxonId,
+          negativeFilter,
+          useGeomodel,
+          geomodelPath: dirGeomodel,
+          location: {
+            latitude: geoModelCellLocation?.latitude,
+            longitude: geoModelCellLocation?.longitude,
+            elevation: geoModelCellLocation?.elevation,
+          },
+        } );
+        const timeAfter = Date.now();
+        const timeTaken = timeAfter - timeBefore;
+        scheduleOnRN( handleResult, result, timeTaken );
+      } catch ( classifierError ) {
+        // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
+        console.log( `Error: ${classifierError.message}` );
+        const returnError = {
+          nativeEvent: { error: classifierError.message },
+        };
+        scheduleOnRN( onClassifierError, returnError );
+      } finally {
+        frame.dispose();
       }
-      patchedRunAsync( frame, () => {
-        "worklet";
-        try {
-          const timeBefore = Date.now();
-          const result = InatVision.inatVision( frame, {
-            version: "2.13",
-            modelPath: dirModel,
-            taxonomyPath: dirTaxonomy,
-            confidenceThreshold,
-            filterByTaxonId,
-            negativeFilter,
-            useGeomodel,
-            geomodelPath: dirGeomodel,
-            location: {
-              latitude: geoModelCellLocation?.latitude,
-              longitude: geoModelCellLocation?.longitude,
-              elevation: geoModelCellLocation?.elevation,
-            },
-          } );
-          const timeAfter = Date.now();
-          const timeTaken = timeAfter - timeBefore;
-          handleResult( result, timeTaken );
-        } catch ( classifierError ) {
-          // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
-          console.log( `Error: ${classifierError.message}` );
-          const returnError = {
-            nativeEvent: { error: classifierError.message },
-          };
-          handleError( returnError );
-        }
-      } );
-      // ref={camera} was only used for takePictureAsync()
-      // Johannes: I did a read though of the native code that is triggered when using ref.current.takePictureAsync()
-      // and to me it seems everything should be handled by vision-camera itself. However, there is also some Exif and device orientation stuff going on.
-      // related code that would need to be tested if it all is saved as expected.
     },
-    [
-      patchedRunAsync,
-      confidenceThreshold,
-      filterByTaxonId,
-      negativeFilter,
-      lastTimestamp,
-      fps,
-      hasUserLocation,
-      geoModelCellLocation,
-      useGeomodel,
-    ]
-  );
+  } );
+
   // Currently, we are asking for camera permission on focus of the screen, that results in one render
   // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
   // TODO: relates to below
@@ -330,9 +319,7 @@ const FrameProcessorCamera = ( props: Props ) => {
             style={StyleSheet.absoluteFill}
             device={device}
             isActive={active}
-            frameProcessor={frameProcessor}
-            pixelFormat="yuv"
-            outputs={[photoOutput]}
+            outputs={[photoOutput, frameOutput]}
             constraints={[
               // { videoAspectRatio },
               // { photoAspectRatio },

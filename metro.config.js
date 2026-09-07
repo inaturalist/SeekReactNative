@@ -3,6 +3,7 @@ const { withRozenite } = require( "@rozenite/metro" );
 const {
   withRozeniteRequireProfiler,
 } = require( "@rozenite/require-profiler-plugin/metro" );
+const { bundleModeMetroConfig } = require( "react-native-worklets/bundleMode" );
 
 const {
   resolver: { sourceExts },
@@ -69,7 +70,7 @@ const config = {
 };
 
 module.exports = withRozenite(
-  mergeConfig( getDefaultConfig( __dirname ), config ),
+  mergeConfig( getDefaultConfig( __dirname ), bundleModeMetroConfig, config ),
   {
     enabled: process.env.WITH_ROZENITE === "true",
     enhanceMetroConfig: ( _config ) => withRozeniteRequireProfiler( _config ),

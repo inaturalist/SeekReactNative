@@ -133,8 +133,3 @@ export const mockUseCameraDevice = ( _deviceType ) => {
 };
 
 
-export const mockUseLocationPermission = () => {
-  return {
-    hasPermission: true,
-  };
-};

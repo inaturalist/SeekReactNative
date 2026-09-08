@@ -195,9 +195,6 @@ jest.mock( "react-native-vision-camera", () => ( {
   sortDevices: mockSortDevices,
   useCameraDevice: mockUseCameraDevice,
   useFrameProcessor: jest.fn(),
-  VisionCameraProxy: {
-    initFrameProcessorPlugin: jest.fn(),
-  },
 } ) );
 
 jest.mock( "@react-native-camera-roll/camera-roll", () => ( {

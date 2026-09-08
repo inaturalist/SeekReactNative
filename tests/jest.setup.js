@@ -15,6 +15,7 @@ import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 import {
   mockCamera,
   mockSortDevices,
+  mockUseAsyncRunner,
   mockUseCameraDevice,
   mockUseCameraPermission,
   mockUseLocation,
@@ -195,6 +196,7 @@ jest.mock( "realm", () => {
 jest.mock( "react-native-vision-camera", () => ( {
   Camera: mockCamera,
   sortDevices: mockSortDevices,
+  useAsyncRunner: mockUseAsyncRunner,
   useCameraDevice: mockUseCameraDevice,
   useCameraPermission: mockUseCameraPermission,
   useFrameOutput: jest.fn(),

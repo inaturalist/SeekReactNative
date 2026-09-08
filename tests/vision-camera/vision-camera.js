@@ -143,3 +143,10 @@ export const mockUseLocation = () => ( {
   currentLocation: undefined,
 } );
 
+export const mockUseAsyncRunner = () => ( {
+  runAsync: ( cb ) => {
+    cb();
+    return true;
+  },
+} );
+

@@ -9,18 +9,21 @@
 import { useFrameOutput } from "react-native-vision-camera";
 import {
   mockCamera,
+  mockUseAsyncRunner,
   mockUseCameraDevice,
   mockUseCameraPermission,
   mockUseLocation,
 } from "tests/vision-camera/vision-camera";
 
 const Camera = mockCamera;
+const useAsyncRunner = mockUseAsyncRunner;
 const useCameraDevice = mockUseCameraDevice;
 const useCameraPermission = mockUseCameraPermission;
 const useLocation = mockUseLocation;
 
 export {
   Camera,
+  useAsyncRunner,
   useCameraDevice,
   useCameraPermission,
   useFrameOutput,

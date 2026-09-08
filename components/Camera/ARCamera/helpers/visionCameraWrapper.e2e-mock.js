@@ -6,7 +6,7 @@
   As you can see in the next wrapper file our plugin is not used though in this
   frame processor and only a mocked prediction is immediately returned.
 */
-import { useFrameProcessor } from "react-native-vision-camera";
+import { useFrameOutput } from "react-native-vision-camera";
 import {
   mockCamera,
   mockUseCameraDevice,
@@ -18,5 +18,5 @@ const useCameraDevice = mockUseCameraDevice;
 export {
   Camera,
   useCameraDevice,
-  useFrameProcessor,
+  useFrameOutput,
 };

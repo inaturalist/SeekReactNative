@@ -1,0 +1,25 @@
+diff --git a/node_modules/react-native-vision-camera-worklets/VisionCameraWorklets.podspec b/node_modules/react-native-vision-camera-worklets/VisionCameraWorklets.podspec
+index ed03a68..9fc5cbe 100644
+--- a/node_modules/react-native-vision-camera-worklets/VisionCameraWorklets.podspec
++++ b/node_modules/react-native-vision-camera-worklets/VisionCameraWorklets.podspec
+@@ -26,6 +26,20 @@ Pod::Spec.new do |s|
+   load 'nitrogen/generated/ios/VisionCameraWorklets+autolinking.rb'
+   add_nitrogen_files(s)
+ 
++  # Seek patch: nitrogen generates a Swift stub for this pod (VisionCameraWorkletsAutolinking.swift)
++  # even though the package has no Swift implementation. Compiling that stub makes Swift's
++  # ClangImporter build this pod's own Clang module, and `add_nitrogen_files` puts
++  # HybridWorkletQueueFactorySpec.hpp into the umbrella header -- which reaches
++  # cpp/JSIConverter+AsyncQueue.hpp and `#include <worklets/RunLoop/AsyncQueue.h>`. Under
++  # `use_frameworks! linkage: :static` that include resolves only through worklets.framework,
++  # i.e. as a Clang module, which transitively builds `glog` and `React` as modules -- and
++  # neither is module-safe (glog/logging.h includes "glog/log_severity.h" inside
++  # `namespace google`; RN's React module has no search path for jsinspector-modern/), so the
++  # pod fails to build. Nothing outside this pod imports the VisionCameraWorklets module and
++  # the spec header stays reachable to the pod's own .cpp/.mm files through the target's header
++  # maps, so keep it out of the umbrella (and therefore out of the module).
++  s.public_header_files = ["nitrogen/generated/ios/VisionCameraWorklets-Swift-Cxx-Bridge.hpp"]
++
+   s.dependency 'VisionCamera'
+   s.dependency 'RNWorklets' # <-- from react-native-worklets
+   s.dependency 'React-jsi'

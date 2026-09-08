@@ -132,4 +132,9 @@ export const mockUseCameraDevice = ( _deviceType ) => {
   return device;
 };
 
+export const mockUseCameraPermission = () => ( {
+  hasPermission: true,
+  requestPermission: async () => true,
+} );
+
 

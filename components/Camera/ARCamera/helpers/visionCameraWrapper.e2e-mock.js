@@ -11,15 +11,18 @@ import {
   mockCamera,
   mockUseCameraDevice,
   mockUseCameraPermission,
+  mockUseLocation,
 } from "tests/vision-camera/vision-camera";
 
 const Camera = mockCamera;
 const useCameraDevice = mockUseCameraDevice;
 const useCameraPermission = mockUseCameraPermission;
+const useLocation = mockUseLocation;
 
 export {
   Camera,
   useCameraDevice,
   useCameraPermission,
   useFrameOutput,
+  useLocation,
 };

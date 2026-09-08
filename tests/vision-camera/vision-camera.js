@@ -137,4 +137,9 @@ export const mockUseCameraPermission = () => ( {
   requestPermission: async () => true,
 } );
 
+export const mockUseLocation = () => ( {
+  hasPermission: true,
+  requestPermission: async () => true,
+  currentLocation: undefined,
+} );
 

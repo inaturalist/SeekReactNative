@@ -26,6 +26,7 @@ const mockFrame = {
   } ),
   incrementRefCount: () => null,
   decrementRefCount: () => null,
+  dispose: () => null,
 };
 
 const style = { flex: 1, backgroundColor: "red" };

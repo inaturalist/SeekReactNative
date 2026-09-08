@@ -43,9 +43,8 @@ export class mockCamera extends React.PureComponent {
   }
 
   /*
-    Every time the component updates we are running the frame processor that is a prop
-    to the camera component. We are running the frame processor with a mocked frame that
-    does not include any kind of image data at all.
+    Every time the component updates we invoke the frame output's onFrame callback
+    with a mocked frame that does not include any kind of image data at all.
     Running it only on component update means it only is called a few times and not
     every second (or so - depending on fps). This is enough to satisfy the e2e test
     though because the mocked prediction needs to appear only once to be found by the
@@ -53,11 +52,11 @@ export class mockCamera extends React.PureComponent {
     the test never finishes.
   */
   componentDidUpdate() {
-    const { frameProcessor } = this.props;
-    frameProcessor?.frameProcessor( mockFrame );
+    const { outputs } = this.props;
+    outputs?.forEach( ( output ) => {
+      output?.onFrame?.( mockFrame );
+    } );
   }
-
-
 
   render() {
     return <View testID="mock-camera" style={style} />;

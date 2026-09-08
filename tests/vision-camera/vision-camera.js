@@ -150,7 +150,7 @@ export const mockUseAsyncRunner = () => ( {
   },
 } );
 
-const mockCapturePhotoToFile = async ( _settings ) => {
+const mockCapturePhotoToFile = async ( _settings, callbacks = {} ) => {
   // TODO: this only works on iOS
   return CameraRoll.getPhotos( {
     first: 20,
@@ -182,6 +182,8 @@ const mockCapturePhotoToFile = async ( _settings ) => {
         console.log( "photo is not an object", typeof photo );
         return null;
       }
+      // Not sure if this is required
+      callbacks.onDidCapturePhoto?.();
       return {
         ...testPhoto,
         filePath: newPath,

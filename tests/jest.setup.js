@@ -18,6 +18,7 @@ import {
   mockUseAsyncRunner,
   mockUseCameraDevice,
   mockUseCameraPermission,
+  mockUseFrameOutput,
   mockUseLocation,
   mockUsePhotoOutput,
 } from "./vision-camera/vision-camera";
@@ -200,7 +201,7 @@ jest.mock( "react-native-vision-camera", () => ( {
   useAsyncRunner: mockUseAsyncRunner,
   useCameraDevice: mockUseCameraDevice,
   useCameraPermission: mockUseCameraPermission,
-  useFrameOutput: jest.fn(),
+  useFrameOutput: mockUseFrameOutput,
   usePhotoOutput: mockUsePhotoOutput,
 } ) );
 

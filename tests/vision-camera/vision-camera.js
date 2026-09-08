@@ -105,6 +105,8 @@ export const mockUseAsyncRunner = () => ( {
   },
 } );
 
+export const mockUseFrameOutput = ( options ) => options;
+
 const mockCapturePhotoToFile = async ( _settings, callbacks = {} ) => {
   // TODO: this only works on iOS
   return CameraRoll.getPhotos( {

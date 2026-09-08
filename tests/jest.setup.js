@@ -16,7 +16,6 @@ import {
   mockCamera,
   mockSortDevices,
   mockUseCameraDevice,
-  mockUseCameraFormat,
 } from "./vision-camera/vision-camera";
 
 require( "react-native-reanimated" ).setUpTests();
@@ -195,7 +194,6 @@ jest.mock( "react-native-vision-camera", () => ( {
   Camera: mockCamera,
   sortDevices: mockSortDevices,
   useCameraDevice: mockUseCameraDevice,
-  useCameraFormat: mockUseCameraFormat,
   useFrameProcessor: jest.fn(),
   VisionCameraProxy: {
     initFrameProcessorPlugin: jest.fn(),

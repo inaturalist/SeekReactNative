@@ -58,51 +58,6 @@ export class mockCamera extends React.PureComponent {
   }
 
 
-  async takePhoto( ) {
-    // TODO: this only works on iOS
-    return CameraRoll.getPhotos( {
-      first: 20,
-      assetType: "Photos",
-    } )
-      .then( async ( r ) => {
-        /*
-          Basically, here, we are reading the newest twenty photos from the simulators gallery
-          and return the oldest one of those. Copy it to a new path and treat it as a new photo.
-        */
-        const testPhoto = r.edges[r.edges.length - 1].node.image;
-        let oldUri = testPhoto.uri;
-        if ( testPhoto.uri.includes( "ph://" ) ) {
-          let id = testPhoto.uri.replace( "ph://", "" );
-          id = id.substring( 0, id.indexOf( "/" ) );
-          oldUri = `assets-library://asset/asset.jpg?id=${id}&ext=jpg`;
-          console.log( `Converted file uri to ${oldUri}` );
-        }
-        const encodedUri = encodeURI( oldUri );
-        const destPath = `${TemporaryDirectoryPath}temp.jpg`;
-        const newPath = await copyAssetsFileIOS(
-          encodedUri,
-          destPath,
-          0,
-          0
-        );
-        const photo = { uri: newPath, predictions: [] };
-        if ( typeof photo !== "object" ) {
-          console.log( "photo is not an object", typeof photo );
-          return null;
-        }
-        return {
-          ...testPhoto,
-          path: newPath,
-          metadata: {
-            Orientation: testPhoto.orientation,
-          },
-        };
-      } )
-      .catch( ( err ) => {
-        console.log( "Error getting photos", err );
-        return null;
-      } );
-  }
 
   render() {
     return <View testID="mock-camera" style={style} />;

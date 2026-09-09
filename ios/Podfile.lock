@@ -3884,8 +3884,8 @@ SPEC CHECKSUMS:
   fast_float: b32c788ed9c6a8c584d114d0047beda9664e7cc6
   FBLazyVector: 07433c4ab85da44d0b5ceac374ff4e1d57c7aa23
   fmt: 530618a01105dae0fa3a2f27c81ae11fa8f67eac
-  glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
-  hermes-engine: e61dc9fc730c83f3ac0b3782af7c3d9c14cd0561
+  glog: 0456694f3aaf09460b660ea327cfc11defbeea4c
+  hermes-engine: f37e1d6f1eb198649a60b3f17b6f685a6ac12470
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   NitroImage: aaf23abdf2f5446f392b43867c27860508b52965
   NitroModules: d52aaa5db99af2be4c2b171460e3a7541d78fe4d

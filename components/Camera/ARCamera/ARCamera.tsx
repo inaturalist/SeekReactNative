@@ -16,6 +16,7 @@ import {
 } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 import type { CapturePhotoSettings, PhotoFile } from "react-native-vision-camera";
+import { CommonResolutions } from "react-native-vision-camera";
 import type { Prediction } from "vision-camera-plugin-inatvision";
 
 import icons from "../../../assets/icons";
@@ -395,6 +396,7 @@ const ARCamera = ( ) => {
 
   const photoOutput = usePhotoOutput( {
     qualityPrioritization: "speed",
+    targetResolution: CommonResolutions.HIGHEST_16_9,
   } );
   const visionCameraTakePhoto = useCallback( async ( callback ) => {
     // Local copy of all predictions, so we can pass them to the photo after taking it

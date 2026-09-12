@@ -2,8 +2,8 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import type { CameraDevice, CameraRuntimeError } from "react-native-vision-camera";
-import { Worklets } from "react-native-worklets-core";
+import type { CameraDevice, CameraPhotoOutput, CameraRef } from "react-native-vision-camera";
+import { scheduleOnRN } from "react-native-worklets";
 
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
@@ -11,12 +11,12 @@ import {
   useTruncatedUserCoords,
 } from "../../../utility/customHooks";
 import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage";
-import usePatchedRunAsync from "../../../utility/visionCameraPatches";
 import FocusSquare from "./FocusSquare";
 import {
   Camera,
-  useCameraFormat,
-  useFrameProcessor,
+  useAsyncRunner,
+  useCameraPermission,
+  useFrameOutput,
 } from "./helpers/visionCameraWrapper";
 import InatVision from "./helpers/visionPluginWrapper";
 import useFocusTap from "./hooks/useFocusTap";
@@ -38,7 +38,6 @@ export interface LogMessage {
 }
 
 interface Props {
-  cameraRef: React.RefObject<Camera | null>;
   device: CameraDevice;
   confidenceThreshold: number;
   filterByTaxonId: string | null;
@@ -52,24 +51,25 @@ interface Props {
   isActive: boolean;
   useLocation: boolean;
   hasPermission: boolean;
+  photoOutput: CameraPhotoOutput;
 }
 
 const FrameProcessorCamera = ( props: Props ) => {
   const {
-    cameraRef,
     device,
     confidenceThreshold,
     filterByTaxonId,
     negativeFilter,
     onTaxaDetected,
     onCameraError,
-    onDeviceNotSupported,
+    // onDeviceNotSupported,
     onClassifierError,
-    onCaptureError,
+    // onCaptureError,
     onLog,
     isActive,
     useLocation,
     hasPermission,
+    photoOutput,
   } = props;
 
   const navigation = useNavigation( );
@@ -77,21 +77,20 @@ const FrameProcessorCamera = ( props: Props ) => {
   const isForeground = useIsForeground( );
 
   const coords = useTruncatedUserCoords( hasPermission );
-
+  
+  const cameraRef = useRef<CameraRef>( null );
   const framesProcessingTime = useRef<number[]>( [] );
 
-  const [cameraPermissionStatus, setCameraPermissionStatus] = useState( "not-determined" );
-  const requestCameraPermission = useCallback( async () => {
+  const { hasPermission: hasCameraPermission, requestPermission: requestCameraPermission } = useCameraPermission();
+  useEffect( () => {
     // Checking camera permission status, if granted set it and return
-    const status = Camera.getCameraPermissionStatus();
-    if ( status === "granted" ) {
-      setCameraPermissionStatus( status );
-      return;
-    }
-    console.log( "Requesting camera permission..." );
-    const permission = await Camera.requestCameraPermission();
-    console.log( `Camera permission status: ${permission}` );
-
+    console.log( `Camera permission status: hasCameraPermission is ${hasCameraPermission}` );
+    if ( !hasCameraPermission ) {
+      console.log( "Requesting camera permission..." );
+      requestCameraPermission( );
+    };
+    // TODO: figure out how to do this with new API
+    /*
     if ( permission === "denied" ) {
       // If the user has not granted permission we have to show an error message
       // This string is returned from the legacy camera when the user has not granted the needed permissions
@@ -104,33 +103,15 @@ const FrameProcessorCamera = ( props: Props ) => {
       };
       onCameraError( returnError );
     }
-    setCameraPermissionStatus( permission );
-  }, [onCameraError] );
-
-  useEffect( () => {
-    if ( cameraPermissionStatus === "not-determined" ) {
-      requestCameraPermission();
-    }
-  }, [cameraPermissionStatus, requestCameraPermission] );
-
-  // Currently, we are asking for camera permission on focus of the screen, that results in one render
-  // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
-  const [permissionCount, setPermissionCount] = useState( 0 );
+    */
+  }, [hasCameraPermission, requestCameraPermission] );
 
   // Select the camera format based on the screen aspect ratio on ai camera as it is full-screen
   const screen = Dimensions.get( "screen" );
   const videoAspectRatio = screen.height / screen.width;
   const photoAspectRatio = screen.height / screen.width;
-  // Select a format that provides the highest resolution primarily for videos, then photos
-  const format = useCameraFormat( device, [
-    { videoAspectRatio },
-    { photoAspectRatio },
-    { photoResolution: "max" },
-    { videoResolution: "max" },
-  ] );
-
-  // Set the exposure to the middle of the min and max exposure
-  const exposure = ( device.maxExposure + device.minExposure ) / 2;
+  console.log( "videoAspectRatio", videoAspectRatio );
+  console.log( "photoAspectRatio", photoAspectRatio );
 
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {
@@ -167,11 +148,11 @@ const FrameProcessorCamera = ( props: Props ) => {
     animatedStyle,
     tapToFocus,
     tappedCoordinates,
-  } = useFocusTap( props.cameraRef, device.supportsFocus );
+  } = useFocusTap( cameraRef );
 
-  const [lastTimestamp, setLastTimestamp] = useState( undefined );
+  const [lastTimestamp, setLastTimestamp] = useState<number | undefined>( undefined );
   const fps = 1;
-  const handleResult = Worklets.createRunOnJS( ( result: InatVision.Result, timeTaken: number ) => {
+  const handleResult = ( result: InatVision.Result, timeTaken: number ) => {
     setLastTimestamp( result.timestamp );
     console.log( "result.timeElapsed", result.timeElapsed );
     framesProcessingTime.current.push( timeTaken );
@@ -185,13 +166,8 @@ const FrameProcessorCamera = ( props: Props ) => {
       } );
     }
     onTaxaDetected( result );
-  } );
+  };
 
-  const handleError = Worklets.createRunOnJS( ( error: ErrorMessage ) => {
-    onClassifierError( error );
-  } );
-
-  const patchedRunAsync = usePatchedRunAsync();
   const hasUserLocation = coords?.latitude != null && coords?.longitude != null;
   const useGeomodel = useLocation && hasUserLocation;
   // The vision-plugin has a function to look up the location of the user in a h3 gridded world
@@ -201,24 +177,28 @@ const FrameProcessorCamera = ( props: Props ) => {
   const geoModelCellLocation = hasUserLocation
     ? InatVision.getCellLocation( coords )
     : null;
-  const frameProcessor = useFrameProcessor(
-    ( frame ) => {
-      "worklet";
 
-      // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
-      // react-native-worklets-core documentation for what is supported in those worklets.
-      // If there is no lastTimestamp, i.e. the first time this runs do not compare
-      const timestamp = Date.now();
-      if ( lastTimestamp ) {
-        const timeSinceLastFrame = timestamp - lastTimestamp;
-        if ( timeSinceLastFrame < 1000 / fps ) {
-          return;
-        }
-      }
-      patchedRunAsync( frame, () => {
+  const asyncRunner = useAsyncRunner( );
+  const frameOutput = useFrameOutput( {
+    allowDeferredStart: true,
+    enablePhysicalBufferRotation: true,
+    pixelFormat: "yuv",
+    onFrame( frame ) {
+      "worklet";
+      const wasHandled = asyncRunner.runAsync( () => {
         "worklet";
         try {
-          const timeBefore = Date.now();
+          // Reminder: this is a worklet, running on a C++ thread. Make sure to check the
+          // react-native-worklets-core documentation for what is supported in those worklets.
+          // If there is no lastTimestamp, i.e. the first time this runs do not compare
+          const timestamp = Date.now();
+          if ( lastTimestamp ) {
+            const timeSinceLastFrame = timestamp - lastTimestamp;
+            if ( timeSinceLastFrame < 1000 / fps ) {
+              return;
+            }
+          }
+          const timeBefore = new Date().getTime();
           const result = InatVision.inatVision( frame, {
             version: "2.13",
             modelPath: dirModel,
@@ -236,36 +216,33 @@ const FrameProcessorCamera = ( props: Props ) => {
           } );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;
-          handleResult( result, timeTaken );
+          scheduleOnRN( handleResult, result, timeTaken );
         } catch ( classifierError ) {
           // Currently the native side throws RuntimeException but that doesn't seem to arrive here over he bridge
           console.log( `Error: ${classifierError.message}` );
           const returnError = {
             nativeEvent: { error: classifierError.message },
           };
-          handleError( returnError );
+          scheduleOnRN( onClassifierError, returnError );
+        } finally {
+          frame.dispose();
         }
       } );
-      // ref={camera} was only used for takePictureAsync()
-      // Johannes: I did a read though of the native code that is triggered when using ref.current.takePictureAsync()
-      // and to me it seems everything should be handled by vision-camera itself. However, there is also some Exif and device orientation stuff going on.
-      // related code that would need to be tested if it all is saved as expected.
+
+      if ( !wasHandled ) {
+        // `asyncRunner` is busy - drop this Frame!
+        frame.dispose();
+      }
     },
-    [
-      patchedRunAsync,
-      confidenceThreshold,
-      filterByTaxonId,
-      negativeFilter,
-      lastTimestamp,
-      fps,
-      hasUserLocation,
-      geoModelCellLocation,
-      useGeomodel,
-    ]
-  );
+  } );
+
+  // Currently, we are asking for camera permission on focus of the screen, that results in one render
+  // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
+  // TODO: relates to below
+  // const [permissionCount, setPermissionCount] = useState( 0 );
 
   const onError = useCallback(
-    ( error: CameraRuntimeError ) => {
+    ( error: Error ) => {
       console.log( "error", error );
       logToApi( {
         level: LogLevels.ERROR,
@@ -274,7 +251,11 @@ const FrameProcessorCamera = ( props: Props ) => {
         errorType: error.constructor?.name,
         backtrace: error.stack,
       } );
-      let returnString = error.code;
+      const returnString = error.message;
+      // TODO: VC4 was sending detailed error codes on what parts of the setup were broken
+      // VC5 does no such thing? Figure out how to react to a variety of errors that can be thrown here.
+      /*
+      const returnString = error.code;
       // If there is no error code, log the error and return because we don't know what to do with it
       if ( !error.code ) {
         console.log( "Camera runtime error without error code:" );
@@ -325,36 +306,40 @@ const FrameProcessorCamera = ( props: Props ) => {
           "Camera Input Failed: This app is not authorized to use Back Camera.";
         returnString = permissions;
       }
-
+      */
       const returnError: { nativeEvent: { error?: string } } = {
         nativeEvent: { error: returnString },
       };
       onCameraError( returnError );
     },
-    [permissionCount, onCameraError, onDeviceNotSupported, onClassifierError, onCaptureError]
+    [
+      // permissionCount,
+      onCameraError,
+      // onDeviceNotSupported,
+      // onClassifierError,
+      // onCaptureError
+    ]
   );
 
   const active = isActive && isFocused && isForeground;
   return (
-    device && cameraPermissionStatus === "granted" && (
+    device && hasCameraPermission && (
       <>
         <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
           <Camera
             ref={cameraRef}
             style={StyleSheet.absoluteFill}
             device={device}
-            format={format}
-            exposure={exposure}
             isActive={active}
-            photo={true}
-            enableZoomGesture
-            zoom={device.neutralZoom}
-            frameProcessor={frameProcessor}
-            pixelFormat="yuv"
+            outputs={[photoOutput, frameOutput]}
+            constraints={[
+              // { videoAspectRatio },
+              // { photoAspectRatio },
+              { resolutionBias: photoOutput },
+            ]}
+            enableNativeZoomGesture={true}
             onError={onError}
-            outputOrientation="device"
-            photoQualityBalance="speed"
-            enableLocation={hasPermission}
+            orientationSource="device"
           />
         </GestureDetector>
         <FocusSquare

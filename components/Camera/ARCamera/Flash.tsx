@@ -1,5 +1,5 @@
 import React from "react";
-import type { TakePhotoOptions } from "react-native-vision-camera";
+import type { CapturePhotoSettings } from "react-native-vision-camera";
 
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
@@ -8,7 +8,7 @@ import TransparentCircleButton from "../../UIComponents/Buttons/TransparentCircl
 interface Props {
   toggleFlash: ( ) => void;
   hasFlash?: boolean;
-  takePhotoOptions: TakePhotoOptions;
+  takePhotoOptions: CapturePhotoSettings;
 }
 
 const Flash = ( {
@@ -20,7 +20,7 @@ const Flash = ( {
   let testID = "";
   let accessibilityHint = "";
   let source;
-  switch ( takePhotoOptions.flash ) {
+  switch ( takePhotoOptions.flashMode ) {
     case "on":
       source = icons.flash_on;
       testID = "flash-button-label-flash";

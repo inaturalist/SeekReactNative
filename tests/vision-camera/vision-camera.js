@@ -26,6 +26,7 @@ const mockFrame = {
   } ),
   incrementRefCount: () => null,
   decrementRefCount: () => null,
+  dispose: () => null,
 };
 
 const style = { flex: 1, backgroundColor: "red" };
@@ -43,9 +44,8 @@ export class mockCamera extends React.PureComponent {
   }
 
   /*
-    Every time the component updates we are running the frame processor that is a prop
-    to the camera component. We are running the frame processor with a mocked frame that
-    does not include any kind of image data at all.
+    Every time the component updates we invoke the frame output's onFrame callback
+    with a mocked frame that does not include any kind of image data at all.
     Running it only on component update means it only is called a few times and not
     every second (or so - depending on fps). This is enough to satisfy the e2e test
     though because the mocked prediction needs to appear only once to be found by the
@@ -53,55 +53,10 @@ export class mockCamera extends React.PureComponent {
     the test never finishes.
   */
   componentDidUpdate() {
-    const { frameProcessor } = this.props;
-    frameProcessor?.frameProcessor( mockFrame );
-  }
-
-
-  async takePhoto( ) {
-    // TODO: this only works on iOS
-    return CameraRoll.getPhotos( {
-      first: 20,
-      assetType: "Photos",
-    } )
-      .then( async ( r ) => {
-        /*
-          Basically, here, we are reading the newest twenty photos from the simulators gallery
-          and return the oldest one of those. Copy it to a new path and treat it as a new photo.
-        */
-        const testPhoto = r.edges[r.edges.length - 1].node.image;
-        let oldUri = testPhoto.uri;
-        if ( testPhoto.uri.includes( "ph://" ) ) {
-          let id = testPhoto.uri.replace( "ph://", "" );
-          id = id.substring( 0, id.indexOf( "/" ) );
-          oldUri = `assets-library://asset/asset.jpg?id=${id}&ext=jpg`;
-          console.log( `Converted file uri to ${oldUri}` );
-        }
-        const encodedUri = encodeURI( oldUri );
-        const destPath = `${TemporaryDirectoryPath}temp.jpg`;
-        const newPath = await copyAssetsFileIOS(
-          encodedUri,
-          destPath,
-          0,
-          0
-        );
-        const photo = { uri: newPath, predictions: [] };
-        if ( typeof photo !== "object" ) {
-          console.log( "photo is not an object", typeof photo );
-          return null;
-        }
-        return {
-          ...testPhoto,
-          path: newPath,
-          metadata: {
-            Orientation: testPhoto.orientation,
-          },
-        };
-      } )
-      .catch( ( err ) => {
-        console.log( "Error getting photos", err );
-        return null;
-      } );
+    const { outputs } = this.props;
+    outputs?.forEach( ( output ) => {
+      output?.onFrame?.( mockFrame );
+    } );
   }
 
   render() {
@@ -132,29 +87,75 @@ export const mockUseCameraDevice = ( _deviceType ) => {
   return device;
 };
 
-export const mockUseCameraFormat = ( _device ) => {
-  const format = {
-    autoFocusSystem: "contrast-detection",
-    fieldOfView: 83.97117848314457,
-    maxFps: 60,
-    maxISO: 11377,
-    minFps: 15,
-    minISO: 44,
-    photoHeight: 3024,
-    photoWidth: 4032,
-    pixelFormats: ["yuv", "native"],
-    supportsDepthCapture: false,
-    supportsPhotoHdr: false,
-    supportsVideoHdr: false,
-    videoHeight: 2160,
-    videoStabilizationModes: ["off", "cinematic", "cinematic-extended"],
-    videoWidth: 3840,
-  };
-  return format;
+export const mockUseCameraPermission = () => ( {
+  hasPermission: true,
+  requestPermission: async () => true,
+} );
+
+export const mockUseLocation = () => ( {
+  hasPermission: true,
+  requestPermission: async () => true,
+  currentLocation: undefined,
+} );
+
+export const mockUseAsyncRunner = () => ( {
+  runAsync: ( cb ) => {
+    cb();
+    return true;
+  },
+} );
+
+export const mockUseFrameOutput = ( options ) => options;
+
+const mockCapturePhotoToFile = async ( _settings, callbacks = {} ) => {
+  // TODO: this only works on iOS
+  return CameraRoll.getPhotos( {
+    first: 20,
+    assetType: "Photos",
+  } )
+    .then( async ( r ) => {
+      /*
+        Basically, here, we are reading the newest twenty photos from the simulators gallery
+        and return the oldest one of those. Copy it to a new path and treat it as a new photo.
+      */
+      const testPhoto = r.edges[r.edges.length - 1].node.image;
+      let oldUri = testPhoto.uri;
+      if ( testPhoto.uri.includes( "ph://" ) ) {
+        let id = testPhoto.uri.replace( "ph://", "" );
+        id = id.substring( 0, id.indexOf( "/" ) );
+        oldUri = `assets-library://asset/asset.jpg?id=${id}&ext=jpg`;
+        console.log( `Converted file uri to ${oldUri}` );
+      }
+      const encodedUri = encodeURI( oldUri );
+      const destPath = `${TemporaryDirectoryPath}temp.jpg`;
+      const newPath = await copyAssetsFileIOS(
+        encodedUri,
+        destPath,
+        0,
+        0
+      );
+      const photo = { uri: newPath, predictions: [] };
+      if ( typeof photo !== "object" ) {
+        console.log( "photo is not an object", typeof photo );
+        return null;
+      }
+      // Not sure if this is required
+      callbacks.onDidCapturePhoto?.();
+      return {
+        ...testPhoto,
+        filePath: newPath,
+        path: newPath,
+        metadata: {
+          Orientation: testPhoto.orientation,
+        },
+      };
+    } )
+    .catch( ( err ) => {
+      console.log( "Error getting photos", err );
+      return null;
+    } );
 };
 
-export const mockUseLocationPermission = () => {
-  return {
-    hasPermission: true,
-  };
-};
+export const mockUsePhotoOutput = () => ( {
+  capturePhotoToFile: mockCapturePhotoToFile,
+} );

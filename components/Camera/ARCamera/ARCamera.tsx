@@ -6,7 +6,6 @@ import React, {
   useContext,
   useEffect,
   useReducer,
-  useRef,
   useState,
 } from "react";
 import {
@@ -15,8 +14,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
-import { useSharedValue } from "react-native-worklets-core";
+import { useSharedValue } from "react-native-reanimated";
+import type { CapturePhotoSettings, PhotoFile } from "react-native-vision-camera";
+import { CommonResolutions } from "react-native-vision-camera";
 import type { Prediction } from "vision-camera-plugin-inatvision";
 
 import icons from "../../../assets/icons";
@@ -51,7 +51,8 @@ import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
 import {
-  useLocationPermission as useLocationPermissionCamera,
+  useLocation,
+  usePhotoOutput,
 } from "./helpers/visionCameraWrapper";
 
 const logger = log.extend( "ARCamera.js" );
@@ -107,16 +108,15 @@ const ARCamera = ( ) => {
 
   const isFocused = useIsFocused( );
   const navigation = useNavigation<RootStackScreenProps<"Camera">["navigation"]>( );
-  const camera = useRef<Camera>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
   const [cameraPosition, setCameraPosition] = useState<"front" | "back">( "back" );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
-      // "ultra-wide-angle-camera",
-      "wide-angle-camera",
-      "telephoto-camera",
+      "ultra-wide-angle",
+      "wide-angle",
+      "telephoto",
     ],
   } );
   const frontDevice = useCameraDevice( "front" );
@@ -131,15 +131,21 @@ const ARCamera = ( ) => {
     // We had this set to true in Seek but received many reports of it not respecting OS-wide sound
     // level and scared away wildlife. So maybe better to just disable it.
     enableShutterSound: false,
-    ...( hasFlash && { flash: "off" } as const ),
+    ...( hasFlash && { flashMode: "off" } as const ),
   } as const;
-  const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
+  const [takePhotoOptions, setTakePhotoOptions] = useState<CapturePhotoSettings>( initialPhotoOptions );
   const [visibleToast, setVisibleToast] = useState( TOAST.NONE );
   
-  const location = useLocationPermissionCamera();
-  const { hasPermission } = location;
+  const location = useLocation();
+  const { hasPermission, requestPermission } = location;
+  useEffect( () => {
+    if ( !hasPermission ) {
+      requestPermission();
+    }
+  }, [hasPermission, requestPermission] );
+
   const { userDisabledLocation, setUserDisabledLocation } = useCameraLocationPreference();
-  const useLocation = hasPermission && !userDisabledLocation;
+  const useLocation2 = hasPermission && !userDisabledLocation;
 
   const toggleLocation = () => {
     if ( !hasPermission ) {
@@ -147,7 +153,7 @@ const ARCamera = ( ) => {
     }
     setUserDisabledLocation( ( prev ) => !prev );
     // Always show status when button is pressed
-    setVisibleToast( useLocation ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
+    setVisibleToast( useLocation2 ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
   };
 
   const handleToastEnd = useCallback( () => {
@@ -224,11 +230,11 @@ const ARCamera = ( ) => {
   const toggleFlash = ( ) => {
     setTakePhotoOptions( {
       ...takePhotoOptions,
-      flash: takePhotoOptions.flash === "on"
+      flashMode: takePhotoOptions.flashMode === "on"
         ? "off"
         : "on",
     } );
-    setVisibleToast( takePhotoOptions.flash === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
+    setVisibleToast( takePhotoOptions.flashMode === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
   };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
@@ -388,22 +394,27 @@ const ARCamera = ( ) => {
     checkPermissions( );
   }, [savePhoto] );
 
+  const photoOutput = usePhotoOutput( {
+    qualityPrioritization: "speed",
+    targetResolution: CommonResolutions.HIGHEST_16_9,
+  } );
   const visionCameraTakePhoto = useCallback( async ( callback ) => {
-    if ( !camera.current ) {
-      return;
-    }
-
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
 
-    camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
-      // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
-      // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
-      // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-      setIsActive( false );
+    try {
+      const photo = await photoOutput.capturePhotoToFile( {
+        ...takePhotoOptions,
+        location: location.currentLocation,
+      }, {
+        // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
+        // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
+        // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
+        onDidCapturePhoto: () => setIsActive( false ),
+      } );
       // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
       photo.predictions = predictions;
-      photo.uri = photo.path;
+      photo.uri = photo.filePath;
       // Photo:
       /*
         {
@@ -435,8 +446,7 @@ const ARCamera = ( ) => {
 
       // TODO: this callback only ever uses photo.uri and photo.predictions, so we can just pass those directly
       callback( photo );
-    } )
-    .catch( ( e ) => {
+    } catch( e ) {
       logToApi( {
         level: LogLevels.ERROR,
         context: "ARCamera.tsx",
@@ -445,8 +455,9 @@ const ARCamera = ( ) => {
         backtrace: e.stack,
       } );
       handleCaptureError( { nativeEvent: { reason: e } } );
-    } );
-  }, [sortedPredictions, handleCaptureError, takePhotoOptions] );
+
+    }
+  }, [sortedPredictions, handleCaptureError, takePhotoOptions, location, photoOutput] );
 
   const takePicture = useCallback( async () => {
     pictureTaken.value = true;
@@ -534,7 +545,6 @@ const ARCamera = ( ) => {
     }
     return (
       <FrameProcessorCamera
-        cameraRef={camera}
         device={device}
         confidenceThreshold={confidenceThresholdNumber}
         onCameraError={handleCameraError}
@@ -549,8 +559,9 @@ const ARCamera = ( ) => {
         negativeFilter={negativeFilter}
         // type is replaced with logic in FrameProcessorCamera
         isActive={isActive}
-        useLocation={useLocation}
+        useLocation={useLocation2}
         hasPermission={hasPermission}
+        photoOutput={photoOutput}
       />
     );
   };
@@ -579,7 +590,7 @@ const ARCamera = ( ) => {
           toggleFlash={toggleFlash}
           visibleToast={visibleToast}
           toggleLocation={toggleLocation}
-          useLocation={useLocation}
+          useLocation={useLocation2}
           handleToastEnd={handleToastEnd}
         />
       )}

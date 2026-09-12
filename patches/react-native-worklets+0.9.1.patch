@@ -1,0 +1,44 @@
+diff --git a/node_modules/react-native-worklets/lib/module/memory/valueUnpacker.native.js b/node_modules/react-native-worklets/lib/module/memory/valueUnpacker.native.js
+index c03c4e2..525c215 100644
+--- a/node_modules/react-native-worklets/lib/module/memory/valueUnpacker.native.js
++++ b/node_modules/react-native-worklets/lib/module/memory/valueUnpacker.native.js
+@@ -32,6 +32,15 @@ export function installValueUnpacker() {
+         workletsCache.set(workletHash, workletFun);
+       }
+       const functionInstance = workletFun.bind(objectToUnpack);
++      functionInstance.__workletHash = objectToUnpack.__workletHash;
++      functionInstance.__initData = objectToUnpack.__initData;
++      functionInstance.__closure = objectToUnpack.__closure;
++      if (objectToUnpack.__pluginVersion !== undefined) {
++        functionInstance.__pluginVersion = objectToUnpack.__pluginVersion;
++      }
++      if (objectToUnpack.__stackDetails !== undefined) {
++        functionInstance.__stackDetails = objectToUnpack.__stackDetails;
++      }
+       objectToUnpack._recur = functionInstance;
+       return functionInstance;
+     } else if (objectToUnpack.__init !== undefined) {
+diff --git a/node_modules/react-native-worklets/src/memory/valueUnpacker.native.ts b/node_modules/react-native-worklets/src/memory/valueUnpacker.native.ts
+index dac1448..97d1c08 100644
+--- a/node_modules/react-native-worklets/src/memory/valueUnpacker.native.ts
++++ b/node_modules/react-native-worklets/src/memory/valueUnpacker.native.ts
+@@ -49,7 +49,18 @@ export function installValueUnpacker() {
+         }
+         workletsCache.set(workletHash, workletFun!);
+       }
+-      const functionInstance = workletFun!.bind(objectToUnpack);
++      const functionInstance = workletFun!.bind(
++        objectToUnpack
++      ) as ObjectToUnpack;
++      functionInstance.__workletHash = objectToUnpack.__workletHash;
++      functionInstance.__initData = objectToUnpack.__initData;
++      functionInstance.__closure = objectToUnpack.__closure;
++      if (objectToUnpack.__pluginVersion !== undefined) {
++        functionInstance.__pluginVersion = objectToUnpack.__pluginVersion;
++      }
++      if (objectToUnpack.__stackDetails !== undefined) {
++        functionInstance.__stackDetails = objectToUnpack.__stackDetails;
++      }
+       objectToUnpack._recur = functionInstance;
+       return functionInstance;
+     } else if (objectToUnpack.__init !== undefined) {

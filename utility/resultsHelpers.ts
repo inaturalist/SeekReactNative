@@ -1,6 +1,6 @@
 import { Platform } from "react-native";
-import type { Prediction } from "vision-camera-plugin-inatvision";
 
+import type { SortedPrediction } from "../components/Camera/ARCamera/ARCamera";
 import { log } from "../react-native-logs.config";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import type { Coords, TruncatedCoords } from "./locationHelpers";
@@ -39,7 +39,7 @@ const setPreciseImageCoords = (
 interface Image {
   time: number;
   uri: string;
-  predictions: Prediction[];
+  predictions: SortedPrediction[];
   latitude?: number;
   longitude?: number;
   preciseCoords?: {

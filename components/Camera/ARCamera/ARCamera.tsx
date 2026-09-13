@@ -15,7 +15,7 @@ import {
   View,
 } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
-import type { CapturePhotoSettings, PhotoFile } from "react-native-vision-camera";
+import type { CapturePhotoSettings } from "react-native-vision-camera";
 import { CommonResolutions } from "react-native-vision-camera";
 import type { Prediction } from "vision-camera-plugin-inatvision";
 
@@ -96,8 +96,10 @@ type Action = { type: ACTION.RESET_PREDICTIONS }
   | { type: ACTION.FILTER_TAXON; taxonId: string | null; negativeFilter: boolean }
   | { type: ACTION.ERROR; error: string; errorEvent: string };
 
-interface HandledPhoto extends PhotoFile {
-  predictions: Prediction[];
+export type SortedPrediction = Omit<Prediction, "score" | "vision_score" | "geo_score">
+
+interface HandledPhoto {
+  predictions: SortedPrediction[];
   uri: string;
 }
 
@@ -245,7 +247,7 @@ const ARCamera = ( ) => {
     dispatch( { type: ACTION.ERROR, error: err, errorEvent: errEvent } );
   }, [error] );
 
-  const navigateToResults = useCallback( async ( uri: string, predictions: Prediction[] ) => {
+  const navigateToResults = useCallback( async ( uri: string, predictions: SortedPrediction[] ) => {
     const userImage = {
       time: createTimestamp( ), // add current time to AR camera photos
       uri,
@@ -278,7 +280,7 @@ const ARCamera = ( ) => {
     } );
   }, [startObservationWithImage, navigation, login] );
 
-  const handleCameraRollSaveError = useCallback( async ( uri: string, predictions: Prediction[], e ) => {
+  const handleCameraRollSaveError = useCallback( async ( uri: string, predictions: SortedPrediction[], e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 
@@ -398,7 +400,7 @@ const ARCamera = ( ) => {
     qualityPrioritization: "speed",
     targetResolution: CommonResolutions.HIGHEST_16_9,
   } );
-  const visionCameraTakePhoto = useCallback( async ( callback ) => {
+  const visionCameraTakePhoto = useCallback( async ( callback: ( photo: HandledPhoto ) => void ) => {
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
 
@@ -413,39 +415,11 @@ const ARCamera = ( ) => {
         onDidCapturePhoto: () => setIsActive( false ),
       } );
       // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
-      photo.predictions = predictions;
-      photo.uri = photo.filePath;
-      // Photo:
-      /*
-        {
-          "height": 2268,
-          "isRawPhoto": false,
-          "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
-          "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg",
-          "width": 4032
-        }
-      */
-      /*
-        {
-          "deviceOrientation": 6,
-          "height": 2268,
-          "isRawPhoto": false,
-          "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 1.95, "ColorSpace": 1, "DateTimeDigitized": "2023:05:25 17:58:49", "DateTimeOriginal": "2023:05:25 17:58:49", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0257", "SubsecTimeOriginal": "0257", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:05:25 17:58:49", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
-          "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
-          "pictureOrientation": 6,
-          "predictions": [
-            {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "combined_score": 93.01357269287109, "taxon_id": 47163},
-            {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "combined_score": 92.16688275337219, "taxon_id": 47218},
-            {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "combined_score": 91.24458432197571, "taxon_id": 47781},
-            {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "combined_score": 87.44127750396729, "taxon_id": 47780}
-          ],
-          "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
-          "width": 4032
-        }
-      */
-
-      // TODO: this callback only ever uses photo.uri and photo.predictions, so we can just pass those directly
-      callback( photo );
+      const photoWithPredictions = {
+        predictions: predictions,
+        uri: photo.filePath,
+      }
+      callback( photoWithPredictions );
     } catch( e ) {
       logToApi( {
         level: LogLevels.ERROR,

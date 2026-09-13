@@ -50,6 +50,7 @@ import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
 import {
+  useCameraPermission,
   useLocation,
   usePhotoOutput,
 } from "./helpers/visionCameraWrapper";
@@ -449,6 +450,42 @@ const ARCamera = ( ) => {
 
   const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
 
+    const {
+      status,
+      hasPermission: hasCameraPermission,
+      requestPermission: requestCameraPermission,
+    } = useCameraPermission();
+    useFocusEffect(
+      useCallback( () => {
+        // Checking camera permission status, if granted set it and return
+        console.log(
+          `Camera permission status: hasCameraPermission is ${hasCameraPermission}`,
+        );
+        if ( !hasCameraPermission ) {
+          console.log( "Requesting camera permission..." );
+          requestCameraPermission();
+        }
+        console.log( "status", status )
+        if ( status === "denied" ) {
+          // If the user has not granted permission we have to show an error message
+          // This string is returned from the legacy camera when the user has not granted the needed permissions
+          // and expected by HOC to be received and reacted to
+          const returnError: { nativeEvent: { error?: string } } = {
+            nativeEvent: {
+              error:
+                "Camera Input Failed: This app is not authorized to use Back Camera.",
+            },
+          };
+          handleCameraError( returnError );
+        }
+      }, [
+        status,
+        hasCameraPermission,
+        handleCameraError,
+        requestCameraPermission,
+      ] ),
+    );
+  
   const checkCameraPermissions = async ( ): Promise<boolean | string> => {
     const { PERMISSIONS, RESULTS } = PermissionsAndroid;
   
@@ -529,6 +566,9 @@ const ARCamera = ( ) => {
 
   const renderCamera = () => {
     if ( !device ) {
+      return null;
+    }
+    if ( !hasCameraPermission ) {
       return null;
     }
     return (

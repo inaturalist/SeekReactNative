@@ -1,4 +1,4 @@
-import { useFocusEffect, useIsFocused, useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
@@ -15,7 +15,6 @@ import FocusSquare from "./FocusSquare";
 import {
   Camera,
   useAsyncRunner,
-  useCameraPermission,
   useFrameOutput,
 } from "./helpers/visionCameraWrapper";
 import InatVision from "./helpers/visionPluginWrapper";
@@ -78,41 +77,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   
   const cameraRef = useRef<CameraRef>( null );
   const framesProcessingTime = useRef<number[]>( [] );
-
-  const {
-    status,
-    hasPermission: hasCameraPermission,
-    requestPermission: requestCameraPermission,
-  } = useCameraPermission();
-  useFocusEffect(
-    useCallback( () => {
-      // Checking camera permission status, if granted set it and return
-      console.log(
-        `Camera permission status: hasCameraPermission is ${hasCameraPermission}`,
-      );
-      if ( !hasCameraPermission ) {
-        console.log( "Requesting camera permission..." );
-        requestCameraPermission();
-      }
-      if ( status === "denied" ) {
-        // If the user has not granted permission we have to show an error message
-        // This string is returned from the legacy camera when the user has not granted the needed permissions
-        // and expected by HOC to be received and reacted to
-        const returnError: { nativeEvent: { error?: string } } = {
-          nativeEvent: {
-            error:
-              "Camera Input Failed: This app is not authorized to use Back Camera.",
-          },
-        };
-        onCameraError( returnError );
-      }
-    }, [
-      status,
-      hasCameraPermission,
-      onCameraError,
-      requestCameraPermission,
-    ] ),
-  );
 
   // Select the camera format based on the screen aspect ratio on ai camera as it is full-screen
   const screen = Dimensions.get( "screen" );
@@ -312,31 +276,29 @@ const FrameProcessorCamera = ( props: Props ) => {
 
   const active = isActive && isFocused && isForeground;
   return (
-    device && hasCameraPermission && (
-      <>
-        <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
-          <Camera
-            ref={cameraRef}
-            style={StyleSheet.absoluteFill}
-            device={device}
-            isActive={active}
-            outputs={[photoOutput, frameOutput]}
-            constraints={[
-              // { videoAspectRatio },
-              // { photoAspectRatio },
-              { resolutionBias: photoOutput },
-            ]}
-            enableNativeZoomGesture={true}
-            onError={onError}
-            orientationSource="device"
-          />
-        </GestureDetector>
-        <FocusSquare
-          animatedStyle={animatedStyle}
-          tappedCoordinates={tappedCoordinates}
+    <>
+      <GestureDetector gesture={Gesture.Simultaneous( tapToFocus )}>
+        <Camera
+          ref={cameraRef}
+          style={StyleSheet.absoluteFill}
+          device={device}
+          isActive={active}
+          outputs={[photoOutput, frameOutput]}
+          constraints={[
+            // { videoAspectRatio },
+            // { photoAspectRatio },
+            { resolutionBias: photoOutput },
+          ]}
+          enableNativeZoomGesture={true}
+          onError={onError}
+          orientationSource="device"
         />
-      </>
-    )
+      </GestureDetector>
+      <FocusSquare
+        animatedStyle={animatedStyle}
+        tappedCoordinates={tappedCoordinates}
+      />
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Dimensions, Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import type { CameraDevice, CameraPhotoOutput, CameraRef } from "react-native-vision-camera";
 import { scheduleOnRN } from "react-native-worklets";
@@ -77,13 +77,6 @@ const FrameProcessorCamera = ( props: Props ) => {
   
   const cameraRef = useRef<CameraRef>( null );
   const framesProcessingTime = useRef<number[]>( [] );
-
-  // Select the camera format based on the screen aspect ratio on ai camera as it is full-screen
-  const screen = Dimensions.get( "screen" );
-  const videoAspectRatio = screen.height / screen.width;
-  const photoAspectRatio = screen.height / screen.width;
-  console.log( "videoAspectRatio", videoAspectRatio );
-  console.log( "photoAspectRatio", photoAspectRatio );
 
   useEffect( () => {
     const unsubscribeFocus = navigation.addListener( "focus", () => {
@@ -285,8 +278,6 @@ const FrameProcessorCamera = ( props: Props ) => {
           isActive={active}
           outputs={[photoOutput, frameOutput]}
           constraints={[
-            // { videoAspectRatio },
-            // { photoAspectRatio },
             { resolutionBias: photoOutput },
           ]}
           enableNativeZoomGesture={true}

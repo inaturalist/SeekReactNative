@@ -216,13 +216,6 @@ const FrameProcessorCamera = ( props: Props ) => {
       // VC5 does no such thing? Figure out how to react to a variety of errors that can be thrown here.
       /*
       const returnString = error.code;
-      // If there is no error code, log the error and return because we don't know what to do with it
-      if ( !error.code ) {
-        console.log( "Camera runtime error without error code:" );
-        console.log( "error", error );
-        return;
-      }
-
       // If it is a "device/" error, return the error code
       if ( error.code.includes( "device/" ) ) {
         const returnReason: { nativeEvent: { reason?: string } } = {

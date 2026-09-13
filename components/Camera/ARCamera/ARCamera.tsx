@@ -343,18 +343,12 @@ const ARCamera = ( ) => {
   };
 
   const handleCameraError = useCallback( ( event: ErrorMessage ) => {
-    const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
       // do nothing if there is already a device error
       return;
     }
-
-    if ( event.nativeEvent.error === permissions ) {
-      updateError( "permissions" );
-    } else {
-      updateError( "camera", event.nativeEvent.error );
-    }
+    updateError( "camera", event.nativeEvent.error );
   }, [ error, updateError ] );
 
   const handleClassifierError = ( event: ErrorMessage ) => {
@@ -468,23 +462,14 @@ const ARCamera = ( ) => {
           console.log( "Requesting camera permission..." );
           requestCameraPermission();
         }
-        console.log( "status", status );
         if ( status === "denied" ) {
           // If the user has not granted permission we have to show an error message
-          // This string is returned from the legacy camera when the user has not granted the needed permissions
-          // and expected by HOC to be received and reacted to
-          const returnError: { nativeEvent: { error?: string } } = {
-            nativeEvent: {
-              error:
-                "Camera Input Failed: This app is not authorized to use Back Camera.",
-            },
-          };
-          handleCameraError( returnError );
+          updateError( "permissions" );
         }
       }, [
         status,
         hasCameraPermission,
-        handleCameraError,
+        updateError,
         requestCameraPermission,
       ] ),
     );

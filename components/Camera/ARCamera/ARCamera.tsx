@@ -528,7 +528,6 @@ const ARCamera = ( ) => {
         onCameraError={handleCameraError}
         // onCameraPermissionMissing was an empty callback
         onClassifierError={handleClassifierError}
-        onCaptureError={handleCaptureError}
         onTaxaDetected={handleTaxaDetected}
         onLog={handleLog}
         // taxaDetectionInterval is set directly on the camera component with frameProcessorFps

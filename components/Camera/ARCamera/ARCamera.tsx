@@ -457,6 +457,9 @@ const ARCamera = ( ) => {
     } = useCameraPermission();
     useFocusEffect(
       useCallback( () => {
+        // reset when camera loads, not when leaving page, for quicker transition
+        resetState();
+
         // Checking camera permission status, if granted set it and return
         console.log(
           `Camera permission status: hasCameraPermission is ${hasCameraPermission}`,
@@ -465,7 +468,7 @@ const ARCamera = ( ) => {
           console.log( "Requesting camera permission..." );
           requestCameraPermission();
         }
-        console.log( "status", status )
+        console.log( "status", status );
         if ( status === "denied" ) {
           // If the user has not granted permission we have to show an error message
           // This string is returned from the legacy camera when the user has not granted the needed permissions
@@ -524,8 +527,6 @@ const ARCamera = ( ) => {
 
     const unsubscribe = navigation.addListener( "focus", ( ) => {
       setObservation( null );
-      // reset when camera loads, not when leaving page, for quicker transition
-      resetState( );
       checkForFirstCameraLaunch( );
       requestAndroidPermissions( );
     } );

@@ -46,7 +46,6 @@ interface Props {
   onCameraError: ( error: ErrorMessage ) => void;
   onDeviceNotSupported: ( error: ReasonMessage ) => void;
   onClassifierError: ( error: ErrorMessage ) => void;
-  onCaptureError: ( error: ReasonMessage ) => void;
   onLog: ( event: LogMessage ) => void;
   isActive: boolean;
   useLocation: boolean;
@@ -64,7 +63,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     onCameraError,
     // onDeviceNotSupported,
     onClassifierError,
-    // onCaptureError,
     onLog,
     isActive,
     useLocation,
@@ -272,14 +270,6 @@ const FrameProcessorCamera = ( props: Props ) => {
         return;
       }
 
-      if ( error.code.includes( "capture/" ) ) {
-        const returnReason: { nativeEvent: { reason?: string } } = {
-          nativeEvent: { reason: error.code },
-        };
-        onCaptureError( returnReason );
-        return;
-      }
-
       // If the error code is "frame-processor/unavailable" handle the error as classifier error
       if ( error.code === "frame-processor/unavailable" ) {
         const returnError: { nativeEvent: { error?: string } } = {
@@ -317,7 +307,6 @@ const FrameProcessorCamera = ( props: Props ) => {
       onCameraError,
       // onDeviceNotSupported,
       // onClassifierError,
-      // onCaptureError
     ]
   );
 

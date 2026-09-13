@@ -473,33 +473,7 @@ const ARCamera = ( ) => {
         requestCameraPermission,
       ] ),
     );
-  
-  const checkCameraPermissions = async ( ): Promise<boolean | string> => {
-    const { PERMISSIONS, RESULTS } = PermissionsAndroid;
-  
-    try {
-      const granted = await PermissionsAndroid.request( PERMISSIONS.CAMERA );
-  
-      if ( granted === RESULTS.GRANTED ) {
-        return true;
-      }
-      return "permissions";
-    } catch ( e ) {
-      return e;
-    }
-  };
-  
-  const requestAndroidPermissions = useCallback( ( ) => {
-    if ( Platform.OS === "android" ) {
-      checkCameraPermissions( ).then( ( result ) => {
-        if ( result === "permissions" ) {
-          updateError( "permissions" );
-        }
-        updateError( null );
-      } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
-    }
-  }, [updateError] );
-
+    
   const closeModal = useCallback( ( ) => setShowModal( false ), [] );
 
   useEffect( ( ) => {
@@ -513,11 +487,10 @@ const ARCamera = ( ) => {
     const unsubscribe = navigation.addListener( "focus", ( ) => {
       setObservation( null );
       checkForFirstCameraLaunch( );
-      requestAndroidPermissions( );
     } );
 
     return unsubscribe;
-  }, [navigation, requestAndroidPermissions, setObservation] );
+  }, [navigation, setObservation] );
 
   useFocusEffect(
     useCallback( ( ) => {

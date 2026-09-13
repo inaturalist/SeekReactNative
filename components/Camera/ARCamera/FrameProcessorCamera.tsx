@@ -140,6 +140,13 @@ const FrameProcessorCamera = ( props: Props ) => {
   const geoModelCellLocation = hasUserLocation
     ? InatVision.getCellLocation( coords )
     : null;
+  const cellLat = geoModelCellLocation?.latitude;
+  const cellLng = geoModelCellLocation?.longitude;
+  const cellElev = geoModelCellLocation?.elevation;
+  const hasCellLocation =
+    typeof cellLat === "number" &&
+    typeof cellLng === "number" &&
+    typeof cellElev === "number";
 
   const asyncRunner = useAsyncRunner( );
   const frameOutput = useFrameOutput( {
@@ -162,7 +169,8 @@ const FrameProcessorCamera = ( props: Props ) => {
             }
           }
           const timeBefore = new Date().getTime();
-          const result = InatVision.inatVision( frame, {
+
+          const options = {
             version: "2.13",
             modelPath: dirModel,
             taxonomyPath: dirTaxonomy,
@@ -171,12 +179,17 @@ const FrameProcessorCamera = ( props: Props ) => {
             negativeFilter,
             useGeomodel,
             geomodelPath: dirGeomodel,
-            location: {
-              latitude: geoModelCellLocation?.latitude,
-              longitude: geoModelCellLocation?.longitude,
-              elevation: geoModelCellLocation?.elevation,
-            },
-          } );
+          };
+
+          if ( useGeomodel && hasCellLocation ) {
+            options.location = {
+              latitude: cellLat,
+              longitude: cellLng,
+              elevation: cellElev,
+            };
+          }
+
+          const result = InatVision.inatVision( frame, options );
           const timeAfter = Date.now();
           const timeTaken = timeAfter - timeBefore;
           scheduleOnRN( handleResult, result, timeTaken );

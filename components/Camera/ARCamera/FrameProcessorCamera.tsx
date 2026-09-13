@@ -201,11 +201,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     },
   } );
 
-  // Currently, we are asking for camera permission on focus of the screen, that results in one render
-  // of the camera before permission is granted. This is to keep track and to throw error after the first error only.
-  // TODO: relates to below
-  // const [permissionCount, setPermissionCount] = useState( 0 );
-
   const onError = useCallback(
     ( error: Error ) => {
       console.log( "error", error );
@@ -235,24 +230,6 @@ const FrameProcessorCamera = ( props: Props ) => {
         };
         onDeviceNotSupported( returnReason );
         return;
-      }
-
-      // If the error code is "permission/" return the legacy code for permission errors
-      if ( error.code.includes( "permission/" ) ) {
-        if ( error.code === "permission/camera-permission-denied" ) {
-          // Currently, we are asking for camera permission on focus of the screen, that results in one render
-          // of the camera before permission is granted. If the permission is denied, this error happens twice,
-          // so we are ignoring the first one.
-          if ( permissionCount === 0 ) {
-            setPermissionCount( permissionCount + 1 );
-            return;
-          }
-        }
-        // This string is returned from the legacy camera when the user has not granted the needed permissions
-        // and expected by HOC to be received and reacted to
-        const permissions =
-          "Camera Input Failed: This app is not authorized to use Back Camera.";
-        returnString = permissions;
       }
       */
       const returnError: { nativeEvent: { error?: string } } = {

@@ -342,7 +342,7 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleCameraError = ( event: ErrorMessage ) => {
+  const handleCameraError = useCallback( ( event: ErrorMessage ) => {
     const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
@@ -355,7 +355,7 @@ const ARCamera = ( ) => {
     } else {
       updateError( "camera", event.nativeEvent.error );
     }
-  };
+  }, [ error, updateError ] );
 
   const handleClassifierError = ( event: ErrorMessage ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {

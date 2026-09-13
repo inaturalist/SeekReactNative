@@ -25,7 +25,6 @@ import { log } from "../../../react-native-logs.config";
 import { imageStyles, viewStyles } from "../../../styles/camera/arCamera";
 import { colors } from "../../../styles/global";
 import {
-  checkCameraPermissions,
   checkSavePermissions,
 } from "../../../utility/androidHelpers.android";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
@@ -450,6 +449,21 @@ const ARCamera = ( ) => {
 
   const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
 
+  const checkCameraPermissions = async ( ): Promise<boolean | string> => {
+    const { PERMISSIONS, RESULTS } = PermissionsAndroid;
+  
+    try {
+      const granted = await PermissionsAndroid.request( PERMISSIONS.CAMERA );
+  
+      if ( granted === RESULTS.GRANTED ) {
+        return true;
+      }
+      return "permissions";
+    } catch ( e ) {
+      return e;
+    }
+  };
+  
   const requestAndroidPermissions = useCallback( ( ) => {
     if ( Platform.OS === "android" ) {
       checkCameraPermissions( ).then( ( result ) => {

@@ -270,15 +270,6 @@ const FrameProcessorCamera = ( props: Props ) => {
         return;
       }
 
-      // If the error code is "frame-processor/unavailable" handle the error as classifier error
-      if ( error.code === "frame-processor/unavailable" ) {
-        const returnError: { nativeEvent: { error?: string } } = {
-          nativeEvent: { error: error.code },
-        };
-        onClassifierError( returnError );
-        return;
-      }
-
       // If the error code is "permission/" return the legacy code for permission errors
       if ( error.code.includes( "permission/" ) ) {
         if ( error.code === "permission/camera-permission-denied" ) {
@@ -306,7 +297,6 @@ const FrameProcessorCamera = ( props: Props ) => {
       // permissionCount,
       onCameraError,
       // onDeviceNotSupported,
-      // onClassifierError,
     ]
   );
 

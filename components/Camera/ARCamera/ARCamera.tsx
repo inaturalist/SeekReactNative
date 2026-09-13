@@ -29,7 +29,6 @@ import {
 } from "../../../utility/androidHelpers.android";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
-  checkForSystemVersion,
   handleLog,
   showCameraSaveFailureAlert,
 } from "../../../utility/cameraHelpers";
@@ -359,14 +358,6 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleDeviceNotSupported = ( event: ReasonMessage ) => {
-    if ( event.nativeEvent && event.nativeEvent.reason ) {
-      updateError( "device", event.nativeEvent.reason );
-    } else {
-      updateError( "device", checkForSystemVersion( ) );
-    }
-  };
-
   const handleCaptureError = useCallback( ( event: ReasonMessage ) => {
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "take", event.nativeEvent.reason );
@@ -537,7 +528,6 @@ const ARCamera = ( ) => {
         onCameraError={handleCameraError}
         // onCameraPermissionMissing was an empty callback
         onClassifierError={handleClassifierError}
-        onDeviceNotSupported={handleDeviceNotSupported}
         onCaptureError={handleCaptureError}
         onTaxaDetected={handleTaxaDetected}
         onLog={handleLog}

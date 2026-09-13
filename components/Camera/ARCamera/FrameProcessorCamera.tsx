@@ -43,7 +43,6 @@ interface Props {
   negativeFilter: boolean;
   onTaxaDetected: ( result: InatVision.Result ) => void;
   onCameraError: ( error: ErrorMessage ) => void;
-  onDeviceNotSupported: ( error: ReasonMessage ) => void;
   onClassifierError: ( error: ErrorMessage ) => void;
   onLog: ( event: LogMessage ) => void;
   isActive: boolean;
@@ -60,7 +59,6 @@ const FrameProcessorCamera = ( props: Props ) => {
     negativeFilter,
     onTaxaDetected,
     onCameraError,
-    // onDeviceNotSupported,
     onClassifierError,
     onLog,
     isActive,
@@ -212,29 +210,12 @@ const FrameProcessorCamera = ( props: Props ) => {
         backtrace: error.stack,
       } );
       const returnString = error.message;
-      // TODO: VC4 was sending detailed error codes on what parts of the setup were broken
-      // VC5 does no such thing? Figure out how to react to a variety of errors that can be thrown here.
-      /*
-      const returnString = error.code;
-      // If it is a "device/" error, return the error code
-      if ( error.code.includes( "device/" ) ) {
-        const returnReason: { nativeEvent: { reason?: string } } = {
-          nativeEvent: { reason: error.code },
-        };
-        onDeviceNotSupported( returnReason );
-        return;
-      }
-      */
       const returnError: { nativeEvent: { error?: string } } = {
         nativeEvent: { error: returnString },
       };
       onCameraError( returnError );
     },
-    [
-      // permissionCount,
-      onCameraError,
-      // onDeviceNotSupported,
-    ]
+    [ onCameraError ]
   );
 
   const active = isActive && isFocused && isForeground;

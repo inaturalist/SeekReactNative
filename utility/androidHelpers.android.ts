@@ -30,21 +30,6 @@ const checkLocationPermissions = async ( ): Promise<boolean> => {
   }
 };
 
-const checkCameraPermissions = async ( ): Promise<boolean | string> => {
-  const { PERMISSIONS, RESULTS } = PermissionsAndroid;
-
-  try {
-    const granted = await PermissionsAndroid.request( PERMISSIONS.CAMERA );
-
-    if ( granted === RESULTS.GRANTED ) {
-      return true;
-    }
-    return "permissions";
-  } catch ( e ) {
-    return e;
-  }
-};
-
 const checkSavePermissions = async ( ): Promise<boolean | string> => {
   const { PERMISSIONS, RESULTS } = PermissionsAndroid;
 
@@ -92,7 +77,6 @@ const requestGalleryMediaPermissions = async ( ): Promise<void> => {
 };
 
 export {
-  checkCameraPermissions,
   checkLocationPermissions,
   checkSavePermissions,
   onlyCheckLocationPermissions,

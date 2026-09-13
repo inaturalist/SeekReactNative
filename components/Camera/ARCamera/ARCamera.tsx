@@ -444,36 +444,36 @@ const ARCamera = ( ) => {
 
   const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
 
-    const {
-      status,
-      hasPermission: hasCameraPermission,
-      requestPermission: requestCameraPermission,
-    } = useCameraPermission();
-    useFocusEffect(
-      useCallback( () => {
-        // reset when camera loads, not when leaving page, for quicker transition
-        resetState();
+  const {
+    status,
+    hasPermission: hasCameraPermission,
+    requestPermission: requestCameraPermission,
+  } = useCameraPermission();
+  useFocusEffect(
+    useCallback( () => {
+      // reset when camera loads, not when leaving page, for quicker transition
+      resetState();
 
-        // Checking camera permission status, if granted set it and return
-        console.log(
-          `Camera permission status: hasCameraPermission is ${hasCameraPermission}`,
-        );
-        if ( !hasCameraPermission ) {
-          console.log( "Requesting camera permission..." );
-          requestCameraPermission();
-        }
-        if ( status === "denied" ) {
-          // If the user has not granted permission we have to show an error message
-          updateError( "permissions" );
-        }
-      }, [
-        status,
-        hasCameraPermission,
-        updateError,
-        requestCameraPermission,
-      ] ),
-    );
-    
+      // Checking camera permission status, if granted set it and return
+      console.log(
+        `Camera permission status: hasCameraPermission is ${hasCameraPermission}`,
+      );
+      if ( !hasCameraPermission ) {
+        console.log( "Requesting camera permission..." );
+        requestCameraPermission();
+      }
+      if ( status === "denied" ) {
+        // If the user has not granted permission we have to show an error message
+        updateError( "permissions" );
+      }
+    }, [
+      status,
+      hasCameraPermission,
+      updateError,
+      requestCameraPermission,
+    ] ),
+  );
+  
   const closeModal = useCallback( ( ) => setShowModal( false ), [] );
 
   useEffect( ( ) => {

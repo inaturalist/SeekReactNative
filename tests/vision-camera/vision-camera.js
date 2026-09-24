@@ -66,44 +66,53 @@ export class mockCamera extends React.PureComponent {
 
 export const mockSortDevices = ( _left, _right ) => 1;
 
-export const mockUseCameraDevice = ( _deviceType ) => {
-  const device = {
-    devices: ["wide-angle-camera"],
-    hasFlash: true,
-    hasTorch: true,
-    id: "1",
-    isMultiCam: true,
-    maxZoom: 12.931958198547363,
-    minZoom: 1,
-    name: "front (1)",
-    neutralZoom: 1,
-    position: "front",
-    supportsDepthCapture: false,
-    supportsFocus: true,
-    supportsLowLightBoost: false,
-    supportsParallelVideoProcessing: true,
-    supportsRawCapture: true,
-  };
-  return device;
+const mockDevice = {
+  devices: ["wide-angle-camera"],
+  hasFlash: true,
+  hasTorch: true,
+  id: "1",
+  isMultiCam: true,
+  maxZoom: 12.931958198547363,
+  minZoom: 1,
+  name: "front (1)",
+  neutralZoom: 1,
+  position: "front",
+  supportsDepthCapture: false,
+  supportsFocus: true,
+  supportsLowLightBoost: false,
+  supportsParallelVideoProcessing: true,
+  supportsRawCapture: true,
 };
 
-export const mockUseCameraPermission = () => ( {
+// Stable identities. A fresh object or function on each call changes hook
+// dependencies (camera focus reset, location permission) and re-renders forever,
+// so Detox never sees the app go idle.
+export const mockUseCameraDevice = ( _deviceType ) => mockDevice;
+
+const mockCameraPermission = {
   hasPermission: true,
   requestPermission: async () => true,
-} );
+  status: "granted",
+};
 
-export const mockUseLocation = () => ( {
+export const mockUseCameraPermission = () => mockCameraPermission;
+
+const mockLocation = {
   hasPermission: true,
   requestPermission: async () => true,
   currentLocation: undefined,
-} );
+};
 
-export const mockUseAsyncRunner = () => ( {
+export const mockUseLocation = () => mockLocation;
+
+const mockAsyncRunner = {
   runAsync: ( cb ) => {
     cb();
     return true;
   },
-} );
+};
+
+export const mockUseAsyncRunner = () => mockAsyncRunner;
 
 export const mockUseFrameOutput = ( options ) => options;
 
@@ -156,6 +165,8 @@ const mockCapturePhotoToFile = async ( _settings, callbacks = {} ) => {
     } );
 };
 
-export const mockUsePhotoOutput = () => ( {
+const mockPhotoOutput = {
   capturePhotoToFile: mockCapturePhotoToFile,
-} );
+};
+
+export const mockUsePhotoOutput = () => mockPhotoOutput;

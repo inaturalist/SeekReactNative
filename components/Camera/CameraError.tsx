@@ -8,6 +8,7 @@ import { textStyles, viewStyles } from "../../styles/camera/cameraError";
 import { baseTextStyles } from "../../styles/textStyles";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
+import GalleryButton from "./ARCamera/GalleryButton";
 
 interface Props {
   readonly error: string;
@@ -65,6 +66,9 @@ const CameraError = ( { error, errorEvent }: Props ) => {
         {setCameraErrorText( error, errorEvent )}
       </StyledText>
       {( error === "permissions" || error === "gallery" ) && showPermissionsButton()}
+      <View style={viewStyles.margin} />
+      <View style={viewStyles.margin} />
+      <GalleryButton setIsActive={() => {}}/>
     </View>
   );
 };

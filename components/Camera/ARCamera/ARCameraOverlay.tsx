@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { TakePhotoOptions } from "react-native-vision-camera";
+import type { CapturePhotoSettings } from "react-native-vision-camera";
 
 import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
@@ -48,7 +48,7 @@ interface Props {
   flipCamera: ( ) => void;
   toggleFlash: ( ) => void;
   hasFlash?: boolean;
-  takePhotoOptions: TakePhotoOptions;
+  takePhotoOptions: CapturePhotoSettings;
   visibleToast: TOAST;
   toggleLocation: ( ) => void;
   useLocation: boolean;

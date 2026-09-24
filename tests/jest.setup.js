@@ -15,8 +15,12 @@ import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 import {
   mockCamera,
   mockSortDevices,
+  mockUseAsyncRunner,
   mockUseCameraDevice,
-  mockUseCameraFormat,
+  mockUseCameraPermission,
+  mockUseFrameOutput,
+  mockUseLocation,
+  mockUsePhotoOutput,
 } from "./vision-camera/vision-camera";
 
 require( "react-native-reanimated" ).setUpTests();
@@ -32,11 +36,6 @@ jest.mock( "@react-native-community/netinfo", () => mockRNCNetInfo );
 jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 
 jest.mock( "vision-camera-plugin-inatvision" );
-jest.mock( "react-native-worklets-core", () => ( {
-  Worklets: {
-    createRunInJsFn: jest.fn(),
-  },
-} ) );
 
 jest.mock( "@dr.pogodin/react-native-fs", () => {
   const RNFS = {
@@ -199,12 +198,15 @@ jest.mock( "realm", () => {
 jest.mock( "react-native-vision-camera", () => ( {
   Camera: mockCamera,
   sortDevices: mockSortDevices,
+  useAsyncRunner: mockUseAsyncRunner,
   useCameraDevice: mockUseCameraDevice,
-  useCameraFormat: mockUseCameraFormat,
-  useFrameProcessor: jest.fn(),
-  VisionCameraProxy: {
-    initFrameProcessorPlugin: jest.fn(),
-  },
+  useCameraPermission: mockUseCameraPermission,
+  useFrameOutput: mockUseFrameOutput,
+  usePhotoOutput: mockUsePhotoOutput,
+} ) );
+
+jest.mock( "react-native-vision-camera-location", () => ( {
+  useLocation: mockUseLocation,
 } ) );
 
 jest.mock( "@react-native-camera-roll/camera-roll", () => ( {

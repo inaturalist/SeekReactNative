@@ -6,7 +6,6 @@ import React, {
   useContext,
   useEffect,
   useReducer,
-  useRef,
   useState,
 } from "react";
 import {
@@ -15,8 +14,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import type { Camera, PhotoFile, TakePhotoOptions } from "react-native-vision-camera";
-import { useSharedValue } from "react-native-worklets-core";
+import { useSharedValue } from "react-native-reanimated";
+import type { CapturePhotoSettings } from "react-native-vision-camera";
+import { CommonResolutions } from "react-native-vision-camera";
 import type { Prediction } from "vision-camera-plugin-inatvision";
 
 import icons from "../../../assets/icons";
@@ -25,12 +25,10 @@ import { log } from "../../../react-native-logs.config";
 import { imageStyles, viewStyles } from "../../../styles/camera/arCamera";
 import { colors } from "../../../styles/global";
 import {
-  checkCameraPermissions,
   checkSavePermissions,
 } from "../../../utility/androidHelpers.android";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
 import {
-  checkForSystemVersion,
   handleLog,
   showCameraSaveFailureAlert,
 } from "../../../utility/cameraHelpers";
@@ -51,7 +49,9 @@ import type { ErrorMessage, ReasonMessage } from "./FrameProcessorCamera";
 import FrameProcessorCamera from "./FrameProcessorCamera";
 import { useCameraDevice } from "./helpers/visionCameraWrapper";
 import {
-  useLocationPermission as useLocationPermissionCamera,
+  useCameraPermission,
+  useLocation,
+  usePhotoOutput,
 } from "./helpers/visionCameraWrapper";
 
 const logger = log.extend( "ARCamera.js" );
@@ -95,8 +95,10 @@ type Action = { type: ACTION.RESET_PREDICTIONS }
   | { type: ACTION.FILTER_TAXON; taxonId: string | null; negativeFilter: boolean }
   | { type: ACTION.ERROR; error: string; errorEvent: string };
 
-interface HandledPhoto extends PhotoFile {
-  predictions: Prediction[];
+export type SortedPrediction = Omit<Prediction, "score" | "vision_score" | "geo_score">
+
+interface HandledPhoto {
+  predictions: SortedPrediction[];
   uri: string;
 }
 
@@ -107,16 +109,15 @@ const ARCamera = ( ) => {
 
   const isFocused = useIsFocused( );
   const navigation = useNavigation<RootStackScreenProps<"Camera">["navigation"]>( );
-  const camera = useRef<Camera>( null );
   const { startObservationWithImage, setObservation } = useObservation();
   const [isActive, setIsActive] = useState( true );
 
   const [cameraPosition, setCameraPosition] = useState<"front" | "back">( "back" );
   const backDevice = useCameraDevice( "back", {
     physicalDevices: [
-      // "ultra-wide-angle-camera",
-      "wide-angle-camera",
-      "telephoto-camera",
+      "ultra-wide-angle",
+      "wide-angle",
+      "telephoto",
     ],
   } );
   const frontDevice = useCameraDevice( "front" );
@@ -131,15 +132,21 @@ const ARCamera = ( ) => {
     // We had this set to true in Seek but received many reports of it not respecting OS-wide sound
     // level and scared away wildlife. So maybe better to just disable it.
     enableShutterSound: false,
-    ...( hasFlash && { flash: "off" } as const ),
+    ...( hasFlash && { flashMode: "off" } as const ),
   } as const;
-  const [takePhotoOptions, setTakePhotoOptions] = useState<TakePhotoOptions>( initialPhotoOptions );
+  const [takePhotoOptions, setTakePhotoOptions] = useState<CapturePhotoSettings>( initialPhotoOptions );
   const [visibleToast, setVisibleToast] = useState( TOAST.NONE );
   
-  const location = useLocationPermissionCamera();
-  const { hasPermission } = location;
+  const location = useLocation();
+  const { hasPermission, requestPermission } = location;
+  useEffect( () => {
+    if ( !hasPermission ) {
+      requestPermission();
+    }
+  }, [hasPermission, requestPermission] );
+
   const { userDisabledLocation, setUserDisabledLocation } = useCameraLocationPreference();
-  const useLocation = hasPermission && !userDisabledLocation;
+  const useLocation2 = hasPermission && !userDisabledLocation;
 
   const toggleLocation = () => {
     if ( !hasPermission ) {
@@ -147,7 +154,7 @@ const ARCamera = ( ) => {
     }
     setUserDisabledLocation( ( prev ) => !prev );
     // Always show status when button is pressed
-    setVisibleToast( useLocation ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
+    setVisibleToast( useLocation2 ? TOAST.LOCATION_OFF : TOAST.LOCATION_ON );
   };
 
   const handleToastEnd = useCallback( () => {
@@ -224,11 +231,11 @@ const ARCamera = ( ) => {
   const toggleFlash = ( ) => {
     setTakePhotoOptions( {
       ...takePhotoOptions,
-      flash: takePhotoOptions.flash === "on"
+      flashMode: takePhotoOptions.flashMode === "on"
         ? "off"
         : "on",
     } );
-    setVisibleToast( takePhotoOptions.flash === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
+    setVisibleToast( takePhotoOptions.flashMode === "on" ? TOAST.FLASH_OFF : TOAST.FLASH_ON );
   };
 
   const updateError = useCallback( ( err, errEvent?: string ) => {
@@ -239,7 +246,7 @@ const ARCamera = ( ) => {
     dispatch( { type: ACTION.ERROR, error: err, errorEvent: errEvent } );
   }, [error] );
 
-  const navigateToResults = useCallback( async ( uri: string, predictions: Prediction[] ) => {
+  const navigateToResults = useCallback( async ( uri: string, predictions: SortedPrediction[] ) => {
     const userImage = {
       time: createTimestamp( ), // add current time to AR camera photos
       uri,
@@ -272,7 +279,7 @@ const ARCamera = ( ) => {
     } );
   }, [startObservationWithImage, navigation, login] );
 
-  const handleCameraRollSaveError = useCallback( async ( uri: string, predictions: Prediction[], e ) => {
+  const handleCameraRollSaveError = useCallback( async ( uri: string, predictions: SortedPrediction[], e ) => {
     // react-native-cameraroll does not yet have granular detail about read vs. write permissions
     // but there's a pull request for it as of March 2021
 
@@ -334,34 +341,20 @@ const ARCamera = ( ) => {
     }
   };
 
-  const handleCameraError = ( event: ErrorMessage ) => {
-    const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
+  const handleCameraError = useCallback( ( event: ErrorMessage ) => {
     // iOS camera permissions error is handled by handleCameraError, not permission missing
     if ( error === "device" ) {
       // do nothing if there is already a device error
       return;
     }
-
-    if ( event.nativeEvent.error === permissions ) {
-      updateError( "permissions" );
-    } else {
-      updateError( "camera", event.nativeEvent.error );
-    }
-  };
+    updateError( "camera", event.nativeEvent.error );
+  }, [ error, updateError ] );
 
   const handleClassifierError = ( event: ErrorMessage ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
       updateError( "classifier", event.nativeEvent.error );
     } else {
       updateError( "classifier" );
-    }
-  };
-
-  const handleDeviceNotSupported = ( event: ReasonMessage ) => {
-    if ( event.nativeEvent && event.nativeEvent.reason ) {
-      updateError( "device", event.nativeEvent.reason );
-    } else {
-      updateError( "device", checkForSystemVersion( ) );
     }
   };
 
@@ -388,55 +381,31 @@ const ARCamera = ( ) => {
     checkPermissions( );
   }, [savePhoto] );
 
-  const visionCameraTakePhoto = useCallback( async ( callback ) => {
-    if ( !camera.current ) {
-      return;
-    }
-
+  const photoOutput = usePhotoOutput( {
+    qualityPrioritization: "speed",
+    targetResolution: CommonResolutions.HIGHEST_16_9,
+  } );
+  const visionCameraTakePhoto = useCallback( async ( callback: ( photo: HandledPhoto ) => void ) => {
     // Local copy of all predictions, so we can pass them to the photo after taking it
     const predictions = [...sortedPredictions];
 
-    camera.current.takePhoto( takePhotoOptions ).then( async ( photo ) => {
-      // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
-      // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
-      // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
-      setIsActive( false );
+    try {
+      const photo = await photoOutput.capturePhotoToFile( {
+        ...takePhotoOptions,
+        location: location.currentLocation,
+      }, {
+        // pauseAfterCapture: true, would pause the classifier after taking a photo in legacy camera
+        // setting the camera as inactive here is the closest thing to that, although there is a small delay visible
+        // TODO: if the delay is too frustrating to users we would need to patch this into react-native-vision-camera directly
+        onDidCapturePhoto: () => setIsActive( false ),
+      } );
       // Use last prediction as the prediction for the photo, in legacy camera this was given by the classifier callback
-      photo.predictions = predictions;
-      photo.uri = photo.path;
-      // Photo:
-      /*
-        {
-          "height": 2268,
-          "isRawPhoto": false,
-          "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 2.15, "ColorSpace": 1, "DateTimeDigitized": "2023:02:24 16:20:13", "DateTimeOriginal": "2023:02:24 16:20:13", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0669", "SubsecTimeOriginal": "0669", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:02:24 16:20:13", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
-          "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4533849973631201605.jpg",
-          "width": 4032
-        }
-      */
-      /*
-        {
-          "deviceOrientation": 6,
-          "height": 2268,
-          "isRawPhoto": false,
-          "metadata": {"Orientation": 6, "{Exif}": {"ApertureValue": 1.16, "BrightnessValue": 1.95, "ColorSpace": 1, "DateTimeDigitized": "2023:05:25 17:58:49", "DateTimeOriginal": "2023:05:25 17:58:49", "ExifVersion": "0220", "ExposureBiasValue": 0, "ExposureMode": 0, "ExposureProgram": 2, "ExposureTime": 0.02, "FNumber": 1.5, "Flash": 0, "FocalLenIn35mmFilm": 26, "FocalLength": 4.3, "ISOSpeedRatings": [Array], "LensMake": null, "LensModel": null, "LensSpecification": [Array], "MeteringMode": 2, "OffsetTime": null, "OffsetTimeDigitized": null, "OffsetTimeOriginal": null, "PixelXDimension": 4032, "PixelYDimension": 2268, "SceneType": 1, "SensingMethod": 1, "ShutterSpeedValue": 5.64, "SubjectArea": [Array], "SubsecTimeDigitized": "0257", "SubsecTimeOriginal": "0257", "WhiteBalance": 0}, "{TIFF}": {"DateTime": "2023:05:25 17:58:49", "Make": "samsung", "Model": "SM-G960F", "ResolutionUnit": 2, "Software": "G960FXXUHFVG4", "XResolution": 72, "YResolution": 72}},
-          "path": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
-          "pictureOrientation": 6,
-          "predictions": [
-            {"ancestor_ids": [Array], "name": "Liliopsida", "rank": 50, "combined_score": 93.01357269287109, "taxon_id": 47163},
-            {"ancestor_ids": [Array], "name": "Asparagales", "rank": 40, "combined_score": 92.16688275337219, "taxon_id": 47218},
-            {"ancestor_ids": [Array], "name": "Iridaceae", "rank": 30, "combined_score": 91.24458432197571, "taxon_id": 47781},
-            {"ancestor_ids": [Array], "name": "Iris", "rank": 20, "combined_score": 87.44127750396729, "taxon_id": 47780}
-          ],
-          "uri": "/data/user/0/org.inaturalist.seek/cache/mrousavy4494367485443724594.jpg",
-          "width": 4032
-        }
-      */
-
-      // TODO: this callback only ever uses photo.uri and photo.predictions, so we can just pass those directly
-      callback( photo );
-    } )
-    .catch( ( e ) => {
+      const photoWithPredictions = {
+        predictions: predictions,
+        uri: photo.filePath,
+      }
+      callback( photoWithPredictions );
+    } catch( e ) {
       logToApi( {
         level: LogLevels.ERROR,
         context: "ARCamera.tsx",
@@ -445,8 +414,9 @@ const ARCamera = ( ) => {
         backtrace: e.stack,
       } );
       handleCaptureError( { nativeEvent: { reason: e } } );
-    } );
-  }, [sortedPredictions, handleCaptureError, takePhotoOptions] );
+
+    }
+  }, [sortedPredictions, handleCaptureError, takePhotoOptions, location, photoOutput] );
 
   const takePicture = useCallback( async () => {
     pictureTaken.value = true;
@@ -465,17 +435,36 @@ const ARCamera = ( ) => {
 
   const resetState = ( ) => dispatch( { type: ACTION.RESET_STATE } );
 
-  const requestAndroidPermissions = useCallback( ( ) => {
-    if ( Platform.OS === "android" ) {
-      checkCameraPermissions( ).then( ( result ) => {
-        if ( result === "permissions" ) {
-          updateError( "permissions" );
-        }
-        updateError( null );
-      } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
-    }
-  }, [updateError] );
+  const {
+    status,
+    hasPermission: hasCameraPermission,
+    requestPermission: requestCameraPermission,
+  } = useCameraPermission();
+  useFocusEffect(
+    useCallback( () => {
+      // reset when camera loads, not when leaving page, for quicker transition
+      resetState();
 
+      // Checking camera permission status, if granted set it and return
+      console.log(
+        `Camera permission status: hasCameraPermission is ${hasCameraPermission}`,
+      );
+      if ( !hasCameraPermission ) {
+        console.log( "Requesting camera permission..." );
+        requestCameraPermission();
+      }
+      if ( status === "denied" ) {
+        // If the user has not granted permission we have to show an error message
+        updateError( "permissions" );
+      }
+    }, [
+      status,
+      hasCameraPermission,
+      updateError,
+      requestCameraPermission,
+    ] ),
+  );
+  
   const closeModal = useCallback( ( ) => setShowModal( false ), [] );
 
   useEffect( ( ) => {
@@ -488,14 +477,11 @@ const ARCamera = ( ) => {
 
     const unsubscribe = navigation.addListener( "focus", ( ) => {
       setObservation( null );
-      // reset when camera loads, not when leaving page, for quicker transition
-      resetState( );
       checkForFirstCameraLaunch( );
-      requestAndroidPermissions( );
     } );
 
     return unsubscribe;
-  }, [navigation, requestAndroidPermissions, setObservation] );
+  }, [navigation, setObservation] );
 
   useFocusEffect(
     useCallback( ( ) => {
@@ -532,16 +518,16 @@ const ARCamera = ( ) => {
     if ( !device ) {
       return null;
     }
+    if ( !hasCameraPermission ) {
+      return null;
+    }
     return (
       <FrameProcessorCamera
-        cameraRef={camera}
         device={device}
         confidenceThreshold={confidenceThresholdNumber}
         onCameraError={handleCameraError}
         // onCameraPermissionMissing was an empty callback
         onClassifierError={handleClassifierError}
-        onDeviceNotSupported={handleDeviceNotSupported}
-        onCaptureError={handleCaptureError}
         onTaxaDetected={handleTaxaDetected}
         onLog={handleLog}
         // taxaDetectionInterval is set directly on the camera component with frameProcessorFps
@@ -549,8 +535,9 @@ const ARCamera = ( ) => {
         negativeFilter={negativeFilter}
         // type is replaced with logic in FrameProcessorCamera
         isActive={isActive}
-        useLocation={useLocation}
+        useLocation={useLocation2}
         hasPermission={hasPermission}
+        photoOutput={photoOutput}
       />
     );
   };
@@ -579,7 +566,7 @@ const ARCamera = ( ) => {
           toggleFlash={toggleFlash}
           visibleToast={visibleToast}
           toggleLocation={toggleLocation}
-          useLocation={useLocation}
+          useLocation={useLocation2}
           handleToastEnd={handleToastEnd}
         />
       )}

@@ -20,7 +20,7 @@
     "tip_3": "Earn badges and raise your level by identifying different types of species and participating in challenges."
   },
   "challenges_card": {
-    "header": "Challenges",
+    "header": "도전 과제",
     "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
     "continue_challenge": "Continue challenge",
@@ -39,12 +39,12 @@
       "other": "Uploading {{count}} observations"
     },
     "x_observations_uploaded": {
-      "zero": "{{count}} observations uploaded!",
-      "one": "{{count}} observation uploaded!",
-      "two": "{{count}} observations uploaded!",
-      "few": "{{count}} observations uploaded!",
-      "many": "{{count}} observations uploaded!",
-      "other": "{{count}} observations uploaded!"
+      "zero": "{{count}}개의 관찰 기록이 게시되었어요!",
+      "one": "{{count}}개의 관찰 기록이 게시되었어요!",
+      "two": "{{count}}개의 관찰 기록이 게시되었어요!",
+      "few": "{{count}}개의 관찰 기록이 게시되었어요!",
+      "many": "{{count}}개의 관찰 기록이 게시되었어요!",
+      "other": "{{count}}개의 관찰 기록이 게시되었어요!"
     },
     "x_observations_to_upload": {
       "zero": "{{count}} observations to upload",
@@ -54,7 +54,7 @@
       "many": "{{count}} observations to upload",
       "other": "{{count}} observations to upload"
     },
-    "upload_now": "UPLOAD NOW",
+    "upload_now": "지금 게시하기",
     "error_internet": "No internet detected. Please try again later.",
     "error_downtime": {
       "zero": "iNaturalist’s server is undergoing maintenance. Please try again in {{count}} hours.",
@@ -201,7 +201,7 @@
     "challenge": "Challenge",
     "badge": "Badge",
     "connectivity": "Connectivity Challenge",
-    "biodiversity": "Biodiversity Challenge",
+    "biodiversity": "생물다양성 도전 과제",
     "productivity": "Community Challenge",
     "resilience": "Forests Challenge",
     "farming": "Grasslands Challenge",
@@ -209,7 +209,7 @@
     "hotspots": "High Seas Challenge",
     "ice": "Climate Challenge",
     "badge_name_april": "Connectivity Badge",
-    "badge_name_may": "Biodiversity Badge",
+    "badge_name_may": "생물다양성 배지",
     "badge_name_june": "Community Badge",
     "badge_name_august": "Grasslands Badge",
     "badge_name_september": "Freshwater Badge",
@@ -221,9 +221,9 @@
     "mission_1_april": "Find 10 new species!",
     "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
     "start_challenge": "Start the challenge",
-    "open_camera": "Open camera",
-    "view_badge": "View badge",
-    "your_mission": "Your mission:",
+    "open_camera": "카메라 열기",
+    "view_badge": "배지 보기",
+    "your_mission": "미션:",
     "mission_1_may": "Find any 4 different birds, mammals, reptiles, amphibians, or fish",
     "mission_2_may": "Find 4 different insects",
     "mission_3_may": "Find 3 different arachnids",
@@ -247,7 +247,7 @@
     },
     "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "This challenge will be released {{date}}.",
-    "get_involved": "Get involved",
+    "get_involved": "참여하기",
     "action_april": "Check if you live close to a city that's part of the City Nature Challenge, and if so look out for nature recording and identification activities for urban wildlife!",
     "action_may": "Volunteer your time with local groups that help maintain your local parks.\n\nShare your findings with your family, friends, or school community to open their eyes to the wildlife around them. Organise an event to pick up litter in a local park.",
     "action_june": "Use the resources on ourplanet.com to start a local biodiversity action project in your area to give your local wildlife a helping hand.",
@@ -271,8 +271,8 @@
     "mission_1_september": "Find any 10 different species from: dragonflies, amphibians, fish, ducks, mosses, ferns, water lilies, bulrushes, or cattails",
     "mission_1_october": "Find 5 birds",
     "mission_1_december": "Find 20 plants",
-    "photographer_april": "Photo © Netflix / Silverback Films",
-    "photographer_may": "Photo © Huw Cordey, Netflix / Silverback Films",
+    "photographer_april": "사진 © Netflix / Silverback Films",
+    "photographer_may": "사진 © Huw Cordey, Netflix / Silverback Films",
     "photographer_june": "Photo © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Photo © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Photo © Ben Macdonald, Netflix / Silverback Films",
@@ -286,7 +286,7 @@
     "badge_name_my_garden_2022": "MY GARDEN BADGE"
   },
   "results": {
-    "observed_species": "You observed a new species!",
+    "observed_species": "새로운 종을 보셨네요!",
     "learn_more": "It’s been added to your observations.\nLearn more about this species here:",
     "learn_more_no_location": "Learn more about this species here:",
     "view_species": "View Species",

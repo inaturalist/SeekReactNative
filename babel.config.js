@@ -4,7 +4,6 @@ module.exports = ( api ) => {
   ];
   const plugins = [
     "babel-plugin-react-compiler", // must run first!
-    "react-native-worklets-core/plugin",
     [
       "module-resolver",
       {

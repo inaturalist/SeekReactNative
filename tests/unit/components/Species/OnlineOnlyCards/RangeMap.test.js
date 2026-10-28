@@ -15,6 +15,7 @@ jest.mock( "@react-navigation/native", () => {
         if ( event === "focus" ) {
           callback();
         }
+        return jest.fn();
       },
     } ),
     useRoute: () => ( {

@@ -112,11 +112,9 @@ exports[`RangeMap should change map region to user's location when button is pre
       RANGE MAP
     </Text>
   </View>
-  <AIRMap
-    initialRegion={null}
-    onChange={[Function]}
-    onMapReady={[Function]}
+  <View
     onRegionChangeComplete={[Function]}
+    provider="default"
     region={
       {
         "latitude": 42.42,
@@ -134,26 +132,16 @@ exports[`RangeMap should change map region to user's location when button is pre
     testID="range-map"
     zoomEnabled={true}
   >
-    <AIRMapUrlTile
+    <View
       tileSize={512}
       urlTemplate="https://stagingapi.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=some_id&color=%2377B300&verifiable=true"
     />
-    <AIRMapMarker
+    <View
       coordinate={
         {
           "latitude": 42.1234567,
           "longitude": 42.1234567,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
     >
       <Image
@@ -163,23 +151,13 @@ exports[`RangeMap should change map region to user's location when button is pre
           }
         }
       />
-    </AIRMapMarker>
-    <AIRMapMarker
+    </View>
+    <View
       coordinate={
         {
           "latitude": 42.42,
           "longitude": 42.42,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
     >
       <Image
@@ -189,9 +167,10 @@ exports[`RangeMap should change map region to user's location when button is pre
           }
         }
       />
-    </AIRMapMarker>
-  </AIRMap>
+    </View>
+  </View>
   <View
+    accessibilityRole="button"
     accessibilityState={
       {
         "busy": undefined,
@@ -419,11 +398,9 @@ exports[`RangeMap should render correctly 1`] = `
       RANGE MAP
     </Text>
   </View>
-  <AIRMap
-    initialRegion={null}
-    onChange={[Function]}
-    onMapReady={[Function]}
+  <View
     onRegionChangeComplete={[Function]}
+    provider="default"
     region={
       {
         "latitude": 42.1234567,
@@ -439,26 +416,16 @@ exports[`RangeMap should render correctly 1`] = `
     testID="range-map"
     zoomEnabled={true}
   >
-    <AIRMapUrlTile
+    <View
       tileSize={512}
       urlTemplate="https://stagingapi.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=some_id&color=%2377B300&verifiable=true"
     />
-    <AIRMapMarker
+    <View
       coordinate={
         {
           "latitude": 42.1234567,
           "longitude": 42.1234567,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
     >
       <Image
@@ -468,23 +435,13 @@ exports[`RangeMap should render correctly 1`] = `
           }
         }
       />
-    </AIRMapMarker>
-    <AIRMapMarker
+    </View>
+    <View
       coordinate={
         {
           "latitude": 42.42,
           "longitude": 42.42,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
     >
       <Image
@@ -494,9 +451,10 @@ exports[`RangeMap should render correctly 1`] = `
           }
         }
       />
-    </AIRMapMarker>
-  </AIRMap>
+    </View>
+  </View>
   <View
+    accessibilityRole="button"
     accessibilityState={
       {
         "busy": undefined,

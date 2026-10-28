@@ -81,7 +81,7 @@ jest.mock( "../../../../utility/customHooks/useSeenTaxa", () => ( {
   useSeenTaxa: jest.fn( () => null ),
 } ) );
 
-jest.mock( "../../../../utility/customHooks", () => ( {
+jest.mock( "../../../../utility/customHooks/useCommonName", () => ( {
   __esModule: true,
   useCommonName: jest.fn( () => "Red-tailed Hawk" ),
 } ) );

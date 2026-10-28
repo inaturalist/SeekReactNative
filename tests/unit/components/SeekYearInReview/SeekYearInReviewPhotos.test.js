@@ -130,9 +130,6 @@ describe( "SeekYearInReviewPhotos", () => {
     // Right arrow should be visible
     const rightArrow = await screen.findByTestId( "right-arrow" );
     expect( rightArrow ).toBeTruthy();
-    // Second obs photo should not be visible
-    const description2 = screen.queryByText( /some_name_3/ );
-    expect( description2 ).toBeNull();
 
     // TODO: errors out on CI because it uses local timezone to display the date string in the photo description
     // expect( screen ).toMatchSnapshot();

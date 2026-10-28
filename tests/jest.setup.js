@@ -9,7 +9,6 @@ import "react-native-get-random-values";
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
-import * as mockRNLocalize from "react-native-localize/mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 
 import {
@@ -31,7 +30,7 @@ jest.mock( "react-native-worklets", () => require( "react-native-worklets/src/mo
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 jest.mock( "react-native-device-info", () => mockRNDeviceInfo );
-jest.mock( "react-native-localize", () => mockRNLocalize );
+jest.mock( "react-native-localize" );
 jest.mock( "@react-native-community/netinfo", () => mockRNCNetInfo );
 jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 

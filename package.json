@@ -156,7 +156,7 @@
       "node"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?@react-native|react-native|@react-native-community|@react-navigation|i18n-js)"
+      "node_modules/(?!(jest-)?@react-native|react-native|@react-native-community|@react-navigation|i18n-js|@realm|uuid|@shopify/flash-list)"
     ],
     "setupFiles": [
       "./node_modules/react-native-gesture-handler/jestSetup.js",

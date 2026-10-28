@@ -54,6 +54,7 @@ function useLanguage() {
 }
 
 export {
+  LanguageContext,
   LanguageProvider,
   useLanguage,
 };

@@ -5,8 +5,18 @@ import { fireEvent, render, screen } from "tests/jest-utils";
 import LanguagePicker from "../../../../components/Settings/LanguagePicker";
 import { toggleLanguage } from "../../../../utility/settingsHelpers";
 
-// Mock the hooks
-jest.mock( "../../../../utility/settingsHelpers" );
+jest.mock( "../../../../utility/settingsHelpers", () => ( {
+  ...jest.requireActual( "../../../../utility/settingsHelpers" ),
+  toggleLanguage: jest.fn(),
+} ) );
+
+jest.mock( "../../../../components/Providers/LanguageProvider", () => ( {
+  ...jest.requireActual( "../../../../components/Providers/LanguageProvider" ),
+  useLanguage: jest.fn( () => ( {
+    preferredLanguage: "en",
+    toggleLanguagePreference: jest.fn(),
+  } ) ),
+} ) );
 
 const renderPicker = () => {
   render( <LanguagePicker /> );

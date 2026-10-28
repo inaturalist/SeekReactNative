@@ -37,12 +37,45 @@ jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 
 jest.mock( "vision-camera-plugin-inatvision" );
 
-jest.mock( "@dr.pogodin/react-native-fs", () => {
-  const RNFS = {
-    moveFile: async () => "testdata",
-  };
+jest.mock( "@dr.pogodin/react-native-fs", () => ( {
+  appendFile: jest.fn( () => Promise.resolve() ),
+  copyAssetsFileIOS: jest.fn( () => Promise.resolve() ),
+  copyFileAssets: jest.fn( () => Promise.resolve() ),
+  DocumentDirectoryPath: "/documents",
+  exists: jest.fn( () => Promise.resolve( true ) ),
+  ExternalStorageDirectoryPath: "/external",
+  MainBundlePath: "/bundle",
+  mkdir: jest.fn( () => Promise.resolve() ),
+  moveFile: jest.fn( async () => "testdata" ),
+  readDir: jest.fn( () => Promise.resolve( [] ) ),
+  readDirAssets: jest.fn( () => Promise.resolve( [] ) ),
+  readFile: jest.fn( () => Promise.resolve( "" ) ),
+  stat: jest.fn( () => Promise.resolve( { size: 0 } ) ),
+  TemporaryDirectoryPath: "/tmp",
+  unlink: jest.fn( () => Promise.resolve() ),
+  writeFile: jest.fn( () => Promise.resolve() ),
+} ) );
 
-  return RNFS;
+jest.mock( "react-native-webview", () => {
+  const React = require( "react" );
+  const { View } = require( "react-native" );
+  const MockWebView = ( props ) => React.createElement( View, props );
+  return { __esModule: true, WebView: MockWebView, default: MockWebView };
+} );
+
+jest.mock( "react-native-maps", () => {
+  const React = require( "react" );
+  const { View } = require( "react-native" );
+  const MockMapView = ( props ) => React.createElement( View, props, props.children );
+  const MockMarker = ( props ) => React.createElement( View, props, props.children );
+  const MockUrlTile = ( props ) => React.createElement( View, props );
+  return {
+    __esModule: true,
+    default: MockMapView,
+    Marker: MockMarker,
+    UrlTile: MockUrlTile,
+    PROVIDER_DEFAULT: "default",
+  };
 } );
 
 const mockErrorHandler = ( error ) => {
@@ -69,7 +102,9 @@ jest.mock( "@react-navigation/native", () => {
         if ( event === "focus" ) {
           callback();
         }
+        return jest.fn();
       },
+      openDrawer: jest.fn(),
     } ),
     useRoute: () => ( {} ),
     useScrollToTop: () => jest.fn(),

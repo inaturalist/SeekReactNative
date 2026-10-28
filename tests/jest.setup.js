@@ -39,18 +39,7 @@ jest.mock( "vision-camera-plugin-inatvision" );
 jest.mock( "@dr.pogodin/react-native-fs" );
 jest.mock( "react-native-webview" );
 jest.mock( "react-native-maps" );
-
-const mockErrorHandler = ( error ) => {
-  console.log( error );
-};
-jest.mock( "react-native-exception-handler", () => ( {
-  setJSExceptionHandler: jest
-    .fn()
-    .mockImplementation( ( ) => mockErrorHandler() ),
-  setNativeExceptionHandler: jest
-    .fn()
-    .mockImplementation( ( ) => mockErrorHandler() ),
-} ) );
+jest.mock( "react-native-exception-handler" );
 
 jest.mock( "@react-navigation/native", () => {
   const actualNav = jest.requireActual( "@react-navigation/native" );

@@ -47,6 +47,7 @@
     // ruleset as iNat has it. Apparently, we have a lot of these errors but they all need dedicated
     // typing effort of whatever is an error here, i.e. no quick-fix.
     "@typescript-eslint/no-explicit-any": 1,
+    "@typescript-eslint/no-shadow": 2,
     "@typescript-eslint/no-unsafe-function-type": 1,
     "@typescript-eslint/no-unused-vars": [
       2,
@@ -66,6 +67,7 @@
     "import/no-extraneous-dependencies": [2, {}],
     "lodash/import-scope": 2,
     "module-resolver/use-alias": 2,
+    "no-shadow": "off",
     "prettier/prettier": 0,
     "quotes": [2, "double"],
     // React-Hooks Plugin

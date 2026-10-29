@@ -25,7 +25,6 @@ import Onboarding from "../Onboarding/OnboardingScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostStatus from "../PostToiNat/PostStatus";
-import Social from "../Social/SocialScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Wikipedia from "../Species/WikipediaView";
 import Splash from "../Splash";
@@ -74,8 +73,6 @@ const App = ( ) => {
           <Stack.Screen name="LicensePhotos" component={LicensePhotosScreen} options={defaultConfig} />
           <Stack.Screen name="Signup" component={SignUpScreen} options={defaultConfig} />
           <Stack.Screen name="LoginSuccess" component={LoginSuccessScreen} options={defaultConfig} />
-          {/* TODO: Social screen needs Lato font restyling, or can it be deleted? */}
-          <Stack.Screen name="Social" component={Social} options={defaultConfig} />
       </Stack.Group>
         <Stack.Group screenOptions={modal}>
           <Stack.Screen name="TermsOfService" component={TermsOfServiceScreen} options={defaultConfig} />

@@ -11,17 +11,6 @@ import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 
-import {
-  mockCamera,
-  mockSortDevices,
-  mockUseAsyncRunner,
-  mockUseCameraDevice,
-  mockUseCameraPermission,
-  mockUseFrameOutput,
-  mockUseLocation,
-  mockUsePhotoOutput,
-} from "./vision-camera/vision-camera";
-
 require( "react-native-reanimated" ).setUpTests();
 // Reanimated 4.2 + Worklets 0.7: Jest loads native worklets which fails in Node. See:
 // https://github.com/software-mansion/react-native-reanimated/discussions/8806
@@ -190,19 +179,8 @@ jest.mock( "realm", () => {
   return actualRealm;
 } );
 
-jest.mock( "react-native-vision-camera", () => ( {
-  Camera: mockCamera,
-  sortDevices: mockSortDevices,
-  useAsyncRunner: mockUseAsyncRunner,
-  useCameraDevice: mockUseCameraDevice,
-  useCameraPermission: mockUseCameraPermission,
-  useFrameOutput: mockUseFrameOutput,
-  usePhotoOutput: mockUsePhotoOutput,
-} ) );
-
-jest.mock( "react-native-vision-camera-location", () => ( {
-  useLocation: mockUseLocation,
-} ) );
+jest.mock( "react-native-vision-camera" );
+jest.mock( "react-native-vision-camera-location" );
 
 jest.mock( "@react-native-camera-roll/camera-roll" );
 

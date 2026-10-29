@@ -184,13 +184,13 @@ const ZONE_ABBREVIATION_TOKEN = /z+/;
 function timeZoneAbbreviationIsUnreliable(
   date: Date,
   timeZone: string,
-  locale: Locale,
+  dateLocale: Locale,
 ): boolean {
-  const offset = TimeZone.formatInTimeZone( date, timeZone, "xxx", { locale } );
+  const offset = TimeZone.formatInTimeZone( date, timeZone, "xxx", { locale: dateLocale } );
   if ( offset === "+00:00" ) {
     return false;
   }
-  return TimeZone.formatInTimeZone( date, timeZone, "zzz", { locale } ) === "GMT";
+  return TimeZone.formatInTimeZone( date, timeZone, "zzz", { locale: dateLocale } ) === "GMT";
 }
 
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57

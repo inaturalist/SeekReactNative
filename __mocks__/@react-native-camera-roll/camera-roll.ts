@@ -1,5 +1,3 @@
-import mockFaker from "tests/helpers/faker";
-
 export const nativeInterface = jest.fn( );
 export const CameraRoll = {
   getPhotos: jest.fn( ( ) => new Promise( resolve => {
@@ -31,5 +29,5 @@ export const CameraRoll = {
     // Expecting album titles as keys and photo counts as values
     // "My Amazing album": 12
   } ) ),
-  save: jest.fn( ( _uri, _options = {} ) => mockFaker.system.filePath( ) ),
+  save: jest.fn( ( _uri, _options = {} ) => "test_url" ),
 };

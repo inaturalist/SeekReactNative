@@ -1,6 +1,5 @@
 import { useRoute } from "@react-navigation/native";
 import React, { useCallback, useEffect, useReducer, useRef } from "react";
-import { Node } from "react";
 import {
   Image,
   ImageBackground,
@@ -26,7 +25,7 @@ import CropScreen from "./CropScreen";
 import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
 
-const SocialScreen = ( ): Node => {
+const SocialScreen = ( ) => {
   const { observation } = useObservation();
   const { image } = observation;
   const { uri } = image;
@@ -35,31 +34,30 @@ const SocialScreen = ( ): Node => {
   const { taxon, commonName } = params;
   const { scientificName } = taxon;
 
-  // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
+  const [state, dispatch] = useReducer( ( prevState, action ) => {
     switch ( action.type ) {
       case "SET_HEIGHT":
-        return { ...state, height: action.height };
+        return { ...prevState, height: action.height };
       case "SET_TAB":
-        return { ...state, tab: action.tab };
+        return { ...prevState, tab: action.tab };
       case "TOGGLE_WATERMARK":
-        return { ...state, showWatermark: action.showWatermark };
+        return { ...prevState, showWatermark: action.showWatermark };
       case "SET_ABSOLUTE_FILEPATH":
-        return { ...state, absoluteFilePath: action.absoluteFilePath };
+        return { ...prevState, absoluteFilePath: action.absoluteFilePath };
       case "SET_RESIZED_IMAGE":
-        return { ...state, resizedOriginalImage: action.resizedOriginalImage };
+        return { ...prevState, resizedOriginalImage: action.resizedOriginalImage };
       case "SET_WATERMARKED_ORIGINAL_IMAGE":
-        return { ...state, watermarkedOriginalImage: action.watermarkedOriginalImage };
+        return { ...prevState, watermarkedOriginalImage: action.watermarkedOriginalImage };
       case "SET_WATERMARKED_SQUARE_IMAGE":
-        return { ...state, watermarkedSquareImage: action.watermarkedSquareImage };
+        return { ...prevState, watermarkedSquareImage: action.watermarkedSquareImage };
       case "SET_IMAGE_FOR_SHARING":
-        return { ...state, imageForSharing: action.imageForSharing };
+        return { ...prevState, imageForSharing: action.imageForSharing };
       case "SET_SQUARE_IMAGE":
-        return { ...state, squareImage: action.squareImage };
+        return { ...prevState, squareImage: action.squareImage };
       case "SHOW_MODAL":
-        return { ...state, showModal: action.showModal };
+        return { ...prevState, showModal: action.showModal };
       case "DISABLE_BUTTONS":
-        return { ...state, disabled: action.disabled };
+        return { ...prevState, disabled: action.disabled };
       default:
         throw new Error();
     }
@@ -112,7 +110,7 @@ const SocialScreen = ( ): Node => {
 
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
-  const createWatermark = useCallback( async ( uriToWatermark: string, _type: string ) => {
+  const createWatermark = useCallback( async ( uriToWatermark, _type ) => {
     if ( noWatermark ) {
       return;
     }

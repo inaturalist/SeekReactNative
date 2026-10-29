@@ -6,5 +6,5 @@
     "types": ["jest"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["flow-typed", "**/node_modules", "**/Pods"]
+  "exclude": ["flow-typed", "**/node_modules", "**/Pods", "**/__mocks__/**"]
 }

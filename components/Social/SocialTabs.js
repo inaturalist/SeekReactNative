@@ -1,16 +1,10 @@
-import * as React from "react";
 import { TouchableOpacity, View } from "react-native";
 
 import i18n from "../../i18n";
 import { textStyles, viewStyles } from "../../styles/social/social";
 import StyledText from "../UIComponents/StyledText";
 
-type Props = {
-  tab: string,
-  toggleTab: Function
-}
-
-const SocialTabs = ( { tab, toggleTab }: Props ): React.Node => {
+const SocialTabs = ( { tab, toggleTab } ) => {
   const renderTab = selectedTab => (
     <TouchableOpacity onPress={toggleTab}>
       <StyledText style={[textStyles.photoSizeText, tab === selectedTab && textStyles.selectedPhotoSizeText]}>

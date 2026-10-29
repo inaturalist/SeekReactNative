@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { Node } from "react";
 import { TouchableOpacity, View } from "react-native";
 
 import i18n from "../../i18n";
@@ -11,13 +10,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import StyledText from "../UIComponents/StyledText";
 import { UserContext } from "../UserContext";
 
-type Props = {
-  image: ?string,
-  tab: string,
-  disabled: boolean
-};
-
-const SocialButtons = ( { image, tab, disabled }: Props ): Node => {
+const SocialButtons = ( { image, tab, disabled } ) => {
   const { login } = useContext( UserContext );
 
   const [saved, setSaved] = useState( false );

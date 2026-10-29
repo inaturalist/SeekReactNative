@@ -11,11 +11,10 @@ import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 
-require( "react-native-reanimated" ).setUpTests();
-// Reanimated 4.2 + Worklets 0.7: Jest loads native worklets which fails in Node. See:
-// https://github.com/software-mansion/react-native-reanimated/discussions/8806
-// we can remove this once the fix is released
-jest.mock( "react-native-worklets", () => require( "react-native-worklets/src/mock" ) );
+jest.mock( "react-native-reanimated", () => require( "react-native-reanimated/mock" ) );
+
+const { setUpTests } = require( "react-native-reanimated/lib/module/jestUtils/index.js" );
+setUpTests();
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 jest.mock( "react-native-device-info", () => mockRNDeviceInfo );

@@ -8,6 +8,7 @@ const config: Config = {
   ],
   setupFiles: [
     "./node_modules/react-native-gesture-handler/jestSetup.js",
+    "<rootDir>/tests/worklets.setup.js",
     "<rootDir>/tests/jest.setup.js",
   ],
   testMatch: ["<rootDir>/tests/**/*.test.js"],

@@ -11,6 +11,7 @@ const config: Config = {
     "<rootDir>/tests/jest.setup.js",
   ],
   testMatch: ["<rootDir>/tests/**/*.test.js"],
+  setupFilesAfterEnv: ["<rootDir>/tests/jest.post-setup.js"],
 };
 
 export default config;

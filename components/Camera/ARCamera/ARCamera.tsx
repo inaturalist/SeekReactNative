@@ -166,30 +166,30 @@ const ARCamera = ( ) => {
 
   const pictureTaken = useSharedValue( false );
 
-  const [state, dispatch] = useReducer( ( state: State, action: Action ) => {
+  const [state, dispatch] = useReducer( ( prevState: State, action: Action ) => {
     switch ( action.type ) {
       case ACTION.RESET_PREDICTIONS:
-        return { ...state, allPredictions: [] };
+        return { ...prevState, allPredictions: [] };
       case ACTION.SET_PREDICTIONS:
-        return { ...state, allPredictions: action.predictions };
+        return { ...prevState, allPredictions: action.predictions };
       case ACTION.RESET_STATE:
         pictureTaken.value = false;
         return {
-          ...state,
+          ...prevState,
           error: null,
           allPredictions: [],
         };
       case ACTION.FILTER_TAXON:
         pictureTaken.value = false;
         return {
-          ...state,
+          ...prevState,
           negativeFilter: action.negativeFilter,
           taxonId: action.taxonId,
           error: null,
           allPredictions: [],
         };
       case ACTION.ERROR:
-        return { ...state, error: action.error, errorEvent: action.errorEvent };
+        return { ...prevState, error: action.error, errorEvent: action.errorEvent };
       default:
         throw new Error( );
     }

@@ -35,11 +35,11 @@ const PostScreen = ( ) => {
   const initialDate = date.dateForServer;
   const initialDisplayDate = date.dateForDisplay;
 
-  const [state, dispatch] = useReducer( ( state, action ) => {
+  const [state, dispatch] = useReducer( ( prevState, action ) => {
     switch ( action.type ) {
       case "SELECT_SPECIES":
         return {
-          ...state,
+          ...prevState,
           taxon: {
             name: action.selectedSpecies.name,
             taxaId: action.selectedSpecies.id,
@@ -48,11 +48,11 @@ const PostScreen = ( ) => {
           editedObservation: action.editedObservation,
         };
       case "UPDATE_OBSERVATION":
-        return { ...state, editedObservation: action.editedObservation };
+        return { ...prevState, editedObservation: action.editedObservation };
       case "BUTTON_DISABLED":
-        return { ...state, disabled: true };
+        return { ...prevState, disabled: true };
       case "UPDATE_DISPLAY_DATE":
-        return { ...state, displayDate: action.displayDate };
+        return { ...prevState, displayDate: action.displayDate };
       default:
         throw new Error( );
     }

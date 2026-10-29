@@ -30,14 +30,14 @@ const MatchScreen = ( ) => {
   const screenType = setScreenType( taxon, seenDate );
 
 
-  const [state, dispatch] = useReducer( ( state, action ) => {
+  const [state, dispatch] = useReducer( ( prevState, action ) => {
     switch ( action.type ) {
       case "SET_NAV_PATH":
-        return { ...state, navPath: action.path };
+        return { ...prevState, navPath: action.path };
       case "OPEN_FLAG_MODAL":
-        return { ...state, flagModal: true };
+        return { ...prevState, flagModal: true };
       case "CLOSE_FLAG":
-        return { ...state, flagModal: false, screenType: action.screenType };
+        return { ...prevState, flagModal: false, screenType: action.screenType };
       default:
         throw new Error( );
     }

@@ -9,53 +9,32 @@ import "react-native-get-random-values";
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 import mockRNCNetInfo from "@react-native-community/netinfo/jest/netinfo-mock";
 import mockRNDeviceInfo from "react-native-device-info/jest/react-native-device-info-mock";
-import * as mockRNLocalize from "react-native-localize/mock";
 import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 
-import {
-  mockCamera,
-  mockSortDevices,
-  mockUseAsyncRunner,
-  mockUseCameraDevice,
-  mockUseCameraPermission,
-  mockUseFrameOutput,
-  mockUseLocation,
-  mockUsePhotoOutput,
-} from "./vision-camera/vision-camera";
-
-require( "react-native-reanimated" ).setUpTests();
-// Reanimated 4.2 + Worklets 0.7: Jest loads native worklets which fails in Node. See:
-// https://github.com/software-mansion/react-native-reanimated/discussions/8806
-// we can remove this once the fix is released
-jest.mock( "react-native-worklets", () => require( "react-native-worklets/src/mock" ) );
+jest.mock( "react-native-reanimated", () => require( "react-native-reanimated/mock" ) );
 
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 jest.mock( "react-native-device-info", () => mockRNDeviceInfo );
-jest.mock( "react-native-localize", () => mockRNLocalize );
+jest.mock( "react-native-localize" );
 jest.mock( "@react-native-community/netinfo", () => mockRNCNetInfo );
 jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 
 jest.mock( "vision-camera-plugin-inatvision" );
+jest.mock( "@bam.tech/react-native-image-resizer" );
+jest.mock( "@react-native-clipboard/clipboard" );
+jest.mock( "@lodev09/react-native-exify" );
 
-jest.mock( "@dr.pogodin/react-native-fs", () => {
-  const RNFS = {
-    moveFile: async () => "testdata",
-  };
-
-  return RNFS;
-} );
-
-const mockErrorHandler = ( error ) => {
-  console.log( error );
-};
-jest.mock( "react-native-exception-handler", () => ( {
-  setJSExceptionHandler: jest
-    .fn()
-    .mockImplementation( ( ) => mockErrorHandler() ),
-  setNativeExceptionHandler: jest
-    .fn()
-    .mockImplementation( ( ) => mockErrorHandler() ),
+jest.mock( "react-native-restart", () => ( {
+  restart: jest.fn(),
 } ) );
+
+jest.mock( "../react-native-logs.config" );
+jest.mock( "inaturalistjs" );
+
+jest.mock( "@dr.pogodin/react-native-fs" );
+jest.mock( "react-native-webview" );
+jest.mock( "react-native-maps" );
+jest.mock( "react-native-exception-handler" );
 
 jest.mock( "@react-navigation/native", () => {
   const actualNav = jest.requireActual( "@react-navigation/native" );
@@ -69,7 +48,9 @@ jest.mock( "@react-navigation/native", () => {
         if ( event === "focus" ) {
           callback();
         }
+        return jest.fn();
       },
+      openDrawer: jest.fn(),
     } ),
     useRoute: () => ( {} ),
     useScrollToTop: () => jest.fn(),
@@ -195,56 +176,8 @@ jest.mock( "realm", () => {
   return actualRealm;
 } );
 
-jest.mock( "react-native-vision-camera", () => ( {
-  Camera: mockCamera,
-  sortDevices: mockSortDevices,
-  useAsyncRunner: mockUseAsyncRunner,
-  useCameraDevice: mockUseCameraDevice,
-  useCameraPermission: mockUseCameraPermission,
-  useFrameOutput: mockUseFrameOutput,
-  usePhotoOutput: mockUsePhotoOutput,
-} ) );
+jest.mock( "react-native-vision-camera" );
+jest.mock( "react-native-vision-camera-location" );
 
-jest.mock( "react-native-vision-camera-location", () => ( {
-  useLocation: mockUseLocation,
-} ) );
-
-jest.mock( "@react-native-camera-roll/camera-roll", () => ( {
-  CameraRoll: {
-    getPhotos: jest.fn(
-      () =>
-        new Promise( ( resolve ) => {
-          resolve( {
-            page_info: {
-              end_cursor: jest.fn(),
-              has_next_page: false,
-            },
-            edges: [
-              {
-                node: {
-                  image: {
-                    filename: "IMG_20210901_123456.jpg",
-                    filepath: "/path/to/IMG_20210901_123456.jpg",
-                    extension: "jpg",
-                    uri: "file:///path/to/IMG_20210901_123456.jpg",
-                    height: 1920,
-                    width: 1080,
-                    fileSize: 123456,
-                    playableDuration: NaN,
-                    orientation: 1,
-                  },
-                },
-              },
-            ],
-          } );
-        } )
-    ),
-    getAlbums: jest.fn( () => ( {
-      // Expecting album titles as keys and photo counts as values
-      // "My Amazing album": 12
-    } ) ),
-    save: jest.fn( ( _uri, _options = {} ) => "test_url" ),
-  },
-} ) );
-
+jest.mock( "@react-native-camera-roll/camera-roll" );
 

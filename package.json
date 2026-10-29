@@ -14,8 +14,10 @@
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
     "lint:staged": "npx lint-staged",
-    "test": "TZ=UTC jest",
-    "test:watch": "TZ=UTC jest --watch",
+    "test": "npm run test:integration && npm run test:unit",
+    "test:unit": "TZ=UTC jest tests/unit tests/helpers",
+    "test:integration": "TZ=UTC jest tests/integration",
+    "test:watch": "TZ=UTC jest --watch tests/unit tests/helpers",
     "prepare": "husky",
     "postinstall": "patch-package",
     "e2e:build:ios": "npx detox build --configuration ios.release",
@@ -143,28 +145,8 @@
     "react-native-clean-project": "^4.0.3",
     "react-test-renderer": "19.2.0",
     "typescript": "^5.8.3",
+    "ts-node": "^10.9.2",
     "yargs": "^17.7.2"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?@react-native|react-native|@react-native-community|@react-navigation|i18n-js)"
-    ],
-    "setupFiles": [
-      "./node_modules/react-native-gesture-handler/jestSetup.js",
-      "<rootDir>/tests/jest.setup.js"
-    ],
-    "testMatch": [
-      "<rootDir>/tests/**/*.test.js"
-    ]
   },
   "engines": {
     "node": ">=20.19.4"

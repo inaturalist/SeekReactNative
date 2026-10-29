@@ -121,6 +121,11 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
     keyboardDismissMode="none"
     onScroll={[Function]}
     scrollEventThrottle={0}
+    style={
+      {
+        "backgroundColor": "#ffffff",
+      }
+    }
   >
     <View>
       <View
@@ -233,15 +238,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   {
                     "textAlign": "left",
                   },
-                  [
-                    {
-                      "color": "#ffffff",
-                      "fontFamily": "Lato-Bold",
-                      "fontSize": 19,
-                      "letterSpacing": 1,
-                      "lineHeight": 27,
-                    },
-                  ],
+                  {
+                    "color": "#ffffff",
+                    "fontFamily": "Lato-Bold",
+                    "fontSize": 19,
+                    "letterSpacing": 1,
+                    "lineHeight": 27,
+                  },
                 ]
               }
             >
@@ -341,15 +344,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         <View>
           <View
             style={
-              [
-                {
-                  "alignSelf": "center",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "center",
-                  "width": 377.20734908136484,
-                },
-              ]
+              {
+                "alignSelf": "center",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "center",
+                "width": 377.25,
+              }
             }
             testID="badge-container"
           >
@@ -398,10 +399,10 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   }
                   style={
                     {
-                      "height": 113.73578302712161,
+                      "height": 113.75,
                       "marginHorizontal": 6,
                       "resizeMode": "contain",
-                      "width": 113.73578302712161,
+                      "width": 113.75,
                     }
                   }
                 />
@@ -452,10 +453,10 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   }
                   style={
                     {
-                      "height": 113.73578302712161,
+                      "height": 113.75,
                       "marginHorizontal": 6,
                       "resizeMode": "contain",
-                      "width": 113.73578302712161,
+                      "width": 113.75,
                     }
                   }
                 />
@@ -506,10 +507,10 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   }
                   style={
                     {
-                      "height": 113.73578302712161,
+                      "height": 113.75,
                       "marginHorizontal": 6,
                       "resizeMode": "contain",
-                      "width": 113.73578302712161,
+                      "width": 113.75,
                     }
                   }
                 />
@@ -526,15 +527,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         />
         <View
           style={
-            [
-              {
-                "alignSelf": "center",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "center",
-                "width": 377.20734908136484,
-              },
-            ]
+            {
+              "alignSelf": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "center",
+              "width": 377.20734908136484,
+            }
           }
         >
           <Text
@@ -651,15 +650,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         </View>
         <View
           style={
-            [
-              {
-                "alignSelf": "center",
-                "flexDirection": "row",
-                "flexWrap": "wrap",
-                "justifyContent": "center",
-                "width": 377.20734908136484,
-              },
-            ]
+            {
+              "alignSelf": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "center",
+              "width": 377.20734908136484,
+            }
           }
         >
           <Text
@@ -933,7 +930,7 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
             }
           }
         />
-        <AIRMap
+        <View
           initialRegion={
             {
               "latitude": 0.21,
@@ -942,9 +939,8 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
               "longitudeDelta": 84.42,
             }
           }
-          onChange={[Function]}
-          onMapReady={[Function]}
           onPress={[Function]}
+          provider="default"
           region={
             {
               "latitude": 0.21,
@@ -963,22 +959,12 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
           }
           zoomEnabled={false}
         >
-          <AIRMapMarker
+          <View
             coordinate={
               {
                 "latitude": 42,
                 "longitude": -42,
               }
-            }
-            onPress={[Function]}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "position": "absolute",
-                },
-                undefined,
-              ]
             }
             testID="some-uuid1"
           >
@@ -989,23 +975,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 }
               }
             />
-          </AIRMapMarker>
-          <AIRMapMarker
+          </View>
+          <View
             coordinate={
               {
                 "latitude": -42,
                 "longitude": 42,
               }
-            }
-            onPress={[Function]}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "position": "absolute",
-                },
-                undefined,
-              ]
             }
             testID="some-uuid2"
           >
@@ -1016,23 +992,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 }
               }
             />
-          </AIRMapMarker>
-          <AIRMapMarker
+          </View>
+          <View
             coordinate={
               {
                 "latitude": 42,
                 "longitude": 42,
               }
-            }
-            onPress={[Function]}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "position": "absolute",
-                },
-                undefined,
-              ]
             }
             testID="some-uuid3"
           >
@@ -1043,23 +1009,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 }
               }
             />
-          </AIRMapMarker>
-          <AIRMapMarker
+          </View>
+          <View
             coordinate={
               {
                 "latitude": 42.42,
                 "longitude": 42.42,
               }
-            }
-            onPress={[Function]}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "position": "absolute",
-                },
-                undefined,
-              ]
             }
           >
             <Image
@@ -1069,8 +1025,8 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                 }
               }
             />
-          </AIRMapMarker>
-        </AIRMap>
+          </View>
+        </View>
         <View
           accessibilityState={
             {
@@ -1758,15 +1714,13 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
         <View>
           <View
             style={
-              [
-                {
-                  "alignSelf": "center",
-                  "flexDirection": "row",
-                  "flexWrap": "wrap",
-                  "justifyContent": "center",
-                  "width": 377.20734908136484,
-                },
-              ]
+              {
+                "alignSelf": "center",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "center",
+                "width": 377.25,
+              }
             }
             testID="badge-container"
           >
@@ -1813,10 +1767,10 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   }
                   style={
                     {
-                      "height": 113.73578302712161,
+                      "height": 113.75,
                       "marginHorizontal": 6,
                       "resizeMode": "contain",
-                      "width": 113.73578302712161,
+                      "width": 113.75,
                     }
                   }
                 />
@@ -1865,10 +1819,10 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   }
                   style={
                     {
-                      "height": 113.73578302712161,
+                      "height": 113.75,
                       "marginHorizontal": 6,
                       "resizeMode": "contain",
-                      "width": 113.73578302712161,
+                      "width": 113.75,
                     }
                   }
                 />
@@ -1917,10 +1871,10 @@ exports[`SeekYearInReviewScreen should render correctly 1`] = `
                   }
                   style={
                     {
-                      "height": 113.73578302712161,
+                      "height": 113.75,
                       "marginHorizontal": 6,
                       "resizeMode": "contain",
-                      "width": 113.73578302712161,
+                      "width": 113.75,
                     }
                   }
                 />

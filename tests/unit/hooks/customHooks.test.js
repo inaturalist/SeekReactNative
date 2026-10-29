@@ -1,29 +1,22 @@
 import { act, renderHook } from "@testing-library/react-native";
+import inatjs from "inaturalistjs";
 
 import {
   useSpeciesCount,
   useUploadedObservationCount,
 } from "../../../utility/customHooks";
 
-jest.mock( "inaturalistjs", () => ( {
-  __esModule: true,
-  default: {
-    observations: {
-      search: jest.fn( ( params, _options ) => {
-        const total_results = params?.year === 2021 ? 12 : 42;
-        return {
-          total_results,
-        };
-      } ),
-    },
-  },
-} ) );
-
 const login = "some-token";
 const username = "some-username";
 const year = 2021;
 
 describe( "useUploadedObservationCount", () => {
+  beforeEach( () => {
+    inatjs.observations.search.mockImplementation( ( params ) => Promise.resolve( {
+      total_results: params?.year === 2021 ? 12 : 42,
+    } ) );
+  } );
+
   test( "should error if params not given", () => {
     expect( () => useUploadedObservationCount() ).toThrow();
   } );

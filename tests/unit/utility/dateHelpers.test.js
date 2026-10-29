@@ -15,20 +15,16 @@ jest.mock( "../../../i18n", () => ( {
   },
 } ) );
 
+jest.mock( "react-native-localize", () => jest.requireActual( "react-native-localize/mock/jest" ) );
+
 import * as TimeZone from "date-fns-tz";
-import * as RNLocalize from "react-native-localize";
+import { getTimeZone } from "react-native-localize";
 
 import { formatGMTTimeWithTimeZone } from "../../../utility/dateHelpers";
 
 describe( "formatGMTTimeWithTimeZone", () => {
-  let getTimeZoneSpy;
-
-  beforeEach( () => {
-    getTimeZoneSpy = jest.spyOn( RNLocalize, "getTimeZone" );
-  } );
-
   afterEach( () => {
-    getTimeZoneSpy.mockRestore( );
+    getTimeZone.mockReset();
     jest.restoreAllMocks( );
   } );
 
@@ -41,7 +37,7 @@ describe( "formatGMTTimeWithTimeZone", () => {
 
   describe( "in Asia/Kolkata", () => {
     beforeEach( () => {
-      getTimeZoneSpy.mockReturnValue( "Asia/Kolkata" );
+      getTimeZone.mockReturnValue( "Asia/Kolkata" );
     } );
 
     it( "posts wall-clock time with offset, not double-shifted", () => {
@@ -54,7 +50,7 @@ describe( "formatGMTTimeWithTimeZone", () => {
 
   describe( "in America/Los_Angeles", () => {
     beforeEach( () => {
-      getTimeZoneSpy.mockReturnValue( "America/Los_Angeles" );
+      getTimeZone.mockReturnValue( "America/Los_Angeles" );
     } );
 
     it( "posts a real timezone abbreviation when Intl resolves one", () => {
@@ -67,7 +63,7 @@ describe( "formatGMTTimeWithTimeZone", () => {
 
   describe( "in UTC", () => {
     beforeEach( () => {
-      getTimeZoneSpy.mockReturnValue( "UTC" );
+      getTimeZone.mockReturnValue( "UTC" );
     } );
 
     it( "allows a zero-offset timezone abbreviation", () => {
@@ -82,7 +78,7 @@ describe( "formatGMTTimeWithTimeZone", () => {
     let formatToPartsSpy;
 
     beforeEach( () => {
-      getTimeZoneSpy.mockReturnValue( "Australia/Sydney" );
+      getTimeZone.mockReturnValue( "Australia/Sydney" );
       const original = Intl.DateTimeFormat.prototype.formatToParts;
       formatToPartsSpy = jest.spyOn(
         Intl.DateTimeFormat.prototype,
@@ -118,7 +114,7 @@ describe( "formatGMTTimeWithTimeZone", () => {
     let formatInTimeZoneSpy;
 
     beforeEach( () => {
-      getTimeZoneSpy.mockReturnValue( "US/Eastern" );
+      getTimeZone.mockReturnValue( "US/Eastern" );
       const actual = jest.requireActual( "date-fns-tz" );
       formatInTimeZoneSpy = jest.spyOn( TimeZone, "formatInTimeZone" ).mockImplementation(
         ( date, timeZone, pattern, options ) => {

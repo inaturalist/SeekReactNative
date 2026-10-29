@@ -194,15 +194,12 @@ exports[`SpeciesNearbyList should render correctly 1`] = `
                   "paddingTop": 13,
                   "textAlign": "center",
                 },
-                {
-                  "color": "#ffffff",
-                  "fontFamily": "Lato-Italic",
-                },
+                false,
               ],
             ]
           }
         >
-          Buteo jamaicensis
+          Red-tailed Hawk
         </Text>
       </View>
     </View>

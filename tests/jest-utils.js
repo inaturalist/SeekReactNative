@@ -3,14 +3,14 @@ import React from "react";
 
 import { AppOrientationProvider } from "../components/Providers/AppOrientationProvider";
 import { ChallengeProvider } from "../components/Providers/ChallengeProvider";
-import { LanguageProvider } from "../components/Providers/LanguageProvider";
+import { LanguageContext } from "../components/Providers/LanguageProvider";
 import { ObservationProvider } from "../components/Providers/ObservationProvider";
 import { SpeciesDetailProvider } from "../components/Providers/SpeciesDetailProvider";
 import { UserContext } from "../components/UserContext";
 
 const AllTheProviders = ( { children } ) => {
   return (
-    <LanguageProvider
+    <LanguageContext.Provider
       value={{
         preferredLanguage: "en",
         toggleLanguagePreference: jest.fn(),
@@ -42,7 +42,7 @@ const AllTheProviders = ( { children } ) => {
           </SpeciesDetailProvider>
         </AppOrientationProvider>
       </UserContext.Provider>
-    </LanguageProvider>
+    </LanguageContext.Provider>
   );
 };
 

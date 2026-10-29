@@ -1,10 +1,3 @@
-jest.mock( "@bam.tech/react-native-image-resizer", () => ( {
-  __esModule: true,
-  default: {
-    createResizedImage: jest.fn( () => Promise.resolve( { uri: "file:///out/resized.jpg" } ) ),
-  },
-} ) );
-
 jest.mock( "@dr.pogodin/react-native-fs", () => ( {
   appendFile: jest.fn(),
   ExternalStorageDirectoryPath: "/external",

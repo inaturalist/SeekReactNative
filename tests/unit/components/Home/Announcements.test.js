@@ -23,19 +23,6 @@ const mockDismissibleAnnouncement = {
   placement: "mobile/home",
 };
 
-jest.mock( "inaturalistjs", ( ) => ( {
-    __esModule: true,
-    default: {
-        announcements: {
-            search: jest.fn( ( ) => Promise.resolve( {
-                total_results: 0,
-                results: [],
-            } ) ),
-            dismiss: jest.fn( ( ) => Promise.resolve( { } ) ),
-        },
-    },
-} ) );
-
 const containerID = "announcements-container";
 
 describe( "Announcements", () => {

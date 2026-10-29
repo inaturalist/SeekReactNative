@@ -16,9 +16,10 @@ exports[`LanguagePicker should render correctly 1`] = `
         },
         {
           "color": "#38976d",
-          "fontFamily": "Whitney-Semibold",
-          "fontSize": 19,
-          "letterSpacing": 1.12,
+          "fontFamily": "Lato-Bold",
+          "fontSize": 18,
+          "letterSpacing": 1,
+          "lineHeight": 22,
         },
       ]
     }
@@ -54,7 +55,7 @@ exports[`LanguagePicker should render correctly 1`] = `
         }
       }
       accessible={true}
-      focusable={true}
+      focusable={false}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -91,22 +92,19 @@ exports[`LanguagePicker should render correctly 1`] = `
       </View>
     </View>
     <Text
+      onPress={[Function]}
       style={
         [
           {
             "textAlign": "left",
           },
-          [
-            {
-              "color": "#000000",
-              "fontFamily": "Whitney-Book",
-              "fontSize": 16,
-              "lineHeight": 21,
-            },
-            {
-              "paddingTop": 5,
-            },
-          ],
+          {
+            "color": "#000000",
+            "fontFamily": "Lato-Regular",
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "lineHeight": 21,
+          },
         ]
       }
     >
@@ -164,6 +162,7 @@ exports[`LanguagePicker should render correctly 1`] = `
           {
             "alignItems": "center",
             "paddingVertical": 19,
+            "zIndex": -100,
           }
         }
       >
@@ -175,9 +174,10 @@ exports[`LanguagePicker should render correctly 1`] = `
                 "backgroundColor": "#38976d",
                 "borderRadius": 6,
                 "color": "#ffffff",
-                "fontFamily": "Whitney-Semibold",
-                "fontSize": 20,
-                "letterSpacing": 1.11,
+                "fontFamily": "Lato-Bold",
+                "fontSize": 15,
+                "letterSpacing": 1,
+                "lineHeight": 21,
                 "paddingBottom": 11,
                 "paddingHorizontal": 18,
                 "paddingTop": 12,
@@ -203,19 +203,6 @@ exports[`LanguagePicker should render correctly 1`] = `
         />
       </View>
     </View>
-    <Modal
-      hardwareAccelerated={false}
-      onOrientationChange={[Function]}
-      supportedOrientations={
-        [
-          "portrait",
-          "landscape",
-        ]
-      }
-      testID="ios_modal"
-      transparent={true}
-      visible={false}
-    />
   </View>
 </View>
 `;

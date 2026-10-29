@@ -2,7 +2,7 @@
 
 exports[`SeekYearInReviewMap should render correctly 1`] = `
 [
-  <AIRMap
+  <View
     initialRegion={
       {
         "latitude": 0.21,
@@ -11,9 +11,8 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
         "longitudeDelta": 84.42,
       }
     }
-    onChange={[Function]}
-    onMapReady={[Function]}
     onPress={[Function]}
+    provider="default"
     region={
       {
         "latitude": 0.21,
@@ -32,22 +31,12 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
     }
     zoomEnabled={false}
   >
-    <AIRMapMarker
+    <View
       coordinate={
         {
           "latitude": 42,
           "longitude": -42,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
       testID="some-uuid1"
     >
@@ -58,23 +47,13 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
           }
         }
       />
-    </AIRMapMarker>
-    <AIRMapMarker
+    </View>
+    <View
       coordinate={
         {
           "latitude": -42,
           "longitude": 42,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
       testID="some-uuid2"
     >
@@ -85,23 +64,13 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
           }
         }
       />
-    </AIRMapMarker>
-    <AIRMapMarker
+    </View>
+    <View
       coordinate={
         {
           "latitude": 42,
           "longitude": 42,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
       testID="some-uuid3"
     >
@@ -112,23 +81,13 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
           }
         }
       />
-    </AIRMapMarker>
-    <AIRMapMarker
+    </View>
+    <View
       coordinate={
         {
           "latitude": 42.42,
           "longitude": 42.42,
         }
-      }
-      onPress={[Function]}
-      style={
-        [
-          {
-            "backgroundColor": "transparent",
-            "position": "absolute",
-          },
-          undefined,
-        ]
       }
     >
       <Image
@@ -138,8 +97,8 @@ exports[`SeekYearInReviewMap should render correctly 1`] = `
           }
         }
       />
-    </AIRMapMarker>
-  </AIRMap>,
+    </View>
+  </View>,
   <View
     accessibilityState={
       {

@@ -3,15 +3,13 @@
 exports[`BadgeContainer should render correctly 1`] = `
 <View
   style={
-    [
-      {
-        "alignSelf": "center",
-        "flexDirection": "row",
-        "flexWrap": "wrap",
-        "justifyContent": "center",
-        "width": 377.20734908136484,
-      },
-    ]
+    {
+      "alignSelf": "center",
+      "flexDirection": "row",
+      "flexWrap": "wrap",
+      "justifyContent": "center",
+      "width": 377.25,
+    }
   }
   testID="badge-container"
 >

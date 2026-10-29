@@ -311,32 +311,6 @@ exports[`ObsList should render correctly 1`] = `
           >
             <View>
               <View
-                collapsable={false}
-                jestAnimatedProps={
-                  {
-                    "value": {},
-                  }
-                }
-                jestAnimatedStyle={
-                  {
-                    "value": {
-                      "transform": [
-                        {
-                          "translateX": 0,
-                        },
-                      ],
-                    },
-                  }
-                }
-                jestInlineStyle={
-                  [
-                    {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                      "flexWrap": "nowrap",
-                    },
-                  ]
-                }
                 style={
                   [
                     {
@@ -584,32 +558,6 @@ exports[`ObsList should render correctly 1`] = `
           >
             <View>
               <View
-                collapsable={false}
-                jestAnimatedProps={
-                  {
-                    "value": {},
-                  }
-                }
-                jestAnimatedStyle={
-                  {
-                    "value": {
-                      "transform": [
-                        {
-                          "translateX": 0,
-                        },
-                      ],
-                    },
-                  }
-                }
-                jestInlineStyle={
-                  [
-                    {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                      "flexWrap": "nowrap",
-                    },
-                  ]
-                }
                 style={
                   [
                     {
@@ -857,32 +805,6 @@ exports[`ObsList should render correctly 1`] = `
           >
             <View>
               <View
-                collapsable={false}
-                jestAnimatedProps={
-                  {
-                    "value": {},
-                  }
-                }
-                jestAnimatedStyle={
-                  {
-                    "value": {
-                      "transform": [
-                        {
-                          "translateX": 0,
-                        },
-                      ],
-                    },
-                  }
-                }
-                jestInlineStyle={
-                  [
-                    {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                      "flexWrap": "nowrap",
-                    },
-                  ]
-                }
                 style={
                   [
                     {

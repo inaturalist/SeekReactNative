@@ -143,28 +143,8 @@
     "react-native-clean-project": "^4.0.3",
     "react-test-renderer": "19.2.0",
     "typescript": "^5.8.3",
+    "ts-node": "^10.9.2",
     "yargs": "^17.7.2"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?@react-native|react-native|@react-native-community|@react-navigation|i18n-js|@realm|uuid|@shopify/flash-list)"
-    ],
-    "setupFiles": [
-      "./node_modules/react-native-gesture-handler/jestSetup.js",
-      "<rootDir>/tests/jest.setup.js"
-    ],
-    "testMatch": [
-      "<rootDir>/tests/**/*.test.js"
-    ]
   },
   "engines": {
     "node": ">=20.19.4"

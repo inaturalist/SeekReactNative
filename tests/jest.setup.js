@@ -32,6 +32,7 @@ jest.mock( "react-native-restart", () => ( {
   restart: jest.fn(),
 } ) );
 
+jest.mock( "../react-native-logs.config" );
 jest.mock( "inaturalistjs" );
 
 jest.mock( "@dr.pogodin/react-native-fs" );

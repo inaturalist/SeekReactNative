@@ -13,12 +13,7 @@ import i18n from "../i18n";
 import { colors, dimensions, fonts } from "../styles/global";
 import { showCameraSaveFailureAlert } from "./cameraHelpers";
 
-type ImageSize = {
-  width: number,
-  height: number
-}
-
-const shareToFacebook = async ( url: string ): Promise<any> => {
+const shareToFacebook = async ( url ) => {
   // this shares to newsfeed, story, or profile photo on Android
   const _shareOptions = {
     url,
@@ -49,7 +44,7 @@ const shareToFacebook = async ( url: string ): Promise<any> => {
   }
 };
 
-const saveToCameraRoll = async ( uri: string ): Promise<?string> => {
+const saveToCameraRoll = async ( uri ) => {
   try {
     const savedPhotoUri = await CameraRoll.save( uri, { type: "photo", album: "Seek" } );
     return savedPhotoUri;
@@ -59,20 +54,20 @@ const saveToCameraRoll = async ( uri: string ): Promise<?string> => {
   }
 };
 
-const getAndroidCameraRollPath = async ( uri: string ) => {
+const getAndroidCameraRollPath = async ( uri ) => {
   const { originalFilepath } = await stat( uri );
   return "file://" + originalFilepath;
 };
 
-const placeCommonNameText = ( width: number, scale ) => width - scale * 142;
+const placeCommonNameText = ( width, scale ) => width - scale * 142;
 
-const placeScientificNameText = ( width: number, scale ) => width - scale * 85;
+const placeScientificNameText = ( width, scale ) => width - scale * 85;
 
 const xPosition = ( scale ) => scale * 208;
 
 const setFontSize = ( scale ) => scale * 45;
 
-const addTextToWatermark = async( userImage: string, text, position: number, width: number, height: number, scale ) => {
+const addTextToWatermark = async( userImage, text, position, width, height, scale ) => {
   const yPosition = ( ) => {
     if ( height !== width ) {
       return position === 1 ? height - 195 : height - 115;
@@ -94,7 +89,7 @@ const addTextToWatermark = async( userImage: string, text, position: number, wid
   };
 
   try {
-    // const path: string = await Marker.markText( imageOptions );
+    // const path = await Marker.markText( imageOptions );
     const path = null; // temporarily returning null since Marker is not available
     const uri = Platform.OS === "android" ? "file://" + path : path;
     return uri;
@@ -103,7 +98,7 @@ const addTextToWatermark = async( userImage: string, text, position: number, wid
   }
 };
 
-const getImageSize = ( uri: string ): Promise<ImageSize> => (
+const getImageSize = ( uri ) => (
   new Promise( ( resolve, reject ) => {
     Image.getSize( uri, ( w, h ) => {
       resolve( { width: w, height: h } );
@@ -111,7 +106,7 @@ const getImageSize = ( uri: string ): Promise<ImageSize> => (
   } )
 );
 
-const setMarkerScale = ( scale, _width: number, _height: number ) => {
+const setMarkerScale = ( scale, _width, _height ) => {
   // horizontal photos
   // if ( height < width ) {
   //   return scale * 2;
@@ -130,24 +125,13 @@ const setMarkerScale = ( scale, _width: number, _height: number ) => {
   return scale;
 };
 
-const addWatermark = async( userImage: string, commonName: string, name: string ): Promise<?string> => {
+const addWatermark = async( userImage, commonName, name ) => {
   // resized photos to 2048 * 2048 to be able to align watermark
   const { width, height } = await getImageSize( userImage );
   const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
   const scale = height === width ? 1.85 : 1.39;
 
-  type Options = {
-    X: number,
-    Y?: number,
-    markerScale: number,
-    markerSrc: number,
-    quality: number,
-    saveFormat: string,
-    scale: number,
-    src: string
-  };
-
-  const imageOptions: Options = {
+  const imageOptions = {
     src: originalPath,
     markerSrc: backgrounds.sharing,
     scale: 1, // scale of bg
@@ -164,9 +148,9 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
   }
 
   try {
-    // const path: string = await Marker.markImage( imageOptions );
+    // const path = await Marker.markImage( imageOptions );
     const path = null; // temporarily returning null since Marker is not available
-    const watermarkedImage: string = Platform.OS === "android" ? "file://" + path : path;
+    const watermarkedImage = Platform.OS === "android" ? "file://" + path : path;
     const uriWithCommonName = await addTextToWatermark( watermarkedImage, commonName, 1, width, height, scale );
     const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2, width, height, scale );
     return uriWithBothNames;
@@ -176,7 +160,7 @@ const addWatermark = async( userImage: string, commonName: string, name: string 
 };
 
 // adapted from https://stackoverflow.com/questions/50909390/react-native-how-to-get-file-asset-image-absolute-path
-const getAssetFileAbsolutePath = async ( assetPath: string ): Promise<?string> => {
+const getAssetFileAbsolutePath = async ( assetPath ) => {
   if ( Platform.OS === "android" ) { return assetPath; }
   const dest = `${TemporaryDirectoryPath}${Math.random().toString( 36 ).substring( 7 )}.jpg`;
 

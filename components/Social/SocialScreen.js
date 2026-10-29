@@ -1,6 +1,5 @@
 import { useRoute } from "@react-navigation/native";
 import React, { useCallback, useEffect, useReducer, useRef } from "react";
-import { Node } from "react";
 import {
   Image,
   ImageBackground,
@@ -26,7 +25,7 @@ import CropScreen from "./CropScreen";
 import SocialButtons from "./SocialButtons";
 import SocialTabs from "./SocialTabs";
 
-const SocialScreen = ( ): Node => {
+const SocialScreen = ( ) => {
   const { observation } = useObservation();
   const { image } = observation;
   const { uri } = image;
@@ -111,7 +110,7 @@ const SocialScreen = ( ): Node => {
 
   const toggleWatermark = ( ) => dispatch( { type: "TOGGLE_WATERMARK", showWatermark: !showWatermark } );
 
-  const createWatermark = useCallback( async ( uriToWatermark: string, _type: string ) => {
+  const createWatermark = useCallback( async ( uriToWatermark, _type ) => {
     if ( noWatermark ) {
       return;
     }

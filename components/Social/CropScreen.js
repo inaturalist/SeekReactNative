@@ -1,4 +1,3 @@
-import * as React from "react";
 import { View } from "react-native";
 // import { CropView } from "react-native-image-crop-tools";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,21 +8,13 @@ import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 
-type Props = {
-  saveCrop: Function,
-  uri: ?string,
-  cropViewRef: any,
-  handleImageCrop: Function,
-  closeModal: Function
-}
-
 const CropScreen = ( {
   saveCrop,
   uri: _uri,
   cropViewRef: _cropViewRef,
   handleImageCrop: _handleImageCrop,
   closeModal,
-}: Props ): React.Node => (
+} ) => (
   <SafeAreaView style={viewStyles.cropScreenContainer} edges={["top"]}>
     <View style={viewStyles.header}>
       <CustomBackArrow handlePress={closeModal} style={viewStyles.backButton} green />

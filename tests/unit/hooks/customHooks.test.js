@@ -5,20 +5,6 @@ import {
   useUploadedObservationCount,
 } from "../../../utility/customHooks";
 
-jest.mock( "inaturalistjs", () => ( {
-  __esModule: true,
-  default: {
-    observations: {
-      search: jest.fn( ( params, _options ) => {
-        const total_results = params?.year === 2021 ? 12 : 42;
-        return {
-          total_results,
-        };
-      } ),
-    },
-  },
-} ) );
-
 const login = "some-token";
 const username = "some-username";
 const year = 2021;

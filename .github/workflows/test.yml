@@ -33,7 +33,11 @@ jobs:
 
     - run: npm run lint
 
-    - run: npm test
+    - name: Unit tests
+      run: npm run test:unit
+
+    - name: Integration tests
+      run: npm run test:integration
 
   notify:
     name: Notify Slack

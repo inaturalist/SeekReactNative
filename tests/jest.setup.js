@@ -43,6 +43,8 @@ jest.mock( "react-native-restart", () => ( {
   restart: jest.fn(),
 } ) );
 
+jest.mock( "inaturalistjs" );
+
 jest.mock( "@dr.pogodin/react-native-fs" );
 jest.mock( "react-native-webview" );
 jest.mock( "react-native-maps" );

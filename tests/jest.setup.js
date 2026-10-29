@@ -13,9 +13,6 @@ import mockSafeAreaContext from "react-native-safe-area-context/jest/mock";
 
 jest.mock( "react-native-reanimated", () => require( "react-native-reanimated/mock" ) );
 
-const { setUpTests } = require( "react-native-reanimated/lib/module/jestUtils/index.js" );
-setUpTests();
-
 jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 jest.mock( "react-native-device-info", () => mockRNDeviceInfo );
 jest.mock( "react-native-localize" );

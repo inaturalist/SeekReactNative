@@ -2,6 +2,10 @@ import type { Config } from "jest";
 
 const config: Config = {
   preset: "react-native",
+  moduleNameMapper: {
+    // commonNames dicts are gitignored; CI has no utility/commonNames/index
+    "^\\.\\./utility/commonNames$": "<rootDir>/tests/mocks/commonNames.js",
+  },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   transformIgnorePatterns: [
     "node_modules/(?!(jest-)?@react-native|react-native|@react-native-community|@react-navigation|i18n-js|@realm|uuid|@shopify/flash-list)",

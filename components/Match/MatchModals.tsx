@@ -187,14 +187,14 @@ const MatchModals = ( {
   }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
 
   const checkBadges = ( ) => {
-    checkForNewBadges( ).then( ( { latestLevel, latestBadge } ) => {
-      dispatch( { type: ACTION_TYPE.SET_BADGES, latestLevel, latestBadge } );
+    checkForNewBadges( ).then( ( { latestLevel: nextLevel, latestBadge } ) => {
+      dispatch( { type: ACTION_TYPE.SET_BADGES, latestLevel: nextLevel, latestBadge } );
     } ).catch( ( ) => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = ( ) => {
-    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress } ) => {
-      dispatch( { type: ACTION_TYPE.SET_CHALLENGES, challenge: challengeComplete, challengeInProgress } );
+    checkForChallengesCompleted( ).then( ( { challengeComplete, challengeInProgress: nextChallengeInProgress } ) => {
+      dispatch( { type: ACTION_TYPE.SET_CHALLENGES, challenge: challengeComplete, challengeInProgress: nextChallengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( ( ) => console.log( "could not check for challenges" ) );
   };

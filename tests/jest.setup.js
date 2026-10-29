@@ -35,6 +35,13 @@ jest.mock( "@react-native-community/netinfo", () => mockRNCNetInfo );
 jest.mock( "react-native-safe-area-context", () => mockSafeAreaContext );
 
 jest.mock( "vision-camera-plugin-inatvision" );
+jest.mock( "@bam.tech/react-native-image-resizer" );
+jest.mock( "@react-native-clipboard/clipboard" );
+jest.mock( "@lodev09/react-native-exify" );
+
+jest.mock( "react-native-restart", () => ( {
+  restart: jest.fn(),
+} ) );
 
 jest.mock( "@dr.pogodin/react-native-fs" );
 jest.mock( "react-native-webview" );

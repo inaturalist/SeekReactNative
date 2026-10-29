@@ -170,9 +170,6 @@ const MatchModals = ( {
         routes: [{ name: "Home" }],
       } );
       navigation.navigate( "Camera" );
-    } else if ( navPath === "Social" ) {
-      setNavigationPath( null );
-      navigation.navigate( "Social", { taxon, commonName } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
       setId( taxaId );
@@ -184,7 +181,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer( );
     }
-  }, [navPath, navigation, taxon, setNavigationPath, commonName, setId, taxaId] );
+  }, [navPath, navigation, setNavigationPath, setId, taxaId] );
 
   const checkBadges = ( ) => {
     checkForNewBadges( ).then( ( { latestLevel: nextLevel, latestBadge } ) => {

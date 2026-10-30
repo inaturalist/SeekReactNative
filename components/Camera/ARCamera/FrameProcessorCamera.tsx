@@ -111,7 +111,7 @@ const FrameProcessorCamera = ( props: Props ) => {
     animatedStyle,
     tapToFocus,
     tappedCoordinates,
-  } = useFocusTap( cameraRef );
+  } = useFocusTap( cameraRef, device.supportsFocusMetering );
 
   const [lastTimestamp, setLastTimestamp] = useState<number | undefined>( undefined );
   const fps = 1;

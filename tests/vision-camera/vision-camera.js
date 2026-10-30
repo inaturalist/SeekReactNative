@@ -79,6 +79,7 @@ const mockDevice = {
   position: "front",
   supportsDepthCapture: false,
   supportsFocus: true,
+  supportsFocusMetering: true,
   supportsLowLightBoost: false,
   supportsParallelVideoProcessing: true,
   supportsRawCapture: true,

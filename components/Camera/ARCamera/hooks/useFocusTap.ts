@@ -23,7 +23,10 @@ export interface Coordinates {
   y: number;
 }
 
-const useFocusTap = ( cameraRef: RefObject<CameraRef | null> ) => {
+const useFocusTap = (
+  cameraRef: RefObject<CameraRef | null>,
+  supportsFocusMetering: boolean,
+) => {
   const [tappedCoordinates, setTappedCoordinates] = useState<Coordinates | null>( null );
   const focusOpacity = useSharedValue( 0 );
   const focusLeft = useSharedValue( 0 );
@@ -35,14 +38,16 @@ const useFocusTap = ( cameraRef: RefObject<CameraRef | null> ) => {
     opacity: focusOpacity.value,
   } ) );
 
-  const onFocus = useCallback( async ( { x, y }: GestureStateChangeEvent<TapGestureHandlerEventPayload> ) => {
+  type TapEvent = GestureStateChangeEvent<TapGestureHandlerEventPayload>;
+  const onFocus = useCallback( async ( { x, y }: TapEvent ) => {
+    if ( !supportsFocusMetering ) { return; }
     cameraRef?.current?.focusTo( { x, y } );
     focusLeft.set( x - HALF_SIZE_FOCUS_BOX );
     focusTop.set( y - HALF_SIZE_FOCUS_BOX );
     focusOpacity.set( 1 );
     setTappedCoordinates( { x, y } );
     focusOpacity.set( withTiming( 0, { duration: 2000 } ) );
-  }, [cameraRef, focusLeft, focusTop, focusOpacity] );
+  }, [cameraRef, focusLeft, focusOpacity, focusTop, supportsFocusMetering] );
 
   const tapToFocus = useMemo( ( ) => Gesture.Tap( )
     .runOnJS( true )

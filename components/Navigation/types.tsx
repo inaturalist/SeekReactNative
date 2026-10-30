@@ -47,7 +47,6 @@ export type RootStackParamList = {
   LicensePhotos: undefined;
   Signup: undefined;
   LoginSuccess: undefined;
-  Social: undefined;
   TermsOfService: undefined;
   Privacy: undefined;
   CommunityGuidelines: undefined;

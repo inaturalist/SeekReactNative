@@ -20,7 +20,16 @@ const createHistogramChartData = ( results: any ): HistogramDataPoint[] => {
 };
 
 const fetchHistogram = async ( id: number, region?: Region ): Promise<HistogramDataPoint[]> => {
-  const params: any = {
+  interface Params {
+    date_field: string;
+    interval: string;
+    taxon_id: number;
+    lat?: number;
+    lng?: number;
+    radius?: number;
+  }
+
+  const params: Params = {
     date_field: "observed",
     interval: "month_of_year",
     taxon_id: id,

@@ -2,6 +2,7 @@ import { CommonActions } from "@react-navigation/native";
 import { DeviceEventEmitter, Platform } from "react-native";
 import QuickActions from "react-native-quick-actions";
 
+import type { RootStackParamList } from "../components/Navigation/types";
 import i18n from "../i18n";
 
 const seekCameraTitle = Platform.OS === "android" ? i18n.t( "shortcut.seek_camera" ) : "Seek Camera";
@@ -30,7 +31,7 @@ const checkForHotStarts = ( navToCamera: ( ) => void ): void => {
   } );
 };
 
-const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( string ) => void ): Promise<void> => {
+const checkForColdStarts = async ( navToCamera: ( ) => void, resetRouter: ( string: keyof RootStackParamList ) => void ): Promise<void> => {
   // this addresses cold starts (i.e. before the app launches)
   try {
     // TODO: when starting the app with the Android Hermes Debugger in VS code the app always throws an exception here, check if that is something happening in production

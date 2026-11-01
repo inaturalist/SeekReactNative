@@ -28,7 +28,7 @@ const capitalizeNames = ( name: string ): string | undefined => {
   return titleCaseName;
 };
 
-const shuffleList = ( list: any[] ): any[] => {
+const shuffleList = <T>( list: T[] ): T[] => {
   const newList = list;
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {

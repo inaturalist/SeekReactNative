@@ -155,5 +155,11 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --cache --cache-location .eslintcache"
     ]
+  },
+  "allowScripts": {
+    "detox@20.51.3": true,
+    "realm@20.2.0": true,
+    "fsevents@2.3.3": true,
+    "dtrace-provider": false
   }
 }

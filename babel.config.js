@@ -1,10 +1,13 @@
-/** @type {import('react-native-worklets/plugin').PluginOptions} */
-const workletsPluginOptions = {
-  bundleMode: true,
-  strictGlobal: true, // optional, but recommended
-}
-
 module.exports = ( api ) => {
+  api.cache.using( () => process.env.NODE_ENV );
+  const isTest = api.env( "test" );
+
+  /** @type {import('react-native-worklets/plugin').PluginOptions} */
+  const workletsPluginOptions = {
+    bundleMode: !isTest,
+    strictGlobal: !isTest,
+  };
+
   const presets = [
     "module:@react-native/babel-preset",
   ];

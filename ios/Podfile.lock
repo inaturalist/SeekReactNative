@@ -151,7 +151,6 @@ PODS:
     - React-RCTText (= 0.83.10)
     - React-RCTVibration (= 0.83.10)
   - React-callinvoker (0.83.10)
-  - React-Codegen (0.1.0)
   - React-Core (0.83.10):
     - boost
     - DoubleConversion
@@ -2145,7 +2144,6 @@ PODS:
     - RCT-Folly/Fabric
     - RCTRequired
     - RCTTypeSafety
-    - React-Codegen
     - React-Core
     - React-debug
     - React-Fabric
@@ -3692,7 +3690,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - libwebp
-    - React-Codegen
     - SDWebImage
     - SDWebImageWebPCoder
     - SocketRocket
@@ -3955,7 +3952,6 @@ SPEC CHECKSUMS:
   RCTTypeSafety: 16f042e0b0b232fbbcf9cb278c3442ecb6aefc0d
   React: c8a434eb4c7720649ce29b79ec65a8a085d9ef89
   React-callinvoker: 1af9cd3949e4221b958334e282e089598b2ceee8
-  React-Codegen: 4b8b4817cea7a54b83851d4c1f91f79aa73de30a
   React-Core: 799338289a409b88474f3aae8beba81fdedfa42c
   React-CoreModules: fe1c7c0297a36e4400cb4561271dcbc266a475b3
   React-cxxreact: a53b2cb1514a2c5226573cb4b60d516e7ad18478
@@ -3990,7 +3986,7 @@ SPEC CHECKSUMS:
   react-native-geolocation-service: 32b2c2a3b91e70ce2a8d0c684801aaeb0a07e0ec
   react-native-get-random-values: 5c2e7ce0c1eedefde8e97fe60152601887fcfa08
   react-native-image-picker: 6051cfd030121b880a58f1cc0e5e33e9887804e4
-  react-native-image-resizer: a889f67073804003f19da3721ef5593df569b45b
+  react-native-image-resizer: c14f8b79140428f470029411505d9a1b1275eef7
   react-native-mail: 6e83813066984b26403d3fdfe79ac7bb31857e3c
   react-native-maps: d9f48d8d482153c618b982f9c54878ee7062714e
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187

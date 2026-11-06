@@ -37,15 +37,20 @@ const CameraHelpScreen = ( ) => {
         <View style={imageStyles.rankRow}>
           {taxonomicRanks.map( ( { rank, label } ) => (
             <View key={rank} style={imageStyles.rankColumn}>
-              <StyledText
-                allowFontScaling={false}
-                adjustsFontSizeToFit
-                minimumFontScale={0.5}
-                numberOfLines={1}
-                style={imageStyles.rankLabel}
-              >
-                {label.toLocaleUpperCase( )}
-              </StyledText>
+              <View style={imageStyles.dot} />
+              <View style={imageStyles.labelSlot}>
+                <View style={imageStyles.labelRotate}>
+                  <StyledText
+                    allowFontScaling={false}
+                    adjustsFontSizeToFit
+                    minimumFontScale={0.6}
+                    numberOfLines={1}
+                    style={imageStyles.rankLabel}
+                  >
+                    {label.toLocaleUpperCase( )}
+                  </StyledText>
+                </View>
+              </View>
             </View>
           ) )}
         </View>

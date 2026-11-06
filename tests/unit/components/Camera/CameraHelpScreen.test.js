@@ -6,7 +6,7 @@ import i18n from "../../../../i18n";
 
 const englishRanks = ["KINGDOM", "PHYLUM", "CLASS", "ORDER", "FAMILY", "GENUS", "SPECIES"];
 const russianRanks = ["ЦАРСТВО", "ТИП", "КЛАСС", "ОТРЯД", "СЕМЕЙСТВО", "РОД", "ВИД"];
-// Longest labels in the app. They have to stay whole, not clipped to a shorter word.
+// Accented Greek capitals, which is what toLocaleUpperCase returns for these names.
 const greekRanks = ["ΒΑΣΊΛΕΙΟ", "ΣΥΝΟΜΟΤΑΞΊΑ", "ΟΜΟΤΑΞΊΑ", "ΤΆΞΗ", "ΟΙΚΟΓΈΝΕΙΑ", "ΓΈΝΟΣ", "ΕΊΔΟΣ"];
 
 const renderHelp = ( ) => {

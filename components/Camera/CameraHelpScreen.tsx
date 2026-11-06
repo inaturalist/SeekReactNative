@@ -1,18 +1,24 @@
 import * as React from "react";
 import {
   Image,
+  useWindowDimensions,
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import { imageStyles, textStyles, viewStyles } from "../../styles/camera/help";
+import { createHelpStyles, textStyles } from "../../styles/camera/help";
 import { baseTextStyles } from "../../styles/textStyles";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../UIComponents/StyledText";
 
 const CameraHelpScreen = ( ) => {
+  const { width, height } = useWindowDimensions( );
+  const { imageStyles, viewStyles } = React.useMemo(
+    ( ) => createHelpStyles( width, height ),
+    [width, height]
+  );
   // Same rank names the Seek Camera uppercases on its identification bar.
   const taxonomicRanks = [
     { rank: "kingdom", label: i18n.t( "camera.kingdom" ) },

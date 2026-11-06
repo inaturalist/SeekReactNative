@@ -37,7 +37,9 @@ const CameraHelpScreen = ( ) => {
         <View style={imageStyles.rankRow}>
           {taxonomicRanks.map( ( { rank, label } ) => (
             <View key={rank} style={imageStyles.rankColumn}>
-              <View style={imageStyles.dot} />
+              <View style={imageStyles.dot}>
+                <View style={imageStyles.dotFill} />
+              </View>
               <View style={imageStyles.labelSlot}>
                 <View style={imageStyles.labelRotate}>
                   <StyledText

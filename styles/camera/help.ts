@@ -10,7 +10,8 @@ const scale = width / DESIGN_WIDTH;
 const fontSize = 18 * scale;
 const lineHeight = fontSize;
 const columnWidth = 40 * scale;
-const dotSize = 9 * scale;
+const dotSize = 10 * scale;
+const dotFill = 8 * scale;
 // Cover crops 15px off the 180px-tall art. Dot centers were at y=35.5, x starting at 67.5.
 const labelLength = 90 * scale;
 
@@ -55,10 +56,16 @@ const imageStyles = StyleSheet.create( {
     width,
   },
   dot: {
-    backgroundColor: "#47a364",
+    backgroundColor: colors.white,
     borderRadius: dotSize / 2,
     height: dotSize,
+    padding: scale,
     width: dotSize,
+  },
+  dotFill: {
+    backgroundColor: "#47a364",
+    borderRadius: dotFill / 2,
+    flex: 1,
   },
   labelRotate: {
     flexDirection: "row",

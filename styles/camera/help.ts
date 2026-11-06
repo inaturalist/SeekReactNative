@@ -4,8 +4,15 @@ import { colors, fonts, row } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 const bannerHeight = width / 2.5;
-// The word is rotated, so its layout width is the vertical space under the dots.
-const labelLength = Math.round( bannerHeight * 0.62 );
+// Measured from img-camerahelp-taxonomy (375×180). Cover crops 15px off the top.
+const DESIGN_WIDTH = 375;
+const scale = width / DESIGN_WIDTH;
+const fontSize = 18 * scale;
+const lineHeight = fontSize;
+const columnWidth = 40 * scale;
+const dotSize = 9 * scale;
+// Cover crops 15px off the 180px-tall art. Dot centers were at y=35.5, x starting at 67.5.
+const labelLength = 90 * scale;
 
 const viewStyles = StyleSheet.create( {
   howText: {
@@ -47,37 +54,45 @@ const imageStyles = StyleSheet.create( {
     height: bannerHeight,
     width,
   },
-  // Dots are painted left-to-right in the photo, so the names must not flip in RTL.
-  rankRow: {
-    bottom: 6,
-    direction: "ltr",
+  dot: {
+    backgroundColor: "#47a364",
+    borderRadius: dotSize / 2,
+    height: dotSize,
+    width: dotSize,
+  },
+  labelRotate: {
     flexDirection: "row",
-    left: 8,
+    height: lineHeight,
+    justifyContent: "flex-end",
+    left: ( lineHeight - labelLength ) / 2,
     position: "absolute",
-    right: 8,
-    top: "28%",
+    top: ( labelLength - lineHeight ) / 2,
+    transform: [{ rotate: "-90deg" }],
+    width: labelLength,
+  },
+  labelSlot: {
+    height: labelLength,
+    marginTop: 25 * scale,
+    width: lineHeight,
   },
   rankColumn: {
-    flex: 1,
-    position: "relative",
+    alignItems: "center",
+    width: columnWidth,
   },
   rankLabel: {
     color: colors.white,
+    flexShrink: 0,
     fontFamily: fonts.bold,
-    fontSize: 13,
-    left: "50%",
-    letterSpacing: 1,
-    lineHeight: 16,
-    marginLeft: -( labelLength / 2 ),
-    marginTop: -8,
+    fontSize,
+    lineHeight,
+    maxWidth: labelLength,
+  },
+  rankRow: {
+    direction: "ltr",
+    flexDirection: "row",
+    left: ( 67.5 - 20 ) * scale,
     position: "absolute",
-    textAlign: "center",
-    textShadowColor: "rgba(0, 0, 0, 0.65)",
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 3,
-    top: "50%",
-    transform: [{ rotate: "-90deg" }],
-    width: labelLength,
+    top: ( 35.5 - 15 ) * scale - dotSize / 2,
   },
   topImage: {
     height: bannerHeight,

@@ -13,6 +13,16 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import StyledText from "../UIComponents/StyledText";
 
 const CameraHelpScreen = ( ) => {
+  // Same rank names the Seek Camera uppercases on its identification bar.
+  const taxonomicRanks = [
+    { rank: "kingdom", label: i18n.t( "camera.kingdom" ) },
+    { rank: "phylum", label: i18n.t( "camera.phylum" ) },
+    { rank: "class", label: i18n.t( "camera.class" ) },
+    { rank: "order", label: i18n.t( "camera.order" ) },
+    { rank: "family", label: i18n.t( "camera.family" ) },
+    { rank: "genus", label: i18n.t( "camera.genus" ) },
+    { rank: "species", label: i18n.t( "camera.species" ) },
+  ];
   const tips = [
     i18n.t( "camera_help.tip_1" ),
     i18n.t( "camera_help.tip_2" ),
@@ -22,8 +32,24 @@ const CameraHelpScreen = ( ) => {
 
   return (
     <ScrollWithHeader header="camera_help.title" route="Camera">
-      {/* TODO: extract the taxonomical ranks out of this image to make them translatable */}
-      <Image source={icons.cameraHelpTop} style={imageStyles.topImage} />
+      <View style={imageStyles.banner}>
+        <Image source={icons.cameraHelpTop} style={imageStyles.topImage} />
+        <View style={imageStyles.rankRow}>
+          {taxonomicRanks.map( ( { rank, label } ) => (
+            <View key={rank} style={imageStyles.rankColumn}>
+              <StyledText
+                allowFontScaling={false}
+                adjustsFontSizeToFit
+                minimumFontScale={0.5}
+                numberOfLines={1}
+                style={imageStyles.rankLabel}
+              >
+                {label.toLocaleUpperCase( )}
+              </StyledText>
+            </View>
+          ) )}
+        </View>
+      </View>
       <View style={viewStyles.textContainer}>
         <StyledText style={baseTextStyles.body}>
           {i18n.t( "camera_help.explanation_1" )}

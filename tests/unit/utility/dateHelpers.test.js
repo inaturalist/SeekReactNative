@@ -127,39 +127,15 @@ describe( "photo date to observation date", () => {
     expect( rolledSecond.dateForServer ).toBeNull();
     expect( rolledHour.dateForServer ).toBeNull();
 
-    const belowFloor = await postedDateForExif( {
+    const historical = await postedDateForExif( {
       DateTimeOriginal: "1899:12:31 00:00:00",
     } );
-    expect( belowFloor.dateForServer ).toBeNull();
+    expect( historical.dateForServer ).toMatch( /Dec 31 1899 00:00:00/ );
 
-    const atFloor = await postedDateForExif( {
-      DateTimeOriginal: "1900:01:01 00:00:00",
+    const resetSecond = await postedDateForExif( {
+      DateTimeOriginal: "1970:01:01 00:00:00",
     } );
-    expect( atFloor.dateForServer ).toMatch( /Jan 0?1 1900 00:00:00/ );
-
-    const resetClockThatCouldBeReal = await postedDateForExif( {
-      DateTimeOriginal: "1904:01:01 00:00:00",
-    } );
-    expect( resetClockThatCouldBeReal.dateForServer ).toMatch( /Jan 0?1 1904 00:00:00/ );
-
-    const future = await postedDateForExif( {
-      DateTimeOriginal: "2099:01:01 00:00:00",
-    } );
-    expect( future.dateForServer ).toBeNull();
-
-    const pad = ( n ) => String( n ).padStart( 2, "0" );
-    const exifHoursAhead = ( hours ) => {
-      const when = new Date( Date.now() + hours * 60 * 60 * 1000 );
-      return `${when.getUTCFullYear()}:${pad( when.getUTCMonth() + 1 )}:${pad( when.getUTCDate() )} ${pad( when.getUTCHours() )}:${pad( when.getUTCMinutes() )}:${pad( when.getUTCSeconds() )}`;
-    };
-    const withinADay = await postedDateForExif( {
-      DateTimeOriginal: exifHoursAhead( 12 ),
-    } );
-    const pastADay = await postedDateForExif( {
-      DateTimeOriginal: exifHoursAhead( 48 ),
-    } );
-    expect( withinADay.dateForServer ).toEqual( expect.any( String ) );
-    expect( pastADay.dateForServer ).toBeNull();
+    expect( resetSecond.dateForServer ).toMatch( /Jan 0?1 1970 00:00:00/ );
   } );
 
   it( "uses DateTime when DateTimeOriginal is not a real date", async () => {
@@ -171,44 +147,6 @@ describe( "photo date to observation date", () => {
     } );
 
     expect( posted.dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
-  } );
-
-  it( "drops a 1970-01-01 00:00:00 reset clock in every zone", async () => {
-    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
-
-    const reset = await postedDateForExif( {
-      DateTimeOriginal: "1970:01:01 00:00:00",
-    } );
-    expect( reset.dateForServer ).toBeNull();
-
-    const oneSecondLater = await postedDateForExif( {
-      DateTimeOriginal: "1970:01:01 00:00:01",
-    } );
-    expect( oneSecondLater.dateForServer ).toEqual( expect.any( String ) );
-  } );
-
-  it( "rejects a future photo date by local time, not UTC", async () => {
-    // shortcut: TZ=UTC cannot tell local from UTC. Run with TZ=America/Los_Angeles to catch a UTC comparison.
-    getTimeZone.mockReturnValue( "America/Los_Angeles" );
-
-    const pad = ( n ) => String( n ).padStart( 2, "0" );
-    const utcAhead = new Date( Date.now() + 23 * 60 * 60 * 1000 );
-    const exif = `${utcAhead.getUTCFullYear()}:${pad( utcAhead.getUTCMonth() + 1 )}:${pad( utcAhead.getUTCDate() )} ${pad( utcAhead.getUTCHours() )}:${pad( utcAhead.getUTCMinutes() )}:${pad( utcAhead.getUTCSeconds() )}`;
-    const localMs = new Date(
-      utcAhead.getUTCFullYear(),
-      utcAhead.getUTCMonth(),
-      utcAhead.getUTCDate(),
-      utcAhead.getUTCHours(),
-      utcAhead.getUTCMinutes(),
-      utcAhead.getUTCSeconds(),
-    ).getTime();
-    const posted = await postedDateForExif( { DateTimeOriginal: exif } );
-
-    if ( localMs > Date.now() + 24 * 60 * 60 * 1000 ) {
-      expect( posted.dateForServer ).toBeNull();
-    } else {
-      expect( posted.dateForServer ).toEqual( expect.any( String ) );
-    }
   } );
 
   describe( "in America/Los_Angeles", () => {

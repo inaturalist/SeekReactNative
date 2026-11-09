@@ -24,7 +24,6 @@ Object.defineProperty( UsePhotoExifDateFormatError.prototype, "name", {
 } );
 
 const EXIF_DATE_PATTERN = /^(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})$/;
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
 const formatOneExifDate = ( dateTime: string | null | undefined ): string | null => {
   if ( !dateTime ) return null;
@@ -49,26 +48,6 @@ const formatOneExifDate = ( dateTime: string | null | undefined ): string | null
     || utcCheck.getUTCMinutes() !== minute
     || utcCheck.getUTCSeconds() !== second
   ) {
-    return null;
-  }
-
-  // 1900 is the earliest date the picker allows. That drops the empty-clock
-  // rollover (0000 becomes 1899). 1904, 1970, 1980, and 2000 are also common
-  // reset clocks, but those years are real photo dates too.
-  if ( year < 1900 ) {
-    return null;
-  }
-
-  // This exact second is the usual reset clock. Reject the tag, not unix time 0,
-  // so it stays missing in every zone and a real epoch still formats.
-  if ( year === 1970 && month === 1 && date === 1 && hour === 0 && minute === 0 && second === 0 ) {
-    return null;
-  }
-
-  // The wall clock is later read as local time. Comparing it as UTC lets a
-  // date pass in UTC−8 when it is more than a day ahead locally.
-  const localMs = new Date( year, month - 1, date, hour, minute, second ).getTime();
-  if ( localMs > Date.now() + ONE_DAY_MS ) {
     return null;
   }
 

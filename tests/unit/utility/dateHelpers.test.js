@@ -17,14 +17,158 @@ jest.mock( "../../../i18n", () => ( {
 
 jest.mock( "react-native-localize", () => jest.requireActual( "react-native-localize/mock/jest" ) );
 
+jest.mock( "@lodev09/react-native-exify", () => ( {
+  read: jest.fn(),
+} ) );
+
+import * as Exify from "@lodev09/react-native-exify";
 import * as TimeZone from "date-fns-tz";
 import { getTimeZone } from "react-native-localize";
 
-import { formatGMTTimeWithTimeZone } from "../../../utility/dateHelpers";
+import {
+  formatGMTTimeWithTimeZone,
+  setISOTime,
+  unixTimeFromPhotoDate,
+} from "../../../utility/dateHelpers";
+import readExifFromMultiplePhotos from "../../../utility/parseExif";
+
+const defaultGetTimeZone = jest.requireActual( "react-native-localize/mock" ).getTimeZone;
+
+const restoreDefaultTimeZone = () => {
+  getTimeZone.mockReset();
+  getTimeZone.mockImplementation( defaultGetTimeZone );
+};
+
+const postedDateForExif = async ( tags ) => {
+  Exify.read.mockResolvedValue( tags );
+  const exif = await readExifFromMultiplePhotos( ["file:///photo.jpg"] );
+  return formatGMTTimeWithTimeZone(
+    setISOTime( unixTimeFromPhotoDate( exif.observed_on_string ) ),
+  );
+};
+
+describe( "photo date to observation date", () => {
+  afterEach( () => {
+    restoreDefaultTimeZone();
+    Exify.read.mockReset();
+  } );
+
+  it( "keeps the localize mock's default time zone", () => {
+    expect( getTimeZone() ).toBe( "Europe/Paris" );
+  } );
+  it( "does not invent an observation date when the photo has none", () => {
+    expect( unixTimeFromPhotoDate( null ) ).toBeNull( );
+    expect( unixTimeFromPhotoDate( undefined ) ).toBeNull( );
+    expect( unixTimeFromPhotoDate( "" ) ).toBeNull( );
+    expect( unixTimeFromPhotoDate( "not-a-date" ) ).toBeNull( );
+
+    expect( formatGMTTimeWithTimeZone( setISOTime( null ) ) ).toEqual( {
+      dateForServer: null,
+      dateForDisplay: null,
+    } );
+    expect( formatGMTTimeWithTimeZone( setISOTime( undefined ) ) ).toEqual( {
+      dateForServer: null,
+      dateForDisplay: null,
+    } );
+  } );
+
+  it( "keeps a photo date's wall-clock time", () => {
+    // Photo dates have no offset. Parsing uses the process zone, so formatting
+    // has to use that same zone. The device-zone mock does not parse the string.
+    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
+
+    const { dateForServer } = formatGMTTimeWithTimeZone(
+      setISOTime( unixTimeFromPhotoDate( "2018-03-30T21:14:00" ) ),
+    );
+
+    expect( dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
+  } );
+
+  it( "returns null for a missing time and the epoch for zero", () => {
+    expect( setISOTime( null ) ).toBeNull();
+    expect( setISOTime( undefined ) ).toBeNull();
+    expect( setISOTime( NaN ) ).toBeNull();
+
+    const epoch = setISOTime( 0 );
+    expect( epoch ).toEqual( expect.any( String ) );
+    expect( new Date( epoch ).getTime() ).toBe( 0 );
+
+    expect( setISOTime( 1e13 ) ).toBeNull();
+    expect( setISOTime( -1e13 ) ).toBeNull();
+    expect( formatGMTTimeWithTimeZone( setISOTime( 1e13 ) ).dateForServer ).toBeNull();
+  } );
+
+  it( "does not post an epoch date when the photo has no EXIF date", async () => {
+    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
+
+    const missing = await postedDateForExif( {} );
+    expect( missing.dateForServer ).toBeNull();
+
+    const dated = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 21:14:00",
+    } );
+    expect( dated.dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
+
+    const zeroed = await postedDateForExif( {
+      DateTimeOriginal: "0000:00:00 00:00:00",
+    } );
+    expect( zeroed.dateForServer ).toBeNull();
+
+    const rolledMinute = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 10:61:00",
+    } );
+    const rolledSecond = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 10:00:75",
+    } );
+    const rolledHour = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 24:00:00",
+    } );
+    expect( rolledMinute.dateForServer ).toBeNull();
+    expect( rolledSecond.dateForServer ).toBeNull();
+    expect( rolledHour.dateForServer ).toBeNull();
+
+    const historical = await postedDateForExif( {
+      DateTimeOriginal: "1899:12:31 00:00:00",
+    } );
+    expect( historical.dateForServer ).toMatch( /Dec 31 1899 00:00:00/ );
+
+    const resetSecond = await postedDateForExif( {
+      DateTimeOriginal: "1970:01:01 00:00:00",
+    } );
+    expect( resetSecond.dateForServer ).toMatch( /Jan 0?1 1970 00:00:00/ );
+  } );
+
+  it( "uses DateTime when DateTimeOriginal is not a real date", async () => {
+    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
+
+    const posted = await postedDateForExif( {
+      DateTimeOriginal: "0000:00:00 00:00:00",
+      DateTime: "2018:03:30 21:14:00",
+    } );
+
+    expect( posted.dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
+  } );
+
+  describe( "in America/Los_Angeles", () => {
+    beforeEach( () => {
+      getTimeZone.mockReturnValue( "America/Los_Angeles" );
+    } );
+
+    it( "still formats the epoch itself as 31 December 1969", () => {
+      const { dateForServer } = formatGMTTimeWithTimeZone( setISOTime( 0 ) );
+
+      expect( dateForServer ).toMatch( /Dec 31 1969 16:00:00 GMT -0800/ );
+    } );
+  } );
+} );
 
 describe( "formatGMTTimeWithTimeZone", () => {
+  beforeEach( () => {
+    restoreDefaultTimeZone();
+  } );
+
   afterEach( () => {
-    getTimeZone.mockReset();
+    restoreDefaultTimeZone();
     jest.restoreAllMocks( );
   } );
 

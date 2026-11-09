@@ -60,8 +60,8 @@ const addToCollection = async ( observation: {
       } );
       realm.create( "ObservationRealm", {
         uuidString: createUUID.v4(),
-        // Challenges and year-in-review read this as a Date, so a missing photo date is the save time. 0 is the epoch.
-        date: time ? setISOTime( time ) ?? new Date() : new Date(),
+        // Challenges and year-in-review read this as a Date, so a missing photo date is the save time.
+        date: setISOTime( time ) ?? new Date(),
         taxon: newTaxon,
         latitude: latitude || null,
         longitude: longitude || null,

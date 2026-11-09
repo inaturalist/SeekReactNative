@@ -289,7 +289,7 @@ const replacePhoto = async ( id: number, image: Image ): Promise<void> => {
 
       photoToEdit.backupUri = backupUri;
       photoToEdit.mediumUrl = uri;
-      photoToEdit.lastUpdated = time ? setISOTime( time ) ?? new Date() : new Date();
+      photoToEdit.lastUpdated = setISOTime( time ) ?? new Date();
     } );
   } ).catch( ( e ) => {
     console.log( e, "error editing photo object" );

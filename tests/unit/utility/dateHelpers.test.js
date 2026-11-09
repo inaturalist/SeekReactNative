@@ -73,14 +73,11 @@ describe( "photo date to observation date", () => {
     expect( dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
   } );
 
-  it( "returns null for a missing time and the epoch for zero", () => {
+  it( "returns null for a missing time and for zero", () => {
     expect( setISOTime( null ) ).toBeNull();
     expect( setISOTime( undefined ) ).toBeNull();
     expect( setISOTime( NaN ) ).toBeNull();
-
-    const epoch = setISOTime( 0 );
-    expect( epoch ).toEqual( expect.any( String ) );
-    expect( new Date( epoch ).getTime() ).toBe( 0 );
+    expect( setISOTime( 0 ) ).toBeNull();
 
     expect( setISOTime( 1e13 ) ).toBeNull();
     expect( setISOTime( -1e13 ) ).toBeNull();
@@ -109,10 +106,11 @@ describe( "photo date to observation date", () => {
       getTimeZone.mockReturnValue( "America/Los_Angeles" );
     } );
 
-    it( "still formats the epoch itself as 31 December 1969", () => {
-      const { dateForServer } = formatGMTTimeWithTimeZone( setISOTime( 0 ) );
-
-      expect( dateForServer ).toMatch( /Dec 31 1969 16:00:00 GMT -0800/ );
+    it( "does not pre-fill 31 December 1969 for unix time 0", () => {
+      expect( formatGMTTimeWithTimeZone( setISOTime( 0 ) ) ).toEqual( {
+        dateForServer: null,
+        dateForDisplay: null,
+      } );
     } );
   } );
 } );

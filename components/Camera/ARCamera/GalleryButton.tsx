@@ -35,7 +35,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
-  const navigateToResults = ( uri, time, location: {
+  const navigateToResults = ( uri: string, time: number | null, location: {
     latitude: number;
     longitude: number;
   }, predictions: InatVision.Prediction[] ) => {
@@ -92,7 +92,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     }
   };
 
-  const getPredictions = ( uri, timestamp, location: {
+  const getPredictions = ( uri: string, timestamp: number | null, location: {
     latitude: number | undefined;
     longitude: number | undefined;
   } ) => {

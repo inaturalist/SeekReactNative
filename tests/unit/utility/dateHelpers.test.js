@@ -32,6 +32,13 @@ import {
 } from "../../../utility/dateHelpers";
 import readExifFromMultiplePhotos from "../../../utility/parseExif";
 
+const defaultGetTimeZone = jest.requireActual( "react-native-localize/mock" ).getTimeZone;
+
+const restoreDefaultTimeZone = () => {
+  getTimeZone.mockReset();
+  getTimeZone.mockImplementation( defaultGetTimeZone );
+};
+
 const postedDateForExif = async ( tags ) => {
   Exify.read.mockResolvedValue( tags );
   const exif = await readExifFromMultiplePhotos( ["file:///photo.jpg"] );
@@ -42,8 +49,12 @@ const postedDateForExif = async ( tags ) => {
 
 describe( "photo date to observation date", () => {
   afterEach( () => {
-    getTimeZone.mockReset();
+    restoreDefaultTimeZone();
     Exify.read.mockReset();
+  } );
+
+  it( "keeps the localize mock's default time zone", () => {
+    expect( getTimeZone() ).toBe( "Europe/Paris" );
   } );
   it( "does not invent an observation date when the photo has none", () => {
     expect( unixTimeFromPhotoDate( null ) ).toBeNull( );
@@ -117,11 +128,11 @@ describe( "photo date to observation date", () => {
 
 describe( "formatGMTTimeWithTimeZone", () => {
   beforeEach( () => {
-    getTimeZone.mockReset();
+    restoreDefaultTimeZone();
   } );
 
   afterEach( () => {
-    getTimeZone.mockReset();
+    restoreDefaultTimeZone();
     jest.restoreAllMocks( );
   } );
 

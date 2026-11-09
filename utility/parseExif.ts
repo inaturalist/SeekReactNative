@@ -55,18 +55,28 @@ const formatExifDateAsString = ( tags: ExifTags ): string | null => {
   const minute = Number( match[5] );
   const second = Number( match[6] );
 
-  // Cameras write 0000:00:00 when they have no date. Date.UTC rolls that to 30 Nov 1899.
-  if ( year < 1 ) {
-    return null;
-  }
-
   const utcMs = Date.UTC( year, month - 1, date, hour, minute, second );
   const utcCheck = new Date( utcMs );
   if (
     utcCheck.getUTCFullYear() !== year
     || utcCheck.getUTCMonth() !== month - 1
     || utcCheck.getUTCDate() !== date
+    || utcCheck.getUTCHours() !== hour
+    || utcCheck.getUTCMinutes() !== minute
+    || utcCheck.getUTCSeconds() !== second
   ) {
+    return null;
+  }
+
+  // 1900 is the earliest date the picker allows. That drops the empty-clock
+  // rollover (0000 becomes 1899). 1904, 1970, 1980, and 2000 are also common
+  // reset clocks, but those years are real photo dates too.
+  if ( year < 1900 ) {
+    return null;
+  }
+
+  // EXIF has no zone, so a photo from a zone ahead of the device can look up to about a day ahead.
+  if ( utcCheck.getTime() > Date.now() + 24 * 60 * 60 * 1000 ) {
     return null;
   }
 

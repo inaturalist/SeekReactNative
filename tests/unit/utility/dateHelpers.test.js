@@ -110,6 +110,53 @@ describe( "photo date to observation date", () => {
       DateTimeOriginal: "0000:00:00 00:00:00",
     } );
     expect( zeroed.dateForServer ).toBeNull();
+
+    const rolledMinute = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 10:61:00",
+    } );
+    const rolledSecond = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 10:00:75",
+    } );
+    const rolledHour = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 24:00:00",
+    } );
+    expect( rolledMinute.dateForServer ).toBeNull();
+    expect( rolledSecond.dateForServer ).toBeNull();
+    expect( rolledHour.dateForServer ).toBeNull();
+
+    const belowFloor = await postedDateForExif( {
+      DateTimeOriginal: "1899:12:31 00:00:00",
+    } );
+    expect( belowFloor.dateForServer ).toBeNull();
+
+    const atFloor = await postedDateForExif( {
+      DateTimeOriginal: "1900:01:01 00:00:00",
+    } );
+    expect( atFloor.dateForServer ).toMatch( /Jan 0?1 1900 00:00:00/ );
+
+    const resetClockThatCouldBeReal = await postedDateForExif( {
+      DateTimeOriginal: "1904:01:01 00:00:00",
+    } );
+    expect( resetClockThatCouldBeReal.dateForServer ).toMatch( /Jan 0?1 1904 00:00:00/ );
+
+    const future = await postedDateForExif( {
+      DateTimeOriginal: "2099:01:01 00:00:00",
+    } );
+    expect( future.dateForServer ).toBeNull();
+
+    const pad = ( n ) => String( n ).padStart( 2, "0" );
+    const exifHoursAhead = ( hours ) => {
+      const when = new Date( Date.now() + hours * 60 * 60 * 1000 );
+      return `${when.getUTCFullYear()}:${pad( when.getUTCMonth() + 1 )}:${pad( when.getUTCDate() )} ${pad( when.getUTCHours() )}:${pad( when.getUTCMinutes() )}:${pad( when.getUTCSeconds() )}`;
+    };
+    const withinADay = await postedDateForExif( {
+      DateTimeOriginal: exifHoursAhead( 12 ),
+    } );
+    const pastADay = await postedDateForExif( {
+      DateTimeOriginal: exifHoursAhead( 48 ),
+    } );
+    expect( withinADay.dateForServer ).toEqual( expect.any( String ) );
+    expect( pastADay.dateForServer ).toBeNull();
   } );
 
   describe( "in America/Los_Angeles", () => {

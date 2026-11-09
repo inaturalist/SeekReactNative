@@ -60,7 +60,7 @@ const addToCollection = async ( observation: {
       } );
       realm.create( "ObservationRealm", {
         uuidString: createUUID.v4(),
-        date: time ? setISOTime( time ) : new Date(),
+        date: setISOTime( time ) ?? new Date(),
         taxon: newTaxon,
         latitude: latitude || null,
         longitude: longitude || null,

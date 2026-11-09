@@ -9,6 +9,7 @@ import {
   getUnixTime,
   isAfter,
   isSameMonth,
+  isValid,
   parseISO,
   subDays,
   subYears,
@@ -169,28 +170,27 @@ const formatDateToDisplay = ( date: Date ): string => format( date, "PPPPpaaa", 
 
 const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", { locale } );
 
-const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
+const setISOTime = ( time: number | null | undefined ): string | null => {
+  if ( time == null || !Number.isFinite( time ) ) {
+    return null;
+  }
+  return formatISO( fromUnixTime( time ) );
+};
 
 // A missing photo date must stay missing. new Date( null ) is the epoch,
-// which posts as 31 Dec 1969 in time zones behind UTC.
+// which posts as 31 Dec 1969 in time zones behind UTC. parseISO treats a
+// date-time with no offset as local time on Hermes, JSC, and V8.
 const unixTimeFromPhotoDate = (
   observedOnString: string | null | undefined,
 ): number | null => {
-  if ( observedOnString == null || observedOnString === "" ) {
+  if ( !observedOnString ) {
     return null;
   }
-  const unixTime = getUnixTime( new Date( observedOnString ) );
-  return Number.isFinite( unixTime ) ? unixTime : null;
-};
-
-const formatObservationTime = ( time: number | null | undefined ): GMTTimeResult => {
-  if ( time == null || !Number.isFinite( time ) ) {
-    return {
-      dateForServer: null,
-      dateForDisplay: null,
-    };
+  const parsed = parseISO( observedOnString );
+  if ( !isValid( parsed ) ) {
+    return null;
   }
-  return formatGMTTimeWithTimeZone( setISOTime( time ) );
+  return getUnixTime( parsed );
 };
 
 const SERVER_DATETIME_PATTERN = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
@@ -218,7 +218,7 @@ function timeZoneAbbreviationIsUnreliable(
 // format like iNatIOS: https://github.com/inaturalist/INaturalistIOS/blob/b668c19cd5dc917eac52b5ba740c60a00266b030/INaturalistIOS/INatModel.m#L57
 // Javascript-like date format, e.g. @"Sun Mar 18 2012 17:07:20 GMT-0700 (PDT)"
 // date: can be Date from Picker, or an iso string
-const formatGMTTimeWithTimeZone = ( date: Date | string ): GMTTimeResult => {
+const formatGMTTimeWithTimeZone = ( date: Date | string | null | undefined ): GMTTimeResult => {
   if ( !date ) {
     return {
       dateForServer: null,
@@ -298,7 +298,6 @@ export {
   formatHourMonthSecond,
   formatMonth,
   formatMonthYear,
-  formatObservationTime,
   formatShortMonthDayYear,
   formatYearMonthDay,
   isAndroidDateInFuture,

@@ -22,7 +22,6 @@ import { getTimeZone } from "react-native-localize";
 
 import {
   formatGMTTimeWithTimeZone,
-  formatObservationTime,
   setISOTime,
   unixTimeFromPhotoDate,
 } from "../../../utility/dateHelpers";
@@ -34,11 +33,11 @@ describe( "photo date to observation date", () => {
     expect( unixTimeFromPhotoDate( "" ) ).toBeNull( );
     expect( unixTimeFromPhotoDate( "not-a-date" ) ).toBeNull( );
 
-    expect( formatObservationTime( null ) ).toEqual( {
+    expect( formatGMTTimeWithTimeZone( setISOTime( null ) ) ).toEqual( {
       dateForServer: null,
       dateForDisplay: null,
     } );
-    expect( formatObservationTime( undefined ) ).toEqual( {
+    expect( formatGMTTimeWithTimeZone( setISOTime( undefined ) ) ).toEqual( {
       dateForServer: null,
       dateForDisplay: null,
     } );
@@ -49,8 +48,8 @@ describe( "photo date to observation date", () => {
     // has to use that same zone. The device-zone mock does not parse the string.
     getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
 
-    const { dateForServer } = formatObservationTime(
-      unixTimeFromPhotoDate( "2018-03-30T21:14:00" ),
+    const { dateForServer } = formatGMTTimeWithTimeZone(
+      setISOTime( unixTimeFromPhotoDate( "2018-03-30T21:14:00" ) ),
     );
 
     expect( dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );

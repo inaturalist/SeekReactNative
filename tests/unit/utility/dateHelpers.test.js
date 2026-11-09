@@ -81,6 +81,10 @@ describe( "photo date to observation date", () => {
     const epoch = setISOTime( 0 );
     expect( epoch ).toEqual( expect.any( String ) );
     expect( new Date( epoch ).getTime() ).toBe( 0 );
+
+    expect( setISOTime( 1e13 ) ).toBeNull();
+    expect( setISOTime( -1e13 ) ).toBeNull();
+    expect( formatGMTTimeWithTimeZone( setISOTime( 1e13 ) ).dateForServer ).toBeNull();
   } );
 
   it( "does not post an epoch date when the photo has no EXIF date", async () => {
@@ -93,6 +97,11 @@ describe( "photo date to observation date", () => {
       DateTimeOriginal: "2018:03:30 21:14:00",
     } );
     expect( dated.dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
+
+    const zeroed = await postedDateForExif( {
+      DateTimeOriginal: "0000:00:00 00:00:00",
+    } );
+    expect( zeroed.dateForServer ).toBeNull();
   } );
 
   describe( "in America/Los_Angeles", () => {

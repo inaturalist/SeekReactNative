@@ -55,7 +55,20 @@ const formatExifDateAsString = ( tags: ExifTags ): string | null => {
   const minute = Number( match[5] );
   const second = Number( match[6] );
 
+  // Cameras write 0000:00:00 when they have no date. Date.UTC rolls that to 30 Nov 1899.
+  if ( year < 1 ) {
+    return null;
+  }
+
   const utcMs = Date.UTC( year, month - 1, date, hour, minute, second );
+  const utcCheck = new Date( utcMs );
+  if (
+    utcCheck.getUTCFullYear() !== year
+    || utcCheck.getUTCMonth() !== month - 1
+    || utcCheck.getUTCDate() !== date
+  ) {
+    return null;
+  }
 
   const utcDate = new Date( utcMs ).toISOString();
 

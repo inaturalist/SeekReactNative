@@ -155,6 +155,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     const exif = await readExifFromMultiplePhotos( [uri] );
     const { latitude, longitude, observed_on_string } = exif;
     const location = { latitude, longitude };
+    // asset.timestamp exists only with includeExtra, which asks for photo-library permission on iOS before the picker opens.
     getPredictions( uri, unixTimeFromPhotoDate( observed_on_string ), location );
   };
 

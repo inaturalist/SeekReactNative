@@ -174,7 +174,12 @@ const setISOTime = ( time: number | null | undefined ): string | null => {
   if ( time == null || !Number.isFinite( time ) ) {
     return null;
   }
-  return formatISO( fromUnixTime( time ) );
+  const date = fromUnixTime( time );
+  // formatISO throws RangeError for a finite time outside the Date range.
+  if ( !isValid( date ) ) {
+    return null;
+  }
+  return formatISO( date );
 };
 
 // A missing photo date must stay missing. new Date( null ) is the epoch,

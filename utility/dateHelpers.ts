@@ -171,8 +171,7 @@ const formatDateToDisplay = ( date: Date ): string => format( date, "PPPPpaaa", 
 const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", { locale } );
 
 const setISOTime = ( time: number | null | undefined ): string | null => {
-  // 0 is 1970-01-01 00:00 UTC. A reset camera clock lands here and posts as 31 Dec 1969.
-  if ( time == null || time === 0 || !Number.isFinite( time ) ) {
+  if ( time == null || !Number.isFinite( time ) ) {
     return null;
   }
   const date = fromUnixTime( time );

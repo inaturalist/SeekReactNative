@@ -84,11 +84,14 @@ describe( "photo date to observation date", () => {
     expect( dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
   } );
 
-  it( "returns null for a missing time and for zero", () => {
+  it( "returns null for a missing time and the epoch for zero", () => {
     expect( setISOTime( null ) ).toBeNull();
     expect( setISOTime( undefined ) ).toBeNull();
     expect( setISOTime( NaN ) ).toBeNull();
-    expect( setISOTime( 0 ) ).toBeNull();
+
+    const epoch = setISOTime( 0 );
+    expect( epoch ).toEqual( expect.any( String ) );
+    expect( new Date( epoch ).getTime() ).toBe( 0 );
 
     expect( setISOTime( 1e13 ) ).toBeNull();
     expect( setISOTime( -1e13 ) ).toBeNull();
@@ -159,16 +162,64 @@ describe( "photo date to observation date", () => {
     expect( pastADay.dateForServer ).toBeNull();
   } );
 
+  it( "uses DateTime when DateTimeOriginal is not a real date", async () => {
+    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
+
+    const posted = await postedDateForExif( {
+      DateTimeOriginal: "0000:00:00 00:00:00",
+      DateTime: "2018:03:30 21:14:00",
+    } );
+
+    expect( posted.dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
+  } );
+
+  it( "drops a 1970-01-01 00:00:00 reset clock in every zone", async () => {
+    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
+
+    const reset = await postedDateForExif( {
+      DateTimeOriginal: "1970:01:01 00:00:00",
+    } );
+    expect( reset.dateForServer ).toBeNull();
+
+    const oneSecondLater = await postedDateForExif( {
+      DateTimeOriginal: "1970:01:01 00:00:01",
+    } );
+    expect( oneSecondLater.dateForServer ).toEqual( expect.any( String ) );
+  } );
+
+  it( "rejects a future photo date by local time, not UTC", async () => {
+    // shortcut: TZ=UTC cannot tell local from UTC. Run with TZ=America/Los_Angeles to catch a UTC comparison.
+    getTimeZone.mockReturnValue( "America/Los_Angeles" );
+
+    const pad = ( n ) => String( n ).padStart( 2, "0" );
+    const utcAhead = new Date( Date.now() + 23 * 60 * 60 * 1000 );
+    const exif = `${utcAhead.getUTCFullYear()}:${pad( utcAhead.getUTCMonth() + 1 )}:${pad( utcAhead.getUTCDate() )} ${pad( utcAhead.getUTCHours() )}:${pad( utcAhead.getUTCMinutes() )}:${pad( utcAhead.getUTCSeconds() )}`;
+    const localMs = new Date(
+      utcAhead.getUTCFullYear(),
+      utcAhead.getUTCMonth(),
+      utcAhead.getUTCDate(),
+      utcAhead.getUTCHours(),
+      utcAhead.getUTCMinutes(),
+      utcAhead.getUTCSeconds(),
+    ).getTime();
+    const posted = await postedDateForExif( { DateTimeOriginal: exif } );
+
+    if ( localMs > Date.now() + 24 * 60 * 60 * 1000 ) {
+      expect( posted.dateForServer ).toBeNull();
+    } else {
+      expect( posted.dateForServer ).toEqual( expect.any( String ) );
+    }
+  } );
+
   describe( "in America/Los_Angeles", () => {
     beforeEach( () => {
       getTimeZone.mockReturnValue( "America/Los_Angeles" );
     } );
 
-    it( "does not pre-fill 31 December 1969 for unix time 0", () => {
-      expect( formatGMTTimeWithTimeZone( setISOTime( 0 ) ) ).toEqual( {
-        dateForServer: null,
-        dateForDisplay: null,
-      } );
+    it( "still formats the epoch itself as 31 December 1969", () => {
+      const { dateForServer } = formatGMTTimeWithTimeZone( setISOTime( 0 ) );
+
+      expect( dateForServer ).toMatch( /Dec 31 1969 16:00:00 GMT -0800/ );
     } );
   } );
 } );

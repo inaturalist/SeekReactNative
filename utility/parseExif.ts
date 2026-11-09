@@ -23,29 +23,13 @@ Object.defineProperty( UsePhotoExifDateFormatError.prototype, "name", {
   value: "UsePhotoExifDateFormatError",
 } );
 
-const formatExifDateAsString = ( tags: ExifTags ): string | null => {
-  // https://github.com/inaturalist/react-native-exif-reader/blob/f6112fa506a189d4f297316323ef9e1d76d4cedd/ios/ExifReader.swift#L52-L53
-  // https://github.com/inaturalist/react-native-exif-reader/blob/f6112fa506a189d4f297316323ef9e1d76d4cedd/android/src/main/java/com/reactnativeexifreader/ExifReaderModule.java#L203-L223
-  // "yyyy:MM:dd HH:mm:ss"
-  const dateTime = tags?.DateTimeOriginal || tags?.DateTime;
+const EXIF_DATE_PATTERN = /^(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})$/;
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+const formatOneExifDate = ( dateTime: string | null | undefined ): string | null => {
   if ( !dateTime ) return null;
 
-  // TODO: As far as I can see in the exif-reader native code, this was read and used but in the end
-  // it was actually stripped as well from the returned date string. So the returned date string was
-  // similar to "dateTime" here, only with different delimiter. E.g. a photo from Australia with an
-  // exif time of "2026:01:05 18:37:19" and an offset of "+11:00" was returned as
-  // "2026-01-05T18:37:19.000". (Only used on iOS)
-  // https://github.com/inaturalist/react-native-exif-reader/blob/f6112fa506a189d4f297316323ef9e1d76d4cedd/ios/ExifReader.swift#L23-L31
-  // +01:00
-  // -07:00
-  // const offsetTime
-  //   = tags?.OffsetTimeDigitized || tags?.OffsetTime || tags?.OffsetTimeOriginal;
-
-  // Expected inputs:
-  // - "2018:03:07 08:19:49"
-  const match = dateTime.match(
-    /^(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})$/,
-  );
+  const match = dateTime.match( EXIF_DATE_PATTERN );
   if ( !match ) return null;
 
   const year = Number( match[1] );
@@ -75,8 +59,16 @@ const formatExifDateAsString = ( tags: ExifTags ): string | null => {
     return null;
   }
 
-  // EXIF has no zone, so a photo from a zone ahead of the device can look up to about a day ahead.
-  if ( utcCheck.getTime() > Date.now() + 24 * 60 * 60 * 1000 ) {
+  // This exact second is the usual reset clock. Reject the tag, not unix time 0,
+  // so it stays missing in every zone and a real epoch still formats.
+  if ( year === 1970 && month === 1 && date === 1 && hour === 0 && minute === 0 && second === 0 ) {
+    return null;
+  }
+
+  // The wall clock is later read as local time. Comparing it as UTC lets a
+  // date pass in UTC−8 when it is more than a day ahead locally.
+  const localMs = new Date( year, month - 1, date, hour, minute, second ).getTime();
+  if ( localMs > Date.now() + ONE_DAY_MS ) {
     return null;
   }
 
@@ -93,6 +85,25 @@ const formatExifDateAsString = ( tags: ExifTags ): string | null => {
   // this returns a string, in the same format as photos which fall back to the
   // photo timestamp instead of exif data
   return formatISONoTimezone( zonedDate );
+};
+
+const formatExifDateAsString = ( tags: ExifTags ): string | null => {
+  // https://github.com/inaturalist/react-native-exif-reader/blob/f6112fa506a189d4f297316323ef9e1d76d4cedd/ios/ExifReader.swift#L52-L53
+  // https://github.com/inaturalist/react-native-exif-reader/blob/f6112fa506a189d4f297316323ef9e1d76d4cedd/android/src/main/java/com/reactnativeexifreader/ExifReaderModule.java#L203-L223
+  // "yyyy:MM:dd HH:mm:ss"
+  // TODO: As far as I can see in the exif-reader native code, this was read and used but in the end
+  // it was actually stripped as well from the returned date string. So the returned date string was
+  // similar to "dateTime" here, only with different delimiter. E.g. a photo from Australia with an
+  // exif time of "2026:01:05 18:37:19" and an offset of "+11:00" was returned as
+  // "2026-01-05T18:37:19.000". (Only used on iOS)
+  // https://github.com/inaturalist/react-native-exif-reader/blob/f6112fa506a189d4f297316323ef9e1d76d4cedd/ios/ExifReader.swift#L23-L31
+  // +01:00
+  // -07:00
+  // const offsetTime
+  //   = tags?.OffsetTimeDigitized || tags?.OffsetTime || tags?.OffsetTimeOriginal;
+
+  // An invalid DateTimeOriginal must not hide a usable DateTime.
+  return formatOneExifDate( tags?.DateTimeOriginal ) ?? formatOneExifDate( tags?.DateTime );
 };
 
 // Parse the EXIF of all photos - fill out details (lat/lng/date) from all of these,

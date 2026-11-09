@@ -5,7 +5,7 @@ import { Alert, View } from "react-native";
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postToiNat";
 import { useLocationName } from "../../utility/customHooks";
-import { formatGMTTimeWithTimeZone, isAndroidDateInFuture, setISOTime } from "../../utility/dateHelpers";
+import { formatGMTTimeWithTimeZone, formatObservationTime, isAndroidDateInFuture } from "../../utility/dateHelpers";
 import { savePostingSuccess } from "../../utility/loginHelpers";
 import { saveObservationToRealm } from "../../utility/uploadHelpers";
 import { useObservation } from "../Providers/ObservationProvider";
@@ -30,7 +30,7 @@ const PostScreen = ( ) => {
   const preciseLong = preciseCoords && preciseCoords.longitude;
   const accuracy = preciseCoords && preciseCoords.accuracy;
 
-  const date = formatGMTTimeWithTimeZone( setISOTime( image.time ) );
+  const date = formatObservationTime( image.time );
 
   const initialDate = date.dateForServer;
   const initialDisplayDate = date.dateForDisplay;

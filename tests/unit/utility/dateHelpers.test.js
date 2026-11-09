@@ -20,7 +20,51 @@ jest.mock( "react-native-localize", () => jest.requireActual( "react-native-loca
 import * as TimeZone from "date-fns-tz";
 import { getTimeZone } from "react-native-localize";
 
-import { formatGMTTimeWithTimeZone } from "../../../utility/dateHelpers";
+import {
+  formatGMTTimeWithTimeZone,
+  formatObservationTime,
+  setISOTime,
+  unixTimeFromPhotoDate,
+} from "../../../utility/dateHelpers";
+
+describe( "photo date to observation date", () => {
+  describe( "in America/Los_Angeles", () => {
+    beforeEach( () => {
+      getTimeZone.mockReturnValue( "America/Los_Angeles" );
+    } );
+
+    it( "does not invent an observation date when the photo has none", () => {
+      expect( unixTimeFromPhotoDate( null ) ).toBeNull( );
+      expect( unixTimeFromPhotoDate( undefined ) ).toBeNull( );
+      expect( unixTimeFromPhotoDate( "" ) ).toBeNull( );
+      expect( unixTimeFromPhotoDate( "not-a-date" ) ).toBeNull( );
+
+      expect( formatObservationTime( null ) ).toEqual( {
+        dateForServer: null,
+        dateForDisplay: null,
+      } );
+      expect( formatObservationTime( undefined ) ).toEqual( {
+        dateForServer: null,
+        dateForDisplay: null,
+      } );
+    } );
+
+    it( "keeps a real photo date instead of the epoch", () => {
+      // 30 March 2018, 21:14 UTC. Pacific Daylight Time is seven hours behind.
+      expect( unixTimeFromPhotoDate( "2018-03-30T21:14:00" ) ).toBe( 1522444440 );
+
+      const { dateForServer } = formatObservationTime( 1522444440 );
+
+      expect( dateForServer ).toMatch( /Mar 30 2018 14:14:00 GMT -0700/ );
+    } );
+
+    it( "still formats the epoch itself as 31 December 1969", () => {
+      const { dateForServer } = formatGMTTimeWithTimeZone( setISOTime( 0 ) );
+
+      expect( dateForServer ).toMatch( /Dec 31 1969 16:00:00 GMT -0800/ );
+    } );
+  } );
+} );
 
 describe( "formatGMTTimeWithTimeZone", () => {
   afterEach( () => {

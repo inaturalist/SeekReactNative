@@ -171,6 +171,28 @@ const formatDateToDisplayShort = ( date: any ): string => format( date, "PPp", {
 
 const setISOTime = ( time: number ): string => formatISO( fromUnixTime( time ) );
 
+// A missing photo date must stay missing. new Date( null ) is the epoch,
+// which posts as 31 Dec 1969 in time zones behind UTC.
+const unixTimeFromPhotoDate = (
+  observedOnString: string | null | undefined,
+): number | null => {
+  if ( observedOnString == null || observedOnString === "" ) {
+    return null;
+  }
+  const unixTime = getUnixTime( new Date( observedOnString ) );
+  return Number.isFinite( unixTime ) ? unixTime : null;
+};
+
+const formatObservationTime = ( time: number | null | undefined ): GMTTimeResult => {
+  if ( time == null || !Number.isFinite( time ) ) {
+    return {
+      dateForServer: null,
+      dateForDisplay: null,
+    };
+  }
+  return formatGMTTimeWithTimeZone( setISOTime( time ) );
+};
+
 const SERVER_DATETIME_PATTERN = "EEE MMM dd yyyy HH:mm:ss 'GMT' xxxx (zzz)";
 const SERVER_DATETIME_PATTERN_NO_ZONE = "EEE MMM dd yyyy HH:mm:ss";
 const ZONE_ABBREVIATION_TOKEN = /z+/;
@@ -276,6 +298,7 @@ export {
   formatHourMonthSecond,
   formatMonth,
   formatMonthYear,
+  formatObservationTime,
   formatShortMonthDayYear,
   formatYearMonthDay,
   isAndroidDateInFuture,
@@ -287,4 +310,5 @@ export {
   requiresParent,
   serverBackOnlineTime,
   setISOTime,
+  unixTimeFromPhotoDate,
 };

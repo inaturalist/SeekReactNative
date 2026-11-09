@@ -17,6 +17,11 @@ jest.mock( "../../../i18n", () => ( {
 
 jest.mock( "react-native-localize", () => jest.requireActual( "react-native-localize/mock/jest" ) );
 
+jest.mock( "@lodev09/react-native-exify", () => ( {
+  read: jest.fn(),
+} ) );
+
+import * as Exify from "@lodev09/react-native-exify";
 import * as TimeZone from "date-fns-tz";
 import { getTimeZone } from "react-native-localize";
 
@@ -25,8 +30,21 @@ import {
   setISOTime,
   unixTimeFromPhotoDate,
 } from "../../../utility/dateHelpers";
+import readExifFromMultiplePhotos from "../../../utility/parseExif";
+
+const postedDateForExif = async ( tags ) => {
+  Exify.read.mockResolvedValue( tags );
+  const exif = await readExifFromMultiplePhotos( ["file:///photo.jpg"] );
+  return formatGMTTimeWithTimeZone(
+    setISOTime( unixTimeFromPhotoDate( exif.observed_on_string ) ),
+  );
+};
 
 describe( "photo date to observation date", () => {
+  afterEach( () => {
+    getTimeZone.mockReset();
+    Exify.read.mockReset();
+  } );
   it( "does not invent an observation date when the photo has none", () => {
     expect( unixTimeFromPhotoDate( null ) ).toBeNull( );
     expect( unixTimeFromPhotoDate( undefined ) ).toBeNull( );
@@ -55,6 +73,28 @@ describe( "photo date to observation date", () => {
     expect( dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
   } );
 
+  it( "returns null for a missing time and the epoch for zero", () => {
+    expect( setISOTime( null ) ).toBeNull();
+    expect( setISOTime( undefined ) ).toBeNull();
+    expect( setISOTime( NaN ) ).toBeNull();
+
+    const epoch = setISOTime( 0 );
+    expect( epoch ).toEqual( expect.any( String ) );
+    expect( new Date( epoch ).getTime() ).toBe( 0 );
+  } );
+
+  it( "does not post an epoch date when the photo has no EXIF date", async () => {
+    getTimeZone.mockReturnValue( Intl.DateTimeFormat( ).resolvedOptions( ).timeZone );
+
+    const missing = await postedDateForExif( {} );
+    expect( missing.dateForServer ).toBeNull();
+
+    const dated = await postedDateForExif( {
+      DateTimeOriginal: "2018:03:30 21:14:00",
+    } );
+    expect( dated.dateForServer ).toMatch( /Mar 30 2018 21:14:00/ );
+  } );
+
   describe( "in America/Los_Angeles", () => {
     beforeEach( () => {
       getTimeZone.mockReturnValue( "America/Los_Angeles" );
@@ -69,6 +109,10 @@ describe( "photo date to observation date", () => {
 } );
 
 describe( "formatGMTTimeWithTimeZone", () => {
+  beforeEach( () => {
+    getTimeZone.mockReset();
+  } );
+
   afterEach( () => {
     getTimeZone.mockReset();
     jest.restoreAllMocks( );

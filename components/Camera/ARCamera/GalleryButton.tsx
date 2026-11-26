@@ -1,5 +1,4 @@
 import { useNavigation } from "@react-navigation/native";
-import { getUnixTime } from "date-fns";
 import React, { useContext, useState } from "react";
 import {
   Image,
@@ -15,6 +14,7 @@ import { log } from "../../../react-native-logs.config";
 import { viewStyles } from "../../../styles/camera/arCameraOverlay";
 import { requestGalleryMediaPermissions } from "../../../utility/androidHelpers.android";
 import { LogLevels, logToApi } from "../../../utility/apiCalls";
+import { unixTimeFromPhotoDate } from "../../../utility/dateHelpers";
 import { dirGeomodel, dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import readExifFromMultiplePhotos from "../../../utility/parseExif";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
@@ -35,7 +35,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
   const navigation = useNavigation( );
   const [imageSelected, setImageSelected] = useState( false );
 
-  const navigateToResults = ( uri, time, location: {
+  const navigateToResults = ( uri: string, time: number | null, location: {
     latitude: number;
     longitude: number;
   }, predictions: InatVision.Prediction[] ) => {
@@ -92,7 +92,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     }
   };
 
-  const getPredictions = ( uri, timestamp, location: {
+  const getPredictions = ( uri: string, timestamp: number | null, location: {
     latitude: number | undefined;
     longitude: number | undefined;
   } ) => {
@@ -147,7 +147,7 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     setImageSelected( true );
 
     const asset = response.assets[0];
-    const { timestamp, uri } = asset;
+    const { uri } = asset;
     if ( !uri ) {
       throw new Error( "No URI in pick photo response" );
     }
@@ -155,8 +155,8 @@ const GalleryButton = ( { setIsActive }: Props ) => {
     const exif = await readExifFromMultiplePhotos( [uri] );
     const { latitude, longitude, observed_on_string } = exif;
     const location = { latitude, longitude };
-    const unixTimestamp = getUnixTime( new Date( observed_on_string ) );
-    getPredictions( uri, timestamp || unixTimestamp, location );
+    // asset.timestamp exists only with includeExtra, which asks for photo-library permission on iOS before the picker opens.
+    getPredictions( uri, unixTimeFromPhotoDate( observed_on_string ), location );
   };
 
   if ( imageSelected ) {

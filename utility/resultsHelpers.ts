@@ -37,7 +37,7 @@ const setPreciseImageCoords = (
 };
 
 interface Image {
-  time: number;
+  time: number | null;
   uri: string;
   predictions: SortedPrediction[];
   latitude?: number;

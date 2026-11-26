@@ -20,7 +20,7 @@ export interface ObservationImage {
   latitude: number;
   longitude: number;
   uri: string;
-  time: number;
+  time: number | null;
 }
 export interface Observation {
   image: ObservationImage;

@@ -26,7 +26,7 @@ const useScrollToTop = (
     };
   },
   navigation: any,
-  route: any
+  route?: string
 ) => {
   const scrollToTop = useCallback( () => {
     if ( scrollView && scrollView.current !== null ) {

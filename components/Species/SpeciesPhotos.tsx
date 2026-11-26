@@ -31,7 +31,7 @@ interface Props {
 const SpeciesPhotos = ( { loading, photos, id }: Props ) => {
   const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
-  const [photoList, setPhotoList] = useState<JSX.Element[]>( [] );
+  const [photoList, setPhotoList] = useState<React.JSX.Element[]>( [] );
   const [error, setError] = useState( false );
 
   const renderPhoto = ( photo: Photo ) => {

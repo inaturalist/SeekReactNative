@@ -60,7 +60,7 @@ const useUserPhoto = ( item: {
            if ( isCurrent ) {
              setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
            }
-         } ).catch( () => checkForSeekV2Photos() );
+         } ).catch( () => checkForSeekV2Photos( isCurrent ) );
        } else {
          // this is the one being fetched in test device
          checkForSeekV2Photos( isCurrent );

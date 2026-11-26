@@ -9,7 +9,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/horizontalScroll";
 
 interface Props {
-  photoList: JSX.Element[];
+  photoList: React.JSX.Element[];
 }
 
 const viewabilityConfig = {
@@ -19,7 +19,7 @@ const viewabilityConfig = {
 
 const HorizontalScroll = ( { photoList }: Props ) => {
   const { name } = useRoute();
-  const flashList = useRef<FlashListRef<JSX.Element>>( null );
+  const flashList = useRef<FlashListRef<React.JSX.Element>>( null );
 
   const length = photoList.length - 1;
   const [scrollIndex, setScrollIndex] = useState( 0 );
@@ -43,13 +43,13 @@ const HorizontalScroll = ( { photoList }: Props ) => {
   const scrollRight = () => scroll( nextIndex );
   const scrollLeft = () => scroll( prevIndex );
 
-  const onViewRef = useRef( ( { changed }: { changed: ViewToken[]} ) => {
+  const onViewRef = useRef( ( { changed }: { changed: ViewToken<React.JSX.Element>[]} ) => {
     const { index } = changed[0];
     if ( !index ) { return; }
     setScrollIndex( index );
   } );
 
-  const renderPhoto = useCallback( ( { item }: { item: JSX.Element } ) => item, [] );
+  const renderPhoto = useCallback( ( { item }: { item: React.JSX.Element } ) => item, [] );
 
   const containerStyle = isYearInReviewScreen
     ? null

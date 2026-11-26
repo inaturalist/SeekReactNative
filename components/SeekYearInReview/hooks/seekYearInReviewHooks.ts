@@ -18,8 +18,8 @@ const useCountObservationsForYear = ( year: number ): number | null => {
         const observations = realm.objects( "ObservationRealm" );
         const observationsThisYear = observations.filtered(
           "date >= $0 && date < $1",
-          firstOfYear( year ),
-          lastOfYear( year )
+          firstOfYear(),
+          lastOfYear()
         );
         // TODO: Refactor this count out of this hook into seperate hook, because needed in home screen as well
         const count = observationsThisYear.length;
@@ -46,8 +46,8 @@ const useObservationsForYear = ( year: number ): any => {
         const observations = realm.objects( "ObservationRealm" );
         const observationsYear = observations.filtered(
           "date >= $0 && date < $1",
-          firstOfYear( year ),
-          lastOfYear( year )
+          firstOfYear(),
+          lastOfYear()
         );
         setObservationsThisYear( observationsYear );
       } catch ( e ) {
@@ -89,8 +89,8 @@ const useFetchStats = ( year: number ): StatsState => {
         const observations = realm.objects( "ObservationRealm" );
         const observationsThisYear = observations.filtered(
           "date >= $0 && date < $1",
-          firstOfYear( year ),
-          lastOfYear( year )
+          firstOfYear(),
+          lastOfYear()
         );
         const countObservationsThisYear = observationsThisYear.length;
 
@@ -240,8 +240,8 @@ const useFetchChallengesForYear = ( year: number ): { challengeBadges: any[]; ch
           .objects( "ChallengeRealm" )
           .filtered(
             "completedDate >= $0 && completedDate < $1",
-            firstOfYear( year ),
-            lastOfYear( year )
+            firstOfYear(),
+            lastOfYear()
           )
           .sorted( "availableDate", false );
         const badges = challenges.map( ( challenge: any ) => challenge );

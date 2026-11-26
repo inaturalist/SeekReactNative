@@ -34,7 +34,7 @@ export type RootStackParamList = {
   Splash: undefined;
   Onboarding: undefined;
   Camera: undefined;
-  Drawer: NavigatorScreenParams<DrawerParamList>;
+  Drawer: NavigatorScreenParams<DrawerParamList> | undefined;
   Post: undefined;
   PostStatus: undefined;
   LoginOrSignup: undefined;

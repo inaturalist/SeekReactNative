@@ -35,8 +35,6 @@ import {
   ja,
   nb,
   nl,
-  // TODO: figure out what else to use here for no
-  no,
   pl,
   pt,
   ptBR,
@@ -86,7 +84,7 @@ const locales = {
   ja,
   nb,
   nl,
-  no,
+  no: nb,
   pl,
   pt,
   "pt-BR": ptBR,
@@ -233,7 +231,7 @@ const formatGMTTimeWithTimeZone = ( date: Date | string ): GMTTimeResult => {
   }
 };
 
-const formatYearMonthDay = ( date: string | Date | null | undefined ): string => {
+const formatYearMonthDay = ( date?: string | Date | null ): string => {
   if ( date && typeof date === "string" ) {
     return format( parseISO( date ), "yyyy-MM-dd" );
   }

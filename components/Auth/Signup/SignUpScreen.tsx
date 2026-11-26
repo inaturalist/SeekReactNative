@@ -40,10 +40,10 @@ interface Props {
 const site = EnvConfig.oauthApiURL;
 
 class SignUpScreen extends Component<Props, State> {
-  constructor( { route }: Props ) {
-    super( );
+  constructor( props: Props ) {
+    super( props );
 
-    const { user } = route.params;
+    const { user } = props.route.params;
 
     this.state = {
       user: { ...user },
